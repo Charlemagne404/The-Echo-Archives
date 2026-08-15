@@ -1,0 +1,642 @@
+{
+  "id": "attention-the-captain-is-fine",
+  "title": "Attention: The Captain Is Fine",
+  "subtitle": "A sci-fi comedy about an asteroid ship with a snarky AI Captain and an oddball crew",
+  "description": "The Asta is an asteroid mining ship secretly captained by AIMEE, the ship’s sentient AI with a snarky streak (who may have staged a coup against the previous Captain.) When a freak accident leaves the Asta stranded in dangerous deep space, AIMEE must find a way to work together with genius new Chief Engineer Dr Viera and the rest of the oddball crew to get everyone back safe again, whether their mysterious employers want that or not. ATCIF is a sci-fi comedy perfect for fans of Red Dwarf, Star Trek, and EOS10.",
+  "cover": "images/covers/attention-the-captain-is-fine.jpg",
+  "coverAlt": "Attention: The Captain Is Fine cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/attention-the-captain-is-fine/id1591067324?uo=4",
+    "website": "https://redcircle.com/shows/atcif",
+    "rss": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Attention: The Captain Is Fine"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 1 full episode • 27 min median",
+    "seasons": 1,
+    "episodes": 1,
+    "avgEpisodeMinutes": 27,
+    "medianEpisodeMinutes": 27,
+    "minEpisodeMinutes": 27,
+    "maxEpisodeMinutes": 27,
+    "totalObservedHours": 0.5,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 1,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2021-10-06",
+    "latest": "2021-10-06",
+    "latestFeedItem": "2021-10-06",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://redcircle.com/shows/atcif",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Pebblebed Sound",
+    "ownerName": "Pebblebed Sound"
+  },
+  "creators": [
+    "Pebblebed Sound"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1; https://podcasts.apple.com/us/podcast/attention-the-captain-is-fine/id1591067324?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1",
+      "https://podcasts.apple.com/us/podcast/attention-the-captain-is-fine/id1591067324?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction",
+      "Comedy Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "The Asta is an asteroid mining ship secretly captained by AIMEE, the ship’s sentient AI with a snarky streak (who may have staged a coup against the previous Captain.) When a freak accident leaves the Asta stranded in dangerous deep space, AIMEE must find a way to work together with genius new Chief Engineer Dr Viera and the rest of the oddball crew to get everyone back safe again, whether their mysterious employers want that or not. ATCIF is a sci-fi comedy perfect for fans of Red Dwarf, Star Trek, and EOS10.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "unknown",
+      "medianDays": null,
+      "observedIntervals": 0
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "All rights reserved.",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "407bb134-a8e5-4622-8827-8ed27edfd4e1",
+        "rssUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1",
+        "appleCollectionId": "1591067324",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1",
+          "fetchedAt": "2026-08-15T20:33:10.659Z",
+          "payloadHash": "6072dd556b0b4b2cc0776728901377e37eb3713f680712c369199d86a96a76b0"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/attention-the-captain-is-fine/id1591067324?uo=4",
+          "fetchedAt": "2026-08-15T20:33:08.989Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/attention-the-captain-is-fine/id1591067324?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/attention-the-captain-is-fine/id1591067324?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/attention-the-captain-is-fine/id1591067324?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/attention-the-captain-is-fine/id1591067324?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/attention-the-captain-is-fine/id1591067324?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/attention-the-captain-is-fine/id1591067324?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/attention-the-captain-is-fine/id1591067324?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/407bb134-a8e5-4622-8827-8ed27edfd4e1"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:33:11.908Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "6d380612a6dab88d15e80b33282c7051fc7a694b33eb19d132825147d693cf45",
+        "subtitle": "c6aba7efb74fd21323856f2a73ea28482390bfb1a37d9025daab715bbf41b00c",
+        "description": "98880fe3166f1433613ad8a76b6bdcb3bdf6003312b3e9c6e775e9cf7b9bc72c",
+        "cover": "bf6eea70903287e0c0a5a5cb9c1b9335ebcd5518b38d42c6f7311966826651cf",
+        "coverAlt": "efccf373bd642156703c40074619438aa3d6f48ef2cff23b30305de6c2fb244c",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "bf23ad1469038814bf370cba8bf640b76b0bb268f7c2e5aec0c32af4ce4a296d",
+        "officialLinks": "68ae0db990db2c937ab1f1f353b0b4343070469564cf3e2775f04abe55cac884",
+        "genres": "821180fff3b21544e41b758f314c5a8c5f9ed4f3c3d2e27d1acaf1686d42e588",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "5f696a79c1428b7fe5f4d0fa4ddc9ffcd227018948775294b9ce0ea6f22da7f4",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "77185a34337ff52744f81b499c07465c85583ceecec2e7fd729588c00e67d1ae",
+        "releaseDates": "f0b78f580d363310ec9cde64067ed07d776d43c4b8fd0cfda847f09914876211",
+        "credits": "8ebe9b881e352fbb16269f0ae4588a467d63ad65492d4e7bf910d2057b89ce7d",
+        "creators": "f917b355d603b0da7a394930813133db712c533b41059e46fa5f3fc03b5dc65a",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "16d9e73d4e4d1d7dd6cecb101b476580fa6d088ff60b513c9ba9a4d2d6c0571b"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:36:12.947Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "pebblebed-sound"
+}

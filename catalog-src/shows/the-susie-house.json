@@ -1,0 +1,650 @@
+{
+  "id": "the-susie-house",
+  "title": "The Susie House",
+  "subtitle": "A Southern Gothic Ghost Story",
+  "description": "An immersive Southern Gothic ghost story set in 1936. After falling on hard times, Honor, James, and their young son move into a rural town full of secrets -- many of them about her new home, The Susie House. Produced by Panic Attack Productions Written by Allison Moseley and Liz Belile Directed by Allison Moseley Sound Design by Patrick Costigan \"Bury Me\" written by Patrick Costigan Art by Nat Peterson Art Logo by Paul Plath All other music royalty free Copyright Panic Attack Productions, LLC Hosted on Acast. See acast.com/privacy for more information.",
+  "cover": "images/covers/the-susie-house.jpg",
+  "coverAlt": "The Susie House cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-susie-house/id1726702399?uo=4",
+    "website": "https://shows.acast.com/the-susie-house",
+    "rss": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Susie House"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 11 full episodes • 21 min median",
+    "seasons": 1,
+    "episodes": 11,
+    "avgEpisodeMinutes": 22,
+    "medianEpisodeMinutes": 21,
+    "minEpisodeMinutes": 15,
+    "maxEpisodeMinutes": 30,
+    "totalObservedHours": 4.1,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 11,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2024-01-16",
+    "latest": "2025-01-04",
+    "latestFeedItem": "2025-01-04",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://shows.acast.com/the-susie-house",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Allison Moseley and Liz Belile",
+    "ownerName": "Allison Moseley and Liz Belile"
+  },
+  "creators": [
+    "Allison Moseley and Liz Belile"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e; https://podcasts.apple.com/us/podcast/the-susie-house/id1726702399?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e",
+      "https://podcasts.apple.com/us/podcast/the-susie-house/id1726702399?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction"
+    ],
+    "sourceKeywords": [
+      "#southerngothic",
+      "#ghoststory",
+      "#gothicghost",
+      "#horror",
+      "#gothichorror",
+      "#historichorror",
+      "#periodhorror",
+      "#periodghost",
+      "#supernatural",
+      "#seance",
+      "#hollywood30s",
+      "#oldradiodrama",
+      "#Appalachia",
+      "#classicradio",
+      "#occultfiction"
+    ],
+    "sourceTags": [],
+    "importOfficialSummary": "An immersive Southern Gothic ghost story set in 1936. After falling on hard times, Honor, James, and their young son move into a rural town full of secrets -- many of them about her new home, The Susie House. Produced by Panic Attack Productions Written by Allison Moseley and Liz Belile Directed by Allison Moseley Sound Design by Patrick Costigan \"Bury Me\" written by Patrick Costigan Art by Nat Peterson Art Logo by Paul Plath All other music royalty free Copyright Panic Attack Productions, LLC Hosted on Acast. See acast.com/privacy for more information.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Panic Attack Productions, LLC",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e",
+        "appleCollectionId": "1726702399",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e",
+          "fetchedAt": "2026-08-15T20:35:16.052Z",
+          "payloadHash": "1f24429ab458253cd463b65f815392f882c984acd9188ef997aa059af53de7ab"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-susie-house/id1726702399?uo=4",
+          "fetchedAt": "2026-08-15T20:35:15.895Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-susie-house/id1726702399?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-susie-house/id1726702399?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-susie-house/id1726702399?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-susie-house/id1726702399?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-susie-house/id1726702399?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-susie-house/id1726702399?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "keywords": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/65a1d52b7005530016e8a05e"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:35:16.558Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "aba0b9bb74c750697f87577603527a96563383bce290f270a9f68f0a31eb7e3c",
+        "subtitle": "b88ca6c1fffb39b3a65180a886ba8c419dfc653d19733a80b28ec428d8037467",
+        "description": "36dee8d5b9fd2fccbcd25f472c2865a89df56413fe46b03b7fc29545fac8fc09",
+        "cover": "f1123fc0109af7bebe2f998f5c75d299ad0dfe13f832961398a2bf051a858324",
+        "coverAlt": "e90c8009fc55aade7972647591bfd6e19bf5f0cf5edbe6d85ae0ab54ccc8976a",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "fd6104effccbb89d516044159ae1ee454fc1c8d86a2a1fc8c06a8c3ac315f3b9",
+        "officialLinks": "f8a72cbe5a38535e7929790f1698ac1c7dfaafe4590453dbc0d7cc7f55a4ce88",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "95b67f6aa3e6e0b4f31d8faf8bccfd5adf5f092ea357e33c0558bc861f5989fc",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "cb3b922cef9feef419ad05c092348e7fd5cebafcd94ed74a6e0b953100157bc3",
+        "releaseDates": "8dd276f7cf94edf27f31a628dd824e046e72ae8b71206e8a738003c8dfc4a15b",
+        "credits": "d1f493e57381bc82a7d476b6b2f62fbab8442d936319fdc1952d0eadfe7ee872",
+        "creators": "48d1fe69a305ed15cf4df78f994ea714f6782cff6058d0823d217ab6883648bd",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "6dd1f542ced8d28303f878701fbfdcf4453adb22290cfaa139e35da9a51e1fb7"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:36:12.920Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "allison-moseley-and-liz-belile"
+}

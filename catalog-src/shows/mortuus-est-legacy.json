@@ -1,0 +1,637 @@
+{
+  "id": "mortuus-est-legacy",
+  "title": "Mortuus Est: Legacy",
+  "subtitle": "",
+  "description": "Breaking free, falling in love, and secrets and lies. Mortuus Est: Legacy is a new audio drama podcast that follows the aftermath of the death of Rafael Guerrero. His fiancée, Elaina, is left behind to pick up the pieces as her future becomes intertwined with his shadowed past.",
+  "cover": "images/covers/mortuus-est-legacy.jpg",
+  "coverAlt": "Mortuus Est: Legacy cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/mortuus-est-legacy/id1594383141?uo=4",
+    "website": "http://www.crazy10entertainment.com/me-legacy",
+    "rss": "https://media.rss.com/mortuusestlegacy/feed.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Mortuus Est: Legacy"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 10 full episodes • 13 min median",
+    "seasons": 1,
+    "episodes": 10,
+    "avgEpisodeMinutes": 14,
+    "medianEpisodeMinutes": 13,
+    "minEpisodeMinutes": 11,
+    "maxEpisodeMinutes": 22,
+    "totalObservedHours": 2.4,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 10,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2021-11-09",
+    "latest": "2022-04-25",
+    "latestFeedItem": "2022-04-25",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "http://www.crazy10entertainment.com/me-legacy",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Crazy10 Entertainment",
+    "ownerName": "Crazy10 Entertainment"
+  },
+  "creators": [
+    "Crazy10 Entertainment"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://media.rss.com/mortuusestlegacy/feed.xml; https://podcasts.apple.com/us/podcast/mortuus-est-legacy/id1594383141?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://media.rss.com/mortuusestlegacy/feed.xml",
+      "https://podcasts.apple.com/us/podcast/mortuus-est-legacy/id1594383141?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Breaking free, falling in love, and secrets and lies. Mortuus Est: Legacy is a new audio drama podcast that follows the aftermath of the death of Rafael Guerrero. His fiancée, Elaina, is left behind to pick up the pieces as her future becomes intertwined with his shadowed past.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 5
+    },
+    "podcast": {
+      "medium": "podcast",
+      "copyright": "Crazy10 Entertainment 2021",
+      "explicit": "false",
+      "license": {
+        "value": "Crazy10 Entertainment 2021",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "f56e45c2-2f6b-5e0b-bb13-c7b3d773130b",
+        "rssUrl": "https://media.rss.com/mortuusestlegacy/feed.xml",
+        "appleCollectionId": "1594383141",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml",
+          "fetchedAt": "2026-08-15T20:33:14.021Z",
+          "payloadHash": "fa53d51c1e4eb2efee459bd3697c2fd26b4f5e5d0d328d2ed7c12d90e0fe474d"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/mortuus-est-legacy/id1594383141?uo=4",
+          "fetchedAt": "2026-08-15T20:33:13.613Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mortuus-est-legacy/id1594383141?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mortuus-est-legacy/id1594383141?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mortuus-est-legacy/id1594383141?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mortuus-est-legacy/id1594383141?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mortuus-est-legacy/id1594383141?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mortuus-est-legacy/id1594383141?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "medium": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/mortuusestlegacy/feed.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:33:14.919Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "84f193430380520fd729e2b2b76458cf01ae723a6f70ae8564f7390088a63288",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "3ef0fbc2f1ef064f9006b904837c0bb8aab22b96908aa9490db57e2e9c2f52b7",
+        "cover": "500c892baf1940fcd8e1add68f98315a4c98b4c8eb5f2799a67e8d82e47376e3",
+        "coverAlt": "22ece6fafad8cd66167910347fda0e14823e9671c4a93a637315e415ce5e0166",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "1803261354a07bc35120f8173cbedea88b71290b1286120e52bb98db5b65a1fd",
+        "officialLinks": "840d475dda34a43a1888c3d8f443d10f85392ad7286af788a3e8c0291fa2e249",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "96171f1cd1dff3386fd31b9dbaffee234ed64adef16ca6dc3566d060ccaa70e5",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "7c7cce71bc186f50f817fc72e1e2628fa411837a6c10d083c05885a3657ed154",
+        "releaseDates": "52455ec78c763c468b52f023b520a94dd9c60a265960f504d2769dd56dc4183a",
+        "credits": "2c8430e36c2e184bcc55f572b2dd45a0882e018cc91ada027a8d0f618e3cfb5c",
+        "creators": "493bd7b3a5af839aaa1e819baadeea2d4bdef0be77df666bee92b2c1c9603b09",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "3a89500b61fa90cc37af2a08eefc988137e2916fed83db3f296fecb9d8d16614"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:36:12.941Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "crazy10-entertainment"
+}

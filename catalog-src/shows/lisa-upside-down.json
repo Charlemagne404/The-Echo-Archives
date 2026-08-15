@@ -1,0 +1,617 @@
+{
+  "id": "lisa-upside-down",
+  "title": "Lisa Upside Down",
+  "subtitle": "",
+  "description": "Lisa Upside Down is a scripted comedy podcast about a woman and her messy failing marriage, her over involved-oversexed parents, her teenage son on the brink of manhood, her favorite always dying Aunt, and some random pot-smoking dudes that help Lisa put her life back together… sort of.",
+  "cover": "images/covers/lisa-upside-down.png",
+  "coverAlt": "Lisa Upside Down cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/lisa-upside-down/id1549740252?uo=4",
+    "website": "http://lisaupsidedown.libsyn.com/website",
+    "rss": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Lisa Upside Down"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 3 full episodes • 18 min median",
+    "seasons": 1,
+    "episodes": 3,
+    "avgEpisodeMinutes": 18,
+    "medianEpisodeMinutes": 18,
+    "minEpisodeMinutes": 16,
+    "maxEpisodeMinutes": 19,
+    "totalObservedHours": 0.9,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 3,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2021-01-28",
+    "latest": "2021-01-28",
+    "latestFeedItem": "2021-01-28",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "http://lisaupsidedown.libsyn.com/website",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Lisa Orkin",
+    "ownerName": "Lisa Ann Orkin"
+  },
+  "creators": [
+    "Lisa Orkin"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml; https://podcasts.apple.com/us/podcast/lisa-upside-down/id1549740252?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://rss.libsyn.com/shows/310808/destinations/2496098.xml",
+      "https://podcasts.apple.com/us/podcast/lisa-upside-down/id1549740252?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction",
+      "Comedy"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Lisa Upside Down is a scripted comedy podcast about a woman and her messy failing marriage, her over involved-oversexed parents, her teenage son on the brink of manhood, her favorite always dying Aunt, and some random pot-smoking dudes that help Lisa put her life back together… sort of.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "unknown",
+      "medianDays": null,
+      "observedIntervals": 0
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Lisa Orkin 2020",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml",
+        "appleCollectionId": "1549740252",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml",
+          "fetchedAt": "2026-08-15T20:33:13.906Z",
+          "payloadHash": "37d37e8b317e01504597323dae7f5bc29a9a88a8f0b1f0a5e0dfaa5c30779029"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/lisa-upside-down/id1549740252?uo=4",
+          "fetchedAt": "2026-08-15T20:33:13.489Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/lisa-upside-down/id1549740252?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/lisa-upside-down/id1549740252?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/lisa-upside-down/id1549740252?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/lisa-upside-down/id1549740252?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/lisa-upside-down/id1549740252?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/lisa-upside-down/id1549740252?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/310808/destinations/2496098.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:33:29.114Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "fb742e13140ea29e2d5d4b05a9a44b0bd8bc684677e1052c69208e5566dc6d0d",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "5515505da23757b732bfdaf73708618584661f987f4fc5bcdaaaedcdf1897aca",
+        "cover": "44509f7abd72e1a086e396f3a7d8678730f2acac0b5f5422c4d5dbf4ae1bb42c",
+        "coverAlt": "8271bb3882d0a8fe11e00888f27d555eb6d5ca291dc468ab85a465e0fc5add88",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "2acbad12c7f071fe17eae5990f44bcaae7f5617d3fe49e281982028cd10058dc",
+        "officialLinks": "c798164e80219e57e81542b818c3c2587a9b6277ff26b4ecfc2e1d973c043b66",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "a413e0f895895db220b899fd298fb874f29a6b9fc5446e084e7fb12a3fdba4d1",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "b99f3cc1af52b13af721094bcd2f92cf08b0d2bee5859da07e2012e3e078214f",
+        "releaseDates": "831c27d1b552beab12aeb2c5ab26aa8e3805a6bdd242f06284dc59eef820b7b9",
+        "credits": "d22b83736928338d85071b1f06946859f301d6d14d923767db03f470e3cabfaa",
+        "creators": "cc6eb66f8a371d31abe600e25b46f55fde4502b44ab9634ad33252c9ca8aeb94",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "4978e187f548ca2c551949d21708d9dcd1f93128df39f204d479b1d702fafe75"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:36:12.960Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "lisa-orkin"
+}

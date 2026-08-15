@@ -1183,31 +1183,31 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1183,P2,Project: Daydream,,4df4721c-cd39-4ffd-b131-1ca223be18ef,published,published,,2026-08-15 20:32:40
 1184,P2,The Fifth Power,,3f6a2b93-3cbd-439d-8a5f-03494e832d81,needs-review,needs-review,source-conflict,2026-08-15 20:32:37
 1185,P2,The Transient Bliss of Death by Fallout,,9fe8ff4b-28e3-4365-b678-b63bb048d99f,needs-review,needs-review,source-conflict,2026-08-15 20:31:43
-1186,P2,The town of adaliah,,,unattempted,,,
-1187,P2,The Richard Osman Fan Club,,,unattempted,,,
-1188,P2,The Defense,,,unattempted,,,
-1189,P2,The Susie House,,,unattempted,,,
-1190,P2,When Tower Angels Fall,,,unattempted,,,
-1191,P2,Yokai Detective Agency,,,unattempted,,,
-1192,P2,Between Heartbeats,,,unattempted,,,
-1193,P2,Jesus Pancake,,,unattempted,,,
-1194,P2,Boston Metaphysical Society,,,unattempted,,,
-1195,P2,Gabriela & The Inn Between,,,unattempted,,,
-1196,P2,"Dear Earth, I'm Really Sorry",,,unattempted,,,
-1197,P2,Argon | A Tech Noir Thriller,,,unattempted,,,
-1198,P2,Mortuus Est: Legacy,,,unattempted,,,
-1199,P2,The Changing Earth Audiodrama,,,unattempted,,,
-1200,P2,St. Mary's School (for children with the stigmata),,,unattempted,,,
-1201,P2,Friday Knight Fights,,,unattempted,,,
-1202,P2,Darkstead,,,unattempted,,,
-1203,P2,Attention: The Captain Is Fine,,,unattempted,,,
-1204,P2,To Chart a Well-Trod Course,,,unattempted,,,
-1205,P2,Community Cat News,,,unattempted,,,
-1206,P2,Lisa Upside Down,,,unattempted,,,
-1207,P2,Never Enough,,,unattempted,,,
-1208,P2,The Heir of Time,,,unattempted,,,
-1209,P2,Wanderhome,,,unattempted,,,
-1210,P2,The Tsar And Tsaritsa,,,unattempted,,,
+1186,P2,The town of adaliah,,85ea8c52-5edc-4df6-9eac-106dc635c903,needs-review,needs-review,scope-review; source-conflict; duplicate-ambiguity,2026-08-15 20:33:12
+1187,P2,The Richard Osman Fan Club,,25f6689c-f1e9-4081-8f93-d3a57464dd72,published,published,,2026-08-15 20:36:16
+1188,P2,The Defense,,1b1e75fd-436d-498a-9289-9dc60111a629,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:33:11
+1189,P2,The Susie House,,63de1bee-c0f0-4125-905a-128423b86af9,published,published,,2026-08-15 20:36:16
+1190,P2,When Tower Angels Fall,,216790ce-f115-4397-b59f-e9ac1f21d4e8,published,published,,2026-08-15 20:36:16
+1191,P2,Yokai Detective Agency,,c313c53c-f294-4e96-a617-92c3541d7ccb,published,published,,2026-08-15 20:36:16
+1192,P2,Between Heartbeats,,546be38e-7305-4d53-b3ae-6dc8c94245be,needs-review,needs-review,source-conflict,2026-08-15 20:35:12
+1193,P2,Jesus Pancake,,0eff7370-480f-4dd6-9191-7f81715c0b5c,published,published,,2026-08-15 20:36:16
+1194,P2,Boston Metaphysical Society,,940dda79-6887-4cb6-ba54-15d5f341250d,needs-review,needs-review,source-conflict,2026-08-15 20:33:12
+1195,P2,Gabriela & The Inn Between,,32be8869-12ac-4c87-8e0a-ed9cd38b5280,published,published,,2026-08-15 20:36:16
+1196,P2,"Dear Earth, I'm Really Sorry",,f15b9ca9-646d-4563-bcef-4ef2969a6278,published,published,,2026-08-15 20:36:16
+1197,P2,Argon | A Tech Noir Thriller,,abe8db05-d033-4b59-8e58-b07b847a1bf8,published,published,,2026-08-15 20:36:16
+1198,P2,Mortuus Est: Legacy,,eb6c9006-69c1-446f-889b-16b234ecba12,published,published,,2026-08-15 20:36:16
+1199,P2,The Changing Earth Audiodrama,,97468089-2ba6-4388-9076-aa8a5bfe3a3b,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 20:36:12
+1200,P2,St. Mary's School (for children with the stigmata),,982e44c8-64b6-441f-a716-abe0d3c085fe,needs-review,needs-review,source-conflict,2026-08-15 20:35:32
+1201,P2,Friday Knight Fights,,dc338233-9e05-40e2-9dfb-e50bd72d9d6d,published,published,,2026-08-15 20:36:16
+1202,P2,Darkstead,,8a1fe5ec-7ed8-44b6-88ae-232c9db49448,needs-review,needs-review,scope-review,2026-08-15 20:34:18
+1203,P2,Attention: The Captain Is Fine,,cb4fd5bc-82e2-4e03-974c-0ca26c38bc7b,published,published,,2026-08-15 20:36:16
+1204,P2,To Chart a Well-Trod Course,,7078760e-86b2-4464-afbb-824fd3d1330d,published,published,,2026-08-15 20:36:16
+1205,P2,Community Cat News,,0af4f048-427c-4668-be70-38743eed2325,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 20:35:11
+1206,P2,Lisa Upside Down,,63ed6b17-d853-49fe-9a1e-732a43792f8d,published,published,,2026-08-15 20:36:16
+1207,P2,Never Enough,,b7ad80c5-b6be-4fa9-bb43-c41b7d64cee0,published,published,,2026-08-15 20:36:16
+1208,P2,The Heir of Time,,21141062-e36e-47d1-8ee8-efbd4402b63b,needs-review,needs-review,source-conflict,2026-08-15 20:33:31
+1209,P2,Wanderhome,,d84c58f5-d10a-4784-9322-73ddae5542e4,needs-review,needs-review,source-conflict,2026-08-15 20:35:16
+1210,P2,The Tsar And Tsaritsa,,c42cbf9e-d414-4cbc-813c-c0d61f1e190a,needs-review,needs-review,insufficient-discovery-signals,2026-08-15 20:35:17
 1211,P2,Silkhaven Pulp,,,unattempted,,,
 1212,P2,The Fog City Mysteries: IN COLOR!,,,unattempted,,,
 1213,P2,Odder Space,,,unattempted,,,

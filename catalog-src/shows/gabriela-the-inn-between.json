@@ -1,0 +1,727 @@
+{
+  "id": "gabriela-the-inn-between",
+  "title": "Gabriela & The Inn Between",
+  "subtitle": "where the trees are green, the rooms are cozy, and the guests are a little bit strange",
+  "description": "Welcome weary travelers, to The Inn Between, where the trees are green, the rooms are cozy, and the guests are a little bit strange. Join Gabriela Jones, a recent botany undergrad who takes a job as Innkeeper near the rural town of Shearwater. There are three rules: ∙ Keep out of the study ∙ Always trust the cat ∙ Never ever disturb the guests Created by Bailey Loveless",
+  "cover": "images/covers/gabriela-the-inn-between.png",
+  "coverAlt": "Gabriela & The Inn Between cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/1XWhe1p7nqyZHn1DJ2a17T",
+    "apple": "https://podcasts.apple.com/us/podcast/the-inn-between/id1613749949",
+    "website": "https://gabrielaandtheinnbetween.com/",
+    "rss": "https://pinecast.com/feed/the-inn-between",
+    "youtubeMusic": "",
+    "amazonMusic": "https://music.amazon.com/podcasts/235e5951-2526-4cef-95cc-e898f04d1b40",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Gabriela & The Inn Between"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 10 full episodes • 17 min median",
+    "seasons": 2,
+    "episodes": 10,
+    "avgEpisodeMinutes": 17,
+    "medianEpisodeMinutes": 17,
+    "minEpisodeMinutes": 14,
+    "maxEpisodeMinutes": 21,
+    "totalObservedHours": 2.6,
+    "durationCoverage": 0.9,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 10,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2022-07-20",
+    "latest": "2023-04-29",
+    "latestFeedItem": "2023-04-29",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://gabrielaandtheinnbetween.com/",
+    "patreon": "",
+    "koFi": "https://ko-fi.com/theinnbetweenpodcast",
+    "discord": "",
+    "youtube": "https://www.youtube.com/channel/UCoGgbRUvDi1deJ14vFCogaQ",
+    "social": "https://www.instagram.com/theinnbetweenpodcast",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Bailey Loveless",
+    "ownerName": "Bailey Loveless"
+  },
+  "creators": [
+    "Bailey Loveless"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://gabrielaandtheinnbetween.com/about/; https://gabrielaandtheinnbetween.com/; https://pinecast.com/feed/the-inn-between; https://podcasts.apple.com/us/podcast/gabriela-the-inn-between/id1613749949?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://gabrielaandtheinnbetween.com/about/",
+      "https://gabrielaandtheinnbetween.com/",
+      "https://pinecast.com/feed/the-inn-between",
+      "https://podcasts.apple.com/us/podcast/gabriela-the-inn-between/id1613749949?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Arts",
+      "Performing Arts"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Welcome weary travelers, to The Inn Between, where the trees are green, the rooms are cozy, and the guests are a little bit strange. Join Gabriela Jones, a recent botany undergrad who takes a job as Innkeeper near the rural town of Shearwater. There are three rules: ∙ Keep out of the study ∙ Always trust the cat ∙ Never ever disturb the guests Created by Bailey Loveless",
+    "socialUrls": [
+      "https://www.instagram.com/theinnbetweenpodcast"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 16,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2026",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://pinecast.com/feed/the-inn-between",
+        "appleCollectionId": "1613749949",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://gabrielaandtheinnbetween.com/rss.xml"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://gabrielaandtheinnbetween.com/about/",
+          "fetchedAt": "2026-08-15T20:33:15.409Z",
+          "payloadHash": "dc06bd9c0561b821d53d123db3bf84412035cddfdb602aab8d1ccaf796688cb6"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://gabrielaandtheinnbetween.com/",
+          "fetchedAt": "2026-08-15T20:33:15.406Z",
+          "payloadHash": "ed1cd07b054af3b9195dd364b1f4ac371fc272f48d50282343bba42ca88b797a"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://pinecast.com/feed/the-inn-between",
+          "fetchedAt": "2026-08-15T20:33:14.140Z",
+          "payloadHash": "5b016fe2486483045d7324ced53855ce8942ed10097480690ba1f7f419bbe0bc"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/gabriela-the-inn-between/id1613749949?uo=4",
+          "fetchedAt": "2026-08-15T20:33:13.589Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/gabriela-the-inn-between/id1613749949?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://gabrielaandtheinnbetween.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://gabrielaandtheinnbetween.com/about/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/gabriela-the-inn-between/id1613749949?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/gabriela-the-inn-between/id1613749949?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://gabrielaandtheinnbetween.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://gabrielaandtheinnbetween.com/about/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/gabriela-the-inn-between/id1613749949?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/gabriela-the-inn-between/id1613749949?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/gabriela-the-inn-between/id1613749949?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://gabrielaandtheinnbetween.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://gabrielaandtheinnbetween.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://gabrielaandtheinnbetween.com/about/"
+            }
+          ]
+        },
+        "amazonMusicUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://gabrielaandtheinnbetween.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://gabrielaandtheinnbetween.com/about/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://gabrielaandtheinnbetween.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://gabrielaandtheinnbetween.com/about/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://gabrielaandtheinnbetween.com/"
+            }
+          ]
+        },
+        "koFiUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://gabrielaandtheinnbetween.com/about/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-inn-between"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:33:16.144Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "e299048100ea731873f3188e957cb02e284fd905ef26a8e678ec634a8fa31349",
+        "subtitle": "1b08666db52cbfe709bd0c4a0f2a193c714e26e25615ffa5672457a2b1ef6bba",
+        "description": "c7c7ec7bcd064e2d27cc3d2356d06209ba2429ed0123b1f22b1c3ccef1fa8db9",
+        "cover": "00e3e6d43472aee1c4802ab3fa615c37bf03f4d256ae9f8a444bc8b9e8d3fb7b",
+        "coverAlt": "1670369e552b9bd712be8026e36b0f9bc39eee0ad858c5a2223bd4df8a7396e6",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "7110481b00892f7e699dd2608aa89dda442dd122406fd99c8d34680e912e2bd4",
+        "officialLinks": "740159f49fe48b3270adc62b4b8aff018d30f829ba7199c536fba3f4d4e81378",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "64cabace81370487c17fc0b59b407bc6032090c8a5e6b2bc15ec13ecfc51e93d",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "d74ef033c8786c385a005c59449a280bd44813179fcdab96e0e2a8cb9b395589",
+        "releaseDates": "0d6000f58b08dfbcc2bd125a1600a76df512f0ef2731988a85e5e490683d45a5",
+        "credits": "920567c95995231b0abf74a014445390d232dd05278971661b3d2ec0594fab74",
+        "creators": "9b947be3cd53d331c2f386c39f450956aed48a2b8e4259aab515783e1b40746d",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "eca3f40426e59d16d35d63d499298be425fa918d6ea2f1b2b20fc3cd0485173d"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:36:12.931Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "bailey-loveless"
+}
