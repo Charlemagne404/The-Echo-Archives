@@ -1,16 +1,16 @@
 {
-  "totalShows": 260,
-  "publishedShows": 260,
+  "totalShows": 261,
+  "publishedShows": 261,
   "draftShows": 0,
   "fullReviews": 7,
   "spotlightReviews": 0,
   "indexedOnly": 194,
-  "imported": 59,
+  "imported": 60,
   "plannedReviews": 0,
   "collections": 29,
   "reviewCompanions": 7,
   "creatorVerified": 0,
-  "withRss": 257,
+  "withRss": 258,
   "missingObjectiveSources": 0,
   "withResearchGaps": 14,
   "phase2": {
@@ -22,7 +22,7 @@
     },
     "numericTargets": {
       "publishedShows": {
-        "actual": 260,
+        "actual": 261,
         "target": 129,
         "pass": true
       },
@@ -161,7 +161,9 @@
         }
       ],
       "sparseEditorialViolations": [],
-      "blockingErrors": []
+      "blockingErrors": [
+        "Published show \"big-grande-teachers-lounge\" has no verified runtime duration and no documented research gap."
+      ]
     },
     "editorial": {
       "eligibleShows": [
@@ -333,7 +335,9 @@
       "editorialViolations": [],
       "informationalOnly": true
     },
-    "blockingErrors": [],
-    "complete": true
+    "blockingErrors": [
+      "Published show \"big-grande-teachers-lounge\" has no verified runtime duration and no documented research gap."
+    ],
+    "complete": false
   }
 }

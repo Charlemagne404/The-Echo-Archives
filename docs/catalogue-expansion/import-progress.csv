@@ -128,33 +128,33 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 157,P1,Orphan Black: The Next Chapter,Realm,6d52dc8d-abed-44ff-ac4d-8c346318ce4b,published,published,,2026-08-15 16:44:11
 158,P1,Echo Park,Realm,3cd5d42d-519f-45cb-9f91-a374b6d43581,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 16:43:40
 159,P1,Spark Hunter,Realm,278dcf78-c30b-4650-a787-2377e77536a9,needs-review,needs-review,source-conflict,2026-08-15 16:41:47
-160,P1,Marigold Breach,Realm,,unattempted,,,
-161,P1,Power Trip,Realm,,unattempted,,,
-162,P1,Overleaper,Realm,,unattempted,,,
-163,P1,If I Go Missing the Witches Did It,Realm,,unattempted,,,
-164,P1,Roanoke Falls,Realm,,unattempted,,,
-165,P1,Memory Lane,Realm,,unattempted,,,
-166,P1,Elixir,Realm,,unattempted,,,
-168,P1,Undertow,Realm,,unattempted,,,
-170,P1,Tracks,BBC Radio 4 / BBC,,unattempted,,,
-171,P1,Murmurs,BBC,,unattempted,,,
+160,P1,Marigold Breach,Realm,65f3da88-365c-43eb-8a40-ad077e1b787f,needs-review,needs-review,source-conflict,2026-08-15 16:44:52
+161,P1,Power Trip,Realm,79b87508-2245-4638-887e-09c491e06f15,needs-review,needs-review,source-conflict,2026-08-15 16:44:59
+162,P1,Overleaper,Realm,be746016-c97e-4135-8df0-ba8396239912,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 16:46:54
+163,P1,If I Go Missing the Witches Did It,Realm,0555dc99-054e-485e-a101-24aa97a5f7d9,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 16:46:53
+164,P1,Roanoke Falls,Realm,655c9dbf-944a-4358-bc65-33e653254634,needs-review,needs-review,source-conflict,2026-08-15 16:44:59
+165,P1,Memory Lane,Realm,7130457e-c8af-4f46-817e-f1d17a903282,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 16:46:53
+166,P1,Elixir,Realm,434c4a7d-523b-448b-8550-8189dae8578b,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 16:45:51
+168,P1,Undertow,Realm,41704ad2-eccf-4ed6-b95f-01617dab2df2,needs-review,needs-review,source-conflict,2026-08-15 16:46:56
+170,P1,Tracks,BBC Radio 4 / BBC,48a63e1c-17fd-4596-94d1-f16daba34fa9,needs-review,needs-review,source-conflict,2026-08-15 16:45:00
+171,P1,Murmurs,BBC,60671fb4-73a6-4643-87e8-97a4c0799875,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 16:44:55
 172,P0,Doctor Who: Redacted,BBC Sounds / BBC,a974271f-0764-4c2d-8336-01fdb17dfbfc,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 16:16:05
-173,P1,Lusus,BBC,,unattempted,,,
-174,P1,The Piper,BBC,,unattempted,,,
-175,P1,Harland,BBC,,unattempted,,,
-176,P1,Who Is Aldrich Kemp?,BBC,,unattempted,,,
-177,P1,Aldrich Kemp and the Rose of Pamir,BBC,,unattempted,,,
-178,P1,Body Horror,BBC,,unattempted,,,
-179,P1,Children of the Stones,BBC,,unattempted,,,
-180,P1,The System,BBC,,unattempted,,,
-182,P1,People Who Knew Me,BBC / Merman,,unattempted,,,
-183,P1,Limelight,BBC,,unattempted,,,
+173,P1,Lusus,BBC,9afa82b0-8635-4a63-ad92-5335c3a0c1a4,needs-review,needs-review,source-conflict,2026-08-15 16:45:58
+174,P1,The Piper,BBC,382ab379-1c6b-4947-90c8-33e048ccba03,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 16:44:53
+175,P1,Harland,BBC,6f04b25e-1839-48f4-bc86-0f5fcca2af5e,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 16:46:53
+176,P1,Who Is Aldrich Kemp?,BBC,449ab5d5-270c-47b0-9814-fc83edc9dbe4,needs-review,needs-review,source-conflict; duplicate-ambiguity,2026-08-15 16:44:54
+177,P1,Aldrich Kemp and the Rose of Pamir,BBC,ed0165c3-7356-495c-aaf9-3ee510be9cdf,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 16:45:57
+178,P1,Body Horror,BBC,c97ed6fc-d7bd-4229-9f69-53e103c78db6,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 16:45:56
+179,P1,Children of the Stones,BBC,7f1d6089-8085-483a-bb9e-168d9c3aea37,needs-review,needs-review,source-conflict,2026-08-15 16:46:52
+180,P1,The System,BBC,6bbe04fd-bf87-4d76-892a-2f9ca0b04ea9,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 16:45:59
+182,P1,People Who Knew Me,BBC / Merman,309ebd8f-25e0-47ea-861b-1d712f638707,needs-review,needs-review,source-conflict,2026-08-15 16:44:53
+183,P1,Limelight,BBC,6f04b25e-1839-48f4-bc86-0f5fcca2af5e,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 16:46:53
 184,P0,The Fitzroy Diaries,ABC Radio National / ABC,b4f03947-33fd-4e82-bf2e-1709060c536f,duplicate,duplicate,insufficient-discovery-signals; missing-genre; scope-review; duplicate-ambiguity,2026-08-15 16:20:31
-186,P1,The Beef and Dairy Network Podcast,Maximum Fun,,unattempted,,,
-187,P1,Valley Heat,Starburns Audio,,unattempted,,,
-188,P1,The Neighborhood Listen,CBB World,,unattempted,,,
-189,P1,Big Grande Teachers' Lounge,Big Grande,,unattempted,,,
-190,P1,A Very Fatal Murder,The Onion,,unattempted,,,
+186,P1,The Beef and Dairy Network Podcast,Maximum Fun,2a6315e8-b332-4f29-be01-94b34b8b2c3b,needs-review,needs-review,scope-review; source-conflict,2026-08-15 16:45:00
+187,P1,Valley Heat,Starburns Audio,ad89dfe0-58d0-44f7-8ee9-ba8be89484d3,needs-review,needs-review,scope-review; source-conflict,2026-08-15 16:44:57
+188,P1,The Neighborhood Listen,CBB World,349fee57-3219-4d0e-8cb5-5c75711d451f,needs-review,needs-review,scope-review,2026-08-15 16:45:55
+189,P1,Big Grande Teachers' Lounge,Big Grande,9f4707fa-e778-417b-b40c-fb0cc8238896,published,published,,2026-08-15 16:46:57
+190,P1,A Very Fatal Murder,The Onion,7da09853-b1e1-4227-b7a4-669b967e5368,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 16:44:53
 191,P1,This Sounds Serious,Kelly & Kelly,,unattempted,,,
 192,P1,Gay Future,Gay Future Productions,,unattempted,,,
 193,P1,Who Killed Avril Lavigne?,Super Normal Media,,unattempted,,,

@@ -120806,5 +120806,505 @@
         "width": 320
       }
     ]
+  },
+  {
+    "id": "big-grande-teachers-lounge",
+    "title": "Big Grande Teachers' Lounge",
+    "subtitle": "",
+    "description": "Welcome to The Teachers' Lounge! Hosts Drew Tarver, Dan Lippert, Jon Mackey and Ryan Rosenberg play 4 highly unskilled teachers who catch listeners up on their oddly captivating careers at the fictional Hamilton High School. In the second half of each episode, The Teachers interview guests who usually play a character in the wild world of Hamilton. To hear bonus episodes of The Teachers' Lounge, go to StitcherPremium.com/Teacher and use promo code TEACHER for your first month free. Stay flippy!",
+    "cover": "images/covers/big-grande-teachers-lounge.jpg",
+    "coverAlt": "Big Grande Teachers' Lounge cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4",
+      "website": "https://www.earwolf.com/show/big-grande-teachers-lounge/",
+      "rss": "https://feeds.simplecast.com/b_oj_wh9"
+    },
+    "genres": [
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Big Grande Teachers' Lounge"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "durationCoverage": 0,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 0,
+        "bonus": 1,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2017-09-01",
+      "latest": "2017-09-01",
+      "latestFeedItem": "2017-09-01"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.earwolf.com/show/big-grande-teachers-lounge/"
+    },
+    "credits": {
+      "creatorName": "Earwolf & Big Grande",
+      "ownerName": "Earwolf"
+    },
+    "creators": [
+      "Earwolf & Big Grande"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.simplecast.com/b_oj_wh9; https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.simplecast.com/b_oj_wh9",
+        "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4"
+      ],
+      "sourceCategories": [
+        "Comedy",
+        "Arts",
+        "Performing Arts"
+      ],
+      "importOfficialSummary": "Welcome to The Teachers' Lounge! Hosts Drew Tarver, Dan Lippert, Jon Mackey and Ryan Rosenberg play 4 highly unskilled teachers who catch listeners up on their oddly captivating careers at the fictional Hamilton High School. In the second half of each episode, The Teachers interview guests who usually play a character in the wild world of Hamilton. To hear bonus episodes of The Teachers' Lounge, go to StitcherPremium.com/Teacher and use promo code TEACHER for your first month free. Stay flippy!",
+      "schedule": {
+        "label": "unknown",
+        "observedIntervals": 0
+      },
+      "podcast": {
+        "copyright": "2022 Earwolf & Big Grande",
+        "explicit": "yes",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.simplecast.com/b_oj_wh9",
+          "appleCollectionId": "1286047787"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9",
+            "fetchedAt": "2026-08-15T16:45:54.203Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4",
+            "fetchedAt": "2026-08-15T16:45:54.018Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:45:54.806Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:46:56.525Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "earwolf-big-grande",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/big-grande-teachers-lounge",
+    "hasPage": true,
+    "image": "images/covers/big-grande-teachers-lounge.jpg",
+    "imageAlt": "Big Grande Teachers' Lounge cover art",
+    "summary": "Welcome to The Teachers' Lounge! Hosts Drew Tarver, Dan Lippert, Jon Mackey and Ryan Rosenberg play 4 highly unskilled teachers who catch listeners up on their oddly captivating careers at the fictional Hamilton High School. In the second half of each episode, The Teachers interview guests who usually play a character in the wild world of Hamilton. To hear bonus episodes of The Teachers' Lounge, go to StitcherPremium.com/Teacher and use promo code TEACHER for your first month free. Stay flippy!",
+    "finalRating": null,
+    "searchText": "big grande teachers lounge welcome to the teachers lounge hosts drew tarver dan lippert jon mackey and ryan rosenberg play 4 highly unskilled teachers who catch listeners up on their oddly captivating careers at the fictional hamilton high school in the second half of each episode the teachers interview guests who usually play a character in the wild world of hamilton to hear bonus episodes of the teachers lounge go to stitcherpremium com teacher and use promo code teacher for your first month free stay flippy comedy serialized big grande teachers lounge earwolf and big grande english unclear imported earwolf and big grande earwolf unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/big-grande-teachers-lounge-3fe0065c2a-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/big-grande-teachers-lounge-3fe0065c2a-640.webp",
+        "width": 640
+      }
+    ]
   }
 ]

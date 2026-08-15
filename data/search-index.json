@@ -20003,5 +20003,67 @@
     "featured": false,
     "createdAt": "2026-08-15",
     "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "big-grande-teachers-lounge",
+    "title": "Big Grande Teachers' Lounge",
+    "subtitle": "",
+    "description": "Welcome to The Teachers' Lounge! Hosts Drew Tarver, Dan Lippert, Jon Mackey and Ryan Rosenberg play 4 highly unskilled teachers who catch listeners up on their oddly captivating careers at the fictional Hamilton High School. In the second half of each episode, The Teachers interview guests who usually play a character in the wild world of Hamilton. To hear bonus episodes of The Teachers' Lounge, go to StitcherPremium.com/Teacher and use promo code TEACHER for your first month free. Stay flippy!",
+    "cover": "images/covers/big-grande-teachers-lounge.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/big-grande-teachers-lounge-3fe0065c2a-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/big-grande-teachers-lounge-3fe0065c2a-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "Big Grande Teachers' Lounge cover art",
+    "creators": [
+      "Earwolf & Big Grande"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Big Grande Teachers' Lounge"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Earwolf & Big Grande",
+      "ownerName": "Earwolf"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
   }
 ]
