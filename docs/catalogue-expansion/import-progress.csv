@@ -1095,32 +1095,32 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1095,P3,WildTrials,,,unattempted,,,
 1096,P3,Cauterized,,,unattempted,,,
 1097,P2,Action Science Theater,,5afea772-93a7-40b5-b489-3fae4511037b,needs-review,needs-review,source-conflict,2026-08-15 20:23:50
-1098,P2,American Comedy Horror Story,,,unattempted,,,
-1099,P2,Ancestry,Koach Studios,,unattempted,,,
-1100,P2,Atlas Avenue Beat,,,unattempted,,,
-1101,P2,The Adventures of Brian Hovis,,,unattempted,,,
+1098,P2,American Comedy Horror Story,,b6470983-1f92-4d94-9b96-a3caa7482df3,published,published,,2026-08-15 20:28:59
+1099,P2,Ancestry,Koach Studios,cf0df89e-73c0-4f3a-a779-6ccc3779b279,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; cover-not-ready; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 20:28:30
+1100,P2,Atlas Avenue Beat,,e583c2a2-ad4f-4b37-9212-05b963027d28,published,published,,2026-08-15 20:28:59
+1101,P2,The Adventures of Brian Hovis,,6c0bbd0e-aba0-4fc6-965d-7891d4d53ceb,needs-review,needs-review,source-conflict,2026-08-15 20:27:29
 1102,P3,Bend in the River,Converge Radio (Blugold Radio 99.9 FM),,unattempted,,,
-1103,P2,Bellingham Terror,,,unattempted,,,
-1104,P2,BS De Resistance – A Fever Dream of the Trump Years,,,unattempted,,,
-1105,P2,Calais 2037,,,unattempted,,,
-1106,P2,Celestial Blood,KCRW,,unattempted,,,
-1107,P2,Citizen Q,Christopher Burns,,unattempted,,,
-1108,P2,The Details,,,unattempted,,,
-1109,P2,"Don't Worry, It’s Only the End of the World",,,unattempted,,,
-1110,P2,Guardians of Avalon,ZMEdia Entertainment,,unattempted,,,
-1111,P2,The Eye MNYPD,Bean Dip Productions,,unattempted,,,
-1112,P2,Life in Sonderville,,,unattempted,,,
-1113,P2,Love & Lust,CalamityCast,,unattempted,,,
-1114,P2,L.I.V.E. Radio Theater,Locked Into Vacancy Entertainment,,unattempted,,,
-1115,P2,The Lavender Ladies Podcast,Goose Thunder Podcast Network,,unattempted,,,
-1116,P2,Neon Nights: The Arcane Files of Jack Tracer,,,unattempted,,,
-1117,P2,New World Sonata,,,unattempted,,,
-1118,P2,The Hawk Chronicles,,,unattempted,,,
-1119,P2,Pinot Noir,,,unattempted,,,
-1120,P2,Project A.C.E.,,,unattempted,,,
-1121,P2,Project Briar Rose,,,unattempted,,,
-1122,P2,Project STELLAR,,,unattempted,,,
-1123,P2,Pod to Pluto,Cornucopia Radio,,unattempted,,,
+1103,P2,Bellingham Terror,,03aa487d-72d8-4f47-b397-2803fd06523b,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:27:31
+1104,P2,BS De Resistance – A Fever Dream of the Trump Years,,3220a914-05cc-4ef2-8d8c-5ca1778ea30d,needs-review,needs-review,scope-review; source-conflict,2026-08-15 20:26:29
+1105,P2,Calais 2037,,09efd6c1-1727-4336-84be-0a3d0b413b53,published,published,,2026-08-15 20:28:59
+1106,P2,Celestial Blood,KCRW,9f3aabb3-f635-4403-9629-431cd5ffc075,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 20:26:45
+1107,P2,Citizen Q,Christopher Burns,5f75ab79-d134-47f0-bcc6-ba6e09fa00db,needs-review,needs-review,insufficient-discovery-signals; missing-genre; invalid-website,2026-08-15 20:27:29
+1108,P2,The Details,,b0d2db34-0918-4a5b-a10a-5a66a77d468e,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:27:46
+1109,P2,"Don't Worry, It’s Only the End of the World",,48ff8e66-4b0b-47f9-8563-00d53e20234c,needs-review,needs-review,scope-review; source-conflict,2026-08-15 20:26:43
+1110,P2,Guardians of Avalon,ZMEdia Entertainment,5ad6d484-5270-43c0-89fb-6f8e34c2887c,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 20:28:29
+1111,P2,The Eye MNYPD,Bean Dip Productions,a49c3a4e-3e01-4f36-9885-12409524ed45,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:26:28
+1112,P2,Life in Sonderville,,9c75fb72-9beb-4480-9248-a44af1e1c0ba,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:26:46
+1113,P2,Love & Lust,CalamityCast,e5e1710f-b27c-4580-ac1a-46a4a3e78ead,needs-review,needs-review,scope-review; source-conflict,2026-08-15 20:28:28
+1114,P2,L.I.V.E. Radio Theater,Locked Into Vacancy Entertainment,5b1a6f19-d94f-4450-b459-497b5832b8eb,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 20:26:43
+1115,P2,The Lavender Ladies Podcast,Goose Thunder Podcast Network,dfbf3ab2-f471-4d5f-9161-c1fbb3aa9a0f,needs-review,needs-review,insufficient-discovery-signals; missing-genre; invalid-website; scope-review; source-conflict,2026-08-15 20:27:28
+1116,P2,Neon Nights: The Arcane Files of Jack Tracer,,8093ece5-0eb1-4c70-a2ef-1ab9ecf96170,published,published,,2026-08-15 20:28:59
+1117,P2,New World Sonata,,eba2d581-e62b-454a-b5b0-3934a60e1432,needs-review,needs-review,insufficient-discovery-signals; missing-genre; invalid-apple-link; scope-review,2026-08-15 20:26:29
+1118,P2,The Hawk Chronicles,,446d2bc4-5658-4331-a43b-6194ac71db4f,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 20:28:44
+1119,P2,Pinot Noir,,12d79cb2-ac69-48cd-baad-80485ce1bd6b,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:27:32
+1120,P2,Project A.C.E.,,897fa226-cbc9-4ad7-ac94-3980f997684a,needs-review,needs-review,insufficient-discovery-signals; missing-genre,2026-08-15 20:28:56
+1121,P2,Project Briar Rose,,84138bf0-dbae-4022-99c0-ff96971e58ea,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:27:55
+1122,P2,Project STELLAR,,aca6b656-1b28-45f4-b3ac-8ae20ac257f8,needs-review,needs-review,scope-review,2026-08-15 20:27:53
+1123,P2,Pod to Pluto,Cornucopia Radio,6c55d012-a9f6-48ab-8f0c-1d0b7423fd78,needs-review,needs-review,source-conflict,2026-08-15 20:28:31
 1124,P2,Radio Room,,,unattempted,,,
 1125,P2,Sci-Fi Presents,,,unattempted,,,
 1126,P2,Starlight Radio Dreams,,,unattempted,,,

@@ -1,0 +1,679 @@
+{
+  "id": "atlas-avenue-beat",
+  "title": "Atlas Avenue Beat",
+  "subtitle": "",
+  "description": "Follow the adventures of P.I. James Locke as he interrogates criminals, solves cases, and fights crime in this comedy detective noir.",
+  "cover": "images/covers/atlas-avenue-beat.jpg",
+  "coverAlt": "Atlas Avenue Beat cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/atlas-avenue-beat/id1327651489?uo=4",
+    "website": "https://www.spreaker.com/podcast/atlas-avenue-beat--3369253",
+    "rss": "https://feeds.simplecast.com/l7PZgxrq",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Atlas Avenue Beat"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 67 full episodes • 22 min median",
+    "episodes": 67,
+    "avgEpisodeMinutes": 24,
+    "medianEpisodeMinutes": 22,
+    "minEpisodeMinutes": 10,
+    "maxEpisodeMinutes": 89,
+    "totalObservedHours": 26.8,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 67,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2017-12-14",
+    "latest": "2025-09-23",
+    "latestFeedItem": "2025-09-23",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.spreaker.com/podcast/atlas-avenue-beat--3369253",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "7 Lamb Productions | Bloody FM",
+    "ownerName": "7 Lamb Productions LLC",
+    "network": "Spreaker"
+  },
+  "creators": [
+    "7 Lamb Productions | Bloody FM"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.spreaker.com/episode/case-3-epilogue--45487158; https://www.spreaker.com/episode/season-3-recap--45738772; https://www.spreaker.com/episode/kenneth-heights-stories-the-capable-nine-part-1-4--48030552; https://www.spreaker.com/episode/kenneth-heights-stories-the-capable-nine-part-2-4--48786459; https://www.spreaker.com/podcast/atlas-avenue-beat--3369253; https://feeds.simplecast.com/l7PZgxrq; https://podcasts.apple.com/us/podcast/atlas-avenue-beat/id1327651489?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.spreaker.com/episode/case-3-epilogue--45487158",
+      "https://www.spreaker.com/episode/season-3-recap--45738772",
+      "https://www.spreaker.com/episode/kenneth-heights-stories-the-capable-nine-part-1-4--48030552",
+      "https://www.spreaker.com/episode/kenneth-heights-stories-the-capable-nine-part-2-4--48786459",
+      "https://www.spreaker.com/podcast/atlas-avenue-beat--3369253",
+      "https://feeds.simplecast.com/l7PZgxrq",
+      "https://podcasts.apple.com/us/podcast/atlas-avenue-beat/id1327651489?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Follow the adventures of P.I. James Locke as he interrogates criminals, solves cases, and fights crime in this comedy detective noir.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 32,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 7 Lamb Productions LLC",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.simplecast.com/l7PZgxrq",
+        "appleCollectionId": "1327651489",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://www.spreaker.com/show/3369253/episodes/feed"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.spreaker.com/episode/case-3-epilogue--45487158",
+          "fetchedAt": "2026-08-15T20:27:57.714Z",
+          "payloadHash": "a3e43d34875bd51fe3b63ab361b37abdc807ef4732cc5688689eeb1a45bdf464"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.spreaker.com/episode/season-3-recap--45738772",
+          "fetchedAt": "2026-08-15T20:27:57.704Z",
+          "payloadHash": "fa29e619232f7f424d713d28e76fba2ac2996ead9138bbd09743cdad3d3bcbd1"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.spreaker.com/episode/kenneth-heights-stories-the-capable-nine-part-1-4--48030552",
+          "fetchedAt": "2026-08-15T20:27:57.694Z",
+          "payloadHash": "75a4393ea15cbfe1c802bf3927ea80e48cffde72ff6565434186aa9ab74bbbea"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.spreaker.com/episode/kenneth-heights-stories-the-capable-nine-part-2-4--48786459",
+          "fetchedAt": "2026-08-15T20:27:57.684Z",
+          "payloadHash": "3bb8ad23f34a764444fafa0bb39b6101af26d74d71b6cec666e3adb9ab4764ed"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.spreaker.com/podcast/atlas-avenue-beat--3369253",
+          "fetchedAt": "2026-08-15T20:27:57.665Z",
+          "payloadHash": "82e76f158e57d8eab6458fa3972a55856cea046fc0ddf990ca7a11d7d68f740d"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq",
+          "fetchedAt": "2026-08-15T20:27:54.484Z",
+          "payloadHash": "a98b85f6a1eeeab465c7afe14b9f9dca79a2bbd7c24838b0538d74f88dd3cec0"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/atlas-avenue-beat/id1327651489?uo=4",
+          "fetchedAt": "2026-08-15T20:27:54.368Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/atlas-avenue-beat/id1327651489?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/podcast/atlas-avenue-beat--3369253"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/atlas-avenue-beat/id1327651489?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/podcast/atlas-avenue-beat--3369253"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/atlas-avenue-beat/id1327651489?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/atlas-avenue-beat/id1327651489?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/atlas-avenue-beat/id1327651489?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/atlas-avenue-beat/id1327651489?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/atlas-avenue-beat/id1327651489?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/podcast/atlas-avenue-beat--3369253"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/podcast/atlas-avenue-beat--3369253"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/episode/kenneth-heights-stories-the-capable-nine-part-2-4--48786459"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/episode/kenneth-heights-stories-the-capable-nine-part-1-4--48030552"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/episode/season-3-recap--45738772"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/episode/case-3-epilogue--45487158"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/l7PZgxrq"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:27:57.861Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "90a637a635e7beee4f4222c4dc96837a1fc6d848f6939239796c848a5790737c",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "cc3996908bdd7adb9203a227f98d161f67ce6bb8cceefd6a38b35d9b1488a49c",
+        "cover": "48f1c3454d0f2c120531aedbf8a682a16d492508d374d2c9a1b978b58aaf717d",
+        "coverAlt": "5690d18f5cc35636e1dc408dea193861852e59545f8d3d16696685d571a4c6f9",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "f7d1539f2b36883db689db7769721b7bfbb2af8140cfa1847a92797f6fd2b610",
+        "officialLinks": "6dd9934dde05368f7546c28f988248769dea05aaa1f3aed2512c73a78a9e0ec2",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "cbbaa5082d3c3b60a712f1074c2e0d61aea979fe22830d8f7f0130498f8635ad",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "f762d411c3fc8b6a60d64605d18e5d27976bd4ee446c351afcb6e5051fc4a48f",
+        "releaseDates": "c795ec5c5ea236de6a99e12b5e46e0a786c154edb9580251d74302188f2e73a8",
+        "credits": "4788a1338dbb79f8ca89b963bdebaa48dbc2b3374fc5aba51ac578e378c9dc78",
+        "creators": "be43986eda3ca6581750c11153fab6a509a42b6f1cecc97251d6a50bc0dbb4fc",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "318cda49854a3eb0e96df19b7ecb8d8bb057f2941f4c8e76e23e8e5d3cab4001"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:28:56.701Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "7-lamb-productions-bloody-fm",
+  "networkId": "spreaker"
+}
