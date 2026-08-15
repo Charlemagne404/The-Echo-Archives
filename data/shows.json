@@ -199158,5 +199158,4639 @@
         "width": 640
       }
     ]
+  },
+  {
+    "id": "jackie-the-ripper",
+    "title": "Jackie the Ripper",
+    "subtitle": "",
+    "description": "The infamous Whitechapel murders, retold. Everyone knows the story of Jack the Ripper, the chilling serial killer that haunted the streets of 19th century London. Now, 135 years later, there’s a new killer in town. In this darkly comic reimagining, men are the victims of sexually aggressive murders committed by a woman: the mysterious Jackie. The only obstacle standing in her way? The slightly clueless, extremely over-caffeinated Detective Abberline and his not-so-crack team at the City of London Police. This is a laugh-out-loud, gruesome, thrilling comedy drama that will have you in bits – and might take your bits too. Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/jackie-the-ripper.jpg",
+    "coverAlt": "Jackie the Ripper cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/jackie-the-ripper/id1589833252?uo=4",
+      "website": "https://stak.london/shows/jackie-the-ripper/",
+      "rss": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+    },
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Jackie the Ripper"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "3 seasons observed • at least 18 full episodes • 31 min median",
+      "seasons": 3,
+      "episodes": 18,
+      "avgEpisodeMinutes": 29,
+      "medianEpisodeMinutes": 31,
+      "minEpisodeMinutes": 1,
+      "maxEpisodeMinutes": 46,
+      "totalObservedHours": 8.8,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        3,
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 18,
+        "bonus": 1,
+        "trailer": 3
+      }
+    },
+    "releaseDates": {
+      "first": "2021-10-25",
+      "latest": "2023-07-10",
+      "latestFeedItem": "2023-07-10"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://stak.london/shows/jackie-the-ripper/"
+    },
+    "credits": {
+      "creatorName": "Stak",
+      "ownerName": "Jon Teague"
+    },
+    "creators": [
+      "Stak"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.acast.com/public/shows/jackie-the-ripper; https://podcasts.apple.com/us/podcast/jackie-the-ripper/id1589833252?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.acast.com/public/shows/jackie-the-ripper",
+        "https://podcasts.apple.com/us/podcast/jackie-the-ripper/id1589833252?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Comedy Fiction",
+        "True Crime"
+      ],
+      "sourceKeywords": [
+        "Jack The Ripper",
+        "murder",
+        "whitechapel",
+        "murder mystery",
+        "true crime",
+        "london",
+        "jacquie the ripper",
+        "jacky the ripper",
+        "the offensive",
+        "killer",
+        "serial killer",
+        "manhunt",
+        "comedy"
+      ],
+      "importOfficialSummary": "The infamous Whitechapel murders, retold. Everyone knows the story of Jack the Ripper, the chilling serial killer that haunted the streets of 19th century London. Now, 135 years later, there’s a new killer in town. In this darkly comic reimagining, men are the victims of sexually aggressive murders committed by a woman: the mysterious Jackie. The only obstacle standing in her way? The slightly clueless, extremely over-caffeinated Detective Abberline and his not-so-crack team at the City of London Police. This is a laugh-out-loud, gruesome, thrilling comedy drama that will have you in bits – and might take your bits too. Hosted on Acast. See acast.com/privacy for more information.",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 1,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Stakhanov Industries Ltd",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper",
+          "appleCollectionId": "1589833252"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper",
+            "fetchedAt": "2026-08-15T19:38:03.202Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/jackie-the-ripper/id1589833252?uo=4",
+            "fetchedAt": "2026-08-15T19:38:03.131Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/jackie-the-ripper/id1589833252?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/jackie-the-ripper/id1589833252?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/jackie-the-ripper/id1589833252?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/jackie-the-ripper/id1589833252?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/jackie-the-ripper/id1589833252?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/jackie-the-ripper/id1589833252?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/jackie-the-ripper"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T19:38:03.853Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T19:39:31.472Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "stak",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/jackie-the-ripper",
+    "hasPage": true,
+    "image": "images/covers/jackie-the-ripper.jpg",
+    "imageAlt": "Jackie the Ripper cover art",
+    "summary": "The infamous Whitechapel murders, retold. Everyone knows the story of Jack the Ripper, the chilling serial killer that haunted the streets of 19th century London. Now, 135 years later, there’s a new killer in town. In this darkly comic reimagining, men are the victims of sexually aggressive murders committed by a woman: the mysterious Jackie. The only obstacle standing in her way? The slightly clueless, extremely over-caffeinated Detective Abberline and his not-so-crack team at the City of London Police. This is a laugh-out-loud, gruesome, thrilling comedy drama that will have you in bits – and might take your bits too. Hosted on Acast. See acast.com/privacy for more information.",
+    "finalRating": null,
+    "searchText": "jackie the ripper the infamous whitechapel murders retold everyone knows the story of jack the ripper the chilling serial killer that haunted the streets of 19th century london now 135 years later there s a new killer in town in this darkly comic reimagining men are the victims of sexually aggressive murders committed by a woman the mysterious jackie the only obstacle standing in her way the slightly clueless extremely over caffeinated detective abberline and his not so crack team at the city of london police this is a laugh out loud gruesome thrilling comedy drama that will have you in bits and might take your bits too hosted on acast see acast com privacy for more information drama comedy serialized jackie the ripper stak english unclear imported stak jon teague unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/jackie-the-ripper-7ca8a51f9c-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/jackie-the-ripper-7ca8a51f9c-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "mina-and-lucys-guide-to-slaying-dracula",
+    "title": "Mina and Lucy's Guide to Slaying Dracula",
+    "subtitle": "",
+    "description": "When a mysterious ship washes ashore in Whitby, best friends Mina and Lucy begin to wonder if there’s something strange about the new kid in school. With Dr. Van Helsing as their guide, Mina and Lucy will come face to face with a terrifying threat…from the legendary Dracula himself… Starring Bradley Whitford as Grandpa Van Helsing, Suri Marrero as Mina, Genna DuQuesnay as Lucy, Ritchie Coster as Dracula, Marissa Jaret Winokur as Wren Fields, Anthony Atamanuik as Principal Quincey, Toks Olagundoye as Mrs. Dracula, MaryLynn Suchan as Sue Ward, Che Tafari as Jonathan, Julian Chowdhury as Vlad, Jeffery Benson as Art, Sabrina Glow as The Thomas Triplets. For more great shows and to listen early and ad-free, visit ⁠GZMShows.com⁠ .",
+    "cover": "images/covers/mina-and-lucys-guide-to-slaying-dracula.jpg",
+    "coverAlt": "Mina and Lucy's Guide to Slaying Dracula cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/mina-and-lucys-guide-to-slaying-dracula/id1706164282?uo=4",
+      "website": "https://art19.com/shows/mina-and-lucy",
+      "rss": "https://rss.art19.com/mina-and-lucy"
+    },
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Mina and Lucy's Guide to Slaying Dracula"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 21 full episodes • 13 min median",
+      "seasons": 1,
+      "episodes": 21,
+      "avgEpisodeMinutes": 13,
+      "medianEpisodeMinutes": 13,
+      "minEpisodeMinutes": 2,
+      "maxEpisodeMinutes": 24,
+      "totalObservedHours": 4.7,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 21,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2023-09-21",
+      "latest": "2026-08-12",
+      "latestFeedItem": "2026-08-12"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://art19.com/shows/mina-and-lucy"
+    },
+    "credits": {
+      "creatorName": "GZM Shows",
+      "ownerName": "GZM Shows",
+      "network": "ART19"
+    },
+    "creators": [
+      "GZM Shows"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://art19.com/shows/mina-and-lucy; https://rss.art19.com/mina-and-lucy; https://podcasts.apple.com/us/podcast/mina-and-lucys-guide-to-slaying-dracula/id1706164282?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://art19.com/shows/mina-and-lucy",
+        "https://rss.art19.com/mina-and-lucy",
+        "https://podcasts.apple.com/us/podcast/mina-and-lucys-guide-to-slaying-dracula/id1706164282?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Comedy Fiction",
+        "Arts",
+        "Performing Arts"
+      ],
+      "importOfficialSummary": "When a mysterious ship washes ashore in Whitby, best friends Mina and Lucy begin to wonder if there’s something strange about the new kid in school. With Dr. Van Helsing as their guide, Mina and Lucy will come face to face with a terrifying threat…from the legendary Dracula himself… Starring Bradley Whitford as Grandpa Van Helsing, Suri Marrero as Mina, Genna DuQuesnay as Lucy, Ritchie Coster as Dracula, Marissa Jaret Winokur as Wren Fields, Anthony Atamanuik as Principal Quincey, Toks Olagundoye as Mrs. Dracula, MaryLynn Suchan as Sue Ward, Che Tafari as Jonathan, Julian Chowdhury as Vlad, Jeffery Benson as Art, Sabrina Glow as The Thomas Triplets. For more great shows and to listen early and ad-free, visit ⁠GZMShows.com⁠ .",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 1,
+        "observedIntervals": 5
+      },
+      "podcast": {
+        "copyright": "© © 2023 Gen-Z Media",
+        "explicit": "no",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://rss.art19.com/mina-and-lucy",
+          "appleCollectionId": "1706164282"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://art19.com/shows/mina-and-lucy",
+            "fetchedAt": "2026-08-15T19:38:04.699Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.art19.com/mina-and-lucy",
+            "fetchedAt": "2026-08-15T19:38:04.063Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/mina-and-lucys-guide-to-slaying-dracula/id1706164282?uo=4",
+            "fetchedAt": "2026-08-15T19:38:03.178Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mina-and-lucys-guide-to-slaying-dracula/id1706164282?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://art19.com/shows/mina-and-lucy"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mina-and-lucys-guide-to-slaying-dracula/id1706164282?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mina-and-lucys-guide-to-slaying-dracula/id1706164282?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://art19.com/shows/mina-and-lucy"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mina-and-lucys-guide-to-slaying-dracula/id1706164282?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mina-and-lucys-guide-to-slaying-dracula/id1706164282?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://art19.com/shows/mina-and-lucy"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mina-and-lucys-guide-to-slaying-dracula/id1706164282?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://art19.com/shows/mina-and-lucy"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.6,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://art19.com/shows/mina-and-lucy"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/mina-and-lucy"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T19:38:05.014Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T19:39:31.475Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "gzm-shows",
+    "networkId": "art19",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/mina-and-lucys-guide-to-slaying-dracula",
+    "hasPage": true,
+    "image": "images/covers/mina-and-lucys-guide-to-slaying-dracula.jpg",
+    "imageAlt": "Mina and Lucy's Guide to Slaying Dracula cover art",
+    "summary": "When a mysterious ship washes ashore in Whitby, best friends Mina and Lucy begin to wonder if there’s something strange about the new kid in school. With Dr. Van Helsing as their guide, Mina and Lucy will come face to face with a terrifying threat…from the legendary Dracula himself… Starring Bradley Whitford as Grandpa Van Helsing, Suri Marrero as Mina, Genna DuQuesnay as Lucy, Ritchie Coster as Dracula, Marissa Jaret Winokur as Wren Fields, Anthony Atamanuik as Principal Quincey, Toks Olagundoye as Mrs. Dracula, MaryLynn Suchan as Sue Ward, Che Tafari as Jonathan, Julian Chowdhury as Vlad, Jeffery Benson as Art, Sabrina Glow as The Thomas Triplets. For more great shows and to listen early and ad-free, visit ⁠GZMShows.com⁠ .",
+    "finalRating": null,
+    "searchText": "mina and lucy s guide to slaying dracula when a mysterious ship washes ashore in whitby best friends mina and lucy begin to wonder if there s something strange about the new kid in school with dr van helsing as their guide mina and lucy will come face to face with a terrifying threat from the legendary dracula himself starring bradley whitford as grandpa van helsing suri marrero as mina genna duquesnay as lucy ritchie coster as dracula marissa jaret winokur as wren fields anthony atamanuik as principal quincey toks olagundoye as mrs dracula marylynn suchan as sue ward che tafari as jonathan julian chowdhury as vlad jeffery benson as art sabrina glow as the thomas triplets for more great shows and to listen early and ad free visit gzmshows com drama comedy serialized mina and lucy s guide to slaying dracula gzm shows english ongoing imported gzm shows gzm shows art19 unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/mina-and-lucys-guide-to-slaying-dracula-7b93b1843c-320.webp",
+        "width": 320
+      }
+    ]
+  },
+  {
+    "id": "neon-inkwell",
+    "title": "Neon Inkwell",
+    "subtitle": "",
+    "description": "This innovative compilation series features short form podcasts from a variety of creators. This project looks to highlight new and underrepresented creators, as well as showcasing a few from recognized Rusty Quill favourites. Whether it’s a post-apocalyptic space thriller or a quirky monster road trip, Neon Inkwell listeners will always have something new to discover. Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/neon-inkwell.jpg",
+    "coverAlt": "Neon Inkwell cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/14s98galcQ5NQDfS30LTBH",
+      "apple": "https://itunes.apple.com/us/podcast/id1717628154?mt=2",
+      "website": "https://shows.acast.com/neon-inkwell",
+      "rss": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f",
+      "pocketCasts": "https://pca.st/itunes/1717628154"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Neon Inkwell",
+      "Neon Inkwell: Of That Colossal Wreck 2 | Neon Inkwell",
+      "Neon Inkwell: Of That Colossal Wreck 1 | Neon Inkwell"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "6 seasons observed • at least 40 full episodes • 30 min median",
+      "seasons": 6,
+      "episodes": 40,
+      "avgEpisodeMinutes": 33,
+      "medianEpisodeMinutes": 30,
+      "minEpisodeMinutes": 3,
+      "maxEpisodeMinutes": 63,
+      "totalObservedHours": 21.7,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 40,
+        "bonus": 0,
+        "trailer": 5
+      }
+    },
+    "releaseDates": {
+      "first": "2023-11-24",
+      "latest": "2026-07-31",
+      "latestFeedItem": "2026-07-31"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://shows.acast.com/neon-inkwell",
+      "patreon": "https://patreon.com/rustyquill",
+      "social": "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/neon-inkwell/episodes/trailer-of-that-colossal-wreck"
+    },
+    "credits": {
+      "creatorName": "Rusty Quill Ltd",
+      "ownerName": "Rusty Quill Ltd"
+    },
+    "creators": [
+      "Rusty Quill Ltd"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://shows.acast.com/neon-inkwell/episodes/neon-inkwell-of-that-colossal-wreck; https://shows.acast.com/neon-inkwell/episodes/neon-inkwell-of-that-colossal-wreck-1; https://shows.acast.com/neon-inkwell/episodes; https://shows.acast.com/neon-inkwell/episodes/trailer-of-that-colossal-wreck; https://shows.acast.com/neon-inkwell; https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f; https://podcasts.apple.com/us/podcast/neon-inkwell/id1717628154?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://shows.acast.com/neon-inkwell/episodes/neon-inkwell-of-that-colossal-wreck",
+        "https://shows.acast.com/neon-inkwell/episodes/neon-inkwell-of-that-colossal-wreck-1",
+        "https://shows.acast.com/neon-inkwell/episodes",
+        "https://shows.acast.com/neon-inkwell/episodes/trailer-of-that-colossal-wreck",
+        "https://shows.acast.com/neon-inkwell",
+        "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f",
+        "https://podcasts.apple.com/us/podcast/neon-inkwell/id1717628154?uo=4"
+      ],
+      "sourceCategories": [
+        "Arts",
+        "Fiction",
+        "Science Fiction"
+      ],
+      "sourceKeywords": [
+        "Rusty Quill",
+        "The Magnus Archives",
+        "Rusty Quill GAming",
+        "Johnathan Sims",
+        "Alexander J Newall",
+        "Anthology",
+        "Short Stories",
+        "Short Fiction",
+        "Fiction",
+        "Horror",
+        "Dark SciFi",
+        "Romance",
+        "Audio Drama",
+        "Audio Fiction"
+      ],
+      "importOfficialSummary": "This innovative compilation series features short form podcasts from a variety of creators. This project looks to highlight new and underrepresented creators, as well as showcasing a few from recognized Rusty Quill favourites. Whether it’s a post-apocalyptic space thriller or a quirky monster road trip, Neon Inkwell listeners will always have something new to discover. Hosted on Acast. See acast.com/privacy for more information.",
+      "socialUrls": [
+        "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/neon-inkwell/episodes/trailer-of-that-colossal-wreck",
+        "http://x.com/intent/tweet?url=https://shows.acast.com/neon-inkwell/episodes/trailer-of-that-colossal-wreck&via=acast&text=Neon%20Inkwell",
+        "https://www.instagram.com/RustyQuillUK",
+        "https://www.x.com/TheRustyQuill",
+        "https://www.facebook.com/TheRustyQuill",
+        "https://www.threads.net/@rustyquilluk"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Rusty Quill Ltd",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f",
+          "appleCollectionId": "1717628154",
+          "feedRedirects": [
+            "https://feeds.acast.com/public/shows/neon-inkwell"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/neon-inkwell/episodes/neon-inkwell-of-that-colossal-wreck",
+            "fetchedAt": "2026-08-15T19:37:45.764Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/neon-inkwell/episodes/neon-inkwell-of-that-colossal-wreck-1",
+            "fetchedAt": "2026-08-15T19:37:45.762Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/neon-inkwell/episodes",
+            "fetchedAt": "2026-08-15T19:37:45.759Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/neon-inkwell/episodes/trailer-of-that-colossal-wreck",
+            "fetchedAt": "2026-08-15T19:37:45.756Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/neon-inkwell",
+            "fetchedAt": "2026-08-15T19:37:45.752Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f",
+            "fetchedAt": "2026-08-15T19:37:44.572Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/neon-inkwell/id1717628154?uo=4",
+            "fetchedAt": "2026-08-15T19:37:44.256Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/neon-inkwell/id1717628154?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/neon-inkwell"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/neon-inkwell/episodes"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/neon-inkwell/id1717628154?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/neon-inkwell/id1717628154?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/neon-inkwell"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/neon-inkwell/id1717628154?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/neon-inkwell/id1717628154?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/neon-inkwell"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/neon-inkwell"
+              }
+            ]
+          },
+          "pocketCastsUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/neon-inkwell"
+              }
+            ]
+          },
+          "patreonUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/neon-inkwell/episodes/trailer-of-that-colossal-wreck"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/neon-inkwell/episodes/neon-inkwell-of-that-colossal-wreck-1"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/neon-inkwell/episodes/neon-inkwell-of-that-colossal-wreck"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/neon-inkwell"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6553c68578cd3a00121a9b8f"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T19:37:45.837Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T19:39:31.476Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "rusty-quill-ltd",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/neon-inkwell",
+    "hasPage": true,
+    "image": "images/covers/neon-inkwell.jpg",
+    "imageAlt": "Neon Inkwell cover art",
+    "summary": "This innovative compilation series features short form podcasts from a variety of creators. This project looks to highlight new and underrepresented creators, as well as showcasing a few from recognized Rusty Quill favourites. Whether it’s a post-apocalyptic space thriller or a quirky monster road trip, Neon Inkwell listeners will always have something new to discover. Hosted on Acast. See acast.com/privacy for more information.",
+    "finalRating": null,
+    "searchText": "neon inkwell this innovative compilation series features short form podcasts from a variety of creators this project looks to highlight new and underrepresented creators as well as showcasing a few from recognized rusty quill favourites whether it s a post apocalyptic space thriller or a quirky monster road trip neon inkwell listeners will always have something new to discover hosted on acast see acast com privacy for more information drama sci fi serialized neon inkwell neon inkwell of that colossal wreck 2 neon inkwell neon inkwell of that colossal wreck 1 neon inkwell rusty quill ltd english ongoing imported rusty quill ltd rusty quill ltd unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/neon-inkwell-c29e0c0754-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/neon-inkwell-c29e0c0754-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "a-darker-tale",
+    "title": "A Darker Tale",
+    "subtitle": "",
+    "description": "Original stories of horror, mystery, and the supernatural. Each episode draws inspiration from real crime cases or urban legends. Written by Jelle Havermans.",
+    "cover": "images/covers/a-darker-tale.jpg",
+    "coverAlt": "A Darker Tale cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/a-darker-tale/id1476547506?uo=4",
+      "website": "https://adarkertale.com/",
+      "rss": "https://anchor.fm/s/2bcde56c/podcast/rss"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "A Darker Tale"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 12 full episodes • 25 min median",
+      "seasons": 1,
+      "episodes": 12,
+      "avgEpisodeMinutes": 27,
+      "medianEpisodeMinutes": 25,
+      "minEpisodeMinutes": 11,
+      "maxEpisodeMinutes": 50,
+      "totalObservedHours": 5.3,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 12,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2019-08-14",
+      "latest": "2026-08-01",
+      "latestFeedItem": "2026-08-01"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://adarkertale.com/"
+    },
+    "credits": {
+      "creatorName": "Jelle Havermans",
+      "ownerName": "Jelle Havermans"
+    },
+    "creators": [
+      "Jelle Havermans"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://anchor.fm/s/2bcde56c/podcast/rss; https://podcasts.apple.com/us/podcast/a-darker-tale/id1476547506?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://anchor.fm/s/2bcde56c/podcast/rss",
+        "https://podcasts.apple.com/us/podcast/a-darker-tale/id1476547506?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction"
+      ],
+      "importOfficialSummary": "Original stories of horror, mystery, and the supernatural. Each episode draws inspiration from real crime cases or urban legends. Written by Jelle Havermans.",
+      "schedule": {
+        "label": "irregular",
+        "medianDays": 80,
+        "observedIntervals": 7
+      },
+      "podcast": {
+        "copyright": "Jelle Havermans",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://anchor.fm/s/2bcde56c/podcast/rss",
+          "appleCollectionId": "1476547506"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss",
+            "fetchedAt": "2026-08-15T19:38:59.836Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/a-darker-tale/id1476547506?uo=4",
+            "fetchedAt": "2026-08-15T19:38:05.206Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/a-darker-tale/id1476547506?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/a-darker-tale/id1476547506?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/a-darker-tale/id1476547506?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/a-darker-tale/id1476547506?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/a-darker-tale/id1476547506?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/a-darker-tale/id1476547506?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/a-darker-tale/id1476547506?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/2bcde56c/podcast/rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T19:39:00.477Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T19:39:31.479Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "jelle-havermans",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/a-darker-tale",
+    "hasPage": true,
+    "image": "images/covers/a-darker-tale.jpg",
+    "imageAlt": "A Darker Tale cover art",
+    "summary": "Original stories of horror, mystery, and the supernatural. Each episode draws inspiration from real crime cases or urban legends. Written by Jelle Havermans.",
+    "finalRating": null,
+    "searchText": "a darker tale original stories of horror mystery and the supernatural each episode draws inspiration from real crime cases or urban legends written by jelle havermans drama episodic a darker tale jelle havermans english ongoing imported jelle havermans jelle havermans unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/a-darker-tale-833721c7f4-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/a-darker-tale-833721c7f4-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "aberrations",
+    "title": "Aberrations",
+    "subtitle": "",
+    "description": "The award-winning and Webby-nominated audio drama 'Aberrations' tells the story of four young men experiencing the paranormal as they enter adulthood. At the turn of the millennium, one unassuming house in a quiet neighborhood sees the Eldritch brothers and their two friends facing their deepest fears. Having just learned that only months remain before the sale of the Eldritch Estate, the four young men plan a series of get-togethers. Nights of videogames and Dungeons & Dragons had become ritual, but after picking up a creepy book and reading its stories together, their sunny days begin to grow darker. Random bumps in the night evolve into a more visceral terror, suggesting something sinister at work... but sometimes the greatest horror lies in the secrets eating away at the bonds of friendship. Based on the novel 'Tryst' by Aaron Eldritch.",
+    "cover": "images/covers/aberrations.jpg",
+    "coverAlt": "Aberrations cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/3bx0T2mXzLtfOHoCoJX41a",
+      "apple": "https://podcasts.apple.com/us/podcast/the-eldritch-radio-hour/id1538257225",
+      "website": "https://aberrations.buzzsprout.com/",
+      "rss": "https://rss.buzzsprout.com/1448056.rss",
+      "amazonMusic": "https://music.amazon.com/podcasts/dec8a365-390b-45c3-9880-49b858e06021/The-Eldritch-Radio-Hour"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Aberrations",
+      "ABERRATIONS - Part 2 - Aberrations"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "at least 6 full episodes • 32 min median",
+      "episodes": 6,
+      "avgEpisodeMinutes": 34,
+      "medianEpisodeMinutes": 32,
+      "minEpisodeMinutes": 26,
+      "maxEpisodeMinutes": 47,
+      "totalObservedHours": 3.4,
+      "durationCoverage": 1,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 6,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2021-01-11",
+      "latest": "2021-01-16",
+      "latestFeedItem": "2021-01-16"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://aberrations.buzzsprout.com/",
+      "youtube": "https://www.youtube.com/channel/UCIN7XwFburE9-yfOyjuRhEw",
+      "social": "https://www.facebook.com/aaroneldritchart"
+    },
+    "credits": {
+      "creatorName": "Eldritch Studios",
+      "ownerName": "Eldritch Studios",
+      "network": "Buzzsprout"
+    },
+    "creators": [
+      "Eldritch Studios"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://aberrations.buzzsprout.com/1448056/episodes/6259600-aberrations-part-2?t=0; https://aberrations.buzzsprout.com/1448056/episodes?search=true; https://aberrations.buzzsprout.com/1448056/about; https://aberrations.buzzsprout.com/1448056/episodes; https://aberrations.buzzsprout.com/; https://rss.buzzsprout.com/1448056.rss; https://podcasts.apple.com/us/podcast/aberrations/id1538257225?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://aberrations.buzzsprout.com/1448056/episodes/6259600-aberrations-part-2?t=0",
+        "https://aberrations.buzzsprout.com/1448056/episodes?search=true",
+        "https://aberrations.buzzsprout.com/1448056/about",
+        "https://aberrations.buzzsprout.com/1448056/episodes",
+        "https://aberrations.buzzsprout.com/",
+        "https://rss.buzzsprout.com/1448056.rss",
+        "https://podcasts.apple.com/us/podcast/aberrations/id1538257225?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Science Fiction"
+      ],
+      "sourceKeywords": [
+        "Thriller",
+        "Psychological",
+        "Horror",
+        "Suspense",
+        "paranormal",
+        "liminal",
+        "full-cast",
+        "Aaron Eldritch",
+        "ghosts",
+        "Webby nominee",
+        "scary",
+        "Tryst",
+        "award-winning"
+      ],
+      "importOfficialSummary": "The award-winning and Webby-nominated audio drama 'Aberrations' tells the story of four young men experiencing the paranormal as they enter adulthood. At the turn of the millennium, one unassuming house in a quiet neighborhood sees the Eldritch brothers and their two friends facing their deepest fears. Having just learned that only months remain before the sale of the Eldritch Estate, the four young men plan a series of get-togethers. Nights of videogames and Dungeons & Dragons had become ritual, but after picking up a creepy book and reading its stories together, their sunny days begin to grow darker. Random bumps in the night evolve into a more visceral terror, suggesting something sinister at work... but sometimes the greatest horror lies in the secrets eating away at the bonds of friendship. Based on the novel 'Tryst' by Aaron Eldritch.",
+      "socialUrls": [
+        "https://www.facebook.com/aaroneldritchart"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 1,
+        "observedIntervals": 5
+      },
+      "podcast": {
+        "copyright": "© 2026 Eldritch Studios",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "dc95a6aa-feb3-5c18-84c8-bb5ee5fd0ae1",
+          "rssUrl": "https://rss.buzzsprout.com/1448056.rss",
+          "appleCollectionId": "1538257225",
+          "feedRedirects": [
+            "https://feeds.buzzsprout.com/1448056.rss"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes/6259600-aberrations-part-2?t=0",
+            "fetchedAt": "2026-08-15T19:38:02.249Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes?search=true",
+            "fetchedAt": "2026-08-15T19:38:02.247Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://aberrations.buzzsprout.com/1448056/about",
+            "fetchedAt": "2026-08-15T19:38:02.245Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes",
+            "fetchedAt": "2026-08-15T19:38:02.243Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://aberrations.buzzsprout.com/",
+            "fetchedAt": "2026-08-15T19:38:02.241Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.buzzsprout.com/1448056.rss",
+            "fetchedAt": "2026-08-15T19:38:00.978Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/aberrations/id1538257225?uo=4",
+            "fetchedAt": "2026-08-15T19:38:00.661Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/aberrations/id1538257225?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes?search=true"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/aberrations/id1538257225?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/aberrations/id1538257225?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes/6259600-aberrations-part-2?t=0"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/aberrations/id1538257225?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/aberrations/id1538257225?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/aberrations/id1538257225?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.72,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes/6259600-aberrations-part-2?t=0"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes/6259600-aberrations-part-2?t=0"
+              }
+            ]
+          },
+          "amazonMusicUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes/6259600-aberrations-part-2?t=0"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes/6259600-aberrations-part-2?t=0"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://aberrations.buzzsprout.com/1448056/episodes?search=true"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1448056.rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T19:38:02.418Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T19:39:31.487Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "eldritch-studios",
+    "networkId": "buzzsprout",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/aberrations",
+    "hasPage": true,
+    "image": "images/covers/aberrations.jpg",
+    "imageAlt": "Aberrations cover art",
+    "summary": "The award-winning and Webby-nominated audio drama 'Aberrations' tells the story of four young men experiencing the paranormal as they enter adulthood. At the turn of the millennium, one unassuming house in a quiet neighborhood sees the Eldritch brothers and their two friends facing their deepest fears. Having just learned that only months remain before the sale of the Eldritch Estate, the four young men plan a series of get-togethers. Nights of videogames and Dungeons & Dragons had become ritual, but after picking up a creepy book and reading its stories together, their sunny days begin to grow darker. Random bumps in the night evolve into a more visceral terror, suggesting something sinister at work... but sometimes the greatest horror lies in the secrets eating away at the bonds of friendship. Based on the novel 'Tryst' by Aaron Eldritch.",
+    "finalRating": null,
+    "searchText": "aberrations the award winning and webby nominated audio drama aberrations tells the story of four young men experiencing the paranormal as they enter adulthood at the turn of the millennium one unassuming house in a quiet neighborhood sees the eldritch brothers and their two friends facing their deepest fears having just learned that only months remain before the sale of the eldritch estate the four young men plan a series of get togethers nights of videogames and dungeons and dragons had become ritual but after picking up a creepy book and reading its stories together their sunny days begin to grow darker random bumps in the night evolve into a more visceral terror suggesting something sinister at work but sometimes the greatest horror lies in the secrets eating away at the bonds of friendship based on the novel tryst by aaron eldritch drama sci fi serialized aberrations aberrations part 2 aberrations eldritch studios english unclear imported eldritch studios eldritch studios buzzsprout unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/aberrations-019c9bfedd-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/aberrations-019c9bfedd-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "abnormal-advice",
+    "title": "Abnormal Advice",
+    "subtitle": "",
+    "description": "Join host Abby as she answers questions like: Why did this ghost start haunting me? What do I do now that I’ve learned my wife is a werewolf? Why does my car hate me? and more! This is a spinoff of Folk Process's first podcast, Keeping the Bones.",
+    "cover": "images/covers/abnormal-advice.jpg",
+    "coverAlt": "Abnormal Advice cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/355cyzO7tEhLtdrKu7v3oz?si=0a6325475cc0475e",
+      "apple": "https://podcasts.apple.com/us/podcast/abnormal-advice/id1804180867",
+      "website": "https://abnormaladvice.com/",
+      "rss": "https://anchor.fm/s/102d740f8/podcast/rss",
+      "pocketCasts": "https://pca.st/aridgrab"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Abnormal Advice",
+      "Abnormal Advice – Paranormal advice call in podcast."
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 3 full episodes • 13 min median",
+      "seasons": 1,
+      "episodes": 3,
+      "avgEpisodeMinutes": 13,
+      "medianEpisodeMinutes": 13,
+      "minEpisodeMinutes": 11,
+      "maxEpisodeMinutes": 16,
+      "totalObservedHours": 0.7,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 3,
+        "bonus": 1,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2025-03-24",
+      "latest": "2025-06-02",
+      "latestFeedItem": "2025-08-31"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://abnormaladvice.com/",
+      "youtube": "https://www.youtube.com/playlist?list=PLpigUX5d4TDuXYxvXUziyP-bKObEdAqLZ",
+      "social": "https://www.instagram.com/handle_hey/"
+    },
+    "credits": {
+      "creatorName": "Abnormal Advice",
+      "ownerName": "Abnormal Advice"
+    },
+    "creators": [
+      "Abnormal Advice"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://abnormaladvice.com/credits/; https://abnormaladvice.com/episodes/; https://abnormaladvice.com/; https://anchor.fm/s/102d740f8/podcast/rss; https://podcasts.apple.com/us/podcast/abnormal-advice/id1804180867?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://abnormaladvice.com/credits/",
+        "https://abnormaladvice.com/episodes/",
+        "https://abnormaladvice.com/",
+        "https://anchor.fm/s/102d740f8/podcast/rss",
+        "https://podcasts.apple.com/us/podcast/abnormal-advice/id1804180867?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction"
+      ],
+      "importOfficialSummary": "Join host Abby as she answers questions like: Why did this ghost start haunting me? What do I do now that I’ve learned my wife is a werewolf? Why does my car hate me? and more! This is a spinoff of Folk Process's first podcast, Keeping the Bones.",
+      "socialUrls": [
+        "https://www.instagram.com/handle_hey/"
+      ],
+      "schedule": {
+        "label": "monthly",
+        "medianDays": 35,
+        "observedIntervals": 2
+      },
+      "podcast": {
+        "copyright": "Abnormal Advice",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://anchor.fm/s/102d740f8/podcast/rss",
+          "appleCollectionId": "1804180867",
+          "feedRedirects": [
+            "https://abnormaladvice.com/feed/"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://abnormaladvice.com/credits/",
+            "fetchedAt": "2026-08-15T19:39:12.792Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://abnormaladvice.com/episodes/",
+            "fetchedAt": "2026-08-15T19:39:12.790Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://abnormaladvice.com/",
+            "fetchedAt": "2026-08-15T19:39:12.788Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss",
+            "fetchedAt": "2026-08-15T19:39:11.012Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/abnormal-advice/id1804180867?uo=4",
+            "fetchedAt": "2026-08-15T19:39:10.871Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/abnormal-advice/id1804180867?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/abnormal-advice/id1804180867?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/abnormal-advice/id1804180867?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://abnormaladvice.com/"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/abnormal-advice/id1804180867?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/abnormal-advice/id1804180867?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://abnormaladvice.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://abnormaladvice.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://abnormaladvice.com/episodes/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://abnormaladvice.com/credits/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://abnormaladvice.com/"
+              }
+            ]
+          },
+          "pocketCastsUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://abnormaladvice.com/"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://abnormaladvice.com/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://abnormaladvice.com/credits/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/102d740f8/podcast/rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T19:39:14.193Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T19:39:31.495Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "abnormal-advice",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/abnormal-advice",
+    "hasPage": true,
+    "image": "images/covers/abnormal-advice.jpg",
+    "imageAlt": "Abnormal Advice cover art",
+    "summary": "Join host Abby as she answers questions like: Why did this ghost start haunting me? What do I do now that I’ve learned my wife is a werewolf? Why does my car hate me? and more! This is a spinoff of Folk Process's first podcast, Keeping the Bones.",
+    "finalRating": null,
+    "searchText": "abnormal advice join host abby as she answers questions like why did this ghost start haunting me what do i do now that i ve learned my wife is a werewolf why does my car hate me and more this is a spinoff of folk process s first podcast keeping the bones drama sci fi episodic abnormal advice abnormal advice paranormal advice call in podcast abnormal advice english unclear imported abnormal advice abnormal advice unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/abnormal-advice-d27bde01cc-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/abnormal-advice-d27bde01cc-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "amahdalia",
+    "title": "AMAHDALIA",
+    "subtitle": "",
+    "description": "“Former paramedic and struggling alcoholic Jacob Sankofa is no stranger to trauma, but when he agrees to help his friend care for a father stricken by a mysterious illness, he hopes it will be a simpler task than his last job. That hope shatters when Jacob discovers the disease isn’t just unknown... it’s contagious. Faced with the threat of a horrific death for himself, his friend, and the dying old man, Jacob is driven by his friend to seek help from Amahdalia, an elusive private practitioner who appears to be an expert on exactly what he’s suffering from. But as he delves deeper into who she really is and the questions begin to pile up, Jacob is gradually drawn into a rabbit hole of otherworldly creatures, ghosts, psychics and secret organisations. And it quickly becomes apparent that Amahdalia might be even more of a dangerous enigma than the disease he needs her help to survive.“ Amahdalia is a full cast amateur horror/mystery podcast/Audio Drama written by C.J. Cunningham and performed by: Connor Bushoven as Markus Bowden - https://www.cbushovenart.com/ Chloë Elmore as Amahdalia - https://chloevoices.com/ And LKAT as Jacob Sankofa - https://youtube.com/@_lkat_?si=n9cZDGHLzpEdkowF All music used belongs to it’s respective rights holders. YOUTUBE CHANNEL: https://youtube.com/@amahdalia-andjacob?si=-DGdNcq2qwhFrjLf",
+    "cover": "images/covers/amahdalia.webp",
+    "coverAlt": "AMAHDALIA cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/4z1BDlLldGFTAoD88tBNAG",
+      "apple": "https://podcasts.apple.com/podcast/id1828027424",
+      "website": "https://rss.com/podcasts/amahdalia/",
+      "rss": "https://media.rss.com/amahdalia/feed.xml",
+      "amazonMusic": "https://music.amazon.com/podcasts/c4cbac3a-edd8-4fd9-9b80-a32e6bf77f4a"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "AMAHDALIA"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 4 full episodes • 51 min median",
+      "seasons": 1,
+      "episodes": 4,
+      "avgEpisodeMinutes": 51,
+      "medianEpisodeMinutes": 51,
+      "minEpisodeMinutes": 23,
+      "maxEpisodeMinutes": 80,
+      "totalObservedHours": 3.4,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 4,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2025-07-21",
+      "latest": "2026-03-19",
+      "latestFeedItem": "2026-03-19"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://rss.com/podcasts/amahdalia/",
+      "youtube": "https://www.youtube.com/rsscom/",
+      "social": "https://www.facebook.com/rss.podcasting"
+    },
+    "credits": {
+      "creatorName": "C.J. Cunningham",
+      "ownerName": "C.J. Cunningham",
+      "network": "RSS.com",
+      "writers": [
+        "C.J. Cunningham"
+      ],
+      "people": [
+        {
+          "name": "C.J. Cunningham",
+          "role": "author"
+        }
+      ]
+    },
+    "creators": [
+      "C.J. Cunningham"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://rss.com/podcasts/amahdalia/; https://media.rss.com/amahdalia/feed.xml; https://podcasts.apple.com/us/podcast/amahdalia/id1828027424?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://rss.com/podcasts/amahdalia/",
+        "https://media.rss.com/amahdalia/feed.xml",
+        "https://podcasts.apple.com/us/podcast/amahdalia/id1828027424?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "“Former paramedic and struggling alcoholic Jacob Sankofa is no stranger to trauma, but when he agrees to help his friend care for a father stricken by a mysterious illness, he hopes it will be a simpler task than his last job. That hope shatters when Jacob discovers the disease isn’t just unknown... it’s contagious. Faced with the threat of a horrific death for himself, his friend, and the dying old man, Jacob is driven by his friend to seek help from Amahdalia, an elusive private practitioner who appears to be an expert on exactly what he’s suffering from. But as he delves deeper into who she really is and the questions begin to pile up, Jacob is gradually drawn into a rabbit hole of otherworldly creatures, ghosts, psychics and secret organisations. And it quickly becomes apparent that Amahdalia might be even more of a dangerous enigma than the disease he needs her help to survive.“ Amahdalia is a full cast amateur horror/mystery podcast/Audio Drama written by C.J. Cunningham and performed by: Connor Bushoven as Markus Bowden - https://www.cbushovenart.com/ Chloë Elmore as Amahdalia - https://chloevoices.com/ And LKAT as Jacob Sankofa - https://youtube.com/@_lkat_?si=n9cZDGHLzpEdkowF All music used belongs to it’s respective rights holders. YOUTUBE CHANNEL: https://youtube.com/@amahdalia-andjacob?si=-DGdNcq2qwhFrjLf",
+      "socialUrls": [
+        "https://www.facebook.com/rss.podcasting",
+        "https://twitter.com/rss",
+        "https://www.instagram.com/rss_podcasting/"
+      ],
+      "schedule": {
+        "label": "irregular",
+        "medianDays": 240,
+        "observedIntervals": 1
+      },
+      "podcast": {
+        "medium": "podcast",
+        "copyright": "C.J. Cunningham 2025",
+        "explicit": "true",
+        "license": {
+          "value": "C.J. Cunningham 2025"
+        },
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "dcb755ac-6dbd-5bd7-b0df-6d01786e1d62",
+          "rssUrl": "https://media.rss.com/amahdalia/feed.xml",
+          "appleCollectionId": "1828027424"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rss.com/podcasts/amahdalia/",
+            "fetchedAt": "2026-08-15T19:37:41.455Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://media.rss.com/amahdalia/feed.xml",
+            "fetchedAt": "2026-08-15T19:37:40.907Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/amahdalia/id1828027424?uo=4",
+            "fetchedAt": "2026-08-15T19:37:40.494Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/amahdalia/id1828027424?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/amahdalia/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/amahdalia/id1828027424?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/amahdalia/"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/amahdalia/id1828027424?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/amahdalia/"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/amahdalia/"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/amahdalia/id1828027424?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/amahdalia/id1828027424?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/amahdalia/id1828027424?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/amahdalia/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/amahdalia/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "medium": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/amahdalia/"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/amahdalia/"
+              }
+            ]
+          },
+          "amazonMusicUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/amahdalia/"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/amahdalia/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/amahdalia/"
+              }
+            ]
+          },
+          "people": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/amahdalia/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/amahdalia/feed.xml"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T19:37:42.149Z",
+        "optionalGaps": [
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T19:39:31.498Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "c-j-cunningham",
+    "networkId": "rss-com",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/amahdalia",
+    "hasPage": true,
+    "image": "images/covers/amahdalia.webp",
+    "imageAlt": "AMAHDALIA cover art",
+    "summary": "“Former paramedic and struggling alcoholic Jacob Sankofa is no stranger to trauma, but when he agrees to help his friend care for a father stricken by a mysterious illness, he hopes it will be a simpler task than his last job. That hope shatters when Jacob discovers the disease isn’t just unknown... it’s contagious. Faced with the threat of a horrific death for himself, his friend, and the dying old man, Jacob is driven by his friend to seek help from Amahdalia, an elusive private practitioner who appears to be an expert on exactly what he’s suffering from. But as he delves deeper into who she really is and the questions begin to pile up, Jacob is gradually drawn into a rabbit hole of otherworldly creatures, ghosts, psychics and secret organisations. And it quickly becomes apparent that Amahdalia might be even more of a dangerous enigma than the disease he needs her help to survive.“ Amahdalia is a full cast amateur horror/mystery podcast/Audio Drama written by C.J. Cunningham and performed by: Connor Bushoven as Markus Bowden - https://www.cbushovenart.com/ Chloë Elmore as Amahdalia - https://chloevoices.com/ And LKAT as Jacob Sankofa - https://youtube.com/@_lkat_?si=n9cZDGHLzpEdkowF All music used belongs to it’s respective rights holders. YOUTUBE CHANNEL: https://youtube.com/@amahdalia-andjacob?si=-DGdNcq2qwhFrjLf",
+    "finalRating": null,
+    "searchText": "amahdalia former paramedic and struggling alcoholic jacob sankofa is no stranger to trauma but when he agrees to help his friend care for a father stricken by a mysterious illness he hopes it will be a simpler task than his last job that hope shatters when jacob discovers the disease isn t just unknown it s contagious faced with the threat of a horrific death for himself his friend and the dying old man jacob is driven by his friend to seek help from amahdalia an elusive private practitioner who appears to be an expert on exactly what he s suffering from but as he delves deeper into who she really is and the questions begin to pile up jacob is gradually drawn into a rabbit hole of otherworldly creatures ghosts psychics and secret organisations and it quickly becomes apparent that amahdalia might be even more of a dangerous enigma than the disease he needs her help to survive amahdalia is a full cast amateur horror mystery podcast audio drama written by c j cunningham and performed by connor bushoven as markus bowden https www cbushovenart com chlo elmore as amahdalia https chloevoices com and lkat as jacob sankofa https youtube com lkat si n9czdghlzpedkowf all music used belongs to it s respective rights holders youtube channel https youtube com amahdalia andjacob si dgdncq2qwhfrjlf drama serialized amahdalia c j cunningham english unclear imported c j cunningham c j cunningham rss com c j cunningham c j cunningham author unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/amahdalia-110df5a849-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/amahdalia-110df5a849-640.webp",
+        "width": 640
+      }
+    ]
   }
 ]
