@@ -1,0 +1,656 @@
+{
+  "id": "sequestered-an-audio-drama",
+  "title": "Sequestered: An Audio Drama",
+  "subtitle": "",
+  "description": "Sequestered is a 3-part paranormal audio drama about a young woman who experiences a haunting just as she's about to begin filming a reality competition show. Transcripts and credits are available at sequesteredad.carrd.co.",
+  "cover": "images/covers/sequestered-an-audio-drama.png",
+  "coverAlt": "Sequestered: An Audio Drama cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/sequestered-an-audio-drama/id1722973840?uo=4",
+    "website": "https://sequesteredad.carrd.co/",
+    "rss": "https://pinecast.com/feed/sequestered-an-audio-drama",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Sequestered: An Audio Drama"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • 3 full episodes • 12 min median",
+    "seasons": 1,
+    "episodes": 3,
+    "avgEpisodeMinutes": 12,
+    "medianEpisodeMinutes": 12,
+    "minEpisodeMinutes": 11,
+    "maxEpisodeMinutes": 13,
+    "totalObservedHours": 0.6,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "exact",
+    "episodeCounts": {
+      "full": 3,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2023-12-25",
+    "latest": "2023-12-26",
+    "latestFeedItem": "2023-12-26",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://sequesteredad.carrd.co/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Low Probability Podcasts",
+    "ownerName": "Low Probability Podcasts",
+    "network": "SEQUESTERED: an audio drama"
+  },
+  "creators": [
+    "Low Probability Podcasts"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://sequesteredad.carrd.co/; https://pinecast.com/feed/sequestered-an-audio-drama; https://podcasts.apple.com/us/podcast/sequestered-an-audio-drama/id1722973840?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://sequesteredad.carrd.co/",
+      "https://pinecast.com/feed/sequestered-an-audio-drama",
+      "https://podcasts.apple.com/us/podcast/sequestered-an-audio-drama/id1722973840?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "TV & Film"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Sequestered is a 3-part paranormal audio drama about a young woman who experiences a haunting just as she's about to begin filming a reality competition show. Transcripts and credits are available at sequesteredad.carrd.co.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 1,
+      "observedIntervals": 1
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2026",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://pinecast.com/feed/sequestered-an-audio-drama",
+        "appleCollectionId": "1722973840",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://sequesteredad.carrd.co/",
+          "fetchedAt": "2026-08-15T21:02:44.074Z",
+          "payloadHash": "cf6b80d5ba6867c335d65ed3f39f96c0ab0e938f52543056faf1fd7f03c2b561"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama",
+          "fetchedAt": "2026-08-15T21:02:43.420Z",
+          "payloadHash": "aebcda1bd32ca7725a89b5df2505a82e6def7a57988d2b61cc2ef879d287284e"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/sequestered-an-audio-drama/id1722973840?uo=4",
+          "fetchedAt": "2026-08-15T21:01:51.537Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/sequestered-an-audio-drama/id1722973840?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sequesteredad.carrd.co/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/sequestered-an-audio-drama/id1722973840?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/sequestered-an-audio-drama/id1722973840?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/sequestered-an-audio-drama/id1722973840?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/sequestered-an-audio-drama/id1722973840?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/sequestered-an-audio-drama/id1722973840?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/sequestered-an-audio-drama/id1722973840?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sequesteredad.carrd.co/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "complete": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.6,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sequesteredad.carrd.co/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.95,
+          "method": "explicit-completion",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.95,
+          "method": "explicit-completion",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/sequestered-an-audio-drama"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T21:02:45.283Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "49b6ecab944e42876c21e5a33c15190283dc98a132df5d6c12ce6b4e64f7f716",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "284e8bce7d945415ab46bd82da6464c75f935942d15008d653461d2be3c31747",
+        "cover": "06ad120283cdecfa9fef6e68a8c7d70c16454ce8f6af60a6385ddd996185276f",
+        "coverAlt": "ce6ae8661232bbd8394a3d0eae064a68dca2407376a23800e193559ca3e1afbb",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
+        "listenLinks": "a27c31b469fa9097e740b54f37cedf000964993dc1c49d742a9453259a456052",
+        "officialLinks": "193a579300f9e5e97252762fbd44ce8b0ca2004492b7164738894882a91ee0a2",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "c251bdf033f3c42827f0e0e4c40dcd2521fd879b912725da1df501def0e15890",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "e1f91b540d15fe2a27760305e464dd0dbe14086e55c04ac125cadcd20f4ede83",
+        "releaseDates": "8ee350ee1209f39460e8ab187c7104d69c17cb97c6c7c38819cd8bebe524e17a",
+        "credits": "96703e988932daf655f5118c9769dea0381e7e09a6956fbedae1bff64ac5a799",
+        "creators": "bf38f214e77a3bec31c6623536440174c57d3f8daca0646609e5ade1522afada",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "5bc51cbb38b7ba76b8e6e4ca4e59195b4058b4d59a4b40902a82fb43d369d66b"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T21:05:45.186Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "low-probability-podcasts",
+  "networkId": "sequestered-an-audio-drama"
+}

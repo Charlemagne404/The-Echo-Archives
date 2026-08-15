@@ -738,24 +738,24 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 738,P2,Once Upon A Time In Vegas,Pendant Audio,57e1a164-9a46-4fec-b7ef-58c205d16438,needs-review,needs-review,source-conflict,2026-08-15 20:01:39
 739,P3,Remarkable Providences,The Whisperforge,3c5fc407-00f5-4eb3-9805-ab55f58bc613,needs-review,needs-review,missing-genre; scope-review; source-conflict,2026-08-15 20:57:01
 740,P3,SCARE FIGHTER 3,,3c5e6292-32a5-4905-a766-1a0850909454,needs-review,needs-review,cover-not-ready; source-conflict,2026-08-15 20:57:04
-741,P3,Scarlet Vault Presents,,,unattempted,,,
-742,P3,Sequestered: An Audio Drama,,,unattempted,,,
+741,P3,Scarlet Vault Presents,,1d1a77f1-dc93-428d-93ef-012f5d09b19f,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 21:02:47
+742,P3,Sequestered: An Audio Drama,,da99f6e4-2379-4873-ac35-0656f78ed53e,published,published,,2026-08-15 21:05:51
 743,P2,Somewhere City,,38b97bd6-3dbd-4d4f-afab-e1583149f90e,published,published,,2026-08-15 20:03:15
-744,P3,The Adventures of the Fox in the Fedora,,,unattempted,,,
+744,P3,The Adventures of the Fox in the Fedora,,21c1abae-4a20-4dea-a28a-e26ed11681cd,needs-review,needs-review,source-conflict,2026-08-15 21:00:49
 745,P2,The Dixie Stenberg and Brassy Battalion Adventure Theater,Pendant Audio / Pendant Productions,d6a45234-4ac3-41ab-a843-550037864113,needs-review,needs-review,source-conflict,2026-08-15 20:03:04
-746,P3,The Elysium Project,,,unattempted,,,
-747,P3,The Gentle Art of Making Enemies,,,unattempted,,,
+746,P3,The Elysium Project,,bda33a25-000b-4ce2-bbb2-e908c4cee8fd,needs-review,needs-review,insufficient-discovery-signals; missing-genre,2026-08-15 21:01:46
+747,P3,The Gentle Art of Making Enemies,,aae8db06-84bc-4478-87fe-be3632721244,needs-review,needs-review,source-conflict,2026-08-15 21:00:45
 748,P2,The Godshead Incidental,,e0fb5555-0473-48a1-990c-566e712fd401,needs-review,needs-review,scope-review; source-conflict,2026-08-15 20:01:48
-749,P3,The Heresies of Radulf Burntwine,,,unattempted,,,
+749,P3,The Heresies of Radulf Burntwine,,72599441-8bc1-4553-8f0a-0aab66798ced,published,published,,2026-08-15 21:05:51
 750,P2,The Lavender Tavern,Faustian Nonsense,22ad3a18-517f-42b3-8c78-f489c2fa24aa,published,published,,2026-08-15 20:03:15
-751,P3,The Lost Sapphire of Lewisville,,,unattempted,,,
+751,P3,The Lost Sapphire of Lewisville,,da19c0f2-2d76-40c1-88ce-0eb535db5834,needs-review,needs-review,scope-review; source-conflict; duplicate-ambiguity,2026-08-15 21:00:51
 752,P2,The Night's End Podcast,Dissonance Media,6da5ec2b-6982-4336-bf1f-3aa500efd2cf,needs-review,needs-review,source-conflict,2026-08-15 20:02:36
-753,P3,The Realm Tree,,,unattempted,,,
-754,P3,Tranthologies,,,unattempted,,,
-755,P3,Wandering with the Dead,,,unattempted,,,
-756,P3,Werewolf the Podcast: A Serial (Killer) Drama,,,unattempted,,,
-757,P3,WQUR: Queer Quarantine Radio,,,unattempted,,,
-758,P3,Wrong Turn At Alpine,,,unattempted,,,
+753,P3,The Realm Tree,,119b34d6-a80f-47e9-ae0d-d1d3045ede81,published,published,,2026-08-15 21:05:51
+754,P3,Tranthologies,,deefc158-1140-4687-9fd4-bec609b9b933,published,published,,2026-08-15 21:05:51
+755,P3,Wandering with the Dead,,385cf4a5-17a4-4e94-91d9-6936a601c621,published,published,,2026-08-15 21:05:51
+756,P3,Werewolf the Podcast: A Serial (Killer) Drama,,04cd3549-fd1e-4ec9-acdd-b93a3776540a,published,published,,2026-08-15 21:05:51
+757,P3,WQUR: Queer Quarantine Radio,,d5c662a6-cec6-4b09-9fc7-c84c0f4fcc1a,needs-review,needs-review,source-conflict,2026-08-15 21:00:49
+758,P3,Wrong Turn At Alpine,,a24976a3-3dbd-41e0-8926-fcc596005b02,published,published,,2026-08-15 21:05:51
 759,P0,The Sojourn,Spacedock,24fcaa41-fe0e-432c-bb12-38114513ed4e,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:31:45
 760,P1,The Failed Cities Monologues,Matt Wallace,db47ad9d-ebcd-485b-b1e9-075d8e126f55,needs-review,needs-review,insufficient-discovery-signals; missing-genre; cover-not-ready,2026-08-15 17:21:25
 761,P1,The Gearheart,Alex White,7b31b2be-9907-41c5-b02c-9501ae787d60,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 17:20:58
@@ -903,23 +903,23 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 903,P2,Witchever Path,,77eda992-ea7c-40d2-a1ee-a43dbe3e73ac,published,published,,2026-08-15 20:18:46
 904,P2,Creation: A Whole New Reality,,99f8f81a-f2a8-467a-90e5-f6feaa018fed,published,published,,2026-08-15 20:18:46
 905,P2,Heartglass,,4293c311-ddc0-4838-9bab-b2a8bcea6a24,published,published,,2026-08-15 20:18:46
-906,P3,Cyber,,,unattempted,,,
-907,P3,FuturePast,,,unattempted,,,
-908,P3,Metra: a Climate Revolution with Songs,,,unattempted,,,
-909,P3,The Pancake Eating Robots,,,unattempted,,,
+906,P3,Cyber,,2b8ac51e-4840-4b41-8eff-f8d2eb0a2dcc,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 21:00:45
+907,P3,FuturePast,,250cc8db-77a7-47db-a1b3-ac0e3c51e11e,published,published,,2026-08-15 21:05:51
+908,P3,Metra: a Climate Revolution with Songs,,000e1df5-33b6-4c68-8170-77a17face8f1,published,published,,2026-08-15 21:05:51
+909,P3,The Pancake Eating Robots,,5b0296e0-2587-4a01-8183-3995a1f00f11,published,published,,2026-08-15 21:05:51
 910,P2,The Concierge,,df2b33a5-44f3-4dd0-b121-e2d4a51a1a2c,needs-review,needs-review,source-conflict,2026-08-15 20:18:35
-911,P3,Ignore City,,,unattempted,,,
+911,P3,Ignore City,,b1aad90c-010c-421d-8660-887de8d1ceb4,needs-review,needs-review,placeholder-description; insufficient-discovery-signals,2026-08-15 21:02:48
 912,P2,Choose the Bear,Broken Arts Entertainment,fed12843-3858-45a3-8185-9bf97d1d1282,published,published,,2026-08-15 20:18:46
-913,P3,Storm Runner - The Ezz Bennil Files,,,unattempted,,,
+913,P3,Storm Runner - The Ezz Bennil Files,,0baad994-8826-48ef-ad21-35ccebc861cd,published,published,,2026-08-15 21:05:51
 914,P2,Dawn of Tomorrow,,597e17a3-594b-4efd-8095-efb05ce84261,published,published,,2026-08-15 20:18:46
-915,P3,Istoria: The Ark,,,unattempted,,,
-916,P3,The Unforeseen Devouring,,,unattempted,,,
-917,P3,A Paladin's Bargain,,,unattempted,,,
-918,P3,Gareth and the Lost Island,,,unattempted,,,
+915,P3,Istoria: The Ark,,e8bb3950-fe7a-47e4-a8d4-e60e70aafc76,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 21:02:50
+916,P3,The Unforeseen Devouring,,eb2210bf-fbc3-4188-93dc-0cff1f9fe3ae,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 21:00:45
+917,P3,A Paladin's Bargain,,9eb93df7-4fea-4c74-92fe-e310f8e99d9b,needs-review,needs-review,scope-review; source-conflict,2026-08-15 21:01:50
+918,P3,Gareth and the Lost Island,,3284f0b0-c669-489b-b135-b53ae6b9c67c,needs-review,needs-review,source-conflict,2026-08-15 21:00:49
 919,P2,Vampire: The Masquerade: Blood Doll,,ae9bbd18-28b0-4c3a-bc17-fc2f0e0f3e5e,needs-review,needs-review,source-conflict,2026-08-15 20:15:37
-920,P3,To Court Death,,,unattempted,,,
+920,P3,To Court Death,,0a103ef3-4320-453e-9b3f-01b1ead3d1c8,published,published,,2026-08-15 21:05:51
 921,P2,Only Human: BOUND,,717ef36c-3759-4246-b7cb-49acabb07221,published,published,,2026-08-15 20:18:46
-922,P3,InkandNeon,,,unattempted,,,
+922,P3,InkandNeon,,aa5dd1f0-ae97-45c7-9cc9-c652add1f35a,published,published,,2026-08-15 21:05:51
 923,P0,Bronzeville,Wayland Productions,1205d867-fd6d-4a89-9794-47535803e98e,duplicate,duplicate,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 16:20:31
 924,P0,Meet Cute Originals,Meet Cute,5bdf9232-0cd0-4934-bedf-fb873490064b,published,published,,2026-08-15 16:05:16
 925,P1,Small Victories,WGC Productions,14957acb-baac-4867-ac30-e426f9232277,published,published,,2026-08-15 17:37:11

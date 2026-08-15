@@ -1,0 +1,748 @@
+{
+  "id": "futurepast",
+  "title": "FuturePast",
+  "subtitle": "Dramatized stories from the golden age of science fiction.",
+  "description": "Adapted stories of Science Fiction from the public domain.",
+  "cover": "images/covers/futurepast.png",
+  "coverAlt": "FuturePast cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/futurepast/id1674382374?uo=4",
+    "website": "https://futurepast.pinecast.co/",
+    "rss": "https://pinecast.com/feed/futurepast",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "FuturePast"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 7 full episodes • 28 min median",
+    "seasons": 1,
+    "episodes": 7,
+    "avgEpisodeMinutes": 28,
+    "medianEpisodeMinutes": 28,
+    "minEpisodeMinutes": 27,
+    "maxEpisodeMinutes": 28,
+    "totalObservedHours": 3.2,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 7,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2023-03-01",
+    "latest": "2023-04-12",
+    "latestFeedItem": "2023-04-12",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://futurepast.pinecast.co/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Various",
+    "ownerName": "Various",
+    "network": "FuturePast"
+  },
+  "creators": [
+    "Various"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://futurepast.pinecast.co/episode/68c4dd8d/behind-the-blue-door; https://futurepast.pinecast.co/episode/564a817d/invasion-of-the-pink-elephants; https://futurepast.pinecast.co/episode/284bba79/holes-around-; https://futurepast.pinecast.co/episode/3b19251d/the-day-that-time-stopped; https://futurepast.pinecast.co/; https://pinecast.com/feed/futurepast; https://podcasts.apple.com/us/podcast/futurepast/id1674382374?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://futurepast.pinecast.co/episode/68c4dd8d/behind-the-blue-door",
+      "https://futurepast.pinecast.co/episode/564a817d/invasion-of-the-pink-elephants",
+      "https://futurepast.pinecast.co/episode/284bba79/holes-around-",
+      "https://futurepast.pinecast.co/episode/3b19251d/the-day-that-time-stopped",
+      "https://futurepast.pinecast.co/",
+      "https://pinecast.com/feed/futurepast",
+      "https://podcasts.apple.com/us/podcast/futurepast/id1674382374?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Science Fiction",
+      "Comedy Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Adapted stories of Science Fiction from the public domain.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 6
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2026",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://pinecast.com/feed/futurepast",
+        "appleCollectionId": "1674382374",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://futurepast.pinecast.co/episode/68c4dd8d/behind-the-blue-door",
+          "fetchedAt": "2026-08-15T21:00:45.713Z",
+          "payloadHash": "f9864527a9067f1ccf14b6317b8c188f67158214b8821c47576718213610fa8c"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://futurepast.pinecast.co/episode/564a817d/invasion-of-the-pink-elephants",
+          "fetchedAt": "2026-08-15T21:00:45.712Z",
+          "payloadHash": "c8dce736563597159c56914e4af16522891d007ad5debb084acb32d9b9c88457"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://futurepast.pinecast.co/episode/284bba79/holes-around-",
+          "fetchedAt": "2026-08-15T21:00:45.711Z",
+          "payloadHash": "71acad85271679aff4de3a773a3b462b4bc11bd483420707b7c878e3af4d70d3"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://futurepast.pinecast.co/episode/3b19251d/the-day-that-time-stopped",
+          "fetchedAt": "2026-08-15T21:00:45.709Z",
+          "payloadHash": "11ce6b59aba7dbc6650fe002c66ae96d80c08fdeae4033eb00ac52add6c9f64b"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://futurepast.pinecast.co/",
+          "fetchedAt": "2026-08-15T21:00:45.705Z",
+          "payloadHash": "908a414573e58b4a25608ed0eff9a95d4f509bf71eb5d01cd422dfb4e5ace6ab"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://pinecast.com/feed/futurepast",
+          "fetchedAt": "2026-08-15T21:00:43.991Z",
+          "payloadHash": "c7abf7d03f315a115cc319fdf4883cf4bebbf67dbe1f23c74120144002c1c253"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/futurepast/id1674382374?uo=4",
+          "fetchedAt": "2026-08-15T21:00:43.768Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/futurepast/id1674382374?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://futurepast.pinecast.co/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/futurepast/id1674382374?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://futurepast.pinecast.co/"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/futurepast/id1674382374?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://futurepast.pinecast.co/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://futurepast.pinecast.co/episode/3b19251d/the-day-that-time-stopped"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://futurepast.pinecast.co/episode/284bba79/holes-around-"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://futurepast.pinecast.co/episode/564a817d/invasion-of-the-pink-elephants"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://futurepast.pinecast.co/episode/68c4dd8d/behind-the-blue-door"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/futurepast/id1674382374?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/futurepast/id1674382374?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/futurepast/id1674382374?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/futurepast/id1674382374?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://futurepast.pinecast.co/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://futurepast.pinecast.co/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://futurepast.pinecast.co/episode/3b19251d/the-day-that-time-stopped"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://futurepast.pinecast.co/episode/284bba79/holes-around-"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://futurepast.pinecast.co/episode/564a817d/invasion-of-the-pink-elephants"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://futurepast.pinecast.co/episode/68c4dd8d/behind-the-blue-door"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.72,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://futurepast.pinecast.co/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://futurepast.pinecast.co/episode/3b19251d/the-day-that-time-stopped"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://futurepast.pinecast.co/episode/284bba79/holes-around-"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://futurepast.pinecast.co/episode/564a817d/invasion-of-the-pink-elephants"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://futurepast.pinecast.co/episode/68c4dd8d/behind-the-blue-door"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/futurepast"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T21:00:46.598Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "a7c82bdec9afa09703ebd3e2f0db35df39bedd23783a7d932226bc85122fc472",
+        "subtitle": "7ad817a2ff13c196b3d245548cf5e62e49c1c845dcc86f45a23e75644debe374",
+        "description": "24d8a178597a29fce343e1ebf018575afbe8dea2acab4ad99b1d23c6087d4bcf",
+        "cover": "97a2cf0e6db5ab612d79fc51769a0daff83fde068a1de4cae11c65c9b15136bf",
+        "coverAlt": "6f254f12cb1eed0ddda54fcac7877175857acfde2c69774418d2542c39a10e5f",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "596f966f3ccf61d502a49535b838751fa07333504da16558035940c87ab0d314",
+        "officialLinks": "c855b69511074aa9d314f74b1694ccd9586675f5a92b952129905eaf66d2d285",
+        "genres": "821180fff3b21544e41b758f314c5a8c5f9ed4f3c3d2e27d1acaf1686d42e588",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "4149cd759309384556c617d0317d94ac36d48c3303ea8196a07b8233c068e69f",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "273a52d219bb51690c1c4a0087248067bab6ce2951a32a3f8974e49a52e47acb",
+        "releaseDates": "825fc952fafba1ca3c3247314e9bb8b6c666edfc6c431dcfca45c89fa5b537a3",
+        "credits": "64a60f2449f3ae3910e9c6ce67ff1f758cc7d5375a56a8b6ac364331646ff3e5",
+        "creators": "7412835dd0f06ffd8b8dd42687dfbaaf1d733db6faea2a8b9a417a1ca2e4396a",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "47f3fadd51f2267f94e0950fa772422e377e49ab830071993b82c15bd9218310"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T21:05:45.222Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "various",
+  "networkId": "futurepast"
+}
