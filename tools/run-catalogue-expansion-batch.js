@@ -48,25 +48,26 @@ function rowsFromCsv(filePath) {
 async function main() {
   const batchNumber = Number(process.argv[2] || 1);
   const batchSize = Number(process.argv[3] || 25);
-  if (!Number.isInteger(batchNumber) || batchNumber < 1 || !Number.isInteger(batchSize) || batchSize < 1) {
-    throw new Error("Usage: node tools/run-catalogue-expansion-batch.js <batch-number> [batch-size]");
+  const priority = String(process.argv[4] || "P1").toUpperCase();
+  if (!Number.isInteger(batchNumber) || batchNumber < 1 || !Number.isInteger(batchSize) || batchSize < 1 || !["P0", "P1"].includes(priority)) {
+    throw new Error("Usage: node tools/run-catalogue-expansion-batch.js <batch-number> [batch-size] [P0|P1]");
   }
 
   process.chdir(backendRoot);
   const { createImportContext } = require("../backend/scripts/import-helpers");
   const progressRows = rowsFromCsv(progressPath);
   const targets = progressRows
-    .filter((row) => row.priority === "P1" && row.current_outcome === "unattempted")
+    .filter((row) => row.priority === priority && row.current_outcome === "unattempted")
     .slice(0, batchSize);
   if (targets.length === 0) {
     console.log(JSON.stringify({ batchNumber, targets: [], message: "No unattempted P1 rows remain." }, null, 2));
     return;
   }
 
-  const actor = `catalogue-expansion-p1-batch-${String(batchNumber).padStart(3, "0")}`;
+  const actor = `catalogue-expansion-${priority.toLowerCase()}-batch-${String(batchNumber).padStart(3, "0")}`;
   const searchResults = targets.map((row) => ({
     sourceType: "backlog",
-    sourceKey: `catalogue-expansion:p1:${row.backlog_row}`,
+      sourceKey: `catalogue-expansion:${priority.toLowerCase()}:${row.backlog_row}`,
     sourceUrl: "",
     title: row.title,
     creatorName: row.creator,
@@ -103,6 +104,7 @@ async function main() {
     }));
     console.log(JSON.stringify({
       batchNumber,
+      priority,
       actor,
       targets: targets.map((row) => ({ row: row.backlog_row, title: row.title, creator: row.creator })),
       run: { id: run.id, status: run.status, progress: run.progress },
