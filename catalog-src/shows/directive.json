@@ -1,0 +1,688 @@
+{
+  "id": "directive",
+  "title": "Directive",
+  "subtitle": "",
+  "description": "A Sci Fi series about a man stuck alone for 20 years, taking care of sleeping passengers on a ship to colonize a new planet. Created by David Magadan Part 2 available now",
+  "cover": "images/covers/directive.png",
+  "coverAlt": "Directive cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/0g1pr3KXdIcboSr97j2cZr?si=70a3f680a0094b67",
+    "apple": "https://podcasts.apple.com/us/podcast/directive/id1441355969",
+    "website": "https://www.directivepodcast.com/",
+    "rss": "https://rss.libsyn.com/shows/138566/destinations/863732.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Directive"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 12 full episodes • 15 min median",
+    "seasons": 2,
+    "episodes": 12,
+    "avgEpisodeMinutes": 16,
+    "medianEpisodeMinutes": 15,
+    "minEpisodeMinutes": 11,
+    "maxEpisodeMinutes": 25,
+    "totalObservedHours": 3.2,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 12,
+      "bonus": 2,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2018-11-05",
+    "latest": "2020-01-18",
+    "latestFeedItem": "2020-01-18",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.directivepodcast.com/",
+    "patreon": "https://www.patreon.com/directivepod",
+    "koFi": "https://ko-fi.com/davidmagadan",
+    "discord": "",
+    "youtube": "",
+    "social": "https://twitter.com/DavidMagadan33?s=20",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Directive",
+    "ownerName": "David Magadan",
+    "network": "Directive"
+  },
+  "creators": [
+    "Directive"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.directivepodcast.com/; https://rss.libsyn.com/shows/138566/destinations/863732.xml; https://podcasts.apple.com/us/podcast/directive/id1441355969?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.directivepodcast.com/",
+      "https://rss.libsyn.com/shows/138566/destinations/863732.xml",
+      "https://podcasts.apple.com/us/podcast/directive/id1441355969?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "A Sci Fi series about a man stuck alone for 20 years, taking care of sleeping passengers on a ship to colonize a new planet. Created by David Magadan Part 2 available now",
+    "socialUrls": [
+      "https://twitter.com/DavidMagadan33?s=20",
+      "https://twitter.com/glokenspiel?s=20",
+      "https://twitter.com/ruthmestel?s=20",
+      "https://twitter.com/LedburyLark?s=20",
+      "https://twitter.com/melissankamel?s=20",
+      "https://twitter.com/DavidSDear?s=20",
+      "https://twitter.com/FA1KFA1KFA1K?s=20",
+      "https://twitter.com/DirectivePod",
+      "https://www.facebook.com/DirectivePod"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "unknown",
+      "medianDays": null,
+      "observedIntervals": 0
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml",
+        "appleCollectionId": "1441355969",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.directivepodcast.com/",
+          "fetchedAt": "2026-08-15T19:28:53.399Z",
+          "payloadHash": "68805be290585dc93a55afa5467e9024ea27d61192afdba7396b8bbcc7370204"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml",
+          "fetchedAt": "2026-08-15T19:28:52.861Z",
+          "payloadHash": "d28bba18cdbe6b7eb32d6546421e7d68e2a633e2f083c5df82e58c74928cdefa"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/directive/id1441355969?uo=4",
+          "fetchedAt": "2026-08-15T19:28:08.256Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/directive/id1441355969?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.directivepodcast.com/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/directive/id1441355969?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/directive/id1441355969?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.directivepodcast.com/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/directive/id1441355969?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/directive/id1441355969?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.directivepodcast.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.directivepodcast.com/"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.6,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.directivepodcast.com/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.directivepodcast.com/"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.directivepodcast.com/"
+            }
+          ]
+        },
+        "koFiUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.directivepodcast.com/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.directivepodcast.com/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/138566/destinations/863732.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:28:53.617Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "e335419df49278c5d9d0b829593dc7057f0327e6e27ccd85b2476800cd1dbbc3",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "28c727c8efac883002d7abc8132104f8315ff3f5510924241f1d6dac2def8ede",
+        "cover": "eecaadf8bea3a58c00b7414f42bac7b68ee21f788e71164d095c57a5483c05cc",
+        "coverAlt": "c91dd4c286bbeeb79f40b74af4e156530a87419c5b25136990ff65b7857f8301",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "3548311b80a5b9da97d7621efff244c37ea0774d01d8e4780875b611bdf8a306",
+        "officialLinks": "f5345820ca814c13444dde599a3225d0f8042b241f8d372f3de6367d987fc34a",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "f00d93d407b1dba86452d25d2bc41e658e7b3769c46b9de6b0c635672b080379",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "a1b56b4c252d86588e23241c3dbdb11762867ee82afc06b0de26b0f83d935d9d",
+        "releaseDates": "9a03ff609969219701440241b50b9284bd9ac7a1260b791c7598afe67f9c492c",
+        "credits": "98540bdb6ac7097cdc63ab5a4246da3e5159b3f4de5997f56f9ca154f64f618d",
+        "creators": "f00d93d407b1dba86452d25d2bc41e658e7b3769c46b9de6b0c635672b080379",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "eee61a21edbb503a834413304000fbf20d97b783ed76e3efe31bc7cb52d7a4ed"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:29:38.103Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "directive",
+  "networkId": "directive"
+}

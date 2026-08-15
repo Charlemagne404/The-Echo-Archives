@@ -1,0 +1,704 @@
+{
+  "id": "the-stench-of-adventure",
+  "title": "The Stench of Adventure",
+  "subtitle": "",
+  "description": "Stella Thomas had spent her whole life trying (and failing) to be a good daughter, friend, and partner. Then one day none of that matters because it turns out that her entire world was a simulation. Now Stella is thrust into a cold and uncaring universe, armed only with memories of a planet Earth that never existed. Just when it seems there is nothing in the world for her, Stella is whisked away by a fast-talking totally-not-con-woman named Baz, who promises her a life of adventure exploring the galaxy. Well, she wasn’t lying about the adventure, but it’s not entirely what Stella expected.",
+  "cover": "images/covers/the-stench-of-adventure.jpg",
+  "coverAlt": "The Stench of Adventure cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/5JxiFeCSHSKyzq5IVcS6DR?si=da7f046ca336400a",
+    "apple": "https://podcasts.apple.com/us/podcast/the-stench-of-adventure/id1555865210?uo=4",
+    "website": "https://strongbranchproductions.wordpress.com/",
+    "rss": "https://anchor.fm/s/486de49c/podcast/rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Stench of Adventure"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "4 seasons observed • at least 52 full episodes • 21 min median",
+    "seasons": 4,
+    "episodes": 52,
+    "avgEpisodeMinutes": 19,
+    "medianEpisodeMinutes": 21,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 49,
+    "totalObservedHours": 16.3,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 52,
+      "bonus": 19,
+      "trailer": 10
+    }
+  },
+  "releaseDates": {
+    "first": "2021-04-15",
+    "latest": "2025-09-18",
+    "latestFeedItem": "2025-11-13",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://strongbranchproductions.wordpress.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "https://www.facebook.com/StrongBranchPro/",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Strong Branch Productions",
+    "ownerName": "Strong Branch Productions",
+    "network": "Strong Branch Productions"
+  },
+  "creators": [
+    "Strong Branch Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://strongbranchproductions.wordpress.com/strong-branch-press/; https://strongbranchproductions.wordpress.com/podcasts/scripts-and-transcripts/; https://strongbranchproductions.wordpress.com/; https://anchor.fm/s/486de49c/podcast/rss; https://podcasts.apple.com/us/podcast/the-stench-of-adventure/id1555865210?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://strongbranchproductions.wordpress.com/strong-branch-press/",
+      "https://strongbranchproductions.wordpress.com/podcasts/scripts-and-transcripts/",
+      "https://strongbranchproductions.wordpress.com/",
+      "https://anchor.fm/s/486de49c/podcast/rss",
+      "https://podcasts.apple.com/us/podcast/the-stench-of-adventure/id1555865210?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Stella Thomas had spent her whole life trying (and failing) to be a good daughter, friend, and partner. Then one day none of that matters because it turns out that her entire world was a simulation. Now Stella is thrust into a cold and uncaring universe, armed only with memories of a planet Earth that never existed. Just when it seems there is nothing in the world for her, Stella is whisked away by a fast-talking totally-not-con-woman named Baz, who promises her a life of adventure exploring the galaxy. Well, she wasn’t lying about the adventure, but it’s not entirely what Stella expected.",
+    "socialUrls": [
+      "https://www.facebook.com/StrongBranchPro/",
+      "https://www.instagram.com/strongbranchpro/"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Strong Branch Productions",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://anchor.fm/s/486de49c/podcast/rss",
+        "appleCollectionId": "1555865210",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://strongbranchproductions.wordpress.com/feed/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://strongbranchproductions.wordpress.com/strong-branch-press/",
+          "fetchedAt": "2026-08-15T19:28:54.404Z",
+          "payloadHash": "e1584464ca32ab5eb6052a893ead12480130fc6d02885e91255360f5a874c2fe"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://strongbranchproductions.wordpress.com/podcasts/scripts-and-transcripts/",
+          "fetchedAt": "2026-08-15T19:28:54.398Z",
+          "payloadHash": "164d951e08324430159528a078c904f309163938a572f6c0e84cbe1a278a7f13"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://strongbranchproductions.wordpress.com/",
+          "fetchedAt": "2026-08-15T19:28:54.392Z",
+          "payloadHash": "28c2445da6e99b67dc05cda5678ec314f75d536ff9ce6485d1c7e45098933473"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss",
+          "fetchedAt": "2026-08-15T19:28:52.444Z",
+          "payloadHash": "40a59f62eb0ca22a3ca8504016d3aa82bb4d92e5d2f2249abd7c59c046eadac6"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-stench-of-adventure/id1555865210?uo=4",
+          "fetchedAt": "2026-08-15T19:28:08.479Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-stench-of-adventure/id1555865210?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-stench-of-adventure/id1555865210?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-stench-of-adventure/id1555865210?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-stench-of-adventure/id1555865210?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-stench-of-adventure/id1555865210?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-stench-of-adventure/id1555865210?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://strongbranchproductions.wordpress.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://strongbranchproductions.wordpress.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://strongbranchproductions.wordpress.com/podcasts/scripts-and-transcripts/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://strongbranchproductions.wordpress.com/strong-branch-press/"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.66,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://strongbranchproductions.wordpress.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://strongbranchproductions.wordpress.com/podcasts/scripts-and-transcripts/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://strongbranchproductions.wordpress.com/strong-branch-press/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://strongbranchproductions.wordpress.com/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://strongbranchproductions.wordpress.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://strongbranchproductions.wordpress.com/podcasts/scripts-and-transcripts/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://strongbranchproductions.wordpress.com/strong-branch-press/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/486de49c/podcast/rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:28:55.733Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "c2d93213c0f7d95954b63b6d3da8a6fbc85f233055656c0d4411498b736bca24",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "621f4dcf49c3f7bab24e4ec8765959968da5ef016fbb07ac7ba365a797397925",
+        "cover": "ad9860fec6119520b228568cae786ba0d05e7416bad294f42b99cabc9dc6a975",
+        "coverAlt": "54cac9efebd1d42d95a5a53c38c4a4d8482c4bd42d8387dd976a9efb489d412d",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "5d8d62589667424ddfc345bedf37592672c99ac18d27f16c0a4678431a3cd54b",
+        "officialLinks": "95314fab83661a1f8aa21bbb3660716d9b020c1c0536c12d2ffde047a40c003e",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "3cc23c1e1494389f400c6175506366eb158218225b27f9ab836c1ca027880e19",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "e4e2d923ef92a5616cba1f6ec491398fabcaa09c5f60950d8709b520a79fb532",
+        "releaseDates": "4478daff3c739f4786a67b05520f7a8e72dd483c05579a9c5006db49ca988f61",
+        "credits": "30ced2a73bb28ceb0345c8755d8089dc459c6174660f69692cbc9c764ac10fa7",
+        "creators": "96765abc890ce22d384d35c7d5100e2ca369ebe3dee5bc1dd2c127896e1531fc",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "fd2a50f0da140121da524ab97815811204dce9f8b4cfec670aceac1c1b80e7f3"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:29:38.117Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "strong-branch-productions",
+  "networkId": "strong-branch-productions"
+}

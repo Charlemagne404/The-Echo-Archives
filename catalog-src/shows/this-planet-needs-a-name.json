@@ -1,0 +1,873 @@
+{
+  "id": "this-planet-needs-a-name",
+  "title": "This Planet Needs a Name",
+  "subtitle": "",
+  "description": "Imagine a handful of scientists and engineers setting out to terraform a planet - a world - for the frozen people they've got in tow. Just a few people, carefully chosen, who will live out their lives building something they'll never see. That's us. We're building a future. A science fiction audio drama suitable for our times.",
+  "cover": "images/covers/this-planet-needs-a-name.jpg",
+  "coverAlt": "This Planet Needs a Name cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/2Ype6UJWmnoFGWQIABbQWS",
+    "apple": "https://podcasts.apple.com/us/podcast/this-planet-needs-a-name/id1487283992",
+    "website": "https://needsaname.buzzsprout.com/",
+    "rss": "https://rss.buzzsprout.com/695134.rss",
+    "youtubeMusic": "",
+    "amazonMusic": "https://music.amazon.com/podcasts/a04293d8-a4d4-4171-8281-2ca4fdd34aab",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "This Planet Needs a Name"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 10 full episodes • 45 min median",
+    "seasons": 1,
+    "episodes": 10,
+    "avgEpisodeMinutes": 37,
+    "medianEpisodeMinutes": 45,
+    "minEpisodeMinutes": 2,
+    "maxEpisodeMinutes": 61,
+    "totalObservedHours": 6.2,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 10,
+      "bonus": 12,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2019-12-08",
+    "latest": "2021-11-28",
+    "latestFeedItem": "2021-11-28",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://needsaname.buzzsprout.com/",
+    "patreon": "http://patreon.com/needsaname",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "http://twitter.com/needsanamepod",
+    "funding": "http://patreon.com/needsaname"
+  },
+  "credits": {
+    "creatorName": "Evan Tess Murray & Trace Callahan",
+    "ownerName": "Evan Tess Murray & Trace Callahan",
+    "network": "Buzzsprout"
+  },
+  "creators": [
+    "Evan Tess Murray & Trace Callahan"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://needsaname.buzzsprout.com/695134/episodes/2284679-1-00-prologue-the-nameless-crew?t=0; https://needsaname.buzzsprout.com/695134/episodes?search=true; https://needsaname.buzzsprout.com/695134/about; https://needsaname.buzzsprout.com/695134/episodes; https://needsaname.buzzsprout.com/; https://rss.buzzsprout.com/695134.rss; https://podcasts.apple.com/us/podcast/this-planet-needs-a-name/id1487283992?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "1 observed episodes",
+    "captions": "unknown",
+    "transcriptCoverage": 0.043,
+    "transcriptFormats": [
+      "text/html"
+    ],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://needsaname.buzzsprout.com/695134/episodes/2284679-1-00-prologue-the-nameless-crew?t=0",
+      "https://needsaname.buzzsprout.com/695134/episodes?search=true",
+      "https://needsaname.buzzsprout.com/695134/about",
+      "https://needsaname.buzzsprout.com/695134/episodes",
+      "https://needsaname.buzzsprout.com/",
+      "https://rss.buzzsprout.com/695134.rss",
+      "https://podcasts.apple.com/us/podcast/this-planet-needs-a-name/id1487283992?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [
+      "science fiction",
+      "planet",
+      "hopepunk",
+      "optimism",
+      "terraform",
+      "space",
+      "space opera"
+    ],
+    "sourceTags": [],
+    "importOfficialSummary": "Imagine a handful of scientists and engineers setting out to terraform a planet - a world - for the frozen people they've got in tow. Just a few people, carefully chosen, who will live out their lives building something they'll never see. That's us. We're building a future. A science fiction audio drama suitable for our times.",
+    "socialUrls": [
+      "http://twitter.com/needsanamepod"
+    ],
+    "funding": [
+      {
+        "url": "http://patreon.com/needsaname",
+        "label": "Support this Podcast"
+      }
+    ],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 34,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2026 This Planet Needs a Name",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "8b5c9f6e-f1d0-504f-81ec-8226fef3a696",
+        "rssUrl": "https://rss.buzzsprout.com/695134.rss",
+        "appleCollectionId": "1487283992",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://feeds.buzzsprout.com/695134.rss"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes/2284679-1-00-prologue-the-nameless-crew?t=0",
+          "fetchedAt": "2026-08-15T19:28:03.037Z",
+          "payloadHash": "cd923fdebf82ef27057f0fb67d133c4c0d38d9ee09e40b806480f072a045a1e3"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes?search=true",
+          "fetchedAt": "2026-08-15T19:28:03.034Z",
+          "payloadHash": "537b7813e156b3c38e61aea8911ba4dce7debd6677eeae114109845b602058c6"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://needsaname.buzzsprout.com/695134/about",
+          "fetchedAt": "2026-08-15T19:28:03.033Z",
+          "payloadHash": "41cd9c2a2d01adc6bb8d71083b82173fb2fd886292bc42747600d9e41de317d1"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes",
+          "fetchedAt": "2026-08-15T19:28:03.030Z",
+          "payloadHash": "9e12cb432a28650f63385eb473c10655366d5c432be82824362ba8f8f6c3e46f"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://needsaname.buzzsprout.com/",
+          "fetchedAt": "2026-08-15T19:28:03.028Z",
+          "payloadHash": "c4689ebb16d9cde52b67bbd141308262dc2f5c25c95ddc72877ff29de4c57683"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.buzzsprout.com/695134.rss",
+          "fetchedAt": "2026-08-15T19:28:01.696Z",
+          "payloadHash": "fdbc863d3a905d6006eba74d98cc97998d74b2780b1eeccc54022b18d4f25830"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/this-planet-needs-a-name/id1487283992?uo=4",
+          "fetchedAt": "2026-08-15T19:28:01.579Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/this-planet-needs-a-name/id1487283992?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes?search=true"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/this-planet-needs-a-name/id1487283992?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/this-planet-needs-a-name/id1487283992?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes?search=true"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes/2284679-1-00-prologue-the-nameless-crew?t=0"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/this-planet-needs-a-name/id1487283992?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/this-planet-needs-a-name/id1487283992?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "keywords": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "funding": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "supportUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.72,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes?search=true"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes/2284679-1-00-prologue-the-nameless-crew?t=0"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes?search=true"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes/2284679-1-00-prologue-the-nameless-crew?t=0"
+            }
+          ]
+        },
+        "amazonMusicUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes?search=true"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes/2284679-1-00-prologue-the-nameless-crew?t=0"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes?search=true"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes/2284679-1-00-prologue-the-nameless-crew?t=0"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://needsaname.buzzsprout.com/695134/episodes?search=true"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/695134.rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:28:03.570Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "21ae41d18dd444e1126ac36ce34a908c83a8aee514afa0332ada00c1d3aef581",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "9030abdb6c0e1537bbd038accbfa17be9918d6ab49a430ae713916d64d7fd662",
+        "cover": "5363822f8f7240c515f50e43f661b78f1712921a11c67d697a4cc6fb709fb49e",
+        "coverAlt": "962b6709bd3d71622e2921c43cadc4367aa92b5ab568e44e8552e00be461ec7c",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "4a1f3da65bb282af3ef6f551916b781480a06549e30a27012c9669e208186272",
+        "officialLinks": "1c1fac6432734770d1eb5251bffd7528e1789655595dc0b646fc463a085817e4",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "ccbe5b56b610c96316d2c3ae351f661b432c8309b57c58e88c494709419c72d9",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "d777eee01fea5b9e8235836b23fdad7044fad4253903454155a6f6e014cca73d",
+        "releaseDates": "80111aa6d21548303842038c05e4c6f2604a2dacd22a8bc44bf04336aa15be08",
+        "credits": "25f5a92bf17f9a420926f067b0d4c9019d1355ba0370f5dd71bb9e70c8d51fe7",
+        "creators": "58ab577b77181db79f083a02b68263d78dde0d1be0ebf08ae3169e9eb20efb6d",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "c3d4eb3d40aff76ca8505b0464f79507d0cae89d61580bb5564c48256f5c1118",
+        "verification": "eefae16bbe2f3c43bd6b2c37931641bc78b79eb67575882511e2940b499299ff"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:29:38.105Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "evan-tess-murray-trace-callahan",
+  "networkId": "buzzsprout"
+}

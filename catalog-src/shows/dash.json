@@ -1,0 +1,635 @@
+{
+  "id": "dash",
+  "title": "DASH",
+  "subtitle": "Openly gay detective investigates cases both surprising and supernatural in 1940, LA.",
+  "description": "Ripped from the pages of the hit indie comic book, this audio drama is a reimagined queer take on a classic genre that’s a blend of noir, horror, comedy, and mystery. 1940, Los Angeles. Openly gay private eye Dash Malone investigates strange and mysterious cases that have surprising links to his sordid past, his tumultuous love life, and an ancient power not seen in centuries. Can he conquer the monsters of the past to stop a terrifying future from occurring? “A love letter, a critique, and a kick in the ass to the modern moment long overdue.” - Comic book writer Steve Orlando. Dash created by Dave Ebersole and Delia Gable and produced by Lightbooth Blackout ( https://lightboothblackout.com/ ). Cover art by Vinnie Rico.",
+  "cover": "images/covers/dash.jpg",
+  "coverAlt": "DASH cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/dash/id1572907016?uo=4",
+    "website": "https://redcircle.com/shows/dash",
+    "rss": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "DASH"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 45 full episodes • 18 min median",
+    "seasons": 2,
+    "episodes": 45,
+    "avgEpisodeMinutes": 19,
+    "medianEpisodeMinutes": 18,
+    "minEpisodeMinutes": 4,
+    "maxEpisodeMinutes": 43,
+    "totalObservedHours": 14.1,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 45,
+      "bonus": 7,
+      "trailer": 3
+    }
+  },
+  "releaseDates": {
+    "first": "2021-06-22",
+    "latest": "2025-12-23",
+    "latestFeedItem": "2025-12-23",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://redcircle.com/shows/dash",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Lightbooth Blackout",
+    "ownerName": "Lightbooth Blackout"
+  },
+  "creators": [
+    "Lightbooth Blackout"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8; https://podcasts.apple.com/us/podcast/dash/id1572907016?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "1 observed episodes",
+    "captions": "unknown",
+    "transcriptCoverage": 0.018,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8",
+      "https://podcasts.apple.com/us/podcast/dash/id1572907016?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Ripped from the pages of the hit indie comic book, this audio drama is a reimagined queer take on a classic genre that’s a blend of noir, horror, comedy, and mystery. 1940, Los Angeles. Openly gay private eye Dash Malone investigates strange and mysterious cases that have surprising links to his sordid past, his tumultuous love life, and an ancient power not seen in centuries. Can he conquer the monsters of the past to stop a terrifying future from occurring? “A love letter, a critique, and a kick in the ass to the modern moment long overdue.” - Comic book writer Steve Orlando. Dash created by Dave Ebersole and Delia Gable and produced by Lightbooth Blackout ( https://lightboothblackout.com/ ). Cover art by Vinnie Rico.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "All rights reserved.",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "320eb1b9-68a5-476d-8bb7-d729e65810f8",
+        "rssUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8",
+        "appleCollectionId": "1572907016",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8",
+          "fetchedAt": "2026-08-15T19:27:53.526Z",
+          "payloadHash": "3e81d919f210fcd8b5fb7efe0bbee235e7151d997d6e2cd5183b9665c20b390a"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/dash/id1572907016?uo=4",
+          "fetchedAt": "2026-08-15T19:27:53.397Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dash/id1572907016?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dash/id1572907016?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dash/id1572907016?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dash/id1572907016?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dash/id1572907016?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dash/id1572907016?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/320eb1b9-68a5-476d-8bb7-d729e65810f8"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:27:53.906Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "ac06cbda9789af5e354c6fb348362b60d55e89e5e858c291458d4e3007e2c980",
+        "subtitle": "dfd236f5b6339966a1f733eb43b303e3e62a0ec997869bdcdcec526ac744bda2",
+        "description": "d3502344de7ce34603e3bf114cf70f78eda041993bbf9834c5991b07d51b15cf",
+        "cover": "6dd39ec144c05624f2578f1102690987c572c4e005356bf1fc0fee20096345f9",
+        "coverAlt": "9009964442474a53ecda6c9b87d6909cf2a74748927a3ca797222a4a002fc996",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "6caaef348f9b25190c01430611d03108ba0586efd9fbd7ff08cc2b618b6493a8",
+        "officialLinks": "6cdecc412df97ba08f103e36bc0189c4d79afd5c85143593c73f6dd2a4c6dff1",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "ef68cf5dc9d11620e26de100cd404149f93da52af3c06fd17484bd425cf00138",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "2ce0ed43a47dfba7e827985855c89d8b5d1b9db169239e642ab5d689ba995bee",
+        "releaseDates": "5b822d6cad10cbe2ee5f7737ef311f0522a3086d6b41ea9f95d3d0fe91d9b961",
+        "credits": "03cbdd2c30e18a9bb3bd936ca7ad5e69b128073252a70a7af3cc81524cac9666",
+        "creators": "fbc15b25fab8e589347443094a423231c4ac9a29a86955f9c921b22dfb2f3ebd",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "ce7e3db96de414c347deb4ecf8e9990894f86cff742e01aab7f0f349b2e4939c",
+        "verification": "df29c41a2a4ef4f4338a2f0b8b6e056e993f4adbcf018f818a0802f9a346fdc9"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:29:38.111Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "lightbooth-blackout"
+}

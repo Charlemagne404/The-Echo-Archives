@@ -1,0 +1,727 @@
+{
+  "id": "electromancy",
+  "title": "Electromancy",
+  "subtitle": "",
+  "description": "Electromancy is a new audio fiction fantasy adventure podcast, which follows the story of Jenna, a teenage lightning mage (or electromancer) who, after hiding her powers for years, is finally discovered and forced to attend the Royal Institute for the Study of Sorcery. There she will find allies, enemies, mysteries, monsters, and intrigue. And you thought your high school was bad.",
+  "cover": "images/covers/electromancy.jpg",
+  "coverAlt": "Electromancy cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/electromancy/id1573591656?uo=4",
+    "website": "https://www.electromancypod.com/",
+    "rss": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Electromancy"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 22 full episodes • 29 min median",
+    "seasons": 2,
+    "episodes": 22,
+    "avgEpisodeMinutes": 26,
+    "medianEpisodeMinutes": 29,
+    "minEpisodeMinutes": 2,
+    "maxEpisodeMinutes": 34,
+    "totalObservedHours": 9.5,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 22,
+      "bonus": 7,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2021-06-11",
+    "latest": "2023-11-22",
+    "latestFeedItem": "2025-10-11",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.electromancypod.com/",
+    "patreon": "",
+    "koFi": "https://ko-fi.com/electromancypod",
+    "discord": "",
+    "youtube": "",
+    "social": "https://www.instagram.com/squarespace/",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Nathan Comstock",
+    "ownerName": "Nathan Comstock",
+    "network": "Electromancy"
+  },
+  "creators": [
+    "Nathan Comstock"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.electromancypod.com/cast; https://www.electromancypod.com/transcripts; https://www.electromancypod.com/; https://rss.libsyn.com/shows/351989/destinations/2876159.xml; https://podcasts.apple.com/us/podcast/electromancy/id1573591656?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.electromancypod.com/cast",
+      "https://www.electromancypod.com/transcripts",
+      "https://www.electromancypod.com/",
+      "https://rss.libsyn.com/shows/351989/destinations/2876159.xml",
+      "https://podcasts.apple.com/us/podcast/electromancy/id1573591656?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Electromancy is a new audio fiction fantasy adventure podcast, which follows the story of Jenna, a teenage lightning mage (or electromancer) who, after hiding her powers for years, is finally discovered and forced to attend the Royal Institute for the Study of Sorcery. There she will find allies, enemies, mysteries, monsters, and intrigue. And you thought your high school was bad.",
+    "socialUrls": [
+      "https://www.instagram.com/squarespace/",
+      "https://twitter.com/squarespace",
+      "https://twitter.com/electromancypod"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2021 Nathan Comstock",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml",
+        "appleCollectionId": "1573591656",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://www.electromancypod.com/transcripts?format=rss"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.electromancypod.com/cast",
+          "fetchedAt": "2026-08-15T19:28:01.953Z",
+          "payloadHash": "9946459949d960ad9b7c28bc283b02f46c7e798880eac8075a812b39615b3108"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.electromancypod.com/transcripts",
+          "fetchedAt": "2026-08-15T19:28:01.947Z",
+          "payloadHash": "da87dded09d03911192a30dd0b6fa9bc547cacc4839c0d4f36f57d06def368ab"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.electromancypod.com/",
+          "fetchedAt": "2026-08-15T19:28:01.922Z",
+          "payloadHash": "c8fef6dc11ef191b96920f43c1e363431195c5e03c4317d5e5d7fb209fe36ce2"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml",
+          "fetchedAt": "2026-08-15T19:28:00.118Z",
+          "payloadHash": "f5213bd6061bd2f26e01a1c617b8a77597062503ac5bd54e4a8baddb6bde701e"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/electromancy/id1573591656?uo=4",
+          "fetchedAt": "2026-08-15T19:27:59.575Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/electromancy/id1573591656?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.electromancypod.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.electromancypod.com/transcripts"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.electromancypod.com/cast"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/electromancy/id1573591656?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/electromancy/id1573591656?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/electromancy/id1573591656?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/electromancy/id1573591656?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/electromancy/id1573591656?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.electromancypod.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.electromancypod.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.electromancypod.com/transcripts"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.electromancypod.com/cast"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.electromancypod.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.electromancypod.com/transcripts"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.electromancypod.com/cast"
+            }
+          ]
+        },
+        "koFiUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.electromancypod.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.electromancypod.com/transcripts"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.electromancypod.com/cast"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.electromancypod.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.electromancypod.com/transcripts"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.electromancypod.com/cast"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/351989/destinations/2876159.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:28:02.272Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "bc21e5ee66ab16542b2241e8332303e80f572b6a0cdf886ddb7ac1021442c3aa",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "23b158a1206de6aae7a4f302c66617902e22c562c517ff62ea66ef17082f585a",
+        "cover": "6a5c21abca43188abaee3afa25aa02bada3bd9f4c5dca642acc21575323dee19",
+        "coverAlt": "511ee4e6579f458cb3703426e044163a9d5dc36630b6067643bd60ea47de1f1e",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "8892ae9c12e5d5be5c6274dfb1f6bd4341f389090567ad1c4e7a2366aa844be1",
+        "officialLinks": "52c51e6a13f76a30458348797b065cf9770bbe4f22fd3659ac684dfd325e65e8",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "b2088173cdf5188e9f5bf33e4333c805bb261584fbec987c2361968d068a3ff1",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "71961cf50c6a1db467f2579d810e35c0b94695f9618b30737a1fb98a7111343e",
+        "releaseDates": "49d3ccad3d866bc080982b6f2432e8d70f60068d6a8f863d6d0df2cb331469a8",
+        "credits": "051f91d1f40f6528f72eceb777f4c46e4ef7d239053dbd9e533f645d651d6643",
+        "creators": "1e39091f5f784b980df73f85ca52c240b38b3227e9c46a6f02010ed5cc3b4c71",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "4fb76ea1577c7291f252ae80460730ea159b8891f08b821ad72bd2ef272ffff6"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:29:38.121Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "nathan-comstock",
+  "networkId": "electromancy"
+}
