@@ -1,0 +1,633 @@
+{
+  "id": "what-happened-in-skinner",
+  "title": "What Happened in Skinner",
+  "subtitle": "",
+  "description": "Winner of the 2025 Ambie® for Best Indie Podcast, What Happened in Skinner traces a viral Internet mystery to the remote island of Skinner, Oregon– Where a series of disappearances quickly unravels into a conspiracy more than a century in the making...",
+  "cover": "images/covers/what-happened-in-skinner.jpg",
+  "coverAlt": "What Happened in Skinner cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/what-happened-in-skinner/id1594279255?uo=4",
+    "website": "https://redcircle.com/shows/what-happened-in-skinner",
+    "rss": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "What Happened in Skinner"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [
+    "English"
+  ],
+  "length": {
+    "label": "2 seasons observed • at least 27 full episodes • 31 min median",
+    "seasons": 2,
+    "episodes": 27,
+    "avgEpisodeMinutes": 33,
+    "medianEpisodeMinutes": 31,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 66,
+    "totalObservedHours": 15,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 27,
+      "bonus": 6,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2021-11-09",
+    "latest": "2025-08-05",
+    "latestFeedItem": "2025-11-06",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://redcircle.com/shows/what-happened-in-skinner",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Mazama Entertainment",
+    "ownerName": "Mazama Entertainment"
+  },
+  "creators": [
+    "Mazama Entertainment"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720; https://podcasts.apple.com/us/podcast/what-happened-in-skinner/id1594279255?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "2 observed episodes",
+    "captions": "available in structured transcript data",
+    "transcriptCoverage": 0.059,
+    "transcriptFormats": [
+      "text/vtt"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ]
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720",
+      "https://podcasts.apple.com/us/podcast/what-happened-in-skinner/id1594279255?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Winner of the 2025 Ambie® for Best Indie Podcast, What Happened in Skinner traces a viral Internet mystery to the remote island of Skinner, Oregon– Where a series of disappearances quickly unravels into a conspiracy more than a century in the making...",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 25,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "©2025 Mazama Entertainment. All rights reserved.",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "ffc9cb95-6db5-4722-b4ff-7db753dde720",
+        "rssUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720",
+        "appleCollectionId": "1594279255",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720",
+          "fetchedAt": "2026-08-15T16:03:25.980Z",
+          "payloadHash": "0b940c26fb17865ec9ac9b4af5c40b7bec5120987856b60e71e321c0f82de89d"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/what-happened-in-skinner/id1594279255?uo=4",
+          "fetchedAt": "2026-08-15T16:03:25.857Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/what-happened-in-skinner/id1594279255?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/what-happened-in-skinner/id1594279255?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/what-happened-in-skinner/id1594279255?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/what-happened-in-skinner/id1594279255?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/what-happened-in-skinner/id1594279255?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/what-happened-in-skinner/id1594279255?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ffc9cb95-6db5-4722-b4ff-7db753dde720"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T16:03:26.233Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "634b78884ce9284151b6fe61faca1ba264f2a09708e8a68a046d41be3687f1fe",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "937b21ada7dcf93f3a27f4ead91b34de3a466dc86f4219ea3d7a787437e89e72",
+        "cover": "132bbd9770bb4e00aa521c129f0bd6cf03fbb07d5dbe23d52768c74a04baca78",
+        "coverAlt": "03c1bc14138475b9055af6483848d222d31fa1ea994d3603422846856925c4f2",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "7e16459ce930b0c6c603ceca93e31dba02791e660d1613c51cf21a2f11c19a6d",
+        "officialLinks": "ce57281f75bb1bcb7085ba5b1699ea33ca2d673e71e5c160be7ed941da5a9936",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "683c5265c1f9db05301ea40f26150828e72bd87cce75ccdc2635cd34c2559cd0",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "length": "254a820d238a8a576812188b70ebcf070834afa0bc5d402d632857b3f685a08e",
+        "releaseDates": "d792942b218c33739269cbba96ab5f561ab3bbe3886d6314c3ab6a8110d138e6",
+        "credits": "c527b987af428ff2be3dd0970fd722457b1e95eae2dade629c7d4f4fbdbca19b",
+        "creators": "3f83387fc2d44913b3353f1422a6a8cd973db63a448a3bed209de0caeb078441",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "551a8a4232ac795b19fa77ddda895e68a25690b7b15d8d1b614958714d02a64c",
+        "verification": "6232c526ce4fdd0961e6136510cbdadd80368db117185e08609be89abf40fae5"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T16:05:13.191Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "mazama-entertainment"
+}

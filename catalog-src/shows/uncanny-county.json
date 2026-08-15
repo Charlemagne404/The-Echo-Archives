@@ -1,0 +1,701 @@
+{
+  "id": "uncanny-county",
+  "title": "Uncanny County",
+  "subtitle": "",
+  "description": "Mystical truck drivers. Robots gone haywire. Killer clown demons. And pie. So. Much. Pie. This quirky, darkly comic, Southwestern-flavored anthology brings you a new paranormal audio play every month. Sit back, open your ears, and hold on tight. Because you're about to take a quick detour...through Uncanny County.",
+  "cover": "images/covers/uncanny-county.jpg",
+  "coverAlt": "Uncanny County cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://itunes.apple.com/us/podcast/uncanny-county/id1092995407?mt=2",
+    "website": "https://www.uncannycounty.com/",
+    "rss": "https://audioboom.com/channels/4741997.rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Uncanny County",
+    "Uncanny County: A Treasure Trove of Weirdness",
+    "Uncanny County: We'll leave the light on for you. We've also prepared the trapdoor."
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 26 full episodes • 29 min median",
+    "seasons": 2,
+    "episodes": 26,
+    "avgEpisodeMinutes": 26,
+    "medianEpisodeMinutes": 29,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 35,
+    "totalObservedHours": 11.1,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 26,
+      "bonus": 12,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2016-03-13",
+    "latest": "2018-10-31",
+    "latestFeedItem": "2020-05-06",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.uncannycounty.com/",
+    "patreon": "https://www.patreon.com/uncannycounty",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "http://www.facebook.com/uncannycounty",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Todd Faulkner and Alison Crane",
+    "ownerName": "UncannyCounty"
+  },
+  "creators": [
+    "Todd Faulkner and Alison Crane"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.uncannycounty.com/episodes/Transcripts/; https://www.uncannycounty.com/episodes/; https://www.uncannycounty.com/; https://audioboom.com/channels/4741997.rss; https://podcasts.apple.com/us/podcast/uncanny-county/id1092995407?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.uncannycounty.com/episodes/Transcripts/",
+      "https://www.uncannycounty.com/episodes/",
+      "https://www.uncannycounty.com/",
+      "https://audioboom.com/channels/4741997.rss",
+      "https://podcasts.apple.com/us/podcast/uncanny-county/id1092995407?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Mystical truck drivers. Robots gone haywire. Killer clown demons. And pie. So. Much. Pie. This quirky, darkly comic, Southwestern-flavored anthology brings you a new paranormal audio play every month. Sit back, open your ears, and hold on tight. Because you're about to take a quick detour...through Uncanny County.",
+    "socialUrls": [
+      "http://www.facebook.com/uncannycounty",
+      "http://www.twitter.com/uncannycounty",
+      "https://www.instagram.com/uncannycounty/"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 35,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Uncanny County LLC",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "53fee752-f553-5d6b-94e3-df8a6392f1c5",
+        "rssUrl": "https://audioboom.com/channels/4741997.rss",
+        "appleCollectionId": "1092995407",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.uncannycounty.com/episodes/Transcripts/",
+          "fetchedAt": "2026-08-15T16:03:28.009Z",
+          "payloadHash": "18fd810cefeb2b697e378772e1ec3c0cfd8e7234bf34650d54c33a3d61cc04da"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.uncannycounty.com/episodes/",
+          "fetchedAt": "2026-08-15T16:03:28.007Z",
+          "payloadHash": "addb35fd7ced9b50baa928f26f110a442a7a0b8ed457cfffdde8ece4e0e200c4"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.uncannycounty.com/",
+          "fetchedAt": "2026-08-15T16:03:28.006Z",
+          "payloadHash": "b231ce75be770e77bab88d007284661b112713e19a3bb11fa5b7753fa33af0ce"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://audioboom.com/channels/4741997.rss",
+          "fetchedAt": "2026-08-15T16:03:26.189Z",
+          "payloadHash": "fab4e6e84a3c5e84be2d08ef7b55ac2bf51793b186bf608b31a76db834394ccc"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/uncanny-county/id1092995407?uo=4",
+          "fetchedAt": "2026-08-15T16:03:26.031Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/uncanny-county/id1092995407?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/uncanny-county/id1092995407?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/uncanny-county/id1092995407?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.uncannycounty.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.uncannycounty.com/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.uncannycounty.com/episodes/Transcripts/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/uncanny-county/id1092995407?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/uncanny-county/id1092995407?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.uncannycounty.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.uncannycounty.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.uncannycounty.com/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.uncannycounty.com/episodes/Transcripts/"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.uncannycounty.com/episodes/Transcripts/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audioboom.com/channels/4741997.rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T16:03:28.225Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "201987c6af578c7f7657495dabab4ab56a6c7b9e6ef8af41a97115782397d2c2",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "5846701314559e14590be35b9a1c195a7be7205c634d9ed578e9caa6e6046eec",
+        "cover": "df8de74e02043173965c8245fbd3339cd7cf7a85c962d8f31bb6ce68b6b296e0",
+        "coverAlt": "078429073dbc08533f76fbb103c73d3bc2eeeea40c9366743a0737c9bf567243",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "6410e52affd6adb0802974416356436d4c98c082e8088a7f17da481105014549",
+        "officialLinks": "1575ac7a35d7c95436c348bff7646146735e3677c4db36b21a88aa1b5516f1b4",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "760e6c66928d94b2dc8526911761cba8f654cbb9a31aae6945eeb888e52daa7d",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "bba61ee998ccc47f5edf523004fc7406b69546eb77ba62fcfa37aef08b53de21",
+        "releaseDates": "55898a59542f37078b20e154c18f6b1d31c356447451eef0b691dff3d818660e",
+        "credits": "a41e1a9844d008790264dbc59dc8deade087f7e81f842ef473e3e0b438dfb82e",
+        "creators": "4853cb0c767c06965eda7f1b3470d8cc5fb3ae441911c9d07bad2c049f436e67",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "1a440937e892c1e24c6f87c8ce3fcdbbf0807e4e82861b9c7e55f5c6227ca4b9"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T16:05:13.184Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "todd-faulkner-and-alison-crane"
+}
