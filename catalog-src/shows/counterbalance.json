@@ -1,0 +1,779 @@
+{
+  "id": "counterbalance",
+  "title": "Counterbalance",
+  "subtitle": "A High Fantasy Audio Drama Podcast",
+  "description": "Counterbalance is a High Fantasy Audio Drama. A hole has been torn into the weave that creates magic, allowing spirits that threaten the wellbeing of mortals to manifest. Counterbalance is about the journey of three people attempting to fix the hole, while trying to find out who caused it to rip in the first place.",
+  "cover": "images/covers/counterbalance.jpg",
+  "coverAlt": "Counterbalance cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/7olx6EWYVcUwjq21YYmYVB",
+    "apple": "https://podcasts.apple.com/us/podcast/feed/id1448098533?ls=1&at=11lo6V&ct=podnews_podcast",
+    "website": "https://trilunis.com/",
+    "rss": "https://feeds.megaphone.fm/SBP4371894823",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": "https://pca.st/f0a6"
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Counterbalance"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "3 seasons observed • at least 28 full episodes • 33 min median",
+    "seasons": 3,
+    "episodes": 28,
+    "avgEpisodeMinutes": 33,
+    "medianEpisodeMinutes": 33,
+    "minEpisodeMinutes": 16,
+    "maxEpisodeMinutes": 49,
+    "totalObservedHours": 15.5,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 28,
+      "bonus": 8,
+      "trailer": 4
+    }
+  },
+  "releaseDates": {
+    "first": "2019-04-30",
+    "latest": "2026-08-15",
+    "latestFeedItem": "2026-08-15",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://trilunis.com/",
+    "patreon": "https://patreon.com/blighthouse",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/channel/UCJz1qtv5FOm69h_yIReyPUw",
+    "social": "https://facebook.com/triLunis/",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Kessir Riliniki",
+    "ownerName": "Blighthouse Studio",
+    "network": "Counterbalance"
+  },
+  "creators": [
+    "Kessir Riliniki"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://trilunis.com/cast-and-crew/; https://trilunis.com/episodes-list/; https://trilunis.com/about/; https://trilunis.com/; https://feeds.megaphone.fm/SBP4371894823; https://podcasts.apple.com/us/podcast/counterbalance/id1448098533?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://trilunis.com/cast-and-crew/",
+      "https://trilunis.com/episodes-list/",
+      "https://trilunis.com/about/",
+      "https://trilunis.com/",
+      "https://feeds.megaphone.fm/SBP4371894823",
+      "https://podcasts.apple.com/us/podcast/counterbalance/id1448098533?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Counterbalance is a High Fantasy Audio Drama. A hole has been torn into the weave that creates magic, allowing spirits that threaten the wellbeing of mortals to manifest. Counterbalance is about the journey of three people attempting to fix the hole, while trying to find out who caused it to rip in the first place.",
+    "socialUrls": [
+      "https://facebook.com/triLunis/",
+      "https://x.com/trilunis",
+      "https://instagram.com/trilunis"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 30,
+      "observedIntervals": 7
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Blighthouse Studio 2026",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/SBP4371894823",
+        "appleCollectionId": "1448098533",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://trilunis.com/feed/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://trilunis.com/cast-and-crew/",
+          "fetchedAt": "2026-08-15T16:36:08.587Z",
+          "payloadHash": "c619072aa8f3cf26cba935b93f858a0409ef6a13cd9689a2e0df6ff2f08f54a8"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://trilunis.com/episodes-list/",
+          "fetchedAt": "2026-08-15T16:36:08.585Z",
+          "payloadHash": "c486ebbc728354a530c8a0b72b54bd31b647e6c84db76b9badcefb3029c5190d"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://trilunis.com/about/",
+          "fetchedAt": "2026-08-15T16:36:08.583Z",
+          "payloadHash": "8a1244aa8003b7d5ff2ae3e099cbdb726cfa33a9c8483fdc0c6e4c4763d03656"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://trilunis.com/",
+          "fetchedAt": "2026-08-15T16:36:08.576Z",
+          "payloadHash": "36006b9d684229424aea2210b6dca1e139d94be332dfacb0c9bd3f87f8627491"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823",
+          "fetchedAt": "2026-08-15T16:36:02.847Z",
+          "payloadHash": "cc6b2e4e169f70f9f04907eaf9b710d1d277329a4f2b709a346d9b863a1fca93"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/counterbalance/id1448098533?uo=4",
+          "fetchedAt": "2026-08-15T16:36:02.353Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/counterbalance/id1448098533?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/episodes-list/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/cast-and-crew/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/counterbalance/id1448098533?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/counterbalance/id1448098533?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/counterbalance/id1448098533?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/counterbalance/id1448098533?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/episodes-list/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/cast-and-crew/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/episodes-list/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/episodes-list/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/cast-and-crew/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/episodes-list/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/cast-and-crew/"
+            }
+          ]
+        },
+        "pocketCastsUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/episodes-list/"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://trilunis.com/episodes-list/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP4371894823"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T16:36:10.312Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "239be6d4dff351383af7109c5945e2cd161101eed4ed8a0fa283d9559b2a218c",
+        "subtitle": "6facf79d27a965930e3ca6b15538bf702f64b336d7ba8c30fea686db65075812",
+        "description": "bf6a03c79d8978209db77b3bef5b55c408bdb68250f3258d5aaa18bd29f66fc9",
+        "cover": "b281fc923b5ceee571794315bb78e6844fde3d4349fd399fda0f05724799c040",
+        "coverAlt": "a07b8b6f193d117720b9f50d87bec3efbc8364bb18ed8bd8a0f1dcb770ed9386",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "d468f0bea5b59005ec7613dff2a0d70fb56f9957f64c270e6c33180794fcd3f4",
+        "officialLinks": "6634ab3915d06fc46c82a029c74bc8f2e7a03553f7044bcd161235af77f9106a",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "ea96f33aa1c29500112d3867a4a6d6463973aa9481ec64dacb42ae43646d45b1",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "6125d25f2c02e87fe3a711826834b02850d3621cec7405c9ebb856493b9c95a5",
+        "releaseDates": "9f64fac3c1f1c709c6a5fdf83316f64c5f50709ba8840f2abde4ec1981050091",
+        "credits": "512fef09cc304083dc99f91b41a448f1da7616c5da66101820528a6983eadf7c",
+        "creators": "021c9a980e31ccd2a6f41b404185fe7ee51d5cb9d15264bbd457e93782541098",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "bb65da9817cc292e0bedda5e43e1763e15b64c2c418ce255837b55497a0fbcfd"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T16:36:59.627Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "kessir-riliniki",
+  "networkId": "counterbalance"
+}

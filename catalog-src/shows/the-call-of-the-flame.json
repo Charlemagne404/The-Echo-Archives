@@ -1,0 +1,784 @@
+{
+  "id": "the-call-of-the-flame",
+  "title": "The Call of the Flame",
+  "subtitle": "An Audio Play",
+  "description": "An epic fantasy, in Audio Drama format. The journey of Bri, and her travels along with her Orc, Elvan, Dwarven, and Halfin companions as she seeks to redeem her father, for murdering the Chieftan of Gods, and restore the balance of magic in the world.",
+  "cover": "images/covers/the-call-of-the-flame.webp",
+  "coverAlt": "The Call of the Flame cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-call-of-the-flame/id1412591114?uo=4",
+    "website": "https://thecalloftheflame.com/",
+    "rss": "https://daisy-tangerine.squarespace.com/news?format=rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Call of the Flame"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 31 full episodes • 23 min median",
+    "seasons": 2,
+    "episodes": 31,
+    "avgEpisodeMinutes": 23,
+    "medianEpisodeMinutes": 23,
+    "minEpisodeMinutes": 3,
+    "maxEpisodeMinutes": 34,
+    "totalObservedHours": 11.5,
+    "durationCoverage": 0.968,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 31,
+      "bonus": 2,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2018-07-10",
+    "latest": "2023-08-17",
+    "latestFeedItem": "2023-08-17",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://thecalloftheflame.com/",
+    "patreon": "https://www.patreon.com/thecalloftheflame",
+    "koFi": "",
+    "discord": "https://discord.gg/ebpyUWP",
+    "youtube": "",
+    "social": "https://twitter.com/CalloftheFlame",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Magnir Productions",
+    "ownerName": "Kurt Peterson",
+    "network": "The Call of the Flame"
+  },
+  "creators": [
+    "Magnir Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://thecalloftheflame.com/chapter-12-balance-part-2-of-3-transcript; https://thecalloftheflame.com/chapter-12-balance-part-3-of-3-transcript; https://thecalloftheflame.com/transcripts; https://thecalloftheflame.com/the-cast; https://thecalloftheflame.com/; https://daisy-tangerine.squarespace.com/news?format=rss; https://podcasts.apple.com/us/podcast/the-call-of-the-flame/id1412591114?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://thecalloftheflame.com/chapter-12-balance-part-2-of-3-transcript",
+      "https://thecalloftheflame.com/chapter-12-balance-part-3-of-3-transcript",
+      "https://thecalloftheflame.com/transcripts",
+      "https://thecalloftheflame.com/the-cast",
+      "https://thecalloftheflame.com/",
+      "https://daisy-tangerine.squarespace.com/news?format=rss",
+      "https://podcasts.apple.com/us/podcast/the-call-of-the-flame/id1412591114?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Comedy Fiction",
+      "Arts",
+      "Performing Arts"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "An epic fantasy, in Audio Drama format. The journey of Bri, and her travels along with her Orc, Elvan, Dwarven, and Halfin companions as she seeks to redeem her father, for murdering the Chieftan of Gods, and restore the balance of magic in the world.",
+    "socialUrls": [
+      "https://twitter.com/CalloftheFlame"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "irregular",
+      "medianDays": 142,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Magnir Productions LLC",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://daisy-tangerine.squarespace.com/news?format=rss",
+        "appleCollectionId": "1412591114",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://thecalloftheflame.com/news?format=rss",
+          "https://thecalloftheflame.com/transcripts?format=rss"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://thecalloftheflame.com/chapter-12-balance-part-2-of-3-transcript",
+          "fetchedAt": "2026-08-15T16:35:06.282Z",
+          "payloadHash": "4b6bc706e7a8ec78821fad959e49abf7674084db839be1de695f6fe5697da3be"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://thecalloftheflame.com/chapter-12-balance-part-3-of-3-transcript",
+          "fetchedAt": "2026-08-15T16:35:06.279Z",
+          "payloadHash": "6ce86b4c3891328cf91624c1819840e021842d08a85228d64455dd12c0049c38"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://thecalloftheflame.com/transcripts",
+          "fetchedAt": "2026-08-15T16:35:06.277Z",
+          "payloadHash": "42f271ccfed7bbdbaf337bc6e1d17de4eb24d979c33c5227759f28b5ac0df3b0"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://thecalloftheflame.com/the-cast",
+          "fetchedAt": "2026-08-15T16:35:06.274Z",
+          "payloadHash": "6278253df4cc0521c8f5ab6e4e9770b1c6e4faa492e6b4b739109d91e84d4563"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://thecalloftheflame.com/",
+          "fetchedAt": "2026-08-15T16:35:06.270Z",
+          "payloadHash": "9594f7e616ae23d387f2f963d67db165af493eb376ca4df096f362743f5f4d87"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss",
+          "fetchedAt": "2026-08-15T16:35:05.000Z",
+          "payloadHash": "24efe480652e76cf58f7333ffc883dba8107862275bb2d8dbcc455818ca8eb23"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-call-of-the-flame/id1412591114?uo=4",
+          "fetchedAt": "2026-08-15T16:35:04.451Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-call-of-the-flame/id1412591114?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/the-cast"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/transcripts"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/chapter-12-balance-part-3-of-3-transcript"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/chapter-12-balance-part-2-of-3-transcript"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-call-of-the-flame/id1412591114?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-call-of-the-flame/id1412591114?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-call-of-the-flame/id1412591114?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-call-of-the-flame/id1412591114?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-call-of-the-flame/id1412591114?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/the-cast"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/transcripts"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/chapter-12-balance-part-3-of-3-transcript"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/chapter-12-balance-part-2-of-3-transcript"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/the-cast"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/transcripts"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/chapter-12-balance-part-3-of-3-transcript"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/chapter-12-balance-part-2-of-3-transcript"
+            }
+          ]
+        },
+        "discordUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/the-cast"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/transcripts"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/chapter-12-balance-part-3-of-3-transcript"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/chapter-12-balance-part-2-of-3-transcript"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thecalloftheflame.com/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://daisy-tangerine.squarespace.com/news?format=rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T16:35:07.218Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "4926dff71534a1dff862ae3de807ef9134e51d9acaf7c150a090212e6f76c690",
+        "subtitle": "946c99d7ee1f78e2839a0ce0c580c30dea0fbaed617fe2e2ef293881b501175e",
+        "description": "791afcdbee742d1f9497a52b1b893a0904dc0f418a9f8a14e96a772711607ff8",
+        "cover": "880fdf9ee894f0f30aca0e689a8f7529793f209611b3693b2229bbb1c1354c24",
+        "coverAlt": "d04920869e033e6e0ad888e333d9ee01777ba69b0abc4863620b8721981944f0",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "f785f69cdf78b220ad78daa20c6ca513d85a156e01ca87c597a524a548c0984a",
+        "officialLinks": "32c225521fd98a1f182ba7e07db1be70c1a609c22037146b3fea26b4f7c00402",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "193ee63c1c6ecb1bbe65ba59a365f2ab9e65de3c91b67d9611718b64c7f04506",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "13c4d5cd7540b3ee05fbfeda10ab6705e1fdbd7a311fb1b95df17aaf94c1d601",
+        "releaseDates": "962ba14a2b5a53c94258862b199f2e49655cdc8fe5261a94cb71fb32a3354895",
+        "credits": "b44b15cf8f3ffe637b2fd7b8b3246fa9e3140ce64de2b9c2d476d247a429e9f9",
+        "creators": "183999d8167b3794b651ed24a938600affc39263b1f3d44759a30349cc5f4c1c",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "5049f80910255cd6dee42a78caabce6d766cce2db7cfbfc6e623c2c6f423d377"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T16:36:59.630Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "magnir-productions",
+  "networkId": "the-call-of-the-flame"
+}

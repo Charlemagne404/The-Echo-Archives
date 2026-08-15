@@ -46,34 +46,34 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 50,P1,Among the Stars and Bones,Chris Magilton,87e04495-7a63-4753-adf4-c0e13f4aac04,needs-review,needs-review,scope-review; source-conflict,2026-08-15 16:27:03
 52,P1,Relativity,Lee Shackleford,75c068a6-47ed-48ed-875f-2dd8b3762a41,published,published,,2026-08-15 16:31:53
 54,P1,Exoplanetary,C. Christopher Hart,3c9dc27e-528b-48b6-990b-ea62a9cbac42,needs-review,needs-review,cover-not-ready,2026-08-15 16:29:19
-55,P1,The Vesta Clinic,Eva Thanheiser,,unattempted,,,
-59,P1,ROGUEMAKER,Courier's Call Productions,,unattempted,,,
-60,P1,The Green Horizon,Paul Walsh,,unattempted,,,
-61,P1,The Beacon,Claudia Elvidge,,unattempted,,,
-62,P1,What Will Be Here?,Tal Minear,,unattempted,,,
-63,P1,Sidequesting,Tal Minear,,unattempted,,,
-64,P1,Counterbalance,Blighthouse Studio,,unattempted,,,
-65,P1,Inn Between,The Goblin’s Head / Hannah Wright,,unattempted,,,
-66,P1,Absolutely No Adventures,AudioOhm Media,,unattempted,,,
-67,P1,The Call of the Flame,Magnir Productions,,unattempted,,,
-68,P1,Dark Ages,,,unattempted,,,
-70,P1,Desperado,Samy Souissi / Aeaea,,unattempted,,,
-71,P1,Monstrous Agonies,H.R. Owen,,unattempted,,,
+55,P1,The Vesta Clinic,Eva Thanheiser,f1f6bf50-5eae-4893-91c9-e7166db6a792,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 16:33:57
+59,P1,ROGUEMAKER,Courier's Call Productions,55f00260-3214-4f2a-b22b-2d4e72f5feb4,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 16:36:10
+60,P1,The Green Horizon,Paul Walsh,b5b0e073-c455-4108-9529-ffb4178b7ed5,published,published,,2026-08-15 16:37:01
+61,P1,The Beacon,Claudia Elvidge,5df409df-07cc-4544-9c83-1de4d94ad7a3,published,published,,2026-08-15 16:37:01
+62,P1,What Will Be Here?,Tal Minear,358c8aa7-1969-48c1-8c33-d297a8fa37f2,published,published,,2026-08-15 16:37:01
+63,P1,Sidequesting,Tal Minear,3e05d76c-3cd5-4e05-acb7-e4d566fed237,published,published,,2026-08-15 16:37:01
+64,P1,Counterbalance,Blighthouse Studio,e4f503b0-9c02-45ba-9156-41cd516d6b3f,published,published,,2026-08-15 16:37:01
+65,P1,Inn Between,The Goblin’s Head / Hannah Wright,fc27bbee-00f6-458e-9f3b-9936f5ac1e83,published,published,,2026-08-15 16:37:01
+66,P1,Absolutely No Adventures,AudioOhm Media,9b6f135d-e344-4d88-aed4-5431621ae43d,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 16:36:11
+67,P1,The Call of the Flame,Magnir Productions,6c9a4165-f227-4f5e-bfac-18ded68c08f4,published,published,,2026-08-15 16:37:01
+68,P1,Dark Ages,,bb7996d9-ecb8-4aa7-a0fe-4920f6801e8d,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 16:35:57
+70,P1,Desperado,Samy Souissi / Aeaea,ea057ff9-ebd6-4b57-9b69-9b63719fbff0,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 16:36:10
+71,P1,Monstrous Agonies,H.R. Owen,e9bd5477-0a38-44f2-989a-3b14edac43f7,needs-review,needs-review,source-conflict,2026-08-15 16:35:58
 72,P0,Love and Luck,Passer Vulpes Productions,650644fe-17e4-4c78-a896-a467c34453bf,published,published,,2026-08-15 16:23:43
-73,P1,Find Us Alive,Aurore BlackCat,,unattempted,,,
+73,P1,Find Us Alive,Aurore BlackCat,687fe504-75c4-4947-9c9d-b09a297ce2d8,needs-review,needs-review,insufficient-discovery-signals; missing-genre; cover-not-ready; scope-review; source-conflict,2026-08-15 16:34:04
 74,P0,Camlann,Tin Can Audio,20773c90-6d86-4554-8690-2d5beec86638,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 16:20:37
 75,P1,The Grotto,Athena Lee,02e2b386-a85c-4835-a92a-6952e6b6e8cd,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 16:16:02
-78,P1,The Attic Monologues,TAM Podcast,,unattempted,,,
-79,P1,Someone Dies in This Elevator,Tal Minear,,unattempted,,,
-87,P1,Less Is Morgue,The Praeps Collective,,unattempted,,,
-89,P1,Achewillow,Amy Frost & J.F. Dubeau,,unattempted,,,
-91,P1,Folxlore,Tin Can Audio / In The Works,,unattempted,,,
-92,P1,Cybernautica,Strange Exiles,,unattempted,,,
-94,P1,Vega: A Sci-Fi Adventure Podcast!,Ivuoma Hall,,unattempted,,,
-99,P1,Ad Lucem,QCODE,,unattempted,,,
-100,P1,Bad Vibes,QCODE,,unattempted,,,
-101,P1,Beautiful Liar,QCODE,,unattempted,,,
-102,P1,Bloodthirsty Hearts,QCODE,,unattempted,,,
+78,P1,The Attic Monologues,TAM Podcast,3130de6c-7062-47d8-86e9-61c24a26cb07,published,published,,2026-08-15 16:37:01
+79,P1,Someone Dies in This Elevator,Tal Minear,1a940200-a4b4-40f4-80e7-622b122e32a8,published,published,,2026-08-15 16:37:01
+87,P1,Less Is Morgue,The Praeps Collective,57736532-4cfc-480f-b6b4-0201d184c749,published,published,,2026-08-15 16:37:01
+89,P1,Achewillow,Amy Frost & J.F. Dubeau,19a3ddc5-5788-4a78-bdbe-97cdf1180c7a,published,published,,2026-08-15 16:37:01
+91,P1,Folxlore,Tin Can Audio / In The Works,d5903157-fd03-4b8d-bf49-0cf9c60b7b1a,published,published,,2026-08-15 16:37:01
+92,P1,Cybernautica,Strange Exiles,39386c5a-9ab9-48cb-b814-0d04208143ca,published,published,,2026-08-15 16:37:01
+94,P1,Vega: A Sci-Fi Adventure Podcast!,Ivuoma Hall,9d60ee8f-0fbb-4573-b9c7-718ad8acd052,published,published,,2026-08-15 16:37:01
+99,P1,Ad Lucem,QCODE,9929c289-2190-4e1d-bbbb-5cac176126f5,needs-review,needs-review,source-conflict,2026-08-15 16:35:01
+100,P1,Bad Vibes,QCODE,26708451-fdbd-4819-a937-1fa7a2ff5426,needs-review,needs-review,source-conflict,2026-08-15 16:36:02
+101,P1,Beautiful Liar,QCODE,04634dd5-77d1-4513-9976-dbfbd148b867,needs-review,needs-review,source-conflict,2026-08-15 16:35:00
+102,P1,Bloodthirsty Hearts,QCODE,177faf28-4c4e-4458-a09c-6881bb64d831,needs-review,needs-review,source-conflict,2026-08-15 16:34:00
 103,P1,Classified,QCODE,,unattempted,,,
 104,P1,Cupid,QCODE,,unattempted,,,
 105,P1,Dirty Diana,QCODE,,unattempted,,,

@@ -1,0 +1,744 @@
+{
+  "id": "inn-between",
+  "title": "Inn Between",
+  "subtitle": "",
+  "description": "A fantasy-adventure between adventures, wherein five heroes encounter monsters, magic, fighting, and friendship in the conveniently located Goblin’s Head Inn.",
+  "cover": "images/covers/inn-between.png",
+  "coverAlt": "Inn Between cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/4UBg1f0Pq1poGQUGL3vrql?si=EI6fuNkXSUeuPyGKlosfkg",
+    "apple": "https://itunes.apple.com/us/podcast/inn-between/id1387739113?mt=2",
+    "website": "http://www.thegoblinshead.com/",
+    "rss": "https://feeds.libsyn.com/122656",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Inn Between",
+    "Inn Between – Welcome to the Goblin's Head!"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "5 seasons observed • at least 70 full episodes • 14 min median",
+    "seasons": 5,
+    "episodes": 70,
+    "avgEpisodeMinutes": 15,
+    "medianEpisodeMinutes": 14,
+    "minEpisodeMinutes": 8,
+    "maxEpisodeMinutes": 41,
+    "totalObservedHours": 17.3,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 70,
+      "bonus": 38,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2018-06-06",
+    "latest": "2024-06-19",
+    "latestFeedItem": "2026-07-29",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "http://www.thegoblinshead.com/",
+    "patreon": "http://patreon.com/thegoblinshead",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/user/TheOriginFiles",
+    "social": "http://twitter.com/inn_between_",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Hannah Wright",
+    "ownerName": "Hannah Wright"
+  },
+  "creators": [
+    "Hannah Wright"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "http://www.thegoblinshead.com/2018/06/06/1-1/; http://www.thegoblinshead.com/about-the-showrunner/; http://www.thegoblinshead.com/castandcrew/; http://www.thegoblinshead.com/listen/; http://www.thegoblinshead.com/; https://feeds.libsyn.com/122656; https://podcasts.apple.com/us/podcast/inn-between/id1387739113?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "http://www.thegoblinshead.com/2018/06/06/1-1/",
+      "http://www.thegoblinshead.com/about-the-showrunner/",
+      "http://www.thegoblinshead.com/castandcrew/",
+      "http://www.thegoblinshead.com/listen/",
+      "http://www.thegoblinshead.com/",
+      "https://feeds.libsyn.com/122656",
+      "https://podcasts.apple.com/us/podcast/inn-between/id1387739113?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Society & Culture"
+    ],
+    "sourceKeywords": [
+      "DungeonsDragons",
+      "fantasy",
+      "fantasyadventure"
+    ],
+    "sourceTags": [],
+    "importOfficialSummary": "A fantasy-adventure between adventures, wherein five heroes encounter monsters, magic, fighting, and friendship in the conveniently located Goblin’s Head Inn.",
+    "socialUrls": [
+      "http://twitter.com/inn_between_"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright Hannah Wright",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.libsyn.com/122656",
+        "appleCollectionId": "1387739113",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "http://www.thegoblinshead.com/feed/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "http://www.thegoblinshead.com/2018/06/06/1-1/",
+          "fetchedAt": "2026-08-15T16:34:02.895Z",
+          "payloadHash": "3bb90b6503b9e9fa8da95e6b71bf162087b92026918207c0b57de6de927ffe3c"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "http://www.thegoblinshead.com/about-the-showrunner/",
+          "fetchedAt": "2026-08-15T16:34:02.894Z",
+          "payloadHash": "143eb11505de0c3c18303fe8b18589f6b3ca13b98b4f7afaa3d23a112291550a"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "http://www.thegoblinshead.com/castandcrew/",
+          "fetchedAt": "2026-08-15T16:34:02.891Z",
+          "payloadHash": "e0868bf21f0b357dbbb2319f2c5bd48236d85e93b6b25ffb3bb4c4d483a8e3fa"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "http://www.thegoblinshead.com/listen/",
+          "fetchedAt": "2026-08-15T16:34:02.889Z",
+          "payloadHash": "89d669ab0ddd2dbf1ffe644d3d7abbde66c346b5ea8d3470d8b03b899c6dd458"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "http://www.thegoblinshead.com/",
+          "fetchedAt": "2026-08-15T16:34:02.888Z",
+          "payloadHash": "7b1451ec45a87352d5de15b3b85a910d3911bfdefe75360a8ec2544ab283649d"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.libsyn.com/122656",
+          "fetchedAt": "2026-08-15T16:34:01.389Z",
+          "payloadHash": "65f42edc403ee08266636ec242b43823b4d0874df7c7d79400e5deb5b3dd4ad3"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/inn-between/id1387739113?uo=4",
+          "fetchedAt": "2026-08-15T16:34:00.709Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/inn-between/id1387739113?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/inn-between/id1387739113?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/inn-between/id1387739113?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://www.thegoblinshead.com/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/inn-between/id1387739113?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/inn-between/id1387739113?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://www.thegoblinshead.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "keywords": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://www.thegoblinshead.com/"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://www.thegoblinshead.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://www.thegoblinshead.com/listen/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://www.thegoblinshead.com/castandcrew/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://www.thegoblinshead.com/about-the-showrunner/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://www.thegoblinshead.com/2018/06/06/1-1/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://www.thegoblinshead.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://www.thegoblinshead.com/listen/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://www.thegoblinshead.com/about-the-showrunner/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://www.thegoblinshead.com/2018/06/06/1-1/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://www.thegoblinshead.com/castandcrew/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.libsyn.com/122656"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T16:34:03.114Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "d87a601836dc11bbbe80122fd0466dd29923e873c118e682ebf83e1736954c69",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "0d4a18a9f504028e57f18e6a5416ffb1fa7ba565ebb7e12645979bf6552637e1",
+        "cover": "fe4b41e6a83ab8ae5a9c3153cd507a8a0c0e1fbdc6e81813b6337a8f4d69bac8",
+        "coverAlt": "4f3ef95c83f0774863df4193d920cbef7dace6f0ee187ec15e8a5746b0a8bd11",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "1b91efd3041e798e45468b8f19527e43eb16f6553278461dee63963c9ab4ebfd",
+        "officialLinks": "a6504f3d7587be765e301865f8a86bc61286b21404338e5fcbf7ddc06f1b0fcf",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "28f725b1e519a3bc64dd43e90879bd5d863c336b004224461402c87967dd6302",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "63e48f2ce9c7313aa229fac638adb740c863b52995f1621bfadaabf12a229dd3",
+        "releaseDates": "40d8017bfbdc08b3d35a76c1277848fdc338f3496365a88aaccba80c5e234fa6",
+        "credits": "d85f1b854092b1f13d2c5fc6c45aa469ff6cd15f7c7209195fcfad3dee6a7db9",
+        "creators": "98493b9c546fb4a3e13242f3b4b17750d044154a4690af3a8f7e596106738715",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "76957308e28abe505c0789c58cd6482f2f29f77dadcc1248bec7f27becd9ac41"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T16:36:59.628Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "hannah-wright"
+}

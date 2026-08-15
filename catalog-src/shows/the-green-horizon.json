@@ -1,0 +1,773 @@
+{
+  "id": "the-green-horizon",
+  "title": "The Green Horizon",
+  "subtitle": "Lovie Awards shortlisted Irish Sci-Fi Audio Comedy",
+  "description": "Lovie Awards shortlisted sci-fi audio comedy that focuses on a na'er - do - well Irish space captain and his rag-tag crew as they traverse a war-torn Galaxy in search of fame and fortune.",
+  "cover": "images/covers/the-green-horizon.jpg",
+  "coverAlt": "The Green Horizon cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/1SKwZPrCLHIgJa1ldLpvuU?si=-RC9PQaFSx-f09C1XeSHbA",
+    "apple": "https://podcasts.apple.com/us/podcast/the-green-horizon/id1495088754",
+    "website": "https://www.faustiannonsense.com/the-green-horizon",
+    "rss": "https://feeds.captivate.fm/the-green-horizon/",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Green Horizon",
+    "The Green Horizon | Faustian Nonsense"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "4 seasons observed • at least 34 full episodes • 33 min median",
+    "seasons": 4,
+    "episodes": 34,
+    "avgEpisodeMinutes": 31,
+    "medianEpisodeMinutes": 33,
+    "minEpisodeMinutes": 3,
+    "maxEpisodeMinutes": 58,
+    "totalObservedHours": 17.7,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 34,
+      "bonus": 3,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2020-01-12",
+    "latest": "2026-07-27",
+    "latestFeedItem": "2026-07-27",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.faustiannonsense.com/the-green-horizon",
+    "patreon": "https://www.patreon.com/faustiannonsense",
+    "koFi": "",
+    "discord": "https://discord.gg/XhSW9bpm5g",
+    "youtube": "https://www.youtube.com/channel/UC1rhbhRpXNVsnMBvXvWiqGg",
+    "social": "https://twitter.com/greenhorizonpod",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Paul Walsh",
+    "ownerName": "Paul Walsh",
+    "network": "Faustian Nonsense"
+  },
+  "creators": [
+    "Paul Walsh"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.faustiannonsense.com/about-us; https://www.faustiannonsense.com/the-green-horizon; https://feeds.captivate.fm/the-green-horizon/; https://podcasts.apple.com/us/podcast/the-green-horizon/id1495088754?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "21 observed episodes",
+    "captions": "unknown",
+    "transcriptCoverage": 0.553,
+    "transcriptFormats": [
+      "text/html"
+    ],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.faustiannonsense.com/about-us",
+      "https://www.faustiannonsense.com/the-green-horizon",
+      "https://feeds.captivate.fm/the-green-horizon/",
+      "https://podcasts.apple.com/us/podcast/the-green-horizon/id1495088754?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction",
+      "Arts",
+      "Performing Arts",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Lovie Awards shortlisted sci-fi audio comedy that focuses on a na'er - do - well Irish space captain and his rag-tag crew as they traverse a war-torn Galaxy in search of fame and fortune.",
+    "socialUrls": [
+      "https://twitter.com/greenhorizonpod",
+      "https://www.facebook.com/Green.Horizon.Podcast",
+      "https://twitter.com/FaustNonsense",
+      "https://www.instagram.com/faustiannonsense/",
+      "https://www.facebook.com/Faustian-Nonsense-100792038828624"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "irregular",
+      "medianDays": 70,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "podcast",
+      "copyright": "© 2021 Paul Walsh",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "c412dc04-8ff9-5444-be4a-66656004a53f",
+        "rssUrl": "https://feeds.captivate.fm/the-green-horizon/",
+        "appleCollectionId": "1495088754",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.faustiannonsense.com/about-us",
+          "fetchedAt": "2026-08-15T16:36:59.389Z",
+          "payloadHash": "40637195fc28446456c9743e172cd04bdded587434243be64738629d2c893e92"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.faustiannonsense.com/the-green-horizon",
+          "fetchedAt": "2026-08-15T16:36:59.371Z",
+          "payloadHash": "78148b5c14c5771f7b9869e514d3761ed7e69c604154a8c9dcd2e566e830a351"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/",
+          "fetchedAt": "2026-08-15T16:36:57.731Z",
+          "payloadHash": "3983b940b7550ed6093fe61f846e8ec01024224e159a73c32ef15de85b07f678"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-green-horizon/id1495088754?uo=4",
+          "fetchedAt": "2026-08-15T16:36:10.772Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-green-horizon/id1495088754?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-green-horizon/id1495088754?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-green-horizon/id1495088754?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.faustiannonsense.com/the-green-horizon"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-green-horizon/id1495088754?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-green-horizon/id1495088754?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.faustiannonsense.com/the-green-horizon"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.faustiannonsense.com/the-green-horizon"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.faustiannonsense.com/about-us"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "medium": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.63,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.faustiannonsense.com/the-green-horizon"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.faustiannonsense.com/about-us"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.faustiannonsense.com/the-green-horizon"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.faustiannonsense.com/the-green-horizon"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.faustiannonsense.com/about-us"
+            }
+          ]
+        },
+        "discordUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.faustiannonsense.com/the-green-horizon"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.faustiannonsense.com/about-us"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.faustiannonsense.com/the-green-horizon"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.faustiannonsense.com/about-us"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.faustiannonsense.com/the-green-horizon"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/the-green-horizon/"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T16:36:59.545Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "53b938fc32f2a05a24e4455b899997140696a29e0eb69e305266c46efc56669f",
+        "subtitle": "312dba5a7e89d5186d4753148c8c7afc9a7e1bf52b00225f0c1e74b1d79f8f1c",
+        "description": "d6333e12799a1aaa8fe2739a809baf682c840e1eae8bdc2a37980bcf000cd1a1",
+        "cover": "2876183b5ef3de814315119fcd3e561d9801b5610e5d15e0695466787032b128",
+        "coverAlt": "d74363fcc544d076996ea63b006e3dc565c8c9361f22e7161cd9fb571a1e39f3",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "6d1fac5025db6c39aca683141fe6676adfde41c68185b3213d495f7dec186b2a",
+        "officialLinks": "eb734d379551f16d0133392bd4f04c50a20043caedfdcffe0176e8f0ad433ad8",
+        "genres": "54b64656959d327c4ed1684ee817dcd15faa2b613a81ba887f8254860650d9c6",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "428a58eb9d8bedb641ea9403f9739489795b26f858d81f74b8c6c253a1cfab1f",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "c3549b865e06b2c7d854510bbc3400a7a19e03790759dd84c07e72ff85c95b0f",
+        "releaseDates": "d5ccb4c866784372a850ae11ae0ec83614a82ce969cc6b387b9fb82eb08e0ffa",
+        "credits": "b33eadb1b3597fcd79552048ce6cae3d404e3e9ca1622e9b88c556ba8dd72875",
+        "creators": "fe5cf08f87a05d7741899128991fb98dae4b05f141129598cf24c1189d64191a",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "587b0eec4f833cbdcedea1ab66147e5a0176ea409385f9dcc361531aca6d00cd",
+        "verification": "cfb290673c2f6a292d3f0cd577243451c9671e82b42b326006df57aea9ff631c"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T16:36:59.617Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "paul-walsh",
+  "networkId": "faustian-nonsense"
+}
