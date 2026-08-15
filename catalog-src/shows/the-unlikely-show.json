@@ -1,0 +1,892 @@
+{
+  "id": "the-unlikely-show",
+  "title": "The Unlikely Show",
+  "subtitle": "",
+  "description": "A dark, surreal sci-fi comedy podcast featuring the unlikely adventures of a forlorn man, his laptop (which is infested by a self-absorbed artificial intelligence), a cartoon alien fuzzball, and a mysterious woman with inexplicable telepathic abilities. NOTE: This podcast is a serialized story, so we highly encourage starting from the beginning!",
+  "cover": "images/covers/the-unlikely-show.jpg",
+  "coverAlt": "The Unlikely Show cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/6tGYOkuUm3amslal4Mr982",
+    "apple": "https://podcasts.apple.com/us/podcast/the-unlikely-show/id1710782876",
+    "website": "https://unlikely.show/",
+    "rss": "https://feeds.captivate.fm/unlikelyshow/",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Unlikely Show"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 16 full episodes • 20 min median",
+    "seasons": 2,
+    "episodes": 16,
+    "avgEpisodeMinutes": 18,
+    "medianEpisodeMinutes": 20,
+    "minEpisodeMinutes": 10,
+    "maxEpisodeMinutes": 27,
+    "totalObservedHours": 4.8,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1,
+      2
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 16,
+      "bonus": 0,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2024-11-02",
+    "latest": "2025-11-21",
+    "latestFeedItem": "2025-11-21",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://unlikely.show/",
+    "patreon": "https://www.patreon.com/markleybros",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/@unlikelyshow",
+    "social": "https://facebook.com/unlikelyshow",
+    "funding": "https://unlikely.show/patrons"
+  },
+  "credits": {
+    "creatorName": "Markley Bros. Entertainment",
+    "ownerName": "Markley Bros. Entertainment",
+    "network": "The Unlikely Show | unlikely.show"
+  },
+  "creators": [
+    "Markley Bros. Entertainment"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://unlikely.show/season-1-improbable-family/s1e1-how-it-all-started; https://unlikely.show/season-2-faults-foes/s2e1-hound-haskervilles; https://unlikely.show/cast-crew; https://unlikely.show/about; https://unlikely.show/; https://feeds.captivate.fm/unlikelyshow/; https://podcasts.apple.com/us/podcast/the-unlikely-show/id1710782876?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://unlikely.show/season-1-improbable-family/s1e1-how-it-all-started",
+      "https://unlikely.show/season-2-faults-foes/s2e1-hound-haskervilles",
+      "https://unlikely.show/cast-crew",
+      "https://unlikely.show/about",
+      "https://unlikely.show/",
+      "https://feeds.captivate.fm/unlikelyshow/",
+      "https://podcasts.apple.com/us/podcast/the-unlikely-show/id1710782876?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction",
+      "Science Fiction",
+      "Drama",
+      "bb95cbe0-a6a0-11f0-9500-d147b3788af7"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "A dark, surreal sci-fi comedy podcast featuring the unlikely adventures of a forlorn man, his laptop (which is infested by a self-absorbed artificial intelligence), a cartoon alien fuzzball, and a mysterious woman with inexplicable telepathic abilities. NOTE: This podcast is a serialized story, so we highly encourage starting from the beginning!",
+    "socialUrls": [
+      "https://facebook.com/unlikelyshow",
+      "https://x.com/unlikelyshow",
+      "https://www.instagram.com/unlikelyshow"
+    ],
+    "funding": [
+      {
+        "url": "https://unlikely.show/patrons",
+        "label": "Support the show and get rewards!"
+      }
+    ],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "podcast",
+      "copyright": "Copyright 2025 Markley Bros. Entertainment",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "Ohioville, USA",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "40c2a491-0a6f-52d2-9b58-966c6bdc8ca3",
+        "rssUrl": "https://feeds.captivate.fm/unlikelyshow/",
+        "appleCollectionId": "1710782876",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://unlikely.show/season-1-improbable-family/s1e1-how-it-all-started",
+          "fetchedAt": "2026-08-15T20:09:36.255Z",
+          "payloadHash": "0e131818126dc8ec7cdddfd1c18fad39b64550f0caa83c98385b1d2596e3431a"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://unlikely.show/season-2-faults-foes/s2e1-hound-haskervilles",
+          "fetchedAt": "2026-08-15T20:09:36.251Z",
+          "payloadHash": "ea53d6531af1bacd7e00e1d8b3b9a6b7fce3a4ef0f7a849f98da62c5075b721c"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://unlikely.show/cast-crew",
+          "fetchedAt": "2026-08-15T20:09:36.250Z",
+          "payloadHash": "1e793f726822d151e911770e5abf9a4a051209908e917e80812b4cb500a86fe1"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://unlikely.show/about",
+          "fetchedAt": "2026-08-15T20:09:36.249Z",
+          "payloadHash": "9808cf1963730cc68c6799fc368bcd12a11363ae8f7d70f392a85c16ee34b472"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://unlikely.show/",
+          "fetchedAt": "2026-08-15T20:09:36.247Z",
+          "payloadHash": "9b2060002b669715a4c8d8dab5048c214922b8528dbf72131f1b633383f3f900"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/",
+          "fetchedAt": "2026-08-15T20:09:34.454Z",
+          "payloadHash": "45f9ff04c5020b8a1cc4c7f2153cfd8709398220f82d56c77537e44c684a8f38"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-unlikely-show/id1710782876?uo=4",
+          "fetchedAt": "2026-08-15T20:08:38.791Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-unlikely-show/id1710782876?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-unlikely-show/id1710782876?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-unlikely-show/id1710782876?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/cast-crew"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/season-2-faults-foes/s2e1-hound-haskervilles"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/season-1-improbable-family/s1e1-how-it-all-started"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-unlikely-show/id1710782876?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-unlikely-show/id1710782876?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/cast-crew"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/season-2-faults-foes/s2e1-hound-haskervilles"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/season-1-improbable-family/s1e1-how-it-all-started"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "medium": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "funding": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "supportUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "location": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.72,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/cast-crew"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/season-2-faults-foes/s2e1-hound-haskervilles"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/season-1-improbable-family/s1e1-how-it-all-started"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/cast-crew"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/season-2-faults-foes/s2e1-hound-haskervilles"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/season-1-improbable-family/s1e1-how-it-all-started"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/cast-crew"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/season-1-improbable-family/s1e1-how-it-all-started"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/cast-crew"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/season-2-faults-foes/s2e1-hound-haskervilles"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/season-1-improbable-family/s1e1-how-it-all-started"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/cast-crew"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/season-2-faults-foes/s2e1-hound-haskervilles"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://unlikely.show/season-1-improbable-family/s1e1-how-it-all-started"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/unlikelyshow/"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:09:37.316Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "dba6212b959a0954ff59f3b24cd4b29d466b85fa34fa81584faf06d82e373572",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "03aa3c3ddf003aca65e972a199d98cb5b8f9a79254e3cadf38c6779cb666c505",
+        "cover": "537a244c08b702d3bb0328f453a087d66b82bef464da53254e912dd01d78f988",
+        "coverAlt": "1d39907bc1e58e0faa23b5ef20f93ef948cd989dfab9ede5f3ada74fe69ad1d4",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "c9e4eee5165051e8d1d009e994548e1f8f63bfc2bed6a32f3abd0ec387aade1f",
+        "officialLinks": "60e024106a739c942f7f612c5139c603466859eb64b851cf6968447b5493cd30",
+        "genres": "54b64656959d327c4ed1684ee817dcd15faa2b613a81ba887f8254860650d9c6",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "92b9a833101f70f14e86a80ffac61caa9311bc145eacca7d6eccdfd21b01c148",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "a691762d6d2f6b3c75a02a176c882959aaeb8e65623c309a04290085c0b1061a",
+        "releaseDates": "9b3980f4f86cda974d979ae4486afeeecc80767beee3b6eab9083f71642ecc8a",
+        "credits": "1b4a92797b8b4b0462dcce034af30ca759ca069bac7b1d6c4ad760e44374e1c1",
+        "creators": "5f6fb1031140d4f2d756ceb28c202785a975d83bf8ab079c41ba9ba881472add",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "fc9c3d2dff4c81121cc61939efdb970ec5b5842567c694d0388f2f1b4d7e15b1"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:11:41.455Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "markley-bros-entertainment",
+  "networkId": "the-unlikely-show-unlikely-show"
+}

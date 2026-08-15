@@ -1,0 +1,706 @@
+{
+  "id": "90-degrees-south",
+  "title": "90 Degrees South",
+  "subtitle": "",
+  "description": "What begins as an investigation into the first documented murder on Antarctica and the South Pole's Amundsen-Scott-Research Station; has unearthed far more than scientific inquiry. From clandestine government experiments to whispered tales of the supernatural, this frozen expanse holds secrets that defy explanation.From the bottom of the Earth, Supervisory Deputy Marshal Bass Marlow continues to uncover the truth behind the rumors and legends that shroud this remote and unforgiving land. (Audio drama podcast, Antarctica ,podcast, South Pole research station, Polar exploration story)",
+  "cover": "images/covers/90-degrees-south.jpg",
+  "coverAlt": "90 Degrees South cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/3Gvhlm7TxlNQPLFdSMtIyI",
+    "apple": "https://podcasts.apple.com/us/podcast/90-degrees-south/id1571002086?uo=4",
+    "website": "https://90degreespodcast.com/",
+    "rss": "https://anchor.fm/s/fd9adcbc/podcast/rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "90 Degrees South",
+    "90 Degrees South Podcast"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "4 seasons observed • at least 76 full episodes • 40 min median",
+    "seasons": 4,
+    "episodes": 76,
+    "avgEpisodeMinutes": 39,
+    "medianEpisodeMinutes": 40,
+    "minEpisodeMinutes": 2,
+    "maxEpisodeMinutes": 83,
+    "totalObservedHours": 49.6,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 76,
+      "bonus": 7,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2021-07-19",
+    "latest": "2026-07-08",
+    "latestFeedItem": "2026-07-20",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://90degreespodcast.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/channel/UCNxDxluEG0z6BeAN6E4KjeQ",
+    "social": "https://www.facebook.com/groups/553226632315010",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "BMB Productions LLC - Antarctica Audio Drama",
+    "ownerName": "BMB Productions LLC - Antarctica Audio Drama",
+    "network": "90 Degrees South Podcast"
+  },
+  "creators": [
+    "BMB Productions LLC - Antarctica Audio Drama"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://90degreespodcast.com/transcripts; https://90degreespodcast.com/cast; https://90degreespodcast.com/; https://anchor.fm/s/fd9adcbc/podcast/rss; https://podcasts.apple.com/us/podcast/90-degrees-south/id1571002086?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "51 observed episodes",
+    "captions": "unknown",
+    "transcriptCoverage": 0.6,
+    "transcriptFormats": [
+      "application/x-subrip"
+    ],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://90degreespodcast.com/transcripts",
+      "https://90degreespodcast.com/cast",
+      "https://90degreespodcast.com/",
+      "https://anchor.fm/s/fd9adcbc/podcast/rss",
+      "https://podcasts.apple.com/us/podcast/90-degrees-south/id1571002086?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "What begins as an investigation into the first documented murder on Antarctica and the South Pole's Amundsen-Scott-Research Station; has unearthed far more than scientific inquiry. From clandestine government experiments to whispered tales of the supernatural, this frozen expanse holds secrets that defy explanation.From the bottom of the Earth, Supervisory Deputy Marshal Bass Marlow continues to uncover the truth behind the rumors and legends that shroud this remote and unforgiving land. (Audio drama podcast, Antarctica ,podcast, South Pole research station, Polar exploration story)",
+    "socialUrls": [
+      "https://www.facebook.com/groups/553226632315010",
+      "https://www.instagram.com/90degreespodcast/",
+      "https://www.x.com/south_degrees"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "BMB Productions LLC - Antarctica Audio Drama",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss",
+        "appleCollectionId": "1571002086",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://90degreespodcast.com/transcripts",
+          "fetchedAt": "2026-08-15T20:11:38.161Z",
+          "payloadHash": "6f04afa71bd0e40e15dedd01d5abc86835d3df3f7c4978b4ce5805b4fc37cb84"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://90degreespodcast.com/cast",
+          "fetchedAt": "2026-08-15T20:11:38.158Z",
+          "payloadHash": "1b115f408fe53a774ce729683d12a3496ab05691a9dfa73247a8009959015c5a"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://90degreespodcast.com/",
+          "fetchedAt": "2026-08-15T20:11:38.155Z",
+          "payloadHash": "de4bc9672166531eb127ed904adf357f4b592bf280899d6374bcba28d7327871"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss",
+          "fetchedAt": "2026-08-15T20:11:37.535Z",
+          "payloadHash": "dfd8e555ab47dd545b8601b13214b59c654b348a5c5468d604afd4b703691d6b"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/90-degrees-south/id1571002086?uo=4",
+          "fetchedAt": "2026-08-15T20:11:37.488Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/90-degrees-south/id1571002086?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/90-degrees-south/id1571002086?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/90-degrees-south/id1571002086?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/90-degrees-south/id1571002086?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/90-degrees-south/id1571002086?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/90-degrees-south/id1571002086?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://90degreespodcast.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://90degreespodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://90degreespodcast.com/cast"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://90degreespodcast.com/transcripts"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.66,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://90degreespodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://90degreespodcast.com/cast"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://90degreespodcast.com/transcripts"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://90degreespodcast.com/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://90degreespodcast.com/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://90degreespodcast.com/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/fd9adcbc/podcast/rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:11:38.268Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "f3852afffdb1a771de751c9cc8a7008cdc1ed442d536a1fa0cf470cb199d0060",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "73ff6d5ec08ae6ef79850e4973b89fbf1a1cd59df47764b48d14bd0e4d987a2a",
+        "cover": "d3b859b873f03a1ae341d7203d5a7db9adae691108828e68b9e624f710925b72",
+        "coverAlt": "7ae8d5582172760df45a2e6e00ce5257480da6ea86882c6aff61021a401d01ad",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "64840ea0d168191a5d7e6617b78d0e7a53ff900cb7756860653052d7533dfef7",
+        "officialLinks": "ffd9ae591a912778a8a775e6d6eca65c9879cc6d04a01a799cf47a7522915de6",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "1bea97f1c268cbde4b590b2c7a20a3a2585835aedbfe4e57ebcedb225b4656ec",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "a724d01a2788b614f4348db339abb62ef39c6a74f489c7297bf4e39fca5d979c",
+        "releaseDates": "533083e8b12ed29442a660cd83177e84f0fdd39e78315fb80229d32af9eb5846",
+        "credits": "82b9fc4a3ea32756c23db25e01bf4aea3fa2047a17a778791b5e41f80027c4df",
+        "creators": "05987d8533d3d48cf289d712534fd486887db43e1831247092903238cfa31d9c",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "9707cd931eead7de22d0e219f9e5be08ba37cf8c9b0cd1bb81bacddebd562ee7",
+        "verification": "c1edc1bf03b3852bebd2f6f75be3cdfa1f82f987d9e36f1362459c6588714692"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:11:41.466Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "bmb-productions-llc-antarctica-audio-drama",
+  "networkId": "90-degrees-south-podcast"
+}

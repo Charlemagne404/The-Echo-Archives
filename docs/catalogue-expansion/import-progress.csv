@@ -844,31 +844,31 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 844,P2,INFINITAS,,d47d996e-b23c-4ad5-8071-ebeb2c4154ba,published,published,,2026-08-15 20:08:09
 845,P2,How Not to Hitch a Ride with Chimps,,6fb8f4b8-1dec-4851-90df-ca11833d58ea,needs-review,needs-review,source-conflict,2026-08-15 20:08:07
 846,P2,Crime Of the Week,Dawn Irwin,cabbb04b-2bcc-4951-abae-eba5af1af52a,needs-review,needs-review,source-conflict,2026-08-15 20:05:44
-847,P2,The Carrington Doctrine,,,unattempted,,,
-848,P2,Super Duper,,,unattempted,,,
-849,P2,Girls Night Out,,,unattempted,,,
-850,P2,Beyond Awakening,,,unattempted,,,
-851,P2,Black Pulse,,,unattempted,,,
-852,P2,Dakota Gold Mysteries,,,unattempted,,,
-853,P2,Digital Song,,,unattempted,,,
-854,P2,Ellie & the Wave,,,unattempted,,,
-855,P2,Faraway,,,unattempted,,,
-856,P2,Interstellar Song Contest: A Queer Sci-Fi Musical,,,unattempted,,,
-857,P2,MilkFish,,,unattempted,,,
-858,P2,Starstruck,,,unattempted,,,
-859,P2,Tales of Fists & Fireballs,,,unattempted,,,
-860,P2,The Multiverse Employee Handbook,,,unattempted,,,
-861,P2,The Unlikely Show,,,unattempted,,,
-862,P2,Vince Cosmos: Glam Rock Detective,Paul Magrs,,unattempted,,,
-863,P2,Zombie Apocalypse Survivor Radio,,,unattempted,,,
-864,P2,Zodiac Task Force,,,unattempted,,,
-865,P2,Cyphers Edge,,,unattempted,,,
-866,P2,Your Local Time Travelers,,,unattempted,,,
-867,P2,COSMIKO: Neon Night,,,unattempted,,,
-868,P2,90 Degrees South,,,unattempted,,,
-869,P2,Paradise Cab,,,unattempted,,,
-870,P2,Apocalypse Radio,,,unattempted,,,
-871,P2,Deep Space Radio,,,unattempted,,,
+847,P2,The Carrington Doctrine,,90ef95f7-ca12-4d9e-9177-f923ec825b1b,published,published,,2026-08-15 20:11:44
+848,P2,Super Duper,,2fe67766-e1c6-4216-bbf0-1d7c0fd8d905,needs-review,needs-review,source-conflict,2026-08-15 20:09:42
+849,P2,Girls Night Out,,e051afa0-2fd5-4739-844c-4f6b81e7626c,needs-review,needs-review,invalid-website; scope-review; source-conflict,2026-08-15 20:08:38
+850,P2,Beyond Awakening,,736fa564-7b68-4ece-8391-e34a3825d898,published,published,,2026-08-15 20:11:44
+851,P2,Black Pulse,,5c399772-3d01-4728-b072-501c111a3018,published,published,,2026-08-15 20:11:44
+852,P2,Dakota Gold Mysteries,,ea1b38cf-6152-4693-8040-01c358b17533,published,published,,2026-08-15 20:11:44
+853,P2,Digital Song,,2d313df7-3b88-4a6c-8ff9-b13995f45d7c,needs-review,needs-review,source-conflict,2026-08-15 20:09:39
+854,P2,Ellie & the Wave,,c38225f3-d929-4ab5-aa42-81d6a3b4a487,needs-review,needs-review,source-conflict,2026-08-15 20:09:45
+855,P2,Faraway,,868e1811-5d4f-4146-9fdb-d9420c9722f5,needs-review,needs-review,source-conflict,2026-08-15 20:08:40
+856,P2,Interstellar Song Contest: A Queer Sci-Fi Musical,,4135a21b-c6be-4dd4-aa09-4c45136c0362,needs-review,needs-review,invalid-website; source-conflict,2026-08-15 20:09:45
+857,P2,MilkFish,,ff89dd93-fdff-48c0-91fb-5683a9d8cdb4,published,published,,2026-08-15 20:11:44
+858,P2,Starstruck,,b8a575b0-f05f-40cd-b46b-9f2829e541e7,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 20:09:40
+859,P2,Tales of Fists & Fireballs,,9df106f9-cc55-44be-8d7d-9ad824db467d,needs-review,needs-review,source-conflict,2026-08-15 20:08:36
+860,P2,The Multiverse Employee Handbook,,1e3d3e84-9088-4668-b31e-977eeef20b7e,needs-review,needs-review,scope-review; source-conflict,2026-08-15 20:09:44
+861,P2,The Unlikely Show,,f4539941-4057-479c-b32b-14ab9d4a951a,published,published,,2026-08-15 20:11:44
+862,P2,Vince Cosmos: Glam Rock Detective,Paul Magrs,44306266-138e-44c8-a2d0-ef73ca27fbc3,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 20:09:43
+863,P2,Zombie Apocalypse Survivor Radio,,b03cabf6-7281-4b5b-a4b4-0ef1491361a9,needs-review,needs-review,source-conflict,2026-08-15 20:10:44
+864,P2,Zodiac Task Force,,240e9589-2f9b-4188-ad43-eaef77318e4f,needs-review,needs-review,source-conflict,2026-08-15 20:10:46
+865,P2,Cyphers Edge,,db895033-4583-4861-84b3-5129bc130bd0,published,published,,2026-08-15 20:11:44
+866,P2,Your Local Time Travelers,,1d8d4660-b6e6-4779-ba28-d5e985e5442c,published,published,,2026-08-15 20:11:44
+867,P2,COSMIKO: Neon Night,,bb9631cd-0bfe-4719-a54e-d377d2fb32fc,needs-review,needs-review,source-conflict,2026-08-15 20:10:39
+868,P2,90 Degrees South,,f357496a-877e-41ca-9af3-cb059d366124,published,published,,2026-08-15 20:11:44
+869,P2,Paradise Cab,,da5f7f50-12fa-4362-8678-103de8dc73be,published,published,,2026-08-15 20:11:44
+870,P2,Apocalypse Radio,,5e7720c4-8429-47c0-ada6-7cead3c91bb2,needs-review,needs-review,source-conflict,2026-08-15 20:11:36
+871,P2,Deep Space Radio,,65ba5500-5603-432d-8712-1282de6a8148,published,published,,2026-08-15 20:11:44
 872,P2,Subsister: A Real Podcast,,,unattempted,,,
 873,P2,Starship Mudskipper,,,unattempted,,,
 874,P2,After Impact,,,unattempted,,,

@@ -1,0 +1,725 @@
+{
+  "id": "beyond-awakening",
+  "title": "Beyond Awakening",
+  "subtitle": "",
+  "description": "In what seems to be the far future, the crew of a Galactic Confederation spaceship must learn to distinguish fact from fiction before they go insane. Full cast science fiction stereo audio drama.",
+  "cover": "images/covers/beyond-awakening.jpg",
+  "coverAlt": "Beyond Awakening cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/4pgiTDE773KTWCjVf1Pt7C",
+    "apple": "https://podcasts.apple.com/us/podcast/beyond-awakening/id1759256591",
+    "website": "https://www.quietplease.org/awakening/",
+    "rss": "https://www.quietplease.org/awakening/podcast.rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Beyond Awakening",
+    "Beyond Awakening: An Audio Drama"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "3 seasons observed • at least 30 full episodes • 29 min median",
+    "seasons": 3,
+    "episodes": 30,
+    "avgEpisodeMinutes": 30,
+    "medianEpisodeMinutes": 29,
+    "minEpisodeMinutes": 20,
+    "maxEpisodeMinutes": 53,
+    "totalObservedHours": 14.9,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1,
+      2,
+      3
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 30,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2024-08-16",
+    "latest": "2026-07-31",
+    "latestFeedItem": "2026-07-31",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.quietplease.org/awakening/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "https://discord.gg/r977Rh2rhP",
+    "youtube": "https://youtube.com/@trapfilms1188?si=bTMXHa9F0yRNik9g",
+    "social": "https://bsky.app/profile/beyondawakening.bsky.social",
+    "funding": "https://www.quietplease.org/awakening/support/"
+  },
+  "credits": {
+    "creatorName": "QuietPlease.org Productions"
+  },
+  "creators": [
+    "QuietPlease.org Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.quietplease.org/awakening/listen/; https://www.quietplease.org/awakening/; https://www.quietplease.org/awakening/podcast.rss; https://podcasts.apple.com/us/podcast/beyond-awakening/id1759256591?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "30 observed episodes",
+    "captions": "unknown",
+    "transcriptCoverage": 0.968,
+    "transcriptFormats": [
+      "text/html"
+    ],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.quietplease.org/awakening/listen/",
+      "https://www.quietplease.org/awakening/",
+      "https://www.quietplease.org/awakening/podcast.rss",
+      "https://podcasts.apple.com/us/podcast/beyond-awakening/id1759256591?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "In what seems to be the far future, the crew of a Galactic Confederation spaceship must learn to distinguish fact from fiction before they go insane. Full cast science fiction stereo audio drama.",
+    "socialUrls": [
+      "https://bsky.app/profile/beyondawakening.bsky.social",
+      "https://www.facebook.com/profile.php?id=61563337925797"
+    ],
+    "funding": [
+      {
+        "url": "https://www.quietplease.org/awakening/support/",
+        "label": "Support the show!"
+      }
+    ],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2024 Paul Knierim",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://www.quietplease.org/awakening/podcast.rss",
+        "appleCollectionId": "1759256591",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.quietplease.org/awakening/listen/",
+          "fetchedAt": "2026-08-15T20:08:40.399Z",
+          "payloadHash": "43230a53e7880d4781b67a154af3592a6d49843ddbbb479e1e9bfdc241fe722e"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.quietplease.org/awakening/",
+          "fetchedAt": "2026-08-15T20:08:40.398Z",
+          "payloadHash": "27245782733756657586690831716506dff70a6a135196e8fc46b2468dff48ea"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss",
+          "fetchedAt": "2026-08-15T20:08:39.886Z",
+          "payloadHash": "dfc8999e0bcc3ce37fa0997a535c593cc22c20627310171026a514a7e342d249"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/beyond-awakening/id1759256591?uo=4",
+          "fetchedAt": "2026-08-15T20:08:38.916Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/beyond-awakening/id1759256591?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/beyond-awakening/id1759256591?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.quietplease.org/awakening/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.quietplease.org/awakening/listen/"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/beyond-awakening/id1759256591?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.quietplease.org/awakening/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.quietplease.org/awakening/listen/"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.quietplease.org/awakening/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.quietplease.org/awakening/listen/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/beyond-awakening/id1759256591?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/beyond-awakening/id1759256591?uo=4"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.quietplease.org/awakening/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "funding": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "supportUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.quietplease.org/awakening/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.quietplease.org/awakening/listen/"
+            }
+          ]
+        },
+        "discordUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.quietplease.org/awakening/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.quietplease.org/awakening/listen/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.quietplease.org/awakening/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.quietplease.org/awakening/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.quietplease.org/awakening/listen/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.quietplease.org/awakening/podcast.rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:08:41.220Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "599d1999ade8d16b1e8f6f4733389a55c98a2201396772fea21efd6c5bc5530a",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "254dec51170bad55d9fdac0d7f39b5242113a73124b5a6b411ab79985c3080a1",
+        "cover": "f9204908f3e91b9be80f8db7d8b065d57ddecf400a0d1ac0a2fe69d56920e406",
+        "coverAlt": "093bec38b8570511b7ad293822e10c2dc9f67c75bc8fd332b3f246c6d44f70e4",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "6dd51503819444d8ea43c8ba3729fea74910d6baa501de61825b7c3ea4605c03",
+        "officialLinks": "3762250e03a599bcbdcdf51b81a91c9014317a7a517c1d9e52ba26bd54dfd0bd",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "5a55e07d6d12a21e98ffff9719c5b9fbb11589988361e4d1e9198cf36c3f1480",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "c4950339e06265be27fa0730c1b9e91d8fbce9bc5881d6215fdd36b94e15f316",
+        "releaseDates": "77e95d2a125a50b9fc4544b43d53aed5c6e4fd7a2cf03fd1283ebae5f1982c32",
+        "credits": "63447f61c9fd179a9b40f0ae143e5f8ae9e206aadd2f40485579d9bc7fd726f4",
+        "creators": "c7ac00948a1abb58d2af3dfa51ffedf7beea6e555c359de4aac416128b9bb5cb",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "9a8320f420a2215aba7da0cf6e770b655c1b5ae82ad3efba5429124a2b7de604",
+        "verification": "e7dd1c9d26c9ccd42698eb4217c0fc62330679b481d6326ce48d4b4a37acc728"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:11:41.438Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "quietplease-org-productions"
+}

@@ -1,0 +1,629 @@
+{
+  "id": "black-pulse",
+  "title": "Black Pulse",
+  "subtitle": "",
+  "description": "*Black Pulse* is a thrilling sci-fi audio drama that plunges listeners into the adventures of a diverse crew navigating the treacherous edges of the galaxy. Set in a universe where rebellion, smuggling, and high-stakes missions are the norm, the crew faces everything from intense space battles to mysterious alien worlds. What makes *Black Pulse* stand out is its blend of action-packed sequences, humorous character interactions amongst the crew of 8 iconic main characters with each having a unique personality. Listeners can expect a mix of suspense, camaraderie, and the occasional laugh as the crew tackles the challenges of their missions while uncovering dark secrets that could change the fate of the galaxy. Get to know the characters in the Cast List ( https://docs.google.com/document/d/1AToOiOkVrADQfSteKIH3sZnOusu8Y4kxrSQO_KaLvDg/edit?usp=sharing ) This show uses RVC for voice modulations.",
+  "cover": "images/covers/black-pulse.jpg",
+  "coverAlt": "Black Pulse cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/black-pulse/id1765876801?uo=4",
+    "website": "https://redcircle.com/shows/black-pulse",
+    "rss": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Black Pulse"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 20 full episodes • 17 min median",
+    "seasons": 1,
+    "episodes": 20,
+    "avgEpisodeMinutes": 16,
+    "medianEpisodeMinutes": 17,
+    "minEpisodeMinutes": 8,
+    "maxEpisodeMinutes": 28,
+    "totalObservedHours": 5.5,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 20,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2024-08-30",
+    "latest": "2025-03-01",
+    "latestFeedItem": "2025-03-01",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://redcircle.com/shows/black-pulse",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Chuksum",
+    "ownerName": "Chuksum"
+  },
+  "creators": [
+    "Chuksum"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317; https://podcasts.apple.com/us/podcast/black-pulse/id1765876801?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "20 observed episodes",
+    "captions": "unknown",
+    "transcriptCoverage": 0.952,
+    "transcriptFormats": [
+      "text/plain"
+    ],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317",
+      "https://podcasts.apple.com/us/podcast/black-pulse/id1765876801?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction",
+      "Comedy Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "*Black Pulse* is a thrilling sci-fi audio drama that plunges listeners into the adventures of a diverse crew navigating the treacherous edges of the galaxy. Set in a universe where rebellion, smuggling, and high-stakes missions are the norm, the crew faces everything from intense space battles to mysterious alien worlds. What makes *Black Pulse* stand out is its blend of action-packed sequences, humorous character interactions amongst the crew of 8 iconic main characters with each having a unique personality. Listeners can expect a mix of suspense, camaraderie, and the occasional laugh as the crew tackles the challenges of their missions while uncovering dark secrets that could change the fate of the galaxy. Get to know the characters in the Cast List ( https://docs.google.com/document/d/1AToOiOkVrADQfSteKIH3sZnOusu8Y4kxrSQO_KaLvDg/edit?usp=sharing ) This show uses RVC for voice modulations.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 15,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "All rights reserved.",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "5da80a01-11f9-4f61-8f14-e4bd5672f317",
+        "rssUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317",
+        "appleCollectionId": "1765876801",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317",
+          "fetchedAt": "2026-08-15T20:08:34.952Z",
+          "payloadHash": "3090e43e7531d55cbba95c3229ab07a9e8a6d3cb7eeaac94dc117b944ecf986d"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/black-pulse/id1765876801?uo=4",
+          "fetchedAt": "2026-08-15T20:08:34.870Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/black-pulse/id1765876801?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/black-pulse/id1765876801?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/black-pulse/id1765876801?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/black-pulse/id1765876801?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/black-pulse/id1765876801?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/black-pulse/id1765876801?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5da80a01-11f9-4f61-8f14-e4bd5672f317"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:08:35.129Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "32b0bea536b8201e3f4ac0c256f83330421a4d64e91fe9045f69c75d3b2cccd7",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "d30f3f7f9299e356c7b834ab194581407e9737bad3ca424f4b8f07dbcae70189",
+        "cover": "766c2c975824109f59f42823bee7509edeea7006f9616f58709063a38f1f2e94",
+        "coverAlt": "dc4603a54e12a90420080380573912a635ee74f7ef4efbe535eb4464e12d2770",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "45257d5c6457c203c6501575232debd9bdba9424347f3c51349ee2baebf6f798",
+        "officialLinks": "c8c242c91cba624db60be8cdc5cd73668cfbc8d3e945e51b07fdf2b30a9dfd06",
+        "genres": "821180fff3b21544e41b758f314c5a8c5f9ed4f3c3d2e27d1acaf1686d42e588",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "68073c39dcaeaea05ac8d510fad3a8b92b4bfbd28a1fdaa5c856ab90f9b036ea",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "453c16d59917e836fa870538aaa5cf15579f9a29ba1da5e11183d2c438bebadd",
+        "releaseDates": "0400980e8602734d3bf8d007fb9d68cb74b6196aca577972b71931abc0ae43bd",
+        "credits": "d3df92a4c9af757495e8f0deb838e2a244d4ff7b392c18d867087a7f9ea99735",
+        "creators": "529198b7319ef14a4539f142a7ec7f5d726071af051493ba783043c9f041559f",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "7ddc59a112a05ddf660636c1fd9f2fe39ba92711a22fa7bd99d6bc046accc3ea",
+        "verification": "de4058b0c0261181c2c17132e3cc620eac9f57013547cdf731e894eab141b218"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:11:41.442Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "chuksum"
+}
