@@ -49,8 +49,8 @@ async function main() {
   const batchNumber = Number(process.argv[2] || 1);
   const batchSize = Number(process.argv[3] || 25);
   const priority = String(process.argv[4] || "P1").toUpperCase();
-  if (!Number.isInteger(batchNumber) || batchNumber < 1 || !Number.isInteger(batchSize) || batchSize < 1 || !["P0", "P1"].includes(priority)) {
-    throw new Error("Usage: node tools/run-catalogue-expansion-batch.js <batch-number> [batch-size] [P0|P1]");
+  if (!Number.isInteger(batchNumber) || batchNumber < 1 || !Number.isInteger(batchSize) || batchSize < 1 || !["P0", "P1", "P2", "P3"].includes(priority)) {
+    throw new Error("Usage: node tools/run-catalogue-expansion-batch.js <batch-number> [batch-size] [P0|P1|P2|P3]");
   }
 
   process.chdir(backendRoot);
@@ -60,7 +60,7 @@ async function main() {
     .filter((row) => row.priority === priority && row.current_outcome === "unattempted")
     .slice(0, batchSize);
   if (targets.length === 0) {
-    console.log(JSON.stringify({ batchNumber, targets: [], message: "No unattempted P1 rows remain." }, null, 2));
+    console.log(JSON.stringify({ batchNumber, priority, targets: [], message: `No unattempted ${priority} rows remain.` }, null, 2));
     return;
   }
 
