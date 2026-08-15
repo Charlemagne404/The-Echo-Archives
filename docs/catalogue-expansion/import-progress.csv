@@ -117,7 +117,7 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 144,P1,Anthem: Homunculus,Luminary,c42a3167-3a92-4d1f-b439-e15b993c4e1d,needs-review,needs-review,scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:24
 145,P1,Shipworm,Two-Up,,already-indexed,,,
 146,P1,The Big Lie,Fresh Produce Media / Audible,665b8dd5-ff0f-457e-bfbd-cf8ec5c9b54a,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:27
-147,P1,You Feeling This?,Overtones Media / iHeartRadio,,unattempted,,,
+147,P1,You Feeling This?,Overtones Media / iHeartRadio,fe65a673-fdd7-43bd-bdcd-613674996cea,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:26:15
 149,P1,The Riddler: Secrets in the Dark,Spotify / Warner Bros. / DC,af725ca8-2593-4efc-9628-db795b43b732,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:25
 150,P1,Harley Quinn and The Joker: Sound Mind,Spotify / Warner Bros. / DC,138ad551-4524-49ae-8417-a616bdc898e1,needs-review,needs-review,insufficient-discovery-signals; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:51
 151,P1,Batman: The Audio Adventures,HBO Max / Warner Bros. / DC,97c5877d-8d8b-4e96-b088-f9e80208f186,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:25
@@ -128,75 +128,75 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 157,P1,Orphan Black: The Next Chapter,Realm,854d2277-bb70-41d4-8568-ff9219333002,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:23:26
 158,P1,Echo Park,Realm,854d2277-bb70-41d4-8568-ff9219333002,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:23:26
 159,P1,Spark Hunter,Realm,623d2465-359a-4e9e-b94a-e047c7f74641,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:55
-160,P1,Marigold Breach,Realm,,unattempted,,,
+160,P1,Marigold Breach,Realm,daf71f59-b9fd-4d5a-a9e6-dd9a8bbc297e,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:13
 161,P1,Power Trip,Realm,8e1c54c4-427e-4fca-9dc4-658aa2d698da,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:55
-162,P1,Overleaper,Realm,,unattempted,,,
+162,P1,Overleaper,Realm,409ad380-8d97-4d1a-8030-35f563946d23,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:13
 163,P1,If I Go Missing the Witches Did It,Realm,a4400322-0e55-41ec-b2bf-45b9996154ff,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:55
 164,P1,Roanoke Falls,Realm,3b9fb508-f335-4108-8ffa-5bb4cc79fba4,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; source-conflict; duplicate-ambiguity,2026-08-15 17:23:56
-165,P1,Memory Lane,Realm,,unattempted,,,
+165,P1,Memory Lane,Realm,a5c65ebc-70ad-469c-896d-0f799b37f2a4,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:15
 166,P1,Elixir,Realm,c5d2e005-dc42-4c29-99f1-7bf743ac493c,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:50
-168,P1,Undertow,Realm,,unattempted,,,
+168,P1,Undertow,Realm,0d423973-207d-41f7-afd1-3dbbde62c461,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:15
 170,P1,Tracks,BBC Radio 4 / BBC,7c204ff7-d6db-4627-b386-06360954531a,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:51
-171,P1,Murmurs,BBC,,unattempted,,,
+171,P1,Murmurs,BBC,15ac2c85-2833-4aa3-8f1b-dd7c60514f5c,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:20
 172,P0,Doctor Who: Redacted,BBC Sounds / BBC,,unattempted,,,
 173,P1,Lusus,BBC,cc0350da-7b93-4b02-9a6e-722c92c6c5e5,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:51
-174,P1,The Piper,BBC,,unattempted,,,
-175,P1,Harland,BBC,,unattempted,,,
+174,P1,The Piper,BBC,6e9f2df3-fc04-4eff-9980-792359a5e337,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:20
+175,P1,Harland,BBC,55543e54-2788-4b35-b86e-6976f81aa9e0,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:14
 176,P1,Who Is Aldrich Kemp?,BBC,aea15f41-0950-420a-80f7-a72c1e5fe258,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:55
 177,P1,Aldrich Kemp and the Rose of Pamir,BBC,a5745a7c-4a4a-4349-933d-0f5ca4883d77,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:50
 178,P1,Body Horror,BBC,234e603e-0a56-432c-b616-cc3da32e1868,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:49
 179,P1,Children of the Stones,BBC,0a4c737d-79f6-4c20-8587-b1c43870e3b5,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:49
 180,P1,The System,BBC,101f58d9-c89f-493a-9ce4-5394a5a8073e,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:52
 182,P1,People Who Knew Me,BBC / Merman,31e31826-2811-4451-936c-90bfcb05041a,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:50
-183,P1,Limelight,BBC,aea15f41-0950-420a-80f7-a72c1e5fe258,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:55
+183,P1,Limelight,BBC,55543e54-2788-4b35-b86e-6976f81aa9e0,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:14
 184,P0,The Fitzroy Diaries,ABC Radio National / ABC,,unattempted,,,
-186,P1,The Beef and Dairy Network Podcast,Maximum Fun,,unattempted,,,
+186,P1,The Beef and Dairy Network Podcast,Maximum Fun,9dbf8599-4b54-4817-b6fe-7c660a49cbc6,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:22
 187,P1,Valley Heat,Starburns Audio,3bd06642-420d-4bd1-b1a8-08d75b3347e4,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:50
 188,P1,The Neighborhood Listen,CBB World,9574b7b4-9d2e-40af-8ecb-089a6e11fd41,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:55
 189,P1,Big Grande Teachers' Lounge,Big Grande,,already-indexed,,,
-190,P1,A Very Fatal Murder,The Onion,,unattempted,,,
+190,P1,A Very Fatal Murder,The Onion,d6274688-a8ee-45a9-8901-d5c69346904b,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:13
 191,P1,This Sounds Serious,Kelly & Kelly,,already-indexed,,,
-192,P1,Gay Future,Gay Future Productions,,unattempted,,,
+192,P1,Gay Future,Gay Future Productions,d4b88cbd-7b07-445d-bc8d-22835d338976,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:14
 193,P1,Who Killed Avril Lavigne?,Super Normal Media,,already-indexed,,,
-194,P1,Bubble,Maximum Fun,,unattempted,,,
-195,P1,The Offensive,Stak,,unattempted,,,
-196,P1,Meet Cute Rom-Coms,Meet Cute,,unattempted,,,
+194,P1,Bubble,Maximum Fun,774bba72-e67d-41d1-8433-0bdc3ca0d7ce,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:12
+195,P1,The Offensive,Stak,daab117c-050f-49c9-9a06-d62dfb4fef20,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:12
+196,P1,Meet Cute Rom-Coms,Meet Cute,e4f3576f-daf3-45a1-b2e7-24d43809f8c2,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:22
 197,P1,Next Stop,Multitude,,already-indexed,,,
 198,P1,Life With LEO(h),Atypical Artists,,already-indexed,,,
-199,P1,Quid Pro Euro,Felix Trench,,unattempted,,,
-200,P1,St Elwick's Neighbourhood Association Newsletter Podcast,Mike Wozniak,,unattempted,,,
+199,P1,Quid Pro Euro,Felix Trench,b052f2d6-38f6-45eb-85bb-af8779f1dda4,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:13
+200,P1,St Elwick's Neighbourhood Association Newsletter Podcast,Mike Wozniak,c021c0ce-3b5b-433f-b89a-8aa4f63d9478,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:20
 201,P1,Gather the Suspects,MadeUp Audio Productions,,already-indexed,,,
-205,P1,In Strange Woods,Atypical Artists,,unattempted,,,
+205,P1,In Strange Woods,Atypical Artists,5b63b3b3-c5b9-4ac0-85e7-81ce3acd046f,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:22
 206,P1,The Ballad of Anne & Mary,Long Cat Media,,already-indexed,,,
-207,P1,The Flame,Lez Hang Out,,unattempted,,,
-209,P1,The Fall of the House of Sunshine,Roi Gold Productions,,unattempted,,,
-214,P1,Falling in Love with Mr. Dellamort,Broadway Podcast Network,,unattempted,,,
+207,P1,The Flame,Lez Hang Out,02d72055-8b5a-492b-bbfd-bca5229ca197,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:26:22
+209,P1,The Fall of the House of Sunshine,Roi Gold Productions,1aafe28a-685b-4cdf-9edb-b140645e5951,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:14
+214,P1,Falling in Love with Mr. Dellamort,Broadway Podcast Network,cd217dff-dfe3-4d00-91a1-1541285f66f1,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:15
 215,P0,Parkdale Haunt,Emily Kellogg & Alex Nursall,,unattempted,,,
-218,P1,How It Ends,How It Ends Studio,,unattempted,,,
-222,P1,Return Home,Jeff Heimbuch / Bamfer Productions,,unattempted,,,
-224,P1,The Deep Vault,Night Vale Presents / Dead Signals,304a3f94-21dd-4842-9ae9-2fbfaee6e8ae,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict; duplicate-ambiguity,2026-08-15 17:15:58
-226,P1,Rex Rivetter: Private Eye,Downstairs Entertainment / Gregory McAfee & Rhiannon McAfee,aacb3747-9c1e-4259-ac0f-f9fcb830c025,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:16:19
+218,P1,How It Ends,How It Ends Studio,90ed1386-6675-4cf6-a8d1-98c9987043d1,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:13
+222,P1,Return Home,Jeff Heimbuch / Bamfer Productions,4dcb54fc-f602-4325-8d0a-e259525f812f,needs-review,needs-review,insufficient-discovery-signals; source-conflict; duplicate-ambiguity,2026-08-15 17:26:20
+224,P1,The Deep Vault,Night Vale Presents / Dead Signals,,unattempted,,,
+226,P1,Rex Rivetter: Private Eye,Downstairs Entertainment / Gregory McAfee & Rhiannon McAfee,,unattempted,,,
 227,P0,The Harrowing,Storyglass,,unattempted,,,
-228,P1,The Hotel,Travis McMaster,247e35c0-3ca9-4555-92ed-f10ece83c589,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:15:59
-229,P1,Thirteen,Imaginary Comma,848b33fb-5914-4142-b927-5c2701d262f9,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:16:32
-230,P1,NIGHTLIGHT,Ransom Media Productions,67c98e00-b390-4e27-b0b7-78a0c685ac29,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; source-conflict; duplicate-ambiguity,2026-08-15 17:15:57
+228,P1,The Hotel,Travis McMaster,,unattempted,,,
+229,P1,Thirteen,Imaginary Comma,,unattempted,,,
+230,P1,NIGHTLIGHT,Ransom Media Productions,,unattempted,,,
 231,P1,The Wicked Library,9th Story Studios,,already-indexed,,,
-232,P1,The Dark Tome,Dagaz Media,b266855d-2201-40c6-93ec-d08312cd333f,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:15:57
+232,P1,The Dark Tome,Dagaz Media,,unattempted,,,
 234,P0,Uncanny County,Todd Faulkner & Alison Crane,,unattempted,,,
-235,P1,Creepy,Jon Grilz,6a6178ce-d1dc-4af3-9bd6-0c17d727d311,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:16:31
+235,P1,Creepy,Jon Grilz,,unattempted,,,
 236,P1,Chilling Tales for Dark Nights,Chilling Entertainment,d74aeead-7f80-4a2a-8f68-7f8bfa6773a5,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 17:16:39
 237,P0,Escape Pod,"Escape Artists, Inc. / Escape Artists",,unattempted,,,
 238,P1,PodCastle,"Escape Artists, Inc. / Escape Artists",dc15e84a-70fd-411a-a9af-ad25bc9a6608,needs-review,needs-review,placeholder-description; source-conflict; duplicate-ambiguity,2026-08-15 17:16:43
 239,P1,PseudoPod,Escape Artists,79ad35cd-4c96-41d6-9b04-7cba3c95cf37,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:16:39
-240,P1,Cast of Wonders,"Escape Artists, Inc. / Escape Artists",90da4129-fb1f-44cb-a71f-757347bb7ca7,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:16:33
+240,P1,Cast of Wonders,"Escape Artists, Inc. / Escape Artists",,unattempted,,,
 242,P1,StarShipSofa,Tony C. Smith,,unattempted,,,
-243,P1,Clarkesworld Magazine Podcast,Clarkesworld Magazine,3d5bc625-d4e2-43d7-90b9-255f14cb88ea,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:16:19
-244,P1,Lightspeed Magazine Podcast,Lightspeed Magazine,2dad52e2-2104-4664-84a7-5481900337b7,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 17:16:28
+243,P1,Clarkesworld Magazine Podcast,Clarkesworld Magazine,,unattempted,,,
+244,P1,Lightspeed Magazine Podcast,Lightspeed Magazine,,unattempted,,,
 247,P1,"Back Again, Back Again",,,already-indexed,,,
 248,P1,Celeritas,Alexander Adell / Magnesium Film,cbf5f003-10e4-46e9-81e3-4de0394405cd,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:17:29
 249,P1,Cry Havoc! Ask Questions Later,Rusty Quill,,already-indexed,,,
-250,P1,Ethics Town,Dodo Ink / CL Hendry,ed86c2af-e9fa-46be-bce4-3d8bdaa9e3ac,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review; duplicate-ambiguity,2026-08-15 17:16:35
-251,P1,Fulmar's Folly,Static Airwaves,cf164521-e81b-423b-a9b6-2c729912a0e4,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:16:28
+250,P1,Ethics Town,Dodo Ink / CL Hendry,,unattempted,,,
+251,P1,Fulmar's Folly,Static Airwaves,,unattempted,,,
 252,P1,Haunted House Flippers,,,already-indexed,,,
 253,P1,HAUNTED: The Audio Drama,Impala Films,,already-indexed,,,
 256,P1,Middle:Below,Tin Can Audio,,already-indexed,,,
@@ -205,14 +205,14 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 259,P1,The Byron Chronicles,Darker Projects,44021318-dc32-47b0-a838-7c2219eb3eea,needs-review,needs-review,insufficient-discovery-signals; missing-genre; cover-not-ready; source-conflict; duplicate-ambiguity,2026-08-15 17:16:40
 262,P1,The Sink: A Sleep Aid,BBC,d63bf582-b6a3-4cd5-9a78-c1ea8b98c27a,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:16:39
 264,P0,Six Minutes,Gen-Z Media,,unattempted,,,
-265,P1,The Alien Adventures of Finn Caspian,Gen-Z Media / Jonathan Messinger,730c2e74-946f-4031-96b1-c30cb63bee89,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; source-conflict; duplicate-ambiguity,2026-08-15 17:16:32
+265,P1,The Alien Adventures of Finn Caspian,Gen-Z Media / Jonathan Messinger,,unattempted,,,
 266,P0,Eleanor Amplified,WHYY,,unattempted,,,
-267,P1,Timestorm,Cocotazo Media / Gen-Z Media / TRAX,f43d1ccc-094d-4318-8fc7-99763c138773,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:16:31
-268,P1,The Mayan Crystal,Gen-Z Media,feb74d4e-b964-47d1-be13-9c5c4c4d22ee,needs-review,needs-review,source-conflict; duplicate-ambiguity,2026-08-15 17:16:20
+267,P1,Timestorm,Cocotazo Media / Gen-Z Media / TRAX,,unattempted,,,
+268,P1,The Mayan Crystal,Gen-Z Media,,unattempted,,,
 269,P1,The Rez,Rezilience Ltd. / Gen-Z Media,6ffa8f39-c179-49dc-89a0-71fb0d54a283,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:17:28
-271,P1,Treasure Island 2020,Gen-Z Media,a66848d5-9c50-4c94-884b-9e801d45f2f2,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:16:35
-272,P1,Maxine Miles,Atypical Artists,e537b090-9512-4485-80a3-dc9520f4e933,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review; duplicate-ambiguity,2026-08-15 17:16:32
-273,P1,Lethal Lit,,8ebd7d50-a91f-4448-b780-23795ac09362,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; source-conflict; duplicate-ambiguity,2026-08-15 17:16:31
+271,P1,Treasure Island 2020,Gen-Z Media,,unattempted,,,
+272,P1,Maxine Miles,Atypical Artists,,unattempted,,,
+273,P1,Lethal Lit,,,unattempted,,,
 274,P1,Nightingale,Gen-Z Media,d794a53e-41b4-4472-9a1a-5ab87d595c66,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:17:44
 278,P1,The Road of Shadows,Mark R. Healy / Beyond the Dark Productions,7b817945-7994-4b9e-9db4-3340dd36328b,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:17:44
 279,P1,The Madness of Chartrulean,Packhowl Media,,already-indexed,,,
@@ -248,7 +248,7 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 316,P1,Dead West,,,already-indexed,,,
 317,P1,"Death, Dying, and Other Things",Justyn Buske,bd4b945a-81cf-4cd1-bc09-0fb775c8fd68,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict; duplicate-ambiguity,2026-08-15 17:18:34
 318,P1,Eeler's Choice,Cytochrome Hear,0fee1b05-a2b4-4d10-ac26-10c75dd939cd,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:18:38
-319,P1,Englewood After Dark,,,unattempted,,,
+319,P1,Englewood After Dark,,0d48e9eb-81a1-495e-b618-5c6610ddf092,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:14
 320,P1,Enter The House Between,,,already-indexed,,,
 321,P1,FORBIDDEN CASSETTES: CONSUMMATION,,,already-indexed,,,
 322,P1,Grim Death and Bill the Electrocuted Criminal,Echoverse,,already-indexed,,,
@@ -284,19 +284,19 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 352,P1,WE'RE NOT MEANT TO KNOW,H / SpectreVision Radio,1b407d59-67db-4ed7-b29a-53042de426c4,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:27
 353,P1,What's The Frequency?,,,already-indexed,,,
 400,P1,Fresh Meat,,,already-indexed,,,
-509,P1,Before The Tone,Knave Of Hearts,,unattempted,,,
+509,P1,Before The Tone,Knave Of Hearts,1a1b2f74-1171-4835-a75e-11d09f524ce2,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:22
 572,P0,"Alba Salix, Royal Physician",Forgery League,,unattempted,,,
 573,P1,Among the Stacks,Among the Stacks,4f964f61-110d-450b-b89b-de25d98bfc04,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:52
 574,P1,Chain of Being,Cai Gwilym Pritchard,,already-indexed,,,
-575,P1,Curious Matter Anthology,Knightsville Workshop,7bc422dc-e537-4c26-bf72-41e590355126,needs-review,needs-review,source-conflict,2026-08-15 17:16:05
+575,P1,Curious Matter Anthology,Knightsville Workshop,,unattempted,,,
 576,P1,Decoder Ring Theatre,Decoder Ring Theatre,a49e5eeb-aa89-45e2-82c0-eec720cdcdf8,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; cover-not-ready; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:20:57
-577,P1,Dining in the Void,Zebulon Podcasts,36e3ab9f-45e3-460c-ad3f-d440a6a6fc17,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 17:16:03
-578,P1,Forgive Me!,Rogue Dialogue / Rogue Dialogue Productions,1010a985-631c-457d-9190-327abf8859ef,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 17:16:02
-579,P1,Harlem Queen,Yhane Washington Smith,4c966edd-40cb-4575-9323-1d13d878c9d8,needs-review,needs-review,source-conflict,2026-08-15 17:15:59
+577,P1,Dining in the Void,Zebulon Podcasts,,unattempted,,,
+578,P1,Forgive Me!,Rogue Dialogue / Rogue Dialogue Productions,,unattempted,,,
+579,P1,Harlem Queen,Yhane Washington Smith,,unattempted,,,
 580,P1,Inkwyrm,Caldera Studios,198a8284-665c-49e9-a5e4-68cf535f8a90,published,published,,2026-08-15 17:16:44
 581,P1,"Jack Valentine, Vampire Detective",,8366b161-f2ba-41c3-8926-cd8a7625636c,published,published,,2026-08-15 17:16:44
-582,P1,Kaleidotrope,,a3e61f62-b510-4322-8fad-ad477af3e796,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 17:16:28
-583,P1,Kevin's Cryptids,,23b69ad9-e472-46e4-932f-eec0c118ad0f,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:16:31
+582,P1,Kaleidotrope,,,unattempted,,,
+583,P1,Kevin's Cryptids,,,unattempted,,,
 584,P1,Point Mystic,,be5ea586-2fbe-4851-8cf5-131197eded03,published,published,,2026-08-15 17:16:44
 585,P1,Powder Burns,David A. Gregory,3b79dc68-112c-4e69-b49f-2a82c96c04af,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 17:17:45
 586,P1,Seen and Not Heard,Caroline Mincks,7d3f6ee6-9f28-4966-ad16-51e124a7ea29,needs-review,needs-review,source-conflict,2026-08-15 17:17:47
