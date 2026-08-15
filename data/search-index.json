@@ -24422,5 +24422,80 @@
     "featured": false,
     "createdAt": "2026-08-15",
     "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "the-second-oil-age",
+    "title": "The Second Oil Age",
+    "subtitle": "",
+    "description": "When an oil executive goes missing aboard the deep-sea Atlas Station, the company sends agent Synøve Pan down for answers — and she’s just the woman to get them. Welcome to the Second Oil Age: a sci-fi podcast that transports listeners to a post–energy-crisis world in which humanity’s thirst for oil is satisfied through a bargain with a mysterious deep-sea species. Binge the entire season now!",
+    "cover": "images/covers/the-second-oil-age.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-second-oil-age-c6a5470f94-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-second-oil-age-c6a5470f94-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Second Oil Age cover art",
+    "creators": [
+      "iHeartPodcasts"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Second Oil Age",
+      "The Second Oil Age: Trailer - The Second Oil Age | iHeart"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "iHeartPodcasts",
+      "ownerName": "iHeartPodcasts",
+      "network": "iHeart"
+    },
+    "availability": {
+      "transcripts": "11 observed episodes",
+      "captions": "available in structured transcript data",
+      "transcriptCoverage": 1,
+      "transcriptFormats": [
+        "application/srt",
+        "text/vtt",
+        "text/plain"
+      ],
+      "transcriptLanguages": [
+        "English"
+      ]
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
   }
 ]
