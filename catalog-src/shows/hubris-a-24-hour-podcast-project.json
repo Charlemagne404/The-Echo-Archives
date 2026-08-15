@@ -1,0 +1,685 @@
+{
+  "id": "hubris-a-24-hour-podcast-project",
+  "title": "Hubris: A 24-Hour Podcast Project",
+  "subtitle": "Can you make a fiction podcast episode from scratch in 24 hours? We're sure going to try!",
+  "description": "Hubris is a labor of love from a chaotic group of podcasters who decided a 24-hour podcast challenge sounded like a good idea. We assembled several Creative Teams from a large group of podcasters from around the world, made up of writers, audio producers, and voice actors to create a single-episode fiction podcast within a 24-hour period from start to finish.",
+  "cover": "images/covers/hubris-a-24-hour-podcast-project.png",
+  "coverAlt": "Hubris: A 24-Hour Podcast Project cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/hubris-a-24-hour-podcast-project/id1545216685?uo=4",
+    "website": "https://24hourhubris.com/",
+    "rss": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Hubris: A 24-Hour Podcast Project"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "10 seasons observed • at least 61 full episodes • 19 min median",
+    "seasons": 10,
+    "episodes": 61,
+    "avgEpisodeMinutes": 20,
+    "medianEpisodeMinutes": 19,
+    "minEpisodeMinutes": 10,
+    "maxEpisodeMinutes": 42,
+    "totalObservedHours": 18.9,
+    "durationCoverage": 0.951,
+    "observedSeasons": [
+      10,
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 61,
+      "bonus": 4,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2021-01-03",
+    "latest": "2026-01-04",
+    "latestFeedItem": "2026-01-04",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://24hourhubris.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "https://discord.gg/fGyyBcxDFw",
+    "youtube": "",
+    "social": "https://twitter.com/24hourhubris",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Caroline Mincks, Anne Baird, and Tal Minear.",
+    "ownerName": "Caroline Mincks, Anne Baird, and Tal Minear.",
+    "network": "Hubris: A 24-Hour Podcast Project"
+  },
+  "creators": [
+    "Caroline Mincks, Anne Baird, and Tal Minear."
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://24hourhubris.com/; https://pinecast.com/feed/hubris-a-24-hour-podcast-proje; https://podcasts.apple.com/us/podcast/hubris-a-24-hour-podcast-project/id1545216685?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://24hourhubris.com/",
+      "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje",
+      "https://podcasts.apple.com/us/podcast/hubris-a-24-hour-podcast-project/id1545216685?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Hubris is a labor of love from a chaotic group of podcasters who decided a 24-hour podcast challenge sounded like a good idea. We assembled several Creative Teams from a large group of podcasters from around the world, made up of writers, audio producers, and voice actors to create a single-episode fiction podcast within a 24-hour period from start to finish.",
+    "socialUrls": [
+      "https://twitter.com/24hourhubris"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2026",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje",
+        "appleCollectionId": "1545216685",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://24hourhubris.com/",
+          "fetchedAt": "2026-08-15T20:47:48.725Z",
+          "payloadHash": "e42a6b2f28c8bfac62d3ef71c28ccd0d7568e58904a36aa1b20bc9ac30f9144f"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje",
+          "fetchedAt": "2026-08-15T20:47:48.010Z",
+          "payloadHash": "0fb6ac1f0fc8b7d7198fd6926e654e0bd828da5d5da07f20aeb501741bc1bb96"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/hubris-a-24-hour-podcast-project/id1545216685?uo=4",
+          "fetchedAt": "2026-08-15T20:46:55.380Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hubris-a-24-hour-podcast-project/id1545216685?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://24hourhubris.com/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hubris-a-24-hour-podcast-project/id1545216685?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hubris-a-24-hour-podcast-project/id1545216685?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hubris-a-24-hour-podcast-project/id1545216685?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hubris-a-24-hour-podcast-project/id1545216685?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hubris-a-24-hour-podcast-project/id1545216685?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://24hourhubris.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.6,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://24hourhubris.com/"
+            }
+          ]
+        },
+        "discordUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://24hourhubris.com/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://24hourhubris.com/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hubris-a-24-hour-podcast-proje"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:47:49.672Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "254710bf52f0861d5503fedede1bf659510d01c5d382b8fdbfd57ab3a1295cfe",
+        "subtitle": "6cdbca4c58365fcdc2e61aae5bce13beb762882d36cfcd7a63568a0f06e24922",
+        "description": "bf4102a54a824cd1cef03d8182b19cd2dc62842acd1d9b3e6479a416371a55b9",
+        "cover": "5af2ca02f10977542be4a0b810cc1ab19bba42e3cc8add62a732bfa737a8c815",
+        "coverAlt": "b9be71001e95cd685dca4624081c9ee29e297236aef7f1d1ba38225c9426b673",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "732592eec6da5ae7a0944e83f04ac3d13525a824311cfac8c701acf35fee0548",
+        "officialLinks": "684956d8a6cdd3e0bb70ce734c0ac6b95bdad45d5b233784e223718766f9e3e8",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "4930d5767e3a0e45501778cea9fb6af53e509028583e9958dcf0a10cb9f55eca",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "d781a75f73a62773826a5398cf072cc918e714dba1ec3d837479ea6d07bb763f",
+        "releaseDates": "08e4debebf6e4826049bdacbbec0098275497d7cd6f8b304e8e2f7a35c9c2484",
+        "credits": "e403784e11e12968f251ff41ba739b3c1793f17c8e79123b8593ad194985595d",
+        "creators": "50bac24697b2b19917a2b3b002e6983066b5b816be16037ec07203948d20e46c",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "b3d60fdd55b4547879cfccb4462304f40bb2e5dfee249e103d0d6d8af2484d96"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:48:54.410Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "caroline-mincks-anne-baird-and-tal-minear",
+  "networkId": "hubris-a-24-hour-podcast-project"
+}

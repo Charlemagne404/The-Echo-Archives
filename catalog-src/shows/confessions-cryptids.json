@@ -1,0 +1,680 @@
+{
+  "id": "confessions-cryptids",
+  "title": "Confessions & Cryptids",
+  "subtitle": "",
+  "description": "Confessions & Cryptids is a fiction podcast following Riley Rhines as she tries to unravel the stories she receives from her classmates and the adventures that follow. Hosted on Acast. See acast.com/privacy for more information.",
+  "cover": "images/covers/confessions-cryptids.jpg",
+  "coverAlt": "Confessions & Cryptids cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/confessions-cryptids/id1728538304?uo=4",
+    "website": "https://shows.acast.com/659f58020d2a2c0016100139",
+    "rss": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Confessions & Cryptids"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 3 full episodes • 15 min median",
+    "seasons": 1,
+    "episodes": 3,
+    "avgEpisodeMinutes": 14,
+    "medianEpisodeMinutes": 15,
+    "minEpisodeMinutes": 11,
+    "maxEpisodeMinutes": 16,
+    "totalObservedHours": 0.7,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 3,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2024-03-23",
+    "latest": "2025-09-30",
+    "latestFeedItem": "2025-09-30",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://shows.acast.com/659f58020d2a2c0016100139",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/confessions-and-cryptids/episodes/ep-0-trailer",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Sofia Hamilton",
+    "ownerName": "Sofia Hamilton"
+  },
+  "creators": [
+    "Sofia Hamilton"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://shows.acast.com/confessions-and-cryptids/episodes/ep-2-passengers; https://shows.acast.com/confessions-and-cryptids/episodes/ep-1-grim-reflections; https://shows.acast.com/confessions-and-cryptids/episodes; https://shows.acast.com/confessions-and-cryptids/episodes/ep-0-trailer; https://shows.acast.com/659f58020d2a2c0016100139; https://feeds.acast.com/public/shows/659f58020d2a2c0016100139; https://podcasts.apple.com/us/podcast/confessions-cryptids/id1728538304?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://shows.acast.com/confessions-and-cryptids/episodes/ep-2-passengers",
+      "https://shows.acast.com/confessions-and-cryptids/episodes/ep-1-grim-reflections",
+      "https://shows.acast.com/confessions-and-cryptids/episodes",
+      "https://shows.acast.com/confessions-and-cryptids/episodes/ep-0-trailer",
+      "https://shows.acast.com/659f58020d2a2c0016100139",
+      "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139",
+      "https://podcasts.apple.com/us/podcast/confessions-cryptids/id1728538304?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Confessions & Cryptids is a fiction podcast following Riley Rhines as she tries to unravel the stories she receives from her classmates and the adventures that follow. Hosted on Acast. See acast.com/privacy for more information.",
+    "socialUrls": [
+      "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/confessions-and-cryptids/episodes/ep-0-trailer",
+      "http://x.com/intent/tweet?url=https://shows.acast.com/confessions-and-cryptids/episodes/ep-0-trailer&via=acast&text=Confessions%20&%20Cryptids"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "irregular",
+      "medianDays": 278,
+      "observedIntervals": 2
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Sofia Hamilton",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139",
+        "appleCollectionId": "1728538304",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://feeds.acast.com/public/shows/confessions-and-cryptids"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://shows.acast.com/confessions-and-cryptids/episodes/ep-2-passengers",
+          "fetchedAt": "2026-08-15T20:47:55.411Z",
+          "payloadHash": "d9486ac017b42c7fcf9e94206b3e2ee49934d6d87ec20e5739368e51a0380983"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://shows.acast.com/confessions-and-cryptids/episodes/ep-1-grim-reflections",
+          "fetchedAt": "2026-08-15T20:47:55.409Z",
+          "payloadHash": "5c476851557c7119fb34c2ac5278f6edff5122c307e0908372bfe23854c2210e"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://shows.acast.com/confessions-and-cryptids/episodes",
+          "fetchedAt": "2026-08-15T20:47:55.408Z",
+          "payloadHash": "fe6c7383c333c9c09b2f6f5f8bd5e64e1bf577a0852188e891a479b66be328c7"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://shows.acast.com/confessions-and-cryptids/episodes/ep-0-trailer",
+          "fetchedAt": "2026-08-15T20:47:55.407Z",
+          "payloadHash": "01ba4400b9b565621723e47a6c5994bc756134059d0403cdbbb2c5bcf1c6690e"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://shows.acast.com/659f58020d2a2c0016100139",
+          "fetchedAt": "2026-08-15T20:47:55.405Z",
+          "payloadHash": "f7abe34ff65ccde0a595c8e5c2789df6b47c647a4f37bba9f5c965ed0986bf6f"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139",
+          "fetchedAt": "2026-08-15T20:47:53.531Z",
+          "payloadHash": "a0da977f718cc7f6f66da8ecb011aa797fe68035a4fa978ed9516a232d91ca44"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/confessions-cryptids/id1728538304?uo=4",
+          "fetchedAt": "2026-08-15T20:47:53.375Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/confessions-cryptids/id1728538304?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shows.acast.com/659f58020d2a2c0016100139"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shows.acast.com/confessions-and-cryptids/episodes"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/confessions-cryptids/id1728538304?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/confessions-cryptids/id1728538304?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/confessions-cryptids/id1728538304?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/confessions-cryptids/id1728538304?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/confessions-cryptids/id1728538304?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shows.acast.com/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shows.acast.com/659f58020d2a2c0016100139"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shows.acast.com/confessions-and-cryptids/episodes/ep-0-trailer"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/659f58020d2a2c0016100139"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:47:56.368Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "3c9906a614bd9706d7e3c7d9a0040c9374706364d782048baf7e1115194d301f",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "0a6e2668a860c2858de583aab24e53e1721d1dc6c3698f923137bad884008559",
+        "cover": "231edb8987946221b71f4ec5cb90b7ce5680c8812509a457e2567caebd292719",
+        "coverAlt": "19b27418e6e49fbf4b3abbf1bdbfbd3aae200cef3590356ba8d9b8c5d6092125",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "ce5933a9c604c852049fe187cf2a46052f88580637f3aa8dbdba0e89246e1b85",
+        "officialLinks": "b700566302836d0ac1615ef048da1952e1f0ea8bc51bb02913c6f956ac0fef37",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "3f2fc207d84fbb4bc1fc31d208b7ebd5a0f8f3beda87d1824c1fa921947cce7a",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "b902f2e0c6a222a289a97a4c6d616770c45f7ae26e97df419d156c0c0ec9ba8e",
+        "releaseDates": "5bec4e1f96b4a45983828988f66b6dbf7d2bdcf44cc98c61118525b81ed9cdbd",
+        "credits": "769abb5272f003f0b11c4a550ead9e051984318fd44cf22700ef7975894ef802",
+        "creators": "2a5419f79f6ef4d9ce743d1a3eca77a8a58b4d36cfb4754e9264aea9a5d8dbde",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "1a0e5bbde6c94e0703f79be9c59220fe3de92fd5b5f7a3d5e352db92b0ef981c"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:48:54.431Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "sofia-hamilton"
+}

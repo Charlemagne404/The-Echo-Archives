@@ -82,7 +82,7 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 82,P2,DASH,,ad1531e3-3148-41a9-b463-4002411a3edc,published,published,,2026-08-15 19:29:41
 83,P2,The Stench of Adventure,Strong Branch Productions,ab2c3def-7b70-4323-b77f-753c6247a1cd,published,published,,2026-08-15 19:29:41
 84,P2,Electromancy,Nathan Comstock,4992bb51-5f08-48d9-8ea9-4ad4a5490461,published,published,,2026-08-15 19:29:41
-85,P3,Aurora Everlasting,M.G. Rook,,unattempted,,,
+85,P3,Aurora Everlasting,M.G. Rook,5246b4d0-c038-4b05-8018-509298dec7e9,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 20:45:49
 86,P2,Dispatch from the Desert Planet,,430346e3-3d14-4909-8e96-e9978f7fbee1,published,published,,2026-08-15 19:29:41
 87,P1,Less Is Morgue,The Praeps Collective,57736532-4cfc-480f-b6b4-0201d184c749,published,published,,2026-08-15 16:37:01
 88,P2,Station Arcadia,Metal Steve Productions,139ad9c2-907a-4a9f-844c-e06bd29e0e52,published,published,,2026-08-15 19:29:41
@@ -95,7 +95,7 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 95,P2,McGillicuddy and Murder's Pawn Shop,Minerva Sweeney Wren,6e0cd776-a190-4614-b9e0-2d59da00efa9,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 19:29:30
 96,P2,"On a Dark, Cold Night",Kristen Zaza,320ffa91-b38e-47e5-ac78-cc34b6a8dca4,needs-review,needs-review,scope-review,2026-08-15 19:28:08
 97,P2,FETIDUS,James Durham,0a7505b1-5029-4f72-ae84-573cf0f0ed85,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; cover-not-ready; source-conflict,2026-08-15 19:28:07
-98,P3,Hubris: A 24-Hour Podcast Project,Hubris Podcast,,unattempted,,,
+98,P3,Hubris: A 24-Hour Podcast Project,Hubris Podcast,e1dead76-7ec3-4520-be8e-09055f6331e0,published,published,,2026-08-15 20:48:58
 99,P1,Ad Lucem,QCODE,add7aedd-c708-48e4-bd74-3260fedd02f4,needs-review,needs-review,placeholder-description; missing-genre; scope-review; source-conflict,2026-08-15 17:32:54
 100,P1,Bad Vibes,QCODE,18b8314b-d10c-4fa1-b09e-3ba86d78d85b,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:32:53
 101,P1,Beautiful Liar,QCODE,65dc9bb5-2abf-4906-a798-1e87a18d76f9,needs-review,needs-review,placeholder-description; missing-genre; scope-review; source-conflict,2026-08-15 17:23:06
@@ -260,7 +260,7 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 260,P2,The Control Group,HowStuffWorks,37d26365-8b5c-46ac-aa2f-5a7e38112582,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:38:03
 261,P2,The London Necropolis Railway,,f094d2cf-b4e6-416e-9310-6357241022bb,needs-review,needs-review,insufficient-discovery-signals; missing-genre,2026-08-15 19:37:44
 262,P1,The Sink: A Sleep Aid,BBC,042387f4-3056-4212-ad32-5ce362882eec,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:28:35
-263,P3,Vigil,,,unattempted,,,
+263,P3,Vigil,,ef42d0a6-8a44-4507-baa8-23e024add9cd,published,published,,2026-08-15 20:48:58
 264,P0,Six Minutes,Gen-Z Media,c93247e5-6a1d-4d66-9fdc-acb9bf7be9f3,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:31:38
 265,P1,The Alien Adventures of Finn Caspian,Gen-Z Media / Jonathan Messinger,a0604b95-72a4-44c3-94df-ee0d6d495df2,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; source-conflict; duplicate-ambiguity,2026-08-15 17:26:39
 266,P0,Eleanor Amplified,WHYY,32368913-a824-4492-bdc1-381f35cd41fa,needs-review,needs-review,insufficient-discovery-signals; source-conflict; duplicate-ambiguity,2026-08-15 17:31:38
@@ -279,7 +279,7 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 279,P1,The Madness of Chartrulean,Packhowl Media,569e1b2c-d62c-4840-9f8e-839f4e2c57bc,published,published,,2026-08-15 16:56:53
 280,P1,The Technomancy Project,,c99bc08e-31f5-4cc5-9ee4-7dc6d02ac184,published,published,,2026-08-15 16:56:53
 281,P1,"The Department of Variance of Somewhere, Ohio",Rat Grimes,c752fe54-c1e1-4389-a3f8-72c18ae40f7f,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:28:40
-282,P3,Project Nova,Evil Kitten Productions,,unattempted,,,
+282,P3,Project Nova,Evil Kitten Productions,af267fd0-a8b1-4856-801d-fbcf4a5650c3,needs-review,needs-review,source-conflict,2026-08-15 20:48:49
 283,P1,Starship Q Star,Meegan May & Lauren Anderson,24b6d51d-45b4-4ca5-a45a-58b5c3e395ee,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:28:58
 284,P2,The AM Archives,Atypical Artists,e6d7b7db-406f-490d-bcfb-b6bb0a7539b9,needs-review,needs-review,scope-review; source-conflict,2026-08-15 19:37:44
 285,P1,The Shadows,CBC Podcasts / CBC / Kaitlin Prest,f4288456-fc55-4337-85de-5c4366c0e822,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:28:55
@@ -288,7 +288,7 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 288,P1,The Springheel Saga,Wireless Theatre Company / Wireless Theatre,630410fa-848d-4b1d-a344-000a6b20e12b,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:28:39
 289,P1,The Minister of Chance,Radio Static / Dan Freeman,3881baa5-9871-41c3-8cc6-73036767dbee,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; cover-not-ready; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:28:39
 290,P1,HG World,3015 North / 3015 North Studios,a94b6c1f-469f-450c-8505-fcff9d60fb16,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:32:22
-291,P3,Dark Matter,Darker Projects,,unattempted,,,
+291,P3,Dark Matter,Darker Projects,b1123c97-a7c4-4554-a942-2050b9b2d8a4,needs-review,needs-review,source-conflict,2026-08-15 20:46:56
 292,P1,Woodbine,Alex Nursall & Emily Kellogg,8e55502e-77d7-4aba-8499-859d8c26127c,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:32:26
 293,P0,Deviser,Harlan Guthrie,2d57cba2-5d71-49fc-96a0-e3056e22a0a7,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:31:37
 294,P2,Selene,Aaron J. Reardon,c3b7646a-bdda-4c99-bde7-7d4d0dc30cf1,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:38:07
@@ -503,31 +503,31 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 503,P2,Whispers From the Void,,82f9ddaa-ae5e-4756-a782-830de001f40c,needs-review,needs-review,insufficient-discovery-signals; missing-genre; invalid-apple-link; scope-review; source-conflict,2026-08-15 19:52:38
 504,P2,Wrought of Amber,,1608a898-af75-43ec-8591-08d3602d4659,needs-review,needs-review,source-conflict,2026-08-15 19:53:24
 505,P2,Zoic,,41a38337-c0d2-4f2c-b8cc-5ccec26ddfec,published,published,,2026-08-15 19:53:59
-506,P3,1968 Blackflower Drive,,,unattempted,,,
-507,P3,A Dark Light Shivers,,,unattempted,,,
-508,P3,Battalion-13,,,unattempted,,,
+506,P3,1968 Blackflower Drive,,6fcba0f0-8b16-4ceb-87bb-6bdfcde69d8f,published,published,,2026-08-15 20:48:58
+507,P3,A Dark Light Shivers,,bfdc6abe-d34b-4607-9bb4-b6a642710afb,needs-review,needs-review,invalid-website; source-conflict,2026-08-15 20:46:55
+508,P3,Battalion-13,,d09e9c99-021e-4f8f-95b0-624cf733c4fb,needs-review,needs-review,source-conflict,2026-08-15 20:46:52
 509,P1,Before The Tone,Knave Of Hearts,1a1b2f74-1171-4835-a75e-11d09f524ce2,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:22
 510,P2,Brittle Tourniquet,,1695ed6d-e89f-49c4-b198-9b36efb7cfc6,needs-review,needs-review,source-conflict,2026-08-15 19:52:31
-511,P3,Call to the Dark,,,unattempted,,,
-512,P3,Cede Malis,,,unattempted,,,
-513,P3,Ceia's Tiny Terrors,,,unattempted,,,
-514,P3,Circus Folk,,,unattempted,,,
-515,P3,Clawmoor Heights,,,unattempted,,,
-516,P3,Confessions & Cryptids,,,unattempted,,,
-517,P3,Cooking (With) The Smiths,,,unattempted,,,
-518,P3,Dead Evil Tales,,,unattempted,,,
-519,P3,Death By Inches,,,unattempted,,,
-520,P3,Elias The Caretaker,,,unattempted,,,
-521,P3,En-Cryptid: The Lost Tapes!,,,unattempted,,,
-522,P3,Forgive Me Father,,,unattempted,,,
-523,P3,From the Depths,,,unattempted,,,
+511,P3,Call to the Dark,,93c7ef9e-9abd-404c-8e4b-ec4f9802d55c,needs-review,needs-review,scope-review,2026-08-15 20:47:48
+512,P3,Cede Malis,,25d8f666-bdde-4351-9c51-9d4764e31dd0,published,published,,2026-08-15 20:48:58
+513,P3,Ceia's Tiny Terrors,,53197a1d-63fc-424c-8a95-e1a0d61ae1fc,needs-review,needs-review,source-conflict,2026-08-15 20:48:51
+514,P3,Circus Folk,,888c8d21-240a-4be9-98a4-7bb8fac64245,needs-review,needs-review,scope-review; source-conflict,2026-08-15 20:48:54
+515,P3,Clawmoor Heights,,1bc0d5e1-62f9-4953-b239-8a39e97db467,needs-review,needs-review,source-conflict,2026-08-15 20:47:55
+516,P3,Confessions & Cryptids,,17b833e4-2d1f-4c4d-b40c-ca430cc83adc,published,published,,2026-08-15 20:48:58
+517,P3,Cooking (With) The Smiths,,00299e38-12ec-4cb7-8357-a1ff05d8f53d,needs-review,needs-review,source-conflict,2026-08-15 20:45:50
+518,P3,Dead Evil Tales,,52860faf-e583-4854-8c1b-989ae6050368,published,published,,2026-08-15 20:48:58
+519,P3,Death By Inches,,f95a06c0-ba4e-4948-99d6-abe1c077efec,published,published,,2026-08-15 20:48:58
+520,P3,Elias The Caretaker,,38f51763-f648-45d6-9bbe-3d26e6cb7d1e,published,published,,2026-08-15 20:48:58
+521,P3,En-Cryptid: The Lost Tapes!,,e8cac7ac-711a-4060-a58d-28272e24b4be,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:47:57
+522,P3,Forgive Me Father,,b5d00c42-83de-471b-8244-9e70e6744d51,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 20:47:51
+523,P3,From the Depths,,9c02e5bd-0f98-4ea1-9f03-fbf6e2b8265a,published,published,,2026-08-15 20:48:58
 524,P2,GET TO KNOW YOUR LOCAL DEMON,,beef159a-5ca7-4f30-a312-8f0ae8e52316,needs-review,needs-review,invalid-apple-link; scope-review; source-conflict,2026-08-15 19:52:34
-525,P3,God Forsaken Station,,,unattempted,,,
-526,P3,Halcyon: The Book Of Paimon,,,unattempted,,,
+525,P3,God Forsaken Station,,5e78f3a3-2933-4985-ad8d-8678c35d97e9,needs-review,needs-review,source-conflict,2026-08-15 20:45:53
+526,P3,Halcyon: The Book Of Paimon,,e3eb6367-7c3c-4055-84af-016db51aaf6c,published,published,,2026-08-15 20:48:58
 527,P2,Hellhound Country,,9799ca93-f5a3-411e-8f64-d81509f0b07f,published,published,,2026-08-15 19:53:59
-528,P3,Hiker Gothic,,,unattempted,,,
+528,P3,Hiker Gothic,,8f7866b5-31f4-4cfd-8d60-3ce0d654ece1,published,published,,2026-08-15 20:48:58
 529,P2,Hollow Disciple,Shadow & Static,5d1c829b-bb81-4c5c-b6f6-6d6f40d6ab21,published,published,,2026-08-15 19:53:59
-530,P3,Hollow Head Pete and the Wicked Wish - Origins,,,unattempted,,,
+530,P3,Hollow Head Pete and the Wicked Wish - Origins,,bcf5269a-7a56-487a-a540-be0a08f68f44,needs-review,needs-review,source-conflict,2026-08-15 20:46:54
 531,P3,I is for Investigate,,,unattempted,,,
 532,P3,Left Alone Once More,,,unattempted,,,
 533,P3,Leo Brawn,,,unattempted,,,
