@@ -1,0 +1,669 @@
+{
+  "id": "submitted-for-the-approval-of-the-midnight-pals",
+  "title": "Submitted for the Approval of the Midnight Pals",
+  "subtitle": "",
+  "description": "Each week, a group of storytellers gathers around a campfire. There's world-weary club MC Edgar Allan Poe, nerd dad Stephen King, violent goth Mary Shelley, squid-obsessed wimp HP Lovecraft, and others. A comedy-horror semi-anthology adapted from Bitter Karella's Hugo-nominated microfiction.",
+  "cover": "images/covers/submitted-for-the-approval-of-the-midnight-pals.jpg",
+  "coverAlt": "Submitted for the Approval of the Midnight Pals cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/submitted-for-the-approval-of-the-midnight-pals/id1691196284?uo=4",
+    "website": "https://midnight-pals.simplecast.com/",
+    "rss": "https://feeds.simplecast.com/CytGsRTZ",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Submitted for the Approval of the Midnight Pals"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 15 full episodes • 38 min median",
+    "seasons": 2,
+    "episodes": 15,
+    "avgEpisodeMinutes": 37,
+    "medianEpisodeMinutes": 38,
+    "minEpisodeMinutes": 25,
+    "maxEpisodeMinutes": 48,
+    "totalObservedHours": 9.3,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 15,
+      "bonus": 4,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2023-10-30",
+    "latest": "2025-11-16",
+    "latestFeedItem": "2025-11-16",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://midnight-pals.simplecast.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Bitter Karella",
+    "ownerName": "The Midnight Pals"
+  },
+  "creators": [
+    "Bitter Karella"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://midnight-pals.simplecast.com/; https://feeds.simplecast.com/CytGsRTZ; https://podcasts.apple.com/us/podcast/submitted-for-the-approval-of-the-midnight-pals/id1691196284?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://midnight-pals.simplecast.com/",
+      "https://feeds.simplecast.com/CytGsRTZ",
+      "https://podcasts.apple.com/us/podcast/submitted-for-the-approval-of-the-midnight-pals/id1691196284?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction",
+      "Science Fiction",
+      "Arts",
+      "Books"
+    ],
+    "sourceKeywords": [
+      "anthology",
+      "clive barker",
+      "dean koontz",
+      "edgar allan poe",
+      "horror",
+      "hp lovecraft",
+      "mary shelley",
+      "satire",
+      "stephen king",
+      "are you afraid of the dark",
+      "fan fiction",
+      "campfire stories"
+    ],
+    "sourceTags": [],
+    "importOfficialSummary": "Each week, a group of storytellers gathers around a campfire. There's world-weary club MC Edgar Allan Poe, nerd dad Stephen King, violent goth Mary Shelley, squid-obsessed wimp HP Lovecraft, and others. A comedy-horror semi-anthology adapted from Bitter Karella's Hugo-nominated microfiction.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 7
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "2023 Bitter Karella",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.simplecast.com/CytGsRTZ",
+        "appleCollectionId": "1691196284",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://midnight-pals.simplecast.com/",
+          "fetchedAt": "2026-08-15T17:03:03.692Z",
+          "payloadHash": "591a6176360f793e08d596cd39b4c93b10716a33e25958cd381959fc865bf032"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ",
+          "fetchedAt": "2026-08-15T17:03:03.326Z",
+          "payloadHash": "542a7bd2ab221a6f7b8ee320bdb8e7edad7008b6e5e7106ffce5d8c73ea20fd0"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/submitted-for-the-approval-of-the-midnight-pals/id1691196284?uo=4",
+          "fetchedAt": "2026-08-15T17:03:03.247Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/submitted-for-the-approval-of-the-midnight-pals/id1691196284?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/submitted-for-the-approval-of-the-midnight-pals/id1691196284?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/submitted-for-the-approval-of-the-midnight-pals/id1691196284?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/submitted-for-the-approval-of-the-midnight-pals/id1691196284?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/submitted-for-the-approval-of-the-midnight-pals/id1691196284?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/submitted-for-the-approval-of-the-midnight-pals/id1691196284?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://midnight-pals.simplecast.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://midnight-pals.simplecast.com/"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "keywords": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/CytGsRTZ"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T17:03:03.797Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "8819f9917104ad4262407448b1fe43f1ead4d4c1009a2924f04200f561097988",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "2f4aed3d2cf0aa14bf16d6fa228f942720b7876b3068a8ff6b7111003d791c98",
+        "cover": "ff4dc2d5283ec44cc25f2c899a9a29f92aa5ff6f7213bc084124cf87caf79372",
+        "coverAlt": "4b0e908ce7a22bdd5648d6f96aa5b84aa08f1ac36ef725520160a953b186022c",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "8114edd4aaa164a8fdc406fab46b88db45c9170aff28744d27ab3bfc730a0808",
+        "officialLinks": "2350f548d614261549103012e721055d8a6b0844710b40b6506fc72a595bae5a",
+        "genres": "54b64656959d327c4ed1684ee817dcd15faa2b613a81ba887f8254860650d9c6",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "2de9250106b97b65018cd945e25b06e4b46dc292162099c419c3c4a9409b1ac2",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "efd08e3bdb89f9757664ce065f88d55b1209c016d0a2a607e205bc32526afca3",
+        "releaseDates": "1869d25a4e6e2913f5c9ecf0eae7e1f53e8daf93427479175ee4b6cfa2bb4fa6",
+        "credits": "1171e49e60c650ed6beb4d82dcfac3edf74c74f56bbad99b81fbdc66290133c0",
+        "creators": "9bb0990cb1d97f0169fda2e50eb69cbc0cd8d78f39fbc825868c2909e94453bd",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "cbed83c95c9dafe9d786fcef833e25915eba8a939fed3865b0f5e51a2239cbad"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T17:04:01.876Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "bitter-karella"
+}

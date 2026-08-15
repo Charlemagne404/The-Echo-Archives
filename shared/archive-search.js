@@ -23,6 +23,31 @@
   ];
 
   const ALIAS_LOOKUP = buildAliasLookup(ALIAS_GROUPS);
+  const STRUCTURED_ALIAS_FIELDS = new Map([
+    ["sci fi", "genres"],
+    ["full cast", "formats"],
+    ["single narrator", "formats"],
+    ["completed", "completionStatus"],
+    ["ongoing", "completionStatus"],
+    ["full review", "reviewStatus"],
+    ["easy entry", "bestFor"],
+    ["funny space disasters", "bestFor"],
+    ["cold isolation horror", "bestFor"],
+    ["headphones on", "bestFor"],
+    ["binge listening", "bestFor"],
+    ["transcripts", "transcriptAvailability"],
+  ]);
+  const STRUCTURED_GENRE_TOKENS = new Set([
+    "adventure",
+    "comedy",
+    "drama",
+    "fantasy",
+    "horror",
+    "mystery",
+    "science",
+    "supernatural",
+    "thriller",
+  ]);
   const QUERY_STOP_WORDS = new Set([
     "a",
     "an",
@@ -654,7 +679,7 @@
     const clauses = [];
     const consumedTokens = new Set();
 
-    ALIAS_GROUPS.forEach(([, aliases]) => {
+    ALIAS_GROUPS.forEach(([groupKey, aliases]) => {
       const normalizedAliases = Array.from(
         new Set(
           aliases.map((alias) => normalizeText(alias)).filter(Boolean),
@@ -669,24 +694,31 @@
       }
 
       tokenizeQuery(matchedAlias).forEach((token) => consumedTokens.add(token));
-      clauses.push(
-        normalizedAliases
+      clauses.push({
+        fieldName: STRUCTURED_ALIAS_FIELDS.get(groupKey) || "",
+        options: normalizedAliases
           .map((alias) => tokenizeQuery(alias))
           .filter((aliasTokens) => aliasTokens.length > 0),
-      );
+      });
     });
 
     tokens
       .filter((token) => !QUERY_STOP_WORDS.has(token) && !consumedTokens.has(token))
       .forEach((token) => {
-        clauses.push([[token]]);
+        clauses.push({
+          fieldName: STRUCTURED_GENRE_TOKENS.has(token) ? "genres" : "",
+          options: [[token]],
+        });
       });
 
     return clauses;
   }
 
-  function satisfiesClause(recordTokens, clause) {
-    return clause.some((optionTokens) => optionTokens.every((token) => recordTokens.has(token)));
+  function satisfiesClause(searchIndex, clause) {
+    const fieldTokens = clause.fieldName
+      ? new Set((searchIndex.fields[clause.fieldName] || []).flatMap((value) => tokenizeQuery(value)))
+      : searchIndex.tokenSet;
+    return clause.options.some((optionTokens) => optionTokens.every((token) => fieldTokens.has(token)));
   }
 
   function toOptionSet(values) {
@@ -1057,14 +1089,15 @@
         }
 
         const hasFullClauseCoverage =
-          requiredClauses.length === 0 || requiredClauses.every((clause) => satisfiesClause(searchIndex.tokenSet, clause));
+          requiredClauses.length === 0 || requiredClauses.every((clause) => satisfiesClause(searchIndex, clause));
         const fuzzyMatchedTokenCount = hasFuzzyTokenCoverage(searchIndex, preparedQuery.significantTokens);
         const hasFuzzyClauseCoverage =
           preparedQuery.significantTokens.length > 0 && fuzzyMatchedTokenCount === preparedQuery.significantTokens.length;
+        const hasStructuredClause = requiredClauses.some((clause) => clause.fieldName);
         const hasRequiredFieldCoverage = satisfiesRequiredFields(record, requiredFields);
         const satisfiesQuery = preparedQuery.seedRecord
           ? record.id !== preparedQuery.seedRecord.id && relatedToSeed && hasRequiredFieldCoverage
-          : (hasFullClauseCoverage || hasFuzzyClauseCoverage) && hasRequiredFieldCoverage;
+          : (hasFullClauseCoverage || (!hasStructuredClause && hasFuzzyClauseCoverage)) && hasRequiredFieldCoverage;
 
         return {
           ...record,

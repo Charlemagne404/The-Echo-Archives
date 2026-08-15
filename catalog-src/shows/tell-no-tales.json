@@ -1,0 +1,726 @@
+{
+  "id": "tell-no-tales",
+  "title": "Tell No Tales",
+  "subtitle": "",
+  "description": "Leo Quinn works for Better Place, the world leader in ghost removal, but they’re having some doubts about the ethics of their work. They’re building a device that should let them capture the voices of ghosts, to prove once and for all that Better Place needs to start treating spirits with the humanity they deserve – and to unravel some mysteries in the process. Tell No Tales is a serialised fiction podcast — to hear the story unfold, we recommend starting from S1 E1. Distributed by Twin Strangers Productions Hosted on Pinecast.",
+  "cover": "images/covers/tell-no-tales.jpg",
+  "coverAlt": "Tell No Tales cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/2o3sOQgwRj3LGnvs7bi9cu?si=Np3ytKsMRBy75vpuyLuvPg",
+    "apple": "https://podcasts.apple.com/gb/podcast/tell-no-tales/id1600376642",
+    "website": "https://tellnotalespod.com/",
+    "rss": "https://pinecast.com/feed/tell-no-tales",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": "https://pca.st/podcast/bbcbfa00-3f74-013a-d67b-0acc26574db2"
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Tell No Tales"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 62 full episodes • 20 min median",
+    "seasons": 2,
+    "episodes": 62,
+    "avgEpisodeMinutes": 18,
+    "medianEpisodeMinutes": 20,
+    "minEpisodeMinutes": 4,
+    "maxEpisodeMinutes": 30,
+    "totalObservedHours": 18.9,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1,
+      2
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 62,
+      "bonus": 11,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2022-05-02",
+    "latest": "2026-06-28",
+    "latestFeedItem": "2026-06-28",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://tellnotalespod.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "https://twitter.com/tellnotalespod",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Wasting Company Time Productions",
+    "ownerName": "Wasting Company Time Productions",
+    "network": "Tell No Tales"
+  },
+  "creators": [
+    "Wasting Company Time Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://tellnotalespod.com/listen/; https://tellnotalespod.com/transcripts/; https://tellnotalespod.com/about/; https://tellnotalespod.com/; https://pinecast.com/feed/tell-no-tales; https://podcasts.apple.com/us/podcast/tell-no-tales/id1600376642?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://tellnotalespod.com/listen/",
+      "https://tellnotalespod.com/transcripts/",
+      "https://tellnotalespod.com/about/",
+      "https://tellnotalespod.com/",
+      "https://pinecast.com/feed/tell-no-tales",
+      "https://podcasts.apple.com/us/podcast/tell-no-tales/id1600376642?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Leo Quinn works for Better Place, the world leader in ghost removal, but they’re having some doubts about the ethics of their work. They’re building a device that should let them capture the voices of ghosts, to prove once and for all that Better Place needs to start treating spirits with the humanity they deserve – and to unravel some mysteries in the process. Tell No Tales is a serialised fiction podcast — to hear the story unfold, we recommend starting from S1 E1. Distributed by Twin Strangers Productions Hosted on Pinecast.",
+    "socialUrls": [
+      "https://twitter.com/tellnotalespod"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Leanne Egan 2021",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://pinecast.com/feed/tell-no-tales",
+        "appleCollectionId": "1600376642",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://tellnotalespod.com/feed/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://tellnotalespod.com/listen/",
+          "fetchedAt": "2026-08-15T17:01:01.885Z",
+          "payloadHash": "18a6dbc0ecad029e15d1042808e6ed52abddbe9265afeea25ba3b36559947a82"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://tellnotalespod.com/transcripts/",
+          "fetchedAt": "2026-08-15T17:01:01.883Z",
+          "payloadHash": "9596736a7309d39481c48aa0cc51aa152454e318797515e9e77ca805df38ba66"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://tellnotalespod.com/about/",
+          "fetchedAt": "2026-08-15T17:01:01.879Z",
+          "payloadHash": "f999b845cd88e4d1b4fe9d2d7534cbae5829091cea2b0b4746579d85bfc7625d"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://tellnotalespod.com/",
+          "fetchedAt": "2026-08-15T17:01:01.875Z",
+          "payloadHash": "18d7990d9ff56476cd4278bf1134f1ef715a0dfdbebc170d002d729e6e76606b"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://pinecast.com/feed/tell-no-tales",
+          "fetchedAt": "2026-08-15T17:00:59.082Z",
+          "payloadHash": "5daf80b2250269e857782847b78f50fec578d1402bb92eb3a772031466bfb2de"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/tell-no-tales/id1600376642?uo=4",
+          "fetchedAt": "2026-08-15T17:00:58.541Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tell-no-tales/id1600376642?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tellnotalespod.com/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tell-no-tales/id1600376642?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tell-no-tales/id1600376642?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tellnotalespod.com/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tellnotalespod.com/listen/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tell-no-tales/id1600376642?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tell-no-tales/id1600376642?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tellnotalespod.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.69,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tellnotalespod.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tellnotalespod.com/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tellnotalespod.com/transcripts/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tellnotalespod.com/listen/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tellnotalespod.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tellnotalespod.com/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tellnotalespod.com/transcripts/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tellnotalespod.com/listen/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tellnotalespod.com/about/"
+            }
+          ]
+        },
+        "pocketCastsUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tellnotalespod.com/listen/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/tell-no-tales"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T17:01:02.393Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "048830800765fcda4a51bdf20e7bd254737e69c13949330566e8180eece367d4",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "10e81a3b73c179fe88efb58264e3ff480ece76efbcebd97e8c95c10994b56954",
+        "cover": "1dc3715b1c3545e4609f0c03962b0a125e54bc60b328db8954e6ce51ac2736e2",
+        "coverAlt": "8958df14bc6e26809af92b0e88a8065a17c88119dacf3b20b04cc086a775418b",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "079a1e921b7433ce8a87c60fa67fa92d122a3ca47b23221feeb174f50ddebce7",
+        "officialLinks": "2af1476662812d5b7bb48424dc66d6cec4bfe62295dcf994fe1019428617545d",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "074e626e72654dee67ea2c3d897c8d8c39061664b7c8343091009403d7755162",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "0b7be7c008ee94b2d5999684af8e8fcae17282510339555e0065096a92fe263f",
+        "releaseDates": "4600e1eda3d75b5d60bbf5d7e92777aa86636871dbc046044f56dfde1b478252",
+        "credits": "cf5ea33eefa67922552df5d6f1749f41940e4fc4ce4a42d205592a3ba8586580",
+        "creators": "0f8160f72e1c92f5bff77ddce817d090ad63c2832b72abed7088b6bd9431c0fd",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "c5eb9ada3c07d4c94cf83c6e2f4c3c3573573be9c3c7d5d937b0aa7c1f5adc54"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T17:04:01.880Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "wasting-company-time-productions",
+  "networkId": "tell-no-tales"
+}
