@@ -630,37 +630,37 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 630,P2,Hearthbound: An Untelling of the Odyssey,,3e7ee6f9-857c-4aea-becf-c63b75431a31,published,published,,2026-08-15 19:56:17
 631,P2,Hearthfall: A Dark Fantasy Audio Drama,,2072fc65-7130-4586-84dd-5e1afd3ac8f6,published,published,,2026-08-15 19:56:17
 632,P2,Homicide at Heavensgate,,723e856b-6785-41b1-89ee-53c93bfa269b,published,published,,2026-08-15 19:56:17
-633,P2,Hovering,,,unattempted,,,
-634,P2,Howl,,,unattempted,,,
-635,P2,Human-B-Gon,,,unattempted,,,
-636,P2,InCo,ItMe Podcast Productions,,unattempted,,,
-637,P2,Influence,,,unattempted,,,
-638,P2,It's All Been Done Radio Hour,It's All Been Done Presents,,unattempted,,,
+633,P2,Hovering,,bfe76c9c-0ad1-4991-83c6-155eaa37d3d6,needs-review,needs-review,source-conflict,2026-08-15 19:57:27
+634,P2,Howl,,b2b6f80e-1752-44bf-abe0-75116e00f0a4,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 19:57:38
+635,P2,Human-B-Gon,,7ff66ca3-576c-4e38-a4e0-0d1d4f8a7c88,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 19:59:04
+636,P2,InCo,ItMe Podcast Productions,873b6e36-c2c0-4cea-9f99-869396dcd6ce,needs-review,needs-review,source-conflict,2026-08-15 19:58:35
+637,P2,Influence,,e532ddb4-cb8f-43b5-ac04-c892bcc98a4a,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:57:24
+638,P2,It's All Been Done Radio Hour,It's All Been Done Presents,6b1388a5-9af9-4505-a406-d5940a45b196,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 19:57:24
 639,P1,Jar of Rebuke,Thesperience Productions,9d00f7f9-95fc-429b-82e0-71d5e765cd3a,needs-review,needs-review,invalid-website; source-conflict,2026-08-15 17:18:50
-640,P2,Jim Robbie and the Wanderers,Crossroad Stations,,unattempted,,,
+640,P2,Jim Robbie and the Wanderers,Crossroad Stations,ad1decef-2f42-4fc3-88b0-f2b83206e307,needs-review,needs-review,scope-review; source-conflict,2026-08-15 19:57:34
 641,P1,Josie's Lonely Hearts Club,Good Story Guild,d44c67be-ef43-4f06-bd2f-fdd15d0e2e9a,published,published,,2026-08-15 17:20:09
 642,P1,Last Dance,Blackabbey Productions,7b6d7bf0-62c2-48ab-8ffa-da53e4f059b3,published,published,,2026-08-15 17:20:09
-643,P2,Leylines,,,unattempted,,,
-644,P2,MACAW,,,unattempted,,,
-645,P2,"Me, My Demon, and I",Procyon Podcast Network,,unattempted,,,
-646,P2,Neighbourly,,,unattempted,,,
-647,P2,Null/Void,Cole Burkhardt,,unattempted,,,
-648,P2,October Jones & Fish with Legs,,,unattempted,,,
-649,P2,Project Foxtrot,,,unattempted,,,
-650,P2,Regina Prime,,,unattempted,,,
+643,P2,Leylines,,6a8c5fb9-27c7-4e9d-990b-644b1c63aa9e,published,published,,2026-08-15 19:59:07
+644,P2,MACAW,,79612d42-5697-4748-9662-0a693defd2ef,needs-review,needs-review,source-conflict,2026-08-15 19:57:55
+645,P2,"Me, My Demon, and I",Procyon Podcast Network,3c5dfd95-736f-4a60-a254-6fcca36d66b6,needs-review,needs-review,source-conflict,2026-08-15 19:57:26
+646,P2,Neighbourly,,3193929a-2a47-4424-ae64-bc7359e4f331,published,published,,2026-08-15 19:59:07
+647,P2,Null/Void,Cole Burkhardt,c2249537-14da-4869-95b4-88ceb85121a0,published,published,,2026-08-15 19:59:07
+648,P2,October Jones & Fish with Legs,,efb4ce65-cbaa-42eb-b865-09b5c6581593,needs-review,needs-review,source-conflict,2026-08-15 19:58:36
+649,P2,Project Foxtrot,,163f7ccd-4363-4d21-aa4c-e27f7c8dc39a,published,published,,2026-08-15 19:59:07
+650,P2,Regina Prime,,921c3c41-f492-4a78-a8d2-e76caff97925,published,published,,2026-08-15 19:59:07
 651,P1,Remnants,Hanging Sloth Studios / Eira Major,1922d2b7-f11f-4db7-bd3d-c0a888953905,needs-review,needs-review,source-conflict,2026-08-15 17:18:43
 652,P1,Residents of Proserpina Park,Angela Yih,2134358b-ade7-4ca6-bfdf-7314520c5dc2,needs-review,needs-review,source-conflict,2026-08-15 17:18:48
-653,P2,Saturn's Return,Nerve Tank Media,,unattempted,,,
-654,P2,Sayang,,,unattempted,,,
-655,P2,Seren,Chewboy Productions,,unattempted,,,
-656,P2,Sinclair Wants to Help!,Cardboard Hedgehog,,unattempted,,,
-657,P2,SOS Humanity: Earth's Last Distress Signal,,,unattempted,,,
-658,P2,Sound Heap with John-Luke Roberts,Auddy,,unattempted,,,
-659,P2,The 12:37,Yasmeen Khan,,unattempted,,,
-660,P2,The Aberrant Report,,,unattempted,,,
+653,P2,Saturn's Return,Nerve Tank Media,7b308f32-8222-4ad4-aea2-db124e1b17b3,published,published,,2026-08-15 19:59:07
+654,P2,Sayang,,d48d47cb-af8a-4029-92a0-a480a60b1c20,needs-review,needs-review,placeholder-description; scope-review; source-conflict,2026-08-15 19:57:27
+655,P2,Seren,Chewboy Productions,f638f7fa-e31a-48fe-ac2c-bfa02b5baba3,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 19:57:22
+656,P2,Sinclair Wants to Help!,Cardboard Hedgehog,2e737966-d65b-41b1-9f31-e06c15a88d53,needs-review,needs-review,scope-review; source-conflict,2026-08-15 19:57:37
+657,P2,SOS Humanity: Earth's Last Distress Signal,,9f05bdbe-5252-4ba6-8d72-49ad98e2de80,published,published,,2026-08-15 19:59:07
+658,P2,Sound Heap with John-Luke Roberts,Auddy,439782c0-333a-477f-b2a0-7477eeb353e0,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 19:57:33
+659,P2,The 12:37,Yasmeen Khan,030e8b7f-8b39-42c4-8394-7fb86de1be64,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:57:31
+660,P2,The Aberrant Report,,26d7ebad-0adf-456f-96b9-2a5316a65c2f,published,published,,2026-08-15 19:59:07
 661,P1,The Axe & Crown,Forgery League,4bc0280e-fbee-4ddb-bf0d-cce8d7154de4,needs-review,needs-review,source-conflict; duplicate-ambiguity,2026-08-15 17:21:14
-662,P2,The Ballad of Buck Moon,,,unattempted,,,
-663,P2,The Blood Crow Stories,Ellie Collins,,unattempted,,,
+662,P2,The Ballad of Buck Moon,,1970a6e8-92d1-496b-8ce1-e06823027f6d,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 19:57:35
+663,P2,The Blood Crow Stories,Ellie Collins,81d02e84-0058-41aa-a83e-5c9c4e173ee8,needs-review,needs-review,insufficient-discovery-signals; missing-genre,2026-08-15 19:58:26
 664,P2,The Boar Knight,,,unattempted,,,
 665,P1,The Box Podcast,Addison Peacock,b0669fd9-8b54-47ee-8a23-cc1773612355,needs-review,needs-review,insufficient-discovery-signals; missing-genre; invalid-apple-link; source-conflict,2026-08-15 17:21:22
 666,P2,The Cal Rowe Casefiles,,,unattempted,,,

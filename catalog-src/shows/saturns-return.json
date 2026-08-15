@@ -1,0 +1,694 @@
+{
+  "id": "saturns-return",
+  "title": "Saturn's Return",
+  "subtitle": "",
+  "description": "The people of Barthos are suffering. Not long ago, everyone had plenty to eat and plenty to trade. Then — with the disappearance of a very special prisoner — everything changed. A contemporary fable about loss, sacrifice, and ordinary magic, told by four criss-crossed souls.",
+  "cover": "images/covers/saturns-return.jpg",
+  "coverAlt": "Saturn's Return cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/187uhmpjmzZJZYNMIpCzZe",
+    "apple": "https://podcasts.apple.com/us/podcast/saturns-return/id1603270668?uo=4",
+    "website": "https://saturnsreturn.libsyn.com/website",
+    "rss": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Saturn's Return",
+    "Saturn's Return: Episode 1: Arrival",
+    "Saturn's Return: Episode 2: Crossings",
+    "Saturn's Return: Episode 3: Descent"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 3 full episodes • 20 min median",
+    "episodes": 3,
+    "avgEpisodeMinutes": 21,
+    "medianEpisodeMinutes": 20,
+    "minEpisodeMinutes": 18,
+    "maxEpisodeMinutes": 25,
+    "totalObservedHours": 1.1,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 3,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2022-01-14",
+    "latest": "2022-01-14",
+    "latestFeedItem": "2022-01-14",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://saturnsreturn.libsyn.com/website",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "https://www.facebook.com/NerveTank/",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Nerve Tank Media",
+    "ownerName": "Chance Muehleck"
+  },
+  "creators": [
+    "Nerve Tank Media"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://saturnsreturn.libsyn.com/website/arrival; https://saturnsreturn.libsyn.com/website/crossings; https://saturnsreturn.libsyn.com/website/descent; https://saturnsreturn.libsyn.com/website; https://rss.libsyn.com/shows/392711/destinations/3229856.xml; https://podcasts.apple.com/us/podcast/saturns-return/id1603270668?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://saturnsreturn.libsyn.com/website/arrival",
+      "https://saturnsreturn.libsyn.com/website/crossings",
+      "https://saturnsreturn.libsyn.com/website/descent",
+      "https://saturnsreturn.libsyn.com/website",
+      "https://rss.libsyn.com/shows/392711/destinations/3229856.xml",
+      "https://podcasts.apple.com/us/podcast/saturns-return/id1603270668?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "The people of Barthos are suffering. Not long ago, everyone had plenty to eat and plenty to trade. Then — with the disappearance of a very special prisoner — everything changed. A contemporary fable about loss, sacrifice, and ordinary magic, told by four criss-crossed souls.",
+    "socialUrls": [
+      "https://www.facebook.com/NerveTank/",
+      "http://twitter.com/nervetank"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "unknown",
+      "medianDays": null,
+      "observedIntervals": 0
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "2022",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml",
+        "appleCollectionId": "1603270668",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "http://feeds.libsyn.com/392711/rss"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://saturnsreturn.libsyn.com/website/arrival",
+          "fetchedAt": "2026-08-15T19:58:58.445Z",
+          "payloadHash": "63ce5715b957a3103bb5ab5d5ee5b2a82a0a646af653e83e0bdaf3ef97d2236e"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://saturnsreturn.libsyn.com/website/crossings",
+          "fetchedAt": "2026-08-15T19:58:58.443Z",
+          "payloadHash": "6f27f3899bc98c0e8a36bea41e1086f86a23e5dc27f72fca79830115d17115f4"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://saturnsreturn.libsyn.com/website/descent",
+          "fetchedAt": "2026-08-15T19:58:58.438Z",
+          "payloadHash": "b63e0d630b33e8a0b33ce0bdc42d4aaf85368aa07d7621757ae52c777c603b9b"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://saturnsreturn.libsyn.com/website",
+          "fetchedAt": "2026-08-15T19:58:58.433Z",
+          "payloadHash": "c6bd0a0f425c65f11d1dc65a72bc1f4c2ba931c24805f01d648563e8895c428f"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml",
+          "fetchedAt": "2026-08-15T19:58:53.182Z",
+          "payloadHash": "7c8b4761369a25de33775bdde390dfa58b272621108b84ed436a91e7217f8fa0"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/saturns-return/id1603270668?uo=4",
+          "fetchedAt": "2026-08-15T19:58:52.745Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/saturns-return/id1603270668?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://saturnsreturn.libsyn.com/website"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/saturns-return/id1603270668?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://saturnsreturn.libsyn.com/website"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/saturns-return/id1603270668?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/saturns-return/id1603270668?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/saturns-return/id1603270668?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/saturns-return/id1603270668?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://saturnsreturn.libsyn.com/website"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://saturnsreturn.libsyn.com/website"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://saturnsreturn.libsyn.com/website/descent"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://saturnsreturn.libsyn.com/website/crossings"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://saturnsreturn.libsyn.com/website/arrival"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://saturnsreturn.libsyn.com/website"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://saturnsreturn.libsyn.com/website/descent"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://saturnsreturn.libsyn.com/website/crossings"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://saturnsreturn.libsyn.com/website/arrival"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://saturnsreturn.libsyn.com/website"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://saturnsreturn.libsyn.com/website/descent"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://saturnsreturn.libsyn.com/website/crossings"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://saturnsreturn.libsyn.com/website/arrival"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:58:58.655Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "cbed563654eaaf47c80b922d6b8cd53d2e3a290e0ae0e44c377f839752b4074f",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "a638ccb2e0e7cb7e3a244065bf96834bc1cd9552f276a11e953c19077f07cd18",
+        "cover": "4cc3ff3928b23f6714c0a853609d05034c5bc2679909d44072b26ed10244d55a",
+        "coverAlt": "56fe4ab24ad6277377fcf3769127c6f373714008b2c27192f1e000a8f5f62736",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "d4a27fff8e1d540263469cc3939ca8dc42ae2b932d70cfed10ef2411c13c2ee8",
+        "officialLinks": "5c89307ebf56eac4fbe73d2e36173c021e630d251e0cd368b46a53234c8d49a3",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "513aaf4cf2fdf971cb2c4ad14612b36a5aa6c6521200c3d5ea963b5e33057a3b",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "8a879696a964b4549e9b39f9554e1102e962aae672dee0969c09ea4a251f8259",
+        "releaseDates": "fac285b46794d1f755de4ccab8d1cf4e079c74ef9a3ae21b06946b235f1229b4",
+        "credits": "bb475e3c5325434c42626399e63703fc5b29cea6b3db6b636c135ff88e05a4a4",
+        "creators": "dc0c6efd4d32780739ff5d5f8be1f280e9a1fc5b2163007e1a5662be33e93463",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "b442fb4b480f0cf3aacb1d7c46e11f4e8e2fce80a8316dcd3a2a0ee19a78bacd"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:59:04.710Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "nerve-tank-media"
+}
