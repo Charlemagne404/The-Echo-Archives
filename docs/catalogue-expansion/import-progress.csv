@@ -101,33 +101,33 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 128,P1,Consumed,Grim & Mild / iHeartPodcasts,febc0355-c859-4bc3-8883-1dd2a6e76149,needs-review,needs-review,source-conflict,2026-08-15 16:38:52
 129,P1,Mordeo,Blumhouse Television / iHeartPodcasts,1e01cd17-298a-4d02-b6e6-5ec45e527a3b,published,published,,2026-08-15 16:40:51
 130,P0,The Mantawauk Caves,iHeartPodcasts,36d2cd44-6e62-4513-9d06-43d6d69a0c61,published,published,,2026-08-15 16:05:16
-131,P1,Strawberry Spring,iHeartPodcasts,,unattempted,,,
-132,P1,Tomorrow's Monsters,iHeartPodcasts,,unattempted,,,
+131,P1,Strawberry Spring,iHeartPodcasts,de58f327-143e-42b3-8b0a-a4a21593f044,published,published,,2026-08-15 16:44:11
+132,P1,Tomorrow's Monsters,iHeartPodcasts,8a6a0017-2815-46c0-b843-621df861680c,needs-review,needs-review,source-conflict,2026-08-15 16:41:45
 133,P0,Quiet Part Loud,Gimlet / Monkeypaw Productions,8672a45b-bdca-4df3-91ae-592f03eb91f9,published,published,,2026-08-15 16:05:16
-134,P1,Red Frontier,Gimlet,,unattempted,,,
-135,P1,Treat,C13Features,,unattempted,,,
-136,P1,Ghostwriter,C13Features,,unattempted,,,
-137,P1,Academy,AT WILL MEDIA / Wondery,,unattempted,,,
-138,P1,Murder in HR,Caspian Studios,,unattempted,,,
-139,P1,Moriarty: The Devil's Game,Treefort Media / Audible,,unattempted,,,
-140,P1,Moriarty: The Silent Order,Treefort Media / Audible,,unattempted,,,
-141,P1,Hot White Heist,Audible,,unattempted,,,
-142,P1,The Coldest Case: The Past Has a Long Memory,Audible,,unattempted,,,
-143,P1,Third Eye,Audible,,unattempted,,,
-144,P1,Anthem: Homunculus,Luminary,,unattempted,,,
-145,P1,Shipworm,Two-Up,,unattempted,,,
-146,P1,The Big Lie,Fresh Produce Media / Audible,,unattempted,,,
-147,P1,You Feeling This?,Overtones Media / iHeartRadio,,unattempted,,,
-149,P1,The Riddler: Secrets in the Dark,Spotify / Warner Bros. / DC,,unattempted,,,
-150,P1,Harley Quinn and The Joker: Sound Mind,Spotify / Warner Bros. / DC,,unattempted,,,
-151,P1,Batman: The Audio Adventures,HBO Max / Warner Bros. / DC,,unattempted,,,
+134,P1,Red Frontier,Gimlet,5a210b10-6653-4c4f-b8f5-230b1d1844cb,published,published,,2026-08-15 16:44:11
+135,P1,Treat,C13Features,d62f68ae-57a5-401e-ba32-239e2927c739,needs-review,needs-review,source-conflict,2026-08-15 16:43:38
+136,P1,Ghostwriter,C13Features,be965712-344c-441d-8e8e-2cd01fd9d9f9,published,published,,2026-08-15 16:44:11
+137,P1,Academy,AT WILL MEDIA / Wondery,50c9bbbd-e69a-4b9c-a4f4-6c79db4eef74,published,published,,2026-08-15 16:44:11
+138,P1,Murder in HR,Caspian Studios,5b794f6c-961a-473c-9896-de01bc58e7b1,needs-review,needs-review,source-conflict,2026-08-15 16:42:37
+139,P1,Moriarty: The Devil's Game,Treefort Media / Audible,60dbca5e-cebd-4e70-9e99-aeaf56888a9d,published,published,,2026-08-15 16:44:11
+140,P1,Moriarty: The Silent Order,Treefort Media / Audible,6e7c5351-98b9-496e-891d-08f2d199e511,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 16:41:42
+141,P1,Hot White Heist,Audible,c2a78d0d-5fee-4942-bab2-9ed661bfa65a,published,published,,2026-08-15 16:44:11
+142,P1,The Coldest Case: The Past Has a Long Memory,Audible,59ecbed4-7b61-4189-b449-a874d7ff3131,needs-review,needs-review,source-conflict,2026-08-15 16:43:48
+143,P1,Third Eye,Audible,30764201-0a27-4a01-a994-794db01d1b50,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 16:43:43
+144,P1,Anthem: Homunculus,Luminary,be1926aa-4fa0-4fe0-a31e-a49a58ce65e0,needs-review,needs-review,scope-review; source-conflict,2026-08-15 16:41:44
+145,P1,Shipworm,Two-Up,612bb200-5783-40a2-aa4f-c097f9543748,published,published,,2026-08-15 16:44:11
+146,P1,The Big Lie,Fresh Produce Media / Audible,e1001270-7e8f-4c94-81b4-5454ec58a754,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 16:41:45
+147,P1,You Feeling This?,Overtones Media / iHeartRadio,f35e4195-9546-40f2-9dd5-1a1851937ce7,published,published,,2026-08-15 16:44:11
+149,P1,The Riddler: Secrets in the Dark,Spotify / Warner Bros. / DC,ba965c2e-a3a9-422e-b8da-3671d19cf667,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 16:43:44
+150,P1,Harley Quinn and The Joker: Sound Mind,Spotify / Warner Bros. / DC,408892f9-2d7d-4e23-a0bb-d09c07957c3d,needs-review,needs-review,insufficient-discovery-signals; scope-review; source-conflict,2026-08-15 16:43:40
+151,P1,Batman: The Audio Adventures,HBO Max / Warner Bros. / DC,9c3c08c8-77bc-419f-bb3a-a1f02c5b40b8,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 16:42:49
 152,P0,DC High Volume: Batman,DC Comics / Realm,209a4074-d971-4d9d-aede-5fb19ff206af,published,published,,2026-08-15 16:05:16
-153,P1,Marvel's Wastelanders,Marvel / SiriusXM,,unattempted,,,
-154,P1,Marvel's Squirrel Girl: The Unbeatable Radio Show!,Marvel / SiriusXM,,unattempted,,,
-155,P1,Marvels,Marvel / Stitcher,,unattempted,,,
-157,P1,Orphan Black: The Next Chapter,Realm,,unattempted,,,
-158,P1,Echo Park,Realm,,unattempted,,,
-159,P1,Spark Hunter,Realm,,unattempted,,,
+153,P1,Marvel's Wastelanders,Marvel / SiriusXM,3ae2b12b-ad0b-4387-bae2-57e42ef9ac1b,published,published,,2026-08-15 16:44:11
+154,P1,Marvel's Squirrel Girl: The Unbeatable Radio Show!,Marvel / SiriusXM,8e8166c0-b100-41c3-88d4-0cac5d8dc6ac,published,published,,2026-08-15 16:44:11
+155,P1,Marvels,Marvel / Stitcher,f3b56e54-6e50-494d-bf01-4027ff4d3b99,needs-review,needs-review,source-conflict,2026-08-15 16:43:46
+157,P1,Orphan Black: The Next Chapter,Realm,6d52dc8d-abed-44ff-ac4d-8c346318ce4b,published,published,,2026-08-15 16:44:11
+158,P1,Echo Park,Realm,3cd5d42d-519f-45cb-9f91-a374b6d43581,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 16:43:40
+159,P1,Spark Hunter,Realm,278dcf78-c30b-4650-a787-2377e77536a9,needs-review,needs-review,source-conflict,2026-08-15 16:41:47
 160,P1,Marigold Breach,Realm,,unattempted,,,
 161,P1,Power Trip,Realm,,unattempted,,,
 162,P1,Overleaper,Realm,,unattempted,,,

@@ -1,0 +1,624 @@
+{
+  "id": "ghostwriter",
+  "title": "Ghostwriter",
+  "subtitle": "",
+  "description": "In this C13Features podcast movie presentation of&nbsp;Ghostwriter, Kate Mara and Adam Scott star in a psychological thriller about a former journalist who reluctantly accepts a job ghostwriting a new murder mystery novel for an eccentric billionaire.&nbsp;As they collaborate on the project, questions - and suspicions - begin to arise.&nbsp;Grab some popcorn, and get lost in your imagination in this gripping and suspenseful podcast movie experience,&nbsp;Ghostwriter, from C13Features.",
+  "cover": "images/covers/ghostwriter.jpg",
+  "coverAlt": "Ghostwriter cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/ghostwriter/id1596530271?uo=4",
+    "website": "https://www.audacy.com/",
+    "rss": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Ghostwriter"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 1 full episode • 80 min median",
+    "seasons": 1,
+    "episodes": 1,
+    "avgEpisodeMinutes": 80,
+    "medianEpisodeMinutes": 80,
+    "minEpisodeMinutes": 80,
+    "maxEpisodeMinutes": 80,
+    "totalObservedHours": 1.3,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 1,
+      "bonus": 1,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2021-12-06",
+    "latest": "2021-12-06",
+    "latestFeedItem": "2025-01-17",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.audacy.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Audacy",
+    "ownerName": "Audacy Podcasts"
+  },
+  "creators": [
+    "Audacy"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter; https://podcasts.apple.com/us/podcast/ghostwriter/id1596530271?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter",
+      "https://podcasts.apple.com/us/podcast/ghostwriter/id1596530271?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "In this C13Features podcast movie presentation of&nbsp;Ghostwriter, Kate Mara and Adam Scott star in a psychological thriller about a former journalist who reluctantly accepts a job ghostwriting a new murder mystery novel for an eccentric billionaire.&nbsp;As they collaborate on the project, questions - and suspicions - begin to arise.&nbsp;Grab some popcorn, and get lost in your imagination in this gripping and suspenseful podcast movie experience,&nbsp;Ghostwriter, from C13Features.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "unknown",
+      "medianDays": null,
+      "observedIntervals": 0
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© Audacy. All rights reserved.",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter",
+        "appleCollectionId": "1596530271",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter",
+          "fetchedAt": "2026-08-15T16:41:38.092Z",
+          "payloadHash": "3207d27e83e36cdbf15ceb94ec775f6ed8f1dbbe6552d28357cfe7bd438eeeff"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/ghostwriter/id1596530271?uo=4",
+          "fetchedAt": "2026-08-15T16:41:37.536Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/ghostwriter/id1596530271?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/ghostwriter/id1596530271?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/ghostwriter/id1596530271?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/ghostwriter/id1596530271?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/ghostwriter/id1596530271?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/ghostwriter/id1596530271?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.amperwave.net/v2/feed/audacynetwork/ghostwriter"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T16:41:38.574Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "a78094725dbe7f3ed5f925ddfd02eacf77821b1eb1b37bd4671fe456330098ec",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "326c51ee40706378f0564b3c8cb43a17ae99cddb03ddfdb70f4aeeaf34d9ede0",
+        "cover": "3ef1afb4660dc14adb27e52971c9c04cd3e2c8ceb72e7499de3368778c27a84c",
+        "coverAlt": "b6a66fba13a589c28e3265b96105c1934a1148b8650264b37ccd8ef29534db86",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "f967c26a41e23e7825090a3ee6ff4b8c00b3b32ba5863a677ab332ab6a2366ae",
+        "officialLinks": "a7c7d56fdb08a94f9c04aa9ce3c76ea4c84ae8a41f6b5fec373784b1ab33bab0",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "508c3ad0bfd46d0da7f1b2f23316949842e323344f7b1109538449197ec66fcf",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "3644ba67ff7fc9401537d44041054f105cee4bb6ce83c71405d80274a9b3729e",
+        "releaseDates": "e045b880161a38f8cd06e01ada14785527c08993fd6eae0633b13a4cae5d2f84",
+        "credits": "fbeff6bfcba73812cd599f365ac6e97018615959cb49a3875f10fe97a6899987",
+        "creators": "222beceb49a7b371c06475e7c46ce40df32c407fb8d28e1cb6ac6b65a2a70856",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "5c466478fbd4ea3855d8b434a449ac9339a5f13f2096414f68a84c490b79c680"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T16:44:08.894Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "audacy"
+}
