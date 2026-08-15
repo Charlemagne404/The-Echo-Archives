@@ -66,6 +66,18 @@ function candidateMatchScore(candidate, row) {
   return 1;
 }
 
+function candidateForRow(candidates, row) {
+  const sourceKey = `catalogue-expansion:${row.priority.toLowerCase()}:${row.row}`;
+  const exact = candidates.filter((candidate) => candidate.primarySourceKey === sourceKey);
+  if (exact.length > 0) {
+    return exact.sort((left, right) => String(right.updatedAt || "").localeCompare(String(left.updatedAt || "")))[0];
+  }
+  return candidates
+    .map((item) => ({ item, score: candidateMatchScore(item, row) }))
+    .filter(({ score }) => score > 0)
+    .sort((left, right) => right.score - left.score)[0]?.item;
+}
+
 function showMatches(show, row) {
   if (slugify(show.title) !== slugify(row.title)) return false;
   if (!row.creator) return true;
@@ -109,10 +121,7 @@ function main() {
     const candidates = context.service.listForMaintainer({ page: 1, pageSize: 10_000, includeClosed: true }).items;
     const shows = readShowsFile(root);
     const stateRows = rows.map((row) => {
-      const candidate = candidates
-        .map((item) => ({ item, score: candidateMatchScore(item, row) }))
-        .filter(({ score }) => score > 0)
-        .sort((left, right) => right.score - left.score)[0]?.item;
+      const candidate = candidateForRow(candidates, row);
       const showIds = shows.filter((show) => showMatches(show, row)).map((show) => show.id);
       return {
         row,

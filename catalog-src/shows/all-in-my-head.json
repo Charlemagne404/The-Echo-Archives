@@ -1,0 +1,671 @@
+{
+  "id": "all-in-my-head",
+  "title": "All In My Head",
+  "subtitle": "",
+  "description": "All In My Head is an audio drama that follows Nova, a young woman who is suffering from extreme sleep paralysis. As she attempts to solve her problem, she discovers that there might be more to the monsters in her nightmares than she thinks. To keep up with our show, join us on our website at tandonproductions.com and on social @allinmyheadpod",
+  "cover": "images/covers/all-in-my-head.png",
+  "coverAlt": "All In My Head cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/4YsLUyqzgE0kbT1iNVuPc2",
+    "apple": "https://itunes.apple.com/us/podcast/all-in-my-head-podcast/id1439665273",
+    "website": "https://tandonproductions.com/all-in-my-head/",
+    "rss": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "All In My Head"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 19 full episodes • 13 min median",
+    "seasons": 2,
+    "episodes": 19,
+    "avgEpisodeMinutes": 13,
+    "medianEpisodeMinutes": 13,
+    "minEpisodeMinutes": 8,
+    "maxEpisodeMinutes": 18,
+    "totalObservedHours": 4.2,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1,
+      2
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 19,
+      "bonus": 4,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2018-10-31",
+    "latest": "2020-03-12",
+    "latestFeedItem": "2023-03-01",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://tandonproductions.com/all-in-my-head/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "http://facebook.com/allinmyheadpod",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Tandon Productions",
+    "ownerName": "Tandon Productions",
+    "network": "Tandon Productions"
+  },
+  "creators": [
+    "Tandon Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://tandonproductions.com/all-in-my-head/; https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rs; https://podcasts.apple.com/us/podcast/all-in-my-head/id1439665273?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://tandonproductions.com/all-in-my-head/",
+      "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rs",
+      "https://podcasts.apple.com/us/podcast/all-in-my-head/id1439665273?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Arts",
+      "Performing Arts"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "All In My Head is an audio drama that follows Nova, a young woman who is suffering from extreme sleep paralysis. As she attempts to solve her problem, she discovers that there might be more to the monsters in her nightmares than she thinks. To keep up with our show, join us on our website at tandonproductions.com and on social @allinmyheadpod",
+    "socialUrls": [
+      "http://facebook.com/allinmyheadpod",
+      "http://twitter.com/allinmyheadpod",
+      "http://instagram.com/allinmyheadpod"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "2026 Tandon Productions",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss",
+        "appleCollectionId": "1439665273",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rs",
+          "https://tandonproductions.com/feed/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://tandonproductions.com/all-in-my-head/",
+          "fetchedAt": "2026-08-15T16:56:31.632Z",
+          "payloadHash": "1e370540978a4a861dbec916b389a351fac243fd17c44d89e5c6e9871d55e3f8"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss",
+          "fetchedAt": "2026-08-15T16:56:31.061Z",
+          "payloadHash": "a5978840fbc762514241965dc6e6d3aaa2cf72afc1901a12358e3c61b926bb4d"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/all-in-my-head/id1439665273?uo=4",
+          "fetchedAt": "2026-08-15T16:55:46.707Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/all-in-my-head/id1439665273?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tandonproductions.com/all-in-my-head/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/all-in-my-head/id1439665273?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/all-in-my-head/id1439665273?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tandonproductions.com/all-in-my-head/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/all-in-my-head/id1439665273?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/all-in-my-head/id1439665273?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tandonproductions.com/all-in-my-head/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tandonproductions.com/all-in-my-head/"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.6,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tandonproductions.com/all-in-my-head/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tandonproductions.com/all-in-my-head/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tandonproductions.com/all-in-my-head/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/8948494d-fb14-4404-84db-a95100198e25/c27b978b-4902-4020-98cc-a97f0048c68f/7aa9d28e-08b2-4fbb-9b38-a97f004ad1de/podcast.rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T16:56:32.888Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "03e3cb287421a9eec3717bc57ff117d32d2f20160ab3a5e8bec6f10c915edb7e",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "f78ccb6adbe3786dbc1632575631466d102eba8e694fdcb4e383ddff04779305",
+        "cover": "114e0894de5467ea636ab9cdc3fe4687c38934de9ec77be964a564131608d7ef",
+        "coverAlt": "b1d60565e95a25b62e469a18df000a9b96bcfc57423aaeac1bda1d4693141fbc",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "8699f2be17396d2f2bf34624b00c5c7bc6dc3bf7df569496efac04fc1e469981",
+        "officialLinks": "0e36097605aa6ca35f31f7203d3b09d300b619d0fc81570723321943de005377",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "6c5ffba6b70b50aab0591cd10368069dd14dec68e394c72dca6bc51a5fbbb408",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "98036f70e514ca906762395e7c45654792405bfb5f8954691e04e4b3dd006400",
+        "releaseDates": "87e973d789b16170f19567a386abc17b5f0b1f2520769939915bde21ff82d6cb",
+        "credits": "2a0abebf48038b656ee2e001d18547e9866da75362fe0dc8ad4b17d118426756",
+        "creators": "08706254c4eaf62f94af493f3bba977c41023589a3fefd04a6c6d7ddfcb8c21e",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "da4be661bb28790074219802383b656cc6b53c27b3da620877e40e122cd2a53c"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T16:56:51.565Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "tandon-productions",
+  "networkId": "tandon-productions"
+}
