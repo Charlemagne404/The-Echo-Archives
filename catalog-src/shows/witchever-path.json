@@ -1,0 +1,743 @@
+{
+  "id": "witchever-path",
+  "title": "Witchever Path",
+  "subtitle": "",
+  "description": "An interactive fiction anthology podcast, where you vote between episodes to direct our stories. Learn more at WitcheverPath.com",
+  "cover": "images/covers/witchever-path.png",
+  "coverAlt": "Witchever Path cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/4aMjbqxbPUYVzSVXAO7RJD?si=AIzXzFEoRKOTfgBux7SZCw",
+    "apple": "https://itunes.apple.com/us/podcast/witchever-path/id1448525917?mt=2",
+    "website": "https://www.witcheverpath.com/",
+    "rss": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Witchever Path"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "7 seasons observed • at least 85 full episodes • 20 min median",
+    "seasons": 7,
+    "episodes": 85,
+    "avgEpisodeMinutes": 21,
+    "medianEpisodeMinutes": 20,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 46,
+    "totalObservedHours": 30.2,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 85,
+      "bonus": 12,
+      "trailer": 3
+    }
+  },
+  "releaseDates": {
+    "first": "2019-01-04",
+    "latest": "2026-04-09",
+    "latestFeedItem": "2026-04-09",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.witcheverpath.com/",
+    "patreon": "https://patreon.com/witcheverpath",
+    "koFi": "",
+    "discord": "https://discord.gg/napQ3Cb",
+    "youtube": "https://www.youtube.com/channel/UCwhlnpFNpkqaxmb_4iKAGtA",
+    "social": "https://facebook.com/witcheverpath/",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Witchever Path",
+    "ownerName": "Witchever Path",
+    "network": "Witchever Path - Sleep With A Clear Consequence"
+  },
+  "creators": [
+    "Witchever Path"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.witcheverpath.com/news/; https://www.witcheverpath.com/updates/; https://www.witcheverpath.com/; https://rss.libsyn.com/shows/216227/destinations/1568987.xml; https://podcasts.apple.com/us/podcast/witchever-path/id1448525917?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.witcheverpath.com/news/",
+      "https://www.witcheverpath.com/updates/",
+      "https://www.witcheverpath.com/",
+      "https://rss.libsyn.com/shows/216227/destinations/1568987.xml",
+      "https://podcasts.apple.com/us/podcast/witchever-path/id1448525917?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Arts",
+      "Performing Arts"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "An interactive fiction anthology podcast, where you vote between episodes to direct our stories. Learn more at WitcheverPath.com",
+    "socialUrls": [
+      "https://facebook.com/witcheverpath/",
+      "https://twitter.com/witcheverpath",
+      "https://instagram.com/witcheverpath"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "irregular",
+      "medianDays": 45,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "All rights reserved",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml",
+        "appleCollectionId": "1448525917",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://rss.pdrl.fm/8ee770/feeds.libsyn.com/216227/rss/?redirect=false",
+          "https://www.witcheverpath.com/feed/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.witcheverpath.com/news/",
+          "fetchedAt": "2026-08-15T20:18:41.143Z",
+          "payloadHash": "a962bc273b2c51ac177e2716487b0b5e5b63d08c41004ef63f2d022cb4543227"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.witcheverpath.com/updates/",
+          "fetchedAt": "2026-08-15T20:18:41.141Z",
+          "payloadHash": "139f8c289d73de8eaac9dc5b3ede02944dc5a81a4f9bec31c1e551293c605e8d"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.witcheverpath.com/",
+          "fetchedAt": "2026-08-15T20:18:41.137Z",
+          "payloadHash": "bea70c1d310e56dad9b374812a345208b1a707499898fe93a1eebdf6b32d8eb9"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml",
+          "fetchedAt": "2026-08-15T20:18:34.993Z",
+          "payloadHash": "bbf77ba8e130a63864f45859608b6127c6f3f02163350802ab288937d6cbc7f7"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/witchever-path/id1448525917?uo=4",
+          "fetchedAt": "2026-08-15T20:17:46.831Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/witchever-path/id1448525917?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.witcheverpath.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.witcheverpath.com/updates/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.witcheverpath.com/news/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/witchever-path/id1448525917?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.witcheverpath.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.witcheverpath.com/news/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/witchever-path/id1448525917?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/witchever-path/id1448525917?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.witcheverpath.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.witcheverpath.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.witcheverpath.com/updates/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.witcheverpath.com/news/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.witcheverpath.com/"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.witcheverpath.com/"
+            }
+          ]
+        },
+        "discordUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.witcheverpath.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.witcheverpath.com/news/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.witcheverpath.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.witcheverpath.com/news/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.witcheverpath.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.witcheverpath.com/news/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/216227/destinations/1568987.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:18:41.322Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "01a6f3dde708ec6bc4309f68f7be960a035e45a7a1924fbc358cf605904d4b56",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "9a5aa0b916851e723bb70ed0fca8b53891b4d0691e6cb329982bd8e3526f1606",
+        "cover": "cda898907b3b19dc63b2743da68127c155a7a72d001c81fab2f35b495f74c9ee",
+        "coverAlt": "c2d3a2ca1e15a25decbb57ff18f30c40f25e51dda0f277279c232b0a9ad3ab96",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "31be9500c403f23187037421a118d44a3f086e9c2b2f10c9b9c2a5e9e1f81ba1",
+        "officialLinks": "7881ecc4e7779907a1433f50f78cb19210055effcad16ef7667c299682fe8092",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "54e219d3494da84350eebce402a02d252904276a8d537e2d934b41c0afc3da02",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "bfd65c40608b47e8324bc8e8a5090209f391d470c61d1c34dba09588c9e4cc80",
+        "releaseDates": "921d964a27d6c02ab1150e91c17ac73ca5cf0a0f7b6e5cfdab6200d9f900e5b1",
+        "credits": "27eb396268cd2a900010066a9b14c27ff09863d58ecdb60434d97e960f7b0477",
+        "creators": "54e219d3494da84350eebce402a02d252904276a8d537e2d934b41c0afc3da02",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "feaf2d9de106bb0f250f43bbc943f5dfb1f1081ca06838e7614b8a8d5f01f52d"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:18:43.449Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "witchever-path",
+  "networkId": "witchever-path-sleep-with-a-clear-consequence"
+}

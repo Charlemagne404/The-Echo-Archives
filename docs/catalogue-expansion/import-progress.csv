@@ -894,31 +894,31 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 894,P2,Hex Girlfriends: an Improvised Fantasy Podcast,,2059423a-dad7-4c95-b416-c688d19a12ad,needs-review,needs-review,source-conflict,2026-08-15 20:15:07
 895,P2,It's Grimm!,,375722cb-cb7f-453b-8626-dd235e238f64,published,published,,2026-08-15 20:15:13
 896,P2,Coastal Magic,,df251403-f2da-4ad8-a360-0582bac8c9e9,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:15:10
-897,P2,Gospels of the Flood,,,unattempted,,,
-898,P2,The Doorstep Project,,,unattempted,,,
-899,P2,Mysteries of Sparrow Crest,,,unattempted,,,
-900,P2,Blue Infinity - A Nautical Fantasy,,,unattempted,,,
-901,P2,Rock Scree Drownt,,,unattempted,,,
-902,P2,Forged Bonds,,,unattempted,,,
-903,P2,Witchever Path,,,unattempted,,,
-904,P2,Creation: A Whole New Reality,,,unattempted,,,
-905,P2,Heartglass,,,unattempted,,,
+897,P2,Gospels of the Flood,,a5516e20-7e43-476b-b7b3-a8fbb139de3b,needs-review,needs-review,source-conflict,2026-08-15 20:17:34
+898,P2,The Doorstep Project,,80289f1b-2693-4ed9-b632-51beb16854fb,published,published,,2026-08-15 20:18:46
+899,P2,Mysteries of Sparrow Crest,,74a13806-798f-4cf4-9a1f-fc32d1c19142,published,published,,2026-08-15 20:18:46
+900,P2,Blue Infinity - A Nautical Fantasy,,d8c96116-8040-46b1-97d4-8444a27f700a,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:15:46
+901,P2,Rock Scree Drownt,,1c4cbb33-376b-46e4-9c72-4098321fd83e,published,published,,2026-08-15 20:18:46
+902,P2,Forged Bonds,,5b930019-df35-471e-bcaf-668c811108d1,published,published,,2026-08-15 20:18:46
+903,P2,Witchever Path,,77eda992-ea7c-40d2-a1ee-a43dbe3e73ac,published,published,,2026-08-15 20:18:46
+904,P2,Creation: A Whole New Reality,,99f8f81a-f2a8-467a-90e5-f6feaa018fed,published,published,,2026-08-15 20:18:46
+905,P2,Heartglass,,4293c311-ddc0-4838-9bab-b2a8bcea6a24,published,published,,2026-08-15 20:18:46
 906,P3,Cyber,,,unattempted,,,
 907,P3,FuturePast,,,unattempted,,,
 908,P3,Metra: a Climate Revolution with Songs,,,unattempted,,,
 909,P3,The Pancake Eating Robots,,,unattempted,,,
-910,P2,The Concierge,,,unattempted,,,
+910,P2,The Concierge,,df2b33a5-44f3-4dd0-b121-e2d4a51a1a2c,needs-review,needs-review,source-conflict,2026-08-15 20:18:35
 911,P3,Ignore City,,,unattempted,,,
-912,P2,Choose the Bear,Broken Arts Entertainment,,unattempted,,,
+912,P2,Choose the Bear,Broken Arts Entertainment,fed12843-3858-45a3-8185-9bf97d1d1282,published,published,,2026-08-15 20:18:46
 913,P3,Storm Runner - The Ezz Bennil Files,,,unattempted,,,
-914,P2,Dawn of Tomorrow,,,unattempted,,,
+914,P2,Dawn of Tomorrow,,597e17a3-594b-4efd-8095-efb05ce84261,published,published,,2026-08-15 20:18:46
 915,P3,Istoria: The Ark,,,unattempted,,,
 916,P3,The Unforeseen Devouring,,,unattempted,,,
 917,P3,A Paladin's Bargain,,,unattempted,,,
 918,P3,Gareth and the Lost Island,,,unattempted,,,
-919,P2,Vampire: The Masquerade: Blood Doll,,,unattempted,,,
+919,P2,Vampire: The Masquerade: Blood Doll,,ae9bbd18-28b0-4c3a-bc17-fc2f0e0f3e5e,needs-review,needs-review,source-conflict,2026-08-15 20:15:37
 920,P3,To Court Death,,,unattempted,,,
-921,P2,Only Human: BOUND,,,unattempted,,,
+921,P2,Only Human: BOUND,,717ef36c-3759-4246-b7cb-49acabb07221,published,published,,2026-08-15 20:18:46
 922,P3,InkandNeon,,,unattempted,,,
 923,P0,Bronzeville,Wayland Productions,1205d867-fd6d-4a89-9794-47535803e98e,duplicate,duplicate,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 16:20:31
 924,P0,Meet Cute Originals,Meet Cute,5bdf9232-0cd0-4934-bedf-fb873490064b,published,published,,2026-08-15 16:05:16
@@ -953,8 +953,8 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 953,P1,Table Read,Manifest Media,45b134f0-bc08-42b3-bfb0-baf45345223a,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:40:13
 954,P0,Red for Revolution,Meta Mana Media,7d6a016c-a15f-463d-be00-abab0bd577b0,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:31:37
 955,P1,Home Front,BBC Radio 4,2d51aff2-28fa-4f8c-b879-07af1955ced8,needs-review,needs-review,source-conflict,2026-08-15 17:38:45
-956,P2,The Imagine Neighborhood,,,unattempted,,,
-957,P2,The Adventures of Power Dog in Dogland,Power Dog Adventures,,unattempted,,,
+956,P2,The Imagine Neighborhood,,3f16ac07-f3fb-419e-9652-edb20d2d1e8d,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 20:18:34
+957,P2,The Adventures of Power Dog in Dogland,Power Dog Adventures,04c3a048-3df6-49a1-a238-2aa94c63edd2,needs-review,needs-review,insufficient-discovery-signals; missing-genre; invalid-website; scope-review; source-conflict,2026-08-15 20:16:42
 958,P3,Set Sail!,,,unattempted,,,
 959,P3,Boss Monster Adventures,,,unattempted,,,
 960,P3,Gertrude Stunt Girl Zombie Killer,,,unattempted,,,
@@ -967,10 +967,10 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 967,P3,The Epic of Fic,,,unattempted,,,
 968,P1,A World Of Trouble,Voyage Media,bb8978c6-3f08-4b27-a66e-69ec70a61d0f,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:39:09
 969,P3,Rainbow Surfers,,,unattempted,,,
-970,P2,For King and Country,Alexander Hogg,,unattempted,,,
+970,P2,For King and Country,Alexander Hogg,42f67f36-c59a-4bdc-ac21-aca7dea9e3ea,published,published,,2026-08-15 20:18:46
 971,P3,Captain Kayato and the Catsairs,,,unattempted,,,
 972,P3,The Goat American Novel,,,unattempted,,,
-973,P2,The Unthinkable Abduction of Albert,,,unattempted,,,
+973,P2,The Unthinkable Abduction of Albert,,4c7b8ed2-aa6f-46d2-ace6-776c26039798,needs-review,needs-review,invalid-website; scope-review; source-conflict,2026-08-15 20:15:44
 974,P3,The Heron,,,unattempted,,,
 975,P3,I Witness,,,unattempted,,,
 976,P3,Millie Salmon and the Infinite Shop,,,unattempted,,,
@@ -983,13 +983,13 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 983,P3,Truthdiggers,,,unattempted,,,
 984,P3,Quaranteen'd,,,unattempted,,,
 985,P3,Supernatural Supermom,,,unattempted,,,
-986,P2,Flula Makes Five,Flula Borg,,unattempted,,,
-987,P2,The Mysterious Secrets of Uncle Bertie's Botanarium,,,unattempted,,,
-988,P2,Mars' Best Brisket,,,unattempted,,,
-989,P2,Standard Docking Procedure,Snazzy Tapir Productions,,unattempted,,,
-990,P2,Paired,Liz Anderson,,unattempted,,,
-991,P2,Popcorn for Dinner,,,unattempted,,,
-992,P2,The Shelf Life: A Podcast Sitcom,,,unattempted,,,
+986,P2,Flula Makes Five,Flula Borg,bd5f5ded-eb47-4791-a378-ec8614b4f59c,published,published,,2026-08-15 20:18:46
+987,P2,The Mysterious Secrets of Uncle Bertie's Botanarium,,485f7c7b-4d1a-453e-b95e-5920f8a975be,needs-review,needs-review,source-conflict,2026-08-15 20:17:46
+988,P2,Mars' Best Brisket,,78867d5d-6fdf-4048-9c2d-90b8abc3d4c9,published,published,,2026-08-15 20:18:46
+989,P2,Standard Docking Procedure,Snazzy Tapir Productions,a9a1e1b5-4c22-402e-b875-716993f768a3,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 20:15:46
+990,P2,Paired,Liz Anderson,a3a73a69-98cb-41c5-be43-d13eb6b333cf,published,published,,2026-08-15 20:18:46
+991,P2,Popcorn for Dinner,,c79af212-852b-43b5-a387-db8a83f8c9b4,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 20:16:40
+992,P2,The Shelf Life: A Podcast Sitcom,,9e453c1e-6a93-45a6-9ac9-30855ac1109a,published,published,,2026-08-15 20:18:46
 993,P2,TwentyOne 21: A Black AF Scripted Audio Comedy,,,unattempted,,,
 994,P3,Coma Guy,,,unattempted,,,
 995,P2,Feedback: a comedy of impeccable customer service,,,unattempted,,,

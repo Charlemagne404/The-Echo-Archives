@@ -1,0 +1,626 @@
+{
+  "id": "the-doorstep-project",
+  "title": "The Doorstep Project",
+  "subtitle": "",
+  "description": "A tour guide at the Library of Lost Things records exhibits in an attempt to make their library more accessible. A new weekly podcast from Family Friendly Podcasts that performs stories from around the world, written by AJ, the production crew, and the audience. Join Leilani and Gavin as they unravel the layers of their world and learn the secrets behind lost artifacts. Rated PG.",
+  "cover": "images/covers/the-doorstep-project.jpg",
+  "coverAlt": "The Doorstep Project cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-doorstep-project/id1774298319?uo=4",
+    "website": "https://redcircle.com/shows/the-doorstep-project",
+    "rss": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Doorstep Project"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "49 seasons observed • at least 56 full episodes • 7 min median",
+    "seasons": 49,
+    "episodes": 56,
+    "avgEpisodeMinutes": 8,
+    "medianEpisodeMinutes": 7,
+    "minEpisodeMinutes": 3,
+    "maxEpisodeMinutes": 18,
+    "totalObservedHours": 7.2,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      49,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 56,
+      "bonus": 2,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2024-10-23",
+    "latest": "2026-08-12",
+    "latestFeedItem": "2026-08-12",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://redcircle.com/shows/the-doorstep-project",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Family Friendly Podcasts",
+    "ownerName": "Family Friendly Podcasts"
+  },
+  "creators": [
+    "Family Friendly Podcasts"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b; https://podcasts.apple.com/us/podcast/the-doorstep-project/id1774298319?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b",
+      "https://podcasts.apple.com/us/podcast/the-doorstep-project/id1774298319?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "A tour guide at the Library of Lost Things records exhibits in an attempt to make their library more accessible. A new weekly podcast from Family Friendly Podcasts that performs stories from around the world, written by AJ, the production crew, and the audience. Join Leilani and Gavin as they unravel the layers of their world and learn the secrets behind lost artifacts. Rated PG.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 21,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "All rights reserved.",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "db8cc4be-416a-42f7-841a-66cf84d2667b",
+        "rssUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b",
+        "appleCollectionId": "1774298319",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b",
+          "fetchedAt": "2026-08-15T20:15:34.632Z",
+          "payloadHash": "2961e0ec72ddc5f3f8f2b30885f06a586df9c30541957330204eaecd1e27a677"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-doorstep-project/id1774298319?uo=4",
+          "fetchedAt": "2026-08-15T20:15:34.520Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-doorstep-project/id1774298319?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-doorstep-project/id1774298319?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-doorstep-project/id1774298319?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-doorstep-project/id1774298319?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-doorstep-project/id1774298319?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-doorstep-project/id1774298319?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/db8cc4be-416a-42f7-841a-66cf84d2667b"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:15:35.527Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "f19327163e9e4339aaf9cb72f8349e630f918b195c7325dc1b6e6c00fcd8cf27",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "a700464c16f25a7d455dad7aa3bc176e62c25195945cb1877d3a7be61b51cdd4",
+        "cover": "5c8ab85191442a02072cbd7f5c86aa51dd0ee8cd3f2265bdb731c82b461e878d",
+        "coverAlt": "7d79e7f39e62325b0b0badd58e748c33698775514d589d83f33c0477753294f4",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "64e12531120a2f922f21e3be97cda12b818001cd46d8e090165ad9b51d522892",
+        "officialLinks": "66ae9030b9b0ea627248fc147c6221eaf9068431aab6f9c052a7c99cdec253af",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "e2f342db35ba2e42bdb073f043bc41d38ce54586cbf64faaba2402b210ac2254",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "c751f6ab60282985d39648f0c933e3d0e2aa85e1764b69794d5b25fd174e6d85",
+        "releaseDates": "e4d15339894b05ed47a17fb3ae502647512ceb7f7e154906b417c547bb476a05",
+        "credits": "78447dcbdf23e4791a20660d7f7232f2f01c22c0971b714698c24fd0068a19de",
+        "creators": "4faf2dbe6c8546ae0b9fc79131a213dfcad1ebf3f952f787dd132ae6892ee0fb",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "0e6bf2e6a602209414dd108fad901e020cce97e60e932d53a45f755197cd92ca"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:18:43.437Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "family-friendly-podcasts"
+}
