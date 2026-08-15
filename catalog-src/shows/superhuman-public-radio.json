@@ -1,0 +1,782 @@
+{
+  "id": "superhuman-public-radio",
+  "title": "Superhuman Public Radio",
+  "subtitle": "Super, human stories",
+  "description": "Superhuman Public Radio is an award-winning audio drama telling the surprisingly human stories in a superpowered world. These are the stories that fall between the panels of comic books. Find out more at www.SPRpod.com⁠",
+  "cover": "images/covers/superhuman-public-radio.jpg",
+  "coverAlt": "Superhuman Public Radio cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/superhuman-public-radio/id1536790917?uo=4",
+    "website": "https://www.superhumanpublicradio.com/",
+    "rss": "https://feeds.megaphone.fm/sprpod",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Superhuman Public Radio"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 31 full episodes • 24 min median",
+    "seasons": 2,
+    "episodes": 31,
+    "avgEpisodeMinutes": 28,
+    "medianEpisodeMinutes": 24,
+    "minEpisodeMinutes": 2,
+    "maxEpisodeMinutes": 81,
+    "totalObservedHours": 14.6,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 31,
+      "bonus": 1,
+      "trailer": 3
+    }
+  },
+  "releaseDates": {
+    "first": "2020-11-11",
+    "latest": "2024-04-01",
+    "latestFeedItem": "2026-08-04",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.superhumanpublicradio.com/",
+    "patreon": "https://www.patreon.com/sprpod",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "http://www.facebook.com/sprpod",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Superhuman Public Radio",
+    "ownerName": "Superhuman Public Radio",
+    "network": "Superhuman Public Radio",
+    "writers": [
+      "john dorsey"
+    ],
+    "people": [
+      {
+        "name": "john dorsey",
+        "role": "author",
+        "url": ""
+      }
+    ]
+  },
+  "creators": [
+    "Superhuman Public Radio",
+    "john dorsey"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.superhumanpublicradio.com/episodes/s01e02; https://www.superhumanpublicradio.com/episodes/s01e03; https://www.superhumanpublicradio.com/new-index; https://www.superhumanpublicradio.com/episodes; https://www.superhumanpublicradio.com/; https://feeds.megaphone.fm/sprpod; https://podcasts.apple.com/us/podcast/superhuman-public-radio/id1536790917?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.superhumanpublicradio.com/episodes/s01e02",
+      "https://www.superhumanpublicradio.com/episodes/s01e03",
+      "https://www.superhumanpublicradio.com/new-index",
+      "https://www.superhumanpublicradio.com/episodes",
+      "https://www.superhumanpublicradio.com/",
+      "https://feeds.megaphone.fm/sprpod",
+      "https://podcasts.apple.com/us/podcast/superhuman-public-radio/id1536790917?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Superhuman Public Radio is an award-winning audio drama telling the surprisingly human stories in a superpowered world. These are the stories that fall between the panels of comic books. Find out more at www.SPRpod.com⁠",
+    "socialUrls": [
+      "http://www.facebook.com/sprpod",
+      "http://instagram.com/sprpod",
+      "https://www.facebook.com/sprpod",
+      "https://www.instagram.com/sprpod/",
+      "https://twitter.com/sprpod"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Superhuman Public Radio",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/sprpod",
+        "appleCollectionId": "1536790917",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://www.superhumanpublicradio.com/home?format=rss",
+          "https://www.superhumanpublicradio.com/episodes?format=rss",
+          "https://www.superhumanpublicradio.com/new-index?format=rss"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.superhumanpublicradio.com/episodes/s01e02",
+          "fetchedAt": "2026-08-15T17:22:17.847Z",
+          "payloadHash": "4cb520dad4460c9559a740025ad8baded922e7a458fdce6985b16402d612405a"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.superhumanpublicradio.com/episodes/s01e03",
+          "fetchedAt": "2026-08-15T17:22:17.844Z",
+          "payloadHash": "554b47339e91abe21c98ec4fe084cdfea94fd8be291648b910c32cae04414113"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.superhumanpublicradio.com/new-index",
+          "fetchedAt": "2026-08-15T17:22:17.840Z",
+          "payloadHash": "1f8a4f2524bc3563413ecd9be46475c40a9f68cb8b41a7e7eb983fce9bf2c042"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.superhumanpublicradio.com/episodes",
+          "fetchedAt": "2026-08-15T17:22:17.836Z",
+          "payloadHash": "16a40526309f89d94a4d25c17c0dbbfd47c82d275ddffc69c3b8714e47c2b54a"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.superhumanpublicradio.com/",
+          "fetchedAt": "2026-08-15T17:22:17.832Z",
+          "payloadHash": "47c3bf1f42b105a3e30eb0ca156c15487a1a9ea46a5b3fdb4a525561bc56013c"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/sprpod",
+          "fetchedAt": "2026-08-15T17:22:16.561Z",
+          "payloadHash": "26b0d8ba16af2f39e314e94fa025305054ecb9eb42d242b89390148e921c1593"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/superhuman-public-radio/id1536790917?uo=4",
+          "fetchedAt": "2026-08-15T17:22:16.064Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/superhuman-public-radio/id1536790917?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.superhumanpublicradio.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.superhumanpublicradio.com/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.superhumanpublicradio.com/new-index"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.superhumanpublicradio.com/episodes/s01e03"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.superhumanpublicradio.com/episodes/s01e02"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/superhuman-public-radio/id1536790917?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/superhuman-public-radio/id1536790917?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/superhuman-public-radio/id1536790917?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/superhuman-public-radio/id1536790917?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/superhuman-public-radio/id1536790917?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.superhumanpublicradio.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.superhumanpublicradio.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.superhumanpublicradio.com/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.superhumanpublicradio.com/new-index"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.superhumanpublicradio.com/episodes/s01e03"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.superhumanpublicradio.com/episodes/s01e02"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.superhumanpublicradio.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.superhumanpublicradio.com/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.superhumanpublicradio.com/new-index"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.superhumanpublicradio.com/episodes/s01e03"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.superhumanpublicradio.com/episodes/s01e02"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.superhumanpublicradio.com/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.superhumanpublicradio.com/new-index"
+            }
+          ]
+        },
+        "people": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.superhumanpublicradio.com/episodes/s01e03"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.superhumanpublicradio.com/episodes/s01e02"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T17:22:18.266Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "3b780fc45a5b90344706c99dc50b00ad157fa39846bdcd1bb65dad53af0c30eb",
+        "subtitle": "cdb029ec9d31daec4db365ec152267b697cfd41fcf47414fbd49e2a076a62059",
+        "description": "8f7f4d21ff3effdff3b9796bfeb9b6428d6ea225d1997965018f102b65d45455",
+        "cover": "4d95edc31be34c7f1d4b0790ef61a1c4c826750f3679cce4f05f83e9e652cde2",
+        "coverAlt": "b603c182eb77e386523af823e37dbafb0f77ce224ac7dd8c3754e7455d2ceca6",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "45cd511e0012f2ba61e4738b63306e0bbc85999293e8b2311cfce0f2916b0986",
+        "officialLinks": "44a953fbecdf00e818d64cc129bcf14818081ec01ba708dcede6f22e0886f174",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "edae7be7afc86f90f7f3b0eb70780ca9c07aa129299729200bb9dca5a1d19159",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "817227a537b59c0a8924b8b295cbff3bf6d132a797c432411866e2aff05f313b",
+        "releaseDates": "82324b5672b2db43caa64c8397c19678f5838fc1699cea6b28cd88ea4335d45c",
+        "credits": "66d260fb7638c21c11c45ad3655b74a82b96717b06a3a156d17e6117a5f54746",
+        "creators": "19e8386a6b028ea58f1b981cf18c96ca61d70147b5acea1dbaa3a6b7b893013e",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "3c650e9880fac8e2a75bb21a11308ccc955a6d60ce63a5ac74cba7fc3111ff8a"
+      },
+      "optionalGaps": [
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T17:22:18.286Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "superhuman-public-radio",
+  "networkId": "superhuman-public-radio"
+}

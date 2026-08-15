@@ -162887,5 +162887,1875 @@
         "width": 640
       }
     ]
+  },
+  {
+    "id": "hit-the-bricks",
+    "title": "Hit the Bricks",
+    "subtitle": "",
+    "description": "100 years after L. Frank Baum's saga that began with The Wonderful Wizard of Oz, the Gale Family Farm sits abandoned in what's left of the great Kansas prairies. After her parents' messy divorce, Jessi Hugson and her mother move to Dorothy's old neighborhood for a new beginning. Things were already off to a shaky start, but when Jessi and her cousin Wallace find a jewel-studded bracelet in Dorothy's front yard...things get twisted. Twister'd, even.",
+    "cover": "images/covers/hit-the-bricks.jpg",
+    "coverAlt": "Hit the Bricks cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4",
+      "website": "https://art19.com/shows/hit-the-bricks",
+      "rss": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Hit the Bricks"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "at least 11 full episodes • 30 min median",
+      "episodes": 11,
+      "avgEpisodeMinutes": 30,
+      "medianEpisodeMinutes": 30,
+      "minEpisodeMinutes": 23,
+      "maxEpisodeMinutes": 39,
+      "totalObservedHours": 5.5,
+      "durationCoverage": 1,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 11,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2019-12-07",
+      "latest": "2022-12-27",
+      "latestFeedItem": "2022-12-27"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://art19.com/shows/hit-the-bricks"
+    },
+    "credits": {
+      "creatorName": "PJ Scott-Blankenship",
+      "ownerName": "PJ Scott-Blankenship"
+    },
+    "creators": [
+      "PJ Scott-Blankenship"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://anchor.fm/s/10f74bc3c/podcast/rss; https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://anchor.fm/s/10f74bc3c/podcast/rss",
+        "https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction"
+      ],
+      "importOfficialSummary": "100 years after L. Frank Baum's saga that began with The Wonderful Wizard of Oz, the Gale Family Farm sits abandoned in what's left of the great Kansas prairies. After her parents' messy divorce, Jessi Hugson and her mother move to Dorothy's old neighborhood for a new beginning. Things were already off to a shaky start, but when Jessi and her cousin Wallace find a jewel-studded bracelet in Dorothy's front yard...things get twisted. Twister'd, even.",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 7
+      },
+      "podcast": {
+        "copyright": "PJ Scott-Blankenship",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss",
+          "appleCollectionId": "1428281934"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss",
+            "fetchedAt": "2026-08-15T17:22:15.961Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4",
+            "fetchedAt": "2026-08-15T17:22:15.936Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T17:22:16.332Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T17:22:18.283Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "pj-scott-blankenship",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/hit-the-bricks",
+    "hasPage": true,
+    "image": "images/covers/hit-the-bricks.jpg",
+    "imageAlt": "Hit the Bricks cover art",
+    "summary": "100 years after L. Frank Baum's saga that began with The Wonderful Wizard of Oz, the Gale Family Farm sits abandoned in what's left of the great Kansas prairies. After her parents' messy divorce, Jessi Hugson and her mother move to Dorothy's old neighborhood for a new beginning. Things were already off to a shaky start, but when Jessi and her cousin Wallace find a jewel-studded bracelet in Dorothy's front yard...things get twisted. Twister'd, even.",
+    "finalRating": null,
+    "searchText": "hit the bricks 100 years after l frank baum s saga that began with the wonderful wizard of oz the gale family farm sits abandoned in what s left of the great kansas prairies after her parents messy divorce jessi hugson and her mother move to dorothy s old neighborhood for a new beginning things were already off to a shaky start but when jessi and her cousin wallace find a jewel studded bracelet in dorothy s front yard things get twisted twister d even drama episodic hit the bricks pj scott blankenship english unclear imported pj scott blankenship pj scott blankenship unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/hit-the-bricks-bc8167f5c6-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/hit-the-bricks-bc8167f5c6-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "under-the-electric-stars",
+    "title": "Under the Electric Stars",
+    "subtitle": "A cyberpunk adventure in one of the last cities standing after a nuclear war. After their bot gets broken, Caine runs into the rebel group Zero Zero and gets caught up in the rising revolution.",
+    "description": "Under the Electric Stars is a cyberpunk adventure about Metropolis West, one of the last cities standing after a nuclear war. Caine Reyes, the fastest driver in the Metropolis, has been trying to pay back the debt their family fell into years ago. After their bot gets broken, Caine runs into the rebel group Zero Zero and gets caught up in the rising revolution. Created by Eli Ramos. Produced by Aster Podcasting Network. Visit our website at https://undertheelectricstars.com/ Got a question? Send it to undertheelectricstarspodcast@gmail.com Support us on Patreon at patreon.com/mxeliramos Find us on social media at undertheelectricstarspodcast.tumblr.com or @utes-podcast.bsky.social",
+    "cover": "images/covers/under-the-electric-stars.jpg",
+    "coverAlt": "Under the Electric Stars cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/under-the-electric-stars/id1450115407?uo=4",
+      "website": "https://undertheelectricstars.com/",
+      "rss": "https://pinecast.com/feed/utes"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Under the Electric Stars"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "3 seasons observed • at least 33 full episodes • 39 min median",
+      "seasons": 3,
+      "episodes": 33,
+      "avgEpisodeMinutes": 42,
+      "medianEpisodeMinutes": 39,
+      "minEpisodeMinutes": 17,
+      "maxEpisodeMinutes": 72,
+      "totalObservedHours": 23,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1,
+        2,
+        3
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 33,
+        "bonus": 9,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2019-01-20",
+      "latest": "2026-05-01",
+      "latestFeedItem": "2026-05-01"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://undertheelectricstars.com/"
+    },
+    "credits": {
+      "creatorName": "Eli Ramos, Aster Podcasting Network",
+      "ownerName": "Eli Ramos, Aster Podcasting Network"
+    },
+    "creators": [
+      "Eli Ramos, Aster Podcasting Network"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://pinecast.com/feed/utes; https://podcasts.apple.com/us/podcast/under-the-electric-stars/id1450115407?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://pinecast.com/feed/utes",
+        "https://podcasts.apple.com/us/podcast/under-the-electric-stars/id1450115407?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Science Fiction"
+      ],
+      "importOfficialSummary": "Under the Electric Stars is a cyberpunk adventure about Metropolis West, one of the last cities standing after a nuclear war. Caine Reyes, the fastest driver in the Metropolis, has been trying to pay back the debt their family fell into years ago. After their bot gets broken, Caine runs into the rebel group Zero Zero and gets caught up in the rising revolution. Created by Eli Ramos. Produced by Aster Podcasting Network. Visit our website at https://undertheelectricstars.com/ Got a question? Send it to undertheelectricstarspodcast@gmail.com Support us on Patreon at patreon.com/mxeliramos Find us on social media at undertheelectricstarspodcast.tumblr.com or @utes-podcast.bsky.social",
+      "schedule": {
+        "label": "irregular",
+        "medianDays": 116,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Aster Podcasting Network",
+        "explicit": "no",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://pinecast.com/feed/utes",
+          "appleCollectionId": "1450115407"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://pinecast.com/feed/utes",
+            "fetchedAt": "2026-08-15T17:22:12.919Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/under-the-electric-stars/id1450115407?uo=4",
+            "fetchedAt": "2026-08-15T17:22:12.441Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/under-the-electric-stars/id1450115407?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/under-the-electric-stars/id1450115407?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/under-the-electric-stars/id1450115407?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/under-the-electric-stars/id1450115407?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/under-the-electric-stars/id1450115407?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/under-the-electric-stars/id1450115407?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/utes"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T17:22:13.526Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T17:22:18.285Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "eli-ramos-aster-podcasting-network",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/under-the-electric-stars",
+    "hasPage": true,
+    "image": "images/covers/under-the-electric-stars.jpg",
+    "imageAlt": "Under the Electric Stars cover art",
+    "summary": "Under the Electric Stars is a cyberpunk adventure about Metropolis West, one of the last cities standing after a nuclear war. Caine Reyes, the fastest driver in the Metropolis, has been trying to pay back the debt their family fell into years ago. After their bot gets broken, Caine runs into the rebel group Zero Zero and gets caught up in the rising revolution. Created by Eli Ramos. Produced by Aster Podcasting Network. Visit our website at https://undertheelectricstars.com/ Got a question? Send it to undertheelectricstarspodcast@gmail.com Support us on Patreon at patreon.com/mxeliramos Find us on social media at undertheelectricstarspodcast.tumblr.com or @utes-podcast.bsky.social",
+    "finalRating": null,
+    "searchText": "under the electric stars a cyberpunk adventure in one of the last cities standing after a nuclear war after their bot gets broken caine runs into the rebel group zero zero and gets caught up in the rising revolution under the electric stars is a cyberpunk adventure about metropolis west one of the last cities standing after a nuclear war caine reyes the fastest driver in the metropolis has been trying to pay back the debt their family fell into years ago after their bot gets broken caine runs into the rebel group zero zero and gets caught up in the rising revolution created by eli ramos produced by aster podcasting network visit our website at https undertheelectricstars com got a question send it to undertheelectricstarspodcast gmail com support us on patreon at patreon com mxeliramos find us on social media at undertheelectricstarspodcast tumblr com or utes podcast bsky social drama sci fi serialized under the electric stars eli ramos aster podcasting network english ongoing imported eli ramos aster podcasting network eli ramos aster podcasting network unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/under-the-electric-stars-f0f390b2e7-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/under-the-electric-stars-f0f390b2e7-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "superhuman-public-radio",
+    "title": "Superhuman Public Radio",
+    "subtitle": "Super, human stories",
+    "description": "Superhuman Public Radio is an award-winning audio drama telling the surprisingly human stories in a superpowered world. These are the stories that fall between the panels of comic books. Find out more at www.SPRpod.com⁠",
+    "cover": "images/covers/superhuman-public-radio.jpg",
+    "coverAlt": "Superhuman Public Radio cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/superhuman-public-radio/id1536790917?uo=4",
+      "website": "https://www.superhumanpublicradio.com/",
+      "rss": "https://feeds.megaphone.fm/sprpod"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Superhuman Public Radio"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "2 seasons observed • at least 31 full episodes • 24 min median",
+      "seasons": 2,
+      "episodes": 31,
+      "avgEpisodeMinutes": 28,
+      "medianEpisodeMinutes": 24,
+      "minEpisodeMinutes": 2,
+      "maxEpisodeMinutes": 81,
+      "totalObservedHours": 14.6,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 31,
+        "bonus": 1,
+        "trailer": 3
+      }
+    },
+    "releaseDates": {
+      "first": "2020-11-11",
+      "latest": "2024-04-01",
+      "latestFeedItem": "2026-08-04"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.superhumanpublicradio.com/",
+      "patreon": "https://www.patreon.com/sprpod",
+      "social": "http://www.facebook.com/sprpod"
+    },
+    "credits": {
+      "creatorName": "Superhuman Public Radio",
+      "ownerName": "Superhuman Public Radio",
+      "network": "Superhuman Public Radio",
+      "writers": [
+        "john dorsey"
+      ],
+      "people": [
+        {
+          "name": "john dorsey",
+          "role": "author"
+        }
+      ]
+    },
+    "creators": [
+      "Superhuman Public Radio",
+      "john dorsey"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://www.superhumanpublicradio.com/episodes/s01e02; https://www.superhumanpublicradio.com/episodes/s01e03; https://www.superhumanpublicradio.com/new-index; https://www.superhumanpublicradio.com/episodes; https://www.superhumanpublicradio.com/; https://feeds.megaphone.fm/sprpod; https://podcasts.apple.com/us/podcast/superhuman-public-radio/id1536790917?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://www.superhumanpublicradio.com/episodes/s01e02",
+        "https://www.superhumanpublicradio.com/episodes/s01e03",
+        "https://www.superhumanpublicradio.com/new-index",
+        "https://www.superhumanpublicradio.com/episodes",
+        "https://www.superhumanpublicradio.com/",
+        "https://feeds.megaphone.fm/sprpod",
+        "https://podcasts.apple.com/us/podcast/superhuman-public-radio/id1536790917?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction"
+      ],
+      "importOfficialSummary": "Superhuman Public Radio is an award-winning audio drama telling the surprisingly human stories in a superpowered world. These are the stories that fall between the panels of comic books. Find out more at www.SPRpod.com⁠",
+      "socialUrls": [
+        "http://www.facebook.com/sprpod",
+        "http://instagram.com/sprpod",
+        "https://www.facebook.com/sprpod",
+        "https://www.instagram.com/sprpod/",
+        "https://twitter.com/sprpod"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Superhuman Public Radio",
+        "explicit": "no",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.megaphone.fm/sprpod",
+          "appleCollectionId": "1536790917",
+          "feedRedirects": [
+            "https://www.superhumanpublicradio.com/home?format=rss",
+            "https://www.superhumanpublicradio.com/episodes?format=rss",
+            "https://www.superhumanpublicradio.com/new-index?format=rss"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.superhumanpublicradio.com/episodes/s01e02",
+            "fetchedAt": "2026-08-15T17:22:17.847Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.superhumanpublicradio.com/episodes/s01e03",
+            "fetchedAt": "2026-08-15T17:22:17.844Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.superhumanpublicradio.com/new-index",
+            "fetchedAt": "2026-08-15T17:22:17.840Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.superhumanpublicradio.com/episodes",
+            "fetchedAt": "2026-08-15T17:22:17.836Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.superhumanpublicradio.com/",
+            "fetchedAt": "2026-08-15T17:22:17.832Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/sprpod",
+            "fetchedAt": "2026-08-15T17:22:16.561Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/superhuman-public-radio/id1536790917?uo=4",
+            "fetchedAt": "2026-08-15T17:22:16.064Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/superhuman-public-radio/id1536790917?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.superhumanpublicradio.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.superhumanpublicradio.com/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.superhumanpublicradio.com/new-index"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.superhumanpublicradio.com/episodes/s01e03"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.superhumanpublicradio.com/episodes/s01e02"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/superhuman-public-radio/id1536790917?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/superhuman-public-radio/id1536790917?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/superhuman-public-radio/id1536790917?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/superhuman-public-radio/id1536790917?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/superhuman-public-radio/id1536790917?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.superhumanpublicradio.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.superhumanpublicradio.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.superhumanpublicradio.com/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.superhumanpublicradio.com/new-index"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.superhumanpublicradio.com/episodes/s01e03"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.superhumanpublicradio.com/episodes/s01e02"
+              }
+            ]
+          },
+          "patreonUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.superhumanpublicradio.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.superhumanpublicradio.com/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.superhumanpublicradio.com/new-index"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.superhumanpublicradio.com/episodes/s01e03"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.superhumanpublicradio.com/episodes/s01e02"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.superhumanpublicradio.com/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.superhumanpublicradio.com/new-index"
+              }
+            ]
+          },
+          "people": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.superhumanpublicradio.com/episodes/s01e03"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.superhumanpublicradio.com/episodes/s01e02"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/sprpod"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T17:22:18.266Z",
+        "optionalGaps": [
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T17:22:18.286Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "superhuman-public-radio",
+    "networkId": "superhuman-public-radio",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/superhuman-public-radio",
+    "hasPage": true,
+    "image": "images/covers/superhuman-public-radio.jpg",
+    "imageAlt": "Superhuman Public Radio cover art",
+    "summary": "Superhuman Public Radio is an award-winning audio drama telling the surprisingly human stories in a superpowered world. These are the stories that fall between the panels of comic books. Find out more at www.SPRpod.com⁠",
+    "finalRating": null,
+    "searchText": "superhuman public radio super human stories superhuman public radio is an award winning audio drama telling the surprisingly human stories in a superpowered world these are the stories that fall between the panels of comic books find out more at www sprpod com drama episodic superhuman public radio superhuman public radio john dorsey english unclear imported superhuman public radio superhuman public radio superhuman public radio john dorsey john dorsey author unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/superhuman-public-radio-783ff8fc78-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/superhuman-public-radio-783ff8fc78-640.webp",
+        "width": 640
+      }
+    ]
   }
 ]

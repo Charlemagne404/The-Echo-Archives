@@ -1,0 +1,594 @@
+{
+  "id": "hit-the-bricks",
+  "title": "Hit the Bricks",
+  "subtitle": "",
+  "description": "100 years after L. Frank Baum's saga that began with The Wonderful Wizard of Oz, the Gale Family Farm sits abandoned in what's left of the great Kansas prairies. After her parents' messy divorce, Jessi Hugson and her mother move to Dorothy's old neighborhood for a new beginning. Things were already off to a shaky start, but when Jessi and her cousin Wallace find a jewel-studded bracelet in Dorothy's front yard...things get twisted. Twister'd, even.",
+  "cover": "images/covers/hit-the-bricks.jpg",
+  "coverAlt": "Hit the Bricks cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4",
+    "website": "https://art19.com/shows/hit-the-bricks",
+    "rss": "https://anchor.fm/s/10f74bc3c/podcast/rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Hit the Bricks"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 11 full episodes • 30 min median",
+    "episodes": 11,
+    "avgEpisodeMinutes": 30,
+    "medianEpisodeMinutes": 30,
+    "minEpisodeMinutes": 23,
+    "maxEpisodeMinutes": 39,
+    "totalObservedHours": 5.5,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 11,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2019-12-07",
+    "latest": "2022-12-27",
+    "latestFeedItem": "2022-12-27",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://art19.com/shows/hit-the-bricks",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "PJ Scott-Blankenship",
+    "ownerName": "PJ Scott-Blankenship"
+  },
+  "creators": [
+    "PJ Scott-Blankenship"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://anchor.fm/s/10f74bc3c/podcast/rss; https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://anchor.fm/s/10f74bc3c/podcast/rss",
+      "https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "100 years after L. Frank Baum's saga that began with The Wonderful Wizard of Oz, the Gale Family Farm sits abandoned in what's left of the great Kansas prairies. After her parents' messy divorce, Jessi Hugson and her mother move to Dorothy's old neighborhood for a new beginning. Things were already off to a shaky start, but when Jessi and her cousin Wallace find a jewel-studded bracelet in Dorothy's front yard...things get twisted. Twister'd, even.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 7
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "PJ Scott-Blankenship",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss",
+        "appleCollectionId": "1428281934",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss",
+          "fetchedAt": "2026-08-15T17:22:15.961Z",
+          "payloadHash": "e0df628ac018cfc2e41f0b04c798ef2a0ccaaa4c0de0d3f7b8785cab4cd68bc8"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4",
+          "fetchedAt": "2026-08-15T17:22:15.936Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-the-bricks/id1428281934?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10f74bc3c/podcast/rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T17:22:16.332Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "53fdda25593692d1a19d17605accc4f5055223a040fd66373b5444dc80b677e2",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "d6982f77626152281e695d774ee58e79d3895560a994b80be40fd321713b6bc1",
+        "cover": "9a8c7a8b0346f2cad7ffda2f997a6b3eb3b635cde9af46d6e004fde5a325ce16",
+        "coverAlt": "baa1ffbc9cf76f4f8aa8cfb2bb8e2ad0b20c9657afea5f8b40b116576c377183",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "4ee182642fdaf88e32fa8243b5df747d38bbe8e041915e481c5bf5acb1965dff",
+        "officialLinks": "3f49a80771f006727f88121c11b4824e5b99e0b8d920cb959dfa252b9cb2ae92",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "4d6131e26f98622641e5563e4303cc64d6c98e21307d4d45722159f638d323f2",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "6427293ac9fa04b07bdc8da53f7eebc9cfb3b013f7e5dc9f5f9cc149c1bf4a4f",
+        "releaseDates": "255234f292e64699f09e5fd9666fe8d392b61434ca5516e9f80c226ac47ecf59",
+        "credits": "5e2c9c76289b372e881ae516258ad20fa561c08f3e0230b40d45e21b2e4061db",
+        "creators": "7adf6e52d259830643db7cfe232c319c143efcfc24f71001b9695aaa615f596a",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "85e608d31762a590a10e4e677d16deec8de95f86bfcacd84e481e8f6a282bdf3"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T17:22:18.283Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "pj-scott-blankenship"
+}

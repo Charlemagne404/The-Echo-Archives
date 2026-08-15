@@ -1,0 +1,628 @@
+{
+  "id": "under-the-electric-stars",
+  "title": "Under the Electric Stars",
+  "subtitle": "A cyberpunk adventure in one of the last cities standing after a nuclear war. After their bot gets broken, Caine runs into the rebel group Zero Zero and gets caught up in the rising revolution.",
+  "description": "Under the Electric Stars is a cyberpunk adventure about Metropolis West, one of the last cities standing after a nuclear war. Caine Reyes, the fastest driver in the Metropolis, has been trying to pay back the debt their family fell into years ago. After their bot gets broken, Caine runs into the rebel group Zero Zero and gets caught up in the rising revolution. Created by Eli Ramos. Produced by Aster Podcasting Network. Visit our website at https://undertheelectricstars.com/ Got a question? Send it to undertheelectricstarspodcast@gmail.com Support us on Patreon at patreon.com/mxeliramos Find us on social media at undertheelectricstarspodcast.tumblr.com or @utes-podcast.bsky.social",
+  "cover": "images/covers/under-the-electric-stars.jpg",
+  "coverAlt": "Under the Electric Stars cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/under-the-electric-stars/id1450115407?uo=4",
+    "website": "https://undertheelectricstars.com/",
+    "rss": "https://pinecast.com/feed/utes",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Under the Electric Stars"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "3 seasons observed • at least 33 full episodes • 39 min median",
+    "seasons": 3,
+    "episodes": 33,
+    "avgEpisodeMinutes": 42,
+    "medianEpisodeMinutes": 39,
+    "minEpisodeMinutes": 17,
+    "maxEpisodeMinutes": 72,
+    "totalObservedHours": 23,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1,
+      2,
+      3
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 33,
+      "bonus": 9,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2019-01-20",
+    "latest": "2026-05-01",
+    "latestFeedItem": "2026-05-01",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://undertheelectricstars.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Eli Ramos, Aster Podcasting Network",
+    "ownerName": "Eli Ramos, Aster Podcasting Network"
+  },
+  "creators": [
+    "Eli Ramos, Aster Podcasting Network"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://pinecast.com/feed/utes; https://podcasts.apple.com/us/podcast/under-the-electric-stars/id1450115407?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://pinecast.com/feed/utes",
+      "https://podcasts.apple.com/us/podcast/under-the-electric-stars/id1450115407?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Under the Electric Stars is a cyberpunk adventure about Metropolis West, one of the last cities standing after a nuclear war. Caine Reyes, the fastest driver in the Metropolis, has been trying to pay back the debt their family fell into years ago. After their bot gets broken, Caine runs into the rebel group Zero Zero and gets caught up in the rising revolution. Created by Eli Ramos. Produced by Aster Podcasting Network. Visit our website at https://undertheelectricstars.com/ Got a question? Send it to undertheelectricstarspodcast@gmail.com Support us on Patreon at patreon.com/mxeliramos Find us on social media at undertheelectricstarspodcast.tumblr.com or @utes-podcast.bsky.social",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "irregular",
+      "medianDays": 116,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Aster Podcasting Network",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://pinecast.com/feed/utes",
+        "appleCollectionId": "1450115407",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://pinecast.com/feed/utes",
+          "fetchedAt": "2026-08-15T17:22:12.919Z",
+          "payloadHash": "933e6c21867be549813ae2744c1144eb6bc2767d9a568be1b5fc88895b325c9c"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/under-the-electric-stars/id1450115407?uo=4",
+          "fetchedAt": "2026-08-15T17:22:12.441Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/under-the-electric-stars/id1450115407?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/under-the-electric-stars/id1450115407?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/under-the-electric-stars/id1450115407?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/under-the-electric-stars/id1450115407?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/under-the-electric-stars/id1450115407?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/under-the-electric-stars/id1450115407?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/utes"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T17:22:13.526Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "748cdbe883643a826f61d8544e8cc0e4f76f90ec7051395bd08af1faf1a12bb5",
+        "subtitle": "7fc3fed639124485451817d0532955e5b781c63d3d05e748e98c249c0cd8aac5",
+        "description": "531dca0131a9462792ed4d6e6aea6220bef4fb94e3e28f01636d46f925072ae8",
+        "cover": "dd85147adccbb2c11593c69144c7fdc8f4faf43583e6c032eb92dc928dd2d2eb",
+        "coverAlt": "10eb77b003641ae9eafcc1aab36780307a631f05699eb06d945008f51bffbcbe",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "d7720122f408ad0e181567703142b43ad40ed932d10ab0aecadb0f8bfc13705b",
+        "officialLinks": "57f7c36c93060e078e0b56806212b7414e632d38f3185cb91aa1ddda046ebb20",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "db1a5eefa673c1fe1a00cc9a6671d0a1c79b10d9f4c08afe6103413feaab55fb",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "a9f9f23abb2612d1c72a21e2e3efbc0afe1aece083365541f1ffef07462447a0",
+        "releaseDates": "2217393cffe9774b8914e841284b11cb440fa5a682762cbbebae8c49c6b842f3",
+        "credits": "21b3085a40d59fbbc95554126752c8e6a1e35c469ebab8bd777efce4551bba63",
+        "creators": "1a07a1f370f36837a933b73bb5a9d27de2ba5f017d900fc846d494a188041fd2",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "d6d6d09880441346f319cded0f8d673d24d077f909d7850cff3ed071bcc79e8a"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T17:22:18.285Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "eli-ramos-aster-podcasting-network"
+}
