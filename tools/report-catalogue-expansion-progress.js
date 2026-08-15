@@ -80,6 +80,7 @@ function candidateForRow(candidates, row) {
   if (exact.length > 0) {
     return exact.sort((left, right) => String(right.updatedAt || "").localeCompare(String(left.updatedAt || "")))[0];
   }
+  if (row.priority === "P2" || row.priority === "P3") return null;
   return candidates
     .map((item) => ({ item, score: candidateMatchScore(item, row) }))
     .filter(({ score }) => score > 0)
@@ -97,7 +98,8 @@ function showMatches(show, row) {
     show.metadata?.publisher,
   ].filter(Boolean).map(slugify).join(" ");
   const wantedCreator = slugify(row.creator);
-  return !creatorText || creatorText.includes(wantedCreator) || wantedCreator.includes(creatorText);
+  if (!creatorText) return false;
+  return creatorText.includes(wantedCreator) || wantedCreator.includes(creatorText);
 }
 
 function blockerText(candidate) {
