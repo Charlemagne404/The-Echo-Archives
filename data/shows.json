@@ -127359,5 +127359,5067 @@
         "width": 640
       }
     ]
+  },
+  {
+    "id": "back-again-back-again",
+    "title": "Back Again, Back Again",
+    "subtitle": "",
+    "description": "Audioverse Award-winning podcast Back Again, Back Again is a narrative audio drama about ex-prophecy children, the end of adventures, and queer girls with swords. It tells the story of Ilyaas, who, on the night of her seventeenth birthday, gets portal-magicked away to a world called Rhysea – where she is told that she is part of a prophecy to save the country. The podcast picks up at the traditional end of all \"portal fantasy\" stories: prophecy completed, Ilyaas must readjust to the \"real world\" while still remembering everything she's seen.",
+    "cover": "images/covers/back-again-back-again.jpg",
+    "coverAlt": "Back Again, Back Again cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/back-again-back-again/id1525654584?uo=4",
+      "website": "https://backagainpodcast.wixsite.com/home",
+      "rss": "https://anchor.fm/s/74632b48/podcast/rss"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Back Again, Back Again",
+      "Back Again, Back Again Podcast"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "2 seasons observed • at least 62 full episodes • 15 min median",
+      "seasons": 2,
+      "episodes": 62,
+      "avgEpisodeMinutes": 17,
+      "medianEpisodeMinutes": 15,
+      "minEpisodeMinutes": 4,
+      "maxEpisodeMinutes": 47,
+      "totalObservedHours": 17.2,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 62,
+        "bonus": 6,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2021-11-16",
+      "latest": "2024-04-01",
+      "latestFeedItem": "2024-04-01"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://backagainpodcast.wixsite.com/home",
+      "discord": "https://discord.gg/CbPJU2qpmp",
+      "social": "http://www.twitter.com/backagainpod"
+    },
+    "credits": {
+      "creatorName": "Abigail Eliza",
+      "ownerName": "Abigail Eliza",
+      "network": "My Site 1"
+    },
+    "creators": [
+      "Abigail Eliza"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://backagainpodcast.wixsite.com/home/about-3; https://backagainpodcast.wixsite.com/home; https://anchor.fm/s/74632b48/podcast/rss; https://podcasts.apple.com/us/podcast/back-again-back-again/id1525654584?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://backagainpodcast.wixsite.com/home/about-3",
+        "https://backagainpodcast.wixsite.com/home",
+        "https://anchor.fm/s/74632b48/podcast/rss",
+        "https://podcasts.apple.com/us/podcast/back-again-back-again/id1525654584?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction"
+      ],
+      "importOfficialSummary": "Audioverse Award-winning podcast Back Again, Back Again is a narrative audio drama about ex-prophecy children, the end of adventures, and queer girls with swords. It tells the story of Ilyaas, who, on the night of her seventeenth birthday, gets portal-magicked away to a world called Rhysea – where she is told that she is part of a prophecy to save the country. The podcast picks up at the traditional end of all \"portal fantasy\" stories: prophecy completed, Ilyaas must readjust to the \"real world\" while still remembering everything she's seen.",
+      "socialUrls": [
+        "http://www.twitter.com/backagainpod",
+        "https://instagram.com/backagainpodcast"
+      ],
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 15,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Abigail Eliza",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://anchor.fm/s/74632b48/podcast/rss",
+          "appleCollectionId": "1525654584"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://backagainpodcast.wixsite.com/home/about-3",
+            "fetchedAt": "2026-08-15T16:53:25.993Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://backagainpodcast.wixsite.com/home",
+            "fetchedAt": "2026-08-15T16:53:25.982Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss",
+            "fetchedAt": "2026-08-15T16:53:24.687Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/back-again-back-again/id1525654584?uo=4",
+            "fetchedAt": "2026-08-15T16:53:24.602Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/back-again-back-again/id1525654584?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/back-again-back-again/id1525654584?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/back-again-back-again/id1525654584?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/back-again-back-again/id1525654584?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/back-again-back-again/id1525654584?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/back-again-back-again/id1525654584?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://backagainpodcast.wixsite.com/home"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://backagainpodcast.wixsite.com/home"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://backagainpodcast.wixsite.com/home/about-3"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.63,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://backagainpodcast.wixsite.com/home"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://backagainpodcast.wixsite.com/home/about-3"
+              }
+            ]
+          },
+          "discordUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://backagainpodcast.wixsite.com/home"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://backagainpodcast.wixsite.com/home"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/74632b48/podcast/rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:53:27.027Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:53:29.628Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "abigail-eliza",
+    "networkId": "my-site-1",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/back-again-back-again",
+    "hasPage": true,
+    "image": "images/covers/back-again-back-again.jpg",
+    "imageAlt": "Back Again, Back Again cover art",
+    "summary": "Audioverse Award-winning podcast Back Again, Back Again is a narrative audio drama about ex-prophecy children, the end of adventures, and queer girls with swords. It tells the story of Ilyaas, who, on the night of her seventeenth birthday, gets portal-magicked away to a world called Rhysea – where she is told that she is part of a prophecy to save the country. The podcast picks up at the traditional end of all \"portal fantasy\" stories: prophecy completed, Ilyaas must readjust to the \"real world\" while still remembering everything she's seen.",
+    "finalRating": null,
+    "searchText": "back again back again audioverse award winning podcast back again back again is a narrative audio drama about ex prophecy children the end of adventures and queer girls with swords it tells the story of ilyaas who on the night of her seventeenth birthday gets portal magicked away to a world called rhysea where she is told that she is part of a prophecy to save the country the podcast picks up at the traditional end of all portal fantasy stories prophecy completed ilyaas must readjust to the real world while still remembering everything she s seen drama episodic back again back again back again back again podcast abigail eliza english unclear imported abigail eliza abigail eliza my site 1 unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/back-again-back-again-0a09444aed-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/back-again-back-again-0a09444aed-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "celeritas",
+    "title": "Celeritas",
+    "subtitle": "",
+    "description": "The first test of light speed flight has gone wrong, hurling an astronaut deep into the future where he searches the planets for remnants of the human race. 12 Episodes. Created, written and directed by Alexander Adell. Join our Discord for bonus content, discussion and AMAs https://discord.com/invite/JbwJN3TVGK Celeritas creator Alexander Adell is writing his next project in public, follow on Instagram to watch the train wreck: https://www.instagram.com/reel/C_deDLtoROk/",
+    "cover": "images/covers/celeritas.png",
+    "coverAlt": "Celeritas cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/celeritas/id1585759882?uo=4",
+      "website": "https://www.celeritaspod.com/",
+      "rss": "https://feeds.megaphone.fm/SBP2001311146"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Celeritas"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 12 full episodes • 23 min median",
+      "seasons": 1,
+      "episodes": 12,
+      "avgEpisodeMinutes": 22,
+      "medianEpisodeMinutes": 23,
+      "minEpisodeMinutes": 10,
+      "maxEpisodeMinutes": 42,
+      "totalObservedHours": 4.5,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 12,
+        "bonus": 3,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2021-10-13",
+      "latest": "2024-05-03",
+      "latestFeedItem": "2024-12-06"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.celeritaspod.com/"
+    },
+    "credits": {
+      "creatorName": "Magnesium Film",
+      "ownerName": "Magnesium Film"
+    },
+    "creators": [
+      "Magnesium Film"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.megaphone.fm/SBP2001311146; https://podcasts.apple.com/us/podcast/celeritas/id1585759882?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.megaphone.fm/SBP2001311146",
+        "https://podcasts.apple.com/us/podcast/celeritas/id1585759882?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "The first test of light speed flight has gone wrong, hurling an astronaut deep into the future where he searches the planets for remnants of the human race. 12 Episodes. Created, written and directed by Alexander Adell. Join our Discord for bonus content, discussion and AMAs https://discord.com/invite/JbwJN3TVGK Celeritas creator Alexander Adell is writing his next project in public, follow on Instagram to watch the train wreck: https://www.instagram.com/reel/C_deDLtoROk/",
+      "schedule": {
+        "label": "irregular",
+        "medianDays": 88,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "© 2024 Magnesium Film, LLC",
+        "explicit": "yes",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.megaphone.fm/SBP2001311146",
+          "appleCollectionId": "1585759882"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146",
+            "fetchedAt": "2026-08-15T16:51:00.511Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/celeritas/id1585759882?uo=4",
+            "fetchedAt": "2026-08-15T16:50:59.992Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/celeritas/id1585759882?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/celeritas/id1585759882?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/celeritas/id1585759882?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/celeritas/id1585759882?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/celeritas/id1585759882?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/celeritas/id1585759882?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:51:01.802Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:53:29.630Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "magnesium-film",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/celeritas",
+    "hasPage": true,
+    "image": "images/covers/celeritas.png",
+    "imageAlt": "Celeritas cover art",
+    "summary": "The first test of light speed flight has gone wrong, hurling an astronaut deep into the future where he searches the planets for remnants of the human race. 12 Episodes. Created, written and directed by Alexander Adell. Join our Discord for bonus content, discussion and AMAs https://discord.com/invite/JbwJN3TVGK Celeritas creator Alexander Adell is writing his next project in public, follow on Instagram to watch the train wreck: https://www.instagram.com/reel/C_deDLtoROk/",
+    "finalRating": null,
+    "searchText": "celeritas the first test of light speed flight has gone wrong hurling an astronaut deep into the future where he searches the planets for remnants of the human race 12 episodes created written and directed by alexander adell join our discord for bonus content discussion and amas https discord com invite jbwjn3tvgk celeritas creator alexander adell is writing his next project in public follow on instagram to watch the train wreck https www instagram com reel c dedltorok drama sci fi serialized celeritas magnesium film english unclear imported magnesium film magnesium film unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/celeritas-39b1da5ada-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/celeritas-39b1da5ada-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "cry-havoc-ask-questions-later",
+    "title": "Cry Havoc! Ask Questions Later",
+    "subtitle": "",
+    "description": "Cry Havoc! Ask Questions Later takes place two years after Julius Caesar failed to beware the Ides of March and got stabbed to death by a band of well-wishers. Now the assassins have been rounded up and slaughtered in battle, so we can all breathe a sigh of relief. But who’s in charge now?&nbsp; With things on the verge of absolute collapse, the cool and calculating Cleopatra, the Queen of the Nile, has swung by for an extended visit. She’s eager to renew an alliance with Rome by any means necessary – including marriage and/or murder.&nbsp; A dramatic comedy of power politics, whirlwind romances, and running fast to get nowhere&nbsp; Created by David K. Barnes&nbsp; Directed by Amani Zardoe&nbsp; Executive Producers Alexander J Newall & April Sumner&nbsp; Written by David K. Barnes, Grace Knight, Maud Dromgoole, Robert Valentine, Octavia Bray, Rhys Tirado, Tom Crowley, Sarah Shachat, and Rafaella Marcus&nbsp; Featuring: Kazeem Tosin Amore, Harry Roebuck, Lara Sawalha, Sarah Agha, Sarah Lambie, Andy Secombe, Beth Eyre, Benjamin Garrison, Aaron-Louis Cadogan, Ellie Dickens, & Ryan Hopevere-Anderson&nbsp; Edited by Lowri Ann Davies, Nico Vettese, Katharine Seaton, Catherine Rinella, James Austin, Meg McKeller, Tessa Vroom Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/cry-havoc-ask-questions-later.jpg",
+    "coverAlt": "Cry Havoc! Ask Questions Later cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/7J2ufC9iK0s0xYF5fbsUPy",
+      "apple": "https://itunes.apple.com/us/podcast/id1689790776?mt=2",
+      "website": "https://shows.acast.com/cry-havoc-ask-questions-later",
+      "rss": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later",
+      "pocketCasts": "https://pca.st/itunes/1689790776"
+    },
+    "genres": [
+      "comedy",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Cry Havoc! Ask Questions Later",
+      "Cry Havoc! Ask Questions Later - Full Trailer | Cry Havoc! Ask Questions Later",
+      "Cry Havoc! Ask Questions Later - Teaser | Cry Havoc! Ask Questions Later",
+      "Cry Havoc! Ask Questions Later - Coming June 1st | Cry Havoc! Ask Questions Later"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "at least 41 full episodes • 27 min median",
+      "episodes": 41,
+      "avgEpisodeMinutes": 28,
+      "medianEpisodeMinutes": 27,
+      "minEpisodeMinutes": 3,
+      "maxEpisodeMinutes": 54,
+      "totalObservedHours": 18.9,
+      "durationCoverage": 1,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 41,
+        "bonus": 0,
+        "trailer": 5
+      }
+    },
+    "releaseDates": {
+      "first": "2023-06-01",
+      "latest": "2024-12-23",
+      "latestFeedItem": "2024-12-23"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://shows.acast.com/cry-havoc-ask-questions-later",
+      "patreon": "https://patreon.com/rustyquill",
+      "social": "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/cry-havoc-ask-questions-later/episodes/cry-havoc-ask-questions-later-coming-june-1st"
+    },
+    "credits": {
+      "creatorName": "Rusty Quill Ltd.",
+      "ownerName": "Rusty Quill Ltd."
+    },
+    "creators": [
+      "Rusty Quill Ltd."
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://shows.acast.com/cry-havoc-ask-questions-later/episodes/cry-havoc-ask-questions-later-full-trailer; https://shows.acast.com/cry-havoc-ask-questions-later/episodes/cry-havoc-ask-questions-later-teaser; https://shows.acast.com/cry-havoc-ask-questions-later/episodes; https://shows.acast.com/cry-havoc-ask-questions-later/episodes/cry-havoc-ask-questions-later-coming-june-1st; https://shows.acast.com/cry-havoc-ask-questions-later; https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later; https://podcasts.apple.com/us/podcast/cry-havoc-ask-questions-later/id1689790776?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://shows.acast.com/cry-havoc-ask-questions-later/episodes/cry-havoc-ask-questions-later-full-trailer",
+        "https://shows.acast.com/cry-havoc-ask-questions-later/episodes/cry-havoc-ask-questions-later-teaser",
+        "https://shows.acast.com/cry-havoc-ask-questions-later/episodes",
+        "https://shows.acast.com/cry-havoc-ask-questions-later/episodes/cry-havoc-ask-questions-later-coming-june-1st",
+        "https://shows.acast.com/cry-havoc-ask-questions-later",
+        "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later",
+        "https://podcasts.apple.com/us/podcast/cry-havoc-ask-questions-later/id1689790776?uo=4"
+      ],
+      "sourceCategories": [
+        "Comedy",
+        "Fiction",
+        "Comedy Fiction",
+        "History"
+      ],
+      "sourceKeywords": [
+        "rome",
+        "comedy",
+        "british",
+        "rusty quill",
+        "audio drama",
+        "sitcom",
+        "political comedy",
+        "history",
+        "period drama"
+      ],
+      "importOfficialSummary": "Cry Havoc! Ask Questions Later takes place two years after Julius Caesar failed to beware the Ides of March and got stabbed to death by a band of well-wishers. Now the assassins have been rounded up and slaughtered in battle, so we can all breathe a sigh of relief. But who’s in charge now?&nbsp; With things on the verge of absolute collapse, the cool and calculating Cleopatra, the Queen of the Nile, has swung by for an extended visit. She’s eager to renew an alliance with Rome by any means necessary – including marriage and/or murder.&nbsp; A dramatic comedy of power politics, whirlwind romances, and running fast to get nowhere&nbsp; Created by David K. Barnes&nbsp; Directed by Amani Zardoe&nbsp; Executive Producers Alexander J Newall & April Sumner&nbsp; Written by David K. Barnes, Grace Knight, Maud Dromgoole, Robert Valentine, Octavia Bray, Rhys Tirado, Tom Crowley, Sarah Shachat, and Rafaella Marcus&nbsp; Featuring: Kazeem Tosin Amore, Harry Roebuck, Lara Sawalha, Sarah Agha, Sarah Lambie, Andy Secombe, Beth Eyre, Benjamin Garrison, Aaron-Louis Cadogan, Ellie Dickens, & Ryan Hopevere-Anderson&nbsp; Edited by Lowri Ann Davies, Nico Vettese, Katharine Seaton, Catherine Rinella, James Austin, Meg McKeller, Tessa Vroom Hosted on Acast. See acast.com/privacy for more information.",
+      "socialUrls": [
+        "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/cry-havoc-ask-questions-later/episodes/cry-havoc-ask-questions-later-coming-june-1st",
+        "http://x.com/intent/tweet?url=https://shows.acast.com/cry-havoc-ask-questions-later/episodes/cry-havoc-ask-questions-later-coming-june-1st&via=acast&text=Cry%20",
+        "https://www.instagram.com/RustyQuillUK",
+        "https://www.x.com/TheRustyQuill",
+        "https://www.facebook.com/TheRustyQuill",
+        "https://www.threads.net/@rustyquilluk"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Rusty Quill Ltd.",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later",
+          "appleCollectionId": "1689790776"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/cry-havoc-ask-questions-later/episodes/cry-havoc-ask-questions-later-full-trailer",
+            "fetchedAt": "2026-08-15T16:50:56.419Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/cry-havoc-ask-questions-later/episodes/cry-havoc-ask-questions-later-teaser",
+            "fetchedAt": "2026-08-15T16:50:56.416Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/cry-havoc-ask-questions-later/episodes",
+            "fetchedAt": "2026-08-15T16:50:56.413Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/cry-havoc-ask-questions-later/episodes/cry-havoc-ask-questions-later-coming-june-1st",
+            "fetchedAt": "2026-08-15T16:50:56.410Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/cry-havoc-ask-questions-later",
+            "fetchedAt": "2026-08-15T16:50:56.407Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later",
+            "fetchedAt": "2026-08-15T16:50:54.864Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/cry-havoc-ask-questions-later/id1689790776?uo=4",
+            "fetchedAt": "2026-08-15T16:50:54.772Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/cry-havoc-ask-questions-later/id1689790776?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/cry-havoc-ask-questions-later"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/cry-havoc-ask-questions-later/episodes"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/cry-havoc-ask-questions-later/id1689790776?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/cry-havoc-ask-questions-later/id1689790776?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/cry-havoc-ask-questions-later"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/cry-havoc-ask-questions-later/episodes/cry-havoc-ask-questions-later-coming-june-1st"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/cry-havoc-ask-questions-later/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/cry-havoc-ask-questions-later/episodes/cry-havoc-ask-questions-later-teaser"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/cry-havoc-ask-questions-later/episodes/cry-havoc-ask-questions-later-full-trailer"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/cry-havoc-ask-questions-later/id1689790776?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/cry-havoc-ask-questions-later/id1689790776?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "pocketCastsUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "patreonUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/cry-havoc-ask-questions-later/episodes/cry-havoc-ask-questions-later-coming-june-1st"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/cry-havoc-ask-questions-later/episodes/cry-havoc-ask-questions-later-teaser"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/cry-havoc-ask-questions-later/episodes/cry-havoc-ask-questions-later-full-trailer"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/cry-havoc-ask-questions-later"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cry-havoc-ask-questions-later"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:50:56.528Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:53:29.650Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "rusty-quill-ltd",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/cry-havoc-ask-questions-later",
+    "hasPage": true,
+    "image": "images/covers/cry-havoc-ask-questions-later.jpg",
+    "imageAlt": "Cry Havoc! Ask Questions Later cover art",
+    "summary": "Cry Havoc! Ask Questions Later takes place two years after Julius Caesar failed to beware the Ides of March and got stabbed to death by a band of well-wishers. Now the assassins have been rounded up and slaughtered in battle, so we can all breathe a sigh of relief. But who’s in charge now?&nbsp; With things on the verge of absolute collapse, the cool and calculating Cleopatra, the Queen of the Nile, has swung by for an extended visit. She’s eager to renew an alliance with Rome by any means necessary – including marriage and/or murder.&nbsp; A dramatic comedy of power politics, whirlwind romances, and running fast to get nowhere&nbsp; Created by David K. Barnes&nbsp; Directed by Amani Zardoe&nbsp; Executive Producers Alexander J Newall & April Sumner&nbsp; Written by David K. Barnes, Grace Knight, Maud Dromgoole, Robert Valentine, Octavia Bray, Rhys Tirado, Tom Crowley, Sarah Shachat, and Rafaella Marcus&nbsp; Featuring: Kazeem Tosin Amore, Harry Roebuck, Lara Sawalha, Sarah Agha, Sarah Lambie, Andy Secombe, Beth Eyre, Benjamin Garrison, Aaron-Louis Cadogan, Ellie Dickens, & Ryan Hopevere-Anderson&nbsp; Edited by Lowri Ann Davies, Nico Vettese, Katharine Seaton, Catherine Rinella, James Austin, Meg McKeller, Tessa Vroom Hosted on Acast. See acast.com/privacy for more information.",
+    "finalRating": null,
+    "searchText": "cry havoc ask questions later cry havoc ask questions later takes place two years after julius caesar failed to beware the ides of march and got stabbed to death by a band of well wishers now the assassins have been rounded up and slaughtered in battle so we can all breathe a sigh of relief but who s in charge now and nbsp with things on the verge of absolute collapse the cool and calculating cleopatra the queen of the nile has swung by for an extended visit she s eager to renew an alliance with rome by any means necessary including marriage and or murder and nbsp a dramatic comedy of power politics whirlwind romances and running fast to get nowhere and nbsp created by david k barnes and nbsp directed by amani zardoe and nbsp executive producers alexander j newall and april sumner and nbsp written by david k barnes grace knight maud dromgoole robert valentine octavia bray rhys tirado tom crowley sarah shachat and rafaella marcus and nbsp featuring kazeem tosin amore harry roebuck lara sawalha sarah agha sarah lambie andy secombe beth eyre benjamin garrison aaron louis cadogan ellie dickens and ryan hopevere anderson and nbsp edited by lowri ann davies nico vettese katharine seaton catherine rinella james austin meg mckeller tessa vroom hosted on acast see acast com privacy for more information comedy drama serialized cry havoc ask questions later cry havoc ask questions later full trailer cry havoc ask questions later cry havoc ask questions later teaser cry havoc ask questions later cry havoc ask questions later coming june 1st cry havoc ask questions later rusty quill ltd english unclear imported rusty quill ltd rusty quill ltd unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/cry-havoc-ask-questions-later-a3cd8e9b4a-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/cry-havoc-ask-questions-later-a3cd8e9b4a-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "haunted-house-flippers",
+    "title": "Haunted House Flippers",
+    "subtitle": "An original comedy/horror audio drama podcast about a couple's journey in renovating an inherited house that may or may not be haunted. Take a peak into the day-to-day life of Tom and Janet Miller as they come to terms with the vast underta",
+    "description": "An original comedy/horror audio drama podcast about a couple's journey in renovating an inherited house that may or may not be haunted. Take a peak into the day-to-day life of Tom and Janet Miller as they come to terms with the vast undertaking ahead of them. With the help of their completely normal neighbor Lee, and a small cast of recurring locals, this will be an adventure for everyone. For links to our Social Media, Merch, and additional show info, head over to our website: www.hhfpodcast.com Currently releasing monthly on most streaming services.",
+    "cover": "images/covers/haunted-house-flippers.jpg",
+    "coverAlt": "Haunted House Flippers cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/haunted-house-flippers/id1535427676?uo=4",
+      "website": "https://www.spreaker.com/podcast/haunted-house-flippers--7258826",
+      "rss": "https://www.spreaker.com/show/7258826/episodes/feed"
+    },
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Haunted House Flippers"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ],
+    "length": {
+      "label": "4 seasons observed • at least 31 full episodes • 29 min median",
+      "seasons": 4,
+      "episodes": 31,
+      "avgEpisodeMinutes": 30,
+      "medianEpisodeMinutes": 29,
+      "minEpisodeMinutes": 14,
+      "maxEpisodeMinutes": 64,
+      "totalObservedHours": 15.7,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        4,
+        3,
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 31,
+        "bonus": 9,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2020-10-31",
+      "latest": "2026-07-31",
+      "latestFeedItem": "2026-07-31"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.spreaker.com/podcast/haunted-house-flippers--7258826"
+    },
+    "credits": {
+      "creatorName": "JD Lauriat",
+      "ownerName": "JD Lauriat",
+      "network": "Spreaker"
+    },
+    "creators": [
+      "JD Lauriat"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://www.spreaker.com/episode/into-the-night--73849839; https://www.spreaker.com/episode/home-again--73849772; https://www.spreaker.com/episode/nice-hearse--73849813; https://www.spreaker.com/episode/diners-dives-bodies--73849766; https://www.spreaker.com/podcast/haunted-house-flippers--7258826; https://www.spreaker.com/show/7258826/episodes/feed; https://podcasts.apple.com/us/podcast/haunted-house-flippers/id1535427676?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "41 observed episodes",
+      "captions": "available in structured transcript data",
+      "transcriptCoverage": 1,
+      "transcriptFormats": [
+        "application/x-subrip",
+        "text/plain",
+        "text/vtt"
+      ],
+      "transcriptLanguages": [
+        "English"
+      ]
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://www.spreaker.com/episode/into-the-night--73849839",
+        "https://www.spreaker.com/episode/home-again--73849772",
+        "https://www.spreaker.com/episode/nice-hearse--73849813",
+        "https://www.spreaker.com/episode/diners-dives-bodies--73849766",
+        "https://www.spreaker.com/podcast/haunted-house-flippers--7258826",
+        "https://www.spreaker.com/show/7258826/episodes/feed",
+        "https://podcasts.apple.com/us/podcast/haunted-house-flippers/id1535427676?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Comedy Fiction",
+        "Religion & Spirituality",
+        "Spirituality"
+      ],
+      "importOfficialSummary": "An original comedy/horror audio drama podcast about a couple's journey in renovating an inherited house that may or may not be haunted. Take a peak into the day-to-day life of Tom and Janet Miller as they come to terms with the vast undertaking ahead of them. With the help of their completely normal neighbor Lee, and a small cast of recurring locals, this will be an adventure for everyone. For links to our Social Media, Merch, and additional show info, head over to our website: www.hhfpodcast.com Currently releasing monthly on most streaming services.",
+      "schedule": {
+        "label": "irregular",
+        "medianDays": 86,
+        "observedIntervals": 7
+      },
+      "podcast": {
+        "copyright": "Copyright JD Lauriat",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://www.spreaker.com/show/7258826/episodes/feed",
+          "appleCollectionId": "1535427676"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.spreaker.com/episode/into-the-night--73849839",
+            "fetchedAt": "2026-08-15T16:53:02.615Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.spreaker.com/episode/home-again--73849772",
+            "fetchedAt": "2026-08-15T16:53:02.605Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.spreaker.com/episode/nice-hearse--73849813",
+            "fetchedAt": "2026-08-15T16:53:02.594Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.spreaker.com/episode/diners-dives-bodies--73849766",
+            "fetchedAt": "2026-08-15T16:53:02.584Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.spreaker.com/podcast/haunted-house-flippers--7258826",
+            "fetchedAt": "2026-08-15T16:53:02.566Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed",
+            "fetchedAt": "2026-08-15T16:52:59.626Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/haunted-house-flippers/id1535427676?uo=4",
+            "fetchedAt": "2026-08-15T16:52:59.494Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/haunted-house-flippers/id1535427676?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/podcast/haunted-house-flippers--7258826"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/haunted-house-flippers/id1535427676?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/haunted-house-flippers/id1535427676?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/podcast/haunted-house-flippers--7258826"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/diners-dives-bodies--73849766"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/nice-hearse--73849813"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/home-again--73849772"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/into-the-night--73849839"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/haunted-house-flippers/id1535427676?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/haunted-house-flippers/id1535427676?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/haunted-house-flippers/id1535427676?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/podcast/haunted-house-flippers--7258826"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/podcast/haunted-house-flippers--7258826"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/diners-dives-bodies--73849766"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/nice-hearse--73849813"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/home-again--73849772"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/into-the-night--73849839"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7258826/episodes/feed"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:53:02.733Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:53:29.653Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "jd-lauriat",
+    "networkId": "spreaker",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/haunted-house-flippers",
+    "hasPage": true,
+    "image": "images/covers/haunted-house-flippers.jpg",
+    "imageAlt": "Haunted House Flippers cover art",
+    "summary": "An original comedy/horror audio drama podcast about a couple's journey in renovating an inherited house that may or may not be haunted. Take a peak into the day-to-day life of Tom and Janet Miller as they come to terms with the vast undertaking ahead of them. With the help of their completely normal neighbor Lee, and a small cast of recurring locals, this will be an adventure for everyone. For links to our Social Media, Merch, and additional show info, head over to our website: www.hhfpodcast.com Currently releasing monthly on most streaming services.",
+    "finalRating": null,
+    "searchText": "haunted house flippers an original comedy horror audio drama podcast about a couple s journey in renovating an inherited house that may or may not be haunted take a peak into the day to day life of tom and janet miller as they come to terms with the vast underta an original comedy horror audio drama podcast about a couple s journey in renovating an inherited house that may or may not be haunted take a peak into the day to day life of tom and janet miller as they come to terms with the vast undertaking ahead of them with the help of their completely normal neighbor lee and a small cast of recurring locals this will be an adventure for everyone for links to our social media merch and additional show info head over to our website www hhfpodcast com currently releasing monthly on most streaming services drama comedy episodic haunted house flippers jd lauriat english english ongoing imported jd lauriat jd lauriat spreaker 41 observed episodes available in structured transcript data 1 application x subrip text plain text vtt english",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/haunted-house-flippers-aae59fa831-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/haunted-house-flippers-aae59fa831-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "haunted-the-audio-drama",
+    "title": "HAUNTED: The Audio Drama",
+    "subtitle": "HAUNTED: The Audio Drama tells the story of reclusive alcoholic writer James Hunter, bubbly enthusiastic podcaster Abigail Corbin and police officer Dan Cowell as they investigate strange and seemingly unexplainable phenomenon. Told in a cl",
+    "description": "HAUNTED: The Audio Drama tells the story of reclusive alcoholic writer James Hunter, bubbly enthusiastic podcaster Abigail Corbin and police officer Dan Cowell as they investigate strange and seemingly unexplainable phenomenon. Told in a classic serial format with episodes raging from suspenseful thrillers, to spine tingling horrors to laugh-out-loud comedies, HAUNTED: The Audio Drama is a horror adventure series that feels like Doctor Who crossed with The X Files. Season 3 currently releasing!",
+    "cover": "images/covers/haunted-the-audio-drama.jpg",
+    "coverAlt": "HAUNTED: The Audio Drama cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/haunted-the-audio-drama/id1614908019?uo=4",
+      "website": "https://www.spreaker.com/podcast/haunted-the-audio-drama--7197537",
+      "rss": "https://www.spreaker.com/show/7197537/episodes/feed"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "HAUNTED: The Audio Drama"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ],
+    "length": {
+      "label": "3 seasons observed • at least 140 full episodes • 25 min median",
+      "seasons": 3,
+      "episodes": 140,
+      "avgEpisodeMinutes": 26,
+      "medianEpisodeMinutes": 25,
+      "minEpisodeMinutes": 1,
+      "maxEpisodeMinutes": 56,
+      "totalObservedHours": 61.6,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        3,
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 140,
+        "bonus": 10,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2022-03-20",
+      "latest": "2026-08-12",
+      "latestFeedItem": "2026-08-12"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.spreaker.com/podcast/haunted-the-audio-drama--7197537"
+    },
+    "credits": {
+      "creatorName": "Impala Films",
+      "ownerName": "Impala Films",
+      "network": "Spreaker"
+    },
+    "creators": [
+      "Impala Films"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://www.spreaker.com/episode/everybody-loves-bobby-part-1-of-4--73322084; https://www.spreaker.com/episode/preview-everybody-loves-bobby-part-2--73475637; https://www.spreaker.com/episode/everybody-loves-bobby-part-2-of-4--73711252; https://www.spreaker.com/episode/preview-everybody-loves-bobby-part-3--73826567; https://www.spreaker.com/podcast/haunted-the-audio-drama--7197537; https://www.spreaker.com/show/7197537/episodes/feed; https://podcasts.apple.com/us/podcast/haunted-the-audio-drama/id1614908019?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "95 observed episodes",
+      "captions": "available in structured transcript data",
+      "transcriptCoverage": 0.629,
+      "transcriptFormats": [
+        "application/x-subrip",
+        "text/plain",
+        "text/vtt"
+      ],
+      "transcriptLanguages": [
+        "English"
+      ]
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://www.spreaker.com/episode/everybody-loves-bobby-part-1-of-4--73322084",
+        "https://www.spreaker.com/episode/preview-everybody-loves-bobby-part-2--73475637",
+        "https://www.spreaker.com/episode/everybody-loves-bobby-part-2-of-4--73711252",
+        "https://www.spreaker.com/episode/preview-everybody-loves-bobby-part-3--73826567",
+        "https://www.spreaker.com/podcast/haunted-the-audio-drama--7197537",
+        "https://www.spreaker.com/show/7197537/episodes/feed",
+        "https://podcasts.apple.com/us/podcast/haunted-the-audio-drama/id1614908019?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Science Fiction"
+      ],
+      "importOfficialSummary": "HAUNTED: The Audio Drama tells the story of reclusive alcoholic writer James Hunter, bubbly enthusiastic podcaster Abigail Corbin and police officer Dan Cowell as they investigate strange and seemingly unexplainable phenomenon. Told in a classic serial format with episodes raging from suspenseful thrillers, to spine tingling horrors to laugh-out-loud comedies, HAUNTED: The Audio Drama is a horror adventure series that feels like Doctor Who crossed with The X Files. Season 3 currently releasing!",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 4,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Copyright Impala Films",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://www.spreaker.com/show/7197537/episodes/feed",
+          "appleCollectionId": "1614908019"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.spreaker.com/episode/everybody-loves-bobby-part-1-of-4--73322084",
+            "fetchedAt": "2026-08-15T16:52:10.354Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.spreaker.com/episode/preview-everybody-loves-bobby-part-2--73475637",
+            "fetchedAt": "2026-08-15T16:52:10.344Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.spreaker.com/episode/everybody-loves-bobby-part-2-of-4--73711252",
+            "fetchedAt": "2026-08-15T16:52:10.335Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.spreaker.com/episode/preview-everybody-loves-bobby-part-3--73826567",
+            "fetchedAt": "2026-08-15T16:52:10.325Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.spreaker.com/podcast/haunted-the-audio-drama--7197537",
+            "fetchedAt": "2026-08-15T16:52:10.308Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed",
+            "fetchedAt": "2026-08-15T16:52:07.615Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/haunted-the-audio-drama/id1614908019?uo=4",
+            "fetchedAt": "2026-08-15T16:52:07.416Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/haunted-the-audio-drama/id1614908019?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/podcast/haunted-the-audio-drama--7197537"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/haunted-the-audio-drama/id1614908019?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/haunted-the-audio-drama/id1614908019?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/podcast/haunted-the-audio-drama--7197537"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/preview-everybody-loves-bobby-part-3--73826567"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/everybody-loves-bobby-part-2-of-4--73711252"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/preview-everybody-loves-bobby-part-2--73475637"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/everybody-loves-bobby-part-1-of-4--73322084"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/haunted-the-audio-drama/id1614908019?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/haunted-the-audio-drama/id1614908019?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/haunted-the-audio-drama/id1614908019?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/podcast/haunted-the-audio-drama--7197537"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/podcast/haunted-the-audio-drama--7197537"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/preview-everybody-loves-bobby-part-3--73826567"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/everybody-loves-bobby-part-2-of-4--73711252"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/preview-everybody-loves-bobby-part-2--73475637"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/everybody-loves-bobby-part-1-of-4--73322084"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/7197537/episodes/feed"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:52:10.497Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:53:29.654Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "impala-films",
+    "networkId": "spreaker",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/haunted-the-audio-drama",
+    "hasPage": true,
+    "image": "images/covers/haunted-the-audio-drama.jpg",
+    "imageAlt": "HAUNTED: The Audio Drama cover art",
+    "summary": "HAUNTED: The Audio Drama tells the story of reclusive alcoholic writer James Hunter, bubbly enthusiastic podcaster Abigail Corbin and police officer Dan Cowell as they investigate strange and seemingly unexplainable phenomenon. Told in a classic serial format with episodes raging from suspenseful thrillers, to spine tingling horrors to laugh-out-loud comedies, HAUNTED: The Audio Drama is a horror adventure series that feels like Doctor Who crossed with The X Files. Season 3 currently releasing!",
+    "finalRating": null,
+    "searchText": "haunted the audio drama haunted the audio drama tells the story of reclusive alcoholic writer james hunter bubbly enthusiastic podcaster abigail corbin and police officer dan cowell as they investigate strange and seemingly unexplainable phenomenon told in a cl haunted the audio drama tells the story of reclusive alcoholic writer james hunter bubbly enthusiastic podcaster abigail corbin and police officer dan cowell as they investigate strange and seemingly unexplainable phenomenon told in a classic serial format with episodes raging from suspenseful thrillers to spine tingling horrors to laugh out loud comedies haunted the audio drama is a horror adventure series that feels like doctor who crossed with the x files season 3 currently releasing drama sci fi episodic haunted the audio drama impala films english english ongoing imported impala films impala films spreaker 95 observed episodes available in structured transcript data 0 629 application x subrip text plain text vtt english",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/haunted-the-audio-drama-6965fb1ec9-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/haunted-the-audio-drama-6965fb1ec9-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "middle-below",
+    "title": "Middle:Below",
+    "subtitle": "",
+    "description": "Bad Things Will Happen. A horror comedy audio drama podcast from Tin Can Audio.",
+    "cover": "images/covers/middle-below.jpg",
+    "coverAlt": "Middle:Below cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/middle-below/id1308222298?uo=4",
+      "website": "https://middlebelow.libsyn.com/website",
+      "rss": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+    },
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Middle:Below"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 14 full episodes • 13 min median",
+      "seasons": 1,
+      "episodes": 14,
+      "avgEpisodeMinutes": 12,
+      "medianEpisodeMinutes": 13,
+      "minEpisodeMinutes": 3,
+      "maxEpisodeMinutes": 16,
+      "totalObservedHours": 2.8,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 14,
+        "bonus": 2,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2018-06-12",
+      "latest": "2022-02-02",
+      "latestFeedItem": "2022-02-02"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://middlebelow.libsyn.com/website",
+      "patreon": "https://www.patreon.com/tincanaudio",
+      "social": "http://twitter.com/@middle_below"
+    },
+    "credits": {
+      "creatorName": "Tin Can Audio",
+      "ownerName": "David Devereux"
+    },
+    "creators": [
+      "Tin Can Audio"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://middlebelow.libsyn.com/website; https://rss.libsyn.com/shows/108875/destinations/593158.xml; https://podcasts.apple.com/us/podcast/middle-below/id1308222298?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://middlebelow.libsyn.com/website",
+        "https://rss.libsyn.com/shows/108875/destinations/593158.xml",
+        "https://podcasts.apple.com/us/podcast/middle-below/id1308222298?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Comedy Fiction"
+      ],
+      "importOfficialSummary": "Bad Things Will Happen. A horror comedy audio drama podcast from Tin Can Audio.",
+      "socialUrls": [
+        "http://twitter.com/@middle_below"
+      ],
+      "schedule": {
+        "label": "irregular",
+        "medianDays": 60,
+        "observedIntervals": 7
+      },
+      "podcast": {
+        "copyright": "David Devereux 2017. All rights reserved",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml",
+          "appleCollectionId": "1308222298",
+          "feedRedirects": [
+            "http://feeds.libsyn.com/108875/rss"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://middlebelow.libsyn.com/website",
+            "fetchedAt": "2026-08-15T16:52:56.017Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml",
+            "fetchedAt": "2026-08-15T16:52:54.556Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/middle-below/id1308222298?uo=4",
+            "fetchedAt": "2026-08-15T16:52:13.046Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/middle-below/id1308222298?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://middlebelow.libsyn.com/website"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/middle-below/id1308222298?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://middlebelow.libsyn.com/website"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/middle-below/id1308222298?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/middle-below/id1308222298?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/middle-below/id1308222298?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/middle-below/id1308222298?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://middlebelow.libsyn.com/website"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://middlebelow.libsyn.com/website"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          },
+          "patreonUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://middlebelow.libsyn.com/website"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://middlebelow.libsyn.com/website"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/108875/destinations/593158.xml"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:52:56.365Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:53:29.656Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "tin-can-audio",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/middle-below",
+    "hasPage": true,
+    "image": "images/covers/middle-below.jpg",
+    "imageAlt": "Middle:Below cover art",
+    "summary": "Bad Things Will Happen. A horror comedy audio drama podcast from Tin Can Audio.",
+    "finalRating": null,
+    "searchText": "middle below bad things will happen a horror comedy audio drama podcast from tin can audio drama comedy serialized middle below tin can audio english unclear imported tin can audio david devereux unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/middle-below-a708758caa-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/middle-below-a708758caa-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "primordial-deep",
+    "title": "Primordial Deep",
+    "subtitle": "",
+    "description": "Primordial Deep is science fiction action/thriller, set in the expanded universe of Janus Descending. When a long extinct sea creature washes up on the shores of Coney Island, marine biologist Dr. Marella Morgan is contacted by a secret organization to investigate the origins of the creature's sudden and unnatural resurgence. Soon, she and a team of explorers find themselves living on the research station The Tiamat, traveling along the abyssal plains as they search for answers far below the waves. But there are dangers in these ancient waters. Reawakened prehistoric monsters are rising from the deep -- jaws wide and waiting, and in the darkness, something is stirring.",
+    "cover": "images/covers/primordial-deep.jpg",
+    "coverAlt": "Primordial Deep cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/primordial-deep/id1536524717?uo=4",
+      "website": "https://nosuchthingradio.com/primordialdeep",
+      "rss": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Primordial Deep"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 7 full episodes • 47 min median",
+      "seasons": 1,
+      "episodes": 7,
+      "avgEpisodeMinutes": 53,
+      "medianEpisodeMinutes": 47,
+      "minEpisodeMinutes": 41,
+      "maxEpisodeMinutes": 74,
+      "totalObservedHours": 6.1,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 7,
+        "bonus": 3,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2020-10-31",
+      "latest": "2021-04-06",
+      "latestFeedItem": "2021-04-06"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://nosuchthingradio.com/primordialdeep"
+    },
+    "credits": {
+      "creatorName": "No Such Thing Productions",
+      "ownerName": "Jordan Cobb"
+    },
+    "creators": [
+      "No Such Thing Productions"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml; https://podcasts.apple.com/us/podcast/primordial-deep/id1536524717?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://rss.libsyn.com/shows/208064/destinations/1496534.xml",
+        "https://podcasts.apple.com/us/podcast/primordial-deep/id1536524717?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "Primordial Deep is science fiction action/thriller, set in the expanded universe of Janus Descending. When a long extinct sea creature washes up on the shores of Coney Island, marine biologist Dr. Marella Morgan is contacted by a secret organization to investigate the origins of the creature's sudden and unnatural resurgence. Soon, she and a team of explorers find themselves living on the research station The Tiamat, traveling along the abyssal plains as they search for answers far below the waves. But there are dangers in these ancient waters. Reawakened prehistoric monsters are rising from the deep -- jaws wide and waiting, and in the darkness, something is stirring.",
+      "schedule": {
+        "label": "monthly",
+        "medianDays": 22,
+        "observedIntervals": 6
+      },
+      "podcast": {
+        "copyright": "No Such Thing Productions",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml",
+          "appleCollectionId": "1536524717"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml",
+            "fetchedAt": "2026-08-15T16:52:07.992Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/primordial-deep/id1536524717?uo=4",
+            "fetchedAt": "2026-08-15T16:52:07.447Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/primordial-deep/id1536524717?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/primordial-deep/id1536524717?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/primordial-deep/id1536524717?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/primordial-deep/id1536524717?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/primordial-deep/id1536524717?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/primordial-deep/id1536524717?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/208064/destinations/1496534.xml"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:52:08.911Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:53:29.662Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "no-such-thing-productions",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/primordial-deep",
+    "hasPage": true,
+    "image": "images/covers/primordial-deep.jpg",
+    "imageAlt": "Primordial Deep cover art",
+    "summary": "Primordial Deep is science fiction action/thriller, set in the expanded universe of Janus Descending. When a long extinct sea creature washes up on the shores of Coney Island, marine biologist Dr. Marella Morgan is contacted by a secret organization to investigate the origins of the creature's sudden and unnatural resurgence. Soon, she and a team of explorers find themselves living on the research station The Tiamat, traveling along the abyssal plains as they search for answers far below the waves. But there are dangers in these ancient waters. Reawakened prehistoric monsters are rising from the deep -- jaws wide and waiting, and in the darkness, something is stirring.",
+    "finalRating": null,
+    "searchText": "primordial deep primordial deep is science fiction action thriller set in the expanded universe of janus descending when a long extinct sea creature washes up on the shores of coney island marine biologist dr marella morgan is contacted by a secret organization to investigate the origins of the creature s sudden and unnatural resurgence soon she and a team of explorers find themselves living on the research station the tiamat traveling along the abyssal plains as they search for answers far below the waves but there are dangers in these ancient waters reawakened prehistoric monsters are rising from the deep jaws wide and waiting and in the darkness something is stirring drama sci fi serialized primordial deep no such thing productions english unclear imported no such thing productions jordan cobb unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/primordial-deep-198366c08a-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/primordial-deep-198366c08a-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "the-rez",
+    "title": "The Rez",
+    "subtitle": "",
+    "description": "The Rez is a comedy podcast for kids and families who wonder about the future of technology. Set in a very strange future where everything seems perfect but is actually completely wonky! Preen, a show-offy influencer, and sensible Sav try to outsmart the wicked A.I. JEF who runs their world. Together they find an ancient phone that can communicate with kids in the past (Pastlings - that’s you!) who teach them about weird ancient ideas like kindness, friendship and how nature isn't really that terrifying. JEF hates all these things and sends robots, drones and other future gizgads to try and stop them! The Rez is a multi-award winning series with top quality jokes, a brilliant UK cast, funky sound, and some secret messages about life, kindness and looking after each other. The Rez is a production of Rezilience Ltd. (supported by Arts Council England), in partnership with Gen-Z Media. For more great shows and to listen early and ad-free, visit ⁠GZMShows.com⁠ .",
+    "cover": "images/covers/the-rez.jpg",
+    "coverAlt": "The Rez cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/the-rez/id1552373252?uo=4",
+      "website": "https://art19.com/shows/rez",
+      "rss": "https://rss.art19.com/rez"
+    },
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Rez"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "2 seasons observed • at least 26 full episodes • 17 min median",
+      "seasons": 2,
+      "episodes": 26,
+      "avgEpisodeMinutes": 16,
+      "medianEpisodeMinutes": 17,
+      "minEpisodeMinutes": 2,
+      "maxEpisodeMinutes": 30,
+      "totalObservedHours": 6.9,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1,
+        2
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 26,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2021-04-12",
+      "latest": "2026-08-12",
+      "latestFeedItem": "2026-08-12"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://art19.com/shows/rez"
+    },
+    "credits": {
+      "creatorName": "GZM Shows / Rezilience Ltd.",
+      "ownerName": "GZM Shows / Rezilience Ltd.",
+      "network": "ART19"
+    },
+    "creators": [
+      "GZM Shows / Rezilience Ltd."
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://art19.com/shows/rez; https://rss.art19.com/rez; https://podcasts.apple.com/us/podcast/the-rez/id1552373252?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://art19.com/shows/rez",
+        "https://rss.art19.com/rez",
+        "https://podcasts.apple.com/us/podcast/the-rez/id1552373252?uo=4"
+      ],
+      "sourceCategories": [
+        "Kids & Family",
+        "Stories for Kids",
+        "Fiction",
+        "Comedy Fiction"
+      ],
+      "importOfficialSummary": "The Rez is a comedy podcast for kids and families who wonder about the future of technology. Set in a very strange future where everything seems perfect but is actually completely wonky! Preen, a show-offy influencer, and sensible Sav try to outsmart the wicked A.I. JEF who runs their world. Together they find an ancient phone that can communicate with kids in the past (Pastlings - that’s you!) who teach them about weird ancient ideas like kindness, friendship and how nature isn't really that terrifying. JEF hates all these things and sends robots, drones and other future gizgads to try and stop them! The Rez is a multi-award winning series with top quality jokes, a brilliant UK cast, funky sound, and some secret messages about life, kindness and looking after each other. The Rez is a production of Rezilience Ltd. (supported by Arts Council England), in partnership with Gen-Z Media. For more great shows and to listen early and ad-free, visit ⁠GZMShows.com⁠ .",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 3,
+        "observedIntervals": 7
+      },
+      "podcast": {
+        "copyright": "© © Rezilience Limited",
+        "explicit": "no",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://rss.art19.com/rez",
+          "appleCollectionId": "1552373252"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://art19.com/shows/rez",
+            "fetchedAt": "2026-08-15T16:53:29.019Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.art19.com/rez",
+            "fetchedAt": "2026-08-15T16:53:27.896Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-rez/id1552373252?uo=4",
+            "fetchedAt": "2026-08-15T16:53:27.456Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-rez/id1552373252?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://art19.com/shows/rez"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-rez/id1552373252?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-rez/id1552373252?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://art19.com/shows/rez"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-rez/id1552373252?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-rez/id1552373252?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-rez/id1552373252?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-rez/id1552373252?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://art19.com/shows/rez"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.6,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://art19.com/shows/rez"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.art19.com/rez"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:53:29.547Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:53:29.667Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "gzm-shows-rezilience-ltd",
+    "networkId": "art19",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-rez",
+    "hasPage": true,
+    "image": "images/covers/the-rez.jpg",
+    "imageAlt": "The Rez cover art",
+    "summary": "The Rez is a comedy podcast for kids and families who wonder about the future of technology. Set in a very strange future where everything seems perfect but is actually completely wonky! Preen, a show-offy influencer, and sensible Sav try to outsmart the wicked A.I. JEF who runs their world. Together they find an ancient phone that can communicate with kids in the past (Pastlings - that’s you!) who teach them about weird ancient ideas like kindness, friendship and how nature isn't really that terrifying. JEF hates all these things and sends robots, drones and other future gizgads to try and stop them! The Rez is a multi-award winning series with top quality jokes, a brilliant UK cast, funky sound, and some secret messages about life, kindness and looking after each other. The Rez is a production of Rezilience Ltd. (supported by Arts Council England), in partnership with Gen-Z Media. For more great shows and to listen early and ad-free, visit ⁠GZMShows.com⁠ .",
+    "finalRating": null,
+    "searchText": "the rez the rez is a comedy podcast for kids and families who wonder about the future of technology set in a very strange future where everything seems perfect but is actually completely wonky preen a show offy influencer and sensible sav try to outsmart the wicked a i jef who runs their world together they find an ancient phone that can communicate with kids in the past pastlings that s you who teach them about weird ancient ideas like kindness friendship and how nature isn t really that terrifying jef hates all these things and sends robots drones and other future gizgads to try and stop them the rez is a multi award winning series with top quality jokes a brilliant uk cast funky sound and some secret messages about life kindness and looking after each other the rez is a production of rezilience ltd supported by arts council england in partnership with gen z media for more great shows and to listen early and ad free visit gzmshows com drama comedy serialized the rez gzm shows rezilience ltd english ongoing imported gzm shows rezilience ltd gzm shows rezilience ltd art19 unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-rez-8e86580062-320.webp",
+        "width": 320
+      }
+    ]
   }
 ]
