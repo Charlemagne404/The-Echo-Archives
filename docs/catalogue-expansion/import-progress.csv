@@ -464,31 +464,31 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 464,P2,The Demonic Detective,,6867289a-d89c-462a-8caa-2e55261ffd1e,needs-review,needs-review,source-conflict,2026-08-15 19:46:32
 465,P2,The Devil's Plaything,Tlacuache Theater,9df6f3dc-6c16-4ec2-96b3-ca78a87a1def,published,published,,2026-08-15 19:47:30
 466,P2,The Disposers,,bc77157d-025c-4863-88cc-b0c1cb02a3e1,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:45:57
-467,P2,The Endless Elsewhere Podcast,,,unattempted,,,
-468,P2,THE FORMIDDREAD HORROR,Owen Summer,,unattempted,,,
-469,P2,The Frankenstein Files,,,unattempted,,,
-470,P2,The Ghost Catchers,,,unattempted,,,
-471,P2,The Graveyard Shift,,,unattempted,,,
-472,P2,The Greenvale Letters,,,unattempted,,,
-473,P2,The Grimoire Diaries,,,unattempted,,,
-474,P2,The Harrowing of Minerva Damson,,,unattempted,,,
-475,P2,The Hidden Heart,,,unattempted,,,
-476,P2,The Loft,,,unattempted,,,
-477,P2,The Lost Son,,,unattempted,,,
-478,P2,The Lovecraft Covenant,,,unattempted,,,
-479,P2,The Marksbury Incident,,,unattempted,,,
-480,P2,The Matlock Tapes,,,unattempted,,,
-481,P2,The Midnight Carols,,,unattempted,,,
-482,P2,The Mysteries Of Silvertown,,,unattempted,,,
-483,P2,The Nephilim Hunter,,,unattempted,,,
-484,P2,The Night Visitor,,,unattempted,,,
-485,P2,The Not-Deer,,,unattempted,,,
-486,P2,The Obscura Dossier,,,unattempted,,,
-487,P2,The Outside Tapes,,,unattempted,,,
-488,P2,The Pale,,,unattempted,,,
-489,P2,The Scarab Archives,,,unattempted,,,
-490,P2,The Shadowbrook Files,,,unattempted,,,
-491,P2,The Shadowvane Podcast,,,unattempted,,,
+467,P2,The Endless Elsewhere Podcast,,32c4276b-d6fe-4c9c-bf56-304c0e07fede,needs-review,needs-review,source-conflict,2026-08-15 19:48:28
+468,P2,THE FORMIDDREAD HORROR,Owen Summer,912d953c-5fc7-446d-b45e-4950e76ae009,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link,2026-08-15 19:49:23
+469,P2,The Frankenstein Files,,5f7d366d-636b-4da7-b1bd-7ab589d9e3e9,needs-review,needs-review,source-conflict,2026-08-15 19:47:56
+470,P2,The Ghost Catchers,,13b27ad3-d577-4ea8-a840-9865ea97e0e0,needs-review,needs-review,source-conflict,2026-08-15 19:47:55
+471,P2,The Graveyard Shift,,b32e24f0-2b8a-4fe0-8aa6-1f6065c3b0a8,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 19:48:24
+472,P2,The Greenvale Letters,,5145427c-2ec6-4051-aba4-e45e5bfbb6f9,needs-review,needs-review,source-conflict,2026-08-15 19:47:55
+473,P2,The Grimoire Diaries,,d75ba90d-d806-45f0-9249-29cc7750a7e0,published,published,,2026-08-15 19:52:00
+474,P2,The Harrowing of Minerva Damson,,7f82ffec-c542-4d1f-a885-11c40f4d628a,published,published,,2026-08-15 19:52:00
+475,P2,The Hidden Heart,,43932bb3-ff95-4c66-964d-b9c40aa81da6,published,published,,2026-08-15 19:52:00
+476,P2,The Loft,,6a007275-438d-4ec4-92c0-8fc8c8977e33,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 19:48:25
+477,P2,The Lost Son,,dbb03933-9f8d-4fbb-b387-ad8ead5ecf75,published,published,,2026-08-15 19:52:00
+478,P2,The Lovecraft Covenant,,d0477c29-99ba-434f-b928-5778fded5656,published,published,,2026-08-15 19:52:00
+479,P2,The Marksbury Incident,,04f47966-9c78-4086-956a-af163acfcdff,published,published,,2026-08-15 19:52:00
+480,P2,The Matlock Tapes,,c1b3340c-1513-4d4d-8245-ca325bf589a9,needs-review,needs-review,source-conflict,2026-08-15 19:48:56
+481,P2,The Midnight Carols,,4e61c408-d7f3-431d-83b8-d3d41b3b462d,needs-review,needs-review,source-conflict,2026-08-15 19:47:59
+482,P2,The Mysteries Of Silvertown,,56f686d7-4744-41eb-a082-28adba6dbfb4,needs-review,needs-review,source-conflict,2026-08-15 19:48:26
+483,P2,The Nephilim Hunter,,b45ae302-0bd1-4841-9ac3-04ca066cbb6e,published,published,,2026-08-15 19:52:00
+484,P2,The Night Visitor,,e82c44ce-362d-4107-90e2-94bdafe75eae,published,published,,2026-08-15 19:52:00
+485,P2,The Not-Deer,,97e96c52-3b51-4f9e-a67a-7bd166b693d1,needs-review,needs-review,scope-review; source-conflict,2026-08-15 19:51:57
+486,P2,The Obscura Dossier,,e305156a-a188-4655-98d7-ce404a3f62cc,needs-review,needs-review,source-conflict,2026-08-15 19:49:24
+487,P2,The Outside Tapes,,5c2fcf2b-22fe-4e72-bf49-4420c5a0ed50,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 19:47:58
+488,P2,The Pale,,9251ce32-312f-4b00-af4d-98c5c88d40c9,needs-review,needs-review,source-conflict,2026-08-15 19:48:58
+489,P2,The Scarab Archives,,86e50b6e-d8c3-426a-872d-6599b8d68ab2,needs-review,needs-review,source-conflict,2026-08-15 19:48:28
+490,P2,The Shadowbrook Files,,61b918bb-a4d8-4377-b164-6501c336f814,published,published,,2026-08-15 19:52:00
+491,P2,The Shadowvane Podcast,,50328188-5e12-4ad5-b42d-055d324b071b,needs-review,needs-review,insufficient-discovery-signals; missing-genre,2026-08-15 19:47:59
 492,P2,The Silver Bloodline,,,unattempted,,,
 493,P2,The Strangemen's No Access Radio,,,unattempted,,,
 494,P2,The Switchboard,,,unattempted,,,
