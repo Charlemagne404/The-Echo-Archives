@@ -1,0 +1,675 @@
+{
+  "id": "hallway-to-nowhere",
+  "title": "Hallway To Nowhere",
+  "subtitle": "",
+  "description": "Hallway To Nowhere is a microfiction horror podcast about isolation, escape, and that which is almost familiar. The story follows Jessica, a young woman trapped in a series of endless hallways. Only Nocturn and Oasis, two cold AIs, are there to keep her company. Jessica is just about to give up, until she comes across a mysterious device. Through this device, Jessica meets Iris, a kind and caring voice that promises to guide her to freedom. As they traverse through increasingly surreal yet familiar levels, Jessica finally feels hope that she’ll be free once more. But Nocturn and Oasis have other ideas in store…",
+  "cover": "images/covers/hallway-to-nowhere.jpg",
+  "coverAlt": "Hallway To Nowhere cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/3LGgUjMDLdb0vLHuJOYjfG",
+    "apple": "https://podcasts.apple.com/us/podcast/hallway-to-nowhere/id1642834873",
+    "website": "https://hallwaytonowhere.carrd.co/",
+    "rss": "https://pinecast.com/feed/hallway-to-nowhere",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Hallway To Nowhere"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • 9 full episodes • 4 min median",
+    "seasons": 1,
+    "episodes": 9,
+    "avgEpisodeMinutes": 6,
+    "medianEpisodeMinutes": 4,
+    "minEpisodeMinutes": 2,
+    "maxEpisodeMinutes": 25,
+    "totalObservedHours": 1,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "exact",
+    "episodeCounts": {
+      "full": 9,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2022-10-01",
+    "latest": "2023-04-22",
+    "latestFeedItem": "2023-04-22",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://hallwaytonowhere.carrd.co/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "https://twitter.com/HallwayNowhere",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Leslie Gideon",
+    "ownerName": "Leslie Gideon",
+    "network": "Hallway To Nowhere"
+  },
+  "creators": [
+    "Leslie Gideon"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://hallwaytonowhere.carrd.co/; https://pinecast.com/feed/hallway-to-nowhere; https://podcasts.apple.com/us/podcast/hallway-to-nowhere/id1642834873?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://hallwaytonowhere.carrd.co/",
+      "https://pinecast.com/feed/hallway-to-nowhere",
+      "https://podcasts.apple.com/us/podcast/hallway-to-nowhere/id1642834873?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Hallway To Nowhere is a microfiction horror podcast about isolation, escape, and that which is almost familiar. The story follows Jessica, a young woman trapped in a series of endless hallways. Only Nocturn and Oasis, two cold AIs, are there to keep her company. Jessica is just about to give up, until she comes across a mysterious device. Through this device, Jessica meets Iris, a kind and caring voice that promises to guide her to freedom. As they traverse through increasingly surreal yet familiar levels, Jessica finally feels hope that she’ll be free once more. But Nocturn and Oasis have other ideas in store…",
+    "socialUrls": [
+      "https://twitter.com/HallwayNowhere",
+      "https://twitter.com/spacesword13"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2026",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://pinecast.com/feed/hallway-to-nowhere",
+        "appleCollectionId": "1642834873",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://hallwaytonowhere.carrd.co/",
+          "fetchedAt": "2026-08-15T19:43:05.410Z",
+          "payloadHash": "c37bf8095b8949077c14ffed4181d4c549291d21e65e8594f9cf5b98593ea9d2"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere",
+          "fetchedAt": "2026-08-15T19:43:04.741Z",
+          "payloadHash": "be41174ddc8ebacbec666e870f426e41d5168fcd3c28882bce3ac7b0706f10a9"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/hallway-to-nowhere/id1642834873?uo=4",
+          "fetchedAt": "2026-08-15T19:42:35.011Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hallway-to-nowhere/id1642834873?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hallwaytonowhere.carrd.co/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hallway-to-nowhere/id1642834873?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hallway-to-nowhere/id1642834873?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hallwaytonowhere.carrd.co/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hallway-to-nowhere/id1642834873?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hallway-to-nowhere/id1642834873?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hallwaytonowhere.carrd.co/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "complete": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.6,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hallwaytonowhere.carrd.co/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hallwaytonowhere.carrd.co/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hallwaytonowhere.carrd.co/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.95,
+          "method": "explicit-completion",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.95,
+          "method": "explicit-completion",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/hallway-to-nowhere"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:43:05.884Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "7ccd5848da93a8fb6e7b964f46e550b7b9e08e85f9ac3260e17fde961d05a44c",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "353d7ea74043d1906650ab7cecc457f9d1a8ebf14152af09b5d1fee72fd19064",
+        "cover": "621473efe47d4e5a1abdf64b8ed7a193fbf1137941b0180dc4649f11b5ac2328",
+        "coverAlt": "943f9ccf349e0bd15bdb4a619c7d4fbf0e9433b1f00a1def87b977f2a6c1258a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
+        "listenLinks": "ca955d9b5e05bb9edb8258c630fa9322d921b32d057e05c3ebd084b410728d1b",
+        "officialLinks": "4e596e211c4a4e61a42bc715431861ff73aabd7b4762722870ac44f6618ec5f9",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "56e3b2d2e01aa4ac217b653386a0d459114ed6dd4913a0daf62ee9187c008cab",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "95d0b5b6a7f90b40413a4986eae46325be93e4734625573ec84fa25ec60caede",
+        "releaseDates": "620fb67e2c6e8d787158d22ca76fd3b72a8eca535de72b656dffe785bf0fe3b9",
+        "credits": "a299e0d845f354b5fac7fe019a595346f02255484ef4f9b8ca232bce975d53bf",
+        "creators": "7da106ed83e2b4eecfb8f9a67d3cc7f9ded0411099d1863901e53ab854f2e334",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "2f8efd8b28352dc995f719fec2b8df9cd7529275e5b32fed99fd22a12efbfc54"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:43:42.688Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "leslie-gideon",
+  "networkId": "hallway-to-nowhere"
+}

@@ -388,32 +388,32 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 388,P2,Dear Evelyn,,ac9552b6-d4b8-4501-ba58-383044ba868a,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:41:29
 389,P2,DeGrave Brothers,,06abecb9-6a14-48c7-9c5a-b1107e00b5c2,published,published,,2026-08-15 19:41:39
 390,P2,Delivery,,624c93d1-d1f1-48e1-8e1c-94752c00e560,needs-review,needs-review,source-conflict,2026-08-15 19:41:34
-391,P2,Don't Look,,,unattempted,,,
-392,P2,Dracula: 2004,,,unattempted,,,
-393,P2,Dracula: The Danse Macabre,,,unattempted,,,
-394,P2,Echo of Moths,,,unattempted,,,
-395,P2,Eldritch Girl,,,unattempted,,,
-396,P2,ergo antz,,,unattempted,,,
-397,P2,Fabric,,,unattempted,,,
-398,P2,Fever Woods,,,unattempted,,,
-399,P2,Frequency,,,unattempted,,,
+391,P2,Don't Look,,29a3fe43-31d6-4d94-971f-193d0219ad0f,needs-review,needs-review,source-conflict,2026-08-15 19:42:04
+392,P2,Dracula: 2004,,e5c943fc-70b8-421b-84d3-dcf196b60f87,published,published,,2026-08-15 19:43:45
+393,P2,Dracula: The Danse Macabre,,9f924b73-f597-4c09-9d74-f80734a5569a,published,published,,2026-08-15 19:43:45
+394,P2,Echo of Moths,,aceaea59-9260-457a-89d6-4ced305a506e,needs-review,needs-review,invalid-website; source-conflict,2026-08-15 19:42:08
+395,P2,Eldritch Girl,,6489c11e-c639-42af-9217-f6d66edbe581,needs-review,needs-review,source-conflict,2026-08-15 19:42:08
+396,P2,ergo antz,,5c288538-4cf5-4774-bde2-6373caca2b2b,published,published,,2026-08-15 19:43:45
+397,P2,Fabric,,6757cf86-995b-4e4c-b245-197fae461906,published,published,,2026-08-15 19:43:45
+398,P2,Fever Woods,,26d59f4c-f9b3-4d65-9fa9-5c7d09e0dfe9,needs-review,needs-review,insufficient-discovery-signals; missing-genre; invalid-apple-link; scope-review; source-conflict,2026-08-15 19:42:16
+399,P2,Frequency,,0b2ae1d3-f3c1-4b2d-929f-b84b24624eae,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:43:35
 400,P1,Fresh Meat,,dba43871-01b2-4ad7-a055-4a5c3338f4be,published,published,,2026-08-15 17:14:07
-401,P2,Glasgow Ghost Stories,,,unattempted,,,
-402,P2,Gonsanto Industries: The Insomnia Project,,,unattempted,,,
-403,P2,GothHaus,,,unattempted,,,
-404,P2,Gothic FM,,,unattempted,,,
-405,P2,Hallway To Nowhere,,,unattempted,,,
-406,P2,Haunts and Haints,,,unattempted,,,
-407,P2,Havoc Town,,,unattempted,,,
-408,P2,Hayward Sanitarium,,,unattempted,,,
-409,P2,He Vanished Below,,,unattempted,,,
-410,P2,Hollow,,,unattempted,,,
-411,P2,I Love Lucifer The Podcast,,,unattempted,,,
-412,P2,I'm Probably Going To Die: A True Horror Story,,,unattempted,,,
-413,P2,Into the Dark of the Woods,Rust Belt Studio,,unattempted,,,
-414,P2,Is Anybody Out There?,,,unattempted,,,
-415,P2,It Sees You When You're Sleeping!,,,unattempted,,,
-416,P2,It's All in the Cards Podcast,,,unattempted,,,
+401,P2,Glasgow Ghost Stories,,3a975ae1-d857-4d8f-ac4c-cf5bbe68352d,published,published,,2026-08-15 19:43:45
+402,P2,Gonsanto Industries: The Insomnia Project,,a7431043-84f0-4539-9a48-6586e02ff8a0,published,published,,2026-08-15 19:43:45
+403,P2,GothHaus,,90af9176-80ce-4a9c-a223-0b337b5a3f3c,needs-review,needs-review,insufficient-discovery-signals; missing-genre; cover-not-ready,2026-08-15 19:42:08
+404,P2,Gothic FM,,782070c4-9807-44f6-a75d-54dc8ba949b1,published,published,,2026-08-15 19:43:45
+405,P2,Hallway To Nowhere,,445287b3-2bd5-4d57-b661-167aca1dc593,published,published,,2026-08-15 19:43:45
+406,P2,Haunts and Haints,,f0d65545-20a1-4768-8ebf-7246f9630143,needs-review,needs-review,source-conflict,2026-08-15 19:43:34
+407,P2,Havoc Town,,8cecb7e5-013d-469a-bc99-edc760a8c366,published,published,,2026-08-15 19:43:45
+408,P2,Hayward Sanitarium,,ce09f0dd-582d-4f40-a6bc-90ac007ba6fd,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 19:42:11
+409,P2,He Vanished Below,,4a0b5e83-15be-40c0-8420-e735961811a3,needs-review,needs-review,scope-review; source-conflict,2026-08-15 19:42:38
+410,P2,Hollow,,0b148704-40bb-49d0-ba8a-77a8f7ed0ae9,published,published,,2026-08-15 19:43:45
+411,P2,I Love Lucifer The Podcast,,ce92560e-d67a-4288-abe0-20a6dd83d5d9,needs-review,needs-review,source-conflict,2026-08-15 19:43:06
+412,P2,I'm Probably Going To Die: A True Horror Story,,16b449e3-d924-4d24-9055-d2b54545a351,needs-review,needs-review,source-conflict,2026-08-15 19:42:06
+413,P2,Into the Dark of the Woods,Rust Belt Studio,4d1d234d-88c7-466a-9990-2a81b59d2160,published,published,,2026-08-15 19:43:45
+414,P2,Is Anybody Out There?,,b585d71e-819b-4dac-9c02-ccd3fd90fb9f,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 19:42:15
+415,P2,It Sees You When You're Sleeping!,,2574cfab-5f4e-47dd-9653-a82645fed181,needs-review,needs-review,scope-review,2026-08-15 19:42:07
+416,P2,It's All in the Cards Podcast,,b6349c0d-5e6f-457c-bbe2-4ed8a0219224,published,published,,2026-08-15 19:43:45
 417,P2,Jack of All Trades,Faustian Nonsense,,unattempted,,,
 418,P2,John From Back Home,,,unattempted,,,
 419,P2,Jollyland,,,unattempted,,,

@@ -1,0 +1,705 @@
+{
+  "id": "glasgow-ghost-stories",
+  "title": "Glasgow Ghost Stories",
+  "subtitle": "",
+  "description": "A bi weekly horror anthology podcast exploring the dark corners of the city of Glasgow.",
+  "cover": "images/covers/glasgow-ghost-stories.jpg",
+  "coverAlt": "Glasgow Ghost Stories cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/gb/podcast/glasgow-ghost-stories/id1362785879?mt=2",
+    "website": "https://glasgowghoststories.wordpress.com/",
+    "rss": "https://rss.buzzsprout.com/164110.rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Glasgow Ghost Stories",
+    "Glasgow Ghost Stories Podcast"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 39 full episodes • 9 min median",
+    "seasons": 1,
+    "episodes": 39,
+    "avgEpisodeMinutes": 9,
+    "medianEpisodeMinutes": 9,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 21,
+    "totalObservedHours": 6.1,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 39,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2018-03-20",
+    "latest": "2021-10-31",
+    "latestFeedItem": "2021-10-31",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://glasgowghoststories.wordpress.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "https://twitter.com/GlaGhostStories",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Libby Thomas",
+    "ownerName": "Libby Thomas",
+    "network": "Glasgow Ghost Stories Podcast"
+  },
+  "creators": [
+    "Libby Thomas"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://glasgowghoststories.wordpress.com/2019/08/27/episode-30-necropolis/; https://glasgowghoststories.wordpress.com/2019/09/11/episode-31-november/; https://glasgowghoststories.wordpress.com/; https://rss.buzzsprout.com/164110.rss; https://podcasts.apple.com/us/podcast/glasgow-ghost-stories/id1362785879?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://glasgowghoststories.wordpress.com/2019/08/27/episode-30-necropolis/",
+      "https://glasgowghoststories.wordpress.com/2019/09/11/episode-31-november/",
+      "https://glasgowghoststories.wordpress.com/",
+      "https://rss.buzzsprout.com/164110.rss",
+      "https://podcasts.apple.com/us/podcast/glasgow-ghost-stories/id1362785879?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "A bi weekly horror anthology podcast exploring the dark corners of the city of Glasgow.",
+    "socialUrls": [
+      "https://twitter.com/GlaGhostStories"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 28,
+      "observedIntervals": 7
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2026 Glasgow Ghost Stories",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "3ddca276-58a4-5af9-9c07-3b001e4ee3b0",
+        "rssUrl": "https://rss.buzzsprout.com/164110.rss",
+        "appleCollectionId": "1362785879",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://glasgowghoststories.wordpress.com/feed/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://glasgowghoststories.wordpress.com/2019/08/27/episode-30-necropolis/",
+          "fetchedAt": "2026-08-15T19:42:05.361Z",
+          "payloadHash": "53c720a218a6aa9e34a046c7ec30c6f1bf6783c5324405312abb868a58782460"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://glasgowghoststories.wordpress.com/2019/09/11/episode-31-november/",
+          "fetchedAt": "2026-08-15T19:42:05.358Z",
+          "payloadHash": "f1b1af8936da9a7b445bcd85623ba6f8786167192565b1fb1eabf4bfc540067a"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://glasgowghoststories.wordpress.com/",
+          "fetchedAt": "2026-08-15T19:42:05.349Z",
+          "payloadHash": "9e810eb56e04b4dc24d1625fff153d1737f3ea298acdbac70ed97a18168b6b07"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.buzzsprout.com/164110.rss",
+          "fetchedAt": "2026-08-15T19:42:03.597Z",
+          "payloadHash": "7a4812d4dd974e1ed9040c9f14b0580d424c5559e4bb88afea6924bccceaa788"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/glasgow-ghost-stories/id1362785879?uo=4",
+          "fetchedAt": "2026-08-15T19:42:03.299Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/glasgow-ghost-stories/id1362785879?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/glasgow-ghost-stories/id1362785879?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/glasgow-ghost-stories/id1362785879?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://glasgowghoststories.wordpress.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://glasgowghoststories.wordpress.com/2019/09/11/episode-31-november/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://glasgowghoststories.wordpress.com/2019/08/27/episode-30-necropolis/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/glasgow-ghost-stories/id1362785879?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/glasgow-ghost-stories/id1362785879?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/glasgow-ghost-stories/id1362785879?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://glasgowghoststories.wordpress.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.66,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://glasgowghoststories.wordpress.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://glasgowghoststories.wordpress.com/2019/09/11/episode-31-november/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://glasgowghoststories.wordpress.com/2019/08/27/episode-30-necropolis/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://glasgowghoststories.wordpress.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://glasgowghoststories.wordpress.com/2019/09/11/episode-31-november/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://glasgowghoststories.wordpress.com/2019/08/27/episode-30-necropolis/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/164110.rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:42:05.475Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "26159bd9984e62eda899e966fd39299c32c21920e42a74e0b24350647be0f756",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "d89ce5a05182e4c31c35eed6ebcf40bef3f434ed2a81a5490e89fd38f87a6777",
+        "cover": "074b9939ba69e7ef21d61f2bd145bce715f048d1ff22254a9ef51ac732a458d0",
+        "coverAlt": "3c23f69cdf511cede544e9b7ff7f210f22b7506bc213c972a949bacdcf20d685",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "fd3fe66c021c10690a6c3082e9372fbd447c522fedef81d9cb759a61e5e270e8",
+        "officialLinks": "d5b28e9249ef23598229ccb3ba3be7c78d571300b0e782c8630edb97ab9e716e",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "bead53f811f014f70b702f0745cd48123b0000d101ebc3f9abadd522752f1430",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "5be61ec7bb0cc9648566a0c72a037b60a9752a6dedfdb983fcb3abe7c650baea",
+        "releaseDates": "0bb37540739742b9562aa444de9c7245ce07154b42e494316d890e41358ce2f2",
+        "credits": "5f74bdda117dc329e092ce71010e7302e9706b0b73f3a4c8caf8877edddf975c",
+        "creators": "fea7a78a49a8bf9f48d107b58871338f66f3855a581e4e339559de30f7f9a15b",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "620bf4cad6488258498ecf49bed9f880f9e107a6c516f3926786ffe2542ad4fd"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:43:42.685Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "libby-thomas",
+  "networkId": "glasgow-ghost-stories-podcast"
+}

@@ -1,0 +1,649 @@
+{
+  "id": "into-the-dark-of-the-woods",
+  "title": "Into the Dark of the Woods",
+  "subtitle": "",
+  "description": "Into the Dark of the Woods is an anthology horror series set across the forgotten corners of Northern Michigan - a place where the land remembers what the people forget. Each story stands alone, told weekly in five episode beats, with rich, cinematic narration. We explore folklore, grief, and the strange roots beneath the Rust Belt. Hosted on Acast. See acast.com/privacy for more information.",
+  "cover": "images/covers/into-the-dark-of-the-woods.jpg",
+  "coverAlt": "Into the Dark of the Woods cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/into-the-dark-of-the-woods/id1847953283?uo=4",
+    "website": "https://feeds.acast.com/public/shows/into-the-dark-of-the-woods",
+    "rss": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Into the Dark of the Woods"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "8 seasons observed • at least 36 full episodes • 19 min median",
+    "seasons": 8,
+    "episodes": 36,
+    "avgEpisodeMinutes": 19,
+    "medianEpisodeMinutes": 19,
+    "minEpisodeMinutes": 14,
+    "maxEpisodeMinutes": 26,
+    "totalObservedHours": 11.5,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 36,
+      "bonus": 1,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2025-10-27",
+    "latest": "2026-08-14",
+    "latestFeedItem": "2026-08-14",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://feeds.acast.com/public/shows/into-the-dark-of-the-woods",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Rust Belt Studios",
+    "ownerName": "Rust Belt Studio"
+  },
+  "creators": [
+    "Rust Belt Studios"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7; https://podcasts.apple.com/us/podcast/into-the-dark-of-the-woods/id1847953283?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7",
+      "https://podcasts.apple.com/us/podcast/into-the-dark-of-the-woods/id1847953283?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Society & Culture",
+      "Places & Travel",
+      "Drama"
+    ],
+    "sourceKeywords": [
+      "horror",
+      "anthology",
+      "fiction",
+      "storytelling",
+      "northern michigan",
+      "upper pennisula",
+      "folklore",
+      "supernatural",
+      "eerie",
+      "rust belt",
+      "dark fiction",
+      "haunted",
+      "nature horror",
+      "audio drama",
+      "cinematic podcast"
+    ],
+    "sourceTags": [],
+    "importOfficialSummary": "Into the Dark of the Woods is an anthology horror series set across the forgotten corners of Northern Michigan - a place where the land remembers what the people forget. Each story stands alone, told weekly in five episode beats, with rich, cinematic narration. We explore folklore, grief, and the strange roots beneath the Rust Belt. Hosted on Acast. See acast.com/privacy for more information.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Rust Belt Studio 2025. All rights reserved.",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7",
+        "appleCollectionId": "1847953283",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7",
+          "fetchedAt": "2026-08-15T19:42:05.302Z",
+          "payloadHash": "f82e85a09fbc5c4e5072a9846c349c1ce0704ac0754882411f503e1dfd569a9b"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/into-the-dark-of-the-woods/id1847953283?uo=4",
+          "fetchedAt": "2026-08-15T19:42:05.108Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/into-the-dark-of-the-woods/id1847953283?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/into-the-dark-of-the-woods/id1847953283?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/into-the-dark-of-the-woods/id1847953283?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/into-the-dark-of-the-woods/id1847953283?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/into-the-dark-of-the-woods/id1847953283?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/into-the-dark-of-the-woods/id1847953283?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "keywords": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/68f78e735d128a844c476cf7"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:42:06.216Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "bebdc2b7605fee5adae987d81e45da23c28d8e37e396d8406f62ed2c4904eaaf",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "3500ec8efca280ecf988fa87d053d3931c18afaf7ebe486fed51162c58dc4262",
+        "cover": "597f4f002a44fcd311ef5c16ce7019a64f9f319da9e3e4328dbf3429cdd9d1c3",
+        "coverAlt": "208b13bef112e4a63c3b120e7e4c2cdad124a90286229d707b70ca735f18e307",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "fc89c2e8d7c9a600e422beb48714f69318ecf2cb2275803a99d078e8205bd4e7",
+        "officialLinks": "d2166db4e9006233e44dcf3ad9aec06db0a7711c0197ab54a9e74b16cb6cfef1",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "2f9acd1a75b24e48aacdc7830651eebf3083deee8bd919468c72c377801c4bba",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "931c355299a330350a5817f4bf414a6faac318cad755e48b249350758660b60c",
+        "releaseDates": "5f67458132cd38c6f2109426e94ccd4391b49844f69a4e1e88f762199f71a6a5",
+        "credits": "4c6d6ee8755968c99ec91658fd65c98375c54afe91cd75bd147005449a28b4ab",
+        "creators": "7a26a2865965f34fa2f50e7c1603681d67f76047b5072a74e712b91346b342ed",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "2ce940ea73c3e2a1da0f767b9a4cd6ebcb3b19723553ddc87b413812c56db5f6"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:43:42.694Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "rust-belt-studios"
+}

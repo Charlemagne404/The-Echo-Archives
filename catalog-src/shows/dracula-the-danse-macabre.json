@@ -1,0 +1,688 @@
+{
+  "id": "dracula-the-danse-macabre",
+  "title": "Dracula: The Danse Macabre",
+  "subtitle": "A New Take on Horror's Timeless Classic",
+  "description": "Centuries-old vampire Count Dracula leaves his home of Transylvania and comes to the new world, intent on reigning death and destruction upon it. Can Mina Harker and her husband Jonathan find a way to stop him before it’s too late? Bram Stoker’s classic is reimagined as a four-part audio fiction podcast, its timeless story presented as a dialogue between two of the novel’s iconic characters. A 4-part fiction podcasting event from the mind of Gabriel Urbina, the creator of Wolf 359.",
+  "cover": "images/covers/dracula-the-danse-macabre.jpg",
+  "coverAlt": "Dracula: The Danse Macabre cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/dracula-the-danse-macabre/id1776905206?uo=4",
+    "website": "https://www.draculathedansemacabre.com/",
+    "rss": "https://feeds.megaphone.fm/draculathedansemacabre",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Dracula: The Danse Macabre"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 4 full episodes • 55 min median",
+    "seasons": 1,
+    "episodes": 4,
+    "avgEpisodeMinutes": 57,
+    "medianEpisodeMinutes": 55,
+    "minEpisodeMinutes": 52,
+    "maxEpisodeMinutes": 67,
+    "totalObservedHours": 3.8,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 4,
+      "bonus": 5,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2024-11-13",
+    "latest": "2024-12-25",
+    "latestFeedItem": "2025-06-10",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.draculathedansemacabre.com/",
+    "patreon": "https://www.patreon.com/GabrielUrbina",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Gabriel Urbina",
+    "ownerName": "Long Story Short Productions",
+    "network": "Dracula: The Danse Macabre"
+  },
+  "creators": [
+    "Gabriel Urbina"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.draculathedansemacabre.com/episodes; https://www.draculathedansemacabre.com/; https://feeds.megaphone.fm/draculathedansemacabre; https://podcasts.apple.com/us/podcast/dracula-the-danse-macabre/id1776905206?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.draculathedansemacabre.com/episodes",
+      "https://www.draculathedansemacabre.com/",
+      "https://feeds.megaphone.fm/draculathedansemacabre",
+      "https://podcasts.apple.com/us/podcast/dracula-the-danse-macabre/id1776905206?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Centuries-old vampire Count Dracula leaves his home of Transylvania and comes to the new world, intent on reigning death and destruction upon it. Can Mina Harker and her husband Jonathan find a way to stop him before it’s too late? Bram Stoker’s classic is reimagined as a four-part audio fiction podcast, its timeless story presented as a dialogue between two of the novel’s iconic characters. A 4-part fiction podcasting event from the mind of Gabriel Urbina, the creator of Wolf 359.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 3
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© Long Story Short Productions 2024",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/draculathedansemacabre",
+        "appleCollectionId": "1776905206",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.draculathedansemacabre.com/episodes",
+          "fetchedAt": "2026-08-15T19:43:37.038Z",
+          "payloadHash": "12c07a319fcb855ab650ed6db11994a321022d73d4f062964185eb87315c0d93"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.draculathedansemacabre.com/",
+          "fetchedAt": "2026-08-15T19:43:37.023Z",
+          "payloadHash": "f5662f1761aaf6d0a439ab8707426af6e035635dc02402100d0343d2632b32ab"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre",
+          "fetchedAt": "2026-08-15T19:43:36.279Z",
+          "payloadHash": "9ffd74641de1cb5c12f2000fd7bfe9297421b23e3035b0b927c4cdeb0fcc318d"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/dracula-the-danse-macabre/id1776905206?uo=4",
+          "fetchedAt": "2026-08-15T19:43:35.752Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dracula-the-danse-macabre/id1776905206?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.draculathedansemacabre.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.draculathedansemacabre.com/episodes"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dracula-the-danse-macabre/id1776905206?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dracula-the-danse-macabre/id1776905206?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dracula-the-danse-macabre/id1776905206?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dracula-the-danse-macabre/id1776905206?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dracula-the-danse-macabre/id1776905206?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.draculathedansemacabre.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.draculathedansemacabre.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.draculathedansemacabre.com/episodes"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.draculathedansemacabre.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.draculathedansemacabre.com/episodes"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.draculathedansemacabre.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.draculathedansemacabre.com/episodes"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:43:37.425Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "3411d8f84eacfccbba73aee5a1b599b03f4de57632a65b510f68199c22d60049",
+        "subtitle": "0650e89e7440bafea462aeec576994532f6fbc711b6576604df9961aa960b5ba",
+        "description": "bc0f9fb64f5d16c510ef502a8b11a5dd165dde60a365405f2c6b6c6d9e9b3c87",
+        "cover": "cafa905b93432c1ffd19a47f831e74e705a78493c8352422bc88e5ca2c78a65c",
+        "coverAlt": "00d04b7f7470285b5ede2c2a9ef69d31c896e25bd0510949720e750e666711d6",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "4968a6502f5e41af39a66f9db4c96878de7a8925bc36bf7d83b565ea3cbf2a66",
+        "officialLinks": "897621f160c458f318ae94ba8f9ff8f93ee70077f776090b4bc8c6eb4120618d",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "1939e7b7573324c29eb483cd165e35bfe83cc189841af0a23f29ce3ede94a123",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "4f5e1d98aee55ebe8ad788bc892f4ec3d1be1b8580533d248f945f48f2b2f569",
+        "releaseDates": "ded99e6bbfc43a64cc2bf0cc0a17fbc5cb6231c200ae7102c5d3ca2241ef2f49",
+        "credits": "6ba3ce6d197275514499a0b96e4a2d209b0068303a05d03dd86ef5feb28df281",
+        "creators": "54909f3ca19b5df6a9a85a19e7eedce8bf8c75925e1fe2aaffb47034bd876708",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "0f3ac3f4e40216a4a013feb5582b3d0dbdeea94558d38b26eaddac8a94e4e228"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:43:42.673Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "gabriel-urbina",
+  "networkId": "dracula-the-danse-macabre"
+}

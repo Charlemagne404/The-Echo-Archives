@@ -1,0 +1,694 @@
+{
+  "id": "gothic-fm",
+  "title": "Gothic FM",
+  "subtitle": "",
+  "description": "Horror from our audience to your reality. The classic world of horror remains in the modern world of technology. Monsters still hide in the closet. Ghosts still haunt home and office. The insane still walk the street. Gothic FM provides an outlet for society's shunned truths, outcast tales and uncertain encounters. One call, one week at a time. Perhaps next week, when Crowley answers the line, the newest caller might just be you. \"Remember to search the dark corners of your life, who knows what might be lurking out of sight.\" - Crowley",
+  "cover": "images/covers/gothic-fm.jpg",
+  "coverAlt": "Gothic FM cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/5JrPxWThuFFzLa6maHLbKk?si=1YsKQLgnQWG3mgedtYApqg",
+    "apple": "https://podcasts.apple.com/us/podcast/gothic-fm/id1850751210",
+    "website": "https://www.horrorfmradio.com/",
+    "rss": "https://feeds.simplecast.com/Ot_2Yomu",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Gothic FM"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 15 full episodes • 17 min median",
+    "episodes": 15,
+    "avgEpisodeMinutes": 17,
+    "medianEpisodeMinutes": 17,
+    "minEpisodeMinutes": 3,
+    "maxEpisodeMinutes": 27,
+    "totalObservedHours": 4.3,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 15,
+      "bonus": 4,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2025-09-12",
+    "latest": "2026-07-02",
+    "latestFeedItem": "2026-07-09",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.horrorfmradio.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://youtube.com/@gothic_fm?si=RTnzF4v7SD23lW0T",
+    "social": "https://www.tiktok.com/@gothic_fm?_t=ZP-902cvmt7Oog&_r=1",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Gothic FM",
+    "ownerName": "Gothic FM",
+    "network": "Gothic FM"
+  },
+  "creators": [
+    "Gothic FM"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.horrorfmradio.com/projects; https://www.horrorfmradio.com/; https://feeds.simplecast.com/Ot_2Yomu; https://podcasts.apple.com/us/podcast/gothic-fm/id1850751210?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.horrorfmradio.com/projects",
+      "https://www.horrorfmradio.com/",
+      "https://feeds.simplecast.com/Ot_2Yomu",
+      "https://podcasts.apple.com/us/podcast/gothic-fm/id1850751210?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Horror from our audience to your reality. The classic world of horror remains in the modern world of technology. Monsters still hide in the closet. Ghosts still haunt home and office. The insane still walk the street. Gothic FM provides an outlet for society's shunned truths, outcast tales and uncertain encounters. One call, one week at a time. Perhaps next week, when Crowley answers the line, the newest caller might just be you. \"Remember to search the dark corners of your life, who knows what might be lurking out of sight.\" - Crowley",
+    "socialUrls": [
+      "https://www.tiktok.com/@gothic_fm?_t=ZP-902cvmt7Oog&_r=1",
+      "https://www.instagram.com/gothic_fm?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Crowley",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.simplecast.com/Ot_2Yomu",
+        "appleCollectionId": "1850751210",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.horrorfmradio.com/projects",
+          "fetchedAt": "2026-08-15T19:42:09.842Z",
+          "payloadHash": "aa6f448950269e12d70224b90ebc65366a2362f229af23529223b13bf8764701"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.horrorfmradio.com/",
+          "fetchedAt": "2026-08-15T19:42:09.821Z",
+          "payloadHash": "237e5df32f86577b4dd73f4856955fd43b72b8254a2e5879121f259414a305ee"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu",
+          "fetchedAt": "2026-08-15T19:42:06.792Z",
+          "payloadHash": "69992c14b69be7b0ff32510e798da8f2afbf52b9545f40e9a91cbb1042903066"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/gothic-fm/id1850751210?uo=4",
+          "fetchedAt": "2026-08-15T19:42:06.701Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/gothic-fm/id1850751210?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.horrorfmradio.com/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/gothic-fm/id1850751210?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/gothic-fm/id1850751210?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.horrorfmradio.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.horrorfmradio.com/projects"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/gothic-fm/id1850751210?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/gothic-fm/id1850751210?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.horrorfmradio.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.horrorfmradio.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.horrorfmradio.com/projects"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.horrorfmradio.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.horrorfmradio.com/projects"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.horrorfmradio.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.horrorfmradio.com/projects"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.horrorfmradio.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.horrorfmradio.com/projects"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.horrorfmradio.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.horrorfmradio.com/projects"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/Ot_2Yomu"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:42:10.090Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "86cf0ae58a8d6fb52bfdd4d67e111c3c9df81c2b24128f3b5c60123b7a9222ad",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "3a0e42056f45f27ec77210eb04eb438fef996c7999eadb0a4da4a5fcc4636a28",
+        "cover": "7601868b63fe65e76d4b1dc87af945f899f3f616ff7f1f4c8e079232cf1b8daa",
+        "coverAlt": "e61419797570e607224f3191994c002815ee959e7026b2aff88847faca0c0111",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "0f4406129d8a0f88d921aeabaa285691b1c1a22dda05253331a50f03d73c8f05",
+        "officialLinks": "ed47fa96fcb032b65c85e5a6a9347248bc3abc16395a0516581bea0ddd8c4a79",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "d4f2ed9aa22dfb1e1f3b8e61521bce477b3a3f8eea4863a9a1d50fff4f8701b9",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "841b2bc99e4d2f3cf688d00e3cc5879bb34743e09c853fbd2e3d91906c5cd3ac",
+        "releaseDates": "68a8ca7503b111b015f0fa834116249c3b5e719b347a642dc09ee077787bbd54",
+        "credits": "44f94cd4f8eaee63f60e171516f1ff549e10928fc0a7a6d60d7970d30cbcd4ee",
+        "creators": "d4f2ed9aa22dfb1e1f3b8e61521bce477b3a3f8eea4863a9a1d50fff4f8701b9",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "e8c3d0866649ef378f5c557cad51376483aad2e153406b6a8663451d49c905ee"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:43:42.687Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "gothic-fm",
+  "networkId": "gothic-fm"
+}
