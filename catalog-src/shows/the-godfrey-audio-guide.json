@@ -1,0 +1,628 @@
+{
+  "id": "the-godfrey-audio-guide",
+  "title": "The Godfrey Audio Guide",
+  "subtitle": "",
+  "description": "The world-famous audio guide for the Annabelle H. Godfrey Historic Estate and Museum. Please do not touch the art. This is for your own safety. New episodes released monthly. Though this is a self-guided tour, the Estate recommends that you start at the beginning.",
+  "officialDescription": {
+    "text": "The world-famous audio guide for the Annabelle H. Godfrey Historic Estate and Museum. Please do not touch the art. This is for your own safety. New episodes released monthly. Though this is a self-guided tour, the Estate recommends that you start at the beginning.",
+    "sourceLabel": "Official RSS feed",
+    "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide",
+    "verifiedAt": "2026-08-15"
+  },
+  "cover": "images/covers/the-godfrey-audio-guide.jpg",
+  "coverAlt": "The Godfrey Audio Guide cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "https://thegodfreyaudioguide.com/",
+    "spotify": "https://open.spotify.com/show/77lRlQ6giB9cOUngBUpblz",
+    "apple": "",
+    "website": "https://thegodfreyaudioguide.com/",
+    "rss": "https://feeds.megaphone.fm/thegodfreyaudioguide",
+    "youtubeMusic": "",
+    "amazonMusic": "https://music.amazon.com/podcasts/66a00f0d-538b-43a7-b625-e6cad0d90bb0/the-godfrey-audio-guide",
+    "pocketCasts": "https://pca.st/qtmuh4wa"
+  },
+  "genres": [
+    "drama",
+    "sci-fi",
+    "horror"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [
+    "Horror",
+    "Sci-fi",
+    "Haunted house"
+  ],
+  "aliases": [
+    "The Godfrey Audio Guide"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 66 full episodes • 12 min median",
+    "episodes": 66,
+    "avgEpisodeMinutes": 13,
+    "medianEpisodeMinutes": 12,
+    "minEpisodeMinutes": 11,
+    "maxEpisodeMinutes": 49,
+    "totalObservedHours": 14.3,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 66,
+      "bonus": 13,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2020-06-12",
+    "latest": "2025-03-07",
+    "latestFeedItem": "2026-01-27",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://thegodfreyaudioguide.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Nicole Knudsen",
+    "ownerName": "Nicole Knudsen",
+    "network": "The Godfrey Audio Guide"
+  },
+  "creators": [
+    "Nicole Knudsen"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-08-14",
+    "source": "https://thegodfreyaudioguide.com/; https://feeds.megaphone.fm/thegodfreyaudioguide",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://thegodfreyaudioguide.com/",
+      "https://feeds.megaphone.fm/thegodfreyaudioguide"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction",
+      "Horror"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Horror",
+      "Sci-fi",
+      "Haunted house"
+    ],
+    "importOfficialSummary": "The world-famous audio guide for the Annabelle H. Godfrey Historic Estate and Museum. Please do not touch the art. This is for your own safety. New episodes released monthly. Though this is a self-guided tour, the Estate recommends that you start at the beginning.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Nicole Knudsen",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide",
+        "appleCollectionId": "",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://thegodfreyaudioguide.com/",
+          "fetchedAt": "2026-08-14T20:01:16.969Z",
+          "payloadHash": "3407066efb5a4f014ce6624eb65d9d6191fa689093db7d310c4b4fe51c68695a"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide",
+          "fetchedAt": "2026-08-14T20:01:16.065Z",
+          "payloadHash": "c65c78609d3128ac631a6e5ec9224a14e176f358191483f6eec67e878bfeef3c"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://feeds.megaphone.fm/thegodfreyaudioguide",
+          "https://thegodfreyaudioguide.com/"
+        ],
+        "fieldSources": {
+          "description": [
+            "https://feeds.megaphone.fm/thegodfreyaudioguide",
+            "https://thegodfreyaudioguide.com/"
+          ],
+          "genres": [
+            "https://feeds.megaphone.fm/thegodfreyaudioguide",
+            "https://thegodfreyaudioguide.com/"
+          ],
+          "tags": [
+            "https://feeds.megaphone.fm/thegodfreyaudioguide",
+            "https://thegodfreyaudioguide.com/"
+          ],
+          "formats": [
+            "https://feeds.megaphone.fm/thegodfreyaudioguide",
+            "https://thegodfreyaudioguide.com/"
+          ],
+          "website": [
+            "https://thegodfreyaudioguide.com/"
+          ]
+        },
+        "notes": "Maintainer fact check used the publisher feed and listed official source; controlled taxonomy labels were selected for discovery.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-08-14T20:15:10.156Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "amazonMusicUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thegodfreyaudioguide.com/"
+            }
+          ]
+        },
+        "pocketCastsUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thegodfreyaudioguide.com/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thegodfreyaudioguide.com/"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.megaphone.fm/thegodfreyaudioguide"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://thegodfreyaudioguide.com/"
+            }
+          ]
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://feeds.megaphone.fm/thegodfreyaudioguide",
+            "https://thegodfreyaudioguide.com/"
+          ]
+        }
+      },
+      "importedAt": "2026-08-14T20:15:10.156Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "f24dbd9aba47dcc5c837d7210174302016e8e91a707e44e6aecb9590427e5ae0",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "ce7ac7795f37bdb99775b5bb9021a5022910ccccbb20ac4e9f4e0476e7fc2f14",
+        "cover": "e544f7a54958e2a5c2d849ae30498dcee75a59943a30cb8a4e926d6f00a1fb8a",
+        "coverAlt": "b2d5768f605769f3f4c06e5853fa275a239921ae236199b55e6b9190fdb95132",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "551951998911f25523ded9cb1726d930f07815d6ae36d0471f0d159c64f1ed38",
+        "officialLinks": "138a060cd8c4b453bb128546e23d5a90b8499db48d84c1fec4052011d66335f4",
+        "genres": "1f2d851f207803ae54c955df931f29e546a539c6cb2f52374b5af5ce920ed0bf",
+        "tags": "4a94f348fd26a87853bd4bc6d943dbf83a9c75ad7d7836740afa5789986011d2",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "2d491b57d7f735e783cbabfec68f36a8d437eee20b09ab9fb83cf2687e9b839c",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "91cd67d61bce906c2af31a28521a6d03a05f5f5030c2dd9bb5d0fdad88168548",
+        "releaseDates": "20171dfa6e3db59aa12f668b74cbb536326331f327827bf76cbbb6c245341aa4",
+        "credits": "66d289232a50115bd918f875bb000d87c33135b5d364037db24cc2fb9ac4c550",
+        "creators": "0769ff5d2fac116c603cbe7f7ab7a304b2486d77e77a84c12bc4da15cc7622f2",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "fa91d5d6ad9626307ef72ff61d25c5018f0341e770b4c282d1ee8bcabcc80f03"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-08-14T20:25:12.345Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-08-14T20:15:10.159Z",
+        "reviewedBy": "codex-catalog-expansion",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-14",
+  "updatedAt": "2026-08-14",
+  "creatorId": "nicole-knudsen",
+  "networkId": "the-godfrey-audio-guide"
+}

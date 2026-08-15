@@ -1,0 +1,724 @@
+{
+  "id": "the-phone-booth",
+  "title": "The Phone Booth",
+  "subtitle": "15 years ago, a girl named Beca Orlofsky stepped into the sky and exploded.",
+  "description": "15 years ago, a girl named Beca Orlofsky stepped into the sky and exploded. Over the course of the following week, 99% of every living human on the planet gained a super-power. Now, podcaster Joe Pollard travels the world, interviewing people who went to sleep ordinary and woke up as something else.",
+  "officialDescription": {
+    "text": "15 years ago, a girl named Beca Orlofsky stepped into the sky and exploded. Over the course of the following week, 99% of every living human on the planet gained a super-power. Now, podcaster Joe Pollard travels the world, interviewing people who went to sleep ordinary and woke up as something else.",
+    "sourceLabel": "Official RSS feed",
+    "sourceUrl": "https://feeds.transistor.fm/the-phone-booth",
+    "verifiedAt": "2026-08-15"
+  },
+  "cover": "images/covers/the-phone-booth.jpg",
+  "coverAlt": "The Phone Booth cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718?uo=4",
+    "website": "",
+    "rss": "https://feeds.transistor.fm/the-phone-booth",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "sci-fi",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [
+    "Superpowers",
+    "Apocalypse",
+    "Character-driven"
+  ],
+  "aliases": [
+    "The Phone Booth"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 14 full episodes • 23 min median",
+    "seasons": 2,
+    "episodes": 14,
+    "avgEpisodeMinutes": 24,
+    "medianEpisodeMinutes": 23,
+    "minEpisodeMinutes": 14,
+    "maxEpisodeMinutes": 37,
+    "totalObservedHours": 5.7,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1,
+      2
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 14,
+      "bonus": 0,
+      "trailer": 3
+    }
+  },
+  "releaseDates": {
+    "first": "2020-01-05",
+    "latest": "2020-10-19",
+    "latestFeedItem": "2020-10-19",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": "https://www.patreon.com/foolsgallery"
+  },
+  "credits": {
+    "creatorName": "The Fool's Gallery",
+    "ownerName": "The Fool's Gallery"
+  },
+  "creators": [
+    "The Fool's Gallery"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-08-14",
+    "source": "https://feeds.transistor.fm/the-phone-booth; https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718?uo=4; https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718; https://feeds.transistor.fm/the-phone-booth",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.transistor.fm/the-phone-booth",
+      "https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718?uo=4",
+      "https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718",
+      "https://feeds.transistor.fm/the-phone-booth"
+    ],
+    "sourceCategories": [
+      "Science Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [
+      "Superhero",
+      "Mystery",
+      "Drama",
+      "Romance",
+      "Horror",
+      "Action",
+      "Fiction",
+      "Interview"
+    ],
+    "sourceTags": [
+      "Superpowers",
+      "Apocalypse",
+      "Character-driven"
+    ],
+    "importOfficialSummary": "15 years ago, a girl named Beca Orlofsky stepped into the sky and exploded. Over the course of the following week, 99% of every living human on the planet gained a super-power. Now, podcaster Joe Pollard travels the world, interviewing people who went to sleep ordinary and woke up as something else.",
+    "socialUrls": [],
+    "funding": [
+      {
+        "url": "https://www.patreon.com/foolsgallery",
+        "label": "Support this podcast on Patreon"
+      }
+    ],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2025 The Fool's Gallery",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "02e44401-2fc0-562a-8fd3-e1e3605a39c4",
+        "rssUrl": "https://feeds.transistor.fm/the-phone-booth",
+        "appleCollectionId": "1490026718",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.transistor.fm/the-phone-booth",
+          "fetchedAt": "2026-08-14T19:28:20.326Z",
+          "payloadHash": "ca3a00ce4759234027b58babd59276a177b8902ee15f1a8cb471396e1101c7b9"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718?uo=4",
+          "fetchedAt": "2026-08-14T19:28:20.219Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718",
+          "https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718?uo=4",
+          "https://feeds.transistor.fm/the-phone-booth",
+          "https://feeds.transistor.fm/the-phone-booth"
+        ],
+        "fieldSources": {
+          "description": [
+            "https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718"
+          ],
+          "genres": [
+            "https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718",
+            "https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718?uo=4",
+            "https://feeds.transistor.fm/the-phone-booth",
+            "https://feeds.transistor.fm/the-phone-booth"
+          ],
+          "tags": [
+            "https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718",
+            "https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718?uo=4",
+            "https://feeds.transistor.fm/the-phone-booth",
+            "https://feeds.transistor.fm/the-phone-booth"
+          ],
+          "formats": [
+            "https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718",
+            "https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718?uo=4",
+            "https://feeds.transistor.fm/the-phone-booth",
+            "https://feeds.transistor.fm/the-phone-booth"
+          ],
+          "website": [
+            "https://feeds.transistor.fm/the-phone-booth"
+          ]
+        },
+        "notes": "Maintainer fact check used the current Apple/RSS identity and the listed official source; taxonomy labels are controlled discovery selections.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-08-14T19:38:38.135Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "keywords": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "complete": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "funding": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "supportUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718?uo=4"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.transistor.fm/the-phone-booth"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718",
+            "https://podcasts.apple.com/us/podcast/the-phone-booth/id1490026718?uo=4",
+            "https://feeds.transistor.fm/the-phone-booth",
+            "https://feeds.transistor.fm/the-phone-booth"
+          ]
+        }
+      },
+      "importedAt": "2026-08-14T19:38:38.135Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "6cfa203e3291d8a877396a3b150cb7d8c246d6d439d15dc74b3e93e29520c9b6",
+        "subtitle": "7ed83fc28af592b64a46a090c1a1b875528ce024e2061963f6f7e5313dcc59f9",
+        "description": "8fcab78464fc7327ec57c10a63085492d8d11e6736330cb09c00991b0956b3e2",
+        "cover": "c5c033fd30fcd64eb5a644224db7e4d9efaabf7a1eb41613f14de70ee8c6cf24",
+        "coverAlt": "aed15efdb248e2c92bdaea3d9031dd2c5f596f1a37b6ffa7c412211353023c4f",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "3ca8af6a59fefb6aa5565229a5b967863efb00df9e1134d6adc76917c80377dc",
+        "officialLinks": "4a84775edc05201b6efc863d6154d3f79b2e5a524cc17df022c5935343c9b46f",
+        "genres": "5e1c8ac5a5bc529da25aefa615e90136fc2dcade7fbb07655c917b5ba23cf206",
+        "tags": "6476c60f9ce2669d6191dcfe88d3a3d80502613d08b457c7ec5f7220fe45db44",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "10439b33ec18b789ba1f1c72c549e34903fb8b506396539de2828831285fec3b",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "8dc9cfa2cdfc4fc8d17470f18a85334c745e0b4e9e072318ba1bf3fbb730e444",
+        "releaseDates": "a997377053ac5b1e8df77ceec5574b6192d0f6e5034dc19fadc974ec97557dd6",
+        "credits": "3ee44ad9e6ca9813e054881b7d916e93279c170d8dfe76ef310432ac7afbf1d6",
+        "creators": "1fbf8dbdbfe22ebcab0cc0f3d33ca6c99264a5627a91d9a4401c3b872861157e",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "3ee82acaa8e842ffb7f01d1eb314ac50df268176e3f45f472f7e4f74301309b0"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-08-14T19:46:47.696Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-08-14T19:46:47.603Z",
+        "reviewedBy": "CA",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-14",
+  "updatedAt": "2026-08-14",
+  "creatorId": "the-fools-gallery"
+}

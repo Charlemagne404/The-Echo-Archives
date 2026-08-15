@@ -130,7 +130,7 @@ function peopleByRole(objective = {}) {
 
 function aliasTitles(candidate, title) {
   const canonicalTitle = slugify(title);
-  return mergeUniqueStrings(
+  const aliases = mergeUniqueStrings(
     [title],
     (candidate.fieldEvidence || [])
       .filter((item) => item.fieldName === "title")
@@ -139,7 +139,14 @@ function aliasTitles(candidate, title) {
         const normalized = slugify(value);
         return normalized && (normalized === canonicalTitle || normalized.startsWith(`${canonicalTitle}-`));
       }),
-  ).slice(0, 10);
+  );
+  const seenNormalized = new Set();
+  return aliases.filter((alias) => {
+    const normalized = slugify(alias);
+    if (!normalized || seenNormalized.has(normalized)) return false;
+    seenNormalized.add(normalized);
+    return true;
+  }).slice(0, 10);
 }
 
 function selectedSources(candidate) {

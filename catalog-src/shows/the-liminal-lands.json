@@ -1,0 +1,665 @@
+{
+  "id": "the-liminal-lands",
+  "title": "The Liminal Lands",
+  "subtitle": "",
+  "description": "All alone in a hostile new reality, one man sets out on a journey to find his missing family. Follow along as he struggles to survive in and understand this strange new world he has found himself in. A weekly podcast chronicling his travels through The Liminal Lands, and the trials he faces in a world where seemingly everything wants to kill him. Will he survive? Will he find his missing family? Can he escape The Liminal Lands?",
+  "officialDescription": {
+    "text": "All alone in a hostile new reality, one man sets out on a journey to find his missing family. Follow along as he struggles to survive in and understand this strange new world he has found himself in. A weekly podcast chronicling his travels through The Liminal Lands, and the trials he faces in a world where seemingly everything wants to kill him. Will he survive? Will he find his missing family? Can he escape The Liminal Lands?",
+    "sourceLabel": "Official RSS feed",
+    "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss",
+    "verifiedAt": "2026-08-15"
+  },
+  "cover": "images/covers/the-liminal-lands.jpg",
+  "coverAlt": "The Liminal Lands cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "https://anchor.fm/s/a0cdc6ac/podcast/rss",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-liminal-lands/id1631178384",
+    "website": "https://creators.spotify.com/pod/profile/freddie-alexander4/",
+    "rss": "https://anchor.fm/s/a0cdc6ac/podcast/rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi",
+    "horror"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [
+    "Horror",
+    "Survival",
+    "Found media"
+  ],
+  "aliases": [
+    "The Liminal Lands"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "8 seasons observed • at least 72 full episodes • 16 min median",
+    "seasons": 8,
+    "episodes": 72,
+    "avgEpisodeMinutes": 17,
+    "medianEpisodeMinutes": 16,
+    "minEpisodeMinutes": 6,
+    "maxEpisodeMinutes": 31,
+    "totalObservedHours": 19.8,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 72,
+      "bonus": 20,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2022-06-19",
+    "latest": "2026-08-10",
+    "latestFeedItem": "2026-08-10",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://creators.spotify.com/pod/profile/freddie-alexander4/",
+    "patreon": "http://patreon.com/liminallands",
+    "koFi": "",
+    "discord": "https://discord.gg/nW35bGthmb",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Waymon Alexander",
+    "ownerName": "Waymon Alexander"
+  },
+  "creators": [
+    "Waymon Alexander"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-08-14",
+    "source": "https://anchor.fm/s/a0cdc6ac/podcast/rss; https://creators.spotify.com/pod/profile/freddie-alexander4/; https://podcasts.apple.com/us/podcast/the-liminal-lands/id1631178384",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://anchor.fm/s/a0cdc6ac/podcast/rss",
+      "https://creators.spotify.com/pod/profile/freddie-alexander4/",
+      "https://podcasts.apple.com/us/podcast/the-liminal-lands/id1631178384"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction",
+      "Horror"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Horror",
+      "Survival",
+      "Found media"
+    ],
+    "importOfficialSummary": "All alone in a hostile new reality, one man sets out on a journey to find his missing family. Follow along as he struggles to survive in and understand this strange new world he has found himself in. A weekly podcast chronicling his travels through The Liminal Lands, and the trials he faces in a world where seemingly everything wants to kill him. Will he survive? Will he find his missing family? Can he escape The Liminal Lands?",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "irregular",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Waymon Alexander",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss",
+        "appleCollectionId": "1631178384",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss",
+          "fetchedAt": "2026-08-14T20:01:15.884Z",
+          "payloadHash": "f2460773a27825e38b58778c24d4f736f35ff8c3cd908e31d248468c9684eb97"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://anchor.fm/s/a0cdc6ac/podcast/rss",
+          "https://creators.spotify.com/pod/profile/freddie-alexander4/",
+          "https://podcasts.apple.com/us/podcast/the-liminal-lands/id1631178384"
+        ],
+        "fieldSources": {
+          "title": [
+            "https://anchor.fm/s/a0cdc6ac/podcast/rss",
+            "https://creators.spotify.com/pod/profile/freddie-alexander4/",
+            "https://podcasts.apple.com/us/podcast/the-liminal-lands/id1631178384"
+          ],
+          "creatorName": [
+            "https://anchor.fm/s/a0cdc6ac/podcast/rss",
+            "https://creators.spotify.com/pod/profile/freddie-alexander4/",
+            "https://podcasts.apple.com/us/podcast/the-liminal-lands/id1631178384"
+          ],
+          "description": [
+            "https://anchor.fm/s/a0cdc6ac/podcast/rss",
+            "https://creators.spotify.com/pod/profile/freddie-alexander4/",
+            "https://podcasts.apple.com/us/podcast/the-liminal-lands/id1631178384"
+          ],
+          "categories": [
+            "https://anchor.fm/s/a0cdc6ac/podcast/rss",
+            "https://creators.spotify.com/pod/profile/freddie-alexander4/",
+            "https://podcasts.apple.com/us/podcast/the-liminal-lands/id1631178384"
+          ],
+          "tags": [
+            "https://anchor.fm/s/a0cdc6ac/podcast/rss",
+            "https://creators.spotify.com/pod/profile/freddie-alexander4/",
+            "https://podcasts.apple.com/us/podcast/the-liminal-lands/id1631178384"
+          ]
+        },
+        "notes": "",
+        "uncertainFields": [],
+        "reviewedAt": "2026-08-14T20:21:47.012Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "patreonUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://creators.spotify.com/pod/profile/freddie-alexander4/"
+            }
+          ]
+        },
+        "discordUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://creators.spotify.com/pod/profile/freddie-alexander4/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://creators.spotify.com/pod/profile/freddie-alexander4/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://creators.spotify.com/pod/profile/freddie-alexander4/"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://creators.spotify.com/pod/profile/freddie-alexander4/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-liminal-lands/id1631178384"
+            }
+          ]
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-14T20:21:47.012Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "bc91727e6e175cccfcc96df81629489e1fd6c864e6e5c301a52c44c207b8f0c1",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "5cf4cde4c47b3f645f1a50de28326f480256fb54cda2db1d653f89e8c5f4f388",
+        "cover": "c594dbc45179b00e3aac2b0f7020eba1e72e93a5e45273ea9b971e914d172d6c",
+        "coverAlt": "922b4488661c48790ab89a10c596292cd63d78fec246bab726b20333c9d48f2c",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "14bc49de7001f66afa01ff24b3f1b5f2035d31a33e48536ff618cbea8ff02d2c",
+        "officialLinks": "8300c6dc311a4feb9da768698e34cdf2a078d59bf34a3445de98a7161c7b6f72",
+        "genres": "1f2d851f207803ae54c955df931f29e546a539c6cb2f52374b5af5ce920ed0bf",
+        "tags": "3440be4c7cec96c47f677e36b6f3f7fd8d3f808c3c43c71190b3138dbfb57add",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "3eefb3bf775af1b777386c3f617167b9c8cc08f00181b67d47e6d5b2f00fe489",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "9065cc2dd3c5764a4dd4dc0915afaf38a80c9bb790f65b7d0919ed02d4d59678",
+        "releaseDates": "ed204287136c4e94393fa11574a4625ebf887b630d149f7c02278acf5ce24f58",
+        "credits": "29378bf3ba3ea80ee0ecabcdca1ca5d5c1864b36394c336db8f36e99f1284e4e",
+        "creators": "cef23000f1856da25860d3c7be4cc4390898df550e49c8faa7ef559b1a17db40",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "bc74f415ffe0639ef72cf4bb4d13e0ce46eab453e3b09563765573bec31f2c8c"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-08-14T20:25:12.381Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-08-14T20:21:47.016Z",
+        "reviewedBy": "codex-catalog-expansion",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-14",
+  "updatedAt": "2026-08-14",
+  "creatorId": "waymon-alexander"
+}

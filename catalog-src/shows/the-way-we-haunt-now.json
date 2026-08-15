@@ -1,0 +1,654 @@
+{
+  "id": "the-way-we-haunt-now",
+  "title": "The Way We Haunt Now",
+  "subtitle": "",
+  "description": "Eulalie Elizabeth Reed is haunted by lots of things. Paths not taken. Failed relationships. Mistakes. Fears. Hopes. But she’s never been properly haunted before. That’s about to change. The Way We Haunt Now is a lighthearted horror audio drama about friendship, found family, and fighting the narratives that try to define us––even in the afterlife. Oh, and ghosts. Did we mention ghosts? You can find transcripts, content warnings, and more on our website!",
+  "officialDescription": {
+    "text": "Eulalie Elizabeth Reed is haunted by lots of things. Paths not taken. Failed relationships. Mistakes. Fears. Hopes. But she’s never been properly haunted before. That’s about to change. The Way We Haunt Now is a lighthearted horror audio drama about friendship, found family, and fighting the narratives that try to define us––even in the afterlife. Oh, and ghosts. Did we mention ghosts? You can find transcripts, content warnings, and more on our website!",
+    "sourceLabel": "Official RSS feed",
+    "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now",
+    "verifiedAt": "2026-08-15"
+  },
+  "cover": "images/covers/the-way-we-haunt-now.jpg",
+  "coverAlt": "The Way We Haunt Now cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "start": "https://pinecast.com/feed/the-way-we-haunt-now",
+    "spotify": "",
+    "apple": "",
+    "website": "https://hauntnowpod.com/",
+    "rss": "https://pinecast.com/feed/the-way-we-haunt-now",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "horror"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [
+    "Horror",
+    "Ghosts",
+    "Found family"
+  ],
+  "aliases": [
+    "The Way We Haunt Now"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "3 seasons observed • 34 full episodes • 21 min median",
+    "seasons": 3,
+    "episodes": 34,
+    "avgEpisodeMinutes": 21,
+    "medianEpisodeMinutes": 21,
+    "minEpisodeMinutes": 2,
+    "maxEpisodeMinutes": 30,
+    "totalObservedHours": 10.3,
+    "durationCoverage": 0.853,
+    "observedSeasons": [
+      1,
+      2,
+      3
+    ],
+    "countQualifier": "exact",
+    "episodeCounts": {
+      "full": 34,
+      "bonus": 9,
+      "trailer": 7
+    }
+  },
+  "releaseDates": {
+    "first": "2020-10-10",
+    "latest": "2025-11-20",
+    "latestFeedItem": "2025-11-20",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://hauntnowpod.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/playlist?list=PLEQHYGkbg3nBu9B3OS4RVWnvF8AKIUSZg",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Courtney Floyd",
+    "ownerName": "Courtney Floyd"
+  },
+  "creators": [
+    "Courtney Floyd"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-08-14",
+    "source": "https://hauntnowpod.com/; https://pinecast.com/feed/the-way-we-haunt-now",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://hauntnowpod.com/",
+      "https://pinecast.com/feed/the-way-we-haunt-now"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Horror"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Horror",
+      "Ghosts",
+      "Found family"
+    ],
+    "importOfficialSummary": "Eulalie Elizabeth Reed is haunted by lots of things. Paths not taken. Failed relationships. Mistakes. Fears. Hopes. But she’s never been properly haunted before. That’s about to change. The Way We Haunt Now is a lighthearted horror audio drama about friendship, found family, and fighting the narratives that try to define us––even in the afterlife. Oh, and ghosts. Did we mention ghosts? You can find transcripts, content warnings, and more on our website!",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© Courtney Floyd 2020. All Rights Reserved.",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://pinecast.com/feed/the-way-we-haunt-now",
+        "appleCollectionId": "",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://hauntnowpod.com/",
+          "fetchedAt": "2026-08-14T20:01:24.374Z",
+          "payloadHash": "8c7e8fad0008870c9ec0b893ed26101a1d60f80289406bdbf8400fc3f128bdb8"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now",
+          "fetchedAt": "2026-08-14T20:01:22.614Z",
+          "payloadHash": "35602418b494721237c8c3d3abb0744d77831741ed3e4d99a0699c58a3fe520b"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://pinecast.com/feed/the-way-we-haunt-now",
+          "https://hauntnowpod.com/"
+        ],
+        "fieldSources": {
+          "title": [
+            "https://pinecast.com/feed/the-way-we-haunt-now",
+            "https://hauntnowpod.com/"
+          ],
+          "creatorName": [
+            "https://pinecast.com/feed/the-way-we-haunt-now",
+            "https://hauntnowpod.com/"
+          ],
+          "description": [
+            "https://pinecast.com/feed/the-way-we-haunt-now",
+            "https://hauntnowpod.com/"
+          ],
+          "categories": [
+            "https://pinecast.com/feed/the-way-we-haunt-now",
+            "https://hauntnowpod.com/"
+          ],
+          "tags": [
+            "https://pinecast.com/feed/the-way-we-haunt-now",
+            "https://hauntnowpod.com/"
+          ]
+        },
+        "notes": "",
+        "uncertainFields": [],
+        "reviewedAt": "2026-08-14T20:21:46.999Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "complete": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/murderlab/id1497409786?uo=4"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/murderlab/id1497409786?uo=4"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "youtubeUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hauntnowpod.com/"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://hauntnowpod.com/"
+            }
+          ]
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-14T20:21:46.999Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "315bfb25ef2b31e4fa43605132eb6c5dc4b4d3625ea1b075463deb676834807c",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "c5ed59899e2a7ecba5aaa3b3bba796cf023a5ea89446c0b72c6ff84bc4f9e2e1",
+        "cover": "021a8b41f62c56a136061a512ba1662a945ada406fd270e7b03b094d555dd720",
+        "coverAlt": "20a5c095dc4ef5e58293dadbce53999268a064109ce8806e986bd9c747435a86",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
+        "listenLinks": "a0cb2d54eaabe4e21e31d890eb971c56f23f4cc35bf8200acaf61165d6ab842b",
+        "officialLinks": "ef9ec65b866b604bf81e8f2d0781a0634012d36eb2305fdb4ce9d7ad87376cc7",
+        "genres": "42ce78018358431df5bfd98a332b161fc285da2aa0bb85be23f3466df29631c4",
+        "tags": "ccbda67406b28562a7cfd03bc3030e1213b3f36b549d027dbc1a193e28aed98e",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "b9037a2ac49af65bbdba9713452e8c8fda82d0a7416c324db3b126532f359555",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "a33a22b2fc5d0e3da12482560c55927f11e5b60170a36ee2aee3aa4b77ed231a",
+        "releaseDates": "16ce6f9373d48d7e82bdfd44f2a6e1f5789ddf4a78e839a78379c7ff7604ff2e",
+        "credits": "4d30eeecf664e8c5c4fe3f6cd5b0721938f55d3c48d5e7091223ee564885d941",
+        "creators": "c3e6d1664d2a44a71baaf361caa465e81746ce1234d052c402bc967fc0e5b8fc",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "5f73b729c0a4cd3292368f1b889592b4b76854263bf4f5765b8d7e95dbe0c04a"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-08-14T20:25:12.378Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-08-14T20:21:47.001Z",
+        "reviewedBy": "codex-catalog-expansion",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-14",
+  "updatedAt": "2026-08-14",
+  "creatorId": "courtney-floyd"
+}

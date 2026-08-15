@@ -1,0 +1,635 @@
+{
+  "id": "badlands-cola",
+  "title": "Badlands Cola",
+  "subtitle": "A Strange Audio Drama",
+  "description": "Badlands Cola is a cinematic mystery/horror audio drama about eldritch fossils, hate-flirting, and liminal nightmares that yawn wide in the night. In a desert town full of strange fossils and even stranger people, a hard-hearted PI and a broken-down radio DJ attempt to dig up the skeletal past of a cult before it can reform. www.BadlandsCola.com",
+  "officialDescription": {
+    "text": "Badlands Cola is a cinematic mystery/horror audio drama about eldritch fossils, hate-flirting, and liminal nightmares that yawn wide in the night. In a desert town full of strange fossils and even stranger people, a hard-hearted PI and a broken-down radio DJ attempt to dig up the skeletal past of a cult before it can reform. www.BadlandsCola.com",
+    "sourceLabel": "Official RSS feed",
+    "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss",
+    "verifiedAt": "2026-08-15"
+  },
+  "cover": "images/covers/badlands-cola.jpg",
+  "coverAlt": "Badlands Cola cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/badlands-cola-a-strange-audio-drama/id1627191206",
+    "website": "https://www.badlandscola.com/",
+    "rss": "https://anchor.fm/s/9b66e068/podcast/rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "Episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Badlands Cola",
+    "Badlands Cola | A Strange Audio Drama"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 13 full episodes • 27 min median",
+    "seasons": 1,
+    "episodes": 13,
+    "avgEpisodeMinutes": 28,
+    "medianEpisodeMinutes": 27,
+    "minEpisodeMinutes": 21,
+    "maxEpisodeMinutes": 40,
+    "totalObservedHours": 6.1,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 13,
+      "bonus": 1,
+      "trailer": 3
+    }
+  },
+  "releaseDates": {
+    "first": "2022-06-21",
+    "latest": "2023-01-31",
+    "latestFeedItem": "2023-03-30",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.badlandscola.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/channel/UCNQdUsSrmhBSZxtcIp8wIgA",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Renee Taylor Klint",
+    "ownerName": "Renee Taylor Klint",
+    "network": "Badlands Cola"
+  },
+  "creators": [
+    "Renee Taylor Klint"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-08-14",
+    "source": "https://www.badlandscola.com/cast-crew; https://www.badlandscola.com/listen; https://www.badlandscola.com/; https://anchor.fm/s/9b66e068/podcast/rss; https://podcasts.apple.com/us/podcast/badlands-cola-a-strange-audio-drama/id1627191206",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.badlandscola.com/cast-crew",
+      "https://www.badlandscola.com/listen",
+      "https://www.badlandscola.com/",
+      "https://anchor.fm/s/9b66e068/podcast/rss",
+      "https://podcasts.apple.com/us/podcast/badlands-cola-a-strange-audio-drama/id1627191206"
+    ],
+    "sourceCategories": [
+      "Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Badlands Cola is a cinematic mystery/horror audio drama about eldritch fossils, hate-flirting, and liminal nightmares that yawn wide in the night. In a desert town full of strange fossils and even stranger people, a hard-hearted PI and a broken-down radio DJ attempt to dig up the skeletal past of a cult before it can reform. www.BadlandsCola.com",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Renee Taylor Klint",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://anchor.fm/s/9b66e068/podcast/rss",
+        "appleCollectionId": "1627191206",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.badlandscola.com/cast-crew",
+          "fetchedAt": "2026-08-14T20:41:59.227Z",
+          "payloadHash": "f49bdab2be29f73b2eb65a80a557e8c8929e5a81de513389962fa3fc1c48381a"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.badlandscola.com/listen",
+          "fetchedAt": "2026-08-14T20:41:59.213Z",
+          "payloadHash": "1670f419a0e04348372eea322b4c2009d3c5c5384bec94e0788ae9ce79b2341f"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.badlandscola.com/",
+          "fetchedAt": "2026-08-14T20:41:59.199Z",
+          "payloadHash": "16070bdb6f5c64eb4ef46798b919c6656bb25bfc4dcd7af17a9bab8da6c73e6a"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss",
+          "fetchedAt": "2026-08-14T20:41:57.472Z",
+          "payloadHash": "0d57eb6717100efba701374b3e51a1dd62bc97ac81da5ded5d0f1589ed86516b"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://anchor.fm/s/9b66e068/podcast/rss",
+          "https://podcasts.apple.com/us/podcast/badlands-cola-a-strange-audio-drama/id1627191206",
+          "https://www.badlandscola.com/"
+        ],
+        "fieldSources": {
+          "title": [
+            "https://anchor.fm/s/9b66e068/podcast/rss",
+            "https://podcasts.apple.com/us/podcast/badlands-cola-a-strange-audio-drama/id1627191206"
+          ],
+          "creatorName": [
+            "https://anchor.fm/s/9b66e068/podcast/rss",
+            "https://podcasts.apple.com/us/podcast/badlands-cola-a-strange-audio-drama/id1627191206"
+          ],
+          "description": [
+            "https://anchor.fm/s/9b66e068/podcast/rss"
+          ],
+          "categories": [
+            "https://anchor.fm/s/9b66e068/podcast/rss"
+          ],
+          "rssUrl": [
+            "https://anchor.fm/s/9b66e068/podcast/rss"
+          ],
+          "appleUrl": [
+            "https://podcasts.apple.com/us/podcast/badlands-cola-a-strange-audio-drama/id1627191206"
+          ],
+          "artworkUrl": [
+            "https://podcasts.apple.com/us/podcast/badlands-cola-a-strange-audio-drama/id1627191206"
+          ],
+          "website": [
+            "https://www.badlandscola.com/"
+          ]
+        },
+        "notes": "Maintainer confirmed factual identity and metadata against the publisher feed and Apple listing. Completion status remains unknown unless explicitly stated by the source.",
+        "uncertainFields": [
+          "completionStatus"
+        ],
+        "reviewedAt": "2026-08-14T20:55:26.940Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/9b66e068/podcast/rss"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "youtubeUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.badlandscola.com/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.badlandscola.com/"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": []
+        }
+      },
+      "importedAt": "2026-08-14T20:55:26.940Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "b3e107d75461554b3514b8a679bbc3b32bf38c829cf15b51c0c0f924c2dd93f6",
+        "subtitle": "a437e226c1a5e297645396cee3872a3bea5eca6707d684eedd7e7d654ee21bd5",
+        "description": "c7eca9825827ffb0c8c81919f88d2fbc3e9ea596bf05c173bbb4f19a6fd7a985",
+        "cover": "a0af75ef1d0849c16fee5fd05197fe83b2f0520a33d84114958c9463b83a3265",
+        "coverAlt": "3601b31210703edd1451b12add86404e980d091c182979240e3f37ef24202e83",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "6ba21b3e126ccd8d401b34ef0d7531e731d911511af1e1dfcc01eb065e065663",
+        "officialLinks": "d1401d8e6ebf2695dc5519cfe96fa4e55d08374aebb089cfe34e2b9f2191e0c9",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "1c319a0f33cd7d85a56f7b7241121abbf6e328882129afb94f9f1ed347756b3a",
+        "aliases": "80e19e71e683cdd0db9c956cfa79b59971cc164636fcb78fb5277a4edf7811d9",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "315e5414f2822f67ce55db836ade97e51c3538a73cfece30e7485c462da28f69",
+        "releaseDates": "47a7dc85eb92c33e350274ec8d4b56e84735ea12f2b920aed208ff1d61d66f77",
+        "credits": "73d4e9ca7a57e548ac35054ff7be92a83333307e4bf3d2590f66de2e247e75a4",
+        "creators": "0c91a440a2e71e6fd6012ecc6c2757e3eeb69c5b36c85722596c5b5d0f07c671",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "f38de5a1f534a728af87a2f889231af0304a71e386a1a424eb454e83e38fefba"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-08-14T20:57:21.227Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-08-14T20:55:26.943Z",
+        "reviewedBy": "catalog-expansion",
+        "inputRevision": 3
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-14",
+  "updatedAt": "2026-08-14",
+  "creatorId": "renee-taylor-klint",
+  "networkId": "badlands-cola"
+}

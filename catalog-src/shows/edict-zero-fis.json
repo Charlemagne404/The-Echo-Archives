@@ -1,0 +1,614 @@
+{
+  "id": "edict-zero-fis",
+  "title": "Edict Zero - FIS",
+  "subtitle": "Edict Zero - FIS",
+  "description": "The science fiction audio drama series produced by Slipgate Nine Entertainment.",
+  "officialDescription": {
+    "text": "The science fiction audio drama series produced by Slipgate Nine Entertainment.",
+    "sourceLabel": "Official RSS feed",
+    "sourceUrl": "https://feeds.feedburner.com/EdictZero-Fis",
+    "verifiedAt": "2026-08-15"
+  },
+  "cover": "images/covers/edict-zero-fis.jpg",
+  "coverAlt": "Edict Zero - FIS cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "https://feeds.feedburner.com/EdictZero-Fis",
+    "spotify": "",
+    "apple": "",
+    "website": "https://edictzero.com/",
+    "rss": "https://feeds.feedburner.com/EdictZero-Fis",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [],
+  "tags": [
+    "Sci-fi",
+    "Cyberpunk",
+    "Conspiracy"
+  ],
+  "aliases": [
+    "Edict Zero - FIS",
+    "Edict Zero FIS episodes"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 60 full episodes",
+    "episodes": 60,
+    "durationCoverage": 0,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 60,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2010-09-09",
+    "latest": "2026-07-31",
+    "latestFeedItem": "2026-07-31",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://edictzero.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Slipgate Nine Entertainment",
+    "ownerName": "Slipgate Nine Entertainment"
+  },
+  "creators": [
+    "Slipgate Nine Entertainment"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-08-14",
+    "source": "https://edictzero.com/fis-episodes-season-2/; https://edictzero.com/fis-episodes-season-1/; https://edictzero.com/edict-zero-fis-episodes/; https://edictzero.com/afterlore-series-episodes/; https://edictzero.com/; https://feeds.feedburner.com/EdictZero-Fis",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://edictzero.com/fis-episodes-season-2/",
+      "https://edictzero.com/fis-episodes-season-1/",
+      "https://edictzero.com/edict-zero-fis-episodes/",
+      "https://edictzero.com/afterlore-series-episodes/",
+      "https://edictzero.com/",
+      "https://feeds.feedburner.com/EdictZero-Fis"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [
+      "edictzero",
+      "edict",
+      "zero",
+      "fis",
+      "science",
+      "fiction",
+      "audio",
+      "drama",
+      "series",
+      "slipgate9"
+    ],
+    "sourceTags": [
+      "Sci-fi",
+      "Cyberpunk",
+      "Conspiracy"
+    ],
+    "researchGaps": [
+      "No verified episode-duration data was available from the current official episode pages or RSS feed."
+    ],
+    "importOfficialSummary": "The science fiction audio drama series produced by Slipgate Nine Entertainment.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "2010-2026",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.feedburner.com/EdictZero-Fis",
+        "appleCollectionId": "",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://edictzero.com/fis-episodes-season-2/",
+          "fetchedAt": "2026-08-14T20:01:15.093Z",
+          "payloadHash": "91253bccbb471d6718faac2e33966ab28fbe24432e176338c3b16ecb43a7d6ad"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://edictzero.com/fis-episodes-season-1/",
+          "fetchedAt": "2026-08-14T20:01:15.089Z",
+          "payloadHash": "a650bc5a059218f18a696cb57e83c9fdd990f481f917fd93828f9e68fd8984ef"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://edictzero.com/edict-zero-fis-episodes/",
+          "fetchedAt": "2026-08-14T20:01:15.085Z",
+          "payloadHash": "2c87ac0a86984938b29c65e0f86abbcdb01824fd8483306b1945e7d970f50615"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://edictzero.com/afterlore-series-episodes/",
+          "fetchedAt": "2026-08-14T20:01:15.082Z",
+          "payloadHash": "8dc7d0779f298b884fd243a4b42f15f861120f0055a561681ac2bf18c83f2c78"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://edictzero.com/",
+          "fetchedAt": "2026-08-14T20:01:15.076Z",
+          "payloadHash": "2700aa35ea097e48795f28ab42b8a4504faf5a28d67f9a18bdae829fad9b20a4"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.feedburner.com/EdictZero-Fis",
+          "fetchedAt": "2026-08-14T20:01:12.096Z",
+          "payloadHash": "a8dba6dad846bde3b26a9490d9469cd75f58196360581f4516bb79cc51ed99b2"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://feeds.feedburner.com/EdictZero-Fis",
+          "https://edictzero.com/"
+        ],
+        "fieldSources": {
+          "title": [
+            "https://feeds.feedburner.com/EdictZero-Fis",
+            "https://edictzero.com/"
+          ],
+          "creatorName": [
+            "https://feeds.feedburner.com/EdictZero-Fis",
+            "https://edictzero.com/"
+          ],
+          "description": [
+            "https://feeds.feedburner.com/EdictZero-Fis",
+            "https://edictzero.com/"
+          ],
+          "categories": [
+            "https://feeds.feedburner.com/EdictZero-Fis",
+            "https://edictzero.com/"
+          ],
+          "tags": [
+            "https://feeds.feedburner.com/EdictZero-Fis",
+            "https://edictzero.com/"
+          ]
+        },
+        "notes": "",
+        "uncertainFields": [],
+        "reviewedAt": "2026-08-14T20:21:47.092Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/EdictZero-Fis"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/EdictZero-Fis"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/EdictZero-Fis"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/EdictZero-Fis"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "keywords": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/EdictZero-Fis"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/EdictZero-Fis"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/EdictZero-Fis"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/EdictZero-Fis"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/EdictZero-Fis"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/EdictZero-Fis"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/EdictZero-Fis"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/EdictZero-Fis"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/EdictZero-Fis"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/EdictZero-Fis"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/EdictZero-Fis"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/EdictZero-Fis"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/wednesday-wonders/id1459540659?uo=4"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/wednesday-wonders/id1459540659?uo=4"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://edictzero.com/"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.feedburner.com/EdictZero-Fis"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://edictzero.com/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        }
+      },
+      "importedAt": "2026-08-14T20:21:47.092Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "1c27e9153fa1a5dbddcb3d0cebeb48a25a07b8fe780b0d342cc8f5a46c374a87",
+        "subtitle": "1c27e9153fa1a5dbddcb3d0cebeb48a25a07b8fe780b0d342cc8f5a46c374a87",
+        "description": "f5147cb67e95c0ed70dcbb01480ed6ff1a67e706f3c9a5f6ae402af8eedeaa5d",
+        "cover": "fcb64b053530fd5c0c64fab37a935fea40828564de4ef25ce26a78150a2ad4ef",
+        "coverAlt": "070988a29f3fb4bbb6fd422443623e4e189d10386ad00669c045c74132e27c97",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "83bb9b73daadf85fc12da4c728183a32e1112460cfd80f2a722532a64e1396a1",
+        "officialLinks": "ffa7c0f04a647599d3b622c9e21bb05bc5987a5f21b764ff1421c3702bb3c9ba",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "b16f1a3091ebc548aadc40f88e2afd7f8881ba52baa6601a42d95636c554fac5",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliases": "4702c1ecf30db45be9a50bc8317bdb9eb65509177ef2879b6d6fc9e5a7ebaa6a",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "9ef725baf86bc0043027996263ec111e389c9d304868514ccbf4ecb136d93405",
+        "releaseDates": "25ecffba57305aba9444ae481e5876746c5c2e6ff42aa75074fbaddf74f4215d",
+        "credits": "bae0e8cac524c1a485d439fe5f7f3b8dde0425cb396027c4431e383f2a80ce12",
+        "creators": "44d454d378990d2170e87be8d3064e348362fbb7608f09563bc39ce8eefc26c2",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "c8308c08eda174545867d714b350c798add154eabb51540e9b26048883144656"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-08-14T20:25:12.394Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-08-14T20:21:47.097Z",
+        "reviewedBy": "codex-catalog-expansion",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-14",
+  "updatedAt": "2026-08-14",
+  "creatorId": "slipgate-nine-entertainment"
+}

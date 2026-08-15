@@ -1,0 +1,597 @@
+{
+  "id": "the-viridian-wild",
+  "title": "The Viridian Wild",
+  "subtitle": "",
+  "description": "Mythozoologist Sebastian Verwood travels the world studying magical creatures.",
+  "officialDescription": {
+    "text": "Mythozoologist Sebastian Verwood travels the world studying magical creatures.",
+    "sourceLabel": "Official RSS feed",
+    "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml",
+    "verifiedAt": "2026-08-15"
+  },
+  "cover": "images/covers/the-viridian-wild.jpg",
+  "coverAlt": "The Viridian Wild cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-viridian-wild/id1475844469",
+    "website": "",
+    "rss": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "horror"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [
+    "Horror",
+    "Wilderness",
+    "Investigation"
+  ],
+  "aliases": [
+    "The Viridian Wild"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 9 full episodes • 16 min median",
+    "seasons": 1,
+    "episodes": 9,
+    "avgEpisodeMinutes": 16,
+    "medianEpisodeMinutes": 16,
+    "minEpisodeMinutes": 12,
+    "maxEpisodeMinutes": 23,
+    "totalObservedHours": 2.4,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 9,
+      "bonus": 0,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2019-08-25",
+    "latest": "2021-06-15",
+    "latestFeedItem": "2021-06-15",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Always in My Head Productions",
+    "ownerName": "Always in My Head Productions"
+  },
+  "creators": [
+    "Always in My Head Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-08-14",
+    "source": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml; https://podcasts.apple.com/us/podcast/the-viridian-wild/id1475844469",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://rss.libsyn.com/shows/197576/destinations/1402079.xml",
+      "https://podcasts.apple.com/us/podcast/the-viridian-wild/id1475844469"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Horror"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Horror",
+      "Wilderness",
+      "Investigation"
+    ],
+    "importOfficialSummary": "Mythozoologist Sebastian Verwood travels the world studying magical creatures.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "irregular",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml",
+        "appleCollectionId": "",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml",
+          "fetchedAt": "2026-08-14T20:01:25.314Z",
+          "payloadHash": "d701f6171ecd5824585fefd8e58d810493bc2dfc360b14b6b53da11c79a3c113"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://rss.libsyn.com/shows/197576/destinations/1402079.xml",
+          "https://podcasts.apple.com/us/podcast/the-viridian-wild/id1475844469"
+        ],
+        "fieldSources": {
+          "title": [
+            "https://rss.libsyn.com/shows/197576/destinations/1402079.xml",
+            "https://podcasts.apple.com/us/podcast/the-viridian-wild/id1475844469"
+          ],
+          "creatorName": [
+            "https://rss.libsyn.com/shows/197576/destinations/1402079.xml",
+            "https://podcasts.apple.com/us/podcast/the-viridian-wild/id1475844469"
+          ],
+          "description": [
+            "https://rss.libsyn.com/shows/197576/destinations/1402079.xml",
+            "https://podcasts.apple.com/us/podcast/the-viridian-wild/id1475844469"
+          ],
+          "categories": [
+            "https://rss.libsyn.com/shows/197576/destinations/1402079.xml",
+            "https://podcasts.apple.com/us/podcast/the-viridian-wild/id1475844469"
+          ],
+          "tags": [
+            "https://rss.libsyn.com/shows/197576/destinations/1402079.xml",
+            "https://podcasts.apple.com/us/podcast/the-viridian-wild/id1475844469"
+          ]
+        },
+        "notes": "",
+        "uncertainFields": [],
+        "reviewedAt": "2026-08-14T20:21:46.919Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-viridian-wild/id1475844469"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/197576/destinations/1402079.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-14T20:21:46.922Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "b7bdb63d276880710b2f3df4dd6608649abfaa18b84a80a3d61ea3c18c97edc6",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "78184c743fb8424bf628e68555a8e5cf7d4e35c744e7f889ad93087a0f149b80",
+        "cover": "4443c36919aa478bd57dc6849e1419e1233db81e1dabbcce50729e7f75093b08",
+        "coverAlt": "16c1becb817f00d7d79b1efca2f5dfd6e6f97fa0520a5d0806470445dfc756db",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "56576c5a11521b82d69c3bbe4ee24a9a8e271a3de08e15d9771cdb13b3137a17",
+        "officialLinks": "89a50f4b43edb766936780593fe87d51c8f1517955fe1c8ed2aeac6f1f6703cf",
+        "genres": "42ce78018358431df5bfd98a332b161fc285da2aa0bb85be23f3466df29631c4",
+        "tags": "beeebec003818d2ff804415abe31ede915feb3bc7da1b5e8ae868398e6b12ba2",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "eb013334f00e30005fad623ea98a31a69bca3db2a9de66457aaf9a50fc062a95",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "cc06b72cf5079047382750883a9bc237fac58c11b4c9aa450e16f45de3f512a1",
+        "releaseDates": "05895c0324df4a30f9cc68b756051ac4ac6e0da655619b58599da2e3783796bc",
+        "credits": "37557b590cb59f3f0ad84fe67322c80b2183268c5f2291fa44ba3929b654ce8d",
+        "creators": "303a2a0b0ad898c686fd65a8357e9b2efc6241a5f5a1b46e5edb0196905f0a23",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "ce1117e7c94089b4591f28b53661b858a5da88bf7572616ad4fd14bc1f67946e"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-08-14T20:25:12.372Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-08-14T20:21:46.925Z",
+        "reviewedBy": "codex-catalog-expansion",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-14",
+  "updatedAt": "2026-08-14",
+  "creatorId": "always-in-my-head-productions"
+}

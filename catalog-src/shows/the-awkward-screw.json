@@ -1,0 +1,635 @@
+{
+  "id": "the-awkward-screw",
+  "title": "The Awkward Screw",
+  "subtitle": "",
+  "description": "From a Galaxy best heard through headphones comes, the adventures of The Awkward Screw! Climb aboard this Heavy-Repair vessel and get to know the four-person multi-species crew as they work their way through the Bell-Wave Galaxy. But somewhere along their path they find themselves in the midst of a quest to save the entire universe...",
+  "officialDescription": {
+    "text": "From a Galaxy best heard through headphones comes, the adventures of The Awkward Screw! Climb aboard this Heavy-Repair vessel and get to know the four-person multi-species crew as they work their way through the Bell-Wave Galaxy. But somewhere along their path they find themselves in the midst of a quest to save the entire universe...",
+    "sourceLabel": "Official RSS feed",
+    "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml",
+    "verifiedAt": "2026-08-15"
+  },
+  "cover": "images/covers/the-awkward-screw.jpg",
+  "coverAlt": "The Awkward Screw cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml",
+    "spotify": "",
+    "apple": "",
+    "website": "https://www.theawkwardscrew.com/",
+    "rss": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "https://music.amazon.com/podcasts/848a3207-9be5-4192-b52c-b0f4ccdbb3fe",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [
+    "Sci-fi",
+    "Space travel",
+    "Found family"
+  ],
+  "aliases": [
+    "The Awkward Screw"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 24 full episodes • 13 min median",
+    "seasons": 1,
+    "episodes": 24,
+    "avgEpisodeMinutes": 13,
+    "medianEpisodeMinutes": 13,
+    "minEpisodeMinutes": 5,
+    "maxEpisodeMinutes": 27,
+    "totalObservedHours": 5.2,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 24,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2018-12-21",
+    "latest": "2022-02-14",
+    "latestFeedItem": "2022-02-14",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.theawkwardscrew.com/",
+    "patreon": "https://www.patreon.com/TheAwkwardScrew",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "The Awkward Screw",
+    "ownerName": "theawkwardscrew"
+  },
+  "creators": [
+    "The Awkward Screw"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-08-14",
+    "source": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml; https://www.theawkwardscrew.com/",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml",
+      "https://www.theawkwardscrew.com/"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Sci-fi",
+      "Space travel",
+      "Found family"
+    ],
+    "importOfficialSummary": "From a Galaxy best heard through headphones comes, the adventures of The Awkward Screw! Climb aboard this Heavy-Repair vessel and get to know the four-person multi-species crew as they work their way through the Bell-Wave Galaxy. But somewhere along their path they find themselves in the midst of a quest to save the entire universe...",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "irregular",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2019 All rights reserved.",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml",
+        "appleCollectionId": "",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml",
+          "fetchedAt": "2026-08-14T20:01:19.057Z",
+          "payloadHash": "be4498744c124f33c4b91a51ede43738fe7d66de0117be4fe9dd62826e3409ae"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml",
+          "https://www.theawkwardscrew.com/"
+        ],
+        "fieldSources": {
+          "title": [
+            "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml",
+            "https://www.theawkwardscrew.com/"
+          ],
+          "creatorName": [
+            "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml",
+            "https://www.theawkwardscrew.com/"
+          ],
+          "description": [
+            "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml",
+            "https://www.theawkwardscrew.com/"
+          ],
+          "categories": [
+            "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml",
+            "https://www.theawkwardscrew.com/"
+          ],
+          "tags": [
+            "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml",
+            "https://www.theawkwardscrew.com/"
+          ]
+        },
+        "notes": "",
+        "uncertainFields": [],
+        "reviewedAt": "2026-08-14T20:22:41.369Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "artworkUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theawkwardscrew.podbean.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "amazonMusicUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theawkwardscrew.podbean.com/"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theawkwardscrew.podbean.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theawkwardscrew.podbean.com/e/episode-2m2-collateral-damage-part-2/"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.theawkwardscrew.com/"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-14T20:22:41.370Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "66536f32e238265a76093b9464c42b07fb0ab232760e550ac6faac4ee73a04da",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "42dd1a6608eebaa561706a2d778bb1ebe5e91ddb5f8911e4bfb574988d7c58f3",
+        "cover": "f8a24c0c097e0746cb603ac2024fa5173a279826dd0c48b9112cb09069d2fd39",
+        "coverAlt": "7abf02bd2ddf5eeca9934321a9d1b3b49602356f00580f83dbbfbcaaac9bcfd1",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "5665117664d9627b7be323eca8570cddbdd320d98b33702c305537457744e324",
+        "officialLinks": "96e16dda91bd79b57f96983c9ecb6b92d74e97d72f83270cc81eecfe577706eb",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "091ecc57b15d66620429b6987a69f0e47aa468d8c127cda69bd9127ca7d3a239",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "14f3e081cad7e8ef0e562011db5f035ee917861a00936f7d780c6c92513dcd8f",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "aa749e0f8d290e07e3492aa26032efeaa258e516f883a1ec33d4f2e819fe2af6",
+        "releaseDates": "bc6e17a22d2f335ef86c579edc7cf7c62616edba3bc2375d7e0b5b5868124476",
+        "credits": "26b6f33de183bdf72f9ea8089d4a39f15fa4629951f8eef53d3a3f2e0dcc8b95",
+        "creators": "14f3e081cad7e8ef0e562011db5f035ee917861a00936f7d780c6c92513dcd8f",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "40868659cf6bf3d5a6f2e5071b8437da8416f8cb3eea88acae677b2f11704cde"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-08-14T20:25:12.400Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-08-14T20:22:41.372Z",
+        "reviewedBy": "codex-catalog-expansion",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-14",
+  "updatedAt": "2026-08-14",
+  "creatorId": "the-awkward-screw"
+}

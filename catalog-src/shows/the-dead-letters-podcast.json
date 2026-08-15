@@ -1,0 +1,735 @@
+{
+  "id": "the-dead-letters-podcast",
+  "title": "The Dead Letters Podcast",
+  "subtitle": "",
+  "description": "The Dead Letters Podcast is an audio drama focusing on the lives of five women who, over the course of history, have received mysterious letters that warn of death and destruction if they don't do exactly as the sender says.",
+  "officialDescription": {
+    "text": "The Dead Letters Podcast is an audio drama focusing on the lives of five women who, over the course of history, have received mysterious letters that warn of death and destruction if they don't do exactly as the sender says.",
+    "sourceLabel": "Official RSS feed",
+    "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml",
+    "verifiedAt": "2026-08-15"
+  },
+  "cover": "images/covers/the-dead-letters-podcast.jpg",
+  "coverAlt": "The Dead Letters Podcast cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "https://deadletterspodcast.podbean.com/",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-dead-letters-podcast/id1475811138",
+    "website": "https://deadletterspodcast.podbean.com/",
+    "rss": "https://feed.podbean.com/deadletterspodcast/feed.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "mystery",
+    "thriller"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [
+    "Mystery",
+    "Thriller",
+    "Family secret"
+  ],
+  "aliases": [
+    "The Dead Letters Podcast"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 15 full episodes • 23 min median",
+    "episodes": 15,
+    "avgEpisodeMinutes": 23,
+    "medianEpisodeMinutes": 23,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 67,
+    "totalObservedHours": 5.7,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 15,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2019-08-04",
+    "latest": "2021-06-01",
+    "latestFeedItem": "2021-06-01",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://deadletterspodcast.podbean.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "deadletterspodcast",
+    "ownerName": "deadletterspodcast",
+    "network": "deadletterspodcast"
+  },
+  "creators": [
+    "deadletterspodcast"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-08-14",
+    "source": "https://deadletterspodcast.podbean.com/e/episode-9-the-swarm/; https://deadletterspodcast.podbean.com/e/episode-10-the-third-letter/; https://deadletterspodcast.podbean.com/e/episode-11-ive-been-waiting-for-you/; https://deadletterspodcast.podbean.com/e/episode-12-the-conclusion/; https://deadletterspodcast.podbean.com/; https://feed.podbean.com/deadletterspodcast/feed.xml; https://podcasts.apple.com/us/podcast/the-dead-letters-podcast/id1475811138",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://deadletterspodcast.podbean.com/e/episode-9-the-swarm/",
+      "https://deadletterspodcast.podbean.com/e/episode-10-the-third-letter/",
+      "https://deadletterspodcast.podbean.com/e/episode-11-ive-been-waiting-for-you/",
+      "https://deadletterspodcast.podbean.com/e/episode-12-the-conclusion/",
+      "https://deadletterspodcast.podbean.com/",
+      "https://feed.podbean.com/deadletterspodcast/feed.xml",
+      "https://podcasts.apple.com/us/podcast/the-dead-letters-podcast/id1475811138"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Mystery",
+      "Thriller"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Mystery",
+      "Thriller",
+      "Family secret"
+    ],
+    "importOfficialSummary": "The Dead Letters Podcast is an audio drama focusing on the lives of five women who, over the course of history, have received mysterious letters that warn of death and destruction if they don't do exactly as the sender says.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2019 All rights reserved.",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml",
+        "appleCollectionId": "1475811138",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://deadletterspodcast.podbean.com/e/episode-9-the-swarm/",
+          "fetchedAt": "2026-08-14T20:01:13.684Z",
+          "payloadHash": "b730ab90cc0968119733467d114c4b6f0683e6554048fbdafb6b450d791dbc35"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://deadletterspodcast.podbean.com/e/episode-10-the-third-letter/",
+          "fetchedAt": "2026-08-14T20:01:13.682Z",
+          "payloadHash": "cd52e9aec7f4d6b6d64758a8d41aa847ab1645ebd0eeb5ed8f9e830eeda5ee69"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://deadletterspodcast.podbean.com/e/episode-11-ive-been-waiting-for-you/",
+          "fetchedAt": "2026-08-14T20:01:13.680Z",
+          "payloadHash": "644c3c63c22d9325194309d2946cbf3a265282f9dc43d5f41f25d336cee4ea00"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://deadletterspodcast.podbean.com/e/episode-12-the-conclusion/",
+          "fetchedAt": "2026-08-14T20:01:13.678Z",
+          "payloadHash": "ded25fc6cde7ea0bf810a005593df3f19af04972bf8d4f405336d369dfb3fecc"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://deadletterspodcast.podbean.com/",
+          "fetchedAt": "2026-08-14T20:01:13.676Z",
+          "payloadHash": "46bb0624e76bbd4f5fa4d4e60b28e9779b3e25e7f26c57ec63c2a03cb943ae0d"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml",
+          "fetchedAt": "2026-08-14T20:01:11.724Z",
+          "payloadHash": "7895a71c4fe03bc227334b4f01b749541d38279c1c91760c82d2d207038953fa"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://feed.podbean.com/deadletterspodcast/feed.xml",
+          "https://deadletterspodcast.podbean.com/",
+          "https://deadletterspodcast.podbean.com/e/episode-12-the-conclusion/",
+          "https://deadletterspodcast.podbean.com/e/episode-11-ive-been-waiting-for-you/",
+          "https://deadletterspodcast.podbean.com/e/episode-10-the-third-letter/",
+          "https://deadletterspodcast.podbean.com/e/episode-9-the-swarm/",
+          "https://podcasts.apple.com/us/podcast/the-dead-letters-podcast/id1475811138"
+        ],
+        "fieldSources": {
+          "description": [
+            "https://feed.podbean.com/deadletterspodcast/feed.xml",
+            "https://deadletterspodcast.podbean.com/",
+            "https://deadletterspodcast.podbean.com/e/episode-12-the-conclusion/",
+            "https://deadletterspodcast.podbean.com/e/episode-11-ive-been-waiting-for-you/",
+            "https://deadletterspodcast.podbean.com/e/episode-10-the-third-letter/",
+            "https://deadletterspodcast.podbean.com/e/episode-9-the-swarm/",
+            "https://podcasts.apple.com/us/podcast/the-dead-letters-podcast/id1475811138"
+          ],
+          "genres": [
+            "https://feed.podbean.com/deadletterspodcast/feed.xml",
+            "https://deadletterspodcast.podbean.com/",
+            "https://deadletterspodcast.podbean.com/e/episode-12-the-conclusion/",
+            "https://deadletterspodcast.podbean.com/e/episode-11-ive-been-waiting-for-you/",
+            "https://deadletterspodcast.podbean.com/e/episode-10-the-third-letter/",
+            "https://deadletterspodcast.podbean.com/e/episode-9-the-swarm/",
+            "https://podcasts.apple.com/us/podcast/the-dead-letters-podcast/id1475811138"
+          ],
+          "tags": [
+            "https://feed.podbean.com/deadletterspodcast/feed.xml",
+            "https://deadletterspodcast.podbean.com/",
+            "https://deadletterspodcast.podbean.com/e/episode-12-the-conclusion/",
+            "https://deadletterspodcast.podbean.com/e/episode-11-ive-been-waiting-for-you/",
+            "https://deadletterspodcast.podbean.com/e/episode-10-the-third-letter/",
+            "https://deadletterspodcast.podbean.com/e/episode-9-the-swarm/",
+            "https://podcasts.apple.com/us/podcast/the-dead-letters-podcast/id1475811138"
+          ],
+          "formats": [
+            "https://feed.podbean.com/deadletterspodcast/feed.xml",
+            "https://deadletterspodcast.podbean.com/",
+            "https://deadletterspodcast.podbean.com/e/episode-12-the-conclusion/",
+            "https://deadletterspodcast.podbean.com/e/episode-11-ive-been-waiting-for-you/",
+            "https://deadletterspodcast.podbean.com/e/episode-10-the-third-letter/",
+            "https://deadletterspodcast.podbean.com/e/episode-9-the-swarm/",
+            "https://podcasts.apple.com/us/podcast/the-dead-letters-podcast/id1475811138"
+          ],
+          "website": [
+            "https://feed.podbean.com/deadletterspodcast/feed.xml",
+            "https://deadletterspodcast.podbean.com/",
+            "https://deadletterspodcast.podbean.com/e/episode-12-the-conclusion/",
+            "https://deadletterspodcast.podbean.com/e/episode-11-ive-been-waiting-for-you/",
+            "https://deadletterspodcast.podbean.com/e/episode-10-the-third-letter/",
+            "https://deadletterspodcast.podbean.com/e/episode-9-the-swarm/",
+            "https://podcasts.apple.com/us/podcast/the-dead-letters-podcast/id1475811138"
+          ]
+        },
+        "notes": "Maintainer fact check used the publisher feed and listed official source; controlled taxonomy labels were selected for discovery.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-08-14T20:15:10.114Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "artworkUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://deadletterspodcast.podbean.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-meek-informant-a-legend-of-the-five-rings-l5r-podcast/id1450133905?uo=4"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-meek-informant-a-legend-of-the-five-rings-l5r-podcast/id1450133905?uo=4"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://deadletterspodcast.podbean.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://deadletterspodcast.podbean.com/e/episode-12-the-conclusion/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://deadletterspodcast.podbean.com/e/episode-11-ive-been-waiting-for-you/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://deadletterspodcast.podbean.com/e/episode-10-the-third-letter/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://deadletterspodcast.podbean.com/e/episode-9-the-swarm/"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feed.podbean.com/deadletterspodcast/feed.xml"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://deadletterspodcast.podbean.com/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://deadletterspodcast.podbean.com/e/episode-12-the-conclusion/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://deadletterspodcast.podbean.com/e/episode-11-ive-been-waiting-for-you/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://deadletterspodcast.podbean.com/e/episode-10-the-third-letter/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://deadletterspodcast.podbean.com/e/episode-9-the-swarm/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-dead-letters-podcast/id1475811138"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://feed.podbean.com/deadletterspodcast/feed.xml",
+            "https://deadletterspodcast.podbean.com/",
+            "https://deadletterspodcast.podbean.com/e/episode-12-the-conclusion/",
+            "https://deadletterspodcast.podbean.com/e/episode-11-ive-been-waiting-for-you/",
+            "https://deadletterspodcast.podbean.com/e/episode-10-the-third-letter/",
+            "https://deadletterspodcast.podbean.com/e/episode-9-the-swarm/",
+            "https://podcasts.apple.com/us/podcast/the-dead-letters-podcast/id1475811138"
+          ]
+        }
+      },
+      "importedAt": "2026-08-14T20:15:10.115Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "b66631b6688bbd93ffc9f4b25722c3d8d3ca4be578f24a8ed33ac67e39015e2f",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "da021ca3962687025d1245e19dbba21115bd9d3a53f90a62a71fff12420c82da",
+        "cover": "e0574357c04ae14308dfdb90d1e7a8848d3226a8baa34c03715542a3df79a66c",
+        "coverAlt": "96df655f85fea86c6f92e769b4827323ea95ce9a7f9187e9f36474db199fb40c",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "86a7dbbf0b1e8aeec6adbc32f496524b05b17f0cbdb65ad69b38a256635bb724",
+        "officialLinks": "446337f7faccc700b8ef71126ecbbaf1491b1ef55f8b45fded88efb2de40bfe1",
+        "genres": "be00da8fabf91535bae166c3c2b3c0adabbd0ddf66e7d3841123fa392c6ebf43",
+        "tags": "b60ddc1109c4eb2e7baa365ca059e33126d50fccb123113d9d34d351752c0738",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "8582ece2244c266f663a4415caf08d16ea362c7117d707eebf225b91ca269b15",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "b67b8be572cf2793c783c95bb65d43b61c06d8938421bc11915a76e4ba775c3a",
+        "releaseDates": "8003a16a6812b1311aa13d816306fc754f741feff434e70877745f14dd2de399",
+        "credits": "c2f13c2118714ec157a4c8695bcd52649cd39fe578e4a91ede611e701305b5db",
+        "creators": "17c484139c43376b9c4d0d1b5703ccc7a6e8c6656df1a855c2be24dff945a832",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "927440c2b83f0d4dcff1f1a11e8615e0e8d8a271893ad3e7e6f4a0a407dd0b3e"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-08-14T20:25:12.339Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-08-14T20:15:10.117Z",
+        "reviewedBy": "codex-catalog-expansion",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-14",
+  "updatedAt": "2026-08-14",
+  "creatorId": "deadletterspodcast",
+  "networkId": "deadletterspodcast"
+}

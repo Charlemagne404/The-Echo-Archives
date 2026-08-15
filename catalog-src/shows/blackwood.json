@@ -1,0 +1,653 @@
+{
+  "id": "blackwood",
+  "title": "Blackwood",
+  "subtitle": "",
+  "description": "Five years ago, Molly Weaver, Bryan Anderson, and Nathan Howell started a podcast focused on the local legend of a monster called The Blackwood Bugman. Quickly, the investigation grows out of their control, as they discover that, not only are the legends seemingly true, many people in Blackwood have turned up dead or disappeared without a trace. Worse, there may be a reason why no one has ever uncovered the truth before. Someone is watching them, willing to do whatever it takes to keep the secret. Their recordings have finally been released. Directed by Mark Freiburger Produced by April Lamb Written by Will Rogers",
+  "officialDescription": {
+    "text": "Five years ago, Molly Weaver, Bryan Anderson, and Nathan Howell started a podcast focused on the local legend of a monster called The Blackwood Bugman. Quickly, the investigation grows out of their control, as they discover that, not only are the legends seemingly true, many people in Blackwood have turned up dead or disappeared without a trace. Worse, there may be a reason why no one has ever uncovered the truth before. Someone is watching them, willing to do whatever it takes to keep the secret. Their recordings have finally been released. Directed by Mark Freiburger Produced by April Lamb Written by Will Rogers",
+    "sourceLabel": "Official RSS feed",
+    "sourceUrl": "https://rss.art19.com/blackwood",
+    "verifiedAt": "2026-08-15"
+  },
+  "cover": "images/covers/blackwood.jpg",
+  "coverAlt": "Blackwood cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/blackwood/id1438804143?uo=4",
+    "website": "https://art19.com/shows/blackwood",
+    "rss": "https://rss.art19.com/blackwood",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Blackwood"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 6 full episodes • 27 min median",
+    "episodes": 6,
+    "avgEpisodeMinutes": 26,
+    "medianEpisodeMinutes": 27,
+    "minEpisodeMinutes": 20,
+    "maxEpisodeMinutes": 29,
+    "totalObservedHours": 2.6,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 6,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2018-10-24",
+    "latest": "2018-11-21",
+    "latestFeedItem": "2018-11-21",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://art19.com/shows/blackwood",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Scary Fun",
+    "ownerName": "Scary Fun",
+    "network": "ART19"
+  },
+  "creators": [
+    "Scary Fun"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-08-14",
+    "source": "https://art19.com/shows/blackwood; https://rss.art19.com/blackwood; https://podcasts.apple.com/us/podcast/blackwood/id1438804143?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://art19.com/shows/blackwood",
+      "https://rss.art19.com/blackwood",
+      "https://podcasts.apple.com/us/podcast/blackwood/id1438804143?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "True Crime"
+    ],
+    "sourceKeywords": [
+      "843881"
+    ],
+    "sourceTags": [],
+    "importOfficialSummary": "Five years ago, Molly Weaver, Bryan Anderson, and Nathan Howell started a podcast focused on the local legend of a monster called The Blackwood Bugman. Quickly, the investigation grows out of their control, as they discover that, not only are the legends seemingly true, many people in Blackwood have turned up dead or disappeared without a trace. Worse, there may be a reason why no one has ever uncovered the truth before. Someone is watching them, willing to do whatever it takes to keep the secret. Their recordings have finally been released. Directed by Mark Freiburger Produced by April Lamb Written by Will Rogers",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 4
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© Scary Fun",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.art19.com/blackwood",
+        "appleCollectionId": "1438804143",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://art19.com/shows/blackwood",
+          "fetchedAt": "2026-08-14T20:45:22.712Z",
+          "payloadHash": "43626966f316c3b733ee40d58e56e362067fab92e26727f68226f0d48130c205"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.art19.com/blackwood",
+          "fetchedAt": "2026-08-14T20:45:22.101Z",
+          "payloadHash": "910c6a059b5ce5d8d9f376380f2b235b97550a8db95fd33310817c7bae87c150"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/blackwood/id1438804143?uo=4",
+          "fetchedAt": "2026-08-14T20:45:21.104Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/blackwood/id1438804143?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/blackwood"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/blackwood/id1438804143?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/blackwood"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/blackwood/id1438804143?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/blackwood"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/blackwood/id1438804143?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/blackwood/id1438804143?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/blackwood"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/blackwood/id1438804143?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/blackwood"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "keywords": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.6,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/blackwood"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/blackwood"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-14T20:45:23.181Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "b3195b71b22b58f9b4ae39c5e1631c83e4afc8c01038cd9bf611b187668ab7d6",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "85e200e0f5cda77137415c2d64f792cc332bea87b548a68271fea49083af823e",
+        "cover": "bb94fb9e0ff893e2117f39ef9320d981908d8f3c9e38dc00618b598ac403c17e",
+        "coverAlt": "4a68e5c46188a985f75f2906008e9898205b8062f172244ebf8fbc6ad0325c83",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "948e13d41c7d8c1da9c9a02a3dd26044ae5de309f19985abbfa72ad27ee8db64",
+        "officialLinks": "5989428383a96bf496b8520a1b2b6aaafba259d3f5923ebab707fb59a7ec2d66",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "35618ce94a4fba4006aab62a15e26b19ad1d8c274974ce6fd9a2d85e1d58c386",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "28bd9f1c84635624d80ab3fb95d7ee55348a1083515d029daff1856bb95d0337",
+        "releaseDates": "e4eaa549f5d0e55fd21879b095a4616023faaaa9882ddb0006a37093c1aa751d",
+        "credits": "628127b7d863e260a658e98b2b96d72f98423a9a435669df6cb8df9271d7eb54",
+        "creators": "0dd3d32c3c464b266fc140ec6f59dddf941cfdf1a809c2a86dbaea39c33b6b71",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "a2cdf069ff5c8d310d6e3a96bae1b8d3b0e5bd1199db2d846f535d89ccb46300"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-08-14T20:57:21.233Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-08-14T20:51:36.724Z",
+        "reviewedBy": "catalog-expansion",
+        "inputRevision": 1
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-14",
+  "updatedAt": "2026-08-14",
+  "creatorId": "scary-fun",
+  "networkId": "art19"
+}

@@ -1,0 +1,595 @@
+{
+  "id": "unkillable",
+  "title": "Unkillable",
+  "subtitle": "",
+  "description": "Unkillable is the story of a young man who is cruelly murdered then brought back from the dead to revenge himself. The kicker is: He's not really alive. He can be hurt; he just can't be killed. It's dark and funny and sad and beautiful and violent and magical — if it could be summed up with just a few words, there would have been no point in writing a novel. Unkillable. Life sucks. Death blows. In between is worse.",
+  "officialDescription": {
+    "text": "Unkillable is the story of a young man who is cruelly murdered then brought back from the dead to revenge himself. The kicker is: He's not really alive. He can be hurt; he just can't be killed. It's dark and funny and sad and beautiful and violent and magical — if it could be summed up with just a few words, there would have been no point in writing a novel. Unkillable. Life sucks. Death blows. In between is worse.",
+    "sourceLabel": "Official RSS feed",
+    "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml",
+    "verifiedAt": "2026-08-15"
+  },
+  "cover": "images/covers/unkillable.jpg",
+  "coverAlt": "Unkillable cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/unkillable/id407417916",
+    "website": "https://scribl.com/books/P7EE0/unkillable",
+    "rss": "https://rss.libsyn.com/shows/24355/destinations/37038.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "Serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Unkillable"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 19 full episodes • 11 min median",
+    "episodes": 19,
+    "avgEpisodeMinutes": 13,
+    "medianEpisodeMinutes": 11,
+    "minEpisodeMinutes": 6,
+    "maxEpisodeMinutes": 26,
+    "totalObservedHours": 4.1,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 19,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2010-10-27",
+    "latest": "2011-02-26",
+    "latestFeedItem": "2011-02-26",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://scribl.com/books/P7EE0/unkillable",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Patrick McLean | Scribl",
+    "ownerName": "Scribl",
+    "network": "Scribl"
+  },
+  "creators": [
+    "Patrick McLean | Scribl"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-08-14",
+    "source": "https://scribl.com/books/P7D71/how-to-succeed-in-evil-the-original-podcast-episodes; https://scribl.com/books/P7EE0/unkillable; https://rss.libsyn.com/shows/24355/destinations/37038.xml; https://podcasts.apple.com/us/podcast/unkillable/id407417916",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://scribl.com/books/P7D71/how-to-succeed-in-evil-the-original-podcast-episodes",
+      "https://scribl.com/books/P7EE0/unkillable",
+      "https://rss.libsyn.com/shows/24355/destinations/37038.xml",
+      "https://podcasts.apple.com/us/podcast/unkillable/id407417916"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Arts",
+      "Books"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Unkillable is the story of a young man who is cruelly murdered then brought back from the dead to revenge himself. The kicker is: He's not really alive. He can be hurt; he just can't be killed. It's dark and funny and sad and beautiful and violent and magical — if it could be summed up with just a few words, there would have been no point in writing a novel. Unkillable. Life sucks. Death blows. In between is worse.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Distributed by Scribl.com. All rights held by the creator(s).",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml",
+        "appleCollectionId": "407417916",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://scribl.com/books/P7D71/how-to-succeed-in-evil-the-original-podcast-episodes",
+          "fetchedAt": "2026-08-14T20:41:54.350Z",
+          "payloadHash": "1a2317afa302811ae198dd7b199c1cefcd8accc177f44e4f14e8d54c9d6c6b1d"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://scribl.com/books/P7EE0/unkillable",
+          "fetchedAt": "2026-08-14T20:41:54.349Z",
+          "payloadHash": "2d62ecad2bbd86e72b067ebaf551194ef669b40fd6f90f6a879d091d4c7b5202"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml",
+          "fetchedAt": "2026-08-14T20:41:52.704Z",
+          "payloadHash": "c325264c60a5efb7940207099f8c6dc285f6d9076216593c76e7b862d564a0ed"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://rss.libsyn.com/shows/24355/destinations/37038.xml",
+          "https://podcasts.apple.com/us/podcast/unkillable/id407417916",
+          "https://scribl.com/books/P7EE0/unkillable"
+        ],
+        "fieldSources": {
+          "title": [
+            "https://rss.libsyn.com/shows/24355/destinations/37038.xml",
+            "https://podcasts.apple.com/us/podcast/unkillable/id407417916"
+          ],
+          "creatorName": [
+            "https://rss.libsyn.com/shows/24355/destinations/37038.xml",
+            "https://podcasts.apple.com/us/podcast/unkillable/id407417916"
+          ],
+          "description": [
+            "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+          ],
+          "categories": [
+            "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+          ],
+          "rssUrl": [
+            "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+          ],
+          "appleUrl": [
+            "https://podcasts.apple.com/us/podcast/unkillable/id407417916"
+          ],
+          "artworkUrl": [
+            "https://podcasts.apple.com/us/podcast/unkillable/id407417916"
+          ],
+          "website": [
+            "https://scribl.com/books/P7EE0/unkillable"
+          ]
+        },
+        "notes": "Maintainer confirmed factual identity and metadata against the publisher feed and Apple listing. Completion status remains unknown unless explicitly stated by the source.",
+        "uncertainFields": [
+          "completionStatus"
+        ],
+        "reviewedAt": "2026-08-14T20:55:26.848Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/24355/destinations/37038.xml"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": []
+        }
+      },
+      "importedAt": "2026-08-14T20:55:26.848Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "cdcf4ed2aad0996538f75ea9e65d7cffd9ef3db98b6a51231c904f10bea13831",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "05815200d128164c3758f8fc79de9e79573c1aaa8dc6bfaf81c9a8cc88b273df",
+        "cover": "76190fd8b848d54ed4bd30f90e79d050d8b41ba94410f8b443bb03a2edd8fa3a",
+        "coverAlt": "d4a0f12aadf3f4fd6cb7e3771a4fee47e11d399ecd68795727bee01f4a847aa1",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "d8ed46b04c5580bbf31a16143b61dd43ae7c93f73012af50cd88ff05bcc25e5e",
+        "officialLinks": "9670b9c7e83271cfb5567c0d8b8635e06bcc9795cd3cb7541e72648dd62390da",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "61f22e77e0910165d0c66f0139746d99f1c87d0bb93c00dfa7f8f1b699c8e203",
+        "aliases": "601b80ecebc79f2b70c03c9fcfe09ad353677070aeec10752c31f7c4f6ba8ce8",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "1e14b8dcb1477bcce50dbe2819dead3d8b32a0c955e258901b55d8502f6546b6",
+        "releaseDates": "d464e0554b48b31805fc8f8b78f80adbc0c7cb50a3bc49d339f928d7f497a2eb",
+        "credits": "6f1f27194554c98cfa36f47b318ad87de8fcf9b3f85630831a6afa8e95f87a13",
+        "creators": "a793608f2b53483da78ec64dcc2a7eba445f7f2525637531cad52c9a053b2e9d",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "a980ca66a978b8c4f1c76cf7c7b0f49e91aa87f0eb8e0fc53201d73f3c20d75f"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-08-14T20:57:21.208Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-08-14T20:55:26.850Z",
+        "reviewedBy": "catalog-expansion",
+        "inputRevision": 3
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-14",
+  "updatedAt": "2026-08-14",
+  "creatorId": "patrick-mclean-scribl",
+  "networkId": "scribl"
+}

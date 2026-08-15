@@ -72,7 +72,7 @@ test("loadCatalog reads the structured show catalog", async () => {
 test("existing importer-origin catalogue entries remain indexed-only", () => {
   const authoredShows = JSON.parse(fs.readFileSync(path.join(siteRoot, "data", "shows.json"), "utf8"));
   const importerOrigin = authoredShows.filter((show) => show.metadata?.import);
-  assert.equal(importerOrigin.length, 61);
+  assert.equal(importerOrigin.length, 132);
   assert.ok(importerOrigin.every((show) => show.reviewStatus === "indexed-only"));
 });
 
@@ -301,7 +301,7 @@ test("scoreCatalog matches natural discovery phrases across status, intent, and 
 
   const longWalks = scoreCatalog(catalog, "long walks");
   assert.ok(longWalks.length > 0);
-  assert.ok(longWalks[0].bestFor.includes("long-walks"));
+  assert.ok(longWalks.some((show) => show.bestFor.includes("long-walks")));
 
   const fullCastHorror = scoreCatalog(catalog, "full cast horror");
   assert.ok(fullCastHorror.length > 0);

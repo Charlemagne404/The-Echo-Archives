@@ -1,18 +1,18 @@
 {
-  "totalShows": 129,
-  "publishedShows": 129,
+  "totalShows": 200,
+  "publishedShows": 200,
   "draftShows": 0,
   "fullReviews": 7,
   "spotlightReviews": 0,
-  "indexedOnly": 122,
+  "indexedOnly": 193,
   "imported": 0,
   "plannedReviews": 0,
   "collections": 29,
   "reviewCompanions": 7,
   "creatorVerified": 0,
-  "withRss": 126,
+  "withRss": 197,
   "missingObjectiveSources": 0,
-  "withResearchGaps": 13,
+  "withResearchGaps": 14,
   "phase2": {
     "policy": {
       "fullReviewFloor": 7,
@@ -22,7 +22,7 @@
     },
     "numericTargets": {
       "publishedShows": {
-        "actual": 129,
+        "actual": 200,
         "target": 129,
         "pass": true
       },
@@ -54,7 +54,8 @@
       "missingRuntime": [],
       "documentedRuntimeUnknowns": [
         "the-rapscallion-agency",
-        "the-invenios-expeditions"
+        "the-invenios-expeditions",
+        "edict-zero-fis"
       ],
       "documentedResearchGaps": [
         {
@@ -150,6 +151,13 @@
           "gaps": [
             "No dedicated verified RSS or Apple listing was found; the previously attached identifiers resolve to other Leviathan shows, so runtime duration remains unknown."
           ]
+        },
+        {
+          "id": "edict-zero-fis",
+          "title": "Edict Zero - FIS",
+          "gaps": [
+            "No verified episode-duration data was available from the current official episode pages or RSS feed."
+          ]
         }
       ],
       "sparseEditorialViolations": [],
@@ -231,7 +239,78 @@
         "the-magnus-archives",
         "the-magnus-protocol",
         "the-rapscallion-agency",
-        "the-invenios-expeditions"
+        "the-invenios-expeditions",
+        "sandra",
+        "the-walk",
+        "scp-archives",
+        "blackout",
+        "carrier",
+        "the-horror-of-dolores-roach",
+        "world-gone-wrong-a-fictional-chat-show-about-friendship-at-the-end-of-the-world",
+        "the-phone-booth",
+        "the-cipher",
+        "stellar-firma",
+        "the-big-loop",
+        "marvels-wolverine-the-long-night",
+        "the-orbiting-human-circus",
+        "the-angel-of-vine",
+        "blood-ties",
+        "within-the-wires",
+        "motherhacker",
+        "marvels-wolverine-the-lost-trail",
+        "the-two-princes",
+        "rabbits",
+        "lifeafter-the-message",
+        "our-fair-city",
+        "darkest-night",
+        "campfire-radio-theater",
+        "the-dead-letters-podcast",
+        "the-dead-letter-office-of-somewhere-ohio",
+        "the-godfrey-audio-guide",
+        "dont-mind",
+        "the-subjective-truth",
+        "two-flat-earthers-kidnap-a-freemason",
+        "the-dragoning",
+        "the-love-talker",
+        "the-viridian-wild",
+        "the-land-whale-murders",
+        "the-way-we-haunt-now",
+        "the-liminal-lands",
+        "the-tower",
+        "the-thieves-guild",
+        "artifacts-of-the-arcane",
+        "the-liberty-podcast",
+        "edict-zero-fis",
+        "attention-hellmart-shoppers",
+        "the-elmwood-strain",
+        "the-awkward-screw",
+        "the-rats-under-eden-an-audio-drama-musical",
+        "the-other-stories-sci-fi-horror-thriller-wtf-stories",
+        "the-great-chameleon-war",
+        "the-hidden-people",
+        "dark-woods",
+        "wake-up-new-vilirth",
+        "the-next-5-minutes",
+        "hannahpocalypse",
+        "tales-from-wolf-mountain",
+        "iowa-chapman-and-the-last-dog",
+        "blackwood",
+        "anticrastination",
+        "how-to-win-friends-and-disappear-people",
+        "unkillable",
+        "horror-eternal",
+        "the-hatred-a-supernatural-thriller-miniseries",
+        "out-of-place",
+        "coexistence",
+        "liminal",
+        "petrified",
+        "the-nebulous-saga",
+        "badlands-cola",
+        "dust",
+        "sorry-about-the-murder",
+        "from-within-a-tale-of-the-macabre",
+        "dreamboy",
+        "crooked-river"
       ],
       "blockingErrors": []
     },
@@ -247,9 +326,9 @@
       "blockingErrors": []
     },
     "sparseIndexedOnly": {
-      "count": 59,
-      "outOfRangeSimilarLinks": 59,
-      "fewerThanTwoCollections": 59,
+      "count": 130,
+      "outOfRangeSimilarLinks": 130,
+      "fewerThanTwoCollections": 130,
       "editorialViolations": [],
       "informationalOnly": true
     },

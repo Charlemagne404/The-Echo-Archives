@@ -1,0 +1,476 @@
+{
+  "id": "within-the-wires",
+  "title": "Within the Wires",
+  "subtitle": "Stories told through found audio from an alternate universe. Season 9 of Within the Wires, “Audiobook”, is a romantic drama told entirely through outtakes from an audiobook recording session. Actress Kat Waterford arrives in studio to recor",
+  "description": "An immersive fiction podcast told through found audio from an alternate universe. Each season is a standalone story set in the same world. Written by Jeffrey Cranor and Janina Matthewson. Original music by Mary Epworth.",
+  "officialDescription": {
+    "text": "An immersive fiction podcast told through found audio from an alternate universe. Each season is a standalone story set in the same world. Written by Jeffrey Cranor and Janina Matthewson. Original music by Mary Epworth.",
+    "sourceLabel": "Official RSS feed",
+    "sourceUrl": "https://feeds.megaphone.fm/SBP8915264938",
+    "verifiedAt": "2026-08-15"
+  },
+  "cover": "images/covers/within-the-wires.jpg",
+  "coverAlt": "Within the Wires cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/1LpuoT6cZLFXa6hA9qfWZy",
+    "apple": "https://podcasts.apple.com/us/podcast/within-the-wires/id1121391184",
+    "website": "http://www.nightvalepresents.com/withinthewires",
+    "rss": "https://feeds.megaphone.fm/SBP8915264938",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "sci-fi",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [
+    "Found media",
+    "Epistolary",
+    "Political intrigue"
+  ],
+  "aliases": [
+    "Within the Wires"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "10 seasons observed • at least 107 full episodes • 21 min median",
+    "seasons": 10,
+    "episodes": 107,
+    "avgEpisodeMinutes": 21,
+    "medianEpisodeMinutes": 21,
+    "minEpisodeMinutes": 3,
+    "maxEpisodeMinutes": 35,
+    "totalObservedHours": 37.8,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      10,
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 107,
+      "bonus": 2,
+      "trailer": 11
+    }
+  },
+  "releaseDates": {
+    "first": "2016-06-21",
+    "latest": "2025-12-16",
+    "latestFeedItem": "2025-12-16",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "http://www.nightvalepresents.com/withinthewires",
+    "patreon": "https://www.patreon.com/withinthewires/posts?tag=episode%20transcripts",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Night Vale Presents",
+    "ownerName": "Night Vale Presents",
+    "network": "Night Vale Presents"
+  },
+  "creators": [
+    "Night Vale Presents"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-08-14",
+    "source": "http://www.nightvalepresents.com/withinthewires; https://podcasts.apple.com/us/podcast/within-the-wires/id1121391184?uo=4; https://feeds.megaphone.fm/SBP8915264938; https://podcasts.apple.com/us/podcast/within-the-wires/id1121391184",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "http://www.nightvalepresents.com/withinthewires",
+      "https://podcasts.apple.com/us/podcast/within-the-wires/id1121391184?uo=4",
+      "https://feeds.megaphone.fm/SBP8915264938",
+      "https://podcasts.apple.com/us/podcast/within-the-wires/id1121391184"
+    ],
+    "sourceCategories": [
+      "Science Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Found media",
+      "Epistolary",
+      "Political intrigue"
+    ],
+    "importOfficialSummary": "An immersive fiction podcast told through found audio from an alternate universe. Each season is a standalone story set in the same world. Written by Jeffrey Cranor and Janina Matthewson. Original music by Mary Epworth.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "2019, Within the Wires",
+      "explicit": "Clean",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/SBP8915264938",
+        "appleCollectionId": "1121391184",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "http://www.nightvalepresents.com/withinthewires",
+          "fetchedAt": "2026-08-14T19:28:10.850Z",
+          "payloadHash": "7b522a9aace61881e6f5e13c84e1afe90f0e65e2f337b73d6f56d415f1910aa0"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/within-the-wires/id1121391184?uo=4",
+          "fetchedAt": "2026-08-14T19:28:09.251Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/SBP8915264938",
+          "fetchedAt": "2026-08-14T19:28:10.122Z",
+          "payloadHash": "f6bf27d571839f752bfed58a9e1c8e25b86dd5a32d342055fc9712df3a4e2e3d"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://podcasts.apple.com/us/podcast/within-the-wires/id1121391184",
+          "https://feeds.megaphone.fm/SBP8915264938",
+          "http://www.nightvalepresents.com/withinthewires"
+        ],
+        "fieldSources": {
+          "description": [
+            "https://podcasts.apple.com/us/podcast/within-the-wires/id1121391184"
+          ],
+          "genres": [
+            "https://podcasts.apple.com/us/podcast/within-the-wires/id1121391184",
+            "https://feeds.megaphone.fm/SBP8915264938",
+            "http://www.nightvalepresents.com/withinthewires"
+          ],
+          "tags": [
+            "https://podcasts.apple.com/us/podcast/within-the-wires/id1121391184",
+            "https://feeds.megaphone.fm/SBP8915264938",
+            "http://www.nightvalepresents.com/withinthewires"
+          ],
+          "formats": [
+            "https://podcasts.apple.com/us/podcast/within-the-wires/id1121391184",
+            "https://feeds.megaphone.fm/SBP8915264938",
+            "http://www.nightvalepresents.com/withinthewires"
+          ],
+          "website": [
+            "http://www.nightvalepresents.com/withinthewires"
+          ]
+        },
+        "notes": "Maintainer fact check used the current Apple/RSS identity and the listed official source; taxonomy labels are controlled discovery selections.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-08-14T19:38:38.072Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/within-the-wires/id1121391184?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://www.nightvalepresents.com/withinthewires"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/within-the-wires/id1121391184?uo=4"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/within-the-wires/id1121391184?uo=4"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "patreonUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://www.nightvalepresents.com/withinthewires"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/within-the-wires/id1121391184"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8915264938"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "http://www.nightvalepresents.com/withinthewires"
+            }
+          ]
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://podcasts.apple.com/us/podcast/within-the-wires/id1121391184",
+            "https://feeds.megaphone.fm/SBP8915264938",
+            "http://www.nightvalepresents.com/withinthewires"
+          ]
+        }
+      },
+      "importedAt": "2026-08-14T19:38:38.073Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "0cc36334f4e5975d316ab3ebd09183959a2270c9fc3a5eaa58156cec3ff2521e",
+        "subtitle": "d243e2d11e3887d701a2009edd02c602a973bc858324151c4536fe817c447022",
+        "description": "aa2e86e4fc7513d2aa828cb69f2fb6f5d3d97a8b264575dd5a125a24cc56ac6f",
+        "cover": "d14533e22cc76ac2a7ec177d5074ab73778da63ca77508bf438d3f445e7b2333",
+        "coverAlt": "ff133c0446fa8e1155931c0cfd0e554eeb22916003e1846b7a84fa4e0b3d6809",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "384974924faa918f3f314147c7020cd284419cea2285a44195436eab969fb98a",
+        "officialLinks": "310bc1d6a1d71bd7d0b7efcc6656d10c2001ac255d18fe48d3edd5f8b6057048",
+        "genres": "5e1c8ac5a5bc529da25aefa615e90136fc2dcade7fbb07655c917b5ba23cf206",
+        "tags": "57a77c468acb91103acf825f7046cd918559ea1fc96707f25939cb06a059f4fd",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "7da2b065da63c57cd0b447cf3bed5392e51bb1df6610778cc69e1fc1eb1a3fc3",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "b9680fb58f1c12bde2220820b430e1236336fe2b35cf13bc53f449ba1788dbb2",
+        "releaseDates": "22787c6e34adff533d90f1b78761cdc82d0c6035376c8180636e40e74eeda645",
+        "credits": "9eb4aed7fe635e632328d0677230a47515c4771c1eb6c25fe67fdbcb23e83aee",
+        "creators": "fcdb58dbec4660848938558fbbd2e8b0de17dd17aa365ab601099c68b8516d0b",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "96fc9bb6f32aa3c9afc3706d7c154cc4e5ab4f9af9efd05624c7251f72631f05"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-08-14T19:46:47.713Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-08-14T19:46:47.650Z",
+        "reviewedBy": "CA",
+        "inputRevision": 3
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-14",
+  "updatedAt": "2026-08-14",
+  "creatorId": "night-vale-presents",
+  "networkId": "night-vale-presents"
+}

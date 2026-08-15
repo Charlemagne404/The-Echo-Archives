@@ -1,0 +1,636 @@
+{
+  "id": "marvels-wolverine-the-lost-trail",
+  "title": "Marvel's Wolverine: The Lost Trail",
+  "subtitle": "",
+  "description": "Following the events of Marvel’s “Wolverine: The Long Night,” Logan (Richard Armitage) returns to New Orleans in search of redemption, only to discover that dozens of humans and mutants have gone missing. Thanks for listening on Apple Podcasts!",
+  "officialDescription": {
+    "text": "Following the events of Marvel’s “Wolverine: The Long Night,” Logan (Richard Armitage) returns to New Orleans in search of redemption, only to discover that dozens of humans and mutants have gone missing. Thanks for listening on Apple Podcasts!",
+    "sourceLabel": "Official RSS feed",
+    "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945",
+    "verifiedAt": "2026-08-15"
+  },
+  "cover": "images/covers/marvels-wolverine-the-lost-trail.jpg",
+  "coverAlt": "Marvel's Wolverine: The Lost Trail cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/marvels-wolverine-the-lost-trail/id1343499710?uo=4",
+    "website": "",
+    "rss": "https://feeds.megaphone.fm/SBP8120025945",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "adventure",
+    "thriller"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [
+    "Missing person",
+    "Action",
+    "Murder"
+  ],
+  "aliases": [
+    "Marvel's Wolverine: The Lost Trail"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 10 full episodes • 31 min median",
+    "seasons": 1,
+    "episodes": 10,
+    "avgEpisodeMinutes": 32,
+    "medianEpisodeMinutes": 31,
+    "minEpisodeMinutes": 28,
+    "maxEpisodeMinutes": 38,
+    "totalObservedHours": 5.3,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 10,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2019-05-29",
+    "latest": "2019-09-02",
+    "latestFeedItem": "2019-09-02",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Marvel | Realm",
+    "ownerName": "Marvel & Realm"
+  },
+  "creators": [
+    "Marvel | Realm"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-08-14",
+    "source": "https://feeds.megaphone.fm/SBP8120025945; https://podcasts.apple.com/us/podcast/marvels-wolverine-the-lost-trail/id1343499710?uo=4; https://podcasts.apple.com/ca/podcast/marvels-wolverine-the-lost-trail/id1343499710",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.megaphone.fm/SBP8120025945",
+      "https://podcasts.apple.com/us/podcast/marvels-wolverine-the-lost-trail/id1343499710?uo=4",
+      "https://podcasts.apple.com/ca/podcast/marvels-wolverine-the-lost-trail/id1343499710"
+    ],
+    "sourceCategories": [
+      "Adventure",
+      "Thriller"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Missing person",
+      "Action",
+      "Murder"
+    ],
+    "importOfficialSummary": "Following the events of Marvel’s “Wolverine: The Long Night,” Logan (Richard Armitage) returns to New Orleans in search of redemption, only to discover that dozens of humans and mutants have gone missing. Thanks for listening on Apple Podcasts!",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2021 Marvel",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/SBP8120025945",
+        "appleCollectionId": "1343499710",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945",
+          "fetchedAt": "2026-08-14T19:28:09.673Z",
+          "payloadHash": "b0853218fc03e6ab7ad61065ca2034e545d7e44a362760383043f8b376b04b5d"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/marvels-wolverine-the-lost-trail/id1343499710?uo=4",
+          "fetchedAt": "2026-08-14T19:28:09.129Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://podcasts.apple.com/ca/podcast/marvels-wolverine-the-lost-trail/id1343499710",
+          "https://podcasts.apple.com/us/podcast/marvels-wolverine-the-lost-trail/id1343499710?uo=4",
+          "https://feeds.megaphone.fm/SBP8120025945"
+        ],
+        "fieldSources": {
+          "description": [
+            "https://podcasts.apple.com/ca/podcast/marvels-wolverine-the-lost-trail/id1343499710"
+          ],
+          "genres": [
+            "https://podcasts.apple.com/ca/podcast/marvels-wolverine-the-lost-trail/id1343499710",
+            "https://podcasts.apple.com/us/podcast/marvels-wolverine-the-lost-trail/id1343499710?uo=4",
+            "https://feeds.megaphone.fm/SBP8120025945"
+          ],
+          "tags": [
+            "https://podcasts.apple.com/ca/podcast/marvels-wolverine-the-lost-trail/id1343499710",
+            "https://podcasts.apple.com/us/podcast/marvels-wolverine-the-lost-trail/id1343499710?uo=4",
+            "https://feeds.megaphone.fm/SBP8120025945"
+          ],
+          "formats": [
+            "https://podcasts.apple.com/ca/podcast/marvels-wolverine-the-lost-trail/id1343499710",
+            "https://podcasts.apple.com/us/podcast/marvels-wolverine-the-lost-trail/id1343499710?uo=4",
+            "https://feeds.megaphone.fm/SBP8120025945"
+          ]
+        },
+        "notes": "Maintainer fact check used the current Apple/RSS identity and the listed official source; taxonomy labels are controlled discovery selections.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-08-14T19:38:38.184Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/marvels-wolverine-the-lost-trail/id1343499710?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/marvels-wolverine-the-lost-trail/id1343499710?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/ca/podcast/marvels-wolverine-the-lost-trail/id1343499710"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/marvels-wolverine-the-lost-trail/id1343499710?uo=4"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP8120025945"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://podcasts.apple.com/ca/podcast/marvels-wolverine-the-lost-trail/id1343499710",
+            "https://podcasts.apple.com/us/podcast/marvels-wolverine-the-lost-trail/id1343499710?uo=4",
+            "https://feeds.megaphone.fm/SBP8120025945"
+          ]
+        }
+      },
+      "importedAt": "2026-08-14T19:38:38.184Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "138c2ea1dfdb6607863a3ee00d059641d9081cc77f8faa9b4f998d29350c13e8",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "9c1ea8ae678232eb80aa7b1385b363e1c7f1a99a986f36e4fd500ef5cf3005fd",
+        "cover": "ae6ab3d8eb9c7aa5e707cee518736b3ba73a9b52f4c37cfe3916eeff713208a2",
+        "coverAlt": "349da35bb29b26d11624fa93b4ec154605ba0136d02f6b4cadc57c02028dfcd2",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "900c5fa5b061b899f4235223d81fc4a1f66f12401a7a90f22c9991aff79bbe6f",
+        "officialLinks": "3e90311e92e6a807f26afc63f0f877db98c2816987c9089b5efb84a615aa3b2e",
+        "genres": "c9c0c6a65c07efa38e02f13c65f99fcb3be776c4ffce81ce26e2e63284a4290b",
+        "tags": "28595f7f804558efb30c3207790dd93b0aef40d66902f75dc8be394aea80718b",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "6ad5a9868e631f0e9937925aa624fe6d49b71d7cac6418bee67ea916ca51733b",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "41c0c2874aeabe39186c1026bc758f2a33816bb0a2b09a06ff36bf809deec07a",
+        "releaseDates": "152f602ab6b39de3b474948cddabd2aa21c249642b938f42136c8b7613333157",
+        "credits": "c1b7c3f9a45aa0508e0feac05803efce14ba4874fcfcb5400703d1b2b00596cd",
+        "creators": "211b4777fe11d3456d4d85e40bc52f01ac3171808c9ddd71bf75c1166d370a38",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "dd77a85b5eeabce76ca1dea30d28bdd936fc8e19e399fe20c1abc0c3075e4042"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-08-14T19:46:47.719Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-08-14T19:46:47.655Z",
+        "reviewedBy": "CA",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-14",
+  "updatedAt": "2026-08-14",
+  "creatorId": "marvel-realm"
+}
