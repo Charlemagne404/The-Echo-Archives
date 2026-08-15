@@ -368,33 +368,33 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 932,P1,The Arthur Podcast,GBH Kids,5111f556-053f-485b-a9be-ae4b01eedece,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 17:36:27
 933,P1,Young Ben Franklin,Gen-Z Media / iHeartRadio,b5fdca17-6e1e-485d-8b09-6897c4924d5b,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:35:31
 934,P1,Tomorrow,Gen-Z Media,df03e2a8-0d0a-4f26-97ba-f2263d186bf2,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:35:41
-935,P1,The Weirdness,Gen-Z Media,,unattempted,,,
-936,P1,The Hollow,Gen-Z Media,,unattempted,,,
-937,P1,Supernatural Sexuality with Dr. Seabrooke,Lee Davis-Thalbourne,,unattempted,,,
-938,P1,Heads Will Roll,Audible,,unattempted,,,
-939,P1,Dear Bastard!,,,unattempted,,,
-940,P1,Max & Ivan: Fugitives,Storyglass,,unattempted,,,
-941,P1,Crowley Time with me Tom Crowley,Tom Crowley,,unattempted,,,
-942,P1,Keep It Steady,Procyon Podcast Network,,unattempted,,,
-943,P1,1972 - The Chisholm Campaign Trail and the Davis Trial,,,unattempted,,,
-944,P1,Tejana,Sonoro / Telemundo,,unattempted,,,
-945,P1,Supreme: The Battle for Roe,,,unattempted,,,
-946,P1,The Very Worst Thing That Could Possibly Happen,Wolf at the Door Studios,,unattempted,,,
-947,P1,"Bone, Marry, Bury",Dear Media,,unattempted,,,
-948,P1,Asking For It,CBC Podcasts / Mermaid Palace,,unattempted,,,
-949,P1,Dem Times,Our Day,,unattempted,,,
-950,P1,We Stay Looking,,,unattempted,,,
-951,P1,The Big Fix: A Jack Bergin Mystery,Audible,,unattempted,,,
-952,P1,The Safe Man,Audible,,unattempted,,,
-953,P1,Table Read,Manifest Media,,unattempted,,,
+935,P1,The Weirdness,Gen-Z Media,01fcad4d-2d69-4fe1-8853-164350eae65d,needs-review,needs-review,source-conflict,2026-08-15 17:38:45
+936,P1,The Hollow,Gen-Z Media,1fc668e5-c4cc-4739-b2f6-dc3fa0e0ca6c,published,published,,2026-08-15 17:40:50
+937,P1,Supernatural Sexuality with Dr. Seabrooke,Lee Davis-Thalbourne,b1119108-1ca7-4282-af28-f79095566ee1,published,published,,2026-08-15 17:40:50
+938,P1,Heads Will Roll,Audible,095e4efe-a627-4bfe-bccd-ecf70acf2788,published,published,,2026-08-15 17:40:51
+939,P1,Dear Bastard!,,0ae1a12b-cf37-4e8e-9f44-4a858c00956b,needs-review,needs-review,invalid-website; source-conflict,2026-08-15 17:39:45
+940,P1,Max & Ivan: Fugitives,Storyglass,3ca2cfd1-086a-4e2f-a085-f18cbb9a3d2e,published,published,,2026-08-15 17:40:51
+941,P1,Crowley Time with me Tom Crowley,Tom Crowley,cd1d7e79-f967-4a0c-a56e-e51dd583e474,needs-review,needs-review,source-conflict,2026-08-15 17:38:42
+942,P1,Keep It Steady,Procyon Podcast Network,7578906b-f4fc-48c1-8a38-bdfed8e905d0,published,published,,2026-08-15 17:40:51
+943,P1,1972 - The Chisholm Campaign Trail and the Davis Trial,,62891335-67ed-4d5f-81a8-aca84395bbb0,published,published,,2026-08-15 17:40:51
+944,P1,Tejana,Sonoro / Telemundo,f1c8dda2-4a2c-4bba-a13a-2ec17d0abe5f,needs-review,needs-review,source-conflict,2026-08-15 17:38:42
+945,P1,Supreme: The Battle for Roe,,23bf7a5b-8c99-47da-83d2-11783b9cced3,published,published,,2026-08-15 17:40:51
+946,P1,The Very Worst Thing That Could Possibly Happen,Wolf at the Door Studios,f26d7f53-5da5-448e-a132-5e5bcde2ca4c,needs-review,needs-review,source-conflict,2026-08-15 17:39:25
+947,P1,"Bone, Marry, Bury",Dear Media,1931bbeb-54b3-45a4-97d8-3d03dc90a113,published,published,,2026-08-15 17:40:51
+948,P1,Asking For It,CBC Podcasts / Mermaid Palace,ca923ba6-2591-4973-b753-c0c8a1731ba5,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 17:39:22
+949,P1,Dem Times,Our Day,f9bf556f-ffcc-4996-b0b9-10272013de4a,needs-review,needs-review,source-conflict,2026-08-15 17:38:42
+950,P1,We Stay Looking,,db350a65-17a4-460e-8e68-52139c32667b,published,published,,2026-08-15 17:40:51
+951,P1,The Big Fix: A Jack Bergin Mystery,Audible,f7685523-5eb9-4675-bcf5-62190723db4c,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 17:40:39
+952,P1,The Safe Man,Audible,7cc44816-ffb2-4f51-b9e1-1665239d35a0,needs-review,needs-review,cover-not-ready,2026-08-15 17:40:13
+953,P1,Table Read,Manifest Media,45b134f0-bc08-42b3-bfb0-baf45345223a,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:40:13
 954,P0,Red for Revolution,Meta Mana Media,7d6a016c-a15f-463d-be00-abab0bd577b0,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:31:37
-955,P1,Home Front,BBC Radio 4,,unattempted,,,
-968,P1,A World Of Trouble,Voyage Media,,unattempted,,,
-1011,P1,The Sound Of Home,Voyage Media,,unattempted,,,
-1051,P1,The Saints - Adventures in Faith & Courage,The Merry Beggars,,unattempted,,,
-1055,P1,Mansfield Mysteries,The QuaranTeam,,unattempted,,,
+955,P1,Home Front,BBC Radio 4,2d51aff2-28fa-4f8c-b879-07af1955ced8,needs-review,needs-review,source-conflict,2026-08-15 17:38:45
+968,P1,A World Of Trouble,Voyage Media,bb8978c6-3f08-4b27-a66e-69ec70a61d0f,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:39:09
+1011,P1,The Sound Of Home,Voyage Media,aa45b559-e8ec-40a4-be7e-51f736d9fece,needs-review,needs-review,source-conflict,2026-08-15 17:38:45
+1051,P1,The Saints - Adventures in Faith & Courage,The Merry Beggars,d864f6c2-f0b8-4875-8f5c-bbbc426a9ce5,needs-review,needs-review,source-conflict,2026-08-15 17:39:24
+1055,P1,Mansfield Mysteries,The QuaranTeam,2239d964-be9b-4715-b9ee-d7ac95d36686,published,published,,2026-08-15 17:40:51
 1066,P0,Twilight Histories,Dark Lord Studios,6e76612d-a3e7-488f-9f5e-46dd2d7951af,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:31:45
-1129,P1,The 200 Year Old,Sanlam (King James Group),,unattempted,,,
+1129,P1,The 200 Year Old,Sanlam (King James Group),6b90e71c-9e0b-42fc-94a5-8016fff2a1d6,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:38:46
 1131,P0,COLD TAPES,,7f0a2d6f-be1f-4dc1-93b2-53d65af8f50a,published,published,,2026-08-15 16:05:16
 1132,P0,TWO THOUSAND AND LATE,Lauren Shippen,99fd89dd-6f51-4cf4-80f0-92003dbcf2e3,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:31:45
 1133,P1,Whalefall,,,unattempted,,,

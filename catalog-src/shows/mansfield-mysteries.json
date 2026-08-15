@@ -1,0 +1,631 @@
+{
+  "id": "mansfield-mysteries",
+  "title": "Mansfield Mysteries",
+  "subtitle": "",
+  "description": "Mansfield Mysteries is a satirical, cozy murder whodunit, featuring the inquisitive, martini-loving socialite Dorinda Mansfield. Set in quiet, affluent Berkshire Bay, and told over nine hilarious episodes, each three-chapter story finds Dorinda wrapped up in a new murder. With the help of her devoted daughter, Stacey—as well as the occasional frenemy—Dorinda digs for clues, navigates Berkshire Bay’s elite social circles, and sifts through years’ worth of grudges and motives. In this company town, no one can be trusted, and everyone has something to hide. Whether at the Labor Day Extravaganza, the Halloween Tennis Club Open, or secret karaoke night, Dorinda sets out to find the real killer before they get away with murder… Just as soon as she orders her martini!",
+  "cover": "images/covers/mansfield-mysteries.jpg",
+  "coverAlt": "Mansfield Mysteries cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/mansfield-mysteries/id1640918120?uo=4",
+    "website": "https://www.podbean.com/login?url=https%3A%2F%2Fmansfieldmysteries.podbean.com%2F&error=Invalid%20Podbean%20Site(2)",
+    "rss": "https://feeds.megaphone.fm/mansfieldmysteries",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Mansfield Mysteries"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "3 seasons observed • at least 27 full episodes • 27 min median",
+    "seasons": 3,
+    "episodes": 27,
+    "avgEpisodeMinutes": 27,
+    "medianEpisodeMinutes": 27,
+    "minEpisodeMinutes": 19,
+    "maxEpisodeMinutes": 42,
+    "totalObservedHours": 12.4,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 27,
+      "bonus": 9,
+      "trailer": 9
+    }
+  },
+  "releaseDates": {
+    "first": "2022-09-16",
+    "latest": "2026-02-27",
+    "latestFeedItem": "2026-02-27",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.podbean.com/login?url=https%3A%2F%2Fmansfieldmysteries.podbean.com%2F&error=Invalid%20Podbean%20Site(2)",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "QuaranTeam Productions",
+    "ownerName": "QuaranTeam Productions"
+  },
+  "creators": [
+    "QuaranTeam Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.podbean.com/login?url=https%3A%2F%2Fmansfieldmysteries.podbean.com%2F&error=Invalid%20Podbean%20Site(2); https://feeds.megaphone.fm/mansfieldmysteries; https://podcasts.apple.com/us/podcast/mansfield-mysteries/id1640918120?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.podbean.com/login?url=https%3A%2F%2Fmansfieldmysteries.podbean.com%2F&error=Invalid%20Podbean%20Site(2)",
+      "https://feeds.megaphone.fm/mansfieldmysteries",
+      "https://podcasts.apple.com/us/podcast/mansfield-mysteries/id1640918120?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction",
+      "Arts",
+      "Performing Arts"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Mansfield Mysteries is a satirical, cozy murder whodunit, featuring the inquisitive, martini-loving socialite Dorinda Mansfield. Set in quiet, affluent Berkshire Bay, and told over nine hilarious episodes, each three-chapter story finds Dorinda wrapped up in a new murder. With the help of her devoted daughter, Stacey—as well as the occasional frenemy—Dorinda digs for clues, navigates Berkshire Bay’s elite social circles, and sifts through years’ worth of grudges and motives. In this company town, no one can be trusted, and everyone has something to hide. Whether at the Labor Day Extravaganza, the Halloween Tennis Club Open, or secret karaoke night, Dorinda sets out to find the real killer before they get away with murder… Just as soon as she orders her martini!",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2022 All rights reserved.",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/mansfieldmysteries",
+        "appleCollectionId": "1640918120",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.podbean.com/login?url=https%3A%2F%2Fmansfieldmysteries.podbean.com%2F&error=Invalid%20Podbean%20Site(2)",
+          "fetchedAt": "2026-08-15T17:40:11.698Z",
+          "payloadHash": "cfd2a5e69514cac782c55cf3a82c7212dca7a63f34bea77bd3d9df026322b704"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries",
+          "fetchedAt": "2026-08-15T17:40:11.133Z",
+          "payloadHash": "635186ba2f57f9dea8a7aa38750602a9ab074ddc00021e925188c7cfd98fa86c"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/mansfield-mysteries/id1640918120?uo=4",
+          "fetchedAt": "2026-08-15T17:40:10.702Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mansfield-mysteries/id1640918120?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mansfield-mysteries/id1640918120?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mansfield-mysteries/id1640918120?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mansfield-mysteries/id1640918120?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mansfield-mysteries/id1640918120?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mansfield-mysteries/id1640918120?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.podbean.com/login?url=https%3A%2F%2Fmansfieldmysteries.podbean.com%2F&error=Invalid%20Podbean%20Site(2)"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.podbean.com/login?url=https%3A%2F%2Fmansfieldmysteries.podbean.com%2F&error=Invalid%20Podbean%20Site(2)"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/mansfieldmysteries"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T17:40:12.040Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "06511002a7a765a411776b8a31bbede411f531f0810d6210d2b87943c0f57411",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "1515430fb1abfedf442d970241bd0acbf5b46f85c87e53359d6aff04f13cab7f",
+        "cover": "b1bb29819acd0969763e0989107bfbb43c08016e14ec3de4520486dc4bc09ab8",
+        "coverAlt": "42b8110d8598d87c4566fe0f3f3f6308371b04e1d5a724d18325b8c9ad19fc6b",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "134dd45e7022db03a6673b8a7e2279edbfb6717238b0de0de11d020e288769d9",
+        "officialLinks": "948f2165b5734ffb8dbea9a936518bb1ad2ac5e9a04935db2f6579d1fd66248c",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "6afb4e13ba508306fb6737d582e6e7cef0088b4c5dc49f84def74020ab3b23be",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "af726707a34cf28f87ddfd62eac1e0d03934288fdaee4a95eea1073ddcc1a0a3",
+        "releaseDates": "a840dc074853ea91562e4e9e336eab788e8e84bb8826e45eeee709ec53b12852",
+        "credits": "00d99e949142f309eaad8f863485af0897e0853b9fcaf6ada7653f9e56f2a755",
+        "creators": "98f56e4859b549bf424ea069cb1c32a2b736c4cf09a99a924ccf2ef4ab671503",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "b8f9b23d3a4555477d9b8db75fc3ea574ce4cae6cb31d1963ba95cf363289b03"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T17:40:47.643Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "quaranteam-productions"
+}
