@@ -1,0 +1,653 @@
+{
+  "id": "inkwyrm",
+  "title": "Inkwyrm",
+  "subtitle": "",
+  "description": "Inkwyrm Magazine is an intergalactic fashion publication, bringing readers the newest looks from all over the universe. At the head of it all is Annie Inkwyrm, and directly behind her is Mella Sonder, AI caretaker and Annie’s PA. Along for the ride is an overzealous PR director, a perpetually unimpressed physician, and an AI that really needs to learn some ethics. Putting up with her boss is hard enough, but with the cutthroat fashion industry, and whatever is trying to kill everyone today, Mella and the gang have their hands full. One part sit-com, one part space opera, Inkwyrm is an audio drama for the truly fabulous.",
+  "cover": "images/covers/inkwyrm.jpg",
+  "coverAlt": "Inkwyrm cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/inkwyrm/id1204629419?uo=4",
+    "website": "http://inkwyrmpodcast.tumblr.com/",
+    "rss": "https://rss.buzzsprout.com/110819.rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Inkwyrm"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "3 seasons observed • at least 28 full episodes • 17 min median",
+    "seasons": 3,
+    "episodes": 28,
+    "avgEpisodeMinutes": 18,
+    "medianEpisodeMinutes": 17,
+    "minEpisodeMinutes": 13,
+    "maxEpisodeMinutes": 27,
+    "totalObservedHours": 8.2,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 28,
+      "bonus": 5,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2017-03-18",
+    "latest": "2020-03-07",
+    "latestFeedItem": "2022-09-07",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "http://inkwyrmpodcast.tumblr.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": "https://www.patreon.com/user?u=7455428"
+  },
+  "credits": {
+    "creatorName": "Caldera Studios",
+    "ownerName": "Caldera Studios"
+  },
+  "creators": [
+    "Caldera Studios"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://rss.buzzsprout.com/110819.rss; https://podcasts.apple.com/us/podcast/inkwyrm/id1204629419?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://rss.buzzsprout.com/110819.rss",
+      "https://podcasts.apple.com/us/podcast/inkwyrm/id1204629419?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Inkwyrm Magazine is an intergalactic fashion publication, bringing readers the newest looks from all over the universe. At the head of it all is Annie Inkwyrm, and directly behind her is Mella Sonder, AI caretaker and Annie’s PA. Along for the ride is an overzealous PR director, a perpetually unimpressed physician, and an AI that really needs to learn some ethics. Putting up with her boss is hard enough, but with the cutthroat fashion industry, and whatever is trying to kill everyone today, Mella and the gang have their hands full. One part sit-com, one part space opera, Inkwyrm is an audio drama for the truly fabulous.",
+    "socialUrls": [],
+    "funding": [
+      {
+        "url": "https://www.patreon.com/user?u=7455428",
+        "label": "Support this Podcast"
+      }
+    ],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 7
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2026 Caldera Studios",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "44406e01-fdd2-5e3c-a199-eb74489f73cc",
+        "rssUrl": "https://rss.buzzsprout.com/110819.rss",
+        "appleCollectionId": "1204629419",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.buzzsprout.com/110819.rss",
+          "fetchedAt": "2026-08-15T17:16:35.983Z",
+          "payloadHash": "4e1a15c9538c7630e0f6f2dc27c2c7b6e44fdac2553afbe4c18f80f4fbab5220"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/inkwyrm/id1204629419?uo=4",
+          "fetchedAt": "2026-08-15T17:16:35.911Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/inkwyrm/id1204629419?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/inkwyrm/id1204629419?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/inkwyrm/id1204629419?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/inkwyrm/id1204629419?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/inkwyrm/id1204629419?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/inkwyrm/id1204629419?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "funding": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "supportUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/110819.rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T17:16:36.833Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "fe944d7a8932f414890b3615b8770542167f359bedf2d9288cd2bef1abef475b",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "8b6a8aae11677bc8047ed70c9bf49316e5d99cd0aa686d829c4f404ee3a5b946",
+        "cover": "8a76c13b33719e6206f7f89c58a5df9003b0352af5fbfdcfc7ecbbcc5856424e",
+        "coverAlt": "2064b3fdf56948630bb18d4ff39913c1b96274c387fa49560226ea13f1624451",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "51da6442c669a62cb7cb5d9af46f25880d01ff3648f2fdd9e5e88f1eaa7982b8",
+        "officialLinks": "1051bd028419264e63f667e99d115a9acbdf2d61592d9af935ddbc63436b9ce3",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "664448b42f2ef287e4854512cb67b59cc9ced6f98c1820741269da8552b71e1d",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "5c0c8fed88785049579a3208a420ac4ca9fe182d1656544ebbaf4f94b13dd208",
+        "releaseDates": "9ca88b59fffdbe8d8c8d4e68d8d73ee47eba8bb15026f827dbc2ee749080a3dc",
+        "credits": "4459ee4e190f8f24af621c22ab2bf61ee5209193bfeadfe22387cf7cd3aaf227",
+        "creators": "1b792f4d34c056b076c84ad638a3b7676055da8dc9e21fccfb38677901eb8251",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "add7bdf319f63bd5de011318a39fc3765794a3a47ba6f69cfffad0a25e3ab59d"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T17:16:43.613Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "caldera-studios"
+}
