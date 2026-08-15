@@ -118,7 +118,20 @@ function main() {
     .filter(({ priority }) => priority === "P0" || priority === "P1");
   const context = createImportContext();
   try {
-    const candidates = context.service.listForMaintainer({ page: 1, pageSize: 10_000, includeClosed: true }).items;
+    const candidates = [];
+    let candidatePage = 1;
+    let candidateTotal = 0;
+    do {
+      const page = context.store.listCandidates({
+        page: candidatePage,
+        pageSize: 200,
+        includeClosed: true,
+        openStatuses: [],
+      });
+      candidates.push(...page.items);
+      candidateTotal = page.total;
+      candidatePage += 1;
+    } while (candidates.length < candidateTotal);
     const shows = readShowsFile(root);
     const stateRows = rows.map((row) => {
       const candidate = candidateForRow(candidates, row);
