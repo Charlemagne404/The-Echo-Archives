@@ -1,0 +1,701 @@
+{
+  "id": "the-soft-boiled-detective",
+  "title": "The Soft-Boiled Detective",
+  "subtitle": "",
+  "description": "In 2420, HBD, a soft-hearted detective, teams up with Tiffany, a sardonic crematory operator who is targeted by the triad, to take on an organized crime dynasty to solve the murder of his childhood friend.",
+  "cover": "images/covers/the-soft-boiled-detective.jpg",
+  "coverAlt": "The Soft-Boiled Detective cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/1uu72qQYu5Z7hJicfmzEIS?si=60958ce51c9e4bdb",
+    "apple": "https://podcasts.apple.com/us/podcast/the-soft-boiled-detective/id1610259427",
+    "website": "https://thesoftboileddetective.carrd.co/",
+    "rss": "https://anchor.fm/s/3d1451a8/podcast/rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Soft-Boiled Detective",
+    "The Soft-Boiled Detective Podcast"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 7 full episodes • 20 min median",
+    "seasons": 1,
+    "episodes": 7,
+    "avgEpisodeMinutes": 19,
+    "medianEpisodeMinutes": 20,
+    "minEpisodeMinutes": 13,
+    "maxEpisodeMinutes": 23,
+    "totalObservedHours": 2.2,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 7,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2022-02-16",
+    "latest": "2022-05-07",
+    "latestFeedItem": "2022-05-07",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://thesoftboileddetective.carrd.co/",
+    "patreon": "https://www.patreon.com/katwalkershea",
+    "koFi": "https://ko-fi.com/katwalkershea",
+    "discord": "",
+    "youtube": "https://www.youtube.com/channel/UCtxVk7PdJAkbjtjBtdScgkA",
+    "social": "https://bsky.app/profile/thesoftboiledpod.bsky.social",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "The Soft-Boiled Detective",
+    "ownerName": "The Soft-Boiled Detective",
+    "network": "The Soft-Boiled Detective Podcast"
+  },
+  "creators": [
+    "The Soft-Boiled Detective"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://thesoftboileddetective.carrd.co/; https://anchor.fm/s/3d1451a8/podcast/rss; https://podcasts.apple.com/us/podcast/the-soft-boiled-detective/id1610259427?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://thesoftboileddetective.carrd.co/",
+      "https://anchor.fm/s/3d1451a8/podcast/rss",
+      "https://podcasts.apple.com/us/podcast/the-soft-boiled-detective/id1610259427?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "In 2420, HBD, a soft-hearted detective, teams up with Tiffany, a sardonic crematory operator who is targeted by the triad, to take on an organized crime dynasty to solve the murder of his childhood friend.",
+    "socialUrls": [
+      "https://bsky.app/profile/thesoftboiledpod.bsky.social",
+      "https://twitter.com/SoftBoiledPod",
+      "https://www.facebook.com/thesoftboileddetectivepod"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 6
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "The Soft-Boiled Detective",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://anchor.fm/s/3d1451a8/podcast/rss",
+        "appleCollectionId": "1610259427",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://thesoftboileddetective.carrd.co/",
+          "fetchedAt": "2026-08-15T21:43:32.759Z",
+          "payloadHash": "967f2a9caaa31715cb51cffbce93d36b51dccccae283fc208a30c552bb1b8e7a"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss",
+          "fetchedAt": "2026-08-15T21:43:32.156Z",
+          "payloadHash": "ac3631a986dd276170b644d2a512c29a1ebbc9d1103e75ae336c99729357ccf9"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-soft-boiled-detective/id1610259427?uo=4",
+          "fetchedAt": "2026-08-15T21:43:32.105Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-soft-boiled-detective/id1610259427?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-soft-boiled-detective/id1610259427?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-soft-boiled-detective/id1610259427?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thesoftboileddetective.carrd.co/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-soft-boiled-detective/id1610259427?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-soft-boiled-detective/id1610259427?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-soft-boiled-detective/id1610259427?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thesoftboileddetective.carrd.co/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thesoftboileddetective.carrd.co/"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.6,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thesoftboileddetective.carrd.co/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thesoftboileddetective.carrd.co/"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thesoftboileddetective.carrd.co/"
+            }
+          ]
+        },
+        "koFiUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thesoftboileddetective.carrd.co/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thesoftboileddetective.carrd.co/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thesoftboileddetective.carrd.co/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T21:43:32.942Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "0f38a0238c60814b525457cd146d2969d0e3b3619438656971b631a3bae1737f",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "8aabfeacdf3405aff0ed81391357e1811c60e48e89dbf7cf53732257baba76e3",
+        "cover": "426fbc9e04b58eff4ca84a21c60aabe30ee9897c35a81387e42b70d77909f678",
+        "coverAlt": "e4673bc9ef243660083f880ba2bc35214e646616c25115bc37073c83256dc97b",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "f07659c5ea7b93c2ebc37f2bdff0fbb3fb0404bc06c7dbaaaa1e280e12f24df5",
+        "officialLinks": "b8c7aeb696ee4f6587bc2308278bf54f90c87259f6d6f4e964961400351466ef",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "a4d3a4b6c6cffee813f1bb91b295bcc5577a1caf5bbdad0bc96f6de309a845a5",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "c7c26bae8a602ea775212ab80c821d59a257fa632aeb2d202ea27ea1e40619dc",
+        "releaseDates": "50a8a12442b9e3b4cc3ee17fa1c8aa4ec6455adf955841ccda9088c9f149a163",
+        "credits": "ef23cbeb27bab79cb8eebfb64349ca18b5843033e9cdd6272a1e1faa57135cc6",
+        "creators": "516ed1edc1405e3d2933227d841b6bfe1551e765027c7dc32a1ff911ac99e01c",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "87222ecb80902bdb111a644df86686d482db99e748789e636d4ec401b8731162"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T21:46:02.986Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "the-soft-boiled-detective",
+  "networkId": "the-soft-boiled-detective-podcast"
+}

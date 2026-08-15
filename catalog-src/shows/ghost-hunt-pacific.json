@@ -1,0 +1,604 @@
+{
+  "id": "ghost-hunt-pacific",
+  "title": "Ghost Hunt Pacific",
+  "subtitle": "Transcripts of the Unknown and Unbelieved",
+  "description": "Juno Desconocida is a collector of the supernatural, but only that which they believe with absolute certainty are fakes. \"Haunted\" Dolls, Talismans, Paranormal \"Evidence\", and whatever else supernatural scammers are selling. They have recently started collecting items relating to a local legend turned online myth, the mysterious ghost hunting show simply named \"Ghost Hunt Pacific\". After some time of collecting, they have started to receive transcripts of the never before seen GHP episodes from an unknown source. They decide to record audio copies for their private collection and begins to uncover the secrets they hold.",
+  "cover": "images/covers/ghost-hunt-pacific.png",
+  "coverAlt": "Ghost Hunt Pacific cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/ghost-hunt-pacific/id1593053177?uo=4",
+    "website": "https://www.mushroomstation.net/ghost-hunt-pacific",
+    "rss": "https://pinecast.com/feed/ghost-hunt-pacific",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Ghost Hunt Pacific"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 10 full episodes • 30 min median",
+    "episodes": 10,
+    "avgEpisodeMinutes": 27,
+    "medianEpisodeMinutes": 30,
+    "minEpisodeMinutes": 9,
+    "maxEpisodeMinutes": 38,
+    "totalObservedHours": 4.1,
+    "durationCoverage": 0.9,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 10,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2021-11-07",
+    "latest": "2022-12-04",
+    "latestFeedItem": "2022-12-04",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.mushroomstation.net/ghost-hunt-pacific",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Jupiter Morningstar",
+    "ownerName": "Jupiter Morningstar"
+  },
+  "creators": [
+    "Jupiter Morningstar"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://pinecast.com/feed/ghost-hunt-pacific; https://podcasts.apple.com/us/podcast/ghost-hunt-pacific/id1593053177?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://pinecast.com/feed/ghost-hunt-pacific",
+      "https://podcasts.apple.com/us/podcast/ghost-hunt-pacific/id1593053177?uo=4"
+    ],
+    "sourceCategories": [
+      "Leisure",
+      "Home & Garden",
+      "Fiction",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Juno Desconocida is a collector of the supernatural, but only that which they believe with absolute certainty are fakes. \"Haunted\" Dolls, Talismans, Paranormal \"Evidence\", and whatever else supernatural scammers are selling. They have recently started collecting items relating to a local legend turned online myth, the mysterious ghost hunting show simply named \"Ghost Hunt Pacific\". After some time of collecting, they have started to receive transcripts of the never before seen GHP episodes from an unknown source. They decide to record audio copies for their private collection and begins to uncover the secrets they hold.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2026",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://pinecast.com/feed/ghost-hunt-pacific",
+        "appleCollectionId": "1593053177",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific",
+          "fetchedAt": "2026-08-15T21:44:35.493Z",
+          "payloadHash": "4897f2495efd34ee7976f5893a0c9849a5839397a829542ebadcf462f2b1ca87"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/ghost-hunt-pacific/id1593053177?uo=4",
+          "fetchedAt": "2026-08-15T21:44:35.288Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/ghost-hunt-pacific/id1593053177?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/ghost-hunt-pacific/id1593053177?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/ghost-hunt-pacific/id1593053177?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/ghost-hunt-pacific/id1593053177?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/ghost-hunt-pacific/id1593053177?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/ghost-hunt-pacific/id1593053177?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T21:44:36.387Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "ccba5eff2a1bbbfa8e43bcb50dd0b2bbf7123bf4b7d15b3c5b3bde61338e0104",
+        "subtitle": "4b867d901f74ebe1f54cf6471e12345a57994ae555082f7292e50b405e8ade02",
+        "description": "facdab84057269014e7540486c2dba97fe82a169a8ff88fe292179e40de219dd",
+        "cover": "8107a476c4926f2072971ca776b09185f480c2919a1032c98c06457375deda13",
+        "coverAlt": "c511fc33258a50a5653fc38266de41fa2c6c6772dbb35c4b0c834d91933e9fcc",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "12215dfc85c363bbe0e77443faba4d14979898e07db97c45f7ddb34bb46b6eb5",
+        "officialLinks": "96ca771fb6fb6d0cc23137a6aa845994219480721967fdb9e23f5f83207c33f3",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "9575c2a73118778d6d4ed181bdfdf73e9749f9dca9a6b5667553ca93b005aa2c",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "392355a232bf3651e94fed12e69253ce306dcf9af1e68a104e75729107b0a676",
+        "releaseDates": "784e2cf4d48d7655f800e0ec41c9fe3833988439555326c4226cbc709deabc04",
+        "credits": "6c237a748c482e600539c1d7bc421204bf3b98fdeeac6cbfe144ef3667b657ba",
+        "creators": "b3f6504ea61c87cfcf811d033293c84a63359a5fa8577898d34481b4c5acf6b9",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "090aa59c49667f9a55bfb2ba2f5435c73d22d3f089eba825ffe7d615649147e9"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T21:46:02.992Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "jupiter-morningstar"
+}

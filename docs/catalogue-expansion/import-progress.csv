@@ -1093,13 +1093,13 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1093,P3,Crestfall: A Fantasy Audio Drama,,2bfe38cb-4ffb-4802-b9c2-cb5ed2e131bd,published,published,,2026-08-15 21:42:26
 1094,P3,TAGGED,,95b4a7f7-474e-4b3e-a5ea-96f7eef16f5b,published,published,,2026-08-15 21:42:26
 1095,P3,WildTrials,,29684dfe-68da-4d93-822c-8914ca217888,published,published,,2026-08-15 21:42:26
-1096,P3,Cauterized,,,unattempted,,,
+1096,P3,Cauterized,,b43a11fa-6dc9-4d17-a710-91a2d24ee9b2,needs-review,needs-review,source-conflict,2026-08-15 21:44:34
 1097,P2,Action Science Theater,,5afea772-93a7-40b5-b489-3fae4511037b,needs-review,needs-review,source-conflict,2026-08-15 20:23:50
 1098,P2,American Comedy Horror Story,,b6470983-1f92-4d94-9b96-a3caa7482df3,published,published,,2026-08-15 20:28:59
 1099,P2,Ancestry,Koach Studios,cf0df89e-73c0-4f3a-a779-6ccc3779b279,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; cover-not-ready; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 20:28:30
 1100,P2,Atlas Avenue Beat,,e583c2a2-ad4f-4b37-9212-05b963027d28,published,published,,2026-08-15 20:28:59
 1101,P2,The Adventures of Brian Hovis,,6c0bbd0e-aba0-4fc6-965d-7891d4d53ceb,needs-review,needs-review,source-conflict,2026-08-15 20:27:29
-1102,P3,Bend in the River,Converge Radio (Blugold Radio 99.9 FM),,unattempted,,,
+1102,P3,Bend in the River,Converge Radio (Blugold Radio 99.9 FM),9638b174-8fe4-4913-8143-e6402bf1d968,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 21:44:39
 1103,P2,Bellingham Terror,,03aa487d-72d8-4f47-b397-2803fd06523b,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:27:31
 1104,P2,BS De Resistance – A Fever Dream of the Trump Years,,3220a914-05cc-4ef2-8d8c-5ca1778ea30d,needs-review,needs-review,scope-review; source-conflict,2026-08-15 20:26:29
 1105,P2,Calais 2037,,09efd6c1-1727-4336-84be-0a3d0b413b53,published,published,,2026-08-15 20:28:59
@@ -1252,29 +1252,29 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1252,P2,Life Happens - An Audio Series,,05bd6c32-1e53-4fad-8adb-50808e6497b7,published,published,,2026-08-15 20:42:41
 1253,P2,The Avengers: Audio Drama,,dce14ea4-1fb6-4cdd-896c-b3b08ce539ab,needs-review,needs-review,source-conflict,2026-08-15 20:42:30
 1254,P2,EchoTales,,94c9f597-54f9-48e3-b108-ce3364de5145,needs-review,needs-review,source-conflict,2026-08-15 20:41:28
-1255,P3,Century The Series,,,unattempted,,,
-1256,P3,The Crime at Camp Ashwood,,,unattempted,,,
-1257,P3,Professionally Possessed,,,unattempted,,,
-1258,P3,Wizlyean On Air,,,unattempted,,,
-1259,P3,The Foundation Dossier,,,unattempted,,,
-1260,P3,Tobias and Syd,,,unattempted,,,
-1261,P3,Legend Of Glaive,,,unattempted,,,
-1262,P3,Hit Replay,,,unattempted,,,
-1263,P3,Bird Woman,,,unattempted,,,
-1264,P3,Mercury's Wake,,,unattempted,,,
-1265,P3,The Zib's Misadventures in Spaaaace,,,unattempted,,,
-1266,P3,The Gorgon Show,,,unattempted,,,
-1267,P3,Gummy and The Doctor,,,unattempted,,,
-1268,P3,Silent Transmission,,,unattempted,,,
-1269,P3,Flashover,,,unattempted,,,
-1270,P3,Outgrowth,,,unattempted,,,
-1271,P3,The Soft-Boiled Detective,,,unattempted,,,
-1272,P3,Domesticated,,,unattempted,,,
-1273,P3,Calamity,,,unattempted,,,
-1274,P3,Wilzerlott,,,unattempted,,,
-1275,P3,Ghost Hunt Pacific,,,unattempted,,,
-1276,P3,Feminist Fairytales,,,unattempted,,,
-1277,P3,The Grove,,,unattempted,,,
+1255,P3,Century The Series,,3bc74118-f785-43ae-8a55-1e90edf3d992,needs-review,needs-review,source-conflict,2026-08-15 21:45:34
+1256,P3,The Crime at Camp Ashwood,,7ea06007-1698-47da-a2f7-cab4b12034b4,published,published,,2026-08-15 21:46:06
+1257,P3,Professionally Possessed,,c7d132d8-ff57-4a92-a5eb-b74e5d3c0aa0,published,published,,2026-08-15 21:46:06
+1258,P3,Wizlyean On Air,,30cb4130-8c10-4b3f-82a5-aea140eb3192,needs-review,needs-review,source-conflict,2026-08-15 21:45:41
+1259,P3,The Foundation Dossier,,4438cddc-b1e9-4590-a12f-2cdc20d84ad7,published,published,,2026-08-15 21:46:06
+1260,P3,Tobias and Syd,,340d4209-fd31-4ba5-a888-e6b1bb7bd031,needs-review,needs-review,source-conflict,2026-08-15 21:43:33
+1261,P3,Legend Of Glaive,,4442e0a6-7a6e-4993-a76b-90d6beb3922e,needs-review,needs-review,source-conflict,2026-08-15 21:45:40
+1262,P3,Hit Replay,,036392c8-8261-4909-9df5-aca12db34948,needs-review,needs-review,source-conflict,2026-08-15 21:45:41
+1263,P3,Bird Woman,,4315c9d0-0623-4ef2-a460-00c17e87b66d,needs-review,needs-review,source-conflict,2026-08-15 21:45:43
+1264,P3,Mercury's Wake,,35029001-b7a0-496d-bc33-ddc25f5698e2,needs-review,needs-review,source-conflict,2026-08-15 21:46:02
+1265,P3,The Zib's Misadventures in Spaaaace,,6ff823e2-e138-431b-b4a5-116311849b89,published,published,,2026-08-15 21:46:06
+1266,P3,The Gorgon Show,,383c4cfb-c8f0-406e-9b53-04285214b5e7,needs-review,needs-review,source-conflict,2026-08-15 21:45:37
+1267,P3,Gummy and The Doctor,,8c22ee75-61ce-4860-819f-0d1136f90363,needs-review,needs-review,source-conflict,2026-08-15 21:43:35
+1268,P3,Silent Transmission,,816411ed-3536-4983-83b6-3bd2f82a9c38,needs-review,needs-review,source-conflict,2026-08-15 21:43:33
+1269,P3,Flashover,,86c73368-3579-4439-921c-818963f7c375,published,published,,2026-08-15 21:46:06
+1270,P3,Outgrowth,,22849a1d-4a72-4aa5-bd0c-556c4b4fd32a,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 21:45:36
+1271,P3,The Soft-Boiled Detective,,9d3e71d6-1a06-412c-9b1e-47714641783b,published,published,,2026-08-15 21:46:06
+1272,P3,Domesticated,,56fbb350-403b-4fd7-b199-309937f9c4e3,needs-review,needs-review,invalid-apple-link; scope-review; source-conflict,2026-08-15 21:43:37
+1273,P3,Calamity,,2315603e-dc06-4cdc-8c81-9e6e40b75eaf,needs-review,needs-review,scope-review,2026-08-15 21:44:38
+1274,P3,Wilzerlott,,291b9984-123b-4446-b4dd-036e79d82af9,published,published,,2026-08-15 21:46:06
+1275,P3,Ghost Hunt Pacific,,1d5f150e-a510-41a1-95ff-a7ffac269563,published,published,,2026-08-15 21:46:06
+1276,P3,Feminist Fairytales,,521b3192-3b71-4005-ae02-8350d5b9b987,published,published,,2026-08-15 21:46:06
+1277,P3,The Grove,,50b70527-2e7e-4133-8240-90df7fde4176,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 21:45:37
 1278,P3,A Call to the Stars,,,unattempted,,,
 1279,P3,Of Gods and Lanterns,,,unattempted,,,
 1280,P3,Babalu,,,unattempted,,,

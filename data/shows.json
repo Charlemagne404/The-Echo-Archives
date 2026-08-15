@@ -394478,5 +394478,5523 @@
         "width": 640
       }
     ]
+  },
+  {
+    "id": "the-crime-at-camp-ashwood",
+    "title": "The Crime at Camp Ashwood",
+    "subtitle": "",
+    "description": "Desperate to finally solve the decades-old cold case of her best friend’s murder, Margot Ingell returns to the scene of the crime. Will the discovery of a long-lost diary reveal the killer, or will the secret forever remain at the bottom of Camp Ashwood’s lake? Complete series available now. Winner of the Austin Film Festival Fiction Podcast Script Award and 2025 Webby Award Honoree. Created, Written, and Directed by Laura Hunter Drago. Featuring Hally Smith, Meisha Brooks, Deborah Lee Smith, and Laura Hunter Drago.",
+    "cover": "images/covers/the-crime-at-camp-ashwood.jpg",
+    "coverAlt": "The Crime at Camp Ashwood cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/the-crime-at-camp-ashwood/id1713637754?uo=4",
+      "website": "https://www.thecrimeatcampashwood.com/",
+      "rss": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Crime at Camp Ashwood"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 12 full episodes • 15 min median",
+      "seasons": 1,
+      "episodes": 12,
+      "avgEpisodeMinutes": 15,
+      "medianEpisodeMinutes": 15,
+      "minEpisodeMinutes": 12,
+      "maxEpisodeMinutes": 19,
+      "totalObservedHours": 3.1,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 12,
+        "bonus": 1,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2023-10-31",
+      "latest": "2024-04-02",
+      "latestFeedItem": "2024-04-30"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.thecrimeatcampashwood.com/"
+    },
+    "credits": {
+      "creatorName": "Dragon Hunter Productions / New Girl Pictures",
+      "ownerName": "Dragon Hunter Productions / New Girl Pictures"
+    },
+    "creators": [
+      "Dragon Hunter Productions / New Girl Pictures"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://anchor.fm/s/e50e5cb4/podcast/rss; https://podcasts.apple.com/us/podcast/the-crime-at-camp-ashwood/id1713637754?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "5 observed episodes",
+      "captions": "unknown",
+      "transcriptCoverage": 0.357,
+      "transcriptFormats": [
+        "application/x-subrip"
+      ]
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://anchor.fm/s/e50e5cb4/podcast/rss",
+        "https://podcasts.apple.com/us/podcast/the-crime-at-camp-ashwood/id1713637754?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "Desperate to finally solve the decades-old cold case of her best friend’s murder, Margot Ingell returns to the scene of the crime. Will the discovery of a long-lost diary reveal the killer, or will the secret forever remain at the bottom of Camp Ashwood’s lake? Complete series available now. Winner of the Austin Film Festival Fiction Podcast Script Award and 2025 Webby Award Honoree. Created, Written, and Directed by Laura Hunter Drago. Featuring Hally Smith, Meisha Brooks, Deborah Lee Smith, and Laura Hunter Drago.",
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Dragon Hunter Productions / New Girl Pictures",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss",
+          "appleCollectionId": "1713637754"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss",
+            "fetchedAt": "2026-08-15T21:44:35.058Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-crime-at-camp-ashwood/id1713637754?uo=4",
+            "fetchedAt": "2026-08-15T21:44:35.034Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-crime-at-camp-ashwood/id1713637754?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-crime-at-camp-ashwood/id1713637754?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-crime-at-camp-ashwood/id1713637754?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-crime-at-camp-ashwood/id1713637754?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-crime-at-camp-ashwood/id1713637754?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-crime-at-camp-ashwood/id1713637754?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T21:44:35.479Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T21:46:02.955Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "dragon-hunter-productions-new-girl-pictures",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-crime-at-camp-ashwood",
+    "hasPage": true,
+    "image": "images/covers/the-crime-at-camp-ashwood.jpg",
+    "imageAlt": "The Crime at Camp Ashwood cover art",
+    "summary": "Desperate to finally solve the decades-old cold case of her best friend’s murder, Margot Ingell returns to the scene of the crime. Will the discovery of a long-lost diary reveal the killer, or will the secret forever remain at the bottom of Camp Ashwood’s lake? Complete series available now. Winner of the Austin Film Festival Fiction Podcast Script Award and 2025 Webby Award Honoree. Created, Written, and Directed by Laura Hunter Drago. Featuring Hally Smith, Meisha Brooks, Deborah Lee Smith, and Laura Hunter Drago.",
+    "finalRating": null,
+    "searchText": "the crime at camp ashwood desperate to finally solve the decades old cold case of her best friend s murder margot ingell returns to the scene of the crime will the discovery of a long lost diary reveal the killer or will the secret forever remain at the bottom of camp ashwood s lake complete series available now winner of the austin film festival fiction podcast script award and 2025 webby award honoree created written and directed by laura hunter drago featuring hally smith meisha brooks deborah lee smith and laura hunter drago drama episodic the crime at camp ashwood dragon hunter productions new girl pictures english unclear imported dragon hunter productions new girl pictures dragon hunter productions new girl pictures 5 observed episodes unknown 0 357 application x subrip",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-crime-at-camp-ashwood-4b35a4ce5a-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-crime-at-camp-ashwood-4b35a4ce5a-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "professionally-possessed",
+    "title": "Professionally Possessed",
+    "subtitle": "",
+    "description": "A collection of stand-alone fantasy audio stories about Helena, a woman who exorcises people of demons by drawing the demons out of their bodies into hers. She stumbled into this line of work by a botched exorcism she endured as a child which permanently marked her with a tattoo that forces demons to take her instead of other victims. To survive, she learned how to defeat demons in their inner world, their second consciousness, with magic powers that only exist there. However, she is powerless to control her own body in the outer world while possessed. She is often helped by Martzia, a charismatic licensed exorcist who finds clients, handles the money, and comforts victims, and Bridgette, a former soldier and demon slayer, who protects Helana from herself and makes sure she doesn’t hurt anyone else. Occasionally, Simon, a healer mage given his powers by a mysterious god, also helps out. These stories explore various parts of Helena’s life and her effect on others. Most stories span multiple episodes but otherwise are independent narratives. There is some narration by Helena or other’s depending on the story, and they are not chronological order. Content warnings include: violence, blood, gore, talk of suicidal thoughts, and some transphobia.",
+    "cover": "images/covers/professionally-possessed.png",
+    "coverAlt": "Professionally Possessed cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/professionally-possessed/id1703422352?uo=4",
+      "website": "https://professionallypossessed.carrd.co/",
+      "rss": "https://pinecast.com/feed/professionally-possessed"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Professionally Possessed"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 10 full episodes • 33 min median",
+      "seasons": 1,
+      "episodes": 10,
+      "avgEpisodeMinutes": 36,
+      "medianEpisodeMinutes": 33,
+      "minEpisodeMinutes": 22,
+      "maxEpisodeMinutes": 48,
+      "totalObservedHours": 6,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 10,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2023-08-24",
+      "latest": "2023-10-26",
+      "latestFeedItem": "2023-10-26"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://professionallypossessed.carrd.co/",
+      "social": "https://twitter.com/ProfPossessPod"
+    },
+    "credits": {
+      "creatorName": "Christine Mendiola",
+      "ownerName": "Christine Mendiola",
+      "network": "Professionally Possessed"
+    },
+    "creators": [
+      "Christine Mendiola"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://professionallypossessed.carrd.co/; https://pinecast.com/feed/professionally-possessed; https://podcasts.apple.com/us/podcast/professionally-possessed/id1703422352?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://professionallypossessed.carrd.co/",
+        "https://pinecast.com/feed/professionally-possessed",
+        "https://podcasts.apple.com/us/podcast/professionally-possessed/id1703422352?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "A collection of stand-alone fantasy audio stories about Helena, a woman who exorcises people of demons by drawing the demons out of their bodies into hers. She stumbled into this line of work by a botched exorcism she endured as a child which permanently marked her with a tattoo that forces demons to take her instead of other victims. To survive, she learned how to defeat demons in their inner world, their second consciousness, with magic powers that only exist there. However, she is powerless to control her own body in the outer world while possessed. She is often helped by Martzia, a charismatic licensed exorcist who finds clients, handles the money, and comforts victims, and Bridgette, a former soldier and demon slayer, who protects Helana from herself and makes sure she doesn’t hurt anyone else. Occasionally, Simon, a healer mage given his powers by a mysterious god, also helps out. These stories explore various parts of Helena’s life and her effect on others. Most stories span multiple episodes but otherwise are independent narratives. There is some narration by Helena or other’s depending on the story, and they are not chronological order. Content warnings include: violence, blood, gore, talk of suicidal thoughts, and some transphobia.",
+      "socialUrls": [
+        "https://twitter.com/ProfPossessPod",
+        "https://www.instagram.com/profpossesspod/"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Copyright 2026",
+        "explicit": "yes",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://pinecast.com/feed/professionally-possessed",
+          "appleCollectionId": "1703422352"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://professionallypossessed.carrd.co/",
+            "fetchedAt": "2026-08-15T21:44:36.361Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://pinecast.com/feed/professionally-possessed",
+            "fetchedAt": "2026-08-15T21:44:35.684Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/professionally-possessed/id1703422352?uo=4",
+            "fetchedAt": "2026-08-15T21:44:35.165Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/professionally-possessed/id1703422352?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://professionallypossessed.carrd.co/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/professionally-possessed/id1703422352?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/professionally-possessed/id1703422352?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/professionally-possessed/id1703422352?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/professionally-possessed/id1703422352?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/professionally-possessed/id1703422352?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/professionally-possessed/id1703422352?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://professionallypossessed.carrd.co/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.6,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://professionallypossessed.carrd.co/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://professionallypossessed.carrd.co/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/professionally-possessed"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T21:44:36.953Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T21:46:02.970Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "christine-mendiola",
+    "networkId": "professionally-possessed",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/professionally-possessed",
+    "hasPage": true,
+    "image": "images/covers/professionally-possessed.png",
+    "imageAlt": "Professionally Possessed cover art",
+    "summary": "A collection of stand-alone fantasy audio stories about Helena, a woman who exorcises people of demons by drawing the demons out of their bodies into hers. She stumbled into this line of work by a botched exorcism she endured as a child which permanently marked her with a tattoo that forces demons to take her instead of other victims. To survive, she learned how to defeat demons in their inner world, their second consciousness, with magic powers that only exist there. However, she is powerless to control her own body in the outer world while possessed. She is often helped by Martzia, a charismatic licensed exorcist who finds clients, handles the money, and comforts victims, and Bridgette, a former soldier and demon slayer, who protects Helana from herself and makes sure she doesn’t hurt anyone else. Occasionally, Simon, a healer mage given his powers by a mysterious god, also helps out. These stories explore various parts of Helena’s life and her effect on others. Most stories span multiple episodes but otherwise are independent narratives. There is some narration by Helena or other’s depending on the story, and they are not chronological order. Content warnings include: violence, blood, gore, talk of suicidal thoughts, and some transphobia.",
+    "finalRating": null,
+    "searchText": "professionally possessed a collection of stand alone fantasy audio stories about helena a woman who exorcises people of demons by drawing the demons out of their bodies into hers she stumbled into this line of work by a botched exorcism she endured as a child which permanently marked her with a tattoo that forces demons to take her instead of other victims to survive she learned how to defeat demons in their inner world their second consciousness with magic powers that only exist there however she is powerless to control her own body in the outer world while possessed she is often helped by martzia a charismatic licensed exorcist who finds clients handles the money and comforts victims and bridgette a former soldier and demon slayer who protects helana from herself and makes sure she doesn t hurt anyone else occasionally simon a healer mage given his powers by a mysterious god also helps out these stories explore various parts of helena s life and her effect on others most stories span multiple episodes but otherwise are independent narratives there is some narration by helena or other s depending on the story and they are not chronological order content warnings include violence blood gore talk of suicidal thoughts and some transphobia drama serialized professionally possessed christine mendiola english unclear imported christine mendiola christine mendiola professionally possessed unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/professionally-possessed-34c98b45f0-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/professionally-possessed-34c98b45f0-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "the-foundation-dossier",
+    "title": "The Foundation Dossier",
+    "subtitle": "Those who recount history are doomed to repeat it.",
+    "description": "Those who recount history are doomed to repeat it. The Foundation Dossier is a horror fiction anthology podcast that delves into unexplainable and strange goings on within the world, from The Bournemouth Foundation for the Furthering of Paranormal Research. And who knows, maybe things inside the foundation are more complicated than they seem. Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/the-foundation-dossier.jpg",
+    "coverAlt": "The Foundation Dossier cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/the-foundation-dossier/id1670745906?uo=4",
+      "website": "https://feeds.acast.com/public/shows/the-foundation-dossier",
+      "rss": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Foundation Dossier"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 1 full episode • 10 min median",
+      "seasons": 1,
+      "episodes": 1,
+      "avgEpisodeMinutes": 10,
+      "medianEpisodeMinutes": 10,
+      "minEpisodeMinutes": 10,
+      "maxEpisodeMinutes": 10,
+      "totalObservedHours": 0.2,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 1,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2023-02-08",
+      "latest": "2023-02-08",
+      "latestFeedItem": "2023-02-08"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://feeds.acast.com/public/shows/the-foundation-dossier"
+    },
+    "credits": {
+      "creatorName": "Jasmine Bacon",
+      "ownerName": "Jasmine Bacon"
+    },
+    "creators": [
+      "Jasmine Bacon"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e; https://podcasts.apple.com/us/podcast/the-foundation-dossier/id1670745906?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e",
+        "https://podcasts.apple.com/us/podcast/the-foundation-dossier/id1670745906?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Science Fiction"
+      ],
+      "sourceKeywords": [
+        "horror",
+        "psychological horror",
+        "drama",
+        "audio drama"
+      ],
+      "importOfficialSummary": "Those who recount history are doomed to repeat it. The Foundation Dossier is a horror fiction anthology podcast that delves into unexplainable and strange goings on within the world, from The Bournemouth Foundation for the Furthering of Paranormal Research. And who knows, maybe things inside the foundation are more complicated than they seem. Hosted on Acast. See acast.com/privacy for more information.",
+      "schedule": {
+        "label": "unknown",
+        "observedIntervals": 0
+      },
+      "podcast": {
+        "copyright": "Jasmine Bacon",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e",
+          "appleCollectionId": "1670745906"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e",
+            "fetchedAt": "2026-08-15T21:45:31.493Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-foundation-dossier/id1670745906?uo=4",
+            "fetchedAt": "2026-08-15T21:44:38.888Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-foundation-dossier/id1670745906?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-foundation-dossier/id1670745906?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-foundation-dossier/id1670745906?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-foundation-dossier/id1670745906?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-foundation-dossier/id1670745906?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-foundation-dossier/id1670745906?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-foundation-dossier/id1670745906?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63e407bdc5f4b500117e9d6e"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T21:45:32.629Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T21:46:02.975Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "jasmine-bacon",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-foundation-dossier",
+    "hasPage": true,
+    "image": "images/covers/the-foundation-dossier.jpg",
+    "imageAlt": "The Foundation Dossier cover art",
+    "summary": "Those who recount history are doomed to repeat it. The Foundation Dossier is a horror fiction anthology podcast that delves into unexplainable and strange goings on within the world, from The Bournemouth Foundation for the Furthering of Paranormal Research. And who knows, maybe things inside the foundation are more complicated than they seem. Hosted on Acast. See acast.com/privacy for more information.",
+    "finalRating": null,
+    "searchText": "the foundation dossier those who recount history are doomed to repeat it those who recount history are doomed to repeat it the foundation dossier is a horror fiction anthology podcast that delves into unexplainable and strange goings on within the world from the bournemouth foundation for the furthering of paranormal research and who knows maybe things inside the foundation are more complicated than they seem hosted on acast see acast com privacy for more information drama sci fi episodic the foundation dossier jasmine bacon english unclear imported jasmine bacon jasmine bacon unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-foundation-dossier-c29be267c5-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-foundation-dossier-c29be267c5-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "the-zibs-misadventures-in-spaaaace",
+    "title": "The Zib's Misadventures in Spaaaace",
+    "subtitle": "",
+    "description": "It’s 2220. The future is just as stupid as today, but with space travel. Our two-co-captains serve on the barely spaceworthy ship Zib, a surveyor vessel that locates valuable materials for mining and claims them for Earth. Our not-so-intrepid crewmembers find themselves in ridiculous situations and often have no idea WTF they’re doing, even when they think they do. We never said they were heroes.",
+    "cover": "images/covers/the-zibs-misadventures-in-spaaaace.jpg",
+    "coverAlt": "The Zib's Misadventures in Spaaaace cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/the-zibs-misadventures-in-spaaaace/id1637329833?uo=4",
+      "website": "http://zibmisadventures.com/",
+      "rss": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Zib's Misadventures in Spaaaace"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 6 full episodes • 52 min median",
+      "seasons": 1,
+      "episodes": 6,
+      "avgEpisodeMinutes": 52,
+      "medianEpisodeMinutes": 52,
+      "minEpisodeMinutes": 41,
+      "maxEpisodeMinutes": 63,
+      "totalObservedHours": 5.2,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 6,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2022-07-31",
+      "latest": "2022-09-05",
+      "latestFeedItem": "2022-09-05"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "http://zibmisadventures.com/"
+    },
+    "credits": {
+      "creatorName": "Charlynn Schmiedt and Phillip Gilfus",
+      "ownerName": "Charlynn Schmiedt and Phillip Gilfus"
+    },
+    "creators": [
+      "Charlynn Schmiedt and Phillip Gilfus"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://anchor.fm/s/a3ef9e28/podcast/rss; https://podcasts.apple.com/us/podcast/the-zibs-misadventures-in-spaaaace/id1637329833?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://anchor.fm/s/a3ef9e28/podcast/rss",
+        "https://podcasts.apple.com/us/podcast/the-zibs-misadventures-in-spaaaace/id1637329833?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction"
+      ],
+      "importOfficialSummary": "It’s 2220. The future is just as stupid as today, but with space travel. Our two-co-captains serve on the barely spaceworthy ship Zib, a surveyor vessel that locates valuable materials for mining and claims them for Earth. Our not-so-intrepid crewmembers find themselves in ridiculous situations and often have no idea WTF they’re doing, even when they think they do. We never said they were heroes.",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 5
+      },
+      "podcast": {
+        "copyright": "Charlynn Schmiedt and Phillip Gilfus",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss",
+          "appleCollectionId": "1637329833"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss",
+            "fetchedAt": "2026-08-15T21:43:34.757Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-zibs-misadventures-in-spaaaace/id1637329833?uo=4",
+            "fetchedAt": "2026-08-15T21:43:34.740Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-zibs-misadventures-in-spaaaace/id1637329833?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-zibs-misadventures-in-spaaaace/id1637329833?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-zibs-misadventures-in-spaaaace/id1637329833?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-zibs-misadventures-in-spaaaace/id1637329833?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-zibs-misadventures-in-spaaaace/id1637329833?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-zibs-misadventures-in-spaaaace/id1637329833?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-zibs-misadventures-in-spaaaace/id1637329833?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/a3ef9e28/podcast/rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T21:43:36.083Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T21:46:02.979Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "charlynn-schmiedt-and-phillip-gilfus",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-zibs-misadventures-in-spaaaace",
+    "hasPage": true,
+    "image": "images/covers/the-zibs-misadventures-in-spaaaace.jpg",
+    "imageAlt": "The Zib's Misadventures in Spaaaace cover art",
+    "summary": "It’s 2220. The future is just as stupid as today, but with space travel. Our two-co-captains serve on the barely spaceworthy ship Zib, a surveyor vessel that locates valuable materials for mining and claims them for Earth. Our not-so-intrepid crewmembers find themselves in ridiculous situations and often have no idea WTF they’re doing, even when they think they do. We never said they were heroes.",
+    "finalRating": null,
+    "searchText": "the zib s misadventures in spaaaace it s 2220 the future is just as stupid as today but with space travel our two co captains serve on the barely spaceworthy ship zib a surveyor vessel that locates valuable materials for mining and claims them for earth our not so intrepid crewmembers find themselves in ridiculous situations and often have no idea wtf they re doing even when they think they do we never said they were heroes drama sci fi episodic the zib s misadventures in spaaaace charlynn schmiedt and phillip gilfus english unclear imported charlynn schmiedt and phillip gilfus charlynn schmiedt and phillip gilfus unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-zibs-misadventures-in-spaaaace-5ef2ffe636-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-zibs-misadventures-in-spaaaace-5ef2ffe636-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "flashover",
+    "title": "Flashover",
+    "subtitle": "",
+    "description": "The notorious serial arsonist, Blake Kennedy, is about to go on trial for his crimes. Jordan Everett, a former firefighter turned journalist, is tasked with reporting on the case. She tries to be unbiased while uncovering Kennedy’s motive, but she’s convinced there’s something more. The lighter Kennedy carried sparks a new investigation into more than just one serial arsonist, and Jordan has to choose between a safe life with her wife, and her old oath to protect her community.",
+    "cover": "images/covers/flashover.jpg",
+    "coverAlt": "Flashover cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4",
+      "website": "https://cliothayer.wordpress.com/",
+      "rss": "https://anchor.fm/s/4e9c1348/podcast/rss"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Flashover"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 7 full episodes • 13 min median",
+      "seasons": 1,
+      "episodes": 7,
+      "avgEpisodeMinutes": 13,
+      "medianEpisodeMinutes": 13,
+      "minEpisodeMinutes": 10,
+      "maxEpisodeMinutes": 15,
+      "totalObservedHours": 1.5,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 7,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2022-04-30",
+      "latest": "2022-09-11",
+      "latestFeedItem": "2022-09-11"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://cliothayer.wordpress.com/"
+    },
+    "credits": {
+      "creatorName": "Clio Thayer",
+      "ownerName": "Clio Thayer",
+      "network": "Clio Thayer"
+    },
+    "creators": [
+      "Clio Thayer"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://cliothayer.wordpress.com/about/; https://cliothayer.wordpress.com/; https://anchor.fm/s/4e9c1348/podcast/rss; https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://cliothayer.wordpress.com/about/",
+        "https://cliothayer.wordpress.com/",
+        "https://anchor.fm/s/4e9c1348/podcast/rss",
+        "https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction"
+      ],
+      "importOfficialSummary": "The notorious serial arsonist, Blake Kennedy, is about to go on trial for his crimes. Jordan Everett, a former firefighter turned journalist, is tasked with reporting on the case. She tries to be unbiased while uncovering Kennedy’s motive, but she’s convinced there’s something more. The lighter Kennedy carried sparks a new investigation into more than just one serial arsonist, and Jordan has to choose between a safe life with her wife, and her old oath to protect her community.",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 6
+      },
+      "podcast": {
+        "copyright": "Clio Thayer",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://anchor.fm/s/4e9c1348/podcast/rss",
+          "appleCollectionId": "1621807811",
+          "feedRedirects": [
+            "https://cliothayer.wordpress.com/feed/"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://cliothayer.wordpress.com/about/",
+            "fetchedAt": "2026-08-15T21:43:35.684Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://cliothayer.wordpress.com/",
+            "fetchedAt": "2026-08-15T21:43:35.679Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss",
+            "fetchedAt": "2026-08-15T21:43:34.642Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4",
+            "fetchedAt": "2026-08-15T21:43:34.629Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://cliothayer.wordpress.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.63,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://cliothayer.wordpress.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://cliothayer.wordpress.com/about/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T21:43:36.222Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T21:46:02.984Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "clio-thayer",
+    "networkId": "clio-thayer",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/flashover",
+    "hasPage": true,
+    "image": "images/covers/flashover.jpg",
+    "imageAlt": "Flashover cover art",
+    "summary": "The notorious serial arsonist, Blake Kennedy, is about to go on trial for his crimes. Jordan Everett, a former firefighter turned journalist, is tasked with reporting on the case. She tries to be unbiased while uncovering Kennedy’s motive, but she’s convinced there’s something more. The lighter Kennedy carried sparks a new investigation into more than just one serial arsonist, and Jordan has to choose between a safe life with her wife, and her old oath to protect her community.",
+    "finalRating": null,
+    "searchText": "flashover the notorious serial arsonist blake kennedy is about to go on trial for his crimes jordan everett a former firefighter turned journalist is tasked with reporting on the case she tries to be unbiased while uncovering kennedy s motive but she s convinced there s something more the lighter kennedy carried sparks a new investigation into more than just one serial arsonist and jordan has to choose between a safe life with her wife and her old oath to protect her community drama episodic flashover clio thayer english unclear imported clio thayer clio thayer clio thayer unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/flashover-e053e656ce-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/flashover-e053e656ce-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "the-soft-boiled-detective",
+    "title": "The Soft-Boiled Detective",
+    "subtitle": "",
+    "description": "In 2420, HBD, a soft-hearted detective, teams up with Tiffany, a sardonic crematory operator who is targeted by the triad, to take on an organized crime dynasty to solve the murder of his childhood friend.",
+    "cover": "images/covers/the-soft-boiled-detective.jpg",
+    "coverAlt": "The Soft-Boiled Detective cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/1uu72qQYu5Z7hJicfmzEIS?si=60958ce51c9e4bdb",
+      "apple": "https://podcasts.apple.com/us/podcast/the-soft-boiled-detective/id1610259427",
+      "website": "https://thesoftboileddetective.carrd.co/",
+      "rss": "https://anchor.fm/s/3d1451a8/podcast/rss"
+    },
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Soft-Boiled Detective",
+      "The Soft-Boiled Detective Podcast"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 7 full episodes • 20 min median",
+      "seasons": 1,
+      "episodes": 7,
+      "avgEpisodeMinutes": 19,
+      "medianEpisodeMinutes": 20,
+      "minEpisodeMinutes": 13,
+      "maxEpisodeMinutes": 23,
+      "totalObservedHours": 2.2,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 7,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2022-02-16",
+      "latest": "2022-05-07",
+      "latestFeedItem": "2022-05-07"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://thesoftboileddetective.carrd.co/",
+      "patreon": "https://www.patreon.com/katwalkershea",
+      "koFi": "https://ko-fi.com/katwalkershea",
+      "youtube": "https://www.youtube.com/channel/UCtxVk7PdJAkbjtjBtdScgkA",
+      "social": "https://bsky.app/profile/thesoftboiledpod.bsky.social"
+    },
+    "credits": {
+      "creatorName": "The Soft-Boiled Detective",
+      "ownerName": "The Soft-Boiled Detective",
+      "network": "The Soft-Boiled Detective Podcast"
+    },
+    "creators": [
+      "The Soft-Boiled Detective"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://thesoftboileddetective.carrd.co/; https://anchor.fm/s/3d1451a8/podcast/rss; https://podcasts.apple.com/us/podcast/the-soft-boiled-detective/id1610259427?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://thesoftboileddetective.carrd.co/",
+        "https://anchor.fm/s/3d1451a8/podcast/rss",
+        "https://podcasts.apple.com/us/podcast/the-soft-boiled-detective/id1610259427?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Comedy Fiction"
+      ],
+      "importOfficialSummary": "In 2420, HBD, a soft-hearted detective, teams up with Tiffany, a sardonic crematory operator who is targeted by the triad, to take on an organized crime dynasty to solve the murder of his childhood friend.",
+      "socialUrls": [
+        "https://bsky.app/profile/thesoftboiledpod.bsky.social",
+        "https://twitter.com/SoftBoiledPod",
+        "https://www.facebook.com/thesoftboileddetectivepod"
+      ],
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 6
+      },
+      "podcast": {
+        "copyright": "The Soft-Boiled Detective",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://anchor.fm/s/3d1451a8/podcast/rss",
+          "appleCollectionId": "1610259427"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://thesoftboileddetective.carrd.co/",
+            "fetchedAt": "2026-08-15T21:43:32.759Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss",
+            "fetchedAt": "2026-08-15T21:43:32.156Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-soft-boiled-detective/id1610259427?uo=4",
+            "fetchedAt": "2026-08-15T21:43:32.105Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-soft-boiled-detective/id1610259427?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-soft-boiled-detective/id1610259427?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-soft-boiled-detective/id1610259427?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thesoftboileddetective.carrd.co/"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-soft-boiled-detective/id1610259427?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-soft-boiled-detective/id1610259427?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-soft-boiled-detective/id1610259427?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thesoftboileddetective.carrd.co/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thesoftboileddetective.carrd.co/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.6,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thesoftboileddetective.carrd.co/"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thesoftboileddetective.carrd.co/"
+              }
+            ]
+          },
+          "patreonUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thesoftboileddetective.carrd.co/"
+              }
+            ]
+          },
+          "koFiUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thesoftboileddetective.carrd.co/"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thesoftboileddetective.carrd.co/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thesoftboileddetective.carrd.co/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/3d1451a8/podcast/rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T21:43:32.942Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T21:46:02.986Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "the-soft-boiled-detective",
+    "networkId": "the-soft-boiled-detective-podcast",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-soft-boiled-detective",
+    "hasPage": true,
+    "image": "images/covers/the-soft-boiled-detective.jpg",
+    "imageAlt": "The Soft-Boiled Detective cover art",
+    "summary": "In 2420, HBD, a soft-hearted detective, teams up with Tiffany, a sardonic crematory operator who is targeted by the triad, to take on an organized crime dynasty to solve the murder of his childhood friend.",
+    "finalRating": null,
+    "searchText": "the soft boiled detective in 2420 hbd a soft hearted detective teams up with tiffany a sardonic crematory operator who is targeted by the triad to take on an organized crime dynasty to solve the murder of his childhood friend drama comedy episodic the soft boiled detective the soft boiled detective podcast the soft boiled detective english unclear imported the soft boiled detective the soft boiled detective the soft boiled detective podcast unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-soft-boiled-detective-ebe4db03fc-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-soft-boiled-detective-ebe4db03fc-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "wilzerlott",
+    "title": "Wilzerlott",
+    "subtitle": "",
+    "description": "A comedic fantasy series that considers itself a documentary. The magical kingdom of Wilzerlott existed one million years ago and its resident time traveler is here to tell you future cave people all about the dragons and curses of their time.",
+    "cover": "images/covers/wilzerlott.jpg",
+    "coverAlt": "Wilzerlott cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/0WOJXXRQLUZhmSOfskI1ks",
+      "apple": "https://podcasts.apple.com/us/podcast/wilzerlott/id1607567300?uo=4",
+      "website": "https://www.buzzsprout.com/1911976",
+      "rss": "https://rss.buzzsprout.com/1911976.rss",
+      "amazonMusic": "https://music.amazon.com/podcasts/ca17416c-4f50-4198-bd24-f031afdbb63b"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Wilzerlott"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "4 seasons observed • at least 45 full episodes • 20 min median",
+      "seasons": 4,
+      "episodes": 45,
+      "avgEpisodeMinutes": 21,
+      "medianEpisodeMinutes": 20,
+      "minEpisodeMinutes": 1,
+      "maxEpisodeMinutes": 39,
+      "totalObservedHours": 15.8,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        4,
+        3,
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 45,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2022-01-08",
+      "latest": "2026-07-31",
+      "latestFeedItem": "2026-07-31"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.buzzsprout.com/1911976",
+      "social": "http://www.facebook.com/sharer.php?u=https://www.buzzsprout.com/1911976/episodes/19579407"
+    },
+    "credits": {
+      "creatorName": "Jennifer Lott",
+      "ownerName": "Jennifer Lott",
+      "network": "Buzzsprout"
+    },
+    "creators": [
+      "Jennifer Lott"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://www.buzzsprout.com/1911976/episodes/19579407-s4-e1-yummy-explosions?t=0; https://www.buzzsprout.com/1911976/episodes?search=true; https://www.buzzsprout.com/1911976/about; https://www.buzzsprout.com/1911976/episodes; https://www.buzzsprout.com/1911976; https://rss.buzzsprout.com/1911976.rss; https://podcasts.apple.com/us/podcast/wilzerlott/id1607567300?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "40 observed episodes",
+      "captions": "unknown",
+      "transcriptCoverage": 0.87,
+      "transcriptFormats": [
+        "text/html"
+      ]
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://www.buzzsprout.com/1911976/episodes/19579407-s4-e1-yummy-explosions?t=0",
+        "https://www.buzzsprout.com/1911976/episodes?search=true",
+        "https://www.buzzsprout.com/1911976/about",
+        "https://www.buzzsprout.com/1911976/episodes",
+        "https://www.buzzsprout.com/1911976",
+        "https://rss.buzzsprout.com/1911976.rss",
+        "https://podcasts.apple.com/us/podcast/wilzerlott/id1607567300?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction"
+      ],
+      "importOfficialSummary": "A comedic fantasy series that considers itself a documentary. The magical kingdom of Wilzerlott existed one million years ago and its resident time traveler is here to tell you future cave people all about the dragons and curses of their time.",
+      "socialUrls": [
+        "http://www.facebook.com/sharer.php?u=https://www.buzzsprout.com/1911976/episodes/19579407",
+        "http://twitter.com/intent/tweet?text=Listening+to+%22S4+E1%3A+Yummy+Explosions%22+at+&url=https%3A%2F%2Fwww.buzzsprout.com%2F1911976%2Fepisodes%2F19579407"
+      ],
+      "schedule": {
+        "label": "monthly",
+        "medianDays": 35,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "© 2026 Wilzerlott",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "bf75e97b-5c73-5b11-bf54-33cdc95ba131",
+          "rssUrl": "https://rss.buzzsprout.com/1911976.rss",
+          "appleCollectionId": "1607567300",
+          "feedRedirects": [
+            "https://feeds.buzzsprout.com/1911976.rss"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.buzzsprout.com/1911976/episodes/19579407-s4-e1-yummy-explosions?t=0",
+            "fetchedAt": "2026-08-15T21:45:32.389Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.buzzsprout.com/1911976/episodes?search=true",
+            "fetchedAt": "2026-08-15T21:45:32.386Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.buzzsprout.com/1911976/about",
+            "fetchedAt": "2026-08-15T21:45:32.385Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.buzzsprout.com/1911976/episodes",
+            "fetchedAt": "2026-08-15T21:45:32.382Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.buzzsprout.com/1911976",
+            "fetchedAt": "2026-08-15T21:45:32.380Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.buzzsprout.com/1911976.rss",
+            "fetchedAt": "2026-08-15T21:45:31.375Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/wilzerlott/id1607567300?uo=4",
+            "fetchedAt": "2026-08-15T21:44:38.822Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/wilzerlott/id1607567300?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976/episodes?search=true"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/wilzerlott/id1607567300?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976/episodes?search=true"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/wilzerlott/id1607567300?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/wilzerlott/id1607567300?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/wilzerlott/id1607567300?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/wilzerlott/id1607567300?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.72,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976/episodes/19579407-s4-e1-yummy-explosions?t=0"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976/episodes/19579407-s4-e1-yummy-explosions?t=0"
+              }
+            ]
+          },
+          "amazonMusicUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976/episodes/19579407-s4-e1-yummy-explosions?t=0"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/1911976/episodes/19579407-s4-e1-yummy-explosions?t=0"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/1911976.rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T21:45:32.875Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T21:46:02.991Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "jennifer-lott",
+    "networkId": "buzzsprout",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/wilzerlott",
+    "hasPage": true,
+    "image": "images/covers/wilzerlott.jpg",
+    "imageAlt": "Wilzerlott cover art",
+    "summary": "A comedic fantasy series that considers itself a documentary. The magical kingdom of Wilzerlott existed one million years ago and its resident time traveler is here to tell you future cave people all about the dragons and curses of their time.",
+    "finalRating": null,
+    "searchText": "wilzerlott a comedic fantasy series that considers itself a documentary the magical kingdom of wilzerlott existed one million years ago and its resident time traveler is here to tell you future cave people all about the dragons and curses of their time drama serialized wilzerlott jennifer lott english ongoing imported jennifer lott jennifer lott buzzsprout 40 observed episodes unknown 0 87 text html",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/wilzerlott-84bc76bc85-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/wilzerlott-84bc76bc85-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "ghost-hunt-pacific",
+    "title": "Ghost Hunt Pacific",
+    "subtitle": "Transcripts of the Unknown and Unbelieved",
+    "description": "Juno Desconocida is a collector of the supernatural, but only that which they believe with absolute certainty are fakes. \"Haunted\" Dolls, Talismans, Paranormal \"Evidence\", and whatever else supernatural scammers are selling. They have recently started collecting items relating to a local legend turned online myth, the mysterious ghost hunting show simply named \"Ghost Hunt Pacific\". After some time of collecting, they have started to receive transcripts of the never before seen GHP episodes from an unknown source. They decide to record audio copies for their private collection and begins to uncover the secrets they hold.",
+    "cover": "images/covers/ghost-hunt-pacific.png",
+    "coverAlt": "Ghost Hunt Pacific cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/ghost-hunt-pacific/id1593053177?uo=4",
+      "website": "https://www.mushroomstation.net/ghost-hunt-pacific",
+      "rss": "https://pinecast.com/feed/ghost-hunt-pacific"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Ghost Hunt Pacific"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "at least 10 full episodes • 30 min median",
+      "episodes": 10,
+      "avgEpisodeMinutes": 27,
+      "medianEpisodeMinutes": 30,
+      "minEpisodeMinutes": 9,
+      "maxEpisodeMinutes": 38,
+      "totalObservedHours": 4.1,
+      "durationCoverage": 0.9,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 10,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2021-11-07",
+      "latest": "2022-12-04",
+      "latestFeedItem": "2022-12-04"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.mushroomstation.net/ghost-hunt-pacific"
+    },
+    "credits": {
+      "creatorName": "Jupiter Morningstar",
+      "ownerName": "Jupiter Morningstar"
+    },
+    "creators": [
+      "Jupiter Morningstar"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://pinecast.com/feed/ghost-hunt-pacific; https://podcasts.apple.com/us/podcast/ghost-hunt-pacific/id1593053177?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://pinecast.com/feed/ghost-hunt-pacific",
+        "https://podcasts.apple.com/us/podcast/ghost-hunt-pacific/id1593053177?uo=4"
+      ],
+      "sourceCategories": [
+        "Leisure",
+        "Home & Garden",
+        "Fiction",
+        "Science Fiction"
+      ],
+      "importOfficialSummary": "Juno Desconocida is a collector of the supernatural, but only that which they believe with absolute certainty are fakes. \"Haunted\" Dolls, Talismans, Paranormal \"Evidence\", and whatever else supernatural scammers are selling. They have recently started collecting items relating to a local legend turned online myth, the mysterious ghost hunting show simply named \"Ghost Hunt Pacific\". After some time of collecting, they have started to receive transcripts of the never before seen GHP episodes from an unknown source. They decide to record audio copies for their private collection and begins to uncover the secrets they hold.",
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Copyright 2026",
+        "explicit": "yes",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://pinecast.com/feed/ghost-hunt-pacific",
+          "appleCollectionId": "1593053177"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific",
+            "fetchedAt": "2026-08-15T21:44:35.493Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/ghost-hunt-pacific/id1593053177?uo=4",
+            "fetchedAt": "2026-08-15T21:44:35.288Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/ghost-hunt-pacific/id1593053177?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/ghost-hunt-pacific/id1593053177?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/ghost-hunt-pacific/id1593053177?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/ghost-hunt-pacific/id1593053177?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/ghost-hunt-pacific/id1593053177?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/ghost-hunt-pacific/id1593053177?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/ghost-hunt-pacific"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T21:44:36.387Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T21:46:02.992Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "jupiter-morningstar",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/ghost-hunt-pacific",
+    "hasPage": true,
+    "image": "images/covers/ghost-hunt-pacific.png",
+    "imageAlt": "Ghost Hunt Pacific cover art",
+    "summary": "Juno Desconocida is a collector of the supernatural, but only that which they believe with absolute certainty are fakes. \"Haunted\" Dolls, Talismans, Paranormal \"Evidence\", and whatever else supernatural scammers are selling. They have recently started collecting items relating to a local legend turned online myth, the mysterious ghost hunting show simply named \"Ghost Hunt Pacific\". After some time of collecting, they have started to receive transcripts of the never before seen GHP episodes from an unknown source. They decide to record audio copies for their private collection and begins to uncover the secrets they hold.",
+    "finalRating": null,
+    "searchText": "ghost hunt pacific transcripts of the unknown and unbelieved juno desconocida is a collector of the supernatural but only that which they believe with absolute certainty are fakes haunted dolls talismans paranormal evidence and whatever else supernatural scammers are selling they have recently started collecting items relating to a local legend turned online myth the mysterious ghost hunting show simply named ghost hunt pacific after some time of collecting they have started to receive transcripts of the never before seen ghp episodes from an unknown source they decide to record audio copies for their private collection and begins to uncover the secrets they hold drama sci fi serialized ghost hunt pacific jupiter morningstar english unclear imported jupiter morningstar jupiter morningstar unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/ghost-hunt-pacific-b9bb479ebc-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/ghost-hunt-pacific-b9bb479ebc-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "feminist-fairytales",
+    "title": "Feminist Fairytales",
+    "subtitle": "",
+    "description": "Feminist Fairytales is an anthology audio drama that reimagines the genre of fairytales through a feminist lens. Join Jennie and Madeleine as they journey into fantastical intersectional tales. Infuse your day with mystery, mirth, and a new view of what's possible. Follow us on Facebook, Instagram, and Twitter @FeministForest.",
+    "cover": "images/covers/feminist-fairytales.jpg",
+    "coverAlt": "Feminist Fairytales cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/feminist-fairytales/id1596176796?uo=4",
+      "website": "https://www.buzzsprout.com/1877111",
+      "rss": "https://feeds.megaphone.fm/SBP6883536253"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Feminist Fairytales"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "2 seasons observed • at least 45 full episodes • 33 min median",
+      "seasons": 2,
+      "episodes": 45,
+      "avgEpisodeMinutes": 30,
+      "medianEpisodeMinutes": 33,
+      "minEpisodeMinutes": 5,
+      "maxEpisodeMinutes": 55,
+      "totalObservedHours": 22.9,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 45,
+        "bonus": 9,
+        "trailer": 3
+      }
+    },
+    "releaseDates": {
+      "first": "2021-10-29",
+      "latest": "2026-05-15",
+      "latestFeedItem": "2026-05-15"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.buzzsprout.com/1877111"
+    },
+    "credits": {
+      "creatorName": "Madeleine Regina and Jennie Bissell",
+      "ownerName": "Madeleine Regina and Jennie Bissell"
+    },
+    "creators": [
+      "Madeleine Regina and Jennie Bissell"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.megaphone.fm/SBP6883536253; https://podcasts.apple.com/us/podcast/feminist-fairytales/id1596176796?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.megaphone.fm/SBP6883536253",
+        "https://podcasts.apple.com/us/podcast/feminist-fairytales/id1596176796?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction"
+      ],
+      "importOfficialSummary": "Feminist Fairytales is an anthology audio drama that reimagines the genre of fairytales through a feminist lens. Join Jennie and Madeleine as they journey into fantastical intersectional tales. Infuse your day with mystery, mirth, and a new view of what's possible. Follow us on Facebook, Instagram, and Twitter @FeministForest.",
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "© 2022 Feminist Fairytales",
+        "explicit": "no",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.megaphone.fm/SBP6883536253",
+          "appleCollectionId": "1596176796"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253",
+            "fetchedAt": "2026-08-15T21:43:32.789Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/feminist-fairytales/id1596176796?uo=4",
+            "fetchedAt": "2026-08-15T21:43:32.172Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/feminist-fairytales/id1596176796?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/feminist-fairytales/id1596176796?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/feminist-fairytales/id1596176796?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/feminist-fairytales/id1596176796?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/feminist-fairytales/id1596176796?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/feminist-fairytales/id1596176796?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP6883536253"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T21:43:33.250Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T21:46:02.997Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "madeleine-regina-and-jennie-bissell",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/feminist-fairytales",
+    "hasPage": true,
+    "image": "images/covers/feminist-fairytales.jpg",
+    "imageAlt": "Feminist Fairytales cover art",
+    "summary": "Feminist Fairytales is an anthology audio drama that reimagines the genre of fairytales through a feminist lens. Join Jennie and Madeleine as they journey into fantastical intersectional tales. Infuse your day with mystery, mirth, and a new view of what's possible. Follow us on Facebook, Instagram, and Twitter @FeministForest.",
+    "finalRating": null,
+    "searchText": "feminist fairytales feminist fairytales is an anthology audio drama that reimagines the genre of fairytales through a feminist lens join jennie and madeleine as they journey into fantastical intersectional tales infuse your day with mystery mirth and a new view of what s possible follow us on facebook instagram and twitter feministforest drama episodic feminist fairytales madeleine regina and jennie bissell english ongoing imported madeleine regina and jennie bissell madeleine regina and jennie bissell unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/feminist-fairytales-f798726d54-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/feminist-fairytales-f798726d54-640.webp",
+        "width": 640
+      }
+    ]
   }
 ]

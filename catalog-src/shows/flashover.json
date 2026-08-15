@@ -1,0 +1,654 @@
+{
+  "id": "flashover",
+  "title": "Flashover",
+  "subtitle": "",
+  "description": "The notorious serial arsonist, Blake Kennedy, is about to go on trial for his crimes. Jordan Everett, a former firefighter turned journalist, is tasked with reporting on the case. She tries to be unbiased while uncovering Kennedy’s motive, but she’s convinced there’s something more. The lighter Kennedy carried sparks a new investigation into more than just one serial arsonist, and Jordan has to choose between a safe life with her wife, and her old oath to protect her community.",
+  "cover": "images/covers/flashover.jpg",
+  "coverAlt": "Flashover cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4",
+    "website": "https://cliothayer.wordpress.com/",
+    "rss": "https://anchor.fm/s/4e9c1348/podcast/rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Flashover"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 7 full episodes • 13 min median",
+    "seasons": 1,
+    "episodes": 7,
+    "avgEpisodeMinutes": 13,
+    "medianEpisodeMinutes": 13,
+    "minEpisodeMinutes": 10,
+    "maxEpisodeMinutes": 15,
+    "totalObservedHours": 1.5,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 7,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2022-04-30",
+    "latest": "2022-09-11",
+    "latestFeedItem": "2022-09-11",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://cliothayer.wordpress.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Clio Thayer",
+    "ownerName": "Clio Thayer",
+    "network": "Clio Thayer"
+  },
+  "creators": [
+    "Clio Thayer"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://cliothayer.wordpress.com/about/; https://cliothayer.wordpress.com/; https://anchor.fm/s/4e9c1348/podcast/rss; https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://cliothayer.wordpress.com/about/",
+      "https://cliothayer.wordpress.com/",
+      "https://anchor.fm/s/4e9c1348/podcast/rss",
+      "https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "The notorious serial arsonist, Blake Kennedy, is about to go on trial for his crimes. Jordan Everett, a former firefighter turned journalist, is tasked with reporting on the case. She tries to be unbiased while uncovering Kennedy’s motive, but she’s convinced there’s something more. The lighter Kennedy carried sparks a new investigation into more than just one serial arsonist, and Jordan has to choose between a safe life with her wife, and her old oath to protect her community.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 6
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Clio Thayer",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://anchor.fm/s/4e9c1348/podcast/rss",
+        "appleCollectionId": "1621807811",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://cliothayer.wordpress.com/feed/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://cliothayer.wordpress.com/about/",
+          "fetchedAt": "2026-08-15T21:43:35.684Z",
+          "payloadHash": "b53cb7828940abbdf52b4f05620981ef865f7a75fb4ce414bc387c17afa1eebc"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://cliothayer.wordpress.com/",
+          "fetchedAt": "2026-08-15T21:43:35.679Z",
+          "payloadHash": "ba6862b56891ef508bab2d88bd2f072e48c1b71aa95925d0a5c83fab5773de23"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss",
+          "fetchedAt": "2026-08-15T21:43:34.642Z",
+          "payloadHash": "677e7c02966123f8372073d1235231b58c1fd6fa07df90a89c8524601db0a031"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4",
+          "fetchedAt": "2026-08-15T21:43:34.629Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/flashover/id1621807811?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://cliothayer.wordpress.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.63,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://cliothayer.wordpress.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://cliothayer.wordpress.com/about/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/4e9c1348/podcast/rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T21:43:36.222Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "6dac402ef389ca39c12166269041e0ac4f32bb817542de8d5ee2fe3259d26271",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "e726c3dbaa04e2de938c1dd7a639514a76291112b31d281df24495c82b0b6ba7",
+        "cover": "e33fcd16b9aa9c4ed322b1ea89726611345cc7f809c0ec80bb3b1a7e2aa691ff",
+        "coverAlt": "79c6fa2b3804f35a0205b9c9ce1b75b83b5a39ae48b6bb758fc5360a8485ecf7",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "1ac4a7eb30b7173f098e041b3616f2513e7e73531be413c2924ef6d0134c470e",
+        "officialLinks": "241d10400c57ba62cc86fc1c91babed46a0797b5e1333c62cee3335a827cb8f4",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "a9c51b4fda16eea58f0df5064e7786647e0660a08cb68e4bcf5931c10720e0c9",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "7ed4594b4959255fe2cfa5dbc4332d0964fd4d3aad0bb473fef57e80851cdaad",
+        "releaseDates": "6c1e08c125e418b887291e8863dba96ab70c905e559455efe09238f740f63ff4",
+        "credits": "163820b339ebbf34aea53d97c8470a678f97b84b8206bf00763fff4c68ff6df1",
+        "creators": "2267b3cef622f1bebbae89a17d144e269e258dbc8cbb974f3fa18a5caa6e212a",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "b334f5c8de7d529a8961d9c81d70f0e91540a8d9aa563fa9533c5ff6a1085e8e"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T21:46:02.984Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "clio-thayer",
+  "networkId": "clio-thayer"
+}
