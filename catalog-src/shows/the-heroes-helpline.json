@@ -1,0 +1,808 @@
+{
+  "id": "the-heroes-helpline",
+  "title": "The Heroes Helpline",
+  "subtitle": "",
+  "description": "The Heroes Helpline is a public access call in show, where \"Heroes\" of the world help the citizens with their fantastical problems, from having a necromancer as a neighbor, to as simple as a messy break up. The \"Heroes\" are here to help.",
+  "cover": "images/covers/the-heroes-helpline.jpg",
+  "coverAlt": "The Heroes Helpline cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/2owDQIThl32AZVzf399DZT",
+    "apple": "https://podcasts.apple.com/podcast/id1887459158",
+    "website": "https://heroeshelpline.buzzsprout.com/",
+    "rss": "https://rss.buzzsprout.com/2605217.rss",
+    "youtubeMusic": "",
+    "amazonMusic": "https://music.amazon.com/podcasts/0dfdd9f7-1c0f-4895-ab9e-e918fcfafe60",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "comedy",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Heroes Helpline"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 6 full episodes • 34 min median",
+    "seasons": 1,
+    "episodes": 6,
+    "avgEpisodeMinutes": 34,
+    "medianEpisodeMinutes": 34,
+    "minEpisodeMinutes": 29,
+    "maxEpisodeMinutes": 38,
+    "totalObservedHours": 3.4,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 6,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2026-04-01",
+    "latest": "2026-05-30",
+    "latestFeedItem": "2026-05-30",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://heroeshelpline.buzzsprout.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "https://www.instagram.com/theheroeshelpline/?hl=en",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "BayPods",
+    "ownerName": "BayPods",
+    "network": "Buzzsprout"
+  },
+  "creators": [
+    "BayPods"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://heroeshelpline.buzzsprout.com/2605217/episodes/19144562-ep-6-worm-today-gone-tomorrow?t=0; https://heroeshelpline.buzzsprout.com/2605217/episodes?search=true; https://heroeshelpline.buzzsprout.com/2605217/about; https://heroeshelpline.buzzsprout.com/2605217/episodes; https://heroeshelpline.buzzsprout.com/; https://rss.buzzsprout.com/2605217.rss; https://podcasts.apple.com/us/podcast/the-heroes-helpline/id1887459158?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "6 observed episodes",
+    "captions": "available in structured transcript data",
+    "transcriptCoverage": 0.857,
+    "transcriptFormats": [
+      "text/html",
+      "application/json",
+      "application/x-subrip",
+      "text/vtt"
+    ],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://heroeshelpline.buzzsprout.com/2605217/episodes/19144562-ep-6-worm-today-gone-tomorrow?t=0",
+      "https://heroeshelpline.buzzsprout.com/2605217/episodes?search=true",
+      "https://heroeshelpline.buzzsprout.com/2605217/about",
+      "https://heroeshelpline.buzzsprout.com/2605217/episodes",
+      "https://heroeshelpline.buzzsprout.com/",
+      "https://rss.buzzsprout.com/2605217.rss",
+      "https://podcasts.apple.com/us/podcast/the-heroes-helpline/id1887459158?uo=4"
+    ],
+    "sourceCategories": [
+      "Comedy",
+      "Improv",
+      "Fiction",
+      "Comedy Fiction",
+      "theheroeshelpline@gmail.com"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "The Heroes Helpline is a public access call in show, where \"Heroes\" of the world help the citizens with their fantastical problems, from having a necromancer as a neighbor, to as simple as a messy break up. The \"Heroes\" are here to help.",
+    "socialUrls": [
+      "https://www.instagram.com/theheroeshelpline/?hl=en"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 5
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2026 The Heroes Helpline",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "a9bf23f4-ded6-5d12-ac8c-7dd7a176d4c9",
+        "rssUrl": "https://rss.buzzsprout.com/2605217.rss",
+        "appleCollectionId": "1887459158",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://feeds.buzzsprout.com/2605217.rss"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes/19144562-ep-6-worm-today-gone-tomorrow?t=0",
+          "fetchedAt": "2026-08-15T21:52:00.139Z",
+          "payloadHash": "e92b512c06c89fa25969c60e2eaf36f20f2d9314321ab425db03faed1badcdc8"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes?search=true",
+          "fetchedAt": "2026-08-15T21:52:00.137Z",
+          "payloadHash": "72f05e1d74c02c70b55d737465cc7bb3fb53bfbff35b8b5bd2ad2fce37e3a9f2"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/about",
+          "fetchedAt": "2026-08-15T21:52:00.135Z",
+          "payloadHash": "91ae512753713a53a84f3d5581c6fd9a24d0bb8bf2d2d51f56827f0a0b801f7f"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes",
+          "fetchedAt": "2026-08-15T21:52:00.132Z",
+          "payloadHash": "b7cf141110f6c398b04e3f85443251bed56abb98e361abf30998b532792b4c5d"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://heroeshelpline.buzzsprout.com/",
+          "fetchedAt": "2026-08-15T21:52:00.123Z",
+          "payloadHash": "535f28208471a48134355afaa1321d5f84357eec209947c9725bc58c67350e33"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.buzzsprout.com/2605217.rss",
+          "fetchedAt": "2026-08-15T21:51:58.971Z",
+          "payloadHash": "523e7c8320e4c7baca25ba66d61f0bad4496a7667a67cfe5f27d754c900395c6"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-heroes-helpline/id1887459158?uo=4",
+          "fetchedAt": "2026-08-15T21:51:58.488Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-heroes-helpline/id1887459158?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes?search=true"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-heroes-helpline/id1887459158?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-heroes-helpline/id1887459158?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes?search=true"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes/19144562-ep-6-worm-today-gone-tomorrow?t=0"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-heroes-helpline/id1887459158?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-heroes-helpline/id1887459158?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.72,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes?search=true"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes/19144562-ep-6-worm-today-gone-tomorrow?t=0"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes?search=true"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes/19144562-ep-6-worm-today-gone-tomorrow?t=0"
+            }
+          ]
+        },
+        "amazonMusicUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes?search=true"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes/19144562-ep-6-worm-today-gone-tomorrow?t=0"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes?search=true"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T21:52:00.272Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "f320a48676a0f082d686bf43f4f36256b5869e8852b7e064b9043881bd2663e8",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "538a4aed79ea249a7451e8d6de08a165c3e8a374408e631ca4846900815447c4",
+        "cover": "142e2cee032fc169e2010946cb26423a731c1959eb61315eefcc3885f7b4bcbe",
+        "coverAlt": "a43feab8c4f5974a1631a0828b79b1b5e9d86bf2a2a3217c1a1fe1db9186f4bd",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "c11679893edfe72f9b6ba105bd1804d0919e75872ad07c6f7872f4605888bf0f",
+        "officialLinks": "f0cf6a61e457c15654085dbb2f6c53ae3b5b34c68b6e1cd7b7e66e9940659a1e",
+        "genres": "d43a44c3885ca363e39a4f53c298e71bcb32009530bcab70ecf719f799bcd00a",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "0db02985f2877fa460a8a8f6517d7a98e36d9e131fdd4a0a08691d161f22bf84",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "59ab3b0f3071abf5f0c02ed22859241a655aa994815a2b7bf6ced2c855c39eea",
+        "releaseDates": "7a7f42fa6d206b53c59265b17ed759227f934d583ccf28862f22a294e5fc5638",
+        "credits": "26c439094fe6e78b3c81971fdef8e0154b5f3278bd412fb11ef9e2d52fe9f387",
+        "creators": "0dbaf7e1f9c310abc2685cf1c609abebf5e4d8bcfd9a250497b2df622b78957c",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "845ccba8924503e3bc70ce615e16029124c0bb8ceefd3988efc2783d939f172b",
+        "verification": "05e1b498095bf5bd9879d81334167f59cc2ee59c9a8da741f8479773f489e2ad"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T21:52:55.106Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "baypods",
+  "networkId": "buzzsprout"
+}

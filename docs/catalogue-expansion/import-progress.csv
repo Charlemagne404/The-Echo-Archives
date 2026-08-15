@@ -1300,32 +1300,32 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1300,P3,"Absent, Always Theatreworks",,6885b692-ef25-44e6-8d76-77d73d6d1830,published,published,,2026-08-15 21:49:33
 1301,P3,Possibly Astronauts,,bc2fb438-4138-4383-a6ed-37a37f798a5f,needs-review,needs-review,source-conflict,2026-08-15 21:48:33
 1302,P3,Oblivion Girl,,487a24f4-e244-4f23-b6c0-4b5c297b3a10,needs-review,needs-review,source-conflict,2026-08-15 21:48:24
-1303,P3,Saturn Space Station,,,unattempted,,,
-1304,P3,Dist1nc7ive Stories,,,unattempted,,,
-1305,P3,Play On Words,,,unattempted,,,
-1306,P3,Crooked Tree Radio,,,unattempted,,,
-1307,P3,Without Words,,,unattempted,,,
+1303,P3,Saturn Space Station,,af6acde2-6510-4b5b-9b46-484641281cec,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 21:49:58
+1304,P3,Dist1nc7ive Stories,,253601f9-f8a8-4bab-9e1a-4082f9f538a0,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 21:51:57
+1305,P3,Play On Words,,2a0a89f3-0996-4b40-9e5e-a84fa7566d08,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 21:49:54
+1306,P3,Crooked Tree Radio,,2a63b543-8cb7-4699-9f7d-649cd26b605b,needs-review,needs-review,source-conflict,2026-08-15 21:50:52
+1307,P3,Without Words,,4eacceb5-0b5a-48fc-a835-8cf01a06a1cf,needs-review,needs-review,source-conflict,2026-08-15 21:49:54
 1308,P2,Acorn Originals,Iridescent Acorn Productions,bbf6967a-940f-4aea-ab7e-bd12a9579568,published,published,,2026-08-15 20:42:41
-1309,P3,Little Byrdie,,,unattempted,,,
-1310,P3,Dynamic Drive,,,unattempted,,,
-1311,P3,Monroe Mysteries,,,unattempted,,,
-1312,P3,Couldn't Be You,,,unattempted,,,
-1313,P3,When I Met You,,,unattempted,,,
-1314,P3,NSFR - New Sketches For Radio,,,unattempted,,,
-1315,P3,Just Beyond the Horizon,,,unattempted,,,
-1316,P3,Vagrant Pages,,,unattempted,,,
-1317,P3,The Third-Rock Theatre of the Air,,,unattempted,,,
-1318,P3,Radio Nine,,,unattempted,,,
-1319,P3,News From The Dome,,,unattempted,,,
-1320,P3,The Heroes Helpline,,,unattempted,,,
-1321,P3,Paper Moon Radio Theater,,,unattempted,,,
-1322,P3,Brevity,,,unattempted,,,
-1323,P3,Rock Meadows,,,unattempted,,,
-1324,P3,15 Second Mysteries,,,unattempted,,,
-1325,P3,High Rise,,,unattempted,,,
-1326,P3,High Seas,,,unattempted,,,
-1327,P3,ArtSound Radio Theatre,,,unattempted,,,
-1328,P3,The Mysteries of Dr. John Thorndyke,,,unattempted,,,
+1309,P3,Little Byrdie,,f1a818fe-c3d9-420b-99b0-f77fbc92eae8,needs-review,needs-review,invalid-apple-link,2026-08-15 21:51:56
+1310,P3,Dynamic Drive,,a53a2bbc-512e-42e6-83ed-c064e807abd9,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 21:51:55
+1311,P3,Monroe Mysteries,,b49f3786-8111-4480-b3be-2db126554867,needs-review,needs-review,source-conflict,2026-08-15 21:51:56
+1312,P3,Couldn't Be You,,fb165d18-94c5-4d8c-b111-658361431c22,needs-review,needs-review,source-conflict,2026-08-15 21:49:53
+1313,P3,When I Met You,,cd58f2bf-0ab1-40ed-91d2-e6ca06512135,needs-review,needs-review,source-conflict,2026-08-15 21:51:52
+1314,P3,NSFR - New Sketches For Radio,,5d198987-3b3c-4c59-89e5-3d11d10628b3,needs-review,needs-review,source-conflict,2026-08-15 21:52:55
+1315,P3,Just Beyond the Horizon,,e701dba2-ac02-415b-837b-17e2c3d24a0e,needs-review,needs-review,source-conflict,2026-08-15 21:49:54
+1316,P3,Vagrant Pages,,3f023841-8d36-4400-986d-39a93a6cc538,needs-review,needs-review,source-conflict,2026-08-15 21:49:57
+1317,P3,The Third-Rock Theatre of the Air,,525bbd8f-fe88-4629-b334-1422148aa689,published,published,,2026-08-15 21:52:57
+1318,P3,Radio Nine,,8d2974ab-305f-4e6f-95b7-36f11a199a50,needs-review,needs-review,source-conflict,2026-08-15 21:51:57
+1319,P3,News From The Dome,,73aa7802-8e1e-4f9a-9566-f399d8178fa9,needs-review,needs-review,source-conflict,2026-08-15 21:50:56
+1320,P3,The Heroes Helpline,,f974b1d9-a2b4-4c66-82f4-c1100b4cec59,published,published,,2026-08-15 21:52:57
+1321,P3,Paper Moon Radio Theater,,f9c061d0-278c-4bcd-8ebb-0a6b982a02e9,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 21:50:55
+1322,P3,Brevity,,15811aae-ec1f-40f5-a808-a775a7104549,published,published,,2026-08-15 21:52:57
+1323,P3,Rock Meadows,,96b38225-462d-4635-bb1f-fcf598a714a3,needs-review,needs-review,source-conflict,2026-08-15 21:51:00
+1324,P3,15 Second Mysteries,,9213e18c-cdff-4e2b-8bb8-89269facd0b4,published,published,,2026-08-15 21:52:57
+1325,P3,High Rise,,3ebadd51-fc6b-4ac2-91de-cf21b2cee83d,needs-review,needs-review,source-conflict,2026-08-15 21:50:57
+1326,P3,High Seas,,7b86bd89-db12-4d58-9d5f-87b0b686d286,needs-review,needs-review,source-conflict,2026-08-15 21:50:57
+1327,P3,ArtSound Radio Theatre,,df878b1b-f56c-49c0-9aa8-e80e7cc433a4,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 21:49:55
+1328,P3,The Mysteries of Dr. John Thorndyke,,49aeb188-88c7-4f91-a77a-644b1c96d750,needs-review,needs-review,source-conflict,2026-08-15 21:52:00
 1329,P3,Bite Size Tales,,,unattempted,,,
 1330,P3,Echoes of Shadows,Helen McKenna,,unattempted,,,
 1331,P3,Anime Audio Drama Surge Saga,,,unattempted,,,

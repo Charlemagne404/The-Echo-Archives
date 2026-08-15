@@ -404926,5 +404926,2842 @@
         "width": 320
       }
     ]
+  },
+  {
+    "id": "the-third-rock-theatre-of-the-air",
+    "title": "The Third-Rock Theatre of the Air",
+    "subtitle": "",
+    "description": "A vintage radio variety show where each and every guest is abducted by a UFO. The Third-Rock Theatre of the Air is a weird fiction audio drama surrounding this variety show of the same name. The series blends elements of comedy, horror, radio drama, and science fiction to create an entirely out-of-this-world experience. Tune in each month for the greatest talents Planet Earth has to offer.",
+    "cover": "images/covers/the-third-rock-theatre-of-the-air.png",
+    "coverAlt": "The Third-Rock Theatre of the Air cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/1JYo0NJeqKEsHLuuZs4SSo",
+      "apple": "https://podcasts.apple.com/podcast/id1889937132",
+      "website": "https://rss.com/podcasts/thirdrocktheatre/",
+      "rss": "https://media.rss.com/thirdrocktheatre/feed.xml",
+      "amazonMusic": "https://music.amazon.com/podcasts/a84bb2b8-a0d7-46c3-b6ae-2fd76da471de"
+    },
+    "genres": [
+      "drama",
+      "sci-fi",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Third-Rock Theatre of the Air"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 6 full episodes • 46 min median",
+      "seasons": 1,
+      "episodes": 6,
+      "avgEpisodeMinutes": 45,
+      "medianEpisodeMinutes": 46,
+      "minEpisodeMinutes": 36,
+      "maxEpisodeMinutes": 49,
+      "totalObservedHours": 4.5,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 6,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2026-04-03",
+      "latest": "2026-08-07",
+      "latestFeedItem": "2026-08-07"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://rss.com/podcasts/thirdrocktheatre/",
+      "youtube": "https://www.youtube.com/rsscom/",
+      "social": "https://www.facebook.com/rss.podcasting"
+    },
+    "credits": {
+      "creatorName": "Sword & Sigil Productions",
+      "ownerName": "Sword & Sigil Productions",
+      "network": "RSS.com",
+      "writers": [
+        "Sword & Sigil Productions"
+      ],
+      "people": [
+        {
+          "name": "Sword & Sigil Productions",
+          "role": "author"
+        }
+      ]
+    },
+    "creators": [
+      "Sword & Sigil Productions"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://rss.com/podcasts/thirdrocktheatre/3052339/; https://rss.com/podcasts/thirdrocktheatre/2960285/; https://rss.com/podcasts/thirdrocktheatre/; https://media.rss.com/thirdrocktheatre/feed.xml; https://podcasts.apple.com/us/podcast/the-third-rock-theatre-of-the-air/id1889937132?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "1 observed episodes",
+      "captions": "unknown",
+      "transcriptCoverage": 0.143,
+      "transcriptFormats": [
+        "text/plain"
+      ]
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://rss.com/podcasts/thirdrocktheatre/3052339/",
+        "https://rss.com/podcasts/thirdrocktheatre/2960285/",
+        "https://rss.com/podcasts/thirdrocktheatre/",
+        "https://media.rss.com/thirdrocktheatre/feed.xml",
+        "https://podcasts.apple.com/us/podcast/the-third-rock-theatre-of-the-air/id1889937132?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction",
+        "Comedy Fiction",
+        "false"
+      ],
+      "importOfficialSummary": "A vintage radio variety show where each and every guest is abducted by a UFO. The Third-Rock Theatre of the Air is a weird fiction audio drama surrounding this variety show of the same name. The series blends elements of comedy, horror, radio drama, and science fiction to create an entirely out-of-this-world experience. Tune in each month for the greatest talents Planet Earth has to offer.",
+      "socialUrls": [
+        "https://www.facebook.com/rss.podcasting",
+        "https://twitter.com/rss",
+        "https://www.instagram.com/rss_podcasting/"
+      ],
+      "schedule": {
+        "label": "monthly",
+        "medianDays": 32,
+        "observedIntervals": 4
+      },
+      "podcast": {
+        "medium": "podcast",
+        "copyright": "Sword & Sigil Productions LLC",
+        "explicit": "true",
+        "license": {
+          "value": "Sword & Sigil Productions LLC"
+        },
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "a5115e58-9634-5a3c-8ae2-c9735183630b",
+          "rssUrl": "https://media.rss.com/thirdrocktheatre/feed.xml",
+          "appleCollectionId": "1889937132"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/3052339/",
+            "fetchedAt": "2026-08-15T21:52:52.690Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/2960285/",
+            "fetchedAt": "2026-08-15T21:52:52.684Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/",
+            "fetchedAt": "2026-08-15T21:52:52.675Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml",
+            "fetchedAt": "2026-08-15T21:52:51.907Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-third-rock-theatre-of-the-air/id1889937132?uo=4",
+            "fetchedAt": "2026-08-15T21:51:58.340Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-third-rock-theatre-of-the-air/id1889937132?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-third-rock-theatre-of-the-air/id1889937132?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-third-rock-theatre-of-the-air/id1889937132?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-third-rock-theatre-of-the-air/id1889937132?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-third-rock-theatre-of-the-air/id1889937132?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/2960285/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/3052339/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "medium": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/2960285/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/3052339/"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/"
+              }
+            ]
+          },
+          "amazonMusicUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/2960285/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/3052339/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/2960285/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/3052339/"
+              }
+            ]
+          },
+          "people": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/thirdrocktheatre/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T21:52:52.838Z",
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T21:52:55.103Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "sword-sigil-productions",
+    "networkId": "rss-com",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-third-rock-theatre-of-the-air",
+    "hasPage": true,
+    "image": "images/covers/the-third-rock-theatre-of-the-air.png",
+    "imageAlt": "The Third-Rock Theatre of the Air cover art",
+    "summary": "A vintage radio variety show where each and every guest is abducted by a UFO. The Third-Rock Theatre of the Air is a weird fiction audio drama surrounding this variety show of the same name. The series blends elements of comedy, horror, radio drama, and science fiction to create an entirely out-of-this-world experience. Tune in each month for the greatest talents Planet Earth has to offer.",
+    "finalRating": null,
+    "searchText": "the third rock theatre of the air a vintage radio variety show where each and every guest is abducted by a ufo the third rock theatre of the air is a weird fiction audio drama surrounding this variety show of the same name the series blends elements of comedy horror radio drama and science fiction to create an entirely out of this world experience tune in each month for the greatest talents planet earth has to offer drama sci fi comedy serialized the third rock theatre of the air sword and sigil productions english ongoing imported sword and sigil productions sword and sigil productions rss com sword and sigil productions sword and sigil productions author 1 observed episodes unknown 0 143 text plain",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-third-rock-theatre-of-the-air-020bd71f9e-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-third-rock-theatre-of-the-air-020bd71f9e-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "the-heroes-helpline",
+    "title": "The Heroes Helpline",
+    "subtitle": "",
+    "description": "The Heroes Helpline is a public access call in show, where \"Heroes\" of the world help the citizens with their fantastical problems, from having a necromancer as a neighbor, to as simple as a messy break up. The \"Heroes\" are here to help.",
+    "cover": "images/covers/the-heroes-helpline.jpg",
+    "coverAlt": "The Heroes Helpline cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/2owDQIThl32AZVzf399DZT",
+      "apple": "https://podcasts.apple.com/podcast/id1887459158",
+      "website": "https://heroeshelpline.buzzsprout.com/",
+      "rss": "https://rss.buzzsprout.com/2605217.rss",
+      "amazonMusic": "https://music.amazon.com/podcasts/0dfdd9f7-1c0f-4895-ab9e-e918fcfafe60"
+    },
+    "genres": [
+      "comedy",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Heroes Helpline"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 6 full episodes • 34 min median",
+      "seasons": 1,
+      "episodes": 6,
+      "avgEpisodeMinutes": 34,
+      "medianEpisodeMinutes": 34,
+      "minEpisodeMinutes": 29,
+      "maxEpisodeMinutes": 38,
+      "totalObservedHours": 3.4,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 6,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2026-04-01",
+      "latest": "2026-05-30",
+      "latestFeedItem": "2026-05-30"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://heroeshelpline.buzzsprout.com/",
+      "social": "https://www.instagram.com/theheroeshelpline/?hl=en"
+    },
+    "credits": {
+      "creatorName": "BayPods",
+      "ownerName": "BayPods",
+      "network": "Buzzsprout"
+    },
+    "creators": [
+      "BayPods"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://heroeshelpline.buzzsprout.com/2605217/episodes/19144562-ep-6-worm-today-gone-tomorrow?t=0; https://heroeshelpline.buzzsprout.com/2605217/episodes?search=true; https://heroeshelpline.buzzsprout.com/2605217/about; https://heroeshelpline.buzzsprout.com/2605217/episodes; https://heroeshelpline.buzzsprout.com/; https://rss.buzzsprout.com/2605217.rss; https://podcasts.apple.com/us/podcast/the-heroes-helpline/id1887459158?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "6 observed episodes",
+      "captions": "available in structured transcript data",
+      "transcriptCoverage": 0.857,
+      "transcriptFormats": [
+        "text/html",
+        "application/json",
+        "application/x-subrip",
+        "text/vtt"
+      ]
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://heroeshelpline.buzzsprout.com/2605217/episodes/19144562-ep-6-worm-today-gone-tomorrow?t=0",
+        "https://heroeshelpline.buzzsprout.com/2605217/episodes?search=true",
+        "https://heroeshelpline.buzzsprout.com/2605217/about",
+        "https://heroeshelpline.buzzsprout.com/2605217/episodes",
+        "https://heroeshelpline.buzzsprout.com/",
+        "https://rss.buzzsprout.com/2605217.rss",
+        "https://podcasts.apple.com/us/podcast/the-heroes-helpline/id1887459158?uo=4"
+      ],
+      "sourceCategories": [
+        "Comedy",
+        "Improv",
+        "Fiction",
+        "Comedy Fiction",
+        "theheroeshelpline@gmail.com"
+      ],
+      "importOfficialSummary": "The Heroes Helpline is a public access call in show, where \"Heroes\" of the world help the citizens with their fantastical problems, from having a necromancer as a neighbor, to as simple as a messy break up. The \"Heroes\" are here to help.",
+      "socialUrls": [
+        "https://www.instagram.com/theheroeshelpline/?hl=en"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 5
+      },
+      "podcast": {
+        "copyright": "© 2026 The Heroes Helpline",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "a9bf23f4-ded6-5d12-ac8c-7dd7a176d4c9",
+          "rssUrl": "https://rss.buzzsprout.com/2605217.rss",
+          "appleCollectionId": "1887459158",
+          "feedRedirects": [
+            "https://feeds.buzzsprout.com/2605217.rss"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes/19144562-ep-6-worm-today-gone-tomorrow?t=0",
+            "fetchedAt": "2026-08-15T21:52:00.139Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes?search=true",
+            "fetchedAt": "2026-08-15T21:52:00.137Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/about",
+            "fetchedAt": "2026-08-15T21:52:00.135Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes",
+            "fetchedAt": "2026-08-15T21:52:00.132Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://heroeshelpline.buzzsprout.com/",
+            "fetchedAt": "2026-08-15T21:52:00.123Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.buzzsprout.com/2605217.rss",
+            "fetchedAt": "2026-08-15T21:51:58.971Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-heroes-helpline/id1887459158?uo=4",
+            "fetchedAt": "2026-08-15T21:51:58.488Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-heroes-helpline/id1887459158?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes?search=true"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-heroes-helpline/id1887459158?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-heroes-helpline/id1887459158?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes/19144562-ep-6-worm-today-gone-tomorrow?t=0"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-heroes-helpline/id1887459158?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-heroes-helpline/id1887459158?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.72,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes/19144562-ep-6-worm-today-gone-tomorrow?t=0"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes/19144562-ep-6-worm-today-gone-tomorrow?t=0"
+              }
+            ]
+          },
+          "amazonMusicUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes/19144562-ep-6-worm-today-gone-tomorrow?t=0"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://heroeshelpline.buzzsprout.com/2605217/episodes?search=true"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2605217.rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T21:52:00.272Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T21:52:55.106Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "baypods",
+    "networkId": "buzzsprout",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-heroes-helpline",
+    "hasPage": true,
+    "image": "images/covers/the-heroes-helpline.jpg",
+    "imageAlt": "The Heroes Helpline cover art",
+    "summary": "The Heroes Helpline is a public access call in show, where \"Heroes\" of the world help the citizens with their fantastical problems, from having a necromancer as a neighbor, to as simple as a messy break up. The \"Heroes\" are here to help.",
+    "finalRating": null,
+    "searchText": "the heroes helpline the heroes helpline is a public access call in show where heroes of the world help the citizens with their fantastical problems from having a necromancer as a neighbor to as simple as a messy break up the heroes are here to help comedy drama episodic the heroes helpline baypods english ongoing imported baypods baypods buzzsprout 6 observed episodes available in structured transcript data 0 857 text html application json application x subrip text vtt",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-heroes-helpline-85df1582d7-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-heroes-helpline-85df1582d7-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "brevity",
+    "title": "Brevity",
+    "subtitle": "",
+    "description": "Charcoal City... a bustling metropolis to most... but to Dioptase, the world renown and anonymous street artist... a canvas. When a painting bought by a local tattooist is revealed to be of incredible value, the procurer and her friends find themselves targeted by the corrupt parties that want it for themselves. In order to preserve the message and keep the painting out of the hands of a villainous mob family, the mysterious creator must intervene while circumnavigating their own complicated connections to the predicament. Brevity is a mini-series saga of art, crime, family, friendship, labor, and hidden identity.&nbsp;",
+    "cover": "images/covers/brevity.jpg",
+    "coverAlt": "Brevity cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/1oZqD3o3bZlyzzz1T3jt7U",
+      "apple": "https://podcasts.apple.com/podcast/id1895966013",
+      "website": "https://www.buzzsprout.com/2613643",
+      "rss": "https://rss.buzzsprout.com/2613643.rss",
+      "amazonMusic": "https://music.amazon.com/podcasts/d1ec7498-eefa-4a02-bdfe-5fd541e5dedd"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Brevity"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "at least 15 full episodes • 16 min median",
+      "episodes": 15,
+      "avgEpisodeMinutes": 16,
+      "medianEpisodeMinutes": 16,
+      "minEpisodeMinutes": 5,
+      "maxEpisodeMinutes": 27,
+      "totalObservedHours": 4,
+      "durationCoverage": 1,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 15,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2026-04-15",
+      "latest": "2026-04-30",
+      "latestFeedItem": "2026-05-03"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.buzzsprout.com/2613643",
+      "social": "http://www.facebook.com/sharer.php?u=https://www.buzzsprout.com/2613643/episodes/19115737"
+    },
+    "credits": {
+      "creatorName": "Constellation Audio",
+      "ownerName": "Constellation Audio",
+      "network": "Buzzsprout"
+    },
+    "creators": [
+      "Constellation Audio"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://www.buzzsprout.com/2613643/episodes/19115737-trailer?t=0; https://www.buzzsprout.com/2613643/episodes?search=true; https://www.buzzsprout.com/2613643/about; https://www.buzzsprout.com/2613643/episodes; https://www.buzzsprout.com/2613643; https://rss.buzzsprout.com/2613643.rss; https://podcasts.apple.com/us/podcast/brevity/id1895966013?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "15 observed episodes",
+      "captions": "available in structured transcript data",
+      "transcriptCoverage": 0.938,
+      "transcriptFormats": [
+        "text/html",
+        "application/json",
+        "application/x-subrip",
+        "text/vtt"
+      ]
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://www.buzzsprout.com/2613643/episodes/19115737-trailer?t=0",
+        "https://www.buzzsprout.com/2613643/episodes?search=true",
+        "https://www.buzzsprout.com/2613643/about",
+        "https://www.buzzsprout.com/2613643/episodes",
+        "https://www.buzzsprout.com/2613643",
+        "https://rss.buzzsprout.com/2613643.rss",
+        "https://podcasts.apple.com/us/podcast/brevity/id1895966013?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "Charcoal City... a bustling metropolis to most... but to Dioptase, the world renown and anonymous street artist... a canvas. When a painting bought by a local tattooist is revealed to be of incredible value, the procurer and her friends find themselves targeted by the corrupt parties that want it for themselves. In order to preserve the message and keep the painting out of the hands of a villainous mob family, the mysterious creator must intervene while circumnavigating their own complicated connections to the predicament. Brevity is a mini-series saga of art, crime, family, friendship, labor, and hidden identity.&nbsp;",
+      "socialUrls": [
+        "http://www.facebook.com/sharer.php?u=https://www.buzzsprout.com/2613643/episodes/19115737",
+        "http://twitter.com/intent/tweet?text=Listening+to+%22Trailer%22+at+&url=https%3A%2F%2Fwww.buzzsprout.com%2F2613643%2Fepisodes%2F19115737"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 1,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "© 2026 Brevity",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "faa50151-c41f-5f9f-9008-5ada5897c3f1",
+          "rssUrl": "https://rss.buzzsprout.com/2613643.rss",
+          "appleCollectionId": "1895966013",
+          "feedRedirects": [
+            "https://feeds.buzzsprout.com/2613643.rss"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.buzzsprout.com/2613643/episodes/19115737-trailer?t=0",
+            "fetchedAt": "2026-08-15T21:51:52.714Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.buzzsprout.com/2613643/episodes?search=true",
+            "fetchedAt": "2026-08-15T21:51:52.711Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.buzzsprout.com/2613643/about",
+            "fetchedAt": "2026-08-15T21:51:52.710Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.buzzsprout.com/2613643/episodes",
+            "fetchedAt": "2026-08-15T21:51:52.707Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.buzzsprout.com/2613643",
+            "fetchedAt": "2026-08-15T21:51:52.704Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.buzzsprout.com/2613643.rss",
+            "fetchedAt": "2026-08-15T21:51:51.737Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/brevity/id1895966013?uo=4",
+            "fetchedAt": "2026-08-15T21:50:58.309Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/brevity/id1895966013?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643/episodes?search=true"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/brevity/id1895966013?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/brevity/id1895966013?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643/episodes/19115737-trailer?t=0"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/brevity/id1895966013?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/brevity/id1895966013?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.72,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643/episodes/19115737-trailer?t=0"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643/episodes/19115737-trailer?t=0"
+              }
+            ]
+          },
+          "amazonMusicUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643/episodes/19115737-trailer?t=0"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.buzzsprout.com/2613643/episodes/19115737-trailer?t=0"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2613643.rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T21:51:52.857Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T21:52:55.110Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "constellation-audio",
+    "networkId": "buzzsprout",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/brevity",
+    "hasPage": true,
+    "image": "images/covers/brevity.jpg",
+    "imageAlt": "Brevity cover art",
+    "summary": "Charcoal City... a bustling metropolis to most... but to Dioptase, the world renown and anonymous street artist... a canvas. When a painting bought by a local tattooist is revealed to be of incredible value, the procurer and her friends find themselves targeted by the corrupt parties that want it for themselves. In order to preserve the message and keep the painting out of the hands of a villainous mob family, the mysterious creator must intervene while circumnavigating their own complicated connections to the predicament. Brevity is a mini-series saga of art, crime, family, friendship, labor, and hidden identity.&nbsp;",
+    "finalRating": null,
+    "searchText": "brevity charcoal city a bustling metropolis to most but to dioptase the world renown and anonymous street artist a canvas when a painting bought by a local tattooist is revealed to be of incredible value the procurer and her friends find themselves targeted by the corrupt parties that want it for themselves in order to preserve the message and keep the painting out of the hands of a villainous mob family the mysterious creator must intervene while circumnavigating their own complicated connections to the predicament brevity is a mini series saga of art crime family friendship labor and hidden identity and nbsp drama serialized brevity constellation audio english ongoing imported constellation audio constellation audio buzzsprout 15 observed episodes available in structured transcript data 0 938 text html application json application x subrip text vtt",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/brevity-42253d0285-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/brevity-42253d0285-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "15-second-mysteries",
+    "title": "15 Second Mysteries",
+    "subtitle": "",
+    "description": "Landon Whisnant, Rafael Suarez, Lee Obernolte and Joe Cliff Thompson had a stupid idea, enjoy. For our ACTUAL work, see: https://www.joecliffthompson.com https://www.TheRedactedUnit.com https://www.TheRedactedUnit.com/T7P Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/15-second-mysteries.jpg",
+    "coverAlt": "15 Second Mysteries cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/15-second-mysteries/id1884753528?uo=4",
+      "website": "https://feeds.acast.com/public/shows/15-second-mysteries",
+      "rss": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+    },
+    "genres": [
+      "comedy",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "15 Second Mysteries"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "2 seasons observed • at least 8 full episodes • 1 min median",
+      "seasons": 2,
+      "episodes": 8,
+      "avgEpisodeMinutes": 1,
+      "medianEpisodeMinutes": 1,
+      "minEpisodeMinutes": 1,
+      "maxEpisodeMinutes": 1,
+      "totalObservedHours": 0.1,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 8,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2026-03-12",
+      "latest": "2026-04-09",
+      "latestFeedItem": "2026-04-09"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://feeds.acast.com/public/shows/15-second-mysteries"
+    },
+    "credits": {
+      "creatorName": "Thundercrew",
+      "ownerName": "Thundercrew"
+    },
+    "creators": [
+      "Thundercrew"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571; https://podcasts.apple.com/us/podcast/15-second-mysteries/id1884753528?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.acast.com/public/shows/69b33d7625f345603a367571",
+        "https://podcasts.apple.com/us/podcast/15-second-mysteries/id1884753528?uo=4"
+      ],
+      "sourceCategories": [
+        "Comedy",
+        "Fiction"
+      ],
+      "sourceKeywords": [
+        "15 Seconds",
+        "Mystery",
+        "Mystery I Guess",
+        "Sort of Mystery",
+        "Who dunnit",
+        "Why dunnit",
+        "how dunnit",
+        "WE dunnit"
+      ],
+      "importOfficialSummary": "Landon Whisnant, Rafael Suarez, Lee Obernolte and Joe Cliff Thompson had a stupid idea, enjoy. For our ACTUAL work, see: https://www.joecliffthompson.com https://www.TheRedactedUnit.com https://www.TheRedactedUnit.com/T7P Hosted on Acast. See acast.com/privacy for more information.",
+      "schedule": {
+        "label": "monthly",
+        "medianDays": 28,
+        "observedIntervals": 1
+      },
+      "podcast": {
+        "copyright": "Thundercrew",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571",
+          "appleCollectionId": "1884753528"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571",
+            "fetchedAt": "2026-08-15T21:49:55.695Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/15-second-mysteries/id1884753528?uo=4",
+            "fetchedAt": "2026-08-15T21:49:55.534Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/15-second-mysteries/id1884753528?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/15-second-mysteries/id1884753528?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/15-second-mysteries/id1884753528?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/15-second-mysteries/id1884753528?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/15-second-mysteries/id1884753528?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/15-second-mysteries/id1884753528?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/15-second-mysteries/id1884753528?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69b33d7625f345603a367571"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T21:49:56.249Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T21:52:55.113Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "thundercrew",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/15-second-mysteries",
+    "hasPage": true,
+    "image": "images/covers/15-second-mysteries.jpg",
+    "imageAlt": "15 Second Mysteries cover art",
+    "summary": "Landon Whisnant, Rafael Suarez, Lee Obernolte and Joe Cliff Thompson had a stupid idea, enjoy. For our ACTUAL work, see: https://www.joecliffthompson.com https://www.TheRedactedUnit.com https://www.TheRedactedUnit.com/T7P Hosted on Acast. See acast.com/privacy for more information.",
+    "finalRating": null,
+    "searchText": "15 second mysteries landon whisnant rafael suarez lee obernolte and joe cliff thompson had a stupid idea enjoy for our actual work see https www joecliffthompson com https www theredactedunit com https www theredactedunit com t7p hosted on acast see acast com privacy for more information comedy drama episodic 15 second mysteries thundercrew english unclear imported thundercrew thundercrew unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/15-second-mysteries-a6a2d98551-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/15-second-mysteries-a6a2d98551-640.webp",
+        "width": 640
+      }
+    ]
   }
 ]
