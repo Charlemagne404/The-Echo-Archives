@@ -869,31 +869,31 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 869,P2,Paradise Cab,,da5f7f50-12fa-4362-8678-103de8dc73be,published,published,,2026-08-15 20:11:44
 870,P2,Apocalypse Radio,,5e7720c4-8429-47c0-ada6-7cead3c91bb2,needs-review,needs-review,source-conflict,2026-08-15 20:11:36
 871,P2,Deep Space Radio,,65ba5500-5603-432d-8712-1282de6a8148,published,published,,2026-08-15 20:11:44
-872,P2,Subsister: A Real Podcast,,,unattempted,,,
-873,P2,Starship Mudskipper,,,unattempted,,,
-874,P2,After Impact,,,unattempted,,,
-875,P2,Route 6.6,,,unattempted,,,
-876,P2,"Mars, The Earth, and Jackson",,,unattempted,,,
-877,P2,Your Performance Review,,,unattempted,,,
-878,P2,Device 5,,,unattempted,,,
-879,P2,The Lost Channel,,,unattempted,,,
-880,P2,The Ferry,,,unattempted,,,
-881,P2,Star Trek: Khan,CBS Studios,,unattempted,,,
-882,P2,Origin Protocol,,,unattempted,,,
-883,P2,E.A.T.I.,,,unattempted,,,
-884,P2,The Scent of Gravity,,,unattempted,,,
-885,P2,Shelar and the Scavengers,,,unattempted,,,
-886,P2,Interstellar Intercoms,WKNC 88.1 FM,,unattempted,,,
-887,P2,Stories From Ylelmore,,,unattempted,,,
-888,P2,The Limbo,,,unattempted,,,
-889,P2,The Harbingers,,,unattempted,,,
-890,P2,Legends of Khampiohn,,,unattempted,,,
-891,P2,The Bardic Hearth,,,unattempted,,,
-892,P2,The Hand of Brass,,,unattempted,,,
-893,P2,Ravens Vail,,,unattempted,,,
-894,P2,Hex Girlfriends: an Improvised Fantasy Podcast,,,unattempted,,,
-895,P2,It's Grimm!,,,unattempted,,,
-896,P2,Coastal Magic,,,unattempted,,,
+872,P2,Subsister: A Real Podcast,,15f228b4-4791-4e91-a64b-b5bc06219648,needs-review,needs-review,source-conflict,2026-08-15 20:15:08
+873,P2,Starship Mudskipper,,d9a1053a-a8c6-4bb0-a496-7b8ad3e26fce,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 20:12:12
+874,P2,After Impact,,bbba6d38-7454-4406-84db-16c3d68cd50a,published,published,,2026-08-15 20:15:13
+875,P2,Route 6.6,,4ab2f1fa-3041-4be6-8c04-caea3b269767,published,published,,2026-08-15 20:15:13
+876,P2,"Mars, The Earth, and Jackson",,a25a5628-d520-4343-abb2-3800c5432c44,needs-review,needs-review,source-conflict,2026-08-15 20:12:09
+877,P2,Your Performance Review,,1ad56cd8-fc39-4218-9e49-8564ad5f5cff,needs-review,needs-review,source-conflict,2026-08-15 20:12:12
+878,P2,Device 5,,2e11dbae-62a0-413b-a374-9ce233e3bb0b,needs-review,needs-review,invalid-apple-link,2026-08-15 20:14:13
+879,P2,The Lost Channel,,dc2436a5-9d8a-4232-9915-422828c4c49b,published,published,,2026-08-15 20:15:13
+880,P2,The Ferry,,8e1a6e43-e864-469e-b439-ed92b8b66d19,needs-review,needs-review,source-conflict,2026-08-15 20:12:11
+881,P2,Star Trek: Khan,CBS Studios,63e7fe8a-4ba3-4a9f-9650-1d3bb6b81181,needs-review,needs-review,source-conflict,2026-08-15 20:12:08
+882,P2,Origin Protocol,,421394d5-1dfb-4d30-b3ed-8e0bbaab0c9e,needs-review,needs-review,source-conflict,2026-08-15 20:14:08
+883,P2,E.A.T.I.,,dcce9d93-eaa2-4438-8427-eb3b4ce77362,published,published,,2026-08-15 20:15:13
+884,P2,The Scent of Gravity,,c0d98a97-e953-4b9a-ab8d-8b252efcb6b0,published,published,,2026-08-15 20:15:13
+885,P2,Shelar and the Scavengers,,8290a437-bf17-4a91-b85a-1121935e04a5,published,published,,2026-08-15 20:15:13
+886,P2,Interstellar Intercoms,WKNC 88.1 FM,cb54abdf-572f-4b16-a832-a5d4eef07eb7,needs-review,needs-review,source-conflict,2026-08-15 20:14:33
+887,P2,Stories From Ylelmore,,50d3722d-41fc-4054-88ba-5b5b6447e61a,needs-review,needs-review,source-conflict,2026-08-15 20:14:12
+888,P2,The Limbo,,3458c129-e029-4cc6-ab17-50e6147597b5,needs-review,needs-review,scope-review; source-conflict,2026-08-15 20:14:12
+889,P2,The Harbingers,,0a1215c4-4055-48a0-bb73-e66eeb9f457f,published,published,,2026-08-15 20:15:13
+890,P2,Legends of Khampiohn,,7429b02f-cf2a-4111-a2b4-e23c59ff2478,published,published,,2026-08-15 20:15:13
+891,P2,The Bardic Hearth,,1d6a7c0f-0e99-4086-b6ad-efa5eaba45e0,needs-review,needs-review,scope-review,2026-08-15 20:13:12
+892,P2,The Hand of Brass,,214ebb0b-3ade-460a-a5cf-0a809cd96189,published,published,,2026-08-15 20:15:13
+893,P2,Ravens Vail,,582d4322-8667-4c91-865c-9452bc84de65,needs-review,needs-review,source-conflict,2026-08-15 20:12:09
+894,P2,Hex Girlfriends: an Improvised Fantasy Podcast,,2059423a-dad7-4c95-b416-c688d19a12ad,needs-review,needs-review,source-conflict,2026-08-15 20:15:07
+895,P2,It's Grimm!,,375722cb-cb7f-453b-8626-dd235e238f64,published,published,,2026-08-15 20:15:13
+896,P2,Coastal Magic,,df251403-f2da-4ad8-a360-0582bac8c9e9,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:15:10
 897,P2,Gospels of the Flood,,,unattempted,,,
 898,P2,The Doorstep Project,,,unattempted,,,
 899,P2,Mysteries of Sparrow Crest,,,unattempted,,,
