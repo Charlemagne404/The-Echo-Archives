@@ -418950,5 +418950,576 @@
         "width": 640
       }
     ]
+  },
+  {
+    "id": "the-montana-incident",
+    "title": "The Montana Incident",
+    "subtitle": "",
+    "description": "The Montana Incident is a grounded horror mythos told through a collection of short stories, each from a different point of view. Set during the mid-90s, it chronicles a localized apocalyptic event that unfolded deep in Montana. Some stories take place before the outbreak, others during the chaos, and some in the uneasy silence that followed. No jumpscares. No cheap stings. Just dread. Music By ShymNoiz",
+    "cover": "images/covers/the-montana-incident.jpg",
+    "coverAlt": "The Montana Incident cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/the-montana-incident/id1865351758?uo=4",
+      "website": "https://buymeacoffee.com/facwrites",
+      "rss": "https://anchor.fm/s/10d592708/podcast/rss"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Montana Incident"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "at least 8 full episodes • 40 min median",
+      "episodes": 8,
+      "avgEpisodeMinutes": 35,
+      "medianEpisodeMinutes": 40,
+      "minEpisodeMinutes": 4,
+      "maxEpisodeMinutes": 48,
+      "totalObservedHours": 4.6,
+      "durationCoverage": 1,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 8,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2025-12-31",
+      "latest": "2026-08-11",
+      "latestFeedItem": "2026-08-11"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://buymeacoffee.com/facwrites"
+    },
+    "credits": {
+      "creatorName": "FACwrites",
+      "ownerName": "FACwrites",
+      "network": "Buy Me a Coffee"
+    },
+    "creators": [
+      "FACwrites"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://buymeacoffee.com/facwrites; https://anchor.fm/s/10d592708/podcast/rss; https://podcasts.apple.com/us/podcast/the-montana-incident/id1865351758?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://buymeacoffee.com/facwrites",
+        "https://anchor.fm/s/10d592708/podcast/rss",
+        "https://podcasts.apple.com/us/podcast/the-montana-incident/id1865351758?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction"
+      ],
+      "importOfficialSummary": "The Montana Incident is a grounded horror mythos told through a collection of short stories, each from a different point of view. Set during the mid-90s, it chronicles a localized apocalyptic event that unfolded deep in Montana. Some stories take place before the outbreak, others during the chaos, and some in the uneasy silence that followed. No jumpscares. No cheap stings. Just dread. Music By ShymNoiz",
+      "schedule": {
+        "label": "monthly",
+        "medianDays": 19,
+        "observedIntervals": 7
+      },
+      "podcast": {
+        "copyright": "FACwrites",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://anchor.fm/s/10d592708/podcast/rss",
+          "appleCollectionId": "1865351758"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://buymeacoffee.com/facwrites",
+            "fetchedAt": "2026-08-15T22:02:08.320Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss",
+            "fetchedAt": "2026-08-15T22:02:07.431Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-montana-incident/id1865351758?uo=4",
+            "fetchedAt": "2026-08-15T22:02:07.415Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-montana-incident/id1865351758?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-montana-incident/id1865351758?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-montana-incident/id1865351758?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-montana-incident/id1865351758?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-montana-incident/id1865351758?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-montana-incident/id1865351758?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-montana-incident/id1865351758?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://buymeacoffee.com/facwrites"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.6,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://buymeacoffee.com/facwrites"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/10d592708/podcast/rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T22:02:10.013Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T22:02:10.341Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "facwrites",
+    "networkId": "buy-me-a-coffee",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-montana-incident",
+    "hasPage": true,
+    "image": "images/covers/the-montana-incident.jpg",
+    "imageAlt": "The Montana Incident cover art",
+    "summary": "The Montana Incident is a grounded horror mythos told through a collection of short stories, each from a different point of view. Set during the mid-90s, it chronicles a localized apocalyptic event that unfolded deep in Montana. Some stories take place before the outbreak, others during the chaos, and some in the uneasy silence that followed. No jumpscares. No cheap stings. Just dread. Music By ShymNoiz",
+    "finalRating": null,
+    "searchText": "the montana incident the montana incident is a grounded horror mythos told through a collection of short stories each from a different point of view set during the mid 90s it chronicles a localized apocalyptic event that unfolded deep in montana some stories take place before the outbreak others during the chaos and some in the uneasy silence that followed no jumpscares no cheap stings just dread music by shymnoiz drama episodic the montana incident facwrites english ongoing imported facwrites facwrites buy me a coffee unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-montana-incident-54f95a44eb-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-montana-incident-54f95a44eb-640.webp",
+        "width": 640
+      }
+    ]
   }
 ]

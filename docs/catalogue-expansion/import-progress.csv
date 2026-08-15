@@ -1403,7 +1403,7 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1403,P3,Fugative's Log,,f547ed1b-852d-4cb0-8459-ac363e03fb3d,needs-review,needs-review,source-conflict,2026-08-15 21:59:41
 1404,P3,Laura,Martin Whiskin,7daf5ede-417b-49c2-bc11-6b5e814ab359,needs-review,needs-review,source-conflict,2026-08-15 22:01:06
 1405,P3,Long Winter Nights,,afbdced5-08ed-4a27-8540-849b5aaac5c7,published,published,,2026-08-15 22:01:21
-1406,P3,The Light Left Behind,Justin D.,,unattempted,,,
-1407,P3,The Montana Incident,,,unattempted,,,
-1408,P3,Interviewing Stephen Haggard,Faith Jacobs,,unattempted,,,
-1409,P3,Solitaire Stories,Andy Hoover,,unattempted,,,
+1406,P3,The Light Left Behind,Justin D.,f0023696-9234-471d-8784-db0734fe9e03,needs-review,needs-review,source-conflict,2026-08-15 22:02:09
+1407,P3,The Montana Incident,,d3b627cc-8257-4f3f-9afd-c995561aad0a,published,published,,2026-08-15 22:02:12
+1408,P3,Interviewing Stephen Haggard,Faith Jacobs,492913d3-e10d-4c05-9e25-7b9de3f40883,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 22:02:10
+1409,P3,Solitaire Stories,Andy Hoover,9ad199e4-8729-40b3-8b15-c3ae6cdb80f5,needs-review,needs-review,source-conflict,2026-08-15 22:02:09

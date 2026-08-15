@@ -49843,5 +49843,68 @@
     "featured": false,
     "createdAt": "2026-08-15",
     "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "the-montana-incident",
+    "title": "The Montana Incident",
+    "subtitle": "",
+    "description": "The Montana Incident is a grounded horror mythos told through a collection of short stories, each from a different point of view. Set during the mid-90s, it chronicles a localized apocalyptic event that unfolded deep in Montana. Some stories take place before the outbreak, others during the chaos, and some in the uneasy silence that followed. No jumpscares. No cheap stings. Just dread. Music By ShymNoiz",
+    "cover": "images/covers/the-montana-incident.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-montana-incident-54f95a44eb-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-montana-incident-54f95a44eb-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Montana Incident cover art",
+    "creators": [
+      "FACwrites"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Montana Incident"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "FACwrites",
+      "ownerName": "FACwrites",
+      "network": "Buy Me a Coffee"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
   }
 ]
