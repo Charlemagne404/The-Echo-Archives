@@ -8579,9 +8579,9 @@
   },
   {
     "id": "the-antique-shop",
-    "title": "The Antique Shop",
+    "title": "The McIlwraith Statements",
     "subtitle": "",
-    "description": "In desperate need of a job, Maya finds work in an old antique shop owned by a mysterious woman. The more time she spends in the shop the further the real world becomes, and Maya soon begins to realise that nothing is as it seems.",
+    "description": "Sarah McIlwraith is haunted by the past. It doesn’t help that she can also see ghosts. Listen to Sarah as she recounts her involvement in the infamous IPP study, and her search for the truth behind the disaster.",
     "cover": "images/covers/the-antique-shop.jpg",
     "coverVariants": [
       {
@@ -8589,7 +8589,7 @@
         "width": 320
       }
     ],
-    "coverAlt": "The Antique Shop cover art",
+    "coverAlt": "The McIlwraith Statements cover art",
     "creators": [
       "Ghostly Thistle"
     ],
@@ -8598,8 +8598,7 @@
     "releaseStatus": "unknown",
     "completionStatus": "unclear",
     "genres": [
-      "fantasy",
-      "supernatural"
+      "drama"
     ],
     "tones": [],
     "formats": [
@@ -8639,7 +8638,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-21",
-    "updatedAt": "2026-07-21"
+    "updatedAt": "2026-08-15"
   },
   {
     "id": "re-dracula",
@@ -33655,6 +33654,574 @@
     "credits": {
       "creatorName": "Phoebe Monsour || Deontoillogical",
       "ownerName": "Phoebe Monsour"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "the-cal-rowe-casefiles",
+    "title": "The Cal Rowe Casefiles",
+    "subtitle": "",
+    "description": "The Cal Rowe Casefiles is a Dreampunk comedy detective audio drama. It is the solemn record of the cases of the titular Cal Rowe and his accomplice Agent 101/Whit Carmichael. Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/the-cal-rowe-casefiles.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-cal-rowe-casefiles-1afe8e311b-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-cal-rowe-casefiles-1afe8e311b-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Cal Rowe Casefiles cover art",
+    "creators": [
+      "Paul Lucas"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Cal Rowe Casefiles"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Paul Lucas",
+      "ownerName": "Paul Lucas"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "the-case-within",
+    "title": "The Case Within",
+    "subtitle": "",
+    "description": "When a new lead prompts a fresh look at a cold case, Special Agent Nicole Baumer is tasked with finding out what really happened to sixteen year old Erin Michaels. But as parallels surface between her past and Erin’s, Nicole must finally confront her own trauma in order to save her.",
+    "cover": "images/covers/the-case-within.png",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-case-within-552aea7c00-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-case-within-552aea7c00-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Case Within cover art",
+    "creators": [
+      "Whimsical Entertainment"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Case Within"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Whimsical Entertainment",
+      "ownerName": "Whimsical Entertainment"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "the-goblet-wire",
+    "title": "The Goblet Wire",
+    "subtitle": "",
+    "description": "A surreal MicroFiction Podcast. \"A role playing game hums within a global network of power lines, fiber optic cables and obsolete satellites. Players who gain access to this mysterious phenomenon create a projection and are guided by the Dictator to realms not yet known to the conscious mind.\"",
+    "cover": "images/covers/the-goblet-wire.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-goblet-wire-42c6c3815a-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-goblet-wire-42c6c3815a-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Goblet Wire cover art",
+    "creators": [
+      "Ester Ellis"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Goblet Wire"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Ester Ellis",
+      "ownerName": "Ester Ellis"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "the-heart-pyre",
+    "title": "The Heart Pyre",
+    "subtitle": "",
+    "description": "The Heart Pyre is an interactive epic fantasy audio drama about mysterious fires, political corruption and long forgotten Gods.",
+    "cover": "images/covers/the-heart-pyre.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-heart-pyre-f2cd73bba8-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-heart-pyre-f2cd73bba8-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Heart Pyre cover art",
+    "creators": [
+      "Audrey Martin"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Heart Pyre"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Audrey Martin",
+      "ownerName": "Audrey Martin",
+      "network": "The Heart Pyre"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "the-pensive-tower",
+    "title": "The Pensive Tower",
+    "subtitle": "",
+    "description": "The Pensive Tower is a weekly high fantasy podcast, following the collected stories of the people who live in the Five Seas Federation and beyond. Join the newly appointed Inscriber, Paxton Ferox, as he works his way through the memories that have been donated to the Tower over the years following the mysterious Dark Age, converting them to the audio format of the newly invented mnimigraph, and supplementing them with any follow up that might have been reported in the intervening years. Some of the memories are of danger, some of romance or life changing encounters or even rediscovering that which was thought forgotten. And together they begin to form an outline of a greater story being told, if only someone can read it. Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/the-pensive-tower.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-pensive-tower-91b5a05815-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-pensive-tower-91b5a05815-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Pensive Tower cover art",
+    "creators": [
+      "Scroll & Dagger"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Pensive Tower",
+      "The Pensive Tower - Announcement Trailer | The Pensive Tower"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Scroll & Dagger",
+      "ownerName": "Gareth Cadogan"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "the-six-disappearances-of-ella-mccray",
+    "title": "The Six Disappearances of Ella McCray",
+    "subtitle": "",
+    "description": "On March 20th, 2014, Ella McCray disappeared. There were six witnesses to her disappearance. Six conflicting accounts of what happened to her. Who is lying? Who is telling the truth? And what really happened to Ella? You can support the show by visiting https://www.patreon.com/sixdisappearancespod or by subscribing and leaving a review at your favorite podcatcher. For episode content warnings and other information, visit https://www.sixdisappearancespodcast.com/ For episode-specific content warnings, visit https://www.sixdisappearancespodcast.com/about This show is written by Jamie Killen. Sound design and original music by Jon Erik DeGuzman and Dog and Pony Studios.",
+    "cover": "images/covers/the-six-disappearances-of-ella-mccray.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-six-disappearances-of-ella-mccray-11737c33da-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-six-disappearances-of-ella-mccray-11737c33da-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Six Disappearances of Ella McCray cover art",
+    "creators": [
+      "ZoomDoom Stories"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Six Disappearances of Ella McCray"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "ZoomDoom Stories",
+      "ownerName": "ZoomDoom Stories",
+      "network": "The Six Disappearances of Ella McCray"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "the-sulphuric-secrets",
+    "title": "The Sulphuric Secrets",
+    "subtitle": "",
+    "description": "ANNOUNCEMENT: SEASON 2 IN-PRODUCTION - CHECK PATREON FOR UPDATES (https://www.patreon.com/between_two_worlds). Barely clinging to life, a flayed man lies in a copper basement beneath a cornfield of a forgotten country in the 1850s. Why? From this weird and disturbing mystery begins the story of The Sulphuric Secrets, which spans the globe, and hundreds of years. This fictitious story entwines the unimaginable with historical events, which will delight occult and horror aficionados alike.",
+    "cover": "images/covers/the-sulphuric-secrets.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-sulphuric-secrets-0141dc39e1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-sulphuric-secrets-0141dc39e1-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Sulphuric Secrets cover art",
+    "creators": [
+      "Between Two Worlds"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Sulphuric Secrets"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Between Two Worlds",
+      "ownerName": "Between Two Worlds"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "the-supernatural-protection-company",
+    "title": "The Supernatural Protection Company",
+    "subtitle": "Need paranormal insurance? Call us!",
+    "description": "Need paranormal insurance? Call us! The Supernatural Protection Company is dedicated to providing quality customer service to help you with any and all paranormal issues for which you may be covered. From haunted cars to cryptid caused injury, we're here for you! The Supernatural Protection Company is an episodic comedy podcast about a world where paranormal occurrences are so commonplace you can just buy insurance for them! In a mix of fully scripted and improvised episodes, we learn about the quirks of this alternate reality through recorded phone calls with an SPC customer service agent, and all the nonsense that entails. New episodes monthly (usually)! Created and produced by Saph the Something (xae/xem), a queer and disabled non-binary multimedia artist located in the Midwestern US.",
+    "cover": "images/covers/the-supernatural-protection-company.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-supernatural-protection-company-351e7246d3-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-supernatural-protection-company-351e7246d3-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Supernatural Protection Company cover art",
+    "creators": [
+      "Saph the Something"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama",
+      "comedy",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Supernatural Protection Company"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Saph the Something",
+      "ownerName": "Saph the Something"
+    },
+    "availability": {
+      "transcripts": "9 observed episodes",
+      "captions": "unknown",
+      "transcriptCoverage": 0.692,
+      "transcriptFormats": [
+        "text/html"
+      ]
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "the-twelvelms-conspiracy",
+    "title": "The Twelvelms Conspiracy",
+    "subtitle": "",
+    "description": "The Twelvelms Conspiracy is a brand new fantasy mystery audio drama from Eira Major, creator of Remnants , Not Quite Dead and Spirit Box Radio . Set in a magical world hidden just out of sight, it’s a story fraught with social and class tension, exploring ideas about what it means to belong, and what it means to live with the legacy of terrible decisions made generations ago whose consequences have shaped everything around you. Cyan Goodman does not belong at twelvelms and everyone knows it. Especially him. The university has trained the finest mages in magedom for centuries, but Cyan only found out it existed two weeks ago. Out of his depth, with nowhere else to go, Cyan is allowed to enroll at Twelvelms under one condition; that he keeps the circumstances under which he was admitted completely secret. To make things more complicated, the only reason he was given a space at the school at all is because another boy has gone missing, under extremely mysterious circumstances. It seems like there’s a much bigger problem lurking just out of sight at Twelvelms, one which reaches far beyond Cyan’s secrets and into the foundations of magedom itself. Cyan narrates his story years after these events, and his circumstances have become even stranger... Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/the-twelvelms-conspiracy.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-twelvelms-conspiracy-fa9b255611-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-twelvelms-conspiracy-fa9b255611-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Twelvelms Conspiracy cover art",
+    "creators": [
+      "Eira Major's Hanging Sloth"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Twelvelms Conspiracy"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Eira Major's Hanging Sloth",
+      "ownerName": "Eira Major"
     },
     "availability": {
       "transcripts": "unknown",

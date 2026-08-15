@@ -1,10 +1,10 @@
 {
   "id": "the-antique-shop",
-  "title": "The Antique Shop",
+  "title": "The McIlwraith Statements",
   "subtitle": "",
-  "description": "In desperate need of a job, Maya finds work in an old antique shop owned by a mysterious woman. The more time she spends in the shop the further the real world becomes, and Maya soon begins to realise that nothing is as it seems.",
+  "description": "Sarah McIlwraith is haunted by the past. It doesn’t help that she can also see ghosts. Listen to Sarah as she recounts her involvement in the infamous IPP study, and her search for the truth behind the disaster.",
   "cover": "images/covers/the-antique-shop.jpg",
-  "coverAlt": "The Antique Shop cover art",
+  "coverAlt": "The McIlwraith Statements cover art",
   "status": "published",
   "reviewStatus": "indexed-only",
   "releaseStatus": "unknown",
@@ -12,16 +12,15 @@
   "listenLinks": {
     "start": "",
     "spotify": "",
-    "apple": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4",
+    "apple": "https://podcasts.apple.com/us/podcast/the-mcilwraith-statements/id1463648278?uo=4",
     "website": "https://ghostlythistle.com/blog/",
-    "rss": "https://rss.buzzsprout.com/1164719.rss",
+    "rss": "https://ghostlythistle.com/feed/podcast/",
     "youtubeMusic": "",
     "amazonMusic": "",
     "pocketCasts": ""
   },
   "genres": [
-    "fantasy",
-    "supernatural"
+    "drama"
   ],
   "tones": [],
   "formats": [
@@ -42,29 +41,25 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "1 season observed • at least 53 full episodes • 26 min median",
-    "seasons": 1,
-    "episodes": 53,
-    "avgEpisodeMinutes": 27,
-    "medianEpisodeMinutes": 26,
-    "minEpisodeMinutes": 12,
-    "maxEpisodeMinutes": 72,
-    "totalObservedHours": 24.3,
+    "label": "at least 26 full episodes • 20 min median",
+    "episodes": 26,
+    "avgEpisodeMinutes": 20,
+    "medianEpisodeMinutes": 20,
+    "minEpisodeMinutes": 4,
+    "maxEpisodeMinutes": 36,
+    "totalObservedHours": 8.5,
     "durationCoverage": 1,
-    "observedSeasons": [
-      1
-    ],
     "countQualifier": "at-least",
     "episodeCounts": {
-      "full": 53,
+      "full": 26,
       "bonus": 0,
       "trailer": 0
     }
   },
   "releaseDates": {
-    "first": "2020-02-03",
-    "latest": "2022-12-15",
-    "latestFeedItem": "2022-12-15",
+    "first": "2019-01-31",
+    "latest": "2019-12-31",
+    "latestFeedItem": "2019-12-31",
     "next": ""
   },
   "ratings": {},
@@ -86,7 +81,7 @@
     "discord": "",
     "youtube": "",
     "social": "",
-    "funding": "https://ko-fi.com/ghostlythistle"
+    "funding": ""
   },
   "credits": {
     "creatorName": "Ghostly Thistle",
@@ -98,10 +93,10 @@
   ],
   "cast": [],
   "verification": {
-    "status": "partially-source-reviewed",
-    "verifiedAt": "2026-07-21",
-    "source": "https://ghostlythistle.com/2021/07/15/episode-3-2/; https://ghostlythistle.com/2019/11/21/episode-2-2/; https://ghostlythistle.com/2019/10/25/episode-1-2/; https://ghostlythistle.com/about/; https://ghostlythistle.com/blog/; https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4; https://rss.buzzsprout.com/1164719.rss",
-    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://ghostlythistle.com/2021/07/15/episode-3-2/; https://ghostlythistle.com/2019/11/21/episode-2-2/; https://ghostlythistle.com/2019/10/25/episode-1-2/; https://ghostlythistle.com/about/; https://ghostlythistle.com/blog/; https://ghostlythistle.com/feed/podcast/; https://podcasts.apple.com/us/podcast/the-mcilwraith-statements/id1463648278?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
   },
   "availability": {
     "transcripts": "unknown",
@@ -118,30 +113,27 @@
       "https://ghostlythistle.com/2019/10/25/episode-1-2/",
       "https://ghostlythistle.com/about/",
       "https://ghostlythistle.com/blog/",
-      "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4",
-      "https://rss.buzzsprout.com/1164719.rss",
-      "https://ghostlythistle.com/the-antique-shop/"
+      "https://ghostlythistle.com/feed/podcast/",
+      "https://podcasts.apple.com/us/podcast/the-mcilwraith-statements/id1463648278?uo=4"
     ],
-    "sourceCategories": [],
+    "sourceCategories": [
+      "Fiction",
+      "Drama"
+    ],
     "sourceKeywords": [],
     "sourceTags": [],
-    "importOfficialSummary": "The Antique Shop",
+    "importOfficialSummary": "Sarah McIlwraith is haunted by the past. It doesn’t help that she can also see ghosts. Listen to Sarah as she recounts her involvement in the infamous IPP study, and her search for the truth behind the disaster.",
     "socialUrls": [],
-    "funding": [
-      {
-        "url": "https://ko-fi.com/ghostlythistle",
-        "label": "Support this Podcast"
-      }
-    ],
+    "funding": [],
     "schedule": {
-      "label": "biweekly",
-      "medianDays": 14,
+      "label": "weekly",
+      "medianDays": 7,
       "observedIntervals": 8
     },
     "podcast": {
-      "medium": "",
-      "copyright": "© 2026 The Antique Shop",
-      "explicit": "Clean",
+      "medium": "podcast",
+      "copyright": "",
+      "explicit": "false",
       "license": {
         "value": "",
         "url": ""
@@ -155,9 +147,9 @@
     "import": {
       "pipelineVersion": "2.0",
       "identifiers": {
-        "podcastGuid": "9fcf0b51-3046-51b7-b204-6bfb437d2aad",
-        "rssUrl": "https://rss.buzzsprout.com/1164719.rss",
-        "appleCollectionId": "1497341367",
+        "podcastGuid": "a32b59a0-89e9-51f2-87be-16a45f8ebfe2",
+        "rssUrl": "https://ghostlythistle.com/feed/podcast/",
+        "appleCollectionId": "1463648278",
         "podcastIndexFeedId": "",
         "feedRedirects": []
       },
@@ -165,84 +157,96 @@
         {
           "sourceType": "website",
           "sourceUrl": "https://ghostlythistle.com/2021/07/15/episode-3-2/",
-          "fetchedAt": "2026-07-21T12:22:41.745Z",
-          "payloadHash": "0050e598d5130e8daa39ceb2f33df237a60f99f56bceb82aa7afe9e417d74cb0"
+          "fetchedAt": "2026-08-15T19:59:36.207Z",
+          "payloadHash": "9b6dd0baedb78dc899966ee82d6f75a2ec3c320d0319df936c020d1bbe525e1a"
         },
         {
           "sourceType": "website",
           "sourceUrl": "https://ghostlythistle.com/2019/11/21/episode-2-2/",
-          "fetchedAt": "2026-07-21T12:22:41.742Z",
-          "payloadHash": "702f596bcfa90db4a87e0cf43334e8f55bdb25d2afa93fae59920a4d758bb15c"
+          "fetchedAt": "2026-08-15T19:59:36.203Z",
+          "payloadHash": "921765578d12e345360c8360564fdad14127fb075f8dd3e95a338f262e5246cd"
         },
         {
           "sourceType": "website",
           "sourceUrl": "https://ghostlythistle.com/2019/10/25/episode-1-2/",
-          "fetchedAt": "2026-07-21T12:22:41.738Z",
-          "payloadHash": "157f6c28437eabf6a0a4188893ed53520c2927631bd037455dfdc2090d48278f"
+          "fetchedAt": "2026-08-15T19:59:36.198Z",
+          "payloadHash": "084aa08c51e71d236e1adc27c31c0dada740ec08442872f93dd8a2dedc8b4e03"
         },
         {
           "sourceType": "website",
           "sourceUrl": "https://ghostlythistle.com/about/",
-          "fetchedAt": "2026-07-21T12:22:41.736Z",
-          "payloadHash": "6ae5395df18edb9260ad102e19df310325a146c82afe5f06fa6fd09ef6dcfc42"
+          "fetchedAt": "2026-08-15T19:59:36.148Z",
+          "payloadHash": "b8b3ae6b831fe55ce05cfd07cbc90df739b8c5544e862799b738fecc87543c12"
         },
         {
           "sourceType": "website",
           "sourceUrl": "https://ghostlythistle.com/blog/",
-          "fetchedAt": "2026-07-21T12:22:41.719Z",
-          "payloadHash": "6b0766c4e41d43dcf5d0c4bbcecaae9e7fd7bf0c999a2bb2b8e259c437714a7c"
-        },
-        {
-          "sourceType": "apple",
-          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4",
-          "fetchedAt": "2026-07-21T12:22:41.357Z",
-          "payloadHash": "d744725bb4b677f9a5171a0d3ad3cade510cb5b03de4c0e9ab20c64adee5d99f"
+          "fetchedAt": "2026-08-15T19:59:36.041Z",
+          "payloadHash": "5f07328cdf20fce453a009743b2ca166e285d17b96def4e32446f72d933f591a"
         },
         {
           "sourceType": "rss",
-          "sourceUrl": "https://rss.buzzsprout.com/1164719.rss",
-          "fetchedAt": "2026-07-21T12:22:18.753Z",
-          "payloadHash": "93af7dd38814dd89cd2f2bb881054f176a8c074da42474d50f733cd9fd7f9394"
+          "sourceUrl": "https://ghostlythistle.com/feed/podcast/",
+          "fetchedAt": "2026-08-15T19:59:33.607Z",
+          "payloadHash": "4b08c12e81603e25f00469a701595db7e8437bf5b81780d074bafc75f4e6f3a2"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-mcilwraith-statements/id1463648278?uo=4",
+          "fetchedAt": "2026-08-15T19:59:33.137Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
         }
       ],
       "fields": {
         "title": {
-          "confidence": 0.75,
-          "method": "direct",
+          "confidence": 0.98,
+          "method": "source-agreement",
           "sources": [
             {
               "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4"
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-mcilwraith-statements/id1463648278?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
             }
           ]
         },
         "creatorName": {
-          "confidence": 0.75,
-          "method": "direct",
+          "confidence": 0.98,
+          "method": "source-agreement",
           "sources": [
             {
               "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4"
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-mcilwraith-statements/id1463648278?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
             }
           ]
         },
         "description": {
-          "confidence": 1,
-          "method": "maintainer-verified",
+          "confidence": 0.95,
+          "method": "direct",
           "sources": [
             {
-              "sourceType": "website",
-              "sourceUrl": "https://ghostlythistle.com/the-antique-shop/"
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
             }
           ]
         },
         "rssUrl": {
-          "confidence": 0.75,
-          "method": "direct",
+          "confidence": 0.98,
+          "method": "source-agreement",
           "sources": [
             {
               "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4"
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-mcilwraith-statements/id1463648278?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
             }
           ]
         },
@@ -252,7 +256,7 @@
           "sources": [
             {
               "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4"
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-mcilwraith-statements/id1463648278?uo=4"
             }
           ]
         },
@@ -262,63 +266,51 @@
           "sources": [
             {
               "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4"
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-mcilwraith-statements/id1463648278?uo=4"
             }
           ]
         },
         "artworkUrl": {
-          "confidence": 0.72,
-          "method": "source-agreement",
+          "confidence": 0.95,
+          "method": "direct",
           "sources": [
             {
-              "sourceType": "website",
-              "sourceUrl": "https://ghostlythistle.com/blog/"
-            },
-            {
-              "sourceType": "website",
-              "sourceUrl": "https://ghostlythistle.com/about/"
-            },
-            {
-              "sourceType": "website",
-              "sourceUrl": "https://ghostlythistle.com/2019/10/25/episode-1-2/"
-            },
-            {
-              "sourceType": "website",
-              "sourceUrl": "https://ghostlythistle.com/2019/11/21/episode-2-2/"
-            },
-            {
-              "sourceType": "website",
-              "sourceUrl": "https://ghostlythistle.com/2021/07/15/episode-3-2/"
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
             }
           ]
         },
         "explicit": {
-          "confidence": 0.75,
+          "confidence": 0.95,
           "method": "direct",
           "sources": [
             {
-              "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4"
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
             }
           ]
         },
         "episodeCount": {
-          "confidence": 0.75,
-          "method": "direct",
+          "confidence": 0.98,
+          "method": "source-agreement",
           "sources": [
             {
               "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4"
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-mcilwraith-statements/id1463648278?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
             }
           ]
         },
         "latestPublicationDate": {
-          "confidence": 0.75,
+          "confidence": 0.95,
           "method": "direct",
           "sources": [
             {
-              "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4"
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
             }
           ]
         },
@@ -328,14 +320,42 @@
           "sources": [
             {
               "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4"
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-mcilwraith-statements/id1463648278?uo=4"
             }
           ]
         },
-        "networkName": {
-          "confidence": 0.72,
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
           "method": "source-agreement",
           "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ghostlythistle.com/blog/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            },
             {
               "sourceType": "website",
               "sourceUrl": "https://ghostlythistle.com/blog/"
@@ -358,17 +378,217 @@
             }
           ]
         },
-        "websiteUrl": {
+        "categories": {
           "confidence": 0.95,
-          "method": "unstructured",
+          "method": "direct",
           "sources": [
             {
-              "sourceType": "website",
-              "sourceUrl": "https://ghostlythistle.com/blog/"
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
             }
           ]
         },
-        "language": {
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "medium": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
+            }
+          ]
+        },
+        "networkName": {
           "confidence": 0.72,
           "method": "source-agreement",
           "sources": [
@@ -405,22 +625,17 @@
           "sources": []
         },
         "formats": {
-          "confidence": 0.7,
+          "confidence": 0.95,
           "method": "deterministic-feed-type",
-          "sources": []
-        },
-        "genres": {
-          "confidence": 1,
-          "method": "maintainer-verified",
           "sources": [
             {
-              "sourceType": "website",
-              "sourceUrl": "https://ghostlythistle.com/the-antique-shop/"
+              "sourceType": "rss",
+              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
             }
           ]
         }
       },
-      "importedAt": "2026-07-21T12:22:59.988Z",
+      "importedAt": "2026-08-15T19:59:36.261Z",
       "humanOwnedFields": [
         "ratings",
         "archiveTake",
@@ -438,40 +653,49 @@
         "collectionMembership"
       ],
       "managedFingerprints": {
-        "title": "49f351ab961664e20b58c2337eafd12a575459ab106a074838cbfb391847e35a",
+        "title": "487276bdc07b955ed1faba3af6f756c666a2a09ce2baa2527f1b7b64a928909e",
         "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
-        "description": "18833ab2e5b57ac498ee0edd551661431d78f94a108cb245b415bc69ac97727c",
+        "description": "70d41d74fd9ba91b8159e0ec16835db6d6fa1d161d6bd4c54f557750788514c7",
         "cover": "b854c4820124fff382c935100651f047a8bdde29140454fbd43afef94ef8ec1e",
-        "coverAlt": "c32ac3f0de81d80d6992df775ec6c916d6b0f6beb75b0e714574785b64e1bb2d",
+        "coverAlt": "9d9e8af8cef9ce50a2273e18b8047bd2d510fd7d87c2a6cb18ba6bb9832484cb",
         "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
         "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
-        "listenLinks": "27eb0cc6b9327755b5fd800ea9bf7beea3f7a2d1fffa8b3cf4832e7731c30b9c",
-        "officialLinks": "4e06e6711c09f9bdcf221643c31227abd546fa491534fdec95498c7d55fc91f7",
-        "genres": "a68b6169bfd5b0f96e4333f8ef98405d4591f1727885e7da672ca935acdcd6c6",
-        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
-        "aliases": "80a9a59288ed81d5a997a0a23dc560fe3488313280f6f37c7e8f342e0bd923c4",
+        "listenLinks": "d411c8dfbf0699d85c9762f0f44859bc460897a58bbec4584b4ac3fabdabc758",
+        "officialLinks": "e66a8f86504685e59843749c2f10f6c00ecc5a45b6ec528d6a35a3ab5ebe9377",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4c29d9fb724b539de30c66bc079e5721229cbe103fd5f0baf9b8403a414cc944",
+        "formats": "248540af436d845b3c18a1c7698f6408bc34876ea48495225cf1ae81879a7642",
+        "aliases": "a6817e01516b08f4e343838bf57496964fc538e6a698b06a4b719915f0ed25a3",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "length": "4198035cdc9e692350f5bad3b575729a97dd6fa71cd25e3dc4064d8451cf1d06",
-        "releaseDates": "8f6c677bd93647fd3f854201117359f19764880314aecf3379669d6c57f6e07d",
+        "length": "144ab402f1262a293f5110ddd62342253e9d41bf855a3b8753d484b16334c7f6",
+        "releaseDates": "c33a92d3da047b332af3ab240a82c104c7125dbf730eb0f1b65a4f0ab4517938",
         "credits": "612dbae931ec600438763cd41c2feabd9ff218cc4cbe3aa5b32ccf3012fa6c47",
         "creators": "59df8563006d4d89452a11f2144953b2c17102daf42f81f626aaffc72e95b6e7",
         "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
-        "verification": "e603c54ed0b95045dee68f0daa9a3d4aa6583636c88efad39d38ffe25580b605"
+        "verification": "4ea6699f9e106324d3a6c5a56b5daf9cce15084aedaa2025f9c9826f0a5463a3"
       },
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
         "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
-      ]
+      ],
+      "automaticallyLockedFields": [
+        "tags",
+        "formats",
+        "aliases"
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-08-15T20:01:10.294Z"
+      }
     }
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
+  "updatedAt": "2026-08-15",
   "creatorId": "ghostly-thistle",
   "networkId": "ghostly-thistle"
 }

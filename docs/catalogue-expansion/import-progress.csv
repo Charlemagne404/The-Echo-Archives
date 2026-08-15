@@ -661,34 +661,34 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 661,P1,The Axe & Crown,Forgery League,4bc0280e-fbee-4ddb-bf0d-cce8d7154de4,needs-review,needs-review,source-conflict; duplicate-ambiguity,2026-08-15 17:21:14
 662,P2,The Ballad of Buck Moon,,1970a6e8-92d1-496b-8ce1-e06823027f6d,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 19:57:35
 663,P2,The Blood Crow Stories,Ellie Collins,81d02e84-0058-41aa-a83e-5c9c4e173ee8,needs-review,needs-review,insufficient-discovery-signals; missing-genre,2026-08-15 19:58:26
-664,P2,The Boar Knight,,,unattempted,,,
+664,P2,The Boar Knight,,c201358d-894d-4d5a-8eb6-c74bf91435a9,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 19:59:36
 665,P1,The Box Podcast,Addison Peacock,b0669fd9-8b54-47ee-8a23-cc1773612355,needs-review,needs-review,insufficient-discovery-signals; missing-genre; invalid-apple-link; source-conflict,2026-08-15 17:21:22
-666,P2,The Cal Rowe Casefiles,,,unattempted,,,
+666,P2,The Cal Rowe Casefiles,,d4984f75-e63c-4158-90bd-176075f9da8e,published,published,,2026-08-15 20:01:13
 667,P1,The Carlötta Beautox Chronicles,Ann Sloan,1154aaf2-d526-4069-91fc-7b49776e3577,needs-review,needs-review,source-conflict,2026-08-15 17:21:25
-668,P2,The Case Within,,,unattempted,,,
-669,P2,The Chronicles of Professor Chronomier,,,unattempted,,,
-670,P2,The City Within the Walls,,,unattempted,,,
-671,P2,The Cryptid Cases,,,unattempted,,,
-672,P2,The Designated Mourner,Gideon Media,,unattempted,,,
-673,P2,The Dial-Up,,,unattempted,,,
-674,P2,The Flight of the Bucket,,,unattempted,,,
-675,P2,The Goblet Wire,,,unattempted,,,
-676,P2,The Heart Pyre,,,unattempted,,,
-677,P2,The Legend of Kaschey the Deathless,,,unattempted,,,
-678,P2,The Lift,9th Story Studios,,unattempted,,,
-679,P2,The McIlwraith Statements,Ghostly Thistle,,unattempted,,,
-680,P2,The Night Shift Podcast,,,unattempted,,,
-681,P2,The Ordinary Epic,,,unattempted,,,
-682,P2,The Pensive Tower,,,unattempted,,,
+668,P2,The Case Within,,d40844f2-e590-4206-b786-220758df82ee,published,published,,2026-08-15 20:01:13
+669,P2,The Chronicles of Professor Chronomier,,6424d241-e804-411b-a203-1726ced7b43b,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 20:00:32
+670,P2,The City Within the Walls,,a4c327c6-ebf9-4c38-8010-faba80d61c76,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:59:29
+671,P2,The Cryptid Cases,,c301ea58-99ec-4f12-ac4a-fc74ed85bae6,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 19:59:35
+672,P2,The Designated Mourner,Gideon Media,3f66de72-10d5-4c77-9c3c-eefaf3203043,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 20:01:00
+673,P2,The Dial-Up,,6c378cf0-c580-4913-b030-1901755e1700,needs-review,needs-review,invalid-website,2026-08-15 20:00:30
+674,P2,The Flight of the Bucket,,164ea948-24e4-4418-b4a9-67b632cc30fb,needs-review,needs-review,source-conflict,2026-08-15 19:59:35
+675,P2,The Goblet Wire,,1c51fda2-141c-4a99-8b1e-f1f38d794cfb,published,published,,2026-08-15 20:01:13
+676,P2,The Heart Pyre,,872ad6a2-5a69-47d3-9900-6f05a996b4fd,published,published,,2026-08-15 20:01:13
+677,P2,The Legend of Kaschey the Deathless,,a8375fbc-2c65-4d00-bedc-05fde6b05b26,needs-review,needs-review,source-conflict,2026-08-15 20:01:06
+678,P2,The Lift,9th Story Studios,4d38cece-9258-440c-b005-74683dad1d28,needs-review,needs-review,source-conflict,2026-08-15 19:59:36
+679,P2,The McIlwraith Statements,Ghostly Thistle,8b95d7f4-17a5-4bfd-925b-9c7f2b508994,published,published,,2026-08-15 20:01:13
+680,P2,The Night Shift Podcast,,9d43383c-66c4-4352-a6f4-079dc72b6db5,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 19:59:35
+681,P2,The Ordinary Epic,,310f0cc1-79fb-4978-8e97-0ce983c8f18f,needs-review,needs-review,scope-review,2026-08-15 20:00:38
+682,P2,The Pensive Tower,,d4954e24-deec-41f9-bac3-09b6caae958c,published,published,,2026-08-15 20:01:13
 683,P1,The Prickwillow Papers,Snazzy Tapir Productions,0dcd842e-664b-4c9a-980d-9606c6ffd4a5,published,published,,2026-08-15 17:21:26
-684,P2,The Six Disappearances of Ella McCray,,,unattempted,,,
-685,P2,The Sulphuric Secrets,,,unattempted,,,
-686,P2,The Supernatural Protection Company,Saph the Something,,unattempted,,,
-687,P2,The Twelvelms Conspiracy,Hanging Sloth Studios / Eira Major,,unattempted,,,
-688,P2,The Underwood Collection,,,unattempted,,,
-689,P2,The Vanishing Act,,,unattempted,,,
-690,P2,Theatre of the Damned,,,unattempted,,,
-691,P2,Trinity Squad Podcast,,,unattempted,,,
+684,P2,The Six Disappearances of Ella McCray,,37b84cca-4794-4f29-8fcb-ddd296b92930,published,published,,2026-08-15 20:01:13
+685,P2,The Sulphuric Secrets,,216294e7-e548-4b9a-ae67-9c02f08a7fbc,published,published,,2026-08-15 20:01:13
+686,P2,The Supernatural Protection Company,Saph the Something,c891db23-4bf1-457a-8d73-78d7edfda925,published,published,,2026-08-15 20:01:13
+687,P2,The Twelvelms Conspiracy,Hanging Sloth Studios / Eira Major,805bb7aa-be9a-44cb-8240-537d8b1a87c6,published,published,,2026-08-15 20:01:13
+688,P2,The Underwood Collection,,785e78e8-4ae1-46a2-b8ca-ba3c10695602,needs-review,needs-review,insufficient-discovery-signals; scope-review; source-conflict,2026-08-15 19:59:32
+689,P2,The Vanishing Act,,604ce26e-2491-42eb-ad4a-6e6d242ed93d,needs-review,needs-review,source-conflict,2026-08-15 19:59:38
+690,P2,Theatre of the Damned,,9e432413-df28-4089-8c81-e1c172dd9614,needs-review,needs-review,insufficient-discovery-signals; missing-genre; invalid-website; source-conflict,2026-08-15 19:59:39
+691,P2,Trinity Squad Podcast,,bd315aef-d4a2-455a-ba37-f1d2fa9144c7,needs-review,needs-review,source-conflict,2026-08-15 19:59:29
 692,P2,Under Pressure,Procyon Podcast Network,,unattempted,,,
 693,P2,Wasteland - A Dex Legacy Story,Alternative Stories,,unattempted,,,
 694,P2,Waterlogged,,,unattempted,,,
