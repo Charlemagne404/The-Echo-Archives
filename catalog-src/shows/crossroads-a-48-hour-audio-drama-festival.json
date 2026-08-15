@@ -1,0 +1,634 @@
+{
+  "id": "crossroads-a-48-hour-audio-drama-festival",
+  "title": "Crossroads: A 48 Hour Audio Drama Festival",
+  "subtitle": "",
+  "description": "This is Crossroads: A 48 Hour Audio Drama Festival! Creatives from all over come together for a weekend of intense fun, start from nothing, and end the weekend with a full produced audio drama! This is the Spring 2026 festival. There is also an Audience Choice award - please vote in that episode! This festival is sponsored by Iridescent Acorn Productions and Two Sober Dwarves Productions. You can find some of the previous festivals here: https://iridescentacorn.com/the-48s-festival/ Thanks for listening! -Rob, Sam, Vince, Tommy, and Will.",
+  "cover": "images/covers/crossroads-a-48-hour-audio-drama-festival.jpg",
+  "coverAlt": "Crossroads: A 48 Hour Audio Drama Festival cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/crossroads-a-48-hour-audio-drama-festival/id1894900409?uo=4",
+    "website": "https://redcircle.com/shows/crossroads-a-48-hour-audio-drama-festival",
+    "rss": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Crossroads: A 48 Hour Audio Drama Festival"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [
+    "English"
+  ],
+  "length": {
+    "label": "at least 11 full episodes • 22 min median",
+    "episodes": 11,
+    "avgEpisodeMinutes": 21,
+    "medianEpisodeMinutes": 22,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 32,
+    "totalObservedHours": 3.8,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 11,
+      "bonus": 1,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2026-04-20",
+    "latest": "2026-04-20",
+    "latestFeedItem": "2026-04-20",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://redcircle.com/shows/crossroads-a-48-hour-audio-drama-festival",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": "https://redcircle.com/crossroads-a-48-hour-audio-drama-festival/donations"
+  },
+  "credits": {
+    "creatorName": "Iridescent Acorn Productions",
+    "ownerName": "Iridescent Acorn Productions"
+  },
+  "creators": [
+    "Iridescent Acorn Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a; https://podcasts.apple.com/us/podcast/crossroads-a-48-hour-audio-drama-festival/id1894900409?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "1 observed episodes",
+    "captions": "available in structured transcript data",
+    "transcriptCoverage": 0.077,
+    "transcriptFormats": [
+      "text/vtt"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ]
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a",
+      "https://podcasts.apple.com/us/podcast/crossroads-a-48-hour-audio-drama-festival/id1894900409?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Science Fiction",
+      "Comedy Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "This is Crossroads: A 48 Hour Audio Drama Festival! Creatives from all over come together for a weekend of intense fun, start from nothing, and end the weekend with a full produced audio drama! This is the Spring 2026 festival. There is also an Audience Choice award - please vote in that episode! This festival is sponsored by Iridescent Acorn Productions and Two Sober Dwarves Productions. You can find some of the previous festivals here: https://iridescentacorn.com/the-48s-festival/ Thanks for listening! -Rob, Sam, Vince, Tommy, and Will.",
+    "socialUrls": [],
+    "funding": [
+      {
+        "url": "https://redcircle.com/crossroads-a-48-hour-audio-drama-festival/donations",
+        "label": "Support This Podcast"
+      }
+    ],
+    "schedule": {
+      "label": "unknown",
+      "medianDays": null,
+      "observedIntervals": 0
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "All rights reserved.",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "5deb3c3f-d747-4d8d-8aff-bec24602b83a",
+        "rssUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a",
+        "appleCollectionId": "1894900409",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a",
+          "fetchedAt": "2026-08-15T20:36:44.963Z",
+          "payloadHash": "0e32851836c43ffea9d371f5c4e455ffdc94a9b9d87a7524f1fbd69b50714ef0"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/crossroads-a-48-hour-audio-drama-festival/id1894900409?uo=4",
+          "fetchedAt": "2026-08-15T20:36:44.693Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/crossroads-a-48-hour-audio-drama-festival/id1894900409?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/crossroads-a-48-hour-audio-drama-festival/id1894900409?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/crossroads-a-48-hour-audio-drama-festival/id1894900409?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/crossroads-a-48-hour-audio-drama-festival/id1894900409?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/crossroads-a-48-hour-audio-drama-festival/id1894900409?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/crossroads-a-48-hour-audio-drama-festival/id1894900409?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "funding": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "supportUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:36:45.198Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "3da49ac0f6aef3c5f54833cb1bcb7cb3437ef61a67ad94c944408e176bc1eaac",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "7db74d6b46900e60b641c9b8cd4ab00a406e6d4eeef79ff951986e9d7d9a0bdd",
+        "cover": "883db1934b562206570bb9e7195996b666c5d22f7a323ce9c1a77c611e469336",
+        "coverAlt": "287fc74f0590cf8c0b8e99808dfb31ac87e1f0ea3114cff137ae848ed678d257",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "ca2bbfa346539e2fa2925bd9a959c1c9f967f9301b38f04751855a2be20b7851",
+        "officialLinks": "3ff6a38bd2ec573189ab1b375d72d17f57d3f41956bde01a55d8158a8084dba1",
+        "genres": "821180fff3b21544e41b758f314c5a8c5f9ed4f3c3d2e27d1acaf1686d42e588",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "14401eb06b621e823a5874e44754b3c6d5042fab4505745b4a47c4621d6b0d58",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "length": "0fc9e96b05b7468b3e8d33b68355b70c945ad03770f0a71b4ebf3274c6ac4ce2",
+        "releaseDates": "4f7fe265614527d3cdae9ae22534ef18c763627f2e43bf53e9d5c80292d6f007",
+        "credits": "c6993c5586fdbf230809d8fd5252c6401cc95b8ea3baf4d515c9870b9fe01b9e",
+        "creators": "26aa9c2c401fe0e4c2afa60a0932e5734776eea58cbd20874eebc59e4ebd1019",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "3da291364ef3bc3085070d9921ae4212e50dc4c203ba7c5dd44907864fbb4b3d",
+        "verification": "a21c7feeb0d2ed4240a533aa19604d61015408899b10a52482ee7837cba700ee"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:39:52.204Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "iridescent-acorn-productions"
+}

@@ -332101,5 +332101,4994 @@
         "width": 640
       }
     ]
+  },
+  {
+    "id": "silkhaven-pulp",
+    "title": "Silkhaven Pulp",
+    "subtitle": "",
+    "description": "An anthology podcast of pulp-style fiction including detective, weird, and adventure.",
+    "cover": "images/covers/silkhaven-pulp.png",
+    "coverAlt": "Silkhaven Pulp cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/silkhaven-pulp/id1896925279?uo=4",
+      "website": "https://silkhaven-pulp.captivate.fm/",
+      "rss": "https://feeds.captivate.fm/silkhaven-pulp/"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Silkhaven Pulp"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 5 full episodes • 34 min median",
+      "seasons": 1,
+      "episodes": 5,
+      "avgEpisodeMinutes": 38,
+      "medianEpisodeMinutes": 34,
+      "minEpisodeMinutes": 29,
+      "maxEpisodeMinutes": 50,
+      "totalObservedHours": 3.1,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 5,
+        "bonus": 2,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2026-06-17",
+      "latest": "2026-08-12",
+      "latestFeedItem": "2026-08-12"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://silkhaven-pulp.captivate.fm/"
+    },
+    "credits": {
+      "creatorName": "Za'chary Westbrook",
+      "ownerName": "Za'chary Westbrook"
+    },
+    "creators": [
+      "Za'chary Westbrook"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://silkhaven-pulp.captivate.fm/; https://feeds.captivate.fm/silkhaven-pulp/; https://podcasts.apple.com/us/podcast/silkhaven-pulp/id1896925279?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "1 observed episodes",
+      "captions": "available in structured transcript data",
+      "transcriptCoverage": 0.125,
+      "transcriptFormats": [
+        "application/srt",
+        "text/html"
+      ]
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://silkhaven-pulp.captivate.fm/",
+        "https://feeds.captivate.fm/silkhaven-pulp/",
+        "https://podcasts.apple.com/us/podcast/silkhaven-pulp/id1896925279?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Science Fiction",
+        "Music",
+        "f423a060-67f5-11f1-83c9-2f02eeefb9b5"
+      ],
+      "importOfficialSummary": "An anthology podcast of pulp-style fiction including detective, weird, and adventure.",
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 4
+      },
+      "podcast": {
+        "medium": "podcast",
+        "copyright": "Copyright 2026 Za'chary Westbrook",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "a94a0c29-231c-5714-9895-52a2f2365a35",
+          "rssUrl": "https://feeds.captivate.fm/silkhaven-pulp/",
+          "appleCollectionId": "1896925279"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://silkhaven-pulp.captivate.fm/",
+            "fetchedAt": "2026-08-15T20:39:19.973Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/",
+            "fetchedAt": "2026-08-15T20:39:18.426Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/silkhaven-pulp/id1896925279?uo=4",
+            "fetchedAt": "2026-08-15T20:38:47.011Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/silkhaven-pulp/id1896925279?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/silkhaven-pulp/id1896925279?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/silkhaven-pulp/id1896925279?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/silkhaven-pulp/id1896925279?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/silkhaven-pulp/id1896925279?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/silkhaven-pulp/id1896925279?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://silkhaven-pulp.captivate.fm/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://silkhaven-pulp.captivate.fm/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "medium": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/silkhaven-pulp/"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:39:21.051Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:39:52.185Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "zachary-westbrook",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/silkhaven-pulp",
+    "hasPage": true,
+    "image": "images/covers/silkhaven-pulp.png",
+    "imageAlt": "Silkhaven Pulp cover art",
+    "summary": "An anthology podcast of pulp-style fiction including detective, weird, and adventure.",
+    "finalRating": null,
+    "searchText": "silkhaven pulp an anthology podcast of pulp style fiction including detective weird and adventure drama sci fi serialized silkhaven pulp za chary westbrook english ongoing imported za chary westbrook za chary westbrook 1 observed episodes available in structured transcript data 0 125 application srt text html",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/silkhaven-pulp-cf00aa0473-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/silkhaven-pulp-cf00aa0473-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "the-fog-city-mysteries-in-color",
+    "title": "The Fog City Mysteries: IN COLOR!",
+    "subtitle": "A full-cast comedy noir",
+    "description": "A podcast comedy noir unlike any other ... In a fog-bound metropolis that never was, radio detective Harding Park untangles crimes and conspiracies, scandals and secrets, and keeps a watchful eye on the poultry. Full cast, full sound, and packed with absurdist style, Fog City blends old-school radio theatre vibes with sharp satire and shadowy intrigue. Imagine this: The Maltese Falcon, The Streets of San Francisco, Bojack Horseman, The Twilight Zone, and The Hitchhiker’s Guide to the Galaxy — all trapped together on a gondola ... with a duck.",
+    "cover": "images/covers/the-fog-city-mysteries-in-color.jpg",
+    "coverAlt": "The Fog City Mysteries: IN COLOR! cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/the-fog-city-mysteries-in-color/id1896919201",
+      "website": "https://www.fogcitymysteries.com/",
+      "rss": "https://feeds.captivate.fm/fogcitymysteries/"
+    },
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Fog City Mysteries: IN COLOR!"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 12 full episodes • 11 min median",
+      "seasons": 1,
+      "episodes": 12,
+      "avgEpisodeMinutes": 10,
+      "medianEpisodeMinutes": 11,
+      "minEpisodeMinutes": 7,
+      "maxEpisodeMinutes": 12,
+      "totalObservedHours": 2.1,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 12,
+        "bonus": 6,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2026-06-24",
+      "latest": "2026-07-22",
+      "latestFeedItem": "2026-07-22"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.fogcitymysteries.com/",
+      "youtube": "https://youtube.com/@fogcitymysteries",
+      "social": "https://instagram.com/fogcitymysteries"
+    },
+    "credits": {
+      "creatorName": "WHAT You Say Productions",
+      "ownerName": "WHAT You Say Productions"
+    },
+    "creators": [
+      "WHAT You Say Productions"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://www.fogcitymysteries.com/; https://feeds.captivate.fm/fogcitymysteries/; https://podcasts.apple.com/us/podcast/the-fog-city-mysteries-in-color/id1896919201?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://www.fogcitymysteries.com/",
+        "https://feeds.captivate.fm/fogcitymysteries/",
+        "https://podcasts.apple.com/us/podcast/the-fog-city-mysteries-in-color/id1896919201?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Comedy Fiction",
+        "Comedy",
+        "Arts"
+      ],
+      "importOfficialSummary": "A podcast comedy noir unlike any other ... In a fog-bound metropolis that never was, radio detective Harding Park untangles crimes and conspiracies, scandals and secrets, and keeps a watchful eye on the poultry. Full cast, full sound, and packed with absurdist style, Fog City blends old-school radio theatre vibes with sharp satire and shadowy intrigue. Imagine this: The Maltese Falcon, The Streets of San Francisco, Bojack Horseman, The Twilight Zone, and The Hitchhiker’s Guide to the Galaxy — all trapped together on a gondola ... with a duck.",
+      "socialUrls": [
+        "https://instagram.com/fogcitymysteries",
+        "https://facebook.com/fogcitymysteries",
+        "https://x.com/hardingpark_pi",
+        "https://tiktok.com/@fogcitymysteries"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 4
+      },
+      "podcast": {
+        "medium": "podcast",
+        "copyright": "Copyright 2026 WHAT You Say Productions",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "49a38700-41a3-545d-8d4a-53c314ae5691",
+          "rssUrl": "https://feeds.captivate.fm/fogcitymysteries/",
+          "appleCollectionId": "1896919201"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.fogcitymysteries.com/",
+            "fetchedAt": "2026-08-15T20:39:49.748Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/",
+            "fetchedAt": "2026-08-15T20:39:48.930Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-fog-city-mysteries-in-color/id1896919201?uo=4",
+            "fetchedAt": "2026-08-15T20:39:48.596Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-fog-city-mysteries-in-color/id1896919201?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.fogcitymysteries.com/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-fog-city-mysteries-in-color/id1896919201?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-fog-city-mysteries-in-color/id1896919201?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.fogcitymysteries.com/"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-fog-city-mysteries-in-color/id1896919201?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-fog-city-mysteries-in-color/id1896919201?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.fogcitymysteries.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.fogcitymysteries.com/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "medium": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.fogcitymysteries.com/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.fogcitymysteries.com/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/fogcitymysteries/"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:39:52.099Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:39:52.188Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "what-you-say-productions",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-fog-city-mysteries-in-color",
+    "hasPage": true,
+    "image": "images/covers/the-fog-city-mysteries-in-color.jpg",
+    "imageAlt": "The Fog City Mysteries: IN COLOR! cover art",
+    "summary": "A podcast comedy noir unlike any other ... In a fog-bound metropolis that never was, radio detective Harding Park untangles crimes and conspiracies, scandals and secrets, and keeps a watchful eye on the poultry. Full cast, full sound, and packed with absurdist style, Fog City blends old-school radio theatre vibes with sharp satire and shadowy intrigue. Imagine this: The Maltese Falcon, The Streets of San Francisco, Bojack Horseman, The Twilight Zone, and The Hitchhiker’s Guide to the Galaxy — all trapped together on a gondola ... with a duck.",
+    "finalRating": null,
+    "searchText": "the fog city mysteries in color a full cast comedy noir a podcast comedy noir unlike any other in a fog bound metropolis that never was radio detective harding park untangles crimes and conspiracies scandals and secrets and keeps a watchful eye on the poultry full cast full sound and packed with absurdist style fog city blends old school radio theatre vibes with sharp satire and shadowy intrigue imagine this the maltese falcon the streets of san francisco bojack horseman the twilight zone and the hitchhiker s guide to the galaxy all trapped together on a gondola with a duck drama comedy serialized the fog city mysteries in color what you say productions english ongoing imported what you say productions what you say productions unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-fog-city-mysteries-in-color-75daa7cd74-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-fog-city-mysteries-in-color-75daa7cd74-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "the-sherwood-society",
+    "title": "The Sherwood Society",
+    "subtitle": "",
+    "description": "A weird fiction absurdist dramedy podcast from Ashlee Craft. Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/the-sherwood-society.jpg",
+    "coverAlt": "The Sherwood Society cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/the-sherwood-society/id1881245301?uo=4",
+      "website": "https://feeds.acast.com/public/shows/the-sherwood-society",
+      "rss": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+    },
+    "genres": [
+      "drama",
+      "comedy",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [],
+    "tags": [],
+    "aliases": [
+      "The Sherwood Society"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 1 full episode • 7 min median",
+      "seasons": 1,
+      "episodes": 1,
+      "avgEpisodeMinutes": 7,
+      "medianEpisodeMinutes": 7,
+      "minEpisodeMinutes": 7,
+      "maxEpisodeMinutes": 7,
+      "totalObservedHours": 0.1,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 1,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2026-03-01",
+      "latest": "2026-03-01",
+      "latestFeedItem": "2026-03-01"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://feeds.acast.com/public/shows/the-sherwood-society"
+    },
+    "credits": {
+      "creatorName": "Ashlee Craft",
+      "ownerName": "Ashlee Craft"
+    },
+    "creators": [
+      "Ashlee Craft"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7; https://podcasts.apple.com/us/podcast/the-sherwood-society/id1881245301?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7",
+        "https://podcasts.apple.com/us/podcast/the-sherwood-society/id1881245301?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Comedy Fiction",
+        "Science Fiction"
+      ],
+      "sourceKeywords": [
+        "transgender",
+        "literature",
+        "weird fiction",
+        "absurdist",
+        "comedy",
+        "dramedy"
+      ],
+      "importOfficialSummary": "A weird fiction absurdist dramedy podcast from Ashlee Craft. Hosted on Acast. See acast.com/privacy for more information.",
+      "schedule": {
+        "label": "unknown",
+        "observedIntervals": 0
+      },
+      "podcast": {
+        "copyright": "Ashlee Craft",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7",
+          "appleCollectionId": "1881245301"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7",
+            "fetchedAt": "2026-08-15T20:38:18.413Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-sherwood-society/id1881245301?uo=4",
+            "fetchedAt": "2026-08-15T20:37:46.399Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-sherwood-society/id1881245301?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-sherwood-society/id1881245301?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-sherwood-society/id1881245301?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-sherwood-society/id1881245301?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-sherwood-society/id1881245301?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-sherwood-society/id1881245301?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-sherwood-society/id1881245301?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/69a3f34347697ac803ecf5d7"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          }
+        },
+        "importedAt": "2026-08-15T20:38:19.372Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:39:52.193Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "ashlee-craft",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-sherwood-society",
+    "hasPage": true,
+    "image": "images/covers/the-sherwood-society.jpg",
+    "imageAlt": "The Sherwood Society cover art",
+    "summary": "A weird fiction absurdist dramedy podcast from Ashlee Craft. Hosted on Acast. See acast.com/privacy for more information.",
+    "finalRating": null,
+    "searchText": "the sherwood society a weird fiction absurdist dramedy podcast from ashlee craft hosted on acast see acast com privacy for more information drama comedy sci fi the sherwood society ashlee craft english unclear imported ashlee craft ashlee craft unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-sherwood-society-126d8b3b72-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-sherwood-society-126d8b3b72-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "world-devotion-project",
+    "title": "World Devotion Project",
+    "subtitle": "World Devotion Project is a mythology audio fiction following the emergence of a pantheon of Gods, and the prophets, knight, and saints that follow..",
+    "description": "World Devotion Project is a mythology audio fiction following the emergence of a pantheon of Gods, and the prophets, knight, and saints that follow.",
+    "cover": "images/covers/world-devotion-project.jpg",
+    "coverAlt": "World Devotion Project cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/world-devotion-project/id1881365667?uo=4",
+      "rss": "https://feeds.transistor.fm/world-devotion-project"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "World Devotion Project"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "at least 3 full episodes • 19 min median",
+      "episodes": 3,
+      "avgEpisodeMinutes": 21,
+      "medianEpisodeMinutes": 19,
+      "minEpisodeMinutes": 17,
+      "maxEpisodeMinutes": 27,
+      "totalObservedHours": 1.1,
+      "durationCoverage": 1,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 3,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2026-05-31",
+      "latest": "2026-07-31",
+      "latestFeedItem": "2026-07-31"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {},
+    "credits": {
+      "creatorName": "Kit Paterson",
+      "ownerName": "Kit Paterson"
+    },
+    "creators": [
+      "Kit Paterson"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.transistor.fm/world-devotion-project; https://podcasts.apple.com/us/podcast/world-devotion-project/id1881365667?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "3 observed episodes",
+      "captions": "unknown",
+      "transcriptCoverage": 0.75,
+      "transcriptFormats": [
+        "text/plain"
+      ]
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.transistor.fm/world-devotion-project",
+        "https://podcasts.apple.com/us/podcast/world-devotion-project/id1881365667?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "World Devotion Project is a mythology audio fiction following the emergence of a pantheon of Gods, and the prophets, knight, and saints that follow.",
+      "schedule": {
+        "label": "monthly",
+        "medianDays": 31,
+        "observedIntervals": 2
+      },
+      "podcast": {
+        "copyright": "World Devotion Project is the Work of Kit Paterson and is licensed under a Creative Commons Attribution 4.0 International Licence",
+        "explicit": "yes",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "934bcda8-bc7c-5758-9c65-68142090ee7f",
+          "rssUrl": "https://feeds.transistor.fm/world-devotion-project",
+          "appleCollectionId": "1881365667"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.transistor.fm/world-devotion-project",
+            "fetchedAt": "2026-08-15T20:38:44.042Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/world-devotion-project/id1881365667?uo=4",
+            "fetchedAt": "2026-08-15T20:38:23.811Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/world-devotion-project/id1881365667?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/world-devotion-project/id1881365667?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/world-devotion-project/id1881365667?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/world-devotion-project/id1881365667?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/world-devotion-project/id1881365667?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/world-devotion-project/id1881365667?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "complete": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/world-devotion-project"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:38:45.021Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:39:52.198Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "kit-paterson",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/world-devotion-project",
+    "hasPage": true,
+    "image": "images/covers/world-devotion-project.jpg",
+    "imageAlt": "World Devotion Project cover art",
+    "summary": "World Devotion Project is a mythology audio fiction following the emergence of a pantheon of Gods, and the prophets, knight, and saints that follow.",
+    "finalRating": null,
+    "searchText": "world devotion project world devotion project is a mythology audio fiction following the emergence of a pantheon of gods and the prophets knight and saints that follow world devotion project is a mythology audio fiction following the emergence of a pantheon of gods and the prophets knight and saints that follow drama serialized world devotion project kit paterson english ongoing imported kit paterson kit paterson 3 observed episodes unknown 0 75 text plain",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/world-devotion-project-e80f18a00e-320.webp",
+        "width": 320
+      }
+    ]
+  },
+  {
+    "id": "how-to-start-a-cult",
+    "title": "How to Start a Cult",
+    "subtitle": "Chris, a charismatic college stoner, starts a podcast with his best bud Dougie examining famous cults.",
+    "description": "Chris, a charismatic college stoner, starts a podcast with his best bud Dougie examining famous cults. As a joke, they invent their own: the Sacred Order of Chris, where enlightenment is achieved through “the Divine Chill,” aka smoking weed and listening to music. As the show goes unexpectedly viral and listeners start treating the jokes as gospel, Chris rides the wave of ironic fame until it snowballs into a real life movement with disastrous consequences.",
+    "cover": "images/covers/how-to-start-a-cult.jpg",
+    "coverAlt": "How to Start a Cult cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/how-to-start-a-cult/id1896902453?uo=4",
+      "website": "https://howtostartacultpod.transistor.fm/",
+      "rss": "https://feeds.transistor.fm/how-to-start-a-cult"
+    },
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "How to Start a Cult",
+      "How to Start a Cult | Season 1 Trailer",
+      "How to Start a Cult | All Episodes"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "at least 4 full episodes • 24 min median",
+      "episodes": 4,
+      "avgEpisodeMinutes": 25,
+      "medianEpisodeMinutes": 24,
+      "minEpisodeMinutes": 20,
+      "maxEpisodeMinutes": 31,
+      "totalObservedHours": 1.6,
+      "durationCoverage": 1,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 4,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2026-07-01",
+      "latest": "2026-07-22",
+      "latestFeedItem": "2026-07-22"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://howtostartacultpod.transistor.fm/",
+      "youtube": "https://youtube.com/@howtostartacultpod?si=tGbo3TPPNXkdfpZx",
+      "social": "https://www.instagram.com/brenden.dahl/"
+    },
+    "credits": {
+      "creatorName": "Brenden Dahl",
+      "ownerName": "Brenden Dahl",
+      "network": "How to Start a Cult",
+      "people": [
+        {
+          "name": "Brenden Dahl",
+          "role": "host",
+          "href": "https://howtostartacultpod.transistor.fm/people/brenden-dahl",
+          "image": "https://img.transistorcdn.com/X_vU3peAnqOEwUF7VMUh6hmfVKa8JwtnlnbjQLWHAIM/rs:fill:0:0:1/w:800/h:800/q:60/mb:500000/aHR0cHM6Ly9pbWct/dXBsb2FkLXByb2R1/Y3Rpb24udHJhbnNp/c3Rvci5mbS9lYTMx/ZDBhMGMwNTRiMTgz/Y2ZiYmIzYmEwNWNm/NzM3MS5qcGVn.jpg"
+        },
+        {
+          "name": "Ciara Farris",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/ciara-farris"
+        },
+        {
+          "name": "Jakob Kleeman",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/jakob-kleeman"
+        },
+        {
+          "name": "Alex Ferrazza",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/alex-ferrazza"
+        },
+        {
+          "name": "Walter Todd",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/walter-todd"
+        },
+        {
+          "name": "Nick Kapp",
+          "role": "designer",
+          "href": "https://howtostartacultpod.transistor.fm/people/nick-kapp"
+        },
+        {
+          "name": "Shai Bardin",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/shai-bardin"
+        },
+        {
+          "name": "Charlie Lazin",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/charlie-lazin"
+        },
+        {
+          "name": "Liv Schroeder",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/liv-schroeder"
+        },
+        {
+          "name": "Jordyn Flaherty",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/jordyn-flaherty"
+        },
+        {
+          "name": "Louie Pearlman",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/louie-pearlman"
+        },
+        {
+          "name": "Austin Kelly",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/austin-kelly"
+        },
+        {
+          "name": "Kieran Mulligan",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/kieran-mulligan"
+        }
+      ]
+    },
+    "creators": [
+      "Brenden Dahl"
+    ],
+    "cast": [
+      "Ciara Farris",
+      "Jakob Kleeman",
+      "Alex Ferrazza",
+      "Walter Todd",
+      "Shai Bardin",
+      "Charlie Lazin",
+      "Liv Schroeder",
+      "Jordyn Flaherty",
+      "Louie Pearlman",
+      "Austin Kelly",
+      "Kieran Mulligan"
+    ],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://howtostartacultpod.transistor.fm/episodes/season-1-trailer; https://howtostartacultpod.transistor.fm/episodes; https://howtostartacultpod.transistor.fm/; https://feeds.transistor.fm/how-to-start-a-cult; https://podcasts.apple.com/us/podcast/how-to-start-a-cult/id1896902453?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "1 observed episodes",
+      "captions": "available in structured transcript data",
+      "transcriptCoverage": 0.2,
+      "transcriptFormats": [
+        "text/vtt",
+        "application/x-subrip",
+        "application/json",
+        "text/plain",
+        "text/html"
+      ]
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://howtostartacultpod.transistor.fm/episodes/season-1-trailer",
+        "https://howtostartacultpod.transistor.fm/episodes",
+        "https://howtostartacultpod.transistor.fm/",
+        "https://feeds.transistor.fm/how-to-start-a-cult",
+        "https://podcasts.apple.com/us/podcast/how-to-start-a-cult/id1896902453?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Comedy Fiction",
+        "True Crime"
+      ],
+      "sourceKeywords": [
+        "cult",
+        "stoner",
+        "comedy",
+        "fiction",
+        "satire",
+        "horror",
+        "true crime"
+      ],
+      "importOfficialSummary": "Chris, a charismatic college stoner, starts a podcast with his best bud Dougie examining famous cults. As a joke, they invent their own: the Sacred Order of Chris, where enlightenment is achieved through “the Divine Chill,” aka smoking weed and listening to music. As the show goes unexpectedly viral and listeners start treating the jokes as gospel, Chris rides the wave of ironic fame until it snowballs into a real life movement with disastrous consequences.",
+      "socialUrls": [
+        "https://www.instagram.com/brenden.dahl/"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 3
+      },
+      "podcast": {
+        "copyright": "2026 Brenden Dahl",
+        "explicit": "yes",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "7e59be53-1917-5042-9b2a-e74478fdc07f",
+          "rssUrl": "https://feeds.transistor.fm/how-to-start-a-cult",
+          "appleCollectionId": "1896902453"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes/season-1-trailer",
+            "fetchedAt": "2026-08-15T20:38:45.494Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes",
+            "fetchedAt": "2026-08-15T20:38:45.491Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://howtostartacultpod.transistor.fm/",
+            "fetchedAt": "2026-08-15T20:38:45.487Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult",
+            "fetchedAt": "2026-08-15T20:38:44.470Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/how-to-start-a-cult/id1896902453?uo=4",
+            "fetchedAt": "2026-08-15T20:38:24.065Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/how-to-start-a-cult/id1896902453?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://howtostartacultpod.transistor.fm/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/how-to-start-a-cult/id1896902453?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://howtostartacultpod.transistor.fm/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/how-to-start-a-cult/id1896902453?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://howtostartacultpod.transistor.fm/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes/season-1-trailer"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/how-to-start-a-cult/id1896902453?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/how-to-start-a-cult/id1896902453?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/how-to-start-a-cult/id1896902453?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://howtostartacultpod.transistor.fm/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://howtostartacultpod.transistor.fm/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes/season-1-trailer"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "complete": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "people": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "channelPeople": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.66,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://howtostartacultpod.transistor.fm/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes/season-1-trailer"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://howtostartacultpod.transistor.fm/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes/season-1-trailer"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:38:45.820Z",
+        "optionalGaps": [
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:39:52.199Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "brenden-dahl",
+    "networkId": "how-to-start-a-cult",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/how-to-start-a-cult",
+    "hasPage": true,
+    "image": "images/covers/how-to-start-a-cult.jpg",
+    "imageAlt": "How to Start a Cult cover art",
+    "summary": "Chris, a charismatic college stoner, starts a podcast with his best bud Dougie examining famous cults. As a joke, they invent their own: the Sacred Order of Chris, where enlightenment is achieved through “the Divine Chill,” aka smoking weed and listening to music. As the show goes unexpectedly viral and listeners start treating the jokes as gospel, Chris rides the wave of ironic fame until it snowballs into a real life movement with disastrous consequences.",
+    "finalRating": null,
+    "searchText": "how to start a cult chris a charismatic college stoner starts a podcast with his best bud dougie examining famous cults chris a charismatic college stoner starts a podcast with his best bud dougie examining famous cults as a joke they invent their own the sacred order of chris where enlightenment is achieved through the divine chill aka smoking weed and listening to music as the show goes unexpectedly viral and listeners start treating the jokes as gospel chris rides the wave of ironic fame until it snowballs into a real life movement with disastrous consequences drama comedy serialized how to start a cult how to start a cult season 1 trailer how to start a cult all episodes brenden dahl ciara farris jakob kleeman alex ferrazza walter todd shai bardin charlie lazin liv schroeder jordyn flaherty louie pearlman austin kelly kieran mulligan english ongoing imported brenden dahl brenden dahl how to start a cult brenden dahl host https howtostartacultpod transistor fm people brenden dahl https img transistorcdn com x vu3peanqoewuf7vmuh6hmfvka8jwtnlnbjqlwhaim rs fill 0 0 1 w 800 h 800 q 60 mb 500000 ahr0chm6ly9pbwct dxbsb2fklxbyb2r1 y3rpb24udhjhbnnp c3rvci5mbs9lytmx zdbhmgmwntrimtgz y2ziymizymewnwnm nzm3ms5qcgvn jpg ciara farris guest https howtostartacultpod transistor fm people ciara farris jakob kleeman guest https howtostartacultpod transistor fm people jakob kleeman alex ferrazza guest https howtostartacultpod transistor fm people alex ferrazza walter todd guest https howtostartacultpod transistor fm people walter todd nick kapp designer https howtostartacultpod transistor fm people nick kapp shai bardin guest https howtostartacultpod transistor fm people shai bardin charlie lazin guest https howtostartacultpod transistor fm people charlie lazin liv schroeder guest https howtostartacultpod transistor fm people liv schroeder jordyn flaherty guest https howtostartacultpod transistor fm people jordyn flaherty louie pearlman guest https howtostartacultpod transistor fm people louie pearlman austin kelly guest https howtostartacultpod transistor fm people austin kelly kieran mulligan guest https howtostartacultpod transistor fm people kieran mulligan 1 observed episodes available in structured transcript data 0 2 text vtt application x subrip application json text plain text html",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/how-to-start-a-cult-cb374cdac6-320.webp",
+        "width": 320
+      }
+    ]
+  },
+  {
+    "id": "the-mechadova-engine",
+    "title": "The Mechadova Engine",
+    "subtitle": "",
+    "description": "The Mechadova Engine is a queer steampunk audio drama. The story follows Log, who has spent their entire life, as far as they can remember, alone inside a single library train carriage in the sky. Their only knowledge of the outside world is limited to books from a long time ago on earth. Log has never thought to question their existence or the world outside, until one day their carriage stops. Here, they meet Tinker, a member of a resistance group, who turns their world upside down. It's a story about meaningless structures, the power of community, and how knowledge is preserved and retold. Learn more at mechadovapod.com Follow us Tumblr: https://www.tumblr.com/blog/mechadova-pod Bluesky: https://bsky.app/profile/mechadovapod.bsky.social Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/the-mechadova-engine.jpg",
+    "coverAlt": "The Mechadova Engine cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/the-mechadova-engine/id1877521405?uo=4",
+      "website": "https://feeds.acast.com/public/shows/the-mechadova-engine",
+      "rss": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Mechadova Engine"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "at least 1 full episode • 22 min median",
+      "episodes": 1,
+      "avgEpisodeMinutes": 22,
+      "medianEpisodeMinutes": 22,
+      "minEpisodeMinutes": 22,
+      "maxEpisodeMinutes": 22,
+      "totalObservedHours": 0.4,
+      "durationCoverage": 1,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 1,
+        "bonus": 4,
+        "trailer": 4
+      }
+    },
+    "releaseDates": {
+      "first": "2026-02-18",
+      "latest": "2026-02-18",
+      "latestFeedItem": "2026-03-06"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://feeds.acast.com/public/shows/the-mechadova-engine"
+    },
+    "credits": {
+      "creatorName": "Lumi Oakes",
+      "ownerName": "Lumi Oakes"
+    },
+    "creators": [
+      "Lumi Oakes"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794; https://podcasts.apple.com/us/podcast/the-mechadova-engine/id1877521405?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794",
+        "https://podcasts.apple.com/us/podcast/the-mechadova-engine/id1877521405?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction"
+      ],
+      "sourceKeywords": [
+        "steampunk",
+        "audio drama",
+        "fiction podcast",
+        "mystery",
+        "sci-fi",
+        "science fiction"
+      ],
+      "importOfficialSummary": "The Mechadova Engine is a queer steampunk audio drama. The story follows Log, who has spent their entire life, as far as they can remember, alone inside a single library train carriage in the sky. Their only knowledge of the outside world is limited to books from a long time ago on earth. Log has never thought to question their existence or the world outside, until one day their carriage stops. Here, they meet Tinker, a member of a resistance group, who turns their world upside down. It's a story about meaningless structures, the power of community, and how knowledge is preserved and retold. Learn more at mechadovapod.com Follow us Tumblr: https://www.tumblr.com/blog/mechadova-pod Bluesky: https://bsky.app/profile/mechadovapod.bsky.social Hosted on Acast. See acast.com/privacy for more information.",
+      "schedule": {
+        "label": "unknown",
+        "observedIntervals": 0
+      },
+      "podcast": {
+        "copyright": "Lumi Oakes",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794",
+          "appleCollectionId": "1877521405"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794",
+            "fetchedAt": "2026-08-15T20:38:44.025Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-mechadova-engine/id1877521405?uo=4",
+            "fetchedAt": "2026-08-15T20:38:21.036Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-mechadova-engine/id1877521405?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-mechadova-engine/id1877521405?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-mechadova-engine/id1877521405?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-mechadova-engine/id1877521405?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-mechadova-engine/id1877521405?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-mechadova-engine/id1877521405?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/696cf5d24796fcbb57b5d794"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:38:44.281Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:39:52.200Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "lumi-oakes",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-mechadova-engine",
+    "hasPage": true,
+    "image": "images/covers/the-mechadova-engine.jpg",
+    "imageAlt": "The Mechadova Engine cover art",
+    "summary": "The Mechadova Engine is a queer steampunk audio drama. The story follows Log, who has spent their entire life, as far as they can remember, alone inside a single library train carriage in the sky. Their only knowledge of the outside world is limited to books from a long time ago on earth. Log has never thought to question their existence or the world outside, until one day their carriage stops. Here, they meet Tinker, a member of a resistance group, who turns their world upside down. It's a story about meaningless structures, the power of community, and how knowledge is preserved and retold. Learn more at mechadovapod.com Follow us Tumblr: https://www.tumblr.com/blog/mechadova-pod Bluesky: https://bsky.app/profile/mechadovapod.bsky.social Hosted on Acast. See acast.com/privacy for more information.",
+    "finalRating": null,
+    "searchText": "the mechadova engine the mechadova engine is a queer steampunk audio drama the story follows log who has spent their entire life as far as they can remember alone inside a single library train carriage in the sky their only knowledge of the outside world is limited to books from a long time ago on earth log has never thought to question their existence or the world outside until one day their carriage stops here they meet tinker a member of a resistance group who turns their world upside down it s a story about meaningless structures the power of community and how knowledge is preserved and retold learn more at mechadovapod com follow us tumblr https www tumblr com blog mechadova pod bluesky https bsky app profile mechadovapod bsky social hosted on acast see acast com privacy for more information drama sci fi serialized the mechadova engine lumi oakes english unclear imported lumi oakes lumi oakes unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-mechadova-engine-c112d0a9b5-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-mechadova-engine-c112d0a9b5-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "the-chronicles-of-astrimos",
+    "title": "The Chronicles of Astrimos",
+    "subtitle": "",
+    "description": "Martin (Darren Criss) thought his life was on track - he was about to become a partner at his law-firm and propose to the woman of his dreams - when his grandmother Maisie (Kate Mulgrew) dies, leaving him an old LP record that derails everything. Playing it transports Martin into the fantastical, but shockingly real world of “The Chronicles of Astrimos,” a 1960’s sci-fi radio drama about the plucky young spaceship pilot Calico Jones (Maya Hawke) who is fighting to save her planet. Flipping involuntarily between Astrimos and the real-world, Martin realizes with horror that the life-and-death stakes in the story are real and his only hope of escape is to solve the mystery of his grandmother’s bizarre gift before it’s too late. Starring Darren Criss as Martin, Maya Hawke as Calico Jones. Featuring: Natalie Gold (Bridget), Quincy Tyler Bernstine (Councillor Dextra/Ruby Montrose), Alfred Molina (The Narrator), Peter Friedman (Phil), Azhar Khan (Rami/Gawain), Jayne Houdyshell (Jean), Andy Grotelueschen (Findo Gask/Frank), Adina Verson (Carla), Cindy Cheung (Chelsea), Rebecca Henderson (Dr. Woods/Viraxis), Kellen Raffaelo (Young Martin) Additional performances by Crystal Finn, Gabby Beans, Jay Klaitz, Robbie Sublett, and Gibson Frazier with Kate Mulgrew (Maisie) And Clarke Peters (Archie). Directed by Anne Kauffman Written by Declan Dineen Executive Producers: Mark Stern and Darren Criss Producers: Nick Garland, Declan Dineen, and Michel Lafrance Produced by Best Case Studios Adam Pincus, Executive Producer Isabel Evans, Producer Brent Raymond Katz, Co-producer Hannah Lebowitz-Lockard, Associate Producer Anpa’o Locke, Production Coordinator Edited by Ryan Seaton,Will Rosati, Max Michael Miller, and Nisha Venkat Sound Design by Dennis Dembeck and Will Rosati Mixed by Dennis Dembeck Original Music by Pakk Hui Casting by Paul Schnee and Kerry Barden Music by Pakk Hui Music Orchestrations by Hannah Zhang Music Preparation by Thanh Tran Score Mixer: John Witt Chapman Orchestra Budapest Scoring Orchestra Conductor: Péter Illényi Session Producer: Bálint Sapszon Orchestra Coordinator: Bertalan Veér Recording Engineer: Viktor Szabó Studio Assistant: Patrik Veréb Librarian: Ágnes Sapszon FOR ECHOVERSE: Development Executives: Nick Garland and Ben Chodosh Development Coordinator: Madison Engle Development Assistant: Sophie Kelly Production Consultant: Eleanor Hyde Business and Legal Affairs: Laura Black Dawson Finance: Andy Lewis, Morgan Krautstrunk, Judy Geletko The Chronicles of Astrimos is an Echoverse Production",
+    "cover": "images/covers/the-chronicles-of-astrimos.jpg",
+    "coverAlt": "The Chronicles of Astrimos cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/the-chronicles-of-astrimos/id1896634657?uo=4",
+      "website": "https://chronicles-of-astrimos.simplecast.com/",
+      "rss": "https://feeds.simplecast.com/iqkQOlOd"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Chronicles of Astrimos"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 7 full episodes • 23 min median",
+      "seasons": 1,
+      "episodes": 7,
+      "avgEpisodeMinutes": 22,
+      "medianEpisodeMinutes": 23,
+      "minEpisodeMinutes": 18,
+      "maxEpisodeMinutes": 25,
+      "totalObservedHours": 2.6,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 7,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2026-05-14",
+      "latest": "2026-08-06",
+      "latestFeedItem": "2026-08-06"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://chronicles-of-astrimos.simplecast.com/"
+    },
+    "credits": {
+      "creatorName": "Bloody FM, Echoverse",
+      "ownerName": "Echoverse"
+    },
+    "creators": [
+      "Bloody FM, Echoverse"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://chronicles-of-astrimos.simplecast.com/; https://feeds.simplecast.com/iqkQOlOd; https://podcasts.apple.com/us/podcast/the-chronicles-of-astrimos/id1896634657?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://chronicles-of-astrimos.simplecast.com/",
+        "https://feeds.simplecast.com/iqkQOlOd",
+        "https://podcasts.apple.com/us/podcast/the-chronicles-of-astrimos/id1896634657?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction"
+      ],
+      "sourceKeywords": [
+        "sci-fi"
+      ],
+      "importOfficialSummary": "Martin (Darren Criss) thought his life was on track - he was about to become a partner at his law-firm and propose to the woman of his dreams - when his grandmother Maisie (Kate Mulgrew) dies, leaving him an old LP record that derails everything. Playing it transports Martin into the fantastical, but shockingly real world of “The Chronicles of Astrimos,” a 1960’s sci-fi radio drama about the plucky young spaceship pilot Calico Jones (Maya Hawke) who is fighting to save her planet. Flipping involuntarily between Astrimos and the real-world, Martin realizes with horror that the life-and-death stakes in the story are real and his only hope of escape is to solve the mystery of his grandmother’s bizarre gift before it’s too late. Starring Darren Criss as Martin, Maya Hawke as Calico Jones. Featuring: Natalie Gold (Bridget), Quincy Tyler Bernstine (Councillor Dextra/Ruby Montrose), Alfred Molina (The Narrator), Peter Friedman (Phil), Azhar Khan (Rami/Gawain), Jayne Houdyshell (Jean), Andy Grotelueschen (Findo Gask/Frank), Adina Verson (Carla), Cindy Cheung (Chelsea), Rebecca Henderson (Dr. Woods/Viraxis), Kellen Raffaelo (Young Martin) Additional performances by Crystal Finn, Gabby Beans, Jay Klaitz, Robbie Sublett, and Gibson Frazier with Kate Mulgrew (Maisie) And Clarke Peters (Archie). Directed by Anne Kauffman Written by Declan Dineen Executive Producers: Mark Stern and Darren Criss Producers: Nick Garland, Declan Dineen, and Michel Lafrance Produced by Best Case Studios Adam Pincus, Executive Producer Isabel Evans, Producer Brent Raymond Katz, Co-producer Hannah Lebowitz-Lockard, Associate Producer Anpa’o Locke, Production Coordinator Edited by Ryan Seaton,Will Rosati, Max Michael Miller, and Nisha Venkat Sound Design by Dennis Dembeck and Will Rosati Mixed by Dennis Dembeck Original Music by Pakk Hui Casting by Paul Schnee and Kerry Barden Music by Pakk Hui Music Orchestrations by Hannah Zhang Music Preparation by Thanh Tran Score Mixer: John Witt Chapman Orchestra Budapest Scoring Orchestra Conductor: Péter Illényi Session Producer: Bálint Sapszon Orchestra Coordinator: Bertalan Veér Recording Engineer: Viktor Szabó Studio Assistant: Patrik Veréb Librarian: Ágnes Sapszon FOR ECHOVERSE: Development Executives: Nick Garland and Ben Chodosh Development Coordinator: Madison Engle Development Assistant: Sophie Kelly Production Consultant: Eleanor Hyde Business and Legal Affairs: Laura Black Dawson Finance: Andy Lewis, Morgan Krautstrunk, Judy Geletko The Chronicles of Astrimos is an Echoverse Production",
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 6
+      },
+      "podcast": {
+        "copyright": "Echoverse 2026",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.simplecast.com/iqkQOlOd",
+          "appleCollectionId": "1896634657"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://chronicles-of-astrimos.simplecast.com/",
+            "fetchedAt": "2026-08-15T20:37:44.645Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd",
+            "fetchedAt": "2026-08-15T20:37:44.276Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-chronicles-of-astrimos/id1896634657?uo=4",
+            "fetchedAt": "2026-08-15T20:37:23.975Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-chronicles-of-astrimos/id1896634657?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-chronicles-of-astrimos/id1896634657?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-chronicles-of-astrimos/id1896634657?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-chronicles-of-astrimos/id1896634657?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-chronicles-of-astrimos/id1896634657?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-chronicles-of-astrimos/id1896634657?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://chronicles-of-astrimos.simplecast.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://chronicles-of-astrimos.simplecast.com/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.simplecast.com/iqkQOlOd"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:37:45.562Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:39:52.203Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "bloody-fm-echoverse",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-chronicles-of-astrimos",
+    "hasPage": true,
+    "image": "images/covers/the-chronicles-of-astrimos.jpg",
+    "imageAlt": "The Chronicles of Astrimos cover art",
+    "summary": "Martin (Darren Criss) thought his life was on track - he was about to become a partner at his law-firm and propose to the woman of his dreams - when his grandmother Maisie (Kate Mulgrew) dies, leaving him an old LP record that derails everything. Playing it transports Martin into the fantastical, but shockingly real world of “The Chronicles of Astrimos,” a 1960’s sci-fi radio drama about the plucky young spaceship pilot Calico Jones (Maya Hawke) who is fighting to save her planet. Flipping involuntarily between Astrimos and the real-world, Martin realizes with horror that the life-and-death stakes in the story are real and his only hope of escape is to solve the mystery of his grandmother’s bizarre gift before it’s too late. Starring Darren Criss as Martin, Maya Hawke as Calico Jones. Featuring: Natalie Gold (Bridget), Quincy Tyler Bernstine (Councillor Dextra/Ruby Montrose), Alfred Molina (The Narrator), Peter Friedman (Phil), Azhar Khan (Rami/Gawain), Jayne Houdyshell (Jean), Andy Grotelueschen (Findo Gask/Frank), Adina Verson (Carla), Cindy Cheung (Chelsea), Rebecca Henderson (Dr. Woods/Viraxis), Kellen Raffaelo (Young Martin) Additional performances by Crystal Finn, Gabby Beans, Jay Klaitz, Robbie Sublett, and Gibson Frazier with Kate Mulgrew (Maisie) And Clarke Peters (Archie). Directed by Anne Kauffman Written by Declan Dineen Executive Producers: Mark Stern and Darren Criss Producers: Nick Garland, Declan Dineen, and Michel Lafrance Produced by Best Case Studios Adam Pincus, Executive Producer Isabel Evans, Producer Brent Raymond Katz, Co-producer Hannah Lebowitz-Lockard, Associate Producer Anpa’o Locke, Production Coordinator Edited by Ryan Seaton,Will Rosati, Max Michael Miller, and Nisha Venkat Sound Design by Dennis Dembeck and Will Rosati Mixed by Dennis Dembeck Original Music by Pakk Hui Casting by Paul Schnee and Kerry Barden Music by Pakk Hui Music Orchestrations by Hannah Zhang Music Preparation by Thanh Tran Score Mixer: John Witt Chapman Orchestra Budapest Scoring Orchestra Conductor: Péter Illényi Session Producer: Bálint Sapszon Orchestra Coordinator: Bertalan Veér Recording Engineer: Viktor Szabó Studio Assistant: Patrik Veréb Librarian: Ágnes Sapszon FOR ECHOVERSE: Development Executives: Nick Garland and Ben Chodosh Development Coordinator: Madison Engle Development Assistant: Sophie Kelly Production Consultant: Eleanor Hyde Business and Legal Affairs: Laura Black Dawson Finance: Andy Lewis, Morgan Krautstrunk, Judy Geletko The Chronicles of Astrimos is an Echoverse Production",
+    "finalRating": null,
+    "searchText": "the chronicles of astrimos martin darren criss thought his life was on track he was about to become a partner at his law firm and propose to the woman of his dreams when his grandmother maisie kate mulgrew dies leaving him an old lp record that derails everything playing it transports martin into the fantastical but shockingly real world of the chronicles of astrimos a 1960 s sci fi radio drama about the plucky young spaceship pilot calico jones maya hawke who is fighting to save her planet flipping involuntarily between astrimos and the real world martin realizes with horror that the life and death stakes in the story are real and his only hope of escape is to solve the mystery of his grandmother s bizarre gift before it s too late starring darren criss as martin maya hawke as calico jones featuring natalie gold bridget quincy tyler bernstine councillor dextra ruby montrose alfred molina the narrator peter friedman phil azhar khan rami gawain jayne houdyshell jean andy grotelueschen findo gask frank adina verson carla cindy cheung chelsea rebecca henderson dr woods viraxis kellen raffaelo young martin additional performances by crystal finn gabby beans jay klaitz robbie sublett and gibson frazier with kate mulgrew maisie and clarke peters archie directed by anne kauffman written by declan dineen executive producers mark stern and darren criss producers nick garland declan dineen and michel lafrance produced by best case studios adam pincus executive producer isabel evans producer brent raymond katz co producer hannah lebowitz lockard associate producer anpa o locke production coordinator edited by ryan seaton will rosati max michael miller and nisha venkat sound design by dennis dembeck and will rosati mixed by dennis dembeck original music by pakk hui casting by paul schnee and kerry barden music by pakk hui music orchestrations by hannah zhang music preparation by thanh tran score mixer john witt chapman orchestra budapest scoring orchestra conductor p ter ill nyi session producer b lint sapszon orchestra coordinator bertalan ve r recording engineer viktor szab studio assistant patrik ver b librarian gnes sapszon for echoverse development executives nick garland and ben chodosh development coordinator madison engle development assistant sophie kelly production consultant eleanor hyde business and legal affairs laura black dawson finance andy lewis morgan krautstrunk judy geletko the chronicles of astrimos is an echoverse production drama serialized the chronicles of astrimos bloody fm echoverse english ongoing imported bloody fm echoverse echoverse unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-chronicles-of-astrimos-2360c108c7-320.webp",
+        "width": 320
+      }
+    ]
+  },
+  {
+    "id": "crossroads-a-48-hour-audio-drama-festival",
+    "title": "Crossroads: A 48 Hour Audio Drama Festival",
+    "subtitle": "",
+    "description": "This is Crossroads: A 48 Hour Audio Drama Festival! Creatives from all over come together for a weekend of intense fun, start from nothing, and end the weekend with a full produced audio drama! This is the Spring 2026 festival. There is also an Audience Choice award - please vote in that episode! This festival is sponsored by Iridescent Acorn Productions and Two Sober Dwarves Productions. You can find some of the previous festivals here: https://iridescentacorn.com/the-48s-festival/ Thanks for listening! -Rob, Sam, Vince, Tommy, and Will.",
+    "cover": "images/covers/crossroads-a-48-hour-audio-drama-festival.jpg",
+    "coverAlt": "Crossroads: A 48 Hour Audio Drama Festival cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/crossroads-a-48-hour-audio-drama-festival/id1894900409?uo=4",
+      "website": "https://redcircle.com/shows/crossroads-a-48-hour-audio-drama-festival",
+      "rss": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+    },
+    "genres": [
+      "drama",
+      "sci-fi",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Crossroads: A 48 Hour Audio Drama Festival"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ],
+    "length": {
+      "label": "at least 11 full episodes • 22 min median",
+      "episodes": 11,
+      "avgEpisodeMinutes": 21,
+      "medianEpisodeMinutes": 22,
+      "minEpisodeMinutes": 1,
+      "maxEpisodeMinutes": 32,
+      "totalObservedHours": 3.8,
+      "durationCoverage": 1,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 11,
+        "bonus": 1,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2026-04-20",
+      "latest": "2026-04-20",
+      "latestFeedItem": "2026-04-20"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://redcircle.com/shows/crossroads-a-48-hour-audio-drama-festival",
+      "funding": "https://redcircle.com/crossroads-a-48-hour-audio-drama-festival/donations"
+    },
+    "credits": {
+      "creatorName": "Iridescent Acorn Productions",
+      "ownerName": "Iridescent Acorn Productions"
+    },
+    "creators": [
+      "Iridescent Acorn Productions"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a; https://podcasts.apple.com/us/podcast/crossroads-a-48-hour-audio-drama-festival/id1894900409?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "1 observed episodes",
+      "captions": "available in structured transcript data",
+      "transcriptCoverage": 0.077,
+      "transcriptFormats": [
+        "text/vtt"
+      ],
+      "transcriptLanguages": [
+        "English"
+      ]
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a",
+        "https://podcasts.apple.com/us/podcast/crossroads-a-48-hour-audio-drama-festival/id1894900409?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Science Fiction",
+        "Comedy Fiction"
+      ],
+      "importOfficialSummary": "This is Crossroads: A 48 Hour Audio Drama Festival! Creatives from all over come together for a weekend of intense fun, start from nothing, and end the weekend with a full produced audio drama! This is the Spring 2026 festival. There is also an Audience Choice award - please vote in that episode! This festival is sponsored by Iridescent Acorn Productions and Two Sober Dwarves Productions. You can find some of the previous festivals here: https://iridescentacorn.com/the-48s-festival/ Thanks for listening! -Rob, Sam, Vince, Tommy, and Will.",
+      "funding": [
+        {
+          "url": "https://redcircle.com/crossroads-a-48-hour-audio-drama-festival/donations",
+          "label": "Support This Podcast"
+        }
+      ],
+      "schedule": {
+        "label": "unknown",
+        "observedIntervals": 0
+      },
+      "podcast": {
+        "copyright": "All rights reserved.",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "5deb3c3f-d747-4d8d-8aff-bec24602b83a",
+          "rssUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a",
+          "appleCollectionId": "1894900409"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a",
+            "fetchedAt": "2026-08-15T20:36:44.963Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/crossroads-a-48-hour-audio-drama-festival/id1894900409?uo=4",
+            "fetchedAt": "2026-08-15T20:36:44.693Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/crossroads-a-48-hour-audio-drama-festival/id1894900409?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/crossroads-a-48-hour-audio-drama-festival/id1894900409?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/crossroads-a-48-hour-audio-drama-festival/id1894900409?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/crossroads-a-48-hour-audio-drama-festival/id1894900409?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/crossroads-a-48-hour-audio-drama-festival/id1894900409?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/crossroads-a-48-hour-audio-drama-festival/id1894900409?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "funding": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "supportUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/5deb3c3f-d747-4d8d-8aff-bec24602b83a"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:36:45.198Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:39:52.204Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "iridescent-acorn-productions",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/crossroads-a-48-hour-audio-drama-festival",
+    "hasPage": true,
+    "image": "images/covers/crossroads-a-48-hour-audio-drama-festival.jpg",
+    "imageAlt": "Crossroads: A 48 Hour Audio Drama Festival cover art",
+    "summary": "This is Crossroads: A 48 Hour Audio Drama Festival! Creatives from all over come together for a weekend of intense fun, start from nothing, and end the weekend with a full produced audio drama! This is the Spring 2026 festival. There is also an Audience Choice award - please vote in that episode! This festival is sponsored by Iridescent Acorn Productions and Two Sober Dwarves Productions. You can find some of the previous festivals here: https://iridescentacorn.com/the-48s-festival/ Thanks for listening! -Rob, Sam, Vince, Tommy, and Will.",
+    "finalRating": null,
+    "searchText": "crossroads a 48 hour audio drama festival this is crossroads a 48 hour audio drama festival creatives from all over come together for a weekend of intense fun start from nothing and end the weekend with a full produced audio drama this is the spring 2026 festival there is also an audience choice award please vote in that episode this festival is sponsored by iridescent acorn productions and two sober dwarves productions you can find some of the previous festivals here https iridescentacorn com the 48s festival thanks for listening rob sam vince tommy and will drama sci fi comedy episodic crossroads a 48 hour audio drama festival iridescent acorn productions english english ongoing imported iridescent acorn productions iridescent acorn productions 1 observed episodes available in structured transcript data 0 077 text vtt english",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/crossroads-a-48-hour-audio-drama-festival-3a38cc8abd-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/crossroads-a-48-hour-audio-drama-festival-3a38cc8abd-640.webp",
+        "width": 640
+      }
+    ]
   }
 ]

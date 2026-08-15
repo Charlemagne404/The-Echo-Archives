@@ -41024,5 +41024,588 @@
     "featured": false,
     "createdAt": "2026-08-15",
     "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "silkhaven-pulp",
+    "title": "Silkhaven Pulp",
+    "subtitle": "",
+    "description": "An anthology podcast of pulp-style fiction including detective, weird, and adventure.",
+    "cover": "images/covers/silkhaven-pulp.png",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/silkhaven-pulp-cf00aa0473-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/silkhaven-pulp-cf00aa0473-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "Silkhaven Pulp cover art",
+    "creators": [
+      "Za'chary Westbrook"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Silkhaven Pulp"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Za'chary Westbrook",
+      "ownerName": "Za'chary Westbrook"
+    },
+    "availability": {
+      "transcripts": "1 observed episodes",
+      "captions": "available in structured transcript data",
+      "transcriptCoverage": 0.125,
+      "transcriptFormats": [
+        "application/srt",
+        "text/html"
+      ]
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "the-fog-city-mysteries-in-color",
+    "title": "The Fog City Mysteries: IN COLOR!",
+    "subtitle": "A full-cast comedy noir",
+    "description": "A podcast comedy noir unlike any other ... In a fog-bound metropolis that never was, radio detective Harding Park untangles crimes and conspiracies, scandals and secrets, and keeps a watchful eye on the poultry. Full cast, full sound, and packed with absurdist style, Fog City blends old-school radio theatre vibes with sharp satire and shadowy intrigue. Imagine this: The Maltese Falcon, The Streets of San Francisco, Bojack Horseman, The Twilight Zone, and The Hitchhiker’s Guide to the Galaxy — all trapped together on a gondola ... with a duck.",
+    "cover": "images/covers/the-fog-city-mysteries-in-color.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-fog-city-mysteries-in-color-75daa7cd74-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-fog-city-mysteries-in-color-75daa7cd74-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Fog City Mysteries: IN COLOR! cover art",
+    "creators": [
+      "WHAT You Say Productions"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Fog City Mysteries: IN COLOR!"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "WHAT You Say Productions",
+      "ownerName": "WHAT You Say Productions"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "the-sherwood-society",
+    "title": "The Sherwood Society",
+    "subtitle": "",
+    "description": "A weird fiction absurdist dramedy podcast from Ashlee Craft. Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/the-sherwood-society.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-sherwood-society-126d8b3b72-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-sherwood-society-126d8b3b72-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Sherwood Society cover art",
+    "creators": [
+      "Ashlee Craft"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama",
+      "comedy",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [],
+    "tags": [],
+    "aliases": [
+      "The Sherwood Society"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Ashlee Craft",
+      "ownerName": "Ashlee Craft"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "world-devotion-project",
+    "title": "World Devotion Project",
+    "subtitle": "World Devotion Project is a mythology audio fiction following the emergence of a pantheon of Gods, and the prophets, knight, and saints that follow..",
+    "description": "World Devotion Project is a mythology audio fiction following the emergence of a pantheon of Gods, and the prophets, knight, and saints that follow.",
+    "cover": "images/covers/world-devotion-project.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/world-devotion-project-e80f18a00e-320.webp",
+        "width": 320
+      }
+    ],
+    "coverAlt": "World Devotion Project cover art",
+    "creators": [
+      "Kit Paterson"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "World Devotion Project"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Kit Paterson",
+      "ownerName": "Kit Paterson"
+    },
+    "availability": {
+      "transcripts": "3 observed episodes",
+      "captions": "unknown",
+      "transcriptCoverage": 0.75,
+      "transcriptFormats": [
+        "text/plain"
+      ]
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "how-to-start-a-cult",
+    "title": "How to Start a Cult",
+    "subtitle": "Chris, a charismatic college stoner, starts a podcast with his best bud Dougie examining famous cults.",
+    "description": "Chris, a charismatic college stoner, starts a podcast with his best bud Dougie examining famous cults. As a joke, they invent their own: the Sacred Order of Chris, where enlightenment is achieved through “the Divine Chill,” aka smoking weed and listening to music. As the show goes unexpectedly viral and listeners start treating the jokes as gospel, Chris rides the wave of ironic fame until it snowballs into a real life movement with disastrous consequences.",
+    "cover": "images/covers/how-to-start-a-cult.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/how-to-start-a-cult-cb374cdac6-320.webp",
+        "width": 320
+      }
+    ],
+    "coverAlt": "How to Start a Cult cover art",
+    "creators": [
+      "Brenden Dahl"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "How to Start a Cult",
+      "How to Start a Cult | Season 1 Trailer",
+      "How to Start a Cult | All Episodes"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Brenden Dahl",
+      "ownerName": "Brenden Dahl",
+      "network": "How to Start a Cult",
+      "people": [
+        {
+          "name": "Brenden Dahl",
+          "role": "host",
+          "href": "https://howtostartacultpod.transistor.fm/people/brenden-dahl",
+          "image": "https://img.transistorcdn.com/X_vU3peAnqOEwUF7VMUh6hmfVKa8JwtnlnbjQLWHAIM/rs:fill:0:0:1/w:800/h:800/q:60/mb:500000/aHR0cHM6Ly9pbWct/dXBsb2FkLXByb2R1/Y3Rpb24udHJhbnNp/c3Rvci5mbS9lYTMx/ZDBhMGMwNTRiMTgz/Y2ZiYmIzYmEwNWNm/NzM3MS5qcGVn.jpg"
+        },
+        {
+          "name": "Ciara Farris",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/ciara-farris"
+        },
+        {
+          "name": "Jakob Kleeman",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/jakob-kleeman"
+        },
+        {
+          "name": "Alex Ferrazza",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/alex-ferrazza"
+        },
+        {
+          "name": "Walter Todd",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/walter-todd"
+        },
+        {
+          "name": "Nick Kapp",
+          "role": "designer",
+          "href": "https://howtostartacultpod.transistor.fm/people/nick-kapp"
+        },
+        {
+          "name": "Shai Bardin",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/shai-bardin"
+        },
+        {
+          "name": "Charlie Lazin",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/charlie-lazin"
+        },
+        {
+          "name": "Liv Schroeder",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/liv-schroeder"
+        },
+        {
+          "name": "Jordyn Flaherty",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/jordyn-flaherty"
+        },
+        {
+          "name": "Louie Pearlman",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/louie-pearlman"
+        },
+        {
+          "name": "Austin Kelly",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/austin-kelly"
+        },
+        {
+          "name": "Kieran Mulligan",
+          "role": "guest",
+          "href": "https://howtostartacultpod.transistor.fm/people/kieran-mulligan"
+        }
+      ]
+    },
+    "availability": {
+      "transcripts": "1 observed episodes",
+      "captions": "available in structured transcript data",
+      "transcriptCoverage": 0.2,
+      "transcriptFormats": [
+        "text/vtt",
+        "application/x-subrip",
+        "application/json",
+        "text/plain",
+        "text/html"
+      ]
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "the-mechadova-engine",
+    "title": "The Mechadova Engine",
+    "subtitle": "",
+    "description": "The Mechadova Engine is a queer steampunk audio drama. The story follows Log, who has spent their entire life, as far as they can remember, alone inside a single library train carriage in the sky. Their only knowledge of the outside world is limited to books from a long time ago on earth. Log has never thought to question their existence or the world outside, until one day their carriage stops. Here, they meet Tinker, a member of a resistance group, who turns their world upside down. It's a story about meaningless structures, the power of community, and how knowledge is preserved and retold. Learn more at mechadovapod.com Follow us Tumblr: https://www.tumblr.com/blog/mechadova-pod Bluesky: https://bsky.app/profile/mechadovapod.bsky.social Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/the-mechadova-engine.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-mechadova-engine-c112d0a9b5-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-mechadova-engine-c112d0a9b5-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Mechadova Engine cover art",
+    "creators": [
+      "Lumi Oakes"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Mechadova Engine"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Lumi Oakes",
+      "ownerName": "Lumi Oakes"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "the-chronicles-of-astrimos",
+    "title": "The Chronicles of Astrimos",
+    "subtitle": "",
+    "description": "Martin (Darren Criss) thought his life was on track - he was about to become a partner at his law-firm and propose to the woman of his dreams - when his grandmother Maisie (Kate Mulgrew) dies, leaving him an old LP record that derails everything. Playing it transports Martin into the fantastical, but shockingly real world of “The Chronicles of Astrimos,” a 1960’s sci-fi radio drama about the plucky young spaceship pilot Calico Jones (Maya Hawke) who is fighting to save her planet. Flipping involuntarily between Astrimos and the real-world, Martin realizes with horror that the life-and-death stakes in the story are real and his only hope of escape is to solve the mystery of his grandmother’s bizarre gift before it’s too late. Starring Darren Criss as Martin, Maya Hawke as Calico Jones. Featuring: Natalie Gold (Bridget), Quincy Tyler Bernstine (Councillor Dextra/Ruby Montrose), Alfred Molina (The Narrator), Peter Friedman (Phil), Azhar Khan (Rami/Gawain), Jayne Houdyshell (Jean), Andy Grotelueschen (Findo Gask/Frank), Adina Verson (Carla), Cindy Cheung (Chelsea), Rebecca Henderson (Dr. Woods/Viraxis), Kellen Raffaelo (Young Martin) Additional performances by Crystal Finn, Gabby Beans, Jay Klaitz, Robbie Sublett, and Gibson Frazier with Kate Mulgrew (Maisie) And Clarke Peters (Archie). Directed by Anne Kauffman Written by Declan Dineen Executive Producers: Mark Stern and Darren Criss Producers: Nick Garland, Declan Dineen, and Michel Lafrance Produced by Best Case Studios Adam Pincus, Executive Producer Isabel Evans, Producer Brent Raymond Katz, Co-producer Hannah Lebowitz-Lockard, Associate Producer Anpa’o Locke, Production Coordinator Edited by Ryan Seaton,Will Rosati, Max Michael Miller, and Nisha Venkat Sound Design by Dennis Dembeck and Will Rosati Mixed by Dennis Dembeck Original Music by Pakk Hui Casting by Paul Schnee and Kerry Barden Music by Pakk Hui Music Orchestrations by Hannah Zhang Music Preparation by Thanh Tran Score Mixer: John Witt Chapman Orchestra Budapest Scoring Orchestra Conductor: Péter Illényi Session Producer: Bálint Sapszon Orchestra Coordinator: Bertalan Veér Recording Engineer: Viktor Szabó Studio Assistant: Patrik Veréb Librarian: Ágnes Sapszon FOR ECHOVERSE: Development Executives: Nick Garland and Ben Chodosh Development Coordinator: Madison Engle Development Assistant: Sophie Kelly Production Consultant: Eleanor Hyde Business and Legal Affairs: Laura Black Dawson Finance: Andy Lewis, Morgan Krautstrunk, Judy Geletko The Chronicles of Astrimos is an Echoverse Production",
+    "cover": "images/covers/the-chronicles-of-astrimos.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-chronicles-of-astrimos-2360c108c7-320.webp",
+        "width": 320
+      }
+    ],
+    "coverAlt": "The Chronicles of Astrimos cover art",
+    "creators": [
+      "Bloody FM, Echoverse"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Chronicles of Astrimos"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Bloody FM, Echoverse",
+      "ownerName": "Echoverse"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "crossroads-a-48-hour-audio-drama-festival",
+    "title": "Crossroads: A 48 Hour Audio Drama Festival",
+    "subtitle": "",
+    "description": "This is Crossroads: A 48 Hour Audio Drama Festival! Creatives from all over come together for a weekend of intense fun, start from nothing, and end the weekend with a full produced audio drama! This is the Spring 2026 festival. There is also an Audience Choice award - please vote in that episode! This festival is sponsored by Iridescent Acorn Productions and Two Sober Dwarves Productions. You can find some of the previous festivals here: https://iridescentacorn.com/the-48s-festival/ Thanks for listening! -Rob, Sam, Vince, Tommy, and Will.",
+    "cover": "images/covers/crossroads-a-48-hour-audio-drama-festival.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/crossroads-a-48-hour-audio-drama-festival-3a38cc8abd-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/crossroads-a-48-hour-audio-drama-festival-3a38cc8abd-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "Crossroads: A 48 Hour Audio Drama Festival cover art",
+    "creators": [
+      "Iridescent Acorn Productions"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "genres": [
+      "drama",
+      "sci-fi",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Crossroads: A 48 Hour Audio Drama Festival"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Iridescent Acorn Productions",
+      "ownerName": "Iridescent Acorn Productions"
+    },
+    "availability": {
+      "transcripts": "1 observed episodes",
+      "captions": "available in structured transcript data",
+      "transcriptCoverage": 0.077,
+      "transcriptFormats": [
+        "text/vtt"
+      ],
+      "transcriptLanguages": [
+        "English"
+      ]
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
   }
 ]

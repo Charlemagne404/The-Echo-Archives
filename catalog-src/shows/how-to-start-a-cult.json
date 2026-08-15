@@ -1,0 +1,888 @@
+{
+  "id": "how-to-start-a-cult",
+  "title": "How to Start a Cult",
+  "subtitle": "Chris, a charismatic college stoner, starts a podcast with his best bud Dougie examining famous cults.",
+  "description": "Chris, a charismatic college stoner, starts a podcast with his best bud Dougie examining famous cults. As a joke, they invent their own: the Sacred Order of Chris, where enlightenment is achieved through “the Divine Chill,” aka smoking weed and listening to music. As the show goes unexpectedly viral and listeners start treating the jokes as gospel, Chris rides the wave of ironic fame until it snowballs into a real life movement with disastrous consequences.",
+  "cover": "images/covers/how-to-start-a-cult.jpg",
+  "coverAlt": "How to Start a Cult cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/how-to-start-a-cult/id1896902453?uo=4",
+    "website": "https://howtostartacultpod.transistor.fm/",
+    "rss": "https://feeds.transistor.fm/how-to-start-a-cult",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "How to Start a Cult",
+    "How to Start a Cult | Season 1 Trailer",
+    "How to Start a Cult | All Episodes"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 4 full episodes • 24 min median",
+    "episodes": 4,
+    "avgEpisodeMinutes": 25,
+    "medianEpisodeMinutes": 24,
+    "minEpisodeMinutes": 20,
+    "maxEpisodeMinutes": 31,
+    "totalObservedHours": 1.6,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 4,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2026-07-01",
+    "latest": "2026-07-22",
+    "latestFeedItem": "2026-07-22",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://howtostartacultpod.transistor.fm/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://youtube.com/@howtostartacultpod?si=tGbo3TPPNXkdfpZx",
+    "social": "https://www.instagram.com/brenden.dahl/",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Brenden Dahl",
+    "ownerName": "Brenden Dahl",
+    "network": "How to Start a Cult",
+    "people": [
+      {
+        "name": "Brenden Dahl",
+        "role": "host",
+        "group": "",
+        "href": "https://howtostartacultpod.transistor.fm/people/brenden-dahl",
+        "image": "https://img.transistorcdn.com/X_vU3peAnqOEwUF7VMUh6hmfVKa8JwtnlnbjQLWHAIM/rs:fill:0:0:1/w:800/h:800/q:60/mb:500000/aHR0cHM6Ly9pbWct/dXBsb2FkLXByb2R1/Y3Rpb24udHJhbnNp/c3Rvci5mbS9lYTMx/ZDBhMGMwNTRiMTgz/Y2ZiYmIzYmEwNWNm/NzM3MS5qcGVn.jpg"
+      },
+      {
+        "name": "Ciara Farris",
+        "role": "guest",
+        "group": "",
+        "href": "https://howtostartacultpod.transistor.fm/people/ciara-farris",
+        "image": ""
+      },
+      {
+        "name": "Jakob Kleeman",
+        "role": "guest",
+        "group": "",
+        "href": "https://howtostartacultpod.transistor.fm/people/jakob-kleeman",
+        "image": ""
+      },
+      {
+        "name": "Alex Ferrazza",
+        "role": "guest",
+        "group": "",
+        "href": "https://howtostartacultpod.transistor.fm/people/alex-ferrazza",
+        "image": ""
+      },
+      {
+        "name": "Walter Todd",
+        "role": "guest",
+        "group": "",
+        "href": "https://howtostartacultpod.transistor.fm/people/walter-todd",
+        "image": ""
+      },
+      {
+        "name": "Nick Kapp",
+        "role": "designer",
+        "group": "",
+        "href": "https://howtostartacultpod.transistor.fm/people/nick-kapp",
+        "image": ""
+      },
+      {
+        "name": "Shai Bardin",
+        "role": "guest",
+        "group": "",
+        "href": "https://howtostartacultpod.transistor.fm/people/shai-bardin",
+        "image": ""
+      },
+      {
+        "name": "Charlie Lazin",
+        "role": "guest",
+        "group": "",
+        "href": "https://howtostartacultpod.transistor.fm/people/charlie-lazin",
+        "image": ""
+      },
+      {
+        "name": "Liv Schroeder",
+        "role": "guest",
+        "group": "",
+        "href": "https://howtostartacultpod.transistor.fm/people/liv-schroeder",
+        "image": ""
+      },
+      {
+        "name": "Jordyn Flaherty",
+        "role": "guest",
+        "group": "",
+        "href": "https://howtostartacultpod.transistor.fm/people/jordyn-flaherty",
+        "image": ""
+      },
+      {
+        "name": "Louie Pearlman",
+        "role": "guest",
+        "group": "",
+        "href": "https://howtostartacultpod.transistor.fm/people/louie-pearlman",
+        "image": ""
+      },
+      {
+        "name": "Austin Kelly",
+        "role": "guest",
+        "group": "",
+        "href": "https://howtostartacultpod.transistor.fm/people/austin-kelly",
+        "image": ""
+      },
+      {
+        "name": "Kieran Mulligan",
+        "role": "guest",
+        "group": "",
+        "href": "https://howtostartacultpod.transistor.fm/people/kieran-mulligan",
+        "image": ""
+      }
+    ]
+  },
+  "creators": [
+    "Brenden Dahl"
+  ],
+  "cast": [
+    "Ciara Farris",
+    "Jakob Kleeman",
+    "Alex Ferrazza",
+    "Walter Todd",
+    "Shai Bardin",
+    "Charlie Lazin",
+    "Liv Schroeder",
+    "Jordyn Flaherty",
+    "Louie Pearlman",
+    "Austin Kelly",
+    "Kieran Mulligan"
+  ],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://howtostartacultpod.transistor.fm/episodes/season-1-trailer; https://howtostartacultpod.transistor.fm/episodes; https://howtostartacultpod.transistor.fm/; https://feeds.transistor.fm/how-to-start-a-cult; https://podcasts.apple.com/us/podcast/how-to-start-a-cult/id1896902453?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "1 observed episodes",
+    "captions": "available in structured transcript data",
+    "transcriptCoverage": 0.2,
+    "transcriptFormats": [
+      "text/vtt",
+      "application/x-subrip",
+      "application/json",
+      "text/plain",
+      "text/html"
+    ],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://howtostartacultpod.transistor.fm/episodes/season-1-trailer",
+      "https://howtostartacultpod.transistor.fm/episodes",
+      "https://howtostartacultpod.transistor.fm/",
+      "https://feeds.transistor.fm/how-to-start-a-cult",
+      "https://podcasts.apple.com/us/podcast/how-to-start-a-cult/id1896902453?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction",
+      "True Crime"
+    ],
+    "sourceKeywords": [
+      "cult",
+      "stoner",
+      "comedy",
+      "fiction",
+      "satire",
+      "horror",
+      "true crime"
+    ],
+    "sourceTags": [],
+    "importOfficialSummary": "Chris, a charismatic college stoner, starts a podcast with his best bud Dougie examining famous cults. As a joke, they invent their own: the Sacred Order of Chris, where enlightenment is achieved through “the Divine Chill,” aka smoking weed and listening to music. As the show goes unexpectedly viral and listeners start treating the jokes as gospel, Chris rides the wave of ironic fame until it snowballs into a real life movement with disastrous consequences.",
+    "socialUrls": [
+      "https://www.instagram.com/brenden.dahl/"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 3
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "2026 Brenden Dahl",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "7e59be53-1917-5042-9b2a-e74478fdc07f",
+        "rssUrl": "https://feeds.transistor.fm/how-to-start-a-cult",
+        "appleCollectionId": "1896902453",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes/season-1-trailer",
+          "fetchedAt": "2026-08-15T20:38:45.494Z",
+          "payloadHash": "72022b892dfd68888bcebb3b0aa1c876c96199d54d49cbc254c11cc9b7778fca"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes",
+          "fetchedAt": "2026-08-15T20:38:45.491Z",
+          "payloadHash": "fa1733dddd620c5db09430b830f89fc7ad116ecdce8b4c31bd3a882f81ce421c"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://howtostartacultpod.transistor.fm/",
+          "fetchedAt": "2026-08-15T20:38:45.487Z",
+          "payloadHash": "715c0ec54e9a0fc3ef8b050397541ff436d511d3ae811d67bca85389df4c6102"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult",
+          "fetchedAt": "2026-08-15T20:38:44.470Z",
+          "payloadHash": "ac0a5cf315efc4fdc25a46c6193af23a3edc0afc217231447f68223cc5994e70"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/how-to-start-a-cult/id1896902453?uo=4",
+          "fetchedAt": "2026-08-15T20:38:24.065Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/how-to-start-a-cult/id1896902453?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://howtostartacultpod.transistor.fm/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/how-to-start-a-cult/id1896902453?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://howtostartacultpod.transistor.fm/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/how-to-start-a-cult/id1896902453?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://howtostartacultpod.transistor.fm/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes/season-1-trailer"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/how-to-start-a-cult/id1896902453?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/how-to-start-a-cult/id1896902453?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/how-to-start-a-cult/id1896902453?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://howtostartacultpod.transistor.fm/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://howtostartacultpod.transistor.fm/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes/season-1-trailer"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "keywords": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "complete": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "people": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "channelPeople": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.66,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://howtostartacultpod.transistor.fm/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes/season-1-trailer"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://howtostartacultpod.transistor.fm/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://howtostartacultpod.transistor.fm/episodes/season-1-trailer"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/how-to-start-a-cult"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:38:45.820Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "fb9e49138ebd685e837b45fe4970085f5a298ffc08f4a5c922f1f4b353741403",
+        "subtitle": "9dda545d1bef4d2c7cb4235e7fa22fd4ec2a1ac7fa89fe93a6709fcffad16ac4",
+        "description": "6aa3bcbe32e2944667bba4ddf87204a094f75f4000c7c36c62890154d982ffcd",
+        "cover": "5805725fcfb28495e499939cfbc3751fc506936d85cd147b9fb9033c27792df3",
+        "coverAlt": "e19f9ccd5a77afd8013e50e0bbba4437e876bf967994281def39b2ac3d272844",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "8bf5a0febb0ecbdae68b84899a3ab33732c7c9b8a59b231588f8c7da0f8d4c39",
+        "officialLinks": "a381995fda2ee51a04d4cdb6c4241cd40221d3b7a1461793607c517b3c699c23",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "19001167fe6175742e9ac4da6b00e19333f12fbc7f1fe29d419b2c60c7b711a3",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "d9e13820a17ea86b9d15b64aa1021a47db2a703592e6808db81356d3d168bb67",
+        "releaseDates": "b67509e512dab528a5d956228ed5995c48b714385cb445ebd630bec4f027c583",
+        "credits": "78af8168dfdeb7859d1e94b20c247356a4fa6e2601febbacec5e6c6c8bdde384",
+        "creators": "41d3bf4e344fabfaf6955c16e203cd971c4d853cc59959ef9c9a4a5f55a2ec78",
+        "cast": "2f624097e021e1f9f30477f30704ce61a62690b557bbbd665e59c685655245ae",
+        "availability": "185590f98c5bcc8247fd81cad6804c426db6dcf7a8880bff9be011155ea0ba8f",
+        "verification": "cf1227b77a15484a934adda10a4f1366bd98519876f12919592d0280672b9f14"
+      },
+      "optionalGaps": [
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:39:52.199Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "brenden-dahl",
+  "networkId": "how-to-start-a-cult"
+}

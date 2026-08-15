@@ -1208,31 +1208,31 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1208,P2,The Heir of Time,,21141062-e36e-47d1-8ee8-efbd4402b63b,needs-review,needs-review,source-conflict,2026-08-15 20:33:31
 1209,P2,Wanderhome,,d84c58f5-d10a-4784-9322-73ddae5542e4,needs-review,needs-review,source-conflict,2026-08-15 20:35:16
 1210,P2,The Tsar And Tsaritsa,,c42cbf9e-d414-4cbc-813c-c0d61f1e190a,needs-review,needs-review,insufficient-discovery-signals,2026-08-15 20:35:17
-1211,P2,Silkhaven Pulp,,,unattempted,,,
-1212,P2,The Fog City Mysteries: IN COLOR!,,,unattempted,,,
-1213,P2,Odder Space,,,unattempted,,,
-1214,P2,The Sherwood Society,Ashlee Craft,,unattempted,,,
-1215,P2,World Devotion Project,,,unattempted,,,
-1216,P2,How to Start a Cult,,,unattempted,,,
-1217,P2,Dark Nights with Poe & Munro,,,unattempted,,,
-1218,P2,The Faeverse,,,unattempted,,,
-1219,P2,Glory Radio,,,unattempted,,,
-1220,P2,The Cycle,,,unattempted,,,
-1221,P2,Flip and Mozi,,,unattempted,,,
-1222,P2,Romeo & Her Sister,,,unattempted,,,
-1223,P2,The Mechadova Engine,,,unattempted,,,
-1224,P2,Chef's Kiss,,,unattempted,,,
-1225,P2,Edited Out,,,unattempted,,,
-1226,P2,The Chronicles of Astrimos,Echoverse,,unattempted,,,
-1227,P2,The Scorched Earth,I-35 Radio Rep Company,,unattempted,,,
-1228,P2,The Midnight Rebellion,,,unattempted,,,
-1229,P2,Sleuth and Flatfoot,,,unattempted,,,
-1230,P2,The Many Worlds of Clenchport,,,unattempted,,,
-1231,P2,Station Infinity,,,unattempted,,,
-1232,P2,The Alignment Project,,,unattempted,,,
-1233,P2,Beneath the Cosmic Waves,,,unattempted,,,
-1234,P2,The Tree Whisperer,C. Miggs Productions,,unattempted,,,
-1235,P2,Crossroads: A 48 Hour Audio Drama Festival,Iridescent Acorn Productions,,unattempted,,,
+1211,P2,Silkhaven Pulp,,46590ed3-14a5-4d72-99f0-c9bfc462db51,published,published,,2026-08-15 20:39:55
+1212,P2,The Fog City Mysteries: IN COLOR!,,8d19f112-fc69-442f-aab8-95ada06d74e2,published,published,,2026-08-15 20:39:55
+1213,P2,Odder Space,,7b5f339c-aa17-465d-b0cf-3cc5a351041e,needs-review,needs-review,source-conflict,2026-08-15 20:37:20
+1214,P2,The Sherwood Society,Ashlee Craft,a41809db-9623-451d-ab78-aa9c668194e2,published,published,,2026-08-15 20:39:55
+1215,P2,World Devotion Project,,c9337746-b2df-4cbf-ba79-934e50294d86,published,published,,2026-08-15 20:39:55
+1216,P2,How to Start a Cult,,053106ed-0f1b-4b75-831b-09e7a499f315,published,published,,2026-08-15 20:39:55
+1217,P2,Dark Nights with Poe & Munro,,21a2eafa-43c7-43cc-8755-80344e323e11,needs-review,needs-review,source-conflict,2026-08-15 20:39:22
+1218,P2,The Faeverse,,89218e6b-549d-48db-a1e7-06a7a3d8a539,needs-review,needs-review,source-conflict,2026-08-15 20:39:20
+1219,P2,Glory Radio,,179d42a3-6e43-478f-b15f-b8fabc64ed9d,needs-review,needs-review,source-conflict,2026-08-15 20:39:26
+1220,P2,The Cycle,,18294a76-2778-44fe-814d-f55c512feb0b,needs-review,needs-review,source-conflict,2026-08-15 20:37:45
+1221,P2,Flip and Mozi,,b84a7f37-8d4c-41f7-9c4a-3402f3255c09,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 20:36:46
+1222,P2,Romeo & Her Sister,,815b53cf-5038-446b-9268-6dc1f4067ee3,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 20:38:46
+1223,P2,The Mechadova Engine,,4212aa93-ad6e-4cc6-8770-0af157a259f1,published,published,,2026-08-15 20:39:55
+1224,P2,Chef's Kiss,,0a3bb80b-7719-4c02-8090-32e312d4966f,needs-review,needs-review,source-conflict,2026-08-15 20:36:45
+1225,P2,Edited Out,,ea97304d-7e76-4ac1-b493-3ef34d802a4a,needs-review,needs-review,source-conflict,2026-08-15 20:37:44
+1226,P2,The Chronicles of Astrimos,Echoverse,a5884f7a-5416-4709-a318-85e2dd40195c,published,published,,2026-08-15 20:39:55
+1227,P2,The Scorched Earth,I-35 Radio Rep Company,55053088-2b4b-4fbd-8bc4-8f4dc53b5426,needs-review,needs-review,source-conflict,2026-08-15 20:37:18
+1228,P2,The Midnight Rebellion,,2dee5191-3dd2-4640-8b80-8f2fc540e259,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 20:39:25
+1229,P2,Sleuth and Flatfoot,,55a32553-26c4-480b-a0a5-0904d7b7c154,needs-review,needs-review,scope-review; source-conflict; duplicate-ambiguity,2026-08-15 20:37:23
+1230,P2,The Many Worlds of Clenchport,,5832a44c-6cd6-48a2-b79a-6cf242373c01,needs-review,needs-review,source-conflict,2026-08-15 20:38:20
+1231,P2,Station Infinity,,86f0c390-6620-4d9a-af55-269e532fb830,needs-review,needs-review,source-conflict,2026-08-15 20:38:20
+1232,P2,The Alignment Project,,fbd41d95-d25c-43d6-a441-25dce539bc8e,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:38:55
+1233,P2,Beneath the Cosmic Waves,,84d34faa-2ce5-4683-af46-30384087a225,needs-review,needs-review,source-conflict,2026-08-15 20:37:21
+1234,P2,The Tree Whisperer,C. Miggs Productions,09482cd7-5877-494a-908b-a95c42df7ded,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:37:21
+1235,P2,Crossroads: A 48 Hour Audio Drama Festival,Iridescent Acorn Productions,425e4b3b-c299-470f-b959-6328013903a8,published,published,,2026-08-15 20:39:55
 1236,P2,Kovacs: Breaking Conventions,,,unattempted,,,
 1237,P2,Witchpunk,,,unattempted,,,
 1238,P2,Listen & Often,,,unattempted,,,
