@@ -23410,5 +23410,71 @@
     "featured": false,
     "createdAt": "2026-08-15",
     "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "chain-of-being",
+    "title": "Chain of Being",
+    "subtitle": "",
+    "description": "Chain of Being is a mythic science fiction podcast which is a glimpse into the future: where gods control the cosmos and mortals are left to fend for themselves in a vast, indifferent universe. Follow the immortal Adam (of eden fame) as he hunts down an extra-universal threat whilst also confronting his past. Set in an extensive universe that blends religious fantasy elements with space opera science fiction. All lovingly written and sound designed by a student from south london since they were 17 years old, and featuring a range of voice acting talent. https://www.patreon.com/faustiannonsense",
+    "cover": "images/covers/chain-of-being.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/chain-of-being-2f7c83f3bd-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/chain-of-being-2f7c83f3bd-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "Chain of Being cover art",
+    "creators": [
+      "Cai Gwilym Pritchard"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Chain of Being"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Cai Gwilym Pritchard",
+      "ownerName": "Cai Gwilym Pritchard"
+    },
+    "availability": {
+      "transcripts": "6 observed episodes",
+      "captions": "unknown",
+      "transcriptCoverage": 0.25,
+      "transcriptFormats": [
+        "text/html"
+      ]
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
   }
 ]
