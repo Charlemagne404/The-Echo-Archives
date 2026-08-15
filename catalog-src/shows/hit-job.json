@@ -1,0 +1,628 @@
+{
+  "id": "hit-job",
+  "title": "Hit Job",
+  "subtitle": "",
+  "description": "Meet Brynn Morris (Keke Palmer), an aspiring artist desperate for a job so she can help her ailing grandmother. As a last resort, she takes a job as an administrative assistant at a company with the motto \"Do Bad Things for Good Reasons.\" Joining forces with her awkward tech nerd of a coworker Geo (Pete Davidson), she unexpectedly gets swept up in a company-wide contest that forces her to question her morals. Having a killer job suddenly takes on a whole new meaning. Laugh your ears off with more A-list comedy at audible.com/soundsfunny Cast: Keke Palmer,&nbsp;Pete Davidson and more. Produced by Broadway Video",
+  "cover": "images/covers/hit-job.jpg",
+  "coverAlt": "Hit Job cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/hit-job/id1644756514?uo=4",
+    "website": "https://art19.com/shows/hit-job",
+    "rss": "https://rss.art19.com/hit-job",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "comedy",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Hit Job"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 12 full episodes • 27 min median",
+    "episodes": 12,
+    "avgEpisodeMinutes": 26,
+    "medianEpisodeMinutes": 27,
+    "minEpisodeMinutes": 13,
+    "maxEpisodeMinutes": 33,
+    "totalObservedHours": 5.2,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 12,
+      "bonus": 1,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2022-09-29",
+    "latest": "2022-09-29",
+    "latestFeedItem": "2022-09-29",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://art19.com/shows/hit-job",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Audible Originals",
+    "ownerName": "Audible Originals",
+    "network": "ART19"
+  },
+  "creators": [
+    "Audible Originals"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://art19.com/shows/hit-job; https://rss.art19.com/hit-job; https://podcasts.apple.com/us/podcast/hit-job/id1644756514?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://art19.com/shows/hit-job",
+      "https://rss.art19.com/hit-job",
+      "https://podcasts.apple.com/us/podcast/hit-job/id1644756514?uo=4"
+    ],
+    "sourceCategories": [
+      "Comedy",
+      "Fiction",
+      "Comedy Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Meet Brynn Morris (Keke Palmer), an aspiring artist desperate for a job so she can help her ailing grandmother. As a last resort, she takes a job as an administrative assistant at a company with the motto \"Do Bad Things for Good Reasons.\" Joining forces with her awkward tech nerd of a coworker Geo (Pete Davidson), she unexpectedly gets swept up in a company-wide contest that forces her to question her morals. Having a killer job suddenly takes on a whole new meaning. Laugh your ears off with more A-list comedy at audible.com/soundsfunny Cast: Keke Palmer,&nbsp;Pete Davidson and more. Produced by Broadway Video",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "unknown",
+      "medianDays": null,
+      "observedIntervals": 0
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2021 The Broadway Video Group, Inc.",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.art19.com/hit-job",
+        "appleCollectionId": "1644756514",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://art19.com/shows/hit-job",
+          "fetchedAt": "2026-08-15T20:20:54.454Z",
+          "payloadHash": "c43b87f1bab3bc240a88875aa3f6b859bea6a147c6fdef61538e46bc1d621425"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.art19.com/hit-job",
+          "fetchedAt": "2026-08-15T20:20:53.821Z",
+          "payloadHash": "35f99ff59a8c71a69d7ed7640e657dc46f6abd5205554ab6a186a2322954b53b"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-job/id1644756514?uo=4",
+          "fetchedAt": "2026-08-15T20:20:53.260Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-job/id1644756514?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/hit-job"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-job/id1644756514?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-job/id1644756514?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/hit-job"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-job/id1644756514?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-job/id1644756514?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/hit-job"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hit-job/id1644756514?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/hit-job"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.6,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/hit-job"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hit-job"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:20:54.705Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "93948d76a7a4b75af6422340c25a6d47d644ff5ae6b4a406bdaa739a504cf86a",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "6ddeb7264de9fea6e6ef20cea2aefe4fba78eebe12ddf515ea4cf3fc1c8293d7",
+        "cover": "725896c698557703bf2bab803ff6ea1e5e3195879d66bb8a0657e112a6f66919",
+        "coverAlt": "588a625f2f58779a64f07cd4d0c2e01fb9e51e53870c477b7534d48e686398ab",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "3d26288b3c6ade926831c1fdee2bfdf45c46058a2abac6b6f8327186c11ff7cc",
+        "officialLinks": "13faefceebde369dd3e41af678e3b91889acaedae249dce9a9ba8d09652d3583",
+        "genres": "d43a44c3885ca363e39a4f53c298e71bcb32009530bcab70ecf719f799bcd00a",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "cc81f9b5512ebe8990bf2311c7fa5de2430d780b7607c90f95a20e1308150204",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "5ae90e491faa8f4d5f9782e105b868e5958a5a208cb6191c15db1698acdd7e08",
+        "releaseDates": "b65e589d3d51b5864d73f52e119df4dde8028703b861e49a7f66c6d534b0ed71",
+        "credits": "a6417b0750b85880c2f83101bac540ab6974bc57326e6b57c3d7e989aea76fac",
+        "creators": "9f1cb43dfc49e599e419c160a477b261a692c361b5493b6df02791ac3d2ccce8",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "8fac4e5333fc17841b5097de42839cad1247238fc40df8b0b7aa19165240ebda"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:22:12.758Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "audible-originals",
+  "networkId": "art19"
+}

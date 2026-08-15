@@ -1,0 +1,609 @@
+{
+  "id": "baked-off",
+  "title": "Baked Off!",
+  "subtitle": "",
+  "description": "Thunder's Mouth Theatre are delighted to present: a whole new comic drama of the audio fiction variety, to be broadcast via the podcast medium. \"Baked Off!\" follows the lives of a group of would-be home-bakers based in England and Scotland, who meet up for a regular online baking class under the tutelage of a retired Australian chef in Brisbane, Australia. Over the course of eight fully scripted (20-30 minutes) episodes, we learn about their lives, work and family relationships, as they are learning how to make sourdough bread. Each week they strive, fail and strive better, supporting and challenging themselves and each other as their private lives take unexpected twists and turns.",
+  "cover": "images/covers/baked-off.jpg",
+  "coverAlt": "Baked Off! cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/baked-off/id1774039062?uo=4",
+    "website": "https://art19.com/shows/baked-off",
+    "rss": "https://rss.art19.com/baked-off",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Baked Off!"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 8 full episodes • 25 min median",
+    "episodes": 8,
+    "avgEpisodeMinutes": 25,
+    "medianEpisodeMinutes": 25,
+    "minEpisodeMinutes": 23,
+    "maxEpisodeMinutes": 30,
+    "totalObservedHours": 3.4,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 8,
+      "bonus": 2,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2025-05-01",
+    "latest": "2025-08-06",
+    "latestFeedItem": "2025-11-21",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://art19.com/shows/baked-off",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Flloyd Kennedy",
+    "ownerName": "Flloyd Kennedy",
+    "network": "ART19"
+  },
+  "creators": [
+    "Flloyd Kennedy"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://art19.com/shows/baked-off; https://rss.art19.com/baked-off; https://podcasts.apple.com/us/podcast/baked-off/id1774039062?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://art19.com/shows/baked-off",
+      "https://rss.art19.com/baked-off",
+      "https://podcasts.apple.com/us/podcast/baked-off/id1774039062?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Thunder's Mouth Theatre are delighted to present: a whole new comic drama of the audio fiction variety, to be broadcast via the podcast medium. \"Baked Off!\" follows the lives of a group of would-be home-bakers based in England and Scotland, who meet up for a regular online baking class under the tutelage of a retired Australian chef in Brisbane, Australia. Over the course of eight fully scripted (20-30 minutes) episodes, we learn about their lives, work and family relationships, as they are learning how to make sourdough bread. Each week they strive, fail and strive better, supporting and challenging themselves and each other as their private lives take unexpected twists and turns.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 7
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "",
+      "explicit": "",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.art19.com/baked-off",
+        "appleCollectionId": "1774039062",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://art19.com/shows/baked-off",
+          "fetchedAt": "2026-08-15T20:21:51.822Z",
+          "payloadHash": "fd6906aed0cb958ecd9317da1b467d0f55e9ea336f159e9380eaeeaa9dc68e69"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.art19.com/baked-off",
+          "fetchedAt": "2026-08-15T20:21:50.669Z",
+          "payloadHash": "0aeb4cd61d79f2fe5602a9aa9341e23bdcf91b8d5b42bd1744338bee728e726a"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/baked-off/id1774039062?uo=4",
+          "fetchedAt": "2026-08-15T20:21:08.857Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/baked-off/id1774039062?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/baked-off"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/baked-off/id1774039062?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/baked-off"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/baked-off/id1774039062?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/baked-off"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/baked-off/id1774039062?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/baked-off/id1774039062?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/baked-off"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/baked-off/id1774039062?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/baked-off"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.6,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/baked-off"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/baked-off"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:21:52.135Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "c7d25fbf58caa93489bd35a59870c195cba93c58b46f5ac32795d1159193db89",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "b99f27f04f1899f0e0fee27d543b36c9c704300cd5434aaef2c253f430bd62f7",
+        "cover": "13aa373f342fecb13bcec9bdf8f315e5f363f885c902ee93ded9322659ef5533",
+        "coverAlt": "186fc62712fd300d781625adc9c70b4da4ada2c0ae589711e02f937881594332",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "a0ff57951dba681c0ee2017511aed01d88c035231a85a7eb53e7a91f442d346e",
+        "officialLinks": "adf5e42c5f4100a89ae0fc46d8b7915d3d14f8948a1d4ed98ebd56a047d8a650",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "4e128c63e9a41d4a439bc08287d8d1ba794d5c0031311ff7c81551c4df8a8074",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "63ac927aa34b839b54c90bdf61871884f2aeae4c7e9ea918d0aef93f11fbe782",
+        "releaseDates": "ded06ada5f0a033d21de0a999cd763efa188937d93b9897ed397bb8384fd720f",
+        "credits": "d7aebc29531c0b263b95045456008fdc2e4518c5d3166038895dedbcc89beca1",
+        "creators": "9897dca2d3eb62d29102bda6352a745b73bf6adbd77ae8dc7c1c768f2c729f44",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "a8fc4503943885d3b9085eae91359cd516219fa560977185f1d510ab620eb8dc"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:22:12.745Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "flloyd-kennedy",
+  "networkId": "art19"
+}

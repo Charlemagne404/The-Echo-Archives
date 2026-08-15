@@ -1,0 +1,629 @@
+{
+  "id": "greenhouse",
+  "title": "Greenhouse",
+  "subtitle": "",
+  "description": "GREENHOUSE is an anxious audio love story about a recluse writer and a lonely florist who learn, letter by letter, that the world is a whole lot brighter when you have someone to share your story with. It was created by Lillian Holman and produced by Atypical Artists. For more information, please visit atypicalartists.co/greenhouse",
+  "cover": "images/covers/greenhouse.jpg",
+  "coverAlt": "Greenhouse cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/greenhouse/id1541015275?uo=4",
+    "website": "https://art19.com/shows/greenhouse",
+    "rss": "https://rss.art19.com/greenhouse",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Greenhouse"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 19 full episodes • 6 min median",
+    "episodes": 19,
+    "avgEpisodeMinutes": 6,
+    "medianEpisodeMinutes": 6,
+    "minEpisodeMinutes": 4,
+    "maxEpisodeMinutes": 9,
+    "totalObservedHours": 2,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 19,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2020-11-23",
+    "latest": "2020-12-07",
+    "latestFeedItem": "2020-12-07",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://art19.com/shows/greenhouse",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Atypical Artists",
+    "ownerName": "Atypical Artists",
+    "network": "ART19"
+  },
+  "creators": [
+    "Atypical Artists"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://art19.com/shows/greenhouse; https://rss.art19.com/greenhouse; https://podcasts.apple.com/us/podcast/greenhouse/id1541015275?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://art19.com/shows/greenhouse",
+      "https://rss.art19.com/greenhouse",
+      "https://podcasts.apple.com/us/podcast/greenhouse/id1541015275?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "GREENHOUSE is an anxious audio love story about a recluse writer and a lonely florist who learn, letter by letter, that the world is a whole lot brighter when you have someone to share your story with. It was created by Lillian Holman and produced by Atypical Artists. For more information, please visit atypicalartists.co/greenhouse",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 1
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© Copyright Lillian Holman 2020",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.art19.com/greenhouse",
+        "appleCollectionId": "1541015275",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://art19.com/shows/greenhouse",
+          "fetchedAt": "2026-08-15T20:21:51.243Z",
+          "payloadHash": "3398ff037aca09e35b05d742c464eb00ae319339d313a92dafd2c085b99753ee"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.art19.com/greenhouse",
+          "fetchedAt": "2026-08-15T20:21:50.591Z",
+          "payloadHash": "629c81766f8d9d13e0bbd6dbd7173859d58996fe31bd136fe88bd92af702fedd"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/greenhouse/id1541015275?uo=4",
+          "fetchedAt": "2026-08-15T20:21:08.391Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/greenhouse/id1541015275?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/greenhouse"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/greenhouse/id1541015275?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/greenhouse"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/greenhouse/id1541015275?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/greenhouse"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/greenhouse/id1541015275?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/greenhouse/id1541015275?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/greenhouse/id1541015275?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/greenhouse/id1541015275?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/greenhouse"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.6,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/greenhouse"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/greenhouse"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:21:51.907Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "c1cb7341d016df22cbbafca4e10d42b7f97defc9838f8123b98071230b6fb5e1",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "e828ab021f002d960e9ed63ea9fa42e67aaa929962298ff57ba234ab6628a540",
+        "cover": "5bb14b7d286f6453ff9f425e1b1c8c38be3c1e275729d894ed41240c32a248d9",
+        "coverAlt": "6c11346dfbba8ca874dc1418ab5f1dadee00ee488430c591a0230e00dbae4065",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "2de8637a34153e217e3a16ab7b1ea0fa140101bad6cd24e3c0c0e3b9d4058a02",
+        "officialLinks": "3e2ddd2b1d8ade8c92ef38219011086c1503f962a1506546b4b8885d1b45caef",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "d88b7afcad967a82595ca5852e69aeec2bbfbc46ec32ddd96b0fd69f96eb8f0c",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "3b325945e7388fb96611ff1fda5810721bf9e4ddf883ac5f8059f95998ba75ac",
+        "releaseDates": "52c22662cd6748028eb8b49c287237cdb1f7b381e732c2e1d416bc084a29d041",
+        "credits": "b942c4c04e3fc8e732d14bf3f8a17bf155b867d8651254688bfc7556f789d42e",
+        "creators": "d8b944d9118057f56353933cadaa695e3dbbbbaaf666a56e757e5c2bb8875297",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "9f0db861bdad561bbfbf78ae1c9e6c41c0e8fd8b747781f87a8217cd65752b78"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:22:12.764Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "atypical-artists",
+  "networkId": "art19"
+}

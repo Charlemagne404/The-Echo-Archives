@@ -1,0 +1,616 @@
+{
+  "id": "the-adventures-of-sir-rodney-the-root",
+  "title": "The Adventures of Sir Rodney the Root",
+  "subtitle": "",
+  "description": "The Adventures of Sir Rodney the Root is a new fantasy audio-comedy about the misadventures of a knight named Gilbert just trying to do the right thing. Unfortunately, he's been saddled with a rag-tag group of companions: a fabulous elf mage, an ambitious human princess, a sassy dwarf thief, a bizarre human child, a stoner unicorn... and a root named Sir Rodney. Will they complete their convoluted fetch-quest and restore Rodney to human form? Or will they end up in way more trouble than they bargained for? One thing is for sure, it's going to be a crazy adventure along the way!",
+  "cover": "images/covers/the-adventures-of-sir-rodney-the-root.png",
+  "coverAlt": "The Adventures of Sir Rodney the Root cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-adventures-of-sir-rodney-the-root/id1477860822?uo=4",
+    "website": "https://www.talkingfishpodcasts.com/",
+    "rss": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Adventures of Sir Rodney the Root"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 10 full episodes • 26 min median",
+    "seasons": 1,
+    "episodes": 10,
+    "avgEpisodeMinutes": 26,
+    "medianEpisodeMinutes": 26,
+    "minEpisodeMinutes": 22,
+    "maxEpisodeMinutes": 39,
+    "totalObservedHours": 4.4,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 10,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2019-09-09",
+    "latest": "2020-01-21",
+    "latestFeedItem": "2020-01-21",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.talkingfishpodcasts.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Talking Fish Podcasts",
+    "ownerName": "Emmeline Winter"
+  },
+  "creators": [
+    "Talking Fish Podcasts"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml; https://podcasts.apple.com/us/podcast/the-adventures-of-sir-rodney-the-root/id1477860822?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://rss.libsyn.com/shows/206151/destinations/1479729.xml",
+      "https://podcasts.apple.com/us/podcast/the-adventures-of-sir-rodney-the-root/id1477860822?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "The Adventures of Sir Rodney the Root is a new fantasy audio-comedy about the misadventures of a knight named Gilbert just trying to do the right thing. Unfortunately, he's been saddled with a rag-tag group of companions: a fabulous elf mage, an ambitious human princess, a sassy dwarf thief, a bizarre human child, a stoner unicorn... and a root named Sir Rodney. Will they complete their convoluted fetch-quest and restore Rodney to human form? Or will they end up in way more trouble than they bargained for? One thing is for sure, it's going to be a crazy adventure along the way!",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Talking Fish Podcasts 2019",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml",
+        "appleCollectionId": "1477860822",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml",
+          "fetchedAt": "2026-08-15T20:21:53.480Z",
+          "payloadHash": "cc518c6cd24528cac6eed7d50ef6d0566d7eae8a04476a720e08f494b5fed78a"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-adventures-of-sir-rodney-the-root/id1477860822?uo=4",
+          "fetchedAt": "2026-08-15T20:21:52.970Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-adventures-of-sir-rodney-the-root/id1477860822?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-adventures-of-sir-rodney-the-root/id1477860822?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-adventures-of-sir-rodney-the-root/id1477860822?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-adventures-of-sir-rodney-the-root/id1477860822?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-adventures-of-sir-rodney-the-root/id1477860822?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-adventures-of-sir-rodney-the-root/id1477860822?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/206151/destinations/1479729.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:21:54.023Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "890ee80808c6165673ff028268d668bb9642e7c7e126bf5981a4083b69dde1bf",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "6952046c9498fd5647357f9c76ef53c37ce59de1c50f0b9a5e3366050f93bdf9",
+        "cover": "abc73b9b5b3f1174674c2c4ff895517ef069e8d28f611aec9380434cb118070b",
+        "coverAlt": "63870e356e46d8de402aefc19a4a3dd8d836b18c11d32b47746e3679fcc21625",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "63a1bb010eb7453aa6482e6deaa85b58167a28aba45b40aa35effa43a78516f2",
+        "officialLinks": "c6e95071f3322f1710454ebd8ca78c1936b234d47dcb2592ee16599894d0eb4a",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "3784992eac17716dcb6718207a55053f9f046855e6ade15d4dd71756751d14f9",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "372becb65aba0ce1b2619868f36499429881a24cb63ac98461221dcfd4330c24",
+        "releaseDates": "a3becd3dda2ef4c206fc946fdc3933740254bc138b52e9b392438693bb2e2e25",
+        "credits": "dd48f221594ee0ab00650f208b4c2a565cd4408172982ba189813303c6f75fce",
+        "creators": "7b8ada45f65dff9a2b95e28514309447f81fd4f8a94963d693f80ed34d4fa7d4",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "e2582b224811379e559d65bb52a300c1583fecca6a3127f3535210940049fc6a"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:22:12.747Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "talking-fish-podcasts"
+}

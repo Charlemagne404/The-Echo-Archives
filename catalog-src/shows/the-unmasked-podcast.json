@@ -1,0 +1,616 @@
+{
+  "id": "the-unmasked-podcast",
+  "title": "The Unmasked Podcast",
+  "subtitle": "",
+  "description": "Voted Best Black Fiction Podcast, Unmasked follows the healing journey of a high-achieving female executive, after she’s found herself in a series of toxic relationships. When she’s forced to confront old wounds that she’s been avoiding for far too long, she turns to therapy. Echoing relatable and empowering narratives of TV shows like \"Being Mary Jane\" and HBO’s \"Insecure,\" Unmasked invites listeners into Kenya's world as she navigates love, her career and her failures, through the lens of her therapist.",
+  "cover": "images/covers/the-unmasked-podcast.jpg",
+  "coverAlt": "The Unmasked Podcast cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-unmasked-podcast/id1603665309?uo=4",
+    "website": "https://midcenturymodern.media/",
+    "rss": "https://anchor.fm/s/7cc01774/podcast/rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Unmasked Podcast"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 16 full episodes • 41 min median",
+    "seasons": 2,
+    "episodes": 16,
+    "avgEpisodeMinutes": 38,
+    "medianEpisodeMinutes": 41,
+    "minEpisodeMinutes": 2,
+    "maxEpisodeMinutes": 60,
+    "totalObservedHours": 10.1,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 16,
+      "bonus": 1,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2024-04-01",
+    "latest": "2024-06-10",
+    "latestFeedItem": "2024-06-10",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://midcenturymodern.media/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Ask The Martins, MidCentury Modern Media",
+    "ownerName": "Ask The Martins, MidCentury Modern Media"
+  },
+  "creators": [
+    "Ask The Martins, MidCentury Modern Media"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://anchor.fm/s/7cc01774/podcast/rss; https://podcasts.apple.com/us/podcast/the-unmasked-podcast/id1603665309?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://anchor.fm/s/7cc01774/podcast/rss",
+      "https://podcasts.apple.com/us/podcast/the-unmasked-podcast/id1603665309?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Voted Best Black Fiction Podcast, Unmasked follows the healing journey of a high-achieving female executive, after she’s found herself in a series of toxic relationships. When she’s forced to confront old wounds that she’s been avoiding for far too long, she turns to therapy. Echoing relatable and empowering narratives of TV shows like \"Being Mary Jane\" and HBO’s \"Insecure,\" Unmasked invites listeners into Kenya's world as she navigates love, her career and her failures, through the lens of her therapist.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 6,
+      "observedIntervals": 3
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Ask The Martins, MidCentury Modern Media",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://anchor.fm/s/7cc01774/podcast/rss",
+        "appleCollectionId": "1603665309",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss",
+          "fetchedAt": "2026-08-15T20:19:50.924Z",
+          "payloadHash": "87d9870385ceb466d795b18d765acad50bdf3e09d308058aa7c2c60983c2f511"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-unmasked-podcast/id1603665309?uo=4",
+          "fetchedAt": "2026-08-15T20:19:50.780Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-unmasked-podcast/id1603665309?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-unmasked-podcast/id1603665309?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-unmasked-podcast/id1603665309?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-unmasked-podcast/id1603665309?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-unmasked-podcast/id1603665309?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-unmasked-podcast/id1603665309?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/7cc01774/podcast/rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:19:51.783Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "06cbf2a3c8e3c8a6a16dd32c62c5e80207860293ec568cc8360f1400b649bc5d",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "8e5cfb6eaab5f9683ba26816ae759a6948a0d21698c939f052788712d8d7c349",
+        "cover": "602c08baf349388058d0491e58f4df5b7ab772ecd61fbe3a286a0767cf67d32e",
+        "coverAlt": "7553a6d68298e7c151ffc043cf8e9ae12ac6909262f6985120f4ed9fd178dca4",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "34ad6538bccb3d540e5915f8a5ea2c3357966c001931ae9b8034bb8d549a6eb6",
+        "officialLinks": "51525cc339aaba664c3d46cbc2fc40fbf9eb37631a961d3b7cf5942c47854384",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "984bc20f9c210ab8f40a6b2886196fb6f5220cf86fab602d08865ad8646fc25a",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "1e5f242067173b94764b4d33101a3ded53609dc1088ae0d09bedce2977d4bb6b",
+        "releaseDates": "bd2c4e2349adb9f27eb41fbf2855314d6ff0296333d0bf0aa57974893693277e",
+        "credits": "0b0dfb808efb41d77ef9cc693f49da51d3a220b205c03b744fa7319f23ca3186",
+        "creators": "b5cf44cdcdc83b5c91aed036bed529e0f407766d67089a70660cf5b4333bef6e",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "bccaea629c0aa4dc09f017e7597e5050ae2b13909c6e40abf1e327efc118f160"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:22:12.770Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "ask-the-martins-midcentury-modern-media"
+}

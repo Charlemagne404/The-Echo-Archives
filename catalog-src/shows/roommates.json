@@ -1,0 +1,647 @@
+{
+  "id": "roommates",
+  "title": "Roommates",
+  "subtitle": "",
+  "description": "What started in a dorm room neither of them wanted to share isn't finished yet. ROOMMATES is a BL fiction podcast following Olly and Casper — from a 2020 pandemic to an island and a hurricane. What happens when you can't stay apart and can't figure out how to stay together? Starring Nik Whittemore (More Than Just Me) as Olly and Briggon Snow (The Bright Sessions) as Casper.",
+  "cover": "images/covers/roommates.jpg",
+  "coverAlt": "Roommates cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/roommates/id1583992123?uo=4",
+    "website": "https://art19.com/shows/roommates",
+    "rss": "https://rss.art19.com/roommates",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Roommates"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 36 full episodes • 5 min median",
+    "seasons": 2,
+    "episodes": 36,
+    "avgEpisodeMinutes": 6,
+    "medianEpisodeMinutes": 5,
+    "minEpisodeMinutes": 3,
+    "maxEpisodeMinutes": 11,
+    "totalObservedHours": 3.6,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 36,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2021-09-01",
+    "latest": "2026-06-09",
+    "latestFeedItem": "2026-06-09",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://art19.com/shows/roommates",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Briggon Snow",
+    "ownerName": "Briggon Snow",
+    "network": "ART19"
+  },
+  "creators": [
+    "Briggon Snow"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://art19.com/shows/roommates; https://rss.art19.com/roommates; https://podcasts.apple.com/us/podcast/roommates/id1583992123?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://art19.com/shows/roommates",
+      "https://rss.art19.com/roommates",
+      "https://podcasts.apple.com/us/podcast/roommates/id1583992123?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "What started in a dorm room neither of them wanted to share isn't finished yet. ROOMMATES is a BL fiction podcast following Olly and Casper — from a 2020 pandemic to an island and a hurricane. What happens when you can't stay apart and can't figure out how to stay together? Starring Nik Whittemore (More Than Just Me) as Olly and Briggon Snow (The Bright Sessions) as Casper.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "unknown",
+      "medianDays": null,
+      "observedIntervals": 0
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© Briggon Snow",
+      "explicit": "",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.art19.com/roommates",
+        "appleCollectionId": "1583992123",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://art19.com/shows/roommates",
+          "fetchedAt": "2026-08-15T20:19:55.008Z",
+          "payloadHash": "c42b2a2a639d5139308c9ec011640aba59bd460660b85ea46b5da0d56b3dbf75"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.art19.com/roommates",
+          "fetchedAt": "2026-08-15T20:19:54.366Z",
+          "payloadHash": "acef2ada6f2ad0f343cfe344ecfee2428a94c34905aadfa6c926c91640b359ad"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/roommates/id1583992123?uo=4",
+          "fetchedAt": "2026-08-15T20:19:53.596Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/roommates/id1583992123?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/roommates"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/roommates/id1583992123?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/roommates"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/roommates/id1583992123?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/roommates"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/roommates/id1583992123?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/roommates/id1583992123?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/roommates"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/roommates/id1583992123?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/roommates/id1583992123?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/roommates"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.6,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/roommates"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/roommates"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:19:56.185Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "b815c03f051e2a85c5802a24f059012466f556f94091974001650490d937320d",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "86d471f65dae15fb2c7b0e95bb494f2a79b61b4c6628dac7be301e6b898382cb",
+        "cover": "8880e5d22cfd56e20dea363d895b7867de38aaa2c797a1ca37d46eca8f9a3e93",
+        "coverAlt": "6f9dfec326d29ee63737c1be181f1cf3371304c5d69374d84b4e3ce6c0621d45",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "49f0497303aef2a2716e38b097d9747ad9b64e5e8409296db67acd6e23796675",
+        "officialLinks": "d0a9c04436cb6e28345f0276f382ab57cf058d6990a4ab17536688570954b815",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "5a7a9d952a239ca0e9b9ad45f35387ef1b475eb5ea80ea2ed551564ffd6c733f",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "08d3fc5046bf8e0eb801bbf258d76ae019366373d47c6ea02ea00c8c4ac970c3",
+        "releaseDates": "a20157503b1879f4ece91cd1561f6ab89f4bce2934a87f7b1c9c34d4f29f4f29",
+        "credits": "7c7806e14bc1e87d0c4d34471e19feaa915b8d9ec4f921fb15f651204febaec4",
+        "creators": "35e1efad890178b2049ea9c37a68599708ccdb4d399b96cc44eda4efb28c0c31",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "51daab185a293e6103a5079a22e099f16c0700712e051fc5abba97165c5ed6aa"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:22:12.766Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "briggon-snow",
+  "networkId": "art19"
+}

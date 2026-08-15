@@ -1,0 +1,615 @@
+{
+  "id": "look-up",
+  "title": "Look Up",
+  "subtitle": "",
+  "description": "Two young men meet on a beach every night with a telescope and the unanswered questions from years of a friendship lost as they await their parent’s return from a mission to Mars. As re-entry draws closer...so do they. Starring Evan Bittencourt (Pretty Little Liars: The Perfectionists) and Briggon Snow (The Bright Sessions). Produced by Atypical Artists and created by Briggon Snow.",
+  "cover": "images/covers/look-up.jpg",
+  "coverAlt": "Look Up cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/look-up/id1567657427?uo=4",
+    "website": "https://art19.com/shows/look-up",
+    "rss": "https://rss.art19.com/look-up",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Look Up"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 10 full episodes • 31 min median",
+    "episodes": 10,
+    "avgEpisodeMinutes": 33,
+    "medianEpisodeMinutes": 31,
+    "minEpisodeMinutes": 26,
+    "maxEpisodeMinutes": 47,
+    "totalObservedHours": 5.5,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 10,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2021-06-11",
+    "latest": "2021-08-06",
+    "latestFeedItem": "2021-08-06",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://art19.com/shows/look-up",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Atypical Artists",
+    "ownerName": "Atypical Artists",
+    "network": "ART19"
+  },
+  "creators": [
+    "Atypical Artists"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://art19.com/shows/look-up; https://rss.art19.com/look-up; https://podcasts.apple.com/us/podcast/look-up/id1567657427?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://art19.com/shows/look-up",
+      "https://rss.art19.com/look-up",
+      "https://podcasts.apple.com/us/podcast/look-up/id1567657427?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Two young men meet on a beach every night with a telescope and the unanswered questions from years of a friendship lost as they await their parent’s return from a mission to Mars. As re-entry draws closer...so do they. Starring Evan Bittencourt (Pretty Little Liars: The Perfectionists) and Briggon Snow (The Bright Sessions). Produced by Atypical Artists and created by Briggon Snow.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© Briggon Snow",
+      "explicit": "",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.art19.com/look-up",
+        "appleCollectionId": "1567657427",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://art19.com/shows/look-up",
+          "fetchedAt": "2026-08-15T20:20:51.222Z",
+          "payloadHash": "45013cc13d90978a70e141958d6670c03d767b8c7adfa96bc9778be8d02696ab"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.art19.com/look-up",
+          "fetchedAt": "2026-08-15T20:20:50.757Z",
+          "payloadHash": "07f27303e9dd6cea500ae022379842d11c289a280ea42fbbc4389cda5e8facae"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/look-up/id1567657427?uo=4",
+          "fetchedAt": "2026-08-15T20:19:57.033Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/look-up/id1567657427?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/look-up"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/look-up/id1567657427?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/look-up"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/look-up/id1567657427?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/look-up"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/look-up/id1567657427?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/look-up/id1567657427?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/look-up/id1567657427?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/look-up"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.6,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/look-up"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/look-up"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:20:51.899Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "69ad38f2b75ab797a50a9627d4e3180aaa9b982b3e1f49f549f7c353be928ced",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "0ed53926bc98482c78ebe0b2de26ac5cbe62fa48e4c60522d84dd2bb7b7ae623",
+        "cover": "4b6bc0cb75f6ed9db27ab264724a4ba8ec97b18cf2485aaba26e7813ebd681ad",
+        "coverAlt": "246417fa579abab79938139f9c4d4be93a94486d3a9df90586c3994f8078e718",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "9947fc9a254ce86a6e35ff20a98e5a118045ab288b7b88bdf9cb5384988c1d0b",
+        "officialLinks": "3b4cd756c720b894371388c97850c1625d51fff2f77300221d066d0f387e99c0",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "d970b73ad2fc574b33c9641733fe8c19cd1d9eab78bc02af8eb9db609216923f",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "f75a2dde60b2f9060440a4c212c71d5f25775bc3f931e7a4aafcc3a6e049f2de",
+        "releaseDates": "5002268aba44bb2b8ecf70d9e1e16c2368f7f1ab38dbd7a417d20f92625459fe",
+        "credits": "b942c4c04e3fc8e732d14bf3f8a17bf155b867d8651254688bfc7556f789d42e",
+        "creators": "d8b944d9118057f56353933cadaa695e3dbbbbaaf666a56e757e5c2bb8875297",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "d7572425d6fcb7283e6adbe8f0756e9f18cdf925591d8ded2918052ff050b3be"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:22:12.769Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "atypical-artists",
+  "networkId": "art19"
+}
