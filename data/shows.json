@@ -203792,5 +203792,5605 @@
         "width": 640
       }
     ]
+  },
+  {
+    "id": "beyond-repair",
+    "title": "Beyond Repair",
+    "subtitle": "",
+    "description": "In a not-so-distant future, the luxury cruise-liner \"Hope\" sets off on a voyage into the stars, run entirely by AI. Ascent Wellness promises its passengers the ultimate self-care experience. However, as the voyage progresses, cracks begin to form in the flawless facade of the ship's AI, Hope. Tensions escalate as the passengers must confront not only the external threat of the AI, but also the internal demons that led them to seek perfection in the first place. In a fight for survival, they must rediscover what it truly means to be human.",
+    "cover": "images/covers/beyond-repair.jpg",
+    "coverAlt": "Beyond Repair cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/beyond-repair/id1745260078?uo=4",
+      "website": "https://redcircle.com/shows/beyond-repair",
+      "rss": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Beyond Repair"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 1 full episode • 11 min median",
+      "seasons": 1,
+      "episodes": 1,
+      "avgEpisodeMinutes": 11,
+      "medianEpisodeMinutes": 11,
+      "minEpisodeMinutes": 11,
+      "maxEpisodeMinutes": 11,
+      "totalObservedHours": 0.2,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 1,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2024-05-07",
+      "latest": "2024-05-07",
+      "latestFeedItem": "2024-05-07"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://redcircle.com/shows/beyond-repair"
+    },
+    "credits": {
+      "creatorName": "Beyond Repair Production",
+      "ownerName": "Beyond Repair Production"
+    },
+    "creators": [
+      "Beyond Repair Production"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531; https://podcasts.apple.com/us/podcast/beyond-repair/id1745260078?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531",
+        "https://podcasts.apple.com/us/podcast/beyond-repair/id1745260078?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction"
+      ],
+      "importOfficialSummary": "In a not-so-distant future, the luxury cruise-liner \"Hope\" sets off on a voyage into the stars, run entirely by AI. Ascent Wellness promises its passengers the ultimate self-care experience. However, as the voyage progresses, cracks begin to form in the flawless facade of the ship's AI, Hope. Tensions escalate as the passengers must confront not only the external threat of the AI, but also the internal demons that led them to seek perfection in the first place. In a fight for survival, they must rediscover what it truly means to be human.",
+      "schedule": {
+        "label": "unknown",
+        "observedIntervals": 0
+      },
+      "podcast": {
+        "copyright": "All rights reserved.",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "0848f1f2-e3e4-4d00-a3ae-14e639fb1531",
+          "rssUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531",
+          "appleCollectionId": "1745260078"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531",
+            "fetchedAt": "2026-08-15T19:40:03.170Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/beyond-repair/id1745260078?uo=4",
+            "fetchedAt": "2026-08-15T19:40:03.127Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/beyond-repair/id1745260078?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/beyond-repair/id1745260078?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/beyond-repair/id1745260078?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/beyond-repair/id1745260078?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/beyond-repair/id1745260078?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/beyond-repair/id1745260078?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/beyond-repair/id1745260078?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/0848f1f2-e3e4-4d00-a3ae-14e639fb1531"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T19:40:03.972Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T19:41:35.304Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "beyond-repair-production",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/beyond-repair",
+    "hasPage": true,
+    "image": "images/covers/beyond-repair.jpg",
+    "imageAlt": "Beyond Repair cover art",
+    "summary": "In a not-so-distant future, the luxury cruise-liner \"Hope\" sets off on a voyage into the stars, run entirely by AI. Ascent Wellness promises its passengers the ultimate self-care experience. However, as the voyage progresses, cracks begin to form in the flawless facade of the ship's AI, Hope. Tensions escalate as the passengers must confront not only the external threat of the AI, but also the internal demons that led them to seek perfection in the first place. In a fight for survival, they must rediscover what it truly means to be human.",
+    "finalRating": null,
+    "searchText": "beyond repair in a not so distant future the luxury cruise liner hope sets off on a voyage into the stars run entirely by ai ascent wellness promises its passengers the ultimate self care experience however as the voyage progresses cracks begin to form in the flawless facade of the ship s ai hope tensions escalate as the passengers must confront not only the external threat of the ai but also the internal demons that led them to seek perfection in the first place in a fight for survival they must rediscover what it truly means to be human drama sci fi serialized beyond repair beyond repair production english unclear imported beyond repair production beyond repair production unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/beyond-repair-f9ca7057dc-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/beyond-repair-f9ca7057dc-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "black-friday",
+    "title": "BLACK FRIDAY",
+    "subtitle": "",
+    "description": "Every Friday, a strange phenomenon transforms White people into Black people. America freaks out. (By @tychonewman) Written, produced, & directed by Tycho Newman. Patreon: https://www.patreon.com/tycho_newman Twitter: https://twitter.com/blackfridaycast Website: https://theblackfridaypodcast.com Tycho: https://twitter.com/tychonewman",
+    "cover": "images/covers/black-friday.jpg",
+    "coverAlt": "BLACK FRIDAY cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/4kuEQyIxZ4O4YSa5z9VTMM",
+      "apple": "https://podcasts.apple.com/us/podcast/black-friday/id1482513044",
+      "website": "https://theblackfridaypodcast.com/",
+      "rss": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml",
+      "pocketCasts": "https://pca.st/cye8uda5"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "BLACK FRIDAY"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "3 seasons observed • at least 18 full episodes • 20 min median",
+      "seasons": 3,
+      "episodes": 18,
+      "avgEpisodeMinutes": 19,
+      "medianEpisodeMinutes": 20,
+      "minEpisodeMinutes": 13,
+      "maxEpisodeMinutes": 26,
+      "totalObservedHours": 5.8,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        3,
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 18,
+        "bonus": 5,
+        "trailer": 3
+      }
+    },
+    "releaseDates": {
+      "first": "2019-11-29",
+      "latest": "2022-06-03",
+      "latestFeedItem": "2022-06-03"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://theblackfridaypodcast.com/",
+      "patreon": "https://www.patreon.com/tycho_newman",
+      "social": "https://twitter.com/share?ref_src=twsrc%5Etfw"
+    },
+    "credits": {
+      "creatorName": "Tycho Newman",
+      "ownerName": "Tycho Newman",
+      "network": "BLACK FRIDAY | A Podcast"
+    },
+    "creators": [
+      "Tycho Newman"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://theblackfridaypodcast.com/about/; https://theblackfridaypodcast.com/episodes/; https://theblackfridaypodcast.com/; https://rss.libsyn.com/shows/194786/destinations/1376705.xml; https://podcasts.apple.com/us/podcast/black-friday/id1482513044?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://theblackfridaypodcast.com/about/",
+        "https://theblackfridaypodcast.com/episodes/",
+        "https://theblackfridaypodcast.com/",
+        "https://rss.libsyn.com/shows/194786/destinations/1376705.xml",
+        "https://podcasts.apple.com/us/podcast/black-friday/id1482513044?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "Every Friday, a strange phenomenon transforms White people into Black people. America freaks out. (By @tychonewman) Written, produced, & directed by Tycho Newman. Patreon: https://www.patreon.com/tycho_newman Twitter: https://twitter.com/blackfridaycast Website: https://theblackfridaypodcast.com Tycho: https://twitter.com/tychonewman",
+      "socialUrls": [
+        "https://twitter.com/share?ref_src=twsrc%5Etfw",
+        "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftheblackfridaypodcast.com%2F&src=sdkpreparse"
+      ],
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml",
+          "appleCollectionId": "1482513044"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://theblackfridaypodcast.com/about/",
+            "fetchedAt": "2026-08-15T19:40:15.917Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://theblackfridaypodcast.com/episodes/",
+            "fetchedAt": "2026-08-15T19:40:15.917Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://theblackfridaypodcast.com/",
+            "fetchedAt": "2026-08-15T19:40:15.916Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml",
+            "fetchedAt": "2026-08-15T19:40:15.454Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/black-friday/id1482513044?uo=4",
+            "fetchedAt": "2026-08-15T19:40:14.946Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/black-friday/id1482513044?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/episodes/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/about/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/black-friday/id1482513044?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/black-friday/id1482513044?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/episodes/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/about/"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/black-friday/id1482513044?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/black-friday/id1482513044?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/episodes/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/about/"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.66,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/episodes/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/about/"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/episodes/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/about/"
+              }
+            ]
+          },
+          "pocketCastsUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/episodes/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/about/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/"
+              }
+            ]
+          },
+          "patreonUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theblackfridaypodcast.com/about/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T19:40:15.977Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T19:41:35.307Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "tycho-newman",
+    "networkId": "black-friday-a-podcast",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/black-friday",
+    "hasPage": true,
+    "image": "images/covers/black-friday.jpg",
+    "imageAlt": "BLACK FRIDAY cover art",
+    "summary": "Every Friday, a strange phenomenon transforms White people into Black people. America freaks out. (By @tychonewman) Written, produced, & directed by Tycho Newman. Patreon: https://www.patreon.com/tycho_newman Twitter: https://twitter.com/blackfridaycast Website: https://theblackfridaypodcast.com Tycho: https://twitter.com/tychonewman",
+    "finalRating": null,
+    "searchText": "black friday every friday a strange phenomenon transforms white people into black people america freaks out by tychonewman written produced and directed by tycho newman patreon https www patreon com tycho newman twitter https twitter com blackfridaycast website https theblackfridaypodcast com tycho https twitter com tychonewman drama serialized black friday tycho newman english unclear imported tycho newman tycho newman black friday a podcast unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/black-friday-534e28183f-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/black-friday-534e28183f-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "brave-new-frontiersman",
+    "title": "Brave New Frontiersman",
+    "subtitle": "Join The Frontiersman in his adventure across the…",
+    "description": "Join The Frontiersman in his adventure across the American frontier, a place filled with terrifying monsters, strange magic and opportunists. #AudioDrama #Fantasy",
+    "cover": "images/covers/brave-new-frontiersman.jpg",
+    "coverAlt": "Brave New Frontiersman cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/brave-new-frontiersman/id1580003927?uo=4",
+      "website": "https://redcircle.com/shows/brave-new-frontiersman",
+      "rss": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Brave New Frontiersman"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 8 full episodes • 18 min median",
+      "seasons": 1,
+      "episodes": 8,
+      "avgEpisodeMinutes": 20,
+      "medianEpisodeMinutes": 18,
+      "minEpisodeMinutes": 16,
+      "maxEpisodeMinutes": 29,
+      "totalObservedHours": 2.7,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 8,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2020-07-21",
+      "latest": "2025-08-14",
+      "latestFeedItem": "2025-08-14"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://redcircle.com/shows/brave-new-frontiersman"
+    },
+    "credits": {
+      "creatorName": "BNF-Team",
+      "ownerName": "BNF-Team"
+    },
+    "creators": [
+      "BNF-Team"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a; https://podcasts.apple.com/us/podcast/brave-new-frontiersman/id1580003927?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a",
+        "https://podcasts.apple.com/us/podcast/brave-new-frontiersman/id1580003927?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "History"
+      ],
+      "importOfficialSummary": "Join The Frontiersman in his adventure across the American frontier, a place filled with terrifying monsters, strange magic and opportunists. #AudioDrama #Fantasy",
+      "schedule": {
+        "label": "irregular",
+        "medianDays": 153,
+        "observedIntervals": 5
+      },
+      "podcast": {
+        "copyright": "All rights reserved",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "feef1bbd-ebcc-488c-a2c6-5f127b97175a",
+          "rssUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a",
+          "appleCollectionId": "1580003927"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a",
+            "fetchedAt": "2026-08-15T19:40:00.911Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/brave-new-frontiersman/id1580003927?uo=4",
+            "fetchedAt": "2026-08-15T19:40:00.807Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/brave-new-frontiersman/id1580003927?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/brave-new-frontiersman/id1580003927?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/brave-new-frontiersman/id1580003927?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/brave-new-frontiersman/id1580003927?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/brave-new-frontiersman/id1580003927?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/brave-new-frontiersman/id1580003927?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/brave-new-frontiersman/id1580003927?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/feef1bbd-ebcc-488c-a2c6-5f127b97175a"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T19:40:02.068Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T19:41:35.308Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "bnf-team",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/brave-new-frontiersman",
+    "hasPage": true,
+    "image": "images/covers/brave-new-frontiersman.jpg",
+    "imageAlt": "Brave New Frontiersman cover art",
+    "summary": "Join The Frontiersman in his adventure across the American frontier, a place filled with terrifying monsters, strange magic and opportunists. #AudioDrama #Fantasy",
+    "finalRating": null,
+    "searchText": "brave new frontiersman join the frontiersman in his adventure across the join the frontiersman in his adventure across the american frontier a place filled with terrifying monsters strange magic and opportunists audiodrama fantasy drama episodic brave new frontiersman bnf team english unclear imported bnf team bnf team unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/brave-new-frontiersman-c9a793cdb3-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/brave-new-frontiersman-c9a793cdb3-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "burn-pattern",
+    "title": "Burn Pattern",
+    "subtitle": "",
+    "description": "In the ashes of a deadly apartment fire, a single survivor’s story is the only official truth. But the facts hide a darker reality. Join journalist Ross Ford as he re-examines the case, only to find that every clue leads him deeper into a web of paranoia and supernatural dread. The key to this unsolved mystery lies in a series of disturbing audio recordings that seem to be… listening back. Burn Pattern is a four-part investigative podcast that evolves from a true crime mystery into a terrifying journey into psychological and Lovecraftian cosmic horror.",
+    "cover": "images/covers/burn-pattern.jpg",
+    "coverAlt": "Burn Pattern cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/burn-pattern/id1835576074?uo=4",
+      "website": "https://www.thewatchersleeps.com/",
+      "rss": "https://anchor.fm/s/1083bac14/podcast/rss"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Burn Pattern"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "2 seasons observed • at least 5 full episodes • 42 min median",
+      "seasons": 2,
+      "episodes": 5,
+      "avgEpisodeMinutes": 37,
+      "medianEpisodeMinutes": 42,
+      "minEpisodeMinutes": 24,
+      "maxEpisodeMinutes": 51,
+      "totalObservedHours": 3.1,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 5,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2025-08-26",
+      "latest": "2026-04-22",
+      "latestFeedItem": "2026-04-22"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.thewatchersleeps.com/"
+    },
+    "credits": {
+      "creatorName": "Hollow Narrator Media",
+      "ownerName": "Hollow Narrator Media"
+    },
+    "creators": [
+      "Hollow Narrator Media"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://anchor.fm/s/1083bac14/podcast/rss; https://podcasts.apple.com/us/podcast/burn-pattern/id1835576074?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://anchor.fm/s/1083bac14/podcast/rss",
+        "https://podcasts.apple.com/us/podcast/burn-pattern/id1835576074?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction"
+      ],
+      "importOfficialSummary": "In the ashes of a deadly apartment fire, a single survivor’s story is the only official truth. But the facts hide a darker reality. Join journalist Ross Ford as he re-examines the case, only to find that every clue leads him deeper into a web of paranoia and supernatural dread. The key to this unsolved mystery lies in a series of disturbing audio recordings that seem to be… listening back. Burn Pattern is a four-part investigative podcast that evolves from a true crime mystery into a terrifying journey into psychological and Lovecraftian cosmic horror.",
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 15,
+        "observedIntervals": 4
+      },
+      "podcast": {
+        "copyright": "Hollow Narrator Media",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://anchor.fm/s/1083bac14/podcast/rss",
+          "appleCollectionId": "1835576074"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss",
+            "fetchedAt": "2026-08-15T19:40:57.793Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/burn-pattern/id1835576074?uo=4",
+            "fetchedAt": "2026-08-15T19:40:19.631Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/burn-pattern/id1835576074?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/burn-pattern/id1835576074?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/burn-pattern/id1835576074?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/burn-pattern/id1835576074?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/burn-pattern/id1835576074?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/burn-pattern/id1835576074?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/burn-pattern/id1835576074?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/1083bac14/podcast/rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T19:40:58.129Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T19:41:35.311Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "hollow-narrator-media",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/burn-pattern",
+    "hasPage": true,
+    "image": "images/covers/burn-pattern.jpg",
+    "imageAlt": "Burn Pattern cover art",
+    "summary": "In the ashes of a deadly apartment fire, a single survivor’s story is the only official truth. But the facts hide a darker reality. Join journalist Ross Ford as he re-examines the case, only to find that every clue leads him deeper into a web of paranoia and supernatural dread. The key to this unsolved mystery lies in a series of disturbing audio recordings that seem to be… listening back. Burn Pattern is a four-part investigative podcast that evolves from a true crime mystery into a terrifying journey into psychological and Lovecraftian cosmic horror.",
+    "finalRating": null,
+    "searchText": "burn pattern in the ashes of a deadly apartment fire a single survivor s story is the only official truth but the facts hide a darker reality join journalist ross ford as he re examines the case only to find that every clue leads him deeper into a web of paranoia and supernatural dread the key to this unsolved mystery lies in a series of disturbing audio recordings that seem to be listening back burn pattern is a four part investigative podcast that evolves from a true crime mystery into a terrifying journey into psychological and lovecraftian cosmic horror drama sci fi episodic burn pattern hollow narrator media english ongoing imported hollow narrator media hollow narrator media unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/burn-pattern-2fb0d8449c-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/burn-pattern-2fb0d8449c-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "campers-pike-on-the-forgotten-road",
+    "title": "Campers' Pike on the Forgotten Road",
+    "subtitle": "",
+    "description": "The Gateway's Haunted Playhouse Presents Campers' Pike on the Forgotten Road, a haunted drive you will never forget. Subscribe and download the podcast for the fully immersive experience. Oh, and make sure you lock your doors.",
+    "cover": "images/covers/campers-pike-on-the-forgotten-road.jpg",
+    "coverAlt": "Campers' Pike on the Forgotten Road cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/campers-pike-on-the-forgotten-road/id1533337522?uo=4",
+      "website": "https://www.gatewayshauntedplayhouse.com/schedule.html",
+      "rss": "https://audioboom.com/channels/5034727.rss"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Campers' Pike on the Forgotten Road"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "at least 10 full episodes • 3 min median",
+      "episodes": 10,
+      "avgEpisodeMinutes": 5,
+      "medianEpisodeMinutes": 3,
+      "minEpisodeMinutes": 3,
+      "maxEpisodeMinutes": 19,
+      "totalObservedHours": 0.9,
+      "durationCoverage": 1,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 10,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2021-10-07",
+      "latest": "2021-10-07",
+      "latestFeedItem": "2021-10-07"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.gatewayshauntedplayhouse.com/schedule.html",
+      "youtube": "https://www.youtube.com/user/HauntedPlayhouse",
+      "social": "http://www.facebook.com/HauntedPlayhouse"
+    },
+    "credits": {
+      "creatorName": "Forgotten Road",
+      "network": "Gateway's Haunted Playhouse"
+    },
+    "creators": [
+      "Forgotten Road"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://www.gatewayshauntedplayhouse.com/daytime.html; https://www.gatewayshauntedplayhouse.com/schedule.html; https://audioboom.com/channels/5034727.rss; https://podcasts.apple.com/us/podcast/campers-pike-on-the-forgotten-road/id1533337522?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://www.gatewayshauntedplayhouse.com/daytime.html",
+        "https://www.gatewayshauntedplayhouse.com/schedule.html",
+        "https://audioboom.com/channels/5034727.rss",
+        "https://podcasts.apple.com/us/podcast/campers-pike-on-the-forgotten-road/id1533337522?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "The Gateway's Haunted Playhouse Presents Campers' Pike on the Forgotten Road, a haunted drive you will never forget. Subscribe and download the podcast for the fully immersive experience. Oh, and make sure you lock your doors.",
+      "socialUrls": [
+        "http://www.facebook.com/HauntedPlayhouse",
+        "http://www.twitter.com/gatewayhaunt",
+        "http://www.instagram.com/HauntedPlayhouse",
+        "https://www.tiktok.com/@HauntedPlayhouse",
+        "https://www.facebook.com/HauntedPlayhouse",
+        "https://twitter.com/GatewayHaunt",
+        "https://instagram.com/hauntedplayhouse/",
+        "https://twitter.com/share"
+      ],
+      "schedule": {
+        "label": "unknown",
+        "observedIntervals": 0
+      },
+      "podcast": {
+        "copyright": "Connoisseur Media",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "730bfdfb-ed3e-5411-81c2-4874982694e3",
+          "rssUrl": "https://audioboom.com/channels/5034727.rss",
+          "appleCollectionId": "1533337522"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.gatewayshauntedplayhouse.com/daytime.html",
+            "fetchedAt": "2026-08-15T19:41:34.828Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.gatewayshauntedplayhouse.com/schedule.html",
+            "fetchedAt": "2026-08-15T19:41:34.823Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://audioboom.com/channels/5034727.rss",
+            "fetchedAt": "2026-08-15T19:41:33.423Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/campers-pike-on-the-forgotten-road/id1533337522?uo=4",
+            "fetchedAt": "2026-08-15T19:41:33.299Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/campers-pike-on-the-forgotten-road/id1533337522?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/campers-pike-on-the-forgotten-road/id1533337522?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/campers-pike-on-the-forgotten-road/id1533337522?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/campers-pike-on-the-forgotten-road/id1533337522?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/campers-pike-on-the-forgotten-road/id1533337522?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/campers-pike-on-the-forgotten-road/id1533337522?uo=4"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.gatewayshauntedplayhouse.com/schedule.html"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.gatewayshauntedplayhouse.com/schedule.html"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.gatewayshauntedplayhouse.com/daytime.html"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.63,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.gatewayshauntedplayhouse.com/schedule.html"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.gatewayshauntedplayhouse.com/daytime.html"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.gatewayshauntedplayhouse.com/schedule.html"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.gatewayshauntedplayhouse.com/daytime.html"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.gatewayshauntedplayhouse.com/schedule.html"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.gatewayshauntedplayhouse.com/daytime.html"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://audioboom.com/channels/5034727.rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T19:41:35.214Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T19:41:35.317Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "forgotten-road",
+    "networkId": "gateways-haunted-playhouse",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/campers-pike-on-the-forgotten-road",
+    "hasPage": true,
+    "image": "images/covers/campers-pike-on-the-forgotten-road.jpg",
+    "imageAlt": "Campers' Pike on the Forgotten Road cover art",
+    "summary": "The Gateway's Haunted Playhouse Presents Campers' Pike on the Forgotten Road, a haunted drive you will never forget. Subscribe and download the podcast for the fully immersive experience. Oh, and make sure you lock your doors.",
+    "finalRating": null,
+    "searchText": "campers pike on the forgotten road the gateway s haunted playhouse presents campers pike on the forgotten road a haunted drive you will never forget subscribe and download the podcast for the fully immersive experience oh and make sure you lock your doors drama episodic campers pike on the forgotten road forgotten road english unclear imported forgotten road gateway s haunted playhouse unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/campers-pike-on-the-forgotten-road-a3d428964e-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/campers-pike-on-the-forgotten-road-a3d428964e-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "conversations-with-ghosts",
+    "title": "Conversations with Ghosts",
+    "subtitle": "",
+    "description": "Conversations with Ghosts is an audio drama about loss, history and the things we leave behind, brought to you by the creators of Archive 81. The podcast follows mausoleum attendant Mal Fleming as he tries to convince the spirits of Grey Briar Cemetery to pass on. In each episode, Mal sits down with a new ghost to build a portrait of their life, their death, and their afterlife... all to help them release whatever still ties their soul to this reality. New episodes every Wednesday, beginning October 22nd.",
+    "cover": "images/covers/conversations-with-ghosts.png",
+    "coverAlt": "Conversations with Ghosts cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/conversations-with-ghosts/id1843137773?uo=4",
+      "website": "https://sites.libsyn.com/594375",
+      "rss": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Conversations with Ghosts"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 17 full episodes • 23 min median",
+      "seasons": 1,
+      "episodes": 17,
+      "avgEpisodeMinutes": 24,
+      "medianEpisodeMinutes": 23,
+      "minEpisodeMinutes": 16,
+      "maxEpisodeMinutes": 36,
+      "totalObservedHours": 6.7,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 17,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2025-10-22",
+      "latest": "2026-02-04",
+      "latestFeedItem": "2026-02-04"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://sites.libsyn.com/594375"
+    },
+    "credits": {
+      "creatorName": "Dead Signals",
+      "ownerName": "Dead Signals"
+    },
+    "creators": [
+      "Dead Signals"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml; https://podcasts.apple.com/us/podcast/conversations-with-ghosts/id1843137773?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://rss.libsyn.com/shows/594375/destinations/5166425.xml",
+        "https://podcasts.apple.com/us/podcast/conversations-with-ghosts/id1843137773?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction"
+      ],
+      "importOfficialSummary": "Conversations with Ghosts is an audio drama about loss, history and the things we leave behind, brought to you by the creators of Archive 81. The podcast follows mausoleum attendant Mal Fleming as he tries to convince the spirits of Grey Briar Cemetery to pass on. In each episode, Mal sits down with a new ghost to build a portrait of their life, their death, and their afterlife... all to help them release whatever still ties their soul to this reality. New episodes every Wednesday, beginning October 22nd.",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "2025",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml",
+          "appleCollectionId": "1843137773"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml",
+            "fetchedAt": "2026-08-15T19:39:58.646Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/conversations-with-ghosts/id1843137773?uo=4",
+            "fetchedAt": "2026-08-15T19:39:58.224Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/conversations-with-ghosts/id1843137773?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/conversations-with-ghosts/id1843137773?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/conversations-with-ghosts/id1843137773?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/conversations-with-ghosts/id1843137773?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/conversations-with-ghosts/id1843137773?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/conversations-with-ghosts/id1843137773?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/594375/destinations/5166425.xml"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T19:40:13.965Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T19:41:35.317Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "dead-signals",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/conversations-with-ghosts",
+    "hasPage": true,
+    "image": "images/covers/conversations-with-ghosts.png",
+    "imageAlt": "Conversations with Ghosts cover art",
+    "summary": "Conversations with Ghosts is an audio drama about loss, history and the things we leave behind, brought to you by the creators of Archive 81. The podcast follows mausoleum attendant Mal Fleming as he tries to convince the spirits of Grey Briar Cemetery to pass on. In each episode, Mal sits down with a new ghost to build a portrait of their life, their death, and their afterlife... all to help them release whatever still ties their soul to this reality. New episodes every Wednesday, beginning October 22nd.",
+    "finalRating": null,
+    "searchText": "conversations with ghosts conversations with ghosts is an audio drama about loss history and the things we leave behind brought to you by the creators of archive 81 the podcast follows mausoleum attendant mal fleming as he tries to convince the spirits of grey briar cemetery to pass on in each episode mal sits down with a new ghost to build a portrait of their life their death and their afterlife all to help them release whatever still ties their soul to this reality new episodes every wednesday beginning october 22nd drama sci fi serialized conversations with ghosts dead signals english unclear imported dead signals dead signals unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/conversations-with-ghosts-6dc82f242f-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/conversations-with-ghosts-6dc82f242f-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "cryptid-counselor",
+    "title": "Cryptid Counselor",
+    "subtitle": "",
+    "description": "Cryptid Counselor is a fictional horror/comedy podcast featuring zany ideas for interviews with monsters from the cast and crew behind Twin Strangers Productions, makers of the Syntax podcast. Hosted by Pinecast.",
+    "cover": "images/covers/cryptid-counselor.jpg",
+    "coverAlt": "Cryptid Counselor cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/cryptid-counselor/id1620090308?uo=4",
+      "website": "https://shows.acast.com/cryptid-counselor",
+      "rss": "https://pinecast.com/feed/cryptid-counselor"
+    },
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Cryptid Counselor"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 9 full episodes • 17 min median",
+      "seasons": 1,
+      "episodes": 9,
+      "avgEpisodeMinutes": 17,
+      "medianEpisodeMinutes": 17,
+      "minEpisodeMinutes": 10,
+      "maxEpisodeMinutes": 28,
+      "totalObservedHours": 2.6,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 9,
+        "bonus": 0,
+        "trailer": 2
+      }
+    },
+    "releaseDates": {
+      "first": "2022-04-21",
+      "latest": "2022-10-06",
+      "latestFeedItem": "2024-01-24"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://shows.acast.com/cryptid-counselor"
+    },
+    "credits": {
+      "creatorName": "Twin Strangers Productions",
+      "ownerName": "Twin Strangers Productions"
+    },
+    "creators": [
+      "Twin Strangers Productions"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://pinecast.com/feed/cryptid-counselor; https://podcasts.apple.com/us/podcast/cryptid-counselor/id1620090308?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://pinecast.com/feed/cryptid-counselor",
+        "https://podcasts.apple.com/us/podcast/cryptid-counselor/id1620090308?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Comedy Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "Cryptid Counselor is a fictional horror/comedy podcast featuring zany ideas for interviews with monsters from the cast and crew behind Twin Strangers Productions, makers of the Syntax podcast. Hosted by Pinecast.",
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Twin Strangers Productions",
+        "explicit": "yes",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://pinecast.com/feed/cryptid-counselor",
+          "appleCollectionId": "1620090308"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://pinecast.com/feed/cryptid-counselor",
+            "fetchedAt": "2026-08-15T19:40:00.888Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/cryptid-counselor/id1620090308?uo=4",
+            "fetchedAt": "2026-08-15T19:40:00.631Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/cryptid-counselor/id1620090308?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/cryptid-counselor/id1620090308?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/cryptid-counselor/id1620090308?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/cryptid-counselor/id1620090308?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/cryptid-counselor/id1620090308?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/cryptid-counselor/id1620090308?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/cryptid-counselor"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T19:40:01.609Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T19:41:35.337Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "twin-strangers-productions",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/cryptid-counselor",
+    "hasPage": true,
+    "image": "images/covers/cryptid-counselor.jpg",
+    "imageAlt": "Cryptid Counselor cover art",
+    "summary": "Cryptid Counselor is a fictional horror/comedy podcast featuring zany ideas for interviews with monsters from the cast and crew behind Twin Strangers Productions, makers of the Syntax podcast. Hosted by Pinecast.",
+    "finalRating": null,
+    "searchText": "cryptid counselor cryptid counselor is a fictional horror comedy podcast featuring zany ideas for interviews with monsters from the cast and crew behind twin strangers productions makers of the syntax podcast hosted by pinecast drama comedy episodic cryptid counselor twin strangers productions english unclear imported twin strangers productions twin strangers productions unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/cryptid-counselor-ae7ed20560-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/cryptid-counselor-ae7ed20560-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "dark-days-in-brighton",
+    "title": "Dark Days In Brighton",
+    "subtitle": "Three teens use their newfound psychic abilities to solve paranormal and unusual mysteries in a small Texas town.",
+    "description": "Three teens use their newfound psychic abilities to solve paranormal and unusual mysteries in a small Texas town.",
+    "cover": "images/covers/dark-days-in-brighton.jpg",
+    "coverAlt": "Dark Days In Brighton cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/dark-days-in-brighton/id1487590120?uo=4",
+      "website": "https://www.spreaker.com/podcast/dark-days-in-brighton--4133716",
+      "rss": "https://www.spreaker.com/show/4133716/episodes/feed"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Dark Days In Brighton"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 25 full episodes • 18 min median",
+      "seasons": 1,
+      "episodes": 25,
+      "avgEpisodeMinutes": 12,
+      "medianEpisodeMinutes": 18,
+      "minEpisodeMinutes": 1,
+      "maxEpisodeMinutes": 27,
+      "totalObservedHours": 5,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 25,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2019-12-16",
+      "latest": "2023-04-04",
+      "latestFeedItem": "2023-04-04"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.spreaker.com/podcast/dark-days-in-brighton--4133716"
+    },
+    "credits": {
+      "creatorName": "Bright 5 Productions",
+      "ownerName": "Bright 5 Productions",
+      "network": "Spreaker"
+    },
+    "creators": [
+      "Bright 5 Productions"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://www.spreaker.com/episode/episode-10-mama-mia-mia--48824633; https://www.spreaker.com/episode/episode-11-photo-oops--50397532; https://www.spreaker.com/episode/episode-12-wolfsbane-in-sheepskin-clothing--50828441; https://www.spreaker.com/episode/episode-13-a-real-cliffhanger--53441783; https://www.spreaker.com/podcast/dark-days-in-brighton--4133716; https://www.spreaker.com/show/4133716/episodes/feed; https://podcasts.apple.com/us/podcast/dark-days-in-brighton/id1487590120?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://www.spreaker.com/episode/episode-10-mama-mia-mia--48824633",
+        "https://www.spreaker.com/episode/episode-11-photo-oops--50397532",
+        "https://www.spreaker.com/episode/episode-12-wolfsbane-in-sheepskin-clothing--50828441",
+        "https://www.spreaker.com/episode/episode-13-a-real-cliffhanger--53441783",
+        "https://www.spreaker.com/podcast/dark-days-in-brighton--4133716",
+        "https://www.spreaker.com/show/4133716/episodes/feed",
+        "https://podcasts.apple.com/us/podcast/dark-days-in-brighton/id1487590120?uo=4"
+      ],
+      "sourceCategories": [
+        "Arts",
+        "Books",
+        "Fiction",
+        "Drama",
+        "Science Fiction"
+      ],
+      "importOfficialSummary": "Three teens use their newfound psychic abilities to solve paranormal and unusual mysteries in a small Texas town.",
+      "schedule": {
+        "label": "irregular",
+        "medianDays": 128,
+        "observedIntervals": 7
+      },
+      "podcast": {
+        "copyright": "Copyright 2020 Bright 5 Productions LLC",
+        "explicit": "Clean",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://www.spreaker.com/show/4133716/episodes/feed",
+          "appleCollectionId": "1487590120"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.spreaker.com/episode/episode-10-mama-mia-mia--48824633",
+            "fetchedAt": "2026-08-15T19:40:01.447Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.spreaker.com/episode/episode-11-photo-oops--50397532",
+            "fetchedAt": "2026-08-15T19:40:01.438Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.spreaker.com/episode/episode-12-wolfsbane-in-sheepskin-clothing--50828441",
+            "fetchedAt": "2026-08-15T19:40:01.428Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.spreaker.com/episode/episode-13-a-real-cliffhanger--53441783",
+            "fetchedAt": "2026-08-15T19:40:01.416Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.spreaker.com/podcast/dark-days-in-brighton--4133716",
+            "fetchedAt": "2026-08-15T19:40:01.401Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed",
+            "fetchedAt": "2026-08-15T19:39:58.442Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/dark-days-in-brighton/id1487590120?uo=4",
+            "fetchedAt": "2026-08-15T19:39:58.273Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/dark-days-in-brighton/id1487590120?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/podcast/dark-days-in-brighton--4133716"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/dark-days-in-brighton/id1487590120?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/podcast/dark-days-in-brighton--4133716"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/dark-days-in-brighton/id1487590120?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/podcast/dark-days-in-brighton--4133716"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/episode-13-a-real-cliffhanger--53441783"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/episode-12-wolfsbane-in-sheepskin-clothing--50828441"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/episode-11-photo-oops--50397532"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/episode-10-mama-mia-mia--48824633"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/dark-days-in-brighton/id1487590120?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/dark-days-in-brighton/id1487590120?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/dark-days-in-brighton/id1487590120?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/dark-days-in-brighton/id1487590120?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/podcast/dark-days-in-brighton--4133716"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/podcast/dark-days-in-brighton--4133716"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/episode-13-a-real-cliffhanger--53441783"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/episode-12-wolfsbane-in-sheepskin-clothing--50828441"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/episode-11-photo-oops--50397532"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.spreaker.com/episode/episode-10-mama-mia-mia--48824633"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.spreaker.com/show/4133716/episodes/feed"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T19:40:01.688Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T19:41:35.345Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "bright-5-productions",
+    "networkId": "spreaker",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/dark-days-in-brighton",
+    "hasPage": true,
+    "image": "images/covers/dark-days-in-brighton.jpg",
+    "imageAlt": "Dark Days In Brighton cover art",
+    "summary": "Three teens use their newfound psychic abilities to solve paranormal and unusual mysteries in a small Texas town.",
+    "finalRating": null,
+    "searchText": "dark days in brighton three teens use their newfound psychic abilities to solve paranormal and unusual mysteries in a small texas town three teens use their newfound psychic abilities to solve paranormal and unusual mysteries in a small texas town drama sci fi episodic dark days in brighton bright 5 productions english unclear imported bright 5 productions bright 5 productions spreaker unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/dark-days-in-brighton-be50ebb3f8-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/dark-days-in-brighton-be50ebb3f8-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "degrave-brothers",
+    "title": "DeGrave Brothers",
+    "subtitle": "The Coldwater Terror",
+    "description": "DeGrave Brothers: The Coldwater Terror DeGrave Brothers has been called the most distinctive horror comedy audio drama podcast currently in production. A horror-comedy audio series drenched in gore, ghosts, and gallows humor. Grave-robbing brothers Doug and Phil DeGrave take on their most deranged job yet: cleaning up a sadistic S&M dungeon known as the Coldwater Inn. But something ancient and unspeakable lurks beneath the leather and latex—something hungry. What begins as a monster-of-the-week hustle spirals into a hellish descent through cursed artifacts, undead perverts, and the terrifying secrets of Coldwater’s past. If you like ‘80s horror movies, grindhouse sleaze, Lovecraftian nightmares, and buddy comedies with bad taste and worse decisions—this podcast is for you. New episodes every Friday . Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/degrave-brothers.jpg",
+    "coverAlt": "DeGrave Brothers cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/degrave-brothers/id1814847825?uo=4",
+      "website": "https://shows.acast.com/degrave-brothers",
+      "rss": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+    },
+    "genres": [
+      "drama",
+      "comedy",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "DeGrave Brothers"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 10 full episodes • 25 min median",
+      "seasons": 1,
+      "episodes": 10,
+      "avgEpisodeMinutes": 29,
+      "medianEpisodeMinutes": 25,
+      "minEpisodeMinutes": 22,
+      "maxEpisodeMinutes": 56,
+      "totalObservedHours": 4.9,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 10,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2025-05-15",
+      "latest": "2025-07-17",
+      "latestFeedItem": "2026-03-27"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://shows.acast.com/degrave-brothers",
+      "social": "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/degrave-brothers/episodes/a-grave-mistake"
+    },
+    "credits": {
+      "creatorName": "T.S. O'Banion",
+      "ownerName": "Timothy O'Banion"
+    },
+    "creators": [
+      "T.S. O'Banion"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://shows.acast.com/degrave-brothers/episodes/love-in-the-time-of-corpses; https://shows.acast.com/degrave-brothers/episodes/black-cat-blues; https://shows.acast.com/degrave-brothers/episodes; https://shows.acast.com/degrave-brothers/episodes/a-grave-mistake; https://shows.acast.com/degrave-brothers; https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6; https://podcasts.apple.com/us/podcast/degrave-brothers/id1814847825?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://shows.acast.com/degrave-brothers/episodes/love-in-the-time-of-corpses",
+        "https://shows.acast.com/degrave-brothers/episodes/black-cat-blues",
+        "https://shows.acast.com/degrave-brothers/episodes",
+        "https://shows.acast.com/degrave-brothers/episodes/a-grave-mistake",
+        "https://shows.acast.com/degrave-brothers",
+        "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6",
+        "https://podcasts.apple.com/us/podcast/degrave-brothers/id1814847825?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Comedy Fiction",
+        "Science Fiction",
+        "Drama"
+      ],
+      "sourceKeywords": [
+        "horror",
+        "horror comedy",
+        "supernatural",
+        "occult fiction",
+        "dark humor",
+        "haunted",
+        "paranormal",
+        "horror anthology",
+        "creepy stories",
+        "horror fiction podcast",
+        "audio drama cult horror",
+        "retro horror",
+        "fans of The Magnus Archives",
+        "dark fantasy audio drama",
+        "halloween"
+      ],
+      "importOfficialSummary": "DeGrave Brothers: The Coldwater Terror DeGrave Brothers has been called the most distinctive horror comedy audio drama podcast currently in production. A horror-comedy audio series drenched in gore, ghosts, and gallows humor. Grave-robbing brothers Doug and Phil DeGrave take on their most deranged job yet: cleaning up a sadistic S&M dungeon known as the Coldwater Inn. But something ancient and unspeakable lurks beneath the leather and latex—something hungry. What begins as a monster-of-the-week hustle spirals into a hellish descent through cursed artifacts, undead perverts, and the terrifying secrets of Coldwater’s past. If you like ‘80s horror movies, grindhouse sleaze, Lovecraftian nightmares, and buddy comedies with bad taste and worse decisions—this podcast is for you. New episodes every Friday . Hosted on Acast. See acast.com/privacy for more information.",
+      "socialUrls": [
+        "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/degrave-brothers/episodes/a-grave-mistake",
+        "http://x.com/intent/tweet?url=https://shows.acast.com/degrave-brothers/episodes/a-grave-mistake&via=acast&text=DeGrave%20Brothers"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Timothy O'Banion",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6",
+          "appleCollectionId": "1814847825",
+          "feedRedirects": [
+            "https://feeds.acast.com/public/shows/degrave-brothers"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/degrave-brothers/episodes/love-in-the-time-of-corpses",
+            "fetchedAt": "2026-08-15T19:41:32.673Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/degrave-brothers/episodes/black-cat-blues",
+            "fetchedAt": "2026-08-15T19:41:32.670Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/degrave-brothers/episodes",
+            "fetchedAt": "2026-08-15T19:41:32.668Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/degrave-brothers/episodes/a-grave-mistake",
+            "fetchedAt": "2026-08-15T19:41:32.663Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/degrave-brothers",
+            "fetchedAt": "2026-08-15T19:41:32.659Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6",
+            "fetchedAt": "2026-08-15T19:41:30.571Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/degrave-brothers/id1814847825?uo=4",
+            "fetchedAt": "2026-08-15T19:41:30.328Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/degrave-brothers/id1814847825?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/degrave-brothers"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/degrave-brothers/episodes"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/degrave-brothers/id1814847825?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/degrave-brothers/id1814847825?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/degrave-brothers/id1814847825?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/degrave-brothers/id1814847825?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/degrave-brothers/id1814847825?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/degrave-brothers"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/degrave-brothers"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/degrave-brothers/episodes/a-grave-mistake"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6826383e696b5d1232bc92b6"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T19:41:32.861Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T19:41:35.348Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "t-s-obanion",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/degrave-brothers",
+    "hasPage": true,
+    "image": "images/covers/degrave-brothers.jpg",
+    "imageAlt": "DeGrave Brothers cover art",
+    "summary": "DeGrave Brothers: The Coldwater Terror DeGrave Brothers has been called the most distinctive horror comedy audio drama podcast currently in production. A horror-comedy audio series drenched in gore, ghosts, and gallows humor. Grave-robbing brothers Doug and Phil DeGrave take on their most deranged job yet: cleaning up a sadistic S&M dungeon known as the Coldwater Inn. But something ancient and unspeakable lurks beneath the leather and latex—something hungry. What begins as a monster-of-the-week hustle spirals into a hellish descent through cursed artifacts, undead perverts, and the terrifying secrets of Coldwater’s past. If you like ‘80s horror movies, grindhouse sleaze, Lovecraftian nightmares, and buddy comedies with bad taste and worse decisions—this podcast is for you. New episodes every Friday . Hosted on Acast. See acast.com/privacy for more information.",
+    "finalRating": null,
+    "searchText": "degrave brothers the coldwater terror degrave brothers the coldwater terror degrave brothers has been called the most distinctive horror comedy audio drama podcast currently in production a horror comedy audio series drenched in gore ghosts and gallows humor grave robbing brothers doug and phil degrave take on their most deranged job yet cleaning up a sadistic s and m dungeon known as the coldwater inn but something ancient and unspeakable lurks beneath the leather and latex something hungry what begins as a monster of the week hustle spirals into a hellish descent through cursed artifacts undead perverts and the terrifying secrets of coldwater s past if you like 80s horror movies grindhouse sleaze lovecraftian nightmares and buddy comedies with bad taste and worse decisions this podcast is for you new episodes every friday hosted on acast see acast com privacy for more information drama comedy sci fi serialized degrave brothers t s o banion english unclear imported t s o banion timothy o banion unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/degrave-brothers-f3886fe058-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/degrave-brothers-f3886fe058-640.webp",
+        "width": 640
+      }
+    ]
   }
 ]

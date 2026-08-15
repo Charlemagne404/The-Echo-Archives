@@ -1,0 +1,742 @@
+{
+  "id": "black-friday",
+  "title": "BLACK FRIDAY",
+  "subtitle": "",
+  "description": "Every Friday, a strange phenomenon transforms White people into Black people. America freaks out. (By @tychonewman) Written, produced, & directed by Tycho Newman. Patreon: https://www.patreon.com/tycho_newman Twitter: https://twitter.com/blackfridaycast Website: https://theblackfridaypodcast.com Tycho: https://twitter.com/tychonewman",
+  "cover": "images/covers/black-friday.jpg",
+  "coverAlt": "BLACK FRIDAY cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/4kuEQyIxZ4O4YSa5z9VTMM",
+    "apple": "https://podcasts.apple.com/us/podcast/black-friday/id1482513044",
+    "website": "https://theblackfridaypodcast.com/",
+    "rss": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": "https://pca.st/cye8uda5"
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "BLACK FRIDAY"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "3 seasons observed • at least 18 full episodes • 20 min median",
+    "seasons": 3,
+    "episodes": 18,
+    "avgEpisodeMinutes": 19,
+    "medianEpisodeMinutes": 20,
+    "minEpisodeMinutes": 13,
+    "maxEpisodeMinutes": 26,
+    "totalObservedHours": 5.8,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 18,
+      "bonus": 5,
+      "trailer": 3
+    }
+  },
+  "releaseDates": {
+    "first": "2019-11-29",
+    "latest": "2022-06-03",
+    "latestFeedItem": "2022-06-03",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://theblackfridaypodcast.com/",
+    "patreon": "https://www.patreon.com/tycho_newman",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "https://twitter.com/share?ref_src=twsrc%5Etfw",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Tycho Newman",
+    "ownerName": "Tycho Newman",
+    "network": "BLACK FRIDAY | A Podcast"
+  },
+  "creators": [
+    "Tycho Newman"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://theblackfridaypodcast.com/about/; https://theblackfridaypodcast.com/episodes/; https://theblackfridaypodcast.com/; https://rss.libsyn.com/shows/194786/destinations/1376705.xml; https://podcasts.apple.com/us/podcast/black-friday/id1482513044?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://theblackfridaypodcast.com/about/",
+      "https://theblackfridaypodcast.com/episodes/",
+      "https://theblackfridaypodcast.com/",
+      "https://rss.libsyn.com/shows/194786/destinations/1376705.xml",
+      "https://podcasts.apple.com/us/podcast/black-friday/id1482513044?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Every Friday, a strange phenomenon transforms White people into Black people. America freaks out. (By @tychonewman) Written, produced, & directed by Tycho Newman. Patreon: https://www.patreon.com/tycho_newman Twitter: https://twitter.com/blackfridaycast Website: https://theblackfridaypodcast.com Tycho: https://twitter.com/tychonewman",
+    "socialUrls": [
+      "https://twitter.com/share?ref_src=twsrc%5Etfw",
+      "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftheblackfridaypodcast.com%2F&src=sdkpreparse"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml",
+        "appleCollectionId": "1482513044",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://theblackfridaypodcast.com/about/",
+          "fetchedAt": "2026-08-15T19:40:15.917Z",
+          "payloadHash": "ed128c4fa3cd7fcc850cd95fc33e04c48408046153070fc69532fefacc34c008"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://theblackfridaypodcast.com/episodes/",
+          "fetchedAt": "2026-08-15T19:40:15.917Z",
+          "payloadHash": "016c407e8416e8f9379e26e28d718282921ef9ff75eb72b57c66cfd6788564d5"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://theblackfridaypodcast.com/",
+          "fetchedAt": "2026-08-15T19:40:15.916Z",
+          "payloadHash": "3837e0869c3c095e8017a125a7b6e9d3af138b20fa0dbfdd20d354f5c4d75ed0"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml",
+          "fetchedAt": "2026-08-15T19:40:15.454Z",
+          "payloadHash": "ba6665a1c2ec225611c6612c5a41b5f741ecbf7b93c28bcd761655a56196741d"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/black-friday/id1482513044?uo=4",
+          "fetchedAt": "2026-08-15T19:40:14.946Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/black-friday/id1482513044?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/about/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/black-friday/id1482513044?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/black-friday/id1482513044?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/about/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/black-friday/id1482513044?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/black-friday/id1482513044?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/about/"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.66,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/about/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/about/"
+            }
+          ]
+        },
+        "pocketCastsUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/about/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theblackfridaypodcast.com/about/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/194786/destinations/1376705.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:40:15.977Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "9de5863bdf1930a1d8afcec78e98087c0eb8a0e374d6b9dc66c1a5066fd3e729",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "21439b4fc5a86f522da1231888254fe8da72316d835876be05bd9498034b2c28",
+        "cover": "c69837b2e4daf67639337bd086f40937a7225d57ea19849d5ed2ad3ed4b5ed5f",
+        "coverAlt": "937e21299d1f6f55b2381a075957697c801bb06866b3960049f6c2bdee782c87",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "4466dab42494e236a55e6f88853e5e8858a4d717cf9f83c0cf0d4a4a0c0583a3",
+        "officialLinks": "d9f951d07589a91c61f3f9cf170d87e52120d77829e17b68b8aaf177a89b026e",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "5e068750fbcde965cd1b6f95e1d83800ef34d0cdeb94d2a1eb70169a40dfea6e",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "706e6110ccd806b0e50b28402b222136fa03c5825eb0e812a09ed18236d17756",
+        "releaseDates": "239cda4cf98670eb9fac68cd7c06e0c6b951abd747a4081a68c1f62b2dd730b4",
+        "credits": "0a6ca69d2ecef8bc8f2339f9ff18cdd90d46e43d07a24a0fda1584ca36a18a5f",
+        "creators": "df797a12a4895c2eda4ed011809c056a6eacddbff49d5fef66fe4cf9e7a6fe7a",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "02f2428db6b11c27007298d152516f3502e38be093a60f83e60fbc62abf86c04"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:41:35.307Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "tycho-newman",
+  "networkId": "black-friday-a-podcast"
+}

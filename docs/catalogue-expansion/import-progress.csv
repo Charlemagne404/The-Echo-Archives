@@ -363,31 +363,31 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 363,P2,Among the Dead,,c6eca0a1-1446-481d-8285-db8cf04e78a8,needs-review,needs-review,insufficient-discovery-signals; missing-genre; cover-not-ready; scope-review,2026-08-15 19:38:05
 364,P2,Anomalous,,1d8e275a-c5a3-4473-9917-946d3791f895,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 19:37:48
 365,P2,Aqua Marianas,,6aa1ada9-1215-4c6b-8d1a-5ff7b330e5e4,needs-review,needs-review,insufficient-discovery-signals; missing-genre,2026-08-15 19:39:10
-366,P2,Arrhythmia,,,unattempted,,,
-367,P2,Awoke,,,unattempted,,,
-368,P2,Baile na Gótrin,,,unattempted,,,
-369,P2,Beyond Repair,,,unattempted,,,
-370,P2,Bigfoot Bros Paranormal Patrol,,,unattempted,,,
-371,P2,Black Friday,,,unattempted,,,
-372,P2,Brave New Frontiersman,,,unattempted,,,
-373,P2,Burn Pattern,,,unattempted,,,
-374,P2,Calling From Elm Lake,,,unattempted,,,
-375,P2,Camper's Pike on the Forgotten Road,,,unattempted,,,
-376,P2,Cascadia,,,unattempted,,,
-377,P2,Chasing Shadows,,,unattempted,,,
-378,P2,Chit Chat n' Chew,,,unattempted,,,
-379,P2,Conversations with Ghosts,,,unattempted,,,
-380,P2,Cryptid Counselor,Twin Strangers Productions,,unattempted,,,
-381,P2,Cubic Guided Meditations,,,unattempted,,,
-382,P2,Dark Days In Brighton,,,unattempted,,,
-383,P2,Dark Princess Theatre,,,unattempted,,,
-384,P2,Darkness Waves,,,unattempted,,,
-385,P2,Dead By Snow,,,unattempted,,,
-386,P2,Dead Meat Pete,,,unattempted,,,
-387,P2,"Deadfall, Wisconsin",,,unattempted,,,
-388,P2,Dear Evelyn,,,unattempted,,,
-389,P2,DeGrave Brothers,,,unattempted,,,
-390,P2,Delivery,,,unattempted,,,
+366,P2,Arrhythmia,,1eb8808b-f37e-469d-b303-e76e559b0e2d,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:41:33
+367,P2,Awoke,,9bd34c8a-b660-4873-8bcf-bfc60a697f4e,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:40:00
+368,P2,Baile na Gótrin,,990e288b-5bd3-48a3-89bd-bccbe600d51b,needs-review,needs-review,scope-review,2026-08-15 19:39:59
+369,P2,Beyond Repair,,d026ef31-63bc-474c-a9aa-d15f47713bf2,published,published,,2026-08-15 19:41:39
+370,P2,Bigfoot Bros Paranormal Patrol,,941f18f2-5021-403f-ba8a-763b46fa5f2f,needs-review,needs-review,source-conflict,2026-08-15 19:40:04
+371,P2,Black Friday,,ec033500-f474-4a3e-8c74-6502b00be656,published,published,,2026-08-15 19:41:39
+372,P2,Brave New Frontiersman,,a4ffd324-934c-44c8-8a96-ab1b5601bca4,published,published,,2026-08-15 19:41:39
+373,P2,Burn Pattern,,2eaade7d-374b-49c4-854f-a00ec14d0c26,published,published,,2026-08-15 19:41:39
+374,P2,Calling From Elm Lake,,e7c18505-ed3f-4188-a723-64f6889038f1,needs-review,needs-review,source-conflict,2026-08-15 19:40:16
+375,P2,Camper's Pike on the Forgotten Road,,d7a35d33-917d-4432-8f10-85dc54766aa4,published,published,,2026-08-15 19:41:39
+376,P2,Cascadia,,e9684548-8a3e-4ed7-8923-70e023918ce2,needs-review,needs-review,invalid-website; invalid-apple-link; source-conflict,2026-08-15 19:40:16
+377,P2,Chasing Shadows,,95d001de-13da-4d57-8659-36be5c9a4e2e,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:41:29
+378,P2,Chit Chat n' Chew,,bbce68f9-416f-4bd4-a110-959a7fcd282e,needs-review,needs-review,invalid-website; scope-review,2026-08-15 19:40:04
+379,P2,Conversations with Ghosts,,c2b6a624-d777-4a92-b4b5-ac5d3822cee1,published,published,,2026-08-15 19:41:39
+380,P2,Cryptid Counselor,Twin Strangers Productions,b1afc402-69aa-4024-b3f4-cbe71fda47ae,published,published,,2026-08-15 19:41:39
+381,P2,Cubic Guided Meditations,,aab6b4bb-48c2-4072-99d8-f711dd5dff6e,needs-review,needs-review,insufficient-discovery-signals; missing-genre,2026-08-15 19:40:01
+382,P2,Dark Days In Brighton,,f5a35393-e04d-418f-8698-4712981f096b,published,published,,2026-08-15 19:41:39
+383,P2,Dark Princess Theatre,,0e42c561-0687-4e95-8df4-73f53bcaa7b5,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:41:00
+384,P2,Darkness Waves,,f6e39112-df1f-4993-bc31-616881dbecc4,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:40:01
+385,P2,Dead By Snow,,b9005468-9534-4e75-876c-6e5c7537bc66,needs-review,needs-review,scope-review; source-conflict,2026-08-15 19:40:19
+386,P2,Dead Meat Pete,,a4fc4d73-c662-4a7c-93a4-f8d717b87b94,needs-review,needs-review,source-conflict,2026-08-15 19:41:32
+387,P2,"Deadfall, Wisconsin",,27299752-155e-4050-a9f6-e234663a614e,needs-review,needs-review,source-conflict,2026-08-15 19:40:05
+388,P2,Dear Evelyn,,ac9552b6-d4b8-4501-ba58-383044ba868a,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:41:29
+389,P2,DeGrave Brothers,,06abecb9-6a14-48c7-9c5a-b1107e00b5c2,published,published,,2026-08-15 19:41:39
+390,P2,Delivery,,624c93d1-d1f1-48e1-8e1c-94752c00e560,needs-review,needs-review,source-conflict,2026-08-15 19:41:34
 391,P2,Don't Look,,,unattempted,,,
 392,P2,Dracula: 2004,,,unattempted,,,
 393,P2,Dracula: The Danse Macabre,,,unattempted,,,
