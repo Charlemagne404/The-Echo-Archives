@@ -1,0 +1,696 @@
+{
+  "id": "the-bonneville-game",
+  "title": "The Bonneville Game",
+  "subtitle": "",
+  "description": "A horror comedy about three hapless podcasters who play a demon summoning game they found on the Internet. Hosted on Acast. See acast.com/privacy for more information.",
+  "cover": "images/covers/the-bonneville-game.jpg",
+  "coverAlt": "The Bonneville Game cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-bonneville-game/id1691605035?uo=4",
+    "website": "https://shows.acast.com/the-bonneville-game",
+    "rss": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Bonneville Game"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 1 full episode • 27 min median",
+    "seasons": 1,
+    "episodes": 1,
+    "avgEpisodeMinutes": 27,
+    "medianEpisodeMinutes": 27,
+    "minEpisodeMinutes": 27,
+    "maxEpisodeMinutes": 27,
+    "totalObservedHours": 0.5,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 1,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2023-06-07",
+    "latest": "2023-06-07",
+    "latestFeedItem": "2023-06-07",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://shows.acast.com/the-bonneville-game",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/the-bonneville-game/episodes/foolish-games",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Kat Walker Shea",
+    "ownerName": "Kat Walker Shea"
+  },
+  "creators": [
+    "Kat Walker Shea"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://shows.acast.com/the-bonneville-game/episodes; https://shows.acast.com/the-bonneville-game/episodes/foolish-games; https://shows.acast.com/the-bonneville-game; https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db; https://podcasts.apple.com/us/podcast/the-bonneville-game/id1691605035?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://shows.acast.com/the-bonneville-game/episodes",
+      "https://shows.acast.com/the-bonneville-game/episodes/foolish-games",
+      "https://shows.acast.com/the-bonneville-game",
+      "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db",
+      "https://podcasts.apple.com/us/podcast/the-bonneville-game/id1691605035?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy"
+    ],
+    "sourceKeywords": [
+      "Horror Comedy",
+      "Comedy",
+      "Demons",
+      "Ritual Games",
+      "Monsters",
+      "Ghosts",
+      "LGBTQ",
+      "Queer",
+      "Audiodrama",
+      "Audio Drama"
+    ],
+    "sourceTags": [],
+    "importOfficialSummary": "A horror comedy about three hapless podcasters who play a demon summoning game they found on the Internet. Hosted on Acast. See acast.com/privacy for more information.",
+    "socialUrls": [
+      "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/the-bonneville-game/episodes/foolish-games",
+      "http://x.com/intent/tweet?url=https://shows.acast.com/the-bonneville-game/episodes/foolish-games&via=acast&text=The%20Bonneville%20Game",
+      "https://www.instagram.com/thebonnevillegame",
+      "https://www.x.com/BonnevilleGame",
+      "https://www.facebook.com/thebonnevillegame"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "unknown",
+      "medianDays": null,
+      "observedIntervals": 0
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Katherine Shea",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db",
+        "appleCollectionId": "1691605035",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://feeds.acast.com/public/shows/the-bonneville-game"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://shows.acast.com/the-bonneville-game/episodes",
+          "fetchedAt": "2026-08-15T20:51:35.970Z",
+          "payloadHash": "6f63d5cd39068cfd28db2ee8989536d70677c4e63cc32b7c13810d4db6689282"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://shows.acast.com/the-bonneville-game/episodes/foolish-games",
+          "fetchedAt": "2026-08-15T20:51:35.968Z",
+          "payloadHash": "8613f1437e394cec6769387ae8941b1c2220adbfd46512ebe7408327ba086592"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://shows.acast.com/the-bonneville-game",
+          "fetchedAt": "2026-08-15T20:51:35.965Z",
+          "payloadHash": "28011feb250534fe8f01202d3461206fc01baa06a9e02f13ce0fb5e104cacd26"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db",
+          "fetchedAt": "2026-08-15T20:51:34.820Z",
+          "payloadHash": "854c0b0bf3a40752b6409a5e4ca3f1f65277b937e2c39d5a91da5d187c5425d0"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-bonneville-game/id1691605035?uo=4",
+          "fetchedAt": "2026-08-15T20:50:41.235Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-bonneville-game/id1691605035?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shows.acast.com/the-bonneville-game"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shows.acast.com/the-bonneville-game/episodes"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-bonneville-game/id1691605035?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-bonneville-game/id1691605035?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-bonneville-game/id1691605035?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-bonneville-game/id1691605035?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-bonneville-game/id1691605035?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-bonneville-game/id1691605035?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shows.acast.com/the-bonneville-game"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "keywords": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shows.acast.com/the-bonneville-game"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shows.acast.com/the-bonneville-game/episodes/foolish-games"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6416cd3dcf143d00115559db"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:51:36.983Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "a27f5d0abe0a7119d49d114017d9dbff3ab8443c143e1e932ac5697fe9cccecc",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "7a9907c0f261a2787c560de238c6d70243a7922fec34815008248018b2b9e784",
+        "cover": "de441bf82bc4eade74fcdda00f373c18f78dfdeb4ebbda7405e83e211bbceab6",
+        "coverAlt": "efd4b0d7b4ebcde2ffc1c145ec64b7cb39e5e060e1c5b7ff6d3c6e6c351718f6",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "9efdb0e985a9899e62747598594395bce2f444fceaa0a8a294260998aef9d442",
+        "officialLinks": "ce6366590c90b89496164d3da797e68a61b07948f4da91aac1501a7eee9e8554",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "79a94438add5c9b20f5211b86a32db3458d46c5baf67805f5fad54129806bff3",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "77185a34337ff52744f81b499c07465c85583ceecec2e7fd729588c00e67d1ae",
+        "releaseDates": "4c85bad8c56e9d9f3e91bdc15027d7de281d42d820c10d77015931d2297d36f8",
+        "credits": "fe2254cc005bc02c721e71071c86647c2b4cd20fa05f497f1c600019f9ea31ec",
+        "creators": "eb217af14ccaeb5214fd297e4f35b9f0d905759f3a59fd4948c87c5ea878da4e",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "ac66e0f2efb8618a0a247356b88cb0732a3bce31d5cd5a99ac134294e668fa1b"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:52:38.917Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "kat-walker-shea"
+}

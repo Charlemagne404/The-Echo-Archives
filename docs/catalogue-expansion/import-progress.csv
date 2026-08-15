@@ -528,32 +528,32 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 528,P3,Hiker Gothic,,8f7866b5-31f4-4cfd-8d60-3ce0d654ece1,published,published,,2026-08-15 20:48:58
 529,P2,Hollow Disciple,Shadow & Static,5d1c829b-bb81-4c5c-b6f6-6d6f40d6ab21,published,published,,2026-08-15 19:53:59
 530,P3,Hollow Head Pete and the Wicked Wish - Origins,,bcf5269a-7a56-487a-a540-be0a08f68f44,needs-review,needs-review,source-conflict,2026-08-15 20:46:54
-531,P3,I is for Investigate,,,unattempted,,,
-532,P3,Left Alone Once More,,,unattempted,,,
-533,P3,Leo Brawn,,,unattempted,,,
-534,P3,Limbo Calling,,,unattempted,,,
-535,P3,Long Night in Egypt,,,unattempted,,,
-536,P3,Mage In The Machine,,,unattempted,,,
-537,P3,Mantelreef,,,unattempted,,,
-538,P3,Mil-Liminal,,,unattempted,,,
-539,P3,Murder Mansion,,,unattempted,,,
-540,P3,Polybius Protocol,,,unattempted,,,
+531,P3,I is for Investigate,,c4a50971-8b6f-4c5b-8268-ef39a2315223,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:50:38
+532,P3,Left Alone Once More,,3e784979-30d3-4ff4-9267-62003cbc9a1d,published,published,,2026-08-15 20:52:42
+533,P3,Leo Brawn,,f7efa58a-2700-44af-85b3-81966b745205,needs-review,needs-review,invalid-website; source-conflict,2026-08-15 20:49:38
+534,P3,Limbo Calling,,1caf75ea-5ad9-4997-8e7a-28c0eb31f077,needs-review,needs-review,source-conflict,2026-08-15 20:49:36
+535,P3,Long Night in Egypt,,8c11a7ff-1925-4942-b9ee-87fbb8e3fddc,published,published,,2026-08-15 20:52:42
+536,P3,Mage In The Machine,,a3603768-36c0-47fa-bd13-0f571fd1b564,published,published,,2026-08-15 20:52:42
+537,P3,Mantelreef,,4feb0dcb-c23e-47cf-bb37-e3b1dff4eaf7,needs-review,needs-review,source-conflict,2026-08-15 20:51:44
+538,P3,Mil-Liminal,,2ca4d210-35f1-48b3-9f41-ffdccc93287d,needs-review,needs-review,source-conflict,2026-08-15 20:49:37
+539,P3,Murder Mansion,,1bd22cc9-8b9f-47f1-8647-0889ff2a1852,needs-review,needs-review,scope-review; source-conflict,2026-08-15 20:49:41
+540,P3,Polybius Protocol,,20a11e40-758f-4eb6-a265-6aae354fcd22,published,published,,2026-08-15 20:52:42
 541,P2,ReWind,,09e9a69d-ec55-460e-ac51-f3d7dc03e47d,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 19:52:32
-542,P3,Rocking Chair; or Settlement,,,unattempted,,,
-543,P3,Smackie's Smile Shack,,,unattempted,,,
-544,P3,Sojourns in Slumberland,,,unattempted,,,
-545,P3,Solve For X,,,unattempted,,,
-546,P3,Tales of the Monster Hunters,,,unattempted,,,
-547,P3,The Abyss,,,unattempted,,,
-548,P3,The Beating Heartland,,,unattempted,,,
-549,P3,The Bonneville Game,,,unattempted,,,
-550,P3,The Dread Exitibus,,,unattempted,,,
-551,P3,The Gospel of Haven,,,unattempted,,,
-552,P3,The Grave Veil,,,unattempted,,,
-553,P3,The Huntersfield Anomaly Report,,,unattempted,,,
-554,P3,The Keeper,Becca Lidstone,,unattempted,,,
-555,P3,The Nightstar Specters,,,unattempted,,,
-556,P3,The Northwood Project,,,unattempted,,,
+542,P3,Rocking Chair; or Settlement,,e6af6658-e296-41d9-9d07-63eefc1f1d8e,needs-review,needs-review,source-conflict,2026-08-15 20:51:40
+543,P3,Smackie's Smile Shack,,0137a0db-a935-4398-965b-280fefc7c2c7,needs-review,needs-review,source-conflict,2026-08-15 20:50:40
+544,P3,Sojourns in Slumberland,,aa7649a1-c7d2-427d-8aea-81cadc9f8abf,published,published,,2026-08-15 20:52:42
+545,P3,Solve For X,,bfd53ba3-d37b-41fb-9340-a623954e331b,needs-review,needs-review,source-conflict,2026-08-15 20:49:37
+546,P3,Tales of the Monster Hunters,,8909b4c0-7efc-4bf5-9fff-76951d9fe199,needs-review,needs-review,source-conflict,2026-08-15 20:50:42
+547,P3,The Abyss,,9116c2a7-98b0-4c49-8cba-d89c400b18d7,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:49:41
+548,P3,The Beating Heartland,,135a564f-36c4-4f61-85cd-6e52ff23d10a,needs-review,needs-review,source-conflict,2026-08-15 20:51:40
+549,P3,The Bonneville Game,,1c465431-78ba-4575-83c0-9c6f7ed9c29d,published,published,,2026-08-15 20:52:42
+550,P3,The Dread Exitibus,,53a6a3ae-8774-41f0-b9af-04bd8f65089c,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:51:41
+551,P3,The Gospel of Haven,,d3334117-98fc-4385-b730-f354cfae81c2,published,published,,2026-08-15 20:52:42
+552,P3,The Grave Veil,,c49a6e2b-5c59-45bd-b545-4a64aded1966,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:50:40
+553,P3,The Huntersfield Anomaly Report,,18ab7e3e-aba7-4123-a415-13df2def0354,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:51:38
+554,P3,The Keeper,Becca Lidstone,94e8fca1-8681-4a53-b21c-a450faa637c3,needs-review,needs-review,source-conflict,2026-08-15 20:50:43
+555,P3,The Nightstar Specters,,04a8acfb-14c4-4160-b9ca-0b91ae39790e,published,published,,2026-08-15 20:52:42
+556,P3,The Northwood Project,,f2e746d2-68e1-44b6-8fc7-e70619513789,published,published,,2026-08-15 20:52:42
 557,P2,The Occurrence in River Oaks,,24a8b99c-84b6-4f28-bcbc-a0dda51f0ee8,needs-review,needs-review,source-conflict,2026-08-15 19:52:30
 558,P3,The Override Protocol,,,unattempted,,,
 559,P3,THE REMAINS,,,unattempted,,,
