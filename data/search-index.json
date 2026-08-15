@@ -24161,5 +24161,68 @@
     "featured": false,
     "createdAt": "2026-08-15",
     "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "the-prickwillow-papers",
+    "title": "The Prickwillow Papers",
+    "subtitle": "",
+    "description": "Sylda, a young half-elf, has just graduated from the College of Mages. And, joy of joys, she has also moved back in with her parents. Stuck in a dead-end town with no idea what to do, she begins writing a diary, hoping something interesting will happen. And, as luck would have it, something interesting DOES happen... 'The Prickwillow Papers' is a Snazzy Tapir Production.",
+    "cover": "images/covers/the-prickwillow-papers.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-prickwillow-papers-18e9f7e1ee-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-prickwillow-papers-18e9f7e1ee-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Prickwillow Papers cover art",
+    "creators": [
+      "Snazzy Tapir Productions"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Prickwillow Papers"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Snazzy Tapir Productions",
+      "ownerName": "Maddy Searle"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
   }
 ]

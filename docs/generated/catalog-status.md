@@ -6,26 +6,26 @@ Latest catalog update: `2026-08-15`
 
 | Metric | Value |
 | --- | ---: |
-| Total shows | 326 |
-| Published shows | 326 |
+| Total shows | 327 |
+| Published shows | 327 |
 | Draft shows | 0 |
 | Full reviews | 7 |
 | Spotlight reviews | 0 |
 | Indexed-only shows | 194 |
-| Imported shows | 125 |
+| Imported shows | 126 |
 | Planned reviews | 0 |
 | Collections | 29 |
 | Review companions | 7 |
 | Creator-verified shows | 0 |
-| Shows with RSS | 323 |
+| Shows with RSS | 324 |
 | Shows missing metadata.objectiveSources | 0 |
 | Shows with metadata.researchGaps | 14 |
 
 ## Discovery Gaps
 
 - Shows missing similarReasons: 0
-- Shows with out-of-range similar links: 256
-- Shows with fewer than 2 collection memberships: 256
+- Shows with out-of-range similar links: 257
+- Shows with fewer than 2 collection memberships: 257
 - Anchor shows with fewer than 3 collection memberships: 0
 - Route collections missing showReasons: 0
 
@@ -38,7 +38,7 @@ Latest catalog update: `2026-08-15`
 ## Phase 2 Readiness (Gate B)
 
 - Status: `content-pending`
-- Numeric targets: 326 published shows (floor 129), 7 full reviews (floor 7), 29 collections (floor 29)
+- Numeric targets: 327 published shows (floor 129), 7 full reviews (floor 7), 29 collections (floor 29)
 - Factual metadata gaps: 0 core, 0 missing provenance, 0 actionable RSS, 0 missing detailed runtime
 - Explicit unknowns/research gaps: 14 records; 3 missing RSS and 3 runtime gaps are documented rather than hidden
 - Editorial/recommendation gaps: 0; collection blockers: 0
