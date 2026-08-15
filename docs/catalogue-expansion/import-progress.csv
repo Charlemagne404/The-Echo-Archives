@@ -1233,25 +1233,25 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1233,P2,Beneath the Cosmic Waves,,84d34faa-2ce5-4683-af46-30384087a225,needs-review,needs-review,source-conflict,2026-08-15 20:37:21
 1234,P2,The Tree Whisperer,C. Miggs Productions,09482cd7-5877-494a-908b-a95c42df7ded,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:37:21
 1235,P2,Crossroads: A 48 Hour Audio Drama Festival,Iridescent Acorn Productions,425e4b3b-c299-470f-b959-6328013903a8,published,published,,2026-08-15 20:39:55
-1236,P2,Kovacs: Breaking Conventions,,,unattempted,,,
-1237,P2,Witchpunk,,,unattempted,,,
-1238,P2,Listen & Often,,,unattempted,,,
-1239,P2,James Pond,,,unattempted,,,
-1240,P2,Legion 16,,,unattempted,,,
-1241,P2,On the Roman Nose,,,unattempted,,,
-1242,P2,Artifice,,,unattempted,,,
-1243,P2,Terra Arcana,,,unattempted,,,
-1244,P2,The Oracle,,,unattempted,,,
-1245,P2,Infinity Frontiers,,,unattempted,,,
-1246,P2,Cloud 9,,,unattempted,,,
-1247,P2,The Soul Chaperon,,,unattempted,,,
-1248,P2,Tales of Skyland,,,unattempted,,,
-1249,P2,Grace's Grave Graduation,Echoes Hu Audio Productions,,unattempted,,,
-1250,P2,Tales of Harkshire,Artis House Ltd,,unattempted,,,
-1251,P2,The Further Adventures of Rune,Happy Cloud Media,,unattempted,,,
-1252,P2,Life Happens - An Audio Series,,,unattempted,,,
-1253,P2,The Avengers: Audio Drama,,,unattempted,,,
-1254,P2,EchoTales,,,unattempted,,,
+1236,P2,Kovacs: Breaking Conventions,,77b80e37-7f2b-4deb-a6fb-4b09dbc2b5fd,published,published,,2026-08-15 20:42:41
+1237,P2,Witchpunk,,79a50c22-8ca1-401c-a6dd-56b481ef605a,needs-review,needs-review,source-conflict,2026-08-15 20:40:24
+1238,P2,Listen & Often,,8885d8fc-13e1-4485-9216-281a4a2e633e,needs-review,needs-review,source-conflict,2026-08-15 20:40:27
+1239,P2,James Pond,,483e9702-17a4-46aa-8363-77e005541eb6,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:40:30
+1240,P2,Legion 16,,48192520-9cef-4680-842b-9bee37abd12e,needs-review,needs-review,source-conflict,2026-08-15 20:40:29
+1241,P2,On the Roman Nose,,822cdff3-cf26-4c86-a15c-ab5aaf3aab04,published,published,,2026-08-15 20:42:41
+1242,P2,Artifice,,6dd1ec5b-d52e-49fa-8cf7-d0f4172fb4cb,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:40:30
+1243,P2,Terra Arcana,,6229efe8-3570-4e8b-80a3-5548ddf8783f,needs-review,needs-review,insufficient-discovery-signals,2026-08-15 20:41:27
+1244,P2,The Oracle,,1827e019-ed5f-4e44-be1d-82f7e3eae33d,needs-review,needs-review,source-conflict,2026-08-15 20:41:28
+1245,P2,Infinity Frontiers,,d3061bd3-bbe7-4b33-bea7-351f002386ae,published,published,,2026-08-15 20:42:41
+1246,P2,Cloud 9,,c702525d-ccb2-4077-a5ff-c912d3de804f,needs-review,needs-review,source-conflict,2026-08-15 20:41:27
+1247,P2,The Soul Chaperon,,33290612-bc5a-4070-b434-eac9f80c3c06,needs-review,needs-review,source-conflict,2026-08-15 20:40:26
+1248,P2,Tales of Skyland,,a3f9b45e-ee74-43ea-94fb-786aff0bbec3,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:42:38
+1249,P2,Grace's Grave Graduation,Echoes Hu Audio Productions,94dcdab4-ee04-48e9-9acc-16104c1db74d,needs-review,needs-review,source-conflict,2026-08-15 20:40:24
+1250,P2,Tales of Harkshire,Artis House Ltd,e8c87fc0-3dfa-4794-88bf-33c64399acea,needs-review,needs-review,source-conflict,2026-08-15 20:41:24
+1251,P2,The Further Adventures of Rune,Happy Cloud Media,0bf888aa-bcf8-45dc-b49b-b8a9ab65d8dd,needs-review,needs-review,invalid-website; source-conflict,2026-08-15 20:42:35
+1252,P2,Life Happens - An Audio Series,,05bd6c32-1e53-4fad-8adb-50808e6497b7,published,published,,2026-08-15 20:42:41
+1253,P2,The Avengers: Audio Drama,,dce14ea4-1fb6-4cdd-896c-b3b08ce539ab,needs-review,needs-review,source-conflict,2026-08-15 20:42:30
+1254,P2,EchoTales,,94c9f597-54f9-48e3-b108-ce3364de5145,needs-review,needs-review,source-conflict,2026-08-15 20:41:28
 1255,P3,Century The Series,,,unattempted,,,
 1256,P3,The Crime at Camp Ashwood,,,unattempted,,,
 1257,P3,Professionally Possessed,,,unattempted,,,
@@ -1305,7 +1305,7 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1305,P3,Play On Words,,,unattempted,,,
 1306,P3,Crooked Tree Radio,,,unattempted,,,
 1307,P3,Without Words,,,unattempted,,,
-1308,P2,Acorn Originals,Iridescent Acorn Productions,,unattempted,,,
+1308,P2,Acorn Originals,Iridescent Acorn Productions,bbf6967a-940f-4aea-ab7e-bd12a9579568,published,published,,2026-08-15 20:42:41
 1309,P3,Little Byrdie,,,unattempted,,,
 1310,P3,Dynamic Drive,,,unattempted,,,
 1311,P3,Monroe Mysteries,,,unattempted,,,
@@ -1333,11 +1333,11 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1333,P1,Burned by a Paper Sun,Rusty Quill,a8a2c91e-0e5f-48c6-bacc-5348a427ee49,needs-review,needs-review,source-conflict,2026-08-15 17:44:05
 1334,P1,Did Titanic Sink?,RNZ Originals,99642df0-15e8-4884-ac01-5fe64dce49d7,needs-review,needs-review,scope-review,2026-08-15 17:44:15
 1335,P1,The Plate Show,PBS (Thirteen/WNET),5670da8f-46e8-437a-a31b-a7adda9166cc,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:44:10
-1336,P2,Pilot Light,,,unattempted,,,
-1337,P2,Tales from Tierra: The Wishing Star,,,unattempted,,,
-1338,P2,The Kingdom of The Father,Daniel Rangel,,unattempted,,,
-1339,P2,The Man and The Mirage,EFTV Productions,,unattempted,,,
-1340,P2,Hunters and Collectors,,,unattempted,,,
+1336,P2,Pilot Light,,ab4d8c43-c8ad-47f5-9aec-89aad6e33e3d,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 20:42:29
+1337,P2,Tales from Tierra: The Wishing Star,,c3e4993d-0d21-4530-9721-400455debc88,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 20:42:26
+1338,P2,The Kingdom of The Father,Daniel Rangel,ee18fd31-58b2-40f8-b063-72c041fb5e2f,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:42:31
+1339,P2,The Man and The Mirage,EFTV Productions,f366be80-cc7e-4721-ba28-180253918dd1,needs-review,needs-review,source-conflict,2026-08-15 20:42:25
+1340,P2,Hunters and Collectors,,00627821-4e6d-4fe8-9972-370a6ec41e95,needs-review,needs-review,placeholder-description; scope-review; source-conflict,2026-08-15 20:42:29
 1341,P2,Listen with Other,Giles Booth,,unattempted,,,
 1342,P2,Signed in Blood,Evan O'Cuana,,unattempted,,,
 1343,P2,"Written Works For You, By You",,,unattempted,,,

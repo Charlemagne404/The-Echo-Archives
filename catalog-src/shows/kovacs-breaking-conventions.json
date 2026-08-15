@@ -1,0 +1,743 @@
+{
+  "id": "kovacs-breaking-conventions",
+  "title": "Kovacs: Breaking Conventions",
+  "subtitle": "",
+  "description": "When a local comic shop owner is found dead at a convention center the night before a big event, it’s up to Paul Kovacs, journalist Diogenes’ Lantern, to solve the mystery. With the body count rising, can Kovacs put an end to the terror or will his next headline be his obituary?",
+  "cover": "images/covers/kovacs-breaking-conventions.png",
+  "coverAlt": "Kovacs: Breaking Conventions cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/1lQseIGlkEGDBJu8y8iXco",
+    "apple": "https://podcasts.apple.com/podcast/id1882120600",
+    "website": "https://rss.com/podcasts/kovacs-breaking-conventions/",
+    "rss": "https://media.rss.com/kovacs-breaking-conventions/feed.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "https://music.amazon.com/podcasts/edce586f-45dd-4641-8ff5-730ce0b567b8",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Kovacs: Breaking Conventions"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 1 full episode • 60 min median",
+    "seasons": 1,
+    "episodes": 1,
+    "avgEpisodeMinutes": 60,
+    "medianEpisodeMinutes": 60,
+    "minEpisodeMinutes": 60,
+    "maxEpisodeMinutes": 60,
+    "totalObservedHours": 1,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 1,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2026-03-03",
+    "latest": "2026-03-03",
+    "latestFeedItem": "2026-03-03",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://rss.com/podcasts/kovacs-breaking-conventions/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/rsscom/",
+    "social": "https://www.facebook.com/rss.podcasting",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "C M Hylton",
+    "ownerName": "C M Hylton",
+    "network": "RSS.com",
+    "writers": [
+      "C M Hylton"
+    ],
+    "people": [
+      {
+        "name": "C M Hylton",
+        "role": "author",
+        "url": ""
+      }
+    ]
+  },
+  "creators": [
+    "C M Hylton"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://rss.com/podcasts/kovacs-breaking-conventions/; https://media.rss.com/kovacs-breaking-conventions/feed.xml; https://podcasts.apple.com/us/podcast/kovacs-breaking-conventions/id1882120600?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://rss.com/podcasts/kovacs-breaking-conventions/",
+      "https://media.rss.com/kovacs-breaking-conventions/feed.xml",
+      "https://podcasts.apple.com/us/podcast/kovacs-breaking-conventions/id1882120600?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction",
+      "Drama",
+      "23de3560-174a-11f1-bf36-e336cddd6cfa"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "When a local comic shop owner is found dead at a convention center the night before a big event, it’s up to Paul Kovacs, journalist Diogenes’ Lantern, to solve the mystery. With the body count rising, can Kovacs put an end to the terror or will his next headline be his obituary?",
+    "socialUrls": [
+      "https://www.facebook.com/rss.podcasting",
+      "https://twitter.com/rss",
+      "https://www.instagram.com/rss_podcasting/"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "unknown",
+      "medianDays": null,
+      "observedIntervals": 0
+    },
+    "podcast": {
+      "medium": "podcast",
+      "copyright": "Cory Hylton",
+      "explicit": "false",
+      "license": {
+        "value": "Cory Hylton",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "5361839b-d0b9-5e43-92f9-215228b2dc09",
+        "rssUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml",
+        "appleCollectionId": "1882120600",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://rss.com/podcasts/kovacs-breaking-conventions/",
+          "fetchedAt": "2026-08-15T20:40:27.915Z",
+          "payloadHash": "edffb9b82433b415d0aad89de43e26b982d9f927b94586b252b774b031e9a1b5"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml",
+          "fetchedAt": "2026-08-15T20:40:27.459Z",
+          "payloadHash": "13bd2e4b00eb20f09f380e4af1754b0b497e7794a0c5547f9a2065b44969e646"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/kovacs-breaking-conventions/id1882120600?uo=4",
+          "fetchedAt": "2026-08-15T20:40:27.384Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/kovacs-breaking-conventions/id1882120600?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/kovacs-breaking-conventions/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/kovacs-breaking-conventions/id1882120600?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/kovacs-breaking-conventions/"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/kovacs-breaking-conventions/"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/kovacs-breaking-conventions/id1882120600?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/kovacs-breaking-conventions/"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/kovacs-breaking-conventions/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/kovacs-breaking-conventions/id1882120600?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/kovacs-breaking-conventions/id1882120600?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/kovacs-breaking-conventions/id1882120600?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/kovacs-breaking-conventions/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/kovacs-breaking-conventions/"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "medium": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/kovacs-breaking-conventions/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/kovacs-breaking-conventions/"
+            }
+          ]
+        },
+        "amazonMusicUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/kovacs-breaking-conventions/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/kovacs-breaking-conventions/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/kovacs-breaking-conventions/"
+            }
+          ]
+        },
+        "people": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/kovacs-breaking-conventions/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/kovacs-breaking-conventions/feed.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:40:28.865Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "315cc20aca1fef8b8d404819d5906d68bddaaaef893dc2cd9c792abd2a375340",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "8421e64fe2937482b1024275898c37095cad2e2a95e13211ca105460eb9a1cf8",
+        "cover": "94bbf254045af7d366de794343cd5afa3dca0108abb7e03c1c7251145775dfa8",
+        "coverAlt": "21bae392ae747c36219dabe46459fe9ed03bb7e0d0bff41c96a3222300f6cdd9",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "c439dbe4ae4d89aa4ed86e5aed4368f198532ed18b5027bc192e4d8e970f324a",
+        "officialLinks": "86af1a030d064e282e2387c632db21768494847b82a0be941cff0bff023c93ab",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "9c5e297bd058d721a2914461a4225d0912a1aa8ef377dcd1c417b362e621be36",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "451e6cfc9a6c23dda4b5958b4f74bbbf989059f2a164dcf4bab2362dc808ecd6",
+        "releaseDates": "71808829050c34f669521f912aff5ad541b4d788b8d2b02dd8e0daea5fdf820f",
+        "credits": "8c1a1a42d476ada36b2ae671d85580f713c24fbf5ab3b1ee97ddb1f16cbb2509",
+        "creators": "243703bd4c8bc65bbbd0d3e0cfa261bb7d4589b385d2bc07ccbeedc7e3baef72",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "8a3676f9861a7b7dc843632116059ac2ac7621bb574387350fe9348a9d69018b"
+      },
+      "optionalGaps": [
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:42:38.493Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "c-m-hylton",
+  "networkId": "rss-com"
+}

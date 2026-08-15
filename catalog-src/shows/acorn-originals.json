@@ -1,0 +1,647 @@
+{
+  "id": "acorn-originals",
+  "title": "Acorn Originals",
+  "subtitle": "",
+  "description": "These are short skits and standalone audio dramas/films from Iridescent Acorn Productions.",
+  "cover": "images/covers/acorn-originals.jpg",
+  "coverAlt": "Acorn Originals cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/acorn-originals/id1787064960?uo=4",
+    "website": "https://redcircle.com/shows/audio-stories",
+    "rss": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Acorn Originals"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [
+    "es",
+    "English"
+  ],
+  "length": {
+    "label": "at least 5 full episodes • 28 min median",
+    "episodes": 5,
+    "avgEpisodeMinutes": 26,
+    "medianEpisodeMinutes": 28,
+    "minEpisodeMinutes": 2,
+    "maxEpisodeMinutes": 36,
+    "totalObservedHours": 2.1,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 5,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2023-10-11",
+    "latest": "2026-01-09",
+    "latestFeedItem": "2026-01-09",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://redcircle.com/shows/audio-stories",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": "https://redcircle.com/audio-stories/exclusive-content"
+  },
+  "credits": {
+    "creatorName": "Iridescent Acorn Productions",
+    "ownerName": "Iridescent Acorn Productions"
+  },
+  "creators": [
+    "Iridescent Acorn Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6; https://podcasts.apple.com/us/podcast/acorn-originals/id1787064960?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "2 observed episodes",
+    "captions": "available in structured transcript data",
+    "transcriptCoverage": 0.4,
+    "transcriptFormats": [
+      "text/vtt"
+    ],
+    "transcriptLanguages": [
+      "es",
+      "English"
+    ]
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6",
+      "https://podcasts.apple.com/us/podcast/acorn-originals/id1787064960?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "These are short skits and standalone audio dramas/films from Iridescent Acorn Productions.",
+    "socialUrls": [],
+    "funding": [
+      {
+        "url": "https://redcircle.com/audio-stories/exclusive-content",
+        "label": "Subscribe to Exclusive Content"
+      }
+    ],
+    "schedule": {
+      "label": "irregular",
+      "medianDays": 197,
+      "observedIntervals": 4
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Iridescent Acorn Productions",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "34bb3573-6571-4910-bc29-be4c1d2ce3e6",
+        "rssUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6",
+        "appleCollectionId": "1787064960",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6",
+          "fetchedAt": "2026-08-15T20:42:23.331Z",
+          "payloadHash": "ac37e4a36fed8ec8ede65c9de41d940eb228e6bec48652a24d17feaba1d37c36"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/acorn-originals/id1787064960?uo=4",
+          "fetchedAt": "2026-08-15T20:41:29.258Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/acorn-originals/id1787064960?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/acorn-originals/id1787064960?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/acorn-originals/id1787064960?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/acorn-originals/id1787064960?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/acorn-originals/id1787064960?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/acorn-originals/id1787064960?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/acorn-originals/id1787064960?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "funding": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "supportUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:42:23.600Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "5019c49271ed701762cf770c086519808ab42c93832bbb018533b65e894b4fad",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "e3fc7a0ec102c169180e2a27417fbf4072b0d45055fa0d97ce5bdfdd2998b48d",
+        "cover": "0b31820da87c4270228973a94d7b129fc4ee62b41bd0598bfdce1c9868e66200",
+        "coverAlt": "53891ab6c328f7402de7994f97db80865539dfb78fc4a1a786f58bb9762824b8",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "5c73547725e6361c10124a9778f4f3b2ed533af799737684ee3be884c99ebf5a",
+        "officialLinks": "a7e659c1bb7bec6ca41dbbf8a18e98198a90acdf2daffaf5baa6edd236a7fd37",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "0e829e59da595036802b81f174283f907748482da5a8a924fe7123cfc33e6e89",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "48651f08e9a65d85a9908e2ad8dc33a54bf552475542e58568fd42e874e5fba2",
+        "length": "0f4ae54d6a5c0b64a0be2efb3b6bcf1002d81c49b9f69b56eac9aae555444b8b",
+        "releaseDates": "a690b4ec8697a85df9e3d430f28b354a78e8898c3d39567ddc1281c8504b09c0",
+        "credits": "c6993c5586fdbf230809d8fd5252c6401cc95b8ea3baf4d515c9870b9fe01b9e",
+        "creators": "26aa9c2c401fe0e4c2afa60a0932e5734776eea58cbd20874eebc59e4ebd1019",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "457b02e3f5be52b8aae2d75bcb069bf4db2f6755cc6293521f099951e49f4a43",
+        "verification": "45a8965df1c027406b8fe968e5efbf643249e616459bcdec1909aa0e47b1794e"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:42:38.515Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "iridescent-acorn-productions"
+}
