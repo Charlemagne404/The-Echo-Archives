@@ -15,6 +15,7 @@ const {
   normalizeDiscoveryTags,
 } = require("../../../shared/archive-tags");
 const {
+  appleCollectionIdFromUrl,
   isNonWebsiteUrl,
   isPlaceholderDescription,
 } = require("../../../shared/archive-quality");
@@ -374,6 +375,11 @@ function evaluateReadiness({ candidate, preparedRecord }) {
   if (discoverySignals.size < MIN_PUBLISHED_DISCOVERY_SIGNALS) blockers.push({ code: "insufficient-discovery-signals", field: "tags", message: `At least ${MIN_PUBLISHED_DISCOVERY_SIGNALS} approved discovery signals across genres, formats, or tags are required.` });
   if ((preparedRecord.genres || []).length === 0) blockers.push({ code: "missing-genre", field: "genres", message: "At least one canonical source-supported genre is required." });
   if ([preparedRecord.listenLinks?.website, preparedRecord.officialLinks?.website].filter(Boolean).some(isNonWebsiteUrl)) blockers.push({ code: "invalid-website", field: "websiteUrl", message: "A social or support profile cannot be used as the official website." });
+  const expectedAppleId = String(objective.appleCollectionId || "").trim();
+  const linkedAppleId = appleCollectionIdFromUrl(preparedRecord.listenLinks?.apple);
+  if (expectedAppleId && preparedRecord.listenLinks?.apple && linkedAppleId !== expectedAppleId) {
+    blockers.push({ code: "invalid-apple-link", field: "appleUrl", message: `The Apple listen link does not match imported collection id "${expectedAppleId}".` });
+  }
   if (!candidate.coverStage?.ready || !preparedRecord.cover) blockers.push({ code: "cover-not-ready", field: "cover", message: "A valid square local cover of at least 600px must be staged." });
   if (listenValues.length === 0) blockers.push({ code: "missing-listen-link", field: "listenLinks", message: "At least one listen link is required." });
   else if (!workingListenLink) blockers.push({ code: "unverified-listen-link", field: "listenLinks", message: "No listen link was confirmed by a successful source fetch." });
