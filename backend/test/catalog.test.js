@@ -72,9 +72,9 @@ test("loadCatalog reads the structured show catalog", async () => {
 test("importer-origin catalogue entries retain their publication tier", () => {
   const authoredShows = JSON.parse(fs.readFileSync(path.join(siteRoot, "data", "shows.json"), "utf8"));
   const importerOrigin = authoredShows.filter((show) => show.metadata?.import);
-  assert.equal(importerOrigin.length, 611);
+  assert.equal(importerOrigin.length, 618);
   assert.equal(importerOrigin.filter((show) => show.reviewStatus === "indexed-only").length, 133);
-  assert.equal(importerOrigin.filter((show) => show.reviewStatus === "imported").length, 478);
+  assert.equal(importerOrigin.filter((show) => show.reviewStatus === "imported").length, 485);
   assert.ok(importerOrigin.every((show) => ["indexed-only", "imported"].includes(show.reviewStatus)));
 });
 

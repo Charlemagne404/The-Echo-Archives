@@ -1044,23 +1044,23 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1044,P2,Dirt - An Audio Drama,STUDIO5705,baea1486-c1e2-41a0-9536-ddebb0639e10,published,published,,2026-08-15 20:25:56
 1045,P2,Filthy '47,,9eab3619-f0a8-4595-8e56-ae08ad5a0fe4,needs-review,needs-review,source-conflict,2026-08-15 20:23:48
 1046,P3,Wicked Dames,,94c49f32-5ab6-4ee2-804d-603e92286ea8,needs-review,needs-review,source-conflict,2026-08-15 21:13:29
-1047,P3,Moonlite,,,unattempted,,,
-1048,P3,Johnnie's Song,,,unattempted,,,
-1049,P3,Faithfully Yours Mozart: The Courtship,Faith Jacobs,,unattempted,,,
-1050,P3,Eve of Independence,,,unattempted,,,
+1047,P3,Moonlite,,18826ddf-4cda-43e9-89aa-d7646b4f3919,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 21:20:04
+1048,P3,Johnnie's Song,,12156b2a-d5ae-49d3-a978-c18a13a3c1e7,needs-review,needs-review,source-conflict,2026-08-15 21:17:11
+1049,P3,Faithfully Yours Mozart: The Courtship,Faith Jacobs,965c897c-a821-4474-b93a-418b35907320,published,published,,2026-08-15 21:42:26
+1050,P3,Eve of Independence,,a4d19001-5604-4bfe-894d-5dc79daa4146,published,published,,2026-08-15 21:42:26
 1051,P1,The Saints - Adventures in Faith & Courage,The Merry Beggars,d864f6c2-f0b8-4875-8f5c-bbbc426a9ce5,needs-review,needs-review,source-conflict,2026-08-15 17:39:24
 1052,P2,The Peek with Samuel Pepys,,22fcd0ab-ff7d-4252-8b1d-87e147f5ea78,published,published,,2026-08-15 20:25:56
-1053,P3,The Maiden and The Dragon,,,unattempted,,,
-1054,P3,The Mortal Temples,,,unattempted,,,
+1053,P3,The Maiden and The Dragon,,3b95a81a-8bc3-4e1a-942a-50ad27d2c536,published,published,,2026-08-15 21:42:26
+1054,P3,The Mortal Temples,,3bb3d945-17c2-4282-9166-1391fb30fe7d,needs-review,needs-review,invalid-website,2026-08-15 21:17:05
 1055,P1,Mansfield Mysteries,The QuaranTeam,2239d964-be9b-4715-b9ee-d7ac95d36686,published,published,,2026-08-15 17:40:51
-1056,P3,"Murder, We Spoke",,,unattempted,,,
+1056,P3,"Murder, We Spoke",,20f446dc-f2ca-4e0d-9523-a58f36af84c4,published,published,,2026-08-15 21:42:26
 1057,P2,The Felix Stone Mysteries,,3f947403-c618-44fb-ba86-4c1023abe269,needs-review,needs-review,invalid-apple-link,2026-08-15 20:25:49
-1058,P3,#MATTER,,,unattempted,,,
-1059,P3,Radical Justice - An Original Crime Drama Series,,,unattempted,,,
-1060,P3,Whodunnit?,,,unattempted,,,
+1058,P3,#MATTER,,44a0532f-7e62-4321-bf75-5b07daff738a,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 21:18:12
+1059,P3,Radical Justice - An Original Crime Drama Series,,735492c1-851c-4ea0-a6d1-dc86421fd931,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 21:18:05
+1060,P3,Whodunnit?,,52ac656f-854f-4108-9752-e3108e18f330,needs-review,needs-review,source-conflict,2026-08-15 21:18:13
 1061,P2,Let Me Tell You About My Murder,,7201c750-a5a4-4a06-aa66-f606c5da4df9,published,published,,2026-08-15 20:25:56
-1062,P3,Atwood Manor,,,unattempted,,,
-1063,P3,Kiss: The Audio Series,,,unattempted,,,
+1062,P3,Atwood Manor,,215a5951-680b-4f0d-b18c-9dfe64a62f40,needs-review,needs-review,source-conflict,2026-08-15 21:36:29
+1063,P3,Kiss: The Audio Series,,ab80cc30-7407-4254-87cc-456982fdf774,needs-review,needs-review,source-conflict,2026-08-15 21:19:17
 1064,P2,Conference Call,,31f3a749-1072-4ae4-8fed-21b5e59896c3,published,published,,2026-08-15 20:25:56
 1065,P2,The Bystanders,,4045a7ab-8644-41c7-9428-6d7a4cc5b02a,published,published,,2026-08-15 20:25:56
 1066,P0,Twilight Histories,Dark Lord Studios,6e76612d-a3e7-488f-9f5e-46dd2d7951af,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:31:45
@@ -1080,19 +1080,19 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1080,P2,We Treaty People,Burnt Thicket Theatre,01851feb-4bf1-42df-97e8-ec4138d03fe8,needs-review,needs-review,source-conflict,2026-08-15 20:23:03
 1081,P2,The White Vault: Velez Rendezvous,Creative Call,99d8b239-bc43-4501-8980-fc4924710abc,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 20:23:03
 1082,P2,The White Vault: Magellanica,Creative Call,41ee5205-fa92-4882-a89b-61d1d1e2e195,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 20:23:02
-1083,P3,Benlunar,,,unattempted,,,
-1084,P3,Bogies and Ghoulies,,,unattempted,,,
-1085,P3,The Ragged Scratch Podcast,,,unattempted,,,
-1086,P3,Mackaroy Uncovered,ABC Radio National,,unattempted,,,
-1087,P3,Who Shat On The Floor at My Wedding?,,,unattempted,,,
-1088,P3,Aberrated Light,,,unattempted,,,
-1089,P3,Darkness Falls,,,unattempted,,,
-1090,P3,Dead Wrong,,,unattempted,,,
-1091,P3,Letters From Home,,,unattempted,,,
-1092,P3,Magics of the Evergreen,,,unattempted,,,
-1093,P3,Crestfall: A Fantasy Audio Drama,,,unattempted,,,
-1094,P3,TAGGED,,,unattempted,,,
-1095,P3,WildTrials,,,unattempted,,,
+1083,P3,Benlunar,,2e77e517-575c-47c9-b062-350c7336fbe4,needs-review,needs-review,source-conflict,2026-08-15 21:19:14
+1084,P3,Bogies and Ghoulies,,953a5643-4ddf-4278-b838-99a73eb2f777,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 21:18:02
+1085,P3,The Ragged Scratch Podcast,,87231a62-ebb3-472f-a240-d2b900aabe4b,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 21:18:02
+1086,P3,Mackaroy Uncovered,ABC Radio National,b0726d87-e854-4612-81d2-ab233b18c7fd,needs-review,needs-review,insufficient-discovery-signals; source-conflict,2026-08-15 21:17:15
+1087,P3,Who Shat On The Floor at My Wedding?,,b5d18706-19b2-441c-8665-b29e32e1d41a,needs-review,needs-review,source-conflict,2026-08-15 21:19:05
+1088,P3,Aberrated Light,,ffecf68f-2843-4ac0-8fc7-deef95da6dcb,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 21:18:14
+1089,P3,Darkness Falls,,d5c66f4a-da1b-4903-9aed-13071b73a6e8,needs-review,needs-review,scope-review; source-conflict,2026-08-15 21:19:14
+1090,P3,Dead Wrong,,d4b5ad4f-fa4a-4ee7-b7e5-3e52bd8d7f32,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 21:19:09
+1091,P3,Letters From Home,,d271a3e7-750d-4bc5-a216-f93aaf9235d4,needs-review,needs-review,insufficient-discovery-signals; missing-genre; invalid-apple-link; scope-review; source-conflict,2026-08-15 21:17:03
+1092,P3,Magics of the Evergreen,,9cbadba9-a617-421c-85e0-e61bfdd1a5dc,needs-review,needs-review,scope-review,2026-08-15 21:17:10
+1093,P3,Crestfall: A Fantasy Audio Drama,,2bfe38cb-4ffb-4802-b9c2-cb5ed2e131bd,published,published,,2026-08-15 21:42:26
+1094,P3,TAGGED,,95b4a7f7-474e-4b3e-a5ea-96f7eef16f5b,published,published,,2026-08-15 21:42:26
+1095,P3,WildTrials,,29684dfe-68da-4d93-822c-8914ca217888,published,published,,2026-08-15 21:42:26
 1096,P3,Cauterized,,,unattempted,,,
 1097,P2,Action Science Theater,,5afea772-93a7-40b5-b489-3fae4511037b,needs-review,needs-review,source-conflict,2026-08-15 20:23:50
 1098,P2,American Comedy Horror Story,,b6470983-1f92-4d94-9b96-a3caa7482df3,published,published,,2026-08-15 20:28:59
