@@ -181,6 +181,20 @@ function getCollectionLeadShow(collection, showMap) {
   return anchorShow || getCollectionCoverShows(collection, collectionShows, 1)[0] || null;
 }
 
+function getCollectionCollageShows(collection, collectionShows, anchorShow) {
+  const coverShows = getCollectionCoverShows(collection, collectionShows, 4);
+  const candidates = anchorShow ? [anchorShow, ...coverShows] : coverShows;
+  const seen = new Set();
+
+  return candidates.filter((show) => {
+    if (!show?.id || seen.has(show.id)) {
+      return false;
+    }
+    seen.add(show.id);
+    return true;
+  }).slice(0, 4);
+}
+
 function getMostPopularLifecycleLabel(show) {
   if (show.completionStatus && show.completionStatus !== "unclear") {
     return toDisplayTag(show.completionStatus);
@@ -400,21 +414,22 @@ function renderCollectionCard(collection, showMap) {
   `.trim();
 }
 
-function renderCollectionDirectoryCard(collection, showMap) {
+function renderCollectionDirectoryCard(collection, showMap, { compact = false } = {}) {
   const collectionShows = getCollectionShows(collection, showMap);
   const anchorShow = getCollectionAnchorShow(collection, showMap);
-  const leadShow = anchorShow || getCollectionLeadShow(collection, showMap);
+  const coverShows = getCollectionCollageShows(collection, collectionShows, anchorShow);
   const title = collection.title || "Untitled collection";
   const description = collection.description || "Collection description not cataloged yet.";
-  const coverMarkup = leadShow
-    ? `<div class="collection-cover-collage collection-cover-collage-compact" aria-hidden="true"><span class="collection-cover-frame" data-cover-index="1"><img src="${escapeAttribute(getCoverVariantSource(leadShow, 320))}"${renderResponsiveCoverAttributes(leadShow, "(max-width: 560px) 42vw, (max-width: 960px) 28vw, 240px")} alt="" loading="lazy" decoding="async" width="320" height="320" /></span></div>`
+  const accent = (anchorShow || collectionShows.find((show) => show?.accent?.hex))?.accent?.hex || "";
+  const coverMarkup = coverShows.length
+    ? `<div class="collection-cover-collage collection-cover-collage-compact${compact ? " collection-cover-collage-rail" : ""}" aria-hidden="true">${coverShows.map((show, index) => `<span class="collection-cover-frame" data-cover-index="${index + 1}"><img src="${escapeAttribute(getCoverVariantSource(show, 320))}"${renderResponsiveCoverAttributes(show, "(max-width: 560px) 42vw, (max-width: 960px) 28vw, 240px")} alt="" loading="lazy" decoding="async" width="320" height="320" /></span>`).join("")}</div>`
     : "";
   const intentTags = (collection.intentTags || [])
     .map((tag) => `<span>${escapeHtml(toDisplayTag(tag))}</span>`)
     .join("");
   const meta = `${collectionShows.length} ${collectionShows.length === 1 ? "show" : "shows"} / ${collection.commitment || collection.kind || "Curated path"}`;
 
-  return `<a class="collections-directory-card" href="${escapeAttribute(createCollectionHref(collection.id || ""))}" data-collection-id="${escapeAttribute(collection.id || "")}" data-intent-tags="${escapeAttribute((collection.intentTags || []).join(" "))}" aria-label="Open the ${escapeAttribute(title)} collection">
+  return `<a class="collections-directory-card${compact ? " collections-directory-card-compact" : ""}" href="${escapeAttribute(createCollectionHref(collection.id || ""))}" data-collection-id="${escapeAttribute(collection.id || "")}"${anchorShow?.id ? ` data-anchor-show-id="${escapeAttribute(anchorShow.id)}"` : ""} data-intent-tags="${escapeAttribute((collection.intentTags || []).join(" "))}" aria-label="Open the ${escapeAttribute(title)} collection"${accent ? ` style="--collection-accent: ${escapeAttribute(accent)}"` : ""}>
     ${coverMarkup}
     <span class="collections-card-label">${escapeHtml(collection.label || (collection.featured ? "Featured route" : "Curated route"))}</span>
     <h3>${escapeHtml(title)}</h3>
@@ -583,6 +598,7 @@ function renderCollectionsPagePrerender(pageBody, { rootDir }) {
 module.exports = {
   renderArchiveCard,
   renderCollectionShowCard,
+  renderCollectionDirectoryCard,
   renderCollectionsPagePrerender,
   renderHomePagePrerender,
   renderMostPopularCard,

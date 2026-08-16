@@ -373,6 +373,41 @@ test("collection detail pages expose listener-facing overview and related route 
   }
 });
 
+test("collection detail routes arrive complete without catalog rehydration", async () => {
+  const noScriptPage = await browser.newPage({ javaScriptEnabled: false, viewport: { width: 1440, height: 900 } });
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  let catalogRequests = 0;
+  page.on("request", (request) => {
+    if (["/data/search-index.json", "/data/collections.json"].includes(new URL(request.url()).pathname)) {
+      catalogRequests += 1;
+    }
+  });
+
+  try {
+    const collectionUrl = `${baseUrl}/collections/${encodeURIComponent(firstCollectionId)}`;
+    await noScriptPage.goto(collectionUrl, { waitUntil: "domcontentloaded" });
+    const serverState = await noScriptPage.evaluate(() => ({
+      prerendered: document.getElementById("collectionRoot")?.dataset.collectionPrerendered,
+      overviewVisible: !document.getElementById("collectionRoot")?.hidden,
+      heroArtCount: document.querySelectorAll("#collectionHeroArt .collection-cover-frame").length,
+      cardCount: document.querySelectorAll("#collectionShowGrid .collection-show-card-shell").length,
+      relatedCount: document.querySelectorAll("#collectionRelatedGrid .collections-directory-card").length,
+    }));
+
+    assert.equal(serverState.prerendered, "true");
+    assert.equal(serverState.overviewVisible, true);
+    assert.ok(serverState.heroArtCount > 0);
+    assert.ok(serverState.cardCount > 0);
+    assert.ok(serverState.relatedCount > 0);
+
+    await page.goto(collectionUrl, { waitUntil: "networkidle" });
+    assert.equal(catalogRequests, 0, "the complete route should not refetch catalog data after first paint");
+  } finally {
+    await noScriptPage.close();
+    await page.close();
+  }
+});
+
 test("show and collection share actions trigger native share or copy feedback", async () => {
   const nativeSharePage = await browser.newPage({ viewport: { width: 390, height: 844 } });
   const fallbackCopyPage = await browser.newPage({ viewport: { width: 390, height: 844 } });

@@ -91,9 +91,9 @@
 
 .collection-detail-hero-copy h1 {
   max-width: none;
-  overflow: hidden;
+  overflow: visible;
   white-space: nowrap;
-  text-overflow: ellipsis;
+  text-overflow: clip;
 }
 
 .collections-hero-copy p,
@@ -124,6 +124,7 @@
 .collections-primary-action {
   min-height: 48px;
   padding: 0 20px;
+  text-decoration: none;
   border-color: rgba(239, 89, 67, 0.82);
   background: linear-gradient(135deg, rgba(255, 108, 77, 0.92), rgba(202, 61, 44, 0.92));
   color: #fff7f4;
@@ -144,6 +145,7 @@
   align-items: center;
   min-height: 48px;
   padding: 0 18px;
+  text-decoration: none;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(6, 8, 11, 0.62);

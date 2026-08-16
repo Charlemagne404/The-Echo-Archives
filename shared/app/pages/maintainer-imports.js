@@ -46,6 +46,7 @@ import { bindImportBatchActions } from "../maintainer-import/batch-actions.js";
 import { bindImportCandidateActions } from "../maintainer-import/detail-actions.js";
 import { buildReviewPayload, collectSeedEntries, revealCompactDetail, waitForManagedImportRun } from "../maintainer-import/workflow.js";
 import { bindExternalVerificationWorkspace } from "../maintainer-import/external-verification.js";
+import { bindElevationDesk } from "../maintainer-import/elevation.js";
 import { initializeMaintainerImportsReportPage } from "./maintainer-import-report.js";
 
 export async function initializeMaintainerImportsPage() {
@@ -131,12 +132,14 @@ export async function initializeMaintainerImportsPage() {
   }
 
   let discoveryWorkspace = null;
+  let elevationDesk = null;
 
   const abortRequests = () => {
     state.queueController?.abort();
     state.detailController?.abort();
     state.runController?.abort();
     discoveryWorkspace?.abort();
+    elevationDesk?.abort();
   };
 
   const auth = await initializeAuthFlow({
@@ -181,6 +184,12 @@ export async function initializeMaintainerImportsPage() {
     runAction: runMaintainerAction,
     onAuthError: showAuthentication,
     onCandidatesChanged: () => loadQueue(true),
+  });
+  elevationDesk = bindElevationDesk({
+    container: document.getElementById("maintainerElevationDesk"),
+    getReviewer: () => state.storedReviewer,
+    onAuthError: showAuthentication,
+    onStatus: (message) => { elements.detailMeta.textContent = message; },
   });
 
   async function waitForImportRun(runId) {
@@ -314,6 +323,7 @@ export async function initializeMaintainerImportsPage() {
       }
       await loadDetail();
       await discoveryWorkspace.load();
+      await elevationDesk.load();
       if (afterAuthentication) focusMaintainerWorkspace();
     } catch (error) {
       if (isAbortError(error)) return;

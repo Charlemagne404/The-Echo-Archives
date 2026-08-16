@@ -76,9 +76,9 @@
 
 .collection-detail-hero-copy h1 {
   max-width: none;
-  overflow: hidden;
+  overflow: visible;
   white-space: nowrap;
-  text-overflow: ellipsis;
+  text-overflow: clip;
 }
 
 .creators-hero-copy p,

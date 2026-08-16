@@ -89,6 +89,15 @@ Prepared records live only in SQLite. Approval requires an explicit `publication
 
 Published Imported entries can be promoted to indexed-only after a maintainer confirms identity, official description, links/artwork, discovery metadata, lifecycle claims, and remaining gaps. Imported or indexed-only entries enter planned/full review through the existing companion-review workflow. Publication and promotion events retain the maintainer actor privately; public generated data exposes tier and non-identifying timestamps/revisions only.
 
+## Elevation desk
+
+The protected Imports page includes an **Elevation desk** for deepening already-published records. It ranks two deliberate paths without using unverified popularity:
+
+- **Fact-check to indexed-only** favors clear in-scope identity, healthy official-source snapshots, factual completeness, and a current factual-review path. Starting this action creates a normal importer `update` candidate, so factual edits retain the usual evidence, reviewer locks, readiness checks, and atomic rollback before promotion.
+- **Build a full review** considers the same factual baseline plus underrepresented discovery coverage and missing collection/similar-show routes. It saves the review companion and editorial fields as a draft; an Imported record becomes `planned` while that companion exists and may only become `full-review` after factual review plus the normal editorial completeness checks.
+
+Every elevation can copy a Codex brief containing the current catalog facts, retained source URLs, known gaps, and a target-specific requested output. It intentionally excludes private maintainer identity and raw snapshots, and does not research, invent, or publish anything automatically.
+
 Human-owned fields are always preserved. Legacy non-empty factual fields are preserved until explicitly adopted. For importer-managed fields, `metadata.import.managedFingerprints` records the previous imported value. A later human edit changes that fingerprint and automatically locks the field against refresh. Public generated data strips fingerprints and internal workflow identifiers while retaining source references and per-field confidence/method.
 
 ## Interfaces

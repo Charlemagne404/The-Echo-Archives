@@ -17,6 +17,7 @@ const { createRateLimitStore } = require("./lib/store/rate-limit-store");
 const { createSubmissionStore } = require("./lib/store/submission-store");
 const { createCommunityService } = require("./lib/services/community-service");
 const { createImportService } = require("./lib/services/import-service");
+const { createElevationService } = require("./lib/services/elevation-service");
 const { createRateLimitService } = require("./lib/services/rate-limit-service");
 const { createSubmissionService } = require("./lib/services/submission-service");
 const { createPublishedListenerReviewService } = require("./lib/services/published-listener-review-service");
@@ -126,6 +127,19 @@ function hashPublicFile(staticRoot, relativePath) {
   }
 }
 
+function getPublicDataRevision(staticRoot) {
+  return ["data/shows.json", "data/collections.json", "data/search-index.json"]
+    .map((relativePath) => {
+      try {
+        const file = fs.statSync(path.join(staticRoot, relativePath));
+        return `${relativePath}:${file.size}:${file.mtimeMs}`;
+      } catch (_error) {
+        return `${relativePath}:missing`;
+      }
+    })
+    .join("|");
+}
+
 function setPublicCacheHeaders(req, res, { image = false } = {}) {
   if (typeof req.query.v === "string" && req.query.v.trim()) {
     res.set("Cache-Control", "public, max-age=31536000, immutable");
@@ -197,7 +211,9 @@ async function startServer() {
     showsVersion: "",
     collectionsVersion: "",
     searchIndexVersion: "",
+    publicDataRevision: "",
   };
+  let publicStateRefreshPromise = null;
 
   async function reloadState() {
     const catalog = await loadCatalog(config.STATIC_ROOT, {
@@ -225,6 +241,21 @@ async function startServer() {
     state.showsVersion = hashPublicFile(config.STATIC_ROOT, "data/shows.json");
     state.collectionsVersion = hashPublicFile(config.STATIC_ROOT, "data/collections.json");
     state.searchIndexVersion = hashPublicFile(config.STATIC_ROOT, "data/search-index.json");
+    state.publicDataRevision = getPublicDataRevision(config.STATIC_ROOT);
+  }
+
+  async function refreshStateIfPublicDataChanged() {
+    if (getPublicDataRevision(config.STATIC_ROOT) === state.publicDataRevision) {
+      return;
+    }
+
+    if (!publicStateRefreshPromise) {
+      publicStateRefreshPromise = reloadState().finally(() => {
+        publicStateRefreshPromise = null;
+      });
+    }
+
+    await publicStateRefreshPromise;
   }
 
   await reloadState();
@@ -300,6 +331,16 @@ async function startServer() {
       publishedListenerReviewService.setKnownShowIds(new Set(state.publicCatalog.map((show) => show.id)));
     },
   });
+  const elevationService = createElevationService({
+    staticRoot: config.STATIC_ROOT,
+    importService,
+    onPublished: async () => {
+      await reloadState();
+      communityStore.syncCatalog(state.publicCatalog);
+      submissionService.setKnownShows(state.publicCatalog);
+      publishedListenerReviewService.setKnownShowIds(new Set(state.publicCatalog.map((show) => show.id)));
+    },
+  });
   const maintainerAuth = createMaintainerAuth(config);
 
   config.getConfigWarnings(config).forEach((warning) => console.warn(warning));
@@ -346,6 +387,14 @@ async function startServer() {
   app.use((_req, res, next) => {
     res.set("Cache-Control", "no-cache");
     next();
+  });
+  app.use(async (_req, _res, next) => {
+    try {
+      await refreshStateIfPublicDataChanged();
+      next();
+    } catch (error) {
+      next(error);
+    }
   });
   app.use(express.json({ limit: "24kb" }));
   app.use("/api", (_req, res, next) => {
@@ -463,6 +512,7 @@ async function startServer() {
       submissionService,
       publishedListenerReviewService,
       importService,
+      elevationService,
       rateLimiter: rateLimitService,
     }),
   );
@@ -583,7 +633,13 @@ async function startServer() {
       const template = readPublicPageTemplate("collection.html");
       let rendered = injectPageMetadata(
         injectCollectionShowCards(
-          injectCollectionSummary(template, { collection, collectionShows }),
+          injectCollectionSummary(template, {
+            collection,
+            collectionShows,
+            anchorShow,
+            collections: state.collections,
+            allShows: state.publicCatalog,
+          }),
           { collection, collectionShows },
         ),
         buildCollectionPageMetadata({

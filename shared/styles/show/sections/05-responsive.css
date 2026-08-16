@@ -119,12 +119,6 @@
     border-radius: 18px;
   }
 
-  .detail-breadcrumbs {
-    gap: 8px;
-    margin-bottom: 14px;
-    font-size: 0.8rem;
-  }
-
   .detail-fact-row,
   .detail-similar-card {
     grid-template-columns: minmax(0, 1fr);

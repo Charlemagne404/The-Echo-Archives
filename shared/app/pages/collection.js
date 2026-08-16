@@ -249,6 +249,20 @@ export async function initializeCollectionPage() {
     return;
   }
 
+  // Dynamic collection routes already include their complete, SEO-ready page from
+  // the server. Do not fetch and replace it again: that delays interactivity and
+  // causes a visible layout shift after first paint.
+  if (root.dataset.collectionPrerendered === "true") {
+    if (shareButton instanceof HTMLButtonElement) {
+      bindShareButton(shareButton, {
+        title: document.title,
+        text: document.getElementById("collectionDescription")?.textContent?.trim() || "",
+        url: document.querySelector('link[rel="canonical"]')?.href || window.location.href,
+      });
+    }
+    return;
+  }
+
   if (grid.children.length === 0) {
     for (let index = 0; index < 6; index += 1) {
       grid.appendChild(createCollectionLoadingCard());

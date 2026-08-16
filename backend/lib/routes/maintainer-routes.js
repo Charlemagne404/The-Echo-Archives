@@ -16,7 +16,7 @@ function createAuthRequiredError() {
   return error;
 }
 
-function createMaintainerRouter({ auth, staticRoot, submissionService, publishedListenerReviewService, importService, rateLimiter = null }) {
+function createMaintainerRouter({ auth, staticRoot, submissionService, publishedListenerReviewService, importService, elevationService, rateLimiter = null }) {
   const router = express.Router();
 
   router.use(["/maintainer", "/api/maintainer"], (req, res, next) => {
@@ -320,6 +320,62 @@ function createMaintainerRouter({ auth, staticRoot, submissionService, published
         req.body?.reviewedBy || "",
         req.body?.publicationTier || "",
       ));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.get("/api/maintainer/elevations", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.json(elevationService.listForMaintainer(req.query.target));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.get("/api/maintainer/elevations/:showId", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.json(elevationService.getForMaintainer(req.params.showId));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/elevations/:showId/factual-draft", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.status(202).json(elevationService.createFactualDraft(req.params.showId, req.body?.reviewedBy || ""));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.put("/api/maintainer/elevations/:showId/review-draft", requireMaintainerSession, async (req, res, next) => {
+    try {
+      return res.json(await elevationService.saveReviewDraft(req.params.showId, req.body || {}));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/elevations/:showId/review-publish", requireMaintainerSession, async (req, res, next) => {
+    try {
+      return res.json(await elevationService.publishReview(req.params.showId, req.body?.reviewedBy || ""));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.get("/api/maintainer/elevations/:showId/brief", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.json(elevationService.buildCodexBrief(req.params.showId, req.query.target));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/elevations/drafts/:candidateId/promote", requireMaintainerSession, async (req, res, next) => {
+    try {
+      return res.json(await importService.promoteElevationForMaintainer(req.params.candidateId, req.body?.reviewedBy || ""));
     } catch (error) {
       return next(error);
     }

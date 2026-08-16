@@ -372,6 +372,30 @@ test("a factually reviewed Imported entry can be promoted without exposing revie
   }
 });
 
+test("an Imported record can use a protected factual elevation update before indexed-only promotion", async () => {
+  const context = createTempImportContext({ fetchImpl: sourceRichFetch() });
+  try {
+    const seeded = await context.service.seedCandidates({ entries: ["https://example.com/feed.xml"], autoHydrate: true });
+    const imported = await context.service.publishForMaintainer(seeded.candidateIds[0], "CA", "imported");
+    const draft = context.service.createElevationUpdateForMaintainer(imported.showId, "CA");
+    await context.service.processPendingJobs();
+    await context.service.waitForRun(draft.runId);
+    const candidateId = draft.candidateIds[0];
+    const ready = context.service.getForMaintainer(candidateId);
+    assert.equal(ready.mode, "update");
+    assert.equal(ready.existingShowId, imported.showId);
+    assert.equal(ready.status, "ready", JSON.stringify(ready.readiness?.blockers));
+    context.service.markFactsReviewedForMaintainer(candidateId, "CA");
+    const result = await context.service.promoteElevationForMaintainer(candidateId, "CA");
+    assert.equal(result.reviewStatus, "indexed-only");
+    const record = readShowsFile(context.siteRoot).find((show) => show.id === imported.showId);
+    assert.equal(record.reviewStatus, "indexed-only");
+    assert.equal(record.metadata.import.factualReview.reviewedBy, "CA");
+  } finally {
+    cleanup(context);
+  }
+});
+
 test("maintainer enrichment prepares source-backed discovery detail without creating editorial content", async () => {
   const context = createTempImportContext({ fetchImpl: sourceRichFetch() });
   try {

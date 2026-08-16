@@ -3,7 +3,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 
-const { renderArchiveCard, renderCollectionShowCard, renderHomePagePrerender, renderMostPopularCard } = require("../../tools/lib/home-page-prerender");
+const { renderArchiveCard, renderCollectionDirectoryCard, renderCollectionShowCard, renderHomePagePrerender, renderMostPopularCard } = require("../../tools/lib/home-page-prerender");
 
 const ROOT = path.resolve(__dirname, "../..");
 const HOME_MOST_POPULAR_IDS = ["midnight-burger", "were-alive", "red-valley", "derelict"];
@@ -56,4 +56,30 @@ test("Imported cards, collection cards, and popular cards carry a compact tier s
     assert.doesNotMatch(markup, /archive-inline-score/);
   });
   assert.match(renderMostPopularCard(show), /popular-card-chip is-imported">Imported/);
+});
+
+test("prerendered compact collection cards retain the four-cover collage and anchor show", () => {
+  const shows = [
+    { id: "anchor", title: "Anchor", status: "published", cover: "images/anchor.jpg", accent: { hex: "#123456" } },
+    { id: "one", title: "One", status: "published", cover: "images/one.jpg" },
+    { id: "two", title: "Two", status: "published", cover: "images/two.jpg" },
+    { id: "three", title: "Three", status: "published", cover: "images/three.jpg" },
+  ];
+  const markup = renderCollectionDirectoryCard(
+    {
+      id: "shows-like-anchor",
+      title: "Shows like Anchor",
+      anchorShowId: "anchor",
+      coverShowIds: ["one", "two", "three"],
+      showIds: shows.map((show) => show.id),
+    },
+    new Map(shows.map((show) => [show.id, show])),
+    { compact: true },
+  );
+
+  assert.match(markup, /collection-cover-collage-rail/);
+  assert.equal((markup.match(/collection-cover-frame/g) || []).length, 4);
+  assert.match(markup, /data-anchor-show-id="anchor"/);
+  assert.match(markup, /data-cover-index="1"><img src="\/images\/anchor\.jpg"/);
+  assert.match(markup, /style="--collection-accent: #123456"/);
 });

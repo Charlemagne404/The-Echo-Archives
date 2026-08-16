@@ -286,6 +286,12 @@ function buildFtsQuery(value = "") {
 
 function createImportStore({ db }) {
   const getCandidateRow = db.prepare("SELECT * FROM catalog_import_candidates WHERE id = ?");
+  const getLatestPublishedCandidateForShowRow = db.prepare(`
+    SELECT * FROM catalog_import_candidates
+    WHERE published_show_id = ?
+    ORDER BY datetime(updated_at) DESC, id DESC
+    LIMIT 1
+  `);
   const getCandidateSources = db.prepare(`
     SELECT * FROM catalog_import_sources
     WHERE candidate_id = ? AND raw_compacted = 0
@@ -441,6 +447,10 @@ function createImportStore({ db }) {
         createdAt: row.created_at,
       })),
     };
+  }
+
+  function getLatestPublishedCandidateForShow(showId) {
+    return hydrateCandidate(getLatestPublishedCandidateForShowRow.get(showId));
   }
 
   function listCandidates(filters = {}) {
@@ -706,7 +716,10 @@ function createImportStore({ db }) {
         identityValue: existing.identity_value,
         candidateId: candidateId || "",
         existingShowId,
-        collision: Boolean(mapping.candidateId && candidateId && mapping.candidateId !== candidateId),
+        collision: Boolean(
+          mapping.candidateId && candidateId && mapping.candidateId !== candidateId &&
+          (!mapping.existingShowId || !existingShowId || mapping.existingShowId !== existingShowId),
+        ),
       };
     }
     db.prepare(`
@@ -1187,6 +1200,7 @@ function createImportStore({ db }) {
     failJob,
     findIdentity,
     getCandidate,
+    getLatestPublishedCandidateForShow,
     getDiscoveryItem,
     getDiscoveryRun,
     getDiscoverySource,

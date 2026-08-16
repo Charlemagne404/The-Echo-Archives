@@ -448,6 +448,11 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     return store.listCandidates({ ...filters, openStatuses: IMPORT_OPEN_STATUSES });
   }
 
+  function getPublishedCandidateForShow(showId) {
+    const candidate = store.getLatestPublishedCandidateForShow(showId);
+    return candidate ? getCandidate(candidate.id) : null;
+  }
+
   async function searchExternalSources({ q, source = "all", limit = 10 }) {
     const selected = ["apple", "podcast-index", "all"].includes(String(source).toLowerCase()) ? String(source).toLowerCase() : "all";
     const results = [];
@@ -1515,6 +1520,129 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     }
   }
 
+  function createElevationUpdateForMaintainer(showId, actor = "") {
+    const existing = readCatalogRecords(true).find((show) => show.id === showId);
+    if (!existing) {
+      const error = new Error("The published catalogue record could not be found.");
+      error.statusCode = 404;
+      throw error;
+    }
+    if (!["imported", "planned"].includes(existing.reviewStatus)) {
+      const error = new Error("Only Imported or planned-review entries can use a factual elevation draft.");
+      error.statusCode = 409;
+      throw error;
+    }
+
+    const sourceCandidate = store.getLatestPublishedCandidateForShow(showId);
+    const sourceObjective = sourceCandidate?.objective || {};
+    const objective = {
+      ...sourceObjective,
+      title: existing.title,
+      creatorName: existing.credits?.creatorName || existing.creators?.[0] || sourceObjective.creatorName || "",
+      description: existing.description,
+      rssUrl: existing.listenLinks?.rss || sourceObjective.rssUrl || "",
+      appleUrl: existing.listenLinks?.apple || sourceObjective.appleUrl || "",
+      appleCollectionId: extractAppleCollectionId(existing.listenLinks?.apple) || sourceObjective.appleCollectionId || "",
+      websiteUrl: existing.officialLinks?.website || existing.listenLinks?.website || sourceObjective.websiteUrl || "",
+      objectiveSources: mergeUniqueStrings(sourceObjective.objectiveSources || [], [
+        existing.listenLinks?.rss,
+        existing.listenLinks?.apple,
+        existing.officialLinks?.website,
+        existing.listenLinks?.website,
+      ].filter(Boolean)),
+    };
+    const payload = buildInitialCandidatePayload({
+      sourceType: sourceCandidate?.primarySourceType || (objective.rssUrl ? "rss" : objective.appleUrl ? "apple" : "website"),
+      sourceKey: sourceCandidate?.primarySourceKey || objective.rssUrl || objective.appleCollectionId || objective.websiteUrl,
+      sourceUrl: sourceCandidate?.primarySourceUrl || objective.rssUrl || objective.appleUrl || objective.websiteUrl,
+      seedQuery: existing.title,
+      objective,
+    });
+    payload.mode = "update";
+    payload.existingShowId = showId;
+    payload.scopeStatus = "in-scope";
+    payload.reviewNotes = "Factual elevation draft created from the published Imported record.";
+    const candidate = store.createCandidate(payload);
+    const dedupe = buildDedupe(candidate);
+    store.updateCandidate(candidate.id, { hasDuplicateMatch: dedupe.hasDuplicateMatch, dedupe });
+    store.recordEvent(candidate.id, "elevation-draft-created", actor || "authenticated-maintainer", { showId });
+    return enqueueCandidate(candidate.id, { actor, runType: "elevation-factual", incrementRevision: false });
+  }
+
+  async function promoteElevationForMaintainer(id, actor = "") {
+    const candidate = getCandidate(id);
+    if (candidate.mode !== "update" || !candidate.existingShowId) {
+      const error = new Error("This candidate is not a factual elevation draft.");
+      error.statusCode = 409;
+      throw error;
+    }
+    if (candidate.status !== "ready" || !candidate.readiness?.ready || !candidate.preparedRecord?.id) {
+      const error = new Error("The factual elevation draft must be ready before promotion.");
+      error.statusCode = 409;
+      throw error;
+    }
+    if (!candidate.factsReviewedAt || Number(candidate.factsReviewedRevision) !== Number(candidate.inputRevision)) {
+      const error = new Error("A current factual review is required before promotion.");
+      error.statusCode = 409;
+      throw error;
+    }
+    const existing = readCatalogRecords(true).find((show) => show.id === candidate.existingShowId);
+    if (!existing || !["imported", "planned"].includes(existing.reviewStatus)) {
+      const error = new Error("Only current Imported or planned-review records can be updated through a factual elevation draft.");
+      error.statusCode = 409;
+      throw error;
+    }
+    const eligibility = candidate.readiness?.publicationEligibility?.indexedOnly;
+    if (!eligibility?.eligible) {
+      const error = new Error(`The factual elevation draft is not publication-ready: ${(eligibility?.blockers || []).map((blocker) => blocker.message).join("; ") || "readiness checks are incomplete"}.`);
+      error.statusCode = 400;
+      throw error;
+    }
+
+    const reviewer = trimText(actor, 160) || candidate.factsReviewedBy || "authenticated-maintainer";
+    const promotedAt = new Date().toISOString();
+    const promoted = JSON.parse(JSON.stringify(candidate.preparedRecord));
+    const nextReviewStatus = existing.reviewStatus === "imported" ? "indexed-only" : existing.reviewStatus;
+    promoted.reviewStatus = nextReviewStatus;
+    promoted.updatedAt = promotedAt.slice(0, 10);
+    promoted.verification = {
+      ...(promoted.verification || {}),
+      status: "maintainer-source-reviewed",
+      verifiedAt: promotedAt.slice(0, 10),
+      note: "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations.",
+    };
+    promoted.metadata = {
+      ...(promoted.metadata || {}),
+      import: {
+        ...(promoted.metadata?.import || {}),
+        publication: { ...(promoted.metadata?.import?.publication || {}), tier: nextReviewStatus === "indexed-only" ? "indexed-only" : existing.metadata?.import?.publication?.tier || "imported" },
+        factualReview: {
+          reviewedAt: candidate.factsReviewedAt,
+          reviewedBy: reviewer,
+          inputRevision: candidate.factsReviewedRevision,
+        },
+      },
+    };
+    const releaseLock = acquirePublishLock();
+    let catalogTransaction = null;
+    try {
+      catalogTransaction = writeShowRecordsAtomically(staticRoot, [promoted]);
+      await validateSiteData(staticRoot);
+      catalogCache = null;
+      if (typeof onPublished === "function") await onPublished();
+      const updated = store.updateCandidate(id, { status: "published", publishedShowId: promoted.id, preparedRecord: promoted, lastError: "" });
+      store.recordEvent(id, "elevation-promoted", reviewer, { showId: promoted.id, reviewStatus: promoted.reviewStatus });
+      return { candidate: updated, showId: promoted.id, reviewStatus: promoted.reviewStatus };
+    } catch (error) {
+      catalogTransaction?.rollback();
+      await buildCatalog(staticRoot).catch(() => {});
+      store.updateCandidate(id, { status: "ready", lastError: trimText(error.message || error, 4_000) });
+      throw error;
+    } finally {
+      releaseLock();
+    }
+  }
+
   async function auditCatalog({ actor = "" } = {}) {
     const searchResults = readCatalogRecords().map((show) => ({
       sourceType: show.listenLinks?.rss ? "rss" : show.listenLinks?.apple ? "apple" : "website",
@@ -1554,10 +1682,12 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     batchPublishForMaintainer,
     buildReport,
     createDiscoverySourceForMaintainer,
+    createElevationUpdateForMaintainer,
     draftForMaintainer,
     enqueueForMaintainer: enqueueCandidate,
     enqueueDiscoverySource,
     getForMaintainer: getCandidate,
+    getPublishedCandidateForShow,
     getDiscoveryRun: (id) => store.getDiscoveryRun(id),
     getRun: (id) => store.getRun(id),
     hydrateForMaintainer,
@@ -1568,6 +1698,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     processPendingJobs,
     publishForMaintainer,
     promoteForMaintainer,
+    promoteElevationForMaintainer,
     reopenForMaintainer,
     retryForMaintainer,
     retryRunForMaintainer,

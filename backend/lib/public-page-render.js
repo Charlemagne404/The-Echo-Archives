@@ -25,8 +25,8 @@ const {
   buildShowSeoDescription,
   buildShowSeoTitle,
 } = require("./seo");
-const { renderCollectionShowCard } = require("../../tools/lib/home-page-prerender");
-const { getWebPageDates } = require("../../shared/archive-record");
+const { renderCollectionDirectoryCard, renderCollectionShowCard } = require("../../tools/lib/home-page-prerender");
+const { formatCount, getWebPageDates, toPublicLabel } = require("../../shared/archive-record");
 
 function replaceNamedMeta(html, name, content) {
   const escapedName = escapeRegExp(name);
@@ -400,7 +400,72 @@ function replaceElementText(html, id, value) {
   return html.replace(pattern, (_match, opening, closing) => `${opening}${escapeHtml(value)}${closing}`);
 }
 
-function injectCollectionSummary(html, { collection, collectionShows = [] }) {
+function replaceElementContents(html, id, value) {
+  const pattern = new RegExp(`(<([a-z][a-z0-9-]*)[^>]*\\bid="${escapeRegExp(id)}"[^>]*>)[\\s\\S]*?(<\\/\\2>)`, "i");
+  return html.replace(pattern, (_match, opening, _tagName, closing) => `${opening}${value}${closing}`);
+}
+
+function getRouteTypeLabel(collection) {
+  return collection?.kind === "similarity" ? "Shows-like route" : "Curated route";
+}
+
+function countOverlap(leftValues = [], rightValues = []) {
+  const values = new Set(Array.isArray(leftValues) ? leftValues : []);
+  return (Array.isArray(rightValues) ? rightValues : []).reduce((count, value) => count + Number(values.has(value)), 0);
+}
+
+function getRelatedCollections(collection, collections = []) {
+  return collections
+    .filter((candidate) => candidate.id && candidate.id !== collection.id)
+    .map((candidate) => {
+      const sharedIntentCount = countOverlap(collection.intentTags, candidate.intentTags);
+      const sharedShowCount = countOverlap(collection.showIds, candidate.showIds);
+      const sameKind = Number(candidate.kind === collection.kind);
+      return { candidate, sharedIntentCount, sharedShowCount, sameKind, score: sharedIntentCount * 4 + sharedShowCount * 3 + sameKind };
+    })
+    .filter((entry) => entry.score > 0)
+    .sort((left, right) => right.score - left.score || right.sharedShowCount - left.sharedShowCount || right.sharedIntentCount - left.sharedIntentCount || right.sameKind - left.sameKind || left.candidate.order - right.candidate.order || String(left.candidate.title || "").localeCompare(String(right.candidate.title || "")))
+    .slice(0, 3)
+    .map((entry) => entry.candidate);
+}
+
+function renderCollectionHeroTags(collection) {
+  const tags = [];
+  if (collection.label) tags.push(`<span class="collection-intent-tag-featured">${escapeHtml(collection.label)}</span>`);
+  (collection.intentTags || []).slice(0, 4).forEach((tag) => tags.push(`<span>${escapeHtml(toPublicLabel(tag))}</span>`));
+  return `<div class="collection-intent-tags collection-hero-tags">${tags.join("")}</div>`;
+}
+
+function renderCollectionHeroArt(collection, collectionShows, anchorShow) {
+  const selected = [anchorShow, ...(collection.coverShowIds || []).map((id) => collectionShows.find((show) => show.id === id)), ...collectionShows]
+    .filter(Boolean)
+    .filter((show, index, shows) => shows.findIndex((candidate) => candidate.id === show.id) === index)
+    .slice(0, 4);
+  return `<div class="collection-cover-collage collection-detail-collage" aria-hidden="true">${selected.map((show, index) => `<span class="collection-cover-frame" data-cover-index="${index + 1}"><img src="${escapeAttribute(getShowImagePath(show))}" alt="" loading="${index === 0 ? "eager" : "lazy"}" decoding="async" width="320" height="320" /></span>`).join("")}</div>`;
+}
+
+function formatCollectionDate(value) {
+  const date = new Date(`${String(value || "").trim()}T00:00:00`);
+  return Number.isNaN(date.getTime()) ? "" : new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric", year: "numeric" }).format(date);
+}
+
+function renderCollectionOverview(collection, collectionShows, anchorShow) {
+  const routeTypeLabel = getRouteTypeLabel(collection);
+  const meta = [
+    `<span class="collection-detail-meta-text">${escapeHtml(formatCount(collectionShows.length, "show"))}</span>`,
+    `<span class="collection-detail-meta-separator" aria-hidden="true"> · </span>`,
+    `<span class="collection-detail-meta-text">${escapeHtml(routeTypeLabel)}</span>`,
+    collection.kind === "similarity" && anchorShow ? `<span class="collection-detail-meta-separator" aria-hidden="true"> · </span><span class="collection-detail-meta-text collection-detail-meta-text-anchor"><span class="collection-detail-anchor-prefix">Starts with </span><a class="collection-detail-anchor-link" href="${escapeAttribute(buildShowPath(anchorShow.id))}">${escapeHtml(anchorShow.title)}</a></span>` : "",
+    collection.updatedAt ? `<span class="collection-detail-meta-separator" aria-hidden="true"> · </span><span class="collection-detail-meta-text">Updated ${escapeHtml(formatCollectionDate(collection.updatedAt))}</span>` : "",
+  ].join("");
+  const chips = [collection.label, ...(collection.intentTags || []).slice(0, 2)]
+    .filter(Boolean)
+    .map((value, index) => `<span class="collection-detail-signal-chip${index === 0 && collection.label ? " collection-detail-signal-chip-featured" : ""}">${escapeHtml(index === 0 && collection.label ? value : toPublicLabel(value))}</span>`)
+    .join("");
+  return { meta, chips };
+}
+
+function injectCollectionSummary(html, { collection, collectionShows = [], anchorShow = null, collections = [], allShows = [] }) {
   let rendered = replaceElementText(html, "collectionTitle", collection.title);
   rendered = replaceElementText(rendered, "collectionBreadcrumbTitle", collection.title);
   rendered = replaceElementText(rendered, "collectionDescription", fallbackDescription(collection.description));
@@ -412,6 +477,20 @@ function injectCollectionSummary(html, { collection, collectionShows = [] }) {
     "collectionShowsSummary",
     `${count} curated ${count === 1 ? "entry" : "entries"} in this listening path.${titleSummary}`,
   );
+  const overview = renderCollectionOverview(collection, collectionShows, anchorShow);
+  rendered = replaceElementContents(rendered, "collectionHeroTags", renderCollectionHeroTags(collection));
+  rendered = replaceElementContents(rendered, "collectionHeroArt", renderCollectionHeroArt(collection, collectionShows, anchorShow));
+  rendered = replaceElementContents(rendered, "collectionOverviewMetaLine", overview.meta);
+  rendered = replaceElementContents(rendered, "collectionOverviewChips", overview.chips);
+  rendered = rendered.replace('id="collectionRoot" class="page-card collection-detail-overview" aria-label="Collection at a glance" hidden', 'id="collectionRoot" class="page-card collection-detail-overview" aria-label="Collection at a glance" data-collection-prerendered="true"');
+  const showMap = new Map(allShows.map((show) => [show.id, show]));
+  const relatedMarkup = getRelatedCollections(collection, collections)
+    .map((relatedCollection) => renderCollectionDirectoryCard(relatedCollection, showMap, { compact: true }))
+    .join("");
+  if (relatedMarkup) {
+    rendered = replaceElementContents(rendered, "collectionRelatedGrid", relatedMarkup);
+    rendered = rendered.replace('id="collectionRelatedSection" class="page-card collection-detail-related-section" aria-labelledby="collection-related-title" hidden', 'id="collectionRelatedSection" class="page-card collection-detail-related-section" aria-labelledby="collection-related-title"');
+  }
   return rendered;
 }
 

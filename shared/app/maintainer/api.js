@@ -266,3 +266,43 @@ export async function promoteMaintainerImportCandidate(id, payload = {}) {
     body: JSON.stringify(payload),
   });
 }
+
+export async function fetchMaintainerElevations(target = "indexed-only", options = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/elevations?${createSearch({ target })}`, { signal: options.signal });
+}
+
+export async function fetchMaintainerElevation(showId, options = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/elevations/${encodeURIComponent(showId)}`, { signal: options.signal });
+}
+
+export async function createMaintainerElevationFactualDraft(showId, payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/elevations/${encodeURIComponent(showId)}/factual-draft`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function saveMaintainerElevationReviewDraft(showId, payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/elevations/${encodeURIComponent(showId)}/review-draft`, {
+    method: "PUT",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function publishMaintainerElevationReview(showId, payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/elevations/${encodeURIComponent(showId)}/review-publish`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function fetchMaintainerElevationBrief(showId, target = "indexed-only", options = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/elevations/${encodeURIComponent(showId)}/brief?${createSearch({ target })}`, { signal: options.signal });
+}
+
+export async function promoteMaintainerElevationDraft(candidateId, payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/elevations/drafts/${encodeURIComponent(candidateId)}/promote`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}

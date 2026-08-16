@@ -307,9 +307,9 @@
 
 .collection-detail-hero-copy h1 {
   max-width: none;
-  overflow: hidden;
+  overflow: visible;
   white-space: nowrap;
-  text-overflow: ellipsis;
+  text-overflow: clip;
 }
 
 .collections-hero-copy p,
@@ -340,6 +340,7 @@
 .collections-primary-action {
   min-height: 48px;
   padding: 0 20px;
+  text-decoration: none;
   border-color: rgba(239, 89, 67, 0.82);
   background: linear-gradient(135deg, rgba(255, 108, 77, 0.92), rgba(202, 61, 44, 0.92));
   color: #fff7f4;
@@ -360,6 +361,7 @@
   align-items: center;
   min-height: 48px;
   padding: 0 18px;
+  text-decoration: none;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(6, 8, 11, 0.62);
@@ -1034,6 +1036,11 @@
   border-radius: 12px;
 }
 
+.collection-related-grid .collections-directory-card-compact .collection-cover-collage-rail {
+  min-height: 132px;
+  aspect-ratio: 3.2 / 1;
+}
+
 .collections-directory-card-compact h3 {
   font-size: 1rem;
 }
@@ -1188,9 +1195,15 @@
   margin-top: 4px;
 }
 
+.collection-show-card-shell {
+  align-self: stretch;
+  height: auto;
+}
+
 .collection-show-card-note {
   display: -webkit-box;
   margin: 10px 16px 0;
+  min-height: calc(3 * 1.48em + 13px);
   padding: 12px 12px 0;
   overflow: hidden;
   border-top: 1px solid rgba(255, 255, 255, 0.08);

@@ -210,12 +210,35 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
       }
       return respond({ error: "Unhandled mocked import route." }, 500);
     });
+    await page.route("**/api/maintainer/elevations**", async (route) => {
+      const url = new URL(route.request().url());
+      const target = url.searchParams.get("target") || "indexed-only";
+      return route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          target,
+          items: [{
+            showId: "signal-test",
+            title: "Signal Test",
+            reviewStatus: "imported",
+            target,
+            score: 85,
+            factors: ["Clear in-scope identity", "Strong factual baseline"],
+            blockers: [],
+            eligible: true,
+          }],
+        }),
+      });
+    });
 
     await page.locator("#maintainerPassphrase").fill("smoke-maintainer");
     await page.getByRole("button", { name: "Unlock import lane" }).click();
     await page.locator("#maintainerAppShell").waitFor({ state: "visible" });
     await page.waitForFunction(() => document.activeElement?.id === "maintainerWorkspaceTitle" && window.scrollY <= 1);
     await page.getByText("Review and publish", { exact: true }).waitFor();
+    await page.getByRole("heading", { name: "What to flesh out next" }).waitFor();
+    assert.equal(await page.getByText("Clear in-scope identity", { exact: false }).count() > 0, true);
     assert.equal(await page.locator(".import-cover-preview img").count(), 1);
     assert.deepEqual(await page.locator(".import-cover-preview img").evaluate((image) => [image.getAttribute("width"), image.getAttribute("height")]), ["112", "112"]);
     assert.match(await page.locator("#maintainerDetail").innerText(), /Field provenance/);
