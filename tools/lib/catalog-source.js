@@ -84,6 +84,77 @@ function writeShowRecordsAtomically(siteRoot, records = []) {
   return { changedPaths, rollback };
 }
 
+function writeCollectionRecordsAtomically(siteRoot, records = []) {
+  const nextRecords = Array.isArray(records) ? records : [];
+  if (nextRecords.length === 0) {
+    throw new Error("At least one collection record is required.");
+  }
+
+  const sourceData = readCatalogSource(siteRoot);
+  const replacements = new Map(
+    nextRecords.map((record) => [String(record?.id || "").trim(), record]).filter(([id]) => id),
+  );
+  if (replacements.size !== nextRecords.length) {
+    throw new Error("Every collection record needs an id.");
+  }
+
+  if (sourceData.mode !== "split") {
+    const collections = sourceData.collections.map((record) => replacements.get(record.id) || record);
+    replacements.forEach((record, id) => {
+      if (!sourceData.collections.some((existing) => existing.id === id)) collections.push(record);
+    });
+    const targetPath = path.join(siteRoot, RUNTIME_DATA_DIR, "collections.json");
+    const previous = fs.existsSync(targetPath) ? fs.readFileSync(targetPath) : null;
+    writeJsonFileAtomic(targetPath, collections);
+    return {
+      changedPaths: [targetPath],
+      rollback: () => {
+        if (previous === null) fs.rmSync(targetPath, { force: true });
+        else fs.writeFileSync(targetPath, previous);
+      },
+    };
+  }
+
+  const directoryPath = path.join(siteRoot, COLLECTIONS_SOURCE_DIR);
+  const orderPath = getOrderFilePath(directoryPath);
+  const currentOrder = readOrderFile(directoryPath);
+  const nextOrder = [...currentOrder];
+  const backups = new Map();
+  const changedPaths = [];
+  const remember = (filePath) => {
+    if (!backups.has(filePath)) backups.set(filePath, fs.existsSync(filePath) ? fs.readFileSync(filePath) : null);
+  };
+  const rollback = () => {
+    [...backups.entries()].reverse().forEach(([filePath, content]) => {
+      if (content === null) fs.rmSync(filePath, { force: true });
+      else {
+        fs.mkdirSync(path.dirname(filePath), { recursive: true });
+        fs.writeFileSync(filePath, content);
+      }
+    });
+  };
+
+  try {
+    replacements.forEach((record, id) => {
+      const filePath = path.join(directoryPath, `${id}.json`);
+      remember(filePath);
+      writeJsonFileAtomic(filePath, record);
+      changedPaths.push(filePath);
+      if (!nextOrder.includes(id)) nextOrder.push(id);
+    });
+    if (nextOrder.length !== currentOrder.length) {
+      remember(orderPath);
+      writeJsonFileAtomic(orderPath, nextOrder);
+      changedPaths.push(orderPath);
+    }
+  } catch (error) {
+    rollback();
+    throw error;
+  }
+
+  return { changedPaths, rollback };
+}
+
 function hasSplitCatalogSource(siteRoot) {
   return fs.existsSync(path.join(siteRoot, CATALOG_SOURCE_ROOT));
 }
@@ -296,6 +367,7 @@ module.exports = {
   readGeneratedFileText,
   readJsonFile,
   writeCatalogSource,
+  writeCollectionRecordsAtomically,
   writeJsonFile,
   writeJsonFileAtomic,
   writeShowRecordsAtomically,

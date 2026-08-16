@@ -16,7 +16,7 @@ function createAuthRequiredError() {
   return error;
 }
 
-function createMaintainerRouter({ auth, staticRoot, submissionService, publishedListenerReviewService, importService, elevationService, rateLimiter = null }) {
+function createMaintainerRouter({ auth, staticRoot, submissionService, publishedListenerReviewService, importService, elevationService, collectionService, rateLimiter = null }) {
   const router = express.Router();
 
   router.use(["/maintainer", "/api/maintainer"], (req, res, next) => {
@@ -47,6 +47,7 @@ function createMaintainerRouter({ auth, staticRoot, submissionService, published
   router.get("/maintainer/submissions/report.html", sendMaintainerPage("maintainer/submissions/report.html"));
   router.get("/maintainer/imports.html", sendMaintainerPage("maintainer/imports.html"));
   router.get("/maintainer/imports/report.html", sendMaintainerPage("maintainer/imports/report.html"));
+  router.get("/maintainer/collections.html", sendMaintainerPage("maintainer/collections.html"));
 
   router.post("/api/maintainer/session", (req, res, next) => {
     if (!auth.authenticate(req.body?.passphrase || "")) {
@@ -485,6 +486,108 @@ function createMaintainerRouter({ auth, staticRoot, submissionService, published
   router.post("/api/maintainer/imports/:id/promote", requireMaintainerSession, async (req, res, next) => {
     try {
       return res.json(await importService.promoteForMaintainer(req.params.id, req.body?.reviewedBy || ""));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.get("/api/maintainer/collections", requireMaintainerSession, async (_req, res, next) => {
+    try {
+      return res.json(await collectionService.listForMaintainer());
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/collections/candidates/generate", requireMaintainerSession, async (req, res, next) => {
+    try {
+      return res.status(202).json(await collectionService.generateCandidates({
+        actor: req.body?.reviewedBy || "",
+        includeSemantic: req.body?.includeSemantic !== false,
+      }));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.patch("/api/maintainer/collections/candidates/:candidateId", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.json({ candidate: collectionService.updateCandidate(req.params.candidateId, req.body || {}, req.body?.reviewedBy || "") });
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/collections/candidates/:candidateId/approve", requireMaintainerSession, async (req, res, next) => {
+    try {
+      return res.json(await collectionService.approveCandidate(req.params.candidateId, {
+        actor: req.body?.reviewedBy || "",
+        edits: req.body?.edits || {},
+      }));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/collections/candidates/:candidateId/reject", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.json({ candidate: collectionService.rejectCandidate(req.params.candidateId, {
+        actor: req.body?.reviewedBy || "",
+        reviewNotes: req.body?.reviewNotes || "",
+      }) });
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.get("/api/maintainer/collections/:collectionId", requireMaintainerSession, async (req, res, next) => {
+    try {
+      return res.json(await collectionService.getForMaintainer(req.params.collectionId));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.patch("/api/maintainer/collections/:collectionId", requireMaintainerSession, async (req, res, next) => {
+    try {
+      return res.json(await collectionService.editCollection(req.params.collectionId, req.body || {}, {
+        actor: req.body?.reviewedBy || "",
+      }));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/collections/:collectionId/regenerate", requireMaintainerSession, async (req, res, next) => {
+    try {
+      return res.status(202).json(await collectionService.recalculate({
+        collectionIds: [req.params.collectionId],
+        actor: req.body?.reviewedBy || "",
+        forceSemantic: true,
+        reason: "maintainer-regenerate",
+      }));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.put("/api/maintainer/collections/:collectionId/memberships/:showId", requireMaintainerSession, async (req, res, next) => {
+    try {
+      return res.json(await collectionService.setMembershipOverride(req.params.collectionId, req.params.showId, {
+        decision: req.body?.decision,
+        reason: req.body?.reason || "",
+        actor: req.body?.reviewedBy || "",
+      }));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.delete("/api/maintainer/collections/:collectionId/memberships/:showId", requireMaintainerSession, async (req, res, next) => {
+    try {
+      return res.json(await collectionService.clearMembershipOverride(req.params.collectionId, req.params.showId, {
+        actor: req.body?.reviewedBy || "",
+      }));
     } catch (error) {
       return next(error);
     }

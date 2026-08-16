@@ -234,7 +234,7 @@ test("loadCollections reads curated collections against the catalog ids", async 
   const collections = loadCollections(siteRoot, new Set(catalog.map((entry) => entry.id)));
   const similarityCollections = collections.filter((collection) => collection.kind === "similarity");
 
-  assert.equal(collections.length, 29);
+  assert.equal(collections.length, 30);
   assert.ok(collections.every((collection) => collection.showIds.length > 0));
   assert.ok(similarityCollections.length > 0);
   assert.ok(similarityCollections.every((collection) => typeof collection.anchorShowId === "string" && collection.anchorShowId));

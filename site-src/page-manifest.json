@@ -265,6 +265,22 @@
     "includeFloatingControls": false
   },
   {
+    "source": "maintainer/collections.html",
+    "output": "maintainer/collections.html",
+    "title": "Collection Engine - The Echo Archives",
+    "description": "Maintainer collection automation workspace for The Echo Archives.",
+    "canonicalUrl": "/maintainer/collections.html",
+    "bodyClass": "home-page maintainer-collection-page info-page",
+    "activeNav": "",
+    "extraStylesheets": [
+      "maintainer.css"
+    ],
+    "includeAnalytics": false,
+    "noIndex": true,
+    "includeChatShell": false,
+    "includeFloatingControls": false
+  },
+  {
     "source": "privacy.html",
     "output": "privacy.html",
     "title": "Privacy - The Echo Archives",

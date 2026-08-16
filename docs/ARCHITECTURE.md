@@ -169,6 +169,8 @@ Key editorial principles:
 - objective metadata stays separate from archive editorial opinion
 - operational and community storage must not become the editorial source of truth
 
+Automated collection definitions remain in `catalog-src/collections/` alongside editorial routes. SQLite holds the operational side of the collection engine: private candidate proposals, AI confidence and rationale per membership, manual add/pin/remove overrides, audit events, and regeneration runs. A successful regeneration writes only the affected collection's resolved `showIds` and reasons back to the authored source before regenerating public artifacts. This preserves static-site delivery while ensuring that a manual removal cannot be reintroduced by automation.
+
 ## Current Catalog Baseline
 
 The generated snapshot for current counts and metadata coverage lives in `docs/generated/catalog-status.md`.
@@ -202,6 +204,7 @@ The backend owns:
 - community ratings
 - moderation-supporting workflow data
 - sitemap generation
+- protected collection candidate and membership review
 - startup validation for optional archive datasets
 
 Within `backend/`, assistant-specific logic now lives under `lib/ai/`, while the rest of the service remains organized by routes, services, stores, and general backend utilities.

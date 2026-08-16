@@ -72,6 +72,11 @@ const config = {
   PODCAST_INDEX_USER_AGENT: process.env.PODCAST_INDEX_USER_AGENT || "",
   IMPORT_SUGGESTION_PROVIDER: process.env.IMPORT_SUGGESTION_PROVIDER || "",
   IMPORT_SUGGESTION_MODEL: process.env.IMPORT_SUGGESTION_MODEL || "",
+  COLLECTION_SUGGESTION_PROVIDER: process.env.COLLECTION_SUGGESTION_PROVIDER || process.env.IMPORT_SUGGESTION_PROVIDER || "",
+  COLLECTION_SUGGESTION_MODEL: process.env.COLLECTION_SUGGESTION_MODEL || process.env.IMPORT_SUGGESTION_MODEL || "",
+  COLLECTION_MIN_MATCHES: parseInteger(process.env.COLLECTION_MIN_MATCHES, 4),
+  COLLECTION_SEMANTIC_CONFIDENCE: parseInteger(process.env.COLLECTION_SEMANTIC_CONFIDENCE, 78) / 100,
+  COLLECTION_SEMANTIC_BORDERLINE_CONFIDENCE: parseInteger(process.env.COLLECTION_SEMANTIC_BORDERLINE_CONFIDENCE, 65) / 100,
   IMPORT_FETCH_TIMEOUT_MS: parseInteger(process.env.IMPORT_FETCH_TIMEOUT_MS, 15000),
   IMPORT_DOCUMENT_MAX_BYTES: parseInteger(process.env.IMPORT_DOCUMENT_MAX_BYTES, 5 * 1024 * 1024),
   IMPORT_COVER_MAX_BYTES: parseInteger(process.env.IMPORT_COVER_MAX_BYTES, 8 * 1024 * 1024),
@@ -113,6 +118,7 @@ const POSITIVE_INTEGER_KEYS = [
   "IMPORT_HOST_CONCURRENCY",
   "IMPORT_APPLE_REQUESTS_PER_MINUTE",
   "IMPORT_DISCOVERY_CONCURRENCY",
+  "COLLECTION_MIN_MATCHES",
 ];
 
 function isValidAbsoluteUrl(value, { httpsOnly = false } = {}) {
@@ -135,6 +141,17 @@ function validateConfig(candidate = config) {
 
   if (candidate.PORT > 65535) {
     errors.push("PORT must be between 1 and 65535.");
+  }
+
+  if (
+    !Number.isFinite(candidate.COLLECTION_SEMANTIC_CONFIDENCE) ||
+    candidate.COLLECTION_SEMANTIC_CONFIDENCE <= 0 ||
+    candidate.COLLECTION_SEMANTIC_CONFIDENCE > 1 ||
+    !Number.isFinite(candidate.COLLECTION_SEMANTIC_BORDERLINE_CONFIDENCE) ||
+    candidate.COLLECTION_SEMANTIC_BORDERLINE_CONFIDENCE <= 0 ||
+    candidate.COLLECTION_SEMANTIC_BORDERLINE_CONFIDENCE > candidate.COLLECTION_SEMANTIC_CONFIDENCE
+  ) {
+    errors.push("Collection semantic confidence thresholds must be between 0 and 1, with borderline below the publish threshold.");
   }
 
   if (!String(candidate.HOST || "").trim()) {

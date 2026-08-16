@@ -1415,7 +1415,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       catalogTransaction = writeShowRecordsAtomically(staticRoot, records);
       await validateSiteData(staticRoot);
       catalogCache = null;
-      if (typeof onPublished === "function") await onPublished();
+      if (typeof onPublished === "function") await onPublished({ showIds: records.map((record) => record.id) });
       const published = candidates.map((candidate) => {
         const showId = candidate.preparedRecord.id;
         store.bindIdentitiesToShow(candidate.id, showId);
@@ -1506,7 +1506,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       catalogTransaction = writeShowRecordsAtomically(staticRoot, [promoted]);
       await validateSiteData(staticRoot);
       catalogCache = null;
-      if (typeof onPublished === "function") await onPublished();
+      if (typeof onPublished === "function") await onPublished({ showIds: [promoted.id] });
       const updated = store.updateCandidate(id, { preparedRecord: promoted, lastError: "" });
       store.recordEvent(id, "promoted", reviewer, { showId: promoted.id, reviewStatus: "indexed-only" });
       return { candidate: updated, showId: promoted.id, reviewStatus: promoted.reviewStatus };
@@ -1629,7 +1629,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       catalogTransaction = writeShowRecordsAtomically(staticRoot, [promoted]);
       await validateSiteData(staticRoot);
       catalogCache = null;
-      if (typeof onPublished === "function") await onPublished();
+      if (typeof onPublished === "function") await onPublished({ showIds: [promoted.id] });
       const updated = store.updateCandidate(id, { status: "published", publishedShowId: promoted.id, preparedRecord: promoted, lastError: "" });
       store.recordEvent(id, "elevation-promoted", reviewer, { showId: promoted.id, reviewStatus: promoted.reviewStatus });
       return { candidate: updated, showId: promoted.id, reviewStatus: promoted.reviewStatus };

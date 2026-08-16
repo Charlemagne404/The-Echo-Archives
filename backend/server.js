@@ -12,11 +12,13 @@ const { buildSitemapXml } = require("./lib/sitemap");
 const { openDatabase } = require("./lib/store/database");
 const { createCommunityStore } = require("./lib/store/community-store");
 const { createImportStore } = require("./lib/store/import-store");
+const { createCollectionStore } = require("./lib/store/collection-store");
 const { createPublishedListenerReviewStore } = require("./lib/store/published-listener-review-store");
 const { createRateLimitStore } = require("./lib/store/rate-limit-store");
 const { createSubmissionStore } = require("./lib/store/submission-store");
 const { createCommunityService } = require("./lib/services/community-service");
 const { createImportService } = require("./lib/services/import-service");
+const { createCollectionService } = require("./lib/services/collection-service");
 const { createElevationService } = require("./lib/services/elevation-service");
 const { createRateLimitService } = require("./lib/services/rate-limit-service");
 const { createSubmissionService } = require("./lib/services/submission-service");
@@ -290,6 +292,7 @@ async function startServer() {
   const submissionStore = createSubmissionStore({ db: database });
   const publishedListenerReviewStore = createPublishedListenerReviewStore({ db: database });
   const importStore = createImportStore({ db: database });
+  const collectionStore = createCollectionStore({ db: database });
   const turnstileService = createTurnstileService({
     enabled: config.COMMUNITY_TURNSTILE_ENABLED,
     secretKey: config.COMMUNITY_TURNSTILE_SECRET_KEY,
@@ -320,26 +323,32 @@ async function startServer() {
     maxSummaryIds: config.COMMUNITY_SUMMARY_MAX_IDS,
     knownShowIds: new Set(state.publicCatalog.map((show) => show.id)),
   });
+  async function syncLiveCatalogState() {
+    await reloadState();
+    communityStore.syncCatalog(state.publicCatalog);
+    submissionService.setKnownShows(state.publicCatalog);
+    publishedListenerReviewService.setKnownShowIds(new Set(state.publicCatalog.map((show) => show.id)));
+  }
+  const collectionService = createCollectionService({
+    store: collectionStore,
+    staticRoot: config.STATIC_ROOT,
+    config,
+    onPublished: syncLiveCatalogState,
+  });
+  const refreshCollectionsForCatalogChange = async ({ showIds = [] } = {}) => {
+    await collectionService.refreshForShows(showIds, "catalogue-automation");
+    await syncLiveCatalogState();
+  };
   const importService = createImportService({
     store: importStore,
     staticRoot: config.STATIC_ROOT,
     config,
-    onPublished: async () => {
-      await reloadState();
-      communityStore.syncCatalog(state.publicCatalog);
-      submissionService.setKnownShows(state.publicCatalog);
-      publishedListenerReviewService.setKnownShowIds(new Set(state.publicCatalog.map((show) => show.id)));
-    },
+    onPublished: refreshCollectionsForCatalogChange,
   });
   const elevationService = createElevationService({
     staticRoot: config.STATIC_ROOT,
     importService,
-    onPublished: async () => {
-      await reloadState();
-      communityStore.syncCatalog(state.publicCatalog);
-      submissionService.setKnownShows(state.publicCatalog);
-      publishedListenerReviewService.setKnownShowIds(new Set(state.publicCatalog.map((show) => show.id)));
-    },
+    onPublished: refreshCollectionsForCatalogChange,
   });
   const maintainerAuth = createMaintainerAuth(config);
 
@@ -513,6 +522,7 @@ async function startServer() {
       publishedListenerReviewService,
       importService,
       elevationService,
+      collectionService,
       rateLimiter: rateLimitService,
     }),
   );

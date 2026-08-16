@@ -344,6 +344,70 @@ function migrate(db) {
       UNIQUE (source_id, run_id, job_type)
     );
 
+    CREATE TABLE IF NOT EXISTS collection_candidates (
+      id TEXT PRIMARY KEY,
+      status TEXT NOT NULL DEFAULT 'proposed',
+      collection_type TEXT NOT NULL,
+      title TEXT NOT NULL,
+      description TEXT NOT NULL DEFAULT '',
+      definition_json TEXT NOT NULL DEFAULT '{}',
+      matching_show_ids_json TEXT NOT NULL DEFAULT '[]',
+      evidence_json TEXT NOT NULL DEFAULT '{}',
+      confidence REAL NOT NULL DEFAULT 0,
+      review_notes TEXT NOT NULL DEFAULT '',
+      created_by TEXT NOT NULL DEFAULT '',
+      reviewed_by TEXT NOT NULL DEFAULT '',
+      reviewed_at TEXT,
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS collection_memberships (
+      collection_id TEXT NOT NULL,
+      show_id TEXT NOT NULL,
+      membership_state TEXT NOT NULL DEFAULT 'active',
+      source_type TEXT NOT NULL,
+      confidence REAL,
+      reason_json TEXT NOT NULL DEFAULT '{}',
+      rank INTEGER NOT NULL DEFAULT 0,
+      generated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      PRIMARY KEY (collection_id, show_id)
+    );
+
+    CREATE TABLE IF NOT EXISTS collection_membership_overrides (
+      collection_id TEXT NOT NULL,
+      show_id TEXT NOT NULL,
+      decision TEXT NOT NULL,
+      reason TEXT NOT NULL DEFAULT '',
+      actor TEXT NOT NULL DEFAULT '',
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      PRIMARY KEY (collection_id, show_id)
+    );
+
+    CREATE TABLE IF NOT EXISTS collection_events (
+      id TEXT PRIMARY KEY,
+      collection_id TEXT NOT NULL DEFAULT '',
+      candidate_id TEXT NOT NULL DEFAULT '',
+      show_id TEXT NOT NULL DEFAULT '',
+      event_type TEXT NOT NULL,
+      actor TEXT NOT NULL DEFAULT '',
+      payload_json TEXT NOT NULL DEFAULT '{}',
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS collection_runs (
+      id TEXT PRIMARY KEY,
+      run_type TEXT NOT NULL,
+      status TEXT NOT NULL DEFAULT 'completed',
+      input_json TEXT NOT NULL DEFAULT '{}',
+      summary_json TEXT NOT NULL DEFAULT '{}',
+      error_text TEXT NOT NULL DEFAULT '',
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      completed_at TEXT
+    );
+
     CREATE TABLE IF NOT EXISTS rate_limit_events (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       scope TEXT NOT NULL,
@@ -413,6 +477,21 @@ function migrate(db) {
 
     CREATE INDEX IF NOT EXISTS idx_catalog_discovery_jobs_claim
       ON catalog_discovery_jobs (status, next_attempt_at, lease_expires_at, created_at);
+
+    CREATE INDEX IF NOT EXISTS idx_collection_candidates_status
+      ON collection_candidates (status, updated_at DESC);
+
+    CREATE INDEX IF NOT EXISTS idx_collection_memberships_collection
+      ON collection_memberships (collection_id, membership_state, rank, updated_at DESC);
+
+    CREATE INDEX IF NOT EXISTS idx_collection_memberships_show
+      ON collection_memberships (show_id, membership_state);
+
+    CREATE INDEX IF NOT EXISTS idx_collection_events_collection
+      ON collection_events (collection_id, created_at DESC);
+
+    CREATE INDEX IF NOT EXISTS idx_collection_events_candidate
+      ON collection_events (candidate_id, created_at DESC);
 
     CREATE INDEX IF NOT EXISTS idx_rate_limit_scope_ip_created
       ON rate_limit_events (scope, client_ip, created_at_ms);

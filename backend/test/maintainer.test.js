@@ -413,6 +413,47 @@ test("maintainer import routes enforce auth and allow candidate seeding and revi
   }
 });
 
+test("maintainer collection routes keep automation review private and expose membership provenance after login", async () => {
+  const context = await startMaintainerServer();
+
+  try {
+    const unauthorized = await fetch(`${context.baseUrl}/api/maintainer/collections`);
+    assert.equal(unauthorized.status, 401);
+
+    const loginResponse = await fetch(`${context.baseUrl}/api/maintainer/session`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ passphrase: "archive-test-passphrase" }),
+    });
+    const cookie = loginResponse.headers.get("set-cookie") || "";
+
+    const listResponse = await fetch(`${context.baseUrl}/api/maintainer/collections`, { headers: { Cookie: cookie } });
+    assert.equal(listResponse.status, 200);
+    const list = await listResponse.json();
+    const completedSciFi = list.collections.find((entry) => entry.id === "completed-sci-fi");
+    assert.equal(completedSciFi.kind, "rule");
+    assert.ok(completedSciFi.memberCount >= 4);
+
+    const detailResponse = await fetch(`${context.baseUrl}/api/maintainer/collections/completed-sci-fi`, { headers: { Cookie: cookie } });
+    assert.equal(detailResponse.status, 200);
+    const detail = await detailResponse.json();
+    assert.equal(detail.collection.automation.mode, "rule");
+    assert.ok(detail.memberships.some((entry) => entry.showId === "solar"));
+
+    const generationResponse = await fetch(`${context.baseUrl}/api/maintainer/collections/candidates/generate`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Cookie: cookie },
+      body: JSON.stringify({ reviewedBy: "CA", includeSemantic: false }),
+    });
+    assert.equal(generationResponse.status, 202);
+    const generation = await generationResponse.json();
+    assert.ok(generation.proposed.length > 0);
+    assert.equal(generation.semanticEnabled, false);
+  } finally {
+    await stopMaintainerServer(context);
+  }
+});
+
 test("maintainer routes return 404 when the maintainer passphrase is disabled", async () => {
   const context = await startMaintainerServer({ enabled: false });
 

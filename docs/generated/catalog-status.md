@@ -1,6 +1,6 @@
 # Catalog Status
 
-Latest catalog update: `2026-08-15`
+Latest catalog update: `2026-08-16`
 
 ## Snapshot
 
@@ -14,7 +14,7 @@ Latest catalog update: `2026-08-15`
 | Indexed-only shows | 194 |
 | Imported shows | 523 |
 | Planned reviews | 0 |
-| Collections | 29 |
+| Collections | 30 |
 | Review companions | 7 |
 | Creator-verified shows | 0 |
 | Shows with RSS | 721 |
@@ -38,7 +38,7 @@ Latest catalog update: `2026-08-15`
 ## Phase 2 Readiness (Gate B)
 
 - Status: `content-pending`
-- Numeric targets: 724 published shows (floor 129), 7 full reviews (floor 7), 29 collections (floor 29)
+- Numeric targets: 724 published shows (floor 129), 7 full reviews (floor 7), 30 collections (floor 29)
 - Factual metadata gaps: 0 core, 0 missing provenance, 0 actionable RSS, 0 missing detailed runtime
 - Explicit unknowns/research gaps: 14 records; 3 missing RSS and 3 runtime gaps are documented rather than hidden
 - Editorial/recommendation gaps: 0; collection blockers: 0

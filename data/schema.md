@@ -375,7 +375,7 @@ When present, `data/reviews/<show-id>.json` should use this shape:
 
 ## Collection Shape
 
-Collections stay hand-editable in v1. The core route is still `showIds`; extra fields support the collection discovery page without becoming required for every record.
+Collections remain hand-editable. The public/static route is still the resolved `showIds` snapshot; extra fields support the collection discovery page without becoming required for every record.
 
 ```json
 {
@@ -398,6 +398,33 @@ Collections stay hand-editable in v1. The core route is still `showIds`; extra f
 }
 ```
 
+### Automated collection fields
+
+`kind: "curated"`, `"editorial"`, and `"similarity"` remain manual/editorial collections. `kind: "rule-based"` and `"semantic"` use an `automation` definition. The definition belongs in the authored collection record; operational membership evidence, confidence, review candidates, overrides, and audit events live in SQLite.
+
+```json
+{
+  "kind": "rule-based",
+  "descriptionProvenance": "generated",
+  "automation": {
+    "mode": "rule",
+    "criteria": {
+      "all": [
+        { "field": "completionStatus", "operator": "equals", "value": "finished" },
+        { "field": "genres", "operator": "includes", "value": "sci-fi" }
+      ],
+      "any": [],
+      "not": []
+    },
+    "minMatches": 4
+  }
+}
+```
+
+Rule definitions support one to three simple factual clauses from approved show metadata. Semantic definitions use `{ "mode": "semantic", "query": "…" }`; they are scored through the configured local AI service and store per-show confidence. Matches below the public threshold remain borderline review items rather than public members.
+
+The collection engine records `rule-match`, `semantic-match`, `ai-suggestion`, `manual-addition`, `manual-pin`, and manual-removal/override decisions. Candidate approvals are retained both as an `editor-approved` membership rationale and as a durable audit event. Manual additions and pins are retained; a manual removal suppresses future automated regeneration until its override is explicitly cleared. Generated descriptions use `descriptionProvenance: "generated"`; maintainer edits switch this to `manual`, and automation never overwrites it.
+
 Optional collection fields:
 
 - `label`: compact editorial label for collection cards.
@@ -406,6 +433,8 @@ Optional collection fields:
 - `commitment`: editorial listening-commitment label; do not imply exact runtime when show runtime data is incomplete.
 - `coverShowIds`: preferred cover-art collage order; every id should also appear in `showIds`.
 - `order`: editorial display order.
+- `descriptionProvenance`: `manual` or `generated`; protects maintainer copy from automatic replacement.
+- `automation`: a bounded rule or semantic definition for a non-editorial collection. `showIds` remains the latest publishable resolved membership snapshot.
 
 ## Optional companion datasets
 

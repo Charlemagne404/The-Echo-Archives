@@ -496,6 +496,37 @@ function validateCollectionRecord(record, seenIds, knownShowIds) {
     throw new Error(`Collection "${record.id}" has invalid showReasons data.`);
   }
 
+  if (record.descriptionProvenance !== undefined && !["manual", "generated"].includes(record.descriptionProvenance)) {
+    throw new Error(`Collection "${record.id}" has invalid descriptionProvenance data.`);
+  }
+
+  if (record.automation !== undefined) {
+    if (!record.automation || typeof record.automation !== "object" || Array.isArray(record.automation)) {
+      throw new Error(`Collection "${record.id}" has invalid automation data.`);
+    }
+    const mode = String(record.automation.mode || "").trim();
+    if (!new Set(["rule", "semantic"]).has(mode)) {
+      throw new Error(`Collection "${record.id}" has invalid automation mode.`);
+    }
+    if (mode === "rule") {
+      const criteria = record.automation.criteria;
+      if (!criteria || typeof criteria !== "object" || Array.isArray(criteria)) {
+        throw new Error(`Collection "${record.id}" needs rule criteria.`);
+      }
+      const groups = ["all", "any", "not"];
+      if (groups.some((key) => criteria[key] !== undefined && !Array.isArray(criteria[key]))) {
+        throw new Error(`Collection "${record.id}" needs array rule criteria groups.`);
+      }
+      const clauses = groups.flatMap((key) => criteria[key] || []);
+      if (clauses.length < 1 || clauses.length > 3 || clauses.some((clause) => !clause || typeof clause !== "object" || !clause.field || !clause.operator || !clause.value)) {
+        throw new Error(`Collection "${record.id}" needs one to three simple rule criteria.`);
+      }
+    }
+    if (mode === "semantic" && (typeof record.automation.query !== "string" || !record.automation.query.trim())) {
+      throw new Error(`Collection "${record.id}" needs a semantic collection query.`);
+    }
+  }
+
   Object.keys(normalizeKeyedTextMap(record.showReasons)).forEach((showId) => {
     if (!record.showIds.includes(showId)) {
       throw new Error(`Collection "${record.id}" defines a showReason for unknown show "${showId}".`);

@@ -317,7 +317,7 @@ function createElevationService({ staticRoot, importService, onPublished = null 
     const transaction = writeDirectChanges(staticRoot, source, updatedShow, updatedCollections, draft.review, changedCollectionIds);
     try {
       await validateSiteData(staticRoot);
-      if (typeof onPublished === "function") await onPublished();
+      if (typeof onPublished === "function") await onPublished({ showIds: [showId] });
     } catch (error) {
       transaction.rollback();
       throw error;
@@ -339,7 +339,7 @@ function createElevationService({ staticRoot, importService, onPublished = null 
     const transaction = writeShowRecordsAtomically(staticRoot, [published]);
     try {
       await validateSiteData(staticRoot);
-      if (typeof onPublished === "function") await onPublished();
+      if (typeof onPublished === "function") await onPublished({ showIds: [showId] });
       return { showId, reviewStatus: "full-review", reviewedBy: text(actor, 160) || "authenticated-maintainer" };
     } catch (error) {
       transaction.rollback();

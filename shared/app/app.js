@@ -58,6 +58,11 @@ export async function initializeApp() {
     await initializeMaintainerImportsPage();
   }
 
+  if (document.body.classList.contains("maintainer-collection-page")) {
+    const { initializeMaintainerCollectionsPage } = await import("./pages/maintainer-collections.js");
+    await initializeMaintainerCollectionsPage();
+  }
+
   if (document.body.classList.contains("for-creators-page")) {
     const { initializeForCreatorsPage } = await import("./pages/creators.js");
     await initializeForCreatorsPage();

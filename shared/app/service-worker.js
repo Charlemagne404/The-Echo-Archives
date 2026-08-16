@@ -3,7 +3,7 @@ export function initializeServiceWorker() {
     return;
   }
 
-  if (document.body.classList.contains("maintainer-page") || document.body.classList.contains("maintainer-import-page")) {
+  if (document.body.classList.contains("maintainer-page") || document.body.classList.contains("maintainer-import-page") || document.body.classList.contains("maintainer-collection-page")) {
     return;
   }
 

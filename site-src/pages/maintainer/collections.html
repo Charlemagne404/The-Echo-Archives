@@ -1,0 +1,71 @@
+<main class="home-main page-main maintainer-main">
+  <section class="hero-shell maintainer-hero-shell">
+    <div class="hero-panel page-panel maintainer-hero-panel">
+      <div class="maintainer-hero-copy">
+        <p class="maintainer-kicker">Maintainer workspace</p>
+        <h1>Collection engine</h1>
+        <p>Review automated discovery routes, inspect every membership signal, and keep editorial decisions in control of what becomes public.</p>
+      </div>
+      <div class="maintainer-hero-actions">
+        <a class="maintainer-link-button" href="/maintainer/imports.html">Catalog imports</a>
+        <button id="maintainerRefreshButton" class="maintainer-ghost-button" type="button" hidden>Refresh</button>
+        <button id="maintainerLogoutButton" class="maintainer-ghost-button" type="button" hidden>Log out</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="maintainerStatePanel" class="page-card maintainer-state-panel" role="region" aria-labelledby="maintainerStateTitle">
+    <div>
+      <p class="maintainer-kicker">Protected workspace</p>
+      <h2 id="maintainerStateTitle">Checking maintainer access</h2>
+      <p id="maintainerStateMessage" aria-live="polite">Loading collection definitions and the review queue…</p>
+    </div>
+    <button id="maintainerRetryButton" class="maintainer-ghost-button" type="button" hidden>Retry</button>
+  </section>
+
+  <section id="maintainerAuthPanel" class="page-card maintainer-auth-panel" hidden>
+    <div class="maintainer-auth-copy">
+      <p class="maintainer-kicker">Protected</p>
+      <h2>Maintainer passphrase</h2>
+      <p>Collection candidates, confidence scores, and manual decisions are internal operational data.</p>
+    </div>
+    <form id="maintainerAuthForm" class="maintainer-auth-form">
+      <label class="maintainer-field"><span>Passphrase</span><input id="maintainerPassphrase" type="password" autocomplete="current-password" required /></label>
+      <div class="maintainer-auth-actions"><button class="maintainer-primary-button" type="submit">Unlock collection engine</button><p id="maintainerAuthStatus" class="maintainer-status-copy">Sign in to continue.</p></div>
+    </form>
+  </section>
+
+  <section id="maintainerAppShell" class="maintainer-app-shell" hidden>
+    <section class="maintainer-import-grid">
+      <article class="page-card maintainer-toolbar-card">
+        <div class="maintainer-toolbar-heading">
+          <div><p class="maintainer-kicker">Candidate generator</p><h2>Propose durable routes</h2></div>
+          <p id="collectionGeneratorStatus" class="maintainer-toolbar-meta">Rule proposals use real metadata. Semantic proposals use the configured local model and always enter review.</p>
+        </div>
+        <div class="maintainer-review-actions">
+          <button id="generateCollectionCandidates" class="maintainer-primary-button" type="button">Generate review candidates</button>
+          <label class="maintainer-checkbox"><input id="includeSemanticCandidates" type="checkbox" checked /><span>Include semantic concepts when AI is configured</span></label>
+        </div>
+      </article>
+      <article class="page-card maintainer-toolbar-card">
+        <div class="maintainer-toolbar-heading">
+          <div><p class="maintainer-kicker">Safety contract</p><h2>Automation has boundaries</h2></div>
+          <p id="collectionSafetyStatus" class="maintainer-toolbar-meta">Manual additions, pins, and removals override every future recalculation.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="maintainer-workspace collection-engine-workspace">
+      <article class="page-card maintainer-list-card">
+        <div class="maintainer-panel-heading"><div><p class="maintainer-kicker">Review queue</p><h2>Proposed collections</h2></div><p id="collectionCandidateMeta" class="maintainer-panel-meta">Loading proposals…</p></div>
+        <div id="collectionCandidateList" class="maintainer-list" aria-live="polite"></div>
+        <div class="maintainer-panel-heading"><div><p class="maintainer-kicker">Public and draft definitions</p><h2 id="maintainerWorkspaceTitle" tabindex="-1">Collections</h2></div><p id="collectionListMeta" class="maintainer-panel-meta"></p></div>
+        <div id="collectionDefinitionList" class="maintainer-list" aria-live="polite"></div>
+      </article>
+      <article class="page-card maintainer-detail-card">
+        <div class="maintainer-panel-heading"><div><p class="maintainer-kicker">Inspector</p><h2 id="collectionDetailHeading" tabindex="-1">Select a collection</h2></div><p id="collectionDetailMeta" class="maintainer-panel-meta">Review matching shows, confidence, provenance, and manual decisions.</p></div>
+        <div id="collectionDetail" class="maintainer-detail" aria-live="polite"></div>
+      </article>
+    </section>
+  </section>
+</main>

@@ -5,26 +5,26 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content" />
 <meta name="color-scheme" content="dark" />
-<title>Audio Drama Recommendations | The Echo Archives</title>
-<meta name="description" content="A human-curated collection of audio drama and fiction podcast recommendations from The Echo Archives." />
-<link rel="canonical" href="https://echoarchives.net/collection" />
+<title>Collection Engine - The Echo Archives</title>
+<meta name="description" content="Maintainer collection automation workspace for The Echo Archives." />
+<link rel="canonical" href="https://echoarchives.net/maintainer/collections.html" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="The Echo Archives" />
-<meta property="og:title" content="Audio Drama Recommendations | The Echo Archives" />
-<meta property="og:description" content="A human-curated collection of audio drama and fiction podcast recommendations from The Echo Archives." />
-<meta property="og:url" content="https://echoarchives.net/collection" />
+<meta property="og:title" content="Collection Engine - The Echo Archives" />
+<meta property="og:description" content="Maintainer collection automation workspace for The Echo Archives." />
+<meta property="og:url" content="https://echoarchives.net/maintainer/collections.html" />
 <meta property="og:image" content="https://echoarchives.net/echo-wordmark1.png" />
 <meta property="og:image:alt" content="The Echo Archives social preview" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Audio Drama Recommendations | The Echo Archives" />
-<meta name="twitter:description" content="A human-curated collection of audio drama and fiction podcast recommendations from The Echo Archives." />
+<meta name="twitter:title" content="Collection Engine - The Echo Archives" />
+<meta name="twitter:description" content="Maintainer collection automation workspace for The Echo Archives." />
 <meta name="twitter:image" content="https://echoarchives.net/echo-wordmark1.png" />
 <meta name="twitter:image:alt" content="The Echo Archives social preview" />
 <meta name="theme-color" content="#06080b" />
 <meta name="robots" content="noindex, nofollow, noarchive" />
 
 <link rel="stylesheet" href="/style.css?v=cf87ca244e" />
-<link rel="stylesheet" href="/collections.css?v=7309ef2659" />
+<link rel="stylesheet" href="/maintainer.css?v=a32e6c44f9" />
 <link rel="stylesheet" href="/public-heroes.css?v=daedd40bd0" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -32,7 +32,7 @@
 
 
 </head>
-<body class="home-page collection-page info-page" data-site-url="https://echoarchives.net" data-chat-stylesheet="/chat.css?v=42108e0bb0" data-home-card-hover-expand-enabled="false" data-shows-version="7d0a74dc51" data-collections-version="6a2b2804d2" data-search-index-version="58da26630f">
+<body class="home-page maintainer-collection-page info-page" data-site-url="https://echoarchives.net" data-chat-stylesheet="/chat.css?v=42108e0bb0" data-home-card-hover-expand-enabled="false" data-shows-version="7d0a74dc51" data-collections-version="6a2b2804d2" data-search-index-version="58da26630f">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
@@ -73,7 +73,7 @@
 
       <nav class="site-nav" id="sitePrimaryNav" aria-label="Primary">
         <a href="/"><span class="site-nav-link-body"><span class="site-nav-link-label">Browse</span><span class="site-nav-link-detail">All shows and archive filters</span></span><span class="site-nav-link-arrow" aria-hidden="true"></span></a>
-    <a class="is-active" href="/collections"><span class="site-nav-link-body"><span class="site-nav-link-label">Collections</span><span class="site-nav-link-detail">Curated listening paths</span></span><span class="site-nav-link-arrow" aria-hidden="true"></span></a>
+    <a href="/collections"><span class="site-nav-link-body"><span class="site-nav-link-label">Collections</span><span class="site-nav-link-detail">Curated listening paths</span></span><span class="site-nav-link-arrow" aria-hidden="true"></span></a>
     <a href="/about"><span class="site-nav-link-body"><span class="site-nav-link-label">About</span><span class="site-nav-link-detail">What the archive is building</span></span><span class="site-nav-link-arrow" aria-hidden="true"></span></a>
     <a href="/submit"><span class="site-nav-link-body"><span class="site-nav-link-label">Submit</span><span class="site-nav-link-detail">Add shows or send corrections</span></span><span class="site-nav-link-arrow" aria-hidden="true"></span></a>
     <a href="/for-creators"><span class="site-nav-link-body"><span class="site-nav-link-label">For creators</span><span class="site-nav-link-detail">Verification and standards</span></span><span class="site-nav-link-arrow" aria-hidden="true"></span></a>
@@ -84,75 +84,77 @@
   </div>
 </header>
 
-<main id="main-content" tabindex="-1" class="home-main page-main collection-detail-main">
-    <section class="hero-shell collection-detail-hero" aria-labelledby="collectionTitle">
-      <div class="hero-panel page-panel collection-detail-hero-panel" id="collectionHeroPanel">
-        <div class="hero-copy collection-detail-hero-copy">
-          <nav class="detail-breadcrumbs" aria-label="Breadcrumb">
-            <a href="/">Archive</a>
-            <span class="detail-breadcrumb-divider" aria-hidden="true">/</span>
-            <a href="/collections">Collections</a>
-            <span class="detail-breadcrumb-divider" aria-hidden="true">/</span>
-            <span id="collectionBreadcrumbTitle">Collection</span>
-          </nav>
-          <h1 id="collectionTitle">Collection</h1>
-          <p id="collectionDescription">Loading collection...</p>
-          <div id="collectionHeroTags" class="collection-detail-tag-row"></div>
-          <div class="collections-hero-actions">
-            <a id="collectionArchiveHeroLink" class="collection-action collections-primary-action" href="/#archive">Browse in archive</a>
-            <a class="collection-secondary-link collections-secondary-action" href="/collections">All collections</a>
-            <button id="collectionCopyLink" class="collection-secondary-link collections-secondary-action" type="button">Share</button>
-          </div>
-          <p class="detail-copy-status collection-copy-status" data-copy-link-status aria-live="polite"></p>
+<main id="main-content" tabindex="-1" class="home-main page-main maintainer-main">
+  <section class="hero-shell maintainer-hero-shell">
+    <div class="hero-panel page-panel maintainer-hero-panel">
+      <div class="maintainer-hero-copy">
+        <p class="maintainer-kicker">Maintainer workspace</p>
+        <h1>Collection engine</h1>
+        <p>Review automated discovery routes, inspect every membership signal, and keep editorial decisions in control of what becomes public.</p>
+      </div>
+      <div class="maintainer-hero-actions">
+        <a class="maintainer-link-button" href="/maintainer/imports.html">Catalog imports</a>
+        <button id="maintainerRefreshButton" class="maintainer-ghost-button" type="button" hidden>Refresh</button>
+        <button id="maintainerLogoutButton" class="maintainer-ghost-button" type="button" hidden>Log out</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="maintainerStatePanel" class="page-card maintainer-state-panel" role="region" aria-labelledby="maintainerStateTitle">
+    <div>
+      <p class="maintainer-kicker">Protected workspace</p>
+      <h2 id="maintainerStateTitle">Checking maintainer access</h2>
+      <p id="maintainerStateMessage" aria-live="polite">Loading collection definitions and the review queue…</p>
+    </div>
+    <button id="maintainerRetryButton" class="maintainer-ghost-button" type="button" hidden>Retry</button>
+  </section>
+
+  <section id="maintainerAuthPanel" class="page-card maintainer-auth-panel" hidden>
+    <div class="maintainer-auth-copy">
+      <p class="maintainer-kicker">Protected</p>
+      <h2>Maintainer passphrase</h2>
+      <p>Collection candidates, confidence scores, and manual decisions are internal operational data.</p>
+    </div>
+    <form id="maintainerAuthForm" class="maintainer-auth-form">
+      <label class="maintainer-field"><span>Passphrase</span><input id="maintainerPassphrase" type="password" autocomplete="current-password" required /></label>
+      <div class="maintainer-auth-actions"><button class="maintainer-primary-button" type="submit">Unlock collection engine</button><p id="maintainerAuthStatus" class="maintainer-status-copy">Sign in to continue.</p></div>
+    </form>
+  </section>
+
+  <section id="maintainerAppShell" class="maintainer-app-shell" hidden>
+    <section class="maintainer-import-grid">
+      <article class="page-card maintainer-toolbar-card">
+        <div class="maintainer-toolbar-heading">
+          <div><p class="maintainer-kicker">Candidate generator</p><h2>Propose durable routes</h2></div>
+          <p id="collectionGeneratorStatus" class="maintainer-toolbar-meta">Rule proposals use real metadata. Semantic proposals use the configured local model and always enter review.</p>
         </div>
-        <div id="collectionHeroArt" class="collection-detail-art" aria-hidden="true"></div>
-      </div>
-    </section>
-
-    <section id="collectionRoot" class="page-card collection-detail-overview" aria-label="Collection at a glance" hidden>
-      <div class="collection-detail-overview-row">
-        <span class="collection-detail-overview-kicker">At a glance</span>
-        <div id="collectionOverviewMetaLine" class="collection-detail-overview-meta-line" aria-label="Collection metadata"></div>
-      </div>
-
-      <div id="collectionOverviewChips" class="collection-detail-overview-chips" aria-label="Collection signals"></div>
-    </section>
-
-    <section id="collectionArchiveSection" class="archive-section collection-show-section" aria-labelledby="collection-shows-title">
-      <div class="section-heading collections-section-heading">
-        <div>
-          <h2 id="collection-shows-title">Shows in this collection</h2>
-          <p id="collectionShowsSummary">Curated entries in this listening path.</p>
+        <div class="maintainer-review-actions">
+          <button id="generateCollectionCandidates" class="maintainer-primary-button" type="button">Generate review candidates</button>
+          <label class="maintainer-checkbox"><input id="includeSemanticCandidates" type="checkbox" checked /><span>Include semantic concepts when AI is configured</span></label>
         </div>
-      </div>
-
-      <div id="collectionShowGrid" class="podcast-card-grid"></div>
-    </section>
-
-    <section id="collectionRelatedSection" class="page-card collection-detail-related-section" aria-labelledby="collection-related-title" hidden>
-      <div class="section-heading collections-section-heading collection-detail-related-heading">
-        <div>
-          <span class="page-card-kicker">Keep browsing</span>
-          <h2 id="collection-related-title">Related collections</h2>
-          <p id="collectionRelatedSummary">Neighboring routes in the archive.</p>
+      </article>
+      <article class="page-card maintainer-toolbar-card">
+        <div class="maintainer-toolbar-heading">
+          <div><p class="maintainer-kicker">Safety contract</p><h2>Automation has boundaries</h2></div>
+          <p id="collectionSafetyStatus" class="maintainer-toolbar-meta">Manual additions, pins, and removals override every future recalculation.</p>
         </div>
-      </div>
-
-      <div id="collectionRelatedGrid" class="collections-directory-grid collection-related-grid"></div>
+      </article>
     </section>
-  </main>
 
-<button id="chat-toggle" class="chat-toggle-button" type="button" aria-label="Ask the Archivist" aria-expanded="false" title="Ask the Archivist">
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M20 11.5C20 7.91015 16.6421 5 12.5 5H11.5C7.35786 5 4 7.91015 4 11.5C4 15.0899 7.35786 18 11.5 18H12.1L15.4 20.4C16.0615 20.8811 17 20.4086 17 19.5917V17.1593C18.7938 16.0442 20 13.9141 20 11.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
-    </svg>
-  </button>
-
-  <button id="backToTop" type="button" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
-    </svg>
-  </button>
+    <section class="maintainer-workspace collection-engine-workspace">
+      <article class="page-card maintainer-list-card">
+        <div class="maintainer-panel-heading"><div><p class="maintainer-kicker">Review queue</p><h2>Proposed collections</h2></div><p id="collectionCandidateMeta" class="maintainer-panel-meta">Loading proposals…</p></div>
+        <div id="collectionCandidateList" class="maintainer-list" aria-live="polite"></div>
+        <div class="maintainer-panel-heading"><div><p class="maintainer-kicker">Public and draft definitions</p><h2 id="maintainerWorkspaceTitle" tabindex="-1">Collections</h2></div><p id="collectionListMeta" class="maintainer-panel-meta"></p></div>
+        <div id="collectionDefinitionList" class="maintainer-list" aria-live="polite"></div>
+      </article>
+      <article class="page-card maintainer-detail-card">
+        <div class="maintainer-panel-heading"><div><p class="maintainer-kicker">Inspector</p><h2 id="collectionDetailHeading" tabindex="-1">Select a collection</h2></div><p id="collectionDetailMeta" class="maintainer-panel-meta">Review matching shows, confidence, provenance, and manual decisions.</p></div>
+        <div id="collectionDetail" class="maintainer-detail" aria-live="polite"></div>
+      </article>
+    </section>
+  </section>
+</main>
 
 <footer id="site-footer">
   <div class="footer-brand">

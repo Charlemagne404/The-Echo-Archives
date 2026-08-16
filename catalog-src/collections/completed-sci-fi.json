@@ -1,0 +1,81 @@
+{
+  "id": "completed-sci-fi",
+  "title": "Completed Sci-Fi",
+  "description": "Finished science-fiction audio dramas with a clear endpoint, maintained from verified completion and genre metadata.",
+  "descriptionProvenance": "generated",
+  "label": "Closure in space",
+  "kind": "rule-based",
+  "intentTags": [
+    "finished",
+    "sci-fi"
+  ],
+  "commitment": "Defined arc",
+  "coverShowIds": [
+    "solar",
+    "ars-paradoxica",
+    "wolf-359",
+    "midst"
+  ],
+  "showIds": [
+    "solar",
+    "from-now",
+    "vast-horizon",
+    "ars-paradoxica",
+    "eos-10",
+    "wolf-359",
+    "spectre",
+    "the-phenomenon",
+    "the-bright-sessions",
+    "mirrors",
+    "midst",
+    "case-63",
+    "forest-404",
+    "janus-descending",
+    "moonbase-theta-out",
+    "flash-gordon-and-buck-rogers-radio-adventurers",
+    "hallway-to-nowhere"
+  ],
+  "showReasons": {
+    "solar": "Completed science-fiction match from verified completion status and genre metadata.",
+    "from-now": "Completed science-fiction match from verified completion status and genre metadata.",
+    "vast-horizon": "Completed science-fiction match from verified completion status and genre metadata.",
+    "ars-paradoxica": "Completed science-fiction match from verified completion status and genre metadata.",
+    "eos-10": "Completed science-fiction match from verified completion status and genre metadata.",
+    "wolf-359": "Completed science-fiction match from verified completion status and genre metadata.",
+    "spectre": "Completed science-fiction match from verified completion status and genre metadata.",
+    "the-phenomenon": "Completed science-fiction match from verified completion status and genre metadata.",
+    "the-bright-sessions": "Completed science-fiction match from verified completion status and genre metadata.",
+    "mirrors": "Completed science-fiction match from verified completion status and genre metadata.",
+    "midst": "Completed science-fiction match from verified completion status and genre metadata.",
+    "case-63": "Completed science-fiction match from verified completion status and genre metadata.",
+    "forest-404": "Completed science-fiction match from verified completion status and genre metadata.",
+    "janus-descending": "Completed science-fiction match from verified completion status and genre metadata.",
+    "moonbase-theta-out": "Completed science-fiction match from verified completion status and genre metadata.",
+    "flash-gordon-and-buck-rogers-radio-adventurers": "Completed science-fiction match from verified completion status and genre metadata.",
+    "hallway-to-nowhere": "Completed science-fiction match from verified completion status and genre metadata."
+  },
+  "automation": {
+    "mode": "rule",
+    "criteria": {
+      "all": [
+        {
+          "field": "completionStatus",
+          "operator": "equals",
+          "value": "finished"
+        },
+        {
+          "field": "genres",
+          "operator": "includes",
+          "value": "sci-fi"
+        }
+      ],
+      "any": [],
+      "not": []
+    },
+    "minMatches": 4
+  },
+  "featured": false,
+  "order": 165,
+  "createdAt": "2026-08-16",
+  "updatedAt": "2026-08-16"
+}
