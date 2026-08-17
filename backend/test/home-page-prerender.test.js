@@ -49,7 +49,7 @@ test("Imported cards, collection cards, and popular cards carry a compact tier s
     status: "published",
     reviewStatus: "imported",
     finalRating: null,
-    cover: "images/Logo.png",
+    cover: "images/Circle-S-Logo.png",
     tags: ["Mystery", "Found audio"],
     bestFor: [],
     completionStatus: "ongoing",

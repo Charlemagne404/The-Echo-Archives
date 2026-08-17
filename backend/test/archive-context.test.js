@@ -23,7 +23,7 @@ function createShowRecord(overrides = {}) {
     id: "demo-show",
     title: "Demo Show",
     description: "A source-backed demo description with enough detail to support trustworthy archive discovery and validation.",
-    cover: "images/Logo.png",
+    cover: "images/Circle-S-Logo.png",
     coverAlt: "Demo Show cover art",
     status: "published",
     reviewStatus: "indexed-only",
@@ -65,7 +65,7 @@ test("loadArchiveContext enables hidden feature availability when optional datas
   const imagesRoot = path.join(tempRoot, "images");
 
   fs.mkdirSync(imagesRoot, { recursive: true });
-  fs.copyFileSync(path.join(siteRoot, "images", "Logo.png"), path.join(imagesRoot, "Logo.png"));
+  fs.copyFileSync(path.join(siteRoot, "images", "Circle-S-Logo.png"), path.join(imagesRoot, "Circle-S-Logo.png"));
 
   writeJson(path.join(dataRoot, "shows.json"), [
     createShowRecord({
@@ -127,7 +127,7 @@ test("loadCatalog rejects similarReasons that are not backed by similarTo", asyn
   const imagesRoot = path.join(tempRoot, "images");
 
   fs.mkdirSync(imagesRoot, { recursive: true });
-  fs.copyFileSync(path.join(siteRoot, "images", "Logo.png"), path.join(imagesRoot, "Logo.png"));
+  fs.copyFileSync(path.join(siteRoot, "images", "Circle-S-Logo.png"), path.join(imagesRoot, "Circle-S-Logo.png"));
 
   writeJson(path.join(dataRoot, "shows.json"), [
     createShowRecord({

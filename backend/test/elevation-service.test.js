@@ -16,7 +16,7 @@ function makeShow(overrides = {}) {
     id: "signal-show",
     title: "Signal Show",
     description: "A source-backed fictional transmission from a distant station with a complete archive of episodes.",
-    cover: "images/Logo.png",
+    cover: "images/Circle-S-Logo.png",
     coverAlt: "Signal Show cover",
     status: "published",
     reviewStatus: "imported",

@@ -40,7 +40,7 @@ test("Imported show SEO stays factual and structured data omits editorial rating
     id: "source-checked",
     title: "Source Checked",
     description: "An official publisher description for a serialized science-fiction audio drama.",
-    cover: "images/Logo.png",
+    cover: "images/Circle-S-Logo.png",
     coverAlt: "Source Checked cover art",
     reviewStatus: "imported",
     genres: ["sci-fi"],
