@@ -263,13 +263,13 @@ export function renderExistingShowField({
               ${iconMarkup("chevron-down")}
             </button>
           </div>
+          <div id="${resultsId}" class="submit-search-results" role="listbox" aria-labelledby="${labelId}" ${searchOpen ? "" : "hidden"}>
+            ${searchOpen ? renderSearchResultsMarkup(searchResults, selectedShowId, value, highlightIndex) : ""}
+          </div>
         </div>
         <div class="submit-lookup-status" data-state="${escapeAttribute(lookupStatus)}" role="${lookupStatus === "error" ? "alert" : "status"}" aria-live="polite">
           <span>${lookupReady ? "" : escapeHtml(lookupMessage)}</span>
           ${lookupStatus === "error" ? '<button type="button" class="submit-lookup-retry" data-retry-submit-lookup>Retry archive lookup</button>' : ""}
-        </div>
-        <div id="${resultsId}" class="submit-search-results" role="listbox" aria-labelledby="${labelId}" ${searchOpen ? "" : "hidden"}>
-          ${searchOpen ? renderSearchResultsMarkup(searchResults, selectedShowId, value, highlightIndex) : ""}
         </div>
       </div>
     `,
@@ -330,7 +330,7 @@ export function renderCategoryRatingFields(categoryScores, categories, { open = 
       <summary class="submit-disclosure-summary">
         <span>
           <strong>Add detailed ratings (optional)</strong>
-          <span>${ratedCount} of ${categories.length} rated</span>
+          <span data-category-ratings-count>${ratedCount} of ${categories.length} rated</span>
         </span>
         <span class="submit-disclosure-icon" aria-hidden="true">${iconMarkup("chevron-down")}</span>
       </summary>
@@ -340,6 +340,8 @@ export function renderCategoryRatingFields(categoryScores, categories, { open = 
         ${categories.map(({ key, label, description = "1 = weak; 10 = exceptional" }) => {
         const fieldId = `submitCategory${key[0].toUpperCase()}${key.slice(1)}`;
         const selected = Number(categoryScores?.[key]) || 0;
+        const sliderValue = selected || 1;
+        const progress = ((sliderValue - 1) / 9) * 100;
         return `
           <div class="submit-category-rating" id="${fieldId}" data-category-score-group="${key}">
             <div class="submit-category-rating-heading">
@@ -347,13 +349,23 @@ export function renderCategoryRatingFields(categoryScores, categories, { open = 
                 <strong class="submit-category-rating-label">${escapeHtml(label)}</strong>
                 <span class="submit-category-rating-help">${escapeHtml(description)}</span>
               </span>
-              ${selected ? `<button type="button" class="submit-category-rating-clear" data-clear-category-score="${key}">Clear</button>` : ""}
+              <button type="button" class="submit-category-rating-clear" data-clear-category-score="${key}"${selected ? "" : " hidden"}>Clear</button>
             </div>
-            <div class="submit-category-rating-options" role="radiogroup" aria-label="${escapeAttribute(label)} rating">
-              ${Array.from({ length: 10 }, (_unused, index) => {
-                const value = index + 1;
-                return `<button type="button" class="submit-category-rating-option${value === selected ? " is-selected" : ""}" data-category-score="${key}" data-category-score-value="${value}" role="radio" aria-checked="${String(value === selected)}" tabindex="${value === selected || (!selected && value === 1) ? "0" : "-1"}" aria-label="${escapeAttribute(label)} ${value} out of 10">${value}</button>`;
-              }).join("")}
+            <div class="submit-category-rating-slider-shell" style="--category-rating-progress: ${progress}%">
+              <output class="submit-category-rating-value" data-category-rating-value="${key}" for="${fieldId}Slider">${selected ? `${selected}/10` : "Not rated"}</output>
+              <input
+                id="${fieldId}Slider"
+                class="submit-category-rating-slider"
+                type="range"
+                min="1"
+                max="10"
+                step="1"
+                value="${sliderValue}"
+                data-category-score-slider="${key}"
+                data-category-score-selected="${String(Boolean(selected))}"
+                aria-label="${escapeAttribute(label)} rating"
+                aria-valuetext="${selected ? `${selected} out of 10` : "Not rated; move the slider to choose a score from 1 to 10"}"
+              >
             </div>
           </div>
         `;

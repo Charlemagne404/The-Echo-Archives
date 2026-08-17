@@ -17,7 +17,12 @@ const CURATED_INTENT_FILTERS = [
   { id: "time-bent", label: "Time-bent", compactLabel: "Time-bent", icon: "M12 7v5l3 2M4 12a8 8 0 1 0 3-6.25M4 5v5h5" },
   { id: "finished", label: "Completed", compactLabel: "Completed", icon: "M5.5 12.5 10 17l8.5-9" },
   { id: "quick-listens", label: "Quick listens", compactLabel: "Quick listens", icon: "M12 5.25v6l3.75 2.25M12 20.25a8.25 8.25 0 1 0 0-16.5 8.25 8.25 0 0 0 0 16.5Z" },
-  { id: "warm-weird", label: "Warm weird", compactLabel: "Warm weird", icon: "M12 4.75v14.5M7.25 9.5h9.5M8.7 15.3c1 .9 2.08 1.35 3.3 1.35 1.2 0 2.3-.45 3.3-1.35" },
+  {
+    id: "warm-weird",
+    label: "Warm weird",
+    compactLabel: "Warm weird",
+    icon: "M6.5 19v-7.5a5.5 5.5 0 0 1 11 0V19l-1.8-1.5L14 19l-2-1.5L10 19l-1.8-1.5L6.5 19ZM9.5 12h.01M14.5 12h.01M9.5 14.5c1.4 1.1 3.6 1.1 5 0",
+  },
   { id: "binge-listening", label: "Binge listening", compactLabel: "Binge listening", icon: "M6 6.5v11l8.75-5.5L6 6.5ZM17.5 7.5v9" },
   { id: "worldbuilding", label: "Worldbuilding", compactLabel: "Worldbuilding", icon: "M12 3.75c4.56 0 8.25 3.69 8.25 8.25S16.56 20.25 12 20.25 3.75 16.56 3.75 12 7.44 3.75 12 3.75Zm0 0c2.1 2.2 3.25 5.15 3.25 8.25S14.1 18.05 12 20.25m0-16.5c-2.1 2.2-3.25 5.15-3.25 8.25S9.9 18.05 12 20.25m-7.9-5.25h15.8M4.1 9h15.8" },
 ];

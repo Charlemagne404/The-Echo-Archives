@@ -151,17 +151,39 @@ test("full-review detail page promotes community, trims the rail, and preserves 
     assert.equal(await page.locator(".community-review-clear").isVisible(), false);
 
     const communityState = await page.evaluate(() => {
+      const distribution = document.querySelector(".community-review-distribution");
+      const distributionBounds = distribution?.getBoundingClientRect();
+      const distributionRows = Array.from(document.querySelectorAll(".community-distribution-row")).map((row) => {
+        const bounds = row.getBoundingClientRect();
+        return {
+          rating: Number(row.dataset.ratingValue),
+          left: bounds.left,
+          top: bounds.top,
+        };
+      });
+      const midpoint = (distributionBounds?.left || 0) + (distributionBounds?.width || 0) / 2;
+
       return {
         railValue: document.querySelector(".community-review-metric-value")?.dataset.displayText?.trim() || document.querySelector(".community-review-metric-value")?.textContent?.trim() || "",
         ratingButtonsDisabled: Array.from(document.querySelectorAll(".community-review-button")).every((button) => button.disabled),
-        distributionRows: document.querySelectorAll(".community-distribution-row").length,
+        distributionRows,
+        distributionLeftRatings: distributionRows
+          .filter((row) => row.left < midpoint)
+          .sort((left, right) => left.top - right.top)
+          .map((row) => row.rating),
+        distributionRightRatings: distributionRows
+          .filter((row) => row.left >= midpoint)
+          .sort((left, right) => left.top - right.top)
+          .map((row) => row.rating),
         distributionVisible: Boolean(document.querySelector(".community-review-distribution")?.getClientRects().length),
         clearVisible: !document.querySelector(".community-review-clear")?.hidden,
       };
     });
     assert.equal(communityState.railValue, "--/10");
     assert.equal(communityState.ratingButtonsDisabled, true);
-    assert.equal(communityState.distributionRows, 10);
+    assert.deepEqual(communityState.distributionRows.map((row) => row.rating), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    assert.deepEqual(communityState.distributionLeftRatings, [1, 2, 3, 4, 5]);
+    assert.deepEqual(communityState.distributionRightRatings, [6, 7, 8, 9, 10]);
     assert.equal(communityState.distributionVisible, true);
     assert.equal(communityState.clearVisible, false);
   } finally {
@@ -469,32 +491,44 @@ test("review carousel keeps the server-rendered archive first, supports accessib
   }
 });
 
-test("listener review category controls start optional, collapsed, and expose six labelled 1-to-10 radio scales", async () => {
+test("listener review category controls start optional, collapsed, and expose six labelled stepped sliders", async () => {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
 
   try {
     await page.goto(`${baseUrl}/submit?submissionType=listener-review&showId=impact-winter`, { waitUntil: "networkidle" });
     await page.waitForFunction(() => document.querySelectorAll("[data-category-score-group]").length === 6);
     const categories = await page.evaluate(() => Array.from(document.querySelectorAll("[data-category-score-group]")).map((group) => {
-      const radiogroup = group.querySelector('[role="radiogroup"]');
+      const slider = group.querySelector('[data-category-score-slider]');
       return {
-        name: radiogroup?.getAttribute("aria-label") || "",
-        required: radiogroup?.getAttribute("aria-required"),
-        radioCount: radiogroup?.querySelectorAll('[role="radio"]').length || 0,
-        checked: radiogroup?.querySelectorAll('[role="radio"][aria-checked="true"]').length || 0,
+        name: slider?.getAttribute("aria-label") || "",
+        min: slider?.getAttribute("min"),
+        max: slider?.getAttribute("max"),
+        step: slider?.getAttribute("step"),
+        selected: slider?.getAttribute("data-category-score-selected"),
+        display: group.querySelector('[data-category-rating-value]')?.textContent?.trim() || "",
       };
     }));
     assert.equal(categories.length, 6);
     categories.forEach((category) => {
       assert.match(category.name, /rating$/i);
-      assert.equal(category.required, null);
-      assert.equal(category.radioCount, 10);
-      assert.equal(category.checked, 0);
+      assert.equal(category.min, "1");
+      assert.equal(category.max, "10");
+      assert.equal(category.step, "1");
+      assert.equal(category.selected, "false");
+      assert.equal(category.display, "Not rated");
     });
     assert.equal(await page.locator("#submitDetailedRatings").getAttribute("open"), null);
     await page.locator("#submitDetailedRatings > summary").click();
-    await page.locator('[data-category-score="voiceActing"][data-category-score-value="8"]').click();
-    assert.equal(await page.locator('[data-category-score="voiceActing"][aria-checked="true"]').count(), 1);
+    const voiceActing = page.locator('[data-category-score-slider="voiceActing"]');
+    await voiceActing.evaluate((input) => {
+      input.value = "8";
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+    });
+    assert.equal(await voiceActing.inputValue(), "8");
+    assert.equal(await voiceActing.getAttribute("data-category-score-selected"), "true");
+    assert.equal(await page.locator('[data-category-score-group="voiceActing"] [data-category-rating-value]').textContent(), "8/10");
+    assert.equal(await voiceActing.evaluate((input) => input.parentElement?.style.getPropertyValue("--category-rating-progress")), "77.77777777777779%");
+    assert.match(await page.locator("#submitDetailedRatings > summary").innerText(), /1 of 6 rated/);
   } finally {
     await page.close();
   }

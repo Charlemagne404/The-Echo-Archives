@@ -364,9 +364,13 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     );
     const liveSearchMotionState = await getArchiveGridMotionState(page);
     assert.equal(liveSearchMotionState.reason, "live-search");
-    assert.equal(liveSearchMotionState.flipDuration, 150);
-    assert.equal(liveSearchMotionState.enterDuration, 120);
-    assert.equal(liveSearchMotionState.exitDuration, 110);
+    assert.equal(liveSearchMotionState.flipDuration, 0);
+    assert.equal(liveSearchMotionState.enterDuration, 0);
+    assert.equal(liveSearchMotionState.exitDuration, 0);
+    assert.equal(
+      liveSearchMotionState.shells.some((shell) => shell.isEntering || shell.isExiting || shell.isFlipping),
+      false,
+    );
     const restoredCardId = defaultVisibleIds.find((id) => !liveSearchMotionState.visibleIds.includes(id));
     assert.ok(restoredCardId);
     await page.mouse.click(20, 220);
@@ -385,7 +389,7 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     );
     const restoredGridState = await getArchiveGridMotionState(page);
     assert.equal(restoredGridState.reason, "live-search");
-    assert.equal(restoredGridState.enterDuration, 120);
+    assert.equal(restoredGridState.enterDuration, 0);
     assert.equal(restoredGridState.shells.filter((shell) => shell.id === restoredCardId).length, 1);
     assert.equal(
       restoredGridState.shells.some((shell) => shell.id === restoredCardId && shell.isExiting),

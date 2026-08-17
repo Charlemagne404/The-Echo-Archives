@@ -40,8 +40,8 @@
 }
 
 .submit-mode-card-icon svg {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
 }
 
 .submit-content-grid {
@@ -71,6 +71,7 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
+  align-items: start;
 }
 
 .submit-form-row--single {
@@ -80,6 +81,7 @@
 .submit-field {
   display: grid;
   gap: 8px;
+  align-content: start;
 }
 
 .submit-page .sr-only {
@@ -140,6 +142,7 @@
 .submit-page .submit-remake-form textarea,
 .submit-page .submit-remake-form select {
   width: 100%;
+  max-width: 100%;
   margin: 0;
   padding: 15px 16px;
   border: 1px solid rgba(255, 255, 255, 0.14);

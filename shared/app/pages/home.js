@@ -235,10 +235,9 @@ export async function initializeHomePage() {
       scheduleHomeResults("explicit");
     },
   });
+  recentlyAddedController.render();
   mostPopularController.renderMostPopularSection();
   void mostPopularController.resolveMostPopularShows();
-  recentlyAddedController.render();
-  recentlyAddedController.setVisible(false);
   favoriteRoutesCarouselControls = renderCollectionsRail({
     featuredCollections: favoriteCollections,
     showMap,
@@ -264,7 +263,6 @@ export async function initializeHomePage() {
   syncSearchInputs(state.query);
   stickyBrowseController.syncStickySearchMode();
   renderHomeResults("initial");
-  scrollRestoration.restore();
 
   const handleSearchInput = (event) => {
     const input = event.currentTarget;

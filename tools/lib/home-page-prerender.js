@@ -6,6 +6,7 @@ const archiveRecord = require("../../shared/archive-record.js");
 const TOP_RATED_BADGE_ASSET_URL = "/images/badges/top-rated-bookmark.png";
 const DEFAULT_FALLBACK_COVER_IMAGE = "/images/TEA-Logo-S.png";
 const HOME_MOST_POPULAR_LIMIT = 4;
+const HOME_RECENTLY_ADDED_LIMIT = 4;
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -137,6 +138,19 @@ function createCollectionHref(id = "") {
 function getSortableDateValue(value) {
   const timestamp = Date.parse(String(value || "").trim());
   return Number.isFinite(timestamp) ? timestamp : Number.NEGATIVE_INFINITY;
+}
+
+function compareRecentlyAdded(left, right) {
+  const leftDate = getSortableDateValue(archiveRecord.getCatalogPublicationDate(left));
+  const rightDate = getSortableDateValue(archiveRecord.getCatalogPublicationDate(right));
+  if (rightDate !== leftDate) {
+    return rightDate - leftDate;
+  }
+
+  return (
+    getSortableDateValue(right.updatedAt) - getSortableDateValue(left.updatedAt) ||
+    String(left.title || "Untitled show").localeCompare(String(right.title || "Untitled show"))
+  );
 }
 
 function getArchiveStats(shows, collections) {
@@ -482,6 +496,10 @@ function renderHomePagePrerender(pageBody, { rootDir, homeMostPopularIds = [], h
     .map((showId) => showMap.get(showId))
     .filter((show) => show && show.status === "published")
     .slice(0, HOME_MOST_POPULAR_LIMIT);
+  const recentlyAddedShows = [...publishedShows]
+    .filter((show) => getSortableDateValue(archiveRecord.getCatalogPublicationDate(show)) > Number.NEGATIVE_INFINITY)
+    .sort(compareRecentlyAdded)
+    .slice(0, HOME_RECENTLY_ADDED_LIMIT);
   const resultsSummary = `${publishedShows.length} results • ${stats.fullReviewCount} ${stats.fullReviewCount === 1 ? "full review" : "full reviews"}`;
 
   let rendered = pageBody;
@@ -506,6 +524,12 @@ function renderHomePagePrerender(pageBody, { rootDir, homeMostPopularIds = [], h
     /<div class="popular-grid" id="popularGrid"><\/div>/,
     `<div class="popular-grid" id="popularGrid" data-home-prerendered="true">${mostPopularShows.map(renderMostPopularCard).join("")}</div>`,
     "most popular grid",
+  );
+  rendered = replaceMarkup(
+    rendered,
+    /<div id="recentlyAddedGrid" class="podcast-card-grid recently-added-grid"><\/div>/,
+    `<div id="recentlyAddedGrid" class="podcast-card-grid recently-added-grid" data-home-prerendered="true">${recentlyAddedShows.map(renderArchiveCard).join("")}</div>`,
+    "recently added grid",
   );
   rendered = replaceMarkup(
     rendered,
@@ -535,6 +559,17 @@ function renderHomePagePrerender(pageBody, { rootDir, homeMostPopularIds = [], h
     /<section class="most-popular-band" id="mostPopular"[\s\S]*?<\/section>/,
     setSectionVisibility(mostPopularMatch[0], mostPopularShows.length > 0, "true"),
     "most popular section visibility",
+  );
+
+  const recentlyAddedMatch = rendered.match(/<section class="collection-band recently-added-band" id="recentlyAdded"[\s\S]*?<\/section>/);
+  if (!recentlyAddedMatch) {
+    throw new Error("Unable to locate homepage recently added section.");
+  }
+  rendered = replaceMarkup(
+    rendered,
+    /<section class="collection-band recently-added-band" id="recentlyAdded"[\s\S]*?<\/section>/,
+    setSectionVisibility(recentlyAddedMatch[0], recentlyAddedShows.length > 0, "true"),
+    "recently added section visibility",
   );
 
   const favoriteRoutesMatch = rendered.match(/<section class="collection-band" id="favoriteRoutes"[\s\S]*?<\/section>/);

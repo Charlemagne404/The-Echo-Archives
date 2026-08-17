@@ -252,6 +252,31 @@
   margin-bottom: 34px;
 }
 
+.archive-grid-divider {
+  display: none;
+  align-items: center;
+  gap: 14px;
+  margin: 2px 0 26px;
+  color: rgba(247, 247, 243, 0.46);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.archive-grid-divider::before,
+.archive-grid-divider::after {
+  content: "";
+  height: 1px;
+  flex: 1 1 auto;
+  background: rgba(255, 255, 255, 0.13);
+}
+
+#recentlyAdded:not([hidden]) + .archive-grid-divider {
+  display: flex;
+}
+
 #podcast-grid > .collection-band {
   position: relative;
   grid-column: 1 / -1;

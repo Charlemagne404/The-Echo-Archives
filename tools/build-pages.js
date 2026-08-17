@@ -610,6 +610,9 @@ function renderPage(entry, partials, versions, homeConfig, seoContext, submitPre
     socialImageAlt: DEFAULT_SOCIAL_IMAGE_ALT,
     robotsMeta: renderRobotsMeta(entry),
     analyticsScript: renderAnalyticsScript(entry),
+    scrollRestorationScript: ["index.html", "collections.html"].includes(entry.source)
+      ? `<script src="/shared/app/scroll-restoration-boot.js?v=${versions.scrollRestorationBoot}"></script>`
+      : "",
     stylesheets: renderStylesheets(entry.extraStylesheets, versions),
   });
   const headerMarkup = renderTemplate(partials.header, {
@@ -744,6 +747,7 @@ function createPrecacheUrlSet(_manifest, versions) {
     `/info.css?v=${versions.extra.get("info.css")}`,
     `/script.js?v=${versions.script}`,
     `/shared/app/app.js?v=${versions.app}`,
+    `/shared/app/scroll-restoration-boot.js?v=${versions.scrollRestorationBoot}`,
     `/shared/archive-record.js?v=${versions.archiveRecord}`,
     `/shared/archive-search.js?v=${versions.archiveSearch}`,
     ...offlineAppModuleUrls,
@@ -759,6 +763,7 @@ function renderServiceWorker({ versions, manifest }) {
       JSON.stringify({
         script: versions.script,
         app: versions.app,
+        scrollRestorationBoot: versions.scrollRestorationBoot,
         style: versions.style,
         publicHeroes: versions.extra.get("public-heroes.css"),
         info: versions.extra.get("info.css"),
@@ -1043,6 +1048,7 @@ async function main() {
 
   const versions = {
     app: hashTree("shared/app"),
+    scrollRestorationBoot: hashFile("shared/app/scroll-restoration-boot.js"),
     archiveRecord: hashFile("shared/archive-record.js"),
     archiveSearch: hashFile("shared/archive-search.js"),
     shows: hashFile("data/shows.json"),

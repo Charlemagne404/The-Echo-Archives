@@ -152,13 +152,15 @@
       .join(" ");
   }
 
-  function tokenizeQuery(value) {
+  function tokenizeQuery(value, { minLength = 2 } = {}) {
+    const minimumLength = Number.isInteger(minLength) ? Math.max(1, minLength) : 2;
+
     return Array.from(
       new Set(
         normalizeText(value)
           .split(" ")
           .map((token) => token.trim())
-          .filter((token) => token.length > 1),
+          .filter((token) => token.length >= minimumLength),
       ),
     );
   }
@@ -424,7 +426,9 @@
       ? { titleQuery: normalizeText(explicitSeed.title), record: explicitSeed }
       : resolveSeedShow(catalog, normalizedQuery);
     const effectiveQuery = similaritySeed ? similaritySeed.titleQuery : normalizedQuery;
-    const tokens = tokenizeQuery(effectiveQuery);
+    const tokens = tokenizeQuery(effectiveQuery, { minLength: 1 }).filter(
+      (token) => token.length > 1 || !QUERY_STOP_WORDS.has(token),
+    );
     const phrases = expandAliases(buildNgrams(tokens, 3).concat(effectiveQuery));
     const significantTokens = tokens.filter((token) => !QUERY_STOP_WORDS.has(token));
 
@@ -442,7 +446,21 @@
       return 0;
     }
 
-    return tokens.filter((token) => recordTokens.has(token)).length;
+    return tokens.filter((token) => hasMatchingSearchToken(token, recordTokens)).length;
+  }
+
+  function getIdentitySearchTokens(searchIndex) {
+    return new Set([
+      ...(searchIndex?.fieldTokens?.title || []),
+      ...(searchIndex?.fieldTokens?.aliases || []),
+      ...(searchIndex?.fieldTokens?.creators || []),
+      ...(searchIndex?.fieldTokens?.tags || []),
+    ]);
+  }
+
+  function hasIdentityTokenCoverage(searchIndex, queryTokens) {
+    const identityTokens = getIdentitySearchTokens(searchIndex);
+    return queryTokens.every((queryToken) => hasMatchingSearchToken(queryToken, identityTokens));
   }
 
   function scoreFieldTerms(terms, queryPhrases, exactWeight, partialWeight) {
@@ -538,6 +556,47 @@
     }
 
     return calculateEditDistance(queryToken, fieldToken, maxDistance) <= maxDistance;
+  }
+
+  function isPrefixTokenMatch(queryToken, fieldToken) {
+    return Boolean(queryToken && fieldToken && fieldToken.startsWith(queryToken));
+  }
+
+  function matchesSearchToken(queryToken, fieldToken) {
+    return queryToken === fieldToken || isPrefixTokenMatch(queryToken, fieldToken) || isFuzzyTokenMatch(queryToken, fieldToken);
+  }
+
+  function hasMatchingSearchToken(queryToken, sourceTokens) {
+    for (const sourceToken of sourceTokens || []) {
+      if (matchesSearchToken(queryToken, sourceToken)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  function scorePrefixFieldTokens(fieldTokens, queryTokens, prefixWeight) {
+    if (!Array.isArray(fieldTokens) || fieldTokens.length === 0 || !Array.isArray(queryTokens) || queryTokens.length === 0) {
+      return { score: 0, matchedTokens: [] };
+    }
+
+    const matchedTokens = queryTokens
+      .map((queryToken) => fieldTokens.find((fieldToken) => isPrefixTokenMatch(queryToken, fieldToken)))
+      .filter(Boolean);
+    if (matchedTokens.length === 0) {
+      return { score: 0, matchedTokens: [] };
+    }
+
+    const coverage = matchedTokens.length / Math.max(queryTokens.length, 1);
+    if (coverage < 0.5) {
+      return { score: 0, matchedTokens: [] };
+    }
+
+    return {
+      score: Math.round(prefixWeight * coverage),
+      matchedTokens: Array.from(new Set(matchedTokens)),
+    };
   }
 
   function scoreFuzzyFieldTokens(fieldTokens, queryTokens, fuzzyWeight) {
@@ -656,17 +715,9 @@
   }
 
   function hasFuzzyTokenCoverage(searchIndex, queryTokens) {
-    const fuzzySources = [
-      ...(searchIndex.fieldTokens?.title || []),
-      ...(searchIndex.fieldTokens?.aliases || []),
-      ...(searchIndex.fieldTokens?.creators || []),
-      ...(searchIndex.fieldTokens?.tags || []),
-    ];
-    const sourceTokens = Array.from(new Set(fuzzySources.filter(Boolean)));
+    const sourceTokens = getIdentitySearchTokens(searchIndex);
 
-    return queryTokens.filter((queryToken) =>
-      sourceTokens.some((sourceToken) => sourceToken === queryToken || isFuzzyTokenMatch(queryToken, sourceToken)),
-    ).length;
+    return queryTokens.filter((queryToken) => hasMatchingSearchToken(queryToken, sourceTokens)).length;
   }
 
   function pushReason(reasons, value) {
@@ -718,7 +769,7 @@
     const fieldTokens = clause.fieldName
       ? new Set((searchIndex.fields[clause.fieldName] || []).flatMap((value) => tokenizeQuery(value)))
       : searchIndex.tokenSet;
-    return clause.options.some((optionTokens) => optionTokens.every((token) => fieldTokens.has(token)));
+    return clause.options.some((optionTokens) => optionTokens.every((token) => hasMatchingSearchToken(token, fieldTokens)));
   }
 
   function toOptionSet(values) {
@@ -794,6 +845,7 @@
     }
 
     const requiredClauses = buildRequiredClauses(preparedQuery.normalizedQuery, preparedQuery.tokens);
+    const isShortPrefixQuery = preparedQuery.normalizedQuery.length < 3;
     const excludeIds = toOptionSet(options.excludeIds);
     const requiredFields = normalizeRequiredFields(options.requiredFields);
     const catalogById = new Map((Array.isArray(catalog) ? catalog : []).map((record) => [record.id, record]));
@@ -843,7 +895,7 @@
           } else if (searchIndex.title.startsWith(preparedQuery.normalizedQuery)) {
             score += 90;
             pushReason(reasons, `title starts with ${preparedQuery.normalizedQuery}`);
-            titleTerms.push(...tokenizeQuery(preparedQuery.normalizedQuery));
+            titleTerms.push(...tokenizeQuery(preparedQuery.normalizedQuery, { minLength: 1 }));
           } else if (
             preparedQuery.tokens.length > 0 &&
             preparedQuery.tokens.every((token) => searchIndex.titleTokens.includes(token))
@@ -852,11 +904,22 @@
             pushReason(reasons, `title lines up with ${preparedQuery.normalizedQuery}`);
             titleTerms.push(...preparedQuery.tokens);
           } else {
-            const titleFuzzyMatch = scoreFuzzyFieldTokens(searchIndex.fieldTokens?.title || [], preparedQuery.significantTokens, 66);
-            if (titleFuzzyMatch.score) {
-              score += titleFuzzyMatch.score;
-              pushReason(reasons, `title survives a close spelling for ${preparedQuery.normalizedQuery}`);
-              titleTerms.push(...titleFuzzyMatch.matchedTokens);
+            const titlePrefixMatch = scorePrefixFieldTokens(
+              searchIndex.fieldTokens?.title || [],
+              preparedQuery.significantTokens,
+              66,
+            );
+            if (titlePrefixMatch.score) {
+              score += titlePrefixMatch.score;
+              pushReason(reasons, `title matches a prefix of ${preparedQuery.normalizedQuery}`);
+              titleTerms.push(...titlePrefixMatch.matchedTokens);
+            } else {
+              const titleFuzzyMatch = scoreFuzzyFieldTokens(searchIndex.fieldTokens?.title || [], preparedQuery.significantTokens, 66);
+              if (titleFuzzyMatch.score) {
+                score += titleFuzzyMatch.score;
+                pushReason(reasons, `title survives a close spelling for ${preparedQuery.normalizedQuery}`);
+                titleTerms.push(...titleFuzzyMatch.matchedTokens);
+              }
             }
           }
         }
@@ -1048,6 +1111,7 @@
         }
 
         if (
+          !isShortPrefixQuery &&
           preparedQuery.normalizedQuery &&
           searchIndex.subtitleText &&
           searchIndex.subtitleText.includes(preparedQuery.normalizedQuery)
@@ -1057,6 +1121,7 @@
         }
 
         if (
+          !isShortPrefixQuery &&
           preparedQuery.normalizedQuery &&
           searchIndex.descriptionText &&
           searchIndex.descriptionText.includes(preparedQuery.normalizedQuery)
@@ -1065,6 +1130,7 @@
         }
 
         if (
+          !isShortPrefixQuery &&
           preparedQuery.normalizedQuery &&
           searchIndex.archiveText &&
           searchIndex.archiveText.includes(preparedQuery.normalizedQuery)
@@ -1072,7 +1138,8 @@
           score += 10;
         }
 
-        const matchedTokenCount = hasTokenCoverage(searchIndex.tokenSet, preparedQuery.tokens);
+        const tokenCoverageSource = isShortPrefixQuery ? getIdentitySearchTokens(searchIndex) : searchIndex.tokenSet;
+        const matchedTokenCount = hasTokenCoverage(tokenCoverageSource, preparedQuery.tokens);
         if (matchedTokenCount > 0) {
           score += Math.round((matchedTokenCount / Math.max(preparedQuery.tokens.length, 1)) * 20);
         }
@@ -1095,9 +1162,12 @@
           preparedQuery.significantTokens.length > 0 && fuzzyMatchedTokenCount === preparedQuery.significantTokens.length;
         const hasStructuredClause = requiredClauses.some((clause) => clause.fieldName);
         const hasRequiredFieldCoverage = satisfiesRequiredFields(record, requiredFields);
+        const hasRelevantClauseCoverage = isShortPrefixQuery
+          ? hasIdentityTokenCoverage(searchIndex, preparedQuery.tokens)
+          : hasFullClauseCoverage;
         const satisfiesQuery = preparedQuery.seedRecord
           ? record.id !== preparedQuery.seedRecord.id && relatedToSeed && hasRequiredFieldCoverage
-          : (hasFullClauseCoverage || (!hasStructuredClause && hasFuzzyClauseCoverage)) && hasRequiredFieldCoverage;
+          : (hasRelevantClauseCoverage || (!hasStructuredClause && hasFuzzyClauseCoverage)) && hasRequiredFieldCoverage;
 
         return {
           ...record,

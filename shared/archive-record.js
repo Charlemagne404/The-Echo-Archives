@@ -334,9 +334,13 @@
     const source = record && typeof record === "object" ? record : {};
     const order = normalizeOptionalNumber(source.order);
     const anchorShowId = normalizeDisplayText(source.anchorShowId);
+    const publicAutomation = source.automation && typeof source.automation === "object" && !Array.isArray(source.automation)
+      ? Object.fromEntries(Object.entries(source.automation).filter(([key]) => key !== "approvedCandidateId"))
+      : source.automation;
 
     return {
       ...source,
+      ...(publicAutomation ? { automation: publicAutomation } : {}),
       id: normalizeDisplayText(source.id),
       title: normalizeDisplayText(source.title, FALLBACK_COLLECTION_TITLE),
       description: normalizeDisplayText(source.description, FALLBACK_COLLECTION_DESCRIPTION),
@@ -349,6 +353,15 @@
       commitment: typeof source.commitment === "string" ? source.commitment.trim() : "",
       order: order === undefined ? Number.MAX_SAFE_INTEGER : order,
     };
+  }
+
+  function deriveExplicitSourceFormats(metadata = {}) {
+    const source = metadata && typeof metadata === "object" && !Array.isArray(metadata) ? metadata : {};
+    const sourceLabels = normalizeStringArray([
+      ...(Array.isArray(source.sourceCategories) ? source.sourceCategories : []),
+      ...(Array.isArray(source.sourceKeywords) ? source.sourceKeywords : []),
+    ]).map((value) => String(value).trim().toLowerCase().replace(/[\s_]+/g, "-"));
+    return sourceLabels.some((value) => value === "full-cast" || value === "fullcast") ? ["full-cast"] : [];
   }
 
   function normalizeShowRecord(record) {
@@ -365,7 +378,6 @@
     const tags = normalizeStringArray(source.tags);
     const genres = normalizeStringArray(source.genres);
     const tones = normalizeStringArray(source.tones);
-    const formats = normalizeStringArray(source.formats);
     const bestFor = normalizeStringArray(source.bestFor);
     const similarTo = normalizeStringArray(source.similarTo);
     const aliases = normalizeStringArray(source.aliases);
@@ -384,6 +396,10 @@
     const content = normalizeStructuredObject(source.content);
     const verification = normalizeStructuredObject(source.verification);
     const metadata = normalizeStructuredObject(source.metadata);
+    const formats = normalizeStringArray([
+      ...(Array.isArray(source.formats) ? source.formats : []),
+      ...(reviewStatus === "imported" ? deriveExplicitSourceFormats(metadata) : []),
+    ]);
     const rawOfficialDescription = source.officialDescription && typeof source.officialDescription === "object" && !Array.isArray(source.officialDescription)
       ? source.officialDescription
       : {};
@@ -470,6 +486,7 @@
   return {
     DEPRECATED_SHOW_FIELDS,
     createShowHref,
+    deriveExplicitSourceFormats,
     normalizeCollectionRecord,
     normalizeCoverVariants,
     normalizePopularity,

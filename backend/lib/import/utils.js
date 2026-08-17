@@ -310,6 +310,14 @@ function mapCategoryToGenre(value = "") {
   return "";
 }
 
+function mapSourceFormats({ categories = [], keywords = [] } = {}) {
+  const sourceLabels = mergeUniqueStrings(categories, keywords).map((value) =>
+    trimText(value, 120).toLowerCase().replace(/[\s_]+/g, "-"),
+  );
+  const hasExplicitFullCast = sourceLabels.some((value) => value === "full-cast" || value === "fullcast");
+  return hasExplicitFullCast ? ["full-cast"] : [];
+}
+
 function buildResearchGaps(objective = {}) {
   const gaps = [];
 
@@ -352,6 +360,7 @@ module.exports = {
   isHttpUrl,
   looksLikeRssUrl,
   mapCategoryToGenre,
+  mapSourceFormats,
   mergeUniqueStrings,
   normalizeStringArray,
   normalizeTitleCreatorKey,

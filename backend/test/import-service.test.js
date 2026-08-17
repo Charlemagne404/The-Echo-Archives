@@ -64,7 +64,7 @@ function appleEmptyResponse() {
   });
 }
 
-function rssDocument({ title = "Signal Lost", website = "https://example.com/", feedUrl = "https://example.com/feed.xml", complete = false } = {}) {
+function rssDocument({ title = "Signal Lost", website = "https://example.com/", feedUrl = "https://example.com/feed.xml", complete = false, fullCastKeyword = "" } = {}) {
   return `<?xml version="1.0" encoding="UTF-8"?>
     <rss version="2.0"
       xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
@@ -78,7 +78,7 @@ function rssDocument({ title = "Signal Lost", website = "https://example.com/", 
         <itunes:image href="https://example.com/cover.jpg" />
         <language>en</language>
         <itunes:category text="Fiction"><itunes:category text="Drama" /></itunes:category>
-        <itunes:keywords>mystery, deep space, abandoned station, Science Fiction</itunes:keywords>
+        <itunes:keywords>${fullCastKeyword ? `${fullCastKeyword}, ` : ""}mystery, deep space, abandoned station, Science Fiction</itunes:keywords>
         <itunes:type>serial</itunes:type>
         ${complete ? "<podcast:complete>true</podcast:complete>" : ""}
         <podcast:guid>4c4d1ac2-1ab3-42ad-8898-123456789abc</podcast:guid>
@@ -98,12 +98,12 @@ function rssDocument({ title = "Signal Lost", website = "https://example.com/", 
     </rss>`;
 }
 
-function sourceRichFetch({ conflictingWebsiteTitle = "" } = {}) {
+function sourceRichFetch({ conflictingWebsiteTitle = "", fullCastKeyword = "" } = {}) {
   return async (url) => {
     const value = String(url);
     if (value.startsWith("https://itunes.apple.com/search")) return appleEmptyResponse();
     if (value === "https://example.com/feed.xml") {
-      return new Response(rssDocument(), { status: 200, headers: { "content-type": "application/rss+xml", etag: '"feed-v1"' } });
+      return new Response(rssDocument({ fullCastKeyword }), { status: 200, headers: { "content-type": "application/rss+xml", etag: '"feed-v1"' } });
     }
     if (value === "https://example.com/" || value === "https://example.com") {
       const structured = conflictingWebsiteTitle
@@ -318,6 +318,19 @@ test("a source-rich RSS import becomes review-and-publish ready and publishes wi
     assert.equal(record.verification.status, "automated-source-checked");
     assert.equal(record.ratings.archive, undefined);
     assert.ok(fs.existsSync(path.join(context.siteRoot, record.cover)));
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("an explicit source full-cast label becomes a deterministic imported format", async () => {
+  const context = createTempImportContext({ fetchImpl: sourceRichFetch({ fullCastKeyword: "full-cast" }) });
+  try {
+    const seeded = await context.service.seedCandidates({ entries: ["https://example.com/feed.xml"], autoHydrate: true });
+    const candidate = context.service.getForMaintainer(seeded.candidateIds[0]);
+    assert.deepEqual(candidate.preparedRecord.formats, ["full-cast", "serialized"]);
+    assert.equal(candidate.preparedRecord.metadata.import.fields.formats.method, "deterministic-source-format");
+    assert.ok(candidate.preparedRecord.metadata.import.fields.formats.sources.some((source) => source.sourceType === "rss"));
   } finally {
     cleanup(context);
   }

@@ -35,6 +35,8 @@
 }
 
 .submit-trust-pill {
+  position: relative;
+  top: 10px;
   min-width: 0;
   min-height: 64px;
   padding: 10px 14px;
@@ -226,12 +228,43 @@
   width: 56px;
   height: 56px;
   border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.018);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.012));
   display: inline-flex;
   align-items: center;
   justify-content: center;
   color: rgba(247, 247, 243, 0.96);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045), 0 8px 18px rgba(0, 0, 0, 0.14);
+}
+
+.submit-mode-card-icon svg {
+  width: 40px;
+  height: 40px;
+  overflow: visible;
+}
+
+.submit-mode-card-icon .icon-accent {
+  stroke: #ff5b4d;
+}
+
+.submit-mode-card-icon .icon-accent-fill {
+  fill: #ff5b4d;
+}
+
+.submit-mode-card-icon .icon-badge {
+  fill: #ff5b4d;
+  stroke: rgba(7, 9, 12, 0.94);
+  stroke-width: 1.5;
+}
+
+.submit-mode-card-icon .icon-badge-check {
+  stroke: #fff;
+}
+
+.submit-mode-card[data-active="true"] .submit-mode-card-icon {
+  border-color: rgba(255, 99, 83, 0.48);
+  background: linear-gradient(145deg, rgba(255, 91, 77, 0.16), rgba(255, 255, 255, 0.022));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 8px 22px rgba(183, 40, 28, 0.18);
 }
 
 .submit-mode-card-copy {

@@ -74,7 +74,11 @@ function getShellKey(shell) {
 }
 
 export function getGridMotionProfile(changeReason) {
-  if (prefersReducedMotion()) {
+  // Live search runs while the user is typing. Moving hundreds of card shells
+  // through FLIP/exit animations forces a full-grid layout on every query and
+  // makes the input feel blocked as the catalogue grows. Keep explicit filter
+  // changes cinematic, but make the high-frequency search path immediate.
+  if (prefersReducedMotion() || changeReason === "live-search") {
     return null;
   }
 

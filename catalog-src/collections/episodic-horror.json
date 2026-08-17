@@ -1,0 +1,64 @@
+{
+  "id": "episodic-horror",
+  "title": "Episodic Horror",
+  "description": "Episodic Horror productions, generated from durable catalogue metadata rather than a loose genre rename.",
+  "descriptionProvenance": "generated",
+  "label": "Automatic route",
+  "kind": "rule-based",
+  "intentTags": [],
+  "commitment": "",
+  "coverShowIds": [],
+  "showIds": [
+    "welcome-to-night-vale",
+    "the-black-tapes",
+    "knifepoint-horror",
+    "the-grey-rooms",
+    "the-nosleep-podcast",
+    "scp-archives",
+    "darkest-night",
+    "campfire-radio-theater",
+    "the-liminal-lands",
+    "the-tower",
+    "attention-hellmart-shoppers",
+    "the-other-stories-sci-fi-horror-thriller-wtf-stories"
+  ],
+  "showReasons": {
+    "welcome-to-night-vale": "Rule match: Horror + Episodic.",
+    "the-black-tapes": "Rule match: Horror + Episodic.",
+    "knifepoint-horror": "Rule match: Horror + Episodic.",
+    "the-grey-rooms": "Rule match: Horror + Episodic.",
+    "the-nosleep-podcast": "Rule match: Horror + Episodic.",
+    "scp-archives": "Rule match: Horror + Episodic.",
+    "darkest-night": "Rule match: Horror + Episodic.",
+    "campfire-radio-theater": "Rule match: Horror + Episodic.",
+    "the-liminal-lands": "Rule match: Horror + Episodic.",
+    "the-tower": "Rule match: Horror + Episodic.",
+    "attention-hellmart-shoppers": "Rule match: Horror + Episodic.",
+    "the-other-stories-sci-fi-horror-thriller-wtf-stories": "Rule match: Horror + Episodic."
+  },
+  "automation": {
+    "mode": "rule",
+    "criteria": {
+      "all": [
+        {
+          "field": "genres",
+          "operator": "includes",
+          "value": "horror"
+        },
+        {
+          "field": "formats",
+          "operator": "includes",
+          "value": "Episodic"
+        }
+      ],
+      "any": [],
+      "not": []
+    },
+    "minMatches": 4,
+    "approvedCandidateId": "ba40395a-072f-4be3-98cb-2ffe37d3241c"
+  },
+  "featured": false,
+  "order": 380,
+  "createdAt": "2026-08-16",
+  "updatedAt": "2026-08-16"
+}

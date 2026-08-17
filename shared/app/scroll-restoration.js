@@ -45,13 +45,19 @@ export function createScrollRestoration({ key = "" } = {}) {
   };
 
   const enable = () => {
-    const hasSavedPosition = Boolean(readSavedPosition(resolveStorageKey()));
-    if (hasSavedPosition && "scrollRestoration" in window.history) {
+    if (
+      !window.__echoScrollBootInstalled &&
+      readSavedPosition(resolveStorageKey()) &&
+      "scrollRestoration" in window.history
+    ) {
+      // Keep the fallback path from racing native restoration when the head
+      // boot script is unavailable.
       window.history.scrollRestoration = "manual";
     }
 
     window.addEventListener("scroll", scheduleSave, { passive: true });
     window.addEventListener("pagehide", save);
+    restore();
   };
 
   const restore = () => {
@@ -60,6 +66,13 @@ export function createScrollRestoration({ key = "" } = {}) {
     }
 
     restored = true;
+    if (
+      window.__echoScrollBootInstalled ||
+      window.__echoScrollBootState === "restored" ||
+      window.__echoScrollBootState === "cancelled"
+    ) {
+      return;
+    }
     const saved = readSavedPosition(resolveStorageKey());
     if (!saved) {
       return;

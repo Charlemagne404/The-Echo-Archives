@@ -1,0 +1,78 @@
+{
+  "id": "completed-drama",
+  "title": "Completed Drama",
+  "description": "Finished Drama audio dramas with a clear end point, generated from catalogue status and genre metadata.",
+  "descriptionProvenance": "generated",
+  "label": "Automatic route",
+  "kind": "rule-based",
+  "intentTags": [],
+  "commitment": "",
+  "coverShowIds": [],
+  "showIds": [
+    "ars-paradoxica",
+    "eos-10",
+    "the-bright-sessions",
+    "unwell",
+    "mabel",
+    "homecoming",
+    "limetown",
+    "forest-404",
+    "tumanbay",
+    "janus-descending",
+    "spines-podcast",
+    "midnight-radio",
+    "passenger-list",
+    "moonbase-theta-out",
+    "flash-gordon-and-buck-rogers-radio-adventurers",
+    "the-way-we-haunt-now",
+    "hallway-to-nowhere",
+    "moose-on-a-highway",
+    "sequestered-an-audio-drama"
+  ],
+  "showReasons": {
+    "ars-paradoxica": "Rule match: completed + Drama.",
+    "eos-10": "Rule match: completed + Drama.",
+    "the-bright-sessions": "Rule match: completed + Drama.",
+    "unwell": "Rule match: completed + Drama.",
+    "mabel": "Rule match: completed + Drama.",
+    "homecoming": "Rule match: completed + Drama.",
+    "limetown": "Rule match: completed + Drama.",
+    "forest-404": "Rule match: completed + Drama.",
+    "tumanbay": "Rule match: completed + Drama.",
+    "janus-descending": "Rule match: completed + Drama.",
+    "spines-podcast": "Rule match: completed + Drama.",
+    "midnight-radio": "Rule match: completed + Drama.",
+    "passenger-list": "Rule match: completed + Drama.",
+    "moonbase-theta-out": "Rule match: completed + Drama.",
+    "flash-gordon-and-buck-rogers-radio-adventurers": "Rule match: completed + Drama.",
+    "the-way-we-haunt-now": "Rule match: completed + Drama.",
+    "hallway-to-nowhere": "Rule match: completed + Drama.",
+    "moose-on-a-highway": "Rule match: completed + Drama.",
+    "sequestered-an-audio-drama": "Rule match: completed + Drama."
+  },
+  "automation": {
+    "mode": "rule",
+    "criteria": {
+      "all": [
+        {
+          "field": "completionStatus",
+          "operator": "equals",
+          "value": "finished"
+        },
+        {
+          "field": "genres",
+          "operator": "includes",
+          "value": "drama"
+        }
+      ],
+      "any": [],
+      "not": []
+    },
+    "minMatches": 4,
+    "approvedCandidateId": "08566d62-0f18-4676-9192-d43569bdf481"
+  },
+  "featured": false,
+  "order": 360,
+  "createdAt": "2026-08-16",
+  "updatedAt": "2026-08-16"
+}

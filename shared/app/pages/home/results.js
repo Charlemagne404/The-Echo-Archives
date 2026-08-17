@@ -80,6 +80,7 @@ export function createHomeResultsController({
     patchArchiveGrid({
       archiveGrid: elements.archiveGrid,
       collectionsSection: elements.collectionsSection,
+      favoriteRoutesSection: elements.favoriteRoutesSection,
       visibleShows,
       archiveCardShellsById,
       gridLayoutBucket: state.gridLayoutBucket,

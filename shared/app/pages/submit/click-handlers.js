@@ -53,6 +53,35 @@ function escapeCssIdentifier(value = "") {
   return String(value).replace(/["\\]/g, "\\$&");
 }
 
+function setCategoryRatingSliderState(slider, value) {
+  const key = slider.getAttribute("data-category-score-slider");
+  if (!key) {
+    return;
+  }
+
+  const progress = ((value - 1) / 9) * 100;
+  slider.parentElement?.style.setProperty("--category-rating-progress", `${progress}%`);
+  slider.setAttribute("aria-valuetext", `${value} out of 10`);
+
+  const group = slider.closest("[data-category-score-group]");
+  group?.querySelector(`[data-category-rating-value="${escapeCssIdentifier(key)}"]`)?.replaceChildren(document.createTextNode(`${value}/10`));
+
+  const clearButton = group?.querySelector(`[data-clear-category-score="${escapeCssIdentifier(key)}"]`);
+  if (clearButton instanceof HTMLButtonElement) {
+    clearButton.hidden = false;
+  }
+
+  const ratedCount = document.querySelectorAll("[data-category-score-slider][data-category-score-selected='true']").length;
+  const wasSelected = slider.dataset.categoryScoreSelected === "true";
+  slider.dataset.categoryScoreSelected = "true";
+  if (!wasSelected) {
+    const count = document.querySelector("[data-category-ratings-count]");
+    if (count) {
+      count.textContent = `${ratedCount + 1} of ${document.querySelectorAll("[data-category-score-slider]").length} rated`;
+    }
+  }
+}
+
 export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup, ensureShowContext }) {
   function activateMode(nextMode, { focus = false } = {}) {
     if (!nextMode || nextMode === state.activeMode || !Object.prototype.hasOwnProperty.call(MODE_CONFIG, nextMode)) {
@@ -122,7 +151,12 @@ export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup,
     }
 
     const searchShell = elements.form.querySelector(".submit-search-shell");
-    if (searchShell && target instanceof Node && !searchShell.contains(target)) {
+    const clickPath = typeof event.composedPath === "function" ? event.composedPath() : [];
+    const clickedInsideSearchShell = searchShell && (
+      searchShell.contains(target) ||
+      clickPath.some((node) => node instanceof Element && node.matches(".submit-search-shell"))
+    );
+    if (searchShell && !clickedInsideSearchShell) {
       state.searchOpen = false;
       ui.updateSearchResults();
     }
@@ -245,21 +279,6 @@ export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup,
       return;
     }
 
-    const categoryScore = target.closest("[data-category-score]");
-    if (categoryScore) {
-      event.preventDefault();
-      captureCurrentDraft(state, elements);
-      const key = categoryScore.getAttribute("data-category-score");
-      const value = Number.parseInt(categoryScore.getAttribute("data-category-score-value") || "", 10);
-      if (key && Number.isInteger(value) && value >= 1 && value <= 10) {
-        const draft = getActiveDraft(state);
-        draft.categoryScores = { ...(draft.categoryScores || {}), [key]: value };
-        ui.renderAll();
-        focusAfterRender(`[data-category-score="${escapeCssIdentifier(key)}"][data-category-score-value="${value}"]`);
-      }
-      return;
-    }
-
     const clearCategoryScore = target.closest("[data-clear-category-score]");
     if (clearCategoryScore) {
       event.preventDefault();
@@ -271,7 +290,7 @@ export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup,
         delete nextScores[key];
         draft.categoryScores = nextScores;
         ui.renderAll();
-        focusAfterRender(`[data-category-score="${escapeCssIdentifier(key)}"][data-category-score-value="1"]`);
+        focusAfterRender(`[data-category-score-slider="${escapeCssIdentifier(key)}"]`);
       }
       return;
     }
@@ -372,6 +391,24 @@ export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup,
       event.preventDefault();
       void ensureLookup({ force: true, focusSearch: true }).catch(() => {});
     }
+  });
+
+  elements.form.addEventListener("input", (event) => {
+    const slider = event.target;
+    if (!(slider instanceof HTMLInputElement) || !slider.matches("[data-category-score-slider]")) {
+      return;
+    }
+
+    const key = slider.getAttribute("data-category-score-slider");
+    const value = Number.parseInt(slider.value, 10);
+    if (!key || !Number.isInteger(value) || value < 1 || value > 10) {
+      return;
+    }
+
+    captureCurrentDraft(state, elements);
+    const draft = getActiveDraft(state);
+    draft.categoryScores = { ...(draft.categoryScores || {}), [key]: value };
+    setCategoryRatingSliderState(slider, value);
   });
 
   elements.form.addEventListener("keydown", (event) => {

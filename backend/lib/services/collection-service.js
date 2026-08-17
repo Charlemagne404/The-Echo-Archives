@@ -113,7 +113,8 @@ function criterionLabel(clause) {
 
 function ruleReason(criteria) {
   const positive = [...criteria.all, ...criteria.any].map(criterionLabel).filter(Boolean);
-  return `Rule match: ${positive.join(" + ") || "catalogue criteria"}.`;
+  const negative = criteria.not.map(criterionLabel).filter(Boolean);
+  return `Rule match: ${positive.join(" + ") || "catalogue criteria"}${negative.length ? `; excluding ${negative.join(" + ")}` : ""}.`;
 }
 
 function stableCriteriaKey(criteria) {

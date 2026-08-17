@@ -65,15 +65,28 @@ export function sortVisibleShows({ visibleShows, selectedCollection, sortMode })
   });
 }
 
-function getOrderedArchiveGridNodes({ collectionsSection, visibleShows, archiveCardShellsById, gridLayoutBucket }) {
+function getOrderedArchiveGridNodes({
+  collectionsSection,
+  favoriteRoutesSection,
+  visibleShows,
+  archiveCardShellsById,
+  gridLayoutBucket,
+}) {
   const orderedNodes = [];
+  const gridRowSize = getHomeGridColumnCount(gridLayoutBucket);
   const collectionInsertIndex = collectionsSection.hidden
     ? -1
-    : Math.min(visibleShows.length, getHomeGridColumnCount(gridLayoutBucket) * 2);
+    : Math.min(visibleShows.length, gridRowSize * 2);
+  const favoriteRoutesInsertIndex = favoriteRoutesSection.hidden
+    ? -1
+    : Math.min(visibleShows.length, (collectionInsertIndex >= 0 ? collectionInsertIndex : 0) + gridRowSize * 2);
 
   visibleShows.forEach((show, index) => {
     if (index === collectionInsertIndex) {
       orderedNodes.push(collectionsSection);
+    }
+    if (index === favoriteRoutesInsertIndex) {
+      orderedNodes.push(favoriteRoutesSection);
     }
 
     const shell = archiveCardShellsById.get(show.id);
@@ -84,6 +97,9 @@ function getOrderedArchiveGridNodes({ collectionsSection, visibleShows, archiveC
 
   if (!collectionsSection.hidden && collectionInsertIndex >= visibleShows.length) {
     orderedNodes.push(collectionsSection);
+  }
+  if (!favoriteRoutesSection.hidden && favoriteRoutesInsertIndex >= visibleShows.length) {
+    orderedNodes.push(favoriteRoutesSection);
   }
 
   return dedupeArchiveGridNodes(orderedNodes);
@@ -115,9 +131,9 @@ function hasDuplicateGridShellIds(shells) {
   return new Set(ids).size !== ids.length;
 }
 
-function hasUnexpectedArchiveGridChildren(archiveGrid, collectionsSection) {
+function hasUnexpectedArchiveGridChildren(archiveGrid, collectionsSection, favoriteRoutesSection) {
   return Array.from(archiveGrid.children).some((node) => {
-    if (!(node instanceof HTMLElement) || node === collectionsSection) {
+    if (!(node instanceof HTMLElement) || node === collectionsSection || node === favoriteRoutesSection) {
       return false;
     }
 
@@ -137,6 +153,7 @@ function hasGridShellStateDrift(shell) {
 function shouldStabilizeArchiveGrid({
   archiveGrid,
   collectionsSection,
+  favoriteRoutesSection,
   currentShells,
   nextShells,
 }) {
@@ -144,44 +161,37 @@ function shouldStabilizeArchiveGrid({
     currentShells.some((shell) => hasGridShellMotionInFlight(shell) || hasGridShellStateDrift(shell)) ||
     hasDuplicateGridShellIds(currentShells) ||
     hasDuplicateGridShellIds(nextShells) ||
-    hasUnexpectedArchiveGridChildren(archiveGrid, collectionsSection)
+    hasUnexpectedArchiveGridChildren(archiveGrid, collectionsSection, favoriteRoutesSection)
   );
 }
 
-function syncArchiveGridInstantly({ archiveGrid, collectionsSection, orderedNodes, nextShells }) {
-  const nextNodeSet = new Set(orderedNodes.filter((node) => node instanceof HTMLElement));
-  const nextShellSet = new Set(nextShells);
-  nextShells.forEach((shell) => {
+function syncArchiveGridInstantly({ archiveGrid, orderedNodes, nextShells }) {
+  const currentNodes = Array.from(archiveGrid.children);
+  const nextNodes = orderedNodes.filter((node) => node instanceof HTMLElement);
+  const isAlreadyOrdered =
+    currentNodes.length === nextNodes.length && currentNodes.every((node, index) => node === nextNodes[index]);
+
+  if (isAlreadyOrdered) {
+    return;
+  }
+
+  const shellsToReset = new Set([
+    ...currentNodes.filter((node) => node instanceof HTMLElement && node.classList.contains("podcast-card-shell")),
+    ...nextShells,
+  ]);
+  shellsToReset.forEach((shell) => {
     resetGridShellMotion(shell);
   });
-  orderedNodes.forEach((node) => {
-    archiveGrid.appendChild(node);
-  });
 
-  Array.from(archiveGrid.children).forEach((node) => {
-    if (!(node instanceof HTMLElement) || nextNodeSet.has(node)) {
-      return;
-    }
-
-    if (node.classList.contains("podcast-card-shell")) {
-      resetGridShellMotion(node);
-      if (!nextShellSet.has(node)) {
-        node.remove();
-      }
-      return;
-    }
-
-    node.remove();
-  });
-
-  if (collectionsSection.hidden && collectionsSection.parentElement === archiveGrid) {
-    collectionsSection.remove();
-  }
+  // Reconcile the whole grid in one DOM operation. The old per-node append /
+  // remove loop magnified layout and mutation work for a large catalogue.
+  archiveGrid.replaceChildren(...nextNodes);
 }
 
 export function patchArchiveGrid({
   archiveGrid,
   collectionsSection,
+  favoriteRoutesSection,
   visibleShows,
   archiveCardShellsById,
   gridLayoutBucket,
@@ -189,6 +199,7 @@ export function patchArchiveGrid({
 }) {
   const orderedNodes = getOrderedArchiveGridNodes({
     collectionsSection,
+    favoriteRoutesSection,
     visibleShows,
     archiveCardShellsById,
     gridLayoutBucket,
@@ -201,6 +212,7 @@ export function patchArchiveGrid({
     shouldStabilizeArchiveGrid({
       archiveGrid,
       collectionsSection,
+      favoriteRoutesSection,
       currentShells,
       nextShells,
     });
@@ -209,7 +221,6 @@ export function patchArchiveGrid({
   if (shouldBypassMotion) {
     syncArchiveGridInstantly({
       archiveGrid,
-      collectionsSection,
       orderedNodes,
       nextShells,
     });
@@ -238,9 +249,11 @@ export function patchArchiveGrid({
   orderedNodes.forEach((node) => {
     archiveGrid.appendChild(node);
   });
-  if (collectionsSection.hidden && collectionsSection.parentElement === archiveGrid) {
-    collectionsSection.remove();
-  }
+  [collectionsSection, favoriteRoutesSection].forEach((section) => {
+    if (section.hidden && section.parentElement === archiveGrid) {
+      section.remove();
+    }
+  });
   exitingShells.forEach((shell) => {
     archiveGrid.appendChild(shell);
   });

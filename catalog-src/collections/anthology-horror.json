@@ -1,0 +1,52 @@
+{
+  "id": "anthology-horror",
+  "title": "Anthology Horror",
+  "description": "Anthology Horror productions, generated from durable catalogue metadata rather than a loose genre rename.",
+  "descriptionProvenance": "generated",
+  "label": "Automatic route",
+  "kind": "rule-based",
+  "intentTags": [],
+  "commitment": "",
+  "coverShowIds": [],
+  "showIds": [
+    "the-mistholme-museum-of-mystery-morbidity-and-mortality",
+    "observable-radio",
+    "knifepoint-horror",
+    "the-grey-rooms",
+    "the-nosleep-podcast",
+    "the-magnus-archives"
+  ],
+  "showReasons": {
+    "the-mistholme-museum-of-mystery-morbidity-and-mortality": "Rule match: Horror + Anthology.",
+    "observable-radio": "Rule match: Horror + Anthology.",
+    "knifepoint-horror": "Rule match: Horror + Anthology.",
+    "the-grey-rooms": "Rule match: Horror + Anthology.",
+    "the-nosleep-podcast": "Rule match: Horror + Anthology.",
+    "the-magnus-archives": "Rule match: Horror + Anthology."
+  },
+  "automation": {
+    "mode": "rule",
+    "criteria": {
+      "all": [
+        {
+          "field": "genres",
+          "operator": "includes",
+          "value": "horror"
+        },
+        {
+          "field": "formats",
+          "operator": "includes",
+          "value": "Anthology"
+        }
+      ],
+      "any": [],
+      "not": []
+    },
+    "minMatches": 4,
+    "approvedCandidateId": "d7869bf0-48e0-4cb3-b6ed-e6912ab4a7d0"
+  },
+  "featured": false,
+  "order": 370,
+  "createdAt": "2026-08-16",
+  "updatedAt": "2026-08-16"
+}

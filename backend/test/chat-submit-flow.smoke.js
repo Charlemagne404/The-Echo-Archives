@@ -307,10 +307,13 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     assert.match(formState.detailedRatingsSummary, /0 of 6 rated/);
 
     await page.locator("#submitDetailedRatings > summary").click();
-    await page.locator('[data-category-score="ads"][data-category-score-value="8"]').click();
+    await page.locator('[data-category-score-slider="ads"]').evaluate((input) => {
+      input.value = "8";
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+    });
     formState = await page.evaluate(() => ({
       summary: document.querySelector("#submitDetailedRatings summary")?.textContent?.trim() || "",
-      selected: document.querySelector('[data-category-score="ads"][aria-checked="true"]')?.textContent?.trim() || "",
+      selected: document.querySelector('[data-category-score-slider="ads"]')?.value || "",
       adLabel: document.querySelector('[data-category-score-group="ads"] .submit-category-rating-label')?.textContent?.trim() || "",
       lengthHelp: document.querySelector('[data-category-score-group="length"] .submit-category-rating-help')?.textContent?.trim() || "",
     }));
@@ -376,6 +379,22 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     assert.equal(formState.emptyStateVisible, true);
 
     await page.locator('[data-submission-mode="correction"]').click();
+    const showSearchToggle = page.locator('[data-toggle-show-search]');
+    await showSearchToggle.click();
+    await page.waitForFunction(
+      () => document.getElementById("submitExistingShowSearch")?.getAttribute("aria-expanded") === "true" &&
+        document.getElementById("submitExistingShowSearchResults")?.hidden === false,
+      undefined,
+      { timeout: 5_000 },
+    );
+    assert.ok(await page.locator("#submitExistingShowSearchResults .submit-search-result").count() > 0);
+    await showSearchToggle.click();
+    await page.waitForFunction(
+      () => document.getElementById("submitExistingShowSearch")?.getAttribute("aria-expanded") === "false" &&
+        document.getElementById("submitExistingShowSearchResults")?.hidden === true,
+      undefined,
+      { timeout: 5_000 },
+    );
     await page.locator("#submitExistingShowSearch").fill("Impact");
     await page.locator("#submitExistingShowSearch").press("ArrowDown");
     const activeDescendant = await page.locator("#submitExistingShowSearch").getAttribute("aria-activedescendant");

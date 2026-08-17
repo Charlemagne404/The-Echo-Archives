@@ -2,6 +2,7 @@ const { createHash } = require("node:crypto");
 
 const {
   mapCategoryToGenre,
+  mapSourceFormats,
   mergeUniqueStrings,
   normalizeUrl,
   slugify,
@@ -191,8 +192,10 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
   const tagProvenance = sourceTagProvenance(candidate, tags);
   const language = formatLanguage(objective.language);
   const transcriptLanguages = mergeUniqueStrings((objective.transcripts?.languages || []).map(formatLanguage).filter(Boolean));
+  const sourceFormats = mapSourceFormats({ categories, keywords: objective.keywords || [] });
   const formats = mergeUniqueStrings([
     ...(enrichment.formats || []),
+    ...sourceFormats,
     objective.feedType === "serial" ? "serialized" : "",
     objective.feedType === "episodic" ? "episodic" : "",
   ].filter(Boolean));
@@ -207,6 +210,13 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
     pocketCasts: normalizeUrl(objective.pocketCastsUrl || ""),
   };
   const sourceReferences = selectedSources(candidate);
+  const sourceFormatField = ["categories", "keywords"].find((fieldName) =>
+    mapSourceFormats({
+      categories: fieldName === "categories" ? categories : [],
+      keywords: fieldName === "keywords" ? objective.keywords || [] : [],
+    }).length > 0,
+  );
+  const sourceFormatEvidence = sourceFormatField ? candidate.provenance?.fields?.[sourceFormatField] : null;
   const externalSources = mergeUniqueStrings(
     objective.externalResearch?.sourceUrls || [],
     Object.values(objective.externalResearch?.fieldSources || {}).flat(),
@@ -327,9 +337,9 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
           completionStatus: { confidence: state.confidence, method: state.method, sources: [] },
           ...(tagProvenance ? { tags: tagProvenance } : {}),
           ...(formats.length ? { formats: {
-            confidence: enrichment.formats?.length ? 1 : candidate.provenance?.fields?.feedType?.confidence || 0.7,
-            method: enrichment.formats?.length ? "maintainer-verified-research" : "deterministic-feed-type",
-            sources: enrichment.formats?.length ? objective.externalResearch?.fieldSources?.formats || [] : candidate.provenance?.fields?.feedType?.sources || [],
+            confidence: enrichment.formats?.length ? 1 : sourceFormatEvidence?.confidence || candidate.provenance?.fields?.feedType?.confidence || 0.7,
+            method: enrichment.formats?.length ? "maintainer-verified-research" : sourceFormatEvidence ? "deterministic-source-format" : "deterministic-feed-type",
+            sources: enrichment.formats?.length ? objective.externalResearch?.fieldSources?.formats || [] : sourceFormatEvidence?.sources || candidate.provenance?.fields?.feedType?.sources || [],
           } } : {}),
         },
         importedAt: new Date().toISOString(),

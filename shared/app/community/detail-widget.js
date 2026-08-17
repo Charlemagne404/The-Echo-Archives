@@ -208,7 +208,7 @@ function mountDetailRatingWidget(detailRoot, podcast) {
     }
   });
 
-  for (let rating = 10; rating >= 1; rating -= 1) {
+  for (let rating = 1; rating <= 10; rating += 1) {
     const row = document.createElement("div");
     row.className = "community-distribution-row";
     row.dataset.ratingValue = String(rating);

@@ -80,7 +80,7 @@ function createContext({ collections = [], semantic = false } = {}) {
     loadCatalogImpl: async () => shows,
     buildCatalogImpl: async () => {},
   });
-  return { tempDir, siteRoot, db, store, service };
+  return { tempDir, siteRoot, db, store, service, shows };
 }
 
 function cleanup(context) {
@@ -120,6 +120,40 @@ test("rule membership recalculation preserves manual removals and pins", async (
     assert.equal(context.store.listOverrides("completed-sci-fi").find((entry) => entry.showId === "finished-signal").decision, "remove");
     const memberships = context.store.listMemberships("completed-sci-fi", { includeInactive: false });
     assert.equal(memberships.find((entry) => entry.showId === "ongoing-signal").sourceType, "manual-pin");
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("automated rule collections expand when a newly published show matches", async () => {
+  const context = createContext({
+    collections: [{
+      id: "ongoing-sci-fi",
+      title: "Ongoing Sci-Fi",
+      description: "Active science fiction shows.",
+      kind: "rule-based",
+      automation: {
+        mode: "rule",
+        criteria: { all: [
+          { field: "completionStatus", operator: "equals", value: "ongoing" },
+          { field: "genres", operator: "includes", value: "sci-fi" },
+        ], any: [], not: [] },
+      },
+      showIds: ["ongoing-signal"],
+      showReasons: {},
+      coverShowIds: [],
+      intentTags: [],
+      updatedAt: "2026-08-16",
+    }],
+  });
+  try {
+    await context.service.recalculate({ collectionIds: ["ongoing-sci-fi"], build: false });
+    context.shows.push(show("new-ongoing-signal", { completionStatus: "ongoing" }));
+    await context.service.refreshForShows(["new-ongoing-signal"], "catalogue-update");
+
+    const collection = readCatalogSource(context.siteRoot).collections[0];
+    assert.deepEqual(collection.showIds, ["ongoing-signal", "new-ongoing-signal"]);
+    assert.equal(context.store.listMemberships("ongoing-sci-fi").find((entry) => entry.showId === "new-ongoing-signal").sourceType, "rule-match");
   } finally {
     cleanup(context);
   }

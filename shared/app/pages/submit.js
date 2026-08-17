@@ -80,8 +80,8 @@ export async function initializeSubmitPage() {
           ? `[data-segment-field="${activeElement.dataset.segmentField}"][data-segment-value="${activeElement.dataset.segmentValue}"]`
           : activeElement.dataset.ratingStars
             ? `[data-rating-stars="${activeElement.dataset.ratingStars}"]`
-            : activeElement.dataset.categoryScore && activeElement.dataset.categoryScoreValue
-              ? `[data-category-score="${activeElement.dataset.categoryScore}"][data-category-score-value="${activeElement.dataset.categoryScoreValue}"]`
+            : activeElement.dataset.categoryScoreSlider
+              ? `[data-category-score-slider="${activeElement.dataset.categoryScoreSlider}"]`
               : ""
       : "";
     const selectionStart = activeElement instanceof HTMLInputElement || activeElement instanceof HTMLTextAreaElement

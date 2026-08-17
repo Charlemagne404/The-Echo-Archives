@@ -429,7 +429,6 @@ export async function initializeCollectionsPage() {
   renderSimilarityCollections();
   render();
   stickyMoodBarController.start();
-  scrollRestoration.restore();
 }
 
 async function loadCollectionsPageData(elements) {

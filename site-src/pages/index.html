@@ -197,39 +197,18 @@
         <div class="section-heading">
           <div>
             <h2 id="recentlyAddedTitle">Recently added</h2>
-            <p>Freshly indexed archive entries, sorted by when they entered the catalog.</p>
           </div>
         </div>
 
         <div id="recentlyAddedGrid" class="podcast-card-grid recently-added-grid"></div>
       </section>
 
+      <div class="archive-grid-divider" role="separator" aria-label="All archive shows">
+        <span aria-hidden="true">All archive shows</span>
+      </div>
+
       <div id="podcast-grid"></div>
       <div id="noResultsMount"></div>
-    </section>
-
-    <section class="collection-band" id="favoriteRoutes" aria-labelledby="favoriteRoutesTitle">
-      <div class="section-heading">
-        <div>
-          <h2 id="favoriteRoutesTitle">Shows like your favorites</h2>
-          <p>Start from a show you already love and move through reason-backed neighboring routes.</p>
-        </div>
-        <a class="section-link" href="/collections#collectionsSimilaritySection">View all shows-like routes</a>
-      </div>
-
-      <div class="collection-carousel" id="favoriteRoutesCarousel">
-        <button class="collection-carousel-arrow collection-carousel-arrow-prev" id="favoriteRoutesPrev" type="button" aria-label="Scroll shows-like routes left" hidden>
-          <span aria-hidden="true">‹</span>
-        </button>
-
-        <div class="collection-carousel-viewport" id="favoriteRoutesViewport">
-          <div class="collection-grid collection-carousel-track" id="favoriteRoutesGrid"></div>
-        </div>
-
-        <button class="collection-carousel-arrow collection-carousel-arrow-next" id="favoriteRoutesNext" type="button" aria-label="Scroll shows-like routes right" hidden>
-          <span aria-hidden="true">›</span>
-        </button>
-      </div>
     </section>
 
     <section class="collection-band" id="collections" aria-labelledby="collections-title">
@@ -250,6 +229,29 @@
         </div>
 
         <button class="collection-carousel-arrow collection-carousel-arrow-next" id="collectionNext" type="button" aria-label="Scroll featured collections right" hidden>
+          <span aria-hidden="true">›</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="collection-band" id="favoriteRoutes" aria-labelledby="favoriteRoutesTitle">
+      <div class="section-heading">
+        <div>
+          <h2 id="favoriteRoutesTitle">Shows like your favorites</h2>
+        </div>
+        <a class="section-link" href="/collections#collectionsSimilaritySection">View all shows-like routes</a>
+      </div>
+
+      <div class="collection-carousel" id="favoriteRoutesCarousel">
+        <button class="collection-carousel-arrow collection-carousel-arrow-prev" id="favoriteRoutesPrev" type="button" aria-label="Scroll shows-like routes left" hidden>
+          <span aria-hidden="true">‹</span>
+        </button>
+
+        <div class="collection-carousel-viewport" id="favoriteRoutesViewport">
+          <div class="collection-grid collection-carousel-track" id="favoriteRoutesGrid"></div>
+        </div>
+
+        <button class="collection-carousel-arrow collection-carousel-arrow-next" id="favoriteRoutesNext" type="button" aria-label="Scroll shows-like routes right" hidden>
           <span aria-hidden="true">›</span>
         </button>
       </div>

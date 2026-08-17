@@ -302,6 +302,7 @@
 .detail-similar-reason {
   color: rgba(255, 255, 255, 0.84);
   font-size: 0.88rem;
+  font-weight: 400;
 }
 
 .detail-card-copy p:last-of-type {

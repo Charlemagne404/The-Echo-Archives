@@ -180,7 +180,7 @@ The import subsystem normalizes external source data into an internal candidate 
 
 Prepared records do not apply subjective AI suggestions. This internal candidate shape is intentionally non-canonical and may evolve without changing the public show schema. See `docs/IMPORTER.md` for the complete contract.
 
-Publisher-provided RSS/iTunes categories and keywords are retained as provenance in `metadata.sourceCategories` and `metadata.sourceKeywords`. Only deterministic mappings may populate canonical genres or formats. Public discovery tags must come from the approved taxonomy workflow and never copy raw source keywords automatically.
+Publisher-provided RSS/iTunes categories and keywords are retained as provenance in `metadata.sourceCategories` and `metadata.sourceKeywords`. Only deterministic mappings may populate canonical genres or formats; exact source labels `full-cast` and `full cast` map to the canonical `full-cast` format, while broader wording is not inferred. Public discovery tags must come from the approved taxonomy workflow and never copy raw source keywords automatically.
 
 Importer-prepared records may also include factual `releaseDates.latestFeedItem` and `releaseDates.next`, richer observed runtime values under `length`, transcript coverage/language/format values under `availability`, and source/feed details under `metadata`. These are evidence-backed operational facts, not archive editorial judgments.
 
@@ -421,7 +421,7 @@ Collections remain hand-editable. The public/static route is still the resolved 
 }
 ```
 
-Rule definitions support one to three simple factual clauses from approved show metadata. Semantic definitions use `{ "mode": "semantic", "query": "…" }`; they are scored through the configured local AI service and store per-show confidence. Matches below the public threshold remain borderline review items rather than public members.
+Rule definitions support one to three simple factual clauses from approved show metadata. Semantic definitions use `{ "mode": "semantic", "query": "…" }`; they are scored through the configured local AI service and store per-show confidence. Matches below the public threshold remain borderline review items rather than public members. An approved candidate pointer may remain on the authored source for maintainer audit continuity, but public/runtime collection records omit that internal identifier.
 
 The collection engine records `rule-match`, `semantic-match`, `ai-suggestion`, `manual-addition`, `manual-pin`, and manual-removal/override decisions. Candidate approvals are retained both as an `editor-approved` membership rationale and as a durable audit event. Manual additions and pins are retained; a manual removal suppresses future automated regeneration until its override is explicitly cleared. Generated descriptions use `descriptionProvenance: "generated"`; maintainer edits switch this to `manual`, and automation never overwrites it.
 

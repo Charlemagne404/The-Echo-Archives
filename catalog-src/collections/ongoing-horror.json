@@ -1,0 +1,88 @@
+{
+  "id": "ongoing-horror",
+  "title": "Ongoing Horror",
+  "description": "Active Horror audio dramas for listeners who want a living story to follow.",
+  "descriptionProvenance": "generated",
+  "label": "Automatic route",
+  "kind": "rule-based",
+  "intentTags": [],
+  "commitment": "",
+  "coverShowIds": [],
+  "showIds": [
+    "how-i-died",
+    "were-alive",
+    "the-white-vault",
+    "station-151",
+    "paralyzed",
+    "alice-isnt-dead",
+    "malevolent",
+    "archive-81",
+    "welcome-to-night-vale",
+    "the-lovecraft-investigations",
+    "the-milkman-of-st-gaffs",
+    "re-dracula",
+    "syntax",
+    "knifepoint-horror",
+    "ghost-wax",
+    "hello-from-the-hallowoods",
+    "the-nosleep-podcast",
+    "modes-of-thought-in-anterran-literature",
+    "the-magnus-protocol",
+    "scp-archives",
+    "campfire-radio-theater",
+    "the-liminal-lands",
+    "the-elmwood-strain",
+    "the-other-stories-sci-fi-horror-thriller-wtf-stories"
+  ],
+  "showReasons": {
+    "how-i-died": "Rule match: ongoing + Horror.",
+    "were-alive": "Rule match: ongoing + Horror.",
+    "the-white-vault": "Rule match: ongoing + Horror.",
+    "station-151": "Rule match: ongoing + Horror.",
+    "paralyzed": "Rule match: ongoing + Horror.",
+    "alice-isnt-dead": "Rule match: ongoing + Horror.",
+    "malevolent": "Rule match: ongoing + Horror.",
+    "archive-81": "Rule match: ongoing + Horror.",
+    "welcome-to-night-vale": "Rule match: ongoing + Horror.",
+    "the-lovecraft-investigations": "Rule match: ongoing + Horror.",
+    "the-milkman-of-st-gaffs": "Rule match: ongoing + Horror.",
+    "re-dracula": "Rule match: ongoing + Horror.",
+    "syntax": "Rule match: ongoing + Horror.",
+    "knifepoint-horror": "Rule match: ongoing + Horror.",
+    "ghost-wax": "Rule match: ongoing + Horror.",
+    "hello-from-the-hallowoods": "Rule match: ongoing + Horror.",
+    "the-nosleep-podcast": "Rule match: ongoing + Horror.",
+    "modes-of-thought-in-anterran-literature": "Rule match: ongoing + Horror.",
+    "the-magnus-protocol": "Rule match: ongoing + Horror.",
+    "scp-archives": "Rule match: ongoing + Horror.",
+    "campfire-radio-theater": "Rule match: ongoing + Horror.",
+    "the-liminal-lands": "Rule match: ongoing + Horror.",
+    "the-elmwood-strain": "Rule match: ongoing + Horror.",
+    "the-other-stories-sci-fi-horror-thriller-wtf-stories": "Rule match: ongoing + Horror."
+  },
+  "automation": {
+    "mode": "rule",
+    "criteria": {
+      "all": [
+        {
+          "field": "completionStatus",
+          "operator": "equals",
+          "value": "ongoing"
+        },
+        {
+          "field": "genres",
+          "operator": "includes",
+          "value": "horror"
+        }
+      ],
+      "any": [],
+      "not": []
+    },
+    "minMatches": 4,
+    "approvedCandidateId": "0d4c1641-e9f5-4d52-97c5-1ccdf6d68d72"
+  },
+  "featured": false,
+  "order": 350,
+  "createdAt": "2026-08-16",
+  "updatedAt": "2026-08-16"
+}

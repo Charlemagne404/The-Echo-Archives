@@ -1,0 +1,50 @@
+{
+  "id": "episodic-mystery",
+  "title": "Episodic Mystery",
+  "description": "Episodic Mystery productions, generated from durable catalogue metadata rather than a loose genre rename.",
+  "descriptionProvenance": "generated",
+  "label": "Automatic route",
+  "kind": "rule-based",
+  "intentTags": [],
+  "commitment": "",
+  "coverShowIds": [],
+  "showIds": [
+    "the-amelia-project",
+    "the-black-tapes",
+    "king-falls-am",
+    "the-imperfection",
+    "the-dead-letters-podcast"
+  ],
+  "showReasons": {
+    "the-amelia-project": "Rule match: Mystery + Episodic.",
+    "the-black-tapes": "Rule match: Mystery + Episodic.",
+    "king-falls-am": "Rule match: Mystery + Episodic.",
+    "the-imperfection": "Rule match: Mystery + Episodic.",
+    "the-dead-letters-podcast": "Rule match: Mystery + Episodic."
+  },
+  "automation": {
+    "mode": "rule",
+    "criteria": {
+      "all": [
+        {
+          "field": "genres",
+          "operator": "includes",
+          "value": "mystery"
+        },
+        {
+          "field": "formats",
+          "operator": "includes",
+          "value": "Episodic"
+        }
+      ],
+      "any": [],
+      "not": []
+    },
+    "minMatches": 4,
+    "approvedCandidateId": "c3f0f140-c1b1-4a7a-a6cf-a0a7c3b5b31d"
+  },
+  "featured": false,
+  "order": 390,
+  "createdAt": "2026-08-16",
+  "updatedAt": "2026-08-16"
+}

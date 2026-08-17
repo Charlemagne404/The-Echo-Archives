@@ -78,6 +78,16 @@ test("importer-origin catalogue entries retain their publication tier", () => {
   assert.ok(importerOrigin.every((show) => ["indexed-only", "imported"].includes(show.reviewStatus)));
 });
 
+test("Imported source provenance exposes exact full-cast formats without copying keywords into tags", async () => {
+  const catalog = await loadCatalog(siteRoot);
+  const aberrations = catalog.find((show) => show.id === "aberrations");
+  const homicide = catalog.find((show) => show.id === "homicide-at-heavensgate");
+  assert.ok(aberrations.formats.includes("full-cast"));
+  assert.ok(homicide.formats.includes("full-cast"));
+  assert.equal(aberrations.tags.length, 0);
+  assert.equal(homicide.tags.length, 0);
+});
+
 test("confirmed broken external destinations are not reintroduced", async () => {
   const catalog = await loadCatalog(siteRoot);
   const byId = new Map(catalog.map((show) => [show.id, show]));
@@ -234,8 +244,9 @@ test("loadCollections reads curated collections against the catalog ids", async 
   const collections = loadCollections(siteRoot, new Set(catalog.map((entry) => entry.id)));
   const similarityCollections = collections.filter((collection) => collection.kind === "similarity");
 
-  assert.equal(collections.length, 30);
+    assert.equal(collections.length, 38);
   assert.ok(collections.every((collection) => collection.showIds.length > 0));
+  assert.ok(collections.every((collection) => !Object.hasOwn(collection.automation || {}, "approvedCandidateId")));
   assert.ok(similarityCollections.length > 0);
   assert.ok(similarityCollections.every((collection) => typeof collection.anchorShowId === "string" && collection.anchorShowId));
 });
@@ -321,6 +332,27 @@ test("scoreCatalog matches natural discovery phrases across status, intent, and 
   const directTitle = scoreCatalog(catalog, "derelict");
   assert.ok(directTitle.length > 0);
   assert.equal(directTitle[0].title, "Derelict");
+});
+
+test("scoreCatalog supports title prefixes from the first character and keeps stronger matches first", async () => {
+  const catalog = await loadCatalog(siteRoot);
+  const firstCharacterResults = scoreCatalog(catalog, "m");
+  const midnightBurgerIndex = firstCharacterResults.findIndex((show) => show.id === "midnight-burger");
+
+  assert.ok(midnightBurgerIndex >= 0);
+  assert.ok(firstCharacterResults[midnightBurgerIndex].searchPresentation.titleTerms.includes("m"));
+
+  const partialTitleResults = scoreCatalog(catalog, "mi");
+  assert.ok(partialTitleResults.some((show) => show.id === "midnight-burger"));
+
+  const fixtureResults = scoreCatalog(
+    [
+      createShowRecord({ id: "midnight-burger", title: "Midnight Burger" }),
+      createShowRecord({ id: "the-moon", title: "The Moon" }),
+    ],
+    "m",
+  );
+  assert.deepEqual(fixtureResults.map((show) => show.id), ["midnight-burger", "the-moon"]);
 });
 
 test("scoreCatalog now uses richer metadata like creators and source material", async () => {
