@@ -5,7 +5,7 @@
           id="collectionsStickyMoodChips"
           class="collections-mood-chips collections-mood-chips-compact"
           role="group"
-          aria-label="Filter collections by listening intent"
+          aria-label="Filter collections by mood or listening context"
         ></div>
       </div>
     </div>
@@ -13,9 +13,9 @@
     <section class="hero-shell collections-hero" id="collectionsHero" aria-labelledby="collectionsHeroTitle">
       <div class="hero-panel page-panel collections-hero-panel">
         <div class="hero-copy collections-hero-copy">
-          <h1 id="collectionsHeroTitle">Curated audio drama and fiction podcast collections</h1>
+          <h1 id="collectionsHeroTitle">Audio drama and fiction podcast collections</h1>
           <p>
-            Human-curated recommendations for the moment, mood, and listening commitment you actually have.
+            Recommendations for what you feel like listening to and how much time you have.
           </p>
           <div class="collections-hero-actions">
             <button id="startWithMood" class="collection-action collections-primary-action" type="button">Start with a mood</button>
@@ -25,14 +25,14 @@
         <section class="collections-mood-panel" id="collectionsMoodPanel" aria-labelledby="collectionsMoodTitle">
           <div class="collections-mood-heading">
             <h2 id="collectionsMoodTitle">I’m in the mood for...</h2>
-            <p>Pick one route signal.</p>
+            <p>Pick a mood or listening context.</p>
           </div>
-          <div id="collectionsMoodChips" class="collections-mood-chips" role="group" aria-label="Filter collections by listening intent"></div>
+          <div id="collectionsMoodChips" class="collections-mood-chips" role="group" aria-label="Filter collections by mood or listening context"></div>
         </section>
         <section class="archive-trust-grid" aria-label="Collections snapshot">
           <p class="archive-trust-item"><strong id="collectionsCount">-</strong> <span>collections</span></p>
           <p class="archive-trust-item"><strong id="collectionsShowReach">-</strong> <span>shows covered</span></p>
-          <p class="archive-trust-item"><strong id="collectionsFeaturedCount">-</strong> <span>featured routes</span></p>
+          <p class="archive-trust-item"><strong id="collectionsFeaturedCount">-</strong> <span>featured collections</span></p>
           <p class="archive-trust-item"><span>Updated</span> <strong id="collectionsLastUpdated">-</strong></p>
         </section>
       </div>
@@ -42,7 +42,7 @@
       <div class="section-heading collections-section-heading">
         <div>
           <h2 id="collectionsSimilarityTitle">Start from a favorite show</h2>
-          <p id="collectionsSimilaritySummary">Shows like X routes from the archive.</p>
+          <p id="collectionsSimilaritySummary">Shows like X collections from the archive.</p>
         </div>
         <a
           id="collectionsSimilarityBrowseAll"
@@ -61,7 +61,7 @@
           aria-controls="collectionsSimilarityGrid"
           hidden
         >
-          Show 5 more routes
+          Show 5 more collections
         </button>
       </div>
     </section>
@@ -70,7 +70,7 @@
       <div class="section-heading collections-section-heading">
         <div>
           <h2 id="collectionsFeaturedTitle">Start somewhere great</h2>
-          <p id="collectionsFeaturedSummary">Featured listening paths from the archive.</p>
+          <p id="collectionsFeaturedSummary">Featured collections from the archive.</p>
         </div>
         <a class="section-link" href="#collectionsDirectorySection">View all collections</a>
       </div>
@@ -80,8 +80,8 @@
     <section class="collections-directory-section" id="collectionsDirectorySection" aria-labelledby="collectionsDirectoryTitle">
       <div class="section-heading collections-section-heading">
         <div>
-          <h2 id="collectionsDirectoryTitle">All listening paths</h2>
-          <p id="collectionsDirectorySummary">Search every curated route in the archive.</p>
+          <h2 id="collectionsDirectoryTitle">All collections</h2>
+          <p id="collectionsDirectorySummary">Search all collections in the archive.</p>
         </div>
       </div>
 
@@ -92,7 +92,7 @@
               <path d="m21 21-4.35-4.35M10.8 18a7.2 7.2 0 1 0 0-14.4 7.2 7.2 0 0 0 0 14.4Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
             </svg>
           </span>
-          <input type="text" id="collectionsSearch" placeholder="Search mood, genre, route, or show..." autocomplete="off" />
+          <input type="text" id="collectionsSearch" placeholder="Search by mood, genre, or show..." autocomplete="off" />
         </label>
         <label class="collections-sort-field" for="collectionsSort">
           <span>Sort</span>
@@ -109,7 +109,7 @@
 
       <div id="collectionsDirectory" class="collections-directory-grid" aria-live="polite"></div>
       <div id="collectionsEmptyState" class="collections-empty-state" hidden>
-        <h3>No matching paths yet</h3>
+        <h3>No matching collections</h3>
         <p>Try a broader mood, clear the search, or browse every collection.</p>
         <button id="collectionsClearSearch" class="collection-action" type="button">Clear search</button>
       </div>

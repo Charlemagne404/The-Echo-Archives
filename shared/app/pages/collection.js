@@ -40,7 +40,7 @@ function createCollectionLoadingCard() {
 }
 
 function getCollectionRouteTypeLabel(collection) {
-  return collection?.kind === "similarity" ? "Shows-like route" : "Curated route";
+  return collection?.kind === "similarity" ? "Similar shows" : "Collection";
 }
 
 function normalizeTextValue(value) {
@@ -73,10 +73,10 @@ function shouldShowCommitment(collection, routeTypeLabel) {
 function getCollectionShowsSummary(collection, collectionShows, anchorShow) {
   const showCount = collectionShows.length;
   if (collection?.kind === "similarity" && anchorShow?.title) {
-    return `${showCount} nearby ${showCount === 1 ? "pick" : "picks"} starting from ${anchorShow.title}.`;
+    return `${showCount} similar ${showCount === 1 ? "show" : "shows"}, starting with ${anchorShow.title}.`;
   }
 
-  return `${formatCount(showCount, "show")} selected for this route.`;
+  return `${formatCount(showCount, "show")} in this collection.`;
 }
 
 function createSignalChip(label, className = "") {
@@ -307,7 +307,7 @@ export async function initializeCollectionPage() {
   const collectionShows = getCollectionShows(collection, showMap);
   const anchorShow = getCollectionAnchorShow(collection, showMap);
   const collectionTitle = collection.title || "Untitled collection";
-  const collectionDescription = collection.description || "Collection description not cataloged yet.";
+  const collectionDescription = collection.description || "No collection description yet.";
   const showCount = collectionShows.length;
   const leadCoverShow = anchorShow || collectionShows[0] || null;
   const firstCover = leadCoverShow?.imageSrc || (leadCoverShow?.cover ? resolveImageSrc(leadCoverShow.cover) : DEFAULT_SOCIAL_IMAGE);
@@ -400,7 +400,7 @@ export async function initializeCollectionPage() {
   relatedSection.hidden = relatedCollections.length === 0;
   if (relatedSummary) {
     relatedSummary.textContent =
-      "Neighboring routes in the archive.";
+      "Related collections from the archive.";
   }
 }
 
@@ -410,7 +410,7 @@ async function loadCollectionPageData({ root, grid }) {
   } catch (_error) {
     renderRouteErrorSurface(root, {
       title: "Collection data did not load",
-      explanation: "This collection needs the public catalog before its show list and archive links can be shown.",
+      explanation: "This collection needs the public catalog before its shows and archive links can be shown.",
       primaryAction: { href: "/collections", label: "Browse collections" },
       secondaryAction: { href: "/", label: "Back to archive" },
       onRetry: () => window.location.reload(),

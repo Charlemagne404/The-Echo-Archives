@@ -985,6 +985,56 @@ body.filter-sheet-open {
   display: flex;
 }
 
+.home-page .archive-load-more {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  margin: 38px 0 4px;
+  padding: 24px 12px 2px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: center;
+}
+
+.home-page .archive-load-more[hidden] {
+  display: none !important;
+}
+
+.home-page .archive-load-more-status {
+  margin: 0;
+  color: rgba(240, 238, 233, 0.55);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.home-page .load-more-button {
+  min-height: 46px;
+  padding: 0 22px;
+  border: 1px solid rgba(229, 72, 56, 0.58);
+  border-radius: 12px;
+  background: rgba(36, 19, 16, 0.76);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.home-page .load-more-button:hover,
+.home-page .load-more-button:focus-visible {
+  border-color: rgba(229, 72, 56, 0.92);
+  background: rgba(58, 25, 20, 0.94);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.home-page .load-more-button:focus-visible {
+  outline: 2px solid rgba(255, 210, 190, 0.76);
+  outline-offset: 3px;
+}
+
 #podcast-grid > .collection-band {
   position: relative;
   grid-column: 1 / -1;
@@ -2477,6 +2527,10 @@ body.filter-sheet-open {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .recently-added-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .section-heading {
     align-items: start;
     flex-direction: column;
@@ -2511,8 +2565,8 @@ body.filter-sheet-open {
     --editorial-corner-left: 6px;
     --editorial-ribbon-width: 126px;
     --editorial-ribbon-height: 24px;
-    --editorial-ribbon-top: 71px;
-    --editorial-ribbon-right: -30px;
+    --editorial-ribbon-grid-top: 65px;
+    --editorial-ribbon-grid-right: -30px;
     --editorial-ribbon-tail-width: 36px;
   }
 
@@ -2953,7 +3007,7 @@ body.filter-sheet-open {
 
   .home-page .podcast-card {
     --editorial-ribbon-width: 124px;
-    --editorial-ribbon-right: -20px;
+    --editorial-ribbon-grid-right: -20px;
     --editorial-ribbon-tail-width: 36px;
   }
 
@@ -3005,6 +3059,10 @@ body.filter-sheet-open {
 
   .podcast-card-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .recently-added-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .collection-card {

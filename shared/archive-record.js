@@ -18,10 +18,10 @@
   ];
 
   const FALLBACK_SHOW_TITLE = "Untitled show";
-  const FALLBACK_SHOW_DESCRIPTION = "Description not cataloged yet.";
+  const FALLBACK_SHOW_DESCRIPTION = "No description yet.";
   const FALLBACK_SHOW_COVER = "images/TEA-Logo-S.png";
   const FALLBACK_COLLECTION_TITLE = "Untitled collection";
-  const FALLBACK_COLLECTION_DESCRIPTION = "Collection description not cataloged yet.";
+  const FALLBACK_COLLECTION_DESCRIPTION = "No collection description yet.";
 
   function createShowHref(id) {
     return `/shows/${encodeURIComponent(id)}`;
@@ -110,7 +110,7 @@
 
   function formatRouteExpansion(value) {
     const count = Number(value);
-    if (!Number.isFinite(count) || count < 1) return "Show all routes";
+    if (!Number.isFinite(count) || count < 1) return "Show all collections";
     return `Show ${count} more`;
   }
 

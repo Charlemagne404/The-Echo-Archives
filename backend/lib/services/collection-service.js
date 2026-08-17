@@ -271,7 +271,7 @@ function createCollectionService({
     genres.forEach((genre) => {
       add(
         `Completed ${titleize(genre)}`,
-        `Finished ${titleize(genre)} audio dramas with a clear end point, generated from catalogue status and genre metadata.`,
+        `Completed ${titleize(genre)} shows with a clear ending.`,
         { all: [
           { field: "completionStatus", operator: "equals", value: "finished" },
           { field: "genres", operator: "includes", value: genre },
@@ -280,7 +280,7 @@ function createCollectionService({
       );
       add(
         `Ongoing ${titleize(genre)}`,
-        `Active ${titleize(genre)} audio dramas for listeners who want a living story to follow.`,
+        `Ongoing ${titleize(genre)} shows for listeners who want a story to follow.`,
         { all: [
           { field: "completionStatus", operator: "equals", value: "ongoing" },
           { field: "genres", operator: "includes", value: genre },
@@ -293,7 +293,7 @@ function createCollectionService({
     genres.forEach((genre) => formats.forEach((format) => {
       add(
         `${titleize(format)} ${titleize(genre)}`,
-        `${titleize(format)} ${titleize(genre)} productions, generated from durable catalogue metadata rather than a loose genre rename.`,
+        `${titleize(format)} ${titleize(genre)} shows.`,
         { all: [
           { field: "genres", operator: "includes", value: genre },
           { field: "formats", operator: "includes", value: format },
@@ -642,7 +642,7 @@ function createCollectionService({
       title: cleanText(candidate.title, 100),
       description: cleanText(candidate.description, 320),
       descriptionProvenance: "generated",
-      label: candidate.collectionType === "semantic" ? "Semantic route" : "Automatic route",
+      label: candidate.collectionType === "semantic" ? "Suggested collection" : "Based on catalog data",
       kind: candidate.collectionType === "semantic" ? "semantic" : "rule-based",
       intentTags: [],
       commitment: "",

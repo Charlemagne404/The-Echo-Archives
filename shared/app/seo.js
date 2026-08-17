@@ -1,7 +1,7 @@
 export const BRAND_NAME = "The Echo Archives";
 export const BRAND_DESCRIPTOR = "The Echo Archives — Audio Drama Discovery";
 export const DEFAULT_SEO_DESCRIPTION =
-  "Human-curated audio drama discovery with fiction podcast recommendations, reviews, listening collections, and similar-show routes.";
+  "Audio drama discovery with fiction podcast recommendations, reviews, collections, and similar shows.";
 
 function cleanText(value = "") {
   return String(value || "").replace(/\s+/g, " ").trim();
@@ -38,7 +38,7 @@ export function buildShowSeoDescription(show = {}) {
   const editorialText = cleanText(show.subtitle || show.description);
   const profile = archiveRecord.getPublicContentProfile(show);
   const action = profile.reviewed
-    ? "Read the human-curated review and find similar fiction podcasts."
+    ? "Read the archive review and find similar fiction podcasts."
     : profile.imported
       ? "Find official listening links and factual episode details."
     : "Explore the archive guide and find similar fiction podcasts.";
@@ -55,7 +55,7 @@ export function buildCollectionSeoDescription(collection = {}, shows = []) {
   const showTitles = [...new Set((shows || []).map((show) => cleanText(show?.title)).filter(Boolean))].slice(0, 3);
   const examples = showTitles.length > 0 ? ` Featuring ${showTitles.join(", ")}${shows.length > 3 ? ", and more" : ""}.` : "";
   return truncateDescription(
-    `${truncateDescription(cleanText(collection.description), 72)} Human-curated audio drama and fiction podcast recommendations.${examples}`,
+    `${truncateDescription(cleanText(collection.description), 72)} Audio drama and fiction podcast recommendations.${examples}`,
   );
 }
 import { archiveRecord } from "./constants.js";

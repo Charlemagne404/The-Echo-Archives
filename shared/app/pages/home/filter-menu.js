@@ -68,7 +68,7 @@ function syncFilterDropdownHeader({ filterDropdown, activeBucket }) {
     copy.before(title);
   }
 
-  kicker.textContent = activeBucket ? "Filter bucket" : "Refine the archive";
+  kicker.textContent = activeBucket ? "Filter bucket" : "Filter the archive";
   title.textContent = activeBucket ? activeBucket.label : "Archive filters";
   copy.textContent = activeBucket
     ? activeBucket.description

@@ -93,7 +93,7 @@ function parseDisplayDate(value) {
 function formatDate(value) {
   const date = parseDisplayDate(value);
   if (Number.isNaN(date.getTime())) {
-    return value || "Not cataloged yet";
+    return value || "Not listed yet";
   }
 
   return new Intl.DateTimeFormat("en-US", {
@@ -131,7 +131,7 @@ function getArchivePerspectiveText(show) {
     String(show.archiveTake || "").trim() ||
     String(show.spoilerFreeReview || "").trim() ||
     String(show.thoughts || "").trim() ||
-    "Archive perspective is still being expanded. This entry stays live because the show is already useful in the discovery graph."
+    "The archive review is not finished yet. This show is still listed in the archive."
   );
 }
 
@@ -178,7 +178,7 @@ function getCreatorNetworkLabel(show) {
   const network = normalizeEntityNames(show?.credits?.network)[0] || toEntityLabelFromId(show?.networkId);
   const values = [...creator, network].filter(Boolean);
   const text = [...new Map(values.map((value) => [value.toLocaleLowerCase(), value])).values()].join(" • ");
-  return { text: text || "Not cataloged yet", isEmpty: !text };
+  return { text: text || "Not listed yet", isEmpty: !text };
 }
 
 function getHeroRuntimeValue(show) {
@@ -188,7 +188,7 @@ function getHeroRuntimeValue(show) {
   if (typeof show.length?.episodes === "number" && show.length.episodes > 0) {
     return formatCount(show.length.episodes, "episode");
   }
-  return show.length?.label || "Runtime being cataloged";
+  return show.length?.label || "Runtime not listed yet";
 }
 
 function getPrimaryListenLink(show) {
@@ -261,7 +261,7 @@ function renderDetailHero(show, reviewData = {}) {
               </div>
               <div class="detail-meta-grid">
                 <article class="detail-meta-card"><span class="detail-meta-label">Runtime</span><span class="detail-meta-value">${escapeHtml(getHeroRuntimeValue(show))}</span></article>
-                <article class="detail-meta-card"><span class="detail-meta-label">Format</span><span class="detail-meta-value">${escapeHtml(toDisplayTag(show.formats?.[0] || "Not cataloged"))}</span></article>
+                <article class="detail-meta-card"><span class="detail-meta-label">Format</span><span class="detail-meta-value">${escapeHtml(toDisplayTag(show.formats?.[0] || "Not listed"))}</span></article>
                 ${derivePublicStatus(show) ? `<article class="detail-meta-card"><span class="detail-meta-label">Status</span><span class="detail-meta-value">${escapeHtml(derivePublicStatus(show))}</span></article>` : ""}
               </div>
             </div>
@@ -633,11 +633,11 @@ function renderCollectionsSection(show, collections = [], showMap = new Map()) {
     const art = coverShows.length
       ? `<span class="detail-collection-route-art collection-cover-collage" aria-hidden="true"${accentStyle}>${coverShows.map((coverShow, index) => `<span class="collection-cover-frame" data-cover-index="${index + 1}"><img src="${escapeHtml(getShowImageSrc(coverShow))}"${renderResponsiveCoverAttributes(coverShow, "(max-width: 640px) 116px, 168px")} alt="" width="168" height="168" loading="lazy" decoding="async" /></span>`).join("")}</span>`
       : '<span class="detail-collection-route-art is-empty" aria-hidden="true"></span>';
-    return `<a class="detail-collection-route" href="/collections/${encodeURIComponent(collection.id)}">${art}<span class="detail-collection-route-copy"><span class="detail-collection-route-title">${escapeHtml(collection.title)}</span><span class="detail-collection-route-reason">${escapeHtml(collection.showReasons?.[show.id] || "Curated route in the archive.")}</span></span></a>`;
+    return `<a class="detail-collection-route" href="/collections/${encodeURIComponent(collection.id)}">${art}<span class="detail-collection-route-copy"><span class="detail-collection-route-title">${escapeHtml(collection.title)}</span><span class="detail-collection-route-reason">${escapeHtml(collection.showReasons?.[show.id] || "Collection in the archive.")}</span></span></a>`;
   };
   return `
     <section class="detail-section detail-collections-section">
-      <div class="detail-section-header"><div><h2>Discovery routes</h2><p>Curated listening paths already connected to this show in the archive.</p></div></div>
+      <div class="detail-section-header"><div><h2>Collections</h2><p>Collections that include this show.</p></div></div>
       <div class="detail-collection-route-list">${visibleMemberships.map(renderRoute).join("")}</div>
       ${hiddenMemberships.length ? `<details class="detail-route-overflow"><summary>${formatRouteExpansion(hiddenMemberships.length)}</summary><div class="detail-route-overflow-grid">${hiddenMemberships.map(renderRoute).join("")}</div></details>` : ""}
     </section>

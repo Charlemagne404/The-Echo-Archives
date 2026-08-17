@@ -52,6 +52,17 @@
   outline-offset: 3px;
 }
 
+.footer-version {
+  position: absolute;
+  left: max(20px, var(--safe-area-left));
+  bottom: max(10px, var(--safe-area-bottom));
+  margin: 0;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.68rem;
+  line-height: 1;
+  letter-spacing: 0.08em;
+}
+
 .footer-brand-mark {
   display: inline-flex;
   align-self: start;

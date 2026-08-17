@@ -428,5 +428,9 @@
 .home-main {
   width: min(var(--shell-max-width), calc(100% - (var(--shell-inline-padding) * 2)));
   margin: 0 auto;
-  padding-bottom: 64px;
+  padding-bottom: 24px;
+}
+
+.home-main > .archive-section:last-child {
+  margin-bottom: 0;
 }

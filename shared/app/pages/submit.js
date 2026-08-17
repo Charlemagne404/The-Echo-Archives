@@ -52,7 +52,7 @@ export async function initializeSubmitPage() {
     shows: [],
     showMap: new Map(),
     lookupStatus: "idle",
-    lookupMessage: "Archive lookup loads only when this submission path needs it.",
+    lookupMessage: "The show list loads when this form needs it.",
     lookupPromise: null,
     requestedShowId: "",
     showContexts: new Map(),
@@ -153,7 +153,7 @@ export async function initializeSubmitPage() {
       })
       .catch((error) => {
         state.lookupStatus = "error";
-        state.lookupMessage = "Archive lookup is temporarily unavailable. Retry here, or use the new-show path now.";
+        state.lookupMessage = "The show list is temporarily unavailable. Retry here, or use the new-show form now.";
         renderPreservingFocus();
         throw error;
       })

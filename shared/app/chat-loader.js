@@ -3,7 +3,7 @@ const CHAT_SHELL_MARKUP = `
     <div class="chat-panel-header">
       <div class="chat-panel-heading">
         <h2 id="chatDialogTitle">Ask the Archivist</h2>
-        <p id="chatStatus" class="chat-status" aria-live="polite">Checking Ask the Archivist...</p>
+        <p id="chatStatus" class="chat-status" aria-live="polite">Checking the Archivist...</p>
       </div>
       <div class="chat-panel-actions">
         <button id="chat-clear" class="chat-secondary-button chat-icon-button" type="button" aria-label="Start a new chat" title="New chat">
@@ -33,7 +33,7 @@ const CHAT_SHELL_MARKUP = `
       <input type="text" id="userInput" placeholder="Ask about a podcast, mood, or theme" />
       <button id="sendMessageButton" type="button">Ask</button>
     </div>
-    <p class="chat-footnote">Ask for a finished show, a mood, a listening context, or a title already in the archive.</p>
+    <p class="chat-footnote">Ask for a completed show, a mood, or a title already in the archive.</p>
   </aside>
 `;
 

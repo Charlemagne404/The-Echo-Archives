@@ -269,7 +269,7 @@ export function renderExistingShowField({
         </div>
         <div class="submit-lookup-status" data-state="${escapeAttribute(lookupStatus)}" role="${lookupStatus === "error" ? "alert" : "status"}" aria-live="polite">
           <span>${lookupReady ? "" : escapeHtml(lookupMessage)}</span>
-          ${lookupStatus === "error" ? '<button type="button" class="submit-lookup-retry" data-retry-submit-lookup>Retry archive lookup</button>' : ""}
+          ${lookupStatus === "error" ? '<button type="button" class="submit-lookup-retry" data-retry-submit-lookup>Retry show list</button>' : ""}
         </div>
       </div>
     `,

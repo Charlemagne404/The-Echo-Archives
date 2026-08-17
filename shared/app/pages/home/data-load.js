@@ -14,7 +14,7 @@ export async function loadHomePageData(elements) {
       () =>
         createRouteErrorSurface({
           title: "Archive data did not load",
-          explanation: "Search, filters, and collection routes need the public catalog data before they can work.",
+          explanation: "Search, filters, and collections need the public catalog data before they can work.",
           primaryAction: { href: "/collections", label: "Browse collections" },
           secondaryAction: { href: "/help-center", label: "Get help" },
           onRetry: () => window.location.reload(),

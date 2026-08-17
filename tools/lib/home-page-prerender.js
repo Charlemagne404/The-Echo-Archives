@@ -7,6 +7,7 @@ const TOP_RATED_BADGE_ASSET_URL = "/images/badges/top-rated-bookmark.png";
 const DEFAULT_FALLBACK_COVER_IMAGE = "/images/TEA-Logo-S.png";
 const HOME_MOST_POPULAR_LIMIT = 4;
 const HOME_RECENTLY_ADDED_LIMIT = 4;
+const HOME_RESULTS_PAGE_SIZE = 60;
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -81,7 +82,7 @@ function parseDisplayDate(value) {
 function formatCompactDate(value) {
   const date = parseDisplayDate(value);
   if (!date) {
-    return value ? "Needs review" : "Not cataloged";
+    return value ? "Needs review" : "Not listed";
   }
 
   if (Number.isNaN(date.getTime())) {
@@ -433,7 +434,7 @@ function renderCollectionDirectoryCard(collection, showMap, { compact = false } 
   const anchorShow = getCollectionAnchorShow(collection, showMap);
   const coverShows = getCollectionCollageShows(collection, collectionShows, anchorShow);
   const title = collection.title || "Untitled collection";
-  const description = collection.description || "Collection description not cataloged yet.";
+  const description = collection.description || "No collection description yet.";
   const accent = (anchorShow || collectionShows.find((show) => show?.accent?.hex))?.accent?.hex || "";
   const coverMarkup = coverShows.length
     ? `<div class="collection-cover-collage collection-cover-collage-compact${compact ? " collection-cover-collage-rail" : ""}" aria-hidden="true">${coverShows.map((show, index) => `<span class="collection-cover-frame" data-cover-index="${index + 1}"><img src="${escapeAttribute(getCoverVariantSource(show, 320))}"${renderResponsiveCoverAttributes(show, "(max-width: 560px) 42vw, (max-width: 960px) 28vw, 240px")} alt="" loading="lazy" decoding="async" width="320" height="320" /></span>`).join("")}</div>`
@@ -441,11 +442,11 @@ function renderCollectionDirectoryCard(collection, showMap, { compact = false } 
   const intentTags = (collection.intentTags || [])
     .map((tag) => `<span>${escapeHtml(toDisplayTag(tag))}</span>`)
     .join("");
-  const meta = `${collectionShows.length} ${collectionShows.length === 1 ? "show" : "shows"} / ${collection.commitment || collection.kind || "Curated path"}`;
+  const meta = `${collectionShows.length} ${collectionShows.length === 1 ? "show" : "shows"} / ${collection.commitment || collection.kind || "Collection"}`;
 
   return `<a class="collections-directory-card${compact ? " collections-directory-card-compact" : ""}" href="${escapeAttribute(createCollectionHref(collection.id || ""))}" data-collection-id="${escapeAttribute(collection.id || "")}"${anchorShow?.id ? ` data-anchor-show-id="${escapeAttribute(anchorShow.id)}"` : ""} data-intent-tags="${escapeAttribute((collection.intentTags || []).join(" "))}" aria-label="Open the ${escapeAttribute(title)} collection"${accent ? ` style="--collection-accent: ${escapeAttribute(accent)}"` : ""}>
     ${coverMarkup}
-    <span class="collections-card-label">${escapeHtml(collection.label || (collection.featured ? "Featured route" : "Curated route"))}</span>
+    <span class="collections-card-label">${escapeHtml(collection.label || (collection.featured ? "Featured collection" : "Collection"))}</span>
     <h3>${escapeHtml(title)}</h3>
     <p class="collections-directory-description">${escapeHtml(description)}</p>
     <p class="collections-card-meta">${escapeHtml(meta)}</p>
@@ -470,6 +471,13 @@ function setSectionVisibility(markup, isVisible, dataAttributeValue = "") {
         ? `${withoutHidden} data-home-prerendered="${escapeAttribute(dataAttributeValue)}"`
         : withoutHidden;
     return `<section${withPrerender}${isVisible ? "" : " hidden"}>`;
+  });
+}
+
+function setElementVisibility(markup, isVisible) {
+  return markup.replace(/<div\b([^>]*)>/i, (_match, attributes) => {
+    const withoutHidden = attributes.replace(/\shidden\b/i, "");
+    return `<div${isVisible ? withoutHidden : `${withoutHidden} hidden`}>`;
   });
 }
 
@@ -500,7 +508,10 @@ function renderHomePagePrerender(pageBody, { rootDir, homeMostPopularIds = [], h
     .filter((show) => getSortableDateValue(archiveRecord.getCatalogPublicationDate(show)) > Number.NEGATIVE_INFINITY)
     .sort(compareRecentlyAdded)
     .slice(0, HOME_RECENTLY_ADDED_LIMIT);
-  const resultsSummary = `${publishedShows.length} results • ${stats.fullReviewCount} ${stats.fullReviewCount === 1 ? "full review" : "full reviews"}`;
+  const initialShows = publishedShows.slice(0, HOME_RESULTS_PAGE_SIZE);
+  const hasMoreResults = initialShows.length < publishedShows.length;
+  const initialResultCountLabel = hasMoreResults ? `${initialShows.length} of ${publishedShows.length}` : `${publishedShows.length}`;
+  const resultsSummary = `${initialResultCountLabel} results • ${stats.fullReviewCount} ${stats.fullReviewCount === 1 ? "full review" : "full reviews"}`;
 
   let rendered = pageBody;
 
@@ -534,9 +545,34 @@ function renderHomePagePrerender(pageBody, { rootDir, homeMostPopularIds = [], h
   rendered = replaceMarkup(
     rendered,
     /<div id="podcast-grid"><\/div>/,
-    `<div id="podcast-grid" data-home-prerendered="true">${publishedShows.map(renderArchiveCard).join("")}</div>`,
+    `<div id="podcast-grid" data-home-prerendered="true">${initialShows.map(renderArchiveCard).join("")}</div>`,
     "archive grid",
   );
+  const loadMoreSurfaceMatch = rendered.match(/<div id="archiveLoadMore"[\s\S]*?<\/div>/);
+  if (!loadMoreSurfaceMatch) {
+    throw new Error("Unable to locate homepage load more surface.");
+  }
+  rendered = replaceMarkup(
+    rendered,
+    /<div id="archiveLoadMore"[\s\S]*?<\/div>/,
+    setElementVisibility(loadMoreSurfaceMatch[0], hasMoreResults),
+    "archive load more visibility",
+  );
+  rendered = replaceMarkup(
+    rendered,
+    /(<p id="archiveLoadMoreStatus" class="archive-load-more-status" aria-live="polite">)[\s\S]*?(<\/p>)/,
+    `$1Showing ${initialShows.length} of ${publishedShows.length} shows.$2`,
+    "archive load more status",
+  );
+  const nextPageSize = Math.min(HOME_RESULTS_PAGE_SIZE, Math.max(publishedShows.length - initialShows.length, 0));
+  if (nextPageSize !== HOME_RESULTS_PAGE_SIZE) {
+    rendered = replaceMarkup(
+      rendered,
+      /(<button id="loadMoreResults"[^>]*>)[\s\S]*?(<\/button>)/,
+      `$1Load ${nextPageSize || HOME_RESULTS_PAGE_SIZE} more ${nextPageSize === 1 ? "show" : "shows"}$2`,
+      "archive load more button",
+    );
+  }
   rendered = replaceMarkup(
     rendered,
     /<div class="collection-grid collection-carousel-track" id="favoriteRoutesGrid"><\/div>/,
@@ -626,7 +662,7 @@ function renderCollectionsPagePrerender(pageBody, { rootDir }) {
   }
   return rendered.replace(
     /(<p id="collectionsDirectorySummary">)[\s\S]*?(<\/p>)/,
-    `$1${collections.length} human-curated audio drama and fiction podcast listening paths.$2`,
+    `$1${collections.length} audio drama and fiction podcast collections.$2`,
   );
 }
 

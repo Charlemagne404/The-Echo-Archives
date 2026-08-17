@@ -10,7 +10,7 @@ function getShowCountLabel(shows) {
 }
 
 function getCollectionMetaLabel(collection, shows) {
-  return [getShowCountLabel(shows), collection.commitment || collection.kind || "Curated path"]
+  return [getShowCountLabel(shows), collection.commitment || collection.kind || "Collection"]
     .filter(Boolean)
     .join(" / ");
 }
@@ -178,13 +178,13 @@ export function createCollectionFeatureCard(collection, shows, { anchorShow = nu
 
   const label = document.createElement("span");
   label.className = "collections-card-label";
-  label.textContent = collection.label || "Curated route";
+  label.textContent = collection.label || "Collection";
 
   const title = document.createElement("h3");
   title.textContent = titleText;
 
   const description = document.createElement("p");
-  description.textContent = collection.description || "Collection description not cataloged yet.";
+  description.textContent = collection.description || "No collection description yet.";
 
   const meta = document.createElement("p");
   meta.className = "collections-card-meta";
@@ -221,14 +221,14 @@ export function createCollectionDirectoryCard(collection, shows, { compact = fal
 
   const label = document.createElement("span");
   label.className = "collections-card-label";
-  label.textContent = collection.label || (collection.featured ? "Featured route" : "Curated route");
+  label.textContent = collection.label || (collection.featured ? "Featured collection" : "Collection");
 
   const title = document.createElement("h3");
   title.textContent = titleText;
 
   const description = document.createElement("p");
   description.className = "collections-directory-description";
-  description.textContent = collection.description || "Collection description not cataloged yet.";
+  description.textContent = collection.description || "No collection description yet.";
 
   const meta = document.createElement("p");
   meta.className = "collections-card-meta";

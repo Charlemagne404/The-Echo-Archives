@@ -241,8 +241,8 @@ export async function initializeCollectionsPage() {
   const orderedCollections = sortCollections(collections, new Map(collections.map((entry) => [entry.id, []])), "editorial");
 
   updateDocumentMetadata({
-    title: "Curated Audio Drama & Fiction Podcast Collections | The Echo Archives",
-    description: "Browse human-curated audio drama and fiction podcast recommendations by mood, genre, listening time, completion status, and similar shows.",
+    title: "Audio Drama & Fiction Podcast Collections | The Echo Archives",
+    description: "Browse audio drama and fiction podcast recommendations by mood, genre, listening time, completion status, and similar shows.",
     path: "/collections",
     image: DEFAULT_SOCIAL_IMAGE,
     structuredData: buildCollectionsDirectoryStructuredData(orderedCollections),
@@ -291,7 +291,7 @@ export async function initializeCollectionsPage() {
   setTextContent("collectionsLastUpdated", latestUpdatedAt ? formatDate(latestUpdatedAt) : "Unknown");
   setTextContent(
     "collectionsSimilaritySummary",
-    `${similarityCollections.length} anchored route${similarityCollections.length === 1 ? "" : "s"} for starting from a favorite show.`,
+    `${similarityCollections.length} “shows like” collection${similarityCollections.length === 1 ? "" : "s"} based on a favorite show.`,
   );
 
   const renderSimilarityCollections = (changeReason = "initial") => {
@@ -316,8 +316,8 @@ export async function initializeCollectionsPage() {
       elements.similarityMore.disabled = !hasMore;
 
       if (hasMore) {
-        elements.similarityMore.textContent = `Show ${nextRevealCount} more routes`;
-        elements.similarityMore.setAttribute("aria-label", `Show ${nextRevealCount} more similar-show routes`);
+        elements.similarityMore.textContent = `Show ${nextRevealCount} more collections`;
+        elements.similarityMore.setAttribute("aria-label", `Show ${nextRevealCount} more “shows like” collections`);
       }
     }
   };
@@ -368,7 +368,7 @@ export async function initializeCollectionsPage() {
     if (elements.featuredSummary) {
       syncCollectionsSummary(
         elements.featuredSummary,
-        activeMood ? `Featured paths matching ${activeMood.toLowerCase()}.` : "Featured listening paths from the archive.",
+        activeMood ? `Featured collections matching ${activeMood.toLowerCase()}.` : "Featured collections from the archive.",
         { skipAnimation: changeReason === "initial" },
       );
     }
@@ -377,7 +377,7 @@ export async function initializeCollectionsPage() {
       const moodLabel = activeMood ? ` matching ${activeMood.toLowerCase()}` : "";
       syncCollectionsSummary(
         elements.directorySummary,
-        `${filtered.length} listening ${filtered.length === 1 ? "path" : "paths"}${moodLabel}${queryLabel}.`,
+        `${filtered.length} collection${filtered.length === 1 ? "" : "s"}${moodLabel}${queryLabel}.`,
         { skipAnimation: changeReason === "initial" },
       );
     }
@@ -440,7 +440,7 @@ async function loadCollectionsPageData(elements) {
     });
     renderRouteErrorSurface(elements.directoryRoot, {
       title: "Collections did not load",
-      explanation: "The curated listening paths need the public catalog data before they can be searched or sorted.",
+      explanation: "The collections need the public catalog data before they can be searched or sorted.",
       primaryAction: { href: "/", label: "Back to archive" },
       secondaryAction: { href: "/help-center", label: "Get help" },
       onRetry: () => window.location.reload(),

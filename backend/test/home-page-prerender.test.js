@@ -26,6 +26,12 @@ test("homepage prerender injects initial discovery content into the build templa
 
   assert.doesNotMatch(rendered, /<p id="resultsSummary" class="results-summary">Loading archive\.\.\.<\/p>/);
   assert.match(rendered, /<div id="podcast-grid" data-home-prerendered="true">[\s\S]*podcast-card-shell/);
+  const publishedShowCount = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "shows.json"), "utf8")).filter((show) => show.status === "published").length;
+  const gridStart = rendered.indexOf('<div id="podcast-grid" data-home-prerendered="true">');
+  const loadMoreStart = rendered.indexOf('<div id="archiveLoadMore"', gridStart);
+  const initialGridMarkup = rendered.slice(gridStart, loadMoreStart);
+  assert.equal((initialGridMarkup.match(/class="podcast-card-shell"/g) || []).length, Math.min(60, publishedShowCount));
+  assert.match(rendered, /id="archiveLoadMore" class="archive-load-more"/);
   assert.match(rendered, /<div class="popular-grid" id="popularGrid" data-home-prerendered="true">[\s\S]*popular-card/);
   assert.match(rendered, /<div class="collection-grid collection-carousel-track" id="favoriteRoutesGrid" data-home-prerendered="true">[\s\S]*collection-card/);
   assert.match(rendered, /<div class="collection-grid collection-carousel-track" id="collectionGrid" data-home-prerendered="true">[\s\S]*collection-card/);

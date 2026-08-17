@@ -25,10 +25,10 @@ function applyChatCopy() {
 
   if (chatFootnote) {
     chatFootnote.textContent = isCreatorsContext
-      ? "Ask how creator verification works, what stays editorially independent, or which submit path to use."
+      ? "Ask how creator verification works, what stays editorial, or which form to use."
       : isHelpContext
         ? "Ask how to fix a broken link, what creator verified means, why a rating did not stick, or how to search better."
-        : "Ask for a recommendation, a correction path, creator or runtime details, privacy help, or what creator verified means.";
+        : "Ask for a recommendation, a correction, creator or runtime details, privacy help, or what Creator Verified means.";
   }
 }
 

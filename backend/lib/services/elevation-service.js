@@ -117,11 +117,11 @@ function rankEntry(show, candidate, collections, fullReviews, target) {
     const memberships = collectionMemberships(show.id, collections).length;
     if (memberships < 2) {
       score += 10;
-      factors.push("Could strengthen collection pathways");
+      factors.push("Could strengthen collections");
     }
     if (strings(show.similarTo, 5).length < 3) {
       score += 10;
-      factors.push("Could add useful similar-show routes");
+      factors.push("Could add useful similar shows");
     }
     const review = null;
     const editorialMissing = missingEditorialFields(show, review, collections, factualCurrent);

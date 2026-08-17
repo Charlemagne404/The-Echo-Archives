@@ -164,7 +164,7 @@ export function buildCollectionStructuredData(collection, shows = []) {
         "@id": `${pageUrl}#breadcrumb`,
         itemListElement: [
           { "@type": "ListItem", position: 1, name: BRAND_DESCRIPTOR, item: homeUrl },
-          { "@type": "ListItem", position: 2, name: "Curated audio drama collections", item: buildSiteAbsoluteUrl("/collections") },
+          { "@type": "ListItem", position: 2, name: "Audio drama collections", item: buildSiteAbsoluteUrl("/collections") },
           { "@type": "ListItem", position: 3, name: cleanText(collection?.title), item: pageUrl },
         ],
       },
@@ -177,7 +177,7 @@ export function buildCollectionsDirectoryStructuredData(collections = []) {
   const pageUrl = buildSiteAbsoluteUrl("/collections");
   const homeUrl = buildSiteAbsoluteUrl("/");
   const description =
-    "Browse human-curated audio drama and fiction podcast recommendations by mood, genre, listening time, completion status, and similar shows.";
+    "Browse audio drama and fiction podcast recommendations by mood, genre, listening time, completion status, and similar shows.";
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -207,7 +207,7 @@ export function buildCollectionsDirectoryStructuredData(collections = []) {
         "@id": `${pageUrl}#breadcrumb`,
         itemListElement: [
           { "@type": "ListItem", position: 1, name: BRAND_DESCRIPTOR, item: homeUrl },
-          { "@type": "ListItem", position: 2, name: "Curated audio drama collections", item: pageUrl },
+          { "@type": "ListItem", position: 2, name: "Audio drama collections", item: pageUrl },
         ],
       },
     ],

@@ -175,7 +175,7 @@ async function sendMessage(prefilledMessage) {
 
     renderAndStoreEntry({
       role: "assistant",
-      content: result.answer || "I couldn't build a reply from the archive yet.",
+      content: result.answer || "I couldn't find a useful answer in the archive yet.",
       recommendations: Array.isArray(result.recommendations) ? result.recommendations : [],
       actions: Array.isArray(result.actions) ? result.actions : [],
     });
@@ -186,11 +186,11 @@ async function sendMessage(prefilledMessage) {
       sendMessage,
     );
     if (result.source === "ollama") {
-      setChatStatus("Live model connected to the archive.");
+      setChatStatus("The live assistant is connected.");
     } else if (result.source === "site-help") {
-      setChatStatus("Using grounded archive help.");
+      setChatStatus("Using archive help.");
     } else {
-      setChatStatus("Using grounded archive fallback.");
+      setChatStatus("Using a basic archive answer.");
     }
   } catch (_error) {
     typingIndicator.remove();

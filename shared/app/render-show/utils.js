@@ -50,7 +50,7 @@ export function getArchivePerspectiveText(show) {
     return thoughts;
   }
 
-  return "Archive perspective is still being expanded. This entry stays live because the show is already useful in the discovery graph.";
+  return "The archive review is not finished yet. This show is still listed in the archive.";
 }
 
 export function getSummaryDescriptor(show) {
@@ -133,7 +133,7 @@ export function getShowDateValue(show, kind) {
 
 export function getKnownDateLabel(value) {
   if (!value) {
-    return { text: "Not cataloged yet", isEmpty: true };
+    return { text: "Not listed yet", isEmpty: true };
   }
 
   return { text: formatDate(value), isEmpty: false };
@@ -189,7 +189,7 @@ export function getHeroRuntimeNote(show) {
     return show.length.label;
   }
 
-  return "Runtime being cataloged";
+  return "Runtime not listed yet";
 }
 
 export function getHeroFormatValue(show) {
@@ -197,7 +197,7 @@ export function getHeroFormatValue(show) {
     return toDisplayTag(show.formats[0]);
   }
 
-  return "Not cataloged";
+  return "Not listed";
 }
 
 export function getHeroFormatNote(show) {
@@ -208,13 +208,13 @@ export function getHeroFormatNote(show) {
       .join(" • ");
   }
 
-  return show.formats[0] ? "Archive format" : "Format being cataloged";
+  return show.formats[0] ? "Format" : "Format not listed yet";
 }
 
 export function getCompletionNote(show) {
   const seasonsLabel = typeof show.length?.seasons === "number" && show.length.seasons > 0 ? formatCount(show.length.seasons, "season") : "";
   const episodesLabel = typeof show.length?.episodes === "number" && show.length.episodes > 0 ? formatCount(show.length.episodes, "episode") : "";
-  return [seasonsLabel, episodesLabel].filter(Boolean).join(" • ") || "Archive completion";
+  return [seasonsLabel, episodesLabel].filter(Boolean).join(" • ") || "Completion not listed yet";
 }
 
 export function getReleaseNote(show) {
@@ -239,7 +239,7 @@ export function getCreatorNetworkLabel(show) {
   const text = [...new Map(values.map((value) => [value.toLocaleLowerCase(), value])).values()].join(" • ");
 
   if (!text) {
-    return { text: "Not cataloged yet", isEmpty: true };
+    return { text: "Not listed yet", isEmpty: true };
   }
 
   return { text, isEmpty: false };
@@ -251,7 +251,7 @@ export function getSeasonsEpisodesLabel(show) {
   const text = [seasons, episodes].filter(Boolean).join(" • ");
 
   if (!text) {
-    return { text: "Not cataloged yet", isEmpty: true };
+    return { text: "Not listed yet", isEmpty: true };
   }
 
   return { text, isEmpty: false };

@@ -142,7 +142,7 @@ export const VERIFICATION_METHOD_OPTIONS = [
   {
     value: "other",
     label: "Other",
-    description: "Another proof path",
+    description: "Another way to prove it",
   },
 ];
 

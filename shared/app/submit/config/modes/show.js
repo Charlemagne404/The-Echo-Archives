@@ -1,5 +1,5 @@
 export const showModeConfig = {
-  heroDescription: "Listeners and creators help keep The Echo Archives accurate and complete. Submit shows, suggest corrections, share listener reviews, or request creator verification.",
+  heroDescription: "Help keep The Echo Archives accurate and complete. Submit a show, send a correction, share a listener review, or request creator verification.",
   cardTitle: "Submit a new show",
   cardDescription: "Not listed in the archive yet.",
   cardIcon: "mode-show",

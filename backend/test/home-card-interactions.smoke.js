@@ -253,6 +253,105 @@ test("homepage featured collections carousel applies center-weighted focus and d
   }
 });
 
+test("homepage collection carousel keeps loop copies hoverable and clickable", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 980 } });
+
+  try {
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await page.locator("#collectionGrid .collection-card").first().waitFor();
+    await page.locator("#collectionCarousel").hover();
+
+    const target = await page.evaluate(() => {
+      const viewport = document.getElementById("collectionViewport");
+      const cards = Array.from(document.querySelectorAll("#collectionGrid .collection-card"));
+      const originalsPerSet = cards.length / 3;
+      const nextSetStart = cards[originalsPerSet * 2]?.offsetLeft || 0;
+      if (!viewport || !Number.isFinite(nextSetStart) || originalsPerSet < 1) {
+        return null;
+      }
+
+      viewport.scrollLeft = nextSetStart - Math.max(0, viewport.clientWidth - 420);
+      return { nextSetStart, originalsPerSet };
+    });
+    assert.ok(target);
+    await page.waitForTimeout(120);
+
+    const visibleCards = await page.evaluate(() => {
+      const viewport = document.getElementById("collectionViewport");
+      const viewportRect = viewport?.getBoundingClientRect();
+      const cards = Array.from(document.querySelectorAll("#collectionGrid .collection-card"));
+      if (!viewportRect) {
+        return [];
+      }
+
+      return cards
+        .map((card, index) => {
+          const rect = card.getBoundingClientRect();
+          const visible = rect.right > viewportRect.left && rect.left < viewportRect.right && rect.bottom > viewportRect.top && rect.top < viewportRect.bottom;
+          if (!visible) {
+            return null;
+          }
+
+          const x = Math.max(viewportRect.left + 2, Math.min(viewportRect.right - 2, rect.left + rect.width / 2));
+          const y = Math.max(viewportRect.top + 2, Math.min(viewportRect.bottom - 2, rect.top + rect.height / 2));
+          const hit = document.elementFromPoint(x, y);
+          return {
+            index,
+            clone: card.dataset.collectionClone === "true",
+            pointerEvents: window.getComputedStyle(card).pointerEvents,
+            hitIndex: hit?.closest?.(".collection-card") ? cards.indexOf(hit.closest(".collection-card")) : -1,
+            x,
+            y,
+          };
+        })
+        .filter(Boolean);
+    });
+
+    const visibleClones = visibleCards.filter((card) => card.clone);
+    assert.ok(visibleClones.length > 0);
+    visibleClones.forEach((card) => {
+      assert.equal(card.pointerEvents, "auto");
+    });
+
+    const hoverTarget = visibleClones.find((card) => card.hitIndex === card.index);
+    assert.ok(hoverTarget);
+    await page.mouse.move(hoverTarget.x, hoverTarget.y);
+    await page.waitForFunction(
+      (index) => document.querySelectorAll("#collectionGrid .collection-card")[index]?.classList.contains("is-interaction-boosted"),
+      hoverTarget.index,
+    );
+
+    const clickPoint = await page.evaluate((index) => {
+      const viewport = document.getElementById("collectionViewport");
+      const card = document.querySelectorAll("#collectionGrid .collection-card")[index];
+      if (!viewport || !card) {
+        return null;
+      }
+
+      window.__homeCollectionCloneClick = false;
+      card.addEventListener(
+        "click",
+        (event) => {
+          event.preventDefault();
+          window.__homeCollectionCloneClick = true;
+        },
+        { once: true },
+      );
+      const viewportRect = viewport.getBoundingClientRect();
+      const rect = card.getBoundingClientRect();
+      return {
+        x: Math.max(viewportRect.left + 2, Math.min(viewportRect.right - 2, rect.left + rect.width / 2)),
+        y: Math.max(viewportRect.top + 2, Math.min(viewportRect.bottom - 2, rect.top + rect.height / 2)),
+      };
+    }, hoverTarget.index);
+    assert.ok(clickPoint);
+    await page.mouse.click(clickPoint.x, clickPoint.y);
+    await page.waitForFunction(() => window.__homeCollectionCloneClick === true);
+  } finally {
+    await page.close();
+  }
+});
+
 test("homepage expanding archive card supports stable hover, keyboard, touch, and compact anchored geometry", async () => {
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
 

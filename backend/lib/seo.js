@@ -1,7 +1,7 @@
 const BRAND_NAME = "The Echo Archives";
 const BRAND_DESCRIPTOR = "The Echo Archives — Audio Drama Discovery";
 const DEFAULT_DESCRIPTION =
-  "Human-curated audio drama discovery with fiction podcast recommendations, reviews, listening collections, and similar-show routes.";
+  "Audio drama discovery with fiction podcast recommendations, reviews, collections, and similar shows.";
 const COLLECTION_MIN_INDEXABLE_SHOWS = 4;
 const COLLECTION_MIN_DESCRIPTION_LENGTH = 60;
 const { getPublicContentProfile } = require("../../shared/archive-record");
@@ -76,17 +76,17 @@ function buildShowSeoDescription(show = {}) {
   const editorialText = cleanText(show.subtitle || show.description);
   const profile = getPublicContentProfile(show);
   const action = profile.reviewed
-    ? "Read the human-curated review and find similar fiction podcasts."
+    ? "Read the archive review and find similar fiction podcasts."
     : profile.imported
       ? "Find official listening links and factual episode details."
-    : "Explore the archive guide and find similar fiction podcasts.";
+    : "See the archive guide and find similar fiction podcasts.";
   return truncateDescription(profile.imported
     ? `Discover ${title}, a ${genrePhrase}audio drama. ${action} ${editorialText}`
     : `Discover ${title}, a ${genrePhrase}audio drama. ${editorialText} ${action}`);
 }
 
 function buildCollectionSeoTitle(collection = {}) {
-  const title = cleanText(collection.title) || "Curated fiction podcasts";
+  const title = cleanText(collection.title) || "Fiction podcast recommendations";
   return `${title}: Audio Drama Recommendations | ${BRAND_NAME}`;
 }
 
@@ -94,7 +94,7 @@ function buildCollectionSeoDescription(collection = {}, collectionShows = []) {
   const description = truncateDescription(cleanText(collection.description), 72);
   const showTitles = uniqueText(collectionShows.map((show) => show?.title)).slice(0, 3);
   const examples = showTitles.length > 0 ? ` Featuring ${showTitles.join(", ")}${collectionShows.length > 3 ? ", and more" : ""}.` : "";
-  return truncateDescription(`${description} Human-curated audio drama and fiction podcast recommendations.${examples}`);
+  return truncateDescription(`${description} Audio drama and fiction podcast recommendations.${examples}`);
 }
 
 function isIndexableCollection(collection = {}, collectionShows = []) {

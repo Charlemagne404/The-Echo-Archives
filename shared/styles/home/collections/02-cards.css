@@ -391,6 +391,25 @@
   height: auto;
 }
 
+.home-page .podcast-card.collection-show-card {
+  --editorial-ribbon-collection-top: 71px;
+  --editorial-ribbon-collection-right: -25px;
+  --editorial-ribbon-top: var(--editorial-ribbon-collection-top);
+  --editorial-ribbon-right: var(--editorial-ribbon-collection-right);
+}
+
+@media (max-width: 959px) {
+  .home-page .podcast-card.collection-show-card {
+    --editorial-ribbon-collection-right: -30px;
+  }
+}
+
+@media (max-width: 560px) {
+  .home-page .podcast-card.collection-show-card {
+    --editorial-ribbon-collection-right: -20px;
+  }
+}
+
 .collection-show-card-note {
   display: -webkit-box;
   margin: 10px 16px 0;

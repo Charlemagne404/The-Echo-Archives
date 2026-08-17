@@ -87,7 +87,7 @@ function parseDisplayDate(value) {
 export function formatDate(value) {
   const date = parseDisplayDate(value);
   if (!date) {
-    return value ? "Date needs review" : "Not cataloged yet";
+    return value ? "Date needs review" : "Not listed yet";
   }
 
   if (Number.isNaN(date.getTime())) {
@@ -210,7 +210,7 @@ function syncStructuredData(value) {
 export function updateDocumentMetadata({ title, description, path, image, imageAlt, structuredData }) {
   const resolvedTitle = title || "The Echo Archives";
   const resolvedDescription =
-    description || "A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity.";
+    description || "An archive for discovering fiction podcasts by mood, tone, format, completion status, and similar shows.";
   const resolvedUrl = buildSiteAbsoluteUrl(path || window.location.pathname);
   const resolvedImage = buildSiteAbsoluteUrl(image || DEFAULT_SOCIAL_IMAGE);
   const resolvedImageAlt = imageAlt || DEFAULT_SOCIAL_IMAGE_ALT;

@@ -15,8 +15,8 @@ export function renderCollectionsSection(show, collections = [], showMap = new M
     <section class="detail-section detail-collections-section">
       <div class="detail-section-header">
         <div>
-          <h2>Discovery routes</h2>
-          <p>Curated listening paths already connected to this show in the archive.</p>
+          <h2>Collections</h2>
+          <p>Collections that include this show.</p>
         </div>
       </div>
       <div class="detail-collection-route-list">${visibleMemberships.map((collection) => renderCollectionRoute(collection, showMap)).join("")}</div>
@@ -83,7 +83,7 @@ function renderCollectionRoute(collection, showMap) {
       ${renderCollectionRouteArt(collection, showMap)}
       <span class="detail-collection-route-copy">
         <span class="detail-collection-route-title">${escapeHtml(collection.title)}</span>
-        <span class="detail-collection-route-reason">${escapeHtml(collection.reason || "Curated route in the archive.")}</span>
+        <span class="detail-collection-route-reason">${escapeHtml(collection.reason || "Collection in the archive.")}</span>
       </span>
     </a>
   `;

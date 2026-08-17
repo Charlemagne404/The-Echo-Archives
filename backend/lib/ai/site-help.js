@@ -179,7 +179,7 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
     case "submission":
       return {
         answer:
-          "The submit page has four paths: new show, correction, listener review, and creator verification. Nothing auto-publishes, and every submission is manually reviewed before it affects the archive.",
+          "The submit page has four forms: new show, correction, listener review, and creator verification. Nothing auto-publishes, and every submission is manually reviewed before it affects the archive.",
         actions: [siteHelpContext.routes.submit],
         suggestedPrompts: [
           "How do I submit a correction?",
@@ -193,7 +193,7 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
     case "listener-review":
       return {
         answer:
-          "Use Submit, choose the listener review path, select the show, add your rating, spoiler level, and review text, and send it for moderation. Listener reviews can inform community context, but Archive Rating stays editorially independent.",
+          "Use Submit, choose the listener review form, select the show, add your rating, spoiler level, and review text, and send it for moderation. Listener reviews add listener feedback, but Archive Rating stays editorially independent.",
         actions: [siteHelpContext.routes.submit],
         suggestedPrompts: [
           "How are community ratings different?",
@@ -229,7 +229,7 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
     case "support":
       return {
         answer:
-          "The Echo Archives is meant to stay free, ad-free, and listener-supported. The support page explains what support pays for, and Patreon is the current public support path.",
+          "The Echo Archives is meant to stay free, ad-free, and supported by listeners. The support page explains what support pays for, and Patreon is the current public support option.",
         actions: [siteHelpContext.routes.supporters],
         suggestedPrompts: [
           "How do I contact the archive?",
@@ -241,7 +241,7 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
     case "contact":
       return {
         answer:
-          "The public contact route sends you to Continental's contact page. If you need help with a submission, correction, or verification request, that is still the right place to reach out directly.",
+          "The public contact link sends you to Continental's contact page. If you need help with a submission, correction, or verification request, that is still the right place to reach out directly.",
         actions: [siteHelpContext.routes.contact, siteHelpContext.routes.submit],
         suggestedPrompts: [
           "How do I submit a correction?",
@@ -254,7 +254,7 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
       return buildCollectionsResponse(collection, siteHelpContext);
     case "archive-purpose":
       return {
-        answer: `The Echo Archives is a listener-first discovery archive for audio dramas and fiction podcasts. It is built to help you decide what to hear next by mood, tone, format, completion status, and listening context instead of charts or sponsor pressure.`,
+        answer: `The Echo Archives is a discovery archive for audio dramas and fiction podcasts. It helps you decide what to listen to next by mood, tone, format, completion status, and listening context instead of charts or sponsor pressure.`,
         actions: [siteHelpContext.routes.about, siteHelpContext.routes.browse],
         suggestedPrompts: [
           "How are community ratings different?",
@@ -280,7 +280,7 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
       if (page.pageType === "creators") {
         return {
           answer:
-            "This creators page covers submission paths, correction and verification flows, archive standards, and what remains editorially independent. Ask if you want the right intake path or what creator verification does and does not change.",
+            "This creators page covers submission forms, correction and verification, archive standards, and what remains editorial. Ask if you want the right form or what creator verification does and does not change.",
           actions: [siteHelpContext.routes.submit, siteHelpContext.routes.creators, siteHelpContext.routes.terms],
           suggestedPrompts: [
             "How do creator verification requests work?",
@@ -294,7 +294,7 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
       if (page.pageType === "help-center") {
         return {
           answer:
-            "This help center covers discovery problems, broken links, search and filter trouble, community-rating glitches, creator verification, browser storage, submission follow-up, and which archive workflow fits a given issue. Ask about the symptom and I can point you to the right route.",
+            "This help center covers discovery problems, broken links, search and filter trouble, community-rating glitches, creator verification, browser storage, submission follow-up, and which archive process fits a given issue. Ask about the symptom and I can point you to the right page or form.",
           actions: [siteHelpContext.routes.helpCenter, siteHelpContext.routes.submit, siteHelpContext.routes.privacy],
           suggestedPrompts: [
             "What does creator verified mean?",
@@ -380,8 +380,8 @@ function buildShowLinkScope(show) {
 
 function buildCorrectionResponse(show, siteHelpContext, supportContext) {
   const intro = pickVariant(`${supportContext.normalizedMessage}|correction`, [
-    "Use Submit and choose the correction path.",
-    "The correction path is the right route here.",
+    "Use Submit and choose the correction form.",
+    "The correction form is the right place for this.",
     "This is handled through Submit as a correction.",
   ]);
   const showSentence = show ? `Select ${show.title} so the review queue lands on the right entry.` : "Pick the archive entry if it already exists.";
@@ -413,12 +413,12 @@ function buildCorrectionResponse(show, siteHelpContext, supportContext) {
 
 function buildBrokenLinkResponse(show, siteHelpContext, supportContext) {
   const intro = pickVariant(`${supportContext.normalizedMessage}|broken-link`, [
-    "That sounds like a correction-path issue rather than an editorial one.",
-    "A dead or wrong link should go through the correction route.",
+    "That sounds like a correction issue rather than an editorial one.",
+    "A dead or wrong link should go through the correction form.",
     "Broken archive links are handled through Submit, not through ratings or reviews.",
   ]);
   const escalationSentence = supportContext.hasFollowUp
-    ? "If you already reported it and it is still live, use the contact route as a follow-up and include the broken URL plus the corrected destination if you have it."
+    ? "If you already reported it and it is still live, use the contact page as a follow-up and include the broken URL plus the corrected destination if you have it."
     : "Report the exact bad URL and the corrected destination when you have it, because link fixes are reviewed manually rather than auto-applied.";
 
   return {
@@ -554,7 +554,7 @@ function buildSubmissionStatusResponse(siteHelpContext, supportContext) {
     "Submission progress is handled off the public pages rather than through a visible queue.",
   ]);
   const followUpSentence = supportContext.hasFollowUp
-    ? "If you are following up on an existing request, use the contact route and include the show title plus whether it was a new-show submission, correction, listener review, or creator-verification request."
+    ? "If you are following up on an existing request, use the contact page and include the show title plus whether it was a new-show submission, correction, listener review, or creator-verification request."
     : "New shows, corrections, listener reviews, and creator verification requests are all manually reviewed before they affect public pages.";
 
   return {
@@ -575,21 +575,21 @@ function buildSubmissionStatusResponse(siteHelpContext, supportContext) {
 
 function buildPageNavigationResponse(page, show, collection, siteHelpContext, supportContext) {
   const intro = pickVariant(`${page.pageType}|${supportContext.normalizedMessage}|navigation`, [
-    "The clean routing split is browse for shows, collections for listening paths, submit for fixes or contributions, and help center for support questions.",
-    "The main public routes are intentionally separated by task.",
-    "The easiest way to think about the site is browse for shows, collections for curated routes, and submit for anything that changes data.",
+    "The site is split into a few simple areas: Browse for shows, Collections for groups of shows, Submit for fixes or contributions, and Help Center for support questions.",
+    "The main public pages are separated by task.",
+    "The easiest way to think about the site is Browse for shows, Collections for groups of shows, and Submit for anything that changes data.",
   ]);
   const contextSentence = show
     ? `You are already close to ${show.title}, so the show page is the best place for links, ratings, runtime, transcripts, and correction follow-up.`
     : collection
-      ? `${collection.title} is a collection route, so use Browse Archive if you want to jump from curated paths back to individual show pages.`
-      : "If a public page itself is blank, missing, or 404ing, send the path or title through correction or contact so it can be checked directly.";
+      ? `${collection.title} is a collection, so use Browse Archive if you want to jump from the group back to individual show pages.`
+      : "If a public page itself is blank, missing, or 404ing, send the page or title through correction or contact so it can be checked directly.";
 
   return {
     answer: joinSentences([
       intro,
       contextSentence,
-      "Use Browse Archive for individual titles, Collections for mood or route-based discovery, Submit for corrections, reviews, and verification, and Help Center for support flows.",
+      "Use Browse Archive for individual titles, Collections for mood-based discovery, Submit for corrections, reviews, and verification, and Help Center for support.",
     ]),
     actions: buildActionList([
       show ? { label: "Open Show", href: show.href, external: false } : null,
@@ -654,13 +654,13 @@ function buildChatHelpResponse(siteHelpContext, supportContext) {
 function buildCollectionsResponse(collection, siteHelpContext) {
   if (collection) {
     return {
-      answer: `${collection.title} is a curated listening path, not a generic genre folder. This route currently carries ${collection.showIds.length} archive picks and is meant to move you by mood, tone, or intent rather than taxonomy alone.`,
+      answer: `${collection.title} is a collection, not a generic genre folder. It currently has ${collection.showIds.length} shows and is meant to help you browse by mood, tone, or use case.`,
       actions: [
         { label: "Open Collection", href: `/collections/${encodeURIComponent(collection.id)}`, external: false },
         siteHelpContext.routes.collections,
       ],
       suggestedPrompts: [
-        "Show me another collection route",
+        "Show me another collection",
         "How do the archive filters work?",
         "Recommend something like this collection",
         "What does creator verified mean?",
@@ -671,7 +671,7 @@ function buildCollectionsResponse(collection, siteHelpContext) {
   const featuredTitles = siteHelpContext.archiveLists.featuredCollections.slice(0, 4).map((entry) => entry.title);
 
   return {
-    answer: `Collections are curated listening paths built around mood, tone, or intent rather than generic taxonomy. Right now the archive highlights ${joinReadableList(featuredTitles)}${featuredTitles.length > 0 ? ", alongside a few quieter routes deeper in the collections page." : "."}`,
+    answer: `Collections group shows by mood, tone, or use case rather than generic taxonomy. Right now the archive highlights ${joinReadableList(featuredTitles)}${featuredTitles.length > 0 ? ", alongside a few quieter collections deeper in the page." : "."}`,
     actions: [siteHelpContext.routes.collections, siteHelpContext.routes.browse],
     suggestedPrompts: [
       "How do the archive filters work?",
@@ -765,7 +765,7 @@ function buildCreatorVerificationResponse(show, siteHelpContext) {
 
   return {
     answer:
-      "Creator verification is a metadata trust signal. It only means the archive has checked factual show details against an official source or representative, and it does not imply creator approval of ratings, reviews, or curation.",
+      "Creator verification means the archive has checked factual show details against an official source or representative. It does not imply creator approval of ratings, reviews, or collection placement.",
     actions: [siteHelpContext.routes.submit, siteHelpContext.routes.terms],
     suggestedPrompts: [
       "How do creator verification requests work?",
@@ -1166,7 +1166,7 @@ function buildShowCollectionsResponse(show, collections, siteHelpContext) {
   if (!show) {
     return {
       answer:
-        "I can answer collection-membership questions when the title is already in the archive. Ask about a specific show and I can tell you whether it appears in any curated listening paths.",
+        "I can answer collection-membership questions when the title is already in the archive. Ask about a specific show and I can tell you which collections include it.",
       actions: [siteHelpContext.routes.collections, siteHelpContext.routes.browse],
       suggestedPrompts: [
         "What collections is Midnight Burger in?",

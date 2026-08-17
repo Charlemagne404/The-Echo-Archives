@@ -49,9 +49,9 @@
           <div id="stickyFilterDropdown" class="dropdown" aria-labelledby="stickyFilterDialogTitle" hidden>
             <div class="filter-dropdown-header">
               <div>
-                <p class="filter-dropdown-kicker">Refine the archive</p>
+                <p class="filter-dropdown-kicker">Filter the archive</p>
                 <p class="filter-dropdown-title" id="stickyFilterDialogTitle">Archive filters</p>
-                <p class="filter-dropdown-copy">Stack archive filters by tone, format, completion status, coverage, listening context, or tags.</p>
+                <p class="filter-dropdown-copy">Filter by tone, format, completion status, coverage, listening context, or tags.</p>
               </div>
               <div class="filter-dropdown-header-actions">
                 <button id="stickyFilterClear" class="filter-clear-button" type="button">Clear</button>
@@ -73,9 +73,9 @@
         <div class="hero-copy">
           <h1>Find your next audio drama or fiction podcast</h1>
           <p>
-            A human-curated archive for audio dramas and fiction podcasts. Browse by mood, tone, format, completion status, and shows like the ones you already love.
+            An archive of audio dramas and fiction podcasts. Browse by mood, tone, format, completion status, and shows like the ones you already love.
           </p>
-          <div class="home-hero-actions" aria-label="Recommended discovery routes">
+          <div class="home-hero-actions" aria-label="Suggested starting points">
             <a class="home-hero-route is-primary" href="/collections/shows-like-midnight-burger" aria-label="Browse shows like Midnight Burger">
               <span class="home-hero-route-kicker">Shows like</span>
               <span class="home-hero-route-label">Midnight Burger</span>
@@ -115,9 +115,9 @@
               <div id="filterDropdown" class="dropdown" aria-labelledby="filterDialogTitle" hidden>
                 <div class="filter-dropdown-header">
                   <div>
-                    <p class="filter-dropdown-kicker">Refine the archive</p>
+                    <p class="filter-dropdown-kicker">Filter the archive</p>
                     <p class="filter-dropdown-title" id="filterDialogTitle">Archive filters</p>
-                    <p class="filter-dropdown-copy">Stack archive filters by tone, format, completion status, coverage, listening context, or tags.</p>
+                    <p class="filter-dropdown-copy">Filter by tone, format, completion status, coverage, listening context, or tags.</p>
                   </div>
                   <div class="filter-dropdown-header-actions">
                     <button id="filterClear" class="filter-clear-button" type="button">Clear</button>
@@ -147,7 +147,7 @@
             </div>
           </div>
         </div>
-        <section class="archive-trust-grid" aria-label="Archive trust signals">
+        <section class="archive-trust-grid" aria-label="Archive snapshot">
           <p class="archive-trust-item"><strong id="homeShowCount">-</strong> <span>shows indexed</span></p>
           <p class="archive-trust-item"><strong id="homeReviewCount">-</strong> <span>reviews</span></p>
           <p class="archive-trust-item"><strong id="homeCollectionCount">-</strong> <span>collections</span></p>
@@ -162,15 +162,15 @@
           <h2>Browse the archive</h2>
         </div>
         <div class="results-heading-meta">
-          <p id="resultsSummary" class="results-summary">Loading archive...</p>
+          <p id="resultsSummary" class="results-summary">Loading shows...</p>
           <div class="rating-guide">
             <button class="rating-guide-trigger" type="button" aria-label="What do the ratings mean?" aria-describedby="ratingGuideTooltip">?</button>
             <div class="rating-guide-tooltip" id="ratingGuideTooltip" role="tooltip">
               <p class="rating-guide-title">Ratings</p>
               <ul class="rating-guide-list">
-                <li><span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span><span><strong>Archive Rating</strong> The Echo Archives’ editorial assessment.</span></li>
+                <li><span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span><span><strong>Archive Rating</strong> The archive’s editorial rating.</span></li>
                 <li><svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg><span><strong>Listener Review Score</strong> Average from written listener reviews.</span></li>
-                <li><svg class="community-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><rect x="1.5" y="9" width="2.5" height="6" rx="1.25" /><rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" /><rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" /><rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" /><rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" /><rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" /></svg><span><strong>Community Rating</strong> Quick ratings from the wider community.</span></li>
+                <li><svg class="community-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><rect x="1.5" y="9" width="2.5" height="6" rx="1.25" /><rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" /><rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" /><rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" /><rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" /><rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" /></svg><span><strong>Community Rating</strong> Quick ratings from listeners.</span></li>
               </ul>
             </div>
           </div>
@@ -208,6 +208,10 @@
       </div>
 
       <div id="podcast-grid"></div>
+      <div id="archiveLoadMore" class="archive-load-more" hidden>
+        <p id="archiveLoadMoreStatus" class="archive-load-more-status" aria-live="polite">Showing the first 60 shows.</p>
+        <button id="loadMoreResults" class="load-more-button" type="button">Load 60 more shows</button>
+      </div>
       <div id="noResultsMount"></div>
     </section>
 
@@ -239,11 +243,11 @@
         <div>
           <h2 id="favoriteRoutesTitle">Shows like your favorites</h2>
         </div>
-        <a class="section-link" href="/collections#collectionsSimilaritySection">View all shows-like routes</a>
+        <a class="section-link" href="/collections#collectionsSimilaritySection">View all “shows like” collections</a>
       </div>
 
       <div class="collection-carousel" id="favoriteRoutesCarousel">
-        <button class="collection-carousel-arrow collection-carousel-arrow-prev" id="favoriteRoutesPrev" type="button" aria-label="Scroll shows-like routes left" hidden>
+        <button class="collection-carousel-arrow collection-carousel-arrow-prev" id="favoriteRoutesPrev" type="button" aria-label="Scroll similar-show collections left" hidden>
           <span aria-hidden="true">‹</span>
         </button>
 
@@ -251,7 +255,7 @@
           <div class="collection-grid collection-carousel-track" id="favoriteRoutesGrid"></div>
         </div>
 
-        <button class="collection-carousel-arrow collection-carousel-arrow-next" id="favoriteRoutesNext" type="button" aria-label="Scroll shows-like routes right" hidden>
+        <button class="collection-carousel-arrow collection-carousel-arrow-next" id="favoriteRoutesNext" type="button" aria-label="Scroll similar-show collections right" hidden>
           <span aria-hidden="true">›</span>
         </button>
       </div>

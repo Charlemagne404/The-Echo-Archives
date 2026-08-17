@@ -23,6 +23,9 @@ export function getHomeElements() {
     recentlyAddedSection: document.getElementById("recentlyAdded"),
     recentlyAddedGrid: document.getElementById("recentlyAddedGrid"),
     archiveGrid: document.getElementById("podcast-grid"),
+    loadMoreSurface: document.getElementById("archiveLoadMore"),
+    loadMoreButton: document.getElementById("loadMoreResults"),
+    loadMoreStatus: document.getElementById("archiveLoadMoreStatus"),
     noResultsMount: document.getElementById("noResultsMount"),
     resultsSummary: document.getElementById("resultsSummary"),
     quickFiltersRoot: document.getElementById("quickFilters"),
@@ -60,6 +63,9 @@ export function getHomeElements() {
     !elements.recentlyAddedGrid ||
     !elements.filterOptionGrid ||
     !elements.stickyFilterOptionGrid ||
+    !elements.loadMoreSurface ||
+    !(elements.loadMoreButton instanceof HTMLButtonElement) ||
+    !elements.loadMoreStatus ||
     !elements.quickFiltersRoot ||
     !elements.favoriteRoutesSection ||
     !elements.favoriteRoutesCarousel ||

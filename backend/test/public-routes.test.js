@@ -191,7 +191,7 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
     );
     assert.match(collectionHtml, /<h1 id="collectionTitle">Best for long walks<\/h1>/);
     assert.doesNotMatch(collectionHtml, /Loading collection/);
-    assert.match(collectionHtml, /8 curated entries in this listening path/);
+    assert.match(collectionHtml, /8 shows in this collection/);
     assert.match(collectionHtml, /href="\/shows\/impact-winter"/);
     assert.match(collectionHtml, /class="collection-show-card-note"/);
     const collectionStructuredDataMatch = collectionHtml.match(

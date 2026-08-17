@@ -1,9 +1,9 @@
 {
   "id": "completed-drama",
   "title": "Completed Drama",
-  "description": "Finished Drama audio dramas with a clear end point, generated from catalogue status and genre metadata.",
+  "description": "Completed drama shows with a clear ending.",
   "descriptionProvenance": "generated",
-  "label": "Automatic route",
+  "label": "Completed shows",
   "kind": "rule-based",
   "intentTags": [],
   "commitment": "",

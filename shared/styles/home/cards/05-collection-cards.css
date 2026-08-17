@@ -56,7 +56,9 @@
 }
 
 .collection-card[data-collection-clone="true"] {
-  pointer-events: none;
+  /* Clones stay out of the tab sequence, but visible loop copies must remain
+     usable by pointer users when the viewport reaches the next card set. */
+  pointer-events: auto;
 }
 
 .collection-card::before {

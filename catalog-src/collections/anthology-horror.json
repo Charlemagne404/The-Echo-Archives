@@ -1,9 +1,9 @@
 {
   "id": "anthology-horror",
   "title": "Anthology Horror",
-  "description": "Anthology Horror productions, generated from durable catalogue metadata rather than a loose genre rename.",
+  "description": "Horror anthology shows.",
   "descriptionProvenance": "generated",
-  "label": "Automatic route",
+  "label": "Horror anthologies",
   "kind": "rule-based",
   "intentTags": [],
   "commitment": "",

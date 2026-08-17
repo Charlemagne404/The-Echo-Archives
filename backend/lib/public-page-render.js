@@ -100,7 +100,7 @@ function replaceStructuredDataOrigin(html, previousSiteUrl, nextSiteUrl) {
 function fallbackDescription(description = "") {
   return (
     String(description || "").trim() ||
-    "A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity."
+    "An archive for discovering fiction podcasts by mood, tone, format, completion status, and similar shows."
   );
 }
 
@@ -303,7 +303,7 @@ function buildCollectionStructuredData({ siteUrl, collection, collectionShows = 
         "@id": breadcrumbId,
         itemListElement: [
           { "@type": "ListItem", position: 1, name: BRAND_DESCRIPTOR, item: homeUrl },
-          { "@type": "ListItem", position: 2, name: "Curated audio drama collections", item: collectionsUrl },
+          { "@type": "ListItem", position: 2, name: "Audio drama collections", item: collectionsUrl },
           { "@type": "ListItem", position: 3, name: collection.title, item: canonicalUrl },
         ],
       },
@@ -406,7 +406,7 @@ function replaceElementContents(html, id, value) {
 }
 
 function getRouteTypeLabel(collection) {
-  return collection?.kind === "similarity" ? "Shows-like route" : "Curated route";
+  return collection?.kind === "similarity" ? "Similar shows" : "Collection";
 }
 
 function countOverlap(leftValues = [], rightValues = []) {
@@ -475,7 +475,7 @@ function injectCollectionSummary(html, { collection, collectionShows = [], ancho
   rendered = replaceElementText(
     rendered,
     "collectionShowsSummary",
-    `${count} curated ${count === 1 ? "entry" : "entries"} in this listening path.${titleSummary}`,
+    `${count} ${count === 1 ? "show" : "shows"} in this collection.${titleSummary}`,
   );
   const overview = renderCollectionOverview(collection, collectionShows, anchorShow);
   rendered = replaceElementContents(rendered, "collectionHeroTags", renderCollectionHeroTags(collection));

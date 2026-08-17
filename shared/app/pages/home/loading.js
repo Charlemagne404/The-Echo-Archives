@@ -37,6 +37,7 @@ export function renderHomeLoadingState(elements) {
     elements.archiveGrid.appendChild(createHomeSkeletonCard());
   }
   elements.resultsSummary.textContent = "Loading archive...";
+  elements.loadMoreSurface.hidden = true;
   elements.noResultsMount.replaceChildren();
   elements.popularSection.hidden = true;
   elements.recentlyAddedSection.hidden = true;
@@ -48,6 +49,7 @@ export function renderHomeErrorState(elements, createErrorSurface, { preserveExi
   if (preserveExistingContent) {
     delete elements.archiveGrid.dataset.loading;
     elements.resultsSummary.textContent = "Showing the build snapshot. Search and filters could not load right now.";
+    elements.loadMoreSurface.hidden = true;
     elements.noResultsMount.replaceChildren();
     elements.activeBrowseState.hidden = true;
     setBrowseControlsDisabled(elements, true);
@@ -58,6 +60,7 @@ export function renderHomeErrorState(elements, createErrorSurface, { preserveExi
   delete elements.archiveGrid.dataset.loading;
   elements.archiveGrid.appendChild(createErrorSurface());
   elements.resultsSummary.textContent = "Archive data could not load.";
+  elements.loadMoreSurface.hidden = true;
   elements.noResultsMount.replaceChildren();
   elements.popularSection.hidden = true;
   elements.recentlyAddedSection.hidden = true;

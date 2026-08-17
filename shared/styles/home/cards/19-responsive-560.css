@@ -163,7 +163,7 @@
 
   .home-page .podcast-card {
     --editorial-ribbon-width: 124px;
-    --editorial-ribbon-right: -20px;
+    --editorial-ribbon-grid-right: -20px;
     --editorial-ribbon-tail-width: 36px;
   }
 
@@ -215,6 +215,10 @@
 
   .podcast-card-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .recently-added-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .collection-card {

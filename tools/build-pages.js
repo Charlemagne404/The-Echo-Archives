@@ -312,7 +312,7 @@ function renderAnalyticsScript(entry) {
 function renderNavLinks(activeNav) {
   const navItems = [
     { id: "browse", label: "Browse", detail: "All shows and archive filters", href: "/" },
-    { id: "collections", label: "Collections", detail: "Curated listening paths", href: "/collections" },
+    { id: "collections", label: "Collections", detail: "Shows grouped by mood and theme", href: "/collections" },
     { id: "about", label: "About", detail: "What the archive is building", href: "/about" },
     { id: "submit", label: "Submit", detail: "Add shows or send corrections", href: "/submit" },
     { id: "for-creators", label: "For creators", detail: "Verification and standards", href: "/for-creators" },
@@ -1014,7 +1014,7 @@ async function loadSubmitPrerender() {
     searchResults: [],
     searchOpen: false,
     lookupStatus: "idle",
-    lookupMessage: "Archive lookup loads only when this submission path needs it.",
+    lookupMessage: "The show list loads when this form needs it.",
     showHighlightIndex: -1,
     showContext: null,
     showContextStatus: "idle",
