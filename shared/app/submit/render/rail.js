@@ -1,8 +1,14 @@
 import { escapeHtml, iconMarkup } from "../utils.js";
 
-export function renderRailCard(card) {
+function isArchivistEnabled() {
+  return typeof document !== "undefined" && document.body?.dataset.archivistEnabled === "true";
+}
+
+export function renderRailCard(card, { archivistEnabled = isArchivistEnabled() } = {}) {
+  const showHelpButton = Boolean(card.buttonLabel) && archivistEnabled;
+
   return `
-    <article class="submit-rail-card ${card.buttonLabel ? "submit-rail-help" : ""}">
+    <article class="submit-rail-card ${showHelpButton ? "submit-rail-help" : ""}">
       <div class="submit-rail-card-heading">
         <span class="submit-rail-card-icon ${card.accent ? "is-accent" : ""}" aria-hidden="true">${iconMarkup(card.icon)}</span>
         <div>
@@ -11,7 +17,7 @@ export function renderRailCard(card) {
         </div>
       </div>
       ${Array.isArray(card.items) ? `<div class="submit-rail-list">${card.items.map((item) => renderRailItem(item)).join("")}</div>` : ""}
-      ${card.buttonLabel ? `<button type="button" class="submit-rail-help-button" data-open-chat><span class="submit-rail-help-button-icon" aria-hidden="true">${iconMarkup("magnify")}</span><span>${escapeHtml(card.buttonLabel)}</span></button>` : ""}
+      ${showHelpButton ? `<button type="button" class="submit-rail-help-button" data-open-chat><span class="submit-rail-help-button-icon" aria-hidden="true">${iconMarkup("magnify")}</span><span>${escapeHtml(card.buttonLabel)}</span></button>` : ""}
       ${card.footer ? `<p>${escapeHtml(card.footer)}</p>` : ""}
     </article>
   `;

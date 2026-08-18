@@ -31,6 +31,7 @@ export const PREFERRED_QUICK_FILTERS = ["sci-fi", "mystery", "horror", "comedy",
 export const HOME_MOST_POPULAR_IDS = HOME_MOST_POPULAR_IDS_CONFIG;
 export const HOME_FAVORITE_ROUTE_IDS = HOME_FAVORITE_ROUTE_IDS_CONFIG;
 export const HOME_CARD_HOVER_EXPAND_ENABLED = document.body?.dataset.homeCardHoverExpandEnabled === "true";
+export const ARCHIVIST_ENABLED = document.body?.dataset.archivistEnabled === "true";
 export const SHOW_CARD_PREVIEW_DELAY_MS = 480;
 export const SHOW_CARD_PREVIEW_CLOSE_DELAY_MS = 32;
 export const SHOW_CARD_PREVIEW_CLOSE_TRANSITION_MS = 210;

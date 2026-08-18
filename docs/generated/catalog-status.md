@@ -42,7 +42,7 @@ Latest catalog update: `2026-08-16`
 - Factual metadata gaps: 0 core, 0 missing provenance, 0 actionable RSS, 0 missing detailed runtime
 - Explicit unknowns/research gaps: 14 records; 3 missing RSS and 3 runtime gaps are documented rather than hidden
 - Editorial/recommendation gaps: 0; collection blockers: 0
-- Taxonomy: 165 controlled labels; unknown/deprecated public tags: 0
+- Taxonomy: 165 controlled labels; unknown/non-approved public tags: 0
 - Sparse indexed-only discovery gaps are informational: 131 sparse records; 116 have fewer than two collections, 131 have no editorial similarity set, and 0 contain unsupported editorial claims
 - Phase 2 blocking errors: 2
   - Published show "big-grande-teachers-lounge" has no verified runtime duration and no documented research gap.

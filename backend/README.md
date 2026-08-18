@@ -32,6 +32,7 @@ Copy `.env.example` to `.env` if you want to override defaults.
 - `PORT`: API and site port. Defaults to `3010` to avoid common local conflicts.
 - `OLLAMA_URL`: Ollama generate endpoint
 - `OLLAMA_MODEL`: model name sent to Ollama
+- `ARCHIVIST_ENABLED`: exposes the preserved Archivist UI and chat API. Defaults to `false`
 - `STATIC_ROOT`: site root relative to `backend/`
 - `SERVE_STATIC`: serve the site and assets from the same process
 - `REQUEST_TIMEOUT_MS`: timeout for the model request

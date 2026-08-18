@@ -284,6 +284,7 @@
               </div>
             </article>
 
+            {{#archivist}}
             <article class="creator-action-card help-center-issue-card">
               <div class="creator-action-card-main">
                 <span class="creator-action-icon" aria-hidden="true">
@@ -312,6 +313,8 @@
                 </a>
               </div>
             </article>
+            {{/archivist}}
+
           </div>
         </section>
 
@@ -355,6 +358,7 @@
               <h3>Show pages have more detail</h3>
               <p>When a card gets you close, open the show page for the full description, similar shows, runtime information, official links, and corrections.</p>
             </article>
+            {{#archivist}}
             <article class="about-feature-tile help-center-guide-tile">
               <span class="about-card-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" role="presentation">
@@ -366,6 +370,7 @@
               <h3>Ask the Archivist for help</h3>
               <p>The chat works best when you know what you want but not where it lives. Ask about a show, a rating meaning, or the right correction form.</p>
             </article>
+            {{/archivist}}
           </div>
         </section>
 
@@ -560,6 +565,7 @@
               </div>
             </article>
 
+            {{#archivist}}
             <article class="creator-faq-item">
               <h3>
                 <button class="creator-faq-toggle" type="button" aria-expanded="false" aria-controls="helpFaqAnswer6" id="helpFaqQuestion6">
@@ -582,6 +588,8 @@
                 </div>
               </div>
             </article>
+            {{/archivist}}
+
           </div>
         </section>
 
@@ -592,9 +600,9 @@
             <p>The archive keeps the browser footprint small and documents the live behavior directly instead of hiding it behind vague policy language.</p>
           </div>
           <ul class="help-center-browser-list">
-            <li>Ask the Archivist keeps recent conversation history only for the current browser session.</li>
+            {{#archivist}}<li>Ask the Archivist keeps recent conversation history only for the current browser session.</li>{{/archivist}}
             <li>Community Rating uses an anonymous browser token plus a linked local profile id so one device can manage one active vote per show.</li>
-            <li>If you clear site data or block the archive’s cookie, ratings or chat continuity may stop working as expected.</li>
+            <li>If you clear site data or block the archive’s cookie, ratings{{#archivist}} or chat continuity{{/archivist}} may stop working as expected.</li>
             <li>Spotify, Apple Podcasts, and other platform playback or account problems are outside the archive’s control.</li>
           </ul>
         </section>

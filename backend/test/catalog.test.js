@@ -5,6 +5,7 @@ const os = require("node:os");
 const path = require("node:path");
 
 const { loadCatalog, loadCollections, resolveCollectionView, scoreCatalog } = require("../lib/catalog");
+const { assertDiscoveryTaxonomyIntegrity, isApprovedDiscoveryTag } = require("../../shared/archive-tags");
 const { buildFallbackAnswer, sanitizeAnswerText } = require("../lib/ai/chat");
 const { validateSiteData } = require("../scripts/review-helpers");
 
@@ -211,6 +212,12 @@ test("published catalog records reject noisy or noncanonical discovery tags", as
   await assert.rejects(loadCatalog(tempRoot), /redundant discovery tag "Audio dramas"/i);
 
   fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("deprecated taxonomy labels cannot be used as approved public discovery tags", () => {
+  assert.doesNotThrow(() => assertDiscoveryTaxonomyIntegrity());
+  assert.equal(isApprovedDiscoveryTag("Floating city"), false);
+  assert.equal(isApprovedDiscoveryTag("Space"), true);
 });
 
 test("published catalog records require complete objective discovery metadata", async () => {

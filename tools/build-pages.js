@@ -9,6 +9,7 @@ const { generateStaticImageVariants } = require("../backend/lib/responsive-image
 const { renderCollectionsPagePrerender, renderHomePagePrerender } = require("./lib/home-page-prerender");
 
 const ROOT = path.resolve(__dirname, "..");
+const BUILD_ENV_PATH = path.join(ROOT, "backend", ".env");
 const SITE_SRC = path.join(ROOT, "site-src");
 const PARTIALS_DIR = path.join(SITE_SRC, "partials");
 const PAGES_DIR = path.join(SITE_SRC, "pages");
@@ -21,6 +22,20 @@ const DEFAULT_PLAUSIBLE_SCRIPT_SRC = "https://plausible.io/js/script.js";
 const DEFAULT_SITE_URL = "https://echoarchives.net";
 const DEFAULT_SOCIAL_IMAGE_ALT = "The Echo Archives social preview";
 const NOINDEX_ALIAS_PATHS = new Set(["show", "collection"]);
+
+function loadBuildEnvironment() {
+  if (!fs.existsSync(BUILD_ENV_PATH)) {
+    return;
+  }
+
+  if (typeof process.loadEnvFile !== "function") {
+    throw new Error("Loading backend/.env requires Node 22.12 or newer.");
+  }
+
+  process.loadEnvFile(BUILD_ENV_PATH);
+}
+
+loadBuildEnvironment();
 
 const ENTRY_ASSETS = {
   "script.js": ({ appVersion }) => [
@@ -248,7 +263,14 @@ function getVersionedDataUrl(fileName, version) {
 }
 
 function renderTemplate(template, replacements) {
-  return template.replace(/\{\{([a-zA-Z0-9]+)\}\}/g, (_match, key) => replacements[key] ?? "");
+  return renderConditionals(template, replacements).replace(/\{\{([a-zA-Z0-9]+)\}\}/g, (_match, key) => replacements[key] ?? "");
+}
+
+function renderConditionals(template, replacements) {
+  return template.replace(
+    /\{\{#([a-zA-Z0-9]+)\}\}([\s\S]*?)\{\{\/\1\}\}/g,
+    (_match, key, contents) => (replacements[key] ? contents : ""),
+  );
 }
 
 function escapeAttribute(value = "") {
@@ -431,8 +453,11 @@ function prerenderArchiveStats(pageBody, entry, archiveStats) {
   );
 }
 
-function renderPageBody(entry, homeConfig, archiveStats, submitPrerender) {
-  let pageBody = ensureMainContentTarget(readFile(path.join(PAGES_DIR, entry.source)).trim(), resolveMainContentTarget(entry));
+function renderPageBody(entry, homeConfig, archiveStats, submitPrerender, archivistEnabled) {
+  let pageBody = renderConditionals(
+    ensureMainContentTarget(readFile(path.join(PAGES_DIR, entry.source)).trim(), resolveMainContentTarget(entry)),
+    { archivist: archivistEnabled },
+  );
 
   if (entry.output === "index.html") {
     pageBody = renderHomePagePrerender(pageBody, {
@@ -596,6 +621,7 @@ function buildPageStructuredData({ siteUrl, entry, collections }) {
 
 function renderPage(entry, partials, versions, homeConfig, seoContext, submitPrerender) {
   const homeCardHoverExpandEnabled = parseBoolean(process.env.HOME_CARD_HOVER_EXPAND_ENABLED, false);
+  const archivistEnabled = parseBoolean(process.env.ARCHIVIST_ENABLED, false);
   const socialImageUrl = new URL("/echo-wordmark1.png", `${seoContext.siteUrl}/`).toString();
   const structuredData = buildPageStructuredData({
     siteUrl: seoContext.siteUrl,
@@ -619,12 +645,12 @@ function renderPage(entry, partials, versions, homeConfig, seoContext, submitPre
     navLinks: renderNavLinks(entry.activeNav),
   });
   const mainContentTarget = resolveMainContentTarget(entry);
-  const pageBody = renderPageBody(entry, homeConfig, seoContext.archiveStats, submitPrerender);
+  const pageBody = renderPageBody(entry, homeConfig, seoContext.archiveStats, submitPrerender, archivistEnabled);
   const bodySections = [
     renderSkipLink(mainContentTarget),
     headerMarkup,
     pageBody,
-    entry.includeFloatingControls ? partials.floatingControls : "",
+    entry.includeFloatingControls && archivistEnabled ? partials.floatingControls : "",
     partials.footer,
     `  <script src="/shared/archive-record.js?v=${versions.archiveRecord}"></script>`,
     `  <script src="/shared/archive-search.js?v=${versions.archiveSearch}"></script>`,
@@ -644,7 +670,7 @@ function renderPage(entry, partials, versions, homeConfig, seoContext, submitPre
       : "",
     renderStructuredData(structuredData),
     "</head>",
-    `<body class="${entry.bodyClass}" data-site-url="${escapeAttribute(seoContext.siteUrl)}" data-chat-stylesheet="/chat.css?v=${versions.extra.get("chat.css")}" data-home-card-hover-expand-enabled="${String(homeCardHoverExpandEnabled)}" data-shows-version="${versions.shows}" data-collections-version="${versions.collections}" data-search-index-version="${versions.searchIndex}">`,
+    `<body class="${entry.bodyClass}" data-site-url="${escapeAttribute(seoContext.siteUrl)}" data-chat-stylesheet="/chat.css?v=${versions.extra.get("chat.css")}" data-archivist-enabled="${String(archivistEnabled)}" data-home-card-hover-expand-enabled="${String(homeCardHoverExpandEnabled)}" data-shows-version="${versions.shows}" data-collections-version="${versions.collections}" data-search-index-version="${versions.searchIndex}">`,
     bodySections,
     "</body>",
     "</html>",
@@ -994,7 +1020,7 @@ async function loadHomeConfig() {
   };
 }
 
-async function loadSubmitPrerender() {
+async function loadSubmitPrerender(archivistEnabled) {
   const moduleUrl = (relativePath) => pathToFileURL(path.join(ROOT, relativePath)).href;
   const [configModule, renderModule, stateModule, utilsModule] = await Promise.all([
     import(moduleUrl("shared/app/submit/config.js")),
@@ -1031,7 +1057,9 @@ async function loadSubmitPrerender() {
       <p>${utilsModule.escapeHtml(config.introDescription)}</p>
     `,
     submitDynamicFields: renderModule.renderModeFields("show", draft, context),
-    submitSideRail: config.railCards.map((card) => renderModule.renderRailCard(card)).join(""),
+    submitSideRail: config.railCards
+      .map((card) => renderModule.renderRailCard(card, { archivistEnabled }))
+      .join(""),
     submitFooterNote: utilsModule.escapeHtml(config.footerNote),
   };
 }
@@ -1068,7 +1096,7 @@ async function main() {
   const archiveStats = readJsonIfExists(path.join(ROOT, "data", "archive-stats.json"), {});
   const seoContext = { siteUrl, catalog, collections, archiveStats };
   const homeConfig = await loadHomeConfig();
-  const submitPrerender = await loadSubmitPrerender();
+  const submitPrerender = await loadSubmitPrerender(parseBoolean(process.env.ARCHIVIST_ENABLED, false));
   const socialLinks = JSON.parse(readFile(SOCIAL_LINKS_PATH));
   const partials = {
     head: readFile(path.join(PARTIALS_DIR, "head.html")).trim(),

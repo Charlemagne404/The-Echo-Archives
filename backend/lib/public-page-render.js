@@ -342,6 +342,14 @@ function injectRuntimeSiteConfig(html, config = {}) {
     );
   }
 
+  if (Object.hasOwn(config, "archivistEnabled")) {
+    rendered = replaceBodyDataAttribute(
+      rendered,
+      "data-archivist-enabled",
+      String(Boolean(config.archivistEnabled)),
+    );
+  }
+
   for (const [key, attributeName] of [
     ["siteUrl", "data-site-url"],
     ["showsVersion", "data-shows-version"],

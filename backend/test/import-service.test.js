@@ -425,7 +425,8 @@ test("maintainer enrichment prepares source-backed discovery detail without crea
         networkName: candidate.objective.networkName,
         description: candidate.objective.description,
         categories: candidate.objective.categories.join(", "),
-        tags: "Sci-fi, Space, Mystery",
+        tags: "Sci-fi, Space, Floating city",
+        taxonomyExceptionRationale: "The setting is unusually central, but this needs taxonomy review before it can affect discovery.",
         language: candidate.objective.language,
         rssUrl: candidate.objective.rssUrl,
         websiteUrl: candidate.objective.websiteUrl,
@@ -465,6 +466,14 @@ test("maintainer enrichment prepares source-backed discovery detail without crea
     assert.equal(updated.preparedRecord.officialLinks.patreon, "https://patreon.com/signal-lost");
     assert.equal(updated.preparedRecord.metadata.schedule.label, "Weekly");
     assert.equal(updated.preparedRecord.metadata.import.externalResearch.notes, "Credits and cadence checked against the official about page.");
+    assert.deepEqual(updated.preparedRecord.tags, ["Sci-fi", "Space"]);
+    assert.deepEqual(updated.preparedRecord.metadata.import.taxonomyProposals, [{
+      label: "Floating city",
+      status: "deprecated",
+      rationale: "The setting is unusually central, but this needs taxonomy review before it can affect discovery.",
+      evidence: [],
+    }]);
+    assert.ok(updated.readiness.warnings.some((warning) => warning.code === "taxonomy-proposals"));
     assert.equal(updated.preparedRecord.archiveTake, "");
     assert.deepEqual(updated.preparedRecord.ratings, {});
   } finally {

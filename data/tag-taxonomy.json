@@ -107,7 +107,7 @@
       "id": "amnesia",
       "label": "Amnesia",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "analog-horror",
@@ -119,7 +119,7 @@
       "id": "ancient-artifact",
       "label": "Ancient artifact",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "angels-and-demons",
@@ -173,7 +173,7 @@
       "id": "bunker",
       "label": "Bunker",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "call-in-radio",
@@ -293,7 +293,7 @@
       "id": "daily-release",
       "label": "Daily release",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "dark-comedy",
@@ -359,13 +359,13 @@
       "id": "experimental-science",
       "label": "Experimental science",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "exploration",
       "label": "Exploration",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "family",
@@ -401,7 +401,7 @@
       "id": "floating-city",
       "label": "Floating city",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "folk-horror",
@@ -497,7 +497,7 @@
       "id": "island-mystery",
       "label": "Island mystery",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "isolation",
@@ -515,7 +515,7 @@
       "id": "late-night-radio",
       "label": "Late-night radio",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "locked-room-mystery",
@@ -527,7 +527,7 @@
       "id": "lost-spaceship",
       "label": "Lost spaceship",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "lovecraftian",
@@ -545,7 +545,7 @@
       "id": "magical-objects",
       "label": "Magical objects",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "magical-realism",
@@ -575,7 +575,7 @@
       "id": "memory",
       "label": "Memory",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "memory-alteration",
@@ -587,7 +587,7 @@
       "id": "metaphysical",
       "label": "Metaphysical",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "military",
@@ -599,7 +599,7 @@
       "id": "military-outcasts",
       "label": "Military outcasts",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "mind-sharing",
@@ -611,25 +611,25 @@
       "id": "mini-series",
       "label": "Mini-series",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "missing-person",
       "label": "Missing person",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "missing-plane",
       "label": "Missing plane",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "missing-town",
       "label": "Missing town",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "mock-documentary",
@@ -689,7 +689,7 @@
       "id": "paradoxes",
       "label": "Paradoxes",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "paranormal",
@@ -749,7 +749,7 @@
       "id": "radio",
       "label": "Radio",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "remote-colony",
@@ -761,7 +761,7 @@
       "id": "resistance",
       "label": "Resistance",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "retro-futurism",
@@ -773,7 +773,7 @@
       "id": "rivalry",
       "label": "Rivalry",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "road-trip",
@@ -809,25 +809,25 @@
       "id": "seasonal-anthology",
       "label": "Seasonal anthology",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "secret-agency",
       "label": "Secret agency",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "secret-government",
       "label": "Secret government",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "sherlock-holmes",
       "label": "Sherlock Holmes",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "sitcom",
@@ -911,7 +911,7 @@
       "id": "therapy",
       "label": "Therapy",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "thriller",
@@ -923,7 +923,7 @@
       "id": "time-displacement",
       "label": "Time displacement",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "time-travel",
@@ -971,7 +971,7 @@
       "id": "video-games",
       "label": "Video games",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "war",
@@ -1007,7 +1007,7 @@
       "id": "wormholes",
       "label": "Wormholes",
       "facet": "hook",
-      "status": "approved"
+      "status": "deprecated"
     },
     {
       "id": "xenoarchaeology",

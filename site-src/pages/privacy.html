@@ -4,7 +4,7 @@
         <div class="hero-copy info-hero-copy">
           <h1>Privacy</h1>
           <p>
-            The Echo Archives keeps the data footprint small. This page explains what information the current site uses for browsing, Ask the Archivist, ratings, submissions, and moderation.
+            The Echo Archives keeps the data footprint small. This page explains what information the current site uses for browsing, ratings, submissions, and moderation.
           </p>
           <p class="info-policy-meta">
             <span>Last updated</span>
@@ -56,7 +56,7 @@
         </span>
         <div>
           <h2>Browser-scoped state</h2>
-          <p>Ask the Archivist uses session storage, and community ratings use a cookie plus a linked local profile id.</p>
+          <p>{{#archivist}}Ask the Archivist uses session storage, and {{/archivist}}community ratings use a cookie plus a linked local profile id.</p>
         </div>
       </article>
       <article class="page-card info-summary-card">
@@ -103,8 +103,8 @@
           <h2>The current data categories</h2>
           <ul class="info-detail-list">
             <li>
-              <strong>Browsing and Ask the Archivist</strong>
-              <p>General page requests reach the site through Cloudflare and the archive like any normal web request. Cloudflare may set <code>cf_clearance</code> after browser or challenge checks. Ask the Archivist sends the chat messages you submit to the same-origin chat API, and recent conversation history is stored in session storage under <code>echo-archives-chat-v3</code>. Route-specific <code>echo-scroll:…</code> session-storage keys remember scroll position.</p>
+              <strong>Browsing and page requests</strong>
+              <p>General page requests reach the site through Cloudflare and the archive like any normal web request. Cloudflare may set <code>cf_clearance</code> after browser or challenge checks. Route-specific <code>echo-scroll:…</code> session-storage keys remember scroll position.</p>
             </li>
             <li>
               <strong>Community ratings</strong>
@@ -127,7 +127,7 @@
           <ul class="info-detail-list">
             <li>
               <strong>To run the archive features you asked to use</strong>
-              <p>The site needs to process page requests, chat prompts, and rating actions to deliver the archive, Ask the Archivist, and community rating features you actively use.</p>
+              <p>The site needs to process page requests and rating actions to deliver the archive and community rating features you actively use{{#archivist}}; it also processes chat prompts when you use the Archivist{{/archivist}}.</p>
             </li>
             <li>
               <strong>To review and respond to submissions</strong>
@@ -148,10 +148,12 @@
           <span class="page-card-kicker">Retention</span>
           <h2>How long data is kept</h2>
           <ul class="info-detail-list">
+            {{#archivist}}
             <li>
               <strong>Ask the Archivist session history</strong>
               <p>Browser session storage for chat history and scroll restoration lasts until the browser session ends or you clear site data. The public site does not provide saved account-based chat history.</p>
             </li>
+            {{/archivist}}
             <li>
               <strong>Cloudflare challenge clearance</strong>
               <p>The <code>cf_clearance</code> lifetime follows the Cloudflare zone’s Challenge Passage setting and can be refreshed as security checks continue. Cloudflare’s default Challenge Passage is 30 minutes.</p>

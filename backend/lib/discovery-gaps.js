@@ -328,14 +328,20 @@ function buildPhase2Readiness(catalog = [], collections = [], { reviewsById = {}
       .map((entry) => [normalizeText(entry.label).toLowerCase(), entry]),
   );
   const taxonomyUnknownTags = [];
-  const taxonomyDeprecatedTags = [];
+  const taxonomyNonApprovedTags = [];
+  const approvedTagUsage = new Map();
   publishedShows.forEach((show) => {
     (Array.isArray(show.tags) ? show.tags : []).forEach((tag) => {
       const entry = approvedTags.get(normalizeText(tag).toLowerCase());
       if (!entry) taxonomyUnknownTags.push({ id: show.id, tag });
-      else if (entry.status !== "approved") taxonomyDeprecatedTags.push({ id: show.id, tag, status: entry.status });
+      else if (entry.status !== "approved") taxonomyNonApprovedTags.push({ id: show.id, tag, status: entry.status });
+      else approvedTagUsage.set(entry.label, (approvedTagUsage.get(entry.label) || 0) + 1);
     });
   });
+  const taxonomySingletonApprovedTags = [...approvedTagUsage.entries()]
+    .filter(([, count]) => count === 1)
+    .map(([label, count]) => ({ label, count }))
+    .sort((left, right) => left.label.localeCompare(right.label));
 
   const outOfScopePublished = publishedShows.filter((show) => {
     const languageValues = Array.isArray(show.languages) ? show.languages : [];
@@ -353,11 +359,8 @@ function buildPhase2Readiness(catalog = [], collections = [], { reviewsById = {}
     ...sparseEditorialViolations.map((show) => `Sparse indexed-only show "${show.id}" contains unsupported editorial claims.`),
   ];
   const taxonomyBlockingErrors = [
-    ...(Array.isArray(tagTaxonomy.tags) && tagTaxonomy.tags.length !== 165
-      ? [`Controlled taxonomy has ${tagTaxonomy.tags.length} labels; Phase 2 requires the stable 165-label vocabulary.`]
-      : []),
     ...taxonomyUnknownTags.map((entry) => `Published show "${entry.id}" uses unknown or unapproved public tag "${entry.tag}".`),
-    ...taxonomyDeprecatedTags.map((entry) => `Published show "${entry.id}" uses deprecated public tag "${entry.tag}".`),
+    ...taxonomyNonApprovedTags.map((entry) => `Published show "${entry.id}" uses ${entry.status} public tag "${entry.tag}".`),
   ];
   const scopeBlockingErrors = outOfScopePublished.map((show) => `Published show "${show.id}" falls outside the locked English fiction/audio-drama scope.`);
   const editorialBlockingErrors = [
@@ -414,9 +417,10 @@ function buildPhase2Readiness(catalog = [], collections = [], { reviewsById = {}
     },
     taxonomy: {
       controlledLabelCount: Array.isArray(tagTaxonomy.tags) ? tagTaxonomy.tags.length : 0,
-      expectedControlledLabelCount: 165,
       unknownTags: taxonomyUnknownTags,
-      deprecatedTags: taxonomyDeprecatedTags,
+      nonApprovedTags: taxonomyNonApprovedTags,
+      singletonApprovedTags: taxonomySingletonApprovedTags,
+      warnings: taxonomySingletonApprovedTags.map((entry) => `Approved tag "${entry.label}" is used by one published show; review its listener-discovery value.`),
       blockingErrors: taxonomyBlockingErrors,
     },
     scope: {

@@ -69,7 +69,7 @@ export function buildReviewPayload(form, includeDetails = false) {
     ...(includeDetails ? { details: {
       title: String(formData.get("title") || ""), creatorName: String(formData.get("creatorName") || ""),
       networkName: String(formData.get("networkName") || ""), description: String(formData.get("description") || ""),
-      categories: String(formData.get("categories") || ""), tags: String(formData.get("tags") || ""), language: String(formData.get("language") || ""),
+      categories: String(formData.get("categories") || ""), tags: String(formData.get("tags") || ""), taxonomyExceptionRationale: String(formData.get("taxonomyExceptionRationale") || ""), language: String(formData.get("language") || ""),
       rssUrl: String(formData.get("rssUrl") || ""), websiteUrl: String(formData.get("websiteUrl") || ""),
       appleUrl: String(formData.get("appleUrl") || ""), spotifyUrl: String(formData.get("spotifyUrl") || ""), startUrl: String(formData.get("startUrl") || ""),
       episodeCount: String(formData.get("episodeCount") || ""), seasonCount: String(formData.get("seasonCount") || ""),

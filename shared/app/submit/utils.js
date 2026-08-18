@@ -154,7 +154,7 @@ export function getShowContributorLabel(show) {
 export function iconMarkup(name) {
   switch (name) {
     case "mode-show":
-      return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.25v13M8.75 19.25h6.5M9.75 15.75h4.5M10.5 12.25h3" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/><path class="icon-accent" d="M8.15 7.8a5.3 5.3 0 0 0 0 7.9M5.75 5.4a8.7 8.7 0 0 0 0 12.7M15.85 7.8a5.3 5.3 0 0 1 0 7.9M18.25 5.4a8.7 8.7 0 0 1 0 12.7" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/><circle class="icon-accent-fill" cx="12" cy="6.25" r="1.25"/></svg>`;
+      return `<svg viewBox="0 0 24 24" aria-hidden="true"><path class="icon-accent" d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9M7.8 4.7a6.14 6.14 0 0 0-.8 7.5M16.2 4.8c2 2 2.26 5.11.8 7.47M19.1 1.9a9.96 9.96 0 0 1 0 14.1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/><circle class="icon-accent-fill" cx="12" cy="9" r="2"/><path d="M9.5 18h5M8 22l4-11 4 11" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg>`;
     case "mode-correction":
       return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.75 19.25h3.5L18 9.5 14.5 6 4.75 15.75v3.5ZM13.75 6.75 17.25 10.25" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg>`;
     case "mode-review":

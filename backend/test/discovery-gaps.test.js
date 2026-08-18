@@ -142,3 +142,14 @@ test("Phase 2 readiness keeps sparse indexed-only discovery gaps informational",
   });
   assert.equal(readiness.blockingErrors.some((message) => /similar links|collection memberships/.test(message)), false);
 });
+
+test("taxonomy readiness warns when an approved term has not demonstrated reusable discovery value", () => {
+  const readiness = buildPhase2Readiness([
+    createShowRecord({ tags: ["Solo route"] }),
+  ], [], {
+    tagTaxonomy: { tags: [{ label: "Solo route", status: "approved" }] },
+  });
+
+  assert.deepEqual(readiness.taxonomy.singletonApprovedTags, [{ label: "Solo route", count: 1 }]);
+  assert.match(readiness.taxonomy.warnings[0], /Solo route.*one published show/i);
+});

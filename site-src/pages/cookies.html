@@ -55,7 +55,7 @@
         </span>
         <div>
           <h2>Browser-scoped memory</h2>
-          <p>Ask the Archivist uses session storage, and the show-page rating widget uses anonymous browser identifiers.</p>
+          <p>{{#archivist}}Ask the Archivist uses session storage, and {{/archivist}}the show-page rating widget uses anonymous browser identifiers.</p>
         </div>
       </article>
       <article class="page-card info-summary-card">
@@ -110,6 +110,7 @@
                 </tr>
               </thead>
               <tbody>
+                {{#archivist}}
                 <tr>
                   <td><code>echo-archives-chat-v3</code></td>
                   <td><code>sessionStorage</code></td>
@@ -117,6 +118,7 @@
                   <td>Until the browser session ends or site data is cleared.</td>
                   <td>After Ask the Archivist saves conversation history.</td>
                 </tr>
+                {{/archivist}}
                 <tr>
                   <td><code>echo-scroll:…</code></td>
                   <td><code>sessionStorage</code></td>

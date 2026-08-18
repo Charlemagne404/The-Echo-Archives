@@ -1,5 +1,12 @@
 export function createCollectionFocusController({ collectionViewport, cards, sheenShiftPx }) {
   let interactionCard = null;
+  let centerWeightedCard = null;
+
+  function setStylePropertyIfChanged(card, property, value) {
+    if (card.style.getPropertyValue(property) !== value) {
+      card.style.setProperty(property, value);
+    }
+  }
 
   function syncCollectionFocus() {
     const viewportRect = collectionViewport.getBoundingClientRect();
@@ -14,19 +21,22 @@ export function createCollectionFocusController({ collectionViewport, cards, she
       const focusValue = Math.max(0, 1 - Math.abs(signedDistance) / maxDistance);
       const focusWeight = focusValue ** 1.65;
       const offsetRatio = Math.max(-1, Math.min(1, signedDistance / maxDistance));
-      card.style.setProperty("--collection-focus", focusValue.toFixed(4));
-      card.style.setProperty("--collection-focus-weight", focusWeight.toFixed(4));
-      card.style.setProperty("--collection-offset-from-center", offsetRatio.toFixed(4));
-      card.style.setProperty("--collection-sheen-shift", `${(offsetRatio * sheenShiftPx).toFixed(2)}px`);
+      setStylePropertyIfChanged(card, "--collection-focus", focusValue.toFixed(4));
+      setStylePropertyIfChanged(card, "--collection-focus-weight", focusWeight.toFixed(4));
+      setStylePropertyIfChanged(card, "--collection-offset-from-center", offsetRatio.toFixed(4));
+      setStylePropertyIfChanged(card, "--collection-sheen-shift", `${(offsetRatio * sheenShiftPx).toFixed(2)}px`);
       if (focusValue > strongestFocus) {
         strongestFocus = focusValue;
         strongestCard = card;
       }
     });
 
-    cards.forEach((card) => {
-      card.classList.toggle("is-center-weighted", card === strongestCard && strongestFocus > 0);
-    });
+    const nextCenterWeightedCard = strongestFocus > 0 ? strongestCard : null;
+    if (centerWeightedCard !== nextCenterWeightedCard) {
+      centerWeightedCard?.classList.remove("is-center-weighted");
+      centerWeightedCard = nextCenterWeightedCard;
+      centerWeightedCard?.classList.add("is-center-weighted");
+    }
   }
 
   function setInteractionCard(card) {

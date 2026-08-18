@@ -10,7 +10,7 @@ const { loadSiteHelpContext } = require("../lib/ai/site-help");
 
 const siteRoot = path.resolve(__dirname, "../..");
 
-async function createChatTestServer() {
+async function createChatTestServer({ archivistEnabled = true } = {}) {
   const catalog = await loadCatalog(siteRoot);
   const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)));
   const archiveContext = await loadArchiveContext(siteRoot, catalog, collections);
@@ -23,6 +23,7 @@ async function createChatTestServer() {
       getCatalog: () => catalog,
       getCollections: () => collections,
       config: {
+        ARCHIVIST_ENABLED: archivistEnabled,
         OLLAMA_MODEL: "test-model",
         OLLAMA_URL: "http://127.0.0.1:9/api/generate",
         REQUEST_TIMEOUT_MS: 50,
@@ -42,6 +43,17 @@ async function createChatTestServer() {
     baseUrl: `http://127.0.0.1:${server.address().port}`,
   };
 }
+
+test("chat routes stay unavailable while the Archivist feature is disabled", async () => {
+  const context = await createChatTestServer({ archivistEnabled: false });
+
+  try {
+    const response = await fetch(`${context.baseUrl}/health`);
+    assert.equal(response.status, 404);
+  } finally {
+    await closeChatTestServer(context.server);
+  }
+});
 
 async function postJson(baseUrl, body) {
   const response = await fetch(`${baseUrl}/api/chat`, {

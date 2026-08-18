@@ -76,7 +76,7 @@ async function main() {
   console.log(`Phase 2 actionable RSS gaps: ${snapshot.phase2.factual.actionableMissingRss.length}`);
   console.log(`Phase 2 documented research-gap records: ${snapshot.phase2.factual.documentedResearchGaps.length}`);
   console.log(`Phase 2 editorial gaps: ${snapshot.phase2.editorial.gaps.length}`);
-  console.log(`Phase 2 taxonomy unknown/deprecated tags: ${snapshot.phase2.taxonomy.unknownTags.length + snapshot.phase2.taxonomy.deprecatedTags.length}`);
+  console.log(`Phase 2 taxonomy unknown/non-approved tags: ${snapshot.phase2.taxonomy.unknownTags.length + snapshot.phase2.taxonomy.nonApprovedTags.length}`);
   if (snapshot.phase2.blockingErrors.length > 0) {
     snapshot.phase2.blockingErrors.forEach((error) => console.log(`Phase 2 BLOCKER: ${error}`));
   }

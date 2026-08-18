@@ -18,7 +18,7 @@ export function renderImportReadiness(candidate) {
         ${renderBadge(readiness.ready ? "Ready" : `${blockers.length} blockers`, readiness.ready ? "good" : "warning")}
       </div>
       ${blockers.length ? `<ul>${blockers.map((item) => `<li><strong>${escapeHtml(toDisplayTag(item.field || item.code))}:</strong> ${escapeHtml(item.message)}</li>`).join("")}</ul>` : ""}
-      ${warnings.length ? `<details><summary>${warnings.length} optional gaps</summary><ul>${warnings.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul></details>` : ""}
+      ${warnings.length ? `<details><summary>${warnings.length} optional gaps</summary><ul>${warnings.map((item) => `<li>${escapeHtml(item.message || item)}</li>`).join("")}</ul></details>` : ""}
       <div class="import-tier-readiness-grid">
         <article><strong>Imported publication</strong>${renderBadge(imported.eligible ? "Eligible" : "Blocked", imported.eligible ? "good" : "warning")}${imported.blockers.length ? `<ul>${imported.blockers.map((item) => `<li>${escapeHtml(item.message)}</li>`).join("")}</ul>` : `<p>Structured automated evidence meets the higher batch threshold.</p>`}</article>
         <article><strong>Indexed-only publication</strong>${renderBadge(indexed.eligible ? "Eligible" : "Needs factual review", indexed.eligible ? "good" : "neutral")}${indexed.blockers.length ? `<ul>${indexed.blockers.map((item) => `<li>${escapeHtml(item.message)}</li>`).join("")}</ul>` : `<p>The current candidate revision has been checked by a maintainer.</p>`}</article>

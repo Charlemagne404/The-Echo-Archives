@@ -18,7 +18,7 @@ The live catalog snapshot now lives in [`docs/generated/catalog-status.md`](docs
 | Main browse surface | Homepage with structured filters, quick filters, search, recently updated mode, featured collections, and a most-popular band |
 | Detail routes | Reusable show pages at `/shows/<show-id>` and collection pages at `/collections/<collection-id>` |
 | Community layer | Anonymous ratings, moderated submissions, corrections, listener reviews, and creator verification intake |
-| Assistant | Ask the Archivist with catalog-grounded chat and site-help responses |
+| Assistant | Preserved Archivist integration, disabled by default for 1.0 |
 | Maintainer tools | Passphrase-gated submission queue, catalog-import queue, report pages, and explicit publication/promotion controls |
 | Delivery model | Generated static pages at repo root, authored sources in `site-src/`, shared runtime in `shared/`, backend in `backend/` |
 
@@ -58,7 +58,7 @@ Legacy HTML and query-string detail routes remain compatibility entry points and
 - Node 22.12+ (CI and production currently use 22.23.1)
 - Express
 - SQLite for ratings and submission workflow storage
-- Optional Ollama integration for Ask the Archivist responses
+- Optional Ollama integration for the preserved Archivist feature
 
 There is no planned frontend framework rewrite by default. The repo favors simple, durable pieces and generated static output over avoidable platform complexity.
 
@@ -71,6 +71,8 @@ npm --prefix backend ci
 ```
 
 Optionally copy `backend/.env.example` to `backend/.env` for local overrides. The root start/dev/config/backup commands load that file without replacing variables already exported by the shell.
+
+The Archivist feature is disabled by default for the 1.0 release. Set `ARCHIVIST_ENABLED=true` in `backend/.env` and regenerate the pages with `npm run build:pages` when you are ready to expose the preserved feature again.
 
 Start the local app:
 

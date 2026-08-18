@@ -32,6 +32,7 @@ const config = {
   IS_PRODUCTION,
   HOST: process.env.HOST || (IS_PRODUCTION ? "127.0.0.1" : "0.0.0.0"),
   PORT: parseInteger(process.env.PORT, 3010),
+  ARCHIVIST_ENABLED: parseBoolean(process.env.ARCHIVIST_ENABLED, false),
   OLLAMA_URL: process.env.OLLAMA_URL || "http://127.0.0.1:11434/api/generate",
   OLLAMA_MODEL: process.env.OLLAMA_MODEL || "mistral",
   REQUEST_TIMEOUT_MS: parseInteger(process.env.REQUEST_TIMEOUT_MS, 30000),

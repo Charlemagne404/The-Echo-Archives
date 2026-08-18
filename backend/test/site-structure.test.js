@@ -75,6 +75,14 @@ test("public runtime pages defer chat markup and code until the launcher is used
   });
 });
 
+test("the default generated public pages do not expose the deferred Archivist feature", () => {
+  runtimePages.forEach((pagePath) => {
+    const html = fs.readFileSync(path.join(siteRoot, pagePath), "utf8");
+    assert.match(html, /data-archivist-enabled="false"/, `${pagePath} should default the Archivist feature off.`);
+    assert.doesNotMatch(html, /Ask the Archivist|data-open-chat|id="chat-toggle"/i, `${pagePath} should not expose Archivist copy or controls.`);
+  });
+});
+
 test("public runtime pages expose a build-stable search index version", () => {
   runtimePages.forEach((pagePath) => {
     const html = fs.readFileSync(path.join(siteRoot, pagePath), "utf8");

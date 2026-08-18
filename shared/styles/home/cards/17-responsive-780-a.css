@@ -387,7 +387,7 @@
     --editorial-corner-left: 6px;
     --editorial-ribbon-width: 126px;
     --editorial-ribbon-height: 24px;
-    --editorial-ribbon-grid-top: 65px;
+    --editorial-ribbon-grid-top: 55px;
     --editorial-ribbon-grid-right: -30px;
     --editorial-ribbon-tail-width: 36px;
   }
@@ -493,7 +493,7 @@
   }
 
   #site-footer {
-    padding: 20px max(16px, var(--safe-area-right)) calc(22px + var(--safe-area-bottom)) max(16px, var(--safe-area-left));
+    padding: 20px max(16px, var(--safe-area-right)) calc(34px + var(--safe-area-bottom)) max(16px, var(--safe-area-left));
     grid-template-columns: 1fr;
     gap: 22px;
     text-align: left;

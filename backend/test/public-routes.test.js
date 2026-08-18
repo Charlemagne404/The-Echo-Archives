@@ -79,14 +79,16 @@ async function stopPublicRouteServer({ serverProcess, tempDir }) {
 
 test("runtime page config replaces every versioned public-data attribute", () => {
   const rendered = injectRuntimeSiteConfig(
-    '<body data-shows-version="stale" data-collections-version="stale" data-search-index-version="stale"></body>',
+    '<body data-archivist-enabled="stale" data-shows-version="stale" data-collections-version="stale" data-search-index-version="stale"></body>',
     {
+      archivistEnabled: false,
       showsVersion: "shows-current",
       collectionsVersion: "collections-current",
       searchIndexVersion: "search-current",
     },
   );
 
+  assert.match(rendered, /data-archivist-enabled="false"/);
   assert.match(rendered, /data-shows-version="shows-current"/);
   assert.match(rendered, /data-collections-version="collections-current"/);
   assert.match(rendered, /data-search-index-version="search-current"/);

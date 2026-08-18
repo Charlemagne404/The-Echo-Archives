@@ -1,4 +1,5 @@
 import { syncCommunityCardBadges } from "../../community.js";
+import { ARCHIVIST_ENABLED } from "../../constants.js";
 import { syncShowCardPresentation } from "../../render-cards.js";
 import { syncBrowseUrlState } from "./url-state.js";
 import { formatResultsSummaryPrefix, matchesSelectedFilters, renderActiveBrowseState, syncHomeControls } from "./filters.js";
@@ -47,12 +48,15 @@ export function createHomeResultsController({
     const state = document.createElement("div");
     state.id = "noResultsMsg";
     state.className = "empty-state-card";
+    const archivistAction = ARCHIVIST_ENABLED
+      ? '<button class="quick-filter" type="button" data-open-chat data-chat-initial-prompt="Help me find something finished or easy to jump into.">Ask the Archivist</button>'
+      : "";
     state.innerHTML = `
       <p>No matches yet. Try a tone, format, completion status, or a search like "Midnight Burger like".</p>
       <div class="empty-state-actions">
         <button id="clearResultsState" class="quick-filter" type="button">Clear filters</button>
         <a class="collection-action" href="/collections">Browse collections</a>
-        <button class="quick-filter" type="button" data-open-chat data-chat-initial-prompt="Help me find something finished or easy to jump into.">Ask the Archivist</button>
+        ${archivistAction}
         <a class="collection-action" href="/submit">Submit or correct a show</a>
       </div>`;
     mount.appendChild(state);

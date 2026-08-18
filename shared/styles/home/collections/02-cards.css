@@ -400,6 +400,7 @@
 
 @media (max-width: 959px) {
   .home-page .podcast-card.collection-show-card {
+    --editorial-ribbon-collection-top: 55px;
     --editorial-ribbon-collection-right: -30px;
   }
 }

@@ -69,6 +69,7 @@ async function startRateLimitServer() {
       PORT: String(port),
       SERVE_STATIC: "true",
       DB_PATH: dbPath,
+      ARCHIVIST_ENABLED: "true",
       OLLAMA_URL: "http://127.0.0.1:9/api/generate",
       STATIC_ROOT: siteRoot,
       CHAT_RATE_LIMIT_MAX: "2",

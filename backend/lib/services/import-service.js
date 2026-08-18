@@ -291,6 +291,7 @@ function normalizeEditableDetails(raw = {}) {
     description: cleanDescription(raw.description, 4_000),
     categories: splitTags(raw.categories),
     tags: splitTags(raw.tags),
+    taxonomyExceptionRationale: trimText(raw.taxonomyExceptionRationale, 800),
     language: trimText(raw.language, 80),
     rssUrl: normalizeEditedUrl(raw.rssUrl, "RSS feed URL"),
     websiteUrl: normalizeEditedUrl(raw.websiteUrl, "Official website URL"),

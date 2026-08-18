@@ -6,34 +6,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content" />
 <meta name="color-scheme" content="dark" />
 <title>Privacy - The Echo Archives</title>
-<meta name="description" content="How The Echo Archives handles anonymous ratings, submissions, chat history, and limited technical data." />
+<meta name="description" content="How The Echo Archives handles anonymous ratings, submissions, and limited technical data." />
 <link rel="canonical" href="https://echoarchives.net/privacy" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="The Echo Archives" />
 <meta property="og:title" content="Privacy - The Echo Archives" />
-<meta property="og:description" content="How The Echo Archives handles anonymous ratings, submissions, chat history, and limited technical data." />
+<meta property="og:description" content="How The Echo Archives handles anonymous ratings, submissions, and limited technical data." />
 <meta property="og:url" content="https://echoarchives.net/privacy" />
 <meta property="og:image" content="https://echoarchives.net/echo-wordmark1.png" />
 <meta property="og:image:alt" content="The Echo Archives social preview" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Privacy - The Echo Archives" />
-<meta name="twitter:description" content="How The Echo Archives handles anonymous ratings, submissions, chat history, and limited technical data." />
+<meta name="twitter:description" content="How The Echo Archives handles anonymous ratings, submissions, and limited technical data." />
 <meta name="twitter:image" content="https://echoarchives.net/echo-wordmark1.png" />
 <meta name="twitter:image:alt" content="The Echo Archives social preview" />
 <meta name="theme-color" content="#06080b" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 
 
-<link rel="stylesheet" href="/style.css?v=6efc5cf024" />
+<link rel="stylesheet" href="/style.css?v=050e829362" />
 <link rel="stylesheet" href="/info.css?v=236c1db4ca" />
 <link rel="stylesheet" href="/public-heroes.css?v=daedd40bd0" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 
-<script id="pageStructuredData" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://echoarchives.net/privacy#webpage","url":"https://echoarchives.net/privacy","name":"Privacy - The Echo Archives","description":"How The Echo Archives handles anonymous ratings, submissions, chat history, and limited technical data.","isPartOf":{"@id":"https://echoarchives.net/#website"},"breadcrumb":{"@id":"https://echoarchives.net/privacy#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://echoarchives.net/privacy#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"The Echo Archives — Audio Drama Discovery","item":"https://echoarchives.net/"},{"@type":"ListItem","position":2,"name":"Privacy - The Echo Archives","item":"https://echoarchives.net/privacy"}]}]}</script>
+<script id="pageStructuredData" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://echoarchives.net/privacy#webpage","url":"https://echoarchives.net/privacy","name":"Privacy - The Echo Archives","description":"How The Echo Archives handles anonymous ratings, submissions, and limited technical data.","isPartOf":{"@id":"https://echoarchives.net/#website"},"breadcrumb":{"@id":"https://echoarchives.net/privacy#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://echoarchives.net/privacy#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"The Echo Archives — Audio Drama Discovery","item":"https://echoarchives.net/"},{"@type":"ListItem","position":2,"name":"Privacy - The Echo Archives","item":"https://echoarchives.net/privacy"}]}]}</script>
 </head>
-<body class="home-page info-page" data-site-url="https://echoarchives.net" data-chat-stylesheet="/chat.css?v=42108e0bb0" data-home-card-hover-expand-enabled="false" data-shows-version="68df03febc" data-collections-version="35438a1ac5" data-search-index-version="db6aac67a9">
+<body class="home-page info-page" data-site-url="https://echoarchives.net" data-chat-stylesheet="/chat.css?v=42108e0bb0" data-archivist-enabled="false" data-home-card-hover-expand-enabled="false" data-shows-version="b548ba832f" data-collections-version="35438a1ac5" data-search-index-version="fd5e253e5f">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
@@ -91,7 +91,7 @@
         <div class="hero-copy info-hero-copy">
           <h1>Privacy</h1>
           <p>
-            The Echo Archives keeps the data footprint small. This page explains what information the current site uses for browsing, Ask the Archivist, ratings, submissions, and moderation.
+            The Echo Archives keeps the data footprint small. This page explains what information the current site uses for browsing, ratings, submissions, and moderation.
           </p>
           <p class="info-policy-meta">
             <span>Last updated</span>
@@ -143,7 +143,7 @@
         </span>
         <div>
           <h2>Browser-scoped state</h2>
-          <p>Ask the Archivist uses session storage, and community ratings use a cookie plus a linked local profile id.</p>
+          <p>community ratings use a cookie plus a linked local profile id.</p>
         </div>
       </article>
       <article class="page-card info-summary-card">
@@ -190,8 +190,8 @@
           <h2>The current data categories</h2>
           <ul class="info-detail-list">
             <li>
-              <strong>Browsing and Ask the Archivist</strong>
-              <p>General page requests reach the site through Cloudflare and the archive like any normal web request. Cloudflare may set <code>cf_clearance</code> after browser or challenge checks. Ask the Archivist sends the chat messages you submit to the same-origin chat API, and recent conversation history is stored in session storage under <code>echo-archives-chat-v3</code>. Route-specific <code>echo-scroll:…</code> session-storage keys remember scroll position.</p>
+              <strong>Browsing and page requests</strong>
+              <p>General page requests reach the site through Cloudflare and the archive like any normal web request. Cloudflare may set <code>cf_clearance</code> after browser or challenge checks. Route-specific <code>echo-scroll:…</code> session-storage keys remember scroll position.</p>
             </li>
             <li>
               <strong>Community ratings</strong>
@@ -214,7 +214,7 @@
           <ul class="info-detail-list">
             <li>
               <strong>To run the archive features you asked to use</strong>
-              <p>The site needs to process page requests, chat prompts, and rating actions to deliver the archive, Ask the Archivist, and community rating features you actively use.</p>
+              <p>The site needs to process page requests and rating actions to deliver the archive and community rating features you actively use.</p>
             </li>
             <li>
               <strong>To review and respond to submissions</strong>
@@ -235,10 +235,7 @@
           <span class="page-card-kicker">Retention</span>
           <h2>How long data is kept</h2>
           <ul class="info-detail-list">
-            <li>
-              <strong>Ask the Archivist session history</strong>
-              <p>Browser session storage for chat history and scroll restoration lasts until the browser session ends or you clear site data. The public site does not provide saved account-based chat history.</p>
-            </li>
+
             <li>
               <strong>Cloudflare challenge clearance</strong>
               <p>The <code>cf_clearance</code> lifetime follows the Cloudflare zone’s Challenge Passage setting and can be refreshed as security checks continue. Cloudflare’s default Challenge Passage is 30 minutes.</p>
@@ -296,18 +293,6 @@
       </div>
     </section>
   </main>
-
-<button id="chat-toggle" class="chat-toggle-button" type="button" aria-label="Ask the Archivist" aria-expanded="false" title="Ask the Archivist">
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M20 11.5C20 7.91015 16.6421 5 12.5 5H11.5C7.35786 5 4 7.91015 4 11.5C4 15.0899 7.35786 18 11.5 18H12.1L15.4 20.4C16.0615 20.8811 17 20.4086 17 19.5917V17.1593C18.7938 16.0442 20 13.9141 20 11.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
-    </svg>
-  </button>
-
-  <button id="backToTop" type="button" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
-    </svg>
-  </button>
 
 <footer id="site-footer">
   <div class="footer-brand">
@@ -378,6 +363,6 @@
 
   <script src="/shared/archive-search.js?v=492045ed14"></script>
 
-  <script type="module" src="/script.js?v=3c01f7b2a8"></script>
+  <script type="module" src="/script.js?v=1e88740a8a"></script>
 </body>
 </html>

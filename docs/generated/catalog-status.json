@@ -305,9 +305,217 @@
     },
     "taxonomy": {
       "controlledLabelCount": 165,
-      "expectedControlledLabelCount": 165,
       "unknownTags": [],
-      "deprecatedTags": [],
+      "nonApprovedTags": [],
+      "singletonApprovedTags": [
+        {
+          "label": "1990s",
+          "count": 1
+        },
+        {
+          "label": "Alternate reality game",
+          "count": 1
+        },
+        {
+          "label": "Angels and demons",
+          "count": 1
+        },
+        {
+          "label": "Appalachia",
+          "count": 1
+        },
+        {
+          "label": "Archival horror",
+          "count": 1
+        },
+        {
+          "label": "Arctic horror",
+          "count": 1
+        },
+        {
+          "label": "Biotech",
+          "count": 1
+        },
+        {
+          "label": "Black comedy",
+          "count": 1
+        },
+        {
+          "label": "Colony ship",
+          "count": 1
+        },
+        {
+          "label": "Corporate secrecy",
+          "count": 1
+        },
+        {
+          "label": "Cryonics",
+          "count": 1
+        },
+        {
+          "label": "Demons",
+          "count": 1
+        },
+        {
+          "label": "Environmental collapse",
+          "count": 1
+        },
+        {
+          "label": "Espionage",
+          "count": 1
+        },
+        {
+          "label": "Family curse",
+          "count": 1
+        },
+        {
+          "label": "Filipino",
+          "count": 1
+        },
+        {
+          "label": "Forensics",
+          "count": 1
+        },
+        {
+          "label": "Generational horror",
+          "count": 1
+        },
+        {
+          "label": "Immortality",
+          "count": 1
+        },
+        {
+          "label": "Locked-room mystery",
+          "count": 1
+        },
+        {
+          "label": "Lovecraftian",
+          "count": 1
+        },
+        {
+          "label": "Magical realism",
+          "count": 1
+        },
+        {
+          "label": "Mars colony",
+          "count": 1
+        },
+        {
+          "label": "Media horror",
+          "count": 1
+        },
+        {
+          "label": "Memory alteration",
+          "count": 1
+        },
+        {
+          "label": "Mind sharing",
+          "count": 1
+        },
+        {
+          "label": "Necromancy",
+          "count": 1
+        },
+        {
+          "label": "Neuroscience",
+          "count": 1
+        },
+        {
+          "label": "Nuclear winter",
+          "count": 1
+        },
+        {
+          "label": "Ocean",
+          "count": 1
+        },
+        {
+          "label": "Pulp adventure",
+          "count": 1
+        },
+        {
+          "label": "Punk",
+          "count": 1
+        },
+        {
+          "label": "Remote colony",
+          "count": 1
+        },
+        {
+          "label": "Retro-futurism",
+          "count": 1
+        },
+        {
+          "label": "Sitcom",
+          "count": 1
+        },
+        {
+          "label": "Sleeper ship",
+          "count": 1
+        },
+        {
+          "label": "Underwater",
+          "count": 1
+        },
+        {
+          "label": "Utopia",
+          "count": 1
+        },
+        {
+          "label": "Victorian",
+          "count": 1
+        },
+        {
+          "label": "Western",
+          "count": 1
+        },
+        {
+          "label": "Xenoarchaeology",
+          "count": 1
+        }
+      ],
+      "warnings": [
+        "Approved tag \"1990s\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Alternate reality game\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Angels and demons\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Appalachia\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Archival horror\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Arctic horror\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Biotech\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Black comedy\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Colony ship\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Corporate secrecy\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Cryonics\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Demons\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Environmental collapse\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Espionage\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Family curse\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Filipino\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Forensics\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Generational horror\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Immortality\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Locked-room mystery\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Lovecraftian\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Magical realism\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Mars colony\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Media horror\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Memory alteration\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Mind sharing\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Necromancy\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Neuroscience\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Nuclear winter\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Ocean\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Pulp adventure\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Punk\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Remote colony\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Retro-futurism\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Sitcom\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Sleeper ship\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Underwater\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Utopia\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Victorian\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Western\" is used by one published show; review its listener-discovery value.",
+        "Approved tag \"Xenoarchaeology\" is used by one published show; review its listener-discovery value."
+      ],
       "blockingErrors": []
     },
     "scope": {

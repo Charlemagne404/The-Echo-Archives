@@ -1,3 +1,4 @@
+import { initializeArchivistLauncher } from "./archivist-launcher.js";
 import { initializeManagedImages } from "./images.js";
 import { initializeMobileNav } from "./mobile-nav.js";
 import { initializeServiceWorker } from "./service-worker.js";
@@ -8,6 +9,7 @@ export async function initializeApp() {
   initializeViewportMetrics();
   initializeServiceWorker();
   initializeMobileNav();
+  initializeArchivistLauncher();
   initializeBackToTop();
   initializeHistoryBackLinks();
   initializeManagedImages();
@@ -77,6 +79,11 @@ export async function initializeApp() {
 
 function initializeLazySharedChatLauncher() {
   const toggleBtn = document.getElementById("chat-toggle");
+  if (document.body?.dataset.archivistEnabled !== "true") {
+    document.querySelectorAll("#chat-toggle, [data-open-chat]").forEach((element) => element.remove());
+    return;
+  }
+
   if (!toggleBtn) {
     return;
   }

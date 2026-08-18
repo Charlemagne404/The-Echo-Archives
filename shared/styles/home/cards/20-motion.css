@@ -16,7 +16,7 @@
 
 @media (max-width: 359px) {
   #site-footer {
-    padding: 18px;
+    padding: 18px 18px calc(30px + var(--safe-area-bottom));
   }
 
   .footer-links {

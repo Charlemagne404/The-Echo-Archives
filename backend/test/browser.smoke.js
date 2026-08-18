@@ -1164,3 +1164,60 @@ test("homepage collection carousels keep rounded cover art and stay stable durin
     await page.close();
   }
 });
+
+test("homepage collection carousels autoplay and resume after a mobile touch leaves the rail", async () => {
+  const page = await browser.newPage({ viewport: { width: 390, height: 844 }, hasTouch: true });
+
+  try {
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await page.locator("#favoriteRoutesGrid .collection-card").first().waitFor();
+    await page.locator("#collectionGrid .collection-card").first().waitFor();
+    await page.waitForFunction(() => {
+      const favoriteRoutesViewport = document.getElementById("favoriteRoutesViewport");
+      const collectionViewport = document.getElementById("collectionViewport");
+      return Boolean(
+        favoriteRoutesViewport?.scrollWidth > favoriteRoutesViewport?.clientWidth &&
+        collectionViewport?.scrollWidth > collectionViewport?.clientWidth,
+      );
+    });
+
+    const initialState = await page.evaluate(() => ({
+      favoriteRoutes: document.getElementById("favoriteRoutesViewport")?.scrollLeft || 0,
+      collections: document.getElementById("collectionViewport")?.scrollLeft || 0,
+    }));
+    await page.waitForTimeout(1_200);
+
+    const afterAutoplay = await page.evaluate(() => ({
+      favoriteRoutes: document.getElementById("favoriteRoutesViewport")?.scrollLeft || 0,
+      collections: document.getElementById("collectionViewport")?.scrollLeft || 0,
+    }));
+    assert.ok(afterAutoplay.favoriteRoutes > initialState.favoriteRoutes + 10);
+    assert.ok(afterAutoplay.collections > initialState.collections + 10);
+
+    await page.evaluate(() => {
+      const viewport = document.getElementById("collectionViewport");
+      viewport?.dispatchEvent(new PointerEvent("pointerdown", {
+        bubbles: true,
+        pointerId: 501,
+        pointerType: "touch",
+        isPrimary: true,
+      }));
+      window.dispatchEvent(new PointerEvent("pointerup", {
+        bubbles: true,
+        pointerId: 501,
+        pointerType: "touch",
+        isPrimary: true,
+      }));
+    });
+    await page.waitForTimeout(700);
+
+    const afterTouchResume = await page.evaluate(() => ({
+      favoriteRoutes: document.getElementById("favoriteRoutesViewport")?.scrollLeft || 0,
+      collections: document.getElementById("collectionViewport")?.scrollLeft || 0,
+    }));
+    assert.ok(afterTouchResume.favoriteRoutes > afterAutoplay.favoriteRoutes + 8);
+    assert.ok(afterTouchResume.collections > afterAutoplay.collections + 8);
+  } finally {
+    await page.close();
+  }
+});

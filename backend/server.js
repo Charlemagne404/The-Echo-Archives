@@ -356,6 +356,7 @@ async function startServer() {
 
   const applyRuntimeSiteConfig = (html, nonce = "") =>
     injectRuntimeSiteConfig(html, {
+      archivistEnabled: config.ARCHIVIST_ENABLED,
       homeCardHoverExpandEnabled: config.HOME_CARD_HOVER_EXPAND_ENABLED,
       siteUrl: config.SITE_URL,
       showsVersion: state.showsVersion,

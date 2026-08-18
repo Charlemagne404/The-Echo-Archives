@@ -12,6 +12,7 @@ const {
 const {
   MAX_PUBLISHED_DISCOVERY_TAGS,
   MIN_PUBLISHED_DISCOVERY_SIGNALS,
+  discoveryTagStatus,
   isApprovedDiscoveryTag,
   normalizeDiscoveryTags,
 } = require("../../../shared/archive-tags");
@@ -158,11 +159,27 @@ function selectedSources(candidate) {
   ])).values()];
 }
 
-function reviewedDiscoveryTags(objective = {}) {
-  return normalizeDiscoveryTags(objective.manualTags || [])
+function reviewedDiscoveryTagSelection(objective = {}) {
+  const selected = normalizeDiscoveryTags(objective.manualTags || [])
     .map((value) => trimText(value, 80))
     .filter((value) => value.length >= 2)
     .slice(0, MAX_PUBLISHED_DISCOVERY_TAGS);
+
+  return {
+    approved: selected.filter(isApprovedDiscoveryTag),
+    proposals: selected
+      .filter((value) => !isApprovedDiscoveryTag(value))
+      .map((label) => ({
+        label,
+        status: discoveryTagStatus(label) || "proposed",
+        rationale: trimText(objective.taxonomyExceptionRationale, 800),
+        evidence: mergeUniqueStrings(objective.externalResearch?.fieldSources?.tags || []),
+      })),
+  };
+}
+
+function reviewedDiscoveryTags(objective = {}) {
+  return reviewedDiscoveryTagSelection(objective).approved;
 }
 
 function sourceTagProvenance(candidate, tags) {
@@ -188,7 +205,8 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
   const state = releaseState(objective);
   const categories = mergeUniqueStrings(objective.categories || []);
   const genres = mergeUniqueStrings(categories.map(mapCategoryToGenre).filter(Boolean));
-  const tags = reviewedDiscoveryTags(objective);
+  const tagSelection = reviewedDiscoveryTagSelection(objective);
+  const tags = tagSelection.approved;
   const tagProvenance = sourceTagProvenance(candidate, tags);
   const language = formatLanguage(objective.language);
   const transcriptLanguages = mergeUniqueStrings((objective.transcripts?.languages || []).map(formatLanguage).filter(Boolean));
@@ -330,6 +348,7 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
           feedRedirects: mergeUniqueStrings(objective.feedRedirects || []),
         },
         selectedSources: sourceReferences,
+        ...(tagSelection.proposals.length ? { taxonomyProposals: tagSelection.proposals } : {}),
         ...(objective.externalResearch ? { externalResearch: objective.externalResearch } : {}),
         fields: {
           ...(candidate.provenance?.fields || {}),
@@ -375,8 +394,14 @@ function evaluateReadiness({ candidate, preparedRecord }) {
   if (!preparedRecord.title || (fields.title?.confidence || 0) < 0.75) blockers.push({ code: "weak-title", field: "title", message: "A title with at least 0.75 confidence is required." });
   if (!preparedRecord.description || (fields.description?.confidence || 0) < 0.75) blockers.push({ code: "weak-description", field: "description", message: "A trustworthy official description with at least 0.75 confidence is required." });
   else if (isPlaceholderDescription(preparedRecord.title, preparedRecord.description)) blockers.push({ code: "placeholder-description", field: "description", message: "The official description is too short or only repeats the show title." });
-  const unapprovedTags = (preparedRecord.tags || []).filter((tag) => !isApprovedDiscoveryTag(tag));
-  if (unapprovedTags.length) blockers.push({ code: "unapproved-tags", field: "tags", message: `Unapproved discovery tags require taxonomy review: ${unapprovedTags.join(", ")}.` });
+  const taxonomyProposals = preparedRecord.metadata?.import?.taxonomyProposals || [];
+  if (taxonomyProposals.length) {
+    warnings.push({
+      code: "taxonomy-proposals",
+      field: "tags",
+      message: `These tags are kept as taxonomy proposals and excluded from public discovery until approved: ${taxonomyProposals.map((proposal) => proposal.label).join(", ")}.`,
+    });
+  }
   const discoverySignals = new Set([
     ...(preparedRecord.genres || []).map((value) => `genre:${value}`),
     ...(preparedRecord.formats || []).map((value) => `format:${value}`),
@@ -477,4 +502,5 @@ module.exports = {
   evaluateReadiness,
   managedFingerprints,
   reviewedDiscoveryTags,
+  reviewedDiscoveryTagSelection,
 };

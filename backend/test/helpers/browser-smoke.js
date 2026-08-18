@@ -431,6 +431,7 @@ async function startSmokeServer() {
       SITE_URL: baseUrl,
       SERVE_STATIC: "true",
       DB_PATH: smokeDbPath,
+      ARCHIVIST_ENABLED: "true",
       COMMUNITY_RATING_WRITES_ENABLED: "false",
       HOME_CARD_HOVER_EXPAND_ENABLED: "true",
       MAINTAINER_REVIEW_PASSPHRASE: "smoke-maintainer",

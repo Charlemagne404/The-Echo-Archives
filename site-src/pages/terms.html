@@ -97,7 +97,7 @@
         <article class="page-card info-section-card" id="terms-use">
           <span class="page-card-kicker">Use of the site</span>
           <h2>What you may and may not do</h2>
-          <p>You may browse the archive, use discovery tools, read show pages, use Ask the Archivist, and send corrections, reviews, ratings, and verification requests.</p>
+          <p>You may browse the archive, use discovery tools, read show pages{{#archivist}}, use Ask the Archivist{{/archivist}}, and send corrections, reviews, ratings, and verification requests.</p>
           <ul>
             <li>Do not spam, scrape abusively, overload the service, probe protected areas, or interfere with site availability.</li>
             <li>Do not submit unlawful, deceptive, malicious, or irrelevant material.</li>
@@ -112,7 +112,9 @@
           <ul>
             <li>Money does not buy ratings, reviews, collection placement, or archive recommendations.</li>
             <li>Creator and community input can improve objective facts, but not override editorial judgment.</li>
+            {{#archivist}}
             <li>Ask the Archivist is grounded in archive data and site context, but it can still be incomplete, out of date, or wrong.</li>
+            {{/archivist}}
           </ul>
         </article>
 
@@ -148,7 +150,7 @@
         <article class="page-card info-section-card" id="terms-rights">
           <span class="page-card-kicker">Accuracy, links, and rights</span>
           <h2>What the archive can and cannot promise</h2>
-          <p>The Echo Archives aims for careful metadata, grounded recommendations, and honest editorial context, but it cannot guarantee that every page, recommendation, AI answer, or linked destination is complete, current, or error-free at all times. Use official sources when the exact fact matters.</p>
+          <p>The Echo Archives aims for careful metadata, grounded recommendations, and honest editorial context, but it cannot guarantee that every page, recommendation{{#archivist}}, Archivist answer{{/archivist}}, or linked destination is complete, current, or error-free at all times. Use official sources when the exact fact matters.</p>
           <p>The site links to official show pages, listening platforms, Patreon, GitHub, and other third-party services for convenience. The Echo Archives does not control those services and is not responsible for their content, availability, or policies.</p>
           <p>Unless otherwise noted, the archive’s original site design and archive copy belong to The Echo Archives. Podcast names, cover art, third-party descriptions, trademarks, and related materials belong to their respective owners. Rights-holder requests can be sent through the <a href="/copyright">Copyright &amp; Takedown</a> page.</p>
         </article>

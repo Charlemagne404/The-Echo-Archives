@@ -108,6 +108,11 @@ function buildFallbackOptions(queryContext, repeatedRecommendation) {
 function createChatRouter({ getCatalog, getCollections, getSiteHelpContext, config, rateLimiter = null }) {
   const router = express.Router();
 
+  if (config.ARCHIVIST_ENABLED === false) {
+    router.use((_req, res) => res.status(404).json({ error: "Not found." }));
+    return router;
+  }
+
   router.get("/health", (_req, res) => {
     const catalog = getCatalog();
     const collections = getCollections();

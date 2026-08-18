@@ -414,10 +414,12 @@
   position: relative;
   z-index: 1;
   overflow-x: auto;
+  scroll-behavior: auto;
   padding: calc(6px + var(--collection-headroom)) var(--collection-viewport-inline-pad) 14px;
   margin: 0;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
 }
 
@@ -532,5 +534,14 @@
   .collection-carousel-arrow {
     opacity: 1;
     pointer-events: auto;
+  }
+
+  .collection-carousel[data-collection-touching="true"] .collection-card,
+  .collection-carousel[data-collection-touching="true"] .collection-card::before,
+  .collection-carousel[data-collection-touching="true"] .collection-card::after,
+  .collection-carousel[data-collection-touching="true"] .collection-card h3,
+  .collection-carousel[data-collection-touching="true"] .collection-card-count,
+  .collection-carousel[data-collection-touching="true"] .collection-card-cta {
+    transition: none !important;
   }
 }
