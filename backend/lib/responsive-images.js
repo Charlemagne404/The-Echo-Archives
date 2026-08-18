@@ -15,8 +15,18 @@ const STATIC_IMAGE_TARGETS = [
     widths: [480, 960],
   },
   {
+    source: "images/about-discovery-microphone.jpg",
+    outputStem: "about-discovery-microphone",
+    widths: [480, 960],
+  },
+  {
     source: "images/about-continental-orbit.png",
     outputStem: "about-continental-orbit",
+    widths: [480, 960],
+  },
+  {
+    source: "images/about-continental-earth.jpg",
+    outputStem: "about-continental-earth",
     widths: [480, 960],
   },
 ];

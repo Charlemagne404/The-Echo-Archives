@@ -2,347 +2,248 @@
 
 ## Purpose
 
-This is the active roadmap for taking The Echo Archives from its current public-beta shape to a stronger, broader, more trustworthy discovery product.
+This is the active roadmap for The Echo Archives after the 1.0 release.
 
 Use it as the source of truth for:
 
-- sequencing
-- milestone targets
-- phase-by-phase work
-- launch gates
-- current status
-- open questions
+- current release status
+- post-release priorities
+- catalog and editorial quality gates
+- production-readiness follow-up
+- deferred product decisions
 
-Historical planning docs live in `docs/archive/`.
+Use [`docs/CURRENT_STATE.md`](CURRENT_STATE.md) for the implemented product
+snapshot, [`docs/generated/catalog-status.md`](generated/catalog-status.md) for
+generated catalog evidence, and [`docs/OPERATIONS.md`](OPERATIONS.md) for the
+deployment and recovery runbook. Historical planning docs live in
+[`docs/archive/`](archive/).
 
-## Current Baseline
+## Release 1.0 Baseline — 2026-08-18
 
-The live catalog baseline now lives in `docs/generated/catalog-status.md`.
+The 1.0 product baseline is shipped in the repository. It includes:
 
-The shipped repo state includes:
-
-- split catalog authoring under `catalog-src/`
-- generated runtime catalog data under `data/`
-- a generated `/data/search-index.json` browse artifact
+- split JSON catalog authoring under `catalog-src/`
+- generated runtime data and search index under `data/`
 - reusable show and collection routes
-- a homepage with structured filters, search, quick filters, recently updated mode, featured collections, and a community-informed most-popular band
-- Ask the Archivist chat and site-help flows
-- anonymous community ratings
-- moderated submissions and creator-verification intake
-- protected maintainer queue and reporting pages
-- generated static page output from `site-src/`
+- homepage search, structured filters, quick filters, recently updated mode, featured collections, and most-popular fallback ordering
+- compact show cards, collection routes, share actions, and no-result recovery
+- anonymous community ratings with production write safeguards
+- moderated show, correction, listener-review, and creator-verification intake
+- protected submission, import, elevation, and collection-maintainer workspaces
+- explicit Imported, indexed-only, planned, and full-review publication paths
+- grounded site-help and a preserved Archivist integration that is disabled by default
+- generated public pages, sitemap, robots rules, responsive assets, service-worker offline fallback, and route-level SEO metadata
 
-The repo is no longer in migration mode. The product questions are now about catalog depth, metadata quality, review coverage, trust, and how to improve discovery without overbuilding.
+The current generated catalog snapshot contains:
+
+| Metric | Current value |
+| --- | ---: |
+| Published shows | 724 |
+| Imported shows | 523 |
+| Indexed-only shows | 194 |
+| Full reviews | 7 |
+| Collections | 38 |
+| Creator-verified shows | 0 |
+
+Exact counts and gap detail remain generated evidence, not hand-maintained
+product copy. The latest catalog-authored update is 2026-08-16.
+
+The catalog report currently returns `content-pending` because these two
+published records have no verified runtime duration and no explicit
+`metadata.researchGaps` note:
+
+- `big-grande-teachers-lounge`
+- `machina`
+
+That is the current catalog-quality release follow-up. It is separate from
+host, provider, recovery, browser, and deployment checks, which are recorded in
+the current dated release QA report.
 
 ## Roadmap Rules
 
-- Stay JSON-first unless catalog scale or moderation volume proves that model inadequate.
 - Keep the product useful for discovery before adding heavier community systems.
-- Expand indexed entries faster than full reviews when necessary, but never let metadata quality slip.
-- Use the Imported tier for safely expanding factual coverage only when its strict automation gate passes; keep editorial and factual-review promotion separate.
-- Preserve the current visual identity unless a change clearly improves browsing, trust, or mobile behavior.
-- Favor better coverage and cleaner metadata over new feature classes.
+- Use Imported only for objective records that pass the strict automated gate.
+- Keep indexed-only promotion, full-review publication, creator verification, and collection approval explicit and reviewable.
+- Treat missing evidence as `unknown` or an explicit research gap; never infer certainty from silence.
+- Preserve the dark, compact, cinematic archive identity.
+- Prefer better coverage, cleaner metadata, and stronger recommendation context over new feature classes.
+- Keep public submission moderation-first; nothing user-submitted auto-publishes.
+- Re-run generated catalog/page checks after authored data or page-source changes.
 
 ## Deferred Work
 
-Keep these out of scope unless a real bottleneck appears:
+Keep these out of scope unless a demonstrated bottleneck changes the decision:
 
 - full CMS migration
-- account system
-- forums or comments
+- mandatory account system
+- forums or comments-first community
 - public API
 - paid subscriptions
-- complex recommendation infrastructure
+- heavyweight recommendation infrastructure
 - native mobile apps
+- creator or network directories without enough entity coverage
 
-## Current Reality
+## Current Priorities
 
-The archive currently has strong numeric breadth but uneven depth across indexed-only records.
+1. Close or explicitly document the two runtime-duration blockers so the generated catalog report is green.
+2. Complete the repository, host, external-provider, backup/restore, monitoring, and browser gates recorded in the 1.0 release QA report.
+3. Increase editorial depth beyond 7 full reviews without weakening the factual Imported/indexed-only lanes.
+4. Improve weak collection and similarity coverage where it creates a real listener route.
+5. Add creator verification only when a real official-source review has been completed.
+6. Keep search, filters, collection automation, and site-help grounded in current catalog data.
 
-That means the next meaningful gains are:
+## Catalog Quality Policy
 
-- more published shows only where they add useful coverage
-- more full reviews after the Phase 2 floor, as editorial capacity allows
-- richer similarity and recommendation reasoning
-- more complete runtime, status, and creator metadata
-- better confidence in filters that depend on that data
+The previous Phase 2 numeric floor was 129 published shows, 7 full reviews, and
+29 collections. The 1.0 catalog exceeds those floors numerically, but the
+current generated report is the authority for whether the quality gate is
+complete. Numeric breadth alone does not close a factual blocker.
 
-Do not chase raw collection count just because the system makes it easy. New collections should only ship when they add a real discovery path.
+The active policy is tier-aware:
 
-## Phase 2 Completion Policy — 2026-08-14
+- full-review and spotlight records may carry archive takes, detailed editorial context, tones, formats, best-for signals, and reasoned similarity/collection context
+- indexed-only records are factual-first and must not receive invented ratings, tones, best-for claims, similarities, or other unsupported editorial recommendations
+- Imported records are automation-checked objective records and cannot carry archive-owned editorial fields
+- creator verification confirms factual metadata only and never implies creator approval of ratings, reviews, or collection placement
+- the ordinary automatic publication lane is English-language fiction/audio drama; actual play/TTRPG and non-English candidates remain out of scope unless separately governed
+- unknown or unverifiable facts stay explicit through `unknown` or `metadata.researchGaps`
 
-Gate B is a catalog-and-editorial milestone. Production launch readiness is a
-separate decision and is not implied by this gate.
+## Workstream: Catalog And Editorial Depth
 
-- The active floor is 129 published shows, 7 full reviews, and 29 collections.
-  The archived 8-review target is historical and is not a Phase 2 blocker.
-- Metadata requirements are tier-aware. Full-review and spotlight records must
-  carry the richer editorial and recommendation fields; sparse indexed-only
-  records remain published and factual without invented editorial claims.
-- Phase 2 scope is English-language fiction/audio drama. Actual play/TTRPG and
-  non-English candidates stay out of the ordinary automatic publication lane.
-- A fact that cannot be verified is recorded as `unknown` or in
-  `metadata.researchGaps`; hidden blanks do not count as completed audit work.
+The catalog is broad enough for a real 1.0 release but remains uneven in depth.
 
-The generated catalog report is the executable Gate B checklist. It separates
-numeric targets, factual gaps, editorial/recommendation gaps, collection
-quality, taxonomy, and scope. Its `Phase 2 blocking errors` count must be zero.
+Next work:
 
-## Current Gate Assessment — 2026-08-14
+- resolve `big-grande-teachers-lounge` and `machina` runtime evidence or record defensible research gaps
+- preserve the three documented missing RSS cases and three documented runtime unknowns until new evidence appears
+- convert selected Imported records to indexed-only through current factual review
+- move selected high-value records through the elevation desk into full review
+- add reviews where they improve recommendation routes, not merely to raise a count
+- improve descriptions, lifecycle facts, runtime framing, and source provenance without inventing completeness
 
-Gate B is `complete`. The generated report records 129 published shows, 7 full
-reviews, 29 collections, zero actionable factual gaps, zero editorial or
-collection blockers, 165 controlled taxonomy labels with zero unknown or
-deprecated public tags, and zero out-of-scope published records.
+Exit evidence:
 
-Three missing RSS links and two runtime-duration gaps are explicitly documented
-as research gaps. The 59 sparse indexed-only records with weak collection or
-similarity coverage are informational under the tier-aware policy, not Gate B
-errors. Creator verification remains a separate trust/launch follow-up; 0 live
-records are creator-verified.
+- `npm run report:catalog` has zero blocking errors
+- `npm --prefix backend run validate:data` passes
+- review, taxonomy, scope, and link checks pass
+- generated catalog output matches its authored source
 
-## Phase Summary
+## Workstream: Discovery Quality
 
-| Phase | Dates | Primary outcome |
-| --- | --- | --- |
-| Phase 0 | Completed by June 2, 2026 | Foundation and launch-ready catalog architecture |
-| Phase 1 | June 3, 2026 to June 28, 2026 | Stable public beta with trust, moderation, and generated-page workflow in place |
-| Phase 2 | June 29, 2026 to August 23, 2026 | Broader catalog depth and stronger review coverage |
-| Phase 3 | August 24, 2026 to October 18, 2026 | Better discovery through higher-trust filters and recommendation context |
-| Phase 4 | October 19, 2026 to December 13, 2026 | More mature contribution and moderation systems |
-| Phase 5 | December 14, 2026 to February 7, 2027 | Creator and network context only where it improves discovery |
-| Phase 6 | February 8, 2027 to April 4, 2027 | Mature release candidate with broader coverage and stronger QA confidence |
+Search, filters, collections, and similar-show routes are already implemented;
+the next advantage must come from better data and reasoning.
 
-## Editorial Capacity Assumption
+Next work:
 
-Assume one primary editor-maintainer with occasional outside feedback.
+- improve the 624 records with fewer than two collection memberships where a real route exists
+- review the 654 records outside the preferred similarity-link range without fabricating relationships
+- keep collection reasons specific, listener-facing, and source-backed by the archive’s editorial policy
+- expose new filters only when the supporting metadata is consistent enough to be trustworthy
+- preserve fast short-query search and identity-field relevance
+- keep no-result recovery useful through collections, similar routes, and submission/correction paths
 
-Sustainable cadence during growth phases:
+Exit evidence:
 
-- 2 to 4 new indexed shows per week
-- 1 full review every 1 to 2 weeks
-- collection refreshes as needed, with new collections only when they add a real route
+- discovery changes are backed by structured catalog fields
+- search and filter tests cover ranking, empty states, and short queries
+- collection and similarity reasons remain present in raw HTML where indexable
+- performance and mobile behavior remain within the existing release budget
 
-If available editorial time increases, spend it on show coverage, review depth, and metadata cleanup before adding new systems.
+## Workstream: Trust And Contribution
 
-## Catalog Targets By Phase
+The 1.0 contribution layer is moderation-first and intentionally lightweight.
 
-| Phase end | Published shows | Full reviews | Collections |
-| --- | --- | --- | --- |
-| Current generated snapshot baseline | See `docs/generated/catalog-status.md` | See `docs/generated/catalog-status.md` | See `docs/generated/catalog-status.md` |
-| August 23, 2026 | 129+ | 7+ | 29+ |
-| October 18, 2026 | 129+ | 8 to 10 | 30+ |
-| December 13, 2026 | 129+ | 10 to 14 | 30+ |
-| February 7, 2027 | 129+ | 14 to 18 | 32+ |
-| April 4, 2027 | 129+ | 18 to 24 | 34+ |
+Next work:
 
-These targets are intentionally more conservative on collections than earlier planning. The current gap is not collection count; it is show depth and review density.
+- keep archive rating, community rating, listener reviews, Imported status, and creator verification visually and semantically separate
+- maintain explicit moderation states and provenance for accepted corrections
+- enable production community writes only after the configured Turnstile, voter-secret, rate-limit, and live-flow checks pass
+- continue to treat read-only community ratings as a supported degraded state
+- keep the maintainer submission queue and reports useful without turning them into a general CMS
 
-## Phase 2 - Catalog Depth And Review Coverage
+Exit evidence:
 
-Primary goal:
+- public input never auto-publishes
+- accepted factual changes retain source evidence
+- abuse controls, thresholds, and private storage remain covered by tests and operations checks
 
-- make the archive materially more useful by widening real show coverage and increasing the number of pages with richer editorial depth
+## Workstream: Collection Automation
 
-Product:
+The collection engine supports rule-based and semantic definitions while keeping
+editorial ownership visible.
 
-- keep the homepage discovery surfaces stable and honest
-- make indexed-only show pages feel complete even without long-form reviews
-- surface stronger recommendation context where the data already supports it
+Next work:
 
-Editorial:
+- review proposed candidates in the protected collection workspace
+- preserve manual additions, pins, removals, and audit history across regeneration
+- keep semantic suggestions below the public threshold until approved
+- never allow automation to overwrite maintainer-authored descriptions or silently reintroduce a manual removal
 
-- maintain at least 129 published shows while correcting source conflicts and
-  factual gaps
-- retain at least 7 full reviews; no additional review is required for Gate B
-- tighten inconsistent descriptions, tags, and status labeling
-- fill in missing runtime, completion, and release metadata where possible
-- verify similar-show links, reasons, anchor paths, and route-collection copy
-- keep sparse indexed-only records factual-only rather than backfilling
-  unsupported tones, best-for claims, ratings, or similarities
+Exit evidence:
 
-Platform:
+- collection regeneration is deterministic for rule-based definitions
+- semantic confidence and rationale remain private operational evidence
+- public collection snapshots contain only approved memberships and reasons
 
-- keep data validation strict as the catalog grows
-- maintain link checks and smoke coverage
-- avoid shipping filters that look richer than the data really is
+## Workstream: Creator, Network, And Archive Context
 
-Exit criteria:
+Creator and network context is optional enrichment, not a release prerequisite.
 
-- numeric targets remain met: 129 published shows, 7 full reviews, and 29
-  collections
-- actionable factual gaps are fixed or explicitly documented as unknown
-- every full-review/spotlight record passes its review-companion, editorial
-  metadata, similarity-reason, and collection checks
-- taxonomy and locked scope checks pass
-- the generated catalog report has zero Phase 2 blocking errors
-- generated outputs, focused QA, and repository validation are clean
-- launch-readiness blockers remain tracked separately from Gate B
+Next work:
 
-## Phase 3 - Discovery Upgrade
+- complete factual creator verification for real official-source submissions
+- add dedicated creator or network datasets only when multiple shows make the route useful
+- add changelog data only if it provides a maintained listener-facing archive history
 
-Primary goal:
+Exit evidence:
 
-- make browsing materially better than title-first discovery in a general podcast app
+- new entity records have source provenance and meaningful cross-catalog value
+- no empty directories or parent-brand wrapper experience is introduced
 
-Product:
+## Workstream: Production Operations
 
-- improve the usefulness of existing structured filters
-- add or refine filters only where the data is complete enough to support them
-- improve no-result recovery and cross-links between search, collections, and Ask the Archivist
-- make recommendation reasons more visible where they exist
+The codebase contains the deployment, proxy, monitoring, backup, restore, and
+rollback runbooks, but local repository evidence cannot prove that the live host
+or external providers are configured correctly.
 
-Editorial:
+Next work:
 
-- normalize controlled vocabulary further
-- improve similar-show network quality
-- review older entries for weak descriptions or inconsistent archive notes
+- verify production `SITE_URL`, maintainer secrets, access observability, rating-write state, and Archivist flag
+- validate Caddy/TLS/DNS/HSTS and the legacy-host redirect on the target host
+- complete encrypted off-host backup retention and an independent restore drill
+- confirm uptime, service, disk, backup, and error monitoring
+- complete physical iOS Safari and Android Chrome checks
+- record a new dated QA report whenever a release gate changes state
 
-Platform:
-
-- derive richer filter options from structured data rather than hand-maintained UI lists
-- keep search and browse logic grounded in the catalog
-- keep the generated search index lean enough for homepage browse/search without dragging full detail payloads into the browse path
-
-Exit criteria:
-
-- discovery improvements are data-backed, not just UI-deep
-- search and filters noticeably outperform generic title-only browsing
-
-## Phase 4 - Contribution And Moderation Systems
-
-Primary goal:
-
-- accept more outside input without blurring editorial ownership or lowering trust
-
-Product:
-
-- keep archive rating, community rating, listener reviews, and creator verification clearly separate
-- make contribution expectations explicit before a user submits anything
-- keep factual updates distinguishable from editorial content
-
-Editorial:
-
-- define spoiler and moderation standards for listener reviews
-- define what creators can verify and what they cannot influence
-- define what level of editing is acceptable before publishing contributed text
-
-Platform:
-
-- keep the SQLite queue and maintainer surface simple and reliable
-- preserve provenance for creator-supplied factual changes
-- keep anti-spam and vote-threshold protections in place
-
-Exit criteria:
-
-- contribution systems remain trustworthy without requiring a large admin product
-- outside input improves coverage and trust without confusing editorial canon
-
-## Phase 5 - Creator, Network, And Archive Context
-
-Primary goal:
-
-- deepen archive context only where it meaningfully improves discovery
-
-Product:
-
-- add creator pages only when they help users find related shows
-- add network pages only when they clarify meaningful relationships
-- expose archive growth over time if a changelog becomes genuinely useful
-
-Editorial:
-
-- add creator or network records only for high-value repeated entities
-- pilot creator notes or Q&A only if the archive can keep them clearly separate from editorial voice
-
-Platform:
-
-- keep creator, network, and changelog data structured and optional
-- avoid duplicating entity data across the catalog and operational storage
-
-Exit criteria:
-
-- creator and network context enriches browsing rather than creating empty directories
-
-## Phase 6 - Final-Vision Release Candidate
-
-Primary goal:
-
-- make the public product feel mature, coherent, and substantial
-
-Product:
-
-- keep key discovery modes visible within the first screen or two
-- make full reviews, indexed-only entries, Imported entries, community surfaces, and trust signals read cleanly together
-- keep Ask the Archivist tightly grounded in real catalog data
-
-Editorial:
-
-- reach better genre and tone coverage
-- revisit older entries for consistency
-- remove or rewrite weak summaries that no longer meet archive standards
-
-Platform:
-
-- harden tests around browse routes, show rendering, collections, submissions, ratings, and sitemap behavior
-- review performance on mobile and slower connections
-- ensure failure cases degrade cleanly
-
-Exit criteria:
-
-- 100 to 125 shows are live
-- 18 to 24 full reviews are live
-- the archive feels meaningfully better than a generic podcast browse flow
+Exit evidence belongs in `docs/OPERATIONS.md` and a dated `docs/qa/` report. Do
+not mark these gates complete from local unit tests alone.
 
 ## Release Gates
 
-| Gate | Target date | Status | Meaning |
-| --- | --- | --- | --- |
-| Gate A - Stable Public Beta | June 28, 2026 | `technical-ready` | The repo has generated-page workflow, moderation plumbing, tests, and trust surfaces in place. Human launch timing and content readiness remain separate decisions. |
-| Gate B - Catalog Depth Ready | August 23, 2026 | `complete` | Catalog/editorial completion is verified by the generated Phase 2 readiness report. Production launch readiness remains a separate gate. |
-| Gate C - Discovery Advantage Ready | October 18, 2026 | `content-pending` | Existing search and filters work, but stronger discovery advantage depends on denser, cleaner metadata and recommendation reasoning. |
-| Gate D - Trust And Contribution Ready | December 13, 2026 | `technical-ready` | Intake, provenance, moderation queue, and community safeguards are implemented; long-term trust depends on editorial follow-through. |
-| Gate E - Final-Vision Release Candidate | April 4, 2027 | `content-pending` | The platform groundwork exists, but scale, coverage, and editorial consistency are still the long pole. |
+| Gate | Status | Meaning |
+| --- | --- | --- |
+| 1.0 product baseline | Current | The shipped static-first product and protected workflows are represented in the repository. |
+| Catalog quality | `content-pending` | Numeric floors are exceeded, but two published runtime gaps still block the generated report. |
+| Repository verification | `blocked` | Backend validation and tests pass; the current structure check fails on an existing 551-line CSS module and the full root gate has not passed. |
+| Production operations | `unverified` | Host, external provider, recovery, monitoring, and live browser evidence are not established by this local docs pass. |
+| Post-1.0 discovery | `next` | Improve data-backed search, filters, collection routes, and recommendation context. |
+| Mature archive | `future` | Broader editorial depth, creator context, and sustained quality follow-through. |
 
 Status labels:
 
-- `technical-ready`: tooling and code support the gate, but QA, timing, or content may still be pending
-- `content-pending`: technical groundwork exists, but the gate depends on additional human-authored catalog or policy work
-- `complete`: both technical and content requirements are satisfied
+- `Current`: the release baseline is the active product state
+- `content-pending`: implementation exists but catalog/editorial evidence still has an open blocker
+- `blocked`: a required repository gate currently fails
+- `unverified`: evidence requires the target host, provider, or physical device
+- `next`: the next planned workstream
+- `future`: intentionally later work
 
 ## Open Questions
 
-Phase 2 decisions are locked:
+- Which of the weak collection and similarity relationships create enough listener value to justify editorial review?
+- How many full reviews can be maintained without reducing factual catalog quality?
+- When does creator verification have enough adoption to justify a richer public trust state?
+- Should a maintained changelog become a public route, or remain release/QA documentation only?
 
-- scope is English-language fiction/audio drama
-- actual play/TTRPG candidates remain out of scope
-- non-English candidates remain out of scope for the ordinary automatic lane
-- sparse indexed-only records remain factual-only until editorial work exists
-- unverifiable facts are explicit unknowns/research gaps
-
-Phase 3:
-
-- Which filters are honest enough to promote publicly once more data is filled in?
-- How much recommendation reasoning should be stored as structured data versus written inline in reviews?
-
-Default:
-
-- keep filters simple and high-signal first
-
-Phase 4:
-
-- What is the minimum acceptable moderation burden for listener reviews before publication becomes too noisy?
-- Should creator verification remain a lightweight badge plus provenance note, or become a fuller audit state?
-
-Default:
-
-- keep the lightest system that still makes trust visible
-
-Phase 5:
-
-- Which creators and networks are important enough to deserve dedicated pages first?
-- Should creator notes and Q&A live on show pages, creator pages, or both?
-
-Default:
-
-- only create creator or network pages when they improve discovery for multiple shows
+Default: keep the lightest system that makes evidence, editorial judgment, and
+release status visible.

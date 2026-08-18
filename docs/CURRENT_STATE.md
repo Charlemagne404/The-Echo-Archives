@@ -4,7 +4,7 @@
 
 This document describes the actual current state of The Echo Archives as implemented in this repo.
 
-Use it as a dated reality check alongside:
+Use it as the current-release reality check alongside:
 
 - `docs/PRODUCT.md` for the active product brief
 - `docs/FINAL_PRODUCT.md` for the destination vision
@@ -13,9 +13,23 @@ Use it as a dated reality check alongside:
 
 ## Snapshot Date
 
-This narrative snapshot reflects the repository as of **2026-08-14**. The latest
-catalog-authored update in the generated snapshot is **2026-08-14**; for exact
-counts and coverage gaps, use `docs/generated/catalog-status.md`.
+This narrative snapshot reflects the repository as of **2026-08-18**. The latest
+catalog-authored update in the generated snapshot is **2026-08-16**; for exact
+counts and coverage gaps, use [`docs/generated/catalog-status.md`](generated/catalog-status.md).
+
+## Release 1.0 Posture
+
+The 1.0 product baseline is shipped in the repository. It is a static-first,
+listener-facing archive with protected maintainer workflows and a current
+catalog of 724 published shows, 7 full reviews, and 38 collections. The
+Archivist remains preserved but disabled by default, and production community
+rating writes remain configuration-gated.
+
+Release status is separate from catalog-quality and production-operations
+gates. The current generated report is `content-pending` because two published
+records have no verified runtime duration and no explicit research-gap note;
+the current dated release report records the remaining repository, host,
+provider, recovery, and browser checks.
 
 ## Summary
 
@@ -26,14 +40,15 @@ It is already a working static-first discovery site with:
 - a live structured show catalog
 - reusable show and collection routes
 - search and filter-driven browsing
-- catalog-grounded chat
+- preserved catalog-grounded Archivist integration (disabled by default in 1.0)
 - community rating infrastructure
 - moderation-first submission intake
 - a protected maintainer review surface
 
-The project has moved past migration and foundation work. Phase 2 / Gate B is
-complete as a catalog-and-editorial milestone. Production launch readiness,
-creator verification, and deeper coverage remain separately tracked work.
+The project has moved past migration, foundation, and public-beta work. The
+1.0 release baseline is in place. Catalog-quality follow-up, creator
+verification, deeper editorial coverage, and production operations remain
+separately tracked work.
 
 ## Current Product Surface
 
@@ -63,6 +78,7 @@ Operational and trust-related surfaces currently include:
 - `/maintainer/submissions/report.html`
 - `/maintainer/imports.html`
 - `/maintainer/imports/report.html`
+- `/maintainer/collections.html`
 
 Legacy show pages and query-string detail aliases remain as permanent compatibility redirects to the clean detail routes.
 
@@ -85,17 +101,20 @@ Generated runtime/public catalog output now lives under:
 
 What that means in practice:
 
-- the catalog is real and has 129 published shows, but it is still uneven in depth
+- the catalog is broad at 724 published shows, but it is still uneven in depth
 - metadata structure is stronger than review depth
 - the archive already supports recommendation logic, but coverage is still narrow
 - creator verification is supported by the system but not yet represented in live catalog data
-- the importer supports an automation-checked `imported` tier, but no live catalog record currently uses it
+- the importer supports an automation-checked `imported` tier, now used by 523 live catalog records
+- 194 live records are `indexed-only` and 7 have full editorial reviews
 
-The Phase 2 report records 7 full reviews, 29 collections, zero actionable
-factual gaps, zero editorial/collection blockers, a stable 165-label taxonomy,
-and zero out-of-scope published records. The 59 sparse indexed-only records
-with weak collection or similarity coverage are informational under the
-tier-aware policy; they do not carry unsupported editorial claims.
+The generated report records zero actionable RSS gaps, zero editorial or
+collection blockers, a stable 165-label taxonomy, and zero out-of-scope
+published records. It also records 14 explicit research-gap records, three
+missing RSS links that are documented, three documented runtime unknowns, and
+two published runtime blockers that still need either evidence or an explicit
+research-gap note. Sparse indexed-only discovery gaps remain informational when
+they contain no unsupported editorial claims.
 
 ## Current Browse Experience
 
@@ -145,13 +164,14 @@ Implemented now:
 - anonymous community rating bootstrap
 - rating submission and removal
 - public rating-summary support with thresholds
-- Ask the Archivist chat endpoint
+- preserved Ask the Archivist chat endpoint (disabled by default in 1.0)
 - show submission intake
 - correction intake
 - listener-review intake
 - creator-verification intake
 - passphrase-gated maintainer queue
 - passphrase-gated maintainer reporting surface
+- protected collection-automation review and membership controls
 - protected machine-found import queue, readiness reports, explicit Imported/indexed-only publication, and factual-review promotion
 
 Important current boundary:
@@ -217,24 +237,26 @@ This is enough process to support disciplined iteration without a large platform
 
 ## Current Gaps
 
-The remaining limitations are content depth and launch maturity, not Phase 2
-catalog completion or architecture.
+The remaining limitations are catalog-quality follow-up, editorial depth, and
+production operations rather than missing core architecture.
 
 Most important gaps today, from the current generated catalog report:
 
-- 59 sparse indexed-only shows have fewer than two collection memberships; this is informational under the tier-aware policy
-- 59 sparse indexed-only shows have no editorial similarity set; this is not a Gate B blocker
-- 3 published shows lack RSS links and 2 records retain explicitly documented runtime-duration gaps
-- 13 records retain explicit research-gap notes for facts that are not currently verifiable
+- 624 published shows have fewer than two collection memberships; this is informational under the tier-aware policy when records remain factual-only
+- 654 published shows fall outside the preferred similarity-link range; current report policy keeps this separate from the editorial blocker count
+- 3 published shows lack RSS links and 3 records retain explicitly documented runtime-duration gaps
+- 2 published shows have runtime-duration gaps that are not yet documented and currently block the catalog report
+- 14 records retain explicit research-gap notes for facts that are not currently verifiable
 - editorial depth still lags metadata breadth
 - creator verification exists as a workflow but has no live verified records yet
 - many of the strongest future recommendation routes depend on denser catalog coverage
 - filter confidence can only grow as metadata vocabulary gets broader and more consistent
 - the archive still needs more "serious enough to trust" volume before the final vision fully lands
 
-This is a healthy post-Phase-2 gap profile. The product is not blocked by the
-catalog gate or missing infrastructure. Remaining work is launch readiness,
-creator verification, and editorial expansion.
+This is a broad 1.0 gap profile, but the two undocumented runtime gaps must be
+closed before the generated catalog gate can be called complete. Production
+host, provider, recovery, and browser checks are also release operations, not
+facts that local repository tests can establish.
 
 ## Distance From The Final Product
 
@@ -246,7 +268,7 @@ Compared with `docs/FINAL_PRODUCT.md`, the current project is:
 - strong on data-first architecture
 - moderate on discovery mechanics
 - broad on show-count breadth but uneven in depth
-- at the Phase 2 floor on review density
+- above the original catalog floor but still sparse on review density
 - early on creator-verified metadata adoption
 
 In other words, the product shape is largely correct. The archive now needs more substance inside that shape.
@@ -256,6 +278,7 @@ In other words, the product shape is largely correct. The archive now needs more
 If the repo keeps following its current best path, the next highest-value work is:
 
 - add more published shows only where they add useful coverage
+- resolve or explicitly document the two current runtime blockers
 - convert more entries from `indexed-only` to `full-review` and fact-check eligible Imported entries
 - strengthen runtime, tone, format, and similarity metadata
 - improve recommendation usefulness through denser data

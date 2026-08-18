@@ -1,4 +1,4 @@
-# Echo Archives Data Schema
+# Echo Archives Data Schema — 1.0
 
 ## Purpose
 
@@ -13,7 +13,10 @@ Generated runtime/public output is written into:
 - `data/reviews/*.json`
 - `data/search-index.json`
 
-The frontend, chat assistant, and community features should all read from these files instead of scraping HTML.
+The frontend, optional Archivist integration, and community features should all
+read from these files instead of scraping HTML. This v1 schema is the public
+catalog contract used by the 1.0 release; operational importer and collection
+tables may evolve without changing the published record shape.
 
 `officialDescription` is optional. When supplied it must be verified creator, network, show-site, or official-platform wording with a source label and URL. It is distinct from the archive-written `description` fallback.
 

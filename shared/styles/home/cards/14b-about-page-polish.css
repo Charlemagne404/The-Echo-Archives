@@ -172,9 +172,9 @@
 
 .about-page .about-split-media::after {
   background:
-    linear-gradient(90deg, rgba(3, 5, 8, 0.68) 0%, rgba(3, 5, 8, 0.18) 22%, rgba(3, 5, 8, 0.02) 52%, rgba(3, 5, 8, 0.22) 100%),
-    linear-gradient(180deg, rgba(3, 5, 8, 0.1) 0%, transparent 20%, transparent 82%, rgba(3, 5, 8, 0.28) 100%),
-    radial-gradient(circle at 76% 42%, transparent 0%, rgba(0, 0, 0, 0.06) 66%, rgba(0, 0, 0, 0.18) 100%);
+    linear-gradient(90deg, rgba(3, 5, 8, 0.96) 0%, rgba(3, 5, 8, 0.86) 10%, rgba(3, 5, 8, 0.62) 25%, rgba(3, 5, 8, 0.34) 42%, rgba(3, 5, 8, 0.12) 62%, rgba(3, 5, 8, 0.04) 80%, rgba(3, 5, 8, 0.08) 100%),
+    linear-gradient(180deg, rgba(3, 5, 8, 0.14) 0%, transparent 20%, transparent 78%, rgba(3, 5, 8, 0.34) 100%),
+    radial-gradient(circle at 76% 42%, transparent 0%, rgba(0, 0, 0, 0.08) 66%, rgba(0, 0, 0, 0.22) 100%);
 }
 
 .about-page .about-split-media img {
@@ -185,7 +185,9 @@
   object-fit: cover;
   object-position: 62% 46%;
   transform: none;
-  filter: saturate(0.86) brightness(0.88) contrast(1.02);
+  filter: saturate(0.76) brightness(0.82) contrast(1.06);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.14) 9%, rgba(0, 0, 0, 0.5) 24%, rgba(0, 0, 0, 0.88) 42%, #000 60%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.14) 9%, rgba(0, 0, 0, 0.5) 24%, rgba(0, 0, 0, 0.88) 42%, #000 60%, #000 100%);
 }
 
 .about-page .about-feature-section,
@@ -338,4 +340,22 @@
 .about-page .about-support-card .about-cta-secondary {
   border-color: rgba(229, 72, 56, 0.56);
   background: rgba(8, 11, 15, 0.82);
+}
+
+@media (max-width: 959px) {
+  .about-page .about-split-card {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .about-page .about-split-media::after {
+    background:
+      linear-gradient(180deg, rgba(3, 5, 8, 0.72) 0%, rgba(3, 5, 8, 0.22) 24%, rgba(3, 5, 8, 0.04) 58%, rgba(3, 5, 8, 0.3) 100%),
+      linear-gradient(90deg, rgba(3, 5, 8, 0.16) 0%, transparent 32%, rgba(3, 5, 8, 0.12) 100%);
+  }
+
+  .about-page .about-split-media img {
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.42) 14%, #000 32%, #000 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.42) 14%, #000 32%, #000 100%);
+  }
 }

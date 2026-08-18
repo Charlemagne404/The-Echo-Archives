@@ -1,6 +1,7 @@
-# Backend
+# Backend — The Echo Archives 1.0
 
-This service runs the backend for The Echo Archives and keeps the archive assistant as one part of that backend.
+This service runs the backend for The Echo Archives 1.0. The Archivist is a
+preserved optional integration and is disabled by default in the release.
 
 ## What it does
 
@@ -12,7 +13,8 @@ This service runs the backend for The Echo Archives and keeps the archive assist
 - Exposes community endpoints at `/api/community/*` for ratings, profile bootstrap, and summaries
 - Exposes show submission intake at `/api/submissions/shows`
 - Exposes a protected internal import lane for machine-found catalog candidates
-- Uses Ollama when available and falls back to grounded heuristic recommendations when it is not
+- Exposes a protected collection automation workspace for candidate review, membership overrides, and regeneration
+- When Archivist is enabled, uses Ollama when available and falls back to grounded heuristic recommendations when it is not
 
 ## Run locally
 
@@ -44,6 +46,8 @@ Copy `.env.example` to `.env` if you want to override defaults.
 - `PODCAST_INDEX_USER_AGENT`: user-agent string sent to Podcast Index and import fetches
 - `IMPORT_SUGGESTION_PROVIDER`: optional subjective suggestion provider name. Current supported value is `ollama`
 - `IMPORT_SUGGESTION_MODEL`: optional model name used by the import suggestion provider
+- `COLLECTION_SUGGESTION_PROVIDER`: optional semantic collection suggestion provider
+- `COLLECTION_SUGGESTION_MODEL`: optional semantic collection suggestion model
 - `IMPORT_FETCH_TIMEOUT_MS`, `IMPORT_DOCUMENT_MAX_BYTES`, `IMPORT_COVER_MAX_BYTES`: bounded maintainer import fetch limits
 - `COMMUNITY_RATING_WRITES_ENABLED`: controls rating mutations and defaults to disabled in production
 - `COMMUNITY_TURNSTILE_SITE_KEY`: Cloudflare Turnstile site key shown by the rating widget
@@ -74,6 +78,7 @@ Protected maintainer submission workflow routes:
 - `/maintainer/submissions/report.html`
 - `/maintainer/imports.html`
 - `/maintainer/imports/report.html`
+- `/maintainer/collections.html`
 - `/api/maintainer/session`
 - `/api/maintainer/submissions`
 - `/api/maintainer/imports`
@@ -112,3 +117,4 @@ npm run import:discover -- --all
 - `import:audit` queues safe refresh candidates for the current catalog without changing it
 - `import:benchmark` exercises the importer against temporary synthetic workload
 - `import:discover` runs enabled discovery sources and only creates internal candidates
+- `import:live-smoke` runs the importer live smoke path when its required environment is configured

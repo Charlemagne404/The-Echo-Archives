@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This is the active architecture reference for The Echo Archives.
+This is the active architecture reference for the 1.0 release of The Echo Archives.
 
 Use it as the source of truth for:
 
@@ -27,7 +27,10 @@ It has four main layers:
 - generated runtime/public catalog data in `data/`
 - shared runtime modules and backend services in `shared/` and `backend/`
 
-The main architecture problem is no longer migration away from handwritten pages. The current problem is how to scale trust, metadata quality, review coverage, and discovery depth without overbuilding.
+The main architecture problem is no longer migration away from handwritten
+pages. The current problem is how to operate a broad 1.0 catalog, protected
+import/elevation workflows, and automated collection membership without
+weakening trust or overbuilding.
 
 ## Repo Boundaries
 
@@ -74,6 +77,7 @@ The current generated page set includes:
 - `maintainer/submissions/report.html`
 - `maintainer/imports.html`
 - `maintainer/imports/report.html`
+- `maintainer/collections.html`
 
 Do not hand-edit generated root HTML when the corresponding source exists in `site-src/`.
 
@@ -173,8 +177,18 @@ Automated collection definitions remain in `catalog-src/collections/` alongside 
 
 ## Current Catalog Baseline
 
-The generated snapshot for current counts and metadata coverage lives in `docs/generated/catalog-status.md`.
-The archive supports three public catalogue confidence levels: automation-checked `imported`, maintainer fact-checked `indexed-only`, and editorial `full-review` (with `planned` and `spotlight` retained for the existing review workflow).
+The generated snapshot for current counts and metadata coverage lives in
+[`docs/generated/catalog-status.md`](generated/catalog-status.md). The current
+1.0 snapshot contains 724 published shows, 523 automation-checked `imported`
+records, 194 maintainer fact-checked `indexed-only` records, 7 `full-review`
+records, and 38 collections. The report currently has two catalog-quality
+blocking errors; documentation must not describe Gate B as complete until the
+records are corrected or explicitly documented.
+
+The archive supports three public catalogue confidence levels:
+automation-checked `imported`, maintainer fact-checked `indexed-only`, and
+editorial `full-review` (with `planned` and `spotlight` retained for the
+existing review workflow).
 
 ## Backend Role
 
@@ -194,6 +208,7 @@ The archive supports three public catalogue confidence levels: automation-checke
 - `POST /api/submissions/shows`
 - protected maintainer session and submission queue APIs
 - protected asynchronous import runs, factual preparation, evidence review, and explicit publication APIs
+- protected collection candidate, membership override, regeneration, and audit APIs
 - optional static file serving from the repo root
 
 The backend owns:
@@ -205,6 +220,7 @@ The backend owns:
 - moderation-supporting workflow data
 - sitemap generation
 - protected collection candidate and membership review
+- rule-based and semantic collection calculation with durable provenance, manual overrides, and audit events
 - startup validation for optional archive datasets
 
 Within `backend/`, assistant-specific logic now lives under `lib/ai/`, while the rest of the service remains organized by routes, services, stores, and general backend utilities.
@@ -244,7 +260,8 @@ If no cover can be resolved, the process logs a warning and falls back to a shar
 
 ## Archive Assistant And Site Help
 
-Ask the Archivist is not just a raw LLM endpoint.
+Ask the Archivist is an optional 1.0 integration, disabled by default, not just
+a raw LLM endpoint.
 
 The chat layer combines:
 
@@ -357,11 +374,13 @@ Current assumptions:
 
 ## Current Gaps
 
-The current limitations are mostly editorial and scale-related:
+The current limitations are mostly catalog-quality, editorial, and operations
+related:
 
-- show breadth is still modest
-- full-review coverage is still sparse
-- recommendation reasons are only partially populated
+- the 724-show catalog is broad but uneven in depth
+- full-review coverage is still sparse at 7 shows
+- two published records currently block the generated catalog report because their runtime gaps are undocumented
+- 624 shows have weak collection coverage and 654 are outside the preferred similarity-link range; these are tracked as quality follow-up rather than invented away
 - creator, network, and changelog datasets are not live
 - moderation remains intentionally manual
 - some richer filter ideas still depend on more complete metadata

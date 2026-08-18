@@ -1,6 +1,9 @@
 # Discovery Tag Taxonomy
 
-`catalog-src/tag-taxonomy.json` is the authoritative vocabulary for public discovery tags. A tag is a reusable listener-facing discovery signal, not a transcription of every publisher keyword or plot detail.
+`catalog-src/tag-taxonomy.json` is the authoritative vocabulary for public
+discovery tags in the 1.0 release. A tag is a reusable listener-facing
+discovery signal, not a transcription of every publisher keyword or plot
+detail.
 
 ## Boundaries
 

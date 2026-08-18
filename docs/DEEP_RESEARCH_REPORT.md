@@ -1,5 +1,11 @@
 # The Echo Archives Market Research and Launch Strategy Report
 
+> Historical research snapshot. This report contains pre-1.0 launch targets,
+> dated market assumptions, and exploratory recommendations. It is retained for
+> context; current product status, release scope, catalog counts, and priorities
+> live in [`docs/PRODUCT.md`](PRODUCT.md), [`docs/CURRENT_STATE.md`](CURRENT_STATE.md),
+> [`docs/ROADMAP.md`](ROADMAP.md), and the generated catalog report.
+
 > Historical strategy research. The catalog counts, launch date, and launch
 > recommendations in this report reflect its original research snapshot and
 > are not the current repository status. For current counts, gaps, and release

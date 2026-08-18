@@ -15,6 +15,20 @@ Use it as the source of truth for:
 - documentation maintenance rules
 - where dated QA and historical records live
 
+## Release 1.0 Status
+
+This runbook is current for the 1.0 release baseline as of **2026-08-18**.
+The repository contains the released static-first product and its protected
+submission, import, elevation, and collection-maintainer workflows. The
+generated catalog snapshot currently has 724 published shows, 7 full reviews,
+and 38 collections.
+
+Do not treat the product release marker as proof that every deployment gate has
+passed. The current catalog report still has two undocumented runtime gaps, and
+host, provider, recovery, monitoring, and physical-browser evidence must be
+verified separately. The current evidence is recorded in
+[`docs/qa/2026-08-18-release-1.0-readiness.md`](qa/2026-08-18-release-1.0-readiness.md).
+
 ## Production Runtime Contract
 
 The supported production shape is:
@@ -188,9 +202,9 @@ The working tree should stay clean after verification. If `npm run build:pages` 
 
 Do not install production dependencies or restart the live service until the release commit passes the complete workstation preflight, including Playwright. The production server update intentionally runs the non-browser subset after installing only production dependencies.
 
-## 2026 launch maintenance
+## Release 1.0 deployment maintenance
 
-For the current launch remediation, use only
+For current 1.0 production maintenance, use only
 [`deploy/complete-launch-maintenance.sh`](../deploy/complete-launch-maintenance.sh)
 and its
 [`COMPLETE_LAUNCH_MAINTENANCE.md`](../deploy/COMPLETE_LAUNCH_MAINTENANCE.md)
@@ -616,7 +630,7 @@ Checks:
 - homepage most-popular band behaves sensibly with and without community summary data
 - no-results recovery actions work
 - inline preview and card interactions do not produce layout breakage
-- Ask the Archivist opens and closes cleanly
+- when `ARCHIVIST_ENABLED=true`, Ask the Archivist opens and closes cleanly; the default 1.0 build keeps its UI and API disabled
 - show and collection missing states stay coherent
 - show and collection share actions work, including copy/share feedback
 - offline fallback appears after service-worker registration when the network is cut
@@ -628,6 +642,7 @@ If maintainer auth is enabled, also verify:
 - `/maintainer/submissions/report.html`
 - `/maintainer/imports.html`
 - `/maintainer/imports/report.html`
+- `/maintainer/collections.html`
 
 ## Launch Checks
 
@@ -843,9 +858,14 @@ Active repo-wide docs:
 - `README.md`
 - `AGENTS.md`
 - `docs/PRODUCT.md`
+- `docs/CURRENT_STATE.md`
 - `docs/ROADMAP.md`
 - `docs/ARCHITECTURE.md`
 - `docs/OPERATIONS.md`
+- `docs/IMPORTER.md`
+- `docs/SEO.md`
+- `docs/TAG_TAXONOMY.md`
+- `docs/FINAL_PRODUCT.md`
 - `data/schema.md`
 - `backend/README.md`
 
@@ -870,11 +890,11 @@ Documentation rules:
 
 The current dated QA records have different scopes:
 
-- `docs/qa/2026-07-28-launch-readiness-audit.md` is the latest launch-readiness record; it still says **Not ready** and was last updated 2026-08-11.
+- `docs/qa/2026-08-18-release-1.0-readiness.md` is the current release evidence record. It supersedes the old audit as the status reference without rewriting that historical report.
+- `docs/qa/2026-07-28-launch-readiness-audit.md` is a historical launch-readiness audit; its **Not ready** verdict and July evidence are retained for context, not as the current catalog snapshot.
 - `docs/qa/2026-07-14-show-importer-review-and-publish.md` records importer operation and automated coverage.
 - `docs/qa/2026-06-07-mobile-qa.md` is the latest dedicated manual mobile pass.
 
 Do not treat focused local checks in a documentation pass as a replacement for
-the open production, external-service, recovery, and browser gates in the
-launch-readiness audit. Add a newer dated report instead of overwriting an
-existing QA record.
+the open production, external-service, recovery, and browser gates. Add a newer
+dated report instead of overwriting an existing QA record.

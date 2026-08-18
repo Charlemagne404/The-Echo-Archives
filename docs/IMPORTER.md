@@ -1,4 +1,4 @@
-# Scalable Show Importer
+# Scalable Show Importer — 1.0
 
 ## Contract
 
@@ -12,7 +12,7 @@ RSS and Podcasting 2.0 data are primary for identity, dates, episodes, descripti
 
 Publisher-supplied RSS/iTunes categories and keywords remain provenance in `metadata.sourceCategories` and `metadata.sourceKeywords`. Deterministic source mappings may populate canonical genres and feed formats: an exact source label of `full-cast` or `full cast` maps to the canonical `full-cast` format, while broader wording is not inferred. Public discovery tags must use the approved taxonomy and are never copied from raw source keywords automatically. Human taxonomy selection, external research, and AI/editorial suggestions remain non-binding for Imported publication and require factual review when applied.
 
-### Phase 2 scope boundary
+### 1.0 scope boundary
 
 The ordinary automatic discovery/publication lane accepts English-language
 fiction and audio drama. Non-English candidates and actual play/TTRPG content

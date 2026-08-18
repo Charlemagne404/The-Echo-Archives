@@ -446,6 +446,17 @@
     object-position: 56% 44%;
   }
 
+  .about-page .about-split-media::after {
+    background:
+      linear-gradient(180deg, rgba(3, 5, 8, 0.68) 0%, rgba(3, 5, 8, 0.16) 28%, rgba(3, 5, 8, 0.02) 60%, rgba(3, 5, 8, 0.3) 100%),
+      linear-gradient(90deg, rgba(3, 5, 8, 0.22) 0%, transparent 30%, rgba(3, 5, 8, 0.16) 100%);
+  }
+
+  .about-page .about-split-media img {
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.42) 14%, #000 32%, #000 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.42) 14%, #000 32%, #000 100%);
+  }
+
   .about-page .about-feature-tile {
     min-height: 0;
   }

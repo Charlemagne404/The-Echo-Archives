@@ -6,6 +6,16 @@ It exists to answer one question well: **what should I listen to next?**
 
 This repo is not a generic podcast directory or a playback app. It is a dark, editorial, metadata-driven archive built around compact discovery, useful show pages, grounded recommendations, and clear trust signals.
 
+## Release 1.0
+
+The repository is maintained as the **1.0 release baseline** as of 2026-08-18.
+The product surface is shipped and the active documentation describes the
+released static-first archive, its protected maintainer workflows, and its
+post-release quality work. The generated catalog report remains the authority
+for live counts and currently records two catalog-quality blockers; see
+[`docs/qa/2026-08-18-release-1.0-readiness.md`](docs/qa/2026-08-18-release-1.0-readiness.md)
+for the release evidence and remaining gates.
+
 ## Current State
 
 The repo contains a working static-first site plus a small Node backend.
@@ -19,7 +29,7 @@ The live catalog snapshot now lives in [`docs/generated/catalog-status.md`](docs
 | Detail routes | Reusable show pages at `/shows/<show-id>` and collection pages at `/collections/<collection-id>` |
 | Community layer | Anonymous ratings, moderated submissions, corrections, listener reviews, and creator verification intake |
 | Assistant | Preserved Archivist integration, disabled by default for 1.0 |
-| Maintainer tools | Passphrase-gated submission queue, catalog-import queue, report pages, and explicit publication/promotion controls |
+| Maintainer tools | Passphrase-gated submissions, catalog imports, collection automation, report pages, and explicit publication/promotion controls |
 | Delivery model | Generated static pages at repo root, authored sources in `site-src/`, shared runtime in `shared/`, backend in `backend/` |
 
 The current public page set includes:
@@ -131,6 +141,8 @@ Active docs:
 - [`docs/TAG_TAXONOMY.md`](docs/TAG_TAXONOMY.md)
 - [`data/schema.md`](data/schema.md)
 - [`backend/README.md`](backend/README.md)
+- [`docs/FINAL_PRODUCT.md`](docs/FINAL_PRODUCT.md) — destination vision, not a current-release status document
+- [`docs/qa/2026-08-18-release-1.0-readiness.md`](docs/qa/2026-08-18-release-1.0-readiness.md) — current release evidence and open gates
 
 Working project notes:
 
@@ -138,3 +150,5 @@ Working project notes:
 - [`TODO.md`](TODO.md)
 
 Historical planning and retired guidance live in [`docs/archive/`](docs/archive/).
+[`docs/DEEP_RESEARCH_REPORT.md`](docs/DEEP_RESEARCH_REPORT.md) is a historical
+market-research snapshot and is not an active launch plan.
