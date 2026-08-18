@@ -331,21 +331,123 @@ function renderAnalyticsScript(entry) {
   return `<script defer data-domain="${escapeAttribute(plausibleDomain)}" src="${escapeAttribute(plausibleScriptSrc)}"></script>`;
 }
 
-function renderNavLinks(activeNav) {
-  const navItems = [
+const PRIMARY_NAV_ITEMS = [
     { id: "browse", label: "Browse", detail: "All shows and archive filters", href: "/" },
     { id: "collections", label: "Collections", detail: "Shows grouped by mood and theme", href: "/collections" },
     { id: "about", label: "About", detail: "What the archive is building", href: "/about" },
     { id: "submit", label: "Submit", detail: "Add shows or send corrections", href: "/submit" },
     { id: "for-creators", label: "For creators", detail: "Verification and standards", href: "/for-creators" },
-  ];
+];
 
-  return navItems
+const MOBILE_DRAWER_SECTIONS = [
+  {
+    label: "Explore",
+    items: [
+      { id: "browse", label: "Browse", href: "/", icon: "search" },
+      { id: "collections", label: "Collections", href: "/collections", icon: "folder" },
+      { id: "about", label: "About", href: "/about", icon: "info" },
+    ],
+  },
+  {
+    label: "Contribute",
+    items: [
+      { id: "submit", label: "Submit a show", href: "/submit", icon: "plus" },
+      { id: "for-creators", label: "For creators", href: "/for-creators", icon: "person" },
+      { id: "creator-standards", label: "Creator standards", href: "/creator-standards", icon: "shield" },
+    ],
+  },
+  {
+    label: "Archive support",
+    items: [
+      { id: "supporters", label: "Support the archive", href: "/supporters", icon: "heart" },
+      { id: "help-center", label: "Help Center", href: "/help-center", icon: "help" },
+      { id: "contact", label: "Contact", href: "https://contact.continental-hub.com/", icon: "mail" },
+    ],
+  },
+  {
+    label: "Policies",
+    items: [
+      { id: "privacy", label: "Privacy", href: "/privacy", icon: "document" },
+      { id: "terms", label: "Terms", href: "/terms", icon: "document" },
+      { id: "cookies", label: "Cookies", href: "/cookies", icon: "document" },
+      { id: "copyright", label: "Copyright & takedown", href: "/copyright", icon: "document" },
+    ],
+  },
+];
+
+const MOBILE_NAV_ICONS = {
+  search: '<path d="m20 20-4.35-4.35M10.75 18a7.25 7.25 0 1 1 0-14.5 7.25 7.25 0 0 1 0 14.5Z" />',
+  folder: '<path d="M3 7.75A2.75 2.75 0 0 1 5.75 5h4.12l1.8 2.1H18.25A2.75 2.75 0 0 1 21 9.85v7.4A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25v-9.5Z" />',
+  info: '<circle cx="12" cy="12" r="8.5" /><path d="M12 10.8v5M12 7.8h.01" />',
+  plus: '<circle cx="12" cy="12" r="8.5" /><path d="M12 8v8M8 12h8" />',
+  person: '<circle cx="12" cy="8.1" r="3" /><path d="M5.4 20c.65-3.45 2.82-5.2 6.6-5.2s5.95 1.75 6.6 5.2" />',
+  shield: '<path d="M12 3.3 19 6v5.28c0 4.18-2.48 7.42-7 9.42-4.52-2-7-5.24-7-9.42V6l7-2.7Z" /><path d="m8.8 12 2.08 2.08L15.5 9.5" />',
+  heart: '<path d="M20.45 8.48c0 5.1-8.45 10.22-8.45 10.22S3.55 13.58 3.55 8.48c0-2.52 1.76-4.28 4.12-4.28 1.65 0 3.2.9 4.33 2.4 1.13-1.5 2.68-2.4 4.33-2.4 2.36 0 4.12 1.76 4.12 4.28Z" />',
+  help: '<circle cx="12" cy="12" r="8.5" /><path d="M9.55 9.45a2.62 2.62 0 1 1 4.72 1.6c-.98 1.25-2.27 1.5-2.27 3.2M12 16.9h.01" />',
+  mail: '<rect x="3.5" y="5.5" width="17" height="13" rx="2" /><path d="m4.5 7 7.5 5.75L19.5 7" />',
+  document: '<path d="M7 3.5h6.2l3.8 3.8v12.2a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 6 19.5v-14A2 2 0 0 1 7 3.5Z" /><path d="M13 3.8v3.8h3.8M9 13h6M9 16h4.5" />',
+};
+
+function renderNavLinks(activeNav) {
+  return PRIMARY_NAV_ITEMS
+    .map((item) => renderDesktopNavLink(item, item.id === activeNav))
+    .join("\n    ");
+}
+
+function renderDesktopNavLink(item, isActive) {
+  const activeClass = isActive ? ' class="is-active"' : "";
+  const currentPage = isActive ? ' aria-current="page"' : "";
+  return `<a${activeClass}${currentPage} href="${item.href}"><span class="site-nav-link-body"><span class="site-nav-link-label">${item.label}</span><span class="site-nav-link-detail">${item.detail}</span></span><span class="site-nav-link-arrow" aria-hidden="true"></span></a>`;
+}
+
+function getCanonicalPath(entry) {
+  try {
+    return new URL(entry.canonicalUrl, "https://echoarchives.net").pathname;
+  } catch (_error) {
+    return "";
+  }
+}
+
+function isMobileNavItemActive(item, entry, directPaths) {
+  const canonicalPath = getCanonicalPath(entry);
+  if (directPaths.has(canonicalPath)) {
+    return item.href === canonicalPath;
+  }
+  return item.id === entry.activeNav;
+}
+
+function renderMobilePrimaryNav(entry) {
+  const mobileItems = ["browse", "collections", "submit", "about"]
+    .map((id) => PRIMARY_NAV_ITEMS.find((item) => item.id === id))
+    .filter(Boolean);
+  const directPaths = new Set(mobileItems.map((item) => item.href));
+  return mobileItems
     .map((item) => {
-      const activeClass = item.id === activeNav ? ' class="is-active"' : "";
-      return `<a${activeClass} href="${item.href}"><span class="site-nav-link-body"><span class="site-nav-link-label">${item.label}</span><span class="site-nav-link-detail">${item.detail}</span></span><span class="site-nav-link-arrow" aria-hidden="true"></span></a>`;
+      const isActive = isMobileNavItemActive(item, entry, directPaths);
+      return `<a${isActive ? ' class="is-active" aria-current="page"' : ""} href="${item.href}">${item.label}</a>`;
     })
     .join("\n    ");
+}
+
+function renderMobileDrawerNav(entry) {
+  const allItems = MOBILE_DRAWER_SECTIONS.flatMap((section) => section.items);
+  const directPaths = new Set(allItems.map((item) => item.href).filter((href) => href.startsWith("/")));
+
+  return `<nav class="site-mobile-drawer-nav" aria-label="Full site navigation">${MOBILE_DRAWER_SECTIONS.map((section) => `
+        <section class="site-mobile-nav-section" aria-labelledby="site-mobile-nav-${section.label.toLowerCase().replace(/[^a-z]+/g, "-")}">
+          <h2 id="site-mobile-nav-${section.label.toLowerCase().replace(/[^a-z]+/g, "-")}" class="site-mobile-nav-section-title">${section.label}</h2>
+          <div class="site-mobile-nav-links">
+            ${section.items.map((item) => renderMobileDrawerLink(item, isMobileNavItemActive(item, entry, directPaths))).join("\n            ")}
+          </div>
+        </section>`).join("\n")}
+      </nav>`;
+}
+
+function renderMobileDrawerLink(item, isActive) {
+  const activeClass = isActive ? " is-active" : "";
+  const currentPage = isActive ? ' aria-current="page"' : "";
+  const icon = MOBILE_NAV_ICONS[item.icon] || MOBILE_NAV_ICONS.document;
+  return `<a class="site-mobile-nav-link${activeClass}"${currentPage} href="${item.href}"><svg class="site-mobile-nav-icon" viewBox="0 0 24 24" aria-hidden="true">${icon}</svg><span>${item.label}</span></a>`;
 }
 
 function renderSocialLinks(socialLinks = []) {
@@ -643,6 +745,8 @@ function renderPage(entry, partials, versions, homeConfig, seoContext, submitPre
   });
   const headerMarkup = renderTemplate(partials.header, {
     navLinks: renderNavLinks(entry.activeNav),
+    mobilePrimaryNav: renderMobilePrimaryNav(entry),
+    mobileDrawerNav: renderMobileDrawerNav(entry),
   });
   const mainContentTarget = resolveMainContentTarget(entry);
   const pageBody = renderPageBody(entry, homeConfig, seoContext.archiveStats, submitPrerender, archivistEnabled);

@@ -6,7 +6,7 @@ export function initializeMobileNav() {
   const toggle = document.getElementById("siteNavToggle");
   const shell = document.getElementById("siteNavShell");
   const drawer = shell?.querySelector(".site-nav-drawer");
-  const nav = document.getElementById("sitePrimaryNav");
+  const nav = shell?.querySelector(".site-mobile-drawer-nav");
 
   if (
     !(toggle instanceof HTMLButtonElement) ||
@@ -24,13 +24,59 @@ export function initializeMobileNav() {
   const mediaQuery = window.matchMedia(MOBILE_NAV_BREAKPOINT);
   let isOpen = false;
   let returnFocusTarget = null;
+  let lockedScrollY = 0;
+  let previousBodyStyles = null;
+  let previousDocumentStyles = null;
 
-  const getFocusables = () =>
-    Array.from(drawer.querySelectorAll("a[href], button:not([disabled])")).filter(
+  const getFocusables = () => {
+    const focusables = Array.from(drawer.querySelectorAll("a[href], button:not([disabled])")).filter(
       (node) => node instanceof HTMLElement && !node.hasAttribute("tabindex"),
     );
+    const closeButton = drawer.querySelector("[data-site-nav-close]");
+
+    return closeButton instanceof HTMLElement && focusables.includes(closeButton)
+      ? [closeButton, ...focusables.filter((node) => node !== closeButton)]
+      : focusables;
+  };
 
   const isMobile = () => mediaQuery.matches;
+
+  const lockBackgroundScroll = () => {
+    if (previousBodyStyles || !isMobile()) {
+      return;
+    }
+
+    lockedScrollY = window.scrollY;
+    previousBodyStyles = {
+      overflow: document.body.style.overflow,
+      position: document.body.style.position,
+      top: document.body.style.top,
+      width: document.body.style.width,
+    };
+    previousDocumentStyles = {
+      overflow: document.documentElement.style.overflow,
+    };
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${lockedScrollY}px`;
+    document.body.style.width = "100%";
+  };
+
+  const unlockBackgroundScroll = () => {
+    if (!previousBodyStyles || !previousDocumentStyles) {
+      return;
+    }
+
+    document.body.style.overflow = previousBodyStyles.overflow;
+    document.body.style.position = previousBodyStyles.position;
+    document.body.style.top = previousBodyStyles.top;
+    document.body.style.width = previousBodyStyles.width;
+    document.documentElement.style.overflow = previousDocumentStyles.overflow;
+    previousBodyStyles = null;
+    previousDocumentStyles = null;
+    window.scrollTo(0, lockedScrollY);
+  };
 
   const syncInteractiveState = () => {
     shell.dataset.state = isOpen ? "open" : "closed";
@@ -38,6 +84,12 @@ export function initializeMobileNav() {
     toggle.setAttribute("aria-label", isOpen ? "Close site navigation" : "Open site navigation");
     document.body.classList.toggle("site-nav-open", isMobile() && isOpen);
     shell.setAttribute("aria-hidden", String(isMobile() ? !isOpen : false));
+
+    if (isMobile() && isOpen) {
+      lockBackgroundScroll();
+    } else {
+      unlockBackgroundScroll();
+    }
 
     const managedNodes = Array.from(drawer.querySelectorAll("a[href], button"));
     managedNodes.forEach((node) => {

@@ -9,12 +9,13 @@
   }
 
   .site-header {
-    padding-top: max(14px, var(--safe-area-top));
-    gap: 12px;
+    column-gap: 12px;
+    border-radius: 24px;
   }
 
   .site-brand {
-    width: min(100%, 214px);
+    width: min(100%, 202px);
+    margin: max(14px, var(--safe-area-top)) 0 14px 16px;
   }
 
   .site-brand img {
@@ -25,59 +26,51 @@
     min-height: 44px;
     padding: 0 13px;
     gap: 10px;
+    margin: max(10px, var(--safe-area-top)) 12px 10px 0;
   }
 
   .site-nav-toggle-label {
     font-size: 0.76rem;
   }
 
+  .site-mobile-primary-nav {
+    min-height: 52px;
+    padding-inline: 8px;
+  }
+
+  .site-mobile-primary-nav a {
+    min-height: 52px;
+    padding-inline: 5px;
+    font-size: 0.87rem;
+  }
+
   .site-nav-drawer {
-    top: calc(var(--visual-viewport-offset-top) + max(10px, var(--safe-area-top)));
-    right: max(var(--shell-inline-padding-phone), var(--safe-area-right));
-    left: max(var(--shell-inline-padding-phone), var(--safe-area-left));
-    gap: 14px;
-    padding: 14px;
-    border-radius: 20px;
+    gap: 22px;
+    padding:
+      max(18px, var(--safe-area-top))
+      max(18px, var(--safe-area-right))
+      max(22px, var(--safe-area-bottom))
+      max(18px, var(--shell-inline-padding-phone));
+    border-radius: 24px 0 0 24px;
   }
 
-  .site-nav-drawer-copy {
-    max-width: none;
-    font-size: 0.88rem;
+  .site-nav-drawer-brand {
+    width: min(100%, 192px);
   }
 
-  .site-nav a,
-  .site-nav button,
-  .site-nav-shell .profile-button {
-    min-height: 68px;
+  .site-mobile-drawer-nav {
+    gap: 20px;
   }
 
-  .site-nav a,
-  .site-nav button {
-    padding: 13px 14px 13px 16px;
-    border-radius: 16px;
+  .site-mobile-nav-section + .site-mobile-nav-section {
+    padding-top: 18px;
   }
 
-  .site-nav-link-body {
-    gap: 5px;
-  }
-
-  .site-nav-link-label {
-    font-size: 1rem;
-  }
-
-  .site-nav-link-detail {
-    font-size: 0.75rem;
-  }
-
-  .site-nav-link-arrow {
-    width: 30px;
-    height: 30px;
-    flex-basis: 30px;
-  }
-
-  .site-nav-shell .profile-button {
-    width: 100%;
-    justify-content: flex-start;
+  .site-mobile-nav-link {
+    min-height: 46px;
+    gap: 13px;
+    padding-block: 8px;
+    font-size: 0.96rem;
   }
 
   .sticky-browse-bar {

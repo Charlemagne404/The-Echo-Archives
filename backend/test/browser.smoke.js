@@ -611,11 +611,15 @@ test("mobile header menu opens, closes, and routes cleanly on phone widths", asy
       navState: document.getElementById("siteNavShell")?.dataset.state || "",
       expanded: document.getElementById("siteNavToggle")?.getAttribute("aria-expanded") || "",
       bodyLocked: document.body.classList.contains("site-nav-open"),
+      primaryLinks: Array.from(document.querySelectorAll(".site-mobile-primary-nav a")).map((link) => link.textContent?.trim()),
+      activePrimaryHref: document.querySelector(".site-mobile-primary-nav a.is-active")?.getAttribute("href") || "",
     }));
     assert.equal(closedState.toggleVisible, true);
     assert.equal(closedState.navState, "closed");
     assert.equal(closedState.expanded, "false");
     assert.equal(closedState.bodyLocked, false);
+    assert.deepEqual(closedState.primaryLinks, ["Browse", "Collections", "Submit", "About"]);
+    assert.equal(closedState.activePrimaryHref, "/");
 
     await page.locator("#siteNavToggle").click();
     await page.waitForFunction(() => document.getElementById("siteNavShell")?.dataset.state === "open");
@@ -624,15 +628,23 @@ test("mobile header menu opens, closes, and routes cleanly on phone widths", asy
       navState: document.getElementById("siteNavShell")?.dataset.state || "",
       expanded: document.getElementById("siteNavToggle")?.getAttribute("aria-expanded") || "",
       bodyLocked: document.body.classList.contains("site-nav-open"),
-      navLinkCount: document.querySelectorAll(".site-nav a").length,
-      profileVisible: window.getComputedStyle(document.querySelector(".site-nav-shell .profile-button") || document.body).display !== "none",
+      drawerRole: document.querySelector(".site-nav-drawer")?.getAttribute("role") || "",
+      drawerModal: document.querySelector(".site-nav-drawer")?.getAttribute("aria-modal") || "",
+      navLinkCount: document.querySelectorAll(".site-mobile-nav-link").length,
+      closeFocused: document.activeElement?.classList.contains("site-nav-close") || false,
     }));
     assert.equal(openState.navState, "open");
     assert.equal(openState.expanded, "true");
     assert.equal(openState.bodyLocked, true);
-    assert.ok(openState.navLinkCount >= 5);
-    assert.equal(openState.profileVisible, true);
+    assert.equal(openState.drawerRole, "dialog");
+    assert.equal(openState.drawerModal, "true");
+    assert.ok(openState.navLinkCount >= 13);
+    assert.equal(openState.closeFocused, true);
 
+    await page.locator(".site-nav-backdrop").click({ position: { x: 8, y: 8 } });
+    await page.waitForFunction(() => document.getElementById("siteNavShell")?.dataset.state === "closed");
+
+    await page.locator("#siteNavToggle").click();
     await page.keyboard.press("Escape");
     await page.waitForFunction(
       () =>
@@ -642,12 +654,12 @@ test("mobile header menu opens, closes, and routes cleanly on phone widths", asy
     );
 
     await page.locator("#siteNavToggle").click();
-    await page.locator('.site-nav a[href="/for-creators"]').click();
+    await page.locator('.site-mobile-nav-link[href="/for-creators"]').click();
     await page.waitForURL(`${baseUrl}/for-creators`);
     await page.waitForFunction(
       () =>
         document.getElementById("siteNavShell")?.dataset.state === "closed" &&
-        document.querySelector('.site-nav a.is-active')?.getAttribute("href") === "/for-creators",
+        document.querySelector('.site-mobile-nav-link.is-active')?.getAttribute("href") === "/for-creators",
     );
 
     await page.setViewportSize({ width: 844, height: 390 });

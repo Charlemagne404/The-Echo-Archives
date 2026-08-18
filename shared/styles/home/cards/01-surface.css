@@ -158,13 +158,15 @@
   display: none;
 }
 
-.site-nav-shell,
-.site-nav-drawer {
-  display: contents;
+.site-mobile-primary-nav,
+.site-nav-shell {
+  display: none;
 }
 
 .site-nav-backdrop,
-.site-nav-drawer-head {
+.site-nav-drawer-head,
+.site-nav-drawer-title,
+.site-mobile-drawer-nav {
   display: none;
 }
 
