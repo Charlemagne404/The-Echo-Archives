@@ -141,7 +141,6 @@ export async function initializeMaintainerImportsPage() {
     discoveryWorkspace?.abort();
     elevationDesk?.abort();
   };
-
   const auth = await initializeAuthFlow({
     createMaintainerSession,
     destroyMaintainerSession,
@@ -152,7 +151,6 @@ export async function initializeMaintainerImportsPage() {
       setMaintainerViewState(view, "authRequired", { message: "Signed out. Sign in to continue." });
     },
   });
-
   function hideWorkspaceControls() {
     auth.logoutButtons.forEach((button) => { button.hidden = true; });
     if (elements.refreshButton) elements.refreshButton.hidden = true;
@@ -168,11 +166,9 @@ export async function initializeMaintainerImportsPage() {
     });
     window.requestAnimationFrame(() => document.getElementById("maintainerPassphrase")?.focus());
   }
-
   function renderSearchResults() {
     elements.searchResults.innerHTML = renderImportSearchResults(state.searchResults);
   }
-
   discoveryWorkspace = bindDiscoveryWorkspace({
     elements: {
       form: elements.discoveryForm,
@@ -191,11 +187,9 @@ export async function initializeMaintainerImportsPage() {
     onAuthError: showAuthentication,
     onStatus: (message) => { elements.detailMeta.textContent = message; },
   });
-
   async function waitForImportRun(runId) {
     return waitForManagedImportRun({ runId, state, fetchRun: fetchMaintainerImportRun, setStatus: (message) => { elements.detailMeta.textContent = message; } });
   }
-
   async function loadDetail({ focusDetail = false } = {}) {
     state.detailController?.abort();
     if (!state.selectedId) {
@@ -282,7 +276,6 @@ export async function initializeMaintainerImportsPage() {
       elements.detailMeta.textContent = error instanceof Error ? error.message : "Failed to load import candidate detail.";
     }
   }
-
   async function loadQueue(preserveSelection = false, { afterAuthentication = false } = {}) {
     state.queueController?.abort();
     const controller = new AbortController();
@@ -337,7 +330,6 @@ export async function initializeMaintainerImportsPage() {
       });
     }
   }
-
   elements.filterForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
     state.filters = {
@@ -353,7 +345,6 @@ export async function initializeMaintainerImportsPage() {
     syncImportFiltersToUrl(state.filters);
     await runMaintainerAction({ control: event.submitter, region: elements.filterForm, action: async () => loadQueue() });
   });
-
   document.getElementById("maintainerResetFilters")?.addEventListener("click", () => {
     state.filters = {
       q: "",
@@ -368,7 +359,6 @@ export async function initializeMaintainerImportsPage() {
     syncImportFiltersToUrl(state.filters);
     window.location.reload();
   });
-
   elements.retryButton?.addEventListener("click", async (event) => {
     await runMaintainerAction({ control: event.currentTarget, action: async () => loadQueue(true) });
   });
