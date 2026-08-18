@@ -25,7 +25,7 @@ function createShowRecord(overrides = {}) {
     id: "demo-show",
     title: "Demo Show",
     description: "A source-backed demo description with enough detail to support trustworthy archive discovery and validation.",
-    cover: "images/Logo.png",
+    cover: "images/Circle-S-Logo.png",
     coverAlt: "Demo Show cover art",
     status: "published",
     reviewStatus: "indexed-only",
@@ -457,7 +457,7 @@ test("loadCatalog merges companion review files into the returned show record", 
   const imagesRoot = path.join(tempRoot, "images");
 
   fs.mkdirSync(imagesRoot, { recursive: true });
-  fs.copyFileSync(path.join(siteRoot, "images", "Logo.png"), path.join(imagesRoot, "Logo.png"));
+  fs.copyFileSync(path.join(siteRoot, "images", "Circle-S-Logo.png"), path.join(imagesRoot, "Circle-S-Logo.png"));
 
   writeJson(path.join(dataRoot, "shows.json"), [
     createShowRecord({
@@ -726,7 +726,7 @@ test("companion review content overrides stale inline review fields", async () =
   const imagesRoot = path.join(tempRoot, "images");
 
   fs.mkdirSync(imagesRoot, { recursive: true });
-  fs.copyFileSync(path.join(siteRoot, "images", "Logo.png"), path.join(imagesRoot, "Logo.png"));
+  fs.copyFileSync(path.join(siteRoot, "images", "Circle-S-Logo.png"), path.join(imagesRoot, "Circle-S-Logo.png"));
 
   writeJson(path.join(dataRoot, "shows.json"), [
     createShowRecord({
@@ -757,7 +757,7 @@ test("loadCatalog preserves richer optional metadata for future show-page use", 
   const imagesRoot = path.join(tempRoot, "images");
 
   fs.mkdirSync(imagesRoot, { recursive: true });
-  fs.copyFileSync(path.join(siteRoot, "images", "Logo.png"), path.join(imagesRoot, "Logo.png"));
+  fs.copyFileSync(path.join(siteRoot, "images", "Circle-S-Logo.png"), path.join(imagesRoot, "Circle-S-Logo.png"));
 
   writeJson(path.join(dataRoot, "shows.json"), [
     createShowRecord({
@@ -850,7 +850,7 @@ test("loadCatalog rejects deprecated show aliases so schema drift cannot return"
     const imagesRoot = path.join(tempRoot, "images");
 
     fs.mkdirSync(imagesRoot, { recursive: true });
-    fs.copyFileSync(path.join(siteRoot, "images", "Logo.png"), path.join(imagesRoot, "Logo.png"));
+    fs.copyFileSync(path.join(siteRoot, "images", "Circle-S-Logo.png"), path.join(imagesRoot, "Circle-S-Logo.png"));
 
     writeJson(path.join(dataRoot, "shows.json"), [
       createShowRecord({
@@ -877,7 +877,7 @@ test("full-review validation still fails when neither inline nor companion rich 
   const imagesRoot = path.join(tempRoot, "images");
 
   fs.mkdirSync(imagesRoot, { recursive: true });
-  fs.copyFileSync(path.join(siteRoot, "images", "Logo.png"), path.join(imagesRoot, "Logo.png"));
+  fs.copyFileSync(path.join(siteRoot, "images", "Circle-S-Logo.png"), path.join(imagesRoot, "Circle-S-Logo.png"));
 
   writeJson(path.join(dataRoot, "shows.json"), [
     createShowRecord({

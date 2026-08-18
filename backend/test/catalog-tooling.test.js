@@ -30,7 +30,7 @@ function createShowRecord(overrides = {}) {
     title: "Demo Show",
     subtitle: "",
     description: "A source-backed demo description with enough detail to support trustworthy archive discovery and validation.",
-    cover: "images/Logo.png",
+    cover: "images/Circle-S-Logo.png",
     coverAlt: "Demo Show cover art",
     status: "published",
     reviewStatus: "indexed-only",
@@ -121,7 +121,7 @@ test("public catalogue artifacts retain Imported trust state without maintainer 
 test("buildCatalog bootstraps split catalog source and writes generated artifacts", async () => {
   const tempRoot = createTempSiteRoot();
   fs.mkdirSync(path.join(tempRoot, "images"), { recursive: true });
-  fs.copyFileSync(path.join(siteRoot, "images", "Logo.png"), path.join(tempRoot, "images", "Logo.png"));
+  fs.copyFileSync(path.join(siteRoot, "images", "Circle-S-Logo.png"), path.join(tempRoot, "images", "Circle-S-Logo.png"));
 
   writeJson(path.join(tempRoot, "data", "shows.json"), [
     createShowRecord(),
@@ -169,7 +169,7 @@ test("buildCatalog bootstraps split catalog source and writes generated artifact
 test("scaffoldCatalogEntry adds new split-source records and rebuilds generated outputs", async () => {
   const tempRoot = createTempSiteRoot();
   fs.mkdirSync(path.join(tempRoot, "images"), { recursive: true });
-  fs.copyFileSync(path.join(siteRoot, "images", "Logo.png"), path.join(tempRoot, "images", "Logo.png"));
+  fs.copyFileSync(path.join(siteRoot, "images", "Circle-S-Logo.png"), path.join(tempRoot, "images", "Circle-S-Logo.png"));
 
   writeJson(path.join(tempRoot, "data", "shows.json"), [
     createShowRecord(),

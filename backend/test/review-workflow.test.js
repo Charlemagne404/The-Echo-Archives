@@ -21,7 +21,7 @@ function createShowRecord(overrides = {}) {
     id: "demo-show",
     title: "Demo Show",
     description: "A source-backed demo description with enough detail to support trustworthy archive discovery and validation.",
-    cover: "images/Logo.png",
+    cover: "images/Circle-S-Logo.png",
     coverAlt: "Demo Show cover art",
     status: "published",
     reviewStatus: "indexed-only",

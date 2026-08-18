@@ -68,7 +68,7 @@ function createTempSiteRoot() {
 
 function seedAssets(tempRoot) {
   fs.mkdirSync(path.join(tempRoot, "images"), { recursive: true });
-  fs.writeFileSync(path.join(tempRoot, "images", "Logo.png"), Buffer.from("logo"));
+  fs.writeFileSync(path.join(tempRoot, "images", "Circle-S-Logo.png"), Buffer.from("logo"));
   fs.writeFileSync(path.join(tempRoot, "images", "TEA-Logo-S.png"), Buffer.from("placeholder"));
 }
 
@@ -262,7 +262,7 @@ test("existing valid local cover remains untouched and does not fetch", async ()
   seedAssets(tempRoot);
   writeJson(path.join(dataRoot, "shows.json"), [
     createShowRecord({
-      cover: "images/Logo.png",
+      cover: "images/Circle-S-Logo.png",
       coverAlt: "Existing alt text",
     }),
   ]);
@@ -271,9 +271,9 @@ test("existing valid local cover remains untouched and does not fetch", async ()
   const [show] = await loadCatalog(tempRoot, { coverSync: { fetchImpl: fetchStub, logger: createLogger() } });
   const persistedShows = readJson(path.join(dataRoot, "shows.json"));
 
-  assert.equal(show.cover, "images/Logo.png");
+  assert.equal(show.cover, "images/Circle-S-Logo.png");
   assert.equal(show.coverAlt, "Existing alt text");
-  assert.equal(persistedShows[0].cover, "images/Logo.png");
+  assert.equal(persistedShows[0].cover, "images/Circle-S-Logo.png");
   assert.equal(fetchStub.calls.length, 0);
 
   fs.rmSync(tempRoot, { recursive: true, force: true });
