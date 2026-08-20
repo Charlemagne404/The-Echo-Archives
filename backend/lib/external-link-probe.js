@@ -222,6 +222,15 @@ async function requestExternalLink(
           redirects,
         };
       }
+      if (response.status >= 500 && response.status < 600) {
+        return {
+          classification: "inconclusive",
+          reason: `upstream-http-${response.status}`,
+          status: response.status,
+          finalUrl: currentUrl,
+          redirects,
+        };
+      }
       if (response.status >= 400 && response.status < 600) {
         return {
           classification: "http-failure",

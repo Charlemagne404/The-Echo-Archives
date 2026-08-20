@@ -228,6 +228,9 @@
 }
 
 .collection-related-grid .collections-directory-card-compact .collection-cover-collage-rail {
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
   min-height: 132px;
   aspect-ratio: 3.2 / 1;
 }

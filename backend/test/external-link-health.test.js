@@ -152,6 +152,19 @@ test("verifyExternalLink separates bot blocks from confirmed HTTP failures", asy
   assert.equal(challenge.classification, "bot-block");
 });
 
+test("verifyExternalLink keeps transient upstream failures out of confirmed broken-link results", async () => {
+  const unavailable = await verifyExternalLink("https://example.com/temporarily-unavailable", {
+    fetchImpl: async () => createResponse(520),
+    retries: 1,
+    retryDelayMs: 0,
+    timeoutMs: 100,
+  });
+
+  assert.equal(unavailable.classification, "inconclusive");
+  assert.equal(unavailable.reason, "upstream-http-520");
+  assert.equal(unavailable.attemptCount, 2);
+});
+
 test("verifyExternalLink classifies redirect failures as inconclusive", async () => {
   let fetchCount = 0;
   const result = await verifyExternalLink("https://example.com/one", {
@@ -220,7 +233,7 @@ test("verifyExternalLink aborts a stalled mocked request at its timeout", async 
 
 test("mixed retry outcomes stay inconclusive", async () => {
   const outcomes = [
-    () => createResponse(500),
+    () => createResponse(404),
     () => {
       throw Object.assign(new Error("lookup failed"), { code: "ENOTFOUND" });
     },

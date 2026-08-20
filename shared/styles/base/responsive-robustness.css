@@ -1,0 +1,206 @@
+/*
+ * Shared responsive resilience contract.
+ *
+ * Page-level layouts can stay intentionally dense, but flexible/grid children
+ * must be allowed to shrink and user-controlled copy must not create a new
+ * page-wide axis. Keep this late in each bundle so it protects every page
+ * family without changing their visual treatment.
+ */
+
+.home-page :where(
+  main,
+  section,
+  article,
+  aside,
+  nav,
+  header,
+  footer,
+  form,
+  fieldset,
+  .page-panel,
+  .hero-copy,
+  .site-nav-drawer,
+  .site-mobile-primary-nav,
+  .site-mobile-drawer-nav,
+  .home-card-preview-content,
+  .detail-hero-copy,
+  .detail-main-column,
+  .detail-side-rail,
+  .collections-hero-copy,
+  .collection-detail-hero-copy,
+  .info-hero-copy,
+  .maintainer-hero-copy,
+  .submit-field,
+  .footer-brand,
+  .footer-links,
+  .footer-support-panel
+) {
+  min-inline-size: 0;
+}
+
+.home-page :where(img, picture, video, canvas) {
+  max-inline-size: 100%;
+}
+
+.home-page :where(
+  p,
+  li,
+  dd,
+  td,
+  th,
+  .detail-meta-value,
+  .detail-meta-note,
+  .detail-creator-identity-value,
+  .detail-collection-route-title,
+  .detail-collection-route-reason,
+  .collection-detail-meta-text,
+  .collections-directory-description,
+  .creator-action-card,
+  .maintainer-list-item-title,
+  .maintainer-detail-header,
+  .archive-toast-message,
+  .chat-message-text
+) {
+  overflow-wrap: anywhere;
+}
+
+.home-page :where(button, input, select, textarea) {
+  max-inline-size: 100%;
+}
+
+/* Avoid an SVG/image fallback creating an inline overflow strip while it loads. */
+.home-page :where(img) {
+  height: auto;
+}
+
+/* The archive has intentionally cinematic, single-line desktop heroes. At the
+ * first compact breakpoint, copy is allowed to wrap before it can be clipped. */
+@media (max-width: 1180px) {
+  .info-hero-copy h1,
+  .about-page .about-hero-panel .hero-copy h1,
+  .supporters-hero-panel .hero-copy h1,
+  .creators-hero-panel .hero-copy h1,
+  .creator-standards-hero-panel .hero-copy h1,
+  .submit-hero-copy h1,
+  .collections-hero-copy h1,
+  .collection-detail-hero-copy h1,
+  .help-center-page .help-center-hero-copy h1 {
+    max-inline-size: min(100%, 18ch);
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+    white-space: normal;
+  }
+}
+
+/* Fixed controls share the same safe-area contract as drawers and sheets. */
+.home-page #chat-toggle.chat-toggle-button {
+  right: max(18px, var(--safe-area-right));
+  bottom: max(18px, var(--safe-area-bottom));
+}
+
+#backToTop {
+  right: calc(max(18px, var(--safe-area-right)) + 68px);
+  bottom: max(18px, var(--safe-area-bottom));
+}
+
+.archive-toast-stack {
+  right: max(18px, var(--safe-area-right));
+  bottom: max(18px, var(--safe-area-bottom));
+  width: min(
+    360px,
+    calc(100% - max(18px, var(--safe-area-left)) - max(18px, var(--safe-area-right)))
+  );
+}
+
+.footer-socials {
+  width: min(360px, calc(100% - 32px));
+}
+
+@media (max-width: 959px) {
+  /* Info-page modules are loaded after the base mobile sheet; restate their
+   * intended one-column layout here so the later module cannot reintroduce
+   * four compressed, unreadable columns on a phone. */
+  .about-feature-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .archive-trust-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 18px;
+  }
+
+  .site-nav-drawer {
+    width: min(calc(100% - var(--safe-area-left)), 420px);
+    max-height: var(--visual-viewport-height);
+  }
+
+  .archive-toast-stack {
+    right: max(12px, var(--safe-area-right));
+    bottom: max(12px, var(--safe-area-bottom));
+    width: calc(100% - max(12px, var(--safe-area-left)) - max(12px, var(--safe-area-right)));
+  }
+}
+
+@media (max-width: 560px) {
+  .archive-trust-item {
+    white-space: normal;
+  }
+
+  .archive-trust-item strong,
+  .archive-trust-item span {
+    display: block;
+    overflow-wrap: anywhere;
+  }
+
+  .home-page #chat-toggle.chat-toggle-button {
+    right: max(8px, var(--safe-area-right));
+    bottom: max(12px, var(--safe-area-bottom));
+  }
+
+  #backToTop {
+    right: calc(max(12px, var(--safe-area-right)) + 60px);
+    bottom: max(16px, var(--safe-area-bottom));
+  }
+}
+
+@media (max-width: 680px) {
+  /* Section actions can include editorially specific labels. Let those labels
+   * wrap with their heading instead of retaining the desktop single-line
+   * treatment when text is zoomed on a narrow screen. */
+  .section-heading .section-link {
+    align-items: baseline;
+    max-inline-size: 100%;
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+
+  .section-heading .section-link::after {
+    flex: 0 0 auto;
+  }
+
+  /* Collection route cards reuse the directory component. Keep their grid
+   * explicit after the page bundle so a route cannot fall back to its desktop
+   * three-column geometry while its compact cover rail is still present. */
+  .collections-featured-grid,
+  .collections-directory-grid,
+  .collection-related-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .collections-directory-card,
+  .collections-directory-card-compact,
+  .collection-cover-collage {
+    max-inline-size: 100%;
+    min-inline-size: 0;
+  }
+}
+
+@media (max-width: 959px) and (max-height: 500px) {
+  .site-nav-drawer {
+    gap: 16px;
+  }
+
+  .site-mobile-nav-section + .site-mobile-nav-section {
+    padding-top: 14px;
+  }
+}

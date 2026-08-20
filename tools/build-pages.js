@@ -72,6 +72,7 @@ const ENTRY_ASSETS = {
     "shared/styles/home/cards/18-responsive-780-b.css",
     "shared/styles/home/cards/19-responsive-560.css",
     "shared/styles/home/cards/20-motion.css",
+    "shared/styles/base/responsive-robustness.css",
   ]),
   "public-heroes.css": () => renderCssBundle([
     "shared/styles/home/public-heroes.css",
@@ -89,6 +90,7 @@ const ENTRY_ASSETS = {
     "shared/styles/home/cards/17-responsive-780-a.css",
     "shared/styles/home/cards/18-responsive-780-b.css",
     "shared/styles/home/cards/19-responsive-560.css",
+    "shared/styles/base/responsive-robustness.css",
   ]),
   "info.css": () => renderCssBundle([
     "shared/styles/home/cards/14-about-features.css",
@@ -98,19 +100,24 @@ const ENTRY_ASSETS = {
     "shared/styles/home/cards/15c-info-pages-responsive.css",
     "shared/styles/home/cards/15d-help-center.css",
     "shared/styles/home/cards/15e-help-center-motion.css",
+    "shared/styles/base/responsive-robustness.css",
   ]),
   "submit.css": () => renderCssBundle([
     "shared/styles/home/submit.css",
+    "shared/styles/base/responsive-robustness.css",
   ]),
   "maintainer.css": () => renderCssBundle([
     "shared/styles/home/maintainer.css",
+    "shared/styles/base/responsive-robustness.css",
   ]),
   "collections.css": () => renderCssBundle([
     "shared/styles/home/cards/05-collection-cards.css",
     "shared/styles/home/collections.css",
+    "shared/styles/base/responsive-robustness.css",
   ]),
   "creators.css": () => renderCssBundle([
     "shared/styles/home/creators.css",
+    "shared/styles/base/responsive-robustness.css",
   ]),
   "chat.css": () => renderCssBundle([
     "shared/styles/base/global/03-responsive.css",
@@ -118,6 +125,7 @@ const ENTRY_ASSETS = {
     "shared/styles/home/cards/12-chat-panel.css",
     "shared/styles/home/cards/13-chat-about-base.css",
     "shared/styles/home/chat-responsive.css",
+    "shared/styles/base/responsive-robustness.css",
   ]),
   "detail.css": () => renderCssBundle([
     "shared/styles/show/hero.css",
@@ -125,6 +133,7 @@ const ENTRY_ASSETS = {
     "shared/styles/show/facts-rail.css",
     "shared/styles/show/community.css",
     "shared/styles/show/responsive.css",
+    "shared/styles/base/responsive-robustness.css",
   ]),
 };
 

@@ -19,6 +19,22 @@ const TYPE_TO_MIME = new Map([
   ["webp", "image/webp"], ["gif", "image/gif"], ["avif", "image/avif"],
 ]);
 
+function hasAsciiBytes(buffer, value, offset = 0) {
+  return buffer.length >= offset + value.length && buffer.subarray(offset, offset + value.length).toString("ascii") === value;
+}
+
+function rejectUnsafeImageParsers(buffer) {
+  if (hasAsciiBytes(buffer, "icns")) {
+    throw new Error("ICNS covers are unsupported; a web raster image is required.");
+  }
+  if ((buffer.length >= 2 && buffer[0] === 0xff && buffer[1] === 0x0a) || hasAsciiBytes(buffer, "JXL ", 4)) {
+    throw new Error("JPEG XL covers are unsupported; use JPEG, PNG, WebP, GIF, or AVIF instead.");
+  }
+  if (hasAsciiBytes(buffer, "ftyp", 4) && !["avif", "avis"].includes(buffer.subarray(8, 12).toString("ascii"))) {
+    throw new Error("HEIF covers are unsupported; use AVIF instead.");
+  }
+}
+
 function inspectCoverBuffer(buffer, declaredContentType = "") {
   if (!Buffer.isBuffer(buffer) || buffer.length === 0) {
     throw new Error("Cover download returned an empty body.");
@@ -26,6 +42,7 @@ function inspectCoverBuffer(buffer, declaredContentType = "") {
   if (buffer.subarray(0, 256).toString("utf8").match(/<svg\b/i)) {
     throw new Error("SVG covers are unsupported; a raster image is required.");
   }
+  rejectUnsafeImageParsers(buffer);
   let dimensions;
   try {
     dimensions = imageSize(buffer);
