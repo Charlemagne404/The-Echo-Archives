@@ -98,7 +98,11 @@
   "metadata": {
     "objectiveSources": [
       "https://feeds.megaphone.fm/machina",
-      "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4"
+      "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4",
+      "https://www.realm.fm/shows/machina"
+    ],
+    "researchGaps": [
+      "No verified full-episode duration data was available from the current official RSS feed or Apple Podcasts listing on 2026-08-20; the feed exposes one 61-second trailer and no full episodes. The linked Realm show page currently returns 404."
     ],
     "sourceCategories": [
       "Fiction",
@@ -152,6 +156,25 @@
           "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
         }
       ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://feeds.megaphone.fm/machina",
+          "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4",
+          "https://www.realm.fm/shows/machina"
+        ],
+        "fieldSources": {
+          "runtime": [
+            "https://feeds.megaphone.fm/machina",
+            "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4",
+            "https://www.realm.fm/shows/machina"
+          ]
+        },
+        "notes": "The current official RSS feed and Apple listing expose only one 61-second trailer; the linked Realm page is currently unavailable. No full-episode duration can be verified from these sources.",
+        "uncertainFields": [
+          "No verified full-episode duration data was available from the current official RSS feed or Apple Podcasts listing on 2026-08-20; the feed exposes one 61-second trailer and no full episodes."
+        ],
+        "reviewedAt": "2026-08-20"
+      },
       "fields": {
         "title": {
           "confidence": 0.98,

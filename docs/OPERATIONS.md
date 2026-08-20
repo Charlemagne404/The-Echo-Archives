@@ -17,17 +17,20 @@ Use it as the source of truth for:
 
 ## Release 1.0 Status
 
-This runbook is current for the 1.0 release baseline as of **2026-08-18**.
+This runbook is current for the 1.0 release baseline as of **2026-08-20**.
 The repository contains the released static-first product and its protected
 submission, import, elevation, and collection-maintainer workflows. The
 generated catalog snapshot currently has 724 published shows, 7 full reviews,
-and 38 collections.
+and 38 collections. The catalog report is complete with zero blocking errors
+and zero actionable RSS gaps; the remaining missing-source and runtime facts
+are explicitly documented.
 
-Do not treat the product release marker as proof that every deployment gate has
-passed. The current catalog report still has two undocumented runtime gaps, and
-host, provider, recovery, monitoring, and physical-browser evidence must be
-verified separately. The current evidence is recorded in
-[`docs/qa/2026-08-18-release-1.0-readiness.md`](qa/2026-08-18-release-1.0-readiness.md).
+Do not treat the product release marker or local catalog checks as proof that
+every deployment gate has passed. Host, provider, recovery, monitoring, and
+production-device/browser evidence must still be verified separately. The
+current evidence and handoff checklist is recorded in
+[`docs/qa/2026-08-20-1.0-todo-evidence.md`](qa/2026-08-20-1.0-todo-evidence.md);
+the 2026-08-18 report remains a historical snapshot.
 
 ## Production Runtime Contract
 
@@ -890,7 +893,7 @@ Documentation rules:
 
 The current dated QA records have different scopes:
 
-- `docs/qa/2026-08-18-release-1.0-readiness.md` is the current release evidence record. It supersedes the old audit as the status reference without rewriting that historical report.
+- `docs/qa/2026-08-20-1.0-todo-evidence.md` is the current 1.0 TODO/evidence record. It supersedes the 2026-08-18 snapshot for current catalog status without rewriting that historical report.
 - `docs/qa/2026-07-28-launch-readiness-audit.md` is a historical launch-readiness audit; its **Not ready** verdict and July evidence are retained for context, not as the current catalog snapshot.
 - `docs/qa/2026-07-14-show-importer-review-and-publish.md` records importer operation and automated coverage.
 - `docs/qa/2026-06-07-mobile-qa.md` is the latest dedicated manual mobile pass.

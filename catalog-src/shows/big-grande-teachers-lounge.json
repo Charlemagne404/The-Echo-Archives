@@ -4,17 +4,17 @@
   "subtitle": "",
   "description": "Welcome to The Teachers' Lounge! Hosts Drew Tarver, Dan Lippert, Jon Mackey and Ryan Rosenberg play 4 highly unskilled teachers who catch listeners up on their oddly captivating careers at the fictional Hamilton High School. In the second half of each episode, The Teachers interview guests who usually play a character in the wild world of Hamilton. To hear bonus episodes of The Teachers' Lounge, go to StitcherPremium.com/Teacher and use promo code TEACHER for your first month free. Stay flippy!",
   "cover": "images/covers/big-grande-teachers-lounge.jpg",
-  "coverAlt": "Big Grande Teachers' Lounge cover art",
+  "coverAlt": "The Teacher's Lounge: Seasons 1-9 cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
   "listenLinks": {
     "start": "",
     "spotify": "",
-    "apple": "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4",
-    "website": "https://www.earwolf.com/show/big-grande-teachers-lounge/",
-    "rss": "https://feeds.simplecast.com/b_oj_wh9",
+    "apple": "https://podcasts.apple.com/us/podcast/the-teachers-lounge-seasons-1-9/id1777965588",
+    "website": "https://biggrandewebsite.com/",
+    "rss": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5",
     "youtubeMusic": "",
     "amazonMusic": "",
     "pocketCasts": ""
@@ -37,18 +37,25 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "durationCoverage": 0,
+    "label": "at least 161 full episodes • 63 min median",
+    "episodes": 161,
+    "avgEpisodeMinutes": 51,
+    "medianEpisodeMinutes": 63,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 89,
+    "totalObservedHours": 136.8,
+    "durationCoverage": 1,
     "countQualifier": "at-least",
     "episodeCounts": {
-      "full": 0,
-      "bonus": 1,
+      "full": 161,
+      "bonus": 0,
       "trailer": 0
     }
   },
   "releaseDates": {
-    "first": "2017-09-01",
-    "latest": "2017-09-01",
-    "latestFeedItem": "2017-09-01",
+    "first": "2016-09-28",
+    "latest": "2026-06-06",
+    "latestFeedItem": "2026-06-06",
     "next": ""
   },
   "ratings": {},
@@ -64,12 +71,12 @@
     "attribution": ""
   },
   "officialLinks": {
-    "website": "https://www.earwolf.com/show/big-grande-teachers-lounge/",
-    "patreon": "",
+    "website": "https://biggrandewebsite.com/",
+    "patreon": "https://www.patreon.com/YoureTheManNowDog",
     "koFi": "",
     "discord": "",
     "youtube": "",
-    "social": "",
+    "social": "https://twitter.com/OuterCityMatt?s=20",
     "funding": ""
   },
   "credits": {
@@ -82,8 +89,8 @@
   "cast": [],
   "verification": {
     "status": "automated-source-checked",
-    "verifiedAt": "2026-08-15",
-    "source": "https://feeds.simplecast.com/b_oj_wh9; https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4",
+    "verifiedAt": "2026-08-20",
+    "source": "https://biggrandewebsite.com/about/; https://biggrandewebsite.com/; https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5; https://podcasts.apple.com/us/podcast/the-teachers-lounge-seasons-1-9/id1777965588?uo=4; https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4; https://podcasts.apple.com/us/podcast/the-teachers-lounge-seasons-1-9/id1777965588",
     "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
   },
   "availability": {
@@ -96,18 +103,22 @@
   "content": {},
   "metadata": {
     "objectiveSources": [
-      "https://feeds.simplecast.com/b_oj_wh9",
-      "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4"
+      "https://biggrandewebsite.com/about/",
+      "https://biggrandewebsite.com/",
+      "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5",
+      "https://podcasts.apple.com/us/podcast/the-teachers-lounge-seasons-1-9/id1777965588?uo=4",
+      "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4",
+      "https://podcasts.apple.com/us/podcast/the-teachers-lounge-seasons-1-9/id1777965588"
     ],
     "sourceCategories": [
-      "Comedy",
-      "Arts",
-      "Performing Arts"
+      "Comedy"
     ],
     "sourceKeywords": [],
     "sourceTags": [],
-    "importOfficialSummary": "Welcome to The Teachers' Lounge! Hosts Drew Tarver, Dan Lippert, Jon Mackey and Ryan Rosenberg play 4 highly unskilled teachers who catch listeners up on their oddly captivating careers at the fictional Hamilton High School. In the second half of each episode, The Teachers interview guests who usually play a character in the wild world of Hamilton. To hear bonus episodes of The Teachers' Lounge, go to StitcherPremium.com/Teacher and use promo code TEACHER for your first month free. Stay flippy!",
-    "socialUrls": [],
+    "importOfficialSummary": "Welcome to The Teachers' Lounge! Hosts Drew Tarver, Dan Lippert, Jon Mackey and Ryan Rosenberg play 4 highly unskilled teachers who catch listeners up on their oddly captivating careers at the fictional Hamilton High School. In the second half of each episode, The Teachers interview guests who usually play a character in the wild world of Hamilton.&nbsp;",
+    "socialUrls": [
+      "https://twitter.com/OuterCityMatt?s=20"
+    ],
     "funding": [],
     "schedule": {
       "label": "unknown",
@@ -116,7 +127,7 @@
     },
     "podcast": {
       "medium": "",
-      "copyright": "2022 Earwolf & Big Grande",
+      "copyright": "© Big Grande 2021",
       "explicit": "yes",
       "license": {
         "value": "",
@@ -132,25 +143,61 @@
       "pipelineVersion": "2.0",
       "identifiers": {
         "podcastGuid": "",
-        "rssUrl": "https://feeds.simplecast.com/b_oj_wh9",
-        "appleCollectionId": "1286047787",
+        "rssUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5",
+        "appleCollectionId": "1777965588",
         "podcastIndexFeedId": "",
-        "feedRedirects": []
+        "feedRedirects": [
+          "https://biggrandewebsite.com/feed/"
+        ]
       },
       "selectedSources": [
         {
+          "sourceType": "website",
+          "sourceUrl": "https://biggrandewebsite.com/about/",
+          "fetchedAt": "2026-08-20T13:50:10.664Z",
+          "payloadHash": "e4e3a107c3830d0bdf695cf4ea9ed11b534014915b8b23ce45cd47fcd8251db7"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://biggrandewebsite.com/",
+          "fetchedAt": "2026-08-20T13:50:10.661Z",
+          "payloadHash": "a9479c17482b565548ab87791937ecf62de1fc2fa62601605708ec5c0167cb28"
+        },
+        {
           "sourceType": "rss",
-          "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9",
-          "fetchedAt": "2026-08-15T16:45:54.203Z",
-          "payloadHash": "9369ba32f44aadc0889026eff59106fe8b13c9505b5a80437f31172595745bc1"
+          "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5",
+          "fetchedAt": "2026-08-20T13:50:09.683Z",
+          "payloadHash": "fb96983bed4e5a0399e3021e88bb61bbababf3850d08a4d13091147d32961ae9"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-teachers-lounge-seasons-1-9/id1777965588?uo=4",
+          "fetchedAt": "2026-08-20T13:50:08.362Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
         },
         {
           "sourceType": "apple",
           "sourceUrl": "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4",
-          "fetchedAt": "2026-08-15T16:45:54.018Z",
+          "fetchedAt": "2026-08-20T13:50:07.456Z",
           "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
         }
       ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://biggrandewebsite.com/",
+          "https://podcasts.apple.com/us/podcast/the-teachers-lounge-seasons-1-9/id1777965588",
+          "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
+        ],
+        "fieldSources": {
+          "runtime": [
+            "https://podcasts.apple.com/us/podcast/the-teachers-lounge-seasons-1-9/id1777965588",
+            "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
+          ]
+        },
+        "notes": "The official Big Grande website links the current Seasons 1-9 Apple listing and Art19 RSS feed. The RSS feed exposes duration data for the observed full entries.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-08-20T13:50:05.994Z"
+      },
       "fields": {
         "title": {
           "confidence": 0.98,
@@ -158,11 +205,11 @@
           "sources": [
             {
               "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4"
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-teachers-lounge-seasons-1-9/id1777965588?uo=4"
             },
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
@@ -172,11 +219,11 @@
           "sources": [
             {
               "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4"
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-teachers-lounge-seasons-1-9/id1777965588?uo=4"
             },
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
@@ -186,7 +233,7 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
@@ -196,21 +243,21 @@
           "sources": [
             {
               "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4"
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-teachers-lounge-seasons-1-9/id1777965588?uo=4"
             },
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
         "appleUrl": {
-          "confidence": 0.9,
-          "method": "direct",
+          "confidence": 0.95,
+          "method": "unstructured",
           "sources": [
             {
-              "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4"
+              "sourceType": "website",
+              "sourceUrl": "https://biggrandewebsite.com/"
             }
           ]
         },
@@ -220,7 +267,7 @@
           "sources": [
             {
               "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4"
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-teachers-lounge-seasons-1-9/id1777965588?uo=4"
             }
           ]
         },
@@ -230,7 +277,7 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
@@ -240,27 +287,31 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
         "episodeCount": {
-          "confidence": 0.75,
-          "method": "direct",
+          "confidence": 0.98,
+          "method": "source-agreement",
           "sources": [
             {
               "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4"
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-teachers-lounge-seasons-1-9/id1777965588?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
         "latestPublicationDate": {
-          "confidence": 0.75,
+          "confidence": 0.95,
           "method": "direct",
           "sources": [
             {
-              "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4"
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
@@ -270,7 +321,7 @@
           "sources": [
             {
               "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/big-grande-teachers-lounge/id1286047787?uo=4"
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-teachers-lounge-seasons-1-9/id1777965588?uo=4"
             }
           ]
         },
@@ -280,27 +331,21 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
-            }
-          ]
-        },
-        "previousRssUrl": {
-          "confidence": 0.95,
-          "method": "direct",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
         "websiteUrl": {
-          "confidence": 0.95,
-          "method": "direct",
+          "confidence": 0.98,
+          "method": "source-agreement",
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://biggrandewebsite.com/"
             }
           ]
         },
@@ -310,7 +355,7 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
@@ -320,7 +365,7 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
@@ -330,7 +375,7 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
@@ -340,7 +385,7 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
@@ -350,7 +395,7 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
@@ -360,7 +405,7 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
@@ -370,7 +415,7 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
@@ -380,7 +425,7 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
@@ -390,7 +435,7 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
@@ -400,7 +445,7 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
@@ -410,7 +455,57 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
@@ -420,7 +515,7 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
@@ -430,7 +525,7 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
@@ -440,7 +535,7 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
@@ -450,7 +545,7 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         },
@@ -460,19 +555,67 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.63,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://biggrandewebsite.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://biggrandewebsite.com/about/"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://biggrandewebsite.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://biggrandewebsite.com/about/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://biggrandewebsite.com/"
             }
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
+          "confidence": 0.7,
+          "method": "recent-full-episode",
           "sources": []
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
+          "confidence": 0.7,
+          "method": "recent-full-episode",
           "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "deterministic-category-mapping",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
+            }
+          ]
         },
         "formats": {
           "confidence": 0.95,
@@ -480,12 +623,12 @@
           "sources": [
             {
               "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/b_oj_wh9"
+              "sourceUrl": "https://rss.art19.com/60dd5309-db63-4b1a-9051-27e4c72958e5"
             }
           ]
         }
       },
-      "importedAt": "2026-08-15T16:45:54.806Z",
+      "importedAt": "2026-08-20T13:50:10.688Z",
       "humanOwnedFields": [
         "ratings",
         "archiveTake",
@@ -507,39 +650,50 @@
         "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
         "description": "20865c4562cf195dec9465f23729e80c65635eb385aee5f2e4f900e78826fe88",
         "cover": "e8e6958fb9c3cd328cfd6d9d23de33f8428039284d58c6bc59c050425ab65ca2",
-        "coverAlt": "e33243f0cf95a3ea074a54028e4e43285382a45c3c8f923f52608e426574efd3",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
-        "listenLinks": "03ac049d61268abbb2fae6a730ad84fee2982bc284d51fd1ad380de8ab8e604f",
-        "officialLinks": "5f1af6b93bbd51fc267091d29a0163e29252d3dc5c31a79ad40796e30ddd6c4d",
+        "coverAlt": "98f6e4d0f8001637e1c130ba818fd6b79e6f3fa52a8beb3357fda2aae56aa717",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "60c81f9c4e0dc19bbf099fb57ad3ff3409cea4d0fb845a9c1a23a1e6880cc4da",
+        "officialLinks": "a03a1c2ac6215071eeb07d294b9e65c70eb8f64641e3770b977a6564fd9667a1",
         "genres": "e2384b4fab710955e3805c153a3b31e3bc7dfe6baf9abfec6549c444d8f69336",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
         "aliases": "72c651cb95d296c8a4bb7e426ba75267495145731394485640f5c945d12fb318",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "length": "0d06e64d06e53266ac612e271b32217c8bb35edaf1252df6ee0b1c8620c77ace",
-        "releaseDates": "a0db1301e0581091383e9b86c0b2da12050a187b4d558d263da506a0680b7d0e",
+        "length": "2375b6ff1e03a136fdbbeefe8336f6e413297b4752027209a5409e3e59d332f9",
+        "releaseDates": "80940b1d7e790a4f5de25388a78f66a9a918833a1693176529cf3d27a857f964",
         "credits": "73c0733dbf0c110edc7f07e9709b0d11070e928455c686b741fba70d7c25ae05",
         "creators": "6af750a7794358c2a10ed560ce92dee4885e750d0d911d8cc205b371d824d5d5",
         "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
-        "verification": "541b492807fc10b3234130388c0aa1dbfd0223390dffd2d05507620cb72577b1"
+        "verification": "d3f5ece73203572cf299d460a917084507db979579f6d5f1991d53b1bb6eb4e8"
       },
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
+      ],
+      "automaticallyLockedFields": [
+        "title",
+        "description",
+        "genres",
+        "formats",
+        "aliases",
+        "languages",
+        "credits",
+        "creators",
+        "cast",
+        "availability"
       ],
       "publication": {
         "tier": "imported",
-        "publishedAt": "2026-08-15T16:46:56.525Z"
+        "publishedAt": "2026-08-20T13:50:10.700Z"
       }
     }
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-08-20",
   "creatorId": "earwolf-big-grande"
 }

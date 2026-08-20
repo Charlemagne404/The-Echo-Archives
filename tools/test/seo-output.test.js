@@ -110,6 +110,7 @@ test("generated structured data describes only supported discovery entities", ()
   const itemList = graphNode(directoryData, "ItemList");
   const collections = JSON.parse(read("data/collections.json"));
   assert.equal(directory["@type"], "CollectionPage");
+  assert.equal(directory.name, "Audio Drama & Fiction Podcast Collections | The Echo Archives");
   assert.equal(directory.mainEntity["@id"], itemList["@id"]);
   assert.equal(itemList.numberOfItems, collections.length);
   assert.equal(itemList.itemListElement.length, collections.length);

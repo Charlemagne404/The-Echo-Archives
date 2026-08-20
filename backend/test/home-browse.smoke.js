@@ -126,6 +126,15 @@ async function waitForHydratedHomeLayout(page) {
   );
 }
 
+async function waitForInitialHomeResultPage(page, expectedTotal) {
+  const expectedVisibleCount = Math.min(60, expectedTotal);
+  await page.waitForFunction(
+    (expected) => document.querySelectorAll("#podcast-grid .podcast-card-shell").length === expected,
+    expectedVisibleCount,
+  );
+  assert.equal(await page.locator("#archiveLoadMore").isVisible(), expectedTotal > expectedVisibleCount);
+}
+
 test("homepage supports structured filtering, recently updated mode, and no-result recovery", async () => {
   const page = await browser.newPage();
   const expectedSimilarTitle = scoreCatalog(showFixtures, "like Midnight Burger")[0]?.title || "";
@@ -245,12 +254,9 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
           clearMotionState.shells.every((shell) => !shell.isEntering)),
       true,
     );
+    await waitForInitialHomeResultPage(page, showFixtures.length);
     await page.waitForFunction(
-      (expectedCount) =>
-        document.querySelectorAll("#podcast-grid .podcast-card-shell").length === expectedCount &&
-        document.getElementById("activeBrowseState")?.hidden === true &&
-        document.getElementById("filterCount")?.hidden === true,
-      showFixtures.length,
+      () => document.getElementById("activeBrowseState")?.hidden === true && document.getElementById("filterCount")?.hidden === true,
     );
 
     await openFilterBucket(page, "archiveStatus");
@@ -337,12 +343,9 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     assert.match((await page.locator("#resultsSummary").textContent()) || "", /Recently updated/i);
 
     await page.locator("#activeBrowseClear").click();
+    await waitForInitialHomeResultPage(page, showFixtures.length);
     await page.waitForFunction(
-      (expectedCount) =>
-        document.querySelectorAll("#podcast-grid .podcast-card-shell").length === expectedCount &&
-        document.getElementById("activeBrowseState")?.hidden === true &&
-        document.getElementById("filterCount")?.hidden === true,
-      showFixtures.length,
+      () => document.getElementById("activeBrowseState")?.hidden === true && document.getElementById("filterCount")?.hidden === true,
     );
     await page.evaluate(() => {
       window.scrollTo({ top: window.innerHeight * 2 });
@@ -458,12 +461,9 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     }
 
     await page.locator('.quick-filter[data-chip-filter="all"]').click();
+    await waitForInitialHomeResultPage(page, showFixtures.length);
     await page.waitForFunction(
-      (expectedCount) =>
-        document.querySelectorAll("#podcast-grid .podcast-card-shell").length === expectedCount &&
-        (document.querySelector("#search")?.value || "") === "" &&
-        document.getElementById("activeBrowseState")?.hidden === true,
-      showFixtures.length,
+      () => (document.querySelector("#search")?.value || "") === "" && document.getElementById("activeBrowseState")?.hidden === true,
     );
   } finally {
     await page.close();

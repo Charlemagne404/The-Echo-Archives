@@ -106,6 +106,22 @@ test("database backup checker enforces integrity, schema, privacy, and freshness
   }
 });
 
+test("database backup checker reports a missing backup directory clearly", () => {
+  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-backup-missing-"));
+  const missingDirectory = path.join(tempRoot, "backups");
+  try {
+    const result = spawnSync(
+      process.execPath,
+      [path.join(ROOT, "tools", "check-database-backup.js"), "--directory", missingDirectory, "--max-age-hours", "1"],
+      { cwd: ROOT, encoding: "utf8" },
+    );
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, new RegExp(`Backup directory does not exist: ${missingDirectory.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`));
+  } finally {
+    fs.rmSync(tempRoot, { force: true, recursive: true });
+  }
+});
+
 test("off-site backup handles optional recovery configurations safely", () => {
   const offsiteBackup = read("deploy/echo-archives-offsite-backup.sh");
   const functionSource = offsiteBackup.match(
@@ -135,7 +151,12 @@ case "$2" in
     printf 'fixture\n' > "$fixture_root/source.env"
     stage_private_configuration "$fixture_root/source.env" "copied.env"
     cmp "$fixture_root/source.env" "$recovery_root/configuration/copied.env"
-    test "$(stat -c %a "$recovery_root/configuration/copied.env")" = 600
+    if mode="$(stat -c %a "$recovery_root/configuration/copied.env" 2>/dev/null)"; then
+      :
+    else
+      mode="$(stat -f %Lp "$recovery_root/configuration/copied.env")"
+    fi
+    test "$mode" = 600
     ;;
   symlink)
     ln -s "$fixture_root/missing-target" "$fixture_root/source.env"

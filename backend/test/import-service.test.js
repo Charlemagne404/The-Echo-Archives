@@ -455,6 +455,7 @@ test("maintainer enrichment prepares source-backed discovery detail without crea
           sourceUrls: ["https://example.com/feed.xml"],
           fieldSources: { formats: ["https://example.com/about"] },
           notes: "Credits and cadence checked against the official about page.",
+          uncertainFields: ["Runtime remains unresolved in the available source material."],
         }),
       },
     }, "CA");
@@ -468,6 +469,7 @@ test("maintainer enrichment prepares source-backed discovery detail without crea
     assert.equal(updated.preparedRecord.officialLinks.patreon, "https://patreon.com/signal-lost");
     assert.equal(updated.preparedRecord.metadata.schedule.label, "Weekly");
     assert.equal(updated.preparedRecord.metadata.import.externalResearch.notes, "Credits and cadence checked against the official about page.");
+    assert.deepEqual(updated.preparedRecord.metadata.researchGaps, ["Runtime remains unresolved in the available source material."]);
     assert.equal(updated.preparedRecord.metadata.import.fields.genres.method, "maintainer-edit");
     assert.equal(updated.readiness.publicationEligibility.imported.eligible, false);
     assert.ok(updated.readiness.publicationEligibility.imported.blockers.some((blocker) => blocker.code === "import-curated-discovery" && blocker.field === "genres"));

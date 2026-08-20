@@ -46,18 +46,15 @@ The current generated catalog snapshot contains:
 | Creator-verified shows | 0 |
 
 Exact counts and gap detail remain generated evidence, not hand-maintained
-product copy. The latest catalog-authored update is 2026-08-16.
+product copy. The latest catalog-authored update is 2026-08-20.
 
-The catalog report currently returns `content-pending` because these two
-published records have no verified runtime duration and no explicit
-`metadata.researchGaps` note:
-
-- `big-grande-teachers-lounge`
-- `machina`
-
-That is the current catalog-quality release follow-up. It is separate from
-host, provider, recovery, browser, and deployment checks, which are recorded in
-the current dated release QA report.
+The catalog report is complete as of 2026-08-20: Big Grande has verified
+observed runtime data from its current official RSS/Apple sources, and Machina
+has an explicit evidence-backed `metadata.researchGaps` note because no full
+episode duration can currently be verified. The three missing RSS links and
+the other documented research gaps remain visible in the generated report.
+This is separate from host, provider, recovery, browser, and deployment checks,
+which are recorded in the current dated release QA report.
 
 ## Roadmap Rules
 
@@ -114,8 +111,7 @@ The catalog is broad enough for a real 1.0 release but remains uneven in depth.
 
 Next work:
 
-- resolve `big-grande-teachers-lounge` and `machina` runtime evidence or record defensible research gaps
-- preserve the three documented missing RSS cases and three documented runtime unknowns until new evidence appears
+- preserve the three documented missing RSS cases and documented runtime unknowns until new evidence appears
 - convert selected Imported records to indexed-only through current factual review
 - move selected high-value records through the elevation desk into full review
 - add reviews where they improve recommendation routes, not merely to raise a count
@@ -223,8 +219,8 @@ not mark these gates complete from local unit tests alone.
 | Gate | Status | Meaning |
 | --- | --- | --- |
 | 1.0 product baseline | Current | The shipped static-first product and protected workflows are represented in the repository. |
-| Catalog quality | `content-pending` | Numeric floors are exceeded, but two published runtime gaps still block the generated report. |
-| Repository verification | `blocked` | Backend validation and tests pass; the current structure check fails on an existing 551-line CSS module and the full root gate has not passed. |
+| Catalog quality | `complete` | Numeric floors are exceeded and the generated report has zero blocking errors and zero actionable RSS gaps; remaining gaps are explicitly documented. |
+| Repository verification | `partial` | Backend validation and tests pass, and the structure check completes with soft-limit warnings; the full root gate and complete browser batch have not passed in this closeout. |
 | Production operations | `unverified` | Host, external provider, recovery, monitoring, and live browser evidence are not established by this local docs pass. |
 | Post-1.0 discovery | `next` | Improve data-backed search, filters, collection routes, and recommendation context. |
 | Mature archive | `future` | Broader editorial depth, creator context, and sustained quality follow-through. |
@@ -234,6 +230,7 @@ Status labels:
 - `Current`: the release baseline is the active product state
 - `content-pending`: implementation exists but catalog/editorial evidence still has an open blocker
 - `blocked`: a required repository gate currently fails
+- `partial`: focused repository gates pass, but the complete verification gate remains unfinished
 - `unverified`: evidence requires the target host, provider, or physical device
 - `next`: the next planned workstream
 - `future`: intentionally later work

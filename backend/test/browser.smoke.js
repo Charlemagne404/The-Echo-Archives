@@ -64,7 +64,7 @@ test("main routes render expected page titles", async () => {
       { url: `${baseUrl}/creator-standards`, title: "Creator Standards - The Echo Archives" },
       { url: `${baseUrl}/supporters`, title: "Support the Archive - The Echo Archives" },
       { url: `${baseUrl}/help-center`, title: "Help Center - The Echo Archives" },
-      { url: `${baseUrl}/collections`, title: "Curated Audio Drama & Fiction Podcast Collections | The Echo Archives" },
+      { url: `${baseUrl}/collections`, title: "Audio Drama & Fiction Podcast Collections | The Echo Archives" },
       {
         url: `${baseUrl}/collections/${firstCollectionId}`,
         title: buildCollectionSeoTitle(collectionFixtures[0]),
@@ -345,7 +345,7 @@ test("collection detail pages expose listener-facing overview and related route 
 
     assert.equal(collectionState.overviewKicker, "At a glance");
     assert.match(collectionState.metaLine, /\d+\s+shows?/i);
-    assert.match(collectionState.metaLine, /route/i);
+    assert.match(collectionState.metaLine, /\bCollection\b|Similar shows/i);
     assert.match(collectionState.metaLine, /Updated /);
     assert.equal(collectionState.oldHeadingPresent, false);
     assert.equal(collectionState.detachedReasonCount, 0);

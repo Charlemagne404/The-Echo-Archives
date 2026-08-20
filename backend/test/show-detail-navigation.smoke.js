@@ -172,6 +172,9 @@ test("indexed-only detail page shows truthful canonical metadata without narrow 
 
 test("show detail layouts stay readable across desktop, intermediate, and compact widths", async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1100 } });
+  const expectedImpactWinterRoutes = collectionFixtures.filter(
+    (collection) => Array.isArray(collection.showIds) && collection.showIds.includes("impact-winter"),
+  ).length;
 
   try {
     await page.goto(`${baseUrl}/shows/were-alive`, { waitUntil: "networkidle" });
@@ -268,7 +271,7 @@ test("show detail layouts stay readable across desktop, intermediate, and compac
       assert.equal(focused.outlineStyle, "solid");
       assert.notEqual(focused.outlineWidth, "0px");
       assert.equal(compact.expanded, true);
-      assert.equal(compact.visibleRoutes, 8);
+      assert.equal(compact.visibleRoutes, expectedImpactWinterRoutes);
       assert.ok(compact.actionHeights.every((height) => height >= 44));
     }
   } finally {

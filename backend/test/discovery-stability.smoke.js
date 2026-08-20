@@ -294,7 +294,7 @@ test("browse empty states match their results on desktop and mobile", async () =
       await page.waitForFunction(
         () =>
           document.querySelectorAll("#collectionsDirectory .collections-directory-card").length === 0 &&
-          (document.getElementById("collectionsDirectorySummary")?.textContent || "").startsWith("0 listening paths"),
+          (document.getElementById("collectionsDirectorySummary")?.textContent || "").startsWith("0 collections"),
       );
       await page.locator("#collectionsEmptyState").waitFor({ state: "visible" });
 
@@ -417,7 +417,7 @@ test("collections page reveals similarity routes five at a time and keeps the an
     assert.deepEqual(expandedState.ids, expectedOrder.slice(0, expandedVisibleCount));
     assert.equal(expandedState.hasMoreButton, expectedOrder.length > expandedVisibleCount);
     if (expectedOrder.length > expandedVisibleCount) {
-      assert.equal(expandedState.buttonLabel, `Show ${fullyExpandedVisibleCount - expandedVisibleCount} more routes`);
+      assert.equal(expandedState.buttonLabel, `Show ${fullyExpandedVisibleCount - expandedVisibleCount} more collections`);
       await page.locator("#collectionsSimilarityMore").click();
       await page.waitForFunction(
         (count) => document.querySelectorAll("#collectionsSimilarityGrid .collections-feature-card").length === count,
@@ -571,7 +571,7 @@ test("show and collection pages expose honest empty states and working copy-link
     assert.equal(collectionState.legacyCommand, "copy");
     assert.match(collectionState.status, /Link copied/i);
     assert.match(collectionState.metaLine, /\d+\s+shows?/i);
-    assert.match(collectionState.metaLine, /route/i);
+    assert.match(collectionState.metaLine, /\bCollection\b/i);
     assert.equal(collectionState.detachedReasons, 0);
     assert.ok(collectionState.inlineNoteCount > 0);
     assert.ok(collectionState.relatedCollectionIds.length > 0);
@@ -615,7 +615,7 @@ test("similarity collection pages render anchor context in the overview panel", 
 
     assert.ok(state.anchorLabel.length > 0);
     assert.match(state.anchorHref, /^\/shows\//);
-    assert.match(state.metaLine, /route/i);
+    assert.match(state.metaLine, /Similar shows/i);
     assert.ok(state.overviewSignals.length > 0);
     assert.ok(anchorShow?.cover);
     const expectedHeroSources = (anchorShow.coverVariants || []).map((variant) => variant.src);

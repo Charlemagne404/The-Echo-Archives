@@ -269,6 +269,10 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
   if (!objective.episodeCount) optionalGaps.push("No full-episode total was available.");
   if (state.releaseStatus === "unknown") optionalGaps.push("Release status remains unknown; old or dead feeds are not treated as cancelled or complete.");
   if (!listenLinks.spotify) optionalGaps.push("No exact Spotify show URL was found on the official site.");
+  const researchGaps = mergeUniqueStrings(
+    Array.isArray(objective.researchGaps) ? objective.researchGaps : [],
+    objective.externalResearch?.uncertainFields || [],
+  );
   const record = {
     id: showId,
     title,
@@ -343,6 +347,7 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
     },
     content: {},
     metadata: {
+      ...(researchGaps.length ? { researchGaps } : {}),
       objectiveSources: mergeUniqueStrings(sourceReferences.map((source) => source.sourceUrl).filter(Boolean), externalSources),
       sourceCategories: categories,
       sourceKeywords: mergeUniqueStrings(objective.keywords || []),

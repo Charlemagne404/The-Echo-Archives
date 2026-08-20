@@ -98,7 +98,13 @@ test("restored recovery inventory rejects unsafe manifest paths and invalid UTF-
   const utf8Root = fs.mkdtempSync(path.join(os.tmpdir(), "echo-restored-utf8-"));
   try {
     const recoveryRoot = writeRecoveryTree(utf8Root);
-    fs.writeFileSync(Buffer.concat([Buffer.from(`${recoveryRoot}/`), Buffer.from([0xff])]), "x");
+    const invalidNamePath = Buffer.concat([Buffer.from(`${recoveryRoot}/`), Buffer.from([0xff])]);
+    try {
+      fs.writeFileSync(invalidNamePath, "x");
+    } catch (error) {
+      assert.ok(["EILSEQ", "EPERM", "EINVAL"].includes(error.code), `unexpected invalid-name fixture error: ${error.code}`);
+      fs.appendFileSync(path.join(recoveryRoot, "REQUIRED_PATHS"), Buffer.from([0xff, 0x0a]));
+    }
     const invalid = runVerifier(recoveryRoot);
     assert.notEqual(invalid.status, 0);
     assert.match(invalid.stderr, /not valid UTF-8/);

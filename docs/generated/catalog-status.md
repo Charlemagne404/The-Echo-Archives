@@ -1,6 +1,6 @@
 # Catalog Status
 
-Latest catalog update: `2026-08-16`
+Latest catalog update: `2026-08-20`
 
 ## Snapshot
 
@@ -19,7 +19,7 @@ Latest catalog update: `2026-08-16`
 | Creator-verified shows | 0 |
 | Shows with RSS | 721 |
 | Shows missing metadata.objectiveSources | 0 |
-| Shows with metadata.researchGaps | 14 |
+| Shows with metadata.researchGaps | 15 |
 
 ## Discovery Gaps
 
@@ -37,14 +37,12 @@ Latest catalog update: `2026-08-16`
 
 ## Phase 2 Readiness (Gate B)
 
-- Status: `content-pending`
+- Status: `complete`
 - Numeric targets: 724 published shows (floor 129), 7 full reviews (floor 7), 38 collections (floor 29)
 - Factual metadata gaps: 0 core, 0 missing provenance, 0 actionable RSS, 0 missing detailed runtime
-- Explicit unknowns/research gaps: 14 records; 3 missing RSS and 3 runtime gaps are documented rather than hidden
+- Explicit unknowns/research gaps: 15 records; 3 missing RSS and 4 runtime gaps are documented rather than hidden
 - Editorial/recommendation gaps: 0; collection blockers: 0
 - Taxonomy: 165 controlled labels; unknown/non-approved public tags: 0
 - Sparse indexed-only discovery gaps are informational: 131 sparse records; 116 have fewer than two collections, 131 have no editorial similarity set, and 0 contain unsupported editorial claims
-- Phase 2 blocking errors: 2
-  - Published show "big-grande-teachers-lounge" has no verified runtime duration and no documented research gap.
-  - Published show "machina" has no verified runtime duration and no documented research gap.
+- Phase 2 blocking errors: 0
 

@@ -12,7 +12,7 @@
   "creatorVerified": 0,
   "withRss": 721,
   "missingObjectiveSources": 0,
-  "withResearchGaps": 14,
+  "withResearchGaps": 15,
   "phase2": {
     "policy": {
       "fullReviewFloor": 7,
@@ -55,7 +55,8 @@
       "documentedRuntimeUnknowns": [
         "the-rapscallion-agency",
         "the-invenios-expeditions",
-        "edict-zero-fis"
+        "edict-zero-fis",
+        "machina"
       ],
       "documentedResearchGaps": [
         {
@@ -158,13 +159,17 @@
           "gaps": [
             "No verified episode-duration data was available from the current official episode pages or RSS feed."
           ]
+        },
+        {
+          "id": "machina",
+          "title": "Machina",
+          "gaps": [
+            "No verified full-episode duration data was available from the current official RSS feed or Apple Podcasts listing on 2026-08-20; the feed exposes one 61-second trailer and no full episodes. The linked Realm show page currently returns 404."
+          ]
         }
       ],
       "sparseEditorialViolations": [],
-      "blockingErrors": [
-        "Published show \"big-grande-teachers-lounge\" has no verified runtime duration and no documented research gap.",
-        "Published show \"machina\" has no verified runtime duration and no documented research gap."
-      ]
+      "blockingErrors": []
     },
     "editorial": {
       "eligibleShows": [
@@ -449,10 +454,6 @@
           "count": 1
         },
         {
-          "label": "Sleeper ship",
-          "count": 1
-        },
-        {
           "label": "Underwater",
           "count": 1
         },
@@ -509,7 +510,6 @@
         "Approved tag \"Remote colony\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Retro-futurism\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Sitcom\" is used by one published show; review its listener-discovery value.",
-        "Approved tag \"Sleeper ship\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Underwater\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Utopia\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Victorian\" is used by one published show; review its listener-discovery value.",
@@ -529,10 +529,7 @@
       "editorialViolations": [],
       "informationalOnly": true
     },
-    "blockingErrors": [
-      "Published show \"big-grande-teachers-lounge\" has no verified runtime duration and no documented research gap.",
-      "Published show \"machina\" has no verified runtime duration and no documented research gap."
-    ],
-    "complete": false
+    "blockingErrors": [],
+    "complete": true
   }
 }

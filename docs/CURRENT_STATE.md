@@ -13,8 +13,8 @@ Use it as the current-release reality check alongside:
 
 ## Snapshot Date
 
-This narrative snapshot reflects the repository as of **2026-08-18**. The latest
-catalog-authored update in the generated snapshot is **2026-08-16**; for exact
+This narrative snapshot reflects the repository as of **2026-08-20**. The latest
+catalog-authored update in the generated snapshot is **2026-08-20**; for exact
 counts and coverage gaps, use [`docs/generated/catalog-status.md`](generated/catalog-status.md).
 
 ## Release 1.0 Posture
@@ -26,10 +26,10 @@ Archivist remains preserved but disabled by default, and production community
 rating writes remain configuration-gated.
 
 Release status is separate from catalog-quality and production-operations
-gates. The current generated report is `content-pending` because two published
-records have no verified runtime duration and no explicit research-gap note;
-the current dated release report records the remaining repository, host,
-provider, recovery, and browser checks.
+gates. The current generated catalog report is complete with zero blocking
+errors and zero actionable RSS gaps; remaining source and runtime unknowns are
+explicitly documented. The current dated evidence report records the remaining
+repository, host, provider, recovery, and browser checks.
 
 ## Summary
 
@@ -110,11 +110,10 @@ What that means in practice:
 
 The generated report records zero actionable RSS gaps, zero editorial or
 collection blockers, a stable 165-label taxonomy, and zero out-of-scope
-published records. It also records 14 explicit research-gap records, three
-missing RSS links that are documented, three documented runtime unknowns, and
-two published runtime blockers that still need either evidence or an explicit
-research-gap note. Sparse indexed-only discovery gaps remain informational when
-they contain no unsupported editorial claims.
+published records. It also records 15 explicit research-gap records, three
+missing RSS links that are documented, and four documented runtime unknowns.
+Sparse indexed-only discovery gaps remain informational when they contain no
+unsupported editorial claims.
 
 ## Current Browse Experience
 
@@ -244,19 +243,18 @@ Most important gaps today, from the current generated catalog report:
 
 - 624 published shows have fewer than two collection memberships; this is informational under the tier-aware policy when records remain factual-only
 - 654 published shows fall outside the preferred similarity-link range; current report policy keeps this separate from the editorial blocker count
-- 3 published shows lack RSS links and 3 records retain explicitly documented runtime-duration gaps
-- 2 published shows have runtime-duration gaps that are not yet documented and currently block the catalog report
-- 14 records retain explicit research-gap notes for facts that are not currently verifiable
+- 3 published shows lack RSS links and 4 records retain explicitly documented runtime-duration gaps
+- 15 records retain explicit research-gap notes for facts that are not currently verifiable
 - editorial depth still lags metadata breadth
 - creator verification exists as a workflow but has no live verified records yet
 - many of the strongest future recommendation routes depend on denser catalog coverage
 - filter confidence can only grow as metadata vocabulary gets broader and more consistent
 - the archive still needs more "serious enough to trust" volume before the final vision fully lands
 
-This is a broad 1.0 gap profile, but the two undocumented runtime gaps must be
-closed before the generated catalog gate can be called complete. Production
-host, provider, recovery, and browser checks are also release operations, not
-facts that local repository tests can establish.
+This is a broad 1.0 gap profile, but the catalog gate is now complete because
+the remaining unverifiable facts are explicit. Production host, provider,
+recovery, and browser checks are also release operations, not facts that local
+repository tests can establish.
 
 ## Distance From The Final Product
 
@@ -278,7 +276,7 @@ In other words, the product shape is largely correct. The archive now needs more
 If the repo keeps following its current best path, the next highest-value work is:
 
 - add more published shows only where they add useful coverage
-- resolve or explicitly document the two current runtime blockers
+- preserve explicit research gaps and resolve them only when new evidence appears
 - convert more entries from `indexed-only` to `full-review` and fact-check eligible Imported entries
 - strengthen runtime, tone, format, and similarity metadata
 - improve recommendation usefulness through denser data

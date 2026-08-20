@@ -1229,6 +1229,8 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         manualEnrichment,
         ...(externalResearch ? { externalResearch } : {}),
       };
+      const appleCollectionId = extractAppleCollectionId(objective.appleUrl);
+      if (appleCollectionId) objective.appleCollectionId = appleCollectionId;
       delete objective.complete;
       ["episodeCount", "seasonCount", "avgEpisodeMinutes"].forEach((field) => {
         if (details[field] === undefined) delete objective[field];

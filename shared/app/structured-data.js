@@ -184,7 +184,7 @@ export function buildCollectionsDirectoryStructuredData(collections = []) {
       {
         "@type": "CollectionPage",
         "@id": `${pageUrl}#webpage`,
-        name: "Curated Audio Drama & Fiction Podcast Collections | The Echo Archives",
+        name: "Audio Drama & Fiction Podcast Collections | The Echo Archives",
         description,
         url: pageUrl,
         isPartOf: { "@id": `${homeUrl}#website` },

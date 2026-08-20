@@ -1,5 +1,6 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
+const os = require("node:os");
 const path = require("node:path");
 const { spawnSync } = require("node:child_process");
 const { test } = require("node:test");
@@ -479,9 +480,13 @@ cat "$FIXTURE/calls"
 });
 
 test("guarded maintenance cleanup removes only verified temporary roots", () => {
-  const maintenanceRoot = fs.mkdtempSync("/var/tmp/echo-launch-maintenance.test-");
-  const archivistRoot = fs.mkdtempSync("/var/tmp/echo-archives-pi-restore.archivist.test-");
-  const victim = fs.mkdtempSync("/var/tmp/echo-maintenance-cleanup-victim.");
+  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-maintenance-cleanup-test-"));
+  const maintenanceRoot = path.join(tempRoot, "echo-launch-maintenance.test-root");
+  const archivistRoot = path.join(tempRoot, "echo-archives-pi-restore.archivist.test-root");
+  const victim = path.join(tempRoot, "echo-maintenance-cleanup-victim");
+  fs.mkdirSync(maintenanceRoot);
+  fs.mkdirSync(archivistRoot);
+  fs.mkdirSync(victim);
   const unsafeLink = `${maintenanceRoot}.link`;
   try {
     fs.mkdirSync(path.join(maintenanceRoot, "restored", "nested"), { recursive: true });
@@ -496,11 +501,11 @@ test("guarded maintenance cleanup removes only verified temporary roots", () => 
         "-c",
         String.raw`
 source "$SCRIPT_PATH"
-safe_remove_temp "$MAINTENANCE_ROOT"
-safe_remove_archivist_temp "$ARCHIVIST_ROOT"
-safe_remove_temp "$MAINTENANCE_ROOT"
-safe_remove_archivist_temp "$ARCHIVIST_ROOT"
-if safe_remove_temp "$UNSAFE_LINK"; then
+safe_remove_temp "$MAINTENANCE_ROOT" "$MAINTENANCE_ROOT"
+safe_remove_archivist_temp "$ARCHIVIST_ROOT" "$ARCHIVIST_ROOT"
+safe_remove_temp "$MAINTENANCE_ROOT" "$MAINTENANCE_ROOT"
+safe_remove_archivist_temp "$ARCHIVIST_ROOT" "$ARCHIVIST_ROOT"
+if safe_remove_temp "$UNSAFE_LINK" "$MAINTENANCE_ROOT"; then
   exit 9
 fi
 `,
@@ -526,6 +531,7 @@ fi
     fs.rmSync(archivistRoot, { recursive: true, force: true });
     fs.rmSync(unsafeLink, { force: true });
     fs.rmSync(victim, { recursive: true, force: true });
+    fs.rmSync(tempRoot, { recursive: true, force: true });
   }
 });
 

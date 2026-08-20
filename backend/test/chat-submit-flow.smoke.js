@@ -132,6 +132,9 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     await page.locator("#chat-container.is-open").waitFor({ state: "hidden" });
 
     await page.locator("#submitPrimaryButton").click();
+    await page.waitForFunction(() => /acknowledge the Terms and Privacy/i.test(document.getElementById("submitStatus")?.textContent || ""));
+    await page.locator("#submitLegalAcknowledgement").check();
+    await page.locator("#submitPrimaryButton").click();
     await page.waitForFunction(
       () => document.getElementById("submitShowTitle")?.getAttribute("aria-invalid") === "true",
       undefined,
@@ -395,7 +398,7 @@ test("Ask the Archivist and the remade submit page interactions work across mode
       undefined,
       { timeout: 5_000 },
     );
-    await page.locator("#submitExistingShowSearch").fill("Impact");
+    await page.locator("#submitExistingShowSearch").fill("Impact Winter");
     await page.locator("#submitExistingShowSearch").press("ArrowDown");
     const activeDescendant = await page.locator("#submitExistingShowSearch").getAttribute("aria-activedescendant");
     assert.match(activeDescendant || "", /submitExistingShowSearchResultsOption\d+/);
@@ -570,6 +573,7 @@ test("submit success and failure flows use one persistent result surface and pre
     await page.locator("#submitShowTitle").fill("Launch Test Show");
     await page.locator('[data-add-link-option="listenLinks"][data-add-link-value="Apple Podcasts"]').click();
     await page.locator('[data-link-list="listenLinks"][data-link-part="url"]').fill("https://podcasts.apple.com/us/podcast/launch-test-show/id123456789");
+    await page.locator("#submitLegalAcknowledgement").check();
   }
 
   try {

@@ -102,7 +102,6 @@ function scanRestoredTree(root) {
 
 function main() {
   const requestedRoot = parseArguments(process.argv.slice(2));
-  const resolvedRoot = path.resolve(requestedRoot);
   let canonicalRoot;
   let rootStat;
   try {
@@ -112,7 +111,6 @@ function main() {
     fail("restored recovery root is missing or unreadable");
   }
   if (
-    canonicalRoot !== resolvedRoot ||
     !rootStat.isDirectory() ||
     rootStat.isSymbolicLink() ||
     path.basename(canonicalRoot) !== "recovery"

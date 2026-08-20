@@ -67,7 +67,16 @@ USAGE
 }
 
 log() {
-  printf '[%s] [%s] %s\n' "$(date --iso-8601=seconds)" "${CURRENT_STAGE}" "$*"
+  printf '[%s] [%s] %s\n' "$(date -u '+%Y-%m-%dT%H:%M:%SZ')" "${CURRENT_STAGE}" "$*"
+}
+
+file_mtime_seconds() {
+  local path="$1"
+  if stat -c %Y "${path}" >/dev/null 2>&1; then
+    stat -c %Y "${path}"
+  else
+    stat -f %m "${path}"
+  fi
 }
 
 fail() {
@@ -77,8 +86,9 @@ fail() {
 
 safe_remove_temp() {
   local path="$1"
+  local expected_prefix="${2:-/var/tmp/echo-launch-maintenance.}"
   [[ -z "${path}" ]] && return 0
-  [[ "${path}" == /var/tmp/echo-launch-maintenance.* ]] || return 1
+  [[ "${path}" == "${expected_prefix}"* ]] || return 1
   [[ ! -L "${path}" ]] || return 1
   [[ ! -e "${path}" ]] && return 0
   [[ -d "${path}" ]] || return 1
@@ -88,8 +98,9 @@ safe_remove_temp() {
 
 safe_remove_archivist_temp() {
   local path="$1"
+  local expected_prefix="${2:-/var/tmp/echo-archives-pi-restore.archivist.}"
   [[ -z "${path}" ]] && return 0
-  [[ "${path}" == /var/tmp/echo-archives-pi-restore.archivist.* ]] || return 1
+  [[ "${path}" == "${expected_prefix}"* ]] || return 1
   [[ ! -L "${path}" ]] || return 1
   [[ ! -e "${path}" ]] && return 0
   [[ -d "${path}" ]] || return 1
@@ -527,7 +538,7 @@ offsite_success_marker_is_stale() {
 
   [[ -f "${OFFSITE_SUCCESS_MARKER}" &&
     ! -L "${OFFSITE_SUCCESS_MARKER}" ]] || return 1
-  marker_time="$(stat -c %Y "${OFFSITE_SUCCESS_MARKER}")"
+  marker_time="$(file_mtime_seconds "${OFFSITE_SUCCESS_MARKER}")"
   now="$(date +%s)"
   [[ "${marker_time}" =~ ^[0-9]+$ && "${now}" =~ ^[0-9]+$ ]] || return 2
   (( marker_time <= now )) || return 2
@@ -1710,7 +1721,7 @@ stage_final_verification() {
   local since
   local response_headers="${TEMP_ROOT}/public-access-response.headers"
   local request_id
-  since="$(date --iso-8601=seconds)"
+  since="$(date -u '+%Y-%m-%dT%H:%M:%SZ')"
   verify_public_echo
   expect_direct_origin_blocked
   curl --fail --silent --show-error --max-time 10 \
@@ -1815,7 +1826,7 @@ run_apply() {
 
   CURRENT_STAGE="summary"
   {
-    printf 'completed_at=%s\n' "$(date -u --iso-8601=seconds)"
+    printf 'completed_at=%s\n' "$(date -u '+%Y-%m-%dT%H:%M:%SZ')"
     printf 'expected_commit=%s\n' "${EXPECTED_COMMIT}"
     printf 'caddy_config_changed=%s\n' "${CADDY_CONFIG_CHANGED}"
     printf 'caddy_upgraded=%s\n' "${CADDY_UPGRADED}"

@@ -43,6 +43,18 @@ function parseArgs(argv) {
 }
 
 function findLatestBackup(directory) {
+  let directoryStat;
+  try {
+    directoryStat = fs.lstatSync(directory);
+  } catch (error) {
+    if (error && error.code === "ENOENT") {
+      throw new Error(`Backup directory does not exist: ${directory}.`);
+    }
+    throw error;
+  }
+  if (!directoryStat.isDirectory() || directoryStat.isSymbolicLink()) {
+    throw new Error(`Backup directory is not a safe regular directory: ${directory}.`);
+  }
   const candidates = fs
     .readdirSync(directory, { withFileTypes: true })
     .filter((entry) => entry.isFile() && entry.name.endsWith(".sqlite"))
