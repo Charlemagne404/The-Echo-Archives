@@ -117,6 +117,36 @@ function createCommunityStore({ db, catalog, minPublicRatings = 1 }) {
       WHERE abuse_hash = ?
       ORDER BY created_at_ms ASC
     `),
+    pruneRatingEvents: db.prepare(`
+      DELETE FROM rating_events
+      WHERE datetime(created_at) <= datetime(@cutoff)
+    `),
+    redactStaleRatingAbuseHashes: db.prepare(`
+      UPDATE rating_submissions
+      SET abuse_hash = ''
+      WHERE abuse_hash <> ''
+        AND datetime(updated_at) <= datetime(@cutoff)
+    `),
+    redactStaleProfileMetadata: db.prepare(`
+      UPDATE community_profiles
+      SET last_user_agent = '',
+          last_abuse_hash = ''
+      WHERE datetime(last_seen_at) <= datetime(@cutoff)
+    `),
+    deleteOrphanProfiles: db.prepare(`
+      DELETE FROM community_profiles
+      WHERE datetime(last_seen_at) <= datetime(@cutoff)
+        AND NOT EXISTS (
+          SELECT 1
+          FROM rating_submissions
+          WHERE rating_submissions.profile_id = community_profiles.id
+        )
+        AND NOT EXISTS (
+          SELECT 1
+          FROM listener_review_helpful_votes
+          WHERE listener_review_helpful_votes.profile_id = community_profiles.id
+        )
+    `),
   };
 
   const syncCatalog = db.transaction((entries) => {
@@ -264,6 +294,40 @@ function createCommunityStore({ db, catalog, minPublicRatings = 1 }) {
     return statements.listAbuseEvents.all(abuseHash);
   }
 
+  function purgePersonalData({
+    now = new Date(),
+    abuseRetentionDays = 30,
+    profileMetadataRetentionDays = 30,
+    orphanProfileRetentionDays = 90,
+  } = {}) {
+    const nowMs = now instanceof Date ? now.getTime() : new Date(now).getTime();
+    const safeNowMs = Number.isFinite(nowMs) ? nowMs : Date.now();
+    const abuseRetentionMs = Math.max(1, abuseRetentionDays) * 24 * 60 * 60 * 1000;
+    const abuseCutoffMs = safeNowMs - abuseRetentionMs;
+    const ratingEventCutoff = new Date(abuseCutoffMs).toISOString();
+    const profileMetadataCutoff = new Date(
+      safeNowMs - Math.max(1, profileMetadataRetentionDays) * 24 * 60 * 60 * 1000,
+    ).toISOString();
+    const orphanProfileCutoff = new Date(
+      safeNowMs - Math.max(1, orphanProfileRetentionDays) * 24 * 60 * 60 * 1000,
+    ).toISOString();
+
+    return db.transaction(() => {
+      const abuseRowsPruned = statements.pruneAbuseEvents.run({ cutoffMs: abuseCutoffMs }).changes;
+      const ratingEventsPruned = statements.pruneRatingEvents.run({ cutoff: ratingEventCutoff }).changes;
+      const ratingAbuseHashesRedacted = statements.redactStaleRatingAbuseHashes.run({ cutoff: ratingEventCutoff }).changes;
+      const profileMetadataRedacted = statements.redactStaleProfileMetadata.run({ cutoff: profileMetadataCutoff }).changes;
+      const orphanProfilesDeleted = statements.deleteOrphanProfiles.run({ cutoff: orphanProfileCutoff }).changes;
+      return {
+        abuseRowsPruned,
+        ratingEventsPruned,
+        ratingAbuseHashesRedacted,
+        profileMetadataRedacted,
+        orphanProfilesDeleted,
+      };
+    })();
+  }
+
   function getPodcast(podcastId) {
     if (!catalogIds.has(podcastId)) {
       return null;
@@ -362,6 +426,7 @@ function createCommunityStore({ db, catalog, minPublicRatings = 1 }) {
     getPodcast,
     listRatingSummaries,
     listAbuseEvents,
+    purgePersonalData,
     recordAbuseEvent,
     syncCatalog,
     upsertRating,

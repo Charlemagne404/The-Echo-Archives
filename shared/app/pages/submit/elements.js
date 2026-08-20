@@ -12,6 +12,7 @@ export function getSubmitElements() {
     submitButton: document.getElementById("submitPrimaryButton"),
     submitButtonText: document.getElementById("submitPrimaryButtonText"),
     submitFooterNote: document.getElementById("submitFooterNote"),
+    legalAcknowledgement: document.getElementById("submitLegalAcknowledgement"),
     submitStatus: document.getElementById("submitStatus"),
     resultPanel: document.getElementById("submitResultPanel"),
   };
@@ -29,6 +30,8 @@ export function getSubmitElements() {
     !(elements.submitButton instanceof HTMLButtonElement) ||
     !elements.submitButtonText ||
     !elements.submitFooterNote ||
+    !(elements.legalAcknowledgement instanceof HTMLInputElement) ||
+    elements.legalAcknowledgement.type !== "checkbox" ||
     !elements.submitStatus ||
     !(elements.resultPanel instanceof HTMLElement)
   ) {

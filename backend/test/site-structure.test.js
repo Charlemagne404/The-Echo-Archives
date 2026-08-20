@@ -80,6 +80,9 @@ test("the default generated public pages do not expose the deferred Archivist fe
     const html = fs.readFileSync(path.join(siteRoot, pagePath), "utf8");
     assert.match(html, /data-archivist-enabled="false"/, `${pagePath} should default the Archivist feature off.`);
     assert.doesNotMatch(html, /Ask the Archivist|data-open-chat|id="chat-toggle"/i, `${pagePath} should not expose Archivist copy or controls.`);
+    if (!new Set(["404.html", "500.html", "offline.html"]).has(pagePath)) {
+      assert.match(html, /id="backToTop"/, `${pagePath} should retain the back-to-top control.`);
+    }
   });
 });
 
@@ -116,6 +119,8 @@ test("default new-show submission is present before hydration", () => {
   assert.match(html, /id="submitDynamicFields"[\s\S]*id="submitListenLinks"/);
   assert.match(html, /id="submitDynamicFields"[\s\S]*data-tag-input="selectedTags"/);
   assert.match(html, /id="submitCompletionStatus"[\s\S]*option value="unknown" selected>Unknown/);
+  assert.match(html, /class="submit-legal-notice"[\s\S]*href="\/terms"[\s\S]*href="\/privacy"/);
+  assert.match(html, /id="submitLegalAcknowledgement"/);
   assert.doesNotMatch(html, /submitArchiveFitNote/);
   assert.doesNotMatch(html, /Nothing submitted yet/);
 });
@@ -130,17 +135,18 @@ test("privacy and storage pages disclose current passive and edge storage behavi
   }
 
   assert.match(cookies, /passive show-page browsing does not create a profile/i);
-  assert.match(privacy, /Passive show-page browsing does not create an anonymous rating profile/i);
+  assert.match(privacy, /Passive show-page browsing does not create a rating profile/i);
   assert.doesNotMatch(cookies, /rating widget initializes[^<]*anonymous profile/i);
   assert.match(privacy, /Charlie Arnerstål/);
   assert.match(privacy, /mailto:privacy@echoarchives\.net/);
   assert.match(privacy, /established in Sweden/i);
-  assert.match(privacy, /not specifically directed at children under 13/i);
-  assert.match(privacy, /authorization from a parent or guardian/i);
+  assert.match(privacy, /not specifically directed at children/i);
+  assert.match(privacy, /parent or guardian/i);
   assert.match(privacy, /Integritetsskyddsmyndigheten \(IMY\)/);
   assert.match(privacy, /weekly rotating keyed pseudonym/i);
   assert.match(privacy, /retained for 14 days/i);
-  assert.match(privacy, /aggregate traffic, latency, and error metrics may be retained for up to 90 days/i);
+  assert.match(privacy, /stored rating abuse hashes are redacted after 30 days/i);
+  assert.match(privacy, /Cloudflare(?:’s|'s) separate edge processing and retention follow its zone and provider settings/i);
   assert.match(cookies, /Charlie Arnerstål/);
   assert.match(cookies, /mailto:privacy@echoarchives\.net/);
 });

@@ -35,7 +35,7 @@ function installFrontendGlobals() {
     },
   };
   global.EchoArchiveSearch = {};
-  global.EchoArchiveRecord = {};
+  global.EchoArchiveRecord = require("../../shared/archive-record.js");
 }
 
 function cleanupFrontendGlobals() {
@@ -109,5 +109,25 @@ test("client card badges distinguish Imported entries from full reviews", async 
   assert.equal(badges.children.length, 1);
   assert.match(badges.children[0].className, /editorial-badge-imported/);
   assert.equal(badges.children[0].textContent, "Imported");
+  cleanupFrontendGlobals();
+});
+
+test("client card metadata mirrors the Imported source-genre policy", async () => {
+  installFrontendGlobals();
+  const { formatCardDiscoveryMetadata } = await import("../../shared/app/render-cards/shared.js");
+
+  assert.equal(
+    formatCardDiscoveryMetadata({ reviewStatus: "imported", genres: ["drama", "sci-fi"], tags: [] }, 2),
+    "Genre: Sci-Fi",
+  );
+  assert.equal(
+    formatCardDiscoveryMetadata({ reviewStatus: "imported", genres: ["drama"], tags: [] }, 2),
+    "Genre not yet reviewed",
+  );
+  assert.equal(
+    formatCardDiscoveryMetadata({ reviewStatus: "indexed-only", genres: ["sci-fi"], tags: ["Space"] }, 2),
+    "Space",
+  );
+
   cleanupFrontendGlobals();
 });

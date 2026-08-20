@@ -8,7 +8,7 @@
           </p>
           <p class="info-policy-meta">
             <span>Last updated</span>
-            <time datetime="2026-07-28">July 28, 2026</time>
+            <time datetime="2026-08-20">August 20, 2026</time>
             <span>Controller</span>
             <strong>Charlie Arnerstål</strong>
           </p>
@@ -40,7 +40,7 @@
         </span>
         <div>
           <h2>Small footprint</h2>
-          <p>The live public site can run privacy-focused Plausible pageview analytics without ad-tech profiling or advertising trackers.</p>
+          <p>The current public deployment does not load Plausible analytics. The optional build integration remains disabled, and the site does not use advertising trackers or ad-tech profiling.</p>
         </div>
       </article>
       <article class="page-card info-summary-card info-summary-card-community">
@@ -70,7 +70,7 @@
         </span>
         <div>
           <h2>Moderation-first intake</h2>
-          <p>Submissions and follow-up contact details are stored for archive review, moderation, and quality control.</p>
+          <p>Submissions and follow-up contact details are stored for archive review, moderation, and quality control under the retention limits below.</p>
         </div>
       </article>
     </section>
@@ -94,8 +94,8 @@
         <article class="page-card info-section-card" id="privacy-operator">
           <span class="page-card-kicker">Operator and contact</span>
           <h2>Who handles privacy questions</h2>
-          <p>The data controller is Charlie Arnerstål, operating The Echo Archives as a Continental project. The controller is established in Sweden and handles personal data under applicable Swedish and European Union law.</p>
-          <p>For privacy and data-protection requests, email <a href="mailto:privacy@echoarchives.net">privacy@echoarchives.net</a>. For factual archive corrections that do not involve a privacy request, the faster route is usually <a href="/submit">Submit or correct</a>.</p>
+          <p>The legal operator and data controller is Charlie Arnerstål. The Echo Archives is a Continental project, not a separate legal entity. The controller is established in Sweden and handles personal data under applicable Swedish and European Union law.</p>
+          <p>For privacy and data-protection requests, email <a href="mailto:privacy@echoarchives.net">privacy@echoarchives.net</a>. For copyright, legal, or follow-up requests, you can also use the public <a href="https://contact.continental-hub.com/" target="_blank" rel="noreferrer">Continental contact route</a>. For factual archive corrections that do not involve a privacy request, the faster route is usually <a href="/submit">Submit or correct</a>.</p>
         </article>
 
         <article class="page-card info-section-card" id="privacy-collected">
@@ -104,11 +104,15 @@
           <ul class="info-detail-list">
             <li>
               <strong>Browsing and page requests</strong>
-              <p>General page requests reach the site through Cloudflare and the archive like any normal web request. Cloudflare may set <code>cf_clearance</code> after browser or challenge checks. Route-specific <code>echo-scroll:…</code> session-storage keys remember scroll position.</p>
+              <p>General page requests reach the site through Cloudflare and the archive like any normal web request. Cloudflare may process request and security data and may set <code>cf_clearance</code> or other challenge cookies when its zone checks require them. The exact production-zone challenge lifetime is not visible from an ordinary public response. Route-specific <code>echo-scroll:…</code> session-storage keys remember scroll position.</p>
+            </li>
+            <li>
+              <strong>Website performance metrics</strong>
+              <p>We use Cloudflare Real User Monitoring (RUM) to collect anonymous website performance metrics, such as page loading and responsiveness information. Cloudflare RUM does not use cookies or local storage to track visitors and is not used to identify individual users.</p>
             </li>
             <li>
               <strong>Community ratings</strong>
-              <p>Passive show-page browsing does not create an anonymous rating profile. Submitting or clearing a rating can create one using the HTTP-only voter cookie <code>echo-community-voter</code> plus the linked localStorage key <code>echo-community-profile-id</code>. Rating actions also send the rating value and can send a Cloudflare Turnstile token when that protection is enabled.</p>
+              <p>Passive show-page browsing does not create a rating profile. Submitting or clearing a rating can create a publicly anonymous, pseudonymous profile using the HTTP-only voter cookie <code>echo-community-voter</code> plus the linked localStorage key <code>echo-community-profile-id</code>. Rating actions also send the rating value and can send a Cloudflare Turnstile token when that protection is enabled.</p>
             </li>
             <li>
               <strong>Submissions and contact details</strong>
@@ -116,7 +120,7 @@
             </li>
             <li>
               <strong>Technical and moderation data</strong>
-              <p>The site receives IP address and user-agent data with requests. Community rating flows use hashed abuse signals for rate limiting and bot defense, and submission records currently store source IP and user agent for moderation follow-up. Detailed operational request logs do not retain raw client addresses, headers, bodies, or query strings: they record a weekly rotating keyed pseudonym, route template, status, latency, and request id. The live public site can also send privacy-focused Plausible pageview events without cross-site advertising cookies.</p>
+              <p>The site receives IP address and user-agent data with requests. Raw client IPs used for rate limiting are retained only for the configured rate-limit window and then removed by cleanup. Submission records store source IP and user agent for up to 30 days from receipt. Community rating profiles retain a voter hash while an active rating or helpful vote remains, but user-agent and profile abuse metadata are removed after 30 days of profile inactivity; stored rating abuse hashes are redacted after 30 days without a rating update. The current public deployment does not load Plausible analytics.</p>
             </li>
           </ul>
         </article>
@@ -126,20 +130,20 @@
           <h2>Plain-language legal basis</h2>
           <ul class="info-detail-list">
             <li>
-              <strong>To run the archive features you asked to use</strong>
-              <p>The site needs to process page requests and rating actions to deliver the archive and community rating features you actively use{{#archivist}}; it also processes chat prompts when you use the Archivist{{/archivist}}.</p>
+              <strong>To provide requested archive features</strong>
+              <p>The site processes page requests and rating actions to provide the archive and community features you actively use{{#archivist}}; it also processes chat prompts when you use the Archivist{{/archivist}}. The applicable basis depends on the feature and context, including providing a requested service and the controller’s legitimate interest in operating it safely.</p>
             </li>
             <li>
               <strong>To review and respond to submissions</strong>
-              <p>Submission content and any contact details are used because you asked the archive to review a correction, review, verification request, or new-show suggestion and it needs enough context to handle that request.</p>
+              <p>Submission content and any contact details are used because you asked the archive to review a correction, review, verification request, or new-show suggestion and it needs enough context to handle that request. The submission notice and Terms explain the related publication and licence purposes.</p>
             </li>
             <li>
               <strong>To keep ratings and submissions safe from abuse</strong>
-              <p>Rate limits, hashed abuse signals, technical request data, and Turnstile checks are used to reduce spam, automated voting, and moderation abuse. That is part of the archive’s legitimate interest in keeping the system trustworthy.</p>
+              <p>Rate limits, short-lived technical request data, hashed abuse signals, and Turnstile checks are used to reduce spam, automated voting, and moderation abuse. That is part of the archive’s legitimate interest in keeping the system trustworthy.</p>
             </li>
             <li>
               <strong>To follow up when you ask for it</strong>
-              <p>If you provide a contact email, the archive uses it to respond to your submission or legal request. You can stop that follow-up by asking for deletion of the contact detail where the archive no longer needs it.</p>
+              <p>If you provide a contact email, the archive uses it to respond to your submission or legal request. You can ask the controller to stop that follow-up or delete the contact detail where the archive no longer needs it.</p>
             </li>
           </ul>
         </article>
@@ -156,23 +160,31 @@
             {{/archivist}}
             <li>
               <strong>Cloudflare challenge clearance</strong>
-              <p>The <code>cf_clearance</code> lifetime follows the Cloudflare zone’s Challenge Passage setting and can be refreshed as security checks continue. Cloudflare’s default Challenge Passage is 30 minutes.</p>
+              <p>The <code>cf_clearance</code> lifetime follows the Cloudflare zone’s Challenge Passage setting and can be refreshed as security checks continue. The exact production-zone setting is not visible from an ordinary public response.</p>
             </li>
             <li>
               <strong>Community rating identifiers</strong>
-              <p>The voter cookie currently has a maximum lifetime of about 400 days after it is set. The linked local profile id stays in localStorage until you clear it. Backend rating records may be kept as long as needed to preserve rating state, summaries, moderation context, and audit history.</p>
+              <p>The voter cookie currently has a maximum lifetime of about 400 days after it is set. The linked local profile id stays in localStorage until you clear it. The server retains the pseudonymous profile and active rating state while that rating remains active, or while a helpful vote remains active. Clearing a rating deletes the active rating; related rating-event and abuse records are removed after 30 days.</p>
             </li>
             <li>
               <strong>Abuse-prevention signals</strong>
-              <p>Community rating abuse hashes are retained on a rolling window that defaults to 30 days in the current backend configuration.</p>
+              <p>Community rating abuse hashes and rating-event records are retained on a rolling 30-day window. User-agent and profile abuse metadata are removed after 30 days of profile inactivity, and an active rating’s stored abuse hash is redacted after 30 days without a rating update. Unreferenced profiles are deleted after 90 days of inactivity.</p>
             </li>
             <li>
               <strong>Operational request telemetry</strong>
-              <p>Detailed pseudonymized request telemetry is retained for 14 days. Non-identifying aggregate traffic, latency, and error metrics may be retained for up to 90 days. The client pseudonym uses a private keyed HMAC scope that rotates at least weekly and is not intended to identify a person across rotation periods.</p>
+              <p>If application access observability is enabled, pseudonymized request telemetry is retained for 14 days. It records a weekly rotating keyed pseudonym, route template, status, latency, and request id rather than raw client addresses, headers, bodies, or query strings. The client pseudonym is not intended to identify a person across rotation periods. Cloudflare’s separate edge processing and retention follow its zone and provider settings.</p>
             </li>
             <li>
               <strong>Submission records and contact details</strong>
-              <p>Submission content, moderation notes, contact email, source IP, and user agent are kept in the moderation database until the request is handled and may be retained longer where needed for archive history, audit, dispute handling, or follow-up.</p>
+              <p>Submission content and contact details are kept for up to 180 days after the last recorded review, or up to 180 days after receipt if the request is never reviewed. Source IP and user agent are removed after 30 days. Older unaccepted or unpublished submissions are deleted. If a listener review is already published, the live submission row is reduced to a non-contact, non-network anchor while the public review remains published.</p>
+            </li>
+            <li>
+              <strong>Published community content</strong>
+              <p>A published listener review, including the public alias and review text that appears on the show page, is retained as public archive content while it remains published. A deletion or removal request can be sent to the controller and will be reviewed alongside the archive’s moderation and rights obligations.</p>
+            </li>
+            <li>
+              <strong>Backups</strong>
+              <p>Live-database cleanup does not rewrite earlier database backups. Restricted backup copies may therefore contain older data until they expire under the separate deployment backup-retention schedule. The archive does not promise instant deletion from every backup copy.</p>
             </li>
             <li>
               <strong>Maintainer session access</strong>
@@ -185,15 +197,15 @@
         <article class="page-card info-section-card" id="privacy-children">
           <span class="page-card-kicker">Children</span>
           <h2>General-audience service</h2>
-          <p>The Echo Archives is a general-audience audio-drama discovery service and is not specifically directed at children under 13.</p>
-          <p>Children under 13 should not submit personal information without authorization from a parent or guardian. If the archive identifies personal information submitted by a child under 13 without that authorization, it will remove the information.</p>
+          <p>The Echo Archives is a general-audience audio-drama discovery service and is not specifically directed at children. Do not submit personal information if you are below the minimum age that applies to you without a parent or guardian’s authorization.</p>
+          <p>If the controller learns that a child’s personal information was submitted in circumstances where it should not have been collected, contact <a href="mailto:privacy@echoarchives.net">privacy@echoarchives.net</a> so it can be reviewed and removed where appropriate.</p>
         </article>
 
         <article class="page-card info-section-card" id="privacy-rights">
           <span class="page-card-kicker">Your rights</span>
           <h2>What you can ask for</h2>
           <p>Depending on the law that applies to you and the archive, you may be able to ask for access to the personal data held about you, correction of inaccurate data, deletion, restriction, objection to certain processing, or withdrawal of consent where processing depends on consent.</p>
-          <p>Where GDPR applies, the archive aims to respond to valid privacy-rights requests without undue delay and normally within one month of receipt.</p>
+          <p>Where GDPR applies, the archive aims to respond to valid privacy-rights requests without undue delay and within one month of receipt. Where the law permits an extension, the response period may be extended by up to two further months; the controller will explain the reason.</p>
           <ul>
             <li>You can clear browser session storage, localStorage, and cookies through your own browser controls at any time.</li>
             <li>You can ask for a submission-related contact detail or moderation record to be corrected or deleted when it is no longer needed.</li>
@@ -205,8 +217,9 @@
           <span class="page-card-kicker">Third parties and links</span>
           <h2>Services outside the archive</h2>
           <p>Cloudflare provides the site’s edge security and can perform browser or challenge checks on visits, including use of the <code>cf_clearance</code> cookie. Community rating requests may also use Cloudflare Turnstile when that protection is enabled, which means the browser can contact Cloudflare for human-verification checks during rating actions.</p>
-          <p>The site also links out to official show sites, listening platforms, Patreon, GitHub, and the external Continental contact route. If you open those destinations, your browser connects to them directly and their own terms and privacy rules apply.</p>
-          <p>The live public site can use Plausible for privacy-focused pageview analytics. It does not use advertising trackers or cross-site marketing cookies. If additional processors such as newsletters or other named vendors are introduced later, this page should be updated to match the live behavior.</p>
+          <p>The site also links out to official show sites, listening platforms, Patreon, Ko-fi, GitHub, and the external Continental contact route. If you open those destinations, your browser connects to them directly and their own terms and privacy rules apply.</p>
+          <p>The current archive implementation does not embed Patreon or Ko-fi payment widgets or import supporter account data. Those providers handle any payment or account information directly under their own policies.</p>
+          <p>Plausible analytics is not active on the current public deployment checked on August 20, 2026. Cloudflare RUM is described above as a separate performance-measurement service. If another analytics service or processor is enabled later, this page must be updated before that deployment to identify the provider, purpose, data categories, and applicable transfer information.</p>
         </article>
       </div>
     </section>

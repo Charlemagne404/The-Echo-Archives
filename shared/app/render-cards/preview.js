@@ -3,7 +3,7 @@ import { configureShowImageElement } from "../images.js";
 import { setHighlightedText, toDisplayTag } from "../utils.js";
 import { createEditorialBadges } from "./badges.js";
 import { createCommunityScoreElement, createPrimaryScoreElement, createRatingDividerElement, syncInlineScoreGroup } from "./scores.js";
-import { formatInlineTagList } from "./shared.js";
+import { formatCardDiscoveryMetadata, getCardDiscoveryMetadata } from "./shared.js";
 
 export function createShowCard(show, { previewMode = "", archiveScoreOptions = {} } = {}) {
   const showId = show.id || "unknown-show";
@@ -189,7 +189,9 @@ function createHomeCardPreviewPanel(show, previewId) {
 
   const previewTags = document.createElement("div");
   previewTags.className = "preview-tags";
-  previewTags.textContent = formatInlineTagList(show.tags, 3);
+  const previewMetadata = getCardDiscoveryMetadata(show, 3);
+  previewTags.textContent = previewMetadata.text;
+  previewTags.dataset.metadataKind = previewMetadata.kind;
   previewTags.hidden = !previewTags.textContent;
 
   const previewTake = document.createElement("p");
@@ -280,11 +282,13 @@ export function syncShowCardPresentation(shell, show) {
 
   const presentation = show?.searchPresentation || null;
   const titleTerms = Array.isArray(presentation?.titleTerms) ? presentation.titleTerms : [];
-  const metaText = presentation?.metaText || formatInlineTagList(show.tags, 2);
+  const cardMetadata = getCardDiscoveryMetadata(show, 2);
+  const metaText = presentation?.metaText || formatCardDiscoveryMetadata(show, 2);
   const metaTerms = Array.isArray(presentation?.metaTerms) ? presentation.metaTerms : [];
 
   setHighlightedText(nodes.title, show.title || "Untitled show", titleTerms);
   setHighlightedText(nodes.tags, metaText, metaTerms);
   nodes.tags.hidden = !String(metaText || "").trim();
   nodes.tags.dataset.searchPresentation = presentation?.metaText ? "true" : "false";
+  nodes.tags.dataset.cardMetaKind = presentation?.metaText ? "search" : cardMetadata.kind;
 }

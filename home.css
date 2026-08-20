@@ -1434,6 +1434,10 @@ body.filter-sheet-open {
   line-height: 1.4;
 }
 
+.home-page .popular-card-meta[data-card-meta-kind="source-genre"] {
+  color: rgba(255, 214, 202, 0.78);
+}
+
 .home-page .popular-card-copy {
   margin: 0;
   padding-top: 14px;
@@ -1809,6 +1813,10 @@ body.filter-sheet-open {
   font-size: 0.88rem;
   line-height: 1.4;
   overflow-wrap: anywhere;
+}
+
+.home-page .preview-tags[data-metadata-kind="source-genre"] {
+  color: rgba(255, 214, 202, 0.78);
 }
 
 .home-page .preview-take {

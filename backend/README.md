@@ -9,7 +9,7 @@ preserved optional integration and is disabled by default in the release.
 - Auto-fetches missing show cover art from RSS, Apple, or website metadata and stores managed files under `../images/covers/`
 - Exposes a same-origin chat API at `/api/chat`
 - Keeps the archive assistant implementation isolated under `lib/ai/`
-- Persists device-scoped anonymous community ratings in SQLite
+- Persists device-scoped, publicly anonymous community ratings with pseudonymous backend state in SQLite
 - Exposes community endpoints at `/api/community/*` for ratings, profile bootstrap, and summaries
 - Exposes show submission intake at `/api/submissions/shows`
 - Exposes a protected internal import lane for machine-found catalog candidates
@@ -56,6 +56,11 @@ Copy `.env.example` to `.env` if you want to override defaults.
 - `COMMUNITY_TURNSTILE_VERIFY_URL`: optional Siteverify endpoint override for tests
 - `COMMUNITY_MIN_PUBLIC_RATINGS`: verified vote threshold before public averages display. Defaults to `3`
 - `COMMUNITY_ABUSE_RETENTION_DAYS`: retention window for hashed rating-abuse signals. Defaults to `30`
+- `COMMUNITY_PROFILE_METADATA_RETENTION_DAYS`: inactivity period before community-profile user-agent and abuse metadata are redacted. Defaults to `30` days
+- `COMMUNITY_ORPHAN_PROFILE_RETENTION_DAYS`: inactivity period before an unreferenced community profile is deleted. Defaults to `90` days
+- `SUBMISSION_NETWORK_DATA_RETENTION_DAYS`: retention period for submission source IP and user-agent fields. Defaults to `30` days
+- `SUBMISSION_PERSONAL_DATA_RETENTION_DAYS`: retention period for unaccepted/unpublished submission content and contact details. Defaults to `180` days
+- `DATA_RETENTION_CLEANUP_INTERVAL_MS`: interval for the in-process privacy cleanup job. Defaults to `300000` milliseconds
 - `COMMUNITY_VOTER_COOKIE_NAME`: HTTP-only voter cookie name. Defaults to `echo-community-voter`
 - `COMMUNITY_VOTER_HASH_SECRET`: stable secret used to hash voter cookies and abuse signals
 - `MAINTAINER_REVIEW_PASSPHRASE`: enables the protected maintainer review queue when set

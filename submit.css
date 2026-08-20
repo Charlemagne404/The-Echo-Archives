@@ -1613,6 +1613,51 @@
   padding-top: 6px;
 }
 
+.submit-legal-notice {
+  display: grid;
+  gap: 8px;
+  margin-top: 4px;
+  padding: 13px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.submit-legal-notice p {
+  margin: 0;
+}
+
+.submit-legal-notice a {
+  color: #ffd1c4;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.submit-legal-notice-title {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.submit-legal-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.submit-legal-check input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  margin: 2px 0 0;
+  accent-color: #e34a36;
+}
+
 .submit-primary-button {
   min-height: 56px;
   padding: 0 20px;

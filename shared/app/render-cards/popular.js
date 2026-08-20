@@ -1,5 +1,6 @@
 import { createCommunityScoreElement, createPrimaryScoreElement, createRatingDividerElement, syncInlineScoreGroup } from "./scores.js";
 import { configureShowImageElement } from "../images.js";
+import { getCardDiscoveryMetadata } from "./shared.js";
 import { normalizeArchiveRating, toDisplayTag } from "../utils.js";
 
 export function createMostPopularCard(show) {
@@ -47,7 +48,9 @@ export function createMostPopularCard(show) {
 
   const metadata = document.createElement("p");
   metadata.className = "popular-card-meta";
-  metadata.textContent = getMostPopularCardMetaText(show);
+  const cardMetadata = getMostPopularCardMetadata(show);
+  metadata.textContent = cardMetadata.text;
+  metadata.dataset.cardMetaKind = cardMetadata.kind;
   metadata.hidden = !metadata.textContent;
 
   const copy = document.createElement("p");
@@ -114,9 +117,15 @@ function getMostPopularCardLifecycleLabel(show) {
   return "";
 }
 
-function getMostPopularCardMetaText(show) {
+function getMostPopularCardMetadata(show) {
   const bestFor = Array.isArray(show.bestFor) ? show.bestFor : [];
-  const tags = Array.isArray(show.tags) ? show.tags : [];
-  const preferredValues = bestFor.length > 0 ? bestFor.slice(0, 2) : tags.slice(0, 2);
-  return preferredValues.map((value) => toDisplayTag(value)).join(" • ");
+  if (bestFor.length > 0) {
+    return {
+      kind: "best-for",
+      values: bestFor.slice(0, 2),
+      text: bestFor.slice(0, 2).map((value) => toDisplayTag(value)).join(" • "),
+    };
+  }
+
+  return getCardDiscoveryMetadata(show, 2);
 }

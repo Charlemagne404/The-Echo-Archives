@@ -182,6 +182,29 @@ function reviewedDiscoveryTags(objective = {}) {
   return reviewedDiscoveryTagSelection(objective).approved;
 }
 
+function sourceGenreProvenance(candidate, genres) {
+  if (genres.length === 0) return null;
+
+  const categoryEvidence = candidate.provenance?.fields?.categories || {};
+  const reviewedSources = Array.isArray(candidate.objective?.externalResearch?.fieldSources?.genres)
+    ? candidate.objective.externalResearch.fieldSources.genres
+    : [];
+  const categoryMethod = String(categoryEvidence.method || "");
+  const humanMethod = /maintainer|reviewed|reviewer|manual|suggestion|unstructured/i.test(categoryMethod);
+
+  return {
+    confidence: reviewedSources.length ? 0.95 : Number(categoryEvidence.confidence) || 0.7,
+    method: reviewedSources.length
+      ? "reviewed-genre-selection"
+      : humanMethod
+        ? categoryMethod
+        : "deterministic-category-mapping",
+    sources: reviewedSources.length
+      ? reviewedSources.map((sourceUrl) => ({ sourceType: "external-research", sourceUrl }))
+      : categoryEvidence.sources || [],
+  };
+}
+
 function sourceTagProvenance(candidate, tags) {
   if (tags.length === 0) return null;
   const sourceFields = ["categories", "keywords"]
@@ -208,6 +231,7 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
   const tagSelection = reviewedDiscoveryTagSelection(objective);
   const tags = tagSelection.approved;
   const tagProvenance = sourceTagProvenance(candidate, tags);
+  const genreProvenance = sourceGenreProvenance(candidate, genres);
   const language = formatLanguage(objective.language);
   const transcriptLanguages = mergeUniqueStrings((objective.transcripts?.languages || []).map(formatLanguage).filter(Boolean));
   const sourceFormats = mapSourceFormats({ categories, keywords: objective.keywords || [] });
@@ -354,6 +378,7 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
           ...(candidate.provenance?.fields || {}),
           releaseStatus: { confidence: state.confidence, method: state.method, sources: [] },
           completionStatus: { confidence: state.confidence, method: state.method, sources: [] },
+          ...(genreProvenance ? { genres: genreProvenance } : {}),
           ...(tagProvenance ? { tags: tagProvenance } : {}),
           ...(formats.length ? { formats: {
             confidence: enrichment.formats?.length ? 1 : sourceFormatEvidence?.confidence || candidate.provenance?.fields?.feedType?.confidence || 0.7,
@@ -433,7 +458,7 @@ function evaluateReadiness({ candidate, preparedRecord }) {
       importedBlockers.push({ code: "import-human-source", field: fieldName, message: `${fieldName} uses human or unstructured evidence and should be published as indexed-only after factual review.` });
     }
   });
-  ["tags", "formats"].forEach((fieldName) => {
+  ["genres", "tags", "formats"].forEach((fieldName) => {
     const evidence = preparedRecord.metadata?.import?.fields?.[fieldName];
     if ((preparedRecord[fieldName] || []).length > 0 && /maintainer|reviewed|manual|suggestion|unstructured/i.test(String(evidence?.method || ""))) {
       importedBlockers.push({

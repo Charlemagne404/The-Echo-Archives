@@ -294,6 +294,8 @@ test("a source-rich RSS import becomes review-and-publish ready and publishes wi
     assert.deepEqual(candidate.preparedRecord.tones, []);
     assert.deepEqual(candidate.preparedRecord.similarTo, []);
     assert.deepEqual(candidate.preparedRecord.formats, ["serialized"]);
+    assert.deepEqual(candidate.preparedRecord.genres, ["drama"]);
+    assert.equal(candidate.preparedRecord.metadata.import.fields.genres.method, "deterministic-category-mapping");
     assert.deepEqual(candidate.preparedRecord.tags, []);
     assert.equal(candidate.preparedRecord.metadata.import.fields.tags, undefined);
     assert.equal(candidate.preparedRecord.length.episodes, 1);
@@ -466,6 +468,9 @@ test("maintainer enrichment prepares source-backed discovery detail without crea
     assert.equal(updated.preparedRecord.officialLinks.patreon, "https://patreon.com/signal-lost");
     assert.equal(updated.preparedRecord.metadata.schedule.label, "Weekly");
     assert.equal(updated.preparedRecord.metadata.import.externalResearch.notes, "Credits and cadence checked against the official about page.");
+    assert.equal(updated.preparedRecord.metadata.import.fields.genres.method, "maintainer-edit");
+    assert.equal(updated.readiness.publicationEligibility.imported.eligible, false);
+    assert.ok(updated.readiness.publicationEligibility.imported.blockers.some((blocker) => blocker.code === "import-curated-discovery" && blocker.field === "genres"));
     assert.deepEqual(updated.preparedRecord.tags, ["Sci-fi", "Space"]);
     assert.deepEqual(updated.preparedRecord.metadata.import.taxonomyProposals, [{
       label: "Floating city",

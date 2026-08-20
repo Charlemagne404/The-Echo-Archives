@@ -266,7 +266,7 @@
                 </span>
                 <div class="creator-action-card-copy">
                   <h3>My rating did not appear</h3>
-                  <p>Community ratings are anonymous, but they still depend on browser storage so one device keeps one active vote per show.</p>
+                  <p>Community ratings are publicly anonymous, but the backend keeps pseudonymous device/profile state so one device keeps one active vote per show.</p>
                   <ul class="help-center-steps">
                     <li>Make sure the browser is not blocking the archive’s rating cookie.</li>
                     <li>Try the rating again from the same device if you meant to update or replace an earlier vote.</li>
@@ -406,7 +406,7 @@
               </span>
               <div>
                 <h2>Community Rating</h2>
-                <p>Anonymous ratings from listeners. They do not replace the archive’s editorial rating.</p>
+                <p>Publicly anonymous, pseudonymous ratings from listeners. They do not replace the archive’s editorial rating.</p>
               </div>
             </article>
             <article class="page-card info-summary-card">
@@ -536,7 +536,7 @@
               </h3>
               <div class="creator-faq-answer" id="helpFaqAnswer4" role="region" aria-labelledby="helpFaqQuestion4" hidden>
                 <div class="creator-faq-answer-inner">
-                  <p>Community Rating is anonymous, but it still depends on the archive’s browser storage so one device can keep one active vote per show.</p>
+                  <p>Community Rating is publicly anonymous, but it still uses pseudonymous backend state and browser storage so one device can keep one active vote per show.</p>
                   <p>If the vote does not appear, make sure the archive’s cookie is not blocked, then try again from the same device. The cookies page explains the exact storage behavior.</p>
                 </div>
               </div>
@@ -601,7 +601,7 @@
           </div>
           <ul class="help-center-browser-list">
             {{#archivist}}<li>Ask the Archivist keeps recent conversation history only for the current browser session.</li>{{/archivist}}
-            <li>Community Rating uses an anonymous browser token plus a linked local profile id so one device can manage one active vote per show.</li>
+            <li>Community Rating uses a pseudonymous browser token plus a linked local profile id so one device can manage one active vote per show; the rating is publicly anonymous.</li>
             <li>If you clear site data or block the archive’s cookie, ratings{{#archivist}} or chat continuity{{/archivist}} may stop working as expected.</li>
             <li>Spotify, Apple Podcasts, and other platform playback or account problems are outside the archive’s control.</li>
           </ul>

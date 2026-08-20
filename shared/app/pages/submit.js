@@ -433,6 +433,11 @@ export async function initializeSubmitPage() {
 
     const mode = state.activeMode;
     const draft = getActiveDraft(state);
+    if (!draft.legalAcknowledged) {
+      ui.setStatus("Please acknowledge the Terms and Privacy notice before submitting.", "error");
+      elements.legalAcknowledgement.focus();
+      return;
+    }
     const validationError = validateDraft(mode, draft, state.showMap);
     if (validationError) {
       ui.showValidationError(validationError);

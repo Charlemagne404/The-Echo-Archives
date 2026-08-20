@@ -178,6 +178,10 @@
   line-height: 1.4;
 }
 
+.home-page .popular-card-meta[data-card-meta-kind="source-genre"] {
+  color: rgba(255, 214, 202, 0.78);
+}
+
 .home-page .popular-card-copy {
   margin: 0;
   padding-top: 14px;

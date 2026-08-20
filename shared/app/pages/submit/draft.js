@@ -4,6 +4,7 @@ import { getActiveDraft } from "../../submit/state.js";
 export function captureCurrentDraft(state, elements) {
   const draft = getActiveDraft(state);
   const currentMode = state.activeMode;
+  draft.legalAcknowledged = elements.legalAcknowledgement.checked;
 
   if (MODES_WITH_EXISTING_SHOW.has(currentMode)) {
     draft.showSearch = readValue("submitExistingShowSearch");

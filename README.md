@@ -27,7 +27,7 @@ The live catalog snapshot now lives in [`docs/generated/catalog-status.md`](docs
 | Runtime catalog | Generated public data under `data/` plus a generated `/data/search-index.json` browse index |
 | Main browse surface | Homepage with structured filters, quick filters, search, recently updated mode, featured collections, and a most-popular band |
 | Detail routes | Reusable show pages at `/shows/<show-id>` and collection pages at `/collections/<collection-id>` |
-| Community layer | Anonymous ratings, moderated submissions, corrections, listener reviews, and creator verification intake |
+| Community layer | Publicly anonymous, pseudonymous ratings, moderated submissions, corrections, listener reviews, and creator verification intake |
 | Assistant | Preserved Archivist integration, disabled by default for 1.0 |
 | Maintainer tools | Passphrase-gated submissions, catalog imports, collection automation, report pages, and explicit publication/promotion controls |
 | Delivery model | Generated static pages at repo root, authored sources in `site-src/`, shared runtime in `shared/`, backend in `backend/` |

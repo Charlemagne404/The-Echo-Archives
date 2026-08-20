@@ -10,7 +10,7 @@ New records prepare as `reviewStatus: "imported"`, the lowest public confidence 
 
 RSS and Podcasting 2.0 data are primary for identity, dates, episodes, descriptions, type, structured people, transcripts, funding, GUID, medium, license, and location. An official site is primary for reciprocally linked credits and exact official/support/platform links. Apple and Podcast Index supply identity cross-checks and directory fallbacks.
 
-Publisher-supplied RSS/iTunes categories and keywords remain provenance in `metadata.sourceCategories` and `metadata.sourceKeywords`. Deterministic source mappings may populate canonical genres and feed formats: an exact source label of `full-cast` or `full cast` maps to the canonical `full-cast` format, while broader wording is not inferred. Public discovery tags must use the approved taxonomy and are never copied from raw source keywords automatically. Human taxonomy selection, external research, and AI/editorial suggestions remain non-binding for Imported publication and require factual review when applied.
+Publisher-supplied RSS/iTunes categories and keywords remain provenance in `metadata.sourceCategories` and `metadata.sourceKeywords`. Deterministic source mappings may populate canonical genres and feed formats: an exact source label of `full-cast` or `full cast` maps to the canonical `full-cast` format, while broader wording is not inferred. Imported cards expose non-generic source-derived genres in a compact `Genre:` metadata line; a drama-only mapping is disclosed as `Genre not yet reviewed` because it does not distinguish content from the audio-drama medium. This card display does not populate public `tags`. Public discovery tags must use the approved taxonomy and are never copied from raw source keywords automatically. Human taxonomy selection, external research, and AI/editorial suggestions remain non-binding for Imported publication and require factual review when applied.
 
 ### 1.0 scope boundary
 
@@ -58,7 +58,7 @@ Imported publication adds a stricter gate:
 - unambiguous in-scope fiction classification without a manual scope override
 - verified listen link and valid staged local cover
 - enough deterministic canonical discovery signals
-- no unstructured, AI-derived, reviewer-selected, or manually curated core/discovery field
+  - no unstructured, AI-derived, reviewer-selected, or manually curated core/discovery field, including genres
 - no duplicate ambiguity, source conflict, unsafe URL, or other readiness blocker
 
 Indexed-only publication uses the base readiness gate plus a factual-review stamp for the current candidate input revision. Any re-preparation increments that revision and makes the earlier stamp stale.
@@ -87,7 +87,7 @@ The checked-in `echo-archives-discovery.timer` invokes the one-shot `import:disc
 
 Prepared records live only in SQLite. Approval requires an explicit `publicationTier` of `imported` or `indexed-only`, acquires a cross-process publish lock, promotes staged covers, writes only the affected split show files and order manifest, validates/builds once, and then marks candidates published. A failure restores authored files and cover bytes, rebuilds the prior generated state, and leaves candidates `ready` with an actionable error. Imported-eligible entries may be batch selected without per-entry review and publish in one catalogue build. Indexed-only publication requires a current factual review.
 
-Published Imported entries can be promoted to indexed-only after a maintainer confirms identity, official description, links/artwork, discovery metadata, lifecycle claims, and remaining gaps. Imported or indexed-only entries enter planned/full review through the existing companion-review workflow. Publication and promotion events retain the maintainer actor privately; public generated data exposes tier and non-identifying timestamps/revisions only.
+Published Imported entries can be promoted to indexed-only after a maintainer confirms identity, official description, links/artwork, source-derived genre mappings, approved discovery metadata, lifecycle claims, and remaining gaps. Corrected genres are recorded with maintainer provenance and therefore require the indexed-only factual-review path. Imported or indexed-only entries enter planned/full review through the existing companion-review workflow. Publication and promotion events retain the maintainer actor privately; public generated data exposes tier and non-identifying timestamps/revisions only.
 
 ## Elevation desk
 

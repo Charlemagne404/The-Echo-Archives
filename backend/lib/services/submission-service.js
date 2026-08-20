@@ -13,6 +13,7 @@ const CORRECTION_CREDIT_ACTIONS = new Set(["add", "update", "remove"]);
 const CORRECTION_METADATA_FIELDS = new Set(["creator", "description", "release-date", "runtime", "language", "other"]);
 const CORRECTION_STATUSES = new Set(["ongoing", "completed", "hiatus", "returning", "anthology", "unknown"]);
 const VERIFICATION_METHODS = new Set(["official-domain-email", "website", "social-account", "press-kit", "other"]);
+const LEGAL_DOCUMENT_VERSION = "2026-08-20";
 const LINK_LABELS = {
   apple: "Apple Podcasts",
   rss: "RSS Feed",
@@ -322,6 +323,20 @@ function createAcceptedResult(submission) {
   };
 }
 
+function withLegalAcknowledgement(common, provenance = {}) {
+  if (!common.legalAcknowledged) {
+    return provenance;
+  }
+
+  return {
+    ...provenance,
+    legalAcknowledgement: {
+      version: common.legalVersion,
+      acknowledgedAt: new Date().toISOString(),
+    },
+  };
+}
+
 function createMaintainerNotFoundError() {
   const error = new Error("Submission not found.");
   error.statusCode = 404;
@@ -366,6 +381,8 @@ function normalizeCommonFields(rawBody = {}, requestContext = {}) {
   const userAgent = trimString(requestContext?.userAgent, 500);
   const sourceIp = requestContext?.sourceIp || "";
   const honeypot = trimString(rawBody?.website, 200);
+  const legalAcknowledged = rawBody?.legalAcknowledged === true;
+  const legalVersion = trimString(rawBody?.legalVersion, 40);
 
   return {
     intakeVersion: normalizeIntakeVersion(rawBody),
@@ -382,12 +399,14 @@ function normalizeCommonFields(rawBody = {}, requestContext = {}) {
     provenanceNotes,
     userAgent,
     sourceIp,
+    legalAcknowledged,
+    legalVersion,
     honeypot,
     showTitle: resolveShowTitle(rawBody, existingShowId),
   };
 }
 
-function validateCommonSubmissionFields(common) {
+function validateCommonSubmissionFields(common, { requireLegalAcknowledgement = false } = {}) {
   if (common.contactEmail && !isValidEmail(common.contactEmail)) {
     const error = new Error("Contact email must be valid if provided.");
     error.statusCode = 400;
@@ -396,6 +415,13 @@ function validateCommonSubmissionFields(common) {
 
   if (!isValidUrl(common.officialSite) || !isValidUrl(common.rssOrListenLink)) {
     const error = new Error("Submitted links must be valid http or https URLs.");
+    error.statusCode = 400;
+    throw error;
+  }
+
+  if (requireLegalAcknowledgement &&
+      (!common.legalAcknowledged || common.legalVersion !== LEGAL_DOCUMENT_VERSION)) {
+    const error = new Error("Please acknowledge the current Terms and Privacy notice before submitting.");
     error.statusCode = 400;
     throw error;
   }
@@ -560,9 +586,9 @@ function createShowSubmissionHandler({ store }) {
         rssOrListenLink: primaryListenLink,
         notes: verificationNotes,
         payload,
-        provenance: {
+        provenance: withLegalAcknowledgement(common, {
           sourceLinks: [...new Set([derivedOfficialSite, primaryListenLink, ...listenLinks.map((row) => row.url)].filter(Boolean))],
-        },
+        }),
         sourceIp: common.sourceIp,
         userAgent: common.userAgent,
       }),
@@ -639,9 +665,9 @@ function createCorrectionSubmissionHandler({ store }) {
         genres: "",
         notes: optionalNotes || summary,
         payload,
-        provenance: {
+        provenance: withLegalAcknowledgement(common, {
           sourceLinks,
-        },
+        }),
         sourceIp: common.sourceIp,
         userAgent: common.userAgent,
       }),
@@ -704,7 +730,7 @@ function createListenerReviewSubmissionHandler({ store }) {
           alias,
           notes: common.notes,
         },
-        provenance: {},
+        provenance: withLegalAcknowledgement(common),
         sourceIp: common.sourceIp,
         userAgent: common.userAgent,
       }),
@@ -828,7 +854,7 @@ function createCreatorVerificationSubmissionHandler({ store }) {
         genres: "",
         notes: common.notes,
         payload,
-        provenance,
+        provenance: withLegalAcknowledgement(common, provenance),
         sourceIp: common.sourceIp,
         userAgent: common.userAgent,
       }),
@@ -841,6 +867,7 @@ function createSubmissionService({
   knownShowIds = null,
   knownShows = null,
   rateLimiter = null,
+  requireLegalAcknowledgement = false,
 }) {
   let effectiveKnownShows = new Map(
     Array.isArray(knownShows)
@@ -867,7 +894,7 @@ function createSubmissionService({
     }
 
     rateLimiter?.check("submissions", common.sourceIp);
-    validateCommonSubmissionFields(common);
+    validateCommonSubmissionFields(common, { requireLegalAcknowledgement });
 
     if (common.submissionType !== "show") {
       ensureKnownShowId(effectiveKnownShowIds, common.submissionType, common.existingShowId);

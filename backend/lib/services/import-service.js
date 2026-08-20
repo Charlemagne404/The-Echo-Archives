@@ -1243,6 +1243,9 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       };
       Object.entries(editedFields).forEach(([field, recordField]) => {
         provenance.fields[field] = { confidence: 1, method: "maintainer-edit", sources: [] };
+        if (recordField === "genres") {
+          provenance.fields.genres = { confidence: 1, method: "maintainer-edit", sources: [] };
+        }
         locks.add(recordField);
       });
       const nextCandidate = {

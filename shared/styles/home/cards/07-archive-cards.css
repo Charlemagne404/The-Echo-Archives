@@ -244,6 +244,10 @@
   color: rgba(255, 214, 202, 0.86);
 }
 
+.home-page .podcast-card .tags[data-card-meta-kind="source-genre"] {
+  color: rgba(255, 214, 202, 0.78);
+}
+
 .home-page .podcast-card h2 .search-highlight,
 .home-page .podcast-card .tags .search-highlight {
   padding: 0 0.1em;

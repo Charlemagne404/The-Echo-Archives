@@ -205,7 +205,7 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
     case "privacy":
       return {
         answer:
-          "The chat panel stores recent conversation history in session storage for the current browser session, and anonymous community ratings use an HTTP-only voter cookie plus a linked local profile id. Submission and rating requests can also send the request body plus limited IP and user-agent data for moderation, abuse prevention, and rate limiting.",
+          "The chat panel stores recent conversation history in session storage for the current browser session, and publicly anonymous community ratings use a pseudonymous HTTP-only voter cookie plus a linked local profile id. Submission and rating requests can also send the request body plus limited IP and user-agent data for moderation, abuse prevention, and rate limiting.",
         actions: [siteHelpContext.routes.privacy],
         suggestedPrompts: [
           "Does the site use cookies?",
@@ -229,7 +229,7 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
     case "support":
       return {
         answer:
-          "The Echo Archives is meant to stay free, ad-free, and supported by listeners. The support page explains what support pays for, and Patreon is the current public support option.",
+          "The Echo Archives is meant to stay free, ad-free, and supported by listeners. The support page explains what support pays for, and Patreon and Ko-fi are the current public support options.",
         actions: [siteHelpContext.routes.supporters],
         suggestedPrompts: [
           "How do I contact the archive?",
@@ -450,7 +450,7 @@ function buildRatingHelpResponse(show, siteHelpContext, supportContext) {
   const mentionsClear =
     /\b(clear|remove|delete)\b/i.test(message) && /\b(rating|score)\b/i.test(message);
   const intro = pickVariant(`${supportContext.normalizedMessage}|rating-help`, [
-    "Community ratings are tied to an anonymous browser profile rather than a public account.",
+    "Community ratings are publicly anonymous and tied to a pseudonymous browser profile rather than a public account.",
     "The listener-rating flow is local-browser based, so persistence issues usually come from the browser side or the verification step.",
     "The rating widget has a couple of guardrails that can make it look like a score did not save.",
   ]);
@@ -461,7 +461,7 @@ function buildRatingHelpResponse(show, siteHelpContext, supportContext) {
       answer: joinSentences([
         showSentence,
         "To remove a saved community rating, use the Clear your rating control in the listener-rating panel on the show page.",
-        "If the removal fails, the usual causes are the verification check not completing or the browser blocking the anonymous rating profile from persisting.",
+        "If the removal fails, the usual causes are the verification check not completing or the browser blocking the pseudonymous rating profile from persisting.",
       ]),
       actions: buildActionList([show ? { label: "Open Show", href: show.href, external: false } : siteHelpContext.routes.browse]),
       suggestedPrompts: [
@@ -494,7 +494,7 @@ function buildRatingHelpResponse(show, siteHelpContext, supportContext) {
     answer: joinSentences([
       intro,
       showSentence,
-      "The site keeps an anonymous profile id in local storage for ratings, uses a site cookie for abuse protection, and may require the listener verification check before saving.",
+      "The site keeps a pseudonymous profile id in local storage for ratings, uses a site cookie for abuse protection, and may require the listener verification check before saving.",
       "If a rating does not stick, the usual causes are blocked browser storage, cleared cookies, an incomplete verification check, or the backend being unavailable for that request.",
       "A saved rating can also exist before the public community average appears, because the average stays hidden until enough verified ratings accumulate.",
     ]),

@@ -50,6 +50,7 @@ test("Imported cards, collection cards, and popular cards carry a compact tier s
     reviewStatus: "imported",
     finalRating: null,
     cover: "images/Circle-S-Logo.png",
+    genres: ["drama", "sci-fi"],
     tags: ["Mystery", "Found audio"],
     bestFor: [],
     completionStatus: "ongoing",
@@ -61,7 +62,40 @@ test("Imported cards, collection cards, and popular cards carry a compact tier s
     assert.match(markup, /listener-review-inline-score-value">--\/10/);
     assert.doesNotMatch(markup, /archive-inline-score/);
   });
+  assert.match(renderArchiveCard(show), /Genre: Sci-Fi/);
+  assert.doesNotMatch(renderArchiveCard(show), /Mystery/);
+  assert.match(renderMostPopularCard(show), /Genre: Sci-Fi/);
   assert.match(renderMostPopularCard(show), /popular-card-chip is-imported">Imported/);
+});
+
+test("Imported cards disclose when only a generic drama mapping is available", () => {
+  const markup = renderArchiveCard({
+    id: "generic-imported-show",
+    title: "Generic Imported Show",
+    status: "published",
+    reviewStatus: "imported",
+    cover: "images/Circle-S-Logo.png",
+    genres: ["drama"],
+    tags: [],
+  });
+
+  assert.match(markup, /data-card-meta-kind="source-genre"/);
+  assert.match(markup, /Genre not yet reviewed/);
+});
+
+test("reviewed cards continue to prefer approved discovery tags over genres", () => {
+  const markup = renderArchiveCard({
+    id: "reviewed-show",
+    title: "Reviewed Show",
+    status: "published",
+    reviewStatus: "indexed-only",
+    cover: "images/Circle-S-Logo.png",
+    genres: ["sci-fi"],
+    tags: ["Space"],
+  });
+
+  assert.match(markup, />Space<\/p>/);
+  assert.doesNotMatch(markup, /Genre: Sci-Fi/);
 });
 
 test("prerendered compact collection cards retain the four-cover collage and anchor show", () => {

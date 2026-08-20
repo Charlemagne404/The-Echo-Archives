@@ -4,6 +4,15 @@ import {
   pickPrimaryListenLink,
 } from "./utils.js";
 
+const LEGAL_DOCUMENT_VERSION = "2026-08-20";
+
+function legalAcknowledgementFields(draft) {
+  return {
+    legalAcknowledged: draft.legalAcknowledged === true,
+    legalVersion: LEGAL_DOCUMENT_VERSION,
+  };
+}
+
 function buildCorrectionDetails(draft) {
   switch (draft.correctionType) {
     case "broken-link":
@@ -51,6 +60,7 @@ export function buildPayload(mode, draft, showMap) {
       completionStatus: draft.completionStatus || "unknown",
       shortDescription: draft.shortDescription,
       verificationNotes: draft.verificationNotes,
+      ...legalAcknowledgementFields(draft),
       website: readHoneypotValue(),
     };
   }
@@ -67,6 +77,7 @@ export function buildPayload(mode, draft, showMap) {
       correctionType: draft.correctionType,
       correctionDetails: buildCorrectionDetails(draft),
       sourceLinks,
+      ...legalAcknowledgementFields(draft),
       website: readHoneypotValue(),
     };
   }
@@ -89,6 +100,7 @@ export function buildPayload(mode, draft, showMap) {
       workedBest: [...draft.workedBest],
       similarShows: draft.similarShows,
       alias: draft.alias,
+      ...legalAcknowledgementFields(draft),
       website: readHoneypotValue(),
     };
   }
@@ -119,6 +131,7 @@ export function buildPayload(mode, draft, showMap) {
     requestedUpdates: draft.requestedUpdates,
     preferredDescription: draft.preferredDescription,
     officialLinks,
+    ...legalAcknowledgementFields(draft),
     website: readHoneypotValue(),
   };
 }

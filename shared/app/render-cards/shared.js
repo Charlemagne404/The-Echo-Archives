@@ -1,10 +1,11 @@
-import { toDisplayTag } from "../utils.js";
+import { archiveRecord } from "../constants.js";
 
-function formatInlineTagList(tags, maxItems) {
-  return (Array.isArray(tags) ? tags : [])
-    .slice(0, maxItems)
-    .map((tag) => toDisplayTag(tag))
-    .join(" • ");
+function getCardDiscoveryMetadata(show, maxItems) {
+  return archiveRecord.getCardDiscoveryMetadata(show, maxItems);
 }
 
-export { formatInlineTagList };
+function formatCardDiscoveryMetadata(show, maxItems) {
+  return getCardDiscoveryMetadata(show, maxItems).text;
+}
+
+export { formatCardDiscoveryMetadata, getCardDiscoveryMetadata };

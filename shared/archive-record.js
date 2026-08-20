@@ -171,6 +171,49 @@
     return { imported, reviewed, recommendations, sparse: !reviewed && !recommendations };
   }
 
+  function getCardDiscoveryMetadata(show = {}, maxItems = 2) {
+    const limit = Math.max(1, Number(maxItems) || 2);
+    const tags = uniqueDisplayValues(show.tags);
+    const genres = uniqueDisplayValues(show.genres);
+    const imported = String(show.reviewStatus || "").trim().toLowerCase() === "imported";
+
+    if (imported) {
+      const sourceGenres = genres
+        .filter((genre) => normalizeTagValue(genre) !== "drama")
+        .slice(0, limit);
+
+      if (sourceGenres.length > 0) {
+        return {
+          kind: "source-genre",
+          values: sourceGenres,
+          text: `Genre: ${sourceGenres.map(toPublicLabel).join(" • ")}`,
+        };
+      }
+
+      return {
+        kind: "source-genre",
+        values: [],
+        text: genres.length > 0 ? "Genre not yet reviewed" : "",
+      };
+    }
+
+    if (tags.length > 0) {
+      const values = tags.slice(0, limit);
+      return {
+        kind: "tag",
+        values,
+        text: values.map(toPublicLabel).join(" • "),
+      };
+    }
+
+    const values = genres.slice(0, limit);
+    return {
+      kind: values.length > 0 ? "genre" : "none",
+      values,
+      text: values.length > 0 ? `Genre: ${values.map(toPublicLabel).join(" • ")}` : "",
+    };
+  }
+
   function getReviewStatusLabel(value = "") {
     switch (String(value || "").trim()) {
       case "full-review": return "Full review";
@@ -504,6 +547,7 @@
     getReviewStatusLabel,
     getWebPageDates,
     getCatalogPublicationDate,
+    getCardDiscoveryMetadata,
     normalizeStructuredObject,
     normalizeTagValue,
     normalizeUrlMap,

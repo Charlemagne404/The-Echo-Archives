@@ -125,6 +125,10 @@
   overflow-wrap: anywhere;
 }
 
+.home-page .preview-tags[data-metadata-kind="source-genre"] {
+  color: rgba(255, 214, 202, 0.78);
+}
+
 .home-page .preview-take {
   margin: 0;
   max-width: 32ch;

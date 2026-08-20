@@ -754,7 +754,9 @@ function renderPage(entry, partials, versions, homeConfig, seoContext, submitPre
     renderSkipLink(mainContentTarget),
     headerMarkup,
     pageBody,
-    entry.includeFloatingControls && archivistEnabled ? partials.floatingControls : "",
+    entry.includeFloatingControls
+      ? renderConditionals(partials.floatingControls, { archivist: archivistEnabled })
+      : "",
     partials.footer,
     `  <script src="/shared/archive-record.js?v=${versions.archiveRecord}"></script>`,
     `  <script src="/shared/archive-search.js?v=${versions.archiveSearch}"></script>`,

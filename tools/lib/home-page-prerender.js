@@ -222,11 +222,17 @@ function getMostPopularLifecycleLabel(show) {
   return "";
 }
 
-function getMostPopularMetaText(show) {
+function getMostPopularCardMetadata(show) {
   const bestFor = Array.isArray(show.bestFor) ? show.bestFor : [];
-  const tags = Array.isArray(show.tags) ? show.tags : [];
-  const preferredValues = bestFor.length > 0 ? bestFor.slice(0, 2) : tags.slice(0, 2);
-  return preferredValues.map((value) => toDisplayTag(value)).join(" • ");
+  if (bestFor.length > 0) {
+    return {
+      kind: "best-for",
+      values: bestFor.slice(0, 2),
+      text: bestFor.slice(0, 2).map((value) => toDisplayTag(value)).join(" • "),
+    };
+  }
+
+  return archiveRecord.getCardDiscoveryMetadata(show, 2);
 }
 
 function renderEditorialBadges(show) {
@@ -322,10 +328,8 @@ function renderCommunityScore(show, { showLabel = true } = {}) {
 }
 
 function renderArchiveCard(show) {
-  const metaText = (Array.isArray(show.tags) ? show.tags : [])
-    .slice(0, 2)
-    .map((tag) => toDisplayTag(tag))
-    .join(" • ");
+  const cardMetadata = archiveRecord.getCardDiscoveryMetadata(show, 2);
+  const metaText = cardMetadata.text;
   const title = escapeHtml(show.title || "Untitled show");
   const href = escapeAttribute(show.href || createShowHref(show.id || ""));
   const imageSrc = escapeAttribute(show.imageSrc || resolveImageSrc(show.cover));
@@ -337,7 +341,7 @@ function renderArchiveCard(show) {
         ${renderEditorialBadges(show)}
         <img src="${imageSrc}"${renderResponsiveCoverAttributes(show, "(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px")} alt="${imageAlt}" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">${title}</h2>
-        <p class="tags" data-card-meta="true"${metaText ? "" : " hidden"}>${escapeHtml(metaText)}</p>
+        <p class="tags" data-card-meta="true" data-card-meta-kind="${escapeAttribute(cardMetadata.kind)}"${metaText ? "" : " hidden"}>${escapeHtml(metaText)}</p>
         <div class="rating">
           ${renderPrimaryScore(show, { showLabel: false })}
           <span class="rating-divider" aria-hidden="true"></span>
@@ -378,7 +382,8 @@ function renderMostPopularCard(show) {
   }
   const accentStyle = show.accent?.rgb ? ` style="--popular-card-accent-rgb: ${escapeAttribute(show.accent.rgb)};"` : "";
   const subtitle = String(show.subtitle || "").trim();
-  const metaText = getMostPopularMetaText(show);
+  const cardMetadata = getMostPopularCardMetadata(show);
+  const metaText = cardMetadata.text;
   const copy = String(show.archiveTake || show.description || "").trim();
 
   return `
@@ -390,7 +395,7 @@ function renderMostPopularCard(show) {
         <div class="popular-card-status"${chips.length === 0 ? " hidden" : ""}>${chips.join("")}</div>
         <h3 class="popular-card-title">${escapeHtml(show.title || "Untitled show")}</h3>
         <p class="popular-card-subtitle"${subtitle ? "" : " hidden"}>${escapeHtml(subtitle)}</p>
-        <p class="popular-card-meta"${metaText ? "" : " hidden"}>${escapeHtml(metaText)}</p>
+        <p class="popular-card-meta" data-card-meta-kind="${escapeAttribute(cardMetadata.kind)}"${metaText ? "" : " hidden"}>${escapeHtml(metaText)}</p>
         <p class="popular-card-copy"${copy ? "" : " hidden"}>${escapeHtml(copy)}</p>
         <div class="popular-card-footer">
           <div class="popular-card-ratings">

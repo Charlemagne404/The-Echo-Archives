@@ -144,6 +144,7 @@ export function createSubmitUiController({ state, elements }) {
     elements.resultPanel.hidden = true;
     elements.resultPanel.innerHTML = "";
     elements.form.hidden = false;
+    elements.legalAcknowledgement.checked = false;
     setStatus("");
     renderAll();
   }

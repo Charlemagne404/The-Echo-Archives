@@ -44,8 +44,26 @@ function createRateLimitStore({ db }) {
     };
   });
 
+  const pruneExpired = db.transaction(({ scopeWindows = {}, nowMs = Date.now() } = {}) => {
+    const results = {};
+    Object.entries(scopeWindows).forEach(([scope, windowMs]) => {
+      const safeWindowMs = Number(windowMs);
+      if (!Number.isFinite(safeWindowMs) || safeWindowMs <= 0) {
+        return;
+      }
+
+      const result = statements.pruneExpiredScope.run({
+        scope,
+        cutoffMs: Number(nowMs) - safeWindowMs,
+      });
+      results[scope] = result.changes;
+    });
+    return results;
+  });
+
   return {
     consume,
+    pruneExpired,
   };
 }
 

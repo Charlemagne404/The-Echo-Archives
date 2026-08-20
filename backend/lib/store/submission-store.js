@@ -83,6 +83,42 @@ function createSubmissionStore({ db }) {
       FROM show_submissions
       WHERE id = ?
     `),
+    redactSubmissionNetworkData: db.prepare(`
+      UPDATE show_submissions
+      SET source_ip = '',
+          user_agent = ''
+      WHERE (source_ip <> '' OR user_agent <> '')
+        AND datetime(submitted_at) <= datetime(@cutoff)
+    `),
+    deleteExpiredSubmissions: db.prepare(`
+      DELETE FROM show_submissions
+      WHERE datetime(COALESCE(reviewed_at, submitted_at)) <= datetime(@cutoff)
+        AND NOT EXISTS (
+          SELECT 1
+          FROM published_listener_reviews
+          WHERE published_listener_reviews.submission_id = show_submissions.id
+            AND published_listener_reviews.is_published = 1
+        )
+    `),
+    redactExpiredPublishedSubmissions: db.prepare(`
+      UPDATE show_submissions
+      SET contact_email = '',
+          creator_name = '',
+          notes = '',
+          payload_json = '{}',
+          provenance_json = '{}',
+          review_notes = '',
+          reviewed_by = '',
+          source_ip = '',
+          user_agent = ''
+      WHERE datetime(COALESCE(reviewed_at, submitted_at)) <= datetime(@cutoff)
+        AND EXISTS (
+          SELECT 1
+          FROM published_listener_reviews
+          WHERE published_listener_reviews.submission_id = show_submissions.id
+            AND published_listener_reviews.is_published = 1
+        )
+    `),
   };
 
   function buildListFilters(filters = {}) {
@@ -310,10 +346,28 @@ function createSubmissionStore({ db }) {
     return getShowSubmission(id);
   }
 
+  function purgePersonalData({
+    now = new Date(),
+    networkRetentionDays = 30,
+    personalRetentionDays = 180,
+  } = {}) {
+    const nowMs = now instanceof Date ? now.getTime() : new Date(now).getTime();
+    const safeNowMs = Number.isFinite(nowMs) ? nowMs : Date.now();
+    const networkCutoff = new Date(safeNowMs - Math.max(1, networkRetentionDays) * 24 * 60 * 60 * 1000).toISOString();
+    const personalCutoff = new Date(safeNowMs - Math.max(1, personalRetentionDays) * 24 * 60 * 60 * 1000).toISOString();
+
+    return db.transaction(() => ({
+      networkRowsRedacted: statements.redactSubmissionNetworkData.run({ cutoff: networkCutoff }).changes,
+      submissionsDeleted: statements.deleteExpiredSubmissions.run({ cutoff: personalCutoff }).changes,
+      publishedSubmissionRowsRedacted: statements.redactExpiredPublishedSubmissions.run({ cutoff: personalCutoff }).changes,
+    }))();
+  }
+
   return {
     createShowSubmission,
     getShowSubmission,
     listShowSubmissions,
+    purgePersonalData,
     updateShowSubmissionReview,
   };
 }

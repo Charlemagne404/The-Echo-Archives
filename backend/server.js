@@ -17,6 +17,7 @@ const { createPublishedListenerReviewStore } = require("./lib/store/published-li
 const { createRateLimitStore } = require("./lib/store/rate-limit-store");
 const { createSubmissionStore } = require("./lib/store/submission-store");
 const { createCommunityService } = require("./lib/services/community-service");
+const { createDataRetentionService } = require("./lib/services/data-retention-service");
 const { createImportService } = require("./lib/services/import-service");
 const { createCollectionService } = require("./lib/services/collection-service");
 const { createElevationService } = require("./lib/services/elevation-service");
@@ -311,6 +312,7 @@ async function startServer() {
     store: submissionStore,
     knownShows: state.publicCatalog,
     rateLimiter: rateLimitService,
+    requireLegalAcknowledgement: true,
   });
   const publishedListenerReviewService = createPublishedListenerReviewService({
     store: publishedListenerReviewStore,
@@ -323,6 +325,51 @@ async function startServer() {
     maxSummaryIds: config.COMMUNITY_SUMMARY_MAX_IDS,
     knownShowIds: new Set(state.publicCatalog.map((show) => show.id)),
   });
+  const dataRetentionService = createDataRetentionService({
+    communityStore,
+    rateLimitStore,
+    submissionStore,
+    policy: {
+      communityAbuseRetentionDays: config.COMMUNITY_ABUSE_RETENTION_DAYS,
+      communityProfileMetadataRetentionDays: config.COMMUNITY_PROFILE_METADATA_RETENTION_DAYS,
+      communityOrphanProfileRetentionDays: config.COMMUNITY_ORPHAN_PROFILE_RETENTION_DAYS,
+      submissionNetworkDataRetentionDays: config.SUBMISSION_NETWORK_DATA_RETENTION_DAYS,
+      submissionPersonalDataRetentionDays: config.SUBMISSION_PERSONAL_DATA_RETENTION_DAYS,
+      rateLimitWindows: {
+        chat: config.CHAT_RATE_LIMIT_WINDOW_MS,
+        community: config.COMMUNITY_WRITE_WINDOW_MS,
+        submissions: config.SUBMISSION_RATE_LIMIT_WINDOW_MS,
+        "maintainer-login": config.MAINTAINER_LOGIN_WINDOW_MS,
+      },
+    },
+  });
+  function runDataRetention() {
+    try {
+      const result = dataRetentionService.run();
+      const rateLimitRows = Object.values(result.rateLimitRowsPruned).reduce((sum, count) => sum + count, 0);
+      const totalRows = rateLimitRows +
+        result.community.abuseRowsPruned +
+        result.community.ratingEventsPruned +
+        result.community.ratingAbuseHashesRedacted +
+        result.community.profileMetadataRedacted +
+        result.community.orphanProfilesDeleted +
+        result.submissions.networkRowsRedacted +
+        result.submissions.submissionsDeleted +
+        result.submissions.publishedSubmissionRowsRedacted;
+      if (totalRows > 0) {
+        console.log(JSON.stringify({ level: "info", event: "privacy_retention_cleanup", result }));
+      }
+    } catch (error) {
+      console.error(JSON.stringify({
+        level: "error",
+        event: "privacy_retention_cleanup_failed",
+        error: error.message || String(error),
+      }));
+    }
+  }
+  runDataRetention();
+  const dataRetentionTimer = setInterval(runDataRetention, config.DATA_RETENTION_CLEANUP_INTERVAL_MS);
+  dataRetentionTimer.unref();
   async function syncLiveCatalogState() {
     await reloadState();
     communityStore.syncCatalog(state.publicCatalog);
@@ -919,6 +966,7 @@ async function startServer() {
   function shutdown(signal) {
     if (shuttingDown) return;
     shuttingDown = true;
+    clearInterval(dataRetentionTimer);
     console.log(`Received ${signal}; closing Echo Archives cleanly.`);
 
     const forceTimer = setTimeout(() => {
