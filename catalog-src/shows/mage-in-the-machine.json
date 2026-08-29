@@ -6,7 +6,7 @@
   "cover": "images/covers/mage-in-the-machine.png",
   "coverAlt": "Mage In The Machine cover art",
   "status": "published",
-  "reviewStatus": "imported",
+  "reviewStatus": "indexed-only",
   "releaseStatus": "active",
   "completionStatus": "ongoing",
   "listenLinks": {
@@ -20,18 +20,36 @@
     "pocketCasts": ""
   },
   "genres": [
-    "drama"
+    "drama",
+    "horror",
+    "supernatural"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "weird",
+    "tense"
+  ],
   "formats": [
     "episodic"
   ],
-  "tags": [],
+  "tags": [
+    "Horror",
+    "Supernatural",
+    "Character-driven"
+  ],
   "aliases": [
     "Mage In The Machine"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "curses",
+    "fear",
+    "secrecy"
+  ],
+  "contentNotes": [
+    "explicit content",
+    "violence and death",
+    "body horror"
+  ],
   "languages": [
     "English"
   ],
@@ -64,9 +82,23 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-magnus-archives",
+    "knifepoint-horror",
+    "spines-podcast",
+    "a-voice-from-darkness"
+  ],
+  "similarReasons": {
+    "the-magnus-archives": "Both use case-by-case supernatural horror while an overarching mythology gathers underneath.",
+    "knifepoint-horror": "Both turn compact, narrated horror stories into a new threat with each episode.",
+    "spines-podcast": "Both keep a central character moving through dark supernatural encounters with a wider mystery around them.",
+    "a-voice-from-darkness": "Both use a voice-led supernatural frame to make each encounter feel like a transmission from somewhere wrong."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -95,18 +127,25 @@
         "name": "Mage In The Machine Offical",
         "role": "author",
         "url": ""
+      },
+      {
+        "name": "Luke Blevins",
+        "role": "guest actor",
+        "url": "http://lukeblevinsart.com/"
       }
     ]
   },
   "creators": [
     "Mage In The Machine Offical"
   ],
-  "cast": [],
+  "cast": [
+    "Luke Blevins"
+  ],
   "verification": {
-    "status": "automated-source-checked",
-    "verifiedAt": "2026-08-15",
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-08-27",
     "source": "https://rss.com/podcasts/mage-in-the-machine/; https://media.rss.com/mage-in-the-machine/feed.xml; https://podcasts.apple.com/us/podcast/mage-in-the-machine/id1815145178?uo=4",
-    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
   },
   "availability": {
     "transcripts": "unknown",
@@ -115,7 +154,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "ordinary modern life under pressure from recurring supernatural cases",
+    "pov": "single-lead, case-driven audio drama with an unfolding mythology",
+    "intensity": "high"
+  },
   "metadata": {
     "objectiveSources": [
       "https://rss.com/podcasts/mage-in-the-machine/",
@@ -713,14 +757,19 @@
         "No structured transcript links were exposed by the feed."
       ],
       "publication": {
-        "tier": "imported",
+        "tier": "indexed-only",
         "publishedAt": "2026-08-15T20:52:38.900Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-08-27T19:12:46.364Z",
+        "reviewedBy": "Codex",
+        "inputRevision": 1
       }
     }
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-08-28",
   "creatorId": "mage-in-the-machine-offical",
   "networkId": "rss-com"
 }

@@ -5476,7 +5476,7 @@
       "text": "The Bright Sessions is a science fiction audio drama that follows a group of therapy patients. But these are not your typical patients - each has a unique supernatural ability. The show documents their struggles and discoveries as well as the motivations of their mysterious therapist, Dr. Bright. The show was created by Lauren Shippen and is a production of Atypical Artists . The show has seven seasons, including the previously paywalled Seasons 6 and 7, The AM Archives and The College Tapes . The Bright Sessions has been downloaded tens of millions of times and cemented itself as a classic of audio fiction. Three spin-off novels were published through Tor Teen: The Infinite Noise, A Neon Darkness, and Some Faraway Place. If you enjoy this show, check out the rest of Atypical Artists' shows!",
       "sourceLabel": "Publisher RSS feed",
       "sourceUrl": "https://rss.art19.com/the-bright-sessions",
-      "verifiedAt": "2026-07-18"
+      "verifiedAt": "2026-08-29"
     },
     "cover": "images/covers/the-bright-sessions.jpg",
     "coverAlt": "The Bright Sessions cover art",
@@ -5519,17 +5519,29 @@
     ],
     "contentNotes": [
       "strong language",
-      "mental health themes"
+      "mental health themes",
+      "violence",
+      "panic attacks",
+      "scientific experimentation",
+      "kidnapping",
+      "unethical medical practices"
     ],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
     "length": {
-      "label": "7 seasons / 124 feed entries including bonus and anniversary material.",
+      "label": "7 seasons + epilogue / 124 feed entries (111 full, 12 bonus, 1 trailer).",
       "seasons": 7,
       "episodes": 124,
-      "avgEpisodeMinutes": 25
+      "avgEpisodeMinutes": 25,
+      "medianEpisodeMinutes": 24,
+      "totalHours": 45.3,
+      "episodeCounts": {
+        "full": 111,
+        "bonus": 12,
+        "trailer": 1
+      }
     },
     "releaseDates": {
       "first": "2015-10-01",
@@ -5553,7 +5565,10 @@
       "attribution": ""
     },
     "officialLinks": {
-      "website": "https://www.atypicalartists.co/thebrightsessions"
+      "website": "https://www.atypicalartists.co/thebrightsessions",
+      "patreon": "https://www.patreon.com/c/AtypicalArtists",
+      "merch": "https://www.atypicalartists.co/merch/the-bright-sessions-compendium",
+      "transcripts": "https://drive.google.com/drive/folders/1oiHZTinPgJzGmBSEYBp3mmBbJYDpKYMs?usp=sharing"
     },
     "verification": {
       "status": "source-verified",
@@ -5564,9 +5579,23 @@
     "creators": [
       "Lauren Shippen"
     ],
-    "cast": [],
+    "cast": [
+      "Julia Morizawa as Dr. Bright",
+      "Lauren Shippen as Sam Barnes",
+      "Briggon Snow as Caleb Michaels",
+      "Anna Lore as Chloe Turner",
+      "Charlie Ian as Damien",
+      "Ian McQuown as Agent Green",
+      "Alex Gallner as Adam Hayes",
+      "Andrew Nowak as Mark Bryant",
+      "Alex Marshall-Brown as Director Wadsworth",
+      "Phillip Jordan as Frank Sawyer",
+      "Alanna Fox as Rose Atkinson",
+      "Reyn Beeler as Officer Decker",
+      "Elizabeth Laird as Sarah"
+    ],
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-18",
+    "updatedAt": "2026-08-29",
     "similarReasons": {
       "ars-paradoxica": "A denser science-fiction branch if the speculative mechanics matter as much as the characters.",
       "story": "Keeps the softer emotional legibility intact while stepping away from the superpowered frame.",
@@ -5574,11 +5603,19 @@
     },
     "credits": {
       "creatorName": "Lauren Shippen",
-      "productionCompany": "Atypical Artists"
+      "writer": "Lauren Shippen",
+      "director": "Lauren Shippen",
+      "soundDesigner": "Mischa Stanton",
+      "composer": "Evan Cunningham",
+      "productionCompany": "Atypical Artists",
+      "psychologicalConsultant": "Elizabeth Laird"
     },
     "availability": {
       "transcripts": "available from the official show site",
       "captions": "not applicable",
+      "transcriptLanguages": [
+        "English"
+      ],
       "regionNotes": "The completed main series and related feed material remain available through major platforms."
     },
     "content": {
@@ -5594,9 +5631,9 @@
         "https://open.spotify.com/show/1sSQt6a48M6t1mupfqnCnb",
         "https://rss.art19.com/the-bright-sessions"
       ],
-      "objectiveVerifiedAt": "2026-07-18",
-      "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
-      "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
+      "objectiveVerifiedAt": "2026-08-29",
+      "objectiveNote": "Official show site and current publisher feed verify the season structure, episode mix, content warnings, transcript link, and production credits.",
+      "auditPass": "Factual catalog expansion on 2026-08-29. Official publisher sources were used to expand objective episode, content-warning, transcript, cast, and production metadata. Archive ratings and long-form editorial reviews were preserved."
     },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
@@ -5609,7 +5646,7 @@
     "imageAlt": "The Bright Sessions cover art",
     "summary": "The Bright Sessions is a science fiction audio drama that follows a group of therapy patients. But these are not your typical patients - each has a unique supernatural ability. The show documents their struggles and discoveries as well as the motivations of their mysterious therapist, Dr. Bright. The show was created by Lauren Shippen and is a production of Atypical Artists . The show has seven seasons, including the previously paywalled Seasons 6 and 7, The AM Archives and The College Tapes . The Bright Sessions has been downloaded tens of millions of times and cemented itself as a classic of audio fiction. Three spin-off novels were published through Tor Teen: The Infinite Noise, A Neon Darkness, and Some Faraway Place. If you enjoy this show, check out the rest of Atypical Artists' shows!",
     "finalRating": null,
-    "searchText": "the bright sessions therapy sessions for the strange and unusual with a larger sci fi story waiting underneath the bright sessions is a science fiction audio drama that follows a group of therapy patients but these are not your typical patients each has a unique supernatural ability the show documents their struggles and discoveries as well as the motivations of their mysterious therapist dr bright the show was created by lauren shippen and is a production of atypical artists the show has seven seasons including the previously paywalled seasons 6 and 7 the am archives and the college tapes the bright sessions has been downloaded tens of millions of times and cemented itself as a classic of audio fiction three spin off novels were published through tor teen the infinite noise a neon darkness and some faraway place if you enjoy this show check out the rest of atypical artists shows one of the cleaner entry points for listeners who want emotionally legible sci fi before they want maximal world mechanics superpowers found family conspiracy sci fi drama supernatural hopeful cinematic weird full cast serialized easy entry binge listening worldbuilding the bright sessions podcast identity secrecy trust strong language mental health themes lauren shippen english ars paradoxica story case 63 finished indexed only lauren shippen atypical artists available from the official show site not applicable the completed main series and related feed material remain available through major platforms original fiction therapy sessions for people with supernatural abilities recorded therapy sessions expanding into a full cast ensemble medium official site apple podcasts and current feed metadata verify core show identity link targets and current feed activity",
+    "searchText": "the bright sessions therapy sessions for the strange and unusual with a larger sci fi story waiting underneath the bright sessions is a science fiction audio drama that follows a group of therapy patients but these are not your typical patients each has a unique supernatural ability the show documents their struggles and discoveries as well as the motivations of their mysterious therapist dr bright the show was created by lauren shippen and is a production of atypical artists the show has seven seasons including the previously paywalled seasons 6 and 7 the am archives and the college tapes the bright sessions has been downloaded tens of millions of times and cemented itself as a classic of audio fiction three spin off novels were published through tor teen the infinite noise a neon darkness and some faraway place if you enjoy this show check out the rest of atypical artists shows one of the cleaner entry points for listeners who want emotionally legible sci fi before they want maximal world mechanics superpowers found family conspiracy sci fi drama supernatural hopeful cinematic weird full cast serialized easy entry binge listening worldbuilding the bright sessions podcast identity secrecy trust strong language mental health themes violence panic attacks scientific experimentation kidnapping unethical medical practices lauren shippen julia morizawa as dr bright lauren shippen as sam barnes briggon snow as caleb michaels anna lore as chloe turner charlie ian as damien ian mcquown as agent green alex gallner as adam hayes andrew nowak as mark bryant alex marshall brown as director wadsworth phillip jordan as frank sawyer alanna fox as rose atkinson reyn beeler as officer decker elizabeth laird as sarah english ars paradoxica story case 63 finished indexed only lauren shippen lauren shippen lauren shippen mischa stanton evan cunningham atypical artists elizabeth laird available from the official show site not applicable english the completed main series and related feed material remain available through major platforms original fiction therapy sessions for people with supernatural abilities recorded therapy sessions expanding into a full cast ensemble medium official show site and current publisher feed verify the season structure episode mix content warnings transcript link and production credits",
     "tagTokens": [
       "superpowers",
       "found-family",
@@ -28807,6 +28844,12 @@
     "title": "The Secret of St Kilda",
     "subtitle": "The Secret of St Kilda follows charismatic spiritualist Lockie Macgregor trying to escape the ghost of his past, only to arrive on the Scottish island of St Kilda where the supernatural is all too real.",
     "description": "In this supernatural thriller series, listeners will follow Lockie, a charismatic con man who escapes to St Kilda with the promise that this time he’ll change his ways. Unfortunately, the island and its unusual inhabitants have other ideas. He seeks redemption and they seek a saviour, but you know what they say - no change without sacrifice.",
+    "officialDescription": {
+      "text": "In this supernatural thriller series, listeners will follow Lockie, a charismatic con man who escapes to St Kilda with the promise that this time he’ll change his ways. Unfortunately, the island and its unusual inhabitants have other ideas. He seeks redemption and they seek a saviour, but you know what they say - no change without sacrifice.",
+      "sourceLabel": "Publisher RSS feed",
+      "sourceUrl": "https://feeds.megaphone.fm/thekilda",
+      "verifiedAt": "2026-08-29"
+    },
     "cover": "images/covers/the-secret-of-st-kilda.avif",
     "coverAlt": "The Secret of St Kilda cover art",
     "status": "published",
@@ -28821,27 +28864,39 @@
       "pocketCasts": "https://pca.st/emcnpapw"
     },
     "genres": [
+      "horror",
+      "thriller",
       "drama"
     ],
     "tones": [],
     "formats": [
+      "full-cast",
       "serialized"
     ],
     "tags": [
       "Supernatural",
-      "Folk horror"
+      "Folk horror",
+      "Cults"
     ],
     "aliases": [
       "The Secret of St Kilda"
     ],
     "themes": [],
-    "contentNotes": [],
+    "contentNotes": [
+      "violence",
+      "death",
+      "cult indoctrination",
+      "ritual sacrifice",
+      "gore",
+      "gun use",
+      "chronic illness themes"
+    ],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
     "length": {
-      "label": "1 season observed • at least 10 full episodes • 33 min median",
+      "label": "1 season observed • 10 full episodes, 5 bonus episodes, 1 trailer • 33 min median",
       "seasons": 1,
       "episodes": 10,
       "avgEpisodeMinutes": 35,
@@ -28866,11 +28921,17 @@
       "latestFeedItem": "2024-07-07"
     },
     "ratings": {},
-    "facts": {},
+    "facts": {
+      "officialSeriesStatus": "Season 1 released; Season 2 listed as in pre-production on the official site.",
+      "awards": [
+        "12 Audio Verse Awards wins",
+        "Silver Award, Best Fiction Podcast, 2022 New Zealand Podcast Awards"
+      ]
+    },
     "bestFor": [],
     "similarTo": [],
     "similarReasons": {},
-    "archiveTake": "",
+    "archiveTake": "A supernatural island thriller where redemption, cult pressure, and the wider community all pull in the same direction.",
     "spoilerFreeReview": "",
     "thoughts": "",
     "quote": {
@@ -28881,35 +28942,77 @@
       "website": "https://thesecretofstkilda.carrd.co/",
       "koFi": "https://ko-fi.com/thekilda",
       "youtube": "https://youtube.com/channel/UCmePYFvSQJOZXXoj9Ple8FA",
+      "merch": "https://haggisdragons.creator-spring.com/",
+      "transcripts": "https://thesecretofstkilda.carrd.co/#transcripts",
       "social": "https://www.instagram.com/thekilda/"
     },
     "credits": {
       "creatorName": "Michael Ireland & Naomi Clarke",
       "ownerName": "Michael Ireland & Naomi Clarke",
-      "network": "The Secret of St Kilda"
+      "network": "The Secret of St Kilda",
+      "writer": "Naomi Clarke",
+      "director": "Michael Ireland",
+      "assistantDirector": "Michelle Kelly",
+      "soundDesigner": "Will Fox",
+      "productionAssistant": "Chloe Hendry",
+      "themeMusic": "Shane Rutherfoord-Jones",
+      "productionCompany": "Fable & Folly"
     },
     "creators": [
       "Michael Ireland & Naomi Clarke"
     ],
-    "cast": [],
+    "cast": [
+      "Alasdair Stuart as The Narrator",
+      "Alan Burgon as Lockie",
+      "Méabh de Brún as Andromeda",
+      "Ben Meredith as Mathias",
+      "Michelle Kelly as Niyathi",
+      "Erika Sanderson as Wee Mary",
+      "Shogo Miyakita as Georgie",
+      "Dean Kenneth as Robbie",
+      "Sam Yeow as Angelique",
+      "Danilo Battistinia as Sacha",
+      "Amina Koroma as Amy",
+      "Kirsty Woolven as Young Amy",
+      "Sarah Golding as Elder Eli / Bessie",
+      "Rhys Lawton as Elder Findlay",
+      "Sasha Sienna as Elder Grace",
+      "Andrew Gorman as Lockie’s Da",
+      "Sally Walker-Taylor as Jillian",
+      "Marie Anello as Esther",
+      "Axandre Oge as Preston",
+      "Marguerite Kenner as Mama Laveau"
+    ],
     "verification": {
-      "status": "partially-source-reviewed",
-      "verifiedAt": "2026-07-21",
+      "status": "maintainer-source-reviewed",
+      "verifiedAt": "2026-08-29",
       "source": "https://thesecretofstkilda.carrd.co/; https://feeds.megaphone.fm/thekilda; https://podcasts.apple.com/us/podcast/the-secret-of-st-kilda/id1600585805?uo=4",
       "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
     },
     "availability": {
-      "transcripts": "unknown",
+      "transcripts": "available for the main episodes and selected bonus episodes",
       "captions": "unknown",
-      "transcriptCoverage": 0
+      "transcriptCoverage": 0.75,
+      "transcriptFormats": [
+        "Google Docs"
+      ],
+      "transcriptLanguages": [
+        "English"
+      ]
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "A fictionalized Scottish island community",
+      "pov": "Serialized ensemble thriller centered on Lauchlan (Lockie) MacGregor",
+      "framingDevice": "A supernatural thriller audio drama"
+    },
     "metadata": {
       "objectiveSources": [
         "https://thesecretofstkilda.carrd.co/",
         "https://feeds.megaphone.fm/thekilda",
         "https://podcasts.apple.com/us/podcast/the-secret-of-st-kilda/id1600585805?uo=4"
       ],
+      "objectiveVerifiedAt": "2026-08-29",
       "sourceCategories": [
         "Fiction"
       ],
@@ -29442,25 +29545,22 @@
         },
         "importedAt": "2026-07-21T13:52:30.681Z",
         "optionalGaps": [
-          "Structured creator/cast/production credits were not exposed by the sources.",
-          "No structured transcript links were exposed by the feed.",
-          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
-        ]
+          "The official status page says Season 2 is in pre-production but was last reviewed in January 2023.",
+          "Transcript links are available for the main episodes and selected bonus episodes, but not every observed feed item."
+        ],
+        "factualReview": {
+          "reviewedAt": "2026-08-29T12:00:00.000Z",
+          "inputRevision": 1
+        }
       }
     },
     "featured": false,
     "createdAt": "2026-07-21",
-    "updatedAt": "2026-07-21",
+    "updatedAt": "2026-08-29",
     "creatorId": "michael-ireland-naomi-clarke",
     "networkId": "the-secret-of-st-kilda",
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
-    "officialDescription": {
-      "text": "",
-      "sourceLabel": "",
-      "sourceUrl": "",
-      "verifiedAt": ""
-    },
     "popularity": {},
     "href": "/shows/the-secret-of-st-kilda",
     "hasPage": true,
@@ -29468,10 +29568,11 @@
     "imageAlt": "The Secret of St Kilda cover art",
     "summary": "In this supernatural thriller series, listeners will follow Lockie, a charismatic con man who escapes to St Kilda with the promise that this time he’ll change his ways. Unfortunately, the island and its unusual inhabitants have other ideas. He seeks redemption and they seek a saviour, but you know what they say - no change without sacrifice.",
     "finalRating": null,
-    "searchText": "the secret of st kilda the secret of st kilda follows charismatic spiritualist lockie macgregor trying to escape the ghost of his past only to arrive on the scottish island of st kilda where the supernatural is all too real in this supernatural thriller series listeners will follow lockie a charismatic con man who escapes to st kilda with the promise that this time he ll change his ways unfortunately the island and its unusual inhabitants have other ideas he seeks redemption and they seek a saviour but you know what they say no change without sacrifice supernatural folk horror drama serialized the secret of st kilda michael ireland and naomi clarke english unclear indexed only michael ireland and naomi clarke michael ireland and naomi clarke the secret of st kilda unknown unknown 0",
+    "searchText": "the secret of st kilda the secret of st kilda follows charismatic spiritualist lockie macgregor trying to escape the ghost of his past only to arrive on the scottish island of st kilda where the supernatural is all too real in this supernatural thriller series listeners will follow lockie a charismatic con man who escapes to st kilda with the promise that this time he ll change his ways unfortunately the island and its unusual inhabitants have other ideas he seeks redemption and they seek a saviour but you know what they say no change without sacrifice a supernatural island thriller where redemption cult pressure and the wider community all pull in the same direction supernatural folk horror cults horror thriller drama full cast serialized the secret of st kilda violence death cult indoctrination ritual sacrifice gore gun use chronic illness themes michael ireland and naomi clarke alasdair stuart as the narrator alan burgon as lockie m abh de br n as andromeda ben meredith as mathias michelle kelly as niyathi erika sanderson as wee mary shogo miyakita as georgie dean kenneth as robbie sam yeow as angelique danilo battistinia as sacha amina koroma as amy kirsty woolven as young amy sarah golding as elder eli bessie rhys lawton as elder findlay sasha sienna as elder grace andrew gorman as lockie s da sally walker taylor as jillian marie anello as esther axandre oge as preston marguerite kenner as mama laveau english unclear indexed only season 1 released season 2 listed as in pre production on the official site 12 audio verse awards wins silver award best fiction podcast 2022 new zealand podcast awards michael ireland and naomi clarke michael ireland and naomi clarke the secret of st kilda naomi clarke michael ireland michelle kelly will fox chloe hendry shane rutherfoord jones fable and folly available for the main episodes and selected bonus episodes unknown 0 75 google docs english original fiction a fictionalized scottish island community serialized ensemble thriller centered on lauchlan lockie macgregor a supernatural thriller audio drama",
     "tagTokens": [
       "supernatural",
-      "folk-horror"
+      "folk-horror",
+      "cults"
     ],
     "bestForTokens": [],
     "coverVariants": [
@@ -115365,12 +115466,18 @@
   {
     "id": "red-frontier",
     "title": "Red Frontier",
-    "subtitle": "",
+    "subtitle": "A lone Mars colonist must confront a vanished crew and a new arrival.",
     "description": "Commander Taylor Fullerton knows what it takes to survive. Three years ago, she lost her crew in a mysterious epidemic and has carried on their one-way mission to colonize Mars in complete isolation. When another crew lands on the Red planet, she must discover the truth to avoid repeating their fate while struggling to maintain her sanity. Written and directed by Sarah Nolen. Starring Betty Gilpin, Charlie Barnett, Maria Dizzia, Ashley Park, Finn Wittrock, and Kara Young. Score by Ghostly Kisses. Special thanks to NASA.",
+    "officialDescription": {
+      "text": "Commander Taylor Fullerton knows what it takes to survive. Three years ago, she lost her crew in a mysterious epidemic and has carried on their one-way mission to colonize Mars in complete isolation. When another crew lands on the Red planet, she must discover the truth to avoid repeating their fate while struggling to maintain her sanity.",
+      "sourceLabel": "Publisher RSS feed",
+      "sourceUrl": "https://feeds.megaphone.fm/redfrontier-spot",
+      "verifiedAt": "2026-08-29"
+    },
     "cover": "images/covers/red-frontier.jpg",
     "coverAlt": "Red Frontier cover art",
     "status": "published",
-    "reviewStatus": "imported",
+    "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
     "completionStatus": "unclear",
     "listenLinks": {
@@ -115383,9 +115490,14 @@
     ],
     "tones": [],
     "formats": [
+      "full-cast",
       "serialized"
     ],
-    "tags": [],
+    "tags": [
+      "Mars colony",
+      "Survival",
+      "Space"
+    ],
     "aliases": [
       "Red Frontier"
     ],
@@ -115396,36 +115508,42 @@
     ],
     "transcriptLanguages": [],
     "length": {
-      "label": "1 season observed • at least 13 full episodes • 14 min median",
+      "label": "1 season observed • 11 full episodes • 13 min median; feed also carries a trailer and two cross-promotional items.",
       "seasons": 1,
-      "episodes": 13,
-      "avgEpisodeMinutes": 14,
-      "medianEpisodeMinutes": 14,
+      "episodes": 11,
+      "avgEpisodeMinutes": 13,
+      "medianEpisodeMinutes": 13,
       "minEpisodeMinutes": 11,
-      "maxEpisodeMinutes": 20,
-      "totalObservedHours": 3.1,
+      "maxEpisodeMinutes": 17,
+      "totalObservedHours": 2.4,
       "durationCoverage": 1,
       "observedSeasons": [
         1
       ],
-      "countQualifier": "at-least",
+      "countQualifier": "exact",
       "episodeCounts": {
-        "full": 13,
+        "full": 11,
         "bonus": 0,
-        "trailer": 1
+        "trailer": 1,
+        "crossPromotion": 2
       }
     },
     "releaseDates": {
       "first": "2021-06-14",
-      "latest": "2023-03-15",
+      "latest": "2021-07-26",
       "latestFeedItem": "2023-03-15"
     },
     "ratings": {},
-    "facts": {},
+    "facts": {
+      "distribution": "Spotify original podcast",
+      "format": "Serialized fiction",
+      "specialThanks": "NASA",
+      "seriesEpisodeCount": "11 full episodes plus trailer; current feed also contains two cross-promotional items."
+    },
     "bestFor": [],
     "similarTo": [],
     "similarReasons": {},
-    "archiveTake": "",
+    "archiveTake": "A compact Mars-isolation thriller with a clear survival hook and a full-cast production.",
     "spoilerFreeReview": "",
     "thoughts": "",
     "quote": {
@@ -115435,29 +115553,52 @@
     "officialLinks": {},
     "credits": {
       "creatorName": "Gimlet",
-      "ownerName": "Gimlet"
+      "ownerName": "Gimlet",
+      "writer": "Sarah Nolen",
+      "director": "Sarah Nolen",
+      "executiveProducer": "Mimi O'Donnell",
+      "soundDesigner": "Armando Serrano & Daniel Brunelle",
+      "mixer": "Daniel Brunelle",
+      "composer": "Ghostly Kisses",
+      "musicSupervisor": "Liz Fulton",
+      "productionCompany": "Gimlet",
+      "distributor": "Spotify"
     },
     "creators": [
       "Gimlet"
     ],
-    "cast": [],
+    "cast": [
+      "Betty Gilpin as Commander Taylor Fullerton",
+      "Charlie Barnett",
+      "Maria Dizzia",
+      "Ashley Park",
+      "Finn Wittrock",
+      "Kara Young",
+      "Alfredo Narciso"
+    ],
     "verification": {
-      "status": "automated-source-checked",
-      "verifiedAt": "2026-08-15",
+      "status": "maintainer-source-reviewed",
+      "verifiedAt": "2026-08-29",
       "source": "https://feeds.megaphone.fm/redfrontier-spot; https://podcasts.apple.com/us/podcast/red-frontier/id1690676876?uo=4",
-      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+      "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
     },
     "availability": {
       "transcripts": "unknown",
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "A one-way Mars colonization mission",
+      "pov": "Full-cast serialized survival thriller centered on Commander Taylor Fullerton",
+      "framingDevice": "A mission drama shaped by isolation, quarantine, and a mysterious epidemic"
+    },
     "metadata": {
       "objectiveSources": [
         "https://feeds.megaphone.fm/redfrontier-spot",
         "https://podcasts.apple.com/us/podcast/red-frontier/id1690676876?uo=4"
       ],
+      "objectiveVerifiedAt": "2026-08-29",
       "sourceCategories": [
         "Fiction",
         "Science Fiction"
@@ -115866,29 +116007,26 @@
         },
         "importedAt": "2026-08-15T16:44:08.834Z",
         "optionalGaps": [
-          "Structured creator/cast/production credits were not exposed by the sources.",
-          "No structured transcript links were exposed by the feed.",
-          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No official standalone website or transcript source was located.",
+          "Release status and continuation beyond Season 1 remain unclear.",
           "No exact Spotify show URL was found on the official site."
         ],
         "publication": {
-          "tier": "imported",
+          "tier": "indexed-only",
           "publishedAt": "2026-08-15T16:44:08.892Z"
+        },
+        "factualReview": {
+          "reviewedAt": "2026-08-29T12:00:00.000Z",
+          "inputRevision": 1
         }
       }
     },
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15",
+    "updatedAt": "2026-08-29",
     "creatorId": "gimlet",
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
-    "officialDescription": {
-      "text": "",
-      "sourceLabel": "",
-      "sourceUrl": "",
-      "verifiedAt": ""
-    },
     "popularity": {},
     "href": "/shows/red-frontier",
     "hasPage": true,
@@ -115896,8 +116034,12 @@
     "imageAlt": "Red Frontier cover art",
     "summary": "Commander Taylor Fullerton knows what it takes to survive. Three years ago, she lost her crew in a mysterious epidemic and has carried on their one-way mission to colonize Mars in complete isolation. When another crew lands on the Red planet, she must discover the truth to avoid repeating their fate while struggling to maintain her sanity. Written and directed by Sarah Nolen. Starring Betty Gilpin, Charlie Barnett, Maria Dizzia, Ashley Park, Finn Wittrock, and Kara Young. Score by Ghostly Kisses. Special thanks to NASA.",
     "finalRating": null,
-    "searchText": "red frontier commander taylor fullerton knows what it takes to survive three years ago she lost her crew in a mysterious epidemic and has carried on their one way mission to colonize mars in complete isolation when another crew lands on the red planet she must discover the truth to avoid repeating their fate while struggling to maintain her sanity written and directed by sarah nolen starring betty gilpin charlie barnett maria dizzia ashley park finn wittrock and kara young score by ghostly kisses special thanks to nasa drama sci fi serialized red frontier gimlet english unclear imported gimlet gimlet unknown unknown 0",
-    "tagTokens": [],
+    "searchText": "red frontier a lone mars colonist must confront a vanished crew and a new arrival commander taylor fullerton knows what it takes to survive three years ago she lost her crew in a mysterious epidemic and has carried on their one way mission to colonize mars in complete isolation when another crew lands on the red planet she must discover the truth to avoid repeating their fate while struggling to maintain her sanity written and directed by sarah nolen starring betty gilpin charlie barnett maria dizzia ashley park finn wittrock and kara young score by ghostly kisses special thanks to nasa a compact mars isolation thriller with a clear survival hook and a full cast production mars colony survival space drama sci fi full cast serialized red frontier gimlet betty gilpin as commander taylor fullerton charlie barnett maria dizzia ashley park finn wittrock kara young alfredo narciso english unclear indexed only spotify original podcast serialized fiction nasa 11 full episodes plus trailer current feed also contains two cross promotional items gimlet gimlet sarah nolen sarah nolen mimi o donnell armando serrano and daniel brunelle daniel brunelle ghostly kisses liz fulton gimlet spotify unknown unknown 0 original fiction a one way mars colonization mission full cast serialized survival thriller centered on commander taylor fullerton a mission drama shaped by isolation quarantine and a mysterious epidemic",
+    "tagTokens": [
+      "mars-colony",
+      "survival",
+      "space"
+    ],
     "bestForTokens": [],
     "coverVariants": [
       {
@@ -336197,12 +336339,18 @@
   {
     "id": "the-chronicles-of-astrimos",
     "title": "The Chronicles of Astrimos",
-    "subtitle": "",
+    "subtitle": "A lawyer is pulled into a 1960s radio serial whose danger is real.",
     "description": "Martin (Darren Criss) thought his life was on track - he was about to become a partner at his law-firm and propose to the woman of his dreams - when his grandmother Maisie (Kate Mulgrew) dies, leaving him an old LP record that derails everything. Playing it transports Martin into the fantastical, but shockingly real world of “The Chronicles of Astrimos,” a 1960’s sci-fi radio drama about the plucky young spaceship pilot Calico Jones (Maya Hawke) who is fighting to save her planet. Flipping involuntarily between Astrimos and the real-world, Martin realizes with horror that the life-and-death stakes in the story are real and his only hope of escape is to solve the mystery of his grandmother’s bizarre gift before it’s too late. Starring Darren Criss as Martin, Maya Hawke as Calico Jones. Featuring: Natalie Gold (Bridget), Quincy Tyler Bernstine (Councillor Dextra/Ruby Montrose), Alfred Molina (The Narrator), Peter Friedman (Phil), Azhar Khan (Rami/Gawain), Jayne Houdyshell (Jean), Andy Grotelueschen (Findo Gask/Frank), Adina Verson (Carla), Cindy Cheung (Chelsea), Rebecca Henderson (Dr. Woods/Viraxis), Kellen Raffaelo (Young Martin) Additional performances by Crystal Finn, Gabby Beans, Jay Klaitz, Robbie Sublett, and Gibson Frazier with Kate Mulgrew (Maisie) And Clarke Peters (Archie). Directed by Anne Kauffman Written by Declan Dineen Executive Producers: Mark Stern and Darren Criss Producers: Nick Garland, Declan Dineen, and Michel Lafrance Produced by Best Case Studios Adam Pincus, Executive Producer Isabel Evans, Producer Brent Raymond Katz, Co-producer Hannah Lebowitz-Lockard, Associate Producer Anpa’o Locke, Production Coordinator Edited by Ryan Seaton,Will Rosati, Max Michael Miller, and Nisha Venkat Sound Design by Dennis Dembeck and Will Rosati Mixed by Dennis Dembeck Original Music by Pakk Hui Casting by Paul Schnee and Kerry Barden Music by Pakk Hui Music Orchestrations by Hannah Zhang Music Preparation by Thanh Tran Score Mixer: John Witt Chapman Orchestra Budapest Scoring Orchestra Conductor: Péter Illényi Session Producer: Bálint Sapszon Orchestra Coordinator: Bertalan Veér Recording Engineer: Viktor Szabó Studio Assistant: Patrik Veréb Librarian: Ágnes Sapszon FOR ECHOVERSE: Development Executives: Nick Garland and Ben Chodosh Development Coordinator: Madison Engle Development Assistant: Sophie Kelly Production Consultant: Eleanor Hyde Business and Legal Affairs: Laura Black Dawson Finance: Andy Lewis, Morgan Krautstrunk, Judy Geletko The Chronicles of Astrimos is an Echoverse Production",
+    "officialDescription": {
+      "text": "Jaded, ambitious lawyer Martin Jennison’s life is turned upside-down when his grandmother bequeaths him an LP of a 1960s sci-fi radio serial called “The Chronicles of Astrimos.” Playing it transports him into the vivid “technicolor” world of Astrimos and he soon realizes that the physical jeopardy in Astrimos is real and that his life literally depends on figuring out what’s happening to him and how to escape it before time runs out.",
+      "sourceLabel": "Official show site",
+      "sourceUrl": "https://www.echoverse.com/the-chronicles-of-astrimos",
+      "verifiedAt": "2026-08-29"
+    },
     "cover": "images/covers/the-chronicles-of-astrimos.jpg",
     "coverAlt": "The Chronicles of Astrimos cover art",
     "status": "published",
-    "reviewStatus": "imported",
+    "reviewStatus": "indexed-only",
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
@@ -336211,13 +336359,20 @@
       "rss": "https://feeds.simplecast.com/iqkQOlOd"
     },
     "genres": [
-      "drama"
+      "sci-fi",
+      "drama",
+      "comedy"
     ],
     "tones": [],
     "formats": [
+      "full-cast",
       "serialized"
     ],
-    "tags": [],
+    "tags": [
+      "Space",
+      "Space opera",
+      "Classic radio"
+    ],
     "aliases": [
       "The Chronicles of Astrimos"
     ],
@@ -336228,36 +336383,41 @@
     ],
     "transcriptLanguages": [],
     "length": {
-      "label": "1 season observed • at least 7 full episodes • 23 min median",
+      "label": "1 season observed • 8 full episodes observed • 24 min median",
       "seasons": 1,
-      "episodes": 7,
-      "avgEpisodeMinutes": 22,
-      "medianEpisodeMinutes": 23,
+      "episodes": 8,
+      "avgEpisodeMinutes": 23,
+      "medianEpisodeMinutes": 24,
       "minEpisodeMinutes": 18,
-      "maxEpisodeMinutes": 25,
-      "totalObservedHours": 2.6,
+      "maxEpisodeMinutes": 26,
+      "totalObservedHours": 3,
       "durationCoverage": 1,
       "observedSeasons": [
         1
       ],
       "countQualifier": "at-least",
       "episodeCounts": {
-        "full": 7,
+        "full": 8,
         "bonus": 0,
         "trailer": 1
       }
     },
     "releaseDates": {
       "first": "2026-05-14",
-      "latest": "2026-08-06",
-      "latestFeedItem": "2026-08-06"
+      "latest": "2026-08-20",
+      "latestFeedItem": "2026-08-20"
     },
     "ratings": {},
-    "facts": {},
+    "facts": {
+      "seriesLabel": "Sci-fi space dramedy",
+      "releaseCadence": "Every other week",
+      "production": "Produced by Best Case Studios for Echoverse.",
+      "explicit": "No"
+    },
     "bestFor": [],
     "similarTo": [],
     "similarReasons": {},
-    "archiveTake": "",
+    "archiveTake": "A playful sci-fi serial that toggles between a modern mystery and a vivid radio-adventure world.",
     "spoilerFreeReview": "",
     "thoughts": "",
     "quote": {
@@ -336265,30 +336425,58 @@
       "attribution": ""
     },
     "officialLinks": {
-      "website": "https://chronicles-of-astrimos.simplecast.com/"
+      "website": "https://www.echoverse.com/the-chronicles-of-astrimos"
     },
     "credits": {
       "creatorName": "Bloody FM, Echoverse",
-      "ownerName": "Echoverse"
+      "ownerName": "Echoverse",
+      "writer": "Declan Dineen",
+      "director": "Anne Kauffman",
+      "executiveProducers": "Mark Stern & Darren Criss",
+      "composer": "Pakk Hui",
+      "productionCompany": "Best Case Studios",
+      "publisher": "Echoverse"
     },
     "creators": [
       "Bloody FM, Echoverse"
     ],
-    "cast": [],
+    "cast": [
+      "Darren Criss as Martin Jennison",
+      "Maya Hawke as Calico Jones",
+      "Natalie Gold as Bridget",
+      "Quincy Tyler Bernstine as Councillor Dextra / Ruby Montrose",
+      "Alfred Molina as The Narrator",
+      "Peter Friedman as Phil",
+      "Azhar Khan as Rami / Gawain",
+      "Jayne Houdyshell as Jean",
+      "Andy Grotelueschen as Findo Gask / Frank",
+      "Adina Verson as Carla",
+      "Cindy Cheung as Chelsea",
+      "Rebecca Henderson as Dr. Woods / Viraxis",
+      "Kellen Raffaelo as Young Martin",
+      "Kate Mulgrew as Maisie",
+      "Clarke Peters as Archie"
+    ],
     "verification": {
-      "status": "automated-source-checked",
-      "verifiedAt": "2026-08-15",
-      "source": "https://chronicles-of-astrimos.simplecast.com/; https://feeds.simplecast.com/iqkQOlOd; https://podcasts.apple.com/us/podcast/the-chronicles-of-astrimos/id1896634657?uo=4",
-      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+      "status": "maintainer-source-reviewed",
+      "verifiedAt": "2026-08-29",
+      "source": "https://www.echoverse.com/the-chronicles-of-astrimos; https://chronicles-of-astrimos.simplecast.com/; https://feeds.simplecast.com/iqkQOlOd; https://podcasts.apple.com/us/podcast/the-chronicles-of-astrimos/id1896634657?uo=4",
+      "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
     },
     "availability": {
       "transcripts": "unknown",
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "A modern world and the vivid world of a 1960s-inspired sci-fi radio serial",
+      "pov": "Full-cast serial alternating between Martin Jennison and the Astrimos story",
+      "framingDevice": "An inherited LP transports Martin into Astrimos"
+    },
     "metadata": {
       "objectiveSources": [
+        "https://www.echoverse.com/the-chronicles-of-astrimos",
         "https://chronicles-of-astrimos.simplecast.com/",
         "https://feeds.simplecast.com/iqkQOlOd",
         "https://podcasts.apple.com/us/podcast/the-chronicles-of-astrimos/id1896634657?uo=4"
@@ -336303,7 +336491,7 @@
       "schedule": {
         "label": "biweekly",
         "medianDays": 14,
-        "observedIntervals": 6
+        "observedIntervals": 7
       },
       "podcast": {
         "copyright": "Echoverse 2026",
@@ -336757,28 +336945,25 @@
         },
         "importedAt": "2026-08-15T20:37:45.562Z",
         "optionalGaps": [
-          "Structured creator/cast/production credits were not exposed by the sources.",
           "No structured transcript links were exposed by the feed.",
           "No exact Spotify show URL was found on the official site."
         ],
         "publication": {
-          "tier": "imported",
+          "tier": "indexed-only",
           "publishedAt": "2026-08-15T20:39:52.203Z"
+        },
+        "factualReview": {
+          "reviewedAt": "2026-08-29T12:00:00.000Z",
+          "inputRevision": 1
         }
       }
     },
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15",
+    "updatedAt": "2026-08-29",
     "creatorId": "bloody-fm-echoverse",
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
-    "officialDescription": {
-      "text": "",
-      "sourceLabel": "",
-      "sourceUrl": "",
-      "verifiedAt": ""
-    },
     "popularity": {},
     "href": "/shows/the-chronicles-of-astrimos",
     "hasPage": true,
@@ -336786,8 +336971,12 @@
     "imageAlt": "The Chronicles of Astrimos cover art",
     "summary": "Martin (Darren Criss) thought his life was on track - he was about to become a partner at his law-firm and propose to the woman of his dreams - when his grandmother Maisie (Kate Mulgrew) dies, leaving him an old LP record that derails everything. Playing it transports Martin into the fantastical, but shockingly real world of “The Chronicles of Astrimos,” a 1960’s sci-fi radio drama about the plucky young spaceship pilot Calico Jones (Maya Hawke) who is fighting to save her planet. Flipping involuntarily between Astrimos and the real-world, Martin realizes with horror that the life-and-death stakes in the story are real and his only hope of escape is to solve the mystery of his grandmother’s bizarre gift before it’s too late. Starring Darren Criss as Martin, Maya Hawke as Calico Jones. Featuring: Natalie Gold (Bridget), Quincy Tyler Bernstine (Councillor Dextra/Ruby Montrose), Alfred Molina (The Narrator), Peter Friedman (Phil), Azhar Khan (Rami/Gawain), Jayne Houdyshell (Jean), Andy Grotelueschen (Findo Gask/Frank), Adina Verson (Carla), Cindy Cheung (Chelsea), Rebecca Henderson (Dr. Woods/Viraxis), Kellen Raffaelo (Young Martin) Additional performances by Crystal Finn, Gabby Beans, Jay Klaitz, Robbie Sublett, and Gibson Frazier with Kate Mulgrew (Maisie) And Clarke Peters (Archie). Directed by Anne Kauffman Written by Declan Dineen Executive Producers: Mark Stern and Darren Criss Producers: Nick Garland, Declan Dineen, and Michel Lafrance Produced by Best Case Studios Adam Pincus, Executive Producer Isabel Evans, Producer Brent Raymond Katz, Co-producer Hannah Lebowitz-Lockard, Associate Producer Anpa’o Locke, Production Coordinator Edited by Ryan Seaton,Will Rosati, Max Michael Miller, and Nisha Venkat Sound Design by Dennis Dembeck and Will Rosati Mixed by Dennis Dembeck Original Music by Pakk Hui Casting by Paul Schnee and Kerry Barden Music by Pakk Hui Music Orchestrations by Hannah Zhang Music Preparation by Thanh Tran Score Mixer: John Witt Chapman Orchestra Budapest Scoring Orchestra Conductor: Péter Illényi Session Producer: Bálint Sapszon Orchestra Coordinator: Bertalan Veér Recording Engineer: Viktor Szabó Studio Assistant: Patrik Veréb Librarian: Ágnes Sapszon FOR ECHOVERSE: Development Executives: Nick Garland and Ben Chodosh Development Coordinator: Madison Engle Development Assistant: Sophie Kelly Production Consultant: Eleanor Hyde Business and Legal Affairs: Laura Black Dawson Finance: Andy Lewis, Morgan Krautstrunk, Judy Geletko The Chronicles of Astrimos is an Echoverse Production",
     "finalRating": null,
-    "searchText": "the chronicles of astrimos martin darren criss thought his life was on track he was about to become a partner at his law firm and propose to the woman of his dreams when his grandmother maisie kate mulgrew dies leaving him an old lp record that derails everything playing it transports martin into the fantastical but shockingly real world of the chronicles of astrimos a 1960 s sci fi radio drama about the plucky young spaceship pilot calico jones maya hawke who is fighting to save her planet flipping involuntarily between astrimos and the real world martin realizes with horror that the life and death stakes in the story are real and his only hope of escape is to solve the mystery of his grandmother s bizarre gift before it s too late starring darren criss as martin maya hawke as calico jones featuring natalie gold bridget quincy tyler bernstine councillor dextra ruby montrose alfred molina the narrator peter friedman phil azhar khan rami gawain jayne houdyshell jean andy grotelueschen findo gask frank adina verson carla cindy cheung chelsea rebecca henderson dr woods viraxis kellen raffaelo young martin additional performances by crystal finn gabby beans jay klaitz robbie sublett and gibson frazier with kate mulgrew maisie and clarke peters archie directed by anne kauffman written by declan dineen executive producers mark stern and darren criss producers nick garland declan dineen and michel lafrance produced by best case studios adam pincus executive producer isabel evans producer brent raymond katz co producer hannah lebowitz lockard associate producer anpa o locke production coordinator edited by ryan seaton will rosati max michael miller and nisha venkat sound design by dennis dembeck and will rosati mixed by dennis dembeck original music by pakk hui casting by paul schnee and kerry barden music by pakk hui music orchestrations by hannah zhang music preparation by thanh tran score mixer john witt chapman orchestra budapest scoring orchestra conductor p ter ill nyi session producer b lint sapszon orchestra coordinator bertalan ve r recording engineer viktor szab studio assistant patrik ver b librarian gnes sapszon for echoverse development executives nick garland and ben chodosh development coordinator madison engle development assistant sophie kelly production consultant eleanor hyde business and legal affairs laura black dawson finance andy lewis morgan krautstrunk judy geletko the chronicles of astrimos is an echoverse production drama serialized the chronicles of astrimos bloody fm echoverse english ongoing imported bloody fm echoverse echoverse unknown unknown 0",
-    "tagTokens": [],
+    "searchText": "the chronicles of astrimos a lawyer is pulled into a 1960s radio serial whose danger is real martin darren criss thought his life was on track he was about to become a partner at his law firm and propose to the woman of his dreams when his grandmother maisie kate mulgrew dies leaving him an old lp record that derails everything playing it transports martin into the fantastical but shockingly real world of the chronicles of astrimos a 1960 s sci fi radio drama about the plucky young spaceship pilot calico jones maya hawke who is fighting to save her planet flipping involuntarily between astrimos and the real world martin realizes with horror that the life and death stakes in the story are real and his only hope of escape is to solve the mystery of his grandmother s bizarre gift before it s too late starring darren criss as martin maya hawke as calico jones featuring natalie gold bridget quincy tyler bernstine councillor dextra ruby montrose alfred molina the narrator peter friedman phil azhar khan rami gawain jayne houdyshell jean andy grotelueschen findo gask frank adina verson carla cindy cheung chelsea rebecca henderson dr woods viraxis kellen raffaelo young martin additional performances by crystal finn gabby beans jay klaitz robbie sublett and gibson frazier with kate mulgrew maisie and clarke peters archie directed by anne kauffman written by declan dineen executive producers mark stern and darren criss producers nick garland declan dineen and michel lafrance produced by best case studios adam pincus executive producer isabel evans producer brent raymond katz co producer hannah lebowitz lockard associate producer anpa o locke production coordinator edited by ryan seaton will rosati max michael miller and nisha venkat sound design by dennis dembeck and will rosati mixed by dennis dembeck original music by pakk hui casting by paul schnee and kerry barden music by pakk hui music orchestrations by hannah zhang music preparation by thanh tran score mixer john witt chapman orchestra budapest scoring orchestra conductor p ter ill nyi session producer b lint sapszon orchestra coordinator bertalan ve r recording engineer viktor szab studio assistant patrik ver b librarian gnes sapszon for echoverse development executives nick garland and ben chodosh development coordinator madison engle development assistant sophie kelly production consultant eleanor hyde business and legal affairs laura black dawson finance andy lewis morgan krautstrunk judy geletko the chronicles of astrimos is an echoverse production a playful sci fi serial that toggles between a modern mystery and a vivid radio adventure world space space opera classic radio sci fi drama comedy full cast serialized the chronicles of astrimos bloody fm echoverse darren criss as martin jennison maya hawke as calico jones natalie gold as bridget quincy tyler bernstine as councillor dextra ruby montrose alfred molina as the narrator peter friedman as phil azhar khan as rami gawain jayne houdyshell as jean andy grotelueschen as findo gask frank adina verson as carla cindy cheung as chelsea rebecca henderson as dr woods viraxis kellen raffaelo as young martin kate mulgrew as maisie clarke peters as archie english ongoing indexed only sci fi space dramedy every other week produced by best case studios for echoverse no bloody fm echoverse echoverse declan dineen anne kauffman mark stern and darren criss pakk hui best case studios echoverse unknown unknown 0 original fiction a modern world and the vivid world of a 1960s inspired sci fi radio serial full cast serial alternating between martin jennison and the astrimos story an inherited lp transports martin into astrimos",
+    "tagTokens": [
+      "space",
+      "space-opera",
+      "classic-radio"
+    ],
     "bestForTokens": [],
     "coverVariants": [
       {
@@ -352758,7 +352947,7 @@
     "cover": "images/covers/mage-in-the-machine.png",
     "coverAlt": "Mage In The Machine cover art",
     "status": "published",
-    "reviewStatus": "imported",
+    "reviewStatus": "indexed-only",
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
@@ -352769,18 +352958,36 @@
       "amazonMusic": "https://music.amazon.com/podcasts/e404a6c5-5433-43eb-8f31-f34523b5e4ba"
     },
     "genres": [
-      "drama"
+      "drama",
+      "horror",
+      "supernatural"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "weird",
+      "tense"
+    ],
     "formats": [
       "episodic"
     ],
-    "tags": [],
+    "tags": [
+      "Horror",
+      "Supernatural",
+      "Character-driven"
+    ],
     "aliases": [
       "Mage In The Machine"
     ],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "curses",
+      "fear",
+      "secrecy"
+    ],
+    "contentNotes": [
+      "explicit content",
+      "violence and death",
+      "body horror"
+    ],
     "languages": [
       "English"
     ],
@@ -352812,9 +353019,23 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "late-night",
+      "headphones-on",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "the-magnus-archives",
+      "knifepoint-horror",
+      "spines-podcast",
+      "a-voice-from-darkness"
+    ],
+    "similarReasons": {
+      "the-magnus-archives": "Both use case-by-case supernatural horror while an overarching mythology gathers underneath.",
+      "knifepoint-horror": "Both turn compact, narrated horror stories into a new threat with each episode.",
+      "spines-podcast": "Both keep a central character moving through dark supernatural encounters with a wider mystery around them.",
+      "a-voice-from-darkness": "Both use a voice-led supernatural frame to make each encounter feel like a transmission from somewhere wrong."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -352838,25 +353059,37 @@
         {
           "name": "Mage In The Machine Offical",
           "role": "author"
+        },
+        {
+          "name": "Luke Blevins",
+          "role": "guest actor",
+          "url": "http://lukeblevinsart.com/"
         }
       ]
     },
     "creators": [
       "Mage In The Machine Offical"
     ],
-    "cast": [],
+    "cast": [
+      "Luke Blevins"
+    ],
     "verification": {
-      "status": "automated-source-checked",
-      "verifiedAt": "2026-08-15",
+      "status": "maintainer-source-reviewed",
+      "verifiedAt": "2026-08-27",
       "source": "https://rss.com/podcasts/mage-in-the-machine/; https://media.rss.com/mage-in-the-machine/feed.xml; https://podcasts.apple.com/us/podcast/mage-in-the-machine/id1815145178?uo=4",
-      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+      "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
     },
     "availability": {
       "transcripts": "unknown",
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "ordinary modern life under pressure from recurring supernatural cases",
+      "pov": "single-lead, case-driven audio drama with an unfolding mythology",
+      "intensity": "high"
+    },
     "metadata": {
       "objectiveSources": [
         "https://rss.com/podcasts/mage-in-the-machine/",
@@ -353397,14 +353630,18 @@
           "No structured transcript links were exposed by the feed."
         ],
         "publication": {
-          "tier": "imported",
+          "tier": "indexed-only",
           "publishedAt": "2026-08-15T20:52:38.900Z"
+        },
+        "factualReview": {
+          "reviewedAt": "2026-08-27T19:12:46.364Z",
+          "inputRevision": 1
         }
       }
     },
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15",
+    "updatedAt": "2026-08-28",
     "creatorId": "mage-in-the-machine-offical",
     "networkId": "rss-com",
     "spoilerFreeReviewParagraphs": [],
@@ -353422,9 +353659,17 @@
     "imageAlt": "Mage In The Machine cover art",
     "summary": "\"If you're hearing this then one of three things has happened, none of them good.\" Mage In The Machine is an audio drama focused around Oz Grimhallow, a man cursed to act as an interreceptor of fates most horrible. Every episode presents a new case, a new horror that was meant for someone else to face but now directs it's attention towards our humble computer repair tech. Just remember, the more you learn the more they start to notice you. For business inquiries email mageinthemachineoffical@gmail.com",
     "finalRating": null,
-    "searchText": "mage in the machine if you re hearing this then one of three things has happened none of them good mage in the machine is an audio drama focused around oz grimhallow a man cursed to act as an interreceptor of fates most horrible every episode presents a new case a new horror that was meant for someone else to face but now directs it s attention towards our humble computer repair tech just remember the more you learn the more they start to notice you for business inquiries email mageinthemachineoffical gmail com drama episodic mage in the machine mage in the machine offical english ongoing imported mage in the machine offical mage in the machine offical rss com mage in the machine offical mage in the machine offical author unknown unknown 0",
-    "tagTokens": [],
-    "bestForTokens": [],
+    "searchText": "mage in the machine if you re hearing this then one of three things has happened none of them good mage in the machine is an audio drama focused around oz grimhallow a man cursed to act as an interreceptor of fates most horrible every episode presents a new case a new horror that was meant for someone else to face but now directs it s attention towards our humble computer repair tech just remember the more you learn the more they start to notice you for business inquiries email mageinthemachineoffical gmail com horror supernatural character driven drama horror supernatural dark weird tense episodic late night headphones on binge listening mage in the machine curses fear secrecy explicit content violence and death body horror mage in the machine offical luke blevins english the magnus archives knifepoint horror spines a voice from darkness ongoing indexed only mage in the machine offical mage in the machine offical rss com mage in the machine offical mage in the machine offical author luke blevins guest actor http lukeblevinsart com unknown unknown 0 original fiction ordinary modern life under pressure from recurring supernatural cases single lead case driven audio drama with an unfolding mythology high",
+    "tagTokens": [
+      "horror",
+      "supernatural",
+      "character-driven"
+    ],
+    "bestForTokens": [
+      "late-night",
+      "headphones-on",
+      "binge-listening"
+    ],
     "coverVariants": [
       {
         "src": "/images/generated/covers/mage-in-the-machine-77bbfc2667-320.webp",

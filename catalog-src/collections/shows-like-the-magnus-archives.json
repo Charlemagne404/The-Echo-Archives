@@ -1,0 +1,44 @@
+{
+  "id": "shows-like-the-magnus-archives",
+  "title": "Shows like The Magnus Archives",
+  "description": "Case-file horror with an expanding mythology for listeners who want strange encounters to add up to something larger.",
+  "label": "Case files and consequences",
+  "kind": "similarity",
+  "anchorShowId": "the-magnus-archives",
+  "intentTags": [
+    "late-night",
+    "headphones-on",
+    "worldbuilding"
+  ],
+  "commitment": "Similar shows",
+  "coverShowIds": [
+    "the-lovecraft-investigations",
+    "archive-81",
+    "old-gods-of-appalachia",
+    "the-silt-verses"
+  ],
+  "showIds": [
+    "the-lovecraft-investigations",
+    "archive-81",
+    "old-gods-of-appalachia",
+    "the-silt-verses",
+    "knifepoint-horror",
+    "scp-archives",
+    "the-black-tapes",
+    "a-voice-from-darkness"
+  ],
+  "showReasons": {
+    "the-lovecraft-investigations": "A reporting-led investigation that grows from strange cases into a much larger cosmic horror story.",
+    "archive-81": "Recovered recordings, occult history, and an expanding mythology make it a natural archival-horror branch.",
+    "old-gods-of-appalachia": "A narrated regional mythology gives each new story the weight of something older underneath it.",
+    "the-silt-verses": "A darker serialized route where faith, institutions, and supernatural power keep widening the frame.",
+    "knifepoint-horror": "The cleanest anthology detour when the standalone case-file dread is the part you want most.",
+    "scp-archives": "A dossier-shaped anthology for listeners who enjoy strange reports accumulating into a larger catalog of dread.",
+    "the-black-tapes": "A skeptical investigation route when the research, recordings, and escalating paranormal question are the hook.",
+    "a-voice-from-darkness": "Call-in supernatural warnings preserve the intimate, voice-led feeling of being told about something you should not investigate."
+  },
+  "featured": false,
+  "order": 270,
+  "createdAt": "2026-08-29",
+  "updatedAt": "2026-08-29"
+}

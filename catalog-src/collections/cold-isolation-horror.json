@@ -23,7 +23,9 @@
     "impact-winter",
     "copperheart-a-riggstories-audio-drama",
     "how-i-died",
-    "the-phenomenon"
+    "the-phenomenon",
+    "the-secret-of-st-kilda",
+    "red-frontier"
   ],
   "showReasons": {
     "the-white-vault": "This is the clearest match for the collection's remote-expedition horror.",
@@ -32,10 +34,12 @@
     "impact-winter": "Endless winter and survival stakes bring a bigger cinematic chill.",
     "copperheart-a-riggstories-audio-drama": "A sealed reconstruction bunker turns nuclear winter into sustained institutional pressure.",
     "how-i-died": "Supernatural investigation keeps the horror direct and readable.",
-    "the-phenomenon": "Bleak large-scale tension makes the world itself feel hostile."
+    "the-phenomenon": "Bleak large-scale tension makes the world itself feel hostile.",
+    "the-secret-of-st-kilda": "A remote island setting and supernatural thriller premise turn isolation into the pressure point.",
+    "red-frontier": "Complete isolation on a Mars mission turns the setting itself into a survival pressure."
   },
   "featured": true,
   "order": 50,
   "createdAt": "2026-06-01",
-  "updatedAt": "2026-07-18"
+  "updatedAt": "2026-08-29"
 }

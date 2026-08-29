@@ -25,7 +25,10 @@
       "wolf-359",
       "tower-4",
       "startripper",
-      "tumanbay"
+      "tumanbay",
+      "old-gods-of-appalachia",
+      "the-silt-verses",
+      "the-penumbra-podcast"
     ],
     "showReasons": {
       "impact-winter": "Cinematic urgency and seasonal momentum make it easy to stay locked in.",
@@ -35,12 +38,15 @@
       "wolf-359": "A long-running station story with enough turns to carry a full walk.",
       "tower-4": "Remote-watch tension gives the walk a steady sense of unease.",
       "startripper": "Road-trip momentum and relaxed wonder make it easy to stay with for a full walk.",
-      "tumanbay": "A long-form palace-intrigue run that benefits from real uninterrupted time."
+      "tumanbay": "A long-form palace-intrigue run that benefits from real uninterrupted time.",
+      "old-gods-of-appalachia": "A deep, place-rooted mythology with enough episodes to make a long walk feel like a real chapter.",
+      "the-silt-verses": "Long episodes and a steadily widening folk-horror world reward a listener with time to settle in.",
+      "the-penumbra-podcast": "A large back catalogue and several connected story worlds make it an easy long-haul companion."
     },
     "featured": true,
     "order": 10,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-08-29"
   },
   {
     "id": "easy-first-steps",
@@ -72,7 +78,10 @@
       "victoriocity",
       "limetown",
       "mockery-manor",
-      "mission-rejected"
+      "mission-rejected",
+      "homecoming",
+      "case-63",
+      "the-amelia-project"
     ],
     "showReasons": {
       "story": "Warm, legible, and low-friction if you want a softer first stop.",
@@ -86,12 +95,15 @@
       "victoriocity": "A polished detective-comedy entry point when you want charm before dread.",
       "limetown": "An approachable entry point if the listener wants mystery first and weirdness second.",
       "mockery-manor": "Fast comic momentum and a clear hook make it easier to recommend early.",
-      "mission-rejected": "An easy on-ramp for listeners who want comedy and motion without homework."
+      "mission-rejected": "An easy on-ramp for listeners who want comedy and motion without homework.",
+      "homecoming": "A polished full-cast thriller with a compact premise and no sprawling lore barrier.",
+      "case-63": "Short episodes and a clean speculative hook make it an easy first step into time-bent fiction.",
+      "the-amelia-project": "Its interview-shaped episodes make the dark comedy and central mystery legible right away."
     },
     "featured": true,
     "order": 20,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-08-29"
   },
   {
     "id": "serious-sci-fi",
@@ -125,7 +137,10 @@
       "girl-in-space",
       "forest-404",
       "janus-descending",
-      "moonbase-theta-out"
+      "moonbase-theta-out",
+      "red-frontier",
+      "the-waystation",
+      "the-deca-tapes"
     ],
     "showReasons": {
       "impact-winter": "A big, cinematic survival story with genre pressure at the front.",
@@ -141,12 +156,15 @@
       "girl-in-space": "A softer but still grounded sci-fi mystery with real isolation pressure.",
       "forest-404": "A compact dystopian branch for listeners who want conceptual sci-fi with atmosphere.",
       "janus-descending": "A horror-forward science-fiction show with strong formal control.",
-      "moonbase-theta-out": "Keeps the emotional weight high while staying rooted in a clear sci-fi premise."
+      "moonbase-theta-out": "Keeps the emotional weight high while staying rooted in a clear sci-fi premise.",
+      "red-frontier": "A Mars-colony survival mystery keeps the science-fiction frame tight and the stakes immediate.",
+      "the-waystation": "A damaged wormhole station and the investigation around it keep the speculative pressure focused.",
+      "the-deca-tapes": "A controlled, puzzle-box dystopia for listeners who want systems and suspense instead of banter."
     },
     "featured": true,
     "order": 30,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-08-29"
   },
   {
     "id": "funny-space-disasters",
@@ -216,7 +234,9 @@
       "impact-winter",
       "copperheart-a-riggstories-audio-drama",
       "how-i-died",
-      "the-phenomenon"
+      "the-phenomenon",
+      "the-secret-of-st-kilda",
+      "red-frontier"
     ],
     "showReasons": {
       "the-white-vault": "This is the clearest match for the collection's remote-expedition horror.",
@@ -225,12 +245,14 @@
       "impact-winter": "Endless winter and survival stakes bring a bigger cinematic chill.",
       "copperheart-a-riggstories-audio-drama": "A sealed reconstruction bunker turns nuclear winter into sustained institutional pressure.",
       "how-i-died": "Supernatural investigation keeps the horror direct and readable.",
-      "the-phenomenon": "Bleak large-scale tension makes the world itself feel hostile."
+      "the-phenomenon": "Bleak large-scale tension makes the world itself feel hostile.",
+      "the-secret-of-st-kilda": "A remote island setting and supernatural thriller premise turn isolation into the pressure point.",
+      "red-frontier": "Complete isolation on a Mars mission turns the setting itself into a survival pressure."
     },
     "featured": true,
     "order": 50,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-08-29"
   },
   {
     "id": "time-bent-and-weird",
@@ -256,7 +278,8 @@
       "red-valley",
       "midnight-burger",
       "case-63",
-      "midst"
+      "midst",
+      "woe-begone"
     ],
     "showReasons": {
       "from-now": "A compact sci-fi premise with enough dislocation to start quickly.",
@@ -264,12 +287,13 @@
       "red-valley": "Uneasy mystery and strange science keep the floor shifting.",
       "midnight-burger": "Cosmic weirdness adds a warmer, funnier turn to the time-bent lane.",
       "case-63": "A cleaner time-paradox thriller branch when you want the hook fast and the stakes personal.",
-      "midst": "A reality-bending escalation for listeners who want the weirdness to get bigger and less polite."
+      "midst": "A reality-bending escalation for listeners who want the weirdness to get bigger and less polite.",
+      "woe-begone": "An alternate-reality spiral where technology and identity keep rewriting the rules underneath the story."
     },
     "featured": false,
     "order": 60,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-08-29"
   },
   {
     "id": "late-night-tension",
@@ -306,7 +330,10 @@
       "spines-podcast",
       "passenger-list",
       "midnight-radio",
-      "janus-descending"
+      "janus-descending",
+      "mage-in-the-machine",
+      "the-secret-of-st-kilda",
+      "red-frontier"
     ],
     "showReasons": {
       "solar": "Tight survival tension fits a focused night listen.",
@@ -325,12 +352,15 @@
       "spines-podcast": "Dark, unstable horror pressure keeps the tension from getting too procedural.",
       "passenger-list": "A vanished plane and widening conspiracy make this an easy thriller fit.",
       "midnight-radio": "Its melancholy small-town mystery atmosphere belongs here.",
-      "janus-descending": "Isolation horror and reverse-log structure make this a strong headphones-at-night pick."
+      "janus-descending": "Isolation horror and reverse-log structure make this a strong headphones-at-night pick.",
+      "mage-in-the-machine": "Cursed cases, supernatural menace, and compact episodes make this an easy after-dark horror listen.",
+      "the-secret-of-st-kilda": "Supernatural danger, cult pressure, and a quiet island setting give it an after-dark tension route.",
+      "red-frontier": "A mysterious epidemic, a remote Mars base, and a survival mystery make it an easy after-dark tension fit."
     },
     "featured": false,
     "order": 70,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-08-29"
   },
   {
     "id": "headphones-on-immersion",
@@ -362,7 +392,9 @@
       "limetown",
       "girl-in-space",
       "passenger-list",
-      "moonbase-theta-out"
+      "moonbase-theta-out",
+      "the-chronicles-of-astrimos",
+      "red-frontier"
     ],
     "showReasons": {
       "impact-winter": "Big scenes and layered production make headphones worthwhile.",
@@ -376,12 +408,14 @@
       "limetown": "The faux-public-radio frame works best when listeners can stay locked into the reporting texture.",
       "girl-in-space": "A lone-voice space mystery that rewards close listening.",
       "passenger-list": "Conspiracy thriller layering makes more sense when the listener can stay fully inside it.",
-      "moonbase-theta-out": "Emotional sci-fi with transmission framing lands best in an uninterrupted listen."
+      "moonbase-theta-out": "Emotional sci-fi with transmission framing lands best in an uninterrupted listen.",
+      "the-chronicles-of-astrimos": "Full-cast performances, original music, and layered sound design reward close listening.",
+      "red-frontier": "Full-cast performances, sound design, and an original score reward close listening."
     },
     "featured": false,
     "order": 80,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-08-29"
   },
   {
     "id": "finished-arcs",
@@ -417,7 +451,10 @@
       "janus-descending",
       "spines-podcast",
       "moonbase-theta-out",
-      "flash-gordon-and-buck-rogers-radio-adventurers"
+      "flash-gordon-and-buck-rogers-radio-adventurers",
+      "case-63",
+      "video-palace",
+      "passenger-list"
     ],
     "showReasons": {
       "solar": "A contained survival thriller with a known ending.",
@@ -435,12 +472,15 @@
       "janus-descending": "A complete horror-sci-fi listen with a deliberate structure.",
       "spines-podcast": "A finished horror serial that can be recommended without caveats about continuation.",
       "moonbase-theta-out": "A complete emotional space drama for listeners who want closure.",
-      "flash-gordon-and-buck-rogers-radio-adventurers": "A completed limited feed of surviving vintage serial adventures with a defined endpoint."
+      "flash-gordon-and-buck-rogers-radio-adventurers": "A completed limited feed of surviving vintage serial adventures with a defined endpoint.",
+      "case-63": "A finished, tightly paced time-travel thriller that resolves its central conversation.",
+      "video-palace": "A contained media-horror mystery with a complete run and a clear place to stop.",
+      "passenger-list": "A bounded investigative thriller for listeners who want conspiracy without an indefinite feed."
     },
     "featured": true,
     "order": 90,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-08-29"
   },
   {
     "id": "quick-first-listens",
@@ -468,7 +508,8 @@
       "the-deca-tapes",
       "homecoming",
       "the-amelia-project",
-      "forest-404"
+      "forest-404",
+      "mage-in-the-machine"
     ],
     "showReasons": {
       "from-now": "Six main story episodes make it the cleanest quick sci-fi start.",
@@ -478,7 +519,8 @@
       "the-deca-tapes": "A self-contained mystery shape makes the commitment easier to understand.",
       "homecoming": "A compact prestige-thriller binge when you want something polished and easy to sample fast.",
       "the-amelia-project": "Interview-shaped episodes make it easy to sample before committing deeper.",
-      "forest-404": "A shorter conceptual sci-fi entry when the listener wants something compact."
+      "forest-404": "A shorter conceptual sci-fi entry when the listener wants something compact.",
+      "mage-in-the-machine": "Seven short-to-medium episodes make its cursed-case premise easy to sample before committing deeper."
     },
     "featured": false,
     "order": 100,
@@ -562,7 +604,12 @@
       "the-white-vault",
       "derelict",
       "copperheart-a-riggstories-audio-drama",
-      "windfall"
+      "windfall",
+      "red-frontier",
+      "vast-horizon",
+      "solar",
+      "marsfall",
+      "janus-descending"
     ],
     "showReasons": {
       "were-alive": "Long-running ensemble survival gives it endurance.",
@@ -572,12 +619,17 @@
       "the-white-vault": "Environmental survival turns isolation into the threat.",
       "derelict": "Industrial sci-fi tension adds a high-pressure mystery variant.",
       "copperheart-a-riggstories-audio-drama": "A large bunker population and an unexpected visitor keep the reconstruction plan under pressure.",
-      "windfall": "Conspiracy pressure and collapsing systems keep the story urgent even when the threat is more political than monstrous."
+      "windfall": "Conspiracy pressure and collapsing systems keep the story urgent even when the threat is more political than monstrous.",
+      "red-frontier": "A one-way Mars mission and a mysterious epidemic make the survival pressure immediate.",
+      "vast-horizon": "A colony ship crisis turns isolation and limited resources into the central problem.",
+      "solar": "A spacecraft disaster keeps every choice close to the edge of failure.",
+      "marsfall": "A Mars settlement under pressure gives the collection a frontier-survival route with room for consequence.",
+      "janus-descending": "A doomed xenoarchaeology mission turns discovery into a fight to stay alive."
     },
     "featured": false,
     "order": 120,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-08-29"
   },
   {
     "id": "worldbuilding-deep-dives",
@@ -609,7 +661,11 @@
       "the-strange-case-of-starship-iris",
       "tumanbay",
       "the-once-and-future-nerd",
-      "flash-gordon-and-buck-rogers-radio-adventurers"
+      "flash-gordon-and-buck-rogers-radio-adventurers",
+      "the-silt-verses",
+      "old-gods-of-appalachia",
+      "the-penumbra-podcast",
+      "the-mistholme-museum-of-mystery-morbidity-and-mortality"
     ],
     "showReasons": {
       "midnight-burger": "Its cosmic premise keeps opening into more places and people.",
@@ -623,12 +679,16 @@
       "the-strange-case-of-starship-iris": "Resistance politics and ensemble space-opera sprawl deepen the social worldbuilding.",
       "tumanbay": "A city-scale political world that keeps expanding through pressure and perspective.",
       "the-once-and-future-nerd": "Portal fantasy that earns its scale through social and political detail.",
-      "flash-gordon-and-buck-rogers-radio-adventurers": "The vintage serials offer a direct look at the planetary adventure worlds that shaped later space opera."
+      "flash-gordon-and-buck-rogers-radio-adventurers": "The vintage serials offer a direct look at the planetary adventure worlds that shaped later space opera.",
+      "the-silt-verses": "A fully inhabited religious and political world where every new place changes the stakes.",
+      "old-gods-of-appalachia": "A long-running regional mythology gives the collection depth of history as well as scale.",
+      "the-penumbra-podcast": "Multiple connected worlds and long arcs reward listeners who want more than one setting to explore.",
+      "the-mistholme-museum-of-mystery-morbidity-and-mortality": "A museum frame turns each strange artifact into another doorway into the archive's wider world."
     },
     "featured": false,
     "order": 130,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-08-29"
   },
   {
     "id": "small-town-strange-signals",
@@ -651,18 +711,24 @@
       "king-falls-am",
       "harbor",
       "midnight-radio",
-      "limetown"
+      "limetown",
+      "unwell",
+      "the-town-whispers",
+      "where-the-stars-fell"
     ],
     "showReasons": {
       "king-falls-am": "Late-night radio framing turns the town into part of the cast.",
       "harbor": "Cryptids and family friction make the local weirdness feel personal.",
       "midnight-radio": "Music, memory, and small-town mystery keep the mood intimate.",
-      "limetown": "A vanished community adds a colder investigative option."
+      "limetown": "A vanished community adds a colder investigative option.",
+      "unwell": "A family return to a strange Midwestern town makes the supernatural feel close to home.",
+      "the-town-whispers": "Folk horror and small-town scale make the local stories feel impossible to leave behind.",
+      "where-the-stars-fell": "A small-town supernatural mystery keeps the community and its old secrets in the foreground."
     },
     "featured": false,
     "order": 135,
     "createdAt": "2026-07-10",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-08-29"
   },
   {
     "id": "ensemble-chaos-with-heart",
@@ -688,7 +754,10 @@
       "oblivity",
       "brimstone-valley-mall",
       "mission-rejected",
-      "we-fix-space-junk"
+      "we-fix-space-junk",
+      "the-amelia-project",
+      "eos-10",
+      "caravan"
     ],
     "showReasons": {
       "mockery-manor": "Theme-park staff chaos gives the ensemble a tight comic engine.",
@@ -696,12 +765,15 @@
       "oblivity": "Crew incompetence and isolation keep the ensemble pressure funny instead of shapeless.",
       "brimstone-valley-mall": "A mall full of demons is exactly the kind of contained disaster this collection wants.",
       "mission-rejected": "Backup spies bickering under pressure makes the ensemble chemistry do the heavy lifting.",
-      "we-fix-space-junk": "Two-person survival comedy still feels ensemble-minded because every stop widens the damage."
+      "we-fix-space-junk": "Two-person survival comedy still feels ensemble-minded because every stop widens the damage.",
+      "the-amelia-project": "A rotating cast of impossible clients turns each scheme into another comic collision with consequences.",
+      "eos-10": "Medical emergencies and station banter give the ensemble a dependable pressure-cooker rhythm.",
+      "caravan": "A moving fantasy party keeps the cast in motion while making the emotional bonds matter."
     },
     "featured": false,
     "order": 136,
     "createdAt": "2026-07-10",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-08-29"
   },
   {
     "id": "fantasy-detours-and-hidden-worlds",
@@ -724,18 +796,190 @@
       "caravan",
       "the-once-and-future-nerd",
       "tumanbay",
-      "brimstone-valley-mall"
+      "brimstone-valley-mall",
+      "greater-boston",
+      "the-penumbra-podcast",
+      "the-mistholme-museum-of-mystery-morbidity-and-mortality"
     ],
     "showReasons": {
       "caravan": "A hidden-road fantasy that keeps rewarding curiosity and movement.",
       "the-once-and-future-nerd": "Portal fantasy that grows into something politically and emotionally larger.",
       "tumanbay": "The epic branch for listeners who want court pressure and a fully inhabited world.",
-      "brimstone-valley-mall": "A comedic infernal detour that still feels like its own complete subworld."
+      "brimstone-valley-mall": "A comedic infernal detour that still feels like its own complete subworld.",
+      "greater-boston": "Urban magical realism makes the familiar city feel quietly impossible.",
+      "the-penumbra-podcast": "Connected sci-fi and fantasy worlds offer several different ways into the same larger imaginative project.",
+      "the-mistholme-museum-of-mystery-morbidity-and-mortality": "A museum of magical artifacts makes every episode another small detour into a hidden world."
     },
     "featured": false,
     "order": 137,
     "createdAt": "2026-07-10",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-08-29"
+  },
+  {
+    "id": "short-finished-thrillers",
+    "title": "Short finished thrillers",
+    "description": "Compact, finished mysteries and thrillers for a weekend binge or a few focused nights.",
+    "label": "Compact closed loops",
+    "kind": "curated",
+    "intentTags": [
+      "quick-listens",
+      "finished",
+      "late-night"
+    ],
+    "commitment": "Weekend binge",
+    "coverShowIds": [
+      "case-63",
+      "from-now",
+      "forest-404",
+      "video-palace"
+    ],
+    "showIds": [
+      "case-63",
+      "from-now",
+      "forest-404",
+      "homecoming",
+      "video-palace",
+      "passenger-list"
+    ],
+    "showReasons": {
+      "case-63": "Two short seasons turn a time-travel mystery into a focused, finished binge.",
+      "from-now": "Six main episodes keep the conspiracy compact while still giving it a proper endpoint.",
+      "forest-404": "Nine short story episodes make this the quickest finished route here, with the soundscape part of the experience.",
+      "homecoming": "Three tightly bounded seasons offer a polished full-cast thriller without a sprawling back catalogue.",
+      "video-palace": "Fourteen feed episodes make the media-horror mystery easy to finish in a few concentrated nights.",
+      "passenger-list": "Sixteen story episodes give the conspiracy room to breathe while staying bounded enough for a focused weekend."
+    },
+    "featured": false,
+    "order": 138,
+    "createdAt": "2026-08-29",
+    "updatedAt": "2026-08-29"
+  },
+  {
+    "id": "found-recordings-and-buried-evidence",
+    "title": "Found recordings and buried evidence",
+    "description": "Recorded evidence, recovered tapes, and investigations where the format is part of the mystery.",
+    "label": "Recovered evidence",
+    "kind": "curated",
+    "intentTags": [
+      "headphones-on",
+      "late-night",
+      "cold-horror"
+    ],
+    "commitment": "Investigation-led",
+    "coverShowIds": [
+      "archive-81",
+      "the-white-vault",
+      "video-palace",
+      "limetown"
+    ],
+    "showIds": [
+      "archive-81",
+      "the-white-vault",
+      "video-palace",
+      "limetown",
+      "the-black-tapes",
+      "the-lovecraft-investigations",
+      "the-storage-papers",
+      "the-sheridan-tapes",
+      "the-deca-tapes"
+    ],
+    "showReasons": {
+      "archive-81": "Archival recordings and occult history make the act of cataloging part of the danger.",
+      "the-white-vault": "Expedition logs and recovered audio turn a remote station into evidence that must be pieced together.",
+      "video-palace": "A lost VHS and a media investigation make every clue feel like something the listener has just found.",
+      "limetown": "A vanished community is reconstructed through reporting, interviews, and the gaps between testimonies.",
+      "the-black-tapes": "A skeptical documentary investigation builds its paranormal cases through tapes and recorded testimony.",
+      "the-lovecraft-investigations": "Podcast investigation structure makes each discovery feel like evidence before the mythos widens.",
+      "the-storage-papers": "Recovered documents and case files keep the supernatural mystery grounded in an accumulating archive.",
+      "the-sheridan-tapes": "A large mystery assembled from recorded material turns the missing evidence into the listening engine.",
+      "the-deca-tapes": "Segmented recordings and a locked-room puzzle make the format itself part of the mystery."
+    },
+    "featured": false,
+    "order": 138.5,
+    "createdAt": "2026-08-29",
+    "updatedAt": "2026-08-29"
+  },
+  {
+    "id": "folk-horror-and-old-gods",
+    "title": "Folk horror and old gods",
+    "description": "Folk horror, living traditions, and places where the old story is still in force.",
+    "label": "Ritual and place",
+    "kind": "curated",
+    "intentTags": [
+      "cold-horror",
+      "late-night",
+      "worldbuilding"
+    ],
+    "commitment": "Slow-burn dread",
+    "coverShowIds": [
+      "old-gods-of-appalachia",
+      "the-silt-verses",
+      "the-town-whispers",
+      "the-secret-of-st-kilda"
+    ],
+    "showIds": [
+      "old-gods-of-appalachia",
+      "the-silt-verses",
+      "the-town-whispers",
+      "the-secret-of-st-kilda",
+      "the-milkman-of-st-gaffs",
+      "the-wyrd-side"
+    ],
+    "showReasons": {
+      "old-gods-of-appalachia": "A long-running regional mythology gives every new story the weight of something older underneath it.",
+      "the-silt-verses": "Institutional faith and folk horror become a full political world rather than a one-off scare.",
+      "the-town-whispers": "Small-town scale makes folklore feel local, intimate, and impossible to leave behind.",
+      "the-secret-of-st-kilda": "An isolated island, cult pressure, and supernatural danger put old beliefs at the center.",
+      "the-milkman-of-st-gaffs": "A Lovecraftian village turns ritual and social order into the threat.",
+      "the-wyrd-side": "New Weird and folk-horror signals make it a compact route when you want strangeness without a huge back catalogue."
+    },
+    "featured": false,
+    "order": 139,
+    "createdAt": "2026-08-29",
+    "updatedAt": "2026-08-29"
+  },
+  {
+    "id": "comedy-with-a-mystery",
+    "title": "Comedy with a mystery",
+    "description": "Funny investigations, eccentric detectives, and mysteries that still know when to be silly.",
+    "label": "Funny investigations",
+    "kind": "curated",
+    "intentTags": [
+      "easy-first-step",
+      "warm-weird",
+      "quick-listens"
+    ],
+    "commitment": "Case by case",
+    "coverShowIds": [
+      "the-amelia-project",
+      "victoriocity",
+      "mockery-manor",
+      "king-falls-am"
+    ],
+    "showIds": [
+      "the-amelia-project",
+      "victoriocity",
+      "mockery-manor",
+      "king-falls-am",
+      "the-imperfection",
+      "fawx-stallion",
+      "death-by-dying",
+      "gather-the-suspects"
+    ],
+    "showReasons": {
+      "the-amelia-project": "A darkly comic identity mystery where every strange client creates another case-shaped story.",
+      "victoriocity": "Detective work, impossible conspiracies, and sharp ensemble banter give the collection its polished mystery lane.",
+      "mockery-manor": "Chaotic twins investigate disappearances while the theme-park setting keeps the danger playful and specific.",
+      "king-falls-am": "Late-night radio, paranormal callers, and small-town personalities make the mystery feel communal.",
+      "the-imperfection": "A missing psychiatrist and unreliable perceptions turn a surreal comedy ensemble into an actual investigation.",
+      "fawx-stallion": "Overlooked detectives get a comic case of their own, with rivalry and friendship driving the investigation.",
+      "death-by-dying": "An obituary writer investigating strange deaths keeps the mystery engine pointed toward the absurd.",
+      "gather-the-suspects": "A cosy murder mystery in a very boring apocalypse makes the case itself the source of the comedy."
+    },
+    "featured": false,
+    "order": 139.5,
+    "createdAt": "2026-08-29",
+    "updatedAt": "2026-08-29"
   },
   {
     "id": "completed-sci-fi",
@@ -1339,7 +1583,8 @@
       "alice-isnt-dead",
       "paralyzed",
       "spines-podcast",
-      "the-black-tapes"
+      "the-black-tapes",
+      "mage-in-the-machine"
     ],
     "showReasons": {
       "archive-81": "A stranger signal-horror branch once the occult mystery needs more structure and sound design.",
@@ -1349,12 +1594,99 @@
       "alice-isnt-dead": "A road-haunted branch if the voice-driven dread and persistent pursuit are the real hook.",
       "paralyzed": "A direct supernatural-mystery story for listeners who want the horror first and the answers second.",
       "spines-podcast": "A good fit if the listener wants another horror serial driven by unstable perspective and occult pressure.",
-      "the-black-tapes": "Another strong branch for listeners who want inquiry-driven horror and a larger supernatural structure behind the cases."
+      "the-black-tapes": "Another strong branch for listeners who want inquiry-driven horror and a larger supernatural structure behind the cases.",
+      "mage-in-the-machine": "A shorter, case-driven supernatural-horror branch for listeners who want a cursed lead without committing to a long serial."
     },
     "featured": false,
     "order": 260,
     "createdAt": "2026-06-30",
     "updatedAt": "2026-06-30"
+  },
+  {
+    "id": "shows-like-the-magnus-archives",
+    "title": "Shows like The Magnus Archives",
+    "description": "Case-file horror with an expanding mythology for listeners who want strange encounters to add up to something larger.",
+    "label": "Case files and consequences",
+    "kind": "similarity",
+    "anchorShowId": "the-magnus-archives",
+    "intentTags": [
+      "late-night",
+      "headphones-on",
+      "worldbuilding"
+    ],
+    "commitment": "Similar shows",
+    "coverShowIds": [
+      "the-lovecraft-investigations",
+      "archive-81",
+      "old-gods-of-appalachia",
+      "the-silt-verses"
+    ],
+    "showIds": [
+      "the-lovecraft-investigations",
+      "archive-81",
+      "old-gods-of-appalachia",
+      "the-silt-verses",
+      "knifepoint-horror",
+      "scp-archives",
+      "the-black-tapes",
+      "a-voice-from-darkness"
+    ],
+    "showReasons": {
+      "the-lovecraft-investigations": "A reporting-led investigation that grows from strange cases into a much larger cosmic horror story.",
+      "archive-81": "Recovered recordings, occult history, and an expanding mythology make it a natural archival-horror branch.",
+      "old-gods-of-appalachia": "A narrated regional mythology gives each new story the weight of something older underneath it.",
+      "the-silt-verses": "A darker serialized route where faith, institutions, and supernatural power keep widening the frame.",
+      "knifepoint-horror": "The cleanest anthology detour when the standalone case-file dread is the part you want most.",
+      "scp-archives": "A dossier-shaped anthology for listeners who enjoy strange reports accumulating into a larger catalog of dread.",
+      "the-black-tapes": "A skeptical investigation route when the research, recordings, and escalating paranormal question are the hook.",
+      "a-voice-from-darkness": "Call-in supernatural warnings preserve the intimate, voice-led feeling of being told about something you should not investigate."
+    },
+    "featured": false,
+    "order": 270,
+    "createdAt": "2026-08-29",
+    "updatedAt": "2026-08-29"
+  },
+  {
+    "id": "shows-like-the-amelia-project",
+    "title": "Shows like The Amelia Project",
+    "description": "Darkly funny, voice-led fiction about reinvention, eccentric schemes, and people who become a family by accident.",
+    "label": "Dark comedy with a heart",
+    "kind": "similarity",
+    "anchorShowId": "the-amelia-project",
+    "intentTags": [
+      "warm-weird",
+      "easy-first-step",
+      "binge-listening"
+    ],
+    "commitment": "Similar shows",
+    "coverShowIds": [
+      "midnight-burger",
+      "wooden-overcoats",
+      "welcome-to-night-vale",
+      "victoriocity"
+    ],
+    "showIds": [
+      "midnight-burger",
+      "wooden-overcoats",
+      "welcome-to-night-vale",
+      "victoriocity",
+      "mockery-manor",
+      "greater-boston",
+      "mission-rejected"
+    ],
+    "showReasons": {
+      "midnight-burger": "A bigger cosmic canvas with the same warmth, running jokes, and found-family pull.",
+      "wooden-overcoats": "Small-town rivalry and character-driven absurdity keep the comic rhythm grounded in relationships.",
+      "welcome-to-night-vale": "Deadpan weirdness and a carefully maintained voice make the strange premise part of the joke.",
+      "victoriocity": "A polished full-cast mystery-comedy with eccentric characters and a strong sense of place.",
+      "mockery-manor": "A brisker comic mystery route when you want ensemble banter around an actual case.",
+      "greater-boston": "A more sprawling, relationship-first ensemble where the oddity stays rooted in human attachment.",
+      "mission-rejected": "A faster action-comedy branch for listeners who want recurring missions and a cast that keeps making things worse."
+    },
+    "featured": false,
+    "order": 275,
+    "createdAt": "2026-08-29",
+    "updatedAt": "2026-08-29"
   },
   {
     "id": "episodic-comedy",
@@ -1615,7 +1947,8 @@
       "perswayssick-radio-unearthly-comedy",
       "the-third-rock-theatre-of-the-air",
       "in-dying-days",
-      "chongqing-punk"
+      "chongqing-punk",
+      "the-chronicles-of-astrimos"
     ],
     "showReasons": {
       "impact-winter": "Rule match: ongoing + Sci-Fi.",
@@ -1687,7 +2020,8 @@
       "perswayssick-radio-unearthly-comedy": "Rule match: ongoing + Sci-Fi.",
       "the-third-rock-theatre-of-the-air": "Rule match: ongoing + Sci-Fi.",
       "in-dying-days": "Rule match: ongoing + Sci-Fi.",
-      "chongqing-punk": "Rule match: ongoing + Sci-Fi."
+      "chongqing-punk": "Rule match: ongoing + Sci-Fi.",
+      "the-chronicles-of-astrimos": "Rule match: ongoing + Sci-Fi."
     },
     "automation": {
       "mode": "rule",
@@ -1712,7 +2046,7 @@
     "featured": false,
     "order": 290,
     "createdAt": "2026-08-16",
-    "updatedAt": "2026-08-16"
+    "updatedAt": "2026-08-29"
   },
   {
     "id": "ongoing-comedy",
@@ -2086,7 +2420,8 @@
       "the-liminal-lands",
       "the-tower",
       "attention-hellmart-shoppers",
-      "the-other-stories-sci-fi-horror-thriller-wtf-stories"
+      "the-other-stories-sci-fi-horror-thriller-wtf-stories",
+      "mage-in-the-machine"
     ],
     "showReasons": {
       "welcome-to-night-vale": "Rule match: Horror + Episodic.",
@@ -2100,7 +2435,8 @@
       "the-liminal-lands": "Rule match: Horror + Episodic.",
       "the-tower": "Rule match: Horror + Episodic.",
       "attention-hellmart-shoppers": "Rule match: Horror + Episodic.",
-      "the-other-stories-sci-fi-horror-thriller-wtf-stories": "Rule match: Horror + Episodic."
+      "the-other-stories-sci-fi-horror-thriller-wtf-stories": "Rule match: Horror + Episodic.",
+      "mage-in-the-machine": "Rule match: Horror + Episodic."
     },
     "automation": {
       "mode": "rule",

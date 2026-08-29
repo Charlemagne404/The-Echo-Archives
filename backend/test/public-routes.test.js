@@ -193,7 +193,7 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
     );
     assert.match(collectionHtml, /<h1 id="collectionTitle">Best for long walks<\/h1>/);
     assert.doesNotMatch(collectionHtml, /Loading collection/);
-    assert.match(collectionHtml, /8 shows in this collection/);
+    assert.match(collectionHtml, /11 shows in this collection/);
     assert.match(collectionHtml, /href="\/shows\/impact-winter"/);
     assert.match(collectionHtml, /class="collection-show-card-note"/);
     const collectionStructuredDataMatch = collectionHtml.match(
@@ -204,7 +204,7 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
     const collectionPage = graphNode(collectionStructuredData, "CollectionPage");
     const collectionItemList = graphNode(collectionStructuredData, "ItemList");
     assert.equal(collectionPage.url, `${context.baseUrl}/collections/best-for-long-walks`);
-    assert.equal(collectionItemList.numberOfItems, 8);
+    assert.equal(collectionItemList.numberOfItems, 11);
     assert.ok(collectionItemList.itemListElement.every((item) => item.url.startsWith(`${context.baseUrl}/shows/`)));
 
     assert.ok(similarityCollection?.id);

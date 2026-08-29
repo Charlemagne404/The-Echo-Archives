@@ -4,10 +4,10 @@
   "draftShows": 0,
   "fullReviews": 7,
   "spotlightReviews": 0,
-  "indexedOnly": 194,
-  "imported": 523,
+  "indexedOnly": 197,
+  "imported": 520,
   "plannedReviews": 0,
-  "collections": 38,
+  "collections": 44,
   "reviewCompanions": 7,
   "creatorVerified": 0,
   "withRss": 721,
@@ -32,7 +32,7 @@
         "pass": true
       },
       "collections": {
-        "actual": 38,
+        "actual": 44,
         "target": 29,
         "pass": true
       }
@@ -168,8 +168,16 @@
           ]
         }
       ],
-      "sparseEditorialViolations": [],
-      "blockingErrors": []
+      "sparseEditorialViolations": [
+        "the-secret-of-st-kilda",
+        "red-frontier",
+        "the-chronicles-of-astrimos"
+      ],
+      "blockingErrors": [
+        "Sparse indexed-only show \"the-secret-of-st-kilda\" contains unsupported editorial claims.",
+        "Sparse indexed-only show \"red-frontier\" contains unsupported editorial claims.",
+        "Sparse indexed-only show \"the-chronicles-of-astrimos\" contains unsupported editorial claims."
+      ]
     },
     "editorial": {
       "eligibleShows": [
@@ -185,12 +193,10 @@
       "blockingErrors": []
     },
     "collections": {
-      "routeCollectionCount": 13,
+      "routeCollectionCount": 15,
       "routeCollectionsMissingShowReasons": [],
       "anchorShowsWithTooFewCollectionMemberships": [],
       "sparseIndexedOnlyShows": [
-        "the-silt-verses",
-        "old-gods-of-appalachia",
         "the-storage-papers",
         "station-blue",
         "the-strata",
@@ -198,24 +204,17 @@
         "the-burned-photo",
         "a-voice-from-darkness",
         "the-sheridan-tapes",
-        "the-mistholme-museum-of-mystery-morbidity-and-mortality",
-        "the-town-whispers",
         "the-cellar-letters",
-        "woe-begone",
-        "the-milkman-of-st-gaffs",
         "where-the-stars-fell",
         "the-pasithea-powder",
         "the-antique-shop",
         "re-dracula",
-        "fawx-stallion",
         "mayfair-watchers-society",
         "wrong-station",
         "not-quite-dead",
         "hi-nay",
         "super-suits",
         "wake-of-corrosion",
-        "the-secret-of-st-kilda",
-        "death-by-dying",
         "the-wyrd-side",
         "the-night-post",
         "observable-radio",
@@ -402,10 +401,6 @@
           "count": 1
         },
         {
-          "label": "Mars colony",
-          "count": 1
-        },
-        {
           "label": "Media horror",
           "count": 1
         },
@@ -497,7 +492,6 @@
         "Approved tag \"Locked-room mystery\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Lovecraftian\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Magical realism\" is used by one published show; review its listener-discovery value.",
-        "Approved tag \"Mars colony\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Media horror\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Memory alteration\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Mind sharing\" is used by one published show; review its listener-discovery value.",
@@ -523,13 +517,21 @@
       "blockingErrors": []
     },
     "sparseIndexedOnly": {
-      "count": 131,
-      "outOfRangeSimilarLinks": 131,
-      "fewerThanTwoCollections": 116,
-      "editorialViolations": [],
+      "count": 133,
+      "outOfRangeSimilarLinks": 133,
+      "fewerThanTwoCollections": 107,
+      "editorialViolations": [
+        "the-secret-of-st-kilda",
+        "red-frontier",
+        "the-chronicles-of-astrimos"
+      ],
       "informationalOnly": true
     },
-    "blockingErrors": [],
-    "complete": true
+    "blockingErrors": [
+      "Sparse indexed-only show \"the-secret-of-st-kilda\" contains unsupported editorial claims.",
+      "Sparse indexed-only show \"red-frontier\" contains unsupported editorial claims.",
+      "Sparse indexed-only show \"the-chronicles-of-astrimos\" contains unsupported editorial claims."
+    ],
+    "complete": false
   }
 }

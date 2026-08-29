@@ -1,12 +1,18 @@
 {
   "id": "red-frontier",
   "title": "Red Frontier",
-  "subtitle": "",
+  "subtitle": "A lone Mars colonist must confront a vanished crew and a new arrival.",
   "description": "Commander Taylor Fullerton knows what it takes to survive. Three years ago, she lost her crew in a mysterious epidemic and has carried on their one-way mission to colonize Mars in complete isolation. When another crew lands on the Red planet, she must discover the truth to avoid repeating their fate while struggling to maintain her sanity. Written and directed by Sarah Nolen. Starring Betty Gilpin, Charlie Barnett, Maria Dizzia, Ashley Park, Finn Wittrock, and Kara Young. Score by Ghostly Kisses. Special thanks to NASA.",
+  "officialDescription": {
+    "text": "Commander Taylor Fullerton knows what it takes to survive. Three years ago, she lost her crew in a mysterious epidemic and has carried on their one-way mission to colonize Mars in complete isolation. When another crew lands on the Red planet, she must discover the truth to avoid repeating their fate while struggling to maintain her sanity.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://feeds.megaphone.fm/redfrontier-spot",
+    "verifiedAt": "2026-08-29"
+  },
   "cover": "images/covers/red-frontier.jpg",
   "coverAlt": "Red Frontier cover art",
   "status": "published",
-  "reviewStatus": "imported",
+  "reviewStatus": "indexed-only",
   "releaseStatus": "unknown",
   "completionStatus": "unclear",
   "listenLinks": {
@@ -25,9 +31,14 @@
   ],
   "tones": [],
   "formats": [
+    "full-cast",
     "serialized"
   ],
-  "tags": [],
+  "tags": [
+    "Mars colony",
+    "Survival",
+    "Space"
+  ],
   "aliases": [
     "Red Frontier"
   ],
@@ -38,37 +49,43 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "1 season observed • at least 13 full episodes • 14 min median",
+    "label": "1 season observed • 11 full episodes • 13 min median; feed also carries a trailer and two cross-promotional items.",
     "seasons": 1,
-    "episodes": 13,
-    "avgEpisodeMinutes": 14,
-    "medianEpisodeMinutes": 14,
+    "episodes": 11,
+    "avgEpisodeMinutes": 13,
+    "medianEpisodeMinutes": 13,
     "minEpisodeMinutes": 11,
-    "maxEpisodeMinutes": 20,
-    "totalObservedHours": 3.1,
+    "maxEpisodeMinutes": 17,
+    "totalObservedHours": 2.4,
     "durationCoverage": 1,
     "observedSeasons": [
       1
     ],
-    "countQualifier": "at-least",
+    "countQualifier": "exact",
     "episodeCounts": {
-      "full": 13,
+      "full": 11,
       "bonus": 0,
-      "trailer": 1
+      "trailer": 1,
+      "crossPromotion": 2
     }
   },
   "releaseDates": {
     "first": "2021-06-14",
-    "latest": "2023-03-15",
+    "latest": "2021-07-26",
     "latestFeedItem": "2023-03-15",
     "next": ""
   },
   "ratings": {},
-  "facts": {},
+  "facts": {
+    "distribution": "Spotify original podcast",
+    "format": "Serialized fiction",
+    "specialThanks": "NASA",
+    "seriesEpisodeCount": "11 full episodes plus trailer; current feed also contains two cross-promotional items."
+  },
   "bestFor": [],
   "similarTo": [],
   "similarReasons": {},
-  "archiveTake": "",
+  "archiveTake": "A compact Mars-isolation thriller with a clear survival hook and a full-cast production.",
   "spoilerFreeReview": "",
   "thoughts": "",
   "quote": {
@@ -86,17 +103,34 @@
   },
   "credits": {
     "creatorName": "Gimlet",
-    "ownerName": "Gimlet"
+    "ownerName": "Gimlet",
+    "writer": "Sarah Nolen",
+    "director": "Sarah Nolen",
+    "executiveProducer": "Mimi O'Donnell",
+    "soundDesigner": "Armando Serrano & Daniel Brunelle",
+    "mixer": "Daniel Brunelle",
+    "composer": "Ghostly Kisses",
+    "musicSupervisor": "Liz Fulton",
+    "productionCompany": "Gimlet",
+    "distributor": "Spotify"
   },
   "creators": [
     "Gimlet"
   ],
-  "cast": [],
+  "cast": [
+    "Betty Gilpin as Commander Taylor Fullerton",
+    "Charlie Barnett",
+    "Maria Dizzia",
+    "Ashley Park",
+    "Finn Wittrock",
+    "Kara Young",
+    "Alfredo Narciso"
+  ],
   "verification": {
-    "status": "automated-source-checked",
-    "verifiedAt": "2026-08-15",
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-08-29",
     "source": "https://feeds.megaphone.fm/redfrontier-spot; https://podcasts.apple.com/us/podcast/red-frontier/id1690676876?uo=4",
-    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
   },
   "availability": {
     "transcripts": "unknown",
@@ -105,12 +139,18 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "A one-way Mars colonization mission",
+    "pov": "Full-cast serialized survival thriller centered on Commander Taylor Fullerton",
+    "framingDevice": "A mission drama shaped by isolation, quarantine, and a mysterious epidemic"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.megaphone.fm/redfrontier-spot",
       "https://podcasts.apple.com/us/podcast/red-frontier/id1690676876?uo=4"
     ],
+    "objectiveVerifiedAt": "2026-08-29",
     "sourceCategories": [
       "Fiction",
       "Science Fiction"
@@ -578,19 +618,23 @@
         "verification": "b66d6993514147733de3ae08e01d84649daaec8ee7d2bc1b323e1f3e0246664f"
       },
       "optionalGaps": [
-        "Structured creator/cast/production credits were not exposed by the sources.",
-        "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No official standalone website or transcript source was located.",
+        "Release status and continuation beyond Season 1 remain unclear.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
-        "tier": "imported",
+        "tier": "indexed-only",
         "publishedAt": "2026-08-15T16:44:08.892Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-08-29T12:00:00.000Z",
+        "reviewedBy": "catalog-expansion",
+        "inputRevision": 1
       }
     }
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-08-29",
   "creatorId": "gimlet"
 }

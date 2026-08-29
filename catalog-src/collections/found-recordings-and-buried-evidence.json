@@ -1,0 +1,45 @@
+{
+  "id": "found-recordings-and-buried-evidence",
+  "title": "Found recordings and buried evidence",
+  "description": "Recorded evidence, recovered tapes, and investigations where the format is part of the mystery.",
+  "label": "Recovered evidence",
+  "kind": "curated",
+  "intentTags": [
+    "headphones-on",
+    "late-night",
+    "cold-horror"
+  ],
+  "commitment": "Investigation-led",
+  "coverShowIds": [
+    "archive-81",
+    "the-white-vault",
+    "video-palace",
+    "limetown"
+  ],
+  "showIds": [
+    "archive-81",
+    "the-white-vault",
+    "video-palace",
+    "limetown",
+    "the-black-tapes",
+    "the-lovecraft-investigations",
+    "the-storage-papers",
+    "the-sheridan-tapes",
+    "the-deca-tapes"
+  ],
+  "showReasons": {
+    "archive-81": "Archival recordings and occult history make the act of cataloging part of the danger.",
+    "the-white-vault": "Expedition logs and recovered audio turn a remote station into evidence that must be pieced together.",
+    "video-palace": "A lost VHS and a media investigation make every clue feel like something the listener has just found.",
+    "limetown": "A vanished community is reconstructed through reporting, interviews, and the gaps between testimonies.",
+    "the-black-tapes": "A skeptical documentary investigation builds its paranormal cases through tapes and recorded testimony.",
+    "the-lovecraft-investigations": "Podcast investigation structure makes each discovery feel like evidence before the mythos widens.",
+    "the-storage-papers": "Recovered documents and case files keep the supernatural mystery grounded in an accumulating archive.",
+    "the-sheridan-tapes": "A large mystery assembled from recorded material turns the missing evidence into the listening engine.",
+    "the-deca-tapes": "Segmented recordings and a locked-room puzzle make the format itself part of the mystery."
+  },
+  "featured": false,
+  "order": 138.5,
+  "createdAt": "2026-08-29",
+  "updatedAt": "2026-08-29"
+}

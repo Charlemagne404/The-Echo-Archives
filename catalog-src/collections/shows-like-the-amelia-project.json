@@ -1,0 +1,42 @@
+{
+  "id": "shows-like-the-amelia-project",
+  "title": "Shows like The Amelia Project",
+  "description": "Darkly funny, voice-led fiction about reinvention, eccentric schemes, and people who become a family by accident.",
+  "label": "Dark comedy with a heart",
+  "kind": "similarity",
+  "anchorShowId": "the-amelia-project",
+  "intentTags": [
+    "warm-weird",
+    "easy-first-step",
+    "binge-listening"
+  ],
+  "commitment": "Similar shows",
+  "coverShowIds": [
+    "midnight-burger",
+    "wooden-overcoats",
+    "welcome-to-night-vale",
+    "victoriocity"
+  ],
+  "showIds": [
+    "midnight-burger",
+    "wooden-overcoats",
+    "welcome-to-night-vale",
+    "victoriocity",
+    "mockery-manor",
+    "greater-boston",
+    "mission-rejected"
+  ],
+  "showReasons": {
+    "midnight-burger": "A bigger cosmic canvas with the same warmth, running jokes, and found-family pull.",
+    "wooden-overcoats": "Small-town rivalry and character-driven absurdity keep the comic rhythm grounded in relationships.",
+    "welcome-to-night-vale": "Deadpan weirdness and a carefully maintained voice make the strange premise part of the joke.",
+    "victoriocity": "A polished full-cast mystery-comedy with eccentric characters and a strong sense of place.",
+    "mockery-manor": "A brisker comic mystery route when you want ensemble banter around an actual case.",
+    "greater-boston": "A more sprawling, relationship-first ensemble where the oddity stays rooted in human attachment.",
+    "mission-rejected": "A faster action-comedy branch for listeners who want recurring missions and a cast that keeps making things worse."
+  },
+  "featured": false,
+  "order": 275,
+  "createdAt": "2026-08-29",
+  "updatedAt": "2026-08-29"
+}

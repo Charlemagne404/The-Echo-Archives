@@ -1,12 +1,18 @@
 {
   "id": "the-chronicles-of-astrimos",
   "title": "The Chronicles of Astrimos",
-  "subtitle": "",
+  "subtitle": "A lawyer is pulled into a 1960s radio serial whose danger is real.",
   "description": "Martin (Darren Criss) thought his life was on track - he was about to become a partner at his law-firm and propose to the woman of his dreams - when his grandmother Maisie (Kate Mulgrew) dies, leaving him an old LP record that derails everything. Playing it transports Martin into the fantastical, but shockingly real world of “The Chronicles of Astrimos,” a 1960’s sci-fi radio drama about the plucky young spaceship pilot Calico Jones (Maya Hawke) who is fighting to save her planet. Flipping involuntarily between Astrimos and the real-world, Martin realizes with horror that the life-and-death stakes in the story are real and his only hope of escape is to solve the mystery of his grandmother’s bizarre gift before it’s too late. Starring Darren Criss as Martin, Maya Hawke as Calico Jones. Featuring: Natalie Gold (Bridget), Quincy Tyler Bernstine (Councillor Dextra/Ruby Montrose), Alfred Molina (The Narrator), Peter Friedman (Phil), Azhar Khan (Rami/Gawain), Jayne Houdyshell (Jean), Andy Grotelueschen (Findo Gask/Frank), Adina Verson (Carla), Cindy Cheung (Chelsea), Rebecca Henderson (Dr. Woods/Viraxis), Kellen Raffaelo (Young Martin) Additional performances by Crystal Finn, Gabby Beans, Jay Klaitz, Robbie Sublett, and Gibson Frazier with Kate Mulgrew (Maisie) And Clarke Peters (Archie). Directed by Anne Kauffman Written by Declan Dineen Executive Producers: Mark Stern and Darren Criss Producers: Nick Garland, Declan Dineen, and Michel Lafrance Produced by Best Case Studios Adam Pincus, Executive Producer Isabel Evans, Producer Brent Raymond Katz, Co-producer Hannah Lebowitz-Lockard, Associate Producer Anpa’o Locke, Production Coordinator Edited by Ryan Seaton,Will Rosati, Max Michael Miller, and Nisha Venkat Sound Design by Dennis Dembeck and Will Rosati Mixed by Dennis Dembeck Original Music by Pakk Hui Casting by Paul Schnee and Kerry Barden Music by Pakk Hui Music Orchestrations by Hannah Zhang Music Preparation by Thanh Tran Score Mixer: John Witt Chapman Orchestra Budapest Scoring Orchestra Conductor: Péter Illényi Session Producer: Bálint Sapszon Orchestra Coordinator: Bertalan Veér Recording Engineer: Viktor Szabó Studio Assistant: Patrik Veréb Librarian: Ágnes Sapszon FOR ECHOVERSE: Development Executives: Nick Garland and Ben Chodosh Development Coordinator: Madison Engle Development Assistant: Sophie Kelly Production Consultant: Eleanor Hyde Business and Legal Affairs: Laura Black Dawson Finance: Andy Lewis, Morgan Krautstrunk, Judy Geletko The Chronicles of Astrimos is an Echoverse Production",
+  "officialDescription": {
+    "text": "Jaded, ambitious lawyer Martin Jennison’s life is turned upside-down when his grandmother bequeaths him an LP of a 1960s sci-fi radio serial called “The Chronicles of Astrimos.” Playing it transports him into the vivid “technicolor” world of Astrimos and he soon realizes that the physical jeopardy in Astrimos is real and that his life literally depends on figuring out what’s happening to him and how to escape it before time runs out.",
+    "sourceLabel": "Official show site",
+    "sourceUrl": "https://www.echoverse.com/the-chronicles-of-astrimos",
+    "verifiedAt": "2026-08-29"
+  },
   "cover": "images/covers/the-chronicles-of-astrimos.jpg",
   "coverAlt": "The Chronicles of Astrimos cover art",
   "status": "published",
-  "reviewStatus": "imported",
+  "reviewStatus": "indexed-only",
   "releaseStatus": "active",
   "completionStatus": "ongoing",
   "listenLinks": {
@@ -20,13 +26,20 @@
     "pocketCasts": ""
   },
   "genres": [
-    "drama"
+    "sci-fi",
+    "drama",
+    "comedy"
   ],
   "tones": [],
   "formats": [
+    "full-cast",
     "serialized"
   ],
-  "tags": [],
+  "tags": [
+    "Space",
+    "Space opera",
+    "Classic radio"
+  ],
   "aliases": [
     "The Chronicles of Astrimos"
   ],
@@ -37,37 +50,42 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "1 season observed • at least 7 full episodes • 23 min median",
+    "label": "1 season observed • 8 full episodes observed • 24 min median",
     "seasons": 1,
-    "episodes": 7,
-    "avgEpisodeMinutes": 22,
-    "medianEpisodeMinutes": 23,
+    "episodes": 8,
+    "avgEpisodeMinutes": 23,
+    "medianEpisodeMinutes": 24,
     "minEpisodeMinutes": 18,
-    "maxEpisodeMinutes": 25,
-    "totalObservedHours": 2.6,
+    "maxEpisodeMinutes": 26,
+    "totalObservedHours": 3,
     "durationCoverage": 1,
     "observedSeasons": [
       1
     ],
     "countQualifier": "at-least",
     "episodeCounts": {
-      "full": 7,
+      "full": 8,
       "bonus": 0,
       "trailer": 1
     }
   },
   "releaseDates": {
     "first": "2026-05-14",
-    "latest": "2026-08-06",
-    "latestFeedItem": "2026-08-06",
+    "latest": "2026-08-20",
+    "latestFeedItem": "2026-08-20",
     "next": ""
   },
   "ratings": {},
-  "facts": {},
+  "facts": {
+    "seriesLabel": "Sci-fi space dramedy",
+    "releaseCadence": "Every other week",
+    "production": "Produced by Best Case Studios for Echoverse.",
+    "explicit": "No"
+  },
   "bestFor": [],
   "similarTo": [],
   "similarReasons": {},
-  "archiveTake": "",
+  "archiveTake": "A playful sci-fi serial that toggles between a modern mystery and a vivid radio-adventure world.",
   "spoilerFreeReview": "",
   "thoughts": "",
   "quote": {
@@ -75,7 +93,7 @@
     "attribution": ""
   },
   "officialLinks": {
-    "website": "https://chronicles-of-astrimos.simplecast.com/",
+    "website": "https://www.echoverse.com/the-chronicles-of-astrimos",
     "patreon": "",
     "koFi": "",
     "discord": "",
@@ -85,17 +103,39 @@
   },
   "credits": {
     "creatorName": "Bloody FM, Echoverse",
-    "ownerName": "Echoverse"
+    "ownerName": "Echoverse",
+    "writer": "Declan Dineen",
+    "director": "Anne Kauffman",
+    "executiveProducers": "Mark Stern & Darren Criss",
+    "composer": "Pakk Hui",
+    "productionCompany": "Best Case Studios",
+    "publisher": "Echoverse"
   },
   "creators": [
     "Bloody FM, Echoverse"
   ],
-  "cast": [],
+  "cast": [
+    "Darren Criss as Martin Jennison",
+    "Maya Hawke as Calico Jones",
+    "Natalie Gold as Bridget",
+    "Quincy Tyler Bernstine as Councillor Dextra / Ruby Montrose",
+    "Alfred Molina as The Narrator",
+    "Peter Friedman as Phil",
+    "Azhar Khan as Rami / Gawain",
+    "Jayne Houdyshell as Jean",
+    "Andy Grotelueschen as Findo Gask / Frank",
+    "Adina Verson as Carla",
+    "Cindy Cheung as Chelsea",
+    "Rebecca Henderson as Dr. Woods / Viraxis",
+    "Kellen Raffaelo as Young Martin",
+    "Kate Mulgrew as Maisie",
+    "Clarke Peters as Archie"
+  ],
   "verification": {
-    "status": "automated-source-checked",
-    "verifiedAt": "2026-08-15",
-    "source": "https://chronicles-of-astrimos.simplecast.com/; https://feeds.simplecast.com/iqkQOlOd; https://podcasts.apple.com/us/podcast/the-chronicles-of-astrimos/id1896634657?uo=4",
-    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-08-29",
+    "source": "https://www.echoverse.com/the-chronicles-of-astrimos; https://chronicles-of-astrimos.simplecast.com/; https://feeds.simplecast.com/iqkQOlOd; https://podcasts.apple.com/us/podcast/the-chronicles-of-astrimos/id1896634657?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
   },
   "availability": {
     "transcripts": "unknown",
@@ -104,9 +144,15 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "A modern world and the vivid world of a 1960s-inspired sci-fi radio serial",
+    "pov": "Full-cast serial alternating between Martin Jennison and the Astrimos story",
+    "framingDevice": "An inherited LP transports Martin into Astrimos"
+  },
   "metadata": {
     "objectiveSources": [
+      "https://www.echoverse.com/the-chronicles-of-astrimos",
       "https://chronicles-of-astrimos.simplecast.com/",
       "https://feeds.simplecast.com/iqkQOlOd",
       "https://podcasts.apple.com/us/podcast/the-chronicles-of-astrimos/id1896634657?uo=4"
@@ -124,7 +170,7 @@
     "schedule": {
       "label": "biweekly",
       "medianDays": 14,
-      "observedIntervals": 6
+      "observedIntervals": 7
     },
     "podcast": {
       "medium": "",
@@ -633,18 +679,22 @@
         "verification": "a7101a643bbbc8dcdd6682b0d9a1a46223c4881cdea9584f5dd59f7d4b352e19"
       },
       "optionalGaps": [
-        "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
-        "tier": "imported",
+        "tier": "indexed-only",
         "publishedAt": "2026-08-15T20:39:52.203Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-08-29T12:00:00.000Z",
+        "reviewedBy": "catalog-expansion",
+        "inputRevision": 1
       }
     }
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-08-29",
   "creatorId": "bloody-fm-echoverse"
 }

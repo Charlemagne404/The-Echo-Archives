@@ -1,0 +1,39 @@
+{
+  "id": "short-finished-thrillers",
+  "title": "Short finished thrillers",
+  "description": "Compact, finished mysteries and thrillers for a weekend binge or a few focused nights.",
+  "label": "Compact closed loops",
+  "kind": "curated",
+  "intentTags": [
+    "quick-listens",
+    "finished",
+    "late-night"
+  ],
+  "commitment": "Weekend binge",
+  "coverShowIds": [
+    "case-63",
+    "from-now",
+    "forest-404",
+    "video-palace"
+  ],
+  "showIds": [
+    "case-63",
+    "from-now",
+    "forest-404",
+    "homecoming",
+    "video-palace",
+    "passenger-list"
+  ],
+  "showReasons": {
+    "case-63": "Two short seasons turn a time-travel mystery into a focused, finished binge.",
+    "from-now": "Six main episodes keep the conspiracy compact while still giving it a proper endpoint.",
+    "forest-404": "Nine short story episodes make this the quickest finished route here, with the soundscape part of the experience.",
+    "homecoming": "Three tightly bounded seasons offer a polished full-cast thriller without a sprawling back catalogue.",
+    "video-palace": "Fourteen feed episodes make the media-horror mystery easy to finish in a few concentrated nights.",
+    "passenger-list": "Sixteen story episodes give the conspiracy room to breathe while staying bounded enough for a focused weekend."
+  },
+  "featured": false,
+  "order": 138,
+  "createdAt": "2026-08-29",
+  "updatedAt": "2026-08-29"
+}

@@ -3290,7 +3290,12 @@
     ],
     "contentNotes": [
       "strong language",
-      "mental health themes"
+      "mental health themes",
+      "violence",
+      "panic attacks",
+      "scientific experimentation",
+      "kidnapping",
+      "unethical medical practices"
     ],
     "languages": [
       "English"
@@ -3315,11 +3320,19 @@
     "facts": {},
     "credits": {
       "creatorName": "Lauren Shippen",
-      "productionCompany": "Atypical Artists"
+      "writer": "Lauren Shippen",
+      "director": "Lauren Shippen",
+      "soundDesigner": "Mischa Stanton",
+      "composer": "Evan Cunningham",
+      "productionCompany": "Atypical Artists",
+      "psychologicalConsultant": "Elizabeth Laird"
     },
     "availability": {
       "transcripts": "available from the official show site",
       "captions": "not applicable",
+      "transcriptLanguages": [
+        "English"
+      ],
       "regionNotes": "The completed main series and related feed material remain available through major platforms."
     },
     "content": {
@@ -3331,7 +3344,7 @@
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-08-29"
   },
   {
     "id": "wooden-overcoats",
@@ -9253,21 +9266,33 @@
     "releaseStatus": "unknown",
     "completionStatus": "unclear",
     "genres": [
+      "horror",
+      "thriller",
       "drama"
     ],
     "tones": [],
     "formats": [
+      "full-cast",
       "serialized"
     ],
     "tags": [
       "Supernatural",
-      "Folk horror"
+      "Folk horror",
+      "Cults"
     ],
     "aliases": [
       "The Secret of St Kilda"
     ],
     "themes": [],
-    "contentNotes": [],
+    "contentNotes": [
+      "violence",
+      "death",
+      "cult indoctrination",
+      "ritual sacrifice",
+      "gore",
+      "gun use",
+      "chronic illness themes"
+    ],
     "languages": [
       "English"
     ],
@@ -9275,24 +9300,48 @@
     "bestFor": [],
     "similarTo": [],
     "similarReasons": {},
-    "archiveTake": "",
-    "facts": {},
+    "archiveTake": "A supernatural island thriller where redemption, cult pressure, and the wider community all pull in the same direction.",
+    "facts": {
+      "officialSeriesStatus": "Season 1 released; Season 2 listed as in pre-production on the official site.",
+      "awards": [
+        "12 Audio Verse Awards wins",
+        "Silver Award, Best Fiction Podcast, 2022 New Zealand Podcast Awards"
+      ]
+    },
     "credits": {
       "creatorName": "Michael Ireland & Naomi Clarke",
       "ownerName": "Michael Ireland & Naomi Clarke",
-      "network": "The Secret of St Kilda"
+      "network": "The Secret of St Kilda",
+      "writer": "Naomi Clarke",
+      "director": "Michael Ireland",
+      "assistantDirector": "Michelle Kelly",
+      "soundDesigner": "Will Fox",
+      "productionAssistant": "Chloe Hendry",
+      "themeMusic": "Shane Rutherfoord-Jones",
+      "productionCompany": "Fable & Folly"
     },
     "availability": {
-      "transcripts": "unknown",
+      "transcripts": "available for the main episodes and selected bonus episodes",
       "captions": "unknown",
-      "transcriptCoverage": 0
+      "transcriptCoverage": 0.75,
+      "transcriptFormats": [
+        "Google Docs"
+      ],
+      "transcriptLanguages": [
+        "English"
+      ]
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "A fictionalized Scottish island community",
+      "pov": "Serialized ensemble thriller centered on Lauchlan (Lockie) MacGregor",
+      "framingDevice": "A supernatural thriller audio drama"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-21",
-    "updatedAt": "2026-07-21"
+    "updatedAt": "2026-08-29"
   },
   {
     "id": "death-by-dying",
@@ -19473,7 +19522,7 @@
   {
     "id": "red-frontier",
     "title": "Red Frontier",
-    "subtitle": "",
+    "subtitle": "A lone Mars colonist must confront a vanished crew and a new arrival.",
     "description": "Commander Taylor Fullerton knows what it takes to survive. Three years ago, she lost her crew in a mysterious epidemic and has carried on their one-way mission to colonize Mars in complete isolation. When another crew lands on the Red planet, she must discover the truth to avoid repeating their fate while struggling to maintain her sanity. Written and directed by Sarah Nolen. Starring Betty Gilpin, Charlie Barnett, Maria Dizzia, Ashley Park, Finn Wittrock, and Kara Young. Score by Ghostly Kisses. Special thanks to NASA.",
     "cover": "images/covers/red-frontier.jpg",
     "coverVariants": [
@@ -19491,7 +19540,7 @@
       "Gimlet"
     ],
     "status": "published",
-    "reviewStatus": "imported",
+    "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
     "completionStatus": "unclear",
     "genres": [
@@ -19500,9 +19549,14 @@
     ],
     "tones": [],
     "formats": [
+      "full-cast",
       "serialized"
     ],
-    "tags": [],
+    "tags": [
+      "Mars colony",
+      "Survival",
+      "Space"
+    ],
     "aliases": [
       "Red Frontier"
     ],
@@ -19515,23 +19569,42 @@
     "bestFor": [],
     "similarTo": [],
     "similarReasons": {},
-    "archiveTake": "",
-    "facts": {},
+    "archiveTake": "A compact Mars-isolation thriller with a clear survival hook and a full-cast production.",
+    "facts": {
+      "distribution": "Spotify original podcast",
+      "format": "Serialized fiction",
+      "specialThanks": "NASA",
+      "seriesEpisodeCount": "11 full episodes plus trailer; current feed also contains two cross-promotional items."
+    },
     "credits": {
       "creatorName": "Gimlet",
-      "ownerName": "Gimlet"
+      "ownerName": "Gimlet",
+      "writer": "Sarah Nolen",
+      "director": "Sarah Nolen",
+      "executiveProducer": "Mimi O'Donnell",
+      "soundDesigner": "Armando Serrano & Daniel Brunelle",
+      "mixer": "Daniel Brunelle",
+      "composer": "Ghostly Kisses",
+      "musicSupervisor": "Liz Fulton",
+      "productionCompany": "Gimlet",
+      "distributor": "Spotify"
     },
     "availability": {
       "transcripts": "unknown",
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "A one-way Mars colonization mission",
+      "pov": "Full-cast serialized survival thriller centered on Commander Taylor Fullerton",
+      "framingDevice": "A mission drama shaped by isolation, quarantine, and a mysterious epidemic"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-08-29"
   },
   {
     "id": "ghostwriter",
@@ -41568,7 +41641,7 @@
   {
     "id": "the-chronicles-of-astrimos",
     "title": "The Chronicles of Astrimos",
-    "subtitle": "",
+    "subtitle": "A lawyer is pulled into a 1960s radio serial whose danger is real.",
     "description": "Martin (Darren Criss) thought his life was on track - he was about to become a partner at his law-firm and propose to the woman of his dreams - when his grandmother Maisie (Kate Mulgrew) dies, leaving him an old LP record that derails everything. Playing it transports Martin into the fantastical, but shockingly real world of “The Chronicles of Astrimos,” a 1960’s sci-fi radio drama about the plucky young spaceship pilot Calico Jones (Maya Hawke) who is fighting to save her planet. Flipping involuntarily between Astrimos and the real-world, Martin realizes with horror that the life-and-death stakes in the story are real and his only hope of escape is to solve the mystery of his grandmother’s bizarre gift before it’s too late. Starring Darren Criss as Martin, Maya Hawke as Calico Jones. Featuring: Natalie Gold (Bridget), Quincy Tyler Bernstine (Councillor Dextra/Ruby Montrose), Alfred Molina (The Narrator), Peter Friedman (Phil), Azhar Khan (Rami/Gawain), Jayne Houdyshell (Jean), Andy Grotelueschen (Findo Gask/Frank), Adina Verson (Carla), Cindy Cheung (Chelsea), Rebecca Henderson (Dr. Woods/Viraxis), Kellen Raffaelo (Young Martin) Additional performances by Crystal Finn, Gabby Beans, Jay Klaitz, Robbie Sublett, and Gibson Frazier with Kate Mulgrew (Maisie) And Clarke Peters (Archie). Directed by Anne Kauffman Written by Declan Dineen Executive Producers: Mark Stern and Darren Criss Producers: Nick Garland, Declan Dineen, and Michel Lafrance Produced by Best Case Studios Adam Pincus, Executive Producer Isabel Evans, Producer Brent Raymond Katz, Co-producer Hannah Lebowitz-Lockard, Associate Producer Anpa’o Locke, Production Coordinator Edited by Ryan Seaton,Will Rosati, Max Michael Miller, and Nisha Venkat Sound Design by Dennis Dembeck and Will Rosati Mixed by Dennis Dembeck Original Music by Pakk Hui Casting by Paul Schnee and Kerry Barden Music by Pakk Hui Music Orchestrations by Hannah Zhang Music Preparation by Thanh Tran Score Mixer: John Witt Chapman Orchestra Budapest Scoring Orchestra Conductor: Péter Illényi Session Producer: Bálint Sapszon Orchestra Coordinator: Bertalan Veér Recording Engineer: Viktor Szabó Studio Assistant: Patrik Veréb Librarian: Ágnes Sapszon FOR ECHOVERSE: Development Executives: Nick Garland and Ben Chodosh Development Coordinator: Madison Engle Development Assistant: Sophie Kelly Production Consultant: Eleanor Hyde Business and Legal Affairs: Laura Black Dawson Finance: Andy Lewis, Morgan Krautstrunk, Judy Geletko The Chronicles of Astrimos is an Echoverse Production",
     "cover": "images/covers/the-chronicles-of-astrimos.jpg",
     "coverVariants": [
@@ -41582,17 +41655,24 @@
       "Bloody FM, Echoverse"
     ],
     "status": "published",
-    "reviewStatus": "imported",
+    "reviewStatus": "indexed-only",
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "genres": [
-      "drama"
+      "sci-fi",
+      "drama",
+      "comedy"
     ],
     "tones": [],
     "formats": [
+      "full-cast",
       "serialized"
     ],
-    "tags": [],
+    "tags": [
+      "Space",
+      "Space opera",
+      "Classic radio"
+    ],
     "aliases": [
       "The Chronicles of Astrimos"
     ],
@@ -41605,23 +41685,39 @@
     "bestFor": [],
     "similarTo": [],
     "similarReasons": {},
-    "archiveTake": "",
-    "facts": {},
+    "archiveTake": "A playful sci-fi serial that toggles between a modern mystery and a vivid radio-adventure world.",
+    "facts": {
+      "seriesLabel": "Sci-fi space dramedy",
+      "releaseCadence": "Every other week",
+      "production": "Produced by Best Case Studios for Echoverse.",
+      "explicit": "No"
+    },
     "credits": {
       "creatorName": "Bloody FM, Echoverse",
-      "ownerName": "Echoverse"
+      "ownerName": "Echoverse",
+      "writer": "Declan Dineen",
+      "director": "Anne Kauffman",
+      "executiveProducers": "Mark Stern & Darren Criss",
+      "composer": "Pakk Hui",
+      "productionCompany": "Best Case Studios",
+      "publisher": "Echoverse"
     },
     "availability": {
       "transcripts": "unknown",
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "A modern world and the vivid world of a 1960s-inspired sci-fi radio serial",
+      "pov": "Full-cast serial alternating between Martin Jennison and the Astrimos story",
+      "framingDevice": "An inherited LP transports Martin into Astrimos"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-08-29"
   },
   {
     "id": "crossroads-a-48-hour-audio-drama-festival",
@@ -43296,29 +43392,61 @@
       "Mage In The Machine Offical"
     ],
     "status": "published",
-    "reviewStatus": "imported",
+    "reviewStatus": "indexed-only",
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "genres": [
-      "drama"
+      "drama",
+      "horror",
+      "supernatural"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "weird",
+      "tense"
+    ],
     "formats": [
       "episodic"
     ],
-    "tags": [],
+    "tags": [
+      "Horror",
+      "Supernatural",
+      "Character-driven"
+    ],
     "aliases": [
       "Mage In The Machine"
     ],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "curses",
+      "fear",
+      "secrecy"
+    ],
+    "contentNotes": [
+      "explicit content",
+      "violence and death",
+      "body horror"
+    ],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "late-night",
+      "headphones-on",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "the-magnus-archives",
+      "knifepoint-horror",
+      "spines-podcast",
+      "a-voice-from-darkness"
+    ],
+    "similarReasons": {
+      "the-magnus-archives": "Both use case-by-case supernatural horror while an overarching mythology gathers underneath.",
+      "knifepoint-horror": "Both turn compact, narrated horror stories into a new threat with each episode.",
+      "spines-podcast": "Both keep a central character moving through dark supernatural encounters with a wider mystery around them.",
+      "a-voice-from-darkness": "Both use a voice-led supernatural frame to make each encounter feel like a transmission from somewhere wrong."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -43332,6 +43460,11 @@
         {
           "name": "Mage In The Machine Offical",
           "role": "author"
+        },
+        {
+          "name": "Luke Blevins",
+          "role": "guest actor",
+          "url": "http://lukeblevinsart.com/"
         }
       ]
     },
@@ -43340,12 +43473,17 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "ordinary modern life under pressure from recurring supernatural cases",
+      "pov": "single-lead, case-driven audio drama with an unfolding mythology",
+      "intensity": "high"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-08-28"
   },
   {
     "id": "polybius-protocol",

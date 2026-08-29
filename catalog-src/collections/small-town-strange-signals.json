@@ -19,16 +19,22 @@
     "king-falls-am",
     "harbor",
     "midnight-radio",
-    "limetown"
+    "limetown",
+    "unwell",
+    "the-town-whispers",
+    "where-the-stars-fell"
   ],
   "showReasons": {
     "king-falls-am": "Late-night radio framing turns the town into part of the cast.",
     "harbor": "Cryptids and family friction make the local weirdness feel personal.",
     "midnight-radio": "Music, memory, and small-town mystery keep the mood intimate.",
-    "limetown": "A vanished community adds a colder investigative option."
+    "limetown": "A vanished community adds a colder investigative option.",
+    "unwell": "A family return to a strange Midwestern town makes the supernatural feel close to home.",
+    "the-town-whispers": "Folk horror and small-town scale make the local stories feel impossible to leave behind.",
+    "where-the-stars-fell": "A small-town supernatural mystery keeps the community and its old secrets in the foreground."
   },
   "featured": false,
   "order": 135,
   "createdAt": "2026-07-10",
-  "updatedAt": "2026-07-10"
+  "updatedAt": "2026-08-29"
 }

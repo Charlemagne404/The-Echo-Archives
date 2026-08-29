@@ -1,0 +1,43 @@
+{
+  "id": "comedy-with-a-mystery",
+  "title": "Comedy with a mystery",
+  "description": "Funny investigations, eccentric detectives, and mysteries that still know when to be silly.",
+  "label": "Funny investigations",
+  "kind": "curated",
+  "intentTags": [
+    "easy-first-step",
+    "warm-weird",
+    "quick-listens"
+  ],
+  "commitment": "Case by case",
+  "coverShowIds": [
+    "the-amelia-project",
+    "victoriocity",
+    "mockery-manor",
+    "king-falls-am"
+  ],
+  "showIds": [
+    "the-amelia-project",
+    "victoriocity",
+    "mockery-manor",
+    "king-falls-am",
+    "the-imperfection",
+    "fawx-stallion",
+    "death-by-dying",
+    "gather-the-suspects"
+  ],
+  "showReasons": {
+    "the-amelia-project": "A darkly comic identity mystery where every strange client creates another case-shaped story.",
+    "victoriocity": "Detective work, impossible conspiracies, and sharp ensemble banter give the collection its polished mystery lane.",
+    "mockery-manor": "Chaotic twins investigate disappearances while the theme-park setting keeps the danger playful and specific.",
+    "king-falls-am": "Late-night radio, paranormal callers, and small-town personalities make the mystery feel communal.",
+    "the-imperfection": "A missing psychiatrist and unreliable perceptions turn a surreal comedy ensemble into an actual investigation.",
+    "fawx-stallion": "Overlooked detectives get a comic case of their own, with rivalry and friendship driving the investigation.",
+    "death-by-dying": "An obituary writer investigating strange deaths keeps the mystery engine pointed toward the absurd.",
+    "gather-the-suspects": "A cosy murder mystery in a very boring apocalypse makes the case itself the source of the comedy."
+  },
+  "featured": false,
+  "order": 139.5,
+  "createdAt": "2026-08-29",
+  "updatedAt": "2026-08-29"
+}

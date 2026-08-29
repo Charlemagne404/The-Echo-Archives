@@ -32,7 +32,10 @@
     "janus-descending",
     "spines-podcast",
     "moonbase-theta-out",
-    "flash-gordon-and-buck-rogers-radio-adventurers"
+    "flash-gordon-and-buck-rogers-radio-adventurers",
+    "case-63",
+    "video-palace",
+    "passenger-list"
   ],
   "showReasons": {
     "solar": "A contained survival thriller with a known ending.",
@@ -50,10 +53,13 @@
     "janus-descending": "A complete horror-sci-fi listen with a deliberate structure.",
     "spines-podcast": "A finished horror serial that can be recommended without caveats about continuation.",
     "moonbase-theta-out": "A complete emotional space drama for listeners who want closure.",
-    "flash-gordon-and-buck-rogers-radio-adventurers": "A completed limited feed of surviving vintage serial adventures with a defined endpoint."
+    "flash-gordon-and-buck-rogers-radio-adventurers": "A completed limited feed of surviving vintage serial adventures with a defined endpoint.",
+    "case-63": "A finished, tightly paced time-travel thriller that resolves its central conversation.",
+    "video-palace": "A contained media-horror mystery with a complete run and a clear place to stop.",
+    "passenger-list": "A bounded investigative thriller for listeners who want conspiracy without an indefinite feed."
   },
   "featured": true,
   "order": 90,
   "createdAt": "2026-06-23",
-  "updatedAt": "2026-07-18"
+  "updatedAt": "2026-08-29"
 }

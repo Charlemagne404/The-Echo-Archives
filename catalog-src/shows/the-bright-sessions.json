@@ -7,7 +7,7 @@
     "text": "The Bright Sessions is a science fiction audio drama that follows a group of therapy patients. But these are not your typical patients - each has a unique supernatural ability. The show documents their struggles and discoveries as well as the motivations of their mysterious therapist, Dr. Bright. The show was created by Lauren Shippen and is a production of Atypical Artists . The show has seven seasons, including the previously paywalled Seasons 6 and 7, The AM Archives and The College Tapes . The Bright Sessions has been downloaded tens of millions of times and cemented itself as a classic of audio fiction. Three spin-off novels were published through Tor Teen: The Infinite Noise, A Neon Darkness, and Some Faraway Place. If you enjoy this show, check out the rest of Atypical Artists' shows!",
     "sourceLabel": "Publisher RSS feed",
     "sourceUrl": "https://rss.art19.com/the-bright-sessions",
-    "verifiedAt": "2026-07-18"
+    "verifiedAt": "2026-08-29"
   },
   "cover": "images/covers/the-bright-sessions.jpg",
   "coverAlt": "The Bright Sessions cover art",
@@ -50,17 +50,29 @@
   ],
   "contentNotes": [
     "strong language",
-    "mental health themes"
+    "mental health themes",
+    "violence",
+    "panic attacks",
+    "scientific experimentation",
+    "kidnapping",
+    "unethical medical practices"
   ],
   "languages": [
     "English"
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "7 seasons / 124 feed entries including bonus and anniversary material.",
+    "label": "7 seasons + epilogue / 124 feed entries (111 full, 12 bonus, 1 trailer).",
     "seasons": 7,
     "episodes": 124,
-    "avgEpisodeMinutes": 25
+    "avgEpisodeMinutes": 25,
+    "medianEpisodeMinutes": 24,
+    "totalHours": 45.3,
+    "episodeCounts": {
+      "full": 111,
+      "bonus": 12,
+      "trailer": 1
+    }
   },
   "releaseDates": {
     "first": "2015-10-01",
@@ -84,7 +96,10 @@
     "attribution": ""
   },
   "officialLinks": {
-    "website": "https://www.atypicalartists.co/thebrightsessions"
+    "website": "https://www.atypicalartists.co/thebrightsessions",
+    "patreon": "https://www.patreon.com/c/AtypicalArtists",
+    "merch": "https://www.atypicalartists.co/merch/the-bright-sessions-compendium",
+    "transcripts": "https://drive.google.com/drive/folders/1oiHZTinPgJzGmBSEYBp3mmBbJYDpKYMs?usp=sharing"
   },
   "verification": {
     "status": "source-verified",
@@ -95,9 +110,23 @@
   "creators": [
     "Lauren Shippen"
   ],
-  "cast": [],
+  "cast": [
+    "Julia Morizawa as Dr. Bright",
+    "Lauren Shippen as Sam Barnes",
+    "Briggon Snow as Caleb Michaels",
+    "Anna Lore as Chloe Turner",
+    "Charlie Ian as Damien",
+    "Ian McQuown as Agent Green",
+    "Alex Gallner as Adam Hayes",
+    "Andrew Nowak as Mark Bryant",
+    "Alex Marshall-Brown as Director Wadsworth",
+    "Phillip Jordan as Frank Sawyer",
+    "Alanna Fox as Rose Atkinson",
+    "Reyn Beeler as Officer Decker",
+    "Elizabeth Laird as Sarah"
+  ],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-08-29",
   "similarReasons": {
     "ars-paradoxica": "A denser science-fiction branch if the speculative mechanics matter as much as the characters.",
     "story": "Keeps the softer emotional legibility intact while stepping away from the superpowered frame.",
@@ -105,11 +134,19 @@
   },
   "credits": {
     "creatorName": "Lauren Shippen",
-    "productionCompany": "Atypical Artists"
+    "writer": "Lauren Shippen",
+    "director": "Lauren Shippen",
+    "soundDesigner": "Mischa Stanton",
+    "composer": "Evan Cunningham",
+    "productionCompany": "Atypical Artists",
+    "psychologicalConsultant": "Elizabeth Laird"
   },
   "availability": {
     "transcripts": "available from the official show site",
     "captions": "not applicable",
+    "transcriptLanguages": [
+      "English"
+    ],
     "regionNotes": "The completed main series and related feed material remain available through major platforms."
   },
   "content": {
@@ -125,8 +162,8 @@
       "https://open.spotify.com/show/1sSQt6a48M6t1mupfqnCnb",
       "https://rss.art19.com/the-bright-sessions"
     ],
-    "objectiveVerifiedAt": "2026-07-18",
-    "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
-    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
+    "objectiveVerifiedAt": "2026-08-29",
+    "objectiveNote": "Official show site and current publisher feed verify the season structure, episode mix, content warnings, transcript link, and production credits.",
+    "auditPass": "Factual catalog expansion on 2026-08-29. Official publisher sources were used to expand objective episode, content-warning, transcript, cast, and production metadata. Archive ratings and long-form editorial reviews were preserved."
   }
 }

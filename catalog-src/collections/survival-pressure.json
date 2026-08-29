@@ -24,7 +24,12 @@
     "the-white-vault",
     "derelict",
     "copperheart-a-riggstories-audio-drama",
-    "windfall"
+    "windfall",
+    "red-frontier",
+    "vast-horizon",
+    "solar",
+    "marsfall",
+    "janus-descending"
   ],
   "showReasons": {
     "were-alive": "Long-running ensemble survival gives it endurance.",
@@ -34,10 +39,15 @@
     "the-white-vault": "Environmental survival turns isolation into the threat.",
     "derelict": "Industrial sci-fi tension adds a high-pressure mystery variant.",
     "copperheart-a-riggstories-audio-drama": "A large bunker population and an unexpected visitor keep the reconstruction plan under pressure.",
-    "windfall": "Conspiracy pressure and collapsing systems keep the story urgent even when the threat is more political than monstrous."
+    "windfall": "Conspiracy pressure and collapsing systems keep the story urgent even when the threat is more political than monstrous.",
+    "red-frontier": "A one-way Mars mission and a mysterious epidemic make the survival pressure immediate.",
+    "vast-horizon": "A colony ship crisis turns isolation and limited resources into the central problem.",
+    "solar": "A spacecraft disaster keeps every choice close to the edge of failure.",
+    "marsfall": "A Mars settlement under pressure gives the collection a frontier-survival route with room for consequence.",
+    "janus-descending": "A doomed xenoarchaeology mission turns discovery into a fight to stay alive."
   },
   "featured": false,
   "order": 120,
   "createdAt": "2026-06-23",
-  "updatedAt": "2026-07-18"
+  "updatedAt": "2026-08-29"
 }

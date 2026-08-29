@@ -1,0 +1,39 @@
+{
+  "id": "folk-horror-and-old-gods",
+  "title": "Folk horror and old gods",
+  "description": "Folk horror, living traditions, and places where the old story is still in force.",
+  "label": "Ritual and place",
+  "kind": "curated",
+  "intentTags": [
+    "cold-horror",
+    "late-night",
+    "worldbuilding"
+  ],
+  "commitment": "Slow-burn dread",
+  "coverShowIds": [
+    "old-gods-of-appalachia",
+    "the-silt-verses",
+    "the-town-whispers",
+    "the-secret-of-st-kilda"
+  ],
+  "showIds": [
+    "old-gods-of-appalachia",
+    "the-silt-verses",
+    "the-town-whispers",
+    "the-secret-of-st-kilda",
+    "the-milkman-of-st-gaffs",
+    "the-wyrd-side"
+  ],
+  "showReasons": {
+    "old-gods-of-appalachia": "A long-running regional mythology gives every new story the weight of something older underneath it.",
+    "the-silt-verses": "Institutional faith and folk horror become a full political world rather than a one-off scare.",
+    "the-town-whispers": "Small-town scale makes folklore feel local, intimate, and impossible to leave behind.",
+    "the-secret-of-st-kilda": "An isolated island, cult pressure, and supernatural danger put old beliefs at the center.",
+    "the-milkman-of-st-gaffs": "A Lovecraftian village turns ritual and social order into the threat.",
+    "the-wyrd-side": "New Weird and folk-horror signals make it a compact route when you want strangeness without a huge back catalogue."
+  },
+  "featured": false,
+  "order": 139,
+  "createdAt": "2026-08-29",
+  "updatedAt": "2026-08-29"
+}
