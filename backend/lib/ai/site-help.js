@@ -1214,7 +1214,7 @@ function buildArchiveStatsResponse(siteHelpContext) {
     suggestedPrompts: [
       "What collections do you have?",
       "Which shows are creator verified?",
-      "What are the recently added shows?",
+      "What are the shows recently added to the archive?",
       "Recommend a finished show",
     ],
   };
@@ -1225,7 +1225,7 @@ function buildRecentlyAddedResponse(siteHelpContext) {
 
   if (recentShows.length === 0) {
     return {
-      answer: "The archive does not currently have enough created-at metadata filled to summarize recent additions cleanly.",
+      answer: "The archive does not currently have enough catalog-date metadata filled to summarize recent additions cleanly.",
       actions: [siteHelpContext.routes.browse],
       suggestedPrompts: [
         "What collections do you have?",
@@ -1237,7 +1237,7 @@ function buildRecentlyAddedResponse(siteHelpContext) {
   }
 
   return {
-    answer: `The most recently added archive entries are ${joinReadableList(recentShows.map((entry) => entry.title))}.`,
+    answer: `The shows most recently added to the archive are ${joinReadableList(recentShows.map((entry) => entry.title))}.`,
     actions: [siteHelpContext.routes.browse],
     suggestedPrompts: [
       "Which shows are creator verified?",
@@ -1270,7 +1270,7 @@ function buildCreatorVerifiedListResponse(siteHelpContext) {
     suggestedPrompts: [
       "What does creator verified mean?",
       "How do creator verification requests work?",
-      "What are the recently added shows?",
+      "What are the shows recently added to the archive?",
       "Recommend something like one of those shows",
     ],
   };

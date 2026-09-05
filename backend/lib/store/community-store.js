@@ -40,7 +40,7 @@ function createCommunityStore({ db, catalog, minPublicRatings = 1 }) {
       VALUES (@id, 'anonymous', @userAgent)
     `),
     insertDeviceProfile: db.prepare(`
-      INSERT INTO community_profiles (id, kind, voter_hash, last_user_agent, last_abuse_hash)
+      INSERT OR IGNORE INTO community_profiles (id, kind, voter_hash, last_user_agent, last_abuse_hash)
       VALUES (@id, 'device', @voterHash, @userAgent, @abuseHash)
     `),
     touchProfile: db.prepare(`
@@ -266,7 +266,14 @@ function createCommunityStore({ db, catalog, minPublicRatings = 1 }) {
 
     const id = randomUUID();
     statements.insertDeviceProfile.run({ id, voterHash, userAgent, abuseHash });
-    return id;
+    const resolved = statements.getProfileByVoterHash.get(voterHash);
+    if (!resolved) {
+      throw new Error("Unable to create a device community profile.");
+    }
+    if (resolved.id !== id) {
+      statements.touchDeviceProfile.run({ id: resolved.id, userAgent, abuseHash });
+    }
+    return resolved.id;
   }
 
   function findDeviceProfileId(voterHash) {

@@ -869,7 +869,7 @@ test("homepage most popular band fills remaining slots from popularity metadata 
   }
 });
 
-test("homepage most popular band uses 4-up, 2-up, and 1-up responsive layouts", async () => {
+test("homepage most popular band uses 4-up on desktop and 2-up at narrower widths", async () => {
   const desktopPage = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
 
   try {
@@ -924,10 +924,11 @@ test("homepage most popular band uses 4-up, 2-up, and 1-up responsive layouts", 
       }),
     );
 
-    assert.equal(countDistinctRows(mobileLayout), 4);
-    assert.ok(mobileLayout[1].top > mobileLayout[0].top + 8);
-    assert.ok(mobileLayout[2].top > mobileLayout[1].top + 8);
-    assert.ok(mobileLayout[3].top > mobileLayout[2].top + 8);
+    assert.equal(countDistinctRows(mobileLayout), 2);
+    assert.ok(Math.abs(mobileLayout[0].top - mobileLayout[1].top) <= 8);
+    assert.ok(mobileLayout[1].left > mobileLayout[0].left);
+    assert.ok(mobileLayout[2].top > mobileLayout[0].top + 8);
+    assert.ok(Math.abs(mobileLayout[2].top - mobileLayout[3].top) <= 8);
   } finally {
     await mobilePage.close();
   }

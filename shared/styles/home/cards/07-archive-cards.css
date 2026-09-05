@@ -55,6 +55,8 @@
 .home-page .editorial-badges {
   position: absolute;
   inset: 0 0 auto;
+  height: 0;
+  padding-bottom: 100%;
   aspect-ratio: 1 / 1;
   z-index: 2;
   pointer-events: none;
@@ -86,18 +88,22 @@
 }
 
 .home-page .editorial-badge-ribbon {
-  top: var(--editorial-ribbon-top);
-  right: var(--editorial-ribbon-right);
+  top: 10px;
+  right: 10px;
   z-index: 2;
-  width: var(--editorial-ribbon-width);
-  height: var(--editorial-ribbon-height);
+  width: auto;
+  max-width: calc(100% - 20px);
+  min-width: 0;
+  min-height: 26px;
+  height: auto;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: visible;
+  overflow: hidden;
   isolation: isolate;
-  transform: rotate(var(--editorial-ribbon-angle));
-  transform-origin: top right;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
   filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.32));
 }
 
@@ -108,10 +114,12 @@
 }
 
 .home-page .editorial-badge-ribbon::before {
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 1;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 2px;
+  border-radius: inherit;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0) 20%, rgba(0, 0, 0, 0.3) 100%),
     repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.03) 0 2px, transparent 2px 8px),
@@ -123,31 +131,25 @@
 }
 
 .home-page .editorial-badge-ribbon::after {
-  top: 3px;
-  right: calc(var(--editorial-ribbon-tail-width) * -0.7);
-  bottom: 3px;
-  width: var(--editorial-ribbon-tail-width);
-  z-index: 0;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 2px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0) 20%, rgba(0, 0, 0, 0.22) 100%),
-    linear-gradient(180deg, #1c2026 0%, #0f1318 100%);
-  clip-path: polygon(0 0, 100% 0, 58% 100%, 0 100%);
+  display: none;
 }
 
 .home-page .editorial-badge-ribbon-label {
   position: relative;
   z-index: 2;
-  padding: 0 18px 0 14px;
+  display: block;
+  max-width: 100%;
+  padding: 6px 10px 5px;
   color: #f7f1e8;
-  font-family: "Arial Narrow", "Avenir Next Condensed", "Helvetica Neue", sans-serif;
-  font-size: clamp(0.62rem, 0.72vw, 0.74rem);
+  font-family: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+  font-size: clamp(0.58rem, 0.72vw, 0.7rem);
   font-weight: 800;
-  line-height: 1;
-  letter-spacing: 0.16em;
+  line-height: 1.1;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.42);
 }
 

@@ -91,6 +91,7 @@
   width: min(34vw, 220px);
   height: auto;
   filter: brightness(0.92) contrast(1.08);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.56) 18%, #000 44%, #000 100%);
   mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.56) 18%, #000 44%, #000 100%);
 }
 

@@ -1987,7 +1987,8 @@
   }
 
   .site-nav-drawer {
-    width: min(calc(100% - var(--safe-area-left)), 420px);
+    width: calc(100% - 24px);
+    max-width: 420px;
     max-height: var(--visual-viewport-height);
   }
 
@@ -2015,8 +2016,12 @@
   }
 
   #backToTop {
-    right: calc(max(12px, var(--safe-area-right)) + 60px);
+    right: max(12px, var(--safe-area-right));
     bottom: max(16px, var(--safe-area-bottom));
+  }
+
+  .home-page[data-archivist-enabled="true"] #backToTop {
+    right: calc(max(8px, var(--safe-area-right)) + clamp(46px, 14vw, 50px) + 10px);
   }
 }
 

@@ -74,8 +74,8 @@ test("importer-origin catalogue entries retain their publication tier", () => {
   const authoredShows = JSON.parse(fs.readFileSync(path.join(siteRoot, "data", "shows.json"), "utf8"));
   const importerOrigin = authoredShows.filter((show) => show.metadata?.import);
   assert.equal(importerOrigin.length, 656);
-  assert.equal(importerOrigin.filter((show) => show.reviewStatus === "indexed-only").length, 136);
-  assert.equal(importerOrigin.filter((show) => show.reviewStatus === "imported").length, 520);
+  assert.equal(importerOrigin.filter((show) => show.reviewStatus === "indexed-only").length, 139);
+  assert.equal(importerOrigin.filter((show) => show.reviewStatus === "imported").length, 517);
   assert.ok(importerOrigin.every((show) => ["indexed-only", "imported"].includes(show.reviewStatus)));
 });
 
@@ -251,7 +251,7 @@ test("loadCollections reads curated collections against the catalog ids", async 
   const collections = loadCollections(siteRoot, new Set(catalog.map((entry) => entry.id)));
   const similarityCollections = collections.filter((collection) => collection.kind === "similarity");
 
-  assert.equal(collections.length, 44);
+  assert.equal(collections.length, 46);
   assert.ok(collections.every((collection) => collection.showIds.length > 0));
   assert.ok(collections.every((collection) => !Object.hasOwn(collection.automation || {}, "approvedCandidateId")));
   assert.ok(similarityCollections.length > 0);

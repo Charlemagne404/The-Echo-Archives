@@ -1,0 +1,42 @@
+{
+  "id": "shows-like-the-bright-sessions",
+  "title": "Shows like The Bright Sessions",
+  "description": "Character-first speculative dramas where intimate conversations open onto larger mysteries, powers, and systems.",
+  "label": "Character-first sci-fi",
+  "kind": "similarity",
+  "anchorShowId": "the-bright-sessions",
+  "intentTags": [
+    "easy-first-step",
+    "headphones-on",
+    "worldbuilding"
+  ],
+  "commitment": "Similar shows",
+  "coverShowIds": [
+    "ars-paradoxica",
+    "case-63",
+    "bridgewater",
+    "the-chronicles-of-astrimos"
+  ],
+  "showIds": [
+    "ars-paradoxica",
+    "case-63",
+    "bridgewater",
+    "lifeafter-the-message",
+    "wolf-359",
+    "unwell",
+    "the-chronicles-of-astrimos"
+  ],
+  "showReasons": {
+    "ars-paradoxica": "A completed character-first time-travel drama where one scientist's impossible situation grows into a larger conspiracy.",
+    "case-63": "Doctor-patient conversations turn a speculative threat into an intimate, tightly bounded thriller.",
+    "bridgewater": "A folklore mystery uses relationships and belief to widen a personal investigation into something stranger.",
+    "lifeafter-the-message": "Two contained speculative dramas turn technology, grief, and contact into close character mysteries.",
+    "wolf-359": "A station ensemble starts with character friction and grows into high-stakes science fiction about trust and survival.",
+    "unwell": "Midwestern Gothic lets family strain and supernatural mystery drive the emotional investigation.",
+    "the-chronicles-of-astrimos": "A full-cast retro-radio mystery pulls a grieving lawyer into a dangerous broadcast while keeping personal stakes in the foreground."
+  },
+  "featured": false,
+  "order": 280,
+  "createdAt": "2026-09-04",
+  "updatedAt": "2026-09-04"
+}

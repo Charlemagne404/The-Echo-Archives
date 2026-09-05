@@ -1,4 +1,5 @@
 import { initializeArchivistLauncher } from "./archivist-launcher.js";
+import { initializeHorizontalScrollAffordances } from "./horizontal-scroll-affordance.js";
 import { initializeManagedImages } from "./images.js";
 import { initializeMobileNav } from "./mobile-nav.js";
 import { initializeServiceWorker } from "./service-worker.js";
@@ -9,6 +10,7 @@ export async function initializeApp() {
   initializeViewportMetrics();
   initializeServiceWorker();
   initializeMobileNav();
+  initializeHorizontalScrollAffordances();
   initializeArchivistLauncher();
   initializeBackToTop();
   initializeHistoryBackLinks();
@@ -75,6 +77,9 @@ export async function initializeApp() {
     initializeCreatorStandardsPage();
   }
 
+  if (document.body) {
+    document.body.dataset.appReady = "true";
+  }
 }
 
 function initializeLazySharedChatLauncher() {

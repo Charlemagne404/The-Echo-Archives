@@ -456,6 +456,7 @@ async function startServer() {
   app.use(express.json({ limit: "24kb" }));
   app.use("/api", (_req, res, next) => {
     res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+    res.set("Cache-Control", "no-store");
     next();
   });
 
@@ -854,6 +855,9 @@ async function startServer() {
         setPublicCacheHeaders(req, res, { image: PUBLIC_IMAGE_EXTENSIONS.has(extension) });
         if (fileName === "sw.js") {
           res.set("Cache-Control", "no-cache");
+        }
+        if (fileName === "favicon.ico") {
+          res.set("Content-Type", "image/x-icon");
         }
         return res.sendFile(path.join(config.STATIC_ROOT, fileName));
       });

@@ -10,6 +10,7 @@
   display: none;
   flex-direction: column;
   background: rgba(30, 30, 30, 0.9);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-radius: 14px;
   overflow: hidden;
@@ -180,6 +181,7 @@
     linear-gradient(180deg, rgba(18, 22, 28, 0.98), rgba(9, 11, 15, 0.98)),
     rgba(9, 11, 15, 0.96);
   box-shadow: 0 26px 40px rgba(0, 0, 0, 0.34);
+  -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
   opacity: 0;
   pointer-events: none;
@@ -305,6 +307,7 @@
     radial-gradient(circle at top right, rgba(229, 72, 56, 0.12), transparent 30%),
     linear-gradient(180deg, rgba(12, 15, 20, 0.995), rgba(6, 8, 12, 0.995));
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.42);
+  -webkit-backdrop-filter: blur(22px);
   backdrop-filter: blur(22px);
   overflow: hidden;
   opacity: 0;
@@ -1087,7 +1090,8 @@
   }
 
   .site-nav-drawer {
-    width: min(calc(100% - var(--safe-area-left)), 420px);
+    width: calc(100% - 24px);
+    max-width: 420px;
     max-height: var(--visual-viewport-height);
   }
 
@@ -1115,8 +1119,12 @@
   }
 
   #backToTop {
-    right: calc(max(12px, var(--safe-area-right)) + 60px);
+    right: max(12px, var(--safe-area-right));
     bottom: max(16px, var(--safe-area-bottom));
+  }
+
+  .home-page[data-archivist-enabled="true"] #backToTop {
+    right: calc(max(8px, var(--safe-area-right)) + clamp(46px, 14vw, 50px) + 10px);
   }
 }
 

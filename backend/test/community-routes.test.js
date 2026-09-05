@@ -179,6 +179,10 @@ test("community rating routes use the voter cookie instead of forged profile hea
     assert.equal(profileResponse.status, 201);
     const cookie = getCookieHeader(profileResponse);
     assert.match(cookie, /^echo-community-voter=/);
+    const profilePayload = await profileResponse.json();
+    assert.match(profilePayload.profileId, /^[0-9a-f-]{36}$/i);
+    assert.equal(Object.hasOwn(profilePayload, "abuseHash"), false);
+    assert.equal(profileResponse.headers.get("cache-control"), "no-store");
 
     const firstWrite = await putJson(
       `${context.baseUrl}/api/community/podcasts/impact-winter/rating`,
@@ -212,6 +216,7 @@ test("community rating routes use the voter cookie instead of forged profile hea
         },
       },
     );
+    assert.equal(summaryResponse.headers.get("cache-control"), "no-store");
     const summaryPayload = await summaryResponse.json();
     assert.equal(summaryPayload.summaries["impact-winter"].ratingCount, 1);
     assert.equal(summaryPayload.summaries["impact-winter"].averageRating, 5);
@@ -260,6 +265,27 @@ test("community rating routes reject failed Turnstile tokens", async () => {
   }
 });
 
+test("community rating routes reject non-integer rating payloads", async () => {
+  const context = await startCommunityServer();
+
+  try {
+    const profileResponse = await postJson(`${context.baseUrl}/api/community/profiles/anonymous`, {});
+    const cookie = getCookieHeader(profileResponse);
+
+    for (const rating of ["7foo", "7.5"]) {
+      const response = await putJson(
+        `${context.baseUrl}/api/community/podcasts/impact-winter/rating`,
+        { rating, turnstileToken: "valid-token" },
+        { headers: { cookie } },
+      );
+      assert.equal(response.status, 400);
+      assert.match((await response.json()).error || "", /integer between 1 and 10/i);
+    }
+  } finally {
+    await stopCommunityServer(context);
+  }
+});
+
 test("community rating summaries ignore malformed cookie values", async () => {
   const context = await startCommunityServer();
 
@@ -288,6 +314,7 @@ test("published review pages paginate listener reviews and helpful votes use the
   try {
     const firstPage = await fetch(`${context.baseUrl}/api/reviews/shows/impact-winter?page=1`);
     assert.equal(firstPage.status, 200);
+    assert.equal(firstPage.headers.get("cache-control"), "no-store");
     const firstPayload = await firstPage.json();
     assert.deepEqual(firstPayload.pagination, { page: 1, pageSize: 1, totalPages: 1, totalReviews: 1 });
     assert.equal(firstPayload.reviews[0].id, context.review.id);
@@ -297,18 +324,21 @@ test("published review pages paginate listener reviews and helpful votes use the
 
     const scoreSummaryResponse = await fetch(`${context.baseUrl}/api/reviews/scores/summary?showIds=impact-winter,unknown-show`);
     assert.equal(scoreSummaryResponse.status, 200);
+    assert.equal(scoreSummaryResponse.headers.get("cache-control"), "no-store");
     assert.deepEqual((await scoreSummaryResponse.json()).summaries, {
       "impact-winter": { averageRating: 8, reviewCount: 1 },
     });
 
     const profileResponse = await postJson(`${context.baseUrl}/api/community/profiles/anonymous`, {});
     const cookie = getCookieHeader(profileResponse);
+    assert.equal(profileResponse.headers.get("cache-control"), "no-store");
     const helpfulResponse = await putJson(
       `${context.baseUrl}/api/reviews/${context.review.id}/helpful`,
       {},
       { headers: { cookie } },
     );
     assert.equal(helpfulResponse.status, 200);
+    assert.equal(helpfulResponse.headers.get("cache-control"), "no-store");
     assert.deepEqual(await helpfulResponse.json(), {
       reviewId: context.review.id,
       helpfulCount: 1,

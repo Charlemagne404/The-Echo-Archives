@@ -90,6 +90,16 @@
     gap: 18px;
   }
 
+  .home-page .hero-panel {
+    gap: 12px;
+    padding: 18px 16px 14px;
+  }
+
+  .home-page .home-hero-actions {
+    gap: 8px;
+    margin-top: 14px;
+  }
+
   .home-hero-actions {
     flex-wrap: nowrap;
     gap: 10px;
@@ -101,6 +111,26 @@
     scroll-padding-inline: 4px;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .home-hero-actions,
+  .quick-filters {
+    box-shadow:
+      inset 24px 0 16px -21px rgba(4, 7, 10, 0.96),
+      inset -30px 0 18px -24px rgba(4, 7, 10, 0.96);
+  }
+
+  .site-mobile-primary-nav {
+    box-shadow:
+      inset 22px 0 14px -20px rgba(5, 8, 11, 0.98),
+      inset -28px 0 16px -22px rgba(5, 8, 11, 0.98);
+  }
+
+  .horizontal-scroll-cue {
+    right: 4px;
+    bottom: 4px;
+    min-height: 17px;
+    padding-block: 3px;
   }
 
   .home-hero-actions::-webkit-scrollbar {
@@ -140,14 +170,60 @@
 
   .popular-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 14px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
     margin: 0;
     padding: 0;
   }
 
   .home-page .popular-card {
     min-width: 0;
+  }
+
+  .home-page .popular-card-body {
+    gap: 8px;
+    padding: 11px 10px 10px;
+  }
+
+  .home-page .popular-card-status {
+    min-height: 0;
+  }
+
+  .home-page .popular-card-chip {
+    font-size: 0.58rem;
+    letter-spacing: 0.04em;
+    line-height: 1.15;
+  }
+
+  .home-page .popular-card-chip + .popular-card-chip::before {
+    margin-inline: 4px;
+  }
+
+  .home-page .popular-card-title {
+    font-size: clamp(1rem, 4.6vw, 1.18rem);
+    line-height: 1.08;
+  }
+
+  .home-page .popular-card-subtitle {
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .home-page .popular-card-meta {
+    font-size: 0.68rem;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  .home-page .popular-card-copy {
+    padding-top: 8px;
+    font-size: 0.74rem;
+    line-height: 1.42;
+    -webkit-line-clamp: 3;
+  }
+
+  .home-page .popular-card-footer {
+    padding-top: 8px;
   }
 
   #podcast-grid {
@@ -226,12 +302,43 @@
   }
 
   .home-page .popular-card-ratings {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 10px;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .home-page .popular-card-ratings .archive-inline-score,
+  .home-page .popular-card-ratings .listener-review-inline-score,
+  .home-page .popular-card-ratings .community-inline-score {
+    gap: 4px;
+  }
+
+  .home-page .popular-card-ratings .inline-score-topline {
+    gap: 4px;
+    font-size: 0.68rem;
+  }
+
+  .home-page .popular-card-ratings .archive-score-icon {
+    font-size: 0.92rem;
+  }
+
+  .home-page .popular-card-ratings .listener-review-score-icon {
+    width: 1rem;
+    height: 0.86rem;
+  }
+
+  .home-page .popular-card-ratings .community-inline-score svg {
+    width: 0.9rem;
+    height: 0.8rem;
+  }
+
+  .home-page .popular-card-ratings .inline-score-label {
+    font-size: 0.56rem;
+    line-height: 1.15;
   }
 
   .home-page .popular-card-ratings .rating-divider {
-    display: none;
+    display: block;
+    height: 26px;
   }
 
   .filter-container,
@@ -239,6 +346,41 @@
   .collection-action,
   #sendMessageButton {
     width: 100%;
+  }
+
+  .home-page .search-actions .filter-container,
+  .home-page .search-actions #filterToggle {
+    width: auto;
+  }
+
+  .home-page .search-actions #filterToggle {
+    padding-inline: 11px;
+  }
+
+  .home-page .search-actions .quick-filter {
+    padding-inline: 11px;
+    font-size: 0.78rem;
+  }
+
+  .home-page .archive-trust-grid {
+    gap: 8px 10px;
+    padding: 10px 0 0;
+  }
+
+  .home-page .archive-trust-item {
+    font-size: 0.74rem;
+    line-height: 1.1;
+    white-space: normal;
+  }
+
+  .home-page .archive-trust-item strong,
+  .home-page .archive-trust-item span {
+    display: inline;
+    overflow-wrap: normal;
+  }
+
+  .home-page .archive-trust-item strong {
+    margin-right: 3px;
   }
 
   #filterDropdown,

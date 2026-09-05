@@ -35,7 +35,8 @@
     "flash-gordon-and-buck-rogers-radio-adventurers",
     "case-63",
     "video-palace",
-    "passenger-list"
+    "passenger-list",
+    "jackie-the-ripper"
   ],
   "showReasons": {
     "solar": "A contained survival thriller with a known ending.",
@@ -56,10 +57,11 @@
     "flash-gordon-and-buck-rogers-radio-adventurers": "A completed limited feed of surviving vintage serial adventures with a defined endpoint.",
     "case-63": "A finished, tightly paced time-travel thriller that resolves its central conversation.",
     "video-palace": "A contained media-horror mystery with a complete run and a clear place to stop.",
-    "passenger-list": "A bounded investigative thriller for listeners who want conspiracy without an indefinite feed."
+    "passenger-list": "A bounded investigative thriller for listeners who want conspiracy without an indefinite feed.",
+    "jackie-the-ripper": "A complete three-season dark comedy mystery with a clearly identified final chapter."
   },
   "featured": true,
   "order": 90,
   "createdAt": "2026-06-23",
-  "updatedAt": "2026-08-29"
+  "updatedAt": "2026-09-04"
 }

@@ -21,6 +21,9 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 18px;
   background:
+    linear-gradient(180deg, rgba(229, 72, 56, 0.08), transparent 48%),
+    rgba(7, 10, 13, 0.88);
+  background:
     linear-gradient(180deg, color-mix(in srgb, var(--collection-accent) 14%, transparent), transparent 48%),
     rgba(7, 10, 13, 0.88);
   box-shadow: 0 18px 34px rgba(0, 0, 0, 0.28);
@@ -42,6 +45,7 @@
 
 .collections-feature-card:hover,
 .collections-feature-card:focus-visible {
+  border-color: rgba(229, 72, 56, 0.72);
   border-color: color-mix(in srgb, var(--collection-accent) 62%, rgba(255, 255, 255, 0.18));
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.38);
   transform: translateY(-3px);
@@ -50,6 +54,7 @@
 .collections-directory-card:hover,
 .collections-directory-card:focus-within,
 .collections-directory-card:focus-visible {
+  border-color: rgba(229, 72, 56, 0.62);
   border-color: color-mix(in srgb, var(--collection-accent) 52%, rgba(255, 255, 255, 0.16));
   box-shadow: 0 22px 42px rgba(0, 0, 0, 0.34);
   transform: translateY(-2px);
@@ -60,6 +65,9 @@
   min-height: 196px;
   overflow: hidden;
   isolation: isolate;
+  background:
+    radial-gradient(circle at 62% 18%, rgba(229, 72, 56, 0.22), transparent 34%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.14));
   background:
     radial-gradient(circle at 62% 18%, color-mix(in srgb, var(--collection-accent) 32%, transparent), transparent 34%),
     linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.14));
@@ -146,6 +154,7 @@
 }
 
 .collections-card-label {
+  color: #e0a096;
   color: color-mix(in srgb, var(--collection-accent) 78%, #fff);
   font-size: 0.68rem;
   font-weight: 800;
@@ -216,6 +225,9 @@
   gap: 8px;
   padding: 12px;
   border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(229, 72, 56, 0.06), transparent 42%),
+    rgba(7, 10, 13, 0.8);
   background:
     linear-gradient(180deg, color-mix(in srgb, var(--collection-accent) 10%, transparent), transparent 42%),
     rgba(7, 10, 13, 0.8);
@@ -342,6 +354,7 @@
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018)),
     rgba(9, 12, 16, 0.88);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
 

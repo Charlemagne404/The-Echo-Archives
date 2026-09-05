@@ -192,9 +192,29 @@ test("public and error pages ship the expected metadata primitives", () => {
     assert.match(html, /<meta name="twitter:title" content="[^"]+"/, `${pagePath} should include a Twitter title.`);
     assert.match(html, /<meta name="twitter:description" content="[^"]+"/, `${pagePath} should include a Twitter description.`);
     assert.match(html, /<meta name="twitter:image" content="[^"]+"/, `${pagePath} should include a Twitter image.`);
+    assert.match(
+      html,
+      /<meta name="viewport" content="width=device-width, initial-scale=1\.0, viewport-fit=cover" \/>/,
+      `${pagePath} should use a broadly supported viewport declaration.`,
+    );
+    assert.doesNotMatch(html, /interactive-widget=/, `${pagePath} should not rely on an unsupported viewport extension.`);
     assert.match(html, /<meta name="theme-color" content="#06080b"/, `${pagePath} should include a theme color.`);
     assert.match(html, /<link rel="manifest" href="\/site\.webmanifest"/, `${pagePath} should link to the manifest.`);
-    assert.match(html, /<link rel="icon" href="\/favicon\.ico" sizes="any"/, `${pagePath} should link to the favicon.`);
+    assert.match(
+      html,
+      /<link rel="icon" type="image\/x-icon" href="\/favicon\.ico" sizes="16x16 32x32 48x48 64x64 128x128 256x256" \/>/,
+      `${pagePath} should link to the multi-size ICO favicon.`,
+    );
+    assert.match(
+      html,
+      /<link rel="icon" type="image\/png" href="\/icon-192\.png" sizes="192x192" \/>/,
+      `${pagePath} should expose the PNG favicon fallback.`,
+    );
+    assert.match(
+      html,
+      /<link rel="shortcut icon" type="image\/x-icon" href="\/favicon\.ico" \/>/,
+      `${pagePath} should expose the legacy favicon relationship for older crawlers and browsers.`,
+    );
     assert.match(html, /<link rel="apple-touch-icon" href="\/apple-touch-icon\.png"/, `${pagePath} should link to the Apple touch icon.`);
   });
 
@@ -213,6 +233,41 @@ test("web manifest icons exist on disk", () => {
     const relativePath = String(icon?.src || "").replace(/^\//, "");
     assert.equal(fs.existsSync(path.join(siteRoot, relativePath)), true, `${icon.src} should exist.`);
   });
+});
+
+test("favicon is a compact PNG-backed ICO with standard browser sizes", () => {
+  const favicon = fs.readFileSync(path.join(siteRoot, "favicon.ico"));
+  const iconCount = favicon.readUInt16LE(4);
+  const entries = [];
+
+  assert.equal(favicon.readUInt16LE(0), 0, "favicon.ico should have a zero reserved field.");
+  assert.equal(favicon.readUInt16LE(2), 1, "favicon.ico should declare an icon resource.");
+  assert.ok(favicon.length < 32 * 1024, "favicon.ico should stay small enough for crawler compatibility.");
+
+  for (let index = 0; index < iconCount; index += 1) {
+    const offset = 6 + index * 16;
+    const width = favicon[offset] || 256;
+    const height = favicon[offset + 1] || 256;
+    const bytesInResource = favicon.readUInt32LE(offset + 8);
+    const resourceOffset = favicon.readUInt32LE(offset + 12);
+
+    entries.push({ width, height });
+    assert.equal(
+      favicon.subarray(resourceOffset, resourceOffset + 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10])),
+      true,
+      `${width}x${height} favicon entry should use PNG encoding.`,
+    );
+    assert.ok(resourceOffset + bytesInResource <= favicon.length, `${width}x${height} favicon entry should fit the file.`);
+  }
+
+  assert.deepEqual(entries, [
+    { width: 16, height: 16 },
+    { width: 32, height: 32 },
+    { width: 48, height: 48 },
+    { width: 64, height: 64 },
+    { width: 128, height: 128 },
+    { width: 256, height: 256 },
+  ]);
 });
 
 test("committed sitemap includes generated show and collection routes", () => {

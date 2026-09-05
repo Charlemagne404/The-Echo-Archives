@@ -3,6 +3,7 @@ const assert = require("node:assert/strict");
 
 const {
   getSmokeContext,
+  gotoSmokePage,
   setupSmoke,
   teardownSmoke,
 } = require("./helpers/browser-smoke");
@@ -140,14 +141,14 @@ test("responsive robustness keeps major page families usable across awkward view
     for (const check of checks) {
       await page.setViewportSize({ width: check.width, height: check.height });
       for (const route of check.routes) {
-        await page.goto(`${baseUrl}${route}`, { waitUntil: "networkidle" });
+        await gotoSmokePage(page, `${baseUrl}${route}`, { waitUntil: "networkidle" });
         await settleLayout(page);
         assertNoOverflow(await readOverflowState(page), `${route} at ${check.width}x${check.height}`);
       }
     }
 
     await page.setViewportSize({ width: 320, height: 420 });
-    await page.goto(`${baseUrl}/collections`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/collections`, { waitUntil: "networkidle" });
     await page.locator(".collections-hero-copy h1").evaluate((node) => {
       node.textContent = "An unusually long collection heading that must remain readable in a narrow archive hero";
     });
@@ -164,8 +165,39 @@ test("responsive robustness keeps major page families usable across awkward view
     );
     assertNoOverflow(await readOverflowState(page), "long collection hero heading at 320px with zoomed text");
 
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
     await page.waitForSelector("#podcast-grid .podcast-card img");
+
+    const fullReviewBadgeState = await page.locator("#podcast-grid .editorial-badge-ribbon").first().evaluate((badge) => {
+      const card = badge.closest(".podcast-card");
+      const cover = card?.querySelector("img:not(.editorial-badge-artwork)");
+      const badgeRect = badge.getBoundingClientRect();
+      const coverRect = cover?.getBoundingClientRect();
+      const label = badge.querySelector(".editorial-badge-ribbon-label");
+      return {
+        badgeLeft: badgeRect.left,
+        badgeRight: badgeRect.right,
+        badgeTop: badgeRect.top,
+        badgeBottom: badgeRect.bottom,
+        coverLeft: coverRect?.left || 0,
+        coverRight: coverRect?.right || 0,
+        coverTop: coverRect?.top || 0,
+        coverBottom: coverRect?.bottom || 0,
+        transform: getComputedStyle(badge).transform,
+        labelWidth: label?.getBoundingClientRect().width || 0,
+        labelScrollWidth: label?.scrollWidth || 0,
+      };
+    });
+    assert.ok(
+      fullReviewBadgeState.badgeLeft >= fullReviewBadgeState.coverLeft - 1 &&
+        fullReviewBadgeState.badgeRight <= fullReviewBadgeState.coverRight + 1 &&
+        fullReviewBadgeState.badgeTop >= fullReviewBadgeState.coverTop - 1 &&
+        fullReviewBadgeState.badgeBottom <= fullReviewBadgeState.coverBottom + 1,
+      `Full review badge escaped its cover bounds: ${JSON.stringify(fullReviewBadgeState)}`,
+    );
+    assert.equal(fullReviewBadgeState.transform, "none");
+    assert.ok(fullReviewBadgeState.labelScrollWidth <= fullReviewBadgeState.labelWidth + 1);
+
     await page.locator("#podcast-grid .podcast-card img").first().evaluate((image) => {
       image.removeAttribute("src");
     });

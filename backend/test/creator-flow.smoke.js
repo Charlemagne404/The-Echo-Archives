@@ -12,11 +12,13 @@ const {
   getOverlayMetrics,
   getPreviewOverlapPoint,
   getSmokeContext,
+  gotoSmokePage,
   homeMostPopularIds,
   legacyRedirectManifest,
   scoreCatalog,
   setupSmoke,
   teardownSmoke,
+  waitForAppReady,
   waitForMostPopularBandIds,
 } = require("./helpers/browser-smoke");
 
@@ -50,9 +52,10 @@ test("for creators page is reachable from nav and its primary interactions work"
   const page = await browser.newPage({ viewport: { width: 1440, height: 1800 } });
 
   try {
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
     await page.locator('.site-nav a[href="/for-creators"]').click();
     await page.waitForURL(`${baseUrl}/for-creators`);
+    await waitForAppReady(page);
     await page.waitForFunction(
       () => {
         const creatorCount = document.getElementById("creatorsCreatorCount");

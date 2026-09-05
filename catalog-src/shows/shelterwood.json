@@ -3,12 +3,18 @@
   "title": "Shelterwood",
   "subtitle": "A Suburban Gothic",
   "description": "Shelterwood: A Suburban Gothic is a Docu-Horror Podcast written and produced by Stephen Indrisano. Join one man’s quest to find his long-lost sister in an infinite, monster-infested suburb beyond the veil. Shelterwood is one part Gothic, one part Found Footage, and one hundred percent terrifying.",
+  "officialDescription": {
+    "text": "A 16 episode Docu-Horror Podcast about a missing girl, an impossible suburb, and the American Dream.",
+    "sourceLabel": "Official Shelterwood show website",
+    "sourceUrl": "https://shelterwood.carrd.co/",
+    "verifiedAt": "2026-09-04"
+  },
   "cover": "images/covers/shelterwood.avif",
   "coverAlt": "Shelterwood cover art",
   "status": "published",
-  "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "hiatus",
+  "completionStatus": "ongoing",
   "listenLinks": {
     "start": "",
     "spotify": "https://open.spotify.com/show/3uJV4s1aVAo2JSPAxfIFaW?si=7a15b5ac455f4656&nd=1&dlsi=6ce61e57c33346db",
@@ -21,27 +27,42 @@
   },
   "genres": [
     "drama",
-    "sci-fi"
+    "sci-fi",
+    "horror"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
+    "full-cast",
     "serialized"
   ],
-  "tags": [],
+  "tags": [
+    "Found media",
+    "Gothic",
+    "Investigation",
+    "Mock documentary"
+  ],
   "aliases": [
     "Shelterwood",
     "Shelterwood: A Suburban Gothic"
   ],
-  "themes": [],
+  "themes": [
+    "investigation",
+    "family",
+    "identity"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "1 season observed • at least 17 full episodes • 37 min median",
+    "label": "1 season / 16 numbered story episodes • 28 feed entries • 37 min median",
     "seasons": 1,
-    "episodes": 17,
+    "episodes": 16,
     "avgEpisodeMinutes": 38,
     "medianEpisodeMinutes": 37,
     "minEpisodeMinutes": 28,
@@ -51,21 +72,29 @@
     "observedSeasons": [
       1
     ],
-    "countQualifier": "at-least",
+    "countQualifier": "observed",
     "episodeCounts": {
       "full": 17,
+      "story": 16,
       "bonus": 9,
-      "trailer": 2
+      "trailer": 2,
+      "totalObserved": 28,
+      "exact": true
     }
   },
   "releaseDates": {
     "first": "2024-08-15",
     "latest": "2025-12-18",
+    "latestStoryEpisode": "2025-03-13",
     "latestFeedItem": "2026-07-20",
-    "next": ""
+    "next": "",
+    "note": "The official site lists Season 1 as 16 episodes. The creator has described a Season 1-to-2 hiatus and ongoing Season 2 writing/planning; no Season 2 release date was announced."
   },
   "ratings": {},
-  "facts": {},
+  "facts": {
+    "structure": "Season 1 has 16 numbered story episodes; the current feed also carries bonus, trailer, and crossover entries.",
+    "seriesStatus": "Season 2 is being written/planned, but its release date has not been announced."
+  },
   "bestFor": [],
   "similarTo": [],
   "similarReasons": {},
@@ -86,33 +115,71 @@
     "funding": ""
   },
   "credits": {
-    "creatorName": "Bloody FM",
+    "creatorName": "Stephen Indrisano",
     "ownerName": "Stephen Indrisano",
-    "network": "Shelterwood: A Suburban Gothic"
+    "network": "Bloody FM",
+    "writer": "Stephen Indrisano",
+    "producer": "Indrisano Audio, LLC",
+    "productionCompany": "Indrisano Audio, LLC",
+    "director": [
+      "Sivan Raz",
+      "Madeleine Regina"
+    ],
+    "dialogueEditor": "Sam Stark",
+    "soundDesign": "Brad Colbrook",
+    "composer": "Ali Hylton"
   },
   "creators": [
-    "Bloody FM"
+    "Stephen Indrisano"
   ],
-  "cast": [],
+  "cast": [
+    "Stephen Indrisano as Nicholas DeRoso",
+    "Sam Stark as Solomon Crockett",
+    "Alexandra Rose DeAngelis as Saddie DeRoso",
+    "Karim Kronfli as William Brewster",
+    "Nhea Durousseau as Monica Mandeville",
+    "Lee Bergantino as Adigale Ross",
+    "Sarah Griffin as Jillian Rhys",
+    "Christian Cruz as Adam Smith",
+    "Ray O'Hare as John Leslie",
+    "Greg Tariloff",
+    "Noir Thornton",
+    "Sarah Golding"
+  ],
   "verification": {
-    "status": "automated-source-checked",
-    "verifiedAt": "2026-08-15",
-    "source": "https://shelterwood.carrd.co/; https://feeds.megaphone.fm/BDA2155394596; https://podcasts.apple.com/us/podcast/shelterwood/id1758367725?uo=4",
-    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-04",
+    "source": "https://shelterwood.carrd.co/; https://feeds.megaphone.fm/BDA2155394596; https://podcasts.apple.com/us/podcast/shelterwood/id1758367725?uo=4; https://www.patreon.com/posts/patreon-update-123463322",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
   },
   "availability": {
-    "transcripts": "unknown",
+    "transcripts": "available for all 16 numbered story episodes",
     "captions": "unknown",
-    "transcriptCoverage": 0,
-    "transcriptFormats": [],
-    "transcriptLanguages": []
+    "transcriptCoverage": 1,
+    "transcriptFormats": [
+      "text/html"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ]
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "An infinite suburban development beyond the veil.",
+    "pov": "Docu-horror / found-footage investigation led by Nicholas DeRoso.",
+    "intensity": "high"
+  },
   "metadata": {
     "objectiveSources": [
       "https://shelterwood.carrd.co/",
       "https://feeds.megaphone.fm/BDA2155394596",
-      "https://podcasts.apple.com/us/podcast/shelterwood/id1758367725?uo=4"
+      "https://podcasts.apple.com/us/podcast/shelterwood/id1758367725?uo=4",
+      "https://www.patreon.com/posts/patreon-update-123463322"
+    ],
+    "objectiveNote": "The official site and current feed verify a 16-episode first season, full episode credits, and transcript links for all numbered story episodes. The feed currently contains 28 entries: 16 numbered story episodes, one full-tagged crossover, nine bonuses, and two trailers. A creator update describes the show as on a Season 1-to-2 hiatus with Season 2 writing/planning underway; no release date is announced.",
+    "objectiveVerifiedAt": "2026-09-04",
+    "researchGaps": [
+      "Season 2 release date has not been announced."
     ],
     "sourceCategories": [
       "Fiction",
@@ -642,14 +709,19 @@
         "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
       ],
       "publication": {
-        "tier": "imported",
-        "publishedAt": "2026-08-15T19:47:27.845Z"
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-04"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-04",
+        "reviewedBy": "codex-query-audit",
+        "inputRevision": 1
       }
     }
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-04",
   "creatorId": "bloody-fm",
   "networkId": "shelterwood-a-suburban-gothic"
 }

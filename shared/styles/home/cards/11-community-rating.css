@@ -14,6 +14,7 @@
     linear-gradient(180deg, rgba(18, 22, 28, 0.98), rgba(9, 11, 15, 0.98)),
     rgba(9, 11, 15, 0.96);
   box-shadow: 0 26px 40px rgba(0, 0, 0, 0.34);
+  -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
   opacity: 0;
   pointer-events: none;
@@ -139,6 +140,7 @@
     radial-gradient(circle at top right, rgba(229, 72, 56, 0.12), transparent 30%),
     linear-gradient(180deg, rgba(12, 15, 20, 0.995), rgba(6, 8, 12, 0.995));
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.42);
+  -webkit-backdrop-filter: blur(22px);
   backdrop-filter: blur(22px);
   overflow: hidden;
   opacity: 0;

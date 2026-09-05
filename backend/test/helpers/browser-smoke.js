@@ -62,6 +62,27 @@ async function waitForServer(url, timeoutMs = 20_000) {
   throw new Error(`Timed out waiting for ${url}`);
 }
 
+async function waitForAppReady(page, timeout = 10_000) {
+  await page.waitForFunction(
+    () => document.body?.dataset.appReady === "true",
+    undefined,
+    { timeout },
+  );
+}
+
+async function gotoSmokePage(page, url, options = {}) {
+  const { waitForAppReady: shouldWaitForAppReady = true, ...gotoOptions } = options;
+  const requestedWaitUntil = gotoOptions.waitUntil || "load";
+  const waitUntil = smokeBrowserName === "webkit" && requestedWaitUntil === "networkidle"
+    ? "domcontentloaded"
+    : requestedWaitUntil;
+
+  await page.goto(url, { ...gotoOptions, waitUntil });
+  if (shouldWaitForAppReady) {
+    await waitForAppReady(page);
+  }
+}
+
 async function getOverlayMetrics(page, sourceIndex, belowIndex) {
   return page.evaluate(
     ({ sourceIndex, belowIndex }) => {
@@ -495,6 +516,7 @@ module.exports = {
   getOverlayMetrics,
   getPreviewOverlapPoint,
   getSmokeContext,
+  gotoSmokePage,
   homeMostPopularIds,
   legacyRedirectManifest,
   scoreCatalog,
@@ -503,5 +525,6 @@ module.exports = {
   startSmokeServer,
   stopSmokeServer,
   teardownSmoke,
+  waitForAppReady,
   waitForMostPopularBandIds,
 };

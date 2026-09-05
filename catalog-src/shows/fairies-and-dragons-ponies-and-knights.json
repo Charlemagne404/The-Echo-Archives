@@ -1,12 +1,18 @@
 {
   "id": "fairies-and-dragons-ponies-and-knights",
   "title": "Fairies and Dragons, Ponies and Knights",
-  "subtitle": "",
+  "subtitle": "An all-ages fantasy adventure about a stolen dragon's egg.",
   "description": "An episodic adventure story for humans of all ages! In the beginning everyone was nice. But over time, so slowly that no one could say when, or how, or why it started, the Fairies and the Ponies got...mean. Beatrice knew this because, although she couldn’t prove it yet, she knew that the Fairies and Ponies had stolen her egg. And stealing a dragon’s egg, in Beatrice’s opinion, was going too far. But to confront them she would need the help of a Knight. Produced by Dirt Road Theater in Northfield, VT, FADPAK was created by Gracelyn, Oliver and Dominic Spillane. It is edited and performed by Maren Langdon Spillane, and features original music by Nathan Leigh. Each episode is broadcast live to a virtual audience on Zoom and features a special guest artist whose illustration will come to life during the performance. The podcast will be released one week after the live performance. Website link - dirtroadtheater.com/fadpak",
+  "officialDescription": {
+    "text": "An episodic podcast for humans of all ages! Each episode features a new special guest artist.",
+    "sourceLabel": "Official Dirt Road Theater show page",
+    "sourceUrl": "https://www.dirtroadtheater.com/fadpak",
+    "verifiedAt": "2026-09-04"
+  },
   "cover": "images/covers/fairies-and-dragons-ponies-and-knights.jpg",
   "coverAlt": "Fairies and Dragons, Ponies and Knights cover art",
   "status": "published",
-  "reviewStatus": "imported",
+  "reviewStatus": "indexed-only",
   "releaseStatus": "unknown",
   "completionStatus": "unclear",
   "listenLinks": {
@@ -20,27 +26,38 @@
     "pocketCasts": ""
   },
   "genres": [
-    "drama"
+    "drama",
+    "fantasy",
+    "adventure"
   ],
   "tones": [],
   "formats": [
-    "serialized"
+    "serialized",
+    "episodic"
   ],
-  "tags": [],
+  "tags": [
+    "Fantasy",
+    "Family",
+    "Adventure"
+  ],
   "aliases": [
     "Fairies and Dragons, Ponies and Knights",
     "Fairies and Dragons, Ponies and Knights | Dirt Road Theater"
   ],
-  "themes": [],
+  "themes": [
+    "family",
+    "friendship",
+    "adventure"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "3 seasons observed • at least 37 full episodes • 37 min median",
+    "label": "3 seasons / 36 numbered story episodes • 40 feed entries • 37 min median",
     "seasons": 3,
-    "episodes": 37,
+    "episodes": 36,
     "avgEpisodeMinutes": 36,
     "medianEpisodeMinutes": 37,
     "minEpisodeMinutes": 4,
@@ -52,21 +69,29 @@
       2,
       1
     ],
-    "countQualifier": "at-least",
+    "countQualifier": "observed",
     "episodeCounts": {
       "full": 37,
+      "story": 36,
       "bonus": 1,
-      "trailer": 2
+      "trailer": 2,
+      "totalObserved": 40,
+      "exact": true
     }
   },
   "releaseDates": {
     "first": "2021-02-13",
     "latest": "2024-03-10",
     "latestFeedItem": "2024-03-10",
-    "next": ""
+    "latestStoryEpisode": "2024-03-10",
+    "next": "",
+    "note": "The official show page documents the Season 3 finale and its January 2024 all-platform release; no official Season 4, completion, or next-release statement was located."
   },
   "ratings": {},
-  "facts": {},
+  "facts": {
+    "structure": "Three seasons observed; 36 numbered story episodes in the current feed, plus a Season 3 teaser.",
+    "production": "Episodes are performed live over Zoom with a special guest artist, then released as a podcast."
+  },
   "bestFor": [],
   "similarTo": [],
   "similarReasons": {},
@@ -87,19 +112,26 @@
     "funding": "https://www.patreon.com/fadpak"
   },
   "credits": {
-    "creatorName": "Dirt Road Theater",
+    "creatorName": "Gracelyn, Oliver and Dominic Spillane",
     "ownerName": "Dirt Road Theater",
-    "network": "Dirt Road Theater"
+    "network": "Dirt Road Theater",
+    "writer": "Maren Langdon Spillane",
+    "storyBy": "Dominic Spillane",
+    "performer": "Maren Langdon Spillane",
+    "composer": "Nathan Leigh",
+    "productionCompany": "Dirt Road Theater"
   },
   "creators": [
-    "Dirt Road Theater"
+    "Gracelyn, Oliver and Dominic Spillane"
   ],
-  "cast": [],
+  "cast": [
+    "Maren Langdon Spillane"
+  ],
   "verification": {
-    "status": "automated-source-checked",
-    "verifiedAt": "2026-08-15",
-    "source": "https://www.dirtroadtheater.com/blank-1; https://www.dirtroadtheater.com/fadpak; https://rss.buzzsprout.com/1415767.rss; https://podcasts.apple.com/us/podcast/fairies-and-dragons-ponies-and-knights/id1553611894?uo=4",
-    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-04",
+    "source": "https://www.dirtroadtheater.com/fadpak; https://rss.buzzsprout.com/1415767.rss; https://podcasts.apple.com/us/podcast/fairies-and-dragons-ponies-and-knights/id1553611894?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
   },
   "availability": {
     "transcripts": "11 observed episodes",
@@ -110,13 +142,22 @@
     ],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "A fantasy world of fairies, ponies, dragons, and knights.",
+    "pov": "Episodic all-ages adventure centered on Beatrice's stolen dragon egg."
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.dirtroadtheater.com/blank-1",
       "https://www.dirtroadtheater.com/fadpak",
       "https://rss.buzzsprout.com/1415767.rss",
       "https://podcasts.apple.com/us/podcast/fairies-and-dragons-ponies-and-knights/id1553611894?uo=4"
+    ],
+    "objectiveNote": "Current publisher feed and official show page verify 36 numbered story episodes across three seasons, 37 full-tagged feed items including a Season 3 teaser, one bonus, and two trailers. The official page documents the Season 3 finale and all-platform release in January 2024, but does not state that the series is complete or announce a Season 4.",
+    "objectiveVerifiedAt": "2026-09-04",
+    "researchGaps": [
+      "No official Season 4, completion, or next-release statement was located."
     ],
     "sourceCategories": [
       "Kids & Family",
@@ -734,14 +775,19 @@
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
-        "tier": "imported",
-        "publishedAt": "2026-08-15T21:09:48.553Z"
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-04"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-04",
+        "reviewedBy": "codex-query-audit",
+        "inputRevision": 1
       }
     }
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-04",
   "creatorId": "dirt-road-theater",
   "networkId": "dirt-road-theater"
 }

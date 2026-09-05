@@ -131,6 +131,16 @@ test("classifyChatIntent recognizes archive overview questions", () => {
   assert.equal(intent.helpTopic, "archive-stats");
 });
 
+test("classifyChatIntent recognizes recently updated archive entries", () => {
+  const intent = classifyChatIntent({
+    message: "Which shows were recently updated in the archive?",
+    page: { pageType: "home" },
+  });
+
+  assert.equal(intent.primary, "site-help");
+  assert.equal(intent.helpTopic, "recently-added");
+});
+
 test("classifyChatIntent preserves support topic context for short follow-ups", () => {
   const intent = classifyChatIntent({
     message: "I already did that",

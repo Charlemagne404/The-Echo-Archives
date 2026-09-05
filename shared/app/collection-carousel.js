@@ -1,8 +1,8 @@
 import { alignCardToViewportCenter, getCenteredScrollLeft, getLoopProgress, getNearestCardIndex, getWrappedIndex } from "./collection-carousel-centering.js";
 import { createCollectionFocusController } from "./collection-carousel-focus.js";
 import { createCollectionCarouselInputController } from "./collection-carousel-input.js";
+import { createHorizontalScrollAffordance } from "./horizontal-scroll-affordance.js";
 import { addMediaQueryListener } from "./utils.js";
-
 export function initializeCollectionCarousel({
   featuredCollections,
   collectionCarousel,
@@ -208,10 +208,8 @@ export function initializeCollectionCarousel({
   }
 
   function resumeCarousel() {
-    paused = false;
-    if (collectionCarousel.matches(":hover") || collectionCarousel.matches(":focus-within")) {
-      return;
-    }
+    const isCarouselHeld = collectionCarousel.matches(":hover") || collectionCarousel.matches(":focus-within");
+    paused = isCarouselHeld;
     lastFrameAt = 0;
   }
 
@@ -291,6 +289,7 @@ export function initializeCollectionCarousel({
     queueFocusSync,
     onNativeScrollSettled: (position) => { autoScrollPosition = position; },
   });
+  const removeScrollAffordance = createHorizontalScrollAffordance(collectionViewport);
   const resizeObserver = "ResizeObserver" in window
     ? new ResizeObserver(() => {
       if (!collectionInputController.isNativeScrollPending()) {
@@ -343,6 +342,7 @@ export function initializeCollectionCarousel({
       collectionViewport.removeEventListener("scrollend", collectionInputController.handleViewportScrollEnd);
       collectionPrev.removeEventListener("click", handlePrevClick);
       collectionNext.removeEventListener("click", handleNextClick);
+      removeScrollAffordance();
       removeReducedMotionListener();
       resizeObserver?.disconnect();
     },

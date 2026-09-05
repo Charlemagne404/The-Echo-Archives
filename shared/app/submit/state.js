@@ -9,7 +9,7 @@ import { pickNextLinkOption } from "./utils.js";
 export function seedStateFromParams(state) {
   const params = new URLSearchParams(window.location.search);
   const requestedMode = params.get("submissionType");
-  if (requestedMode && Object.hasOwn(MODE_CONFIG, requestedMode)) {
+  if (requestedMode && Object.prototype.hasOwnProperty.call(MODE_CONFIG, requestedMode)) {
     state.activeMode = requestedMode;
   }
 

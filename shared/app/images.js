@@ -27,7 +27,7 @@ function getCoverVariants(show) {
 export function getPreferredCoverSource(show, preferredWidth = 320) {
   const variants = getCoverVariants(show);
   const exact = variants.find((variant) => variant.width === preferredWidth);
-  const fallback = preferredWidth <= 320 ? variants[0] : variants.at(-1);
+  const fallback = preferredWidth <= 320 ? variants[0] : variants[variants.length - 1];
   return exact?.src || fallback?.src || show?.imageSrc || resolveImageSrc(show?.cover);
 }
 

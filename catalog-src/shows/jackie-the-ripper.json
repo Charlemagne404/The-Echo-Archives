@@ -3,12 +3,18 @@
   "title": "Jackie the Ripper",
   "subtitle": "",
   "description": "The infamous Whitechapel murders, retold. Everyone knows the story of Jack the Ripper, the chilling serial killer that haunted the streets of 19th century London. Now, 135 years later, there’s a new killer in town. In this darkly comic reimagining, men are the victims of sexually aggressive murders committed by a woman: the mysterious Jackie. The only obstacle standing in her way? The slightly clueless, extremely over-caffeinated Detective Abberline and his not-so-crack team at the City of London Police. This is a laugh-out-loud, gruesome, thrilling comedy drama that will have you in bits – and might take your bits too. Hosted on Acast. See acast.com/privacy for more information.",
+  "officialDescription": {
+    "text": "The infamous Whitechapel murders, retold. Everyone knows the story of Jack the Ripper, the chilling serial killer that haunted the streets of 19th century London. Now, 135 years later, there’s a new killer in town. In this darkly comic reimagining, men are the victims of sexually aggressive murders committed by a woman: the mysterious Jackie. The only obstacle standing in her way? The slightly clueless, extremely over-caffeinated Detective Abberline and his not-so-crack team at the City of London Police. This is a laugh-out-loud, gruesome, thrilling comedy drama that will have you in bits – and might take your bits too.",
+    "sourceLabel": "Acast publisher page",
+    "sourceUrl": "https://shows.acast.com/jackie-the-ripper",
+    "verifiedAt": "2026-09-04"
+  },
   "cover": "images/covers/jackie-the-ripper.jpg",
   "coverAlt": "Jackie the Ripper cover art",
   "status": "published",
-  "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -21,26 +27,45 @@
   },
   "genres": [
     "drama",
-    "comedy"
+    "comedy",
+    "mystery",
+    "thriller"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "dark"
+  ],
   "formats": [
+    "full-cast",
     "serialized"
   ],
-  "tags": [],
+  "tags": [
+    "Murder",
+    "Detective",
+    "Dark comedy",
+    "Crime"
+  ],
   "aliases": [
     "Jackie the Ripper"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "murder",
+    "investigation",
+    "gender"
+  ],
+  "contentNotes": [
+    "explicit language",
+    "graphic violence",
+    "sexual violence"
+  ],
   "languages": [
     "English"
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "3 seasons observed • at least 18 full episodes • 31 min median",
+    "label": "3 seasons / 15 numbered story chapters • 22 feed entries • 31 min median",
     "seasons": 3,
-    "episodes": 18,
+    "episodes": 15,
     "avgEpisodeMinutes": 29,
     "medianEpisodeMinutes": 31,
     "minEpisodeMinutes": 1,
@@ -52,21 +77,29 @@
       2,
       1
     ],
-    "countQualifier": "at-least",
+    "countQualifier": "observed",
     "episodeCounts": {
       "full": 18,
+      "story": 15,
       "bonus": 1,
-      "trailer": 3
+      "trailer": 3,
+      "totalObserved": 22,
+      "exact": true
     }
   },
   "releaseDates": {
     "first": "2021-10-25",
     "latest": "2023-07-10",
     "latestFeedItem": "2023-07-10",
-    "next": ""
+    "latestStoryEpisode": "2022-11-04",
+    "next": "",
+    "note": "Apple lists the show as a Complete Series, and the publisher feed identifies the third series as final; the latest numbered story chapter is Chapter 15: The Final Finale."
   },
   "ratings": {},
-  "facts": {},
+  "facts": {
+    "structure": "Three-season complete series with 15 numbered story chapters, plus making-of and promotional feed items.",
+    "seriesStatus": "The publisher and Apple listings identify the third series as the final series."
+  },
   "bestFor": [],
   "similarTo": [],
   "similarReasons": {},
@@ -88,17 +121,40 @@
   },
   "credits": {
     "creatorName": "Stak",
-    "ownerName": "Jon Teague"
+    "ownerName": "Stakhanov Industries Ltd",
+    "network": "Stak",
+    "writer": "Joel Emery",
+    "director": "Adam Jarrell",
+    "producer": [
+      "Joel Emery",
+      "Adam Jarrell",
+      "Finn Ranson",
+      "Luke Moore"
+    ],
+    "executiveProducer": "Joel Emery",
+    "productionCompany": "Stak"
   },
   "creators": [
     "Stak"
   ],
-  "cast": [],
+  "cast": [
+    "Paul Waggott",
+    "Jennifer Tierney",
+    "Acushla-Tara Kupe",
+    "Adam Jarrell",
+    "Helena Doughty",
+    "Amina Koroma",
+    "Karim Kronfli",
+    "Nalan Burgess",
+    "Ant McGinley",
+    "Fisun Burgess",
+    "George Still"
+  ],
   "verification": {
-    "status": "automated-source-checked",
-    "verifiedAt": "2026-08-15",
-    "source": "https://feeds.acast.com/public/shows/jackie-the-ripper; https://podcasts.apple.com/us/podcast/jackie-the-ripper/id1589833252?uo=4",
-    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-04",
+    "source": "https://shows.acast.com/jackie-the-ripper; https://feeds.acast.com/public/shows/jackie-the-ripper; https://podcasts.apple.com/us/podcast/jackie-the-ripper/id1589833252?uo=4; https://stak.london/shows/jackie-the-ripper/",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
   },
   "availability": {
     "transcripts": "unknown",
@@ -107,12 +163,22 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "Whitechapel and the City of London Police, 135 years after the historical Jack the Ripper murders.",
+    "pov": "Full-cast dark comedy mystery led by Detective Abberline and the City of London Police.",
+    "intensity": "high"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.acast.com/public/shows/jackie-the-ripper",
-      "https://podcasts.apple.com/us/podcast/jackie-the-ripper/id1589833252?uo=4"
+      "https://podcasts.apple.com/us/podcast/jackie-the-ripper/id1589833252?uo=4",
+      "https://shows.acast.com/jackie-the-ripper",
+      "https://stak.london/shows/jackie-the-ripper/"
     ],
+    "objectiveNote": "Publisher and Apple sources verify a three-season complete series. The current feed contains 15 numbered story chapters, 18 full-tagged entries including a making-of and two promotional entries, one bonus, and three trailers; the latest numbered story chapter is the 2022-11-04 final finale.",
+    "objectiveVerifiedAt": "2026-09-04",
+    "researchGaps": [],
     "sourceCategories": [
       "Fiction",
       "Comedy Fiction",
@@ -631,13 +697,18 @@
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
-        "tier": "imported",
-        "publishedAt": "2026-08-15T19:39:31.472Z"
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-04"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-04",
+        "reviewedBy": "codex-query-audit",
+        "inputRevision": 1
       }
     }
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-04",
   "creatorId": "stak"
 }

@@ -7,6 +7,7 @@
   display: none;
   flex-direction: column;
   background: rgba(30, 30, 30, 0.9);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-radius: 14px;
   overflow: hidden;

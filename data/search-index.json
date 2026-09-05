@@ -9300,7 +9300,7 @@
     "bestFor": [],
     "similarTo": [],
     "similarReasons": {},
-    "archiveTake": "A supernatural island thriller where redemption, cult pressure, and the wider community all pull in the same direction.",
+    "archiveTake": "",
     "facts": {
       "officialSeriesStatus": "Season 1 released; Season 2 listed as in pre-production on the official site.",
       "awards": [
@@ -19569,7 +19569,7 @@
     "bestFor": [],
     "similarTo": [],
     "similarReasons": {},
-    "archiveTake": "A compact Mars-isolation thriller with a clear survival hook and a full-cast production.",
+    "archiveTake": "",
     "facts": {
       "distribution": "Spotify original podcast",
       "format": "Serialized fiction",
@@ -28050,23 +28050,42 @@
       "Stak"
     ],
     "status": "published",
-    "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama",
-      "comedy"
+      "comedy",
+      "mystery",
+      "thriller"
     ],
-    "tones": [],
+    "tones": [
+      "funny",
+      "dark"
+    ],
     "formats": [
+      "full-cast",
       "serialized"
     ],
-    "tags": [],
+    "tags": [
+      "Murder",
+      "Detective",
+      "Dark comedy",
+      "Crime"
+    ],
     "aliases": [
       "Jackie the Ripper"
     ],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "murder",
+      "investigation",
+      "gender"
+    ],
+    "contentNotes": [
+      "explicit language",
+      "graphic violence",
+      "sexual violence"
+    ],
     "languages": [
       "English"
     ],
@@ -28075,22 +28094,41 @@
     "similarTo": [],
     "similarReasons": {},
     "archiveTake": "",
-    "facts": {},
+    "facts": {
+      "structure": "Three-season complete series with 15 numbered story chapters, plus making-of and promotional feed items.",
+      "seriesStatus": "The publisher and Apple listings identify the third series as the final series."
+    },
     "credits": {
       "creatorName": "Stak",
-      "ownerName": "Jon Teague"
+      "ownerName": "Stakhanov Industries Ltd",
+      "network": "Stak",
+      "writer": "Joel Emery",
+      "director": "Adam Jarrell",
+      "producer": [
+        "Joel Emery",
+        "Adam Jarrell",
+        "Finn Ranson",
+        "Luke Moore"
+      ],
+      "executiveProducer": "Joel Emery",
+      "productionCompany": "Stak"
     },
     "availability": {
       "transcripts": "unknown",
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "Whitechapel and the City of London Police, 135 years after the historical Jack the Ripper murders.",
+      "pov": "Full-cast dark comedy mystery led by Detective Abberline and the City of London Police.",
+      "intensity": "high"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-04"
   },
   {
     "id": "mina-and-lucys-guide-to-slaying-dracula",
@@ -30816,26 +30854,41 @@
     ],
     "coverAlt": "Shelterwood cover art",
     "creators": [
-      "Bloody FM"
+      "Stephen Indrisano"
     ],
     "status": "published",
-    "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "hiatus",
+    "completionStatus": "ongoing",
     "genres": [
       "drama",
-      "sci-fi"
+      "sci-fi",
+      "horror"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "tense",
+      "weird"
+    ],
     "formats": [
+      "full-cast",
       "serialized"
     ],
-    "tags": [],
+    "tags": [
+      "Found media",
+      "Gothic",
+      "Investigation",
+      "Mock documentary"
+    ],
     "aliases": [
       "Shelterwood",
       "Shelterwood: A Suburban Gothic"
     ],
-    "themes": [],
+    "themes": [
+      "investigation",
+      "family",
+      "identity"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
@@ -30845,23 +30898,47 @@
     "similarTo": [],
     "similarReasons": {},
     "archiveTake": "",
-    "facts": {},
+    "facts": {
+      "structure": "Season 1 has 16 numbered story episodes; the current feed also carries bonus, trailer, and crossover entries.",
+      "seriesStatus": "Season 2 is being written/planned, but its release date has not been announced."
+    },
     "credits": {
-      "creatorName": "Bloody FM",
+      "creatorName": "Stephen Indrisano",
       "ownerName": "Stephen Indrisano",
-      "network": "Shelterwood: A Suburban Gothic"
+      "network": "Bloody FM",
+      "writer": "Stephen Indrisano",
+      "producer": "Indrisano Audio, LLC",
+      "productionCompany": "Indrisano Audio, LLC",
+      "director": [
+        "Sivan Raz",
+        "Madeleine Regina"
+      ],
+      "dialogueEditor": "Sam Stark",
+      "soundDesign": "Brad Colbrook",
+      "composer": "Ali Hylton"
     },
     "availability": {
-      "transcripts": "unknown",
+      "transcripts": "available for all 16 numbered story episodes",
       "captions": "unknown",
-      "transcriptCoverage": 0
+      "transcriptCoverage": 1,
+      "transcriptFormats": [
+        "text/html"
+      ],
+      "transcriptLanguages": [
+        "English"
+      ]
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "An infinite suburban development beyond the veil.",
+      "pov": "Docu-horror / found-footage investigation led by Nicholas DeRoso.",
+      "intensity": "high"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-04"
   },
   {
     "id": "station-13",
@@ -41685,7 +41762,7 @@
     "bestFor": [],
     "similarTo": [],
     "similarReasons": {},
-    "archiveTake": "A playful sci-fi serial that toggles between a modern mystery and a vivid radio-adventure world.",
+    "archiveTake": "",
     "facts": {
       "seriesLabel": "Sci-fi space dramedy",
       "releaseCadence": "Every other week",
@@ -46093,7 +46170,7 @@
   {
     "id": "fairies-and-dragons-ponies-and-knights",
     "title": "Fairies and Dragons, Ponies and Knights",
-    "subtitle": "",
+    "subtitle": "An all-ages fantasy adventure about a stolen dragon's egg.",
     "description": "An episodic adventure story for humans of all ages! In the beginning everyone was nice. But over time, so slowly that no one could say when, or how, or why it started, the Fairies and the Ponies got...mean. Beatrice knew this because, although she couldn’t prove it yet, she knew that the Fairies and Ponies had stolen her egg. And stealing a dragon’s egg, in Beatrice’s opinion, was going too far. But to confront them she would need the help of a Knight. Produced by Dirt Road Theater in Northfield, VT, FADPAK was created by Gracelyn, Oliver and Dominic Spillane. It is edited and performed by Maren Langdon Spillane, and features original music by Nathan Leigh. Each episode is broadcast live to a virtual audience on Zoom and features a special guest artist whose illustration will come to life during the performance. The podcast will be released one week after the live performance. Website link - dirtroadtheater.com/fadpak",
     "cover": "images/covers/fairies-and-dragons-ponies-and-knights.jpg",
     "coverVariants": [
@@ -46108,25 +46185,36 @@
     ],
     "coverAlt": "Fairies and Dragons, Ponies and Knights cover art",
     "creators": [
-      "Dirt Road Theater"
+      "Gracelyn, Oliver and Dominic Spillane"
     ],
     "status": "published",
-    "reviewStatus": "imported",
+    "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
     "completionStatus": "unclear",
     "genres": [
-      "drama"
+      "drama",
+      "fantasy",
+      "adventure"
     ],
     "tones": [],
     "formats": [
-      "serialized"
+      "serialized",
+      "episodic"
     ],
-    "tags": [],
+    "tags": [
+      "Fantasy",
+      "Family",
+      "Adventure"
+    ],
     "aliases": [
       "Fairies and Dragons, Ponies and Knights",
       "Fairies and Dragons, Ponies and Knights | Dirt Road Theater"
     ],
-    "themes": [],
+    "themes": [
+      "family",
+      "friendship",
+      "adventure"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
@@ -46136,11 +46224,19 @@
     "similarTo": [],
     "similarReasons": {},
     "archiveTake": "",
-    "facts": {},
+    "facts": {
+      "structure": "Three seasons observed; 36 numbered story episodes in the current feed, plus a Season 3 teaser.",
+      "production": "Episodes are performed live over Zoom with a special guest artist, then released as a podcast."
+    },
     "credits": {
-      "creatorName": "Dirt Road Theater",
+      "creatorName": "Gracelyn, Oliver and Dominic Spillane",
       "ownerName": "Dirt Road Theater",
-      "network": "Dirt Road Theater"
+      "network": "Dirt Road Theater",
+      "writer": "Maren Langdon Spillane",
+      "storyBy": "Dominic Spillane",
+      "performer": "Maren Langdon Spillane",
+      "composer": "Nathan Leigh",
+      "productionCompany": "Dirt Road Theater"
     },
     "availability": {
       "transcripts": "11 observed episodes",
@@ -46150,12 +46246,16 @@
         "text/html"
       ]
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "A fantasy world of fairies, ponies, dragons, and knights.",
+      "pov": "Episodic all-ages adventure centered on Beatrice's stolen dragon egg."
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-04"
   },
   {
     "id": "captain-kayato-and-the-catsairs",

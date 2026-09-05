@@ -2,7 +2,7 @@ export function normalizeLinkTypeClass(value = "") {
   return String(value || "")
     .trim()
     .toLowerCase()
-    .replaceAll(/[^a-z0-9]+/g, "-")
+    .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "") || "other";
 }
 
@@ -124,15 +124,15 @@ export function toDisplayLabel(value) {
 
 export function escapeHtml(value) {
   return String(value || "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 export function escapeAttribute(value) {
-  return escapeHtml(value).replaceAll("\n", "&#10;");
+  return escapeHtml(value).replace(/\n/g, "&#10;");
 }
 
 export function getShowContributorLabel(show) {

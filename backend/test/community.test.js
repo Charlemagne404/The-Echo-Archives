@@ -82,6 +82,28 @@ test("device-scoped community ratings update one active vote per show", async ()
   }
 });
 
+test("device profile bootstrap is idempotent for a repeated voter secret", async () => {
+  const context = await createCommunityContext();
+
+  try {
+    const first = context.community.createDeviceProfile({
+      voterSecret: "device-repeat",
+      userAgent: "first-agent",
+      sourceIp: "127.0.0.1",
+    });
+    const second = context.community.createDeviceProfile({
+      voterSecret: "device-repeat",
+      userAgent: "second-agent",
+      sourceIp: "127.0.0.1",
+    });
+
+    assert.equal(first.profileId, second.profileId);
+    assert.equal(context.db.prepare("SELECT COUNT(*) AS count FROM community_profiles WHERE kind = 'device'").get().count, 1);
+  } finally {
+    cleanupCommunityContext(context);
+  }
+});
+
 test("community ratings can be removed for a device voter", async () => {
   const context = await createCommunityContext({ minPublicRatings: 1 });
 
@@ -166,6 +188,30 @@ test("Turnstile is required before rating writes when enabled", async () => {
       { token: "valid-token", remoteIp: "203.0.113.10" },
       { token: "invalid-token", remoteIp: "203.0.113.10" },
     ]);
+  } finally {
+    cleanupCommunityContext(context);
+  }
+});
+
+test("community ratings reject values that are not exact integers", async () => {
+  const context = await createCommunityContext({ minPublicRatings: 1 });
+
+  try {
+    for (const rating of ["7foo", "7.5", 7.5]) {
+      await assert.rejects(
+        () => context.community.submitRating({
+          podcastId: "impact-winter",
+          rating,
+          voterSecret: "device-one",
+          userAgent: "test-agent",
+        }),
+        (error) => {
+          assert.equal(error.statusCode, 400);
+          assert.equal(error.message, "Rating must be an integer between 1 and 10.");
+          return true;
+        },
+      );
+    }
   } finally {
     cleanupCommunityContext(context);
   }

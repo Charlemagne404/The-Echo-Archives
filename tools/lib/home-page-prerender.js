@@ -389,7 +389,7 @@ function renderMostPopularCard(show) {
   return `
     <a class="popular-card" href="${escapeAttribute(show.href || createShowHref(show.id || ""))}" data-podcast-id="${escapeAttribute(show.id || "")}" aria-label="Open ${escapeAttribute(show.title || "Untitled show")} in the archive"${accentStyle}>
       <div class="popular-card-media">
-        <img src="${escapeAttribute(show.imageSrc || resolveImageSrc(show.cover))}"${renderResponsiveCoverAttributes(show, "(max-width: 560px) 82vw, (max-width: 960px) 44vw, 320px")} alt="${escapeAttribute(show.imageAlt || show.coverAlt || `${show.title || "Untitled show"} cover art`)}" loading="lazy" decoding="async" width="320" height="320" />
+        <img src="${escapeAttribute(show.imageSrc || resolveImageSrc(show.cover))}"${renderResponsiveCoverAttributes(show, "(max-width: 560px) 44vw, (max-width: 960px) 44vw, 320px")} alt="${escapeAttribute(show.imageAlt || show.coverAlt || `${show.title || "Untitled show"} cover art`)}" loading="lazy" decoding="async" width="320" height="320" />
       </div>
       <div class="popular-card-body">
         <div class="popular-card-status"${chips.length === 0 ? " hidden" : ""}>${chips.join("")}</div>

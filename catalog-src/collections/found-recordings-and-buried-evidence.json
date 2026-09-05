@@ -25,7 +25,8 @@
     "the-lovecraft-investigations",
     "the-storage-papers",
     "the-sheridan-tapes",
-    "the-deca-tapes"
+    "the-deca-tapes",
+    "shelterwood"
   ],
   "showReasons": {
     "archive-81": "Archival recordings and occult history make the act of cataloging part of the danger.",
@@ -36,10 +37,11 @@
     "the-lovecraft-investigations": "Podcast investigation structure makes each discovery feel like evidence before the mythos widens.",
     "the-storage-papers": "Recovered documents and case files keep the supernatural mystery grounded in an accumulating archive.",
     "the-sheridan-tapes": "A large mystery assembled from recorded material turns the missing evidence into the listening engine.",
-    "the-deca-tapes": "Segmented recordings and a locked-room puzzle make the format itself part of the mystery."
+    "the-deca-tapes": "Segmented recordings and a locked-room puzzle make the format itself part of the mystery.",
+    "shelterwood": "A docu-horror search for a missing sister uses found footage, interviews, and an impossible suburb as its evidence trail."
   },
   "featured": false,
   "order": 138.5,
   "createdAt": "2026-08-29",
-  "updatedAt": "2026-08-29"
+  "updatedAt": "2026-09-04"
 }

@@ -283,7 +283,8 @@ export async function initializeCollectionsPage() {
 
   const featuredCount = orderedCollections.filter((collection) => collection.featured).length;
   const coveredShowIds = new Set(orderedCollections.flatMap((collection) => collection.showIds));
-  const latestUpdatedAt = orderedCollections.map((collection) => collection.updatedAt).filter(Boolean).sort().at(-1);
+  const updatedAtValues = orderedCollections.map((collection) => collection.updatedAt).filter(Boolean).sort();
+  const latestUpdatedAt = updatedAtValues[updatedAtValues.length - 1];
 
   setTextContent("collectionsCount", String(orderedCollections.length));
   setTextContent("collectionsShowReach", String(coveredShowIds.size));

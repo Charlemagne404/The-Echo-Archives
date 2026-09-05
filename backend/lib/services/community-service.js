@@ -56,7 +56,6 @@ function createCommunityService({
 
     return {
       profileId,
-      abuseHash,
     };
   }
 
@@ -90,7 +89,8 @@ function createCommunityService({
     rateLimiter?.check("community", abuseHash);
     await turnstile?.verify(turnstileToken, sourceIp);
 
-    const normalizedRating = Number.parseInt(String(rating), 10);
+    const normalizedRatingText = String(rating ?? "").trim();
+    const normalizedRating = /^\d+$/.test(normalizedRatingText) ? Number(normalizedRatingText) : null;
     if (!Number.isInteger(normalizedRating) || normalizedRating < 1 || normalizedRating > 10) {
       const error = new Error("Rating must be an integer between 1 and 10.");
       error.statusCode = 400;

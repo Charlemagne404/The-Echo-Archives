@@ -145,6 +145,7 @@
     transform: none;
     object-fit: cover;
     object-position: 58% 44%;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.84) 16%, #000 38%, #000 82%, transparent 100%);
     mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.84) 16%, #000 38%, #000 82%, transparent 100%);
   }
 

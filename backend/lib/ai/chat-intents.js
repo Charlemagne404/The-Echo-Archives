@@ -280,6 +280,7 @@ const HELP_TOPIC_PATTERNS = [
     topic: "recently-added",
     patterns: [
       /\brecently added\b/i,
+      /\brecently updated\b/i,
       /\bnew additions?\b/i,
       /\bnewly added\b/i,
       /\blatest additions?\b/i,
@@ -409,6 +410,7 @@ function detectHelpTopic(message = "") {
 
   if (
     /\brecently added\b/i.test(message) ||
+    /\brecently updated\b/i.test(message) ||
     /\bnew additions?\b/i.test(message) ||
     /\bnewly added\b/i.test(message) ||
     /\blatest additions?\b/i.test(message) ||

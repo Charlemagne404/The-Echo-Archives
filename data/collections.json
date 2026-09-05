@@ -454,7 +454,8 @@
       "flash-gordon-and-buck-rogers-radio-adventurers",
       "case-63",
       "video-palace",
-      "passenger-list"
+      "passenger-list",
+      "jackie-the-ripper"
     ],
     "showReasons": {
       "solar": "A contained survival thriller with a known ending.",
@@ -475,12 +476,13 @@
       "flash-gordon-and-buck-rogers-radio-adventurers": "A completed limited feed of surviving vintage serial adventures with a defined endpoint.",
       "case-63": "A finished, tightly paced time-travel thriller that resolves its central conversation.",
       "video-palace": "A contained media-horror mystery with a complete run and a clear place to stop.",
-      "passenger-list": "A bounded investigative thriller for listeners who want conspiracy without an indefinite feed."
+      "passenger-list": "A bounded investigative thriller for listeners who want conspiracy without an indefinite feed.",
+      "jackie-the-ripper": "A complete three-season dark comedy mystery with a clearly identified final chapter."
     },
     "featured": true,
     "order": 90,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-08-29"
+    "updatedAt": "2026-09-04"
   },
   {
     "id": "quick-first-listens",
@@ -799,7 +801,8 @@
       "brimstone-valley-mall",
       "greater-boston",
       "the-penumbra-podcast",
-      "the-mistholme-museum-of-mystery-morbidity-and-mortality"
+      "the-mistholme-museum-of-mystery-morbidity-and-mortality",
+      "fairies-and-dragons-ponies-and-knights"
     ],
     "showReasons": {
       "caravan": "A hidden-road fantasy that keeps rewarding curiosity and movement.",
@@ -808,12 +811,13 @@
       "brimstone-valley-mall": "A comedic infernal detour that still feels like its own complete subworld.",
       "greater-boston": "Urban magical realism makes the familiar city feel quietly impossible.",
       "the-penumbra-podcast": "Connected sci-fi and fantasy worlds offer several different ways into the same larger imaginative project.",
-      "the-mistholme-museum-of-mystery-morbidity-and-mortality": "A museum of magical artifacts makes every episode another small detour into a hidden world."
+      "the-mistholme-museum-of-mystery-morbidity-and-mortality": "A museum of magical artifacts makes every episode another small detour into a hidden world.",
+      "fairies-and-dragons-ponies-and-knights": "An all-ages dragon-egg adventure with live guest-artist performances opens a gentler branch of the hidden-worlds route."
     },
     "featured": false,
     "order": 137,
     "createdAt": "2026-07-10",
-    "updatedAt": "2026-08-29"
+    "updatedAt": "2026-09-04"
   },
   {
     "id": "short-finished-thrillers",
@@ -881,7 +885,8 @@
       "the-lovecraft-investigations",
       "the-storage-papers",
       "the-sheridan-tapes",
-      "the-deca-tapes"
+      "the-deca-tapes",
+      "shelterwood"
     ],
     "showReasons": {
       "archive-81": "Archival recordings and occult history make the act of cataloging part of the danger.",
@@ -892,12 +897,13 @@
       "the-lovecraft-investigations": "Podcast investigation structure makes each discovery feel like evidence before the mythos widens.",
       "the-storage-papers": "Recovered documents and case files keep the supernatural mystery grounded in an accumulating archive.",
       "the-sheridan-tapes": "A large mystery assembled from recorded material turns the missing evidence into the listening engine.",
-      "the-deca-tapes": "Segmented recordings and a locked-room puzzle make the format itself part of the mystery."
+      "the-deca-tapes": "Segmented recordings and a locked-room puzzle make the format itself part of the mystery.",
+      "shelterwood": "A docu-horror search for a missing sister uses found footage, interviews, and an impossible suburb as its evidence trail."
     },
     "featured": false,
     "order": 138.5,
     "createdAt": "2026-08-29",
-    "updatedAt": "2026-08-29"
+    "updatedAt": "2026-09-04"
   },
   {
     "id": "folk-horror-and-old-gods",
@@ -964,7 +970,8 @@
       "the-imperfection",
       "fawx-stallion",
       "death-by-dying",
-      "gather-the-suspects"
+      "gather-the-suspects",
+      "jackie-the-ripper"
     ],
     "showReasons": {
       "the-amelia-project": "A darkly comic identity mystery where every strange client creates another case-shaped story.",
@@ -974,12 +981,13 @@
       "the-imperfection": "A missing psychiatrist and unreliable perceptions turn a surreal comedy ensemble into an actual investigation.",
       "fawx-stallion": "Overlooked detectives get a comic case of their own, with rivalry and friendship driving the investigation.",
       "death-by-dying": "An obituary writer investigating strange deaths keeps the mystery engine pointed toward the absurd.",
-      "gather-the-suspects": "A cosy murder mystery in a very boring apocalypse makes the case itself the source of the comedy."
+      "gather-the-suspects": "A cosy murder mystery in a very boring apocalypse makes the case itself the source of the comedy.",
+      "jackie-the-ripper": "A gruesome Whitechapel reimagining pairs a police investigation with dark, full-cast comedy."
     },
     "featured": false,
     "order": 139.5,
     "createdAt": "2026-08-29",
-    "updatedAt": "2026-08-29"
+    "updatedAt": "2026-09-04"
   },
   {
     "id": "completed-sci-fi",
@@ -1171,7 +1179,8 @@
       "malevolent",
       "mirrors",
       "alice-isnt-dead",
-      "station-151"
+      "station-151",
+      "red-valley"
     ],
     "showReasons": {
       "tower-4": "The clearest next stop for listeners who want remote-post unease without leaving the slow-burn lane.",
@@ -1179,12 +1188,13 @@
       "malevolent": "More occult threat and more direct darkness for listeners who want the horror to close in harder.",
       "mirrors": "Keeps the eerie atmosphere and speculative spine while widening the haunting across time.",
       "alice-isnt-dead": "A road-haunted branch for listeners who liked solitude, voice, and menace over creature spectacle.",
-      "station-151": "For the outpost weirdness side of the recommendation once absurdity and isolation start blending."
+      "station-151": "For the outpost weirdness side of the recommendation once absurdity and isolation start blending.",
+      "red-valley": "A science-heavy research-facility mystery keeps the outpost isolation and unanswered questions in focus."
     },
     "featured": false,
     "order": 160,
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-09-04"
   },
   {
     "id": "shows-like-wolf-359",
@@ -1948,6 +1958,7 @@
       "the-third-rock-theatre-of-the-air",
       "in-dying-days",
       "chongqing-punk",
+      "shelterwood",
       "the-chronicles-of-astrimos"
     ],
     "showReasons": {
@@ -2021,6 +2032,7 @@
       "the-third-rock-theatre-of-the-air": "Rule match: ongoing + Sci-Fi.",
       "in-dying-days": "Rule match: ongoing + Sci-Fi.",
       "chongqing-punk": "Rule match: ongoing + Sci-Fi.",
+      "shelterwood": "Rule match: ongoing + Sci-Fi.",
       "the-chronicles-of-astrimos": "Rule match: ongoing + Sci-Fi."
     },
     "automation": {
@@ -2046,7 +2058,7 @@
     "featured": false,
     "order": 290,
     "createdAt": "2026-08-16",
-    "updatedAt": "2026-08-29"
+    "updatedAt": "2026-09-04"
   },
   {
     "id": "ongoing-comedy",
@@ -2217,7 +2229,8 @@
       "campfire-radio-theater",
       "the-liminal-lands",
       "the-elmwood-strain",
-      "the-other-stories-sci-fi-horror-thriller-wtf-stories"
+      "the-other-stories-sci-fi-horror-thriller-wtf-stories",
+      "shelterwood"
     ],
     "showReasons": {
       "how-i-died": "Rule match: ongoing + Horror.",
@@ -2243,7 +2256,8 @@
       "campfire-radio-theater": "Rule match: ongoing + Horror.",
       "the-liminal-lands": "Rule match: ongoing + Horror.",
       "the-elmwood-strain": "Rule match: ongoing + Horror.",
-      "the-other-stories-sci-fi-horror-thriller-wtf-stories": "Rule match: ongoing + Horror."
+      "the-other-stories-sci-fi-horror-thriller-wtf-stories": "Rule match: ongoing + Horror.",
+      "shelterwood": "Rule match: ongoing + Horror."
     },
     "automation": {
       "mode": "rule",
@@ -2268,7 +2282,7 @@
     "featured": false,
     "order": 350,
     "createdAt": "2026-08-16",
-    "updatedAt": "2026-08-16"
+    "updatedAt": "2026-09-04"
   },
   {
     "id": "completed-drama",
@@ -2299,7 +2313,8 @@
       "the-way-we-haunt-now",
       "hallway-to-nowhere",
       "moose-on-a-highway",
-      "sequestered-an-audio-drama"
+      "sequestered-an-audio-drama",
+      "jackie-the-ripper"
     ],
     "showReasons": {
       "ars-paradoxica": "Rule match: completed + Drama.",
@@ -2320,7 +2335,8 @@
       "the-way-we-haunt-now": "Rule match: completed + Drama.",
       "hallway-to-nowhere": "Rule match: completed + Drama.",
       "moose-on-a-highway": "Rule match: completed + Drama.",
-      "sequestered-an-audio-drama": "Rule match: completed + Drama."
+      "sequestered-an-audio-drama": "Rule match: completed + Drama.",
+      "jackie-the-ripper": "Rule match: completed + Drama."
     },
     "automation": {
       "mode": "rule",
@@ -2345,7 +2361,7 @@
     "featured": false,
     "order": 360,
     "createdAt": "2026-08-16",
-    "updatedAt": "2026-08-16"
+    "updatedAt": "2026-09-04"
   },
   {
     "id": "anthology-horror",
@@ -2511,5 +2527,89 @@
     "order": 390,
     "createdAt": "2026-08-16",
     "updatedAt": "2026-08-16"
+  },
+  {
+    "id": "shows-like-the-bright-sessions",
+    "title": "Shows like The Bright Sessions",
+    "description": "Character-first speculative dramas where intimate conversations open onto larger mysteries, powers, and systems.",
+    "label": "Character-first sci-fi",
+    "kind": "similarity",
+    "anchorShowId": "the-bright-sessions",
+    "intentTags": [
+      "easy-first-step",
+      "headphones-on",
+      "worldbuilding"
+    ],
+    "commitment": "Similar shows",
+    "coverShowIds": [
+      "ars-paradoxica",
+      "case-63",
+      "bridgewater",
+      "the-chronicles-of-astrimos"
+    ],
+    "showIds": [
+      "ars-paradoxica",
+      "case-63",
+      "bridgewater",
+      "lifeafter-the-message",
+      "wolf-359",
+      "unwell",
+      "the-chronicles-of-astrimos"
+    ],
+    "showReasons": {
+      "ars-paradoxica": "A completed character-first time-travel drama where one scientist's impossible situation grows into a larger conspiracy.",
+      "case-63": "Doctor-patient conversations turn a speculative threat into an intimate, tightly bounded thriller.",
+      "bridgewater": "A folklore mystery uses relationships and belief to widen a personal investigation into something stranger.",
+      "lifeafter-the-message": "Two contained speculative dramas turn technology, grief, and contact into close character mysteries.",
+      "wolf-359": "A station ensemble starts with character friction and grows into high-stakes science fiction about trust and survival.",
+      "unwell": "Midwestern Gothic lets family strain and supernatural mystery drive the emotional investigation.",
+      "the-chronicles-of-astrimos": "A full-cast retro-radio mystery pulls a grieving lawyer into a dangerous broadcast while keeping personal stakes in the foreground."
+    },
+    "featured": false,
+    "order": 280,
+    "createdAt": "2026-09-04",
+    "updatedAt": "2026-09-04"
+  },
+  {
+    "id": "shows-like-limetown",
+    "title": "Shows like Limetown",
+    "description": "Found recordings, missing communities, and investigative fiction for listeners who want a case file to open.",
+    "label": "Investigative fiction",
+    "kind": "similarity",
+    "anchorShowId": "limetown",
+    "intentTags": [
+      "headphones-on",
+      "late-night",
+      "cold-horror"
+    ],
+    "commitment": "Similar shows",
+    "coverShowIds": [
+      "the-black-tapes",
+      "shelterwood",
+      "video-palace",
+      "the-lovecraft-investigations"
+    ],
+    "showIds": [
+      "the-black-tapes",
+      "shelterwood",
+      "video-palace",
+      "the-lovecraft-investigations",
+      "archive-81",
+      "passenger-list",
+      "the-deca-tapes"
+    ],
+    "showReasons": {
+      "the-black-tapes": "A skeptical documentary investigation builds its paranormal cases through tapes and recorded testimony.",
+      "shelterwood": "A 16-episode docu-horror search for a missing sister uses found footage, interviews, and an impossible suburb as its evidence trail.",
+      "video-palace": "A lost VHS and a media investigation make every clue feel like something the listener has just found.",
+      "the-lovecraft-investigations": "Podcast investigation structure makes each discovery feel like evidence before the wider mythos takes over.",
+      "archive-81": "Archival recordings and occult history make the act of cataloging part of the danger.",
+      "passenger-list": "A vanished plane and widening interviews offer the same investigative pull on a larger, more mobile mystery.",
+      "the-deca-tapes": "Segmented recordings and a locked-room puzzle make the format itself part of the mystery."
+    },
+    "featured": false,
+    "order": 290,
+    "createdAt": "2026-09-04",
+    "updatedAt": "2026-09-04"
   }
 ]

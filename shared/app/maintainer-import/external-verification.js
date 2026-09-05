@@ -330,7 +330,7 @@ function normalizeEnrichment(value) {
   if (!value || typeof value !== "object" || Array.isArray(value)) return {};
   const enrichment = {};
   ENRICHMENT_LIST_FIELDS.forEach((field) => {
-    if (!Object.hasOwn(value, field)) return;
+    if (!Object.prototype.hasOwnProperty.call(value, field)) return;
     const values = valuesFromList(value[field]).slice(0, field === "socialUrls" ? 12 : 8);
     if (values.length) enrichment[field] = field === "socialUrls" ? values.filter((item) => /^https?:\/\//i.test(item)) : values;
   });

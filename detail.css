@@ -65,6 +65,7 @@
     linear-gradient(90deg, rgba(255, 255, 255, 0.014) 1px, transparent 1px),
     repeating-linear-gradient(110deg, transparent 0 46px, rgba(var(--detail-accent-rgb), 0.045) 47px 48px);
   background-size: 72px 72px, 72px 72px, auto;
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.18));
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.18));
   opacity: 0.38;
   pointer-events: none;
@@ -229,6 +230,7 @@
   box-shadow:
     0 20px 44px rgba(0, 0, 0, 0.22),
     inset 0 1px 0 rgba(255, 255, 255, 0.025);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
 
@@ -2071,6 +2073,9 @@
   isolation: isolate;
   border-radius: 15px 0 0 15px;
   background:
+    radial-gradient(circle at 62% 18%, rgba(229, 72, 56, 0.22), transparent 34%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.14));
+  background:
     radial-gradient(circle at 62% 18%, color-mix(in srgb, var(--collection-accent) 32%, transparent), transparent 34%),
     linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.14));
   transition: transform 220ms ease;
@@ -2156,6 +2161,7 @@
 .detail-collection-route:hover,
 .detail-collection-route:focus-visible {
   transform: translateY(-2px);
+  border-color: rgba(229, 72, 56, 0.62);
   border-color: color-mix(in srgb, var(--collection-accent) 52%, rgba(255, 255, 255, 0.16));
   box-shadow: 0 22px 42px rgba(0, 0, 0, 0.34);
 }
@@ -2924,7 +2930,8 @@
   }
 
   .site-nav-drawer {
-    width: min(calc(100% - var(--safe-area-left)), 420px);
+    width: calc(100% - 24px);
+    max-width: 420px;
     max-height: var(--visual-viewport-height);
   }
 
@@ -2952,8 +2959,12 @@
   }
 
   #backToTop {
-    right: calc(max(12px, var(--safe-area-right)) + 60px);
+    right: max(12px, var(--safe-area-right));
     bottom: max(16px, var(--safe-area-bottom));
+  }
+
+  .home-page[data-archivist-enabled="true"] #backToTop {
+    right: calc(max(8px, var(--safe-area-right)) + clamp(46px, 14vw, 50px) + 10px);
   }
 }
 

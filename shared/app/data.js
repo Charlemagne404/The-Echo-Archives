@@ -142,7 +142,7 @@ export function buildShowMap(shows) {
 export function getArchiveStats(shows, collections) {
   const publishedShows = getPublishedShows(shows);
   const fullReviewCount = publishedShows.filter((show) => show.reviewStatus === "full-review").length;
-  const latestUpdatedAt = [
+  const updatedAtValues = [
     ...publishedShows.map((show) => show.updatedAt),
     ...(Array.isArray(collections) ? collections.map((collection) => collection.updatedAt) : []),
   ]
@@ -154,8 +154,8 @@ export function getArchiveStats(shows, collections) {
         (Number.isFinite(leftTimestamp) ? leftTimestamp : Number.NEGATIVE_INFINITY) -
         (Number.isFinite(rightTimestamp) ? rightTimestamp : Number.NEGATIVE_INFINITY)
       );
-    })
-    .at(-1);
+    });
+  const latestUpdatedAt = updatedAtValues[updatedAtValues.length - 1];
 
   return {
     showCount: publishedShows.length,

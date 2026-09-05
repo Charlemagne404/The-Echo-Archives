@@ -134,9 +134,11 @@ export function initializeMobileNav() {
     isOpen = true;
     syncInteractiveState();
 
+    const [firstFocusable] = getFocusables();
+    firstFocusable?.focus();
     window.requestAnimationFrame(() => {
-      const [firstFocusable] = getFocusables();
-      firstFocusable?.focus();
+      const [currentFirstFocusable] = getFocusables();
+      currentFirstFocusable?.focus();
     });
   };
 

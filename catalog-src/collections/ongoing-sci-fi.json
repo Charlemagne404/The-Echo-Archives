@@ -79,6 +79,7 @@
     "the-third-rock-theatre-of-the-air",
     "in-dying-days",
     "chongqing-punk",
+    "shelterwood",
     "the-chronicles-of-astrimos"
   ],
   "showReasons": {
@@ -152,6 +153,7 @@
     "the-third-rock-theatre-of-the-air": "Rule match: ongoing + Sci-Fi.",
     "in-dying-days": "Rule match: ongoing + Sci-Fi.",
     "chongqing-punk": "Rule match: ongoing + Sci-Fi.",
+    "shelterwood": "Rule match: ongoing + Sci-Fi.",
     "the-chronicles-of-astrimos": "Rule match: ongoing + Sci-Fi."
   },
   "automation": {
@@ -178,5 +180,5 @@
   "featured": false,
   "order": 290,
   "createdAt": "2026-08-16",
-  "updatedAt": "2026-08-29"
+  "updatedAt": "2026-09-04"
 }

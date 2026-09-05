@@ -23,7 +23,7 @@ export function createMostPopularCard(show) {
     loading: "lazy",
     width: 320,
     height: 320,
-    sizes: "(max-width: 560px) 82vw, (max-width: 960px) 44vw, 320px",
+    sizes: "(max-width: 560px) 44vw, (max-width: 960px) 44vw, 320px",
   });
   media.appendChild(image);
 

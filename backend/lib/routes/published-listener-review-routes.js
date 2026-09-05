@@ -58,7 +58,7 @@ function createPublishedListenerReviewRouter({ reviewService, config }) {
 
   router.get("/shows/:showId", (req, res, next) => {
     try {
-      res.set("Cache-Control", "no-cache");
+      res.set("Cache-Control", "no-store");
       res.json(reviewService.getPublicReviewPage(String(req.params.showId || "").trim(), {
         page: parsePositiveInteger(req.query.page, 1),
         pageSize: parsePositiveInteger(req.query.pageSize, 1, 20),
@@ -71,7 +71,7 @@ function createPublishedListenerReviewRouter({ reviewService, config }) {
 
   router.get("/scores/summary", (req, res, next) => {
     try {
-      res.set("Cache-Control", "no-cache");
+      res.set("Cache-Control", "no-store");
       res.json(reviewService.getListenerReviewScoreSummaries(
         typeof req.query.showIds === "string" ? req.query.showIds : "",
       ));

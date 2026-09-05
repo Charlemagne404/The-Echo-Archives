@@ -15,6 +15,9 @@
   isolation: isolate;
   border-radius: 15px 0 0 15px;
   background:
+    radial-gradient(circle at 62% 18%, rgba(229, 72, 56, 0.22), transparent 34%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.14));
+  background:
     radial-gradient(circle at 62% 18%, color-mix(in srgb, var(--collection-accent) 32%, transparent), transparent 34%),
     linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.14));
   transition: transform 220ms ease;
@@ -100,6 +103,7 @@
 .detail-collection-route:hover,
 .detail-collection-route:focus-visible {
   transform: translateY(-2px);
+  border-color: rgba(229, 72, 56, 0.62);
   border-color: color-mix(in srgb, var(--collection-accent) 52%, rgba(255, 255, 255, 0.16));
   box-shadow: 0 22px 42px rgba(0, 0, 0, 0.34);
 }

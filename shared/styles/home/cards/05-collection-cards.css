@@ -177,6 +177,7 @@
   font-size: 0.82rem;
   font-weight: 600;
   border: 1px solid rgba(255, 255, 255, calc(0.16 + (var(--collection-focus-weight) * 0.22)));
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   background: rgba(7, 10, 13, calc(0.7 - (var(--collection-focus-weight) * 0.12)));
   transition: border-color 220ms ease, background 220ms ease, color 220ms ease;

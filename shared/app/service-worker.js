@@ -30,6 +30,23 @@ async function warmVisitedPageCache() {
   }
 
   const urls = new Set([window.location.href]);
+  const dataUrls = [
+    "/data/archive-stats.json",
+    ["/data/search-index.json", document.body?.dataset.searchIndexVersion],
+    ["/data/collections.json", document.body?.dataset.collectionsVersion],
+    ["/data/shows.json", document.body?.dataset.showsVersion],
+  ];
+  dataUrls.forEach((entry) => {
+    if (typeof entry === "string") {
+      urls.add(entry);
+      return;
+    }
+
+    const [pathname, version] = entry;
+    if (version) {
+      urls.add(`${pathname}?v=${encodeURIComponent(version)}`);
+    }
+  });
   performance.getEntriesByType("resource").forEach((entry) => {
     try {
       const url = new URL(entry.name, window.location.href);

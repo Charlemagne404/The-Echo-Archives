@@ -1,0 +1,42 @@
+{
+  "id": "shows-like-limetown",
+  "title": "Shows like Limetown",
+  "description": "Found recordings, missing communities, and investigative fiction for listeners who want a case file to open.",
+  "label": "Investigative fiction",
+  "kind": "similarity",
+  "anchorShowId": "limetown",
+  "intentTags": [
+    "headphones-on",
+    "late-night",
+    "cold-horror"
+  ],
+  "commitment": "Similar shows",
+  "coverShowIds": [
+    "the-black-tapes",
+    "shelterwood",
+    "video-palace",
+    "the-lovecraft-investigations"
+  ],
+  "showIds": [
+    "the-black-tapes",
+    "shelterwood",
+    "video-palace",
+    "the-lovecraft-investigations",
+    "archive-81",
+    "passenger-list",
+    "the-deca-tapes"
+  ],
+  "showReasons": {
+    "the-black-tapes": "A skeptical documentary investigation builds its paranormal cases through tapes and recorded testimony.",
+    "shelterwood": "A 16-episode docu-horror search for a missing sister uses found footage, interviews, and an impossible suburb as its evidence trail.",
+    "video-palace": "A lost VHS and a media investigation make every clue feel like something the listener has just found.",
+    "the-lovecraft-investigations": "Podcast investigation structure makes each discovery feel like evidence before the wider mythos takes over.",
+    "archive-81": "Archival recordings and occult history make the act of cataloging part of the danger.",
+    "passenger-list": "A vanished plane and widening interviews offer the same investigative pull on a larger, more mobile mystery.",
+    "the-deca-tapes": "Segmented recordings and a locked-room puzzle make the format itself part of the mystery."
+  },
+  "featured": false,
+  "order": 290,
+  "createdAt": "2026-09-04",
+  "updatedAt": "2026-09-04"
+}

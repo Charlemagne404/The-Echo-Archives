@@ -12,6 +12,7 @@ const {
   getOverlayMetrics,
   getPreviewOverlapPoint,
   getSmokeContext,
+  gotoSmokePage,
   homeMostPopularIds,
   legacyRedirectManifest,
   scoreCatalog,
@@ -118,10 +119,10 @@ test("collections trust bar matches the browse hero", async () => {
     });
 
   try {
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
     const browseStyles = await trustBarStyles(".archive-trust-grid");
 
-    await page.goto(`${baseUrl}/collections`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/collections`, { waitUntil: "networkidle" });
     const collectionStyles = await trustBarStyles(".collections-hero-panel .archive-trust-grid");
 
     assert.deepEqual(collectionStyles, browseStyles);
@@ -231,7 +232,8 @@ test("static delivery files expose intentional HTTP statuses", async () => {
     { path: "/sw.js", status: 200 },
     { path: "/robots.txt", status: 200 },
     { path: "/site.webmanifest", status: 200 },
-    { path: "/favicon.ico", status: 200 },
+    { path: "/favicon.ico", status: 200, contentType: "image/x-icon" },
+    { path: "/icon-192.png", status: 200 },
     { path: "/apple-touch-icon.png", status: 200 },
     { path: "/og-image.png", status: 200 },
   ];
@@ -239,6 +241,13 @@ test("static delivery files expose intentional HTTP statuses", async () => {
   for (const staticPath of staticPaths) {
     const response = await fetch(`${baseUrl}${staticPath.path}`);
     assert.equal(response.status, staticPath.status, `${staticPath.path} should return ${staticPath.status}.`);
+    if (staticPath.contentType) {
+      assert.match(
+        response.headers.get("content-type") || "",
+        new RegExp(`^${staticPath.contentType}(?:;|$)`),
+        `${staticPath.path} should use the expected content type.`,
+      );
+    }
   }
 });
 
@@ -322,7 +331,7 @@ test("collection detail pages expose listener-facing overview and related route 
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
 
   try {
-    await page.goto(`${baseUrl}/collections/${encodeURIComponent(firstCollectionId)}`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/collections/${encodeURIComponent(firstCollectionId)}`, { waitUntil: "networkidle" });
     await page.waitForFunction(
       () =>
         document.querySelectorAll("#collectionOverviewChips .collection-detail-signal-chip").length > 0 &&
@@ -354,7 +363,7 @@ test("collection detail pages expose listener-facing overview and related route 
     assert.ok(collectionState.overviewChipCount > 0);
     assert.ok(collectionState.compactRelatedCount > 0);
 
-    await page.goto(`${baseUrl}/collections/${encodeURIComponent(firstSimilarityCollectionId)}`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/collections/${encodeURIComponent(firstSimilarityCollectionId)}`, { waitUntil: "networkidle" });
     await page.waitForFunction(
       () => document.querySelector("#collectionOverviewMetaLine .collection-detail-anchor-link"),
       undefined,
@@ -400,7 +409,7 @@ test("collection detail routes arrive complete without catalog rehydration", asy
     assert.ok(serverState.cardCount > 0);
     assert.ok(serverState.relatedCount > 0);
 
-    await page.goto(collectionUrl, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, collectionUrl, { waitUntil: "networkidle" });
     assert.equal(catalogRequests, 0, "the complete route should not refetch catalog data after first paint");
   } finally {
     await noScriptPage.close();
@@ -442,7 +451,7 @@ test("show and collection share actions trigger native share or copy feedback", 
       });
     });
 
-    await nativeSharePage.goto(`${baseUrl}/shows/${firstShowId}`, { waitUntil: "networkidle" });
+    await gotoSmokePage(nativeSharePage, `${baseUrl}/shows/${firstShowId}`, { waitUntil: "networkidle" });
     await nativeSharePage.locator('[data-share-action]').click();
     await nativeSharePage.locator(".archive-toast-message").waitFor({ timeout: 5_000 });
 
@@ -487,7 +496,7 @@ test("show and collection share actions trigger native share or copy feedback", 
       });
     });
 
-    await fallbackCopyPage.goto(`${baseUrl}/collections/${firstCollectionId}`, { waitUntil: "networkidle" });
+    await gotoSmokePage(fallbackCopyPage, `${baseUrl}/collections/${firstCollectionId}`, { waitUntil: "networkidle" });
     await fallbackCopyPage.locator("#collectionCopyLink").click();
     await fallbackCopyPage.locator(".archive-toast-message").waitFor({ timeout: 5_000 });
 
@@ -511,7 +520,7 @@ test("service worker supports cached public pages offline and falls back for unc
   let serverStopped = false;
 
   try {
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
     await page.evaluate(async () => {
       await navigator.serviceWorker.ready;
     });
@@ -541,7 +550,7 @@ test("fresh browser contexts load the core public routes without relying on prio
   const page = await context.newPage();
 
   try {
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
     assert.equal(await page.title(), "The Echo Archives — Audio Drama Discovery");
 
     const homeStorageState = await page.evaluate(() => ({
@@ -563,11 +572,11 @@ test("fresh browser contexts load the core public routes without relying on prio
     assert.equal(mountedChatState.chatControls, "chat-container");
     await page.getByRole("button", { name: "Close chat" }).click();
 
-    await page.goto(`${baseUrl}/shows/${firstShowId}`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/shows/${firstShowId}`, { waitUntil: "networkidle" });
     await page.locator('[data-share-action]').waitFor();
     assert.equal(await page.title(), buildShowSeoTitle(showFixtures[0]));
 
-    await page.goto(`${baseUrl}/submit`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/submit`, { waitUntil: "networkidle" });
     await page.waitForFunction(
       () => {
         const submissionType = document.getElementById("submissionType");
@@ -604,7 +613,7 @@ test("mobile header menu opens, closes, and routes cleanly on phone widths", asy
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
 
   try {
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
 
     const closedState = await page.evaluate(() => ({
       toggleVisible: window.getComputedStyle(document.getElementById("siteNavToggle") || document.body).display !== "none",
@@ -663,7 +672,7 @@ test("mobile header menu opens, closes, and routes cleanly on phone widths", asy
     );
 
     await page.setViewportSize({ width: 844, height: 390 });
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
     assert.notEqual(await page.locator("#siteNavToggle").evaluate((node) => window.getComputedStyle(node).display), "none");
   } finally {
     await page.close();
@@ -681,7 +690,7 @@ test("mobile chat launcher stays out of the first viewport until the user starts
     ];
 
     for (const routeCheck of routeChecks) {
-      await page.goto(routeCheck.url, { waitUntil: "networkidle" });
+      await gotoSmokePage(page, routeCheck.url, { waitUntil: "networkidle" });
       await page.waitForFunction(routeCheck.ready, undefined, { timeout: 5_000 });
 
       await page.waitForFunction(() => {
@@ -924,7 +933,7 @@ test("public mobile route families preserve compact layouts and avoid horizontal
     ];
 
     for (const routeCheck of routeChecks) {
-      await page.goto(routeCheck.url, { waitUntil: "networkidle" });
+      await gotoSmokePage(page, routeCheck.url, { waitUntil: "networkidle" });
       await page.waitForFunction(routeCheck.ready, undefined, { timeout: 5_000 });
       const result = await page.evaluate(routeCheck.evaluate);
       routeCheck.assert(result);
@@ -942,7 +951,7 @@ test("collections sticky mood bar stays compact, appears after scroll, and mirro
   const mobilePage = await browser.newPage({ viewport: { width: 390, height: 844 } });
 
   try {
-    await desktopPage.goto(`${baseUrl}/collections`, { waitUntil: "networkidle" });
+    await gotoSmokePage(desktopPage, `${baseUrl}/collections`, { waitUntil: "networkidle" });
     await desktopPage.waitForFunction(
       () =>
         document.querySelectorAll("#collectionsMoodChips .collections-mood-chip").length > 0 &&
@@ -1006,7 +1015,7 @@ test("collections sticky mood bar stays compact, appears after scroll, and mirro
     assert.equal(stickyClickState.activeHeroIntent, "warm-weird");
     assert.equal(stickyClickState.activeStickyIntent, "warm-weird");
 
-    await mobilePage.goto(`${baseUrl}/collections`, { waitUntil: "networkidle" });
+    await gotoSmokePage(mobilePage, `${baseUrl}/collections`, { waitUntil: "networkidle" });
     await mobilePage.waitForFunction(() => document.querySelectorAll("#collectionsStickyMoodChips .collections-mood-chip").length > 0);
     await mobilePage.evaluate(() => {
       const section = document.getElementById("collectionsSimilaritySection");
@@ -1049,7 +1058,7 @@ test("maintainer public shells stay usable on mobile and tablet breakpoints befo
     ];
 
     for (const route of mobileRoutes) {
-      await mobilePage.goto(route, { waitUntil: "networkidle" });
+      await gotoSmokePage(mobilePage, route, { waitUntil: "networkidle" });
       await mobilePage.waitForFunction(
         () =>
           document.body.dataset.maintainerState === "authRequired" &&
@@ -1076,7 +1085,7 @@ test("maintainer public shells stay usable on mobile and tablet breakpoints befo
       assert.ok(new Set(mobileState.actionTops).size >= Math.min(mobileState.actionTops.length, 2));
     }
 
-    await tabletPage.goto(`${baseUrl}/maintainer/imports.html`, { waitUntil: "networkidle" });
+    await gotoSmokePage(tabletPage, `${baseUrl}/maintainer/imports.html`, { waitUntil: "networkidle" });
     await tabletPage.waitForFunction(
       () =>
         document.body.dataset.maintainerState === "authRequired" &&
@@ -1106,7 +1115,7 @@ test("homepage collection carousels keep rounded cover art and stay stable durin
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
 
   try {
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
     await page.locator("#favoriteRoutesGrid .collection-card").first().waitFor();
     await page.locator("#collectionGrid .collection-card").first().waitFor();
 
@@ -1181,7 +1190,7 @@ test("homepage collection carousels autoplay and resume after a mobile touch lea
   const page = await browser.newPage({ viewport: { width: 390, height: 844 }, hasTouch: true });
 
   try {
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
     await page.locator("#favoriteRoutesGrid .collection-card").first().waitFor();
     await page.locator("#collectionGrid .collection-card").first().waitFor();
     await page.waitForFunction(() => {

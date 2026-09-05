@@ -4,15 +4,15 @@
   "draftShows": 0,
   "fullReviews": 7,
   "spotlightReviews": 0,
-  "indexedOnly": 197,
-  "imported": 520,
+  "indexedOnly": 200,
+  "imported": 517,
   "plannedReviews": 0,
-  "collections": 44,
+  "collections": 46,
   "reviewCompanions": 7,
   "creatorVerified": 0,
   "withRss": 721,
   "missingObjectiveSources": 0,
-  "withResearchGaps": 15,
+  "withResearchGaps": 17,
   "phase2": {
     "policy": {
       "fullReviewFloor": 7,
@@ -32,7 +32,7 @@
         "pass": true
       },
       "collections": {
-        "actual": 44,
+        "actual": 46,
         "target": 29,
         "pass": true
       }
@@ -166,18 +166,24 @@
           "gaps": [
             "No verified full-episode duration data was available from the current official RSS feed or Apple Podcasts listing on 2026-08-20; the feed exposes one 61-second trailer and no full episodes. The linked Realm show page currently returns 404."
           ]
+        },
+        {
+          "id": "shelterwood",
+          "title": "Shelterwood",
+          "gaps": [
+            "Season 2 release date has not been announced."
+          ]
+        },
+        {
+          "id": "fairies-and-dragons-ponies-and-knights",
+          "title": "Fairies and Dragons, Ponies and Knights",
+          "gaps": [
+            "No official Season 4, completion, or next-release statement was located."
+          ]
         }
       ],
-      "sparseEditorialViolations": [
-        "the-secret-of-st-kilda",
-        "red-frontier",
-        "the-chronicles-of-astrimos"
-      ],
-      "blockingErrors": [
-        "Sparse indexed-only show \"the-secret-of-st-kilda\" contains unsupported editorial claims.",
-        "Sparse indexed-only show \"red-frontier\" contains unsupported editorial claims.",
-        "Sparse indexed-only show \"the-chronicles-of-astrimos\" contains unsupported editorial claims."
-      ]
+      "sparseEditorialViolations": [],
+      "blockingErrors": []
     },
     "editorial": {
       "eligibleShows": [
@@ -193,7 +199,7 @@
       "blockingErrors": []
     },
     "collections": {
-      "routeCollectionCount": 15,
+      "routeCollectionCount": 17,
       "routeCollectionsMissingShowReasons": [],
       "anchorShowsWithTooFewCollectionMemberships": [],
       "sparseIndexedOnlyShows": [
@@ -303,7 +309,8 @@
         "from-within-a-tale-of-the-macabre",
         "dreamboy",
         "crooked-river",
-        "love-and-luck"
+        "love-and-luck",
+        "fairies-and-dragons-ponies-and-knights"
       ],
       "blockingErrors": []
     },
@@ -517,21 +524,13 @@
       "blockingErrors": []
     },
     "sparseIndexedOnly": {
-      "count": 133,
-      "outOfRangeSimilarLinks": 133,
-      "fewerThanTwoCollections": 107,
-      "editorialViolations": [
-        "the-secret-of-st-kilda",
-        "red-frontier",
-        "the-chronicles-of-astrimos"
-      ],
+      "count": 134,
+      "outOfRangeSimilarLinks": 134,
+      "fewerThanTwoCollections": 108,
+      "editorialViolations": [],
       "informationalOnly": true
     },
-    "blockingErrors": [
-      "Sparse indexed-only show \"the-secret-of-st-kilda\" contains unsupported editorial claims.",
-      "Sparse indexed-only show \"red-frontier\" contains unsupported editorial claims.",
-      "Sparse indexed-only show \"the-chronicles-of-astrimos\" contains unsupported editorial claims."
-    ],
-    "complete": false
+    "blockingErrors": [],
+    "complete": true
   }
 }

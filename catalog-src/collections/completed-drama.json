@@ -27,7 +27,8 @@
     "the-way-we-haunt-now",
     "hallway-to-nowhere",
     "moose-on-a-highway",
-    "sequestered-an-audio-drama"
+    "sequestered-an-audio-drama",
+    "jackie-the-ripper"
   ],
   "showReasons": {
     "ars-paradoxica": "Rule match: completed + Drama.",
@@ -48,7 +49,8 @@
     "the-way-we-haunt-now": "Rule match: completed + Drama.",
     "hallway-to-nowhere": "Rule match: completed + Drama.",
     "moose-on-a-highway": "Rule match: completed + Drama.",
-    "sequestered-an-audio-drama": "Rule match: completed + Drama."
+    "sequestered-an-audio-drama": "Rule match: completed + Drama.",
+    "jackie-the-ripper": "Rule match: completed + Drama."
   },
   "automation": {
     "mode": "rule",
@@ -74,5 +76,5 @@
   "featured": false,
   "order": 360,
   "createdAt": "2026-08-16",
-  "updatedAt": "2026-08-16"
+  "updatedAt": "2026-09-04"
 }
