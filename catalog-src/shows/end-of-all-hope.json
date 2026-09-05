@@ -1,5 +1,15 @@
 {
   "id": "end-of-all-hope",
+  "entityLinks": [
+    {
+      "entityId": "7-lamb-productions",
+      "role": "production-company"
+    },
+    {
+      "entityId": "bloody-fm",
+      "role": "network"
+    }
+  ],
   "title": "End of All Hope",
   "subtitle": "Creature pressure and survival pacing in a more pulpy register.",
   "description": "A fictional podcast following three survivors as they trek across the country trying to survive an alien invasion.",

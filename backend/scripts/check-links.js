@@ -4,7 +4,9 @@ const path = require("node:path");
 const { loadCatalog, loadCollections } = require("../lib/catalog");
 
 const siteRoot = path.resolve(__dirname, "../..");
+const { loadEntities, publicEntityRecords } = require("../lib/entities");
 const mainPages = [
+  "creators.html",
   "index.html",
   "about.html",
   "for-creators.html",
@@ -27,6 +29,7 @@ const failures = [];
 const htmlCache = new Map();
 const publishedShowIds = new Set();
 const collectionIds = new Set();
+const entityIds = new Set();
 
 function getHtmlContents(relativePath) {
   if (!htmlCache.has(relativePath)) {
@@ -63,7 +66,7 @@ function normalizeLocalTarget(reference = "") {
     return null;
   }
 
-  const dynamicRoute = normalized.match(/^(shows|collections)\/([^/]+)$/);
+  const dynamicRoute = normalized.match(/^(shows|collections|creators)\/([^/]+)$/);
   if (dynamicRoute) {
     let routeId = "";
     try {
@@ -71,10 +74,10 @@ function normalizeLocalTarget(reference = "") {
     } catch (_error) {
       routeId = "";
     }
-    const isKnownRoute = dynamicRoute[1] === "shows" ? publishedShowIds.has(routeId) : collectionIds.has(routeId);
+    const isKnownRoute = dynamicRoute[1] === "shows" ? publishedShowIds.has(routeId) : dynamicRoute[1] === "creators" ? entityIds.has(routeId) : collectionIds.has(routeId);
     if (isKnownRoute) {
       return {
-        file: dynamicRoute[1] === "shows" ? "show.html" : "collection.html",
+        file: dynamicRoute[1] === "shows" ? "show.html" : dynamicRoute[1] === "creators" ? `creators/${routeId}/index.html` : "collection.html",
         hash,
       };
     }
@@ -156,7 +159,10 @@ async function main() {
   catalog.filter((show) => show.status === "published").forEach((show) => publishedShowIds.add(show.id));
   collections.forEach((collection) => collectionIds.add(collection.id));
 
+  const entities = publicEntityRecords(loadEntities(siteRoot, catalog), catalog);
+  entities.forEach((entity) => entityIds.add(entity.id));
   mainPages.forEach(scanHtmlFile);
+  entities.forEach((entity) => scanHtmlFile(`creators/${entity.id}/index.html`));
   scanManifestIcons();
 
   catalog.forEach((show) => {

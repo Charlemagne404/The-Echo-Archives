@@ -108,6 +108,7 @@ export function buildShowStructuredData(show) {
     image: image ? buildSiteAbsoluteUrl(image) : "",
     genre: uniqueTextValues(show?.genres),
     creator: creators,
+    ...globalThis.EchoArchiveEntities.showEntityStructuredData(show, homeUrl),
     inLanguage: uniqueTextValues(show?.languages),
     sameAs,
   });
@@ -123,6 +124,7 @@ export function buildShowStructuredData(show) {
         isPartOf: { "@id": `${homeUrl}#website` },
         breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
         mainEntity: { "@id": `${pageUrl}#podcast` },
+        ...(show.resolvedEntities?.length ? { mentions: show.resolvedEntities.map((entity) => globalThis.EchoArchiveEntities.entityStructuredData(entity, homeUrl)) } : {}),
         ...(image ? { primaryImageOfPage: { "@type": "ImageObject", url: buildSiteAbsoluteUrl(image) } } : {}),
         ...(pageDates.datePublished ? { datePublished: pageDates.datePublished } : {}),
         ...(pageDates.dateModified ? { dateModified: pageDates.dateModified } : {}),

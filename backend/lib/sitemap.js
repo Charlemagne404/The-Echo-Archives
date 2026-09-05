@@ -5,6 +5,8 @@ const {
   normalizeSiteUrl,
 } = require("./seo");
 
+const { entityPath, isIndexableEntity } = require("../../shared/archive-entities");
+
 function escapeXml(value = "") {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -14,7 +16,7 @@ function escapeXml(value = "") {
     .replace(/'/g, "&apos;");
 }
 
-function buildSitemapEntries({ siteUrl, catalog, collections }) {
+function buildSitemapEntries({ siteUrl, catalog, collections, entities = [] }) {
   const baseUrl = normalizeSiteUrl(siteUrl);
   const publishedShows = (Array.isArray(catalog) ? catalog : []).filter((show) => show.status === "published");
   const showMap = new Map(publishedShows.map((show) => [show.id, show]));
@@ -34,6 +36,8 @@ function buildSitemapEntries({ siteUrl, catalog, collections }) {
     { loc: `${baseUrl}/help-center` },
     { loc: `${baseUrl}/submit` },
     { loc: `${baseUrl}/collections` },
+    { loc: `${baseUrl}/creators` },
+    ...entities.filter((entity) => isIndexableEntity(entity, publishedShows)).map((entity) => ({ loc: `${baseUrl}${entityPath(entity.id)}` })),
     { loc: `${baseUrl}/privacy` },
     { loc: `${baseUrl}/terms` },
     { loc: `${baseUrl}/cookies` },
@@ -49,8 +53,8 @@ function buildSitemapEntries({ siteUrl, catalog, collections }) {
   ];
 }
 
-function buildSitemapXml({ siteUrl, catalog, collections }) {
-  const entries = buildSitemapEntries({ siteUrl, catalog, collections });
+function buildSitemapXml({ siteUrl, catalog, collections, entities = [] }) {
+  const entries = buildSitemapEntries({ siteUrl, catalog, collections, entities });
   const body = entries
     .map((entry) => {
       const lastmod = entry.lastmod ? `<lastmod>${escapeXml(entry.lastmod)}</lastmod>` : "";

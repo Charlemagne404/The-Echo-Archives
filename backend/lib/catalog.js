@@ -1,3 +1,5 @@
+const { loadEntities } = require("./entities");
+const { resolveShowEntities } = require("../../shared/archive-entities");
 const fs = require("node:fs");
 const path = require("node:path");
 
@@ -539,6 +541,8 @@ async function loadShows(siteRoot, options = {}) {
   const records = Array.isArray(options.sourceData?.shows) ? options.sourceData.shows : sourceData.shows;
   const reviewsById = options.sourceData?.reviewsById || sourceData.reviewsById;
 
+  const entities = loadEntities(siteRoot, records);
+
   await syncShowCovers(siteRoot, records, {
     ...(options.coverSync || {}),
     persistRecords: async (nextRecords) => {
@@ -579,6 +583,11 @@ async function loadShows(siteRoot, options = {}) {
     });
   });
 
+  normalized.forEach((show) => {
+    const resolved = resolveShowEntities(show, entities);
+    if (resolved.length) show.resolvedEntities = resolved;
+    else delete show.resolvedEntities;
+  });
   return hydrateCatalogSearch(normalized);
 }
 

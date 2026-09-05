@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"realm","role":"network"}
+  ],
   "id": "marsfall",
   "title": "Marsfall",
   "subtitle": "Mars-colony survival sci-fi with enough pressure to keep the optimism uneasy.",

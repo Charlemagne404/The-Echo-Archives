@@ -37,7 +37,7 @@ export function renderFactsLinksCard(show, { inline = false } = {}) {
   const transcripts = String(show.availability?.transcripts || "").trim();
 
   const rows = [
-    !creatorNetwork.isEmpty ? renderFactRow("Creator / network", creatorNetwork.text) : "",
+    globalThis.EchoArchiveEntities.renderEntityFacts(show) || (!creatorNetwork.isEmpty ? renderFactRow("Creator / network", creatorNetwork.text) : ""),
     renderVerificationRow(show),
     hasListenLinks(show) ? renderFactRow("Official / listen links", renderListenLinkCluster(show), { html: true, wide: true }) : "",
     getPublicStatus(show) ? renderFactRow("Status", renderStatusPills(show), { html: true, wide: true }) : "",

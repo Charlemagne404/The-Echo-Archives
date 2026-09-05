@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"rusty-quill","role":"production-company"}
+  ],
   "id": "stellar-firma",
   "title": "Stellar Firma",
   "subtitle": "Build your planet, keep in line? Also clones.",

@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"gimlet","role":"production-company"}
+  ],
   "id": "red-frontier",
   "title": "Red Frontier",
   "subtitle": "A lone Mars colonist must confront a vanished crew and a new arrival.",

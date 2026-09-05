@@ -1,3 +1,4 @@
+import { createCollectionShowCard } from "./render-cards.js";
 import { renderCorrectionSection, renderFactsLinksCard } from "./render-show/facts.js";
 import { renderDetailHero } from "./render-show/hero.js";
 import { renderCollectionsSection, renderSimilarSection } from "./render-show/relationships.js";
@@ -35,6 +36,7 @@ export function createShowPageMarkup(show, showMap, collections = [], reviewData
 
         ${isFullReview && facts ? `<aside class="detail-side-rail">${facts}</aside>` : ""}
 
+        ${globalThis.EchoArchiveEntities.renderMoreFrom(show, [...showMap.values()], (entry) => createCollectionShowCard(entry).outerHTML)}
         ${renderSimilarSection(show, showMap)}
         ${renderCollectionsSection(show, collections, showMap)}
         ${renderCorrectionSection(show)}

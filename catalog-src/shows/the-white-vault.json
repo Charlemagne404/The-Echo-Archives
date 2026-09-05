@@ -1,5 +1,19 @@
 {
   "id": "the-white-vault",
+  "entityLinks": [
+    {
+      "entityId": "fool-and-scholar-productions",
+      "role": "production-company"
+    },
+    {
+      "entityId": "k-a-statz",
+      "role": "creator"
+    },
+    {
+      "entityId": "travis-vengroff",
+      "role": "creator"
+    }
+  ],
   "title": "The White Vault",
   "subtitle": "Cold-weather dread with one of the archive's stronger isolation profiles.",
   "description": "Explore the far reaches of the world’s horrors in the audio drama podcast The White Vault. Follow the collected records of a repair team sent to Outpost Fristed in the vast white wastes of Svalbard and unravel what lies waiting in the ice below. This Fool and Scholar production is intended for mature audiences.",

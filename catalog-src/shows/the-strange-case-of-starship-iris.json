@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"procyon-podcast-network","role":"network"}
+  ],
   "id": "the-strange-case-of-starship-iris",
   "title": "The Strange Case of Starship Iris",
   "subtitle": "Found-family space opera with politics, jokes, and real forward pull.",

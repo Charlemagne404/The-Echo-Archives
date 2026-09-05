@@ -17,7 +17,8 @@ async function main() {
   }
 
   console.log(`Validated ${catalog.length} shows and ${collections.length} collections.`);
-  console.log(`Optional datasets: ${archiveContext.creators.length} creators, ${archiveContext.networks.length} networks, ${archiveContext.changelog.length} changelog entries.`);
+  console.log(`Curated entities: ${archiveContext.entities.length}; linked published shows: ${catalog.filter((show) => show.status === "published" && show.resolvedEntities?.length).length}.`);
+  console.log(`Legacy optional datasets: ${archiveContext.creators.length} creators, ${archiveContext.networks.length} networks, ${archiveContext.changelog.length} changelog entries.`);
   console.log(`Feature availability: ${JSON.stringify(archiveContext.featureAvailability)}`);
 }
 

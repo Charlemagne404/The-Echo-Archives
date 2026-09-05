@@ -1,5 +1,11 @@
 {
   "id": "the-left-right-game",
+  "entityLinks": [
+    {
+      "entityId": "qcode",
+      "role": "production-company"
+    }
+  ],
   "title": "The Left Right Game",
   "subtitle": "",
   "description": "Tessa Thompson stars as an idealistic young journalist trying to make a name for herself by following a group of paranormal explorers, obsessed with a seemingly harmless pastime known as the Left/Right Game. The journey takes her into a supernatural world that she and the other members of the expedition can neither handle nor survive.",

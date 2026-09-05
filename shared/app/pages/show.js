@@ -1,6 +1,6 @@
 import { DEFAULT_SOCIAL_IMAGE } from "../constants.js";
 import { buildShowMap, fetchJson, loadCollections, loadShows, normalizeShowRecord } from "../data.js";
-import { initializeDetailRatingPage } from "../community.js";
+import { initializeDetailRatingPage, syncCommunityCardBadges } from "../community.js";
 import { initializeManagedImages } from "../images.js";
 import { createShowPageMarkup } from "../render-show.js";
 import { initializeReviewCarousels } from "../show-review-carousel.js";
@@ -107,6 +107,11 @@ async function loadShowPageData(showRoot) {
 
 async function hydrateShowPage(showRoot, show) {
   initializeManagedImages(showRoot);
+  const moreFrom = showRoot.querySelector(".detail-more-from");
+  if (moreFrom) {
+    const cards = Array.from(moreFrom.querySelectorAll("[data-podcast-id]")).map((node) => ({ id: node.dataset.podcastId }));
+    void syncCommunityCardBadges(moreFrom, cards);
+  }
   const shareButton = showRoot.querySelector("[data-share-action]");
   if (shareButton instanceof HTMLButtonElement) {
     bindShareButton(shareButton, {

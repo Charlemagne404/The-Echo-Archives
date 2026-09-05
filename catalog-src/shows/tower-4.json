@@ -1,5 +1,15 @@
 {
   "id": "tower-4",
+  "entityLinks": [
+    {
+      "entityId": "7-lamb-productions",
+      "role": "production-company"
+    },
+    {
+      "entityId": "bloody-fm",
+      "role": "network"
+    }
+  ],
   "title": "Tower 4",
   "subtitle": "Isolation mystery with a slow-burn dread profile.",
   "description": "Mike Archer is a newly appointed fire watcher in the Wyoming woods. While he's never done anything like this before, he needed something new after his mom passed. Now he hopes to spend his days in a tower above the trees looking for fires and working on his new book. But things aren't as quiet and peaceful as he hoped. Strange interference blasts over his radio at night and he starts seeing and hearing creepy noises in the woods. But are these odd occurrences actually happening or is he just going stir crazy?",

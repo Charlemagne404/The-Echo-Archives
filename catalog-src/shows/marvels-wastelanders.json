@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"realm","role":"network"}
+  ],
   "id": "marvels-wastelanders",
   "title": "Marvel's Wastelanders",
   "subtitle": "",

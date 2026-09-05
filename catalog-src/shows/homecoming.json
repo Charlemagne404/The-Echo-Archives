@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"gimlet","role":"production-company"}
+  ],
   "id": "homecoming",
   "title": "Homecoming",
   "subtitle": "A psychological thriller built from calls, overheard fragments, and deliberate unease.",

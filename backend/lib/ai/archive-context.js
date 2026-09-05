@@ -1,3 +1,4 @@
+const { loadEntities, publicEntityRecords } = require("../entities");
 const fs = require("node:fs");
 const path = require("node:path");
 
@@ -130,7 +131,7 @@ function loadChangelog(siteRoot, knownShowIds = new Set()) {
   return records;
 }
 
-function deriveFeatureAvailability({ catalog, collections, creators, networks, changelog }) {
+function deriveFeatureAvailability({ catalog, collections, creators, networks, changelog, entities = [] }) {
   const creatorIds = new Set(creators.map((record) => record.id));
   const networkIds = new Set(networks.map((record) => record.id));
   const publishedShows = Array.isArray(catalog) ? catalog.filter((record) => record.status === "published") : [];
@@ -149,7 +150,7 @@ function deriveFeatureAvailability({ catalog, collections, creators, networks, c
 
   return {
     hasPublicChangelog,
-    hasCreatorPages,
+    hasCreatorPages: entities.length > 0 || hasCreatorPages,
     hasNetworkPages,
     hasSimilarReasons,
     hasCollectionShowReasons,
@@ -161,6 +162,7 @@ async function loadArchiveContext(siteRoot, catalog = null, collections = null, 
   const resolvedCatalog = Array.isArray(catalog) ? catalog : await loadCatalog(siteRoot, options);
   const resolvedCollections =
     Array.isArray(collections) ? collections : loadCollections(siteRoot, new Set(resolvedCatalog.map((show) => show.id)));
+  const entities = publicEntityRecords(loadEntities(siteRoot, resolvedCatalog), resolvedCatalog);
   const creators = loadCreators(siteRoot);
   const networks = loadNetworks(siteRoot);
   const changelog = loadChangelog(siteRoot, new Set(resolvedCatalog.map((show) => show.id)));
@@ -179,10 +181,12 @@ async function loadArchiveContext(siteRoot, catalog = null, collections = null, 
   });
 
   return {
+    entities,
     creators,
     networks,
     changelog,
     featureAvailability: deriveFeatureAvailability({
+      entities,
       catalog: resolvedCatalog,
       collections: resolvedCollections,
       creators,

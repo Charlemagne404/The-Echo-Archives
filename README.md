@@ -6,15 +6,14 @@ It exists to answer one question well: **what should I listen to next?**
 
 This repo is not a generic podcast directory or a playback app. It is a dark, editorial, metadata-driven archive built around compact discovery, useful show pages, grounded recommendations, and clear trust signals.
 
-## Release 1.0
+## Release 1.1.0 — Creators
 
-The repository is maintained as the **1.0 release baseline** as of 2026-08-18.
-The product surface is shipped and the active documentation describes the
-released static-first archive, its protected maintainer workflows, and its
-post-release quality work. The generated catalog report remains the authority
-for live counts and currently records two catalog-quality blockers; see
-[`docs/qa/2026-08-18-release-1.0-readiness.md`](docs/qa/2026-08-18-release-1.0-readiness.md)
-for the release evidence and remaining gates.
+The repository now implements curated creator, studio, production-company and
+network discovery, with explicit show relationships and stable creator pages.
+The first pilot links seven entities to 17 existing shows. See
+[Creators authoring](docs/CREATORS.md) for the data model and maintenance workflow,
+and [1.1.0 release notes](docs/qa/2026-09-05-release-1.1-creators.md) for validation
+and remaining limitations. Local implementation is separate from deployment.
 
 ## Current State
 
@@ -42,6 +41,8 @@ The current public page set includes:
 - `/help-center`
 - `/collections`
 - `/collections/<collection-id>`
+- `/creators`
+- `/creators/<stable-entity-id>`
 - `/shows/<show-id>`
 - `/submit`
 - `/privacy`
@@ -53,7 +54,7 @@ Legacy HTML and query-string detail routes remain compatibility entry points and
 
 ## How The Repo Is Organized
 
-- `catalog-src/` holds the authored source of truth for shows, collections, and review companions.
+- `catalog-src/` holds the authored source of truth for shows, creator entities, collections, and review companions.
 - `data/` holds generated runtime/public catalog data, including `search-index.json`.
 - `site-src/` holds authored page sources, partials, and the page manifest.
 - The repo root holds generated public output such as `index.html`, `show.html`, `collection.html`, and the stable CSS and JS entry files.
@@ -138,11 +139,13 @@ Active docs:
 - [`docs/OPERATIONS.md`](docs/OPERATIONS.md)
 - [`docs/IMPORTER.md`](docs/IMPORTER.md)
 - [`docs/SEO.md`](docs/SEO.md)
+- [`docs/CREATORS.md`](docs/CREATORS.md)
 - [`docs/TAG_TAXONOMY.md`](docs/TAG_TAXONOMY.md)
 - [`data/schema.md`](data/schema.md)
 - [`backend/README.md`](backend/README.md)
 - [`docs/FINAL_PRODUCT.md`](docs/FINAL_PRODUCT.md) — destination vision, not a current-release status document
-- [`docs/qa/2026-08-18-release-1.0-readiness.md`](docs/qa/2026-08-18-release-1.0-readiness.md) — current release evidence and open gates
+- [`docs/qa/2026-09-05-release-1.1-creators.md`](docs/qa/2026-09-05-release-1.1-creators.md) — Creators implementation and validation evidence
+- [`docs/qa/2026-08-18-release-1.0-readiness.md`](docs/qa/2026-08-18-release-1.0-readiness.md) — original launch evidence and gates
 
 Working project notes:
 

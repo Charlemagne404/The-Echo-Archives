@@ -47,7 +47,7 @@ function createShowRecord(overrides = {}) {
   };
 }
 
-test("loadArchiveContext returns empty optional datasets when they are absent", async () => {
+test("loadArchiveContext keeps legacy datasets empty while exposing curated creator discovery", async () => {
   const catalog = await loadCatalog(siteRoot);
   const archiveContext = await loadArchiveContext(siteRoot, catalog);
 
@@ -55,7 +55,8 @@ test("loadArchiveContext returns empty optional datasets when they are absent", 
   assert.deepEqual(archiveContext.networks, []);
   assert.deepEqual(archiveContext.changelog, []);
   assert.equal(archiveContext.featureAvailability.hasPublicChangelog, false);
-  assert.equal(archiveContext.featureAvailability.hasCreatorPages, false);
+  assert.equal(archiveContext.entities.length, 42);
+  assert.equal(archiveContext.featureAvailability.hasCreatorPages, true);
   assert.equal(archiveContext.featureAvailability.hasNetworkPages, false);
 });
 

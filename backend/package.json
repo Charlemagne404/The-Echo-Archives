@@ -30,7 +30,9 @@
     "import:benchmark": "node scripts/import-benchmark.js",
     "import:discover": "node scripts/import-discover.js",
     "import:live-smoke": "node scripts/import-live-smoke.js",
-    "verify": "npm run validate:data && npm run check:links && npm test && npm run test:smoke"
+    "verify": "npm run validate:data && npm run check:links && npm test && npm run test:smoke",
+    "test:entities": "node --test test/entities.test.js test/entity-directory.smoke.js",
+    "test:serial": "node --test --test-concurrency=1 test/*.test.js"
   },
   "engines": {
     "node": ">=22.12"

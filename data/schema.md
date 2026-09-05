@@ -1,4 +1,4 @@
-# Echo Archives Data Schema — 1.0
+# Echo Archives Data Schema — 1.1
 
 ## Purpose
 
@@ -15,10 +15,19 @@ Generated runtime/public output is written into:
 
 The frontend, optional Archivist integration, and community features should all
 read from these files instead of scraping HTML. This v1 schema is the public
-catalog contract used by the 1.0 release; operational importer and collection
+catalog contract used by the 1.1 release; operational importer and collection
 tables may evolve without changing the published record shape.
 
 `officialDescription` is optional. When supplied it must be verified creator, network, show-site, or official-platform wording with a source label and URL. It is distinct from the archive-written `description` fallback.
+
+## Creator entities and relationships
+
+`catalog-src/entities.json` authors the shared entity registry and generates
+`data/entities.json`. Shows may add `entityLinks: [{ "entityId": "stable-id",
+"role": "production-company" }]`. Types, roles, aliases, publication gates,
+source-review requirements and runtime-only `resolvedEntities` are documented
+in [Creators authoring](../docs/CREATORS.md). Existing creator/network fields
+remain backward compatible and do not automatically create entity pages.
 
 ## Show Shape
 

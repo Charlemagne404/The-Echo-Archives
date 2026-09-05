@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"qcode","role":"production-company"}
+  ],
   "id": "carrier",
   "title": "Carrier",
   "subtitle": "",

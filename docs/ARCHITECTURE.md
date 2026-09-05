@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This is the active architecture reference for the 1.0 release of The Echo Archives.
+This is the active architecture reference for the 1.1.0 release of The Echo Archives.
 
 Use it as the source of truth for:
 
@@ -93,6 +93,8 @@ Primary public routes:
 - `/help-center`
 - `/collections`
 - `/collections/<collection-id>`
+- `/creators`
+- `/creators/<stable-entity-id>`
 - `/shows/<show-id>`
 - `/submit`
 - `/privacy`
@@ -142,6 +144,22 @@ The homepage currently supports:
 This is enough surface area that future UI work should start from the existing data and rendering model rather than from a rewrite impulse.
 
 The service worker installs only the offline fallback shell, icons, common/info CSS, the browser entry, and its small static dependency graph. Public HTML, catalog/search data, responsive images, route modules, maintainer code, submit code, and chat code enter the cache only after a successful runtime request. This prevents installation from downloading the entire application while preserving offline access to previously visited routes.
+
+## Creator discovery (1.1.0)
+
+`catalog-src/entities.json` is the authored unified registry. Explicit show
+`entityLinks` connect people, companies, studios and networks without legacy
+string inference. `backend/lib/entities.js` validates before catalog processing;
+`shared/archive-entities.js` shares publication, relationship, search and SEO
+behavior with the browser. Public projections are generated into
+`data/entities.json` and `resolvedEntities` on runtime/search show records.
+
+`backend/lib/entity-page-render.js` reuses existing show and collection cards for
+both the static build and direct Node routes. The build emits `creators.html`,
+its directory alias and the curated entity detail files. Draft entities never
+produce public pages; indexing additionally requires explicit opt-in and at
+least two published shows. See [Creators authoring](CREATORS.md) for roles,
+publication rules, migration evidence, fallback behavior and checks.
 
 ## Canonical Editorial Data
 
@@ -381,7 +399,8 @@ related:
 - full-review coverage is still sparse at 7 shows
 - two published records currently block the generated catalog report because their runtime gaps are undocumented
 - 624 shows have weak collection coverage and 654 are outside the preferred similarity-link range; these are tracked as quality follow-up rather than invented away
-- creator, network, and changelog datasets are not live
+- curated creator discovery is available for a seven-entity pilot; most legacy credits remain unmigrated
+- legacy optional creator/network datasets and the changelog dataset remain unpopulated
 - moderation remains intentionally manual
 - some richer filter ideas still depend on more complete metadata
 

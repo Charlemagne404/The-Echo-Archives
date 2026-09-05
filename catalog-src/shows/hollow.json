@@ -1,4 +1,8 @@
 {
+  "entityLinks": [
+    {"entityId":"realm","role":"network"},
+    {"entityId":"violet-hour-media","role":"production-company"}
+  ],
   "id": "hollow",
   "title": "Hollow",
   "subtitle": "A mercenary. A rogue leader named Kurtz. A descent into the darkness of space and the human soul.",

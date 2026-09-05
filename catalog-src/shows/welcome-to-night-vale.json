@@ -1,5 +1,11 @@
 {
   "id": "welcome-to-night-vale",
+  "entityLinks": [
+    {
+      "entityId": "night-vale-presents",
+      "role": "production-company"
+    }
+  ],
   "title": "Welcome to Night Vale",
   "subtitle": "Community-radio weirdness that treats the impossible like a local bulletin.",
   "description": "Twice-monthly community updates for the small desert town of Night Vale, where every conspiracy theory is true. Turn on your radio and hide. Never listened before? It's an ongoing radio show. Start with the current episode, and you'll catch on in no time. Or, go right to Episode 1 if you wanna binge-listen.",

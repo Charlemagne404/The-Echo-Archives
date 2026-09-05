@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"realm","role":"network"}
+  ],
   "id": "dc-high-volume-batman",
   "title": "DC High Volume: Batman",
   "subtitle": "",

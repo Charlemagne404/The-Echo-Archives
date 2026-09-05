@@ -1,4 +1,8 @@
 {
+  "entityLinks": [
+    {"entityId":"realm","role":"network"},
+    {"entityId":"dayton-writers-movement","role":"production-company"}
+  ],
   "id": "uncanny-valley",
   "title": "Uncanny Valley",
   "subtitle": "",

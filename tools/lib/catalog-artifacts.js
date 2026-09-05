@@ -7,6 +7,7 @@ const {
   SEARCH_INDEX_PATH,
   writeJsonFile,
 } = require("./catalog-source");
+const { loadEntities, publicEntityRecords } = require("../../backend/lib/entities");
 const { buildPhase2Readiness } = require("../../backend/lib/discovery-gaps");
 
 function serializeRuntimeShow(record) {
@@ -16,6 +17,10 @@ function serializeRuntimeShow(record) {
     ...serializable
   } = record;
 
+  if (serializable.entityLinks) {
+    const publicIds = new Set((serializable.resolvedEntities || []).map((entity) => entity.id));
+    serializable.entityLinks = serializable.entityLinks.filter((link) => publicIds.has(link.entityId));
+  }
   const importMetadata = serializable.metadata?.import;
   if (!importMetadata) {
     return serializable;
@@ -60,6 +65,8 @@ function createSearchIndexRecord(record) {
     coverVariants: runtimeRecord.coverVariants,
     coverAlt: runtimeRecord.coverAlt,
     creators: runtimeRecord.creators,
+    ...(runtimeRecord.entityLinks ? { entityLinks: runtimeRecord.entityLinks } : {}),
+    ...(runtimeRecord.resolvedEntities ? { resolvedEntities: runtimeRecord.resolvedEntities } : {}),
     accent: runtimeRecord.accent,
     status: runtimeRecord.status,
     reviewStatus: runtimeRecord.reviewStatus,
@@ -123,6 +130,8 @@ function buildCatalogSnapshot(catalog, collections, reviewCount, gapReport, arch
     archiveContext,
     phase2,
     metrics: {
+      publicEntities: archiveContext.entities?.length || 0,
+      showsWithEntityLinks: publishedShows.filter((show) => show.resolvedEntities?.length).length,
       totalShows: catalog.length,
       publishedShows: publishedShows.length,
       draftShows: catalog.filter((show) => show.status === "draft").length,
@@ -187,6 +196,8 @@ function buildCatalogStatusMarkdown(snapshot) {
     "",
     "| Metric | Value |",
     "| --- | ---: |",
+    `| Curated public entities | ${metrics.publicEntities} |`,
+    `| Shows with explicit public entity links | ${metrics.showsWithEntityLinks} |`,
     `| Total shows | ${metrics.totalShows} |`,
     `| Published shows | ${metrics.publishedShows} |`,
     `| Draft shows | ${metrics.draftShows} |`,
@@ -232,6 +243,8 @@ function buildCatalogStatusMarkdown(snapshot) {
 }
 
 function writeCatalogArtifacts(siteRoot, { catalog, collections, reviewsById, gapReport, archiveContext, tagTaxonomy }) {
+  const entities = publicEntityRecords(loadEntities(siteRoot, catalog), catalog);
+  writeJsonFile(path.join(siteRoot, RUNTIME_DATA_DIR, "entities.json"), entities);
   const runtimeCatalog = catalog.filter((show) => show.status === "published").map(serializeRuntimeShow);
   const runtimeSearchIndex = catalog
     .filter((show) => show.status === "published")

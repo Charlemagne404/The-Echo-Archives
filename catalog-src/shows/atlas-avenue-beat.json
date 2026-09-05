@@ -1,5 +1,15 @@
 {
   "id": "atlas-avenue-beat",
+  "entityLinks": [
+    {
+      "entityId": "7-lamb-productions",
+      "role": "production-company"
+    },
+    {
+      "entityId": "bloody-fm",
+      "role": "network"
+    }
+  ],
   "title": "Atlas Avenue Beat",
   "subtitle": "",
   "description": "Follow the adventures of P.I. James Locke as he interrogates criminals, solves cases, and fights crime in this comedy detective noir.",

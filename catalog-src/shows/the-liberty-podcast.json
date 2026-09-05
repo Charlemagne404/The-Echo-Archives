@@ -1,5 +1,11 @@
 {
   "id": "the-liberty-podcast",
+  "entityLinks": [
+    {
+      "entityId": "fool-and-scholar-productions",
+      "role": "production-company"
+    }
+  ],
   "title": "The Liberty Podcast",
   "subtitle": "Science Fiction Adventures",
   "description": "Welcome to the world of Liberty – serialized sci-fi tales told audio drama podcasts. For centuries the colony of Atrius has been cut off from humanity and endured generations of civil war. What remains is a gleaming city and beyond its walls, a lawless expanse known as the Fringe.",

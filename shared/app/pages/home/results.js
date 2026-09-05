@@ -1,3 +1,4 @@
+import { createEntitySearchResults } from "./entity-results.js";
 import { syncCommunityCardBadges } from "../../community.js";
 import { ARCHIVIST_ENABLED } from "../../constants.js";
 import { syncShowCardPresentation } from "../../render-cards.js";
@@ -26,6 +27,7 @@ export function createHomeResultsController({
   state,
   stickyBrowseController,
 }) {
+  const renderEntityResults = createEntitySearchResults(elements.archiveGrid, shows);
   let pendingRenderReason = "";
   let renderFrame = 0;
   let hasRenderedHomeResults = false;
@@ -175,6 +177,7 @@ export function createHomeResultsController({
     previewController.closeActivePreview({ immediate: true });
     const selectedCollection = getSelectedCollection();
     const matchingShows = getVisibleShows(selectedCollection);
+    renderEntityResults(state.query);
     const visibleShows = matchingShows.slice(0, displayedResultLimit);
     matchingResultCount = matchingShows.length;
     displayedResultCount = visibleShows.length;

@@ -1,5 +1,15 @@
 {
   "id": "story",
+  "entityLinks": [
+    {
+      "entityId": "7-lamb-productions",
+      "role": "production-company"
+    },
+    {
+      "entityId": "bloody-fm",
+      "role": "network"
+    }
+  ],
   "title": "Story",
   "subtitle": "A more grounded adventure-leaning mystery entry.",
   "description": "Every season is a different fictional tale. A mini-series for the ears. Every season will introduce a new genre, a new plot, and new characters.",

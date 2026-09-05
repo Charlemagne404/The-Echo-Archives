@@ -3,6 +3,8 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { pathToFileURL } = require("node:url");
 
+const { renderEntityPage } = require("../backend/lib/entity-page-render");
+const { loadEntities, publicEntityRecords } = require("../backend/lib/entities");
 const { buildSitemapXml } = require("../backend/lib/sitemap");
 const { BRAND_DESCRIPTOR, DEFAULT_DESCRIPTION } = require("../backend/lib/seo");
 const { generateStaticImageVariants } = require("../backend/lib/responsive-images");
@@ -83,6 +85,7 @@ const ENTRY_ASSETS = {
     "shared/styles/home/cards/03a-filter-detail-controls.css",
     "shared/styles/home/cards/03b-filter-actions.css",
     "shared/styles/home/cards/04-browse-bands.css",
+    "shared/styles/home/entity-search.css",
     "shared/styles/home/cards/06-featured-cards.css",
     "shared/styles/home/cards/09-preview-shell.css",
     "shared/styles/home/cards/10-preview-content.css",
@@ -115,6 +118,10 @@ const ENTRY_ASSETS = {
     "shared/styles/home/collections.css",
     "shared/styles/base/responsive-robustness.css",
   ]),
+  "entity-directory.css": () => renderCssBundle([
+    "shared/styles/home/entity-directory.css",
+    "shared/styles/home/entity-directory-root-responsive.css",
+  ]),
   "creators.css": () => renderCssBundle([
     "shared/styles/home/creators.css",
     "shared/styles/base/responsive-robustness.css",
@@ -133,6 +140,7 @@ const ENTRY_ASSETS = {
     "shared/styles/show/facts-rail.css",
     "shared/styles/show/community.css",
     "shared/styles/show/responsive.css",
+    "shared/styles/show/entity-relations.css",
     "shared/styles/base/responsive-robustness.css",
   ]),
 };
@@ -343,6 +351,7 @@ function renderAnalyticsScript(entry) {
 const PRIMARY_NAV_ITEMS = [
     { id: "browse", label: "Browse", detail: "All shows and archive filters", href: "/" },
     { id: "collections", label: "Collections", detail: "Shows grouped by mood and theme", href: "/collections" },
+    { id: "creators", label: "Creators", detail: "People and studios behind the shows", href: "/creators" },
     { id: "about", label: "About", detail: "What the archive is building", href: "/about" },
     { id: "submit", label: "Submit", detail: "Add shows or send corrections", href: "/submit" },
     { id: "for-creators", label: "For creators", detail: "Verification and standards", href: "/for-creators" },
@@ -354,6 +363,7 @@ const MOBILE_DRAWER_SECTIONS = [
     items: [
       { id: "browse", label: "Browse", href: "/", icon: "search" },
       { id: "collections", label: "Collections", href: "/collections", icon: "folder" },
+      { id: "creators", label: "Creators", href: "/creators", icon: "person" },
       { id: "about", label: "About", href: "/about", icon: "info" },
     ],
   },
@@ -426,7 +436,7 @@ function isMobileNavItemActive(item, entry, directPaths) {
 }
 
 function renderMobilePrimaryNav(entry) {
-  const mobileItems = ["browse", "collections", "submit", "about"]
+  const mobileItems = ["browse", "collections", "creators", "submit"]
     .map((id) => PRIMARY_NAV_ITEMS.find((item) => item.id === id))
     .filter(Boolean);
   const directPaths = new Set(mobileItems.map((item) => item.href));
@@ -769,6 +779,7 @@ function renderPage(entry, partials, versions, homeConfig, seoContext, submitPre
     partials.footer,
     `  <script src="/shared/archive-record.js?v=${versions.archiveRecord}"></script>`,
     `  <script src="/shared/archive-search.js?v=${versions.archiveSearch}"></script>`,
+    `  <script src="/shared/archive-entities.js?v=${versions.archiveEntities}"></script>`,
     `  <script type="module" src="/script.js?v=${versions.script}"></script>`,
   ]
     .filter(Boolean)
@@ -891,6 +902,7 @@ function createPrecacheUrlSet(_manifest, versions) {
     `/shared/app/scroll-restoration-boot.js?v=${versions.scrollRestorationBoot}`,
     `/shared/archive-record.js?v=${versions.archiveRecord}`,
     `/shared/archive-search.js?v=${versions.archiveSearch}`,
+    `/shared/archive-entities.js?v=${versions.archiveEntities}`,
     ...offlineAppModuleUrls,
   ]);
 
@@ -1108,8 +1120,8 @@ function renderServiceWorker({ versions, manifest }) {
   ].join("\n");
 }
 
-function writeStaticSitemap({ siteUrl, catalog, collections }) {
-  const sitemapXml = buildSitemapXml({ siteUrl, catalog, collections });
+function writeStaticSitemap({ siteUrl, catalog, collections, entities }) {
+  const sitemapXml = buildSitemapXml({ siteUrl, catalog, collections, entities });
   writeFile(path.join(ROOT, "sitemap.xml"), `${sitemapXml}\n`);
 }
 
@@ -1194,6 +1206,7 @@ async function main() {
     scrollRestorationBoot: hashFile("shared/app/scroll-restoration-boot.js"),
     archiveRecord: hashFile("shared/archive-record.js"),
     archiveSearch: hashFile("shared/archive-search.js"),
+    archiveEntities: hashFile("shared/archive-entities.js"),
     shows: hashFile("data/shows.json"),
     collections: hashFile("data/collections.json"),
     searchIndex: hashFile("data/search-index.json"),
@@ -1209,6 +1222,7 @@ async function main() {
   const catalog = readJsonIfExists(path.join(ROOT, "data", "shows.json"), []);
   const collections = readJsonIfExists(path.join(ROOT, "data", "collections.json"), []);
   const archiveStats = readJsonIfExists(path.join(ROOT, "data", "archive-stats.json"), {});
+  const entities = publicEntityRecords(loadEntities(ROOT, catalog), catalog);
   const seoContext = { siteUrl, catalog, collections, archiveStats };
   const homeConfig = await loadHomeConfig();
   const submitPrerender = await loadSubmitPrerender(parseBoolean(process.env.ARCHIVIST_ENABLED, false));
@@ -1223,12 +1237,28 @@ async function main() {
   };
 
   writeFile(path.join(ROOT, "sw.js"), renderServiceWorker({ versions, manifest }));
-  writeStaticSitemap({ siteUrl, catalog, collections });
+  writeStaticSitemap({ siteUrl, catalog, collections, entities });
   writeRobots({ siteUrl });
 
   manifest.forEach((entry) => {
     const outputPath = path.join(ROOT, entry.output);
-    const pageMarkup = renderPage(entry, partials, versions, homeConfig, seoContext, submitPrerender);
+    let pageMarkup = renderPage(entry, partials, versions, homeConfig, seoContext, submitPrerender);
+    if (entry.output === "creators.html") {
+      pageMarkup = renderEntityPage(pageMarkup, { entities, shows: catalog, collections, siteUrl });
+      for (const entity of entities) {
+        writeFile(path.join(ROOT, "creators", entity.id, "index.html"), renderEntityPage(pageMarkup, { entity, entities, shows: catalog, collections, siteUrl }));
+      }
+      const entityRoot = path.join(ROOT, "creators");
+      if (fs.existsSync(entityRoot)) {
+        for (const directory of fs.readdirSync(entityRoot, { withFileTypes: true })) {
+          const oldPage = path.join(entityRoot, directory.name, "index.html");
+          if (directory.isDirectory() && !entities.some((entity) => entity.id === directory.name) && fs.existsSync(oldPage) && readFile(oldPage).slice(0, 200).includes(GENERATED_PAGE_BANNER)) {
+            fs.rmSync(oldPage);
+            if (!fs.readdirSync(path.dirname(oldPage)).length) fs.rmdirSync(path.dirname(oldPage));
+          }
+        }
+      }
+    }
     writeFile(outputPath, pageMarkup);
 
     const cleanRouteAlias = resolveCleanRouteAlias(entry);

@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"rusty-quill","role":"network"}
+  ],
   "id": "malevolent",
   "title": "Malevolent",
   "subtitle": "Cosmic-horror mystery with enough momentum to make the darkness feel athletic.",

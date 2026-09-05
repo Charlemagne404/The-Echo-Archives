@@ -74,6 +74,7 @@ function createShowTemplate({ id, title = "", today = "" }) {
       youtube: "",
     },
     credits: {},
+    entityLinks: [],
     verification: {},
     availability: {},
     content: {},

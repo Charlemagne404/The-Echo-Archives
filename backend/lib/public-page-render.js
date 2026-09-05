@@ -8,6 +8,8 @@ function escapeHtml(value = "") {
 function escapeAttribute(value = "") {
   return String(value)
     .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
 }
 
@@ -25,6 +27,7 @@ const {
   buildShowSeoDescription,
   buildShowSeoTitle,
 } = require("./seo");
+const { entityStructuredData, showEntityStructuredData } = require("../../shared/archive-entities");
 const { renderCollectionDirectoryCard, renderCollectionShowCard } = require("../../tools/lib/home-page-prerender");
 const { formatCount, getWebPageDates, toPublicLabel } = require("../../shared/archive-record");
 
@@ -222,6 +225,7 @@ function buildShowStructuredData({ siteUrl, show }) {
     });
   }
   if (creators.length > 0) podcast.creator = creators;
+  Object.assign(podcast, showEntityStructuredData(show, siteUrl));
   if (languages.length > 0) podcast.inLanguage = languages;
   if (sameAs.length > 0) podcast.sameAs = sameAs;
   return {
@@ -236,6 +240,7 @@ function buildShowStructuredData({ siteUrl, show }) {
         isPartOf: { "@id": `${homeUrl}#website` },
         breadcrumb: { "@id": breadcrumbId },
         mainEntity: { "@id": podcastId },
+        ...(show.resolvedEntities?.length ? { mentions: show.resolvedEntities.map((entity) => entityStructuredData(entity, siteUrl)) } : {}),
         primaryImageOfPage: { "@type": "ImageObject", url: metadata.imageUrl },
         ...(pageDates.datePublished ? { datePublished: pageDates.datePublished } : {}),
         ...(pageDates.dateModified ? { dateModified: pageDates.dateModified } : {}),

@@ -183,12 +183,15 @@ Exit evidence:
 
 ## Workstream: Creator, Network, And Archive Context
 
-Creator and network context is optional enrichment, not a release prerequisite.
+The 1.1.0 Creators implementation adds a curated unified registry, explicit
+relationships, directory/detail discovery, linked facts, More from sections and
+search integration. The initial pilot is documented in [Creators authoring](CREATORS.md).
 
 Next work:
 
 - complete factual creator verification for real official-source submissions
-- add dedicated creator or network datasets only when multiple shows make the route useful
+- expand the unified entity registry gradually after reviewing ambiguous aliases, company/person distinctions and network affiliations
+- review remaining QCODE co-productions and candidate Rusty Quill, Atypical Artists and Long Cat Media relationships
 - add changelog data only if it provides a maintained listener-facing archive history
 
 Exit evidence:

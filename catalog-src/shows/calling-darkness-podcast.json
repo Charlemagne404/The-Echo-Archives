@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"realm","role":"network"}
+  ],
   "id": "calling-darkness-podcast",
   "title": "Calling Darkness Podcast",
   "subtitle": "audio horror fiction podcast",

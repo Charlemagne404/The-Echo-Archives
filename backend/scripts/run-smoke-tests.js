@@ -9,6 +9,7 @@ const readOnlySmokeFiles = [
   "test/home-card-interactions.smoke.js",
   "test/show-detail-navigation.smoke.js",
   "test/creator-flow.smoke.js",
+  "test/entity-directory.smoke.js",
   "test/browser.smoke.js",
   "test/discovery-stability.smoke.js",
   "test/maintainer-import.smoke.js",

@@ -627,7 +627,7 @@ test("mobile header menu opens, closes, and routes cleanly on phone widths", asy
     assert.equal(closedState.navState, "closed");
     assert.equal(closedState.expanded, "false");
     assert.equal(closedState.bodyLocked, false);
-    assert.deepEqual(closedState.primaryLinks, ["Browse", "Collections", "Submit", "About"]);
+    assert.deepEqual(closedState.primaryLinks, ["Browse", "Collections", "Creators", "Submit"]);
     assert.equal(closedState.activePrimaryHref, "/");
 
     await page.locator("#siteNavToggle").click();

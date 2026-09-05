@@ -135,6 +135,7 @@ function checkGeneratedAssets() {
     "info.css",
     "collections.css",
     "creators.css",
+    "entity-directory.css",
     "submit.css",
     "maintainer.css",
     "detail.css",

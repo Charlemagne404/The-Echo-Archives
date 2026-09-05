@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"rust-belt-studio","role":"studio"}
+  ],
   "id": "engine-of-war",
   "title": "Engine of War",
   "subtitle": "A gritty, low fantasy serial in a war torn setting",

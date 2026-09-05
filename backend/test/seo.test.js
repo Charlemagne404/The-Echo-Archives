@@ -9,6 +9,8 @@ const {
   buildShowPageMetadata,
   buildShowStructuredData,
 } = require("../lib/public-page-render");
+const { loadEntities } = require("../lib/entities");
+const { entityPath, isIndexableEntity } = require("../../shared/archive-entities");
 const { buildSitemapEntries } = require("../lib/sitemap");
 const { buildCollectionPath, buildShowPath, buildShowSeoDescription, buildShowSeoTitle, isIndexableCollection } = require("../lib/seo");
 
@@ -141,17 +143,20 @@ test("the sitemap is exactly the canonical indexable route set", async () => {
     "/help-center",
     "/submit",
     "/collections",
+    "/creators",
     "/privacy",
     "/terms",
     "/cookies",
     "/copyright",
   ];
+  const entities = loadEntities(siteRoot, catalog);
   const expectedUrls = new Set([
+    ...entities.filter((entity) => isIndexableEntity(entity, catalog)).map((entity) => `${siteUrl}${entityPath(entity.id)}`),
     ...staticPaths.map((routePath) => `${siteUrl}${routePath}`),
     ...publishedShows.map((show) => `${siteUrl}${buildShowPath(show.id)}`),
     ...indexableCollections.map((collection) => `${siteUrl}${buildCollectionPath(collection.id)}`),
   ]);
-  const entries = buildSitemapEntries({ siteUrl, catalog, collections });
+  const entries = buildSitemapEntries({ siteUrl, catalog, collections, entities });
   const actualUrls = entries.map((entry) => entry.loc);
 
   assert.equal(new Set(actualUrls).size, actualUrls.length);

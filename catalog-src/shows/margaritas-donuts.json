@@ -1,4 +1,8 @@
 {
+  "entityLinks": [
+    {"entityId":"realm","role":"network"},
+    {"entityId":"observer-pictures","role":"production-company"}
+  ],
   "id": "margaritas-donuts",
   "title": "Margaritas & Donuts",
   "subtitle": "A romcom about dating over 40",

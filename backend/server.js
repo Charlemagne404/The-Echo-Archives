@@ -8,6 +8,8 @@ const { createAccessObservability } = require("./lib/access-observability");
 const { loadArchiveContext } = require("./lib/ai/archive-context");
 const { loadCatalog, loadCollections } = require("./lib/catalog");
 const { createMaintainerAuth } = require("./lib/maintainer-auth");
+const { renderEntityPage } = require("./lib/entity-page-render");
+const { entityPath, isIndexableEntity } = require("../shared/archive-entities");
 const { buildSitemapXml } = require("./lib/sitemap");
 const { openDatabase } = require("./lib/store/database");
 const { createCommunityStore } = require("./lib/store/community-store");
@@ -60,6 +62,7 @@ const PUBLIC_ROOT_ASSETS = new Set([
   "home.css",
   "info.css",
   "collections.css",
+  "entity-directory.css",
   "creators.css",
   "submit.css",
   "maintainer.css",
@@ -88,6 +91,7 @@ const PUBLIC_ROUTE_REDIRECTS = new Map([
   ["/supporters.html", "/supporters"],
   ["/help-center.html", "/help-center"],
   ["/collections.html", "/collections"],
+  ["/creators.html", "/creators"],
   ["/collection.html", "/collection"],
   ["/show.html", "/show"],
   ["/submit.html", "/submit"],
@@ -105,6 +109,7 @@ const PUBLIC_PAGE_FILES = new Map([
   ["/supporters", "supporters.html"],
   ["/help-center", "help-center.html"],
   ["/collections", "collections.html"],
+  ["/creators", "creators.html"],
   ["/collection", "collection.html"],
   ["/show", "show.html"],
   ["/submit", "submit.html"],
@@ -131,7 +136,7 @@ function hashPublicFile(staticRoot, relativePath) {
 }
 
 function getPublicDataRevision(staticRoot) {
-  return ["data/shows.json", "data/collections.json", "data/search-index.json"]
+  return ["data/shows.json", "data/collections.json", "data/search-index.json", "data/entities.json"]
     .map((relativePath) => {
       try {
         const file = fs.statSync(path.join(staticRoot, relativePath));
@@ -208,6 +213,7 @@ async function startServer() {
     publicCatalog: [],
     publicRuntimeCatalog: [],
     publicSearchIndex: [],
+    entities: [],
     collections: [],
     archiveContext: null,
     siteHelpContext: null,
@@ -234,6 +240,7 @@ async function startServer() {
     const archiveContext = await loadArchiveContext(config.STATIC_ROOT, catalog, collections);
     const siteHelpContext = loadSiteHelpContext({ catalog: publicCatalog, collections, archiveContext });
 
+    state.entities = archiveContext.entities;
     state.catalog = catalog;
     state.publicCatalog = publicCatalog;
     state.publicRuntimeCatalog = publicRuntimeCatalog;
@@ -514,6 +521,7 @@ async function startServer() {
         siteUrl: config.SITE_URL,
         catalog: state.publicCatalog,
         collections: state.collections,
+        entities: state.entities,
       }),
     );
   });
@@ -542,6 +550,12 @@ async function startServer() {
     res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
     setPublicCacheHeaders(req, res);
     res.json(state.collections);
+  });
+
+  app.get("/data/entities.json", (req, res) => {
+    res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+    setPublicCacheHeaders(req, res);
+    res.json(state.entities);
   });
 
   app.get("/data/search-index.json", (req, res) => {
@@ -672,6 +686,28 @@ async function startServer() {
         // Keep the explicitly configured local target when it cannot be parsed.
       }
       return res.redirect(301, normalizedTarget);
+    });
+
+    const sendEntityPage = (req, res, entity = null) => {
+      const query = !entity && typeof req.query.q === "string" ? req.query.q.trim().slice(0, 200) : "";
+      let rendered = renderEntityPage(readPublicPageTemplate("creators.html"), { entity, entities: state.entities, shows: state.publicCatalog, collections: state.collections, siteUrl: config.SITE_URL, query });
+      if (Object.keys(req.query).length || (entity && !isIndexableEntity(entity, state.publicCatalog))) {
+        res.set("X-Robots-Tag", "noindex, follow, noarchive");
+        rendered = injectNoIndex(rendered, { follow: true });
+      }
+      res.set("Cache-Control", "no-cache");
+      return res.type("html").send(applyRuntimeSiteConfig(rendered, req.cspNonce));
+    };
+    app.get("/creators", (req, res) => sendEntityPage(req, res));
+    app.get(["/creators/:entityId", "/creators/:entityId/index.html"], (req, res) => {
+      const entity = state.entities.find((entry) => entry.id === req.params.entityId);
+      if (!entity) {
+        res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+        res.set("Cache-Control", "no-cache");
+        return res.status(404).type("html").send(renderErrorPage(req, "404.html"));
+      }
+      if (req.path !== entityPath(entity.id) || Object.keys(req.query).length) return res.redirect(301, entityPath(entity.id));
+      return sendEntityPage(req, res, entity);
     });
 
     const renderCollectionPage = (req, res, collectionId) => {

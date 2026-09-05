@@ -2797,6 +2797,20 @@
 /* Source: shared/styles/show/responsive.css */
 /* Responsive extraction is intentionally deferred to preserve the current cascade exactly. */
 
+/* Source: shared/styles/show/entity-relations.css */
+.detail-more-from { grid-column: 1 / -1; min-width: 0; }
+.detail-more-from .podcast-card-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.detail-more-from .detail-section-header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+.detail-fact-value a { text-decoration: underline; text-underline-offset: 3px; }
+.detail-fact-value a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+@media (max-width: 700px) {
+  .detail-more-from .podcast-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 1180px) {
+  .detail-main--full .detail-more-from, .detail-main--indexed .detail-more-from { order: 4; }
+}
+
 /* Source: shared/styles/base/responsive-robustness.css */
 /*
  * Shared responsive resilience contract.

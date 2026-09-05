@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"realm","role":"network"}
+  ],
   "id": "the-sheridan-tapes",
   "title": "The Sheridan Tapes",
   "subtitle": "A weekly horror/mystery podcast about love, loss, and legacy",

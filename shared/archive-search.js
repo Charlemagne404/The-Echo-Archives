@@ -260,6 +260,7 @@
   }
 
   function buildSearchIndex(record, catalogById) {
+    const creatorTerms = [...(record.creators || []), ...(record.resolvedEntities || []).flatMap((entity) => [entity.name, ...(entity.aliases || [])])];
     const similarTitles = (Array.isArray(record.similarTo) ? record.similarTo : [])
       .map((showId) => catalogById.get(showId)?.title || "")
       .filter(Boolean);
@@ -282,7 +283,7 @@
       bestFor: createFieldTerms(record.bestFor || []),
       themes: createFieldTerms(record.themes || []),
       contentNotes: createFieldTerms(record.contentNotes || []),
-      creators: createFieldTerms(record.creators || []),
+      creators: createFieldTerms(creatorTerms),
       cast: createFieldTerms(record.cast || []),
       languages: createFieldTerms(record.languages || []),
       transcriptLanguages: createFieldTerms(record.transcriptLanguages || []),
@@ -308,7 +309,7 @@
       tones: createFieldTokens(record.tones || []),
       formats: createFieldTokens(record.formats || []),
       bestFor: createFieldTokens(record.bestFor || []),
-      creators: createFieldTokens(record.creators || []),
+      creators: createFieldTokens(creatorTerms),
     };
 
     const subtitleText = createTextBlob([record.subtitle]);
@@ -327,7 +328,7 @@
       record.aliases || [],
       record.themes || [],
       record.contentNotes || [],
-      record.creators || [],
+      creatorTerms,
       record.cast || [],
       record.languages || [],
       record.transcriptLanguages || [],
@@ -355,7 +356,8 @@
       descriptionText,
       archiveText,
       fullText,
-      tokenSet: new Set(tokenizeQuery(tokenSource)),
+      // Numeric identity tokens matter for creators such as 7 Lamb.
+      tokenSet: new Set(tokenizeQuery(tokenSource, { minLength: 1 }).filter((token) => token.length > 1 || /^\d$/.test(token))),
       fields,
       fieldTokens,
     };

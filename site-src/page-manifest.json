@@ -2,7 +2,7 @@
   {
     "source": "index.html",
     "output": "index.html",
-    "title": "The Echo Archives — Audio Drama Discovery",
+    "title": "The Echo Archives \u2014 Audio Drama Discovery",
     "description": "Audio drama discovery with fiction podcast recommendations, reviews, collections, and similar shows.",
     "canonicalUrl": "/",
     "bodyClass": "home-page",
@@ -25,6 +25,22 @@
     "activeNav": "about",
     "extraStylesheets": [
       "info.css"
+    ],
+    "includeAnalytics": true,
+    "includeChatShell": true,
+    "includeFloatingControls": true
+  },
+  {
+    "source": "creators.html",
+    "output": "creators.html",
+    "title": "Audio Drama Creators, Studios & Networks | The Echo Archives",
+    "description": "Explore the people, studios, production companies, and networks behind audio dramas in The Echo Archives.",
+    "canonicalUrl": "/creators",
+    "bodyClass": "home-page entity-directory-page",
+    "activeNav": "creators",
+    "extraStylesheets": [
+      "collections.css",
+      "entity-directory.css"
     ],
     "includeAnalytics": true,
     "includeChatShell": true,

@@ -1,0 +1,703 @@
+[
+  {
+    "id": "7-lamb-productions",
+    "name": "7 Lamb Productions",
+    "type": "production-company",
+    "aliases": [
+      "7 Lamb",
+      "7 Lamb Productions LLC"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://www.7lamb.com/audiodramas",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.7lamb.com/audiodramas/tower-4",
+      "https://www.7lamb.com/audiodramas/paralyzed",
+      "https://www.7lamb.com/audiodramas",
+      "https://www.7lamb.com/audiodramas/end-of-all-hope",
+      "https://www.7lamb.com/audiodramas/story",
+      "https://www.spreaker.com/podcast/atlas-avenue-beat--3369253"
+    ]
+  },
+  {
+    "id": "bloody-fm",
+    "name": "Bloody FM",
+    "type": "network",
+    "aliases": [],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://podcasts.bloody-disgusting.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://podcasts.bloody-disgusting.com/podcasts/scp-archives/",
+      "https://www.7lamb.com/audiodramas/tower-4",
+      "https://www.spreaker.com/podcast/atlas-avenue-beat--3369253"
+    ]
+  },
+  {
+    "id": "fool-and-scholar-productions",
+    "name": "Fool & Scholar Productions",
+    "type": "production-company",
+    "aliases": [
+      "Fool and Scholar Productions",
+      "Fool & Scholar",
+      "Fool & Scholar Productions : Podcasts"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://www.foolandscholar.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.foolandscholar.com/sealskin-rock",
+      "https://www.foolandscholar.com/critical-research",
+      "https://www.foolandscholar.com/the-white-vault-goshawk",
+      "https://www.foolandscholar.com/about-vast-horizon"
+    ]
+  },
+  {
+    "id": "k-a-statz",
+    "name": "K.A. Statz",
+    "type": "person",
+    "aliases": [
+      "KA Statz"
+    ],
+    "directory": false,
+    "publication": "public",
+    "indexable": true,
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.foolandscholar.com/the-white-vault-goshawk",
+      "https://www.foolandscholar.com/about-vast-horizon"
+    ]
+  },
+  {
+    "id": "travis-vengroff",
+    "name": "Travis Vengroff",
+    "type": "person",
+    "aliases": [],
+    "directory": false,
+    "publication": "public",
+    "indexable": true,
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.foolandscholar.com/the-white-vault-goshawk",
+      "https://www.foolandscholar.com/about-vast-horizon"
+    ]
+  },
+  {
+    "id": "qcode",
+    "name": "QCODE",
+    "type": "production-company",
+    "aliases": [
+      "QCODE Media"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://qcodemedia.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://qcodemedia.com/borrasca",
+      "https://qcodemedia.com/from-now",
+      "https://qcodemedia.com/theleftrightgame",
+      "https://qcodemedia.com/"
+    ]
+  },
+  {
+    "id": "night-vale-presents",
+    "name": "Night Vale Presents",
+    "type": "network",
+    "aliases": [],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://www.nightvalepresents.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "http://www.nightvalepresents.com/withinthewires",
+      "https://www.nightvalepresents.com/dreamboy",
+      "https://www.nightvalepresents.com/about",
+      "https://adventuresinnewamerica.com/"
+    ]
+  },
+  {
+    "id": "rusty-quill",
+    "name": "Rusty Quill",
+    "type": "production-company",
+    "aliases": [
+      "Rusty Quill Ltd."
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://rustyquill.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://rustyquill.com/about/",
+      "https://rustyquill.com/show/the-magnus-archives/",
+      "https://rustyquill.com/show/the-magnus-protocol/",
+      "https://members.rustyquill.com/"
+    ]
+  },
+  {
+    "id": "atypical-artists",
+    "name": "Atypical Artists",
+    "type": "production-company",
+    "aliases": [
+      "Atypical"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://www.atypicalartists.co/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.atypicalartists.co/about",
+      "https://www.atypicalartists.co/thebrightsessions",
+      "https://www.atypicalartists.co/greenhouse-1",
+      "https://www.atypicalartists.co/look-up"
+    ]
+  },
+  {
+    "id": "gzm-shows",
+    "name": "GZM Shows",
+    "type": "network",
+    "aliases": [
+      "GZM",
+      "Gen-Z Media"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://gzmshows.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://gzmshows.com/",
+      "https://gzmshows.com/shows/"
+    ]
+  },
+  {
+    "id": "gimlet",
+    "name": "Gimlet",
+    "type": "production-company",
+    "aliases": [
+      "Gimlet Media"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://gimletmedia.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://gimletmedia.com/",
+      "https://podcasts.apple.com/us/podcast/sandra/id1369393683?uo=4",
+      "https://podcasts.apple.com/us/podcast/the-horror-of-dolores-roach/id1437288075?uo=4"
+    ]
+  },
+  {
+    "id": "good-story-guild",
+    "name": "Good Story Guild",
+    "type": "production-company",
+    "aliases": [],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://goodstoryguild.co/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://goodstoryguild.co/listen",
+      "https://goodstoryguild.co/listen/in-media-res",
+      "https://goodstoryguild.co/listen/divorce-ranch"
+    ]
+  },
+  {
+    "id": "long-cat-media",
+    "name": "Long Cat Media",
+    "type": "production-company",
+    "aliases": [
+      "Long Cat"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://www.longcatmedia.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.longcatmedia.com/",
+      "https://www.longcatmedia.com/about",
+      "https://www.longcatmedia.com/mockery-manor"
+    ]
+  },
+  {
+    "id": "realm",
+    "name": "Realm",
+    "type": "network",
+    "aliases": [
+      "Realm Media"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://www.realm.fm/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.realm.fm/services",
+      "https://www.realm.fm/shows",
+      "https://www.realm.fm/shows/orphan-black",
+      "https://www.realm.fm/advertise"
+    ]
+  },
+  {
+    "id": "violet-hour-media",
+    "name": "Violet Hour Media",
+    "type": "production-company",
+    "aliases": [
+      "The Violet Hour"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://www.violethourmedia.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.violethourmedia.com/podcasts/",
+      "https://www.violethourmedia.com/in-another-room/",
+      "https://www.violethourmedia.com/hollow/",
+      "https://www.violethourmedia.com/elmwood-strain/"
+    ]
+  },
+  {
+    "id": "faustian-nonsense",
+    "name": "Faustian Nonsense",
+    "type": "network",
+    "aliases": [
+      "Faustian Nonsense Productions"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://www.faustiannonsense.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.faustiannonsense.com/",
+      "https://www.faustiannonsense.com/podcasts",
+      "https://www.faustiannonsense.com/super-suits",
+      "https://www.faustiannonsense.com/the-green-horizon"
+    ]
+  },
+  {
+    "id": "acorn-arts-and-entertainment",
+    "name": "Acorn Arts and Entertainment",
+    "type": "production-company",
+    "aliases": [
+      "Acorn A&E"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://www.acornartsandentertainment.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.acornartsandentertainment.com/",
+      "https://www.acornartsandentertainment.com/thevoid",
+      "https://www.acornartsandentertainment.com/liminal",
+      "https://www.acornartsandentertainment.com/theinn"
+    ]
+  },
+  {
+    "id": "audacious-machine-creative",
+    "name": "Audacious Machine Creative",
+    "type": "production-company",
+    "aliases": [
+      "Audacious Machine"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://www.audaciousmachinecreative.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.audaciousmachinecreative.com/our-fair-city",
+      "https://www.audaciousmachinecreative.com/world-gone-wrong",
+      "https://www.audaciousmachinecreative.com/unwell",
+      "https://www.audaciousmachinecreative.com/the-harbingers"
+    ]
+  },
+  {
+    "id": "iridescent-acorn-productions",
+    "name": "Iridescent Acorn Productions",
+    "type": "production-company",
+    "aliases": [
+      "Iridescent Acorn"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://iridescentacorn.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://iridescentacorn.com/",
+      "https://iridescentacorn.com/set-sail/"
+    ]
+  },
+  {
+    "id": "leviathan-audio-productions",
+    "name": "Leviathan Audio Productions",
+    "type": "production-company",
+    "aliases": [
+      "Leviathan Audio"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://leviathanaudioproductions.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://leviathanaudioproductions.com/",
+      "https://rapscallionagency.com/",
+      "https://theinveniosexpeditions.com/"
+    ]
+  },
+  {
+    "id": "public-radio-alliance",
+    "name": "Public Radio Alliance",
+    "type": "production-company",
+    "aliases": [
+      "PRA"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://www.publicradioalliance.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.publicradioalliance.com/shows",
+      "https://www.publicradioalliance.com/listen",
+      "https://www.publicradioalliance.com/about"
+    ]
+  },
+  {
+    "id": "the-whisperforge",
+    "name": "The Whisperforge",
+    "type": "production-company",
+    "aliases": [
+      "Whisperforge"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://www.whisperforge.org/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.whisperforge.org/caravan",
+      "https://www.whisperforge.org/thefarmeridian"
+    ]
+  },
+  {
+    "id": "procyon-podcast-network",
+    "name": "Procyon Podcast Network",
+    "type": "network",
+    "aliases": [
+      "Procyon Podcasts"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://www.procyonpodcastnetwork.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.procyonpodcastnetwork.com/",
+      "https://www.procyonpodcastnetwork.com/productions"
+    ]
+  },
+  {
+    "id": "long-story-short-productions",
+    "name": "Long Story Short Productions",
+    "type": "production-company",
+    "aliases": [
+      "Long Story Short Production"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.unseen.show/",
+      "https://www.draculathedansemacabre.com/episodes",
+      "https://podcasts.apple.com/us/podcast/time-bombs/id1438675837?uo=4"
+    ]
+  },
+  {
+    "id": "tin-can-audio",
+    "name": "Tin Can Audio",
+    "type": "production-company",
+    "aliases": [
+      "Tin Can"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://www.tincanaudio.co.uk/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.tincanaudio.co.uk/podcasts",
+      "https://www.tincanaudio.co.uk/about",
+      "https://www.tincanaudio.co.uk/thetower"
+    ]
+  },
+  {
+    "id": "rust-belt-studio",
+    "name": "Rust Belt Studio",
+    "type": "studio",
+    "aliases": [
+      "Rust Belt Studios"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://rustbeltstudio.wordpress.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://rustbeltstudio.wordpress.com/",
+      "https://www.patreon.com/cw/RustBeltStudio",
+      "https://podcasts.apple.com/us/podcast/into-the-dark-of-the-woods/id1847953283"
+    ]
+  },
+  {
+    "id": "fable-and-folly",
+    "name": "Fable & Folly",
+    "type": "network",
+    "aliases": [
+      "Fable & Folly Network",
+      "Fable and Folly"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://fableandfolly.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.redvalleypod.com/",
+      "https://oz-9.com/",
+      "https://thesecretofstkilda.carrd.co/"
+    ]
+  },
+  {
+    "id": "iheartpodcasts",
+    "name": "iHeartPodcasts",
+    "type": "network",
+    "aliases": [
+      "iHeart",
+      "iHeartRadio"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://www.iheartpodcasts.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.iheartmedia.com/podcasts",
+      "https://www.iheartpodcasts.com/",
+      "https://www.iheart.com/podcast/1119-the-mantawauk-caves-110170167/"
+    ]
+  },
+  {
+    "id": "no-such-thing-productions",
+    "name": "No Such Thing Productions",
+    "type": "production-company",
+    "aliases": [
+      "No Such Thing",
+      "No Such Thing Audio Drama Productions"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://www.nosuchthingradio.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.nosuchthingradio.com/",
+      "https://www.nosuchthingradio.com/janus-descending",
+      "https://www.nosuchthingradio.com/primordial-deep-press-kit"
+    ]
+  },
+  {
+    "id": "nocturn-productions",
+    "name": "Nocturn Productions",
+    "type": "production-company",
+    "aliases": [
+      "Nocturn"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://podcasts.apple.com/us/podcast/the-lost-son/id1643208283",
+      "https://podcasts.apple.com/us/podcast/from-the-depths/id1775064189?uo=4"
+    ]
+  },
+  {
+    "id": "the-paragon-collective",
+    "name": "The Paragon Collective",
+    "type": "production-company",
+    "aliases": [
+      "Paragon Collective"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://podcasts.apple.com/us/podcast/darkest-night/id1163871694",
+      "https://deadlymanners.libsyn.com/website"
+    ]
+  },
+  {
+    "id": "spectrevision-radio",
+    "name": "SpectreVision Radio",
+    "type": "network",
+    "aliases": [
+      "Spectrevision Radio"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://www.spectrevision.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.spectrevision.com/podcasts/knifepoint-horror",
+      "https://www.thirteenpodcast.com/"
+    ]
+  },
+  {
+    "id": "twin-strangers-productions",
+    "name": "Twin Strangers Productions",
+    "type": "production-company",
+    "aliases": [
+      "Twin Strangers"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://syntaxpodcast.org/",
+      "https://open.spotify.com/show/1h9W3ZNU3zIePWwskJ2v2T"
+    ]
+  },
+  {
+    "id": "voyage-media",
+    "name": "Voyage Media",
+    "type": "production-company",
+    "aliases": [
+      "Voyage Media, Inc."
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://www.voyagemedia.fm/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.voyagemedia.fm/",
+      "https://podcasts.apple.com/us/channel/voyage-media/id6442691206"
+    ]
+  },
+  {
+    "id": "wolf-at-the-door-studios",
+    "name": "Wolf at the Door Studios",
+    "type": "studio",
+    "aliases": [
+      "Wolf at the Door",
+      "WATD Studios"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://www.wlfdr.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.wlfdr.com/",
+      "https://www.wlfdr.com/about",
+      "https://www.wlfdr.com/mot"
+    ]
+  },
+  {
+    "id": "observer-pictures",
+    "name": "Observer Pictures",
+    "type": "production-company",
+    "aliases": [],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://observerpictures.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://observerpictures.com/",
+      "https://apollyon.observerpictures.com/",
+      "https://podcasts.apple.com/us/podcast/margaritas-donuts/id1482406262?uo=4"
+    ]
+  },
+  {
+    "id": "dayton-writers-movement",
+    "name": "Dayton Writers Movement",
+    "type": "production-company",
+    "aliases": [
+      "DWM",
+      "Dayton Writers Movement, ltd"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://www.daytonwritersmovement.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://www.daytonwritersmovement.com/about",
+      "https://www.daytonwritersmovement.com/uncannyvalley",
+      "https://www.daytonwritersmovement.com/"
+    ]
+  },
+  {
+    "id": "shadow-static-productions",
+    "name": "Shadow & Static Productions",
+    "type": "production-company",
+    "aliases": [
+      "Shadow and Static Productions"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://shows.acast.com/hollow-disciple",
+      "https://podcasts.apple.com/us/podcast/wake-of-corrosion/id1566786218?uo=4"
+    ]
+  },
+  {
+    "id": "two-up-productions",
+    "name": "Two-Up Productions",
+    "type": "production-company",
+    "aliases": [
+      "Two-Up"
+    ],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://twoupproductions.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://twoupproductions.com/about",
+      "https://twoupproductions.com/limetown/podcast",
+      "https://twoupproductions.com/shipworm/podcast"
+    ]
+  },
+  {
+    "id": "good-pointe",
+    "name": "Good Pointe",
+    "type": "production-company",
+    "aliases": [],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://goodpointepodcasts.com/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://goodpointepodcasts.com/",
+      "https://goodpointepodcasts.com/good-people-tst",
+      "https://goodpointepodcasts.com/tstep2"
+    ]
+  },
+  {
+    "id": "blue-parrot-audio",
+    "name": "Blue Parrot Audio",
+    "type": "production-company",
+    "aliases": [],
+    "publication": "public",
+    "indexable": true,
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://podcasts.apple.com/us/podcast/invaded/id1802472507?uo=4",
+      "https://podcasts.apple.com/us/podcast/paradise-cab/id1622848657?uo=4"
+    ]
+  },
+  {
+    "id": "caldera-studios",
+    "name": "Caldera Studios",
+    "type": "studio",
+    "aliases": [],
+    "publication": "public",
+    "indexable": true,
+    "website": "https://calderastudios.me/",
+    "reviewedAt": "2026-09-05",
+    "sources": [
+      "https://calderastudios.me/",
+      "https://podcasts.apple.com/gb/podcast/inkwyrm/id1204629419",
+      "https://wherethestarsfell.com/"
+    ]
+  }
+]

@@ -6,6 +6,8 @@ Latest catalog update: `2026-09-04`
 
 | Metric | Value |
 | --- | ---: |
+| Curated public entities | 42 |
+| Shows with explicit public entity links | 172 |
 | Total shows | 724 |
 | Published shows | 724 |
 | Draft shows | 0 |

@@ -22,6 +22,11 @@ export async function initializeApp() {
     await initializeHomePage();
   }
 
+  if (document.body.classList.contains("entity-directory-page")) {
+    const { initializeEntityDirectory } = await import("./pages/entity-directory.js");
+    await initializeEntityDirectory();
+  }
+
   if (document.body.classList.contains("show-page")) {
     const { initializeShowPage } = await import("./pages/show.js");
     await initializeShowPage();

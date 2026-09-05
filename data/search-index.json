@@ -148,6 +148,35 @@
     "creators": [
       "7 Lamb Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "7-lamb-productions",
+        "role": "production-company"
+      },
+      {
+        "entityId": "bloody-fm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "7-lamb-productions",
+        "name": "7 Lamb Productions",
+        "type": "production-company",
+        "aliases": [
+          "7 Lamb",
+          "7 Lamb Productions LLC"
+        ],
+        "role": "production-company"
+      },
+      {
+        "id": "bloody-fm",
+        "name": "Bloody FM",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
+    ],
     "accent": {
       "hex": "#976f48",
       "rgb": "151, 111, 72"
@@ -249,6 +278,23 @@
     "coverAlt": "From Now cover art",
     "creators": [
       "Rhys Wakefield and William Day Frank"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "qcode",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "qcode",
+        "name": "QCODE",
+        "type": "production-company",
+        "aliases": [
+          "QCODE Media"
+        ],
+        "role": "production-company"
+      }
     ],
     "accent": {
       "hex": "#8d413e",
@@ -374,6 +420,23 @@
     "coverAlt": "The Deca Tapes cover art",
     "creators": [
       "Lex Noteboom"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "network"
+      }
     ],
     "accent": {
       "hex": "#6f5664",
@@ -614,6 +677,49 @@
     "creators": [
       "K.A. Statz and Travis Vengroff"
     ],
+    "entityLinks": [
+      {
+        "entityId": "fool-and-scholar-productions",
+        "role": "production-company"
+      },
+      {
+        "entityId": "k-a-statz",
+        "role": "creator"
+      },
+      {
+        "entityId": "travis-vengroff",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "fool-and-scholar-productions",
+        "name": "Fool & Scholar Productions",
+        "type": "production-company",
+        "aliases": [
+          "Fool and Scholar Productions",
+          "Fool & Scholar",
+          "Fool & Scholar Productions : Podcasts"
+        ],
+        "role": "production-company"
+      },
+      {
+        "id": "k-a-statz",
+        "name": "K.A. Statz",
+        "type": "person",
+        "aliases": [
+          "KA Statz"
+        ],
+        "role": "creator"
+      },
+      {
+        "id": "travis-vengroff",
+        "name": "Travis Vengroff",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
+    ],
     "accent": {
       "hex": "#457693",
       "rgb": "69, 118, 147"
@@ -739,6 +845,23 @@
     "coverAlt": "How I Died cover art",
     "creators": [
       "Vince Dajani"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "network"
+      }
     ],
     "accent": {
       "hex": "#88506a",
@@ -1344,6 +1467,24 @@
     "creators": [
       "Shannon Perry"
     ],
+    "entityLinks": [
+      {
+        "entityId": "fable-and-folly",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "fable-and-folly",
+        "name": "Fable & Folly",
+        "type": "network",
+        "aliases": [
+          "Fable & Folly Network",
+          "Fable and Folly"
+        ],
+        "role": "network"
+      }
+    ],
     "accent": {
       "hex": "#07ac3e",
       "rgb": "7, 172, 62"
@@ -1471,6 +1612,23 @@
     "coverAlt": "Ars Paradoxica cover art",
     "creators": [
       "Mischa Stanton and Daniel Manning"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "the-whisperforge",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "the-whisperforge",
+        "name": "The Whisperforge",
+        "type": "production-company",
+        "aliases": [
+          "Whisperforge"
+        ],
+        "role": "production-company"
+      }
     ],
     "accent": {
       "hex": "#217997",
@@ -1613,6 +1771,24 @@
       "Jonathan Williams",
       "Alan Mandel"
     ],
+    "entityLinks": [
+      {
+        "entityId": "fable-and-folly",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "fable-and-folly",
+        "name": "Fable & Folly",
+        "type": "network",
+        "aliases": [
+          "Fable & Folly Network",
+          "Fable and Folly"
+        ],
+        "role": "network"
+      }
+    ],
     "accent": {
       "hex": "#92605d",
       "rgb": "146, 96, 93"
@@ -1736,6 +1912,49 @@
     "coverAlt": "The White Vault cover art",
     "creators": [
       "K.A. Statz and Travis Vengroff"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "fool-and-scholar-productions",
+        "role": "production-company"
+      },
+      {
+        "entityId": "k-a-statz",
+        "role": "creator"
+      },
+      {
+        "entityId": "travis-vengroff",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "fool-and-scholar-productions",
+        "name": "Fool & Scholar Productions",
+        "type": "production-company",
+        "aliases": [
+          "Fool and Scholar Productions",
+          "Fool & Scholar",
+          "Fool & Scholar Productions : Podcasts"
+        ],
+        "role": "production-company"
+      },
+      {
+        "id": "k-a-statz",
+        "name": "K.A. Statz",
+        "type": "person",
+        "aliases": [
+          "KA Statz"
+        ],
+        "role": "creator"
+      },
+      {
+        "id": "travis-vengroff",
+        "name": "Travis Vengroff",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "accent": {
       "hex": "#6c7e89",
@@ -2222,6 +2441,23 @@
     "creators": [
       "Andy Scearce and Steven James Scearce"
     ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "network"
+      }
+    ],
     "accent": {
       "hex": "#5e7571",
       "rgb": "94, 117, 113"
@@ -2676,6 +2912,35 @@
     "creators": [
       "7 Lamb Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "7-lamb-productions",
+        "role": "production-company"
+      },
+      {
+        "entityId": "bloody-fm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "7-lamb-productions",
+        "name": "7 Lamb Productions",
+        "type": "production-company",
+        "aliases": [
+          "7 Lamb",
+          "7 Lamb Productions LLC"
+        ],
+        "role": "production-company"
+      },
+      {
+        "id": "bloody-fm",
+        "name": "Bloody FM",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
+    ],
     "accent": {
       "hex": "#7e5a77",
       "rgb": "126, 90, 119"
@@ -2910,6 +3175,35 @@
     "creators": [
       "7 Lamb Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "7-lamb-productions",
+        "role": "production-company"
+      },
+      {
+        "entityId": "bloody-fm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "7-lamb-productions",
+        "name": "7 Lamb Productions",
+        "type": "production-company",
+        "aliases": [
+          "7 Lamb",
+          "7 Lamb Productions LLC"
+        ],
+        "role": "production-company"
+      },
+      {
+        "id": "bloody-fm",
+        "name": "Bloody FM",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
+    ],
     "accent": {
       "hex": "#6c6ea0",
       "rgb": "108, 110, 160"
@@ -3024,6 +3318,35 @@
     "coverAlt": "End of all Hope cover art",
     "creators": [
       "7 Lamb Productions"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "7-lamb-productions",
+        "role": "production-company"
+      },
+      {
+        "entityId": "bloody-fm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "7-lamb-productions",
+        "name": "7 Lamb Productions",
+        "type": "production-company",
+        "aliases": [
+          "7 Lamb",
+          "7 Lamb Productions LLC"
+        ],
+        "role": "production-company"
+      },
+      {
+        "id": "bloody-fm",
+        "name": "Bloody FM",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
     ],
     "accent": {
       "hex": "#8d503f",
@@ -3141,6 +3464,35 @@
     "creators": [
       "7 Lamb Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "7-lamb-productions",
+        "role": "production-company"
+      },
+      {
+        "entityId": "bloody-fm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "7-lamb-productions",
+        "name": "7 Lamb Productions",
+        "type": "production-company",
+        "aliases": [
+          "7 Lamb",
+          "7 Lamb Productions LLC"
+        ],
+        "role": "production-company"
+      },
+      {
+        "id": "bloody-fm",
+        "name": "Bloody FM",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
+    ],
     "accent": {
       "hex": "#7e6448",
       "rgb": "126, 100, 72"
@@ -3256,6 +3608,23 @@
     "coverAlt": "The Bright Sessions cover art",
     "creators": [
       "Lauren Shippen"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "atypical-artists",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "atypical-artists",
+        "name": "Atypical Artists",
+        "type": "production-company",
+        "aliases": [
+          "Atypical"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -3656,6 +4025,23 @@
     "creators": [
       "Audacious Machine Creative"
     ],
+    "entityLinks": [
+      {
+        "entityId": "audacious-machine-creative",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "audacious-machine-creative",
+        "name": "Audacious Machine Creative",
+        "type": "production-company",
+        "aliases": [
+          "Audacious Machine"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -3955,6 +4341,23 @@
     "creators": [
       "Harlan Guthrie"
     ],
+    "entityLinks": [
+      {
+        "entityId": "rusty-quill",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "rusty-quill",
+        "name": "Rusty Quill",
+        "type": "production-company",
+        "aliases": [
+          "Rusty Quill Ltd."
+        ],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -4165,6 +4568,23 @@
     "coverAlt": "Borrasca cover art",
     "creators": [
       "Rebecca Klingel"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "qcode",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "qcode",
+        "name": "QCODE",
+        "type": "production-company",
+        "aliases": [
+          "QCODE Media"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -4470,6 +4890,23 @@
     "creators": [
       "Gimlet Media"
     ],
+    "entityLinks": [
+      {
+        "entityId": "gimlet",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "gimlet",
+        "name": "Gimlet",
+        "type": "production-company",
+        "aliases": [
+          "Gimlet Media"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -4565,6 +5002,21 @@
     "creators": [
       "Joseph Fink",
       "Jeffrey Cranor"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "night-vale-presents",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "night-vale-presents",
+        "name": "Night Vale Presents",
+        "type": "network",
+        "aliases": [],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "full-review",
@@ -4674,6 +5126,23 @@
     "creators": [
       "Marsfall LLC"
     ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "hiatus",
@@ -4769,6 +5238,23 @@
     "coverAlt": "The Strange Case of Starship Iris cover art",
     "creators": [
       "Jessica Best"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "procyon-podcast-network",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "procyon-podcast-network",
+        "name": "Procyon Podcast Network",
+        "type": "network",
+        "aliases": [
+          "Procyon Podcasts"
+        ],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -5353,6 +5839,23 @@
     "creators": [
       "Two-Up"
     ],
+    "entityLinks": [
+      {
+        "entityId": "two-up-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "two-up-productions",
+        "name": "Two-Up Productions",
+        "type": "production-company",
+        "aliases": [
+          "Two-Up"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -5635,6 +6138,23 @@
     "creators": [
       "Lindsay Sharman",
       "Laurence Owen"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "long-cat-media",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "long-cat-media",
+        "name": "Long Cat Media",
+        "type": "production-company",
+        "aliases": [
+          "Long Cat"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -5920,6 +6440,24 @@
       "John Scott Dryden",
       "Mike Walker"
     ],
+    "entityLinks": [
+      {
+        "entityId": "iheartpodcasts",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -6016,6 +6554,24 @@
     "coverAlt": "Janus Descending cover art",
     "creators": [
       "Jordan Cobb"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "no-such-thing-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "no-such-thing-productions",
+        "name": "No Such Thing Productions",
+        "type": "production-company",
+        "aliases": [
+          "No Such Thing",
+          "No Such Thing Audio Drama Productions"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -6203,6 +6759,23 @@
     "coverAlt": "Caravan cover art",
     "creators": [
       "Tau Zaman"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "the-whisperforge",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "the-whisperforge",
+        "name": "The Whisperforge",
+        "type": "production-company",
+        "aliases": [
+          "Whisperforge"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -7845,6 +8418,23 @@
     "creators": [
       "Acorn Arts and Entertainment"
     ],
+    "entityLinks": [
+      {
+        "entityId": "acorn-arts-and-entertainment",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "acorn-arts-and-entertainment",
+        "name": "Acorn Arts and Entertainment",
+        "type": "production-company",
+        "aliases": [
+          "Acorn A&E"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -7909,6 +8499,23 @@
     "coverAlt": "The Burned Photo cover art",
     "creators": [
       "QCODE"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "qcode",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "qcode",
+        "name": "QCODE",
+        "type": "production-company",
+        "aliases": [
+          "QCODE Media"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -8045,6 +8652,23 @@
     "coverAlt": "The Sheridan Tapes cover art",
     "creators": [
       "Homestead on the Corner | Realm"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -8447,6 +9071,21 @@
     "creators": [
       "Caldera Studios"
     ],
+    "entityLinks": [
+      {
+        "entityId": "caldera-studios",
+        "role": "studio"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "caldera-studios",
+        "name": "Caldera Studios",
+        "type": "studio",
+        "aliases": [],
+        "role": "studio"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -8640,6 +9279,21 @@
     "creators": [
       "Bloody FM"
     ],
+    "entityLinks": [
+      {
+        "entityId": "bloody-fm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "bloody-fm",
+        "name": "Bloody FM",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -8702,6 +9356,24 @@
     "coverAlt": "The Imperfection cover art",
     "creators": [
       "Wolf at the Door Studios, Alexander Kemp"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "wolf-at-the-door-studios",
+        "role": "studio"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "wolf-at-the-door-studios",
+        "name": "Wolf at the Door Studios",
+        "type": "studio",
+        "aliases": [
+          "Wolf at the Door",
+          "WATD Studios"
+        ],
+        "role": "studio"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -8839,6 +9511,21 @@
     "coverAlt": "Mayfair Watchers Society cover art",
     "creators": [
       "Bloody FM"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "bloody-fm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "bloody-fm",
+        "name": "Bloody FM",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -9126,6 +9813,23 @@
     "creators": [
       "Faustian Nonsense"
     ],
+    "entityLinks": [
+      {
+        "entityId": "faustian-nonsense",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "faustian-nonsense",
+        "name": "Faustian Nonsense",
+        "type": "network",
+        "aliases": [
+          "Faustian Nonsense Productions"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -9194,6 +9898,23 @@
     "creators": [
       "Shadow & Static Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "shadow-static-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "shadow-static-productions",
+        "name": "Shadow & Static Productions",
+        "type": "production-company",
+        "aliases": [
+          "Shadow and Static Productions"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -9260,6 +9981,24 @@
     "coverAlt": "The Secret of St Kilda cover art",
     "creators": [
       "Michael Ireland & Naomi Clarke"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "fable-and-folly",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "fable-and-folly",
+        "name": "Fable & Folly",
+        "type": "network",
+        "aliases": [
+          "Fable & Folly Network",
+          "Fable and Folly"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -9499,6 +10238,23 @@
     "coverAlt": "Syntax cover art",
     "creators": [
       "Twin Strangers Productions"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "twin-strangers-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "twin-strangers-productions",
+        "name": "Twin Strangers Productions",
+        "type": "production-company",
+        "aliases": [
+          "Twin Strangers"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -9800,6 +10556,23 @@
     "coverAlt": "Knifepoint Horror cover art",
     "creators": [
       "SpectreVision Radio"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "spectrevision-radio",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "spectrevision-radio",
+        "name": "SpectreVision Radio",
+        "type": "network",
+        "aliases": [
+          "Spectrevision Radio"
+        ],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -10111,6 +10884,23 @@
     "creators": [
       "Public Radio Alliance"
     ],
+    "entityLinks": [
+      {
+        "entityId": "public-radio-alliance",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "public-radio-alliance",
+        "name": "Public Radio Alliance",
+        "type": "production-company",
+        "aliases": [
+          "PRA"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -10181,6 +10971,23 @@
     "creators": [
       "Alex Dolan | Realm"
     ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -10249,6 +11056,37 @@
     "coverAlt": "Uncanny Valley cover art",
     "creators": [
       "DWM | Realm"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "network"
+      },
+      {
+        "entityId": "dayton-writers-movement",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "network"
+      },
+      {
+        "id": "dayton-writers-movement",
+        "name": "Dayton Writers Movement",
+        "type": "production-company",
+        "aliases": [
+          "DWM",
+          "Dayton Writers Movement, ltd"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -10400,6 +11238,23 @@
     "creators": [
       "QCODE & Wood Elf"
     ],
+    "entityLinks": [
+      {
+        "entityId": "qcode",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "qcode",
+        "name": "QCODE",
+        "type": "production-company",
+        "aliases": [
+          "QCODE Media"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -10469,6 +11324,23 @@
     "coverAlt": "The Left Right Game cover art",
     "creators": [
       "QCODE"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "qcode",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "qcode",
+        "name": "QCODE",
+        "type": "production-company",
+        "aliases": [
+          "QCODE Media"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -10804,6 +11676,24 @@
     "creators": [
       "Wolf at the Door"
     ],
+    "entityLinks": [
+      {
+        "entityId": "wolf-at-the-door-studios",
+        "role": "studio"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "wolf-at-the-door-studios",
+        "name": "Wolf at the Door Studios",
+        "type": "studio",
+        "aliases": [
+          "Wolf at the Door",
+          "WATD Studios"
+        ],
+        "role": "studio"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -11006,6 +11896,23 @@
     "creators": [
       "The Whisperforge"
     ],
+    "entityLinks": [
+      {
+        "entityId": "the-whisperforge",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "the-whisperforge",
+        "name": "The Whisperforge",
+        "type": "production-company",
+        "aliases": [
+          "Whisperforge"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -11070,6 +11977,23 @@
     "coverAlt": "The Leviathan Chronicles cover art",
     "creators": [
       "Leviathan Audio Productions"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "leviathan-audio-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "leviathan-audio-productions",
+        "name": "Leviathan Audio Productions",
+        "type": "production-company",
+        "aliases": [
+          "Leviathan Audio"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -11136,6 +12060,24 @@
     "coverAlt": "Bridgewater cover art",
     "creators": [
       "iHeartPodcasts and Grim & Mild"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "iheartpodcasts",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -11212,6 +12154,23 @@
     "creators": [
       "Public Radio Alliance"
     ],
+    "entityLinks": [
+      {
+        "entityId": "public-radio-alliance",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "public-radio-alliance",
+        "name": "Public Radio Alliance",
+        "type": "production-company",
+        "aliases": [
+          "PRA"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -11280,6 +12239,23 @@
     "coverAlt": "The Magnus Archives cover art",
     "creators": [
       "Jonathan Sims"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "rusty-quill",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "rusty-quill",
+        "name": "Rusty Quill",
+        "type": "production-company",
+        "aliases": [
+          "Rusty Quill Ltd."
+        ],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -11388,6 +12364,23 @@
       "Jonathan Sims",
       "Alexander J Newall"
     ],
+    "entityLinks": [
+      {
+        "entityId": "rusty-quill",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "rusty-quill",
+        "name": "Rusty Quill",
+        "type": "production-company",
+        "aliases": [
+          "Rusty Quill Ltd."
+        ],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -11495,6 +12488,23 @@
     "creators": [
       "Christof Laputka"
     ],
+    "entityLinks": [
+      {
+        "entityId": "leviathan-audio-productions",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "leviathan-audio-productions",
+        "name": "Leviathan Audio Productions",
+        "type": "production-company",
+        "aliases": [
+          "Leviathan Audio"
+        ],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -11576,6 +12586,23 @@
     "creators": [
       "Christof Laputka"
     ],
+    "entityLinks": [
+      {
+        "entityId": "leviathan-audio-productions",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "leviathan-audio-productions",
+        "name": "Leviathan Audio Productions",
+        "type": "production-company",
+        "aliases": [
+          "Leviathan Audio"
+        ],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -11651,6 +12678,23 @@
     "coverAlt": "Sandra cover art",
     "creators": [
       "Gimlet"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "gimlet",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "gimlet",
+        "name": "Gimlet",
+        "type": "production-company",
+        "aliases": [
+          "Gimlet Media"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -11780,6 +12824,21 @@
     "creators": [
       "Bloody FM"
     ],
+    "entityLinks": [
+      {
+        "entityId": "bloody-fm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "bloody-fm",
+        "name": "Bloody FM",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -11843,6 +12902,23 @@
     "coverAlt": "Blackout cover art",
     "creators": [
       "QCODE & Endeavor Content"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "qcode",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "qcode",
+        "name": "QCODE",
+        "type": "production-company",
+        "aliases": [
+          "QCODE Media"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -11913,6 +12989,23 @@
     "creators": [
       "QCODE"
     ],
+    "entityLinks": [
+      {
+        "entityId": "qcode",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "qcode",
+        "name": "QCODE",
+        "type": "production-company",
+        "aliases": [
+          "QCODE Media"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -11980,6 +13073,23 @@
     "creators": [
       "Gimlet"
     ],
+    "entityLinks": [
+      {
+        "entityId": "gimlet",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "gimlet",
+        "name": "Gimlet",
+        "type": "production-company",
+        "aliases": [
+          "Gimlet Media"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -12042,6 +13152,23 @@
     "coverAlt": "World Gone Wrong: a fictional chat show about friendship at the end of the world cover art",
     "creators": [
       "Audacious Machine Creative"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "audacious-machine-creative",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "audacious-machine-creative",
+        "name": "Audacious Machine Creative",
+        "type": "production-company",
+        "aliases": [
+          "Audacious Machine"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -12235,6 +13362,23 @@
     "creators": [
       "Rusty Quill"
     ],
+    "entityLinks": [
+      {
+        "entityId": "rusty-quill",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "rusty-quill",
+        "name": "Rusty Quill",
+        "type": "production-company",
+        "aliases": [
+          "Rusty Quill Ltd."
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -12383,6 +13527,23 @@
     "coverAlt": "Marvel's Wolverine: The Long Night cover art",
     "creators": [
       "Marvel & Realm"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -12653,6 +13814,21 @@
     "creators": [
       "Night Vale Presents"
     ],
+    "entityLinks": [
+      {
+        "entityId": "night-vale-presents",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "night-vale-presents",
+        "name": "Night Vale Presents",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -12720,6 +13896,23 @@
     "coverAlt": "Motherhacker cover art",
     "creators": [
       "Gimlet"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "gimlet",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "gimlet",
+        "name": "Gimlet",
+        "type": "production-company",
+        "aliases": [
+          "Gimlet Media"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -12789,6 +13982,23 @@
     "coverAlt": "Marvel's Wolverine: The Lost Trail cover art",
     "creators": [
       "Marvel | Realm"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -12917,6 +14127,23 @@
     "creators": [
       "Public Radio Alliance"
     ],
+    "entityLinks": [
+      {
+        "entityId": "public-radio-alliance",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "public-radio-alliance",
+        "name": "Public Radio Alliance",
+        "type": "production-company",
+        "aliases": [
+          "PRA"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -13042,6 +14269,23 @@
     "creators": [
       "Audacious Machine Creative"
     ],
+    "entityLinks": [
+      {
+        "entityId": "audacious-machine-creative",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "audacious-machine-creative",
+        "name": "Audacious Machine Creative",
+        "type": "production-company",
+        "aliases": [
+          "Audacious Machine"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -13109,6 +14353,23 @@
     "coverAlt": "Darkest Night cover art",
     "creators": [
       "The Paragon Collective"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "the-paragon-collective",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "the-paragon-collective",
+        "name": "The Paragon Collective",
+        "type": "production-company",
+        "aliases": [
+          "Paragon Collective"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -13449,6 +14710,25 @@
     "creators": [
       "Fool and Scholar Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "fool-and-scholar-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "fool-and-scholar-productions",
+        "name": "Fool & Scholar Productions",
+        "type": "production-company",
+        "aliases": [
+          "Fool and Scholar Productions",
+          "Fool & Scholar",
+          "Fool & Scholar Productions : Podcasts"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -13516,6 +14796,21 @@
     "coverAlt": "The Subjective Truth cover art",
     "creators": [
       "Jeremy Ellett"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "good-pointe",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "good-pointe",
+        "name": "Good Pointe",
+        "type": "production-company",
+        "aliases": [],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -13585,6 +14880,21 @@
     "coverAlt": "Two Flat Earthers Kidnap a Freemason cover art",
     "creators": [
       "Jeremy Ellett"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "good-pointe",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "good-pointe",
+        "name": "Good Pointe",
+        "type": "production-company",
+        "aliases": [],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -14057,6 +15367,23 @@
     "creators": [
       "Tin Can Audio"
     ],
+    "entityLinks": [
+      {
+        "entityId": "tin-can-audio",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "tin-can-audio",
+        "name": "Tin Can Audio",
+        "type": "production-company",
+        "aliases": [
+          "Tin Can"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -14251,6 +15578,25 @@
     "coverAlt": "The Liberty Podcast cover art",
     "creators": [
       "Fool and Scholar Productions"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "fool-and-scholar-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "fool-and-scholar-productions",
+        "name": "Fool & Scholar Productions",
+        "type": "production-company",
+        "aliases": [
+          "Fool and Scholar Productions",
+          "Fool & Scholar",
+          "Fool & Scholar Productions : Podcasts"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -14448,6 +15794,23 @@
     "coverAlt": "The Elmwood Strain cover art",
     "creators": [
       "Violet Hour Media"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "violet-hour-media",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "violet-hour-media",
+        "name": "Violet Hour Media",
+        "type": "production-company",
+        "aliases": [
+          "The Violet Hour"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -14788,6 +16151,37 @@
     "coverAlt": "The Hidden People cover art",
     "creators": [
       "DWM | Realm"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "network"
+      },
+      {
+        "entityId": "dayton-writers-movement",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "network"
+      },
+      {
+        "id": "dayton-writers-movement",
+        "name": "Dayton Writers Movement",
+        "type": "production-company",
+        "aliases": [
+          "DWM",
+          "Dayton Writers Movement, ltd"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -15195,6 +16589,24 @@
     "creators": [
       "GZM Shows"
     ],
+    "entityLinks": [
+      {
+        "entityId": "gzm-shows",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "gzm-shows",
+        "name": "GZM Shows",
+        "type": "network",
+        "aliases": [
+          "GZM",
+          "Gen-Z Media"
+        ],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -15384,6 +16796,23 @@
     "coverAlt": "How to Win Friends and Disappear People cover art",
     "creators": [
       "QCODE"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "qcode",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "qcode",
+        "name": "QCODE",
+        "type": "production-company",
+        "aliases": [
+          "QCODE Media"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -15765,6 +17194,23 @@
     "coverAlt": "Liminal cover art",
     "creators": [
       "Acorn Arts and Entertainment"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "acorn-arts-and-entertainment",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "acorn-arts-and-entertainment",
+        "name": "Acorn Arts and Entertainment",
+        "type": "production-company",
+        "aliases": [
+          "Acorn A&E"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -16226,6 +17672,21 @@
     "coverAlt": "Dreamboy cover art",
     "creators": [
       "Night Vale Presents"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "night-vale-presents",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "night-vale-presents",
+        "name": "Night Vale Presents",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -16994,6 +18455,24 @@
     "creators": [
       "iHeartPodcasts"
     ],
+    "entityLinks": [
+      {
+        "entityId": "iheartpodcasts",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -17126,6 +18605,23 @@
     "creators": [
       "DC | Realm"
     ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -17252,6 +18748,23 @@
     "coverAlt": "Quiet Part Loud cover art",
     "creators": [
       "Monkeypaw / Gimlet"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "gimlet",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "gimlet",
+        "name": "Gimlet",
+        "type": "production-company",
+        "aliases": [
+          "Gimlet Media"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -17382,6 +18895,23 @@
     "creators": [
       "Atypical Artists"
     ],
+    "entityLinks": [
+      {
+        "entityId": "atypical-artists",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "atypical-artists",
+        "name": "Atypical Artists",
+        "type": "production-company",
+        "aliases": [
+          "Atypical"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "active",
@@ -17441,6 +18971,24 @@
     "creators": [
       "GZM Shows"
     ],
+    "entityLinks": [
+      {
+        "entityId": "gzm-shows",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "gzm-shows",
+        "name": "GZM Shows",
+        "type": "network",
+        "aliases": [
+          "GZM",
+          "Gen-Z Media"
+        ],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "active",
@@ -17499,6 +19047,24 @@
     "coverAlt": "Six Minutes cover art",
     "creators": [
       "GZM Shows"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "gzm-shows",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "gzm-shows",
+        "name": "GZM Shows",
+        "type": "network",
+        "aliases": [
+          "GZM",
+          "Gen-Z Media"
+        ],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -17768,6 +19334,21 @@
     "creators": [
       "Night Vale Presents"
     ],
+    "entityLinks": [
+      {
+        "entityId": "night-vale-presents",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "night-vale-presents",
+        "name": "Night Vale Presents",
+        "type": "network",
+        "aliases": [],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -17897,6 +19478,23 @@
     "creators": [
       "Long Story Short Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "long-story-short-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "long-story-short-productions",
+        "name": "Long Story Short Productions",
+        "type": "production-company",
+        "aliases": [
+          "Long Story Short Production"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -17959,6 +19557,23 @@
     "coverAlt": "Time:Bombs cover art",
     "creators": [
       "Long Story Short Productions"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "long-story-short-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "long-story-short-productions",
+        "name": "Long Story Short Productions",
+        "type": "production-company",
+        "aliases": [
+          "Long Story Short Production"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -18087,6 +19702,34 @@
     "creators": [
       "Observer Pictures | Realm"
     ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "network"
+      },
+      {
+        "entityId": "observer-pictures",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "network"
+      },
+      {
+        "id": "observer-pictures",
+        "name": "Observer Pictures",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -18213,6 +19856,23 @@
     "coverAlt": "The Green Horizon cover art",
     "creators": [
       "Paul Walsh"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "faustian-nonsense",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "faustian-nonsense",
+        "name": "Faustian Nonsense",
+        "type": "network",
+        "aliases": [
+          "Faustian Nonsense Productions"
+        ],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -18899,6 +20559,23 @@
     "creators": [
       "In The Works x Tin Can Audio"
     ],
+    "entityLinks": [
+      {
+        "entityId": "tin-can-audio",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "tin-can-audio",
+        "name": "Tin Can Audio",
+        "type": "production-company",
+        "aliases": [
+          "Tin Can"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -19081,6 +20758,23 @@
     "creators": [
       "QCODE, Wood Elf, Mythical"
     ],
+    "entityLinks": [
+      {
+        "entityId": "qcode",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "qcode",
+        "name": "QCODE",
+        "type": "production-company",
+        "aliases": [
+          "QCODE Media"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -19143,6 +20837,23 @@
     "coverAlt": "The Foxes of Hydesville cover art",
     "creators": [
       "QCODE | Criminal Content"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "qcode",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "qcode",
+        "name": "QCODE",
+        "type": "production-company",
+        "aliases": [
+          "QCODE Media"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -19267,6 +20978,23 @@
     "coverAlt": "Deadly Manners cover art",
     "creators": [
       "The Paragon Collective"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "the-paragon-collective",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "the-paragon-collective",
+        "name": "The Paragon Collective",
+        "type": "production-company",
+        "aliases": [
+          "Paragon Collective"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -19393,6 +21121,24 @@
     "creators": [
       "iHeartPodcasts"
     ],
+    "entityLinks": [
+      {
+        "entityId": "iheartpodcasts",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -19466,6 +21212,24 @@
     "creators": [
       "iHeartPodcasts and Audio Up, Inc."
     ],
+    "entityLinks": [
+      {
+        "entityId": "iheartpodcasts",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -19538,6 +21302,23 @@
     "coverAlt": "Red Frontier cover art",
     "creators": [
       "Gimlet"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "gimlet",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "gimlet",
+        "name": "Gimlet",
+        "type": "production-company",
+        "aliases": [
+          "Gimlet Media"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -19865,6 +21646,23 @@
     "creators": [
       "Two-Up"
     ],
+    "entityLinks": [
+      {
+        "entityId": "two-up-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "two-up-productions",
+        "name": "Two-Up Productions",
+        "type": "production-company",
+        "aliases": [
+          "Two-Up"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -19928,6 +21726,24 @@
     "coverAlt": "You Feeling This cover art",
     "creators": [
       "iHeartPodcasts"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "iheartpodcasts",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -20002,6 +21818,23 @@
     "creators": [
       "Marvel | Realm"
     ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -20059,6 +21892,23 @@
     "coverAlt": "Marvel’s Squirrel Girl: The Unbeatable Radio Show! cover art",
     "creators": [
       "Marvel | Realm"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -20118,6 +21968,23 @@
     "coverAlt": "Orphan Black: The Next Chapter cover art",
     "creators": [
       "Realm"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -20425,6 +22292,23 @@
     "creators": [
       "Atypical Artists"
     ],
+    "entityLinks": [
+      {
+        "entityId": "atypical-artists",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "atypical-artists",
+        "name": "Atypical Artists",
+        "type": "production-company",
+        "aliases": [
+          "Atypical"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -20546,6 +22430,23 @@
     "coverAlt": "The Ballad Of Anne & Mary cover art",
     "creators": [
       "Long Cat Media"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "long-cat-media",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "long-cat-media",
+        "name": "Long Cat Media",
+        "type": "production-company",
+        "aliases": [
+          "Long Cat"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -20673,6 +22574,21 @@
     "creators": [
       "Bloody FM"
     ],
+    "entityLinks": [
+      {
+        "entityId": "bloody-fm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "bloody-fm",
+        "name": "Bloody FM",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -20731,6 +22647,23 @@
     "coverAlt": "Thirteen cover art",
     "creators": [
       "SpectreVision Radio"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "spectrevision-radio",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "spectrevision-radio",
+        "name": "SpectreVision Radio",
+        "type": "network",
+        "aliases": [
+          "Spectrevision Radio"
+        ],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -20995,6 +22928,23 @@
     "creators": [
       "Rusty Quill Ltd."
     ],
+    "entityLinks": [
+      {
+        "entityId": "rusty-quill",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "rusty-quill",
+        "name": "Rusty Quill",
+        "type": "production-company",
+        "aliases": [
+          "Rusty Quill Ltd."
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -21209,6 +23159,23 @@
     "creators": [
       "Tin Can Audio"
     ],
+    "entityLinks": [
+      {
+        "entityId": "tin-can-audio",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "tin-can-audio",
+        "name": "Tin Can Audio",
+        "type": "production-company",
+        "aliases": [
+          "Tin Can"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -21272,6 +23239,24 @@
     "creators": [
       "No Such Thing Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "no-such-thing-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "no-such-thing-productions",
+        "name": "No Such Thing Productions",
+        "type": "production-company",
+        "aliases": [
+          "No Such Thing",
+          "No Such Thing Audio Drama Productions"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -21330,6 +23315,24 @@
     "coverAlt": "The Rez cover art",
     "creators": [
       "GZM Shows / Rezilience Ltd."
+    ],
+    "entityLinks": [
+      {
+        "entityId": "gzm-shows",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "gzm-shows",
+        "name": "GZM Shows",
+        "type": "network",
+        "aliases": [
+          "GZM",
+          "Gen-Z Media"
+        ],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -21582,6 +23585,23 @@
     "creators": [
       "Rusty Quill Ltd"
     ],
+    "entityLinks": [
+      {
+        "entityId": "rusty-quill",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "rusty-quill",
+        "name": "Rusty Quill",
+        "type": "production-company",
+        "aliases": [
+          "Rusty Quill Ltd."
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -21644,6 +23664,23 @@
     "creators": [
       "Atypical Artists"
     ],
+    "entityLinks": [
+      {
+        "entityId": "atypical-artists",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "atypical-artists",
+        "name": "Atypical Artists",
+        "type": "production-company",
+        "aliases": [
+          "Atypical"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "active",
@@ -21702,6 +23739,23 @@
     "coverAlt": "Magenta Presents cover art",
     "creators": [
       "Long Cat Media"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "long-cat-media",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "long-cat-media",
+        "name": "Long Cat Media",
+        "type": "production-company",
+        "aliases": [
+          "Long Cat"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -22013,6 +24067,23 @@
     "creators": [
       "S.H. Cooper and Gemma Amor | Realm"
     ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -22203,6 +24274,21 @@
     "coverAlt": "Dead Space: Deep Cover cover art",
     "creators": [
       "Bloody FM, EA, Motive Studios"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "bloody-fm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "bloody-fm",
+        "name": "Bloody FM",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -22521,6 +24607,21 @@
     "creators": [
       "Cineverse, Bloody FM, Echoverse"
     ],
+    "entityLinks": [
+      {
+        "entityId": "bloody-fm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "bloody-fm",
+        "name": "Bloody FM",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -22642,6 +24743,23 @@
     "coverAlt": "In Another Room cover art",
     "creators": [
       "Violet Hour Media"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "violet-hour-media",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "violet-hour-media",
+        "name": "Violet Hour Media",
+        "type": "production-company",
+        "aliases": [
+          "The Violet Hour"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -23021,6 +25139,23 @@
     "creators": [
       "Procyon Podcast Network"
     ],
+    "entityLinks": [
+      {
+        "entityId": "procyon-podcast-network",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "procyon-podcast-network",
+        "name": "Procyon Podcast Network",
+        "type": "network",
+        "aliases": [
+          "Procyon Podcasts"
+        ],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -23212,6 +25347,21 @@
     "coverAlt": "The Antiquarium of Sinister Happenings cover art",
     "creators": [
       "Bloody FM"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "bloody-fm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "bloody-fm",
+        "name": "Bloody FM",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -23653,6 +25803,21 @@
     "coverAlt": "Inkwyrm cover art",
     "creators": [
       "Caldera Studios"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "caldera-studios",
+        "role": "studio"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "caldera-studios",
+        "name": "Caldera Studios",
+        "type": "studio",
+        "aliases": [],
+        "role": "studio"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -24212,6 +26377,21 @@
     "creators": [
       "Good Story Guild"
     ],
+    "entityLinks": [
+      {
+        "entityId": "good-story-guild",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "good-story-guild",
+        "name": "Good Story Guild",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "active",
@@ -24274,6 +26454,23 @@
     "coverAlt": "Last Dance cover art",
     "creators": [
       "Blackabbey Productions"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "rusty-quill",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "rusty-quill",
+        "name": "Rusty Quill",
+        "type": "production-company",
+        "aliases": [
+          "Rusty Quill Ltd."
+        ],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -24600,6 +26797,24 @@
     "creators": [
       "iHeartPodcasts"
     ],
+    "entityLinks": [
+      {
+        "entityId": "iheartpodcasts",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -24857,6 +27072,23 @@
     "creators": [
       "Realm"
     ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -25053,6 +27285,24 @@
     "coverAlt": "The Hollow cover art",
     "creators": [
       "GZM Shows"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "gzm-shows",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "gzm-shows",
+        "name": "GZM Shows",
+        "type": "network",
+        "aliases": [
+          "GZM",
+          "Gen-Z Media"
+        ],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -25302,6 +27552,23 @@
     "creators": [
       "Procyon Podcast Network"
     ],
+    "entityLinks": [
+      {
+        "entityId": "procyon-podcast-network",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "procyon-podcast-network",
+        "name": "Procyon Podcast Network",
+        "type": "network",
+        "aliases": [
+          "Procyon Podcasts"
+        ],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -25426,6 +27693,24 @@
     "coverAlt": "Supreme: The Battle for Roe cover art",
     "creators": [
       "iHeartPodcasts"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "iheartpodcasts",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -25685,6 +27970,23 @@
     "coverAlt": "The Inn at the End of Things cover art",
     "creators": [
       "Acorn Arts and Entertainment"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "acorn-arts-and-entertainment",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "acorn-arts-and-entertainment",
+        "name": "Acorn Arts and Entertainment",
+        "type": "production-company",
+        "aliases": [
+          "Acorn A&E"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -25949,6 +28251,24 @@
     "coverAlt": "Buzz: The Man & The Moon cover art",
     "creators": [
       "iHeartPodcasts"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "iheartpodcasts",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -26217,6 +28537,21 @@
     "creators": [
       "Good Story Guild"
     ],
+    "entityLinks": [
+      {
+        "entityId": "good-story-guild",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "good-story-guild",
+        "name": "Good Story Guild",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -26465,6 +28800,24 @@
     "coverAlt": "Saigon cover art",
     "creators": [
       "iHeartPodcasts"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "iheartpodcasts",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -27231,6 +29584,24 @@
     "creators": [
       "iHeartPodcasts"
     ],
+    "entityLinks": [
+      {
+        "entityId": "iheartpodcasts",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -27426,6 +29797,23 @@
     "creators": [
       "Realm"
     ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -27487,6 +29875,23 @@
     "coverAlt": "Blood & Gold cover art",
     "creators": [
       "Realm"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -27610,6 +30015,23 @@
     "coverAlt": "Madame Magenta: Sonos Mystica cover art",
     "creators": [
       "Long Cat Media"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "long-cat-media",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "long-cat-media",
+        "name": "Long Cat Media",
+        "type": "production-company",
+        "aliases": [
+          "Long Cat"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -28146,6 +30568,24 @@
     "creators": [
       "GZM Shows"
     ],
+    "entityLinks": [
+      {
+        "entityId": "gzm-shows",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "gzm-shows",
+        "name": "GZM Shows",
+        "type": "network",
+        "aliases": [
+          "GZM",
+          "Gen-Z Media"
+        ],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "active",
@@ -28209,6 +30649,23 @@
     "coverAlt": "Neon Inkwell cover art",
     "creators": [
       "Rusty Quill Ltd"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "rusty-quill",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "rusty-quill",
+        "name": "Rusty Quill",
+        "type": "production-company",
+        "aliases": [
+          "Rusty Quill Ltd."
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -28915,6 +31372,23 @@
     "creators": [
       "Twin Strangers Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "twin-strangers-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "twin-strangers-productions",
+        "name": "Twin Strangers Productions",
+        "type": "production-company",
+        "aliases": [
+          "Twin Strangers"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -29167,6 +31641,23 @@
     "coverAlt": "Dracula: The Danse Macabre cover art",
     "creators": [
       "Gabriel Urbina"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "long-story-short-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "long-story-short-productions",
+        "name": "Long Story Short Productions",
+        "type": "production-company",
+        "aliases": [
+          "Long Story Short Production"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -29621,6 +32112,24 @@
     "creators": [
       "iHeartPodcasts"
     ],
+    "entityLinks": [
+      {
+        "entityId": "iheartpodcasts",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -29691,6 +32200,36 @@
     "creators": [
       "Violet Hour Media | Realm"
     ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "network"
+      },
+      {
+        "entityId": "violet-hour-media",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "network"
+      },
+      {
+        "id": "violet-hour-media",
+        "name": "Violet Hour Media",
+        "type": "production-company",
+        "aliases": [
+          "The Violet Hour"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "active",
@@ -29753,6 +32292,23 @@
     "coverAlt": "Into the Dark of the Woods cover art",
     "creators": [
       "Rust Belt Studios"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "rust-belt-studio",
+        "role": "studio"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "rust-belt-studio",
+        "name": "Rust Belt Studio",
+        "type": "studio",
+        "aliases": [
+          "Rust Belt Studios"
+        ],
+        "role": "studio"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -29884,6 +32440,23 @@
     "coverAlt": "Jack of All Trades cover art",
     "creators": [
       "Faustian Nonsense"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "faustian-nonsense",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "faustian-nonsense",
+        "name": "Faustian Nonsense",
+        "type": "network",
+        "aliases": [
+          "Faustian Nonsense Productions"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -30077,6 +32650,23 @@
     "coverAlt": "Land's End: A Shepherd's Tale cover art",
     "creators": [
       "Bibi June x Tin Can Audio"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "tin-can-audio",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "tin-can-audio",
+        "name": "Tin Can Audio",
+        "type": "production-company",
+        "aliases": [
+          "Tin Can"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -30276,6 +32866,24 @@
     "creators": [
       "iHeartPodcasts"
     ],
+    "entityLinks": [
+      {
+        "entityId": "iheartpodcasts",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -30473,6 +33081,21 @@
     "coverAlt": "Poe Evermore cover art",
     "creators": [
       "Bloody FM"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "bloody-fm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "bloody-fm",
+        "name": "Bloody FM",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -30735,6 +33358,23 @@
     "creators": [
       "Violet Hour Media"
     ],
+    "entityLinks": [
+      {
+        "entityId": "violet-hour-media",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "violet-hour-media",
+        "name": "Violet Hour Media",
+        "type": "production-company",
+        "aliases": [
+          "The Violet Hour"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "active",
@@ -30855,6 +33495,21 @@
     "coverAlt": "Shelterwood cover art",
     "creators": [
       "Stephen Indrisano"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "bloody-fm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "bloody-fm",
+        "name": "Bloody FM",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -31531,6 +34186,23 @@
     "coverAlt": "The Lost Son cover art",
     "creators": [
       "Nocturn Productions"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "nocturn-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "nocturn-productions",
+        "name": "Nocturn Productions",
+        "type": "production-company",
+        "aliases": [
+          "Nocturn"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -32263,6 +34935,23 @@
     "creators": [
       "Shadow & Static Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "shadow-static-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "shadow-static-productions",
+        "name": "Shadow & Static Productions",
+        "type": "production-company",
+        "aliases": [
+          "Shadow and Static Productions"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -32773,6 +35462,21 @@
     "coverAlt": "Divorce Ranch cover art",
     "creators": [
       "Good Story Guild"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "good-story-guild",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "good-story-guild",
+        "name": "Good Story Guild",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -33416,6 +36120,21 @@
     "coverAlt": "Leylines cover art",
     "creators": [
       "Good Story Guild"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "good-story-guild",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "good-story-guild",
+        "name": "Good Story Guild",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -34680,6 +37399,21 @@
     "creators": [
       "Blue Parrot Audio"
     ],
+    "entityLinks": [
+      {
+        "entityId": "blue-parrot-audio",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "blue-parrot-audio",
+        "name": "Blue Parrot Audio",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -34806,6 +37540,23 @@
     "coverAlt": "The Lavender Tavern cover art",
     "creators": [
       "Jonathan Cohen"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "faustian-nonsense",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "faustian-nonsense",
+        "name": "Faustian Nonsense",
+        "type": "network",
+        "aliases": [
+          "Faustian Nonsense Productions"
+        ],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -36520,6 +39271,21 @@
     "creators": [
       "Blue Parrot Audio"
     ],
+    "entityLinks": [
+      {
+        "entityId": "blue-parrot-audio",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "blue-parrot-audio",
+        "name": "Blue Parrot Audio",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -37021,6 +39787,23 @@
     "coverAlt": "The Harbingers cover art",
     "creators": [
       "Audacious Machine Creative"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "audacious-machine-creative",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "audacious-machine-creative",
+        "name": "Audacious Machine Creative",
+        "type": "production-company",
+        "aliases": [
+          "Audacious Machine"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -38557,6 +41340,34 @@
     "creators": [
       "Observer Pictures | Realm"
     ],
+    "entityLinks": [
+      {
+        "entityId": "realm",
+        "role": "network"
+      },
+      {
+        "entityId": "observer-pictures",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "realm",
+        "name": "Realm",
+        "type": "network",
+        "aliases": [
+          "Realm Media"
+        ],
+        "role": "network"
+      },
+      {
+        "id": "observer-pictures",
+        "name": "Observer Pictures",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "active",
@@ -38615,6 +41426,23 @@
     "coverAlt": "Greenhouse cover art",
     "creators": [
       "Atypical Artists"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "atypical-artists",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "atypical-artists",
+        "name": "Atypical Artists",
+        "type": "production-company",
+        "aliases": [
+          "Atypical"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -38733,6 +41561,23 @@
     "coverAlt": "Look Up cover art",
     "creators": [
       "Atypical Artists"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "atypical-artists",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "atypical-artists",
+        "name": "Atypical Artists",
+        "type": "production-company",
+        "aliases": [
+          "Atypical"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -38858,6 +41703,23 @@
     "coverAlt": "The Sound Museum cover art",
     "creators": [
       "The Sound Museum"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "faustian-nonsense",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "faustian-nonsense",
+        "name": "Faustian Nonsense",
+        "type": "network",
+        "aliases": [
+          "Faustian Nonsense Productions"
+        ],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -39140,6 +42002,23 @@
     "coverAlt": "Let Me Tell You About My Murder cover art",
     "creators": [
       "Voyage Media"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "voyage-media",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "voyage-media",
+        "name": "Voyage Media",
+        "type": "production-company",
+        "aliases": [
+          "Voyage Media, Inc."
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -39703,6 +42582,35 @@
     "coverAlt": "Atlas Avenue Beat cover art",
     "creators": [
       "7 Lamb Productions | Bloody FM"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "7-lamb-productions",
+        "role": "production-company"
+      },
+      {
+        "entityId": "bloody-fm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "7-lamb-productions",
+        "name": "7 Lamb Productions",
+        "type": "production-company",
+        "aliases": [
+          "7 Lamb",
+          "7 Lamb Productions LLC"
+        ],
+        "role": "production-company"
+      },
+      {
+        "id": "bloody-fm",
+        "name": "Bloody FM",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -41731,6 +44639,21 @@
     "creators": [
       "Bloody FM, Echoverse"
     ],
+    "entityLinks": [
+      {
+        "entityId": "bloody-fm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "bloody-fm",
+        "name": "Bloody FM",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -41815,6 +44738,23 @@
     "coverAlt": "Crossroads: A 48 Hour Audio Drama Festival cover art",
     "creators": [
       "Iridescent Acorn Productions"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "iridescent-acorn-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "iridescent-acorn-productions",
+        "name": "Iridescent Acorn Productions",
+        "type": "production-company",
+        "aliases": [
+          "Iridescent Acorn"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -42160,6 +45100,23 @@
     "creators": [
       "Iridescent Acorn Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "iridescent-acorn-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "iridescent-acorn-productions",
+        "name": "Iridescent Acorn Productions",
+        "type": "production-company",
+        "aliases": [
+          "Iridescent Acorn"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -42376,6 +45333,23 @@
     "creators": [
       "Rust Belt Studio"
     ],
+    "entityLinks": [
+      {
+        "entityId": "rust-belt-studio",
+        "role": "studio"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "rust-belt-studio",
+        "name": "Rust Belt Studio",
+        "type": "studio",
+        "aliases": [
+          "Rust Belt Studios"
+        ],
+        "role": "studio"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "active",
@@ -42440,6 +45414,23 @@
     "coverAlt": "Mikey and the Garden Arch cover art",
     "creators": [
       "Rust Belt Studio"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "rust-belt-studio",
+        "role": "studio"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "rust-belt-studio",
+        "name": "Rust Belt Studio",
+        "type": "studio",
+        "aliases": [
+          "Rust Belt Studios"
+        ],
+        "role": "studio"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -43088,6 +46079,23 @@
     "creators": [
       "Voyage Media"
     ],
+    "entityLinks": [
+      {
+        "entityId": "voyage-media",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "voyage-media",
+        "name": "Voyage Media",
+        "type": "production-company",
+        "aliases": [
+          "Voyage Media, Inc."
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "active",
@@ -43157,6 +46165,23 @@
     "coverAlt": "From the Depths cover art",
     "creators": [
       "Nocturn Productions"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "nocturn-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "nocturn-productions",
+        "name": "Nocturn Productions",
+        "type": "production-company",
+        "aliases": [
+          "Nocturn"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -43405,6 +46430,23 @@
     "coverAlt": "Long Night in Egypt cover art",
     "creators": [
       "Violet Hour Media"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "violet-hour-media",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "violet-hour-media",
+        "name": "Violet Hour Media",
+        "type": "production-company",
+        "aliases": [
+          "The Violet Hour"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -43772,6 +46814,21 @@
     "coverAlt": "The Gospel of Haven cover art",
     "creators": [
       "Bloody FM, Daisy McNamara"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "bloody-fm",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "bloody-fm",
+        "name": "Bloody FM",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -44357,6 +47414,23 @@
     "coverAlt": "A Midsummer's Quarantine cover art",
     "creators": [
       "Faustian Nonsense"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "faustian-nonsense",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "faustian-nonsense",
+        "name": "Faustian Nonsense",
+        "type": "network",
+        "aliases": [
+          "Faustian Nonsense Productions"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -45927,6 +49001,23 @@
     "coverAlt": "Set Sail! cover art",
     "creators": [
       "Iridescent Acorn Productions"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "iridescent-acorn-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "iridescent-acorn-productions",
+        "name": "Iridescent Acorn Productions",
+        "type": "production-company",
+        "aliases": [
+          "Iridescent Acorn"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",

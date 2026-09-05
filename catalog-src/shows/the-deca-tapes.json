@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"realm","role":"network"}
+  ],
   "id": "the-deca-tapes",
   "title": "The Deca Tapes",
   "subtitle": "Mystery-first sci-fi built around controlled reveals.",

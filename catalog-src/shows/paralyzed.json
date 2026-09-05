@@ -1,5 +1,15 @@
 {
   "id": "paralyzed",
+  "entityLinks": [
+    {
+      "entityId": "7-lamb-productions",
+      "role": "production-company"
+    },
+    {
+      "entityId": "bloody-fm",
+      "role": "network"
+    }
+  ],
   "title": "Paralyzed",
   "subtitle": "Supernatural mystery with a stronger horror pulse.",
   "description": "This fictional podcast follows David, a chronic sufferer of sleep paralysis on his annual camping trip with friends. But something evil from his dreams awaits.",

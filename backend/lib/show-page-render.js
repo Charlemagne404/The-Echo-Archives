@@ -1,3 +1,6 @@
+const { renderEntityFacts, renderMoreFrom } = require("../../shared/archive-entities");
+const { renderCollectionShowCard } = require("../../tools/lib/home-page-prerender");
+
 const {
   derivePublicStatus,
   formatCount,
@@ -568,7 +571,7 @@ function renderFactsLinksCard(show, { inline = false } = {}) {
   const hasLinks = Object.values(links).some((href) => String(href || "").trim());
   const status = derivePublicStatus(show);
   const rows = [
-    !creatorNetwork.isEmpty ? `<div class="detail-fact-row"><dt>Creator / network</dt><dd class="detail-fact-value">${escapeHtml(creatorNetwork.text)}</dd></div>` : "",
+    renderEntityFacts(show) || (!creatorNetwork.isEmpty ? `<div class="detail-fact-row"><dt>Creator / network</dt><dd class="detail-fact-value">${escapeHtml(creatorNetwork.text)}</dd></div>` : ""),
     factCheck,
     hasLinks ? `<div class="detail-fact-row is-wide"><dt>Official / listen links</dt><dd class="detail-fact-value"><div class="detail-link-cluster"><a class="detail-link-primary" href="${escapeHtml(primaryLink.href)}" target="_blank" rel="noreferrer">${primaryLink.key === "start" ? "Start listening" : `Open ${escapeHtml(primaryLink.label)}`}</a>${linkChips ? `<div class="detail-link-chip-row">${linkChips}</div>` : ""}</div></dd></div>` : "",
     status ? `<div class="detail-fact-row is-wide"><dt>Status</dt><dd class="detail-fact-value"><div class="detail-fact-pill-row"><span class="detail-fact-pill">${escapeHtml(status)}</span></div></dd></div>` : "",
@@ -730,6 +733,7 @@ function createShowPageMarkup(show, showMap, collections = [], reviewData = {}) 
         </div>
         ${renderCommunityFallback()}
         ${isFullReview && facts ? `<aside class="detail-side-rail">${facts}</aside>` : ""}
+        ${renderMoreFrom(show, [...showMap.values()], (entry) => renderCollectionShowCard(entry))}
         ${renderSimilarSection(show, showMap)}
         ${renderCollectionsSection(show, collections, showMap)}
         ${renderCorrectionSection(show)}

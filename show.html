@@ -25,7 +25,7 @@
 
 
 <link rel="stylesheet" href="/style.css?v=7780bace8f" />
-<link rel="stylesheet" href="/detail.css?v=9c29e03db1" />
+<link rel="stylesheet" href="/detail.css?v=52f2cb3721" />
 <link rel="stylesheet" href="/public-heroes.css?v=daedd40bd0" />
 <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32 48x48 64x64 128x128 256x256" />
 <link rel="icon" type="image/png" href="/icon-192.png" sizes="192x192" />
@@ -35,7 +35,7 @@
 
 <script id="pageStructuredData" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://echoarchives.net/show#webpage","url":"https://echoarchives.net/show","name":"Audio Drama Review & Similar Shows | The Echo Archives","description":"An audio drama guide with editorial context, factual podcast metadata, listening links, and similar fiction podcast recommendations.","isPartOf":{"@id":"https://echoarchives.net/#website"},"breadcrumb":{"@id":"https://echoarchives.net/show#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://echoarchives.net/show#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"The Echo Archives — Audio Drama Discovery","item":"https://echoarchives.net/"},{"@type":"ListItem","position":2,"name":"Audio Drama Review & Similar Shows | The Echo Archives","item":"https://echoarchives.net/show"}]}]}</script>
 </head>
-<body class="home-page detail-page show-page" data-site-url="https://echoarchives.net" data-chat-stylesheet="/chat.css?v=68c3b55e2b" data-archivist-enabled="false" data-home-card-hover-expand-enabled="false" data-shows-version="61a04f445f" data-collections-version="d7061331b7" data-search-index-version="e618f511ca">
+<body class="home-page detail-page show-page" data-site-url="https://echoarchives.net" data-chat-stylesheet="/chat.css?v=68c3b55e2b" data-archivist-enabled="false" data-home-card-hover-expand-enabled="false" data-shows-version="cb571feed7" data-collections-version="d7061331b7" data-search-index-version="035e4a906e">
 <a class="skip-link" href="#showRoot">Skip to main content</a>
 
 <header class="site-header">
@@ -46,6 +46,7 @@
   <nav class="site-nav" id="sitePrimaryNav" aria-label="Primary">
     <a href="/"><span class="site-nav-link-body"><span class="site-nav-link-label">Browse</span><span class="site-nav-link-detail">All shows and archive filters</span></span><span class="site-nav-link-arrow" aria-hidden="true"></span></a>
     <a href="/collections"><span class="site-nav-link-body"><span class="site-nav-link-label">Collections</span><span class="site-nav-link-detail">Shows grouped by mood and theme</span></span><span class="site-nav-link-arrow" aria-hidden="true"></span></a>
+    <a href="/creators"><span class="site-nav-link-body"><span class="site-nav-link-label">Creators</span><span class="site-nav-link-detail">People and studios behind the shows</span></span><span class="site-nav-link-arrow" aria-hidden="true"></span></a>
     <a href="/about"><span class="site-nav-link-body"><span class="site-nav-link-label">About</span><span class="site-nav-link-detail">What the archive is building</span></span><span class="site-nav-link-arrow" aria-hidden="true"></span></a>
     <a href="/submit"><span class="site-nav-link-body"><span class="site-nav-link-label">Submit</span><span class="site-nav-link-detail">Add shows or send corrections</span></span><span class="site-nav-link-arrow" aria-hidden="true"></span></a>
     <a href="/for-creators"><span class="site-nav-link-body"><span class="site-nav-link-label">For creators</span><span class="site-nav-link-detail">Verification and standards</span></span><span class="site-nav-link-arrow" aria-hidden="true"></span></a>
@@ -70,8 +71,8 @@
   <nav class="site-mobile-primary-nav" aria-label="Primary navigation">
     <a href="/">Browse</a>
     <a href="/collections">Collections</a>
+    <a href="/creators">Creators</a>
     <a href="/submit">Submit</a>
-    <a href="/about">About</a>
   </nav>
 
   <div class="site-nav-shell" id="siteNavShell" data-state="closed" aria-hidden="true">
@@ -95,6 +96,7 @@
           <div class="site-mobile-nav-links">
             <a class="site-mobile-nav-link" href="/"><svg class="site-mobile-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m20 20-4.35-4.35M10.75 18a7.25 7.25 0 1 1 0-14.5 7.25 7.25 0 0 1 0 14.5Z" /></svg><span>Browse</span></a>
             <a class="site-mobile-nav-link" href="/collections"><svg class="site-mobile-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.75A2.75 2.75 0 0 1 5.75 5h4.12l1.8 2.1H18.25A2.75 2.75 0 0 1 21 9.85v7.4A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25v-9.5Z" /></svg><span>Collections</span></a>
+            <a class="site-mobile-nav-link" href="/creators"><svg class="site-mobile-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.1" r="3" /><path d="M5.4 20c.65-3.45 2.82-5.2 6.6-5.2s5.95 1.75 6.6 5.2" /></svg><span>Creators</span></a>
             <a class="site-mobile-nav-link" href="/about"><svg class="site-mobile-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /><path d="M12 10.8v5M12 7.8h.01" /></svg><span>About</span></a>
           </div>
         </section>
@@ -203,13 +205,15 @@
       </a>
     </div>
   </div>
-  <p class="footer-version">v1.0.2</p>
+  <p class="footer-version">v1.1.0</p>
 </footer>
 
   <script src="/shared/archive-record.js?v=00d2326aa5"></script>
 
-  <script src="/shared/archive-search.js?v=492045ed14"></script>
+  <script src="/shared/archive-search.js?v=eecee870aa"></script>
 
-  <script type="module" src="/script.js?v=9105a25c61"></script>
+  <script src="/shared/archive-entities.js?v=8d61c0b0ee"></script>
+
+  <script type="module" src="/script.js?v=1df31263ae"></script>
 </body>
 </html>

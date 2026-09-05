@@ -1,4 +1,8 @@
 {
+  "entityLinks": [
+    {"entityId":"realm","role":"network"},
+    {"entityId":"dayton-writers-movement","role":"production-company"}
+  ],
   "id": "the-hidden-people",
   "title": "The Hidden People",
   "subtitle": "A creepy modern fantasy that begins as a murder mystery and becomes a dark fantasy adventure filled with action, Irish and Norse folklore, and fae. At the middle of season one, the world of the Hidden People is revealed, complete with magic",

@@ -596,7 +596,8 @@ Before publishing catalog changes, confirm:
 - no invalid absolute URLs exist in listen or official links
 - no invalid enum values or duplicate taxonomy terms exist
 - no review companion merge issues exist
-- no optional dataset errors exist if `creators.json`, `networks.json`, or `changelog.json` are introduced later
+- entity IDs, aliases, roles and public source-review fields pass catalog validation; see [Creators authoring](CREATORS.md)
+- no legacy optional dataset errors exist if `creators.json`, `networks.json`, or `changelog.json` are introduced later
 - each local published cover has generated 320px/640px variants when the source is large enough, with the original retained as fallback
 - generated 320px covers stay at or below 100 KiB, 640px covers at or below 220 KiB, and generated information-page illustrations at or below 350 KiB
 - the service-worker install list remains an offline shell rather than including catalog JSON, the search index, route modules, maintainer code, submit code, or chat code
@@ -614,6 +615,9 @@ Verify these public routes before publishing significant catalog, route, style, 
 - `/help-center`
 - `/collections`
 - `/collections/<known-collection-id>`
+- `/creators`
+- `/creators/7-lamb-productions`
+- `/creators/fool-and-scholar-productions`
 - `/shows/<known-show-id>`
 - `/submit`
 - `/privacy`

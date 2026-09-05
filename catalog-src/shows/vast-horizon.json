@@ -1,5 +1,19 @@
 {
   "id": "vast-horizon",
+  "entityLinks": [
+    {
+      "entityId": "fool-and-scholar-productions",
+      "role": "production-company"
+    },
+    {
+      "entityId": "k-a-statz",
+      "role": "creator"
+    },
+    {
+      "entityId": "travis-vengroff",
+      "role": "creator"
+    }
+  ],
   "title": "Vast Horizon",
   "subtitle": "Adventure-forward space fiction with a stronger scale sense.",
   "description": "Nolira is an agronomist tasked with establishing agriculture in a new solar system, but when she wakes up on a now- empty colony ship, the whole of her plan disappears. The ship has been set adrift, with numerous mission-critical problems requiring immediate attendance outside of her area of expertise. Nolira is aided by the ship’s malfunctioning AI, which acts as her confidant and companion during the fight for survival.",

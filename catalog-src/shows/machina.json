@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"realm","role":"production-company"}
+  ],
   "id": "machina",
   "title": "Machina",
   "subtitle": "Two rival tech companies compete for the chance to bring AI to Mars in this workplace drama full of corporate espionage, high-stakes science, and yes, robot dogs.",

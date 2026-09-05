@@ -1,4 +1,8 @@
 {
+  "entityLinks": [
+    {"entityId":"realm","role":"network"},
+    {"entityId":"observer-pictures","role":"production-company"}
+  ],
   "id": "apollyon",
   "title": "Apollyon",
   "subtitle": "In the early 22nd century, the Apollyon virus wiped out 75% of the world’s population, and now most of the world is governed by the International Conglomerate of Research Scientists. Dr. Theo Ramsey is an ICRS research scientist who may hav",
