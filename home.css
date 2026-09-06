@@ -2757,6 +2757,27 @@ body.filter-sheet-open {
 }
 
 /* Source: shared/styles/home/cards/18-responsive-780-b.css */
+/* Keep the full primary nav in one coherent bar while there is still room for it. */
+@media (min-width: 960px) and (max-width: 1180px) {
+  .site-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: clamp(24px, 3vw, 34px);
+    row-gap: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .site-brand {
+    width: min(100%, 250px);
+    margin: 0;
+  }
+
+  .site-nav {
+    gap: clamp(24px, 3vw, 34px);
+    justify-self: end;
+  }
+}
+
 @media (max-width: 959px) {
   .footer-support-actions {
     width: 100%;
@@ -2806,10 +2827,6 @@ body.filter-sheet-open {
     height: 18px;
   }
 
-  .home-page .search-actions .browse-modes {
-    display: none;
-  }
-
   .home-page .search-actions .quick-filters {
     width: auto;
     min-width: 0;
@@ -2819,6 +2836,7 @@ body.filter-sheet-open {
 
   .home-page .search-actions .quick-filter {
     min-height: 44px;
+    min-width: 44px;
     padding: 0 12px;
     font-size: 0.82rem;
   }
@@ -2952,6 +2970,23 @@ body.filter-sheet-open {
     bottom: auto;
     width: calc(100vw - (var(--chat-floating-edge) * 2));
     height: min(640px, calc(var(--visual-viewport-height) - max(24px, var(--safe-area-top)) - max(24px, var(--safe-area-bottom))));
+  }
+}
+
+@media (max-width: 780px) {
+  .home-page .search-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .home-page .search-actions .filter-container,
+  .home-page .search-actions .browse-modes,
+  .home-page .search-actions .quick-filters {
+    width: 100%;
+    min-width: 0;
   }
 }
 
@@ -3503,6 +3538,23 @@ body.filter-sheet-open {
     bottom: max(16px, var(--safe-area-bottom));
   }
 
+}
+
+/* Source: shared/styles/home/cards/19-responsive-560-b.css */
+@media (max-width: 560px) {
+  .home-page .hero-copy,
+  .home-page .home-hero-actions {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .home-hero-actions {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 560px) {
   .home-page.chat-panel-open .chat-footnote {
     min-height: 52px;
     padding-left: 64px;

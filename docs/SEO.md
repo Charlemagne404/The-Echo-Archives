@@ -48,8 +48,18 @@ Structured data must describe visible, supported content and use the same canoni
 - Collection directory: `CollectionPage`, `ItemList`, and `BreadcrumbList`.
 - Collection detail: `CollectionPage`, `ItemList`, and `BreadcrumbList`.
 - Show detail: `WebPage`, `PodcastSeries`, and `BreadcrumbList`.
+- Creators directory and entity detail: `CollectionPage`, `ItemList`, and
+  `BreadcrumbList`, with source-backed `Organization` or `Person` nodes and
+  linked `PodcastSeries` items on entity catalogues.
 
 Use stable `@id` values derived from the canonical URL and connect entities with `isPartOf`, `mainEntity`, and `breadcrumb`. Keep creator values, official links, genres, languages, dates, images, and collection reasons grounded in catalog data.
+
+Creator-page `dateModified` and sitemap `lastmod` use the authored entity
+review date. Social previews use the first connected cover from the current
+catalogue, with the archive wordmark as a deterministic fallback. Entity
+descriptions, aliases, official links, show counts, genres, and collection
+connections must remain source-backed; never manufacture biographies or
+complete-discography claims.
 
 Do not emit `AggregateRating`, review counts, awards, organizations, authors, social profiles, or authority claims unless the repository has real source data that supports them. Archive ratings are editorial, community ratings are listener responses, and creator verification is factual metadata confirmation; never merge these meanings in markup. Follow [Google’s structured-data policies](https://developers.google.com/search/docs/appearance/structured-data/sd-policies) and the relevant [Schema.org types](https://schema.org/PodcastSeries).
 
@@ -59,6 +69,7 @@ Index and follow:
 
 - unfiltered public pages with unique content
 - published show pages
+- `/creators` and public entity pages that pass the entity indexability rule
 - collections that pass the quality gate below
 
 Use `noindex, follow, noarchive` for discovery filter/search states so crawlers can follow results without indexing combinatorial URLs. Use `noindex, nofollow, noarchive` for errors, private maintainer pages, offline pages, API/data responses, and unresolved detail IDs. `robots.txt` blocks `/maintainer/` and `/api/`, but meta or `X-Robots-Tag` remains the index-control mechanism for reachable responses.

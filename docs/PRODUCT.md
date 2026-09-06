@@ -46,8 +46,8 @@ The Echo Archives exists to solve that discovery problem directly by:
 
 The 1.0 release is a working static-first discovery product, not a prototype
 or playback app. The current generated catalog contains 724 published shows,
-7 full reviews, 38 collections, 523 automation-checked Imported records, and
-194 fact-checked indexed-only records. Exact counts and readiness errors belong
+7 full reviews, 46 collections, 517 automation-checked Imported records, and
+200 fact-checked indexed-only records. Exact counts and readiness errors belong
 to [`docs/generated/catalog-status.md`](generated/catalog-status.md), not to
 hand-maintained product copy.
 

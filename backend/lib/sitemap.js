@@ -37,7 +37,10 @@ function buildSitemapEntries({ siteUrl, catalog, collections, entities = [] }) {
     { loc: `${baseUrl}/submit` },
     { loc: `${baseUrl}/collections` },
     { loc: `${baseUrl}/creators` },
-    ...entities.filter((entity) => isIndexableEntity(entity, publishedShows)).map((entity) => ({ loc: `${baseUrl}${entityPath(entity.id)}` })),
+    ...entities.filter((entity) => isIndexableEntity(entity, publishedShows)).map((entity) => ({
+      loc: `${baseUrl}${entityPath(entity.id)}`,
+      lastmod: entity.reviewedAt || "",
+    })),
     { loc: `${baseUrl}/privacy` },
     { loc: `${baseUrl}/terms` },
     { loc: `${baseUrl}/cookies` },

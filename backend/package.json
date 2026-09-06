@@ -41,7 +41,6 @@
     "better-sqlite3": "^12.10.0",
     "cheerio": "^1.0.0",
     "fast-xml-parser": "^5.2.5",
-    "image-size": "^1.2.1",
     "express": "^5.1.0",
     "sharp": "^0.35.3"
   },
@@ -49,7 +48,8 @@
     "playwright": "^1.60.0"
   },
   "overrides": {
-    "undici": "7.29.0"
+    "undici": "7.29.0",
+    "qs": "6.16.0"
   },
   "allowScripts": {
     "better-sqlite3@12.10.0": true

@@ -371,8 +371,9 @@ test("collections page reveals similarity routes five at a time and keeps the an
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
   const similarityCollections = collectionFixtures.filter((collection) => collection.kind === "similarity");
   const expectedOrder = getExpectedCollectionOrder("editorial", similarityCollections, showFixtures);
-  const initialVisibleCount = Math.min(5, expectedOrder.length);
-  const expandedVisibleCount = Math.min(10, expectedOrder.length);
+  const collectionPageSize = 5;
+  const initialVisibleCount = Math.min(collectionPageSize, expectedOrder.length);
+  const expandedVisibleCount = Math.min(collectionPageSize * 2, expectedOrder.length);
   const fullyExpandedVisibleCount = expectedOrder.length;
 
   try {
@@ -416,12 +417,16 @@ test("collections page reveals similarity routes five at a time and keeps the an
 
     assert.deepEqual(expandedState.ids, expectedOrder.slice(0, expandedVisibleCount));
     assert.equal(expandedState.hasMoreButton, expectedOrder.length > expandedVisibleCount);
-    if (expectedOrder.length > expandedVisibleCount) {
-      assert.equal(expandedState.buttonLabel, `Show ${fullyExpandedVisibleCount - expandedVisibleCount} more collections`);
+    let visibleCount = expandedVisibleCount;
+    while (visibleCount < fullyExpandedVisibleCount) {
+      const nextRevealCount = Math.min(collectionPageSize, fullyExpandedVisibleCount - visibleCount);
+      const buttonLabel = await page.locator("#collectionsSimilarityMore").textContent();
+      assert.equal(buttonLabel?.trim(), `Show ${nextRevealCount} more collections`);
       await page.locator("#collectionsSimilarityMore").click();
+      visibleCount = Math.min(visibleCount + collectionPageSize, fullyExpandedVisibleCount);
       await page.waitForFunction(
         (count) => document.querySelectorAll("#collectionsSimilarityGrid .collections-feature-card").length === count,
-        fullyExpandedVisibleCount,
+        visibleCount,
       );
     }
 

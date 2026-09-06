@@ -13,15 +13,15 @@ Use it as the current-release reality check alongside:
 
 ## Snapshot Date
 
-This narrative snapshot reflects the repository as of **2026-08-20**. The latest
-catalog-authored update in the generated snapshot is **2026-08-20**; for exact
+This narrative snapshot reflects the repository as of **2026-09-06**. The latest
+catalog-authored update in the generated snapshot is **2026-09-04**; for exact
 counts and coverage gaps, use [`docs/generated/catalog-status.md`](generated/catalog-status.md).
 
 ## Release 1.0 Posture
 
 The 1.0 product baseline is shipped in the repository. It is a static-first,
 listener-facing archive with protected maintainer workflows and a current
-catalog of 724 published shows, 7 full reviews, and 38 collections. The
+catalog of 724 published shows, 7 full reviews, and 46 collections. The
 Archivist remains preserved but disabled by default, and production community
 rating writes remain configuration-gated.
 
@@ -62,6 +62,8 @@ Public routes currently include:
 - `/help-center`
 - `/collections`
 - `/collections/<collection-id>`
+- `/creators`
+- `/creators/<stable-entity-id>`
 - `/shows/<show-id>`
 - `/submit`
 - `/privacy`
@@ -105,12 +107,12 @@ What that means in practice:
 - metadata structure is stronger than review depth
 - the archive already supports recommendation logic, but coverage is still narrow
 - creator verification is supported by the system but not yet represented in live catalog data
-- the importer supports an automation-checked `imported` tier, now used by 523 live catalog records
-- 194 live records are `indexed-only` and 7 have full editorial reviews
+- the importer supports an automation-checked `imported` tier, now used by 517 live catalog records
+- 200 live records are `indexed-only` and 7 have full editorial reviews
 
 The generated report records zero actionable RSS gaps, zero editorial or
 collection blockers, a stable 165-label taxonomy, and zero out-of-scope
-published records. It also records 15 explicit research-gap records, three
+published records. It also records 17 explicit research-gap records, three
 missing RSS links that are documented, and four documented runtime unknowns.
 Sparse indexed-only discovery gaps remain informational when they contain no
 unsupported editorial claims.

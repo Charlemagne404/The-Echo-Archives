@@ -26,8 +26,11 @@ export async function initializeEntityDirectory() {
   const directoryGrid = document.getElementById("entityGrid");
   const results = document.getElementById("entityResults");
   const emptyState = document.getElementById("entityEmpty");
+  const emptyTitle = document.getElementById("entityEmptyTitle");
+  const emptyDescription = document.getElementById("entityEmptyDescription");
   const browseLink = document.querySelector("[data-entity-browse]");
-  const resetLink = document.querySelector("[data-entity-reset]");
+  const resetLinks = Array.from(document.querySelectorAll("[data-entity-reset]"));
+  const clearButton = document.querySelector("[data-entity-clear]");
   const sortSelect = document.getElementById("entitySort");
   const filterButtons = Array.from(document.querySelectorAll("[data-entity-filter]"));
   const entries = Array.from(directoryGrid.querySelectorAll("[data-entity-names]")).map((element) => {
@@ -65,11 +68,36 @@ export async function initializeEntityDirectory() {
     results.textContent = `${count} ${count === 1 ? "organization" : "organizations"}${query || state.type !== "all" ? " found" : " to explore"}.`;
     emptyState.hidden = count > 0;
     browseLink.href = query ? `/?q=${encodeURIComponent(query)}#archive` : "/#archive";
-    resetLink.textContent = "Clear search and filters";
+    const activeState = Boolean(query || state.type !== "all" || state.sort !== "name");
+    resetLinks.forEach((link) => {
+      link.textContent = "Clear search and filters";
+      if (link.classList.contains("entity-results-reset")) link.hidden = !activeState;
+    });
+    if (clearButton) clearButton.hidden = !query;
+    if (emptyTitle && emptyDescription) {
+      const activeFilter = filterButtons.find((button) => button.dataset.entityFilter === state.type)?.querySelector("span")?.textContent?.toLowerCase() || "organizations";
+      if (query && state.type !== "all") {
+        emptyTitle.textContent = `No ${activeFilter} match “${query}”`;
+        emptyDescription.textContent = "Try a shorter organization name or clear the search and filter.";
+      } else if (query) {
+        emptyTitle.textContent = `No organizations match “${query}”`;
+        emptyDescription.textContent = "Try a shorter name, search the main archive for shows, or clear the search.";
+      } else if (state.type !== "all") {
+        emptyTitle.textContent = `No ${activeFilter} yet`;
+        emptyDescription.textContent = "Choose All organizations or clear the filter to keep exploring.";
+      } else {
+        emptyTitle.textContent = "No matching organizations yet";
+        emptyDescription.textContent = "Try a shorter name, search the main archive for shows, or clear your search.";
+      }
+    }
     for (const button of filterButtons) {
       const active = button.dataset.entityFilter === state.type;
       button.classList.toggle("is-active", active);
       button.setAttribute("aria-pressed", String(active));
+      const filterValue = button.dataset.entityFilter;
+      const filteredCount = entries.filter((entry) => (filterValue === "all" || entry.type === filterValue) && (!query || matchesEntityQuery(entry, query))).length;
+      const countNode = button.querySelector(".entity-filter-count");
+      if (countNode) countNode.textContent = String(filteredCount);
     }
     if (sortSelect) sortSelect.value = state.sort;
 
@@ -85,18 +113,29 @@ export async function initializeEntityDirectory() {
 
   form.addEventListener("submit", (event) => { event.preventDefault(); update(); });
   input.addEventListener("input", update);
+  input.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || !input.value) return;
+    event.preventDefault();
+    input.value = "";
+    update();
+  });
+  clearButton?.addEventListener("click", () => {
+    input.value = "";
+    update();
+    input.focus();
+  });
   for (const button of filterButtons) {
     button.addEventListener("click", () => { state.type = normalizeFilter(button.dataset.entityFilter); update(); });
   }
   sortSelect?.addEventListener("change", () => { state.sort = normalizeSort(sortSelect.value); update(); });
-  resetLink.addEventListener("click", (event) => {
+  resetLinks.forEach((resetLink) => resetLink.addEventListener("click", (event) => {
     event.preventDefault();
     input.value = "";
     state.type = "all";
     state.sort = "name";
     update();
     input.focus();
-  });
+  }));
 
   input.value = url.searchParams.get("q") || "";
   update();

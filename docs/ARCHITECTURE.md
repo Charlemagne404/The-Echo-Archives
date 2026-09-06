@@ -197,11 +197,12 @@ Automated collection definitions remain in `catalog-src/collections/` alongside 
 
 The generated snapshot for current counts and metadata coverage lives in
 [`docs/generated/catalog-status.md`](generated/catalog-status.md). The current
-1.0 snapshot contains 724 published shows, 523 automation-checked `imported`
-records, 194 maintainer fact-checked `indexed-only` records, 7 `full-review`
-records, and 38 collections. The report currently has two catalog-quality
-blocking errors; documentation must not describe Gate B as complete until the
-records are corrected or explicitly documented.
+1.1 snapshot contains 724 published shows, 517 automation-checked `imported`
+records, 200 maintainer fact-checked `indexed-only` records, 7 `full-review`
+records, and 46 collections. The generated report records zero catalog-quality
+blocking errors, zero actionable RSS gaps, and 17 explicit research-gap records.
+Gate B is complete for the current authored snapshot; deployment, provider,
+recovery, and live-browser evidence remain separate gates.
 
 The archive supports three public catalogue confidence levels:
 automation-checked `imported`, maintainer fact-checked `indexed-only`, and

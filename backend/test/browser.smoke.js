@@ -679,6 +679,89 @@ test("mobile header menu opens, closes, and routes cleanly on phone widths", asy
   }
 });
 
+test("site header keeps the primary navigation reachable across responsive breakpoints", async () => {
+  const page = await browser.newPage();
+  const desktopWidths = [960, 1024, 1180, 1280, 1440];
+  const mobileWidths = [320, 390, 568, 768, 959];
+
+  try {
+    for (const width of desktopWidths) {
+      await page.setViewportSize({ width, height: 844 });
+      await gotoSmokePage(page, `${baseUrl}/about`, { waitUntil: "networkidle" });
+
+      const state = await page.evaluate(() => {
+        const header = document.querySelector(".site-header");
+        const nav = document.querySelector(".site-header > .site-nav");
+        const brand = document.querySelector(".site-brand");
+        const navRect = nav?.getBoundingClientRect();
+        const headerRect = header?.getBoundingClientRect();
+        const brandRect = brand?.getBoundingClientRect();
+        return {
+          navVisible: Boolean(nav && getComputedStyle(nav).display !== "none"),
+          mobileNavVisible: getComputedStyle(document.querySelector(".site-mobile-primary-nav")).display !== "none",
+          toggleVisible: getComputedStyle(document.getElementById("siteNavToggle")).display !== "none",
+          linkCount: document.querySelectorAll(".site-header > .site-nav a").length,
+          navWithinHeader: Boolean(navRect && headerRect && navRect.left >= headerRect.left && navRect.right <= headerRect.right),
+          brandWithinHeader: Boolean(brandRect && headerRect && brandRect.left >= headerRect.left && brandRect.right <= headerRect.right),
+          noOverflow: document.documentElement.scrollWidth <= window.innerWidth + 1,
+        };
+      });
+
+      assert.equal(state.navVisible, true, `desktop nav should be visible at ${width}px`);
+      assert.equal(state.mobileNavVisible, false, `mobile strip should be hidden at ${width}px`);
+      assert.equal(state.toggleVisible, false, `menu toggle should be hidden at ${width}px`);
+      assert.equal(state.linkCount, 6);
+      assert.equal(state.navWithinHeader, true, `desktop nav escaped the header at ${width}px`);
+      assert.equal(state.brandWithinHeader, true, `brand escaped the header at ${width}px`);
+      assert.equal(state.noOverflow, true, `header created overflow at ${width}px`);
+    }
+
+    for (const width of mobileWidths) {
+      await page.setViewportSize({ width, height: 844 });
+      await gotoSmokePage(page, `${baseUrl}/about`, { waitUntil: "networkidle" });
+
+      const closedState = await page.evaluate(() => ({
+        navVisible: getComputedStyle(document.querySelector(".site-header > .site-nav")).display !== "none",
+        mobileNavVisible: getComputedStyle(document.querySelector(".site-mobile-primary-nav")).display !== "none",
+        toggleVisible: getComputedStyle(document.getElementById("siteNavToggle")).display !== "none",
+        primaryLinkCount: document.querySelectorAll(".site-mobile-primary-nav a").length,
+        noOverflow: document.documentElement.scrollWidth <= window.innerWidth + 1,
+      }));
+
+      assert.equal(closedState.navVisible, false, `desktop nav should be hidden at ${width}px`);
+      assert.equal(closedState.mobileNavVisible, true, `mobile strip should be visible at ${width}px`);
+      assert.equal(closedState.toggleVisible, true, `menu toggle should be visible at ${width}px`);
+      assert.equal(closedState.primaryLinkCount, 4);
+      assert.equal(closedState.noOverflow, true, `mobile header created overflow at ${width}px`);
+
+      await page.locator("#siteNavToggle").click();
+      await page.waitForFunction(() => document.getElementById("siteNavShell")?.dataset.state === "open");
+      await page.waitForTimeout(320);
+
+      const drawerState = await page.locator(".site-nav-drawer").evaluate((drawer) => {
+        const rect = drawer.getBoundingClientRect();
+        return {
+          left: rect.left,
+          right: rect.right,
+          top: rect.top,
+          bottom: rect.bottom,
+          viewportWidth: window.innerWidth,
+          viewportHeight: window.innerHeight,
+          linkCount: drawer.querySelectorAll(".site-mobile-nav-link").length,
+        };
+      });
+
+      assert.equal(drawerState.linkCount, 14);
+      assert.ok(drawerState.left >= -1 && drawerState.right <= drawerState.viewportWidth + 1, `drawer escaped horizontally at ${width}px`);
+      assert.ok(drawerState.top >= -1 && drawerState.bottom <= drawerState.viewportHeight + 1, `drawer escaped vertically at ${width}px`);
+      await page.keyboard.press("Escape");
+      await page.waitForFunction(() => document.getElementById("siteNavShell")?.dataset.state === "closed");
+    }
+  } finally {
+    await page.close();
+  }
+});
+
 test("mobile chat launcher stays out of the first viewport until the user starts scrolling", async () => {
   const page = await browser.newPage({ viewport: { width: 320, height: 740 }, hasTouch: true });
 

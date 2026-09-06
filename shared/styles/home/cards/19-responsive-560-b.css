@@ -1,0 +1,99 @@
+@media (max-width: 560px) {
+  .home-page .hero-copy,
+  .home-page .home-hero-actions {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .home-hero-actions {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .home-page.chat-panel-open .chat-footnote {
+    min-height: 52px;
+    padding-left: 64px;
+  }
+
+  .about-page .about-hero-panel {
+    min-height: 0;
+    padding: 24px 20px;
+  }
+
+  .about-page .about-hero-panel .hero-copy h1 {
+    font-size: clamp(2.55rem, 12vw, 3.25rem);
+  }
+
+  .about-page .about-hero-signal {
+    align-items: flex-start;
+    font-size: 0.92rem;
+  }
+
+  .about-page .about-split-copy,
+  .about-page .about-feature-section,
+  .about-page .about-ratings-card,
+  .about-page .about-support-card,
+  .about-page .about-continental-card {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .about-problem-list li {
+    padding: 10px 11px 10px 13px;
+  }
+
+  .about-page .about-split-media {
+    height: clamp(200px, 52vw, 240px);
+    min-height: 200px;
+    max-height: 240px;
+  }
+
+  .about-page .about-split-media img {
+    object-position: 56% 44%;
+  }
+
+  .about-page .about-split-media::after {
+    background:
+      linear-gradient(180deg, rgba(3, 5, 8, 0.68) 0%, rgba(3, 5, 8, 0.16) 28%, rgba(3, 5, 8, 0.02) 60%, rgba(3, 5, 8, 0.3) 100%),
+      linear-gradient(90deg, rgba(3, 5, 8, 0.22) 0%, transparent 30%, rgba(3, 5, 8, 0.16) 100%);
+  }
+
+  .about-page .about-split-media img {
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.42) 14%, #000 32%, #000 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.42) 14%, #000 32%, #000 100%);
+  }
+
+  .about-page .about-feature-tile {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 959px) and (max-height: 500px) {
+  #chat-container {
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .chat-panel-header {
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 10px;
+  }
+
+  .chat-status,
+  .chat-suggestion-region,
+  .chat-footnote {
+    display: none;
+  }
+
+  .chat-input-area {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 8px;
+  }
+
+  #chatLog {
+    min-height: 64px;
+  }
+}

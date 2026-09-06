@@ -20,8 +20,9 @@ Use it as the source of truth for:
 This runbook is current for the 1.0 release baseline as of **2026-08-20**.
 The repository contains the released static-first product and its protected
 submission, import, elevation, and collection-maintainer workflows. The
-generated catalog snapshot currently has 724 published shows, 7 full reviews,
-and 38 collections. The catalog report is complete with zero blocking errors
+generated catalog snapshot currently has 724 published shows, 517 imported
+records, 200 indexed-only records, 7 full reviews, and 46 collections. The catalog
+report is complete with zero blocking errors
 and zero actionable RSS gaps; the remaining missing-source and runtime facts
 are explicitly documented.
 

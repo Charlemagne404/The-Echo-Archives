@@ -1,7 +1,7 @@
 const { createHash } = require("node:crypto");
 const fs = require("node:fs");
 const path = require("node:path");
-const { imageSize } = require("image-size");
+const sharp = require("sharp");
 
 const { fetchBufferWithLimits, throwForUpstreamStatus } = require("./fetch");
 const { mergeUniqueStrings, normalizeUrl, trimText } = require("./utils");
@@ -18,9 +18,17 @@ const TYPE_TO_MIME = new Map([
   ["jpg", "image/jpeg"], ["jpeg", "image/jpeg"], ["png", "image/png"],
   ["webp", "image/webp"], ["gif", "image/gif"], ["avif", "image/avif"],
 ]);
+const SHARP_FORMAT_TO_MIME = new Map([
+  ["jpeg", "image/jpeg"], ["png", "image/png"], ["webp", "image/webp"],
+  ["gif", "image/gif"],
+]);
 
 function hasAsciiBytes(buffer, value, offset = 0) {
   return buffer.length >= offset + value.length && buffer.subarray(offset, offset + value.length).toString("ascii") === value;
+}
+
+function isAvifBuffer(buffer) {
+  return hasAsciiBytes(buffer, "ftyp", 4) && ["avif", "avis"].includes(buffer.subarray(8, 12).toString("ascii"));
 }
 
 function rejectUnsafeImageParsers(buffer) {
@@ -30,12 +38,12 @@ function rejectUnsafeImageParsers(buffer) {
   if ((buffer.length >= 2 && buffer[0] === 0xff && buffer[1] === 0x0a) || hasAsciiBytes(buffer, "JXL ", 4)) {
     throw new Error("JPEG XL covers are unsupported; use JPEG, PNG, WebP, GIF, or AVIF instead.");
   }
-  if (hasAsciiBytes(buffer, "ftyp", 4) && !["avif", "avis"].includes(buffer.subarray(8, 12).toString("ascii"))) {
+  if (hasAsciiBytes(buffer, "ftyp", 4) && !isAvifBuffer(buffer)) {
     throw new Error("HEIF covers are unsupported; use AVIF instead.");
   }
 }
 
-function inspectCoverBuffer(buffer, declaredContentType = "") {
+async function inspectCoverBuffer(buffer, declaredContentType = "") {
   if (!Buffer.isBuffer(buffer) || buffer.length === 0) {
     throw new Error("Cover download returned an empty body.");
   }
@@ -43,22 +51,28 @@ function inspectCoverBuffer(buffer, declaredContentType = "") {
     throw new Error("SVG covers are unsupported; a raster image is required.");
   }
   rejectUnsafeImageParsers(buffer);
-  let dimensions;
+  let metadata;
   try {
-    dimensions = imageSize(buffer);
+    metadata = await sharp(buffer, { failOn: "error" }).metadata();
   } catch (_error) {
     throw new Error("Cover bytes are corrupt or use an unsupported image format.");
   }
-  const sniffedContentType = TYPE_TO_MIME.get(String(dimensions.type || "").toLowerCase()) || "";
+  const format = String(metadata.format || "").toLowerCase();
+  if (format === "heif" && !isAvifBuffer(buffer)) {
+    throw new Error("HEIF covers are unsupported; use AVIF instead.");
+  }
+  const sniffedContentType = format === "heif"
+    ? "image/avif"
+    : SHARP_FORMAT_TO_MIME.get(format) || TYPE_TO_MIME.get(format) || "";
   const declared = String(declaredContentType || "").split(";", 1)[0].trim().toLowerCase();
   if (!sniffedContentType || !MIME_TO_EXTENSION.has(sniffedContentType)) {
-    throw new Error(`Cover format ${dimensions.type || declared || "unknown"} is unsupported.`);
+    throw new Error(`Cover format ${format || declared || "unknown"} is unsupported.`);
   }
   if (declared && declared !== "application/octet-stream" && declared !== sniffedContentType && !(declared === "image/jpg" && sniffedContentType === "image/jpeg")) {
     throw new Error(`Cover content type ${declared} does not match its ${sniffedContentType} bytes.`);
   }
-  const width = Number(dimensions.width) || 0;
-  const height = Number(dimensions.height) || 0;
+  const width = Number(metadata.width) || 0;
+  const height = Number(metadata.height) || 0;
   const square = width === height;
   const echoPublishable = square && width >= 600;
   const appleQuality = square && width >= 1400 && width <= 3000 && ["image/jpeg", "image/png"].includes(sniffedContentType);
@@ -100,7 +114,7 @@ async function stageCover({
         allowedContentTypes: ["image/jpeg", "image/jpg", "image/png", "image/webp", "image/gif", "image/avif", "application/octet-stream"],
       });
       throwForUpstreamStatus(response, "Cover request");
-      const inspection = inspectCoverBuffer(buffer, response.headers.get("content-type") || "");
+      const inspection = await inspectCoverBuffer(buffer, response.headers.get("content-type") || "");
       if (!inspection.echoPublishable) {
         throw new Error(inspection.qualityWarnings.filter((warning) => !warning.startsWith("Cover does not meet Apple's")).join(" "));
       }

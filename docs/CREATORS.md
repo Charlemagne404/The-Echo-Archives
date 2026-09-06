@@ -123,6 +123,14 @@ studio credit does not automatically assert publishing or production ownership.
 The Node server uses the same entity
 renderer as the page build, so publication changes also apply to direct routes.
 
+Creator SEO is generated from the same registry and show relationships. The
+directory and qualifying entity pages get unique titles and descriptions,
+review dates, canonical URLs, social images, breadcrumbs, entity structured
+data, and source-backed lists of connected podcast series. The page and
+sitemap use `reviewedAt` as the freshness signal. These additions improve
+discovery without adding visible content or inventing biographies, ratings,
+endorsements, or complete discographies.
+
 Browse search retains legacy creator strings and adds resolved canonical names
 and aliases to the existing creator search field. Its creator result links are
 derived from that same search-index payload; there is no new search endpoint.

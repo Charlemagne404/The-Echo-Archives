@@ -1007,7 +1007,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     const existingCoverPath = existing?.cover && !/^https?:/i.test(existing.cover) ? path.join(staticRoot, String(existing.cover).replace(/^\/+/, "")) : "";
     if (existingCoverPath && fs.existsSync(existingCoverPath)) {
       try {
-        const inspection = inspectCoverBuffer(fs.readFileSync(existingCoverPath), "");
+        const inspection = await inspectCoverBuffer(fs.readFileSync(existingCoverPath), "");
         if (inspection.echoPublishable) coverStage = { ready: true, existing: true, existingRelativePath: existing.cover, stagedPath: existingCoverPath, ...inspection };
       } catch (_error) {
         coverStage = null;

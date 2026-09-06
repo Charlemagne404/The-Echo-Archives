@@ -39,16 +39,16 @@ The current generated catalog snapshot contains:
 | Metric | Current value |
 | --- | ---: |
 | Published shows | 724 |
-| Imported shows | 523 |
-| Indexed-only shows | 194 |
+| Imported shows | 517 |
+| Indexed-only shows | 200 |
 | Full reviews | 7 |
-| Collections | 38 |
+| Collections | 46 |
 | Creator-verified shows | 0 |
 
 Exact counts and gap detail remain generated evidence, not hand-maintained
-product copy. The latest catalog-authored update is 2026-08-20.
+product copy. The latest catalog-authored update is 2026-09-04.
 
-The catalog report is complete as of 2026-08-20: Big Grande has verified
+The catalog report is complete as of 2026-09-04: Big Grande has verified
 observed runtime data from its current official RSS/Apple sources, and Machina
 has an explicit evidence-backed `metadata.researchGaps` note because no full
 episode duration can currently be verified. The three missing RSS links and

@@ -158,8 +158,11 @@ test("the sitemap is exactly the canonical indexable route set", async () => {
   ]);
   const entries = buildSitemapEntries({ siteUrl, catalog, collections, entities });
   const actualUrls = entries.map((entry) => entry.loc);
+  const reviewedEntity = entities.find((entity) => entity.id === "7-lamb-productions");
+  const reviewedEntityEntry = entries.find((entry) => entry.loc === `${siteUrl}${entityPath(reviewedEntity.id)}`);
 
   assert.equal(new Set(actualUrls).size, actualUrls.length);
   assert.deepEqual(new Set(actualUrls), expectedUrls);
   assert.ok(actualUrls.every((url) => !url.includes("?") && !url.endsWith(".html")));
+  assert.equal(reviewedEntityEntry.lastmod, reviewedEntity.reviewedAt);
 });

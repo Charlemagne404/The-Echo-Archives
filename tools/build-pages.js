@@ -73,6 +73,7 @@ const ENTRY_ASSETS = {
     "shared/styles/home/cards/17-responsive-780-a.css",
     "shared/styles/home/cards/18-responsive-780-b.css",
     "shared/styles/home/cards/19-responsive-560.css",
+    "shared/styles/home/cards/19-responsive-560-b.css",
     "shared/styles/home/cards/20-motion.css",
     "shared/styles/base/responsive-robustness.css",
   ]),
@@ -93,6 +94,7 @@ const ENTRY_ASSETS = {
     "shared/styles/home/cards/17-responsive-780-a.css",
     "shared/styles/home/cards/18-responsive-780-b.css",
     "shared/styles/home/cards/19-responsive-560.css",
+    "shared/styles/home/cards/19-responsive-560-b.css",
     "shared/styles/base/responsive-robustness.css",
   ]),
   "info.css": () => renderCssBundle([
@@ -120,8 +122,10 @@ const ENTRY_ASSETS = {
   ]),
   "entity-directory.css": () => renderCssBundle([
     "shared/styles/home/entity-directory.css",
+    "shared/styles/home/entity-directory-cards.css",
     "shared/styles/home/entity-directory-root-responsive.css",
     "shared/styles/home/entity-detail.css",
+    "shared/styles/home/entity-detail-responsive.css",
   ]),
   "creators.css": () => renderCssBundle([
     "shared/styles/home/creators.css",

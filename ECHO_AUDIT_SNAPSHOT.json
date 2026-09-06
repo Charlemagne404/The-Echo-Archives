@@ -1,0 +1,881 @@
+{
+  "auditMetadata": {
+    "auditDate": "2026-09-06",
+    "repository": "/Users/charliearnerstal/Documents/GitHub/The-Echo-Archives",
+    "branch": "main",
+    "headCommit": "e8ce6d2755bc4fd2eb77f2bb852d144a1db37041",
+    "headSubject": "Add creator-page corrections and directory filters",
+    "headCommitTimestamp": "2026-09-06T12:55:09+02:00",
+    "remoteRelationAtStart": "main...origin/main; local and origin refs aligned",
+    "workingTreeCleanBeforeAudit": false,
+    "preexistingChangeSummary": [
+      "Extensive tracked modifications were present before the audit.",
+      "Modified areas included generated pages, creator/entity pages, entity renderer/tests, docs, CSS, scripts, sitemap, service worker, and page manifest.",
+      "No pre-existing change was staged, reverted, overwritten, or normalized."
+    ],
+    "auditArtifactsExistedBeforeAudit": false,
+    "versionSignals": {
+      "rootPackageVersion": null,
+      "backendPackageVersion": "2.0.0",
+      "footerVersion": "1.1.2",
+      "architectureDocumentVersion": "1.1.0",
+      "versioningIsConsistent": false
+    },
+    "sourcesInspected": [
+      "catalog-src authored shows, collections, entities, reviews, and order manifests",
+      "data generated catalog, search, entities, collections, stats, and generated status",
+      "site-src pages, partials, manifest, and legal/trust copy",
+      "shared browser modules, search, entities, render helpers, and CSS",
+      "backend server, catalog, renderers, SEO, sitemap, config, services, stores, tests",
+      "tools, package/config files, deployment definitions, generated HTML, sitemap, robots",
+      "local SQLite operational database read-only",
+      "local browser rendering at desktop and mobile widths"
+    ],
+    "notInspectedOrNotProven": [
+      "Production website, DNS, TLS, CDN, Cloudflare account, Search Console, analytics dashboards, production logs, and production database",
+      "External URL reachability or current RSS/Apple/Spotify/official-site response",
+      "Fresh external competitor analysis and external keyword research",
+      "Chrome Playwright execution because Google Chrome was not installed",
+      "Full npm verify, build commands, import/update jobs, migrations, backend smoke suite, and live write flows",
+      "Secret environment values"
+    ],
+    "assumptions": [
+      "Current generated data files are the public snapshot used by the application.",
+      "Meaningful field presence excludes empty structural objects.",
+      "Local SQLite counts are operational/development evidence, not production usage.",
+      "Current implementation and generated data take precedence over stale documentation.",
+      "Indexable means locally intended/indexable, not confirmed search-engine indexing."
+    ]
+  },
+  "catalogueCounts": {
+    "publishedShows": 724,
+    "draftShows": 0,
+    "sourceShowRecordFilesExcludingOrderManifest": 724,
+    "collections": 46,
+    "featuredCollections": 6,
+    "registryEntities": 42,
+    "visibleOrganizationDirectoryEntities": 40,
+    "fullReviewShows": 7,
+    "indexedOnlyShows": 200,
+    "importedShows": 517,
+    "plannedShows": 0,
+    "spotlightShows": 0,
+    "archiveRatedShows": 27,
+    "reviewCompanionRecords": 7,
+    "rawFlattenedCreatorAssignments": 751,
+    "uniqueRawCreatorDisplayStrings": 645,
+    "showsWithLegacyCreatorId": 710,
+    "uniqueLegacyCreatorIds": 604,
+    "showsWithNetworkId": 357,
+    "uniqueNetworkIds": 224,
+    "explicitEntityRelationshipRows": 187,
+    "showsWithExplicitEntityLinks": 172,
+    "explicitSimilarShowEdges": 234,
+    "showsWithOutgoingSimilarShowData": 71,
+    "similarityCollectionCount": 17,
+    "publicCollectionMembershipRows": 620,
+    "showsCoveredByAtLeastOneCollection": 243,
+    "showsWithNoPublicCollectionMembership": 481,
+    "recordsWithObjectiveSourceData": 724,
+    "recordsWithImporterMetadata": 656,
+    "documentedResearchGapShows": 17,
+    "rssLinks": 721,
+    "missingRssLinks": 3,
+    "localCoversPresent": 724,
+    "generatedCoverVariantsPresent": 1294,
+    "generatedInfoImages": 16,
+    "totalInspectedImageFiles": 2038
+  },
+  "metadataCompleteness": {
+    "basis": "724 published runtime records; meaningful non-empty values",
+    "subtitle": {"count": 280, "percent": 38.67},
+    "tones": {"count": 73, "percent": 10.08},
+    "formats": {"count": 721, "percent": 99.59},
+    "tags": {"count": 207, "percent": 28.59},
+    "aliases": {"count": 688, "percent": 95.03},
+    "themes": {"count": 82, "percent": 11.33},
+    "contentNotes": {"count": 75, "percent": 10.36},
+    "transcriptLanguages": {"count": 43, "percent": 5.94},
+    "bestFor": {"count": 71, "percent": 9.81},
+    "similarTo": {"count": 71, "percent": 9.81},
+    "archiveTake": {"count": 70, "percent": 9.67},
+    "spoilerFreeReview": {"count": 7, "percent": 0.97},
+    "thoughts": {"count": 7, "percent": 0.97},
+    "spotify": {"count": 227, "percent": 31.35},
+    "applePodcasts": {"count": 702, "percent": 96.96},
+    "listenWebsite": {"count": 680, "percent": 93.92},
+    "officialWebsite": {"count": 681, "percent": 94.06},
+    "rss": {"count": 721, "percent": 99.59},
+    "seasons": {"count": 599, "percent": 82.74},
+    "episodes": {"count": 717, "percent": 99.03},
+    "averageEpisodeMinutes": {"count": 720, "percent": 99.45},
+    "totalHours": {"count": 42, "percent": 5.8},
+    "archiveRating": {"count": 27, "percent": 3.73},
+    "patreon": {"count": 131, "percent": 18.09},
+    "discord": {"count": 36, "percent": 4.97},
+    "youtube": {"count": 165, "percent": 22.79},
+    "neitherListenNorOfficialWebsite": {"count": 42, "percent": 5.8}
+  },
+  "distributions": {
+    "reviewStatus": {
+      "imported": 517,
+      "indexed-only": 200,
+      "full-review": 7
+    },
+    "releaseStatus": {
+      "unknown": 490,
+      "active": 186,
+      "completed": 31,
+      "inactive": 10,
+      "hiatus": 7
+    },
+    "completionStatus": {
+      "unclear": 498,
+      "ongoing": 192,
+      "finished": 32,
+      "cancelled": 2
+    },
+    "genres": {
+      "drama": 671,
+      "sci-fi": 280,
+      "comedy": 182,
+      "horror": 59,
+      "mystery": 54,
+      "thriller": 48,
+      "fantasy": 22,
+      "adventure": 15,
+      "supernatural": 9
+    },
+    "tones": {
+      "tense": 38,
+      "dark": 35,
+      "cinematic": 31,
+      "weird": 30,
+      "funny": 20,
+      "warm": 15,
+      "hopeful": 15,
+      "chaotic": 8,
+      "bleak": 7,
+      "melancholic": 3
+    },
+    "bestFor": {
+      "late-night": 33,
+      "easy-entry": 21,
+      "binge-listening": 21,
+      "headphones-on": 21,
+      "serious-sci-fi": 14,
+      "worldbuilding": 14,
+      "cold-isolation-horror": 10,
+      "long-walks": 8,
+      "funny-space-disasters": 7,
+      "short-under-five-hours": 4,
+      "warm-weird": 4
+    },
+    "formatValues": {
+      "distinctObservedValues": 12,
+      "normalizedCasingCollisions": [
+        ["serialized", "Serialized"],
+        ["episodic", "Episodic"],
+        ["full-cast", "Full cast"],
+        ["narrated", "Narrated"],
+        ["anthology", "Anthology"]
+      ]
+    },
+    "vocabulary": {
+      "uniqueGenres": 9,
+      "uniqueCurrentlyUsedTags": 134,
+      "documentedApprovedTaxonomyLabels": 165,
+      "uniqueTones": 10,
+      "uniqueBestForValues": 11,
+      "uniqueThemes": 126,
+      "uniqueIntentTags": 14,
+      "uniqueLanguages": 2,
+      "uniqueTranscriptLanguages": 2
+    },
+    "collectionMembershipPerShow": {
+      "0": 481,
+      "1": 128,
+      "2": 31,
+      "3": 22,
+      "4": 15,
+      "5": 20,
+      "6": 13,
+      "7": 3,
+      "8": 3,
+      "9": 5,
+      "10": 1,
+      "12": 1,
+      "14": 1
+    }
+  },
+  "collectionStatistics": {
+    "kinds": {
+      "curated": {
+        "collections": 20,
+        "publicMembershipRows": 226,
+        "uniqueShows": 90,
+        "coveragePercent": 12.43,
+        "meanSize": 11.3
+      },
+      "similarity": {
+        "collections": 17,
+        "publicMembershipRows": 118,
+        "uniqueShows": 62,
+        "coveragePercent": 8.56,
+        "meanSize": 6.94
+      },
+      "rule-based": {
+        "collections": 9,
+        "publicMembershipRows": 276,
+        "uniqueShows": 217,
+        "coveragePercent": 29.97,
+        "meanSize": 30.67
+      }
+    },
+    "descriptionProvenance": {
+      "generated": 9,
+      "unspecifiedOrManualLooking": 37
+    },
+    "minSize": 5,
+    "maxSize": 72,
+    "meanSize": 13.48,
+    "medianSize": 9,
+    "manualNonRuleUniqueShows": 97,
+    "manualNonRuleCoveragePercent": 13.4,
+    "publicMembershipRows": 620,
+    "uniqueCoveredShows": 243,
+    "medianMembershipsPerShow": 0,
+    "meanMembershipsPerShow": 0.856,
+    "largestCollections": [
+      {"id": "ongoing-sci-fi", "members": 72},
+      {"id": "episodic-comedy", "members": 70},
+      {"id": "ongoing-comedy", "members": 48},
+      {"id": "ongoing-horror", "members": 25},
+      {"id": "late-night-tension", "members": 20},
+      {"id": "finished-arcs", "members": 20},
+      {"id": "completed-drama", "members": 20},
+      {"id": "serious-sci-fi", "members": 17},
+      {"id": "completed-sci-fi", "members": 17},
+      {"id": "worldbuilding-deep-dives", "members": 16}
+    ],
+    "featuredCollectionIds": [
+      "best-for-long-walks",
+      "easy-first-steps",
+      "serious-sci-fi",
+      "funny-space-disasters",
+      "cold-isolation-horror",
+      "finished-arcs"
+    ]
+  },
+  "creatorStatistics": {
+    "registryTypeCounts": {
+      "production-company": 28,
+      "network": 9,
+      "studio": 3,
+      "person": 2
+    },
+    "visibleOrganizationEntities": 40,
+    "directoryFalsePeople": ["k-a-statz", "travis-vengroff"],
+    "rawFlattenedAssignments": 751,
+    "uniqueRawDisplayStrings": 645,
+    "showsWithCreatorId": 710,
+    "uniqueCreatorIds": 604,
+    "showsWithNetworkId": 357,
+    "uniqueNetworkIds": 224,
+    "explicitRelationshipRows": 187,
+    "showsWithExplicitRelationships": 172,
+    "fallbackCreatorRecords": 552,
+    "roleCounts": {
+      "production-company": 115,
+      "network": 61,
+      "studio": 7,
+      "creator": 4
+    },
+    "topExplicitEntityShowCounts": [
+      ["realm", 21],
+      ["bloody-fm", 17],
+      ["iheartpodcasts", 13],
+      ["qcode", 10],
+      ["rusty-quill", 8],
+      ["7-lamb", 6],
+      ["atypical-artists", 6],
+      ["gimlet", 6],
+      ["faustian-nonsense", 6],
+      ["gzm-shows", 6]
+    ],
+    "spotlightRecords": {
+      "fool-and-scholar-productions": {
+        "type": "production-company",
+        "directory": true,
+        "connectedShows": 4,
+        "shows": ["dont-mind", "the-liberty-podcast", "the-white-vault", "vast-horizon"]
+      },
+      "k-a-statz": {
+        "type": "person",
+        "directory": false,
+        "connectedShows": 2,
+        "shows": ["the-white-vault", "vast-horizon"]
+      },
+      "travis-vengroff": {
+        "type": "person",
+        "directory": false,
+        "connectedShows": 2,
+        "shows": ["the-white-vault", "vast-horizon"]
+      }
+    }
+  },
+  "recommendationStatistics": {
+    "directedSimilarEdges": 234,
+    "showsWithOutgoingSimilarData": 71,
+    "showsWithoutOutgoingSimilarData": 653,
+    "targetsWithIncomingSimilarity": 52,
+    "reciprocalPairs": 44,
+    "averageOutgoingEdgesPerCatalogShow": 0.323,
+    "averageOutgoingEdgesAmongConnectedShows": 3.3,
+    "topIncomingTargets": [
+      ["midnight-burger", 15],
+      ["the-white-vault", 13],
+      ["archive-81", 12],
+      ["oz-9", 10],
+      ["desert-skies", 9],
+      ["ars-paradoxica", 9],
+      ["malevolent", 8],
+      ["eos-10", 8],
+      ["wooden-overcoats", 8],
+      ["vast-horizon", 7]
+    ],
+    "selectionModes": [
+      "manual homepage routes",
+      "client-side scored text search",
+      "deterministic filters",
+      "manual collection membership",
+      "rule-based collection membership",
+      "explicit similarTo relationships",
+      "entity relationship More from",
+      "live-community/static-score/fallback popular ranking",
+      "catalog-date recently-added ranking",
+      "optional archive-grounded Archivist"
+    ],
+    "learnedRecommendationEvidence": false,
+    "embeddingOrVectorSearchEvidence": false,
+    "userLevelPersonalizationEvidence": false,
+    "unifiedRecommendationRankEvidence": false
+  },
+  "routeFamilies": [
+    {
+      "pattern": "/",
+      "purpose": "homepage, browse, search, filters, stats, rails",
+      "rendering": "generated/prerendered shell plus browser modules",
+      "indexability": "index/follow"
+    },
+    {
+      "pattern": "/shows/:show-id",
+      "purpose": "show detail and listening decision page",
+      "rendering": "backend server render plus showBootstrap hydration",
+      "indexability": "published shows intended index/follow"
+    },
+    {
+      "pattern": "/collections",
+      "purpose": "collection directory",
+      "rendering": "generated shell plus browser data",
+      "indexability": "default index/follow; query/filter states noindex/follow"
+    },
+    {
+      "pattern": "/collections/:collection-id",
+      "purpose": "curated/similarity/rule-based route",
+      "rendering": "backend render from generated collections/shows",
+      "indexability": "SEO gate; 40 of 46 in sitemap"
+    },
+    {
+      "pattern": "/creators",
+      "purpose": "organization/entity directory",
+      "rendering": "server-rendered directory plus client search/filter/sort",
+      "indexability": "default index/follow; non-default state noindex/follow"
+    },
+    {
+      "pattern": "/creators/:stable-entity-id",
+      "purpose": "typed entity detail",
+      "rendering": "backend render from entity registry and explicit links",
+      "indexability": "public/indexable entities with sufficient linked shows"
+    },
+    {
+      "pattern": "/submit",
+      "purpose": "new show, correction, listener review, creator verification intake",
+      "rendering": "generated form plus backend POST",
+      "indexability": "index/follow page; API not indexable"
+    },
+    {
+      "pattern": "/about, /for-creators, /creator-standards, /supporters, /help-center",
+      "purpose": "static product, trust, support, and creator information",
+      "rendering": "generated static pages",
+      "indexability": "index/follow"
+    },
+    {
+      "pattern": "/privacy, /terms, /cookies, /copyright",
+      "purpose": "legal and data-use information",
+      "rendering": "generated static pages",
+      "indexability": "index/follow"
+    },
+    {
+      "pattern": "/sitemap.xml, /robots.txt, /404.html, /500.html, /offline.html",
+      "purpose": "operational/crawler/error/offline behavior",
+      "rendering": "generated/static/server behavior",
+      "indexability": "operational/noindex as applicable"
+    },
+    {
+      "pattern": "/maintainer/* and /api/*",
+      "purpose": "protected operations, workflows, community, chat, data, and submissions",
+      "rendering": "Express APIs/protected static pages",
+      "indexability": "private/noindex or robots-disallowed"
+    }
+  ],
+  "featureStates": {
+    "homepageBrowse": "public-shipped",
+    "search": "public-shipped-client-side",
+    "filters": "public-shipped",
+    "collections": "public-shipped",
+    "showPages": "public-shipped",
+    "creatorEntityDirectory": "public-shipped-quality-gated-pilot",
+    "similarityRoutes": "public-shipped-sparse",
+    "archiveReviews": "public-shipped-seven-full-reviews",
+    "archiveRatings": "public-shipped-twenty-seven-rated-shows",
+    "listenerRatings": "implemented-partial-deployment-configured",
+    "listenerReviews": "implemented-partial-no-local-published-reviews",
+    "transcripts": "metadata-only-no-reader",
+    "provenance": "implemented-public-summary-plus-private-evidence",
+    "submissions": "public-moderation-first",
+    "creatorVerification": "public-intake-no-automatic-verification",
+    "maintainerWorkflows": "implemented-hidden-protected",
+    "importer": "implemented-hidden-explicit-publication-gate",
+    "automatedCollections": "implemented-hidden-or-resolved-snapshot",
+    "archivist": "implemented-disabled-by-default",
+    "sharing": "public-native-share-and-clipboard-fallback",
+    "themeSwitch": "not-present-dark-only",
+    "accounts": "not-present-listener-account",
+    "savedLists": "not-present",
+    "personalization": "not-present",
+    "analyticsDashboard": "not-present"
+  },
+  "dataQualityIssues": [
+    {
+      "severity": "high",
+      "class": "sparse-discovery",
+      "facts": {
+        "showsWithoutCollections": 481,
+        "showsWithoutOutgoingSimilarity": 653,
+        "showsWithoutTones": 651,
+        "showsWithoutBestFor": 653,
+        "showsWithoutTags": 517,
+        "showsWithoutExplicitEntityLinks": 552
+      }
+    },
+    {
+      "severity": "high",
+      "class": "creator-identity-migration",
+      "facts": {
+        "registryEntities": 42,
+        "rawCreatorStrings": 645,
+        "uniqueLegacyCreatorIds": 604,
+        "explicitlyLinkedShows": 172
+      }
+    },
+    {
+      "severity": "high",
+      "class": "format-casing-collisions",
+      "facts": 5
+    },
+    {
+      "severity": "medium",
+      "class": "lifecycle-ambiguity",
+      "example": "impact-winter has releaseStatus inactive and completionStatus ongoing with a future-status research gap",
+      "unknownReleaseStatus": 490,
+      "unclearCompletionStatus": 498
+    },
+    {
+      "severity": "medium",
+      "class": "missing-rss",
+      "count": 3,
+      "showIds": ["earth-eclipsed", "the-rapscallion-agency", "the-invenios-expeditions"]
+    },
+    {
+      "severity": "medium",
+      "class": "missing-website-fields",
+      "count": 42
+    },
+    {
+      "severity": "medium",
+      "class": "stale-documentation",
+      "example": "docs/ARCHITECTURE.md cites 38 collections, 523 imported, 194 indexed-only, and two blocking errors; current generated status cites 46, 517, 200, and zero blocking errors"
+    },
+    {
+      "severity": "low",
+      "class": "legacy-seo-output",
+      "count": 3,
+      "example": "legacy static show HTML artifacts lack current canonical/social/description/robots/structured-data coverage"
+    },
+    {
+      "severity": "low",
+      "class": "unmanifested-generated-artifact",
+      "example": "contact.html exists in generated output but is not in the current page manifest"
+    },
+    {
+      "severity": "low",
+      "class": "release-version-drift",
+      "example": "root package has no version while backend/footer/architecture report 2.0.0/1.1.2/1.1.0"
+    },
+    {
+      "severity": "unknown-boundary",
+      "class": "link-reachability",
+      "facts": "Local URL syntax passed; remote HTTP/feed/platform reachability was not tested"
+    }
+  ],
+  "technologyStack": {
+    "runtime": "Node.js >=22.12",
+    "backend": "Express 5",
+    "storage": "SQLite via better-sqlite3",
+    "frontend": "plain browser ES modules with generated HTML/CSS/JS",
+    "imageProcessing": ["sharp", "image-size"],
+    "feedAndHtmlProcessing": ["fast-xml-parser", "cheerio"],
+    "testing": ["Node test runner", "Playwright dependency", "structure/output tests"],
+    "optionalServices": ["Ollama/Mistral Archivist", "Cloudflare Turnstile", "Podcast Index", "Plausible injection"],
+    "deploymentAssumptions": ["Express static/API service", "reverse proxy/systemd definitions", "configured HTTPS site URL"],
+    "staticFirst": true,
+    "dynamicServerRenderedDetailRoutes": true,
+    "databaseMigrationsOnBackendStartup": true
+  },
+  "seoCapabilities": {
+    "sitemapUrls": 819,
+    "sitemapBreakdown": {
+      "static": 13,
+      "shows": 724,
+      "creators": 42,
+      "collections": 40
+    },
+    "generatedHtmlFilesInspected": 83,
+    "titleTags": 83,
+    "canonicalTags": 80,
+    "descriptions": 79,
+    "openGraphMetadata": 79,
+    "twitterMetadata": 79,
+    "robotsMetadata": 79,
+    "jsonLdFiles": 69,
+    "structuredDataTypes": [
+      "WebPage",
+      "PodcastSeries",
+      "BreadcrumbList",
+      "CollectionPage",
+      "ItemList",
+      "Organization",
+      "Person"
+    ],
+    "showStructuredDataIncludes": [
+      "genre",
+      "creator/producer names or entity relationships",
+      "inLanguage",
+      "sameAs listening/official links",
+      "datePublished",
+      "dateModified"
+    ],
+    "showStructuredDataDoesNotInclude": [
+      "first-class episode list",
+      "duration",
+      "aggregate listener rating",
+      "complete collection isPartOf list"
+    ],
+    "indexabilityRules": {
+      "publishedShows": "intended index/follow",
+      "collections": "title, description >=60 chars, >=4 resolved shows, every show reason >=20 chars",
+      "entities": "public/indexable plus enough linked published shows",
+      "queryFilterSortStates": "noindex/follow",
+      "apisMaintainerErrorsOffline": "private/noindex/blocked as applicable"
+    },
+    "robotsDisallows": ["/api/", "/maintainer/"],
+    "externalSearchEvidenceCollected": false
+  },
+  "discoveryMechanisms": [
+    {"name": "homepage start-here routes", "mode": "manual/static"},
+    {"name": "client-side search", "mode": "scored exact/partial/prefix/bounded-fuzzy"},
+    {"name": "structured filters", "mode": "deterministic AND across groups, OR within group"},
+    {"name": "curated collections", "mode": "manual"},
+    {"name": "similarity collections", "mode": "manual anchored routes"},
+    {"name": "rule-based collections", "mode": "bounded factual rules"},
+    {"name": "explicit show similarity", "mode": "directed authored edges with reasons"},
+    {"name": "creator/entity More from", "mode": "explicit typed links and role priority"},
+    {"name": "popular", "mode": "live community summaries, static score, fallback"},
+    {"name": "recently added", "mode": "catalog publication/update dates"},
+    {"name": "archive reviews and ratings", "mode": "manual decision support"},
+    {"name": "Archivist", "mode": "optional archive-grounded local AI, disabled by default"}
+  ],
+  "urlState": {
+    "homepage": {
+      "query": "q",
+      "collection": "collection",
+      "sort": ["default", "recently-updated"],
+      "repeatedFilters": ["genre", "tones", "formats", "tags", "bestFor", "completionStatus", "reviewStatus"]
+    },
+    "collectionsDirectory": {
+      "query": "q",
+      "intent": "intent",
+      "sort": ["editorial", "newest", "title", "shows", "rating", "popularity"],
+      "legacySortAlias": "updated -> newest"
+    },
+    "entityDirectory": {
+      "query": "q",
+      "type": ["all", "production-company", "studio", "network"],
+      "sort": ["name", "shows"]
+    },
+    "indexing": "query/filter/sort states are intended noindex/follow"
+  },
+  "recommendationSignals": [
+    "shared genre",
+    "shared tone",
+    "shared format",
+    "shared tag",
+    "shared theme",
+    "shared content note",
+    "shared bestFor listening context",
+    "shared language",
+    "shared narrator/structure/POV",
+    "shared source material",
+    "shared intensity",
+    "title/alias/full-text similarity",
+    "transcript availability",
+    "runtime and commitment",
+    "season/episode count",
+    "release/completion status",
+    "explicit similarTo",
+    "similarReasons",
+    "shared collection membership",
+    "collection kind and anchor",
+    "collection showReasons",
+    "archive rating and category ratings",
+    "reviewStatus",
+    "featured",
+    "archive take/review",
+    "typed creator/entity role",
+    "source verification status/date",
+    "objective source/provenance quality",
+    "research gaps",
+    "catalog freshness",
+    "Apple/Spotify/RSS/official-site availability",
+    "latest feed item",
+    "importer confidence",
+    "collection rule/semantic confidence",
+    "manual collection overrides",
+    "community rating count/average when threshold is met",
+    "listener review context/helpful votes"
+  ],
+  "operationalSnapshot": {
+    "databasePath": "backend/data/community.sqlite",
+    "readOnlyInspection": true,
+    "tableCounts": {
+      "app_migrations": 3,
+      "catalog_discovery_items": 0,
+      "catalog_discovery_jobs": 0,
+      "catalog_discovery_runs": 0,
+      "catalog_discovery_sources": 0,
+      "catalog_import_candidates": 1981,
+      "catalog_import_candidates_fts": 1981,
+      "catalog_import_events": 5412,
+      "catalog_import_field_evidence": 98048,
+      "catalog_import_identities": 5344,
+      "catalog_import_jobs": 2053,
+      "catalog_import_runs": 165,
+      "catalog_import_source_cache": 6545,
+      "catalog_import_sources": 7747,
+      "collection_candidates": 26,
+      "collection_events": 70,
+      "collection_membership_overrides": 0,
+      "collection_runs": 17,
+      "community_abuse_events": 20,
+      "community_profiles": 1,
+      "listener_review_helpful_votes": 0,
+      "podcasts": 724,
+      "published_listener_reviews": 0,
+      "rate_limit_events": 0,
+      "rating_events": 20,
+      "rating_submissions": 0,
+      "show_submissions": 0
+    },
+    "candidateStatusCounts": {
+      "needs-review": 1327,
+      "published": 637,
+      "rejected": 11,
+      "ready": 3,
+      "duplicate": 2,
+      "failed": 1
+    },
+    "candidateScopeCounts": {
+      "in-scope": 1254,
+      "borderline": 674,
+      "out-of-scope": 53
+    },
+    "candidateModeCounts": {
+      "create": 1836,
+      "update": 145
+    },
+    "candidatePrimarySourceTypeCounts": {
+      "backlog": 1828,
+      "title": 52,
+      "rss": 47,
+      "apple": 36,
+      "website": 18
+    },
+    "jobStatusCounts": {
+      "completed": 2050,
+      "failed": 3
+    },
+    "runStatusCounts": {
+      "completed": 162,
+      "failed": 3
+    },
+    "collectionCandidateCounts": {
+      "typeRule": 26,
+      "approved": 14,
+      "proposed": 12
+    },
+    "ruleMatchEvidence": {
+      "rows": 557,
+      "collections": 15,
+      "distinctShows": 358
+    },
+    "communityUsageBoundary": "Local operational artifact only; no production usage inference"
+  },
+  "performanceSnapshot": {
+    "bytes": {
+      "dataShowsJson": 14974496,
+      "dataSearchIndexJson": 1689209,
+      "dataCollectionsJson": 105480,
+      "dataEntitiesJson": 19253,
+      "scriptJs": 846,
+      "styleCss": 102718,
+      "homeCss": 86223,
+      "detailCss": 67809,
+      "collectionsCss": 43782,
+      "measuredGeneratedOutput": 17089816
+    },
+    "initialBrowseCards": 60,
+    "popularCards": 4,
+    "recentCards": 4,
+    "staticSearch": true,
+    "responsiveCoverVariants": true,
+    "measuredCoreWebVitals": false,
+    "measuredRealDevicePerformance": false,
+    "likelyColdLoadConstraint": "full shows/search JSON transfer and parse rather than entry script size"
+  },
+  "scalingLimits": {
+    "at1000Shows": [
+      "Current client-side model remains plausible",
+      "Payload and image work become more visible on mobile"
+    ],
+    "at2500Shows": [
+      "Full catalog/search payload becomes a meaningful first-load and memory cost",
+      "Identity resolution and collection review become regular queues"
+    ],
+    "at5000Shows": [
+      "Single JSON/search-index delivery becomes the main runtime constraint",
+      "Generated output, sitemap, and relationship coverage need prioritization"
+    ],
+    "at10000Shows": [
+      "Partitioned/paginated/search-backed delivery and incremental generation likely become necessary",
+      "Crawler/cache/source freshness and operational backup discipline become material"
+    ],
+    "humanScalingConstraints": [
+      "creator/entity deduplication",
+      "similarity reasoning",
+      "collection semantics",
+      "source freshness/status decisions",
+      "moderation",
+      "full-review production"
+    ]
+  },
+  "browserAudit": {
+    "browserUsed": "existing connected Brave surface",
+    "playwrightRunner": "not available because Chrome was not installed; no installation performed",
+    "desktopViewport": "1462x709",
+    "mobileViewport": "390x844",
+    "homepageDesktop": {
+      "heroHeightApprox": 430,
+      "initialArchiveCards": 60,
+      "quickFilterButtons": 7,
+      "popularCards": 4,
+      "recentCards": 4,
+      "featuredCollectionVisibleCardsIncludingCarouselClones": 18,
+      "similarityCollectionVisibleCardsIncludingCarouselClones": 18
+    },
+    "mobileNoHorizontalBodyOverflowAt390": true,
+    "mobileDrawer": {
+      "ariaExpandedWhenOpen": true,
+      "shellAriaHiddenWhenOpen": false,
+      "bodyScrollLocked": true,
+      "focusablesObserved": 16,
+      "escapeAndTabTrapImplemented": true
+    },
+    "representativeQueries": {
+      "derelict": {
+        "matches": 8,
+        "firstResults": [
+          "derelict",
+          "earth-eclipsed",
+          "solar",
+          "spectre",
+          "copperheart-a-riggstories-audio-drama",
+          "marsfall",
+          "the-program-audio-series",
+          "the-callisto-protocol-helix-station"
+        ]
+      },
+      "welcomNightVale": {
+        "matches": 8,
+        "firstResult": "welcome-to-night-vale"
+      },
+      "sciFi": {
+        "matches": 280,
+        "initialRendered": 60
+      },
+      "transcripts": {
+        "matches": 54
+      },
+      "xyzzy": {
+        "matches": 0,
+        "emptyStateActions": ["clear filters", "browse collections", "submit or correct a show"]
+      }
+    },
+    "representativeRoutes": [
+      "/",
+      "/collections",
+      "/collections/shows-like-midnight-burger",
+      "/shows/derelict",
+      "/shows/the-callisto-protocol-helix-station",
+      "/shows/the-rapscallion-agency",
+      "/creators",
+      "/creators/fool-and-scholar-productions",
+      "/creators/k-a-statz",
+      "/creators/travis-vengroff",
+      "/submit"
+    ],
+    "fullAccessibilityAuditPerformed": false
+  },
+  "validation": {
+    "focusedTestCommand": "node --test backend/test/seo.test.js backend/test/sitemap.test.js backend/test/submissions.test.js tools/test/seo-output.test.js tools/test/responsive-images.test.js",
+    "focusedTestsPassed": 32,
+    "focusedTestsFailed": 0,
+    "gitDiffCheckPassed": true,
+    "fullVerifyRun": false,
+    "catalogBuildRun": false,
+    "pageBuildRun": false,
+    "importUpdateJobsRun": false,
+    "databaseMigrationsRun": false,
+    "productionSystemsAccessed": false
+  },
+  "knownUnknowns": [
+    "production traffic, retention, search visibility, indexing, and listen conversion",
+    "live URL/feed/platform reachability",
+    "real community rating/review volume",
+    "actual analytics event collection",
+    "production deployment/routing/cache/security behavior",
+    "current competitor feature/traffic/SEO state",
+    "external keyword demand"
+  ],
+  "reportPath": "/Users/charliearnerstal/Documents/GitHub/The-Echo-Archives/ECHO_COMPREHENSIVE_AUDIT.md"
+}

@@ -10,23 +10,23 @@ const repositoryRoot = path.resolve(__dirname, "../..");
 const validCover = fs.readFileSync(path.join(repositoryRoot, "images/covers/archive-81.jpg"));
 const alternateCover = fs.readFileSync(path.join(repositoryRoot, "images/covers/alice-isnt-dead.jpg"));
 
-test("cover inspection sniffs raster bytes, dimensions, Apple quality, and stable SHA-256", () => {
-  const first = inspectCoverBuffer(validCover, "image/jpeg");
-  const second = inspectCoverBuffer(validCover, "image/jpeg");
+test("cover inspection sniffs raster bytes, dimensions, Apple quality, and stable SHA-256", async () => {
+  const first = await inspectCoverBuffer(validCover, "image/jpeg");
+  const second = await inspectCoverBuffer(validCover, "image/jpeg");
   assert.equal(first.width, 1200);
   assert.equal(first.height, 1200);
   assert.equal(first.echoPublishable, true);
   assert.equal(first.appleQuality, false);
   assert.equal(first.sha256, second.sha256);
-  assert.throws(() => inspectCoverBuffer(Buffer.from('<svg xmlns="http://www.w3.org/2000/svg"></svg>'), "image/svg+xml"), /SVG covers are unsupported/i);
-  assert.throws(() => inspectCoverBuffer(Buffer.from("icns\0\0\0\0\0\0\0\0"), "application/octet-stream"), /ICNS covers are unsupported/i);
-  assert.throws(() => inspectCoverBuffer(Buffer.from([0xff, 0x0a, 0, 0, 0, 0, 0, 0]), "application/octet-stream"), /JPEG XL covers are unsupported/i);
+  await assert.rejects(() => inspectCoverBuffer(Buffer.from('<svg xmlns="http://www.w3.org/2000/svg"></svg>'), "image/svg+xml"), /SVG covers are unsupported/i);
+  await assert.rejects(() => inspectCoverBuffer(Buffer.from("icns\0\0\0\0\0\0\0\0"), "application/octet-stream"), /ICNS covers are unsupported/i);
+  await assert.rejects(() => inspectCoverBuffer(Buffer.from([0xff, 0x0a, 0, 0, 0, 0, 0, 0]), "application/octet-stream"), /JPEG XL covers are unsupported/i);
   const heif = Buffer.alloc(16);
   heif.write("ftyp", 4, "ascii");
   heif.write("heic", 8, "ascii");
-  assert.throws(() => inspectCoverBuffer(heif, "application/octet-stream"), /HEIF covers are unsupported/i);
-  assert.throws(() => inspectCoverBuffer(Buffer.from("not an image"), "image/jpeg"), /corrupt|unsupported/i);
-  assert.throws(() => inspectCoverBuffer(validCover, "image/png"), /does not match/i);
+  await assert.rejects(() => inspectCoverBuffer(heif, "application/octet-stream"), /HEIF covers are unsupported/i);
+  await assert.rejects(() => inspectCoverBuffer(Buffer.from("not an image"), "image/jpeg"), /corrupt|unsupported/i);
+  await assert.rejects(() => inspectCoverBuffer(validCover, "image/png"), /does not match/i);
 });
 
 test("cover staging records source failures, replaces changed bytes, and retains one validated file", async () => {

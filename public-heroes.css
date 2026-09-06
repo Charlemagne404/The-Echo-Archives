@@ -199,6 +199,10 @@
 }
 
 @media (max-width: 560px) {
+  .home-page .hero-panel {
+    padding: 18px 16px 14px;
+  }
+
   .collections-hero-actions .collections-primary-action,
   .collections-hero-actions .collections-secondary-action,
   .creator-hero-actions .about-cta,

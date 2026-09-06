@@ -72,6 +72,18 @@
     padding: 20px;
     border-radius: 20px;
   }
+
+  .entity-faq .creator-faq-toggle {
+    padding: 17px 18px;
+  }
+
+  .entity-faq .creator-faq-answer {
+    padding: 18px;
+  }
+
+  .entity-faq .creator-faq-answer-inner {
+    padding: 14px 15px;
+  }
 }
 
 @media (max-width: 680px) {
@@ -154,6 +166,12 @@
   .entity-section-link {
     padding-top: 4px;
     font-size: 0.78rem;
+  }
+
+  .entity-directory-main .entity-results-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
   }
 }
 
@@ -243,6 +261,29 @@
     gap: 12px;
   }
 
+  .entity-faq {
+    padding: 20px 16px;
+    border-radius: 20px;
+  }
+
+  .entity-faq-heading p {
+    font-size: 0.86rem;
+  }
+
+  .entity-faq .creator-faq-toggle {
+    gap: 12px;
+    padding-inline: 16px;
+  }
+
+  .entity-faq .creator-faq-toggle-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .entity-faq .creator-faq-answer {
+    padding-inline: 16px;
+  }
+
   .entity-directory-main .entity-card > a {
     display: grid;
     grid-template-columns: minmax(112px, 34vw) minmax(0, 1fr);
@@ -292,6 +333,14 @@
     padding-top: 0;
   }
 
+  .entity-directory-main .entity-results-row {
+    gap: 0;
+  }
+
+  .entity-directory-main .entity-results-reset {
+    margin-top: -8px;
+  }
+
   .entity-directory-main .empty-state-card {
     padding: 18px;
   }
@@ -337,6 +386,8 @@
 @media (prefers-reduced-motion: reduce) {
   .entity-search-submit,
   .entity-arrow-icon,
+  .entity-faq-item,
+  .entity-faq .creator-faq-toggle-icon,
   .entity-directory-main .entity-card,
   .entity-directory-main .entity-card .entity-art img {
     transition: none;

@@ -11,7 +11,7 @@ const { hydrateCatalogSearch, scoreCatalog } = require("../../shared/archive-sea
 const { normalizeShowRecord } = require("../../shared/archive-record");
 const { getEntityShows, getPublicEntities, getPublicDirectoryEntities, resolveShowEntities, selectMoreFrom, renderEntityFacts, matchesEntityQuery, entityPath, showEntityStructuredData } = require("../../shared/archive-entities");
 const { buildSitemapEntries } = require("../lib/sitemap");
-const { renderEntityPage } = require("../lib/entity-page-render");
+const { buildEntityPageData, renderEntityPage } = require("../lib/entity-page-render");
 const { createShowPageMarkup } = require("../lib/show-page-render");
 
 const root = path.resolve(__dirname, "../..");
@@ -169,4 +169,37 @@ test("server renderer escapes data, uses Person or Organization and canonical en
   assert.equal(data.creator[0]["@type"], "Person");
   assert.equal(data.producer[0]["@type"], "Organization");
   assert.ok(data.producer[0]["@id"].endsWith("/creators/fool-and-scholar-productions#entity"));
+});
+
+test("creator SEO exposes unique intent, rich catalogue lists, social images, and review dates", () => {
+  const directory = buildEntityPageData({ entities, shows, siteUrl: "https://example.com" });
+  assert.equal(directory.metadata.title, "Audio Drama Creators & Production Companies | The Echo Archives");
+  assert.match(directory.metadata.description, /40 source-backed audio drama production companies/i);
+  assert.match(directory.metadata.description, /172 fiction podcast shows/i);
+  assert.match(directory.metadata.imageUrl, /images\/(?:generated\/covers|covers)\//);
+
+  const directoryList = directory.structuredData["@graph"].find((entry) => entry["@type"] === "ItemList");
+  assert.equal(directoryList.numberOfItems, 40);
+  assert.equal(directoryList.itemListOrder, "https://schema.org/ItemListOrderAscending");
+  assert.equal(directoryList.itemListElement[0].item["@type"], "Organization");
+  assert.equal(directoryList.itemListElement[0].item.sameAs[0], entities.find((entity) => entity.id === "7-lamb-productions").website);
+
+  const entity = entities.find((record) => record.id === "7-lamb-productions");
+  const detail = buildEntityPageData({ entity, entities, shows, collections: [], siteUrl: "https://example.com" });
+  assert.equal(detail.metadata.title, "7 Lamb Productions — Audio Drama Production Company | The Echo Archives");
+  assert.match(detail.metadata.description, /6 shows/i);
+  assert.match(detail.metadata.description, /Atlas Avenue Beat/i);
+  assert.match(detail.metadata.imageUrl, /images\/(?:generated\/covers|covers)\//);
+
+  const graph = detail.structuredData["@graph"];
+  const page = graph.find((entry) => entry["@type"] === "CollectionPage");
+  const list = graph.find((entry) => entry["@type"] === "ItemList");
+  const entityData = graph.find((entry) => entry["@type"] === "Organization");
+  assert.equal(page.mainEntity["@id"], "https://example.com/creators/7-lamb-productions#entity");
+  assert.equal(page.dateModified, entity.reviewedAt);
+  assert.equal(entityData.mainEntityOfPage["@id"], page["@id"]);
+  assert.equal(entityData.dateModified, entity.reviewedAt);
+  assert.equal(list.itemListElement.length, 6);
+  assert.equal(list.itemListElement[0].item["@type"], "PodcastSeries");
+  assert.match(list.itemListElement[0].item.description, /audio drama|podcast|detective/i);
 });
