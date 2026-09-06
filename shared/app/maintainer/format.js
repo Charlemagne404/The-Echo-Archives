@@ -135,6 +135,8 @@ export function getDetailSections(submission) {
           title: "Correction detail",
           rows: [
             ["Type", toDisplayTag(payload.correctionType || "metadata")],
+            ["Creator page", correctionDetails.creatorPageName || ""],
+            ["Creator page issue", toDisplayTag(correctionDetails.creatorPageIssue || "")],
             ["Action", toDisplayTag(correctionDetails.action || "")],
             ["Affected link", correctionDetails.affectedUrl || ""],
             ["Replacement link", correctionDetails.replacementUrl || ""],

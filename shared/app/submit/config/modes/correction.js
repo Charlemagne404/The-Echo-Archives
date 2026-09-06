@@ -1,7 +1,7 @@
 export const correctionModeConfig = {
-  heroDescription: "Help keep The Echo Archives accurate and complete. Submit a show, send a correction, share a listener review, or request creator verification.",
+  heroDescription: "Help keep The Echo Archives accurate and complete. Submit a show, correct a show or creator page, share a listener review, or request creator verification.",
   cardTitle: "Suggest a correction",
-  cardDescription: "Fix factual data on an existing entry.",
+  cardDescription: "Fix factual data on a show or creator page.",
   cardIcon: "mode-correction",
   introTitle: "Correction",
   introDescription: "Choose what is wrong and provide only the evidence that correction needs.",
@@ -9,7 +9,7 @@ export const correctionModeConfig = {
   submitLabel: "Submit correction",
   footerNote: "Next: evidence is checked against the current archive entry.",
   steps: [
-    { title: "Identify", body: "Select the entry and the exact kind of correction." },
+    { title: "Identify", body: "Select the show or creator page and the exact kind of correction." },
     { title: "Verify", body: "We check the supplied evidence against official sources." },
     { title: "Update", body: "Accepted factual changes are applied manually." },
   ],
@@ -27,7 +27,7 @@ export const correctionModeConfig = {
     {
       title: "Correction guidelines",
       icon: "clipboard",
-      description: "Use this form for factual metadata, links, credits, status, or artwork.",
+      description: "Use this form for factual show data, creator pages, links, credits, status, or artwork.",
       items: [
         { title: "Be specific", description: "Choose the closest correction type and proposed value.", icon: "pencil", accent: true },
         { title: "Use official sources", description: "Sources are required when the fact cannot be checked directly.", icon: "shield" },

@@ -24,8 +24,19 @@ export const CORRECTION_TYPE_OPTIONS = [
   { value: "metadata", label: "Metadata error" },
   { value: "status", label: "Status update" },
   { value: "credits", label: "Credit correction" },
+  { value: "creator-page", label: "Creator page" },
   { value: "artwork", label: "Artwork update" },
   { value: "other", label: "Other" },
+];
+
+export const CREATOR_PAGE_ISSUE_OPTIONS = [
+  { value: "missing-page", label: "Missing creator page" },
+  { value: "name-or-alias", label: "Name or alias" },
+  { value: "organization-type", label: "Organization type" },
+  { value: "show-connection", label: "Show connection" },
+  { value: "official-links", label: "Official links" },
+  { value: "description", label: "Description" },
+  { value: "other", label: "Other creator detail" },
 ];
 
 export const CORRECTION_LINK_ACTION_OPTIONS = [

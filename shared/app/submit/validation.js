@@ -31,7 +31,7 @@ function validateCorrection(draft) {
       buildSubmitControlId("sourceLinks"),
     );
   }
-  const sourceRequired = ["metadata", "status", "credits"].includes(draft.correctionType);
+  const sourceRequired = ["metadata", "status", "credits", "creator-page"].includes(draft.correctionType);
   if (sourceRequired && sourceLinks.length === 0) {
     return createValidationError(buildSubmitControlId("sourceLinks"), "Add at least one official source.");
   }
@@ -56,6 +56,11 @@ function validateCorrection(draft) {
       if (!draft.creditAction) return createValidationError("submitCreditAction", "Choose how the credit should change.");
       if (!draft.creditName) return createValidationError("submitCreditName", "Enter the person or organization.");
       if (!draft.creditRole) return createValidationError("submitCreditRole", "Enter the credit role.");
+      break;
+    case "creator-page":
+      if (!draft.creatorPageName) return createValidationError("submitCreatorPageName", "Creator, studio, network, or person is required.");
+      if (!draft.creatorPageIssue) return createValidationError("submitCreatorPageIssue", "Choose what needs updating.");
+      if (!draft.creatorPageProposedValue) return createValidationError("submitCreatorPageProposedValue", "Describe the factual creator-page update.");
       break;
     case "artwork":
       if (!isValidHttpUrl(draft.artworkUrl)) return createValidationError("submitArtworkUrl", "Enter a valid official artwork URL.");
@@ -137,7 +142,8 @@ export function validateDraft(mode, draft, showMap) {
   }
 
   const selectedShow = draft.existingShowId ? showMap.get(draft.existingShowId) || null : null;
-  if (!selectedShow) {
+  const canSubmitWithoutShow = mode === "correction" && draft.correctionType === "creator-page" && !draft.existingShowId;
+  if (!selectedShow && !canSubmitWithoutShow) {
     return createValidationError("submitExistingShowSearch", "Choose the existing archive entry for this submission.");
   }
 

@@ -90,6 +90,9 @@ export function createSubmitUiController({ state, elements }) {
     if (state.activeMode === "show") {
       params.delete("submissionType");
       params.delete("showId");
+      params.delete("entityId");
+      params.delete("entityName");
+      params.delete("correctionType");
     } else {
       params.set("submissionType", state.activeMode);
       const draft = getActiveDraft(state);
@@ -100,6 +103,17 @@ export function createSubmitUiController({ state, elements }) {
       } else {
         params.delete("showId");
       }
+
+      if (state.activeMode === "correction" && draft.correctionType === "creator-page") {
+        if (draft.creatorPageId) params.set("entityId", draft.creatorPageId);
+        else params.delete("entityId");
+        params.set("correctionType", "creator-page");
+      } else {
+        params.delete("entityId");
+        params.delete("entityName");
+        params.delete("correctionType");
+      }
+      params.delete("entityName");
     }
 
     const nextQuery = params.toString();

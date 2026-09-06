@@ -21,9 +21,9 @@
   --editorial-corner-left: clamp(8px, 3.6%, 12px);
   --editorial-ribbon-width: clamp(132px, 60%, 146px);
   --editorial-ribbon-height: clamp(25px, 9%, 29px);
-  --editorial-ribbon-grid-top: 61px;
-  --editorial-ribbon-grid-right: -25px;
-  --editorial-ribbon-top: var(--editorial-ribbon-grid-top);
+  --editorial-ribbon-grid-bottom: 0px;
+  --editorial-ribbon-grid-right: 0px;
+  --editorial-ribbon-bottom: var(--editorial-ribbon-grid-bottom);
   --editorial-ribbon-right: var(--editorial-ribbon-grid-right);
   --editorial-ribbon-angle: 39deg;
   --editorial-ribbon-tail-width: clamp(38px, 17%, 44px);
@@ -88,11 +88,12 @@
 }
 
 .home-page .editorial-badge-ribbon {
-  top: 10px;
-  right: 10px;
+  top: auto;
+  right: var(--editorial-ribbon-right);
+  bottom: var(--editorial-ribbon-bottom);
   z-index: 2;
   width: auto;
-  max-width: calc(100% - 20px);
+  max-width: 100%;
   min-width: 0;
   min-height: 26px;
   height: auto;
@@ -103,7 +104,7 @@
   overflow: hidden;
   isolation: isolate;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 4px;
+  border-radius: 4px 0 0 0;
   filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.32));
 }
 

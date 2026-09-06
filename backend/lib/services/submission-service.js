@@ -7,11 +7,13 @@ const OPEN_MODERATION_STATUSES = ["new", "in-review", "needs-follow-up"];
 const PRIORITIES = ["high", "normal", "low"];
 const PRIORITY_SET = new Set(PRIORITIES);
 const LISTENER_REVIEW_CATEGORY_KEYS = ["voiceActing", "soundDesign", "story", "characters", "ads", "length"];
-const CORRECTION_TYPES = new Set(["broken-link", "metadata", "status", "credits", "artwork", "other"]);
+const CORRECTION_TYPES = new Set(["broken-link", "metadata", "status", "credits", "creator-page", "artwork", "other"]);
 const CORRECTION_LINK_ACTIONS = new Set(["replace", "remove"]);
 const CORRECTION_CREDIT_ACTIONS = new Set(["add", "update", "remove"]);
 const CORRECTION_METADATA_FIELDS = new Set(["creator", "description", "release-date", "runtime", "language", "other"]);
 const CORRECTION_STATUSES = new Set(["ongoing", "completed", "hiatus", "returning", "anthology", "unknown"]);
+const CREATOR_PAGE_ISSUES = new Set(["missing-page", "name-or-alias", "organization-type", "show-connection", "official-links", "description", "other"]);
+const ENTITY_ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const VERIFICATION_METHODS = new Set(["official-domain-email", "website", "social-account", "press-kit", "other"]);
 const LEGAL_DOCUMENT_VERSION = "2026-08-20";
 const LINK_LABELS = {
@@ -226,6 +228,26 @@ function normalizeCorrectionDetails(correctionType, rawDetails = {}, sourceLinks
         role: requireText(details.role, "Enter the credit role.", 160),
       };
     }
+    case "creator-page": {
+      if (sourceLinks.length === 0) {
+        const error = new Error("Add an official source for this creator-page correction.");
+        error.statusCode = 400;
+        throw error;
+      }
+      const creatorPageIssue = CREATOR_PAGE_ISSUES.has(details.creatorPageIssue) ? details.creatorPageIssue : "";
+      if (!creatorPageIssue) {
+        const error = new Error("Choose what needs updating on the creator page.");
+        error.statusCode = 400;
+        throw error;
+      }
+      const creatorPageId = trimString(details.creatorPageId, 120);
+      return {
+        creatorPageName: requireText(details.creatorPageName, "Creator page name is required.", 160),
+        creatorPageIssue,
+        ...(creatorPageId && ENTITY_ID_PATTERN.test(creatorPageId) ? { creatorPageId } : {}),
+        proposedValue: requireText(details.proposedValue, "Describe the creator-page update.", 1000),
+      };
+    }
     case "artwork": {
       const credit = trimString(details.credit, 300);
       return {
@@ -351,14 +373,25 @@ function resolveExistingShowId(rawBody = {}) {
   return trimString(rawBody?.existingShowId, 120);
 }
 
+function isCreatorPageCorrection(rawBody = {}) {
+  return resolveSubmissionType(rawBody) === "correction" && trimString(rawBody?.correctionType, 80) === "creator-page";
+}
+
 function resolveShowTitle(rawBody = {}, existingShowId = "") {
-  const preferredTitle = trimString(rawBody?.showTitle, 160);
+  const creatorPageName = isCreatorPageCorrection(rawBody)
+    ? rawBody?.creatorPageName || rawBody?.correctionDetails?.creatorPageName
+    : "";
+  const preferredTitle = trimString(rawBody?.showTitle, 160) || trimString(creatorPageName, 160);
   if (preferredTitle) {
     return preferredTitle;
   }
 
   if (existingShowId) {
     return existingShowId;
+  }
+
+  if (isCreatorPageCorrection(rawBody)) {
+    return "Creator page correction";
   }
 
   const error = new Error("Show title is required.");
@@ -631,6 +664,8 @@ function createCorrectionSubmissionHandler({ store }) {
             ? `Status: ${correctionDetails.proposedStatus}`
             : correctionType === "credits"
               ? `${correctionDetails.action} ${correctionDetails.name} — ${correctionDetails.role}`
+              : correctionType === "creator-page"
+                ? `Creator page: ${correctionDetails.creatorPageName} — ${correctionDetails.proposedValue}`
               : correctionType === "artwork"
                 ? `Artwork: ${correctionDetails.artworkUrl}`
                 : correctionDetails.issue;
@@ -658,7 +693,7 @@ function createCorrectionSubmissionHandler({ store }) {
         submissionType: common.submissionType,
         existingShowId: common.existingShowId,
         showTitle: common.showTitle,
-        creatorName: "",
+        creatorName: correctionType === "creator-page" ? payload.correctionDetails?.creatorPageName || "" : "",
         contactEmail: common.contactEmail,
         officialSite: "",
         rssOrListenLink: "",
@@ -896,7 +931,10 @@ function createSubmissionService({
     rateLimiter?.check("submissions", common.sourceIp);
     validateCommonSubmissionFields(common, { requireLegalAcknowledgement });
 
-    if (common.submissionType !== "show") {
+    const creatorPageCorrectionWithoutShow = common.submissionType === "correction"
+      && trimString(rawBody?.correctionType, 80) === "creator-page"
+      && !common.existingShowId;
+    if (common.submissionType !== "show" && !creatorPageCorrectionWithoutShow) {
       ensureKnownShowId(effectiveKnownShowIds, common.submissionType, common.existingShowId);
       const knownShow = effectiveKnownShows.get(common.existingShowId);
       if (knownShow?.title) {

@@ -398,6 +398,38 @@ test("v2 corrections validate only the active subtype and store structured detai
   }
 });
 
+test("creator-page corrections can target a creator record without a show", () => {
+  const context = createTempSubmissionService({ knownShowIds: new Set(["impact-winter"]) });
+  const body = {
+    intakeVersion: 2,
+    submissionType: "correction",
+    correctionType: "creator-page",
+    correctionDetails: {
+      creatorPageId: "fool-and-scholar-productions",
+      creatorPageName: "Fool & Scholar Productions",
+      creatorPageIssue: "show-connection",
+      proposedValue: "Add The White Vault as a production-company connection.",
+    },
+    sourceLinks: ["https://www.foolandscholar.com/about"],
+    website: "",
+  };
+
+  try {
+    const result = submit(context, body, { sourceIp: "127.0.0.30" });
+    assert.equal(result.submission.existing_show_id, "");
+    assert.equal(result.submission.show_title, "Fool & Scholar Productions");
+    assert.equal(result.submission.creator_name, "Fool & Scholar Productions");
+    assert.deepEqual(result.submission.payload_json.correctionDetails, body.correctionDetails);
+    assert.deepEqual(result.submission.provenance_json, { sourceLinks: body.sourceLinks });
+    assert.throws(
+      () => submit(context, { ...body, sourceLinks: [] }, { sourceIp: "127.0.0.31" }),
+      /official source|creator-page/i,
+    );
+  } finally {
+    cleanupTempService(context);
+  }
+});
+
 test("listener review submissions normalize 5 stars into the 10-point score and keep optional fields", () => {
   const context = createTempSubmissionService({
     knownShowIds: new Set(["impact-winter"]),

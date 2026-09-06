@@ -690,7 +690,9 @@ async function startServer() {
 
     const sendEntityPage = (req, res, entity = null) => {
       const query = !entity && typeof req.query.q === "string" ? req.query.q.trim().slice(0, 200) : "";
-      let rendered = renderEntityPage(readPublicPageTemplate("creators.html"), { entity, entities: state.entities, shows: state.publicCatalog, collections: state.collections, siteUrl: config.SITE_URL, query });
+      const entityType = !entity && typeof req.query.type === "string" ? req.query.type.trim().slice(0, 40) : "";
+      const sort = !entity && typeof req.query.sort === "string" ? req.query.sort.trim().slice(0, 40) : "";
+      let rendered = renderEntityPage(readPublicPageTemplate("creators.html"), { entity, entities: state.entities, shows: state.publicCatalog, collections: state.collections, siteUrl: config.SITE_URL, query, entityType, sort });
       if (Object.keys(req.query).length || (entity && !isIndexableEntity(entity, state.publicCatalog))) {
         res.set("X-Robots-Tag", "noindex, follow, noarchive");
         rendered = injectNoIndex(rendered, { follow: true });

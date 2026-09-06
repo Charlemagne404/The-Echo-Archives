@@ -1,4 +1,5 @@
 import {
+  CORRECTION_TYPE_OPTIONS,
   LISTEN_LINK_OPTIONS,
   MODE_CONFIG,
   MODES_WITH_EXISTING_SHOW,
@@ -11,6 +12,22 @@ export function seedStateFromParams(state) {
   const requestedMode = params.get("submissionType");
   if (requestedMode && Object.prototype.hasOwnProperty.call(MODE_CONFIG, requestedMode)) {
     state.activeMode = requestedMode;
+  }
+
+  const requestedCorrectionType = params.get("correctionType");
+  if (
+    state.activeMode === "correction" &&
+    CORRECTION_TYPE_OPTIONS.some(({ value }) => value === requestedCorrectionType)
+  ) {
+    state.drafts.correction.correctionType = requestedCorrectionType;
+  }
+
+  const requestedEntityId = params.get("entityId") || "";
+  const requestedEntityName = params.get("entityName") || "";
+  if (state.activeMode === "correction" && (requestedEntityId || requestedEntityName)) {
+    const correctionDraft = state.drafts.correction;
+    if (requestedEntityId) correctionDraft.creatorPageId = requestedEntityId;
+    if (requestedEntityName) correctionDraft.creatorPageName = requestedEntityName;
   }
 
   const requestedShowId = params.get("showId");
@@ -57,6 +74,10 @@ export function createDraft(mode) {
         existingShowId: "",
         showSearch: "",
         correctionType: "broken-link",
+        creatorPageId: "",
+        creatorPageName: "",
+        creatorPageIssue: "missing-page",
+        creatorPageProposedValue: "",
         linkAction: "replace",
         affectedUrl: "",
         replacementUrl: "",

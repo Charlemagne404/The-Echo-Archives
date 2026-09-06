@@ -121,6 +121,7 @@ const ENTRY_ASSETS = {
   "entity-directory.css": () => renderCssBundle([
     "shared/styles/home/entity-directory.css",
     "shared/styles/home/entity-directory-root-responsive.css",
+    "shared/styles/home/entity-detail.css",
   ]),
   "creators.css": () => renderCssBundle([
     "shared/styles/home/creators.css",

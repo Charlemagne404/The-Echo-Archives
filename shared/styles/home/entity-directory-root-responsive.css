@@ -6,6 +6,10 @@
 }
 
 @media (max-width: 959px) {
+  .entity-directory-page {
+    overflow-x: clip;
+  }
+
   .entity-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -20,6 +24,12 @@
 
   .entity-directory-main .entity-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1180px) and (min-width: 960px) {
+  .entity-directory-main .entity-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -50,7 +60,7 @@
 
   .entity-directory-main .entity-trust-grid {
     gap: 10px 14px;
-    padding: 10px 2px 0;
+    padding: 12px 2px 0;
   }
 
   .entity-directory-main .entity-trust-grid .archive-trust-item {
@@ -89,6 +99,38 @@
 
   .entity-directory-main .entity-featured-route {
     flex: 1 1 180px;
+  }
+
+  .entity-directory-main .entity-directory-controls {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .entity-directory-main .entity-filter-options {
+    flex-wrap: nowrap;
+    margin-inline: -4px;
+    padding-inline: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .entity-directory-main .entity-filter-options::-webkit-scrollbar {
+    display: none;
+  }
+
+  .entity-directory-main .entity-filter-button {
+    flex: 0 0 auto;
+  }
+
+  .entity-directory-main .entity-sort-field {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .entity-directory-main .entity-sort-field select {
+    flex: 1;
+    text-align: right;
   }
 
   .entity-explore-section {
@@ -151,6 +193,7 @@
   }
 
   .entity-search-control {
+    grid-template-columns: minmax(0, 1fr);
     gap: 8px !important;
   }
 
@@ -164,6 +207,7 @@
   }
 
   .entity-directory-main .entity-search-submit {
+    width: 100%;
     min-height: 56px;
     padding: 0 14px;
     border-radius: 13px;
@@ -173,9 +217,25 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .entity-directory-main .entity-trust-grid .archive-trust-item {
+    padding-inline: 12px;
+  }
+
+  .entity-directory-main .entity-trust-grid .archive-trust-item:first-child {
+    padding-left: 0;
+  }
+
   .entity-directory-main .entity-trust-grid .entity-trust-updated {
     grid-column: 1 / -1;
-    justify-content: flex-start;
+    margin-top: 2px;
+    padding-top: 10px;
+    padding-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 0;
+  }
+
+  .entity-directory-main .entity-trust-grid .archive-trust-item span {
+    letter-spacing: 0.08em;
   }
 
   .entity-directory-main .entity-grid {
@@ -276,8 +336,55 @@
 
 @media (prefers-reduced-motion: reduce) {
   .entity-search-submit,
+  .entity-arrow-icon,
   .entity-directory-main .entity-card,
   .entity-directory-main .entity-card .entity-art img {
     transition: none;
+  }
+}
+
+/* Keep the creator directory's shared header usable at its smallest smoke-test width. */
+@media (min-width: 960px) and (max-width: 1280px) {
+  .entity-directory-page .site-header {
+    column-gap: 24px;
+  }
+
+  .entity-directory-page .site-brand img {
+    transform: scale(1.14);
+  }
+
+  .entity-directory-page .site-nav {
+    gap: 26px;
+  }
+}
+
+@media (max-width: 360px) {
+  .entity-directory-page .site-header {
+    column-gap: 8px;
+  }
+
+  .entity-directory-page .site-brand {
+    width: min(100%, 166px);
+    margin-left: 12px;
+  }
+
+  .entity-directory-page .site-brand img {
+    transform: scale(1.02);
+  }
+
+  .entity-directory-page .site-nav-toggle {
+    min-height: 42px;
+    gap: 8px;
+    padding-inline: 10px;
+    margin-right: 10px;
+  }
+
+  .entity-directory-page .site-nav-toggle-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.11em;
+  }
+
+  .entity-directory-page .site-nav-toggle-icon span {
+    width: 16px;
   }
 }

@@ -49,8 +49,17 @@ test.after(async () => {
 test("Ask the Archivist and the remade submit page interactions work across modes", async () => {
   const context = await browser.newContext({ serviceWorkers: "block" });
   const page = await context.newPage();
+  let creatorSubmissionPayload = null;
 
   try {
+    await page.route("**/api/submissions/shows", async (route) => {
+      creatorSubmissionPayload = JSON.parse(route.request().postData() || "{}");
+      await route.fulfill({
+        status: 202,
+        contentType: "application/json",
+        body: JSON.stringify({ accepted: true, submissionId: "creator-correction-smoke" }),
+      });
+    });
     await page.route("**/api/submissions/shows/*/context", async (route) => {
       const showId = new URL(route.request().url()).pathname.split("/").at(-2);
       const show = showFixtures.find((entry) => entry.id === showId);
@@ -429,6 +438,48 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     assert.equal(formState.existingShowId, "impact-winter");
     assert.equal(formState.showSearch, "Impact Winter");
     assert.equal(formState.currentShowTitle, "Impact Winter");
+
+    await page.goto(
+      `${baseUrl}/submit?submissionType=correction&correctionType=creator-page&entityId=fool-and-scholar-productions&entityName=${encodeURIComponent("Fool & Scholar Productions")}`,
+      { waitUntil: "networkidle" },
+    );
+    await page.locator("#submitCreatorPageName").waitFor();
+    formState = await page.evaluate(() => ({
+      submissionType: document.getElementById("submissionType")?.value || "",
+      correctionType: document.getElementById("submitCorrectionType")?.value || "",
+      creatorPageName: document.getElementById("submitCreatorPageName")?.value || "",
+      creatorPageIssue: document.getElementById("submitCreatorPageIssue")?.value || "",
+      creatorPageDetailsVisible: Boolean(document.getElementById("submitCreatorPageProposedValue")),
+      relatedShowRequired: document.getElementById("submitExistingShowSearch")?.required || false,
+      sourceLabel: document.querySelector('[data-field-shell="submitSourceLinks"] .submit-field-label')?.textContent?.trim() || "",
+      entityId: new URL(window.location.href).searchParams.get("entityId") || "",
+      entityName: new URL(window.location.href).searchParams.get("entityName") || "",
+    }));
+    assert.equal(formState.submissionType, "correction");
+    assert.equal(formState.correctionType, "creator-page");
+    assert.equal(formState.creatorPageName, "Fool & Scholar Productions");
+    assert.equal(formState.creatorPageIssue, "missing-page");
+    assert.equal(formState.creatorPageDetailsVisible, true);
+    assert.equal(formState.relatedShowRequired, false);
+    assert.match(formState.sourceLabel, /Official source/);
+    assert.equal(formState.entityId, "fool-and-scholar-productions");
+    assert.equal(formState.entityName, "");
+
+    await page.locator("#submitCreatorPageProposedValue").fill("Add The White Vault as a production-company connection.");
+    await page.locator('[data-link-list="sourceLinks"][data-link-part="url"]').fill("https://www.foolandscholar.com/about");
+    await page.locator("#submitLegalAcknowledgement").check();
+    await page.locator("#submitPrimaryButton").click();
+    await page.locator("#submitResultPanel h2").waitFor();
+    assert.equal(creatorSubmissionPayload?.correctionType, "creator-page");
+    assert.equal(creatorSubmissionPayload?.existingShowId, "");
+    assert.equal(creatorSubmissionPayload?.showTitle, "Fool & Scholar Productions");
+    assert.deepEqual(creatorSubmissionPayload?.correctionDetails, {
+      creatorPageId: "fool-and-scholar-productions",
+      creatorPageName: "Fool & Scholar Productions",
+      creatorPageIssue: "missing-page",
+      proposedValue: "Add The White Vault as a production-company connection.",
+    });
+    assert.deepEqual(creatorSubmissionPayload?.sourceLinks, ["https://www.foolandscholar.com/about"]);
 
     await page.goto(`${baseUrl}/submit?submissionType=listener-review&showId=impact-winter`, {
       waitUntil: "networkidle",

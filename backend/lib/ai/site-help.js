@@ -179,7 +179,7 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
     case "submission":
       return {
         answer:
-          "The submit page has four forms: new show, correction, listener review, and creator verification. Nothing auto-publishes, and every submission is manually reviewed before it affects the archive.",
+          "The submit page has four forms: new show, show or creator-page correction, listener review, and creator verification. Nothing auto-publishes, and every submission is manually reviewed before it affects the archive.",
         actions: [siteHelpContext.routes.submit],
         suggestedPrompts: [
           "How do I submit a correction?",
@@ -384,10 +384,12 @@ function buildCorrectionResponse(show, siteHelpContext, supportContext) {
     "The correction form is the right place for this.",
     "This is handled through Submit as a correction.",
   ]);
-  const showSentence = show ? `Select ${show.title} so the review queue lands on the right entry.` : "Pick the archive entry if it already exists.";
+  const showSentence = show
+    ? `Select ${show.title} so the review queue lands on the right entry.`
+    : "Pick the archive entry if it already exists, or choose the creator-page correction for a creator, studio, network, or person record.";
   const followUpSentence = supportContext.hasFollowUp
     ? "If you already sent one and the public entry still looks wrong, follow up through contact with the title and the exact field or URL so it can be checked directly."
-    : "Include the exact field that is wrong and a source when you can so the review pass can move faster.";
+    : "Include the exact field or creator-page detail that is wrong and a source when you can so the review pass can move faster.";
 
   return {
     answer: joinSentences([

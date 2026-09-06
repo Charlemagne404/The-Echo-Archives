@@ -34,6 +34,9 @@ export function captureCurrentDraft(state, elements) {
       draft.creditAction = readPresentValue("submitCreditAction", draft.creditAction);
       draft.creditName = readPresentValue("submitCreditName", draft.creditName);
       draft.creditRole = readPresentValue("submitCreditRole", draft.creditRole);
+      draft.creatorPageName = readPresentValue("submitCreatorPageName", draft.creatorPageName);
+      draft.creatorPageIssue = readPresentValue("submitCreatorPageIssue", draft.creatorPageIssue);
+      draft.creatorPageProposedValue = readPresentValue("submitCreatorPageProposedValue", draft.creatorPageProposedValue);
       draft.artworkUrl = readPresentValue("submitArtworkUrl", draft.artworkUrl);
       draft.artworkCredit = readPresentValue("submitArtworkCredit", draft.artworkCredit);
       draft.otherIssue = readPresentValue("submitOtherIssue", draft.otherIssue);

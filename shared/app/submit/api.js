@@ -30,6 +30,13 @@ function buildCorrectionDetails(draft) {
       };
     case "credits":
       return { action: draft.creditAction, name: draft.creditName, role: draft.creditRole };
+    case "creator-page":
+      return {
+        creatorPageName: draft.creatorPageName,
+        creatorPageIssue: draft.creatorPageIssue,
+        ...(draft.creatorPageId ? { creatorPageId: draft.creatorPageId } : {}),
+        proposedValue: draft.creatorPageProposedValue,
+      };
     case "artwork":
       return {
         artworkUrl: draft.artworkUrl,
@@ -71,7 +78,7 @@ export function buildPayload(mode, draft, showMap) {
       intakeVersion: 2,
       submissionType: "correction",
       existingShowId: draft.existingShowId,
-      showTitle: selectedShow?.title || draft.showSearch,
+      showTitle: selectedShow?.title || (draft.correctionType === "creator-page" ? draft.creatorPageName : draft.showSearch),
       contactEmail: draft.contactEmail,
       notes: draft.optionalNotes,
       correctionType: draft.correctionType,

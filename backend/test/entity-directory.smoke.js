@@ -6,13 +6,17 @@ const { setupSmoke, teardownSmoke, getSmokeContext, waitForAppReady } = require(
 const { readCatalogSource } = require("../../tools/lib/catalog-source");
 const { loadEntities } = require("../lib/entities");
 const { normalizeShowRecord } = require("../../shared/archive-record");
-const { getPublicDirectoryEntities, isIndexableEntity, resolveShowEntities } = require("../../shared/archive-entities");
+const { getEntityShows, getPublicDirectoryEntities, isIndexableEntity, resolveShowEntities } = require("../../shared/archive-entities");
 
 const root = path.resolve(__dirname, "../..");
 const source = readCatalogSource(root);
 const entities = loadEntities(root, source.shows);
 const shows = source.shows.map((show) => normalizeShowRecord({ ...show, resolvedEntities: resolveShowEntities(show, entities) }));
-const expectedDirectoryCards = getPublicDirectoryEntities(entities, shows).length;
+const publicDirectoryEntities = getPublicDirectoryEntities(entities, shows);
+const expectedDirectoryCards = publicDirectoryEntities.length;
+const expectedNetworkCards = publicDirectoryEntities.filter((entity) => entity.type === "network").length;
+const expectedMostConnectedEntity = [...publicDirectoryEntities]
+  .sort((a, b) => (getEntityShows(b.id, shows).length - getEntityShows(a.id, shows).length) || a.name.localeCompare(b.name, "en"))[0].name;
 const expectedIndexableEntities = entities.filter((entity) => isIndexableEntity(entity, shows)).length;
 
 let browser;
@@ -38,6 +42,14 @@ for (const width of [1440, 1024, 768, 390, 320]) {
       assert.equal(await page.locator(".entity-card").count(), expectedDirectoryCards);
       assert.equal(await page.locator('.entity-card[data-entity-id="k-a-statz"]').count(), 0);
       assert.equal(await page.locator('.entity-card[data-entity-id="travis-vengroff"]').count(), 0);
+      assert.equal(await page.locator("#entityEmpty").isVisible(), false);
+      assert.equal(await page.locator(".entity-filter-button").count(), 4);
+      assert.equal(await page.locator("#entitySort").inputValue(), "name");
+      await page.locator('[data-entity-filter="network"]').click();
+      assert.equal(await page.locator(".entity-card:visible").count(), expectedNetworkCards);
+      await page.locator("#entitySort").selectOption("shows");
+      assert.equal(await page.locator(".entity-card:visible h2").first().innerText(), expectedMostConnectedEntity);
+      await page.locator('[data-entity-filter="all"]').click();
       assert.ok((await page.getByRole("searchbox").boundingBox()).width > 100);
       assert.equal(await page.locator("h1").innerText(), "Meet the makers behind the stories");
       const nav = width < 960 ? ".site-mobile-primary-nav" : ".site-nav";
@@ -88,6 +100,9 @@ test("creator pages and search work without JavaScript; unknown and alias routes
     assert.match(await page.locator('link[rel="canonical"]').getAttribute("href"), /\/creators\/fool-and-scholar-productions$/);
     await page.goto(`${baseUrl}/creators?q=7%20Lamb`);
     assert.equal(await page.locator(".entity-card:visible").count(), 1);
+    await page.goto(`${baseUrl}/creators?type=network&sort=shows`);
+    assert.equal(await page.locator(".entity-card:visible").count(), expectedNetworkCards);
+    assert.equal(await page.locator(".entity-card:visible h2").first().innerText(), expectedMostConnectedEntity);
     const response = await fetch(`${baseUrl}/creators/buzzsprout`);
     assert.equal(response.status, 404);
     assert.match(response.headers.get("x-robots-tag"), /noindex/);

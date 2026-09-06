@@ -1,5 +1,6 @@
 import {
   COMPLETION_STATUS_OPTIONS,
+  CREATOR_PAGE_ISSUE_OPTIONS,
   CORRECTION_CREDIT_ACTION_OPTIONS,
   CORRECTION_LINK_ACTION_OPTIONS,
   CORRECTION_METADATA_FIELD_OPTIONS,
@@ -9,6 +10,39 @@ import { renderExistingShowField } from "../choice-fields.js";
 import { renderLinkListField } from "../link-fields.js";
 import { renderFormRow, renderSelectField, renderTextInputField, renderTextareaField } from "../base-fields.js";
 import { renderShowContext } from "../supporting.js";
+
+function renderCreatorPageDetails(draft) {
+  return [
+    renderFormRow([
+      renderTextInputField({
+        id: "submitCreatorPageName",
+        label: "Creator, studio, network, or person",
+        required: true,
+        value: draft.creatorPageName,
+        maxLength: 160,
+        placeholder: "e.g., Fool & Scholar Productions",
+      }),
+      renderSelectField({
+        id: "submitCreatorPageIssue",
+        label: "What needs updating?",
+        required: true,
+        value: draft.creatorPageIssue,
+        options: CREATOR_PAGE_ISSUE_OPTIONS,
+      }),
+    ]),
+    renderTextareaField({
+      id: "submitCreatorPageProposedValue",
+      label: "What should the creator page say or connect?",
+      required: true,
+      value: draft.creatorPageProposedValue,
+      maxLength: 1000,
+      rows: 4,
+      helper: "Describe the factual change. For a missing connection, include the show title and relationship.",
+      placeholder: "e.g., Add this show under the studio’s catalog or correct the organization type.",
+      short: true,
+    }),
+  ].join("");
+}
 
 function renderCorrectionDetails(draft) {
   switch (draft.correctionType) {
@@ -106,6 +140,8 @@ function renderCorrectionDetails(draft) {
           }),
         ]),
       ].join("");
+    case "creator-page":
+      return renderCreatorPageDetails(draft);
     case "artwork":
       return renderFormRow([
         renderTextInputField({
@@ -152,13 +188,16 @@ function renderCorrectionDetails(draft) {
 }
 
 export function renderCorrectionMode(draft, context) {
-  const sourceRequired = ["metadata", "status", "credits"].includes(draft.correctionType);
+  const creatorPageCorrection = draft.correctionType === "creator-page";
+  const sourceRequired = ["metadata", "status", "credits", "creator-page"].includes(draft.correctionType);
   return [
     renderExistingShowField({
-      label: "Existing archive entry / show",
-      required: true,
+      label: creatorPageCorrection ? "Related show (optional)" : "Existing archive entry / show",
+      required: !creatorPageCorrection,
       value: draft.showSearch,
-      helper: "Search and select the archive entry to correct.",
+      helper: creatorPageCorrection
+        ? "Select a show only when this creator-page report concerns a specific connection."
+        : "Search and select the archive entry to correct.",
       searchResults: context.searchResults,
       searchOpen: context.searchOpen,
       selectedShowId: draft.existingShowId,
