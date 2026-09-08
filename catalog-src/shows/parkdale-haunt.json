@@ -1,0 +1,433 @@
+{
+  "id": "parkdale-haunt",
+  "title": "Parkdale Haunt",
+  "subtitle": "",
+  "description": "Parkdale Haunt is an award-winning horror fiction podcast about friendship, ghosts, cults, family, and the nightmare that is real estate in Toronto.",
+  "cover": "images/covers/parkdale-haunt.jpg",
+  "coverAlt": "Parkdale Haunt cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "https://parkdalehaunt.com/",
+    "spotify": "https://open.spotify.com/show/6hfxah5I0URgwr67uVhnpN",
+    "apple": "https://podcasts.apple.com/podcast/parkdale-haunt/id1532573147",
+    "website": "https://parkdalehaunt.com/",
+    "rss": "https://feeds.megaphone.fm/SBP6646870521",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "horror",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Ghosts",
+    "Cults",
+    "Family",
+    "Investigation"
+  ],
+  "aliases": [
+    "Parkdale Haunt"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "3 seasons observed • at least 74 full episodes",
+    "seasons": 3,
+    "episodes": 74,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 0,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2020-09-18",
+    "latest": "2021-09-27",
+    "latestFeedItem": "",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://parkdalehaunt.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Emily Kellogg & Alex Nursall"
+  },
+  "creators": [
+    "Emily Kellogg & Alex Nursall"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://parkdalehaunt.com/about/; https://parkdalehaunt.com/; https://feeds.megaphone.fm/SBP6646870521; https://podcasts.apple.com/podcast/parkdale-haunt/id1532573147; https://open.spotify.com/show/6hfxah5I0URgwr67uVhnpN",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "researchGaps": [
+      "current Apple listing uses the related Woodbine title for the same feed identity"
+    ],
+    "objectiveSources": [
+      "https://parkdalehaunt.com/about/",
+      "https://parkdalehaunt.com/",
+      "https://feeds.megaphone.fm/SBP6646870521",
+      "https://podcasts.apple.com/podcast/parkdale-haunt/id1532573147",
+      "https://open.spotify.com/show/6hfxah5I0URgwr67uVhnpN"
+    ],
+    "sourceCategories": [
+      "Horror",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Ghosts",
+      "Cults",
+      "Family",
+      "Investigation"
+    ],
+    "importOfficialSummary": "Parkdale Haunt is an award-winning horror fiction podcast about friendship, ghosts, cults, family, and the nightmare that is real estate in Toronto.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "unknown"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "",
+      "explicit": "",
+      "license": {},
+      "productionLocation": "",
+      "country": "",
+      "sourceFormat": "",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "spotify:show:6hfxah5I0URgwr67uVhnpN",
+        "rssUrl": "https://feeds.megaphone.fm/SBP6646870521",
+        "appleCollectionId": "1532573147",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://parkdalehaunt.com/about/",
+          "fetchedAt": "2026-09-06T17:38:48.097Z",
+          "payloadHash": "ef9db30521cd499732f9e87fc5c4ba5780f63270e7ebb53c866b9ec003f81f3d"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://parkdalehaunt.com/",
+          "fetchedAt": "2026-09-06T17:38:48.090Z",
+          "payloadHash": "e5315b18372875880e1f5f07d29046e327829431ffacd517c0827e7c34442010"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://parkdalehaunt.com/",
+          "https://parkdalehaunt.com/about/",
+          "https://feeds.megaphone.fm/SBP6646870521",
+          "https://podcasts.apple.com/podcast/parkdale-haunt/id1532573147",
+          "https://open.spotify.com/show/6hfxah5I0URgwr67uVhnpN"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://parkdalehaunt.com/",
+            "https://parkdalehaunt.com/about/",
+            "https://feeds.megaphone.fm/SBP6646870521",
+            "https://podcasts.apple.com/podcast/parkdale-haunt/id1532573147",
+            "https://open.spotify.com/show/6hfxah5I0URgwr67uVhnpN"
+          ],
+          "tags": [
+            "https://parkdalehaunt.com/",
+            "https://parkdalehaunt.com/about/",
+            "https://feeds.megaphone.fm/SBP6646870521",
+            "https://podcasts.apple.com/podcast/parkdale-haunt/id1532573147",
+            "https://open.spotify.com/show/6hfxah5I0URgwr67uVhnpN"
+          ],
+          "formats": [
+            "https://parkdalehaunt.com/",
+            "https://parkdalehaunt.com/about/",
+            "https://feeds.megaphone.fm/SBP6646870521",
+            "https://podcasts.apple.com/podcast/parkdale-haunt/id1532573147",
+            "https://open.spotify.com/show/6hfxah5I0URgwr67uVhnpN"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [
+          "current Apple listing uses the related Woodbine title for the same feed identity"
+        ],
+        "reviewedAt": "2026-09-06T18:04:39.408Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://parkdalehaunt.com/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://parkdalehaunt.com/about/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP6646870521"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/podcast/parkdale-haunt/id1532573147"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://open.spotify.com/show/6hfxah5I0URgwr67uVhnpN"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://parkdalehaunt.com/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://parkdalehaunt.com/about/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP6646870521"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/podcast/parkdale-haunt/id1532573147"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://open.spotify.com/show/6hfxah5I0URgwr67uVhnpN"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://parkdalehaunt.com/",
+            "https://parkdalehaunt.com/about/",
+            "https://feeds.megaphone.fm/SBP6646870521",
+            "https://podcasts.apple.com/podcast/parkdale-haunt/id1532573147",
+            "https://open.spotify.com/show/6hfxah5I0URgwr67uVhnpN"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.408Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "b73bd6c6bcac603ad8761b7807c66aaf72452a4ed21f53c302cb108adbe78cd7",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "ffcdcfaabf8b7c406eef58457125567417458c1d6fef426cad8cdaa51a7307cf",
+        "cover": "bfbe31569eaa6105262f8db3162f61ea1d26ac72a4e2bf30cb58d049edd48bc9",
+        "coverAlt": "fc764f111cee5b38aada0b8b8dfc7674f7642caed28eda38f99b14d0fad09dc5",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "192a699ab8bbf3a3cb2b0476bc56b1e8caaa1a7925ab20e62474b6287d4ad364",
+        "officialLinks": "389e07f6f145df7ded2f33376d906224f270861cf61541aefdc14a9bf8aae687",
+        "genres": "ca708709556b9533a5207d1a5f1af748835a0f93996ba8b4fe0b9c9068152c6b",
+        "tags": "f3fbfcbe560c969ee29c710d001883a68ac477728eb1107c80ce0850293c5f69",
+        "formats": "cac7054adac8479df74d007699fab6e2e2bbf2534320b56671e91d4b4e5b2d55",
+        "aliases": "fa48c63e3b597ec1a4d6192202b11c8cf244ccb57617a1eecca29f57cab44347",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "c1b961253b9e5d4ed3b918317773a30e38d94f9b665772fd33e53a59de30d065",
+        "releaseDates": "7fff51a02b87ca78bce35e841106340de784af8aa58cc82efbd48cb2476fd728",
+        "credits": "57b0a547738c96f9f2810a7320c128f8efe489859402b9551246961bcdd4ccd2",
+        "creators": "ee1b066c2c39e9866cf2bc3b298a77c7419921f55488e112fd6202afb5776036",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "894460fa43125d1a3e47188a7ad28fc89b0648b5912ea33b803b46991d914d6d"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.513Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.468Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "emily-kellogg-alex-nursall"
+}

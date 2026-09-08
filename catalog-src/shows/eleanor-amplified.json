@@ -1,0 +1,420 @@
+{
+  "id": "eleanor-amplified",
+  "title": "Eleanor Amplified",
+  "subtitle": "Eleanor Amplified",
+  "description": "Eleanor Amplified is an adventure series for the whole family. The world-famous radio reporter Eleanor foils devious plots and outwits crafty villains in pursuit of the big story, while sparking conversation about journalism and media choices.",
+  "cover": "images/covers/eleanor-amplified.jpg",
+  "coverAlt": "Eleanor Amplified cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "start": "https://whyy.org/programs/eleanor-amplified",
+    "spotify": "https://open.spotify.com/show/58HKVCN7lkxqFTDsdYRlJK",
+    "apple": "https://podcasts.apple.com/us/podcast/eleanor-amplified/id1125007560?uo=4",
+    "website": "https://whyy.org/programs/eleanor-amplified",
+    "rss": "https://whyy.org/wp-content/uploads/rss/eleanor.rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "adventure",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized",
+    "full-cast"
+  ],
+  "tags": [
+    "Adventure",
+    "Investigation",
+    "Family"
+  ],
+  "aliases": [
+    "Eleanor Amplified"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "4 seasons observed • at least 51 full episodes • 14 min median",
+    "seasons": 4,
+    "episodes": 51,
+    "medianEpisodeMinutes": 14,
+    "minEpisodeMinutes": 2,
+    "maxEpisodeMinutes": 152,
+    "totalObservedHours": 19,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 51,
+      "bonus": 3,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2016-06-15",
+    "latest": "2020-09-23",
+    "latestFeedItem": "2021-09-20",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://whyy.org/programs/eleanor-amplified",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/channel/UCMY4Z-J2HERv_dEt0wrSATw",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "WHYY",
+    "ownerName": "WHYY"
+  },
+  "creators": [
+    "WHYY"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://whyy.org/programs/eleanor-amplified; https://whyy.org/wp-content/uploads/rss/eleanor.rss; https://podcasts.apple.com/us/podcast/eleanor-amplified/id1125007560?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://whyy.org/programs/eleanor-amplified",
+      "https://whyy.org/wp-content/uploads/rss/eleanor.rss",
+      "https://podcasts.apple.com/us/podcast/eleanor-amplified/id1125007560?uo=4"
+    ],
+    "sourceCategories": [
+      "Adventure",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Adventure",
+      "Investigation",
+      "Family"
+    ],
+    "importOfficialSummary": "Eleanor Amplified is an adventure series for the whole family. The world-famous radio reporter Eleanor foils devious plots and outwits crafty villains in pursuit of the big story, while sparking conversation about journalism and media choices.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "",
+      "explicit": "Clean",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://whyy.org/wp-content/uploads/rss/eleanor.rss",
+        "appleCollectionId": "1125007560",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://whyy.org/programs/eleanor-amplified",
+          "fetchedAt": "2026-09-06T17:38:11.190Z",
+          "payloadHash": "df217cb7a05c79d076571eed712d760b15382e503bdf83e0be5c12fe6eb974c8"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://whyy.org/wp-content/uploads/rss/eleanor.rss",
+          "fetchedAt": "2026-09-06T17:38:10.897Z",
+          "payloadHash": "64a6a969ae6606c53e8ddc3fb92e2637a85b53526d69743ca59ce689629269a9"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/eleanor-amplified/id1125007560?uo=4",
+          "fetchedAt": "2026-09-06T17:38:10.691Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://whyy.org/programs/eleanor-amplified",
+          "https://whyy.org/wp-content/uploads/rss/eleanor.rss",
+          "https://podcasts.apple.com/us/podcast/eleanor-amplified/id1125007560?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://whyy.org/programs/eleanor-amplified",
+            "https://whyy.org/wp-content/uploads/rss/eleanor.rss",
+            "https://podcasts.apple.com/us/podcast/eleanor-amplified/id1125007560?uo=4"
+          ],
+          "tags": [
+            "https://whyy.org/programs/eleanor-amplified",
+            "https://whyy.org/wp-content/uploads/rss/eleanor.rss",
+            "https://podcasts.apple.com/us/podcast/eleanor-amplified/id1125007560?uo=4"
+          ],
+          "formats": [
+            "https://whyy.org/programs/eleanor-amplified",
+            "https://whyy.org/wp-content/uploads/rss/eleanor.rss",
+            "https://podcasts.apple.com/us/podcast/eleanor-amplified/id1125007560?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-09-06T18:04:39.419Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://whyy.org/programs/eleanor-amplified"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://whyy.org/wp-content/uploads/rss/eleanor.rss"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/eleanor-amplified/id1125007560?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://whyy.org/programs/eleanor-amplified"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://whyy.org/wp-content/uploads/rss/eleanor.rss"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/eleanor-amplified/id1125007560?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://whyy.org/programs/eleanor-amplified",
+            "https://whyy.org/wp-content/uploads/rss/eleanor.rss",
+            "https://podcasts.apple.com/us/podcast/eleanor-amplified/id1125007560?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.420Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "9037c38b0a20d9e49c7f41009b939a3ed1a60cc7209e297398f7d14551945094",
+        "subtitle": "9037c38b0a20d9e49c7f41009b939a3ed1a60cc7209e297398f7d14551945094",
+        "description": "5ca7708b107b32befcb6b4efe3596e724e50fc69a503278abe7a69f6cb43dced",
+        "cover": "5bfa9a548a758e313e4081a4603910e42796f38374dd4beb0a33a6d1d1185865",
+        "coverAlt": "162ec7465a75c917cae107783f977ad9c8f96e727185b763ce8eedd6482f2ed2",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
+        "listenLinks": "5e446dacb7907e9183c74003e5c9d5eddb61883f1639cd6f70638727b4b2640c",
+        "officialLinks": "3853330f94f03d6cfb9ae47c60672e22fc8482e3f2af3eb9d2ab2788635e07dc",
+        "genres": "b2b14fdfae95de80cc6e8f1c24ff3e72cc0bda1aae86c15329737db5968a9c8b",
+        "tags": "e9748e15cf19ef58cd723cd53e3a8e9f8ec3c158e19566ce326238e6fc6f7bcb",
+        "formats": "eed159522f45aa3f6855b5e31a644b9db5816125f9a8bbbc0dbfc4fcbfad30b8",
+        "aliases": "dff795fe36abd15d342848165f84e8ee53f7e7af6ed6297b081a3e8853f8ee6e",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "ef5f1a7a1487c49760927a50beaadf770b4dc904ff961cc066f9b95b3c763be2",
+        "releaseDates": "c892eeb4c6b237ceee50a68281c544d53a045d6169972d3541017a6e605cb8d8",
+        "credits": "cbc48c4030698154a04588e1519edd28d60f04cfd22d3e03a7eb2f6ba361a206",
+        "creators": "da4dd6481f214cd95f2993a48bc1a4d29b29691c09fb067b55b801f04306d43a",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "31233bebd4c9c88fe28f87c8d153a97913455df538af706770aef61c3b38513d"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.517Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.472Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "whyy"
+}

@@ -1,0 +1,426 @@
+{
+  "id": "deviser",
+  "title": "Deviser",
+  "subtitle": "What is Humanity?",
+  "description": "DEVISER is a sci-fi horror audio drama created by Harlan Guthrie. Son wakes aboard a spaceship bound for Earth in an effort to recolonize it; what he discovers will change everything he knows about his world and himself.",
+  "cover": "images/covers/deviser.jpg",
+  "coverAlt": "Deviser cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "start": "https://www.deviser.ca/",
+    "spotify": "https://open.spotify.com/show/0DV04jCz2pfSg1tiVQVZDL",
+    "apple": "https://podcasts.apple.com/us/podcast/deviser/id1680747031?uo=4",
+    "website": "https://www.deviser.ca/",
+    "rss": "https://feeds.acast.com/public/shows/641af17bde37be0012656941",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "sci-fi",
+    "horror",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [
+    "Space",
+    "Survival",
+    "Isolation"
+  ],
+  "aliases": [
+    "Deviser"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 7 full episodes • 23 min median",
+    "seasons": 1,
+    "episodes": 7,
+    "medianEpisodeMinutes": 23,
+    "minEpisodeMinutes": 18,
+    "maxEpisodeMinutes": 27,
+    "totalObservedHours": 2.6,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 7,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2023-04-30",
+    "latest": "2023-04-30",
+    "latestFeedItem": "2023-04-30",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.deviser.ca/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Harlan Guthrie",
+    "ownerName": "Harlan Guthrie"
+  },
+  "creators": [
+    "Harlan Guthrie"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://www.deviser.ca/; https://feeds.acast.com/public/shows/641af17bde37be0012656941; https://podcasts.apple.com/us/podcast/deviser/id1680747031?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.deviser.ca/",
+      "https://feeds.acast.com/public/shows/641af17bde37be0012656941",
+      "https://podcasts.apple.com/us/podcast/deviser/id1680747031?uo=4"
+    ],
+    "sourceCategories": [
+      "Science Fiction",
+      "Horror",
+      "Drama"
+    ],
+    "sourceKeywords": [
+      "Horror",
+      "adventure",
+      "AudioDrama",
+      "Deviser",
+      "SciFi",
+      "Sci-Fi",
+      "Dark"
+    ],
+    "sourceTags": [
+      "Space",
+      "Survival",
+      "Isolation"
+    ],
+    "importOfficialSummary": "DEVISER is a sci-fi horror audio drama created by Harlan Guthrie. Son wakes aboard a spaceship bound for Earth in an effort to recolonize it; what he discovers will change everything he knows about his world and himself.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "unknown",
+      "medianDays": null,
+      "observedIntervals": 0
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Harlan Guthrie",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.acast.com/public/shows/641af17bde37be0012656941",
+        "appleCollectionId": "1680747031",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.deviser.ca/",
+          "fetchedAt": "2026-09-06T17:38:03.160Z",
+          "payloadHash": "48d17a00dc8db8104ecb85ded04069799c8cc77304fdabb6afed4ba426634eef"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.acast.com/public/shows/641af17bde37be0012656941",
+          "fetchedAt": "2026-09-06T17:37:48.745Z",
+          "payloadHash": "8d742348db3789736d9c96ce6f014c670e431fd62936b97409d73ecf3f540a18"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/deviser/id1680747031?uo=4",
+          "fetchedAt": "2026-09-06T17:37:48.606Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://www.deviser.ca/",
+          "https://feeds.acast.com/public/shows/641af17bde37be0012656941",
+          "https://podcasts.apple.com/us/podcast/deviser/id1680747031?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://www.deviser.ca/",
+            "https://feeds.acast.com/public/shows/641af17bde37be0012656941",
+            "https://podcasts.apple.com/us/podcast/deviser/id1680747031?uo=4"
+          ],
+          "tags": [
+            "https://www.deviser.ca/",
+            "https://feeds.acast.com/public/shows/641af17bde37be0012656941",
+            "https://podcasts.apple.com/us/podcast/deviser/id1680747031?uo=4"
+          ],
+          "formats": [
+            "https://www.deviser.ca/",
+            "https://feeds.acast.com/public/shows/641af17bde37be0012656941",
+            "https://podcasts.apple.com/us/podcast/deviser/id1680747031?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-09-06T18:04:39.422Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.deviser.ca/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.acast.com/public/shows/641af17bde37be0012656941"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/deviser/id1680747031?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.deviser.ca/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.acast.com/public/shows/641af17bde37be0012656941"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/deviser/id1680747031?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://www.deviser.ca/",
+            "https://feeds.acast.com/public/shows/641af17bde37be0012656941",
+            "https://podcasts.apple.com/us/podcast/deviser/id1680747031?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.422Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "76e1dd207fe043ad17783148aa7c17a9ea2b402d29ffb20def0794d337509ac8",
+        "subtitle": "8cec2f13c807aab65cb95fb50a5dfe482682f8d369aa3c796a9325e23d6d8c2a",
+        "description": "c3a11cf15032dd1d0c09017d67412cb27d0c34e2b6effb1387bb0dc7da585470",
+        "cover": "3634f921a6bed4a81105bc50ec10914be0e9607c2cff106c6e11dc0ffb02dc80",
+        "coverAlt": "e1c58f4d1f8b2da71c4a1aac6220a3de7ea312002260646edd0e007658cf635d",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
+        "listenLinks": "ab3e07f6dd07e1dd5c73f1e6469bfec634e3691ecdc530f32795407babdb3332",
+        "officialLinks": "df6dabd18a3f43e4ff4d18bb3ce4cd4d813a6347f3cb0203c624196dfa3ced92",
+        "genres": "18b986ed60b24970c67619447569c795d170fe6d18fc01ba4a0e91f890606fcb",
+        "tags": "a57516155a519412e4d9aa38b49a433a66879932db4c4ae2986c55365346c7e4",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "ce750573ecfc749297899fda0175cd37230fb4a7e10a05c90a2846dacef49e6b",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "eb440fbf94c2ef6c8071c4b7cce7e34d50452f0c11c93119f632850af8f9e401",
+        "releaseDates": "cf808f4416a996657d92e76785164c9fd313f698a6de66a2c697489923666616",
+        "credits": "39c58d9e3c2d4452d1ad6b9ff821fb8be384a52627591566a6aa2c153c7ee941",
+        "creators": "424466ec7a1552ba31cad67bcb675e6a105e3cccdb0732dc7e36f2331bb5c260",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "746bb9a336cbc0ceb54c70935a7c741eafdaa90cb5b99f57baab62e01819c72b"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.517Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.473Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "harlan-guthrie"
+}

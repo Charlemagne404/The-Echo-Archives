@@ -1,0 +1,452 @@
+{
+  "id": "escape-pod",
+  "title": "Escape Pod",
+  "subtitle": "",
+  "description": "Escape Pod is a science-fiction podcast magazine founded in 2005. It brings listeners short fiction from science-fiction writers and releases new stories through the Escape Artists network.",
+  "cover": "images/covers/escape-pod.jpg",
+  "coverAlt": "Escape Pod cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "https://escapepod.org/",
+    "spotify": "https://open.spotify.com/show/6G8vOC5f6ZuhWmeW4cmgUG",
+    "apple": "https://podcasts.apple.com/us/podcast/escape-pod/id73329293?uo=4",
+    "website": "https://escapepod.org/",
+    "rss": "https://escapepod.org/feed/podcast/",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "sci-fi",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic",
+    "anthology",
+    "narrated"
+  ],
+  "tags": [
+    "Genre anthology",
+    "Sci-fi",
+    "Adventure",
+    "Space"
+  ],
+  "aliases": [
+    "Escape Pod"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 300 full episodes • 36 min median",
+    "episodes": 300,
+    "medianEpisodeMinutes": 36,
+    "minEpisodeMinutes": 14,
+    "maxEpisodeMinutes": 74,
+    "totalObservedHours": 182.5,
+    "durationCoverage": 0.99,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 300,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2021-01-07",
+    "latest": "2026-09-03",
+    "latestFeedItem": "2026-09-03",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://escapepod.org/",
+    "patreon": "https://www.patreon.com/EAPodcasts",
+    "koFi": "https://ko-fi.com/escapeartists",
+    "discord": "",
+    "youtube": "https://www.youtube.com/@EAPodcasts",
+    "social": "",
+    "funding": "https://www.patreon.com/EAPodcasts"
+  },
+  "credits": {
+    "creatorName": "Escape Artists, Inc. / Escape Artists",
+    "writers": [
+      "Mat"
+    ],
+    "people": [
+      {
+        "name": "Mat",
+        "role": "author",
+        "url": ""
+      }
+    ]
+  },
+  "creators": [
+    "Escape Artists, Inc. / Escape Artists",
+    "Mat"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://escapepod.org/about-us/; https://escapepod.org/; https://escapepod.org/feed/podcast/; https://podcasts.apple.com/us/podcast/escape-pod/id73329293?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://escapepod.org/about-us/",
+      "https://escapepod.org/",
+      "https://escapepod.org/feed/podcast/",
+      "https://podcasts.apple.com/us/podcast/escape-pod/id73329293?uo=4"
+    ],
+    "sourceCategories": [
+      "Science Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Genre anthology",
+      "Sci-fi",
+      "Adventure",
+      "Space"
+    ],
+    "importOfficialSummary": "Escape Pod is a science-fiction podcast magazine founded in 2005. It brings listeners short fiction from science-fiction writers and releases new stories through the Escape Artists network.",
+    "socialUrls": [],
+    "funding": [
+      {
+        "url": "https://www.patreon.com/EAPodcasts",
+        "label": ""
+      }
+    ],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "podcast",
+      "copyright": "Copyright 2005-2026",
+      "explicit": "false",
+      "license": {
+        "value": "Copyright 2005-2026",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "ff78e646-5299-530d-a858-7fc3e0ffb0fe",
+        "rssUrl": "https://escapepod.org/feed/podcast/",
+        "appleCollectionId": "73329293",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://escapepod.org/category/podcasts/feed/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://escapepod.org/about-us/",
+          "fetchedAt": "2026-09-06T17:38:53.388Z",
+          "payloadHash": "e6ff8959a721bacbc5a200c099503642c8a943c500b4e62f7c132f1bcfccaa5a"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://escapepod.org/",
+          "fetchedAt": "2026-09-06T17:38:53.383Z",
+          "payloadHash": "2a72bc5209bdf7acc9db87ac9b7b5677036cda382f7a02105398b1cd3656be81"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://escapepod.org/feed/podcast/",
+          "fetchedAt": "2026-09-06T17:38:50.688Z",
+          "payloadHash": "a476af98d053fc270670006b1e1ec36a461b42ff0cb1a3b6d228a0f9d0b9f500"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/escape-pod/id73329293?uo=4",
+          "fetchedAt": "2026-09-06T17:38:48.640Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://escapepod.org/",
+          "https://escapepod.org/about-us/",
+          "https://escapepod.org/feed/podcast/",
+          "https://podcasts.apple.com/us/podcast/escape-pod/id73329293?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://escapepod.org/",
+            "https://escapepod.org/about-us/",
+            "https://escapepod.org/feed/podcast/",
+            "https://podcasts.apple.com/us/podcast/escape-pod/id73329293?uo=4"
+          ],
+          "tags": [
+            "https://escapepod.org/",
+            "https://escapepod.org/about-us/",
+            "https://escapepod.org/feed/podcast/",
+            "https://podcasts.apple.com/us/podcast/escape-pod/id73329293?uo=4"
+          ],
+          "formats": [
+            "https://escapepod.org/",
+            "https://escapepod.org/about-us/",
+            "https://escapepod.org/feed/podcast/",
+            "https://podcasts.apple.com/us/podcast/escape-pod/id73329293?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-09-06T18:04:39.416Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://escapepod.org/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://escapepod.org/about-us/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://escapepod.org/feed/podcast/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/escape-pod/id73329293?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://escapepod.org/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://escapepod.org/about-us/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://escapepod.org/feed/podcast/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/escape-pod/id73329293?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://escapepod.org/",
+            "https://escapepod.org/about-us/",
+            "https://escapepod.org/feed/podcast/",
+            "https://podcasts.apple.com/us/podcast/escape-pod/id73329293?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.417Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "e26cf69fb6886b407c11ab8f2bc0db8fbc6b6d84e6b4741382479b489e584bd8",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "d31645add54dfe3f6f3d25a4840a9f47d1c13daa5836573b817ae15118f620df",
+        "cover": "2946b1dec0383a7a79812581b7fbf7095863c2e6c268173c06c5bb90578dfa7e",
+        "coverAlt": "617e91871dcbce2ed0e841955af8b37d1627ba5ae87c57d8f31c20a959b97be4",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "e103324a9a679d99981d263d3f13d12bcd0b9649ca7da3db22313c948d35b501",
+        "officialLinks": "a52f90c384ead0666268461a82dad055a34e4dd87ed8902c331ab7deb93efa74",
+        "genres": "5e1c8ac5a5bc529da25aefa615e90136fc2dcade7fbb07655c917b5ba23cf206",
+        "tags": "5c7d93d36d1a84818bbeffecc5ae0a460d6262ce9d9883fce32c64ad6f9ec971",
+        "formats": "31842ab686264aa6074526d6123f9e8c74b1975d910abd1636e30b6e8388f660",
+        "aliases": "e282b1b7a63da5363f9552a4cff6f5b0dea3cd6a9464d69bc7a4320dea3956dc",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "c4f3df05de56b702972e888926a08191df359b6b8fa708154a53872dee6e34b2",
+        "releaseDates": "08fd4ffe71fdf529e16983617acc18d01a3125a6ec228e326774309e82cad8f8",
+        "credits": "b6ad00f2c062f5c7a736fbcc2d8428f1db54a5e65fa154f9187e19f842effac1",
+        "creators": "fbfcaea402da7d9189cbf43f19c83278d4f85211059619fb3c32f1056ba5fda6",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "234897382e9289bcf768e7743b62d09a6535f3b625e4bc13677c51d311f93fb6"
+      },
+      "optionalGaps": [
+        "No structured transcript links were exposed by the feed."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.515Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.471Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "escape-artists-inc-escape-artists"
+}

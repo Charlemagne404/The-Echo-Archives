@@ -1,0 +1,427 @@
+{
+  "id": "palimpsest",
+  "title": "Palimpsest",
+  "subtitle": "",
+  "description": "Palimpsest is a mostly single-voiced audio drama about memory, identity, and the things that haunt us. Each season is a unique and self-contained story exploring the spaces between horror, fantasy, and psychological realism.",
+  "cover": "images/covers/palimpsest.jpg",
+  "coverAlt": "Palimpsest cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "https://palimpsestproductions.com/our-shows/",
+    "spotify": "https://open.spotify.com/show/23nDUVr6AJE56UG7XSCwb1",
+    "apple": "https://podcasts.apple.com/us/podcast/palimpsest/id1288069795?uo=4",
+    "website": "https://palimpsestproductions.com/our-shows/",
+    "rss": "https://feeds.megaphone.fm/palimpsest",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "horror"
+  ],
+  "tones": [],
+  "formats": [
+    "anthology",
+    "narrated",
+    "serialized"
+  ],
+  "tags": [
+    "Ghosts",
+    "Historical",
+    "Mystery",
+    "Weird fiction"
+  ],
+  "aliases": [
+    "Palimpsest"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "5 seasons observed • at least 54 full episodes • 22 min median",
+    "seasons": 5,
+    "episodes": 54,
+    "medianEpisodeMinutes": 22,
+    "minEpisodeMinutes": 16,
+    "maxEpisodeMinutes": 40,
+    "totalObservedHours": 20.5,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 54,
+      "bonus": 7,
+      "trailer": 11
+    }
+  },
+  "releaseDates": {
+    "first": "2017-10-31",
+    "latest": "2025-10-31",
+    "latestFeedItem": "2026-05-18",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://palimpsestproductions.com/our-shows/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Jamieson Ridenhour & Hayley Heninger / Palimpsest Productions",
+    "ownerName": "Jamieson Ridenhour"
+  },
+  "creators": [
+    "Jamieson Ridenhour & Hayley Heninger / Palimpsest Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://palimpsestproductions.com/our-shows/; https://feeds.megaphone.fm/palimpsest; https://podcasts.apple.com/us/podcast/palimpsest/id1288069795?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://palimpsestproductions.com/our-shows/",
+      "https://feeds.megaphone.fm/palimpsest",
+      "https://podcasts.apple.com/us/podcast/palimpsest/id1288069795?uo=4"
+    ],
+    "sourceCategories": [
+      "Drama",
+      "Horror"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Ghosts",
+      "Historical",
+      "Mystery",
+      "Weird fiction"
+    ],
+    "importOfficialSummary": "Palimpsest is a mostly single-voiced audio drama about memory, identity, and the things that haunt us. Each season is a unique and self-contained story exploring the spaces between horror, fantasy, and psychological realism.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 7
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Palimpsest Productions, LLC",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/palimpsest",
+        "appleCollectionId": "1288069795",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://palimpsestproductions.com/feed/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://palimpsestproductions.com/our-shows/",
+          "fetchedAt": "2026-09-06T17:38:11.979Z",
+          "payloadHash": "6f0a0d5883145ea8b8e47f3e976ec1967ba0fff50134adc139827eb229c465ec"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/palimpsest",
+          "fetchedAt": "2026-09-06T17:38:11.170Z",
+          "payloadHash": "5413e2f5cda3a60fbcc41e6922d38f42c4828b123fcf1d089395713270f7936d"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/palimpsest/id1288069795?uo=4",
+          "fetchedAt": "2026-09-06T17:38:10.661Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://palimpsestproductions.com/our-shows/",
+          "https://feeds.megaphone.fm/palimpsest",
+          "https://podcasts.apple.com/us/podcast/palimpsest/id1288069795?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://palimpsestproductions.com/our-shows/",
+            "https://feeds.megaphone.fm/palimpsest",
+            "https://podcasts.apple.com/us/podcast/palimpsest/id1288069795?uo=4"
+          ],
+          "tags": [
+            "https://palimpsestproductions.com/our-shows/",
+            "https://feeds.megaphone.fm/palimpsest",
+            "https://podcasts.apple.com/us/podcast/palimpsest/id1288069795?uo=4"
+          ],
+          "formats": [
+            "https://palimpsestproductions.com/our-shows/",
+            "https://feeds.megaphone.fm/palimpsest",
+            "https://podcasts.apple.com/us/podcast/palimpsest/id1288069795?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-09-06T18:04:39.395Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://palimpsestproductions.com/our-shows/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.megaphone.fm/palimpsest"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/palimpsest/id1288069795?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://palimpsestproductions.com/our-shows/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.megaphone.fm/palimpsest"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/palimpsest/id1288069795?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://palimpsestproductions.com/our-shows/",
+            "https://feeds.megaphone.fm/palimpsest",
+            "https://podcasts.apple.com/us/podcast/palimpsest/id1288069795?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.395Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "fab41c9eddbc63d1c97865a371789b9c3080efe6af4cfd5c91b647c49ce713be",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "7d13dc14cb0558c10a6d4f0e1f589b7f40b43bd70b421e46bce7fed5edbf51a2",
+        "cover": "ffe8459436fa05dbc88bfa780a3e30c2005d951ef90e88895ef8f460a50d1b82",
+        "coverAlt": "8371ea14ae706cdf1091ad0d71c4c13db3fb2720179849e5ee871c4c3c122527",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "a8d8d478c897ecd4c710ad0d1b5a69551e7d7767b553e4679164cd300d895733",
+        "officialLinks": "94999d4919fbdea8d7285a83e6ec8fd485920b5050892af42002e57bb382b63c",
+        "genres": "42ce78018358431df5bfd98a332b161fc285da2aa0bb85be23f3466df29631c4",
+        "tags": "cccc830306479d371fed88b589ce6140569bed89a086b5cb952b9afe2d6d95df",
+        "formats": "b955da9f65f08e37e4ee887abf8c451fced409f31826fddedc59499de4649392",
+        "aliases": "571ba5eb36b13ef38d8292190b247ad1f1e310a5789d8a0daa634fcbcbd90832",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "af067d6339ca94da6707da71c57a327affc4d9d032d4b6d4fa61e286ad7aee0f",
+        "releaseDates": "798f46dbaa36720539526c44d962ac64d23eb3fd1b295b99b209b5eff66325ee",
+        "credits": "5ce25ce757a353b23f860900c64a00fbdb8a41ab68e9c1cdc5f411d078daf8ea",
+        "creators": "91cd6eee42c73f8369a9e596becb8fd92581f04ff88c727ddeb26fac289c3e4e",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "10a7bf905d7128f3d6786f497e4a2be6419ccaff1fb0daa734e2cc0c4681dab7"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.507Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.463Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "jamieson-ridenhour-hayley-heninger-palimpsest-productions"
+}

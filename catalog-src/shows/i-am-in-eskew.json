@@ -1,0 +1,422 @@
+{
+  "id": "i-am-in-eskew",
+  "title": "I Am in Eskew",
+  "subtitle": "Trapped in the horror-filled and impossible city of Eskew, a man makes endless recordings of his day-to-day experiences, hoping to reach the outside world.This show routinely contains body horror and other disturbing scenes. See the website",
+  "description": "I Am in Eskew is a horror and weird-fiction audio drama set in a bizarre city. A man trapped in Eskew makes endless recordings of his day-to-day experiences, hoping to reach the outside world.",
+  "cover": "images/covers/i-am-in-eskew.jpg",
+  "coverAlt": "I Am in Eskew cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "start": "https://www.iamineskew.com/",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/i-am-in-eskew/id1339770338?uo=4",
+    "website": "https://www.iamineskew.com/",
+    "rss": "https://feeds.acast.com/public/shows/80038518-c8b2-5dab-a7be-a1d7a23fa952",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "horror",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized",
+    "narrated"
+  ],
+  "tags": [
+    "Weird fiction",
+    "Isolation",
+    "New Weird",
+    "Psychological"
+  ],
+  "aliases": [
+    "I Am in Eskew"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 32 full episodes • 30 min median",
+    "seasons": 1,
+    "episodes": 32,
+    "medianEpisodeMinutes": 30,
+    "minEpisodeMinutes": 2,
+    "maxEpisodeMinutes": 46,
+    "totalObservedHours": 15.8,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 32,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2018-01-01",
+    "latest": "2021-01-19",
+    "latestFeedItem": "2021-01-19",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.iamineskew.com/",
+    "patreon": "https://www.patreon.com/thesiltverses",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Muna Hussen and Jon Ware",
+    "ownerName": "David Ward"
+  },
+  "creators": [
+    "Muna Hussen and Jon Ware"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://www.iamineskew.com/; https://feeds.acast.com/public/shows/80038518-c8b2-5dab-a7be-a1d7a23fa952; https://podcasts.apple.com/us/podcast/i-am-in-eskew/id1339770338?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.iamineskew.com/",
+      "https://feeds.acast.com/public/shows/80038518-c8b2-5dab-a7be-a1d7a23fa952",
+      "https://podcasts.apple.com/us/podcast/i-am-in-eskew/id1339770338?uo=4"
+    ],
+    "sourceCategories": [
+      "Horror",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Weird fiction",
+      "Isolation",
+      "New Weird",
+      "Psychological"
+    ],
+    "importOfficialSummary": "I Am in Eskew is a horror and weird-fiction audio drama set in a bizarre city. A man trapped in Eskew makes endless recordings of his day-to-day experiences, hoping to reach the outside world.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 22,
+      "observedIntervals": 7
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2021 I Am In Eskew",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.acast.com/public/shows/80038518-c8b2-5dab-a7be-a1d7a23fa952",
+        "appleCollectionId": "1339770338",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://www.iamineskew.com/blog-feed.xml"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.iamineskew.com/",
+          "fetchedAt": "2026-09-06T17:38:04.687Z",
+          "payloadHash": "4b42d1aedad7d925fc3b74aa2ae8aaa024e77b770cb93268c64347a4f1bf1884"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.acast.com/public/shows/80038518-c8b2-5dab-a7be-a1d7a23fa952",
+          "fetchedAt": "2026-09-06T17:38:04.065Z",
+          "payloadHash": "4f08a4d6f9667f7b9f8d9450e569d91c322ad717ee7fc42155cca306f09903e9"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/i-am-in-eskew/id1339770338?uo=4",
+          "fetchedAt": "2026-09-06T17:38:03.983Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://www.iamineskew.com/",
+          "https://feeds.acast.com/public/shows/80038518-c8b2-5dab-a7be-a1d7a23fa952",
+          "https://podcasts.apple.com/us/podcast/i-am-in-eskew/id1339770338?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://www.iamineskew.com/",
+            "https://feeds.acast.com/public/shows/80038518-c8b2-5dab-a7be-a1d7a23fa952",
+            "https://podcasts.apple.com/us/podcast/i-am-in-eskew/id1339770338?uo=4"
+          ],
+          "tags": [
+            "https://www.iamineskew.com/",
+            "https://feeds.acast.com/public/shows/80038518-c8b2-5dab-a7be-a1d7a23fa952",
+            "https://podcasts.apple.com/us/podcast/i-am-in-eskew/id1339770338?uo=4"
+          ],
+          "formats": [
+            "https://www.iamineskew.com/",
+            "https://feeds.acast.com/public/shows/80038518-c8b2-5dab-a7be-a1d7a23fa952",
+            "https://podcasts.apple.com/us/podcast/i-am-in-eskew/id1339770338?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-09-06T18:04:39.393Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.iamineskew.com/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.acast.com/public/shows/80038518-c8b2-5dab-a7be-a1d7a23fa952"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/i-am-in-eskew/id1339770338?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.iamineskew.com/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.acast.com/public/shows/80038518-c8b2-5dab-a7be-a1d7a23fa952"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/i-am-in-eskew/id1339770338?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://www.iamineskew.com/",
+            "https://feeds.acast.com/public/shows/80038518-c8b2-5dab-a7be-a1d7a23fa952",
+            "https://podcasts.apple.com/us/podcast/i-am-in-eskew/id1339770338?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.393Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "9f562e1f28ed56c68fded29772138437ee0106e2db2cb9b05b2d24b22bc4c79c",
+        "subtitle": "66a6103ce84ddde2599c835a49ed145d0ca9acda9824b491267d7a89384d2a14",
+        "description": "a795f0b77a7097dc810a56ce830a329055ad5d46295b2f1250b4af8505be1982",
+        "cover": "285c13b2c29c1438f37e05fad694bb76ce8846c5f57be7f8dfa80dc00911fd5d",
+        "coverAlt": "d5302dc61c0fb814e729f702d7758f05394c11e692787400ab2ca8d69d6ce6ce",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
+        "listenLinks": "c09098b2d0c4a59a61b48bfdffb50f1f65d9e89b34c2101dfac05afed509edbd",
+        "officialLinks": "abbf44d2efdd85c0639f0b6eef168124ee07d4f928361f6c04e15acd53358003",
+        "genres": "ca708709556b9533a5207d1a5f1af748835a0f93996ba8b4fe0b9c9068152c6b",
+        "tags": "4f8f7cbe2a0f348723c6d2e6747a3acc933459956f8f1ce99cf41eb4e6fb6c76",
+        "formats": "36d9689b15b2166cd908fe8c05afdb80ca7b03df188b40ef4619a21115acd459",
+        "aliases": "0f4c61e3d5dc08cd9d44860d693af85a12b62b958e5a1dc0c2fe24762ce6cf65",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "ccb69d4e8175e5e24a0f305cd1cd7b45d116ec2b4b9538981c16ec8d9f315515",
+        "releaseDates": "04588056af66c59691e5734f1f2db1099b9738168f142c3554fd0a06ac8da37f",
+        "credits": "59ef77d5d26d8fe16ad8d6c393e34f9e1a4a6d687db321959681242cdea2e93e",
+        "creators": "8a24cb1cecbdfd5b0f8caa89b23dbe585bb005c4eb57abb21bc55e6ba4612066",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "799fe262f39d6249aed8b8f4a8435af65969b0919cbdf331bcb10e3a05b14183"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.507Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.463Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "muna-hussen-and-jon-ware"
+}

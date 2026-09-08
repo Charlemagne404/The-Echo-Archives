@@ -1,0 +1,443 @@
+{
+  "id": "the-sojourn",
+  "title": "The Sojourn",
+  "subtitle": "",
+  "description": "The Sojourn is an award-winning science-fiction audio drama featuring a full voice cast, scientifically accurate sound effects, and an original score. The two-season series is available through audiobook retailers.",
+  "cover": "images/covers/the-sojourn.png",
+  "coverAlt": "The Sojourn cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "start": "https://www.thesojournaudiodrama.com/",
+    "spotify": "https://open.spotify.com/show/2Vl9XJLiIE2zwpjS6N6QfD",
+    "apple": "",
+    "website": "https://www.thesojournaudiodrama.com/",
+    "rss": "",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "sci-fi",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Space",
+    "Space opera",
+    "Survival"
+  ],
+  "aliases": [
+    "The Sojourn"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 21 full episodes",
+    "seasons": 2,
+    "episodes": 21,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 0,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "",
+    "latest": "",
+    "latestFeedItem": "",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.thesojournaudiodrama.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Spacedock"
+  },
+  "creators": [
+    "Spacedock"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://www.thesojournaudiodrama.com/s02v02; https://www.thesojournaudiodrama.com/s01; https://www.thesojournaudiodrama.com/cast-crew; https://www.thesojournaudiodrama.com/; https://open.spotify.com/show/2Vl9XJLiIE2zwpjS6N6QfD; https://open.spotify.com/show/6wyR8rnXQ7RxBodcWoGIH3",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "researchGaps": [
+      "official distribution is through audiobook retailers and no public podcast RSS f"
+    ],
+    "objectiveSources": [
+      "https://www.thesojournaudiodrama.com/s02v02",
+      "https://www.thesojournaudiodrama.com/s01",
+      "https://www.thesojournaudiodrama.com/cast-crew",
+      "https://www.thesojournaudiodrama.com/",
+      "https://open.spotify.com/show/2Vl9XJLiIE2zwpjS6N6QfD",
+      "https://open.spotify.com/show/6wyR8rnXQ7RxBodcWoGIH3"
+    ],
+    "sourceCategories": [
+      "Science Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Space",
+      "Space opera",
+      "Survival"
+    ],
+    "importOfficialSummary": "The Sojourn is an award-winning science-fiction audio drama featuring a full voice cast, scientifically accurate sound effects, and an original score. The two-season series is available through audiobook retailers.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "unknown"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "",
+      "explicit": "",
+      "license": {},
+      "productionLocation": "",
+      "country": "",
+      "sourceFormat": "",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "spotify:show:2Vl9XJLiIE2zwpjS6N6QfD",
+        "rssUrl": "",
+        "appleCollectionId": "",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.thesojournaudiodrama.com/s02v02",
+          "fetchedAt": "2026-09-06T17:38:54.819Z",
+          "payloadHash": "6b48ef5d0d14cb9b4cfd19978c6ecd6225a63b6e0d5c0130d115cb85f696e10c"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.thesojournaudiodrama.com/s01",
+          "fetchedAt": "2026-09-06T17:38:54.811Z",
+          "payloadHash": "94fee11aaf36cb156ee41923050206cd46f4fbb9e7e5cb2a7d21fd3ce2c52c0f"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.thesojournaudiodrama.com/cast-crew",
+          "fetchedAt": "2026-09-06T17:38:54.806Z",
+          "payloadHash": "30463294d7950aae0bb1675bfa159cd76259832b423932af7cf925abbd6fa2e4"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.thesojournaudiodrama.com/",
+          "fetchedAt": "2026-09-06T17:38:54.801Z",
+          "payloadHash": "fb82072867f5e7728e990b0699d6bb17a5eb90ec17c862f26046e5a08c1ef549"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://www.thesojournaudiodrama.com/",
+          "https://www.thesojournaudiodrama.com/s01",
+          "https://www.thesojournaudiodrama.com/s02v02",
+          "https://open.spotify.com/show/2Vl9XJLiIE2zwpjS6N6QfD",
+          "https://open.spotify.com/show/6wyR8rnXQ7RxBodcWoGIH3"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://www.thesojournaudiodrama.com/",
+            "https://www.thesojournaudiodrama.com/s01",
+            "https://www.thesojournaudiodrama.com/s02v02",
+            "https://open.spotify.com/show/2Vl9XJLiIE2zwpjS6N6QfD",
+            "https://open.spotify.com/show/6wyR8rnXQ7RxBodcWoGIH3"
+          ],
+          "tags": [
+            "https://www.thesojournaudiodrama.com/",
+            "https://www.thesojournaudiodrama.com/s01",
+            "https://www.thesojournaudiodrama.com/s02v02",
+            "https://open.spotify.com/show/2Vl9XJLiIE2zwpjS6N6QfD",
+            "https://open.spotify.com/show/6wyR8rnXQ7RxBodcWoGIH3"
+          ],
+          "formats": [
+            "https://www.thesojournaudiodrama.com/",
+            "https://www.thesojournaudiodrama.com/s01",
+            "https://www.thesojournaudiodrama.com/s02v02",
+            "https://open.spotify.com/show/2Vl9XJLiIE2zwpjS6N6QfD",
+            "https://open.spotify.com/show/6wyR8rnXQ7RxBodcWoGIH3"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [
+          "official distribution is through audiobook retailers and no public podcast RSS f"
+        ],
+        "reviewedAt": "2026-09-06T18:04:39.430Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.thesojournaudiodrama.com/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.thesojournaudiodrama.com/s01"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.thesojournaudiodrama.com/s02v02"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://open.spotify.com/show/2Vl9XJLiIE2zwpjS6N6QfD"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://open.spotify.com/show/6wyR8rnXQ7RxBodcWoGIH3"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.thesojournaudiodrama.com/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.thesojournaudiodrama.com/s01"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.thesojournaudiodrama.com/s02v02"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://open.spotify.com/show/2Vl9XJLiIE2zwpjS6N6QfD"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://open.spotify.com/show/6wyR8rnXQ7RxBodcWoGIH3"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://www.thesojournaudiodrama.com/",
+            "https://www.thesojournaudiodrama.com/s01",
+            "https://www.thesojournaudiodrama.com/s02v02",
+            "https://open.spotify.com/show/2Vl9XJLiIE2zwpjS6N6QfD",
+            "https://open.spotify.com/show/6wyR8rnXQ7RxBodcWoGIH3"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.430Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "f601f7daaafbd11fa316de4410156c7b942de9ec431f297141d8a1223b56c751",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "c85092682c77b31d05a156acfd079d893585402fb46c2d53db167090edacc96e",
+        "cover": "a7ad653f864cd1724220571f4f94c9f4b211073466b99cd696db76a1700d11fb",
+        "coverAlt": "b6503cc67110c3703199de90d78aa791a057522210574089651ce9d76596a5bf",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
+        "listenLinks": "5c936fc35b263494f1bb6bf92418ec02881c9ab7041bb91c5a230b81cef73d38",
+        "officialLinks": "081ab408a40ea01b9f0b4b596a9cd6c8b09278e70f0eeb4af95f7b1845ada089",
+        "genres": "5e1c8ac5a5bc529da25aefa615e90136fc2dcade7fbb07655c917b5ba23cf206",
+        "tags": "fbbd965538072b040d887b7adeffcc137b17c5c18f4549c4faa8f549f6936a1e",
+        "formats": "cac7054adac8479df74d007699fab6e2e2bbf2534320b56671e91d4b4e5b2d55",
+        "aliases": "8da36a2f138b6b27a11bedb757346bce695241994ed1562811ac3ac7f122c7a3",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "c212fe2e82684d1856d62dc579211b1d7aeb0fa49093ccd6882e7b52ab01f9de",
+        "releaseDates": "82657c9295d264760c02b1fb0fde9abec6a93ddbeb78166ff2ad3a498882beb8",
+        "credits": "489d29dddef6be359bcb14f92ece6cef3d36fe7acb8174a711439998f5bed1b9",
+        "creators": "3bd1f4546ba32547b3b86b8317234748ba5ac0566972090f908592968eca4361",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "8daf9d3c671ab5b423a7ee9de6410d0298520747441ae688b38b932c18aefec0"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.520Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.476Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "spacedock"
+}

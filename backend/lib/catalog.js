@@ -44,6 +44,7 @@ const {
   readCatalogSource,
   writeCatalogSource,
 } = require("../../tools/lib/catalog-source");
+const { validateProvenance } = require("../../tools/lib/catalog-provenance");
 
 const VALID_REVIEW_STATUSES = new Set(REVIEW_STATUSES);
 const VALID_STATUS_VALUES = new Set(SHOW_STATUSES);
@@ -404,6 +405,8 @@ function validateShowRecord(record, seenIds) {
       }
     }
   }
+
+  validateProvenance(record.id, record.provenance);
 
   const datedFields = [
     ["releaseDates.first", record.releaseDates?.first],

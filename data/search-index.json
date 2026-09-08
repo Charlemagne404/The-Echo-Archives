@@ -53321,5 +53321,1879 @@
     "featured": false,
     "createdAt": "2026-08-15",
     "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "36-questions",
+    "title": "36 Questions",
+    "subtitle": "Hear what The New York Times calls \"the future of musicals\"... 36 Questions, a three-part podcast musical starring Jonathan Groff and Jessie Shelton.",
+    "description": "Hear what The New York Times calls “the future of musicals”: 36 Questions, a three-part podcast musical starring Jonathan Groff and Jessie Shelton. Produced by Two-Up, the producers of Limetown and The Wilderness.",
+    "cover": "images/covers/36-questions.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/36-questions-0374b36bdd-320.webp",
+        "width": 320
+      }
+    ],
+    "coverAlt": "36 Questions cover art",
+    "creators": [
+      "Two-Up Productions"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "limited-series",
+      "serialized"
+    ],
+    "tags": [
+      "Romance",
+      "Ensemble"
+    ],
+    "aliases": [
+      "36 Questions"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Two-Up Productions",
+      "ownerName": "Two-Up"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "the-thrilling-adventure-hour",
+    "title": "The Thrilling Adventure Hour",
+    "subtitle": "",
+    "description": "The world's favorite new time podcast in the style of old-time radio. The Thrilling Adventure Hour anthologizes the adventures of space cowboy Sparks Nevada, married mediums Frank and Sadie Doyle, all-American hero Jefferson Reid, and more. Produced and created by Ben Acker and Ben Blacker, featuring the WorkJuice Players.",
+    "cover": "images/covers/the-thrilling-adventure-hour.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-thrilling-adventure-hour-517df78be8-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-thrilling-adventure-hour-517df78be8-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Thrilling Adventure Hour cover art",
+    "creators": [
+      "Ben Acker & Ben Blacker"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "genres": [
+      "comedy",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic",
+      "full-cast"
+    ],
+    "tags": [
+      "Classic radio",
+      "Western",
+      "Supernatural",
+      "Adventure"
+    ],
+    "aliases": [
+      "The Thrilling Adventure Hour"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Ben Acker & Ben Blacker",
+      "ownerName": "WorkJuice Corp"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "the-red-panda-adventures",
+    "title": "The Red Panda Adventures",
+    "subtitle": "",
+    "description": "In the tradition of the great mystery men of radio, pulp fiction, and the golden age of comics comes The Red Panda, famed protector of 1930s Toronto. Hiding his identity behind a red domino mask, The Red Panda dispenses two-fisted pulp justice with strength, courage, and eerie hypnotic powers, joined by The Flying Squirrel.",
+    "cover": "images/covers/the-red-panda-adventures.png",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-red-panda-adventures-3273901578-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-red-panda-adventures-3273901578-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Red Panda Adventures cover art",
+    "creators": [
+      "Decoder Ring Theatre"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama",
+      "adventure"
+    ],
+    "tones": [],
+    "formats": [
+      "full-cast",
+      "episodic"
+    ],
+    "tags": [
+      "1930s",
+      "Classic radio",
+      "Pulp adventure",
+      "Mystery"
+    ],
+    "aliases": [
+      "The Red Panda Adventures"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Decoder Ring Theatre",
+      "ownerName": "Gregg Taylor"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "second-shift",
+    "title": "Second Shift",
+    "subtitle": "Second Shift: Third-string delivery, First-string chaos!",
+    "description": "Second Shift follows an ambitious, character-centric story arc about three college students from Boston who find themselves shifted against their will to another world. They must find their place in that world while trying to return to theirs.",
+    "cover": "images/covers/second-shift.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/second-shift-7ee9b95db4-320.webp",
+        "width": 320
+      }
+    ],
+    "coverAlt": "Second Shift cover art",
+    "creators": [
+      "Blue Sky Red Design"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "genres": [
+      "fantasy",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [
+      "Fantasy",
+      "Adventure",
+      "Found family"
+    ],
+    "aliases": [
+      "Second Shift"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Blue Sky Red Design",
+      "ownerName": "Blue Sky Red Entertainment"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "the-radio-adventures-of-dr-floyd",
+    "title": "The Radio Adventures of Dr. Floyd",
+    "subtitle": "",
+    "description": "Since November 7, 2004, this professionally produced audio drama has followed the adventures of the World’s Most Brilliant Scientist, Dr. Floyd, as he thwarts his evil arch nemesis, Dr. Steve, while learning about the people and events that shaped Earth’s history.",
+    "cover": "images/covers/the-radio-adventures-of-dr-floyd.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-radio-adventures-of-dr-floyd-79ec1ffb20-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-radio-adventures-of-dr-floyd-79ec1ffb20-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Radio Adventures of Dr. Floyd cover art",
+    "creators": [
+      "Grant Baciocco & Doug Price"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "genres": [
+      "drama",
+      "adventure"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic",
+      "serialized"
+    ],
+    "tags": [
+      "Classic radio",
+      "Family",
+      "Time travel"
+    ],
+    "aliases": [
+      "The Radio Adventures of Dr. Floyd"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Grant Baciocco & Doug Price",
+      "ownerName": "Saturday Morning Media"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "steal-the-stars",
+    "title": "Steal the Stars",
+    "subtitle": "The current publisher feed is titled Stories from Among the Stars; Steal the Stars is its first season.",
+    "description": "A Macmillan Audio fiction feed that serializes science-fiction and fantasy audiobooks with bold characters, daring adventures, and smart, compelling stories. Its first season is best known as Steal the Stars.",
+    "cover": "images/covers/steal-the-stars.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/steal-the-stars-de42437ecd-320.webp",
+        "width": 320
+      }
+    ],
+    "coverAlt": "Steal the Stars cover art",
+    "creators": [
+      "Gideon Media"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "sci-fi",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized",
+      "anthology"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Space",
+      "Corporate secrecy",
+      "Conspiracy"
+    ],
+    "aliases": [
+      "Steal the Stars"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Gideon Media",
+      "ownerName": "Macmillan Audio"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "the-archers",
+    "title": "The Archers",
+    "subtitle": "",
+    "description": "Contemporary drama in a rural setting, following the lives of the residents of the fictional village of Ambridge.",
+    "cover": "images/covers/the-archers.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-archers-65c117b875-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-archers-65c117b875-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Archers cover art",
+    "creators": [
+      "BBC"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [
+      "Classic radio",
+      "Community radio",
+      "Family",
+      "Small town"
+    ],
+    "aliases": [
+      "The Archers"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "BBC",
+      "ownerName": "BBC",
+      "writers": [
+        "BBC"
+      ],
+      "people": [
+        {
+          "name": "BBC",
+          "role": "author",
+          "url": "https://www.bbc.co.uk/"
+        }
+      ]
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "batman-unburied",
+    "title": "Batman Unburied",
+    "subtitle": "",
+    "description": "A serial killer known as the Harvester terrorizes Gotham City, but Bruce Wayne has no memory of being Batman and must investigate the case from his work as a forensic pathologist.",
+    "cover": "images/covers/batman-unburied.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/batman-unburied-f36ead7ab7-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/batman-unburied-f36ead7ab7-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "Batman Unburied cover art",
+    "creators": [
+      "Spotify / Warner Bros. / DC"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "genres": [
+      "drama",
+      "thriller"
+    ],
+    "tones": [],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Crime",
+      "Psychological",
+      "Investigation"
+    ],
+    "aliases": [
+      "Batman Unburied"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Spotify / Warner Bros. / DC"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "wormwood-a-serialized-mystery",
+    "title": "Wormwood: A Serialized Mystery",
+    "subtitle": "A Serialized Audio Mystery from Habit Forming Films",
+    "description": "Tragedy forced Doctor Xander Crowe down the dark pathways of the occult, and he was forever transformed. Now, chasing the vision of a drowned woman, Crowe finds himself in the haunted town of Wormwood, where evil lurks in the shadows and stains the souls of its inhabitants.",
+    "cover": "images/covers/wormwood-a-serialized-mystery.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/wormwood-a-serialized-mystery-5cf842acf1-320.webp",
+        "width": 320
+      }
+    ],
+    "coverAlt": "Wormwood: A Serialized Mystery cover art",
+    "creators": [
+      "Habit Forming Films"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "genres": [
+      "mystery",
+      "horror"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [
+      "Occult",
+      "Mystery",
+      "Supernatural",
+      "Ghosts"
+    ],
+    "aliases": [
+      "Wormwood: A Serialized Mystery"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Habit Forming Films",
+      "ownerName": "Habit Forming Films, LLC."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "the-cleansed",
+    "title": "The Cleansed",
+    "subtitle": "",
+    "description": "Fifteen years after the fallout of a massive energy crisis, steadfast homesteaders in rural Maine live off-grid. Their bucolic existence is turned upside down when a soldier arrives with word of a powerful military force rising in the ashes of old New York.",
+    "cover": "images/covers/the-cleansed.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-cleansed-aca01c8a5f-320.webp",
+        "width": 320
+      }
+    ],
+    "coverAlt": "The Cleansed cover art",
+    "creators": [
+      "FinalRune Productions",
+      "fred@finalrune.com"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "genres": [
+      "sci-fi",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized",
+      "full-cast"
+    ],
+    "tags": [
+      "Post-apocalyptic",
+      "Survival",
+      "War",
+      "Cults"
+    ],
+    "aliases": [
+      "The Cleansed"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "FinalRune Productions",
+      "ownerName": "Dagaz Media",
+      "writers": [
+        "fred@finalrune.com"
+      ],
+      "people": [
+        {
+          "name": "fred@finalrune.com",
+          "role": "author"
+        }
+      ]
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "marscorp",
+    "title": "MarsCorp",
+    "subtitle": "Modern Radio Drama. Science Fiction Comedy on Mars!",
+    "description": "MarsCorp is a scripted sci-fi comedy about Station Supervisor E.L. Hob’s first year at MarsCorp, a terraforming colony established on the red planet in 2070.",
+    "cover": "images/covers/marscorp.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/marscorp-e31e47b7d1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/marscorp-e31e47b7d1-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "MarsCorp cover art",
+    "creators": [
+      "Definitely Human"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "genres": [
+      "sci-fi",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Mars colony",
+      "Workplace",
+      "Space"
+    ],
+    "aliases": [
+      "MarsCorp"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Definitely Human",
+      "ownerName": "Definitely Human"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "i-am-in-eskew",
+    "title": "I Am in Eskew",
+    "subtitle": "Trapped in the horror-filled and impossible city of Eskew, a man makes endless recordings of his day-to-day experiences, hoping to reach the outside world.This show routinely contains body horror and other disturbing scenes. See the website",
+    "description": "I Am in Eskew is a horror and weird-fiction audio drama set in a bizarre city. A man trapped in Eskew makes endless recordings of his day-to-day experiences, hoping to reach the outside world.",
+    "cover": "images/covers/i-am-in-eskew.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/i-am-in-eskew-e43aaad305-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/i-am-in-eskew-e43aaad305-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "I Am in Eskew cover art",
+    "creators": [
+      "Muna Hussen and Jon Ware"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "genres": [
+      "horror",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized",
+      "narrated"
+    ],
+    "tags": [
+      "Weird fiction",
+      "Isolation",
+      "New Weird",
+      "Psychological"
+    ],
+    "aliases": [
+      "I Am in Eskew"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Muna Hussen and Jon Ware",
+      "ownerName": "David Ward"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "palimpsest",
+    "title": "Palimpsest",
+    "subtitle": "",
+    "description": "Palimpsest is a mostly single-voiced audio drama about memory, identity, and the things that haunt us. Each season is a unique and self-contained story exploring the spaces between horror, fantasy, and psychological realism.",
+    "cover": "images/covers/palimpsest.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/palimpsest-444e5ad920-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/palimpsest-444e5ad920-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "Palimpsest cover art",
+    "creators": [
+      "Jamieson Ridenhour & Hayley Heninger / Palimpsest Productions"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama",
+      "horror"
+    ],
+    "tones": [],
+    "formats": [
+      "anthology",
+      "narrated",
+      "serialized"
+    ],
+    "tags": [
+      "Ghosts",
+      "Historical",
+      "Mystery",
+      "Weird fiction"
+    ],
+    "aliases": [
+      "Palimpsest"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Jamieson Ridenhour & Hayley Heninger / Palimpsest Productions",
+      "ownerName": "Jamieson Ridenhour"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "the-earth-collective",
+    "title": "The Earth Collective",
+    "subtitle": "",
+    "description": "A sci-fi audio drama delivered as a first-hand account from Joseph Crane, humanity’s last historian, as he chronicles survival in rolling cities known as the Collective while they flee a malevolent entity found only on the dark side of the planet.",
+    "cover": "images/covers/the-earth-collective.png",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-earth-collective-a5175434b7-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-earth-collective-a5175434b7-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Earth Collective cover art",
+    "creators": [
+      "Michael Troup"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "sci-fi",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized",
+      "narrated",
+      "episodic"
+    ],
+    "tags": [
+      "Space",
+      "Colony ship",
+      "Survival",
+      "Isolation"
+    ],
+    "aliases": [
+      "The Earth Collective"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Michael Troup",
+      "ownerName": "Michael Troup"
+    },
+    "availability": {
+      "transcripts": "1 observed episodes",
+      "captions": "available in structured transcript data",
+      "transcriptCoverage": 0.012,
+      "transcriptFormats": [
+        "/application/srt"
+      ]
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "camlann",
+    "title": "Camlann",
+    "subtitle": "",
+    "description": "Camlann is a post-apocalyptic fantasy by Ella Watts from Tin Can Audio, a serialised fiction podcast inspired by folklore and Arthurian legends. It is also about three friends and a dog in Wales, fighting for their lives.",
+    "cover": "images/covers/camlann.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/camlann-0c249ea697-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/camlann-0c249ea697-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "Camlann cover art",
+    "creators": [
+      "Tin Can Audio"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "fantasy",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "full-cast",
+      "serialized",
+      "episodic"
+    ],
+    "tags": [
+      "Fantasy",
+      "Post-apocalyptic",
+      "Found family",
+      "Survival"
+    ],
+    "aliases": [
+      "Camlann"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Tin Can Audio",
+      "ownerName": "Tin Can Audio"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "doctor-who-redacted",
+    "title": "Doctor Who: Redacted",
+    "subtitle": "",
+    "description": "An audio drama series set in the worlds of Doctor Who, following Cleo Proctor, Abby McPhail, and Shawna Thompson as they become entangled in a mysterious investigation.",
+    "cover": "images/covers/doctor-who-redacted.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/doctor-who-redacted-aec3da1bf9-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/doctor-who-redacted-aec3da1bf9-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "Doctor Who: Redacted cover art",
+    "creators": [
+      "BBC Sounds / BBC"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized",
+      "full-cast",
+      "episodic"
+    ],
+    "tags": [
+      "Time travel",
+      "Investigation",
+      "Mystery"
+    ],
+    "aliases": [
+      "Doctor Who: Redacted"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "BBC Sounds / BBC",
+      "ownerName": "BBC"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "the-fitzroy-diaries",
+    "title": "The Fitzroy Diaries",
+    "subtitle": "Fitzroy Diaries is back, and this time, the streets are bare, everyone’s stuck at home. There are numbers that come in daily, and they seem to colour everything. But there are new neighbours to get to know, old friends to stumble on, and a",
+    "description": "Fitzroy Diaries returns to streets that are bare and residents who are stuck at home. As daily numbers colour everything, there are new neighbours to meet, old friends to stumble on, and cardboard boxes threatening to topple over.",
+    "cover": "images/covers/the-fitzroy-diaries.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-fitzroy-diaries-bf911fe47d-320.webp",
+        "width": 320
+      }
+    ],
+    "coverAlt": "The Fitzroy Diaries cover art",
+    "creators": [
+      "ABC Radio National / ABC"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized",
+      "narrated"
+    ],
+    "tags": [
+      "Historical",
+      "Family",
+      "Small town"
+    ],
+    "aliases": [
+      "The Fitzroy Diaries"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "ABC Radio National / ABC"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "parkdale-haunt",
+    "title": "Parkdale Haunt",
+    "subtitle": "",
+    "description": "Parkdale Haunt is an award-winning horror fiction podcast about friendship, ghosts, cults, family, and the nightmare that is real estate in Toronto.",
+    "cover": "images/covers/parkdale-haunt.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/parkdale-haunt-f893e54d09-320.webp",
+        "width": 320
+      }
+    ],
+    "coverAlt": "Parkdale Haunt cover art",
+    "creators": [
+      "Emily Kellogg & Alex Nursall"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "horror",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Ghosts",
+      "Cults",
+      "Family",
+      "Investigation"
+    ],
+    "aliases": [
+      "Parkdale Haunt"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Emily Kellogg & Alex Nursall"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "the-harrowing",
+    "title": "The Harrowing",
+    "subtitle": "A once-in-a-century storm hits a remote Scottish island. As the isolated community take shelter, a barbaric crime heralds the rise of an ancient evil, threatening the world. Starring Golden Globe winner Joanne Froggatt and Bridgerton's Rege",
+    "description": "A once-in-a-century storm hits the remote Scottish island of Toll Mòr. As the isolated community takes shelter, a barbaric crime sets off a chain of events that heralds the rise of an ancient evil and threatens the course of history.",
+    "cover": "images/covers/the-harrowing.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-harrowing-78b2ee7fd6-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-harrowing-78b2ee7fd6-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Harrowing cover art",
+    "creators": [
+      "Storyglass"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "genres": [
+      "horror",
+      "drama",
+      "thriller"
+    ],
+    "tones": [],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Isolation",
+      "Supernatural",
+      "Survival",
+      "Investigation"
+    ],
+    "aliases": [
+      "The Harrowing"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Storyglass",
+      "ownerName": "steve.carsey@storyglass.co.uk"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "escape-pod",
+    "title": "Escape Pod",
+    "subtitle": "",
+    "description": "Escape Pod is a science-fiction podcast magazine founded in 2005. It brings listeners short fiction from science-fiction writers and releases new stories through the Escape Artists network.",
+    "cover": "images/covers/escape-pod.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/escape-pod-979cb83b2d-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/escape-pod-979cb83b2d-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "Escape Pod cover art",
+    "creators": [
+      "Escape Artists, Inc. / Escape Artists",
+      "Mat"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "genres": [
+      "sci-fi",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic",
+      "anthology",
+      "narrated"
+    ],
+    "tags": [
+      "Genre anthology",
+      "Sci-fi",
+      "Adventure",
+      "Space"
+    ],
+    "aliases": [
+      "Escape Pod"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Escape Artists, Inc. / Escape Artists",
+      "writers": [
+        "Mat"
+      ],
+      "people": [
+        {
+          "name": "Mat",
+          "role": "author"
+        }
+      ]
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "eleanor-amplified",
+    "title": "Eleanor Amplified",
+    "subtitle": "Eleanor Amplified",
+    "description": "Eleanor Amplified is an adventure series for the whole family. The world-famous radio reporter Eleanor foils devious plots and outwits crafty villains in pursuit of the big story, while sparking conversation about journalism and media choices.",
+    "cover": "images/covers/eleanor-amplified.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/eleanor-amplified-3dc67dc1c0-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/eleanor-amplified-3dc67dc1c0-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "Eleanor Amplified cover art",
+    "creators": [
+      "WHYY"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "genres": [
+      "adventure",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized",
+      "full-cast"
+    ],
+    "tags": [
+      "Adventure",
+      "Investigation",
+      "Family"
+    ],
+    "aliases": [
+      "Eleanor Amplified"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "WHYY",
+      "ownerName": "WHYY"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "deviser",
+    "title": "Deviser",
+    "subtitle": "What is Humanity?",
+    "description": "DEVISER is a sci-fi horror audio drama created by Harlan Guthrie. Son wakes aboard a spaceship bound for Earth in an effort to recolonize it; what he discovers will change everything he knows about his world and himself.",
+    "cover": "images/covers/deviser.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/deviser-98432a4621-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/deviser-98432a4621-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "Deviser cover art",
+    "creators": [
+      "Harlan Guthrie"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "genres": [
+      "sci-fi",
+      "horror",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [
+      "Space",
+      "Survival",
+      "Isolation"
+    ],
+    "aliases": [
+      "Deviser"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Harlan Guthrie",
+      "ownerName": "Harlan Guthrie"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "afflicted",
+    "title": "Afflicted",
+    "subtitle": "",
+    "description": "Lovecraft Country meets True Blood in this horror thriller from award-winning producers Tonia Ransom and Jen Zink. In season one, a small East Texas town suffers supernatural disasters caused by a demonic book bound in human flesh, and only hoodoo can save it.",
+    "cover": "images/covers/afflicted.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/afflicted-b882145bcb-320.webp",
+        "width": 320
+      }
+    ],
+    "coverAlt": "Afflicted cover art",
+    "creators": [
+      "Ransom Media Productions"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "genres": [
+      "horror",
+      "thriller",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized",
+      "full-cast",
+      "episodic"
+    ],
+    "tags": [
+      "Supernatural",
+      "Demons",
+      "Small town",
+      "Investigation"
+    ],
+    "aliases": [
+      "Afflicted"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Ransom Media Productions",
+      "ownerName": "Tonia Ransom"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "alba-salix-royal-physician",
+    "title": "Alba Salix, Royal Physician",
+    "subtitle": "",
+    "description": "The award-winning fantasy comedy follows Alba Salix, an overworked and cynical witch who tends to the health of the King, Queen, and citizens of Farloria with help from her obnoxious apprentice Magnus and an absent-minded fairy named Holly.",
+    "cover": "images/covers/alba-salix-royal-physician.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/alba-salix-royal-physician-563b55622f-320.webp",
+        "width": 320
+      }
+    ],
+    "coverAlt": "Alba Salix, Royal Physician cover art",
+    "creators": [
+      "Forgery League"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "genres": [
+      "fantasy",
+      "comedy",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized",
+      "full-cast"
+    ],
+    "tags": [
+      "Fantasy",
+      "Urban fantasy",
+      "Workplace",
+      "Adventure"
+    ],
+    "aliases": [
+      "Alba Salix, Royal Physician"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Forgery League",
+      "ownerName": "Eli McIlveen"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "the-sojourn",
+    "title": "The Sojourn",
+    "subtitle": "",
+    "description": "The Sojourn is an award-winning science-fiction audio drama featuring a full voice cast, scientifically accurate sound effects, and an original score. The two-season series is available through audiobook retailers.",
+    "cover": "images/covers/the-sojourn.png",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-sojourn-168e9d26ee-320.webp",
+        "width": 320
+      }
+    ],
+    "coverAlt": "The Sojourn cover art",
+    "creators": [
+      "Spacedock"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "genres": [
+      "sci-fi",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Space",
+      "Space opera",
+      "Survival"
+    ],
+    "aliases": [
+      "The Sojourn"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Spacedock"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "red-for-revolution",
+    "title": "Red for Revolution",
+    "subtitle": "An audio drama about love and liberation",
+    "description": "Radiotopia Presents: Red for Revolution is an audio drama centering intergenerational stories of Black women, queer love, and liberation. Jazmine grapples with her queer identity, first crush, and relationship with her homophobic mother before the story reaches back to 1971 and a romance between Lorraine Giovanni and Ella Ali.",
+    "cover": "images/covers/red-for-revolution.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/red-for-revolution-29603c6d60-320.webp",
+        "width": 320
+      }
+    ],
+    "coverAlt": "Red for Revolution cover art",
+    "creators": [
+      "Meta Mana Media"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized",
+      "full-cast"
+    ],
+    "tags": [
+      "Queer",
+      "Historical",
+      "Romance",
+      "Political intrigue"
+    ],
+    "aliases": [
+      "Red for Revolution"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Meta Mana Media",
+      "ownerName": "Radiotopia"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "twilight-histories",
+    "title": "Twilight Histories",
+    "subtitle": "",
+    "description": "The Twilight Histories is an immersive audio adventure that casts you as a time-traveling hero. Each episode transports you to a new world, blending alternate history, science fiction, fantasy, and role-playing into a fully soundscaped audio drama.",
+    "cover": "images/covers/twilight-histories.png",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/twilight-histories-4d3fdf6737-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/twilight-histories-4d3fdf6737-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "Twilight Histories cover art",
+    "creators": [
+      "Dark Lord Studios"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "sci-fi",
+      "fantasy",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic",
+      "anthology"
+    ],
+    "tags": [
+      "Alternate history",
+      "Time travel",
+      "Space",
+      "Adventure"
+    ],
+    "aliases": [
+      "Twilight Histories"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Dark Lord Studios"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-06",
+    "updatedAt": "2026-09-06"
+  },
+  {
+    "id": "rosannas-secret",
+    "title": "Rosanna's Secret",
+    "subtitle": "A Vampire's Tale",
+    "description": "Rosanna's Secret: A Vampire's Tale is a comedy-horror fiction podcast series about Rosanna, a 29-year-old who falls for a strange newcomer and discovers that he is a vampire. The story follows her adjustment to life as a vampire while she keeps a secret of her own.",
+    "cover": "images/covers/rosannas-secret.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/rosannas-secret-b07a92d04a-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/rosannas-secret-b07a92d04a-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "Rosanna's Secret: A Vampire's Tale cover art",
+    "creators": [
+      "Goatshead Castle Productions"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "comedy",
+      "horror",
+      "supernatural"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized",
+      "narrated"
+    ],
+    "tags": [
+      "Vampires"
+    ],
+    "aliases": [
+      "Rosanna's Secret: A Vampire's Tale"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Goatshead Castle Productions",
+      "ownerName": "Samantha V Hutton",
+      "network": "Goatshead Castle Productions",
+      "writers": [
+        "Samantha V Hutton"
+      ],
+      "narrator": "Samantha V Hutton",
+      "people": [
+        {
+          "name": "Samantha V Hutton",
+          "role": "writer and narrator",
+          "url": "https://samanthavhutton.com/"
+        },
+        {
+          "name": "Laurel Marie Munro",
+          "role": "voice of Rosanna"
+        },
+        {
+          "name": "Ronan Melomo",
+          "role": "voice of Jeremy"
+        }
+      ]
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "pov": "Rosanna-centered supernatural fiction"
+    },
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-09-07",
+    "updatedAt": "2026-09-07"
   }
 ]

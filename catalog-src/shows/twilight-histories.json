@@ -1,0 +1,425 @@
+{
+  "id": "twilight-histories",
+  "title": "Twilight Histories",
+  "subtitle": "",
+  "description": "The Twilight Histories is an immersive audio adventure that casts you as a time-traveling hero. Each episode transports you to a new world, blending alternate history, science fiction, fantasy, and role-playing into a fully soundscaped audio drama.",
+  "cover": "images/covers/twilight-histories.png",
+  "coverAlt": "Twilight Histories cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "https://audioboom.com/channels/4662184.rss",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/twilight-histories/id475159941?uo=4",
+    "website": "http://twilighthistories.com/",
+    "rss": "https://audioboom.com/channels/4662184.rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "sci-fi",
+    "fantasy",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic",
+    "anthology"
+  ],
+  "tags": [
+    "Alternate history",
+    "Time travel",
+    "Space",
+    "Adventure"
+  ],
+  "aliases": [
+    "Twilight Histories"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 109 full episodes • 46 min median",
+    "episodes": 109,
+    "medianEpisodeMinutes": 46,
+    "minEpisodeMinutes": 14,
+    "maxEpisodeMinutes": 110,
+    "totalObservedHours": 86.5,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 109,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2011-09-01",
+    "latest": "2025-06-16",
+    "latestFeedItem": "2025-06-16",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "http://twilighthistories.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Dark Lord Studios"
+  },
+  "creators": [
+    "Dark Lord Studios"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "http://twilighthistories.com/; https://audioboom.com/channels/4662184.rss; https://podcasts.apple.com/us/podcast/twilight-histories/id475159941?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "researchGaps": [
+      "the source directory also labels the feed as Games because of its role-playing p"
+    ],
+    "objectiveSources": [
+      "http://twilighthistories.com/",
+      "https://audioboom.com/channels/4662184.rss",
+      "https://podcasts.apple.com/us/podcast/twilight-histories/id475159941?uo=4"
+    ],
+    "sourceCategories": [
+      "Science Fiction",
+      "Fantasy",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Alternate history",
+      "Time travel",
+      "Space",
+      "Adventure"
+    ],
+    "importOfficialSummary": "The Twilight Histories is an immersive audio adventure that casts you as a time-traveling hero. Each episode transports you to a new world, blending alternate history, science fiction, fantasy, and role-playing into a fully soundscaped audio drama.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "irregular",
+      "medianDays": 61,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "7aa93473-0368-5fd7-aaa8-49166a0c8195",
+        "rssUrl": "https://audioboom.com/channels/4662184.rss",
+        "appleCollectionId": "475159941",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "http://twilighthistories.com/feed/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "http://twilighthistories.com/",
+          "fetchedAt": "2026-09-06T17:37:47.520Z",
+          "payloadHash": "9ba01bd9c24135780af6464e68e3dc21567579a7d64e16512c35133209a2cbc7"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://audioboom.com/channels/4662184.rss",
+          "fetchedAt": "2026-09-06T17:37:47.190Z",
+          "payloadHash": "b565445375a24579e73a1be20c0359d8684a5d0cde9d4292db0d03ceef622a90"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/twilight-histories/id475159941?uo=4",
+          "fetchedAt": "2026-09-06T17:37:47.077Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "http://twilighthistories.com/",
+          "https://audioboom.com/channels/4662184.rss",
+          "https://podcasts.apple.com/us/podcast/twilight-histories/id475159941?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "http://twilighthistories.com/",
+            "https://audioboom.com/channels/4662184.rss",
+            "https://podcasts.apple.com/us/podcast/twilight-histories/id475159941?uo=4"
+          ],
+          "tags": [
+            "http://twilighthistories.com/",
+            "https://audioboom.com/channels/4662184.rss",
+            "https://podcasts.apple.com/us/podcast/twilight-histories/id475159941?uo=4"
+          ],
+          "formats": [
+            "http://twilighthistories.com/",
+            "https://audioboom.com/channels/4662184.rss",
+            "https://podcasts.apple.com/us/podcast/twilight-histories/id475159941?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [
+          "the source directory also labels the feed as Games because of its role-playing p"
+        ],
+        "reviewedAt": "2026-09-06T18:04:39.437Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "http://twilighthistories.com/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://audioboom.com/channels/4662184.rss"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/twilight-histories/id475159941?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "http://twilighthistories.com/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://audioboom.com/channels/4662184.rss"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/twilight-histories/id475159941?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "http://twilighthistories.com/",
+            "https://audioboom.com/channels/4662184.rss",
+            "https://podcasts.apple.com/us/podcast/twilight-histories/id475159941?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.438Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "05964d86901b20a66d2dd1f80bc68412d157aba956fe507e59d5cc42ff2b32c7",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "c53f8f02f867166036825697c803ec0118e5db018b53ac6efd619627f3a36988",
+        "cover": "f47813328557d1f6b70001b0eac6c9bb2973d1e8145a35b507497eaf44b25581",
+        "coverAlt": "a74b70617b2a0559d1bdeebba2993da8a31cc53e148ebfec50fb0db8e397a12e",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "19a38a8de8f543aa8fdb9c2e25a11621c04754a7d7a2fb9327c04eb3fa40e9ac",
+        "officialLinks": "a9a0984f33b1e85ed35f045f3bf6385f8641adf45b44ba7a735ec5f4b7c3496c",
+        "genres": "40ea99ce94ecdb13d3ea515f18f1288e1db85e04c474f8f8fc6bd6480dca15c3",
+        "tags": "d21e47903035ced4986f6f41196ab83cc1f10ffa7fb44e9b2039a965a9c5d53b",
+        "formats": "bbb1d0b07d463f5f66fb64a4d206bf9ccde9a1559e009976557b22c8cdeafe61",
+        "aliases": "6c7b6e4546e1b8cbb082aa1c2f52acd473c89e564a15532e01c073ad9f81a231",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "21d93755857bf8317cdb547cf50f1c40a60c3b4a87e0109b5a703e0a59926f33",
+        "releaseDates": "5758513e8dc907953daf2489304f8518e5970f14275e8de2cc24d8b18d4363df",
+        "credits": "9b9ed7c9b0af649ed5e8fce1a87797b545d2c9930c988f5591acaf18ff99cd90",
+        "creators": "83ee6dfcc954a33a10a121e158628d6d83ba593480db9b6abb3ab107f99299f8",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "0a662cd0ce26b405c954e978a0013ccaa900ad18ec761b43d9c3a499a403c947"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.521Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.478Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "dark-lord-studios"
+}

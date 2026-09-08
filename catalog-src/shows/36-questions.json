@@ -1,0 +1,408 @@
+{
+  "id": "36-questions",
+  "title": "36 Questions",
+  "subtitle": "Hear what The New York Times calls \"the future of musicals\"... 36 Questions, a three-part podcast musical starring Jonathan Groff and Jessie Shelton.",
+  "description": "Hear what The New York Times calls “the future of musicals”: 36 Questions, a three-part podcast musical starring Jonathan Groff and Jessie Shelton. Produced by Two-Up, the producers of Limetown and The Wilderness.",
+  "cover": "images/covers/36-questions.jpg",
+  "coverAlt": "36 Questions cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "start": "https://www.twoupproductions.com/shows/36questions",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/36-questions-the-podcast-musical/id1248086475?uo=4",
+    "website": "https://www.twoupproductions.com/shows/36questions",
+    "rss": "https://feeds.megaphone.fm/TWU6263225887",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "limited-series",
+    "serialized"
+  ],
+  "tags": [
+    "Romance",
+    "Ensemble"
+  ],
+  "aliases": [
+    "36 Questions"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 4 full episodes • 47 min median",
+    "seasons": 1,
+    "episodes": 4,
+    "medianEpisodeMinutes": 47,
+    "minEpisodeMinutes": 22,
+    "maxEpisodeMinutes": 59,
+    "totalObservedHours": 2.9,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 4,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2017-07-10",
+    "latest": "2021-04-26",
+    "latestFeedItem": "2021-04-26",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.twoupproductions.com/shows/36questions",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Two-Up Productions",
+    "ownerName": "Two-Up"
+  },
+  "creators": [
+    "Two-Up Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://feeds.megaphone.fm/TWU6263225887; https://podcasts.apple.com/us/podcast/36-questions-the-podcast-musical/id1248086475?uo=4; https://www.twoupproductions.com/shows/36questions",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.megaphone.fm/TWU6263225887",
+      "https://podcasts.apple.com/us/podcast/36-questions-the-podcast-musical/id1248086475?uo=4",
+      "https://www.twoupproductions.com/shows/36questions"
+    ],
+    "sourceCategories": [
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Romance",
+      "Ensemble"
+    ],
+    "importOfficialSummary": "Hear what The New York Times calls “the future of musicals”: 36 Questions, a three-part podcast musical starring Jonathan Groff and Jessie Shelton. Produced by Two-Up, the producers of Limetown and The Wilderness.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 2
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Two-Up Productions, LLC",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/TWU6263225887",
+        "appleCollectionId": "1248086475",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/TWU6263225887",
+          "fetchedAt": "2026-09-06T17:39:11.297Z",
+          "payloadHash": "9e3534a928b0d3f4ac8deb4d78562a8319111c93f9d50b00dec07cbea8a04372"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/36-questions-the-podcast-musical/id1248086475?uo=4",
+          "fetchedAt": "2026-09-06T17:39:10.687Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://www.twoupproductions.com/shows/36questions",
+          "https://feeds.megaphone.fm/TWU6263225887",
+          "https://podcasts.apple.com/us/podcast/36-questions-the-podcast-musical/id1248086475?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://www.twoupproductions.com/shows/36questions",
+            "https://feeds.megaphone.fm/TWU6263225887",
+            "https://podcasts.apple.com/us/podcast/36-questions-the-podcast-musical/id1248086475?uo=4"
+          ],
+          "tags": [
+            "https://www.twoupproductions.com/shows/36questions",
+            "https://feeds.megaphone.fm/TWU6263225887",
+            "https://podcasts.apple.com/us/podcast/36-questions-the-podcast-musical/id1248086475?uo=4"
+          ],
+          "formats": [
+            "https://www.twoupproductions.com/shows/36questions",
+            "https://feeds.megaphone.fm/TWU6263225887",
+            "https://podcasts.apple.com/us/podcast/36-questions-the-podcast-musical/id1248086475?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-09-06T18:04:39.102Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.twoupproductions.com/shows/36questions"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.megaphone.fm/TWU6263225887"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/36-questions-the-podcast-musical/id1248086475?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.twoupproductions.com/shows/36questions"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.megaphone.fm/TWU6263225887"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/36-questions-the-podcast-musical/id1248086475?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://www.twoupproductions.com/shows/36questions",
+            "https://feeds.megaphone.fm/TWU6263225887",
+            "https://podcasts.apple.com/us/podcast/36-questions-the-podcast-musical/id1248086475?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.339Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "7bf1b88a1d950644d6710d0e2e820c41f85dc6d0cd44dd3130545e3b8f8a5ebd",
+        "subtitle": "37be8a5e12a7c53c6ede69235a0ea56316e84e3ac3283709a1d3134cc38b2707",
+        "description": "73000a64120fa3e224f01eba061c68e7a65ac9df7437a39cde173cb39c0c8044",
+        "cover": "1079e8e7a2c7713a8749bc7d78c0b84c652b28ca44f6dad6f0141df947a10c0e",
+        "coverAlt": "ea96328ef33e53a8c0df8dfd8b5175fb2d16c6e4eae2fd046e68400b870c73af",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
+        "listenLinks": "b53b1d70eb60280ed29ee1addd368cdab5c6cfc33b62e135510c9c46be75b6af",
+        "officialLinks": "bcfdd1a7397d1b4ef55fcf3027ad3582b06b2d6b3b5125561091a2f60e360bf0",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "57742e451e837d824c872f083ef7ae333bac3670836cd68136cebf5d967142dd",
+        "formats": "08ddf0ad2ebaf6e15c9b3461b0f333a6567bf3094191c7a62c28fb46a8ec241a",
+        "aliases": "9c5c0e977c80b1b16c9bd6a1d2ce47fb2091fc4a2ec3077fb46d682c5413395d",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "3dfb2f600993c8c8ddf655afb6d226ea9692c7369a0450c2493c40874b53f814",
+        "releaseDates": "376e342ae0444550c85993c64ea4ce5b6642961d5b46781d065abe29d10d11c9",
+        "credits": "d5ae7936c59ba6eaa1a9dd866daac7b363a52d35e6b8202237ced8cc232db1da",
+        "creators": "25eaad61af69daa78aa4e72a4a29e8b42cdd4433f6fdd68d8612cb6e713531a7",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "53e51d15a32cc748f11f8476862a56460f78ef9e0a4563c1e988c83eaec1d909"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.493Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.440Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "two-up-productions"
+}

@@ -1,0 +1,426 @@
+{
+  "id": "steal-the-stars",
+  "title": "Steal the Stars",
+  "subtitle": "The current publisher feed is titled Stories from Among the Stars; Steal the Stars is its first season.",
+  "description": "A Macmillan Audio fiction feed that serializes science-fiction and fantasy audiobooks with bold characters, daring adventures, and smart, compelling stories. Its first season is best known as Steal the Stars.",
+  "cover": "images/covers/steal-the-stars.jpg",
+  "coverAlt": "Steal the Stars cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "https://feeds.megaphone.fm/stealthestars",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/stories-from-among-the-stars/id1259505930?uo=4",
+    "website": "https://podcasts.macmillan.com/podcast/stories-from-among-the-stars/",
+    "rss": "https://feeds.megaphone.fm/stealthestars",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "sci-fi",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized",
+    "anthology"
+  ],
+  "tags": [
+    "Sci-fi",
+    "Space",
+    "Corporate secrecy",
+    "Conspiracy"
+  ],
+  "aliases": [
+    "Steal the Stars"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 15 full episodes • 28 min median",
+    "seasons": 1,
+    "episodes": 15,
+    "medianEpisodeMinutes": 28,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 43,
+    "totalObservedHours": 6.9,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 15,
+      "bonus": 5,
+      "trailer": 4
+    }
+  },
+  "releaseDates": {
+    "first": "",
+    "latest": "",
+    "latestFeedItem": "2026-04-17",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://podcasts.macmillan.com/podcast/stories-from-among-the-stars/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Gideon Media",
+    "ownerName": "Macmillan Audio"
+  },
+  "creators": [
+    "Gideon Media"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://podcasts.macmillan.com/podcast/stories-from-among-the-stars/; https://feeds.megaphone.fm/stealthestars; https://podcasts.apple.com/us/podcast/stories-from-among-the-stars/id1259505930?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "researchGaps": [
+      "current publisher feed uses the title Stories from Among the Stars"
+    ],
+    "objectiveSources": [
+      "https://podcasts.macmillan.com/podcast/stories-from-among-the-stars/",
+      "https://feeds.megaphone.fm/stealthestars",
+      "https://podcasts.apple.com/us/podcast/stories-from-among-the-stars/id1259505930?uo=4"
+    ],
+    "sourceCategories": [
+      "Science Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Sci-fi",
+      "Space",
+      "Corporate secrecy",
+      "Conspiracy"
+    ],
+    "importOfficialSummary": "A Macmillan Audio fiction feed that serializes science-fiction and fantasy audiobooks with bold characters, daring adventures, and smart, compelling stories. Its first season is best known as Steal the Stars.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "unknown",
+      "medianDays": null,
+      "observedIntervals": 0
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© Gideon Media",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/stealthestars",
+        "appleCollectionId": "1259505930",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://podcasts.macmillan.com/podcast/stories-from-among-the-stars/",
+          "fetchedAt": "2026-09-06T17:38:49.407Z",
+          "payloadHash": "60ab658fd4f17e5ad12b254e2702aa7febefb348428105fb78350d4313fc1c56"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/stealthestars",
+          "fetchedAt": "2026-09-06T17:38:49.279Z",
+          "payloadHash": "a157311ed72635a97f869ba8096f5ef60a636f2dd219a46d960823c73c9e10cc"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/stories-from-among-the-stars/id1259505930?uo=4",
+          "fetchedAt": "2026-09-06T17:38:48.627Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://podcasts.macmillan.com/podcast/stories-from-among-the-stars/",
+          "https://feeds.megaphone.fm/stealthestars",
+          "https://podcasts.apple.com/us/podcast/stories-from-among-the-stars/id1259505930?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://podcasts.macmillan.com/podcast/stories-from-among-the-stars/",
+            "https://feeds.megaphone.fm/stealthestars",
+            "https://podcasts.apple.com/us/podcast/stories-from-among-the-stars/id1259505930?uo=4"
+          ],
+          "tags": [
+            "https://podcasts.macmillan.com/podcast/stories-from-among-the-stars/",
+            "https://feeds.megaphone.fm/stealthestars",
+            "https://podcasts.apple.com/us/podcast/stories-from-among-the-stars/id1259505930?uo=4"
+          ],
+          "formats": [
+            "https://podcasts.macmillan.com/podcast/stories-from-among-the-stars/",
+            "https://feeds.megaphone.fm/stealthestars",
+            "https://podcasts.apple.com/us/podcast/stories-from-among-the-stars/id1259505930?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [
+          "current publisher feed uses the title Stories from Among the Stars"
+        ],
+        "reviewedAt": "2026-09-06T18:04:39.372Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.macmillan.com/podcast/stories-from-among-the-stars/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.megaphone.fm/stealthestars"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/stories-from-among-the-stars/id1259505930?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.macmillan.com/podcast/stories-from-among-the-stars/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.megaphone.fm/stealthestars"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/stories-from-among-the-stars/id1259505930?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://podcasts.macmillan.com/podcast/stories-from-among-the-stars/",
+            "https://feeds.megaphone.fm/stealthestars",
+            "https://podcasts.apple.com/us/podcast/stories-from-among-the-stars/id1259505930?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.372Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "e06544912b7c00267a493e8a58e6016a9c51d879c497bc6a529139ed11f3853b",
+        "subtitle": "8c0e425c3b521a874bf5a5aeecce0c8473abdb4a3fe19b1958af630d8395f36d",
+        "description": "7e876eca24293d800fd68b9a79535250b01b5758dde0eaaba702cbac432fd260",
+        "cover": "f0868941c408ecdce5e6615331bc88946819b649755facfa1afd643f710e63a9",
+        "coverAlt": "b7bd5aba3213da01246bfeb3ca12a8ae4cbb0cfbd0db356973e4df2c04dd6e08",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "dbcff506f05a5ddbd903b8a026157d6b9437943c56c13653e9aaac9a6cdba783",
+        "officialLinks": "2d35e85cdd2d62de9f144699b8924a7b629b39fc5aeca5f141645e15b2ccfe6e",
+        "genres": "5e1c8ac5a5bc529da25aefa615e90136fc2dcade7fbb07655c917b5ba23cf206",
+        "tags": "ab189ac0091ad9e2602988738adb55adbfecd2218ada2ee543a8a61bae751406",
+        "formats": "dab91706eb281939ddc9565df1e656a663442f5381f4a27b8eb006567cb3e3c4",
+        "aliases": "23da9b0c91fcff87c4c4325c2a824b78267d8837094ab3b5fdde7071c2fd8d52",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "6cfe93cc7e99906e18064c43d4c8e533688a20e45ae897656cba43860f0ff7e5",
+        "releaseDates": "ea9d5ca05704397a7162b1c0576978e6b038e11066e16597d99560b509ff0228",
+        "credits": "010c8b64d9cdda33200927b2c5d867c723b3a9476534c58aa370ff8edfb685c5",
+        "creators": "81cc9b9a439fc4f3bae2300804dcc6320de17ef18631118bf723a1374b4122e1",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "98ea0ad6fd7b4d59665a4efec821bbf9039c0457016fa0b84744ed5e6246d369"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.502Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.451Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "gideon-media"
+}

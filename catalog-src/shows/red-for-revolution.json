@@ -1,0 +1,418 @@
+{
+  "id": "red-for-revolution",
+  "title": "Red for Revolution",
+  "subtitle": "An audio drama about love and liberation",
+  "description": "Radiotopia Presents: Red for Revolution is an audio drama centering intergenerational stories of Black women, queer love, and liberation. Jazmine grapples with her queer identity, first crush, and relationship with her homophobic mother before the story reaches back to 1971 and a romance between Lorraine Giovanni and Ella Ali.",
+  "cover": "images/covers/red-for-revolution.jpg",
+  "coverAlt": "Red for Revolution cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "start": "https://publicfeeds.net/f/72/red-for-revolution/feed-rss.xml",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/red-for-revolution/id1812032174?uo=4",
+    "website": "https://radiotopiapresents.fm/",
+    "rss": "https://publicfeeds.net/f/72/red-for-revolution/feed-rss.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "https://music.amazon.com/podcasts/44b7c095-4b81-49a4-bae3-b1af86bec32a/Showcase-from-Radiotopia",
+    "pocketCasts": "https://pca.st/s1Rs"
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized",
+    "full-cast"
+  ],
+  "tags": [
+    "Queer",
+    "Historical",
+    "Romance",
+    "Political intrigue"
+  ],
+  "aliases": [
+    "Red for Revolution"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 6 full episodes • 39 min median",
+    "seasons": 1,
+    "episodes": 6,
+    "medianEpisodeMinutes": 39,
+    "minEpisodeMinutes": 29,
+    "maxEpisodeMinutes": 48,
+    "totalObservedHours": 3.8,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      15
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 6,
+      "bonus": 3,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2025-02-04",
+    "latest": "2025-03-11",
+    "latestFeedItem": "2026-04-13",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://radiotopiapresents.fm/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Meta Mana Media",
+    "ownerName": "Radiotopia"
+  },
+  "creators": [
+    "Meta Mana Media"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://radiotopiapresents.fm/; https://publicfeeds.net/f/72/red-for-revolution/feed-rss.xml; https://podcasts.apple.com/us/podcast/red-for-revolution/id1812032174?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://radiotopiapresents.fm/",
+      "https://publicfeeds.net/f/72/red-for-revolution/feed-rss.xml",
+      "https://podcasts.apple.com/us/podcast/red-for-revolution/id1812032174?uo=4"
+    ],
+    "sourceCategories": [
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Queer",
+      "Historical",
+      "Romance",
+      "Political intrigue"
+    ],
+    "importOfficialSummary": "Radiotopia Presents: Red for Revolution is an audio drama centering intergenerational stories of Black women, queer love, and liberation. Jazmine grapples with her queer identity, first crush, and relationship with her homophobic mother before the story reaches back to 1971 and a romance between Lorraine Giovanni and Ella Ali.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 5
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "0f6ac014-42e2-5ad4-ad52-871d680952ae",
+        "rssUrl": "https://publicfeeds.net/f/72/red-for-revolution/feed-rss.xml",
+        "appleCollectionId": "1812032174",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://radiotopiapresents.fm/",
+          "fetchedAt": "2026-09-06T17:38:55.429Z",
+          "payloadHash": "8dd4098820d0efcaf3b1d047e6828b92da61baa051b7c8eab2ccc08aa4d17b53"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://publicfeeds.net/f/72/red-for-revolution/feed-rss.xml",
+          "fetchedAt": "2026-09-06T17:38:54.963Z",
+          "payloadHash": "cbc577f238f77db883cec420839041a1c7fe7b39d4ede1b5f0d1b1c82f85412d"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/red-for-revolution/id1812032174?uo=4",
+          "fetchedAt": "2026-09-06T17:38:54.319Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://radiotopiapresents.fm/",
+          "https://publicfeeds.net/f/72/red-for-revolution/feed-rss.xml",
+          "https://podcasts.apple.com/us/podcast/red-for-revolution/id1812032174?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://radiotopiapresents.fm/",
+            "https://publicfeeds.net/f/72/red-for-revolution/feed-rss.xml",
+            "https://podcasts.apple.com/us/podcast/red-for-revolution/id1812032174?uo=4"
+          ],
+          "tags": [
+            "https://radiotopiapresents.fm/",
+            "https://publicfeeds.net/f/72/red-for-revolution/feed-rss.xml",
+            "https://podcasts.apple.com/us/podcast/red-for-revolution/id1812032174?uo=4"
+          ],
+          "formats": [
+            "https://radiotopiapresents.fm/",
+            "https://publicfeeds.net/f/72/red-for-revolution/feed-rss.xml",
+            "https://podcasts.apple.com/us/podcast/red-for-revolution/id1812032174?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-09-06T18:04:39.432Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://radiotopiapresents.fm/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://publicfeeds.net/f/72/red-for-revolution/feed-rss.xml"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/red-for-revolution/id1812032174?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://radiotopiapresents.fm/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://publicfeeds.net/f/72/red-for-revolution/feed-rss.xml"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/red-for-revolution/id1812032174?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://radiotopiapresents.fm/",
+            "https://publicfeeds.net/f/72/red-for-revolution/feed-rss.xml",
+            "https://podcasts.apple.com/us/podcast/red-for-revolution/id1812032174?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.432Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "de0f37ca88ed17aec142d9e232ef7829ba1627316cf407159122f119d8cabd44",
+        "subtitle": "c7bb424a24a78cd9b11d9079658dc3d43a2217389daf290e8e3b33a66097f6c7",
+        "description": "82ab5ff35f5924ff131c3bd51e4d6b50f644e0f5841e64202e6ade3ec61ad2bf",
+        "cover": "2d7874dd895b6f8f76daf257c7bc4f401efaacf664d201a971ad954bce736f72",
+        "coverAlt": "b8e891caf267603381a922668c8b330acfddc0c689e36a653179591e35e9aa67",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
+        "listenLinks": "e321cd281722369b436d8c730c4731c3383c924ae966a5f309d417ac438ca929",
+        "officialLinks": "c4e6ba55ed090a5b74448744d2358f197a1785a64551e6f9ec8a704118cf4e8c",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "85054d03cd8f63c95690a6b302143020331e371597124f80a4b4bca8478968f8",
+        "formats": "eed159522f45aa3f6855b5e31a644b9db5816125f9a8bbbc0dbfc4fcbfad30b8",
+        "aliases": "4e4bf1e46e5fb2963bfbcd570351083f6f8fc357f7e1097851f9be39c0d33b7b",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "2625f1e4292b33316eedfba2e86c16fd791514286f8416010086d8c88aa2d951",
+        "releaseDates": "92f08cd264293b4509deec3a8cc028f8695d955eff5b665f6cbebb38dd070917",
+        "credits": "750f9104013df72358967e12c1f4fd49a15e1d5c001c06c36c60de0018a5d62c",
+        "creators": "fb41a7e9583311a66c6d60cf475d6ce676f549e3aea0e43793f454f60b7e9f0a",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "dceb7dc8a396ffc0ff83b553e870766158b96ed818857451b8da1aa3b9a38112"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.520Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.477Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "meta-mana-media"
+}

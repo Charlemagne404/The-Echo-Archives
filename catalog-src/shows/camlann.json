@@ -1,0 +1,422 @@
+{
+  "id": "camlann",
+  "title": "Camlann",
+  "subtitle": "",
+  "description": "Camlann is a post-apocalyptic fantasy by Ella Watts from Tin Can Audio, a serialised fiction podcast inspired by folklore and Arthurian legends. It is also about three friends and a dog in Wales, fighting for their lives.",
+  "cover": "images/covers/camlann.jpg",
+  "coverAlt": "Camlann cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "https://www.tincanaudio.co.uk/camlann",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/camlann-an-audio-drama/id1714630550?uo=4",
+    "website": "https://www.tincanaudio.co.uk/camlann",
+    "rss": "https://rss.libsyn.com/shows/492125/destinations/4203446.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "fantasy",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "full-cast",
+    "serialized",
+    "episodic"
+  ],
+  "tags": [
+    "Fantasy",
+    "Post-apocalyptic",
+    "Found family",
+    "Survival"
+  ],
+  "aliases": [
+    "Camlann"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 10 full episodes • 31 min median",
+    "seasons": 1,
+    "episodes": 10,
+    "medianEpisodeMinutes": 31,
+    "minEpisodeMinutes": 8,
+    "maxEpisodeMinutes": 39,
+    "totalObservedHours": 4.8,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 10,
+      "bonus": 1,
+      "trailer": 4
+    }
+  },
+  "releaseDates": {
+    "first": "2024-01-15",
+    "latest": "2024-05-05",
+    "latestFeedItem": "2026-08-13",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.tincanaudio.co.uk/camlann",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/@tincanaudio7627",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Tin Can Audio",
+    "ownerName": "Tin Can Audio"
+  },
+  "creators": [
+    "Tin Can Audio"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://www.tincanaudio.co.uk/camlann; https://rss.libsyn.com/shows/492125/destinations/4203446.xml; https://podcasts.apple.com/us/podcast/camlann-an-audio-drama/id1714630550?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.tincanaudio.co.uk/camlann",
+      "https://rss.libsyn.com/shows/492125/destinations/4203446.xml",
+      "https://podcasts.apple.com/us/podcast/camlann-an-audio-drama/id1714630550?uo=4"
+    ],
+    "sourceCategories": [
+      "Fantasy",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Fantasy",
+      "Post-apocalyptic",
+      "Found family",
+      "Survival"
+    ],
+    "importOfficialSummary": "Camlann is a post-apocalyptic fantasy by Ella Watts from Tin Can Audio, a serialised fiction podcast inspired by folklore and Arthurian legends. It is also about three friends and a dog in Wales, fighting for their lives.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "2023",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.libsyn.com/shows/492125/destinations/4203446.xml",
+        "appleCollectionId": "1714630550",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.tincanaudio.co.uk/camlann",
+          "fetchedAt": "2026-09-06T17:38:49.851Z",
+          "payloadHash": "ddd8fb4c055b42a6f83670b0a0bbced6a2d6e0d089110bd091f4784451fb489d"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.libsyn.com/shows/492125/destinations/4203446.xml",
+          "fetchedAt": "2026-09-06T17:38:49.208Z",
+          "payloadHash": "0d8be1aba89f51216bcd406eeb707ddd4f482e32a8eca866ab490388f46db2b5"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/camlann-an-audio-drama/id1714630550?uo=4",
+          "fetchedAt": "2026-09-06T17:38:48.666Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://www.tincanaudio.co.uk/camlann",
+          "https://rss.libsyn.com/shows/492125/destinations/4203446.xml",
+          "https://podcasts.apple.com/us/podcast/camlann-an-audio-drama/id1714630550?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://www.tincanaudio.co.uk/camlann",
+            "https://rss.libsyn.com/shows/492125/destinations/4203446.xml",
+            "https://podcasts.apple.com/us/podcast/camlann-an-audio-drama/id1714630550?uo=4"
+          ],
+          "tags": [
+            "https://www.tincanaudio.co.uk/camlann",
+            "https://rss.libsyn.com/shows/492125/destinations/4203446.xml",
+            "https://podcasts.apple.com/us/podcast/camlann-an-audio-drama/id1714630550?uo=4"
+          ],
+          "formats": [
+            "https://www.tincanaudio.co.uk/camlann",
+            "https://rss.libsyn.com/shows/492125/destinations/4203446.xml",
+            "https://podcasts.apple.com/us/podcast/camlann-an-audio-drama/id1714630550?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-09-06T18:04:39.400Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.tincanaudio.co.uk/camlann"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://rss.libsyn.com/shows/492125/destinations/4203446.xml"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/camlann-an-audio-drama/id1714630550?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.tincanaudio.co.uk/camlann"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://rss.libsyn.com/shows/492125/destinations/4203446.xml"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/camlann-an-audio-drama/id1714630550?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://www.tincanaudio.co.uk/camlann",
+            "https://rss.libsyn.com/shows/492125/destinations/4203446.xml",
+            "https://podcasts.apple.com/us/podcast/camlann-an-audio-drama/id1714630550?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.400Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "eeeaebe57f5faa29688ebb6ad3f56e6bf038738dfec4f018aa7bd36b369b6bd4",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "884cb053729cf59a4be82c8cf42530ec3b3afc0d04ef5e3ef526c5ad2eb9500c",
+        "cover": "09aa01bc88fe5b36d817d499a65822fb916e8bffb7efb8488c994da736f279c4",
+        "coverAlt": "24e27792c54d1028c27604159bf90af391fdc51bd97b9c48ad207f4d3eabe20a",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "c920e17069fdfd5fe026f4420620908750915a1f65c0624d7d678cbd89d57d08",
+        "officialLinks": "50b2f44ce37c2cdadd26c311d90be906706a6be116b600155fa9ec5ae50a8527",
+        "genres": "5c41ca8079b30953724ea1817080dc394189ac629a8394337e792cb410dd0db3",
+        "tags": "f1fde4804caa8974e6d572ca6378ac5ee22fd0e2286ead53330d32d4fb272850",
+        "formats": "2dfba3483278b15ceda647bc711cd63face5a9a9442e1f495dfa9239dc2a2bcd",
+        "aliases": "c41743d35d0356b01e81f19e958ab85935bbca9f9b979f21ed7949fdf4ce23a2",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "1e669571278d244599cacec2d024a4c5495a288a0bb4657e2889e8e75b9e465e",
+        "releaseDates": "ab410e775557bab1a8263da89c0896b59aee70f8b597edc68b78ff77c6433706",
+        "credits": "60008103b0f23cf960b9546dce4398fd5ef9a689a5a7aa6ff50b799c20e8191b",
+        "creators": "bf152b259ed6e16be4d01ca39c972b16796bc930f81c3c756930ebd1a22e056d",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "fcce7cb76aea94ad3ec52a283d2b2f53848866990144eb768d911b58881dc9ab"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.510Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.466Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "tin-can-audio"
+}

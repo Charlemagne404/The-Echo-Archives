@@ -1,0 +1,430 @@
+{
+  "id": "the-red-panda-adventures",
+  "title": "The Red Panda Adventures",
+  "subtitle": "",
+  "description": "In the tradition of the great mystery men of radio, pulp fiction, and the golden age of comics comes The Red Panda, famed protector of 1930s Toronto. Hiding his identity behind a red domino mask, The Red Panda dispenses two-fisted pulp justice with strength, courage, and eerie hypnotic powers, joined by The Flying Squirrel.",
+  "cover": "images/covers/the-red-panda-adventures.png",
+  "coverAlt": "The Red Panda Adventures cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "https://decoderringtheatre.com/shows/red-panda-adventures/",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/decoder-ring-theatre/id79497721?uo=4",
+    "website": "https://decoderringtheatre.com/shows/red-panda-adventures/",
+    "rss": "https://rss.libsyn.com/shows/21353/destinations/24579.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "adventure"
+  ],
+  "tones": [],
+  "formats": [
+    "full-cast",
+    "episodic"
+  ],
+  "tags": [
+    "1930s",
+    "Classic radio",
+    "Pulp adventure",
+    "Mystery"
+  ],
+  "aliases": [
+    "The Red Panda Adventures"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "20 seasons observed • at least 551 full episodes • 18 min median",
+    "seasons": 20,
+    "episodes": 551,
+    "medianEpisodeMinutes": 18,
+    "minEpisodeMinutes": 3,
+    "maxEpisodeMinutes": 353,
+    "totalObservedHours": 207.2,
+    "durationCoverage": 0.996,
+    "observedSeasons": [
+      20,
+      19,
+      18,
+      17,
+      16,
+      15,
+      14,
+      13
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 551,
+      "bonus": 1,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2005-08-27",
+    "latest": "2025-05-20",
+    "latestFeedItem": "2025-05-20",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://decoderringtheatre.com/shows/red-panda-adventures/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/channel/UCLHchP8wXKh63Hst4BP_2vQ",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Decoder Ring Theatre",
+    "ownerName": "Gregg Taylor"
+  },
+  "creators": [
+    "Decoder Ring Theatre"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://decoderringtheatre.com/shows/red-panda-adventures/; https://rss.libsyn.com/shows/21353/destinations/24579.xml; https://podcasts.apple.com/us/podcast/decoder-ring-theatre/id79497721?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://decoderringtheatre.com/shows/red-panda-adventures/",
+      "https://rss.libsyn.com/shows/21353/destinations/24579.xml",
+      "https://podcasts.apple.com/us/podcast/decoder-ring-theatre/id79497721?uo=4"
+    ],
+    "sourceCategories": [
+      "Drama",
+      "Adventure"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "1930s",
+      "Classic radio",
+      "Pulp adventure",
+      "Mystery"
+    ],
+    "importOfficialSummary": "In the tradition of the great mystery men of radio, pulp fiction, and the golden age of comics comes The Red Panda, famed protector of 1930s Toronto. Hiding his identity behind a red domino mask, The Red Panda dispenses two-fisted pulp justice with strength, courage, and eerie hypnotic powers, joined by The Flying Squirrel.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Gregg Taylor",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.libsyn.com/shows/21353/destinations/24579.xml",
+        "appleCollectionId": "79497721",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://decoderring.libsyn.com/rss"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://decoderringtheatre.com/shows/red-panda-adventures/",
+          "fetchedAt": "2026-09-06T17:38:50.999Z",
+          "payloadHash": "bfe155c6eeb5254d86a99e6f0be4de897a0df0a9d596c33c00a45f698657cd81"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.libsyn.com/shows/21353/destinations/24579.xml",
+          "fetchedAt": "2026-09-06T17:38:50.009Z",
+          "payloadHash": "f85b2c221089f5aec7020035c9c8547d391844f52d25ffc335bf43c740810b0f"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/decoder-ring-theatre/id79497721?uo=4",
+          "fetchedAt": "2026-09-06T17:38:48.633Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://decoderringtheatre.com/shows/red-panda-adventures/",
+          "https://rss.libsyn.com/shows/21353/destinations/24579.xml",
+          "https://podcasts.apple.com/us/podcast/decoder-ring-theatre/id79497721?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://decoderringtheatre.com/shows/red-panda-adventures/",
+            "https://rss.libsyn.com/shows/21353/destinations/24579.xml",
+            "https://podcasts.apple.com/us/podcast/decoder-ring-theatre/id79497721?uo=4"
+          ],
+          "tags": [
+            "https://decoderringtheatre.com/shows/red-panda-adventures/",
+            "https://rss.libsyn.com/shows/21353/destinations/24579.xml",
+            "https://podcasts.apple.com/us/podcast/decoder-ring-theatre/id79497721?uo=4"
+          ],
+          "formats": [
+            "https://decoderringtheatre.com/shows/red-panda-adventures/",
+            "https://rss.libsyn.com/shows/21353/destinations/24579.xml",
+            "https://podcasts.apple.com/us/podcast/decoder-ring-theatre/id79497721?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-09-06T18:04:39.351Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://decoderringtheatre.com/shows/red-panda-adventures/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://rss.libsyn.com/shows/21353/destinations/24579.xml"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/decoder-ring-theatre/id79497721?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://decoderringtheatre.com/shows/red-panda-adventures/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://rss.libsyn.com/shows/21353/destinations/24579.xml"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/decoder-ring-theatre/id79497721?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://decoderringtheatre.com/shows/red-panda-adventures/",
+            "https://rss.libsyn.com/shows/21353/destinations/24579.xml",
+            "https://podcasts.apple.com/us/podcast/decoder-ring-theatre/id79497721?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.352Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "c6e07f83cd18a26aa897278390d4a4eee91b78710da6d2cfd0346e3fe839e0a1",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "1e43793ae2e3746be1cee2edf9c38546900f65671885f42018d954c006838850",
+        "cover": "c1d6aebc31d3ed0b3a2466f247cacb491e3da7b912f938c2c90a49d96c924e6c",
+        "coverAlt": "24e2b46960ec7dd2bf6ffe23b0ff64f80e47c30a2ede76daa7833352593b335d",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "cb2dacf5871ef1a1f7881f92926a52054c7e9a4d0e724eceb42617de1f588612",
+        "officialLinks": "b06746f1002934702e3be13f7b5fa0a9c4c72c6d97ca5e33921370bdbd357ec7",
+        "genres": "fc5afaa1ba06d87b85a94214d8f0eb1e98e079d7d835f67f6aebe9945844169a",
+        "tags": "ed7a5e442e14e70fb728714e4a0dcd4bdc85e9b351855bbc7558cf8f02b09a3d",
+        "formats": "ac05bd24ccab4d6ad572e2338b7ce04756ca35d9aeb382cdefc0ce09627ca7c5",
+        "aliases": "90ae05df3ed0fec229a1c6c27077edb00df4cf8a3e7bbabaf333510c3e9d5507",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "00b7ede386fb5a86a714356c20786d3bf115c61a2e6690c4d05c2b91eef9686d",
+        "releaseDates": "344d0b720438075a8be0b819d62eac6cfdf7398b0829dd0fa03302923d1caaa1",
+        "credits": "8a4b9debe5876653dd289a4fdd9465daa86328c2659871619aed969f1276fb94",
+        "creators": "a2afa49ad1748d358b04f7260f460fa63efb8f21fa0062c3ea10860de2772a53",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "1271bc6bff77b30fac1e0336993db2340bd114ffb08c61f8a939a44775f9b9ea"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.498Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.446Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "decoder-ring-theatre"
+}

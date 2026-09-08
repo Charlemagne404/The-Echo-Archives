@@ -1,0 +1,423 @@
+{
+  "id": "afflicted",
+  "title": "Afflicted",
+  "subtitle": "",
+  "description": "Lovecraft Country meets True Blood in this horror thriller from award-winning producers Tonia Ransom and Jen Zink. In season one, a small East Texas town suffers supernatural disasters caused by a demonic book bound in human flesh, and only hoodoo can save it.",
+  "cover": "images/covers/afflicted.jpg",
+  "coverAlt": "Afflicted cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "start": "https://art19.com/shows/afflicted",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/afflicted-a-horror-thriller-audio-drama/id1648705536?uo=4",
+    "website": "https://art19.com/shows/afflicted",
+    "rss": "https://rss.art19.com/afflicted",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "horror",
+    "thriller",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized",
+    "full-cast",
+    "episodic"
+  ],
+  "tags": [
+    "Supernatural",
+    "Demons",
+    "Small town",
+    "Investigation"
+  ],
+  "aliases": [
+    "Afflicted"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 10 full episodes • 35 min median",
+    "seasons": 1,
+    "episodes": 10,
+    "medianEpisodeMinutes": 35,
+    "minEpisodeMinutes": 27,
+    "maxEpisodeMinutes": 45,
+    "totalObservedHours": 5.7,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 10,
+      "bonus": 2,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2022-10-31",
+    "latest": "2023-05-01",
+    "latestFeedItem": "2023-05-01",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://art19.com/shows/afflicted",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Ransom Media Productions",
+    "ownerName": "Tonia Ransom"
+  },
+  "creators": [
+    "Ransom Media Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://art19.com/shows/afflicted; https://rss.art19.com/afflicted; https://podcasts.apple.com/us/podcast/afflicted-a-horror-thriller-audio-drama/id1648705536?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://art19.com/shows/afflicted",
+      "https://rss.art19.com/afflicted",
+      "https://podcasts.apple.com/us/podcast/afflicted-a-horror-thriller-audio-drama/id1648705536?uo=4"
+    ],
+    "sourceCategories": [
+      "Horror",
+      "Thriller",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Supernatural",
+      "Demons",
+      "Small town",
+      "Investigation"
+    ],
+    "importOfficialSummary": "Lovecraft Country meets True Blood in this horror thriller from award-winning producers Tonia Ransom and Jen Zink. In season one, a small East Texas town suffers supernatural disasters caused by a demonic book bound in human flesh, and only hoodoo can save it.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© Ransom Media Productions",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.art19.com/afflicted",
+        "appleCollectionId": "1648705536",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://art19.com/shows/afflicted",
+          "fetchedAt": "2026-09-06T17:38:04.867Z",
+          "payloadHash": "ed1e69c60c1157b9cd384f272aaaf73bb34722e2f625a48d576267be752baf1a"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.art19.com/afflicted",
+          "fetchedAt": "2026-09-06T17:38:04.131Z",
+          "payloadHash": "c55f9444cb860218e3547521309daa3c66aeb69f8f4009a02b8409b56d463004"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/afflicted-a-horror-thriller-audio-drama/id1648705536?uo=4",
+          "fetchedAt": "2026-09-06T17:38:03.981Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://art19.com/shows/afflicted",
+          "https://rss.art19.com/afflicted",
+          "https://podcasts.apple.com/us/podcast/afflicted-a-horror-thriller-audio-drama/id1648705536?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://art19.com/shows/afflicted",
+            "https://rss.art19.com/afflicted",
+            "https://podcasts.apple.com/us/podcast/afflicted-a-horror-thriller-audio-drama/id1648705536?uo=4"
+          ],
+          "tags": [
+            "https://art19.com/shows/afflicted",
+            "https://rss.art19.com/afflicted",
+            "https://podcasts.apple.com/us/podcast/afflicted-a-horror-thriller-audio-drama/id1648705536?uo=4"
+          ],
+          "formats": [
+            "https://art19.com/shows/afflicted",
+            "https://rss.art19.com/afflicted",
+            "https://podcasts.apple.com/us/podcast/afflicted-a-horror-thriller-audio-drama/id1648705536?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-09-06T18:04:39.424Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://art19.com/shows/afflicted"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://rss.art19.com/afflicted"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/afflicted-a-horror-thriller-audio-drama/id1648705536?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://art19.com/shows/afflicted"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://rss.art19.com/afflicted"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/afflicted-a-horror-thriller-audio-drama/id1648705536?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://art19.com/shows/afflicted",
+            "https://rss.art19.com/afflicted",
+            "https://podcasts.apple.com/us/podcast/afflicted-a-horror-thriller-audio-drama/id1648705536?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.424Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "37219a1b61277922a923c1448e605040bcf7325e5ad01bd91abc7566f07094fc",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "a1f5a0641286aba6d57f347185e125f4d56078e5603eaca3f9fe0e850ac1dd30",
+        "cover": "d298c79a36ca1399173cd7ed26ba5e740be788245521f101c161378904e095b6",
+        "coverAlt": "39b2aa1c5ec1a5a5020150a527269f7f17981f7a85ae7860df57d1657e36e4b3",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
+        "listenLinks": "9cd009256343aa271aae683e8527cf08f2a4f624644388d13dae4dedb51f8bc4",
+        "officialLinks": "4976e4ec6661a9c52afa2406127c187eabf92dc40fbba1ca60708d4cfe5c4915",
+        "genres": "9906a62878aa9e65177ee153be4714795fd605405d2ab1eae7f630efc14867c1",
+        "tags": "d79c13125b8c25300178353345356b76adadb62f316b0b1bba074d6f93f9036d",
+        "formats": "bf7bb22e9e38c1cf1fb2bb94aca915033afc8b46c9a6c6bfed4ecb969d956bae",
+        "aliases": "c41eab5a166a6be7f694400508b410cee36e33204fb3506990aa3df21d214b54",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "d7d3003c2ec8e6148d6ca0c0485831cb0ea30f660285c61c8851a8925d132930",
+        "releaseDates": "5dadf46056bf954eea2aaaec42654f9cfd705902931c66fb354153958d7fa2c4",
+        "credits": "c9c90e84b1575ddecb6887ad729cdeac98aa6fd7515943dbdc9c230ad7665101",
+        "creators": "8e14416dc66da362cb08fee829cce74c2f293fd81b233b72ba3b49c0dec98ed7",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "e66de906b39671b476d6f221207168502a9e0faa8ea51feca327f3f434695489"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.519Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.474Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "ransom-media-productions"
+}

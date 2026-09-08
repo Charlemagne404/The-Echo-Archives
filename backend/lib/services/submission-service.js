@@ -15,7 +15,7 @@ const CORRECTION_STATUSES = new Set(["ongoing", "completed", "hiatus", "returnin
 const CREATOR_PAGE_ISSUES = new Set(["missing-page", "name-or-alias", "organization-type", "show-connection", "official-links", "description", "other"]);
 const ENTITY_ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const VERIFICATION_METHODS = new Set(["official-domain-email", "website", "social-account", "press-kit", "other"]);
-const LEGAL_DOCUMENT_VERSION = "2026-08-20";
+const LEGAL_DOCUMENT_VERSION = "2026-09-08";
 const LINK_LABELS = {
   apple: "Apple Podcasts",
   rss: "RSS Feed",

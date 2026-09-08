@@ -1,0 +1,417 @@
+{
+  "id": "the-fitzroy-diaries",
+  "title": "The Fitzroy Diaries",
+  "subtitle": "Fitzroy Diaries is back, and this time, the streets are bare, everyone’s stuck at home. There are numbers that come in daily, and they seem to colour everything. But there are new neighbours to get to know, old friends to stumble on, and a",
+  "description": "Fitzroy Diaries returns to streets that are bare and residents who are stuck at home. As daily numbers colour everything, there are new neighbours to meet, old friends to stumble on, and cardboard boxes threatening to topple over.",
+  "cover": "images/covers/the-fitzroy-diaries.jpg",
+  "coverAlt": "The Fitzroy Diaries cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "start": "https://www.abc.net.au/listen/programs/the-fitzroy-diaries",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-fitzroy-diaries/id1415578359?uo=4",
+    "website": "https://www.abc.net.au/listen/programs/the-fitzroy-diaries",
+    "rss": "https://www.abc.net.au/feeds/9971654/podcast.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized",
+    "narrated"
+  ],
+  "tags": [
+    "Historical",
+    "Family",
+    "Small town"
+  ],
+  "aliases": [
+    "The Fitzroy Diaries"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "3 seasons observed • at least 24 full episodes • 19 min median",
+    "seasons": 3,
+    "episodes": 24,
+    "medianEpisodeMinutes": 19,
+    "minEpisodeMinutes": 3,
+    "maxEpisodeMinutes": 28,
+    "totalObservedHours": 7.3,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 24,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2018-07-16",
+    "latest": "2021-09-27",
+    "latestFeedItem": "2021-09-27",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.abc.net.au/listen/programs/the-fitzroy-diaries",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/abcaustralia",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "ABC Radio National / ABC"
+  },
+  "creators": [
+    "ABC Radio National / ABC"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://www.abc.net.au/listen/programs/the-fitzroy-diaries; https://www.abc.net.au/feeds/9971654/podcast.xml; https://podcasts.apple.com/us/podcast/the-fitzroy-diaries/id1415578359?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.abc.net.au/listen/programs/the-fitzroy-diaries",
+      "https://www.abc.net.au/feeds/9971654/podcast.xml",
+      "https://podcasts.apple.com/us/podcast/the-fitzroy-diaries/id1415578359?uo=4"
+    ],
+    "sourceCategories": [
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Historical",
+      "Family",
+      "Small town"
+    ],
+    "importOfficialSummary": "Fitzroy Diaries returns to streets that are bare and residents who are stuck at home. As daily numbers colour everything, there are new neighbours to meet, old friends to stumble on, and cardboard boxes threatening to topple over.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "unknown",
+      "medianDays": null,
+      "observedIntervals": 0
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2026, Australian Broadcasting Corporation. All right reserved.",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://www.abc.net.au/feeds/9971654/podcast.xml",
+        "appleCollectionId": "1415578359",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.abc.net.au/listen/programs/the-fitzroy-diaries",
+          "fetchedAt": "2026-09-06T17:38:08.375Z",
+          "payloadHash": "c1fdf3639d096f5804a3908c3d0aad35878068a97620e50fc3f837c4860521fb"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://www.abc.net.au/feeds/9971654/podcast.xml",
+          "fetchedAt": "2026-09-06T17:38:05.774Z",
+          "payloadHash": "facd4aade4c1a846351ff5f42b55a5948f91b8fe8be8b42be8fac5f17ea0c43a"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-fitzroy-diaries/id1415578359?uo=4",
+          "fetchedAt": "2026-09-06T17:38:03.738Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://www.abc.net.au/listen/programs/the-fitzroy-diaries",
+          "https://www.abc.net.au/feeds/9971654/podcast.xml",
+          "https://podcasts.apple.com/us/podcast/the-fitzroy-diaries/id1415578359?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://www.abc.net.au/listen/programs/the-fitzroy-diaries",
+            "https://www.abc.net.au/feeds/9971654/podcast.xml",
+            "https://podcasts.apple.com/us/podcast/the-fitzroy-diaries/id1415578359?uo=4"
+          ],
+          "tags": [
+            "https://www.abc.net.au/listen/programs/the-fitzroy-diaries",
+            "https://www.abc.net.au/feeds/9971654/podcast.xml",
+            "https://podcasts.apple.com/us/podcast/the-fitzroy-diaries/id1415578359?uo=4"
+          ],
+          "formats": [
+            "https://www.abc.net.au/listen/programs/the-fitzroy-diaries",
+            "https://www.abc.net.au/feeds/9971654/podcast.xml",
+            "https://podcasts.apple.com/us/podcast/the-fitzroy-diaries/id1415578359?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-09-06T18:04:39.404Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.abc.net.au/listen/programs/the-fitzroy-diaries"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.abc.net.au/feeds/9971654/podcast.xml"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-fitzroy-diaries/id1415578359?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.abc.net.au/listen/programs/the-fitzroy-diaries"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.abc.net.au/feeds/9971654/podcast.xml"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-fitzroy-diaries/id1415578359?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://www.abc.net.au/listen/programs/the-fitzroy-diaries",
+            "https://www.abc.net.au/feeds/9971654/podcast.xml",
+            "https://podcasts.apple.com/us/podcast/the-fitzroy-diaries/id1415578359?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.404Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "defaa2c63b1f6a638e58efc147f8b8fd29dec6ac7505b59bdc7d71963a102dcb",
+        "subtitle": "e8e1244a365f3107ff85cbe46489a7f2edafec9b1e7438255b7af4a3970c6735",
+        "description": "b7d572cc1f5d71705c7b0fa9b5b166e150f84f5aca2bf6665a98b375d7622cb4",
+        "cover": "fda427bd1748c4828272704aee385b79ff6a17e81fbcce3949c448dedaa6cdcb",
+        "coverAlt": "b103abff2de8d73bcc0c3c5b997505e8aec7f0075e50587a4bf13d7baf1d8ac1",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
+        "listenLinks": "1cdf234fe70af27cbbd9e4d587c672cdd89885fe9ef1610668a4942512b05a37",
+        "officialLinks": "4ecf46569294111b47b60ce5c47a4fd8641ad5eae2abe550102ee82aaa0f7780",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "a2687ab2d5cf470872489df9ca7981495136c3b0e883d7fc5a18cb9bd899de9c",
+        "formats": "36d9689b15b2166cd908fe8c05afdb80ca7b03df188b40ef4619a21115acd459",
+        "aliases": "f2505466875b84c6dc480e9c630da6994c04a75ed45f039d3f377f5063b280f4",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "8f8532c3149b6f92de8a965e840ae735a2dea53b13b653d19f4c58ce502c352b",
+        "releaseDates": "f58d423db5cd69ae2d8a1d97ffd2b59567e0c1d30061d81c563adb556c5fdf58",
+        "credits": "8bdbf65b5d751735189187dd18640eab05fae5ad5146b97d3264b3ce8782bc2b",
+        "creators": "701239434e2433a31673ff2d6943f0a42cf122aea0fcc47e32d0f92a14173893",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "1890226ca0e21c4f3be7e87e2ffbd78ad8390a01ceb72d79ed309397488ff765"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.513Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.467Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "abc-radio-national-abc"
+}

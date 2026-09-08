@@ -1,0 +1,419 @@
+{
+  "id": "the-radio-adventures-of-dr-floyd",
+  "title": "The Radio Adventures of Dr. Floyd",
+  "subtitle": "",
+  "description": "Since November 7, 2004, this professionally produced audio drama has followed the adventures of the World’s Most Brilliant Scientist, Dr. Floyd, as he thwarts his evil arch nemesis, Dr. Steve, while learning about the people and events that shaped Earth’s history.",
+  "cover": "images/covers/the-radio-adventures-of-dr-floyd.jpg",
+  "coverAlt": "The Radio Adventures of Dr. Floyd cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "start": "https://www.doctorfloyd.com/",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-radio-adventures-of-dr-floyd/id73329877?uo=4",
+    "website": "https://www.doctorfloyd.com/",
+    "rss": "https://rss.libsyn.com/shows/88157/destinations/432013.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "adventure"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic",
+    "serialized"
+  ],
+  "tags": [
+    "Classic radio",
+    "Family",
+    "Time travel"
+  ],
+  "aliases": [
+    "The Radio Adventures of Dr. Floyd"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "8 seasons observed • at least 106 full episodes • 7 min median",
+    "seasons": 8,
+    "episodes": 106,
+    "medianEpisodeMinutes": 7,
+    "minEpisodeMinutes": 3,
+    "maxEpisodeMinutes": 22,
+    "totalObservedHours": 13.9,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 106,
+      "bonus": 104,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2004-11-07",
+    "latest": "2010-10-09",
+    "latestFeedItem": "2024-05-19",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.doctorfloyd.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Grant Baciocco & Doug Price",
+    "ownerName": "Saturday Morning Media"
+  },
+  "creators": [
+    "Grant Baciocco & Doug Price"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://rss.libsyn.com/shows/88157/destinations/432013.xml; https://podcasts.apple.com/us/podcast/the-radio-adventures-of-dr-floyd/id73329877?uo=4; https://www.doctorfloyd.com/",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://rss.libsyn.com/shows/88157/destinations/432013.xml",
+      "https://podcasts.apple.com/us/podcast/the-radio-adventures-of-dr-floyd/id73329877?uo=4",
+      "https://www.doctorfloyd.com/"
+    ],
+    "sourceCategories": [
+      "Drama",
+      "Adventure"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Classic radio",
+      "Family",
+      "Time travel"
+    ],
+    "importOfficialSummary": "Since November 7, 2004, this professionally produced audio drama has followed the adventures of the World’s Most Brilliant Scientist, Dr. Floyd, as he thwarts his evil arch nemesis, Dr. Steve, while learning about the people and events that shaped Earth’s history.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 15,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Grant Baciocco/Doug Price/Saturday Morning Media",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.libsyn.com/shows/88157/destinations/432013.xml",
+        "appleCollectionId": "73329877",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.libsyn.com/shows/88157/destinations/432013.xml",
+          "fetchedAt": "2026-09-06T17:37:47.802Z",
+          "payloadHash": "20239b5e5a17da053519a5253ea26334fb9b35588f4d7ec29a2046bbe0f61051"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-radio-adventures-of-dr-floyd/id73329877?uo=4",
+          "fetchedAt": "2026-09-06T17:37:47.050Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://www.doctorfloyd.com/",
+          "https://rss.libsyn.com/shows/88157/destinations/432013.xml",
+          "https://podcasts.apple.com/us/podcast/the-radio-adventures-of-dr-floyd/id73329877?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://www.doctorfloyd.com/",
+            "https://rss.libsyn.com/shows/88157/destinations/432013.xml",
+            "https://podcasts.apple.com/us/podcast/the-radio-adventures-of-dr-floyd/id73329877?uo=4"
+          ],
+          "tags": [
+            "https://www.doctorfloyd.com/",
+            "https://rss.libsyn.com/shows/88157/destinations/432013.xml",
+            "https://podcasts.apple.com/us/podcast/the-radio-adventures-of-dr-floyd/id73329877?uo=4"
+          ],
+          "formats": [
+            "https://www.doctorfloyd.com/",
+            "https://rss.libsyn.com/shows/88157/destinations/432013.xml",
+            "https://podcasts.apple.com/us/podcast/the-radio-adventures-of-dr-floyd/id73329877?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-09-06T18:04:39.368Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.doctorfloyd.com/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://rss.libsyn.com/shows/88157/destinations/432013.xml"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-radio-adventures-of-dr-floyd/id73329877?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.doctorfloyd.com/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://rss.libsyn.com/shows/88157/destinations/432013.xml"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-radio-adventures-of-dr-floyd/id73329877?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://www.doctorfloyd.com/",
+            "https://rss.libsyn.com/shows/88157/destinations/432013.xml",
+            "https://podcasts.apple.com/us/podcast/the-radio-adventures-of-dr-floyd/id73329877?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.368Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "2ff4576286c8c9832f31ce1d60899865397edf7b981d592c25bfa9be41bc3fec",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "30e7d0047b72f534868e84784bac68568b161a18876ba86136e98d66dfad5582",
+        "cover": "6c1f09084be19b24b041b1609b8985bce56e42170d773d8826e9ebfcd0c62a66",
+        "coverAlt": "82b9a1718f24876067b120df0d1c34f9d320d5e1aa0655b5fa1c4ee3c61d4d76",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
+        "listenLinks": "33fd39304d8d1bab39365e17ad5a38b7c22c5102b0c299f26c65218ad6558769",
+        "officialLinks": "1f1f381d51c4e42ed5497e9f3887987b868e0383dbc9072dbe8aff4e2b90ba0c",
+        "genres": "fc5afaa1ba06d87b85a94214d8f0eb1e98e079d7d835f67f6aebe9945844169a",
+        "tags": "b99618f4d5af3dabc5fc1faf3480eb899c56587aff937d8e2512c10a734bd1a3",
+        "formats": "97480e9ef2677d81613e49115065230ead5a8fad5c3003760fc50cd476a356fd",
+        "aliases": "6e7e80f5759ac9df3e5d68a3bbf6e93d9ebee2e9bb7957522b51839012370859",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "f7abf2016b1a9e41680995fa0620f6c43a042cf1d176ee5166e43f557ed968a8",
+        "releaseDates": "58bfc138b54eccd929f0f89e502b648882b741c1c7f843a3a8ec4d4a8ccac59a",
+        "credits": "cdc988f8190c6616df7fe00cfe48c8f87c9a30b43db2ac1f3c01e8238c2f80ab",
+        "creators": "24865b5a839fbb9c4fc3dcfe33ce15a8faccc3b497810fa45033525234dd9c97",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "0256edebf6a0135457ca392a420a2c61c33d7475ded289054e214df1b9a2d717"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.501Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.450Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "grant-baciocco-doug-price"
+}

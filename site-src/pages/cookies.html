@@ -4,11 +4,11 @@
         <div class="hero-copy info-hero-copy">
           <h1>Cookies and browser storage</h1>
           <p>
-            The site currently relies on browser storage more than marketing-style cookies. This page lists the current storage items and related server-side identifiers used by the live repo.
+            The site currently relies on browser storage more than marketing-style cookies. This page lists the current storage items and related server-side identifiers used by the reviewed repository implementation.
           </p>
           <p class="info-policy-meta">
             <span>Last updated</span>
-            <time datetime="2026-08-20">August 20, 2026</time>
+            <time datetime="2026-09-08">September 8, 2026</time>
             <span>Controller</span>
             <strong>Charlie Arnerstål</strong>
           </p>
@@ -42,7 +42,7 @@
         </span>
         <div>
           <h2>No ad-tech layer</h2>
-          <p>The current public deployment does not load Plausible analytics. It does not use advertising cookies or cross-site marketing trackers.</p>
+          <p>The reviewed repository build does not load Plausible analytics. Cloudflare may inject RUM at the edge depending on production settings; that service is not represented by a repository-side script. The site does not use advertising cookies or cross-site marketing trackers.</p>
         </div>
       </article>
       <article class="page-card info-summary-card info-summary-card-community">
@@ -177,8 +177,7 @@
           <span class="page-card-kicker">Essential and optional use</span>
           <h2>What kind of storage this is</h2>
           <p>The current storage items are functional or security-related. They support chat and scroll continuity, publicly anonymous ratings, Cloudflare challenge protection, and maintainer authentication.</p>
-          <p>The current public deployment does not load Plausible analytics and does not use optional advertising cookies, analytics cookies, or cross-site marketing cookies. No separate preference-cookie layer is implemented today.</p>
-          <p>We use Cloudflare Real User Monitoring (RUM) to collect anonymous website performance metrics, such as page loading and responsiveness information. Cloudflare RUM does not use cookies or local storage to track visitors and is not used to identify individual users.</p>
+          <p>The reviewed repository build does not load Plausible analytics and does not use optional advertising cookies, analytics cookies, or cross-site marketing cookies. No separate preference-cookie layer is implemented today. Cloudflare may inject RUM at the edge as a performance-measurement service; this page does not assert its storage or retention behavior without current provider and production evidence. Cloudflare separately processes request and security data and may set challenge-related storage as described in the inventory above.</p>
         </article>
 
         <article class="page-card info-section-card" id="cookies-ratings">
@@ -186,6 +185,7 @@
           <h2>What happens on show pages</h2>
           <p>Opening a show page reads the public rating summary and can read an existing rating profile, but it does not create a profile or set the archive’s voter cookie. The publicly anonymous, pseudonymous rating identifiers are created only when you submit or clear a score or mark a listener review helpful.</p>
           <p>In practical terms, the rating system currently uses both the HTTP-only voter cookie and the linked local profile id. The cookie is not readable from frontend JavaScript, while the local profile id is used by the browser-side rating UI.</p>
+          <p>For the current implementation, these identifiers are treated as technically necessary for the rating or helpful-vote functionality after you actively request that action: they let the browser and server maintain, update, clear, and protect that action. Passive browsing does not create them. This classification would need to be revisited if the same storage were reused for analytics, advertising, profiling, or another purpose, or if it were set before the requested action.</p>
         </article>
 
         <article class="page-card info-section-card" id="cookies-controls">
@@ -203,7 +203,7 @@
           <h2>What happens if storage changes later</h2>
           <p>If optional analytics cookies, advertising cookies, or preference cookies are introduced later, this page should be updated with the purpose, duration, and whether that storage is essential or optional. The <a href="/privacy">privacy page</a> should be updated at the same time.</p>
           <div class="info-callout-note">
-            <p>The current implementation does not add a cookie banner because the public deployment does not use optional analytics, advertising, or marketing cookies. If that changes, this page and the consent flow must be updated before the change is deployed.</p>
+            <p>The current implementation does not add a site-wide cookie banner because the reviewed repository build does not use optional analytics, advertising, or marketing cookies. If that changes, this page and the consent flow must be updated before the change is deployed.</p>
           </div>
         </article>
       </div>

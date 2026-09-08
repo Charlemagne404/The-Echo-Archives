@@ -1,0 +1,438 @@
+{
+  "id": "alba-salix-royal-physician",
+  "title": "Alba Salix, Royal Physician",
+  "subtitle": "",
+  "description": "The award-winning fantasy comedy follows Alba Salix, an overworked and cynical witch who tends to the health of the King, Queen, and citizens of Farloria with help from her obnoxious apprentice Magnus and an absent-minded fairy named Holly.",
+  "cover": "images/covers/alba-salix-royal-physician.jpg",
+  "coverAlt": "Alba Salix, Royal Physician cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "start": "https://albasalix.com/",
+    "spotify": "https://open.spotify.com/show/0COBV7jxf65c1iW6kZXlTh",
+    "apple": "https://podcasts.apple.com/us/podcast/alba-salix-royal-physician/id938040414?uo=4",
+    "website": "https://albasalix.com/",
+    "rss": "https://rss.art19.com/alba-salix--royal-physician",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "fantasy",
+    "comedy",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized",
+    "full-cast"
+  ],
+  "tags": [
+    "Fantasy",
+    "Urban fantasy",
+    "Workplace",
+    "Adventure"
+  ],
+  "aliases": [
+    "Alba Salix, Royal Physician"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "3 seasons observed • at least 32 full episodes • 15 min median",
+    "seasons": 3,
+    "episodes": 32,
+    "medianEpisodeMinutes": 15,
+    "minEpisodeMinutes": 4,
+    "maxEpisodeMinutes": 34,
+    "totalObservedHours": 10.2,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      102,
+      2,
+      101,
+      201,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 32,
+      "bonus": 23,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2014-11-06",
+    "latest": "2020-01-27",
+    "latestFeedItem": "2022-10-19",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://albasalix.com/",
+    "patreon": "https://www.patreon.com/albasalix",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/channel/UCYYy_HcsFk8P499bWQLX_2A",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Forgery League",
+    "ownerName": "Eli McIlveen"
+  },
+  "creators": [
+    "Forgery League"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://albasalix.com/; https://rss.art19.com/alba-salix--royal-physician; https://podcasts.apple.com/us/podcast/alba-salix-royal-physician/id938040414?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://albasalix.com/",
+      "https://rss.art19.com/alba-salix--royal-physician",
+      "https://podcasts.apple.com/us/podcast/alba-salix-royal-physician/id938040414?uo=4"
+    ],
+    "sourceCategories": [
+      "Fantasy",
+      "Comedy",
+      "Drama"
+    ],
+    "sourceKeywords": [
+      "radioplay",
+      "radiodrama",
+      "fairytale",
+      "Drama",
+      "crown",
+      "COMEDY",
+      "axeandcrown",
+      "axe",
+      "audiodrama",
+      "and"
+    ],
+    "sourceTags": [
+      "Fantasy",
+      "Urban fantasy",
+      "Workplace",
+      "Adventure"
+    ],
+    "importOfficialSummary": "The award-winning fantasy comedy follows Alba Salix, an overworked and cynical witch who tends to the health of the King, Queen, and citizens of Farloria with help from her obnoxious apprentice Magnus and an absent-minded fairy named Holly.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2014–2020 Fable and Folly Productions",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.art19.com/alba-salix--royal-physician",
+        "appleCollectionId": "938040414",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://feeds.megaphone.fm/albasalix"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://albasalix.com/",
+          "fetchedAt": "2026-09-06T17:38:06.185Z",
+          "payloadHash": "95040edadff68f8ef92245bb2c6c9b756e03b6f3ae82c55c408a2b9442084c22"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.art19.com/alba-salix--royal-physician",
+          "fetchedAt": "2026-09-06T17:38:04.102Z",
+          "payloadHash": "baa1d7fc489ed317d5f0027a8b714a58faa1bca46da5b8e5026366474eabb5d0"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/alba-salix-royal-physician/id938040414?uo=4",
+          "fetchedAt": "2026-09-06T17:38:03.750Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://albasalix.com/",
+          "https://rss.art19.com/alba-salix--royal-physician",
+          "https://podcasts.apple.com/us/podcast/alba-salix-royal-physician/id938040414?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://albasalix.com/",
+            "https://rss.art19.com/alba-salix--royal-physician",
+            "https://podcasts.apple.com/us/podcast/alba-salix-royal-physician/id938040414?uo=4"
+          ],
+          "tags": [
+            "https://albasalix.com/",
+            "https://rss.art19.com/alba-salix--royal-physician",
+            "https://podcasts.apple.com/us/podcast/alba-salix-royal-physician/id938040414?uo=4"
+          ],
+          "formats": [
+            "https://albasalix.com/",
+            "https://rss.art19.com/alba-salix--royal-physician",
+            "https://podcasts.apple.com/us/podcast/alba-salix-royal-physician/id938040414?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-09-06T18:04:39.427Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://albasalix.com/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://rss.art19.com/alba-salix--royal-physician"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/alba-salix-royal-physician/id938040414?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://albasalix.com/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://rss.art19.com/alba-salix--royal-physician"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/alba-salix-royal-physician/id938040414?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://albasalix.com/",
+            "https://rss.art19.com/alba-salix--royal-physician",
+            "https://podcasts.apple.com/us/podcast/alba-salix-royal-physician/id938040414?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.427Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "5429bed91dd0378c02eaa61e5ac7a476b7b3ad56f9d934fb87c2566eaab8eebf",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "04a786c1c226462c8dfbae7b5b6e748fccacfdae7142acc14a2476dc0ecad8c6",
+        "cover": "a22b3214aa8f9cc26eef0017115b9cf6227333f1a7a72974c3e9a92ca34b0d3f",
+        "coverAlt": "9cb52137b5e61a8ed38c15540723ad44c7defb6705eddda5817591ed59bb5ba0",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
+        "listenLinks": "f69bdfa1506efe9170408c0f987ee45bbe049516333c2f4baf3336b53671ca95",
+        "officialLinks": "aec0fa3d7890991d1b2e3b09c5cbb71c07d38ee0498feeb29c074506348e39b4",
+        "genres": "78922a2d1c6a7d9ac73e8635839bffcc2f2b5a2bdaa922e027dad84b6dbef0bf",
+        "tags": "9e3b4a2b07020d84220294f60bcefeba068fc3d0fb3afe3705ca8d9b793011ce",
+        "formats": "eed159522f45aa3f6855b5e31a644b9db5816125f9a8bbbc0dbfc4fcbfad30b8",
+        "aliases": "8c8bfbfe5ad5ecaa95fb07f9d563f19c8569f1f27f393eee0990335f494cf807",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "b590abbf4c4fe8eb379092cc85900b393ab685c5561d5a7916dcaf0b7ab3684c",
+        "releaseDates": "08daf09c9ccf683ae83fac5316b9d1c26498b0bc4511f7200fa16a0a72ffdf0c",
+        "credits": "7621b86b20ab1f563f47e1de3a06b905c9d91c04ad41955c268c30e56a1fa79c",
+        "creators": "a3ad71320f304e3f195f424b67995cdabccb3e5d17e4f763faa3fcf5bf9f6650",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "4d826964007da40ce08f17ee88bdb7066bd73af434ce3cd650791366e478c3b5"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.519Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.475Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "forgery-league"
+}

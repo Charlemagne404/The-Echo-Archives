@@ -1,0 +1,420 @@
+{
+  "id": "marscorp",
+  "title": "MarsCorp",
+  "subtitle": "Modern Radio Drama. Science Fiction Comedy on Mars!",
+  "description": "MarsCorp is a scripted sci-fi comedy about Station Supervisor E.L. Hob’s first year at MarsCorp, a terraforming colony established on the red planet in 2070.",
+  "cover": "images/covers/marscorp.jpg",
+  "coverAlt": "MarsCorp cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "start": "https://definitelyhuman.co.uk/portfolio/marscorp/",
+    "spotify": "https://open.spotify.com/show/5xfFmKIkmXdogssmMcubrI",
+    "apple": "https://podcasts.apple.com/us/podcast/marscorp/id1130424845?uo=4",
+    "website": "https://definitelyhuman.co.uk/portfolio/marscorp/",
+    "rss": "https://feeds.acast.com/public/shows/93fbc450-3d23-4e62-a025-b86c80c2ebcd",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "sci-fi",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Mars colony",
+    "Workplace",
+    "Space"
+  ],
+  "aliases": [
+    "MarsCorp"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 24 full episodes • 40 min median",
+    "seasons": 2,
+    "episodes": 24,
+    "medianEpisodeMinutes": 40,
+    "minEpisodeMinutes": 11,
+    "maxEpisodeMinutes": 54,
+    "totalObservedHours": 13.8,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 24,
+      "bonus": 7,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2016-07-26",
+    "latest": "2017-12-24",
+    "latestFeedItem": "2025-10-22",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://definitelyhuman.co.uk/portfolio/marscorp/",
+    "patreon": "http://patreon.com/definitelyhuman",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Definitely Human",
+    "ownerName": "Definitely Human"
+  },
+  "creators": [
+    "Definitely Human"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://definitelyhuman.co.uk/portfolio/marscorp/; https://feeds.acast.com/public/shows/93fbc450-3d23-4e62-a025-b86c80c2ebcd; https://podcasts.apple.com/us/podcast/marscorp/id1130424845?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://definitelyhuman.co.uk/portfolio/marscorp/",
+      "https://feeds.acast.com/public/shows/93fbc450-3d23-4e62-a025-b86c80c2ebcd",
+      "https://podcasts.apple.com/us/podcast/marscorp/id1130424845?uo=4"
+    ],
+    "sourceCategories": [
+      "Science Fiction",
+      "Comedy"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Mars colony",
+      "Workplace",
+      "Space"
+    ],
+    "importOfficialSummary": "MarsCorp is a scripted sci-fi comedy about Station Supervisor E.L. Hob’s first year at MarsCorp, a terraforming colony established on the red planet in 2070.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 28,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "©2016, 2023 Definitely Human",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.acast.com/public/shows/93fbc450-3d23-4e62-a025-b86c80c2ebcd",
+        "appleCollectionId": "1130424845",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://definitelyhuman.co.uk/feed/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://definitelyhuman.co.uk/portfolio/marscorp/",
+          "fetchedAt": "2026-09-06T17:37:50.259Z",
+          "payloadHash": "4d12358805b3b53da8d319e223ac76663622cec3569cd5802470a8e7a9c11fe7"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.acast.com/public/shows/93fbc450-3d23-4e62-a025-b86c80c2ebcd",
+          "fetchedAt": "2026-09-06T17:37:48.654Z",
+          "payloadHash": "79da6e3e05b8db5bfbc857633246f1f5d0267736c782e6c78dce7a1772c49e30"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/marscorp/id1130424845?uo=4",
+          "fetchedAt": "2026-09-06T17:37:48.610Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://definitelyhuman.co.uk/portfolio/marscorp/",
+          "https://feeds.acast.com/public/shows/93fbc450-3d23-4e62-a025-b86c80c2ebcd",
+          "https://podcasts.apple.com/us/podcast/marscorp/id1130424845?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://definitelyhuman.co.uk/portfolio/marscorp/",
+            "https://feeds.acast.com/public/shows/93fbc450-3d23-4e62-a025-b86c80c2ebcd",
+            "https://podcasts.apple.com/us/podcast/marscorp/id1130424845?uo=4"
+          ],
+          "tags": [
+            "https://definitelyhuman.co.uk/portfolio/marscorp/",
+            "https://feeds.acast.com/public/shows/93fbc450-3d23-4e62-a025-b86c80c2ebcd",
+            "https://podcasts.apple.com/us/podcast/marscorp/id1130424845?uo=4"
+          ],
+          "formats": [
+            "https://definitelyhuman.co.uk/portfolio/marscorp/",
+            "https://feeds.acast.com/public/shows/93fbc450-3d23-4e62-a025-b86c80c2ebcd",
+            "https://podcasts.apple.com/us/podcast/marscorp/id1130424845?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-09-06T18:04:39.390Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://definitelyhuman.co.uk/portfolio/marscorp/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.acast.com/public/shows/93fbc450-3d23-4e62-a025-b86c80c2ebcd"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/marscorp/id1130424845?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://definitelyhuman.co.uk/portfolio/marscorp/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.acast.com/public/shows/93fbc450-3d23-4e62-a025-b86c80c2ebcd"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/marscorp/id1130424845?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://definitelyhuman.co.uk/portfolio/marscorp/",
+            "https://feeds.acast.com/public/shows/93fbc450-3d23-4e62-a025-b86c80c2ebcd",
+            "https://podcasts.apple.com/us/podcast/marscorp/id1130424845?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.391Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "bb3020fd6409ad73bf8ba09f286361530e58c675db70d6d7a87be9bb8cb9fc1d",
+        "subtitle": "6526577a871beaf8c0a4f99ad8e4f93eb6510f60c67240b8b2b1e801f86e48b4",
+        "description": "a2c55d84589ec520ae6d263aa8f1acaef78b3ca446b6ad060cfed47525a1d6a7",
+        "cover": "cb72831d6e337223b2f75ea06ce5dac7b4d402c6a8525142b23446ace14e247d",
+        "coverAlt": "ba87da01775edacb495ba5d9495e1222c1f15679f2222c150643ba0f1eaf0edf",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
+        "listenLinks": "418ecafdaeb57d11c13fe4ab417569f5455eb1dc745d24800960b08b2a47441b",
+        "officialLinks": "7fda86449510b988e68dd1fd858169c245ba93a86c26e15d12c90f8ee40ff94d",
+        "genres": "94d1dbe6c358b5fa4d3911a752d29ec5fefa1f6c054f28b4aa516a22587d9598",
+        "tags": "56be39a3a0f8c1dbfe13fd7151503680626f8c796b00d7b44cdfd19463dc4a1e",
+        "formats": "cac7054adac8479df74d007699fab6e2e2bbf2534320b56671e91d4b4e5b2d55",
+        "aliases": "d16d40c5e855e554a560bdeb30d81100e05d350470cffa15534be2873721b1a1",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "e57a7fe4849c750ea542234c5303f39c19e045ea6b2ac7f879398518b93c70c7",
+        "releaseDates": "bbb8b259752de87febdca06dceb847e8b7dad4766e65842c1d144b95d956c54b",
+        "credits": "cd1d59842573cbae1b5ba65f51a5e3e5b818757b7a02778367224617cfd84646",
+        "creators": "37238f23846267036aefd7c3094a215ea7b9f29b41b9599e688e494a5e80ff9b",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "abf9301094c976b7d978db75e706ce077ea072c855c61bc73da4b2d389e1067a"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.506Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.462Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "definitely-human"
+}

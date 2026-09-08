@@ -8,7 +8,7 @@
           </p>
           <p class="info-policy-meta">
             <span>Last updated</span>
-            <time datetime="2026-08-20">August 20, 2026</time>
+            <time datetime="2026-09-08">September 8, 2026</time>
             <span>Controller</span>
             <strong>Charlie Arnerstål</strong>
           </p>
@@ -40,7 +40,7 @@
         </span>
         <div>
           <h2>Small footprint</h2>
-          <p>The current public deployment does not load Plausible analytics. The optional build integration remains disabled, and the site does not use advertising trackers or ad-tech profiling.</p>
+          <p>The reviewed repository build does not load Plausible analytics. Cloudflare may inject its own Real User Monitoring (RUM) at the edge depending on production settings; that beacon is not part of this repository or page build. This page does not claim a fixed RUM dataset, retention period, cookie or local-storage behavior, or identity outcome. The site does not use advertising trackers or ad-tech profiling.</p>
         </div>
       </article>
       <article class="page-card info-summary-card info-summary-card-community">
@@ -95,6 +95,7 @@
           <span class="page-card-kicker">Operator and contact</span>
           <h2>Who handles privacy questions</h2>
           <p>The legal operator and data controller is Charlie Arnerstål. The Echo Archives is a Continental project, not a separate legal entity. The controller is established in Sweden and handles personal data under applicable Swedish and European Union law.</p>
+          <p>No data protection officer is appointed. On the current facts, the archive is not a public authority and its core activities do not involve large-scale regular and systematic monitoring or large-scale special-category or criminal-offence data processing under GDPR Article 37. This assessment should be revisited if the processing materially changes.</p>
           <p>For privacy and data-protection requests, email <a href="mailto:privacy@echoarchives.net">privacy@echoarchives.net</a>. For copyright, legal, or follow-up requests, you can also use the public <a href="https://contact.continental-hub.com/" target="_blank" rel="noreferrer">Continental contact route</a>. For factual archive corrections that do not involve a privacy request, the faster route is usually <a href="/submit">Submit or correct</a>.</p>
         </article>
 
@@ -107,8 +108,12 @@
               <p>General page requests reach the site through Cloudflare and the archive like any normal web request. Cloudflare may process request and security data and may set <code>cf_clearance</code> or other challenge cookies when its zone checks require them. The exact production-zone challenge lifetime is not visible from an ordinary public response. Route-specific <code>echo-scroll:…</code> session-storage keys remember scroll position.</p>
             </li>
             <li>
-              <strong>Website performance metrics</strong>
-              <p>We use Cloudflare Real User Monitoring (RUM) to collect anonymous website performance metrics, such as page loading and responsiveness information. Cloudflare RUM does not use cookies or local storage to track visitors and is not used to identify individual users.</p>
+              <strong>Cloudflare performance measurement</strong>
+              <p>Cloudflare may inject Real User Monitoring (RUM) at the edge depending on production-zone settings. RUM is managed by Cloudflare rather than included in this repository’s HTML or build. The archive therefore does not state a fixed RUM dataset, retention period, cookie or local-storage behavior, or identity outcome without current provider and production evidence.</p>
+            </li>
+            <li>
+              <strong>Catalogue and public-source data</strong>
+              <p>The archive stores and displays show metadata gathered from official or public sources and from submitted material. This can include show titles, creator or performer names and aliases, credits, descriptions, artwork, links, release or status facts, tags, and source or provenance notes. It is used to maintain a curated discovery record. Factual corrections and rights requests can be sent through <a href="/submit">Submit or correct</a> or the <a href="/copyright">Copyright &amp; Takedown</a> route.</p>
             </li>
             <li>
               <strong>Community ratings</strong>
@@ -120,7 +125,7 @@
             </li>
             <li>
               <strong>Technical and moderation data</strong>
-              <p>The site receives IP address and user-agent data with requests. Raw client IPs used for rate limiting are retained only for the configured rate-limit window and then removed by cleanup. Submission records store source IP and user agent for up to 30 days from receipt. Community rating profiles retain a voter hash while an active rating or helpful vote remains, but user-agent and profile abuse metadata are removed after 30 days of profile inactivity; stored rating abuse hashes are redacted after 30 days without a rating update. The current public deployment does not load Plausible analytics.</p>
+              <p>The site receives IP address and user-agent data with requests. Raw client IPs used for rate limiting are retained only for the configured rate-limit window and then removed by cleanup. Submission records store source IP and user agent for up to 30 days from receipt. Community rating profiles retain a voter hash while an active rating or helpful vote remains, but user-agent and profile abuse metadata are removed after 30 days of profile inactivity; stored rating abuse hashes are redacted after 30 days without a rating update. The reviewed repository build does not contain a repo-managed RUM beacon or load Plausible analytics. Cloudflare edge services may run after delivery as described above; production settings must be checked separately.</p>
             </li>
           </ul>
         </article>
@@ -136,6 +141,10 @@
             <li>
               <strong>To review and respond to submissions</strong>
               <p>Submission content and any contact details are used because you asked the archive to review a correction, review, verification request, or new-show suggestion and it needs enough context to handle that request. The submission notice and Terms explain the related publication and licence purposes.</p>
+            </li>
+            <li>
+              <strong>To maintain a curated public archive</strong>
+              <p>Public-source and submitted show information is processed on the controller’s legitimate interest in maintaining a useful, accurate discovery catalogue, with correction and rights-request routes available to affected people and rights holders.</p>
             </li>
             <li>
               <strong>To keep ratings and submissions safe from abuse</strong>
@@ -172,7 +181,7 @@
             </li>
             <li>
               <strong>Operational request telemetry</strong>
-              <p>If application access observability is enabled, pseudonymized request telemetry is retained for 14 days. It records a weekly rotating keyed pseudonym, route template, status, latency, and request id rather than raw client addresses, headers, bodies, or query strings. The client pseudonym is not intended to identify a person across rotation periods. Cloudflare’s separate edge processing and retention follow its zone and provider settings.</p>
+              <p>If application access observability is enabled, pseudonymized request telemetry is retained for 14 days. It records a weekly rotating keyed pseudonym, route template, status, latency, and request id rather than raw client addresses, headers, bodies, or query strings. The client pseudonym is not intended to identify a person across rotation periods. Cloudflare’s edge processing, any RUM behavior, and retention follow the enabled services, applicable provider terms, and zone settings; repository inspection cannot establish those details.</p>
             </li>
             <li>
               <strong>Submission records and contact details</strong>
@@ -209,17 +218,17 @@
           <ul>
             <li>You can clear browser session storage, localStorage, and cookies through your own browser controls at any time.</li>
             <li>You can ask for a submission-related contact detail or moderation record to be corrected or deleted when it is no longer needed.</li>
-            <li>You may complain to the Swedish supervisory authority, Integritetsskyddsmyndigheten (IMY), or another competent supervisory authority where applicable.</li>
+            <li>You may complain to the Swedish supervisory authority, <a href="https://www.imy.se/en/individuals/forms-and-e-services/file-a-gdpr-complaint/?epslanguage=en" target="_blank" rel="noreferrer">Integritetsskyddsmyndigheten (IMY)</a>, or another competent supervisory authority where applicable.</li>
           </ul>
         </article>
 
         <article class="page-card info-section-card" id="privacy-third-parties">
           <span class="page-card-kicker">Third parties and links</span>
           <h2>Services outside the archive</h2>
-          <p>Cloudflare provides the site’s edge security and can perform browser or challenge checks on visits, including use of the <code>cf_clearance</code> cookie. Community rating requests may also use Cloudflare Turnstile when that protection is enabled, which means the browser can contact Cloudflare for human-verification checks during rating actions.</p>
+          <p>Cloudflare provides the site’s edge delivery and security and can perform browser or challenge checks on visits, including use of the <code>cf_clearance</code> cookie. Community rating requests may also use Cloudflare Turnstile when that protection is enabled, and Cloudflare may provide edge RUM depending on production settings. Where Cloudflare processes information on the controller’s behalf, it is treated as a processor or service provider under the applicable customer terms and data-processing agreement. Some Cloudflare services may operate under Cloudflare’s own service terms or role. Cloudflare’s <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noreferrer">privacy policy</a> and the controller’s applicable <a href="https://www.cloudflare.com/resources/assets/slt3lc6tev37/1M1j5uuFDuLTYiZJJDPBag/bca17eba6b088462dcd1ad928253f5c3/cloudflare-customer-dpa.pdf" target="_blank" rel="noreferrer">Cloudflare data-processing terms</a> apply to the relevant provider relationship. The controller should verify enabled services, transfer safeguards, and retention from current account and provider records; the repository cannot prove those settings.</p>
           <p>The site also links out to official show sites, listening platforms, Patreon, Ko-fi, GitHub, and the external Continental contact route. If you open those destinations, your browser connects to them directly and their own terms and privacy rules apply.</p>
           <p>The current archive implementation does not embed Patreon or Ko-fi payment widgets or import supporter account data. Those providers handle any payment or account information directly under their own policies.</p>
-          <p>Plausible analytics is not active on the current public deployment checked on August 20, 2026. Cloudflare RUM is described above as a separate performance-measurement service. If another analytics service or processor is enabled later, this page must be updated before that deployment to identify the provider, purpose, data categories, and applicable transfer information.</p>
+          <p>The reviewed repository build does not embed Plausible analytics. Production settings must be checked before relying on that statement. Cloudflare RUM may be injected at the edge as a separate performance-measurement service and is described above. If another analytics service or processor is enabled later, this page must be updated before that deployment to identify the provider, purpose, data categories, legal basis, and applicable transfer information, and any required consent flow must be implemented.</p>
         </article>
       </div>
     </section>

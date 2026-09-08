@@ -1,0 +1,425 @@
+{
+  "id": "wormwood-a-serialized-mystery",
+  "title": "Wormwood: A Serialized Mystery",
+  "subtitle": "A Serialized Audio Mystery from Habit Forming Films",
+  "description": "Tragedy forced Doctor Xander Crowe down the dark pathways of the occult, and he was forever transformed. Now, chasing the vision of a drowned woman, Crowe finds himself in the haunted town of Wormwood, where evil lurks in the shadows and stains the souls of its inhabitants.",
+  "cover": "images/covers/wormwood-a-serialized-mystery.jpg",
+  "coverAlt": "Wormwood: A Serialized Mystery cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "start": "https://wormwoodshow.com/",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/wormwood-a-serialized-mystery/id261086208?uo=4",
+    "website": "https://wormwoodshow.com/",
+    "rss": "https://feeds.feedburner.com/WormwoodPodcast",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "mystery",
+    "horror"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [
+    "Occult",
+    "Mystery",
+    "Supernatural",
+    "Ghosts"
+  ],
+  "aliases": [
+    "Wormwood: A Serialized Mystery"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 171 full episodes",
+    "episodes": 171,
+    "durationCoverage": 0,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 171,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2007-04-20",
+    "latest": "2015-01-08",
+    "latestFeedItem": "2015-01-08",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://wormwoodshow.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Habit Forming Films",
+    "ownerName": "Habit Forming Films, LLC."
+  },
+  "creators": [
+    "Habit Forming Films"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://wormwoodshow.com/; https://feeds.feedburner.com/WormwoodPodcast; https://podcasts.apple.com/us/podcast/wormwood-a-serialized-mystery/id261086208?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://wormwoodshow.com/",
+      "https://feeds.feedburner.com/WormwoodPodcast",
+      "https://podcasts.apple.com/us/podcast/wormwood-a-serialized-mystery/id261086208?uo=4"
+    ],
+    "sourceCategories": [
+      "Mystery",
+      "Horror"
+    ],
+    "sourceKeywords": [
+      "occult",
+      "mystery",
+      "suspense",
+      "thriller",
+      "detective",
+      "supernatural",
+      "paranormal",
+      "ghosts",
+      "demons",
+      "creepy",
+      "town"
+    ],
+    "sourceTags": [
+      "Occult",
+      "Mystery",
+      "Supernatural",
+      "Ghosts"
+    ],
+    "importOfficialSummary": "Tragedy forced Doctor Xander Crowe down the dark pathways of the occult, and he was forever transformed. Now, chasing the vision of a drowned woman, Crowe finds himself in the haunted town of Wormwood, where evil lurks in the shadows and stains the souls of its inhabitants.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 7
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2007-2011 Habit Forming Films, LLC.",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.feedburner.com/WormwoodPodcast",
+        "appleCollectionId": "261086208",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://wormwoodshow.com/feed/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://wormwoodshow.com/",
+          "fetchedAt": "2026-09-06T17:37:51.074Z",
+          "payloadHash": "0a4cd60779c2f9f5fdb274e246a25072a4170ce5d4a666fb4e04e5c9aaae594f"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.feedburner.com/WormwoodPodcast",
+          "fetchedAt": "2026-09-06T17:37:49.089Z",
+          "payloadHash": "4d15a76e318a16652cae766a9d71a3c19f1380420178c7c06a690f92b118c92d"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/wormwood-a-serialized-mystery/id261086208?uo=4",
+          "fetchedAt": "2026-09-06T17:37:48.614Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://wormwoodshow.com/",
+          "https://feeds.feedburner.com/WormwoodPodcast",
+          "https://podcasts.apple.com/us/podcast/wormwood-a-serialized-mystery/id261086208?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://wormwoodshow.com/",
+            "https://feeds.feedburner.com/WormwoodPodcast",
+            "https://podcasts.apple.com/us/podcast/wormwood-a-serialized-mystery/id261086208?uo=4"
+          ],
+          "tags": [
+            "https://wormwoodshow.com/",
+            "https://feeds.feedburner.com/WormwoodPodcast",
+            "https://podcasts.apple.com/us/podcast/wormwood-a-serialized-mystery/id261086208?uo=4"
+          ],
+          "formats": [
+            "https://wormwoodshow.com/",
+            "https://feeds.feedburner.com/WormwoodPodcast",
+            "https://podcasts.apple.com/us/podcast/wormwood-a-serialized-mystery/id261086208?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-09-06T18:04:39.383Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://wormwoodshow.com/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.feedburner.com/WormwoodPodcast"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/wormwood-a-serialized-mystery/id261086208?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://wormwoodshow.com/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.feedburner.com/WormwoodPodcast"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/wormwood-a-serialized-mystery/id261086208?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://wormwoodshow.com/",
+            "https://feeds.feedburner.com/WormwoodPodcast",
+            "https://podcasts.apple.com/us/podcast/wormwood-a-serialized-mystery/id261086208?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.383Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "05a34908aac7b7c23933ea873e2c4aa6b86845db68bb5346a32cadc9047d7dca",
+        "subtitle": "c30122f26745ab923786412d79a059c9c6bc89442bcdd402b01f591983547a50",
+        "description": "293d874edc13f07dfae7362e6ca45373af066a20e72a4ed819e79ccd0a98bf60",
+        "cover": "19a123560902942366c00ff988f7a7b199d55381c2980379101883172d714fff",
+        "coverAlt": "ab84654e3c2d1617e6d70ba7b5234f23c4235bfe300e2391f0c34082f32addd8",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
+        "listenLinks": "8cbd944ec91713349d3467f5b7587fddef3a8b78b123dea21ba81fed28f34620",
+        "officialLinks": "0b5329ce91decdb9c0df5eb63fe37bc9cbd6b704b7909d198de0c21412644bb1",
+        "genres": "941fc3e6ad5382f348c5f86659966d32636e0ea18001476e34fe21b480a1954e",
+        "tags": "d8ef8659efa56acc0d5ea706269fe1c0370eae8061affd0d62cfb5883c7cd8a8",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "d073cfff9273451f7941086eeab6b9f3d6a12c9ae424a98498a9dfff53c78c8d",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "af64edf50f4cd3953370929e264f5b077a108fec30cefb24305672d7d3e83c7b",
+        "releaseDates": "cb23b7b05d3afe4befd4a393664e4e346f0dfddc15ab29816574bc9b4d1c4390",
+        "credits": "11c2e7b4ab2e89e44cd9e3f47a6b3c9dc5b26ba9104570bc8b51e5889eea304e",
+        "creators": "77b74a870e11f25f36b4f59337c46a0c46ba7261c0f4aee2e46d5c7aec29546c",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "c0f2222d2937f562a4a6b66ca2114e3beab221f03069ef0b9386ae0f9eddcb84"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.504Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.459Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "habit-forming-films"
+}

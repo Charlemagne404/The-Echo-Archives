@@ -26,6 +26,21 @@ function createShowTemplate({ id, title = "", today = "" }) {
       sourceUrl: "",
       verifiedAt: "",
     },
+    provenance: {
+      status: "legacy-unknown",
+      sources: [],
+      description: {
+        origin: "unknown",
+        sourceUrls: [],
+      },
+      artwork: {
+        sourceUrl: "",
+        sourceType: "unknown",
+        rightsNote: "",
+      },
+      logos: [],
+      rightsNotes: "",
+    },
     cover: "images/TEA-Logo-S.png",
     coverAlt: `${resolvedTitle} cover art`,
     status: "draft",

@@ -20,6 +20,34 @@ tables may evolve without changing the published record shape.
 
 `officialDescription` is optional. When supplied it must be verified creator, network, show-site, or official-platform wording with a source label and URL. It is distinct from the archive-written `description` fallback.
 
+### Provenance and rights tracking
+
+`provenance` is an optional, lightweight record for source and rights-tracking work. New imported records may include it; older records may omit it and are treated as `legacy-unknown` rather than being removed or blocked solely because their history is incomplete.
+
+```json
+{
+  "provenance": {
+    "status": "documented",
+    "sources": [
+      { "sourceUrl": "https://example.com/show", "sourceType": "official-website" }
+    ],
+    "description": {
+      "origin": "sourced-externally",
+      "sourceUrls": ["https://example.com/show"]
+    },
+    "artwork": {
+      "sourceUrl": "https://example.com/art.jpg",
+      "sourceType": "creator-provided",
+      "rightsNote": "Permission or licence still to be confirmed"
+    },
+    "logos": [],
+    "rightsNotes": ""
+  }
+}
+```
+
+Allowed source types are `official-website`, `rss-feed`, `official-platform`, `creator-provided`, `press-kit`, `third-party-database`, `manually-entered`, and `unknown`. These fields record provenance and correction leads; they do not themselves grant a licence or establish ownership.
+
 ## Creator entities and relationships
 
 `catalog-src/entities.json` authors the shared entity registry and generates

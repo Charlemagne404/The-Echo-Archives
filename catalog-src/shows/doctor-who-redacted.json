@@ -1,0 +1,409 @@
+{
+  "id": "doctor-who-redacted",
+  "title": "Doctor Who: Redacted",
+  "subtitle": "",
+  "description": "An audio drama series set in the worlds of Doctor Who, following Cleo Proctor, Abby McPhail, and Shawna Thompson as they become entangled in a mysterious investigation.",
+  "cover": "images/covers/doctor-who-redacted.jpg",
+  "coverAlt": "Doctor Who: Redacted cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "start": "https://www.doctorwho.tv/news-and-features/bbc-sounds-spinoff-podcast-doctor-who-redacted",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/doctor-who-redacted/id1635928196?uo=4",
+    "website": "https://www.doctorwho.tv/news-and-features/bbc-sounds-spinoff-podcast-doctor-who-redacted",
+    "rss": "https://podcasts.files.bbci.co.uk/p0c0krqf.rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized",
+    "full-cast",
+    "episodic"
+  ],
+  "tags": [
+    "Time travel",
+    "Investigation",
+    "Mystery"
+  ],
+  "aliases": [
+    "Doctor Who: Redacted"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 18 full episodes • 24 min median",
+    "episodes": 18,
+    "medianEpisodeMinutes": 24,
+    "minEpisodeMinutes": 2,
+    "maxEpisodeMinutes": 33,
+    "totalObservedHours": 6.8,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 18,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2022-07-22",
+    "latest": "2023-10-23",
+    "latestFeedItem": "2023-10-23",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.doctorwho.tv/news-and-features/bbc-sounds-spinoff-podcast-doctor-who-redacted",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "BBC Sounds / BBC",
+    "ownerName": "BBC"
+  },
+  "creators": [
+    "BBC Sounds / BBC"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://podcasts.files.bbci.co.uk/p0c0krqf.rss; https://podcasts.apple.com/us/podcast/doctor-who-redacted/id1635928196?uo=4; https://www.doctorwho.tv/news-and-features/bbc-sounds-spinoff-podcast-doctor-who-redacted",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://podcasts.files.bbci.co.uk/p0c0krqf.rss",
+      "https://podcasts.apple.com/us/podcast/doctor-who-redacted/id1635928196?uo=4",
+      "https://www.doctorwho.tv/news-and-features/bbc-sounds-spinoff-podcast-doctor-who-redacted"
+    ],
+    "sourceCategories": [
+      "Drama",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Time travel",
+      "Investigation",
+      "Mystery"
+    ],
+    "importOfficialSummary": "An audio drama series set in the worlds of Doctor Who, following Cleo Proctor, Abby McPhail, and Shawna Thompson as they become entangled in a mysterious investigation.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "(C) BBC 2023",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://podcasts.files.bbci.co.uk/p0c0krqf.rss",
+        "appleCollectionId": "1635928196",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://podcasts.files.bbci.co.uk/p0c0krqf.rss",
+          "fetchedAt": "2026-09-06T17:39:03.728Z",
+          "payloadHash": "05a59e89179df4888f364e008b82a446b8c2a7e88f11cf9136d964fc78ce9f5d"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/doctor-who-redacted/id1635928196?uo=4",
+          "fetchedAt": "2026-09-06T17:39:03.573Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://www.doctorwho.tv/news-and-features/bbc-sounds-spinoff-podcast-doctor-who-redacted",
+          "https://podcasts.files.bbci.co.uk/p0c0krqf.rss",
+          "https://podcasts.apple.com/us/podcast/doctor-who-redacted/id1635928196?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://www.doctorwho.tv/news-and-features/bbc-sounds-spinoff-podcast-doctor-who-redacted",
+            "https://podcasts.files.bbci.co.uk/p0c0krqf.rss",
+            "https://podcasts.apple.com/us/podcast/doctor-who-redacted/id1635928196?uo=4"
+          ],
+          "tags": [
+            "https://www.doctorwho.tv/news-and-features/bbc-sounds-spinoff-podcast-doctor-who-redacted",
+            "https://podcasts.files.bbci.co.uk/p0c0krqf.rss",
+            "https://podcasts.apple.com/us/podcast/doctor-who-redacted/id1635928196?uo=4"
+          ],
+          "formats": [
+            "https://www.doctorwho.tv/news-and-features/bbc-sounds-spinoff-podcast-doctor-who-redacted",
+            "https://podcasts.files.bbci.co.uk/p0c0krqf.rss",
+            "https://podcasts.apple.com/us/podcast/doctor-who-redacted/id1635928196?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-09-06T18:04:39.402Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.doctorwho.tv/news-and-features/bbc-sounds-spinoff-podcast-doctor-who-redacted"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.files.bbci.co.uk/p0c0krqf.rss"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/doctor-who-redacted/id1635928196?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://www.doctorwho.tv/news-and-features/bbc-sounds-spinoff-podcast-doctor-who-redacted"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.files.bbci.co.uk/p0c0krqf.rss"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/doctor-who-redacted/id1635928196?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://www.doctorwho.tv/news-and-features/bbc-sounds-spinoff-podcast-doctor-who-redacted",
+            "https://podcasts.files.bbci.co.uk/p0c0krqf.rss",
+            "https://podcasts.apple.com/us/podcast/doctor-who-redacted/id1635928196?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.402Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "d33e1876ef7d65c2bc960e1f61ece92cdbe11ee25412f2721a423896912c50eb",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "3ab7e1685574d621acd48a5ea4c84c1b8800f2deb3ecba2abce9cafc9483a142",
+        "cover": "8a60e63ae62d697cae1fd87f703e37e2df8066483f4c25a072560d75dcb3ff1a",
+        "coverAlt": "6a7817b45314d05ddcb04a3aa051fe3648302a06e4d456b6109cfc5f5154f06c",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
+        "listenLinks": "d100e7f5a5f6ca92bd8021159964d05718cee5a916e886b1aa539c1cecb5e522",
+        "officialLinks": "4b319decd6e96f1934906eeec7558fda8f16373db0b560a4441b7ccc83f7c46d",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "aae4a8d34c18b320907be62e3162c373ea281e6e0b1f41f00ee71f32eea360d3",
+        "formats": "bf7bb22e9e38c1cf1fb2bb94aca915033afc8b46c9a6c6bfed4ecb969d956bae",
+        "aliases": "5e4411d2a3b1271eb33dc6c8b6ebaad6517c446b1e2e6bc9c9a44b234f1635b0",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "d9b242e1b3c597acef0012606c1dece8e070f0ad305ad1a7a554ca6304962424",
+        "releaseDates": "3ba56723b581a29413083d1acb5a5d50d2eb3388191bf01c771cddc829e0710a",
+        "credits": "e740a0368bd649eb36b1489ac874be7a93b2f9ca1e16cae99b3673be3411e285",
+        "creators": "e5ab48b5b7a3d55a7ce66a01f1f5617c3e9353159af089c13584b5c42678e8af",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "e81481179ac2c24c6a64043513a4653255107eabd3bfdcc6c19a377ee7404771"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.511Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.467Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "bbc-sounds-bbc"
+}

@@ -4,7 +4,7 @@ import {
   pickPrimaryListenLink,
 } from "./utils.js";
 
-const LEGAL_DOCUMENT_VERSION = "2026-08-20";
+const LEGAL_DOCUMENT_VERSION = "2026-09-08";
 
 function legalAcknowledgementFields(draft) {
   return {

@@ -1,0 +1,433 @@
+{
+  "id": "second-shift",
+  "title": "Second Shift",
+  "subtitle": "Second Shift: Third-string delivery, First-string chaos!",
+  "description": "Second Shift follows an ambitious, character-centric story arc about three college students from Boston who find themselves shifted against their will to another world. They must find their place in that world while trying to return to theirs.",
+  "cover": "images/covers/second-shift.jpg",
+  "coverAlt": "Second Shift cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "start": "https://secondshiftpodcast.com/",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/second-shift-an-original-fantasy-podplay-high/id171579118?uo=4",
+    "website": "https://secondshiftpodcast.com/",
+    "rss": "https://secondshiftpodcast.com/xml/2shift.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "fantasy",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [
+    "Fantasy",
+    "Adventure",
+    "Found family"
+  ],
+  "aliases": [
+    "Second Shift"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 38 full episodes • 39 min median",
+    "episodes": 38,
+    "medianEpisodeMinutes": 39,
+    "minEpisodeMinutes": 3,
+    "maxEpisodeMinutes": 70,
+    "totalObservedHours": 23.3,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 38,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2006-06-25",
+    "latest": "2019-04-27",
+    "latestFeedItem": "2019-04-27",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://secondshiftpodcast.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Blue Sky Red Design",
+    "ownerName": "Blue Sky Red Entertainment"
+  },
+  "creators": [
+    "Blue Sky Red Design"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://secondshiftpodcast.com/; https://secondshiftpodcast.com/xml/2shift.xml; https://podcasts.apple.com/us/podcast/second-shift-an-original-fantasy-podplay-high/id171579118?uo=4; https://secondshiftpodcast.com/Files/about.html",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://secondshiftpodcast.com/",
+      "https://secondshiftpodcast.com/xml/2shift.xml",
+      "https://podcasts.apple.com/us/podcast/second-shift-an-original-fantasy-podplay-high/id171579118?uo=4",
+      "https://secondshiftpodcast.com/Files/about.html"
+    ],
+    "sourceCategories": [
+      "Fantasy",
+      "Drama"
+    ],
+    "sourceKeywords": [
+      "fantasy",
+      "audio drama",
+      "fiction",
+      "original",
+      "podplay"
+    ],
+    "sourceTags": [
+      "Fantasy",
+      "Adventure",
+      "Found family"
+    ],
+    "importOfficialSummary": "Second Shift follows an ambitious, character-centric story arc about three college students from Boston who find themselves shifted against their will to another world. They must find their place in that world while trying to return to theirs.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "irregular",
+      "medianDays": 43,
+      "observedIntervals": 4
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2007 Blue Sky Red Entertainment",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://secondshiftpodcast.com/xml/2shift.xml",
+        "appleCollectionId": "171579118",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://secondshiftpodcast.com/",
+          "fetchedAt": "2026-09-06T17:37:47.852Z",
+          "payloadHash": "122c626b42bd7d1758133456f55cfeb7e12a0b6277fc380e71a6e9b6858fdd57"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://secondshiftpodcast.com/xml/2shift.xml",
+          "fetchedAt": "2026-09-06T17:37:47.458Z",
+          "payloadHash": "05620a47c060ce805ae7ed6852ad30a78a4e4b2577e62a52313e292611dc8369"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/second-shift-an-original-fantasy-podplay-high/id171579118?uo=4",
+          "fetchedAt": "2026-09-06T17:37:47.054Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://secondshiftpodcast.com/",
+          "https://secondshiftpodcast.com/Files/about.html",
+          "https://secondshiftpodcast.com/xml/2shift.xml",
+          "https://podcasts.apple.com/us/podcast/second-shift-an-original-fantasy-podplay-high/id171579118?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://secondshiftpodcast.com/",
+            "https://secondshiftpodcast.com/Files/about.html",
+            "https://secondshiftpodcast.com/xml/2shift.xml",
+            "https://podcasts.apple.com/us/podcast/second-shift-an-original-fantasy-podplay-high/id171579118?uo=4"
+          ],
+          "tags": [
+            "https://secondshiftpodcast.com/",
+            "https://secondshiftpodcast.com/Files/about.html",
+            "https://secondshiftpodcast.com/xml/2shift.xml",
+            "https://podcasts.apple.com/us/podcast/second-shift-an-original-fantasy-podplay-high/id171579118?uo=4"
+          ],
+          "formats": [
+            "https://secondshiftpodcast.com/",
+            "https://secondshiftpodcast.com/Files/about.html",
+            "https://secondshiftpodcast.com/xml/2shift.xml",
+            "https://podcasts.apple.com/us/podcast/second-shift-an-original-fantasy-podplay-high/id171579118?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-09-06T18:04:39.357Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://secondshiftpodcast.com/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://secondshiftpodcast.com/Files/about.html"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://secondshiftpodcast.com/xml/2shift.xml"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/second-shift-an-original-fantasy-podplay-high/id171579118?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://secondshiftpodcast.com/"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://secondshiftpodcast.com/Files/about.html"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://secondshiftpodcast.com/xml/2shift.xml"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/second-shift-an-original-fantasy-podplay-high/id171579118?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://secondshiftpodcast.com/",
+            "https://secondshiftpodcast.com/Files/about.html",
+            "https://secondshiftpodcast.com/xml/2shift.xml",
+            "https://podcasts.apple.com/us/podcast/second-shift-an-original-fantasy-podplay-high/id171579118?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.358Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "9f190bd1b03415e52136b4b10944c3d147cfcc553bd0fde04ce92a8532085b9e",
+        "subtitle": "a111b8394d16fceade4c6e551ab3fc14cb03593eb6641a374ab1f7a2f0d7c3b1",
+        "description": "3f2a00a6b84655bbb7d09c78593255573d7502ad8d67161fa781355f1f88f0ee",
+        "cover": "5dcf74122c0d675094cb3755fb0ddab5e82a05449032fec112e2e5e27bf5b871",
+        "coverAlt": "2d9e23ee508ad3eef1ffae612ed5d80b4f479c45fb5d0d56323b1c670595d01f",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
+        "listenLinks": "8272b38406705d67069bb90c606fdf8a503046ca3ef4d2c5b8402996b3c8d810",
+        "officialLinks": "947ea7be88f41bee5aa9da5fc8ff196329a27d3a66655db1f80566ea9aafcfd2",
+        "genres": "5c41ca8079b30953724ea1817080dc394189ac629a8394337e792cb410dd0db3",
+        "tags": "f60f7959cdfebb70f4e7b5da61865e8a0a9823b2fecb66eb4f74e729bd53e23c",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "1186d5c1b04f77071b792f1c566529a349dabf43372303d643ce1db5ebc90c29",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "57f3781417fcd94acfa1e13218f2b6130b42a383c6ae03c1e521c17b279261f4",
+        "releaseDates": "60bdd9ba9f3086de55f444aa6bac587f7f93e93ab9ee7e4a5bfb926e1b00030d",
+        "credits": "23cf3f99c09fe67aa888a5497a41967fbe17c7e0278f393fbfb85a499754a6f3",
+        "creators": "1ab6ab35e707bc594455e2706dd6990c762c154f341ea8439a51ca5c55529355",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "5d7b980d8f8786de64d7995cb7dbce2b6c823e31b7c4c95bb09838d90cec2beb"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.500Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.448Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "blue-sky-red-design"
+}

@@ -143,12 +143,41 @@ test("privacy and storage pages disclose current passive and edge storage behavi
   assert.match(privacy, /not specifically directed at children/i);
   assert.match(privacy, /parent or guardian/i);
   assert.match(privacy, /Integritetsskyddsmyndigheten \(IMY\)/);
+  assert.match(privacy, /file-a-gdpr-complaint/);
+  assert.match(privacy, /Catalogue and public-source data/);
+  assert.match(privacy, /Cloudflare may inject Real User Monitoring \(RUM\) at the edge/);
+  assert.match(cookies, /Cloudflare may inject RUM at the edge/);
+  assert.doesNotMatch(privacy, /Cloudflare describes RUM as not using cookies or local storage/i);
+  assert.match(cookies, /technically necessary for the rating or helpful-vote functionality/i);
+  const copyright = fs.readFileSync(path.join(siteRoot, "copyright.html"), "utf8");
+  assert.match(copyright, /id="copyright-notices"/);
+  assert.match(copyright, /statutory notice, complaint, appeal, or authority process/i);
   assert.match(privacy, /weekly rotating keyed pseudonym/i);
   assert.match(privacy, /retained for 14 days/i);
   assert.match(privacy, /stored rating abuse hashes are redacted after 30 days/i);
-  assert.match(privacy, /Cloudflare(?:’s|'s) separate edge processing and retention follow its zone and provider settings/i);
+  assert.match(privacy, /Cloudflare(?:’s|'s) edge processing, any RUM behavior, and retention follow the enabled services/i);
   assert.match(cookies, /Charlie Arnerstål/);
   assert.match(cookies, /mailto:privacy@echoarchives\.net/);
+});
+
+test("legal pages and submission acknowledgement stay aligned to the current September version", () => {
+  const legalPages = ["privacy", "terms", "cookies", "copyright"];
+  const generatedPaths = legalPages.flatMap((pageName) => [
+    `${pageName}.html`,
+    `${pageName}/index.html`,
+  ]);
+  const sourcePaths = legalPages.map((pageName) => path.join("site-src", "pages", `${pageName}.html`));
+
+  [...generatedPaths, ...sourcePaths].forEach((pagePath) => {
+    const html = fs.readFileSync(path.join(siteRoot, pagePath), "utf8");
+    assert.match(html, /datetime="2026-09-08"/, `${pagePath} should expose the current legal version date.`);
+    assert.doesNotMatch(html, /August 20, 2026/, `${pagePath} should not retain the superseded legal date.`);
+  });
+
+  const browserSubmitApi = fs.readFileSync(path.join(siteRoot, "shared/app/submit/api.js"), "utf8");
+  const backendSubmissionService = fs.readFileSync(path.join(siteRoot, "backend/lib/services/submission-service.js"), "utf8");
+  assert.match(browserSubmitApi, /const LEGAL_DOCUMENT_VERSION = "2026-09-08"/);
+  assert.match(backendSubmissionService, /const LEGAL_DOCUMENT_VERSION = "2026-09-08"/);
 });
 
 test("legacy redirect manifest matches redirect shim files", () => {

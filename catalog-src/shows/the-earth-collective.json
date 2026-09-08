@@ -1,0 +1,426 @@
+{
+  "id": "the-earth-collective",
+  "title": "The Earth Collective",
+  "subtitle": "",
+  "description": "A sci-fi audio drama delivered as a first-hand account from Joseph Crane, humanity’s last historian, as he chronicles survival in rolling cities known as the Collective while they flee a malevolent entity found only on the dark side of the planet.",
+  "cover": "images/covers/the-earth-collective.png",
+  "coverAlt": "The Earth Collective cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "https://tecstory.libsyn.com/website",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-earth-collective/id1033364998?uo=4",
+    "website": "https://tecstory.libsyn.com/website",
+    "rss": "https://rss.libsyn.com/shows/94645/destinations/481166.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "sci-fi",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized",
+    "narrated",
+    "episodic"
+  ],
+  "tags": [
+    "Space",
+    "Colony ship",
+    "Survival",
+    "Isolation"
+  ],
+  "aliases": [
+    "The Earth Collective"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "5 seasons observed • at least 74 full episodes • 16 min median",
+    "seasons": 5,
+    "episodes": 74,
+    "medianEpisodeMinutes": 16,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 82,
+    "totalObservedHours": 20.6,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      5,
+      4
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 74,
+      "bonus": 6,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2017-02-21",
+    "latest": "2024-03-29",
+    "latestFeedItem": "2024-07-28",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://tecstory.libsyn.com/website",
+    "patreon": "",
+    "koFi": "https://ko-fi.com/tecstory",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Michael Troup",
+    "ownerName": "Michael Troup"
+  },
+  "creators": [
+    "Michael Troup"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://tecstory.libsyn.com/website; https://rss.libsyn.com/shows/94645/destinations/481166.xml; https://podcasts.apple.com/us/podcast/the-earth-collective/id1033364998?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "1 observed episodes",
+    "captions": "available in structured transcript data",
+    "transcriptCoverage": 0.012,
+    "transcriptFormats": [
+      "/application/srt"
+    ],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://tecstory.libsyn.com/website",
+      "https://rss.libsyn.com/shows/94645/destinations/481166.xml",
+      "https://podcasts.apple.com/us/podcast/the-earth-collective/id1033364998?uo=4"
+    ],
+    "sourceCategories": [
+      "Science Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Space",
+      "Colony ship",
+      "Survival",
+      "Isolation"
+    ],
+    "importOfficialSummary": "A sci-fi audio drama delivered as a first-hand account from Joseph Crane, humanity’s last historian, as he chronicles survival in rolling cities known as the Collective while they flee a malevolent entity found only on the dark side of the planet.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 21,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.libsyn.com/shows/94645/destinations/481166.xml",
+        "appleCollectionId": "1033364998",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "http://feeds.libsyn.com/94645/rss"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://tecstory.libsyn.com/website",
+          "fetchedAt": "2026-09-06T17:39:06.274Z",
+          "payloadHash": "90f62a999936a093530fb7162422a9ff59df79396137bb7b581bdb5084410e18"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.libsyn.com/shows/94645/destinations/481166.xml",
+          "fetchedAt": "2026-09-06T17:39:05.694Z",
+          "payloadHash": "cb59a67a8c6a6d50ded40e5ec296a84df5d229d77340f47f08d6210a94e32e63"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-earth-collective/id1033364998?uo=4",
+          "fetchedAt": "2026-09-06T17:39:05.050Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://tecstory.libsyn.com/website",
+          "https://rss.libsyn.com/shows/94645/destinations/481166.xml",
+          "https://podcasts.apple.com/us/podcast/the-earth-collective/id1033364998?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://tecstory.libsyn.com/website",
+            "https://rss.libsyn.com/shows/94645/destinations/481166.xml",
+            "https://podcasts.apple.com/us/podcast/the-earth-collective/id1033364998?uo=4"
+          ],
+          "tags": [
+            "https://tecstory.libsyn.com/website",
+            "https://rss.libsyn.com/shows/94645/destinations/481166.xml",
+            "https://podcasts.apple.com/us/podcast/the-earth-collective/id1033364998?uo=4"
+          ],
+          "formats": [
+            "https://tecstory.libsyn.com/website",
+            "https://rss.libsyn.com/shows/94645/destinations/481166.xml",
+            "https://podcasts.apple.com/us/podcast/the-earth-collective/id1033364998?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-09-06T18:04:39.397Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://tecstory.libsyn.com/website"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://rss.libsyn.com/shows/94645/destinations/481166.xml"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-earth-collective/id1033364998?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://tecstory.libsyn.com/website"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://rss.libsyn.com/shows/94645/destinations/481166.xml"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-earth-collective/id1033364998?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://tecstory.libsyn.com/website",
+            "https://rss.libsyn.com/shows/94645/destinations/481166.xml",
+            "https://podcasts.apple.com/us/podcast/the-earth-collective/id1033364998?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.398Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "017f551eb94863af12eed1f8582dcf0e8534308617f411efe5bd88578b6b9a77",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "fcde67efe188e555a02cfe977ceb09bdb3e5f74a877721aecc71efc391da4e7f",
+        "cover": "8e270ecb0a775bb6900b6ca9f516745bbb61a5902d4897e906c7b8e04254e812",
+        "coverAlt": "d0ec81b036fe0d693a52420b862ea643d1fc918afd5f577e9099305edb185660",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "6ca2b9207796278144c47c28d67871fe984b4db2aadbb9edd050b8fa2c084ec0",
+        "officialLinks": "0c6bad74d62edd9634e5da9737eaffddd2011b9d1ecd355fbe28d2cf6d6e60ff",
+        "genres": "5e1c8ac5a5bc529da25aefa615e90136fc2dcade7fbb07655c917b5ba23cf206",
+        "tags": "74d33be0bec1926319885c7592474390d5ac127b7f92b74e15d7db2154879f35",
+        "formats": "3de57643f258b8ce453829913c0dea0e4f0d5ed3fb6465ee382136124c3ea656",
+        "aliases": "034265b5ae748601818a0c826b45c291010144aca291377b24cdc0d1a868e04a",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "329f7f6d7f83d86107271cfac859ed3057e818999d82687dba8e0fd25fe16e06",
+        "releaseDates": "7faa81bd92b75dc01e08203028d2cd90d6f42af44f7a3e1e08221192aa7ee91c",
+        "credits": "1f17637c68ae61b59c9d1fd0b360b7aa0a153a2087d5b745e86d92764ffc8ad1",
+        "creators": "04dec18470bcdec4419cbda14fe93d796dc75e90efa4ad69e16327c565e93b66",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "b036df7bec5bf27be172c353643d19a10db3afa0372927bcf398796b843326a8",
+        "verification": "acd8a8ccb59425aafb895a588ab2e3b95917bec7b03135071ba5b0cdee72ca73"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.508Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.464Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "michael-troup"
+}

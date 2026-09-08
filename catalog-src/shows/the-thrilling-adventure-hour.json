@@ -1,0 +1,404 @@
+{
+  "id": "the-thrilling-adventure-hour",
+  "title": "The Thrilling Adventure Hour",
+  "subtitle": "",
+  "description": "The world's favorite new time podcast in the style of old-time radio. The Thrilling Adventure Hour anthologizes the adventures of space cowboy Sparks Nevada, married mediums Frank and Sadie Doyle, all-American hero Jefferson Reid, and more. Produced and created by Ben Acker and Ben Blacker, featuring the WorkJuice Players.",
+  "cover": "images/covers/the-thrilling-adventure-hour.jpg",
+  "coverAlt": "The Thrilling Adventure Hour cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "https://feeds.acast.com/public/shows/6414da1f9a87fc0011e7a8ee",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-thrilling-adventure-hour/id408691897?uo=4",
+    "website": "",
+    "rss": "https://feeds.acast.com/public/shows/6414da1f9a87fc0011e7a8ee",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "comedy",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic",
+    "full-cast"
+  ],
+  "tags": [
+    "Classic radio",
+    "Western",
+    "Supernatural",
+    "Adventure"
+  ],
+  "aliases": [
+    "The Thrilling Adventure Hour"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 123 full episodes • 25 min median",
+    "episodes": 123,
+    "medianEpisodeMinutes": 25,
+    "minEpisodeMinutes": 4,
+    "maxEpisodeMinutes": 88,
+    "totalObservedHours": 57.3,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 123,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2011-01-24",
+    "latest": "2026-08-24",
+    "latestFeedItem": "2026-08-24",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "",
+    "patreon": "https://www.patreon.com/cdn-cgi/content?id=7.4KS1XW3znnrdcjAi7mZ91kiM1deVoNzJEp.Pfx28Y-1788716267.2411172-1.2.1.1-tP6.RbzPKw58YcMFV359pYplgc79hDTIFEbfeec6x1ZoHBRItbjfNk2SpFeEEQcH",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/patreon",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Ben Acker & Ben Blacker",
+    "ownerName": "WorkJuice Corp"
+  },
+  "creators": [
+    "Ben Acker & Ben Blacker"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-09-06",
+    "source": "https://feeds.acast.com/public/shows/6414da1f9a87fc0011e7a8ee; https://podcasts.apple.com/us/podcast/the-thrilling-adventure-hour/id408691897?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.acast.com/public/shows/6414da1f9a87fc0011e7a8ee",
+      "https://podcasts.apple.com/us/podcast/the-thrilling-adventure-hour/id408691897?uo=4"
+    ],
+    "sourceCategories": [
+      "Comedy",
+      "Drama"
+    ],
+    "sourceKeywords": [
+      "comedy",
+      "old time radio",
+      "scripted",
+      "supernatural",
+      "western",
+      "The Thin man",
+      "cocktails"
+    ],
+    "sourceTags": [
+      "Classic radio",
+      "Western",
+      "Supernatural",
+      "Adventure"
+    ],
+    "importOfficialSummary": "The world's favorite new time podcast in the style of old-time radio. The Thrilling Adventure Hour anthologizes the adventures of space cowboy Sparks Nevada, married mediums Frank and Sadie Doyle, all-American hero Jefferson Reid, and more. Produced and created by Ben Acker and Ben Blacker, featuring the WorkJuice Players.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 28,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© All characters and concepts are copyrighted by Ben Acker & Ben Blacker.",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.acast.com/public/shows/6414da1f9a87fc0011e7a8ee",
+        "appleCollectionId": "408691897",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.acast.com/public/shows/6414da1f9a87fc0011e7a8ee",
+          "fetchedAt": "2026-09-06T17:37:47.219Z",
+          "payloadHash": "58aa69e7f24298f41b1fa00781ccff2fb67196620f44a6e047e9de14ccfbdc19"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-thrilling-adventure-hour/id408691897?uo=4",
+          "fetchedAt": "2026-09-06T17:37:47.083Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://feeds.acast.com/public/shows/6414da1f9a87fc0011e7a8ee",
+          "https://podcasts.apple.com/us/podcast/the-thrilling-adventure-hour/id408691897?uo=4"
+        ],
+        "fieldSources": {
+          "genres": [
+            "https://feeds.acast.com/public/shows/6414da1f9a87fc0011e7a8ee",
+            "https://podcasts.apple.com/us/podcast/the-thrilling-adventure-hour/id408691897?uo=4"
+          ],
+          "tags": [
+            "https://feeds.acast.com/public/shows/6414da1f9a87fc0011e7a8ee",
+            "https://podcasts.apple.com/us/podcast/the-thrilling-adventure-hour/id408691897?uo=4"
+          ],
+          "formats": [
+            "https://feeds.acast.com/public/shows/6414da1f9a87fc0011e7a8ee",
+            "https://podcasts.apple.com/us/podcast/the-thrilling-adventure-hour/id408691897?uo=4"
+          ]
+        },
+        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-09-06T18:04:39.344Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 0.95,
+          "method": "reviewed-genre-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6414da1f9a87fc0011e7a8ee"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-thrilling-adventure-hour/id408691897?uo=4"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "reviewed-taxonomy-selection",
+          "sources": [
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://feeds.acast.com/public/shows/6414da1f9a87fc0011e7a8ee"
+            },
+            {
+              "sourceType": "external-research",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-thrilling-adventure-hour/id408691897?uo=4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://feeds.acast.com/public/shows/6414da1f9a87fc0011e7a8ee",
+            "https://podcasts.apple.com/us/podcast/the-thrilling-adventure-hour/id408691897?uo=4"
+          ]
+        }
+      },
+      "importedAt": "2026-09-06T18:04:39.345Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "e50097afd49d6fc2a58f44e6fd54a6ba2512c0a846c94ac1f585484ab0f996c6",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "4ebd1a06c87d975e997f4295e5f560854fcc01921eb570eab109c866f56994be",
+        "cover": "fc7ebc604279adcff00c8ed92d02c3e318fab990d1d6792c8bfa4bbcbeb44973",
+        "coverAlt": "0cf71dc4600a74cf4b1afa1be2f2e1aecc9e953da42c67dd9c5f765742b07f19",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "761c613256bcf1e9d6dbf572f0180b26e234995103f9c46497bf4071a90bcdc0",
+        "officialLinks": "6a4ad1c4be0f08ec0d6501a2f4cacf836697d66fac9fbd7e3ef6132b1e04a491",
+        "genres": "d43a44c3885ca363e39a4f53c298e71bcb32009530bcab70ecf719f799bcd00a",
+        "tags": "62f4e1fa40606f6711095a740485f412254405b27c633b9509b8e0bd188b556a",
+        "formats": "83c1e56d650c2d943224a6dc6180bd05336c1096bbcf90fb6f5f998130c21592",
+        "aliases": "85c99082b21a63f063afe88cc83d9e86e861c74fb2ec1592c61c00087672397c",
+        "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "ef0b638568ce5ecf1ae4409b76384d8f309cd90c779cee0d1eff93f220834d63",
+        "releaseDates": "1dd840a8be65a97fcefa021d9696098a7e774ae8b45771d17fb6c6facd51bdc6",
+        "credits": "554fcd912e65e63aead22614861c8d19ac02f963bdd3a56fa9f4281a6878912c",
+        "creators": "dbe02e1bf6346f9883df86ca8259ca282227999d393631cbbaa7a00c12ab9ec8",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "af5ebc4100bf9278ad3ae3fc1f62f127875c66140b8b20c1a67eba1f4f6f56e1"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-09-06T18:04:39.497Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-09-06T18:04:39.443Z",
+        "reviewedBy": "codex-p0-catalogue",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "creatorId": "ben-acker-ben-blacker"
+}

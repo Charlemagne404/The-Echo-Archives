@@ -21,6 +21,7 @@ const {
   isNonWebsiteUrl,
   isPlaceholderDescription,
 } = require("../../../shared/archive-quality");
+const { buildImportedProvenance } = require("../../../tools/lib/catalog-provenance");
 
 const HUMAN_OWNED_FIELDS = [
   "ratings", "archiveTake", "spoilerFreeReview", "thoughts", "tones", "bestFor",
@@ -30,7 +31,7 @@ const HUMAN_OWNED_FIELDS = [
 const MANAGED_FIELDS = [
   "title", "subtitle", "description", "cover", "coverAlt", "releaseStatus", "completionStatus",
   "listenLinks", "officialLinks", "genres", "tags", "formats", "aliases", "languages", "transcriptLanguages",
-  "length", "releaseDates", "credits", "creators", "cast", "availability", "verification",
+  "length", "releaseDates", "credits", "creators", "cast", "availability", "verification", "provenance",
 ];
 
 function ensureUniqueShowId(shows = [], baseTitle = "show") {
@@ -338,6 +339,12 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
       source: mergeUniqueStrings(sourceReferences.map((source) => source.sourceUrl).filter(Boolean), externalSources).join("; "),
       note: "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review.",
     },
+    provenance: buildImportedProvenance({
+      candidate,
+      objective,
+      sourceReferences,
+      externalSources,
+    }),
     availability: {
       transcripts: objective.transcripts?.episodeCount ? `${objective.transcripts.episodeCount} observed episodes` : "unknown",
       captions: objective.transcripts?.captions ? "available in structured transcript data" : "unknown",

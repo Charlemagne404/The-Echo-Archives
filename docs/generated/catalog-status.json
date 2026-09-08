@@ -1,20 +1,20 @@
 {
   "publicEntities": 42,
   "showsWithEntityLinks": 172,
-  "totalShows": 724,
-  "publishedShows": 724,
+  "totalShows": 752,
+  "publishedShows": 752,
   "draftShows": 0,
   "fullReviews": 7,
   "spotlightReviews": 0,
-  "indexedOnly": 200,
+  "indexedOnly": 228,
   "imported": 517,
   "plannedReviews": 0,
   "collections": 46,
   "reviewCompanions": 7,
   "creatorVerified": 0,
-  "withRss": 721,
+  "withRss": 746,
   "missingObjectiveSources": 0,
-  "withResearchGaps": 17,
+  "withResearchGaps": 22,
   "phase2": {
     "policy": {
       "fullReviewFloor": 7,
@@ -24,7 +24,7 @@
     },
     "numericTargets": {
       "publishedShows": {
-        "actual": 724,
+        "actual": 752,
         "target": 129,
         "pass": true
       },
@@ -45,14 +45,21 @@
       "missingRss": [
         "earth-eclipsed",
         "the-rapscallion-agency",
-        "the-invenios-expeditions"
+        "the-invenios-expeditions",
+        "batman-unburied",
+        "the-sojourn",
+        "rosannas-secret"
       ],
       "documentedMissingRss": [
         "earth-eclipsed",
         "the-rapscallion-agency",
-        "the-invenios-expeditions"
+        "the-invenios-expeditions",
+        "the-sojourn"
       ],
-      "actionableMissingRss": [],
+      "actionableMissingRss": [
+        "batman-unburied",
+        "rosannas-secret"
+      ],
       "missingRuntime": [],
       "documentedRuntimeUnknowns": [
         "the-rapscallion-agency",
@@ -182,10 +189,53 @@
           "gaps": [
             "No official Season 4, completion, or next-release statement was located."
           ]
+        },
+        {
+          "id": "steal-the-stars",
+          "title": "Steal the Stars",
+          "gaps": [
+            "current publisher feed uses the title Stories from Among the Stars"
+          ]
+        },
+        {
+          "id": "batman-unburied",
+          "title": "Batman Unburied",
+          "gaps": [
+            "current Spotify canonical page presents the related Fallen City continuation"
+          ]
+        },
+        {
+          "id": "parkdale-haunt",
+          "title": "Parkdale Haunt",
+          "gaps": [
+            "current Apple listing uses the related Woodbine title for the same feed identity"
+          ]
+        },
+        {
+          "id": "the-sojourn",
+          "title": "The Sojourn",
+          "gaps": [
+            "official distribution is through audiobook retailers and no public podcast RSS f"
+          ]
+        },
+        {
+          "id": "twilight-histories",
+          "title": "Twilight Histories",
+          "gaps": [
+            "the source directory also labels the feed as Games because of its role-playing p"
+          ]
         }
       ],
       "sparseEditorialViolations": [],
-      "blockingErrors": []
+      "blockingErrors": [
+        "Published show \"batman-unburied\" is missing an RSS link without a documented research gap.",
+        "Published show \"rosannas-secret\" is missing an RSS link without a documented research gap.",
+        "Published show \"batman-unburied\" has no verified runtime duration and no documented research gap.",
+        "Published show \"wormwood-a-serialized-mystery\" has no verified runtime duration and no documented research gap.",
+        "Published show \"parkdale-haunt\" has no verified runtime duration and no documented research gap.",
+        "Published show \"the-harrowing\" has no verified runtime duration and no documented research gap.",
+        "Published show \"the-sojourn\" has no verified runtime duration and no documented research gap."
+      ]
     },
     "editorial": {
       "eligibleShows": [
@@ -312,7 +362,35 @@
         "dreamboy",
         "crooked-river",
         "love-and-luck",
-        "fairies-and-dragons-ponies-and-knights"
+        "fairies-and-dragons-ponies-and-knights",
+        "36-questions",
+        "the-thrilling-adventure-hour",
+        "the-red-panda-adventures",
+        "second-shift",
+        "the-radio-adventures-of-dr-floyd",
+        "steal-the-stars",
+        "the-archers",
+        "batman-unburied",
+        "wormwood-a-serialized-mystery",
+        "the-cleansed",
+        "marscorp",
+        "i-am-in-eskew",
+        "palimpsest",
+        "the-earth-collective",
+        "camlann",
+        "doctor-who-redacted",
+        "the-fitzroy-diaries",
+        "parkdale-haunt",
+        "the-harrowing",
+        "escape-pod",
+        "eleanor-amplified",
+        "deviser",
+        "afflicted",
+        "alba-salix-royal-physician",
+        "the-sojourn",
+        "red-for-revolution",
+        "twilight-histories",
+        "rosannas-secret"
       ],
       "blockingErrors": []
     },
@@ -354,19 +432,7 @@
           "count": 1
         },
         {
-          "label": "Colony ship",
-          "count": 1
-        },
-        {
-          "label": "Corporate secrecy",
-          "count": 1
-        },
-        {
           "label": "Cryonics",
-          "count": 1
-        },
-        {
-          "label": "Demons",
           "count": 1
         },
         {
@@ -438,10 +504,6 @@
           "count": 1
         },
         {
-          "label": "Pulp adventure",
-          "count": 1
-        },
-        {
           "label": "Punk",
           "count": 1
         },
@@ -470,10 +532,6 @@
           "count": 1
         },
         {
-          "label": "Western",
-          "count": 1
-        },
-        {
           "label": "Xenoarchaeology",
           "count": 1
         }
@@ -487,10 +545,7 @@
         "Approved tag \"Arctic horror\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Biotech\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Black comedy\" is used by one published show; review its listener-discovery value.",
-        "Approved tag \"Colony ship\" is used by one published show; review its listener-discovery value.",
-        "Approved tag \"Corporate secrecy\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Cryonics\" is used by one published show; review its listener-discovery value.",
-        "Approved tag \"Demons\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Environmental collapse\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Espionage\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Family curse\" is used by one published show; review its listener-discovery value.",
@@ -508,7 +563,6 @@
         "Approved tag \"Neuroscience\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Nuclear winter\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Ocean\" is used by one published show; review its listener-discovery value.",
-        "Approved tag \"Pulp adventure\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Punk\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Remote colony\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Retro-futurism\" is used by one published show; review its listener-discovery value.",
@@ -516,23 +570,35 @@
         "Approved tag \"Underwater\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Utopia\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Victorian\" is used by one published show; review its listener-discovery value.",
-        "Approved tag \"Western\" is used by one published show; review its listener-discovery value.",
         "Approved tag \"Xenoarchaeology\" is used by one published show; review its listener-discovery value."
       ],
       "blockingErrors": []
     },
     "scope": {
-      "outOfScopePublished": [],
-      "blockingErrors": []
+      "outOfScopePublished": [
+        "twilight-histories"
+      ],
+      "blockingErrors": [
+        "Published show \"twilight-histories\" falls outside the locked English fiction/audio-drama scope."
+      ]
     },
     "sparseIndexedOnly": {
-      "count": 134,
-      "outOfRangeSimilarLinks": 134,
-      "fewerThanTwoCollections": 108,
+      "count": 162,
+      "outOfRangeSimilarLinks": 162,
+      "fewerThanTwoCollections": 136,
       "editorialViolations": [],
       "informationalOnly": true
     },
-    "blockingErrors": [],
-    "complete": true
+    "blockingErrors": [
+      "Published show \"batman-unburied\" is missing an RSS link without a documented research gap.",
+      "Published show \"rosannas-secret\" is missing an RSS link without a documented research gap.",
+      "Published show \"batman-unburied\" has no verified runtime duration and no documented research gap.",
+      "Published show \"wormwood-a-serialized-mystery\" has no verified runtime duration and no documented research gap.",
+      "Published show \"parkdale-haunt\" has no verified runtime duration and no documented research gap.",
+      "Published show \"the-harrowing\" has no verified runtime duration and no documented research gap.",
+      "Published show \"the-sojourn\" has no verified runtime duration and no documented research gap.",
+      "Published show \"twilight-histories\" falls outside the locked English fiction/audio-drama scope."
+    ],
+    "complete": false
   }
 }
