@@ -1,6 +1,7 @@
 {
   "entityLinks": [
-    {"entityId":"the-whisperforge","role":"production-company"}
+    {"entityId":"the-whisperforge","role":"production-company"},
+    {"entityId":"tau-zaman","role":"creator"}
   ],
   "id": "caravan",
   "title": "Caravan",
@@ -96,7 +97,7 @@
     "website": "https://www.whisperforge.org/caravan"
   },
   "credits": {
-    "creatorName": "The Whisperforge"
+    "creatorName": "Tau Zaman"
   },
   "verification": {
     "status": "source-verified",
@@ -140,7 +141,6 @@
   },
   "featured": false,
   "createdAt": "2026-07-09",
-  "creatorId": "the-whisperforge",
   "updatedAt": "2026-07-18",
   "cast": [],
   "creators": [

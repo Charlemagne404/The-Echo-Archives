@@ -8,6 +8,7 @@
     "start": "node ../tools/run-backend.js",
     "dev": "node ../tools/run-backend.js --watch",
     "test": "node --test test/*.test.js",
+    "test:catalog-integrity": "node --test test/catalog-integrity.test.js",
     "test:smoke": "node scripts/run-smoke-tests.js",
     "test:setup:browser": "playwright install chromium",
     "test:smoke:maintainer-import": "node --test test/maintainer-import.smoke.js",

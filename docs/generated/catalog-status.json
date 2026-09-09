@@ -1,6 +1,6 @@
 {
-  "publicEntities": 42,
-  "showsWithEntityLinks": 172,
+  "publicEntities": 101,
+  "showsWithEntityLinks": 228,
   "totalShows": 752,
   "publishedShows": 752,
   "draftShows": 0,
@@ -40,7 +40,22 @@
       }
     },
     "factual": {
-      "coreMetadataGaps": [],
+      "coreMetadataGaps": [
+        {
+          "id": "the-orbiting-human-circus",
+          "title": "The Orbiting Human Circus",
+          "missing": [
+            "creator"
+          ]
+        },
+        {
+          "id": "claudia-a-viral-love-story",
+          "title": "Claudia, A Viral Love Story",
+          "missing": [
+            "creator"
+          ]
+        }
+      ],
       "missingObjectiveSources": [],
       "missingRss": [
         "earth-eclipsed",
@@ -228,6 +243,8 @@
       ],
       "sparseEditorialViolations": [],
       "blockingErrors": [
+        "Factual metadata missing for \"the-orbiting-human-circus\": creator.",
+        "Factual metadata missing for \"claudia-a-viral-love-story\": creator.",
         "Published show \"batman-unburied\" is missing an RSS link without a documented research gap.",
         "Published show \"rosannas-secret\" is missing an RSS link without a documented research gap.",
         "Published show \"batman-unburied\" has no verified runtime duration and no documented research gap.",
@@ -590,6 +607,8 @@
       "informationalOnly": true
     },
     "blockingErrors": [
+      "Factual metadata missing for \"the-orbiting-human-circus\": creator.",
+      "Factual metadata missing for \"claudia-a-viral-love-story\": creator.",
       "Published show \"batman-unburied\" is missing an RSS link without a documented research gap.",
       "Published show \"rosannas-secret\" is missing an RSS link without a documented research gap.",
       "Published show \"batman-unburied\" has no verified runtime duration and no documented research gap.",

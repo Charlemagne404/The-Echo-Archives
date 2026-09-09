@@ -397,6 +397,8 @@ These fields are optional and may remain partially filled. Prefer truthful parti
 - `reviewStatus: full-review` should only be used when richer review fields actually exist.
 - `reviewStatus: imported` requires `verification.status: automated-source-checked`, importer provenance, and no archive-owned editorial fields.
 
+The normal `npm run validate:data` gate also performs a raw-source integrity pass before runtime normalization. It checks split-source filenames and order manifests, duplicate ids/slugs and normalized list values, known URL-bearing fields and provenance URL lists, date ordering, bounded ratings/runtime/coverage numbers, show-to-show and collection relationships, entity links, optional creator/network/changelog references, and orphaned review/entity records. It reports deterministic failures together so a single bad record does not hide later issues.
+
 ## Review Companion Shape
 
 When present, `data/reviews/<show-id>.json` should use this shape:

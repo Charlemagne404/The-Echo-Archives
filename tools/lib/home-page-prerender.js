@@ -531,7 +531,7 @@ function renderHomePagePrerender(pageBody, { rootDir, homeMostPopularIds = [], h
   );
   rendered = replaceMarkup(
     rendered,
-    /(<p id="resultsSummary" class="results-summary">)[\s\S]*?(<\/p>)/,
+    /(<p id="resultsSummary" class="results-summary"[^>]*>)[\s\S]*?(<\/p>)/,
     `$1${escapeHtml(resultsSummary)}$2`,
     "results summary",
   );

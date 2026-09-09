@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"the-porch-room","role":"production-company"}
+  ],
   "id": "mission-rejected",
   "title": "Mission Rejected",
   "subtitle": "The world's most secret agents are unavailable, so the backups take the mission.",
@@ -94,8 +97,17 @@
     "youtube": "https://www.youtube.com/channel/UCnGXUWN6maah1_mA51wXYbA"
   },
   "credits": {
-    "creatorName": "The Porch Room",
-    "network": "Mission: Rejected"
+    "creatorName": [
+      "Pete Barry",
+      "J. Michael DeAngelis",
+      "John P. Dowgin"
+    ],
+    "writers": [
+      "Pete Barry",
+      "J. Michael DeAngelis",
+      "John P. Dowgin"
+    ],
+    "productionCompany": "The Porch Room"
   },
   "verification": {
     "status": "source-verified",
@@ -139,8 +151,6 @@
   },
   "featured": false,
   "createdAt": "2026-07-09",
-  "creatorId": "the-porch-room",
-  "networkId": "mission-rejected",
   "updatedAt": "2026-07-18",
   "cast": [],
   "creators": [

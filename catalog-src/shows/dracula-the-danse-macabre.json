@@ -1,6 +1,7 @@
 {
   "entityLinks": [
-    {"entityId":"long-story-short-productions","role":"production-company"}
+    {"entityId":"long-story-short-productions","role":"production-company"},
+    {"entityId":"gabriel-urbina","role":"creator"}
   ],
   "id": "dracula-the-danse-macabre",
   "title": "Dracula: The Danse Macabre",

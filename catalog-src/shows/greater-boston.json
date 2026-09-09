@@ -92,7 +92,10 @@
     "patreon": "https://www.patreon.com/join/GreaterBoston"
   },
   "credits": {
-    "creatorName": "Alexander Danner & Jeff Van Dreason",
+    "creatorName": [
+      "Alexander Danner",
+      "Jeff Van Dreason"
+    ],
     "network": "Greater Boston"
   },
   "verification": {
@@ -137,7 +140,6 @@
   },
   "featured": false,
   "createdAt": "2026-07-09",
-  "creatorId": "alexander-danner-jeff-van-dreason",
   "networkId": "greater-boston",
   "updatedAt": "2026-07-18",
   "cast": [],

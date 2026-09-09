@@ -1,5 +1,8 @@
 {
   "id": "camlann",
+  "entityLinks": [
+    {"entityId":"tin-can-audio","role":"production-company"}
+  ],
   "title": "Camlann",
   "subtitle": "",
   "description": "Camlann is a post-apocalyptic fantasy by Ella Watts from Tin Can Audio, a serialised fiction podcast inspired by folklore and Arthurian legends. It is also about three friends and a dog in Wales, fighting for their lives.",

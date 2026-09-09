@@ -1,5 +1,9 @@
 {
   "id": "spirit-box-radio",
+  "entityLinks": [
+    {"entityId":"hanging-sloth-studios","role":"production-company"},
+    {"entityId":"eira-major","role":"creator"}
+  ],
   "title": "Spirit Box Radio",
   "subtitle": "Tune in. Get Spooky.",
   "description": "A fortnightly horror audio drama. Spirit Box Radio is a cosy horror fiction podcast about a radio show for enthusiasts of all things arcane. The show has recently been taken over by Sam Enfield , a former postboy with no experience in the arcane arts, following the disappearance of the previous host. Sam soon discovers there are more than ghosts haunting the show , and finds himself amidst a mystery which threatens everything he knows about the world beyond his tiny basement broadcast studio, and maybe even himself . With a whole host of supporting characters from knife-wielding lesbians and truth-knowing lawyers to angry bog-witches and hot-coded florists, the world of SBR is brought to life by a cast of majority LGBTQ+ actors from across the world. S pirit Box Radio started airing in November 2020. It now has almost 100 episodes and won the The People's Choice Podcast Awards Best Fiction Podcast of 2021 , and a finalist in the 2021 Audio Verse Awards , at which it also won Best Guest Performance. Tune in, get spooky. Created by Eira Major for Hanging Sloth Studios . Transcripts available on the HSS website . Support this show on Ko-Fi or Patreon . Part of the Rusty Quill Network . Hosted on Acast. See acast.com/privacy for more information.",
@@ -87,11 +91,11 @@
     "funding": ""
   },
   "credits": {
-    "creatorName": "Eira Major's Hanging Sloth",
+    "creatorName": "Eira Major",
     "ownerName": "Eira Major"
   },
   "creators": [
-    "Eira Major's Hanging Sloth"
+    "Eira Major"
   ],
   "cast": [],
   "verification": {
@@ -776,6 +780,5 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
-  "creatorId": "eira-majors-hanging-sloth"
+  "updatedAt": "2026-08-15"
 }

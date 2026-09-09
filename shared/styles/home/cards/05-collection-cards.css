@@ -134,7 +134,8 @@
 }
 
 .collection-card:focus-visible {
-  outline: none;
+  outline: 2px solid rgba(255, 197, 182, 0.82);
+  outline-offset: 3px;
 }
 
 .collection-card h3 {
@@ -209,5 +210,6 @@
 }
 
 .section-link:focus-visible {
-  outline: none;
+  outline: 2px solid rgba(255, 197, 182, 0.82);
+  outline-offset: 3px;
 }

@@ -1,4 +1,8 @@
 {
+  "entityLinks": [
+    {"entityId":"business-goose-media","role":"production-company"},
+    {"entityId":"joe-fisher","role":"creator"}
+  ],
   "id": "midnight-burger",
   "title": "Midnight Burger",
   "subtitle": "A warm, idea-rich sci-fi comedy with real range.",
@@ -168,7 +172,6 @@
   "cast": [],
   "createdAt": "2026-06-01",
   "creatorId": "joe-fisher",
-  "networkId": "business-goose-media",
   "similarReasons": {
     "desert-skies": "For listeners who want the gentle, off-kilter comfort side of the recommendation.",
     "wolf-359": "A comic space ensemble that starts loose and eventually earns much deeper attachment.",

@@ -45,7 +45,8 @@ test("Fool & Scholar preserves both individual creators and the production compa
 });
 
 test("unmigrated show retains legacy facts and gets no inferred More from section", () => {
-  const show = byId.get("midnight-burger");
+  const show = shows.find((candidate) => candidate.status === "published" && !candidate.resolvedEntities?.length && !candidate.creatorId && !candidate.networkId);
+  assert.ok(show, "the catalog should retain at least one intentionally unmigrated show");
   assert.equal(renderEntityFacts(show), "");
   assert.equal(selectMoreFrom(show, shows), null);
   const html = createShowPageMarkup(show, byId);
@@ -65,6 +66,13 @@ test("More from is deterministic, requires three alternatives, and excludes self
   assert.equal(selectMoreFrom(show, shows).entity.id, "7-lamb-productions");
   assert.deepEqual(selectMoreFrom(show, [...shows].reverse()), selectMoreFrom(show, shows));
   assert.equal(selectMoreFrom(show, [show, { ...byId.get("paralyzed"), status: "draft" }]), null);
+});
+
+test("More from uses concise creator copy and keeps the full catalogue count", () => {
+  const html = createShowPageMarkup(byId.get("the-white-vault"), byId);
+  assert.match(html, /<h2 id="more-from-title">From Fool &amp; Scholar Productions<\/h2>/);
+  assert.match(html, /View all 3/);
+  assert.doesNotMatch(html, /Explore more of their shows in the archive/);
 });
 
 test("invalid entities and relationships fail instead of being repaired", () => {
@@ -93,6 +101,12 @@ test("invalid entities and relationships fail instead of being repaired", () => 
     [[{ entityId: "sample-studio", role: "studio" }, { entityId: "sample-studio", role: "studio" }], /duplicate entity relationship/],
     ["sample-studio", /must be an array/],
   ]) assert.throws(() => validateEntities([fixture()], [{ id: "show", entityLinks }]), error);
+
+  const draftEntity = { ...fixture(), id: "draft-studio", publication: "draft", indexable: false };
+  assert.throws(
+    () => validateEntities([draftEntity], [{ id: "published-show", status: "published", entityLinks: [{ entityId: draftEntity.id, role: "studio" }] }]),
+    /Published show "published-show" cannot reference draft entity "draft-studio"/,
+  );
 });
 
 test("catalog loader rejects broken IDs before cover work, and authored removal does not use stale output", async () => {
@@ -125,8 +139,9 @@ test("aliases find one canonical entity and enrich existing show search", () => 
 });
 
 test("public output and sitemap exclude drafts, unresolved labels and thin index entries", () => {
-  assert.equal(entities.length, 42);
-  assert.equal(getPublicDirectoryEntities(entities, shows).length, 40);
+  const directory = getPublicDirectoryEntities(entities, shows);
+  assert.ok(entities.length >= directory.length);
+  assert.ok(directory.length > 0);
   assert.ok(getPublicEntities(entities, shows).some((entity) => entity.id === "k-a-statz"));
   assert.ok(getPublicEntities(entities, shows).some((entity) => entity.id === "travis-vengroff"));
   assert.ok(getPublicDirectoryEntities(entities, shows).every((entity) => entity.type !== "person"));
@@ -151,7 +166,7 @@ test("directory visibility hides people without hiding their explicit show relat
   assert.equal(selectMoreFrom(byId.get("the-white-vault"), shows).entity.id, "fool-and-scholar-productions");
   const template = fs.readFileSync(path.join(root, "creators.html"), "utf8");
   const html = renderEntityPage(template, { entities, shows, siteUrl: "https://example.com" });
-  assert.equal((html.match(/class="entity-card"/g) || []).length, 40);
+  assert.equal((html.match(/class="entity-card"/g) || []).length, directory.length);
   assert.doesNotMatch(html, /data-entity-id="(?:k-a-statz|travis-vengroff)"/);
 });
 
@@ -173,13 +188,15 @@ test("server renderer escapes data, uses Person or Organization and canonical en
 
 test("creator SEO exposes unique intent, rich catalogue lists, social images, and review dates", () => {
   const directory = buildEntityPageData({ entities, shows, siteUrl: "https://example.com" });
+  const directoryEntities = getPublicDirectoryEntities(entities, shows);
+  const connectedShowCount = shows.filter((show) => show.status === "published" && (show.entityLinks || []).some((link) => directoryEntities.some((entity) => entity.id === link.entityId))).length;
   assert.equal(directory.metadata.title, "Audio Drama Creators & Production Companies | The Echo Archives");
-  assert.match(directory.metadata.description, /40 source-backed audio drama production companies/i);
-  assert.match(directory.metadata.description, /172 fiction podcast shows/i);
+  assert.match(directory.metadata.description, new RegExp(`${directoryEntities.length} source-backed audio drama production companies`, "i"));
+  assert.match(directory.metadata.description, new RegExp(`${connectedShowCount} fiction podcast shows`, "i"));
   assert.match(directory.metadata.imageUrl, /images\/(?:generated\/covers|covers)\//);
 
   const directoryList = directory.structuredData["@graph"].find((entry) => entry["@type"] === "ItemList");
-  assert.equal(directoryList.numberOfItems, 40);
+  assert.equal(directoryList.numberOfItems, directoryEntities.length);
   assert.equal(directoryList.itemListOrder, "https://schema.org/ItemListOrderAscending");
   assert.equal(directoryList.itemListElement[0].item["@type"], "Organization");
   assert.equal(directoryList.itemListElement[0].item.sameAs[0], entities.find((entity) => entity.id === "7-lamb-productions").website);

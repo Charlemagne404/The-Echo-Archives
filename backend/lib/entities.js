@@ -54,6 +54,9 @@ function validateEntities(entities, shows = []) {
       if (!link || !ids.has(link.entityId)) throw new Error(`Show "${show.id}" references unknown entity id "${link?.entityId}".`);
       if (!ROLES.includes(link.role)) throw new Error(`Show "${show.id}" has invalid entity relationship role "${link.role}".`);
       const entity = entities.find((entry) => entry.id === link.entityId);
+      if (show.status === "published" && entity.publication !== "public") {
+        throw new Error(`Published show "${show.id}" cannot reference draft entity "${entity.id}".`);
+      }
       if (entity.type === "person" && link.role !== "creator") throw new Error(`Person "${entity.id}" must use the creator role on "${show.id}".`);
       const key = `${link.entityId}:${link.role}`;
       if (relationships.has(key)) throw new Error(`Show "${show.id}" has duplicate entity relationship "${key}".`);

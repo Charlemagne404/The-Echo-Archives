@@ -31,6 +31,15 @@ test("empty indexed entries move editorial context out of Reviews and invite the
   assert.doesNotMatch(markup, /detail-quote/);
 });
 
+test("show discovery labels link back to the archive filters they represent", () => {
+  const markup = createShowPageMarkup(showMap.get("were-alive"), showMap, collections);
+
+  assert.match(markup, /href="\/\?tags=Zombie%20apocalypse#archive"/);
+  assert.match(markup, /href="\/\?bestFor=long-walks#archive"/);
+  assert.match(markup, /class="detail-tag detail-tag-link"/);
+  assert.match(markup, /class="detail-best-for-text"/);
+});
+
 test("Imported show pages disclose automation, preserve community routes, and omit archive editorial claims", async () => {
   const base = showMap.get("solar");
   const show = {

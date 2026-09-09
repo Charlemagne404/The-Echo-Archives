@@ -86,9 +86,12 @@
     "funding": "https://www.buzzsprout.com/2327876/support"
   },
   "credits": {
-    "creatorName": "The Pancake Eating Robots",
+    "creatorName": "Mark Searcy Middleton",
     "ownerName": "The Pancake Eating Robots",
-    "network": "Buzzsprout",
+    "writers": [
+      "Mark Searcy Middleton"
+    ],
+    "producer": "Mark Searcy Middleton",
     "people": [
       {
         "name": "Major X",
@@ -100,8 +103,7 @@
     ]
   },
   "creators": [
-    "The Pancake Eating Robots",
-    "Major X"
+    "Mark Searcy Middleton"
   ],
   "cast": [],
   "verification": {
@@ -859,7 +861,5 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
-  "creatorId": "the-pancake-eating-robots",
-  "networkId": "buzzsprout"
+  "updatedAt": "2026-08-15"
 }

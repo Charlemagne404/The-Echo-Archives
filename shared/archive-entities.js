@@ -86,7 +86,7 @@
   function renderMoreFrom(show, shows, renderCard) {
     const selected = selectMoreFrom(show, shows);
     if (!selected) return "";
-    return `<section class="detail-section detail-more-from" aria-labelledby="more-from-title"><div class="detail-section-header"><div><h2 id="more-from-title">More from ${escapeHtml(selected.entity.name)}</h2><p>Explore more of their shows in the archive.</p></div><a class="detail-archive-link" href="${entityPath(selected.entity.id)}">View catalogue</a></div><div class="podcast-card-grid">${selected.shows.slice(0, 4).map(renderCard).join("")}</div></section>`;
+    return `<section class="detail-section detail-more-from" aria-labelledby="more-from-title"><div class="detail-section-header"><h2 id="more-from-title">From ${escapeHtml(selected.entity.name)}</h2><a class="detail-archive-link" href="${entityPath(selected.entity.id)}">View all ${selected.shows.length}</a></div><div class="podcast-card-grid">${selected.shows.slice(0, 4).map(renderCard).join("")}</div></section>`;
   }
 
   function entityStructuredData(entity, siteUrl) {

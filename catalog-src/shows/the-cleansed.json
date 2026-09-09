@@ -1,4 +1,8 @@
 {
+  "entityLinks": [
+    {"entityId":"finalrune-productions","role":"production-company"},
+    {"entityId":"fred-greenhalgh","role":"creator"}
+  ],
   "id": "the-cleansed",
   "title": "The Cleansed",
   "subtitle": "",
@@ -90,22 +94,12 @@
     "funding": ""
   },
   "credits": {
-    "creatorName": "FinalRune Productions",
+    "creatorName": "Fred Greenhalgh",
     "ownerName": "Dagaz Media",
-    "writers": [
-      "fred@finalrune.com"
-    ],
-    "people": [
-      {
-        "name": "fred@finalrune.com",
-        "role": "author",
-        "url": ""
-      }
-    ]
+    "writers": []
   },
   "creators": [
-    "FinalRune Productions",
-    "fred@finalrune.com"
+    "Fred Greenhalgh"
   ],
   "cast": [],
   "verification": {
@@ -429,6 +423,5 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "finalrune-productions"
+  "updatedAt": "2026-09-06"
 }

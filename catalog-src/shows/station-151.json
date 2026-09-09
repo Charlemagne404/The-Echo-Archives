@@ -1,6 +1,7 @@
 {
   "entityLinks": [
-    {"entityId":"realm","role":"network"}
+    {"entityId":"realm","role":"network"},
+    {"entityId":"pale-matter-productions","role":"production-company"}
   ],
   "id": "station-151",
   "title": "Station 151",
@@ -169,12 +170,12 @@
   ],
   "transcriptLanguages": [],
   "creators": [
-    "Andy Scearce and Steven James Scearce"
+    "Andy Scearce",
+    "Steven James Scearce"
   ],
   "cast": [],
   "createdAt": "2026-06-01",
-  "creatorId": "andy-scearce-and-steven-james-scearce",
-  "networkId": "pale-matter-realm",
+  "networkId": "realm",
   "similarReasons": {
     "oz-9": "Keeps the station absurdity alive for listeners who liked the comic edge most.",
     "wolf-359": "A more character-driven station follow-up with broader tonal range.",

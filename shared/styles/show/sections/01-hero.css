@@ -116,6 +116,18 @@
   letter-spacing: 0.03em;
 }
 
+.detail-tag-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.detail-tag-link:hover,
+.detail-tag-link:focus-visible {
+  border-color: rgba(var(--detail-accent-rgb), 0.48);
+  background: rgba(var(--detail-accent-rgb), 0.1);
+  color: var(--text-primary);
+}
+
 .detail-status-chip.is-accent,
 .detail-fact-pill.is-accent {
   border-color: rgba(var(--detail-accent-rgb), 0.6);

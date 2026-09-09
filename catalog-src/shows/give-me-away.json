@@ -1,5 +1,8 @@
 {
   "id": "give-me-away",
+  "entityLinks": [
+    {"entityId":"gideon-media","role":"production-company"}
+  ],
   "title": "Give Me Away",
   "subtitle": "Welcome to radical hospitality. There's no turning back.",
   "description": "From the writer of The Message, Life/After, and Steal the Stars. They call the crashed spaceship “The Ghosthouse” because it screams—the screams of thousands of extraterrestrial political prisoners trapped in its horrific mainframe. The only way to free them is to transfer them into humans willing to share their minds with a second consciousness forever.",

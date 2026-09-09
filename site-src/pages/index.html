@@ -27,6 +27,7 @@
           </button>
 
           <label class="search-field sticky-search-field" id="stickySearchField" for="stickySearch" aria-hidden="true">
+            <span class="sr-only">Search the archive</span>
             <span class="search-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24">
                 <path d="m21 21-4.35-4.35M10.8 18a7.2 7.2 0 1 0 0-14.4 7.2 7.2 0 0 0 0 14.4Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
@@ -45,7 +46,7 @@
             <span id="stickyFilterCount" class="filter-count" hidden>0</span>
           </button>
 
-          <button class="filter-sheet-backdrop" type="button" data-filter-sheet-dismiss tabindex="-1" aria-label="Close archive filters" hidden></button>
+          <div class="filter-sheet-backdrop" data-filter-sheet-dismiss hidden></div>
           <div id="stickyFilterDropdown" class="dropdown" aria-labelledby="stickyFilterDialogTitle" hidden>
             <div class="filter-dropdown-header">
               <div>
@@ -75,7 +76,7 @@
           <p>
             An archive of audio dramas and fiction podcasts. Browse by mood, tone, format, completion status, and shows like the ones you already love.
           </p>
-          <div class="home-hero-actions" aria-label="Suggested starting points">
+          <nav class="home-hero-actions" aria-label="Suggested starting points">
             <a class="home-hero-route is-primary" href="/collections/shows-like-midnight-burger" aria-label="Browse shows like Midnight Burger">
               <span class="home-hero-route-kicker">Shows like</span>
               <span class="home-hero-route-label">Midnight Burger</span>
@@ -88,11 +89,12 @@
               <span class="home-hero-route-kicker">Shows like</span>
               <span class="home-hero-route-label">Welcome to Night Vale</span>
             </a>
-          </div>
+          </nav>
         </div>
 
         <div class="search-container" aria-label="Archive controls">
           <label class="search-field" for="search">
+            <span class="sr-only">Search the archive</span>
             <span class="search-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24">
                 <path d="m21 21-4.35-4.35M10.8 18a7.2 7.2 0 1 0 0-14.4 7.2 7.2 0 0 0 0 14.4Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
@@ -111,7 +113,7 @@
                 <span id="filterCount" class="filter-count" hidden>0</span>
               </button>
 
-              <button class="filter-sheet-backdrop" type="button" data-filter-sheet-dismiss tabindex="-1" aria-label="Close archive filters" hidden></button>
+              <div class="filter-sheet-backdrop" data-filter-sheet-dismiss hidden></div>
               <div id="filterDropdown" class="dropdown" aria-labelledby="filterDialogTitle" hidden>
                 <div class="filter-dropdown-header">
                   <div>
@@ -162,7 +164,7 @@
           <h2>Browse the archive</h2>
         </div>
         <div class="results-heading-meta">
-          <p id="resultsSummary" class="results-summary">Loading shows...</p>
+          <p id="resultsSummary" class="results-summary" role="status" aria-live="polite" aria-atomic="true">Loading shows...</p>
           <div class="rating-guide">
             <button class="rating-guide-trigger" type="button" aria-label="What do the ratings mean?" aria-describedby="ratingGuideTooltip">?</button>
             <div class="rating-guide-tooltip" id="ratingGuideTooltip" role="tooltip">

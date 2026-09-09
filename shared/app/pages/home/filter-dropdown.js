@@ -101,7 +101,7 @@ export function initializeFilterDropdownController({ filterDropdown, filterToggl
   };
 
   const moveToSheetLayer = () => {
-    if (!(origin instanceof HTMLElement) || !(backdrop instanceof HTMLButtonElement)) {
+    if (!(origin instanceof HTMLElement) || !(backdrop instanceof HTMLElement)) {
       return false;
     }
     backdrop.hidden = false;
@@ -118,7 +118,7 @@ export function initializeFilterDropdownController({ filterDropdown, filterToggl
       return;
     }
     setBackgroundInert(false);
-    if (backdrop instanceof HTMLButtonElement) {
+    if (backdrop instanceof HTMLElement) {
       backdrop.hidden = true;
       origin.append(backdrop);
     }

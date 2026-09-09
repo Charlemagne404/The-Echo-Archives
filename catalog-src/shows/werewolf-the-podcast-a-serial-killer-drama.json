@@ -98,9 +98,11 @@
     "funding": "https://www.buymeacoffee.com/Werewolfwil"
   },
   "credits": {
-    "creatorName": "Fenrir & Greg",
+    "creatorName": [
+      "Fenrir Thorvaldsen",
+      "Gregory Alexander Sharp"
+    ],
     "ownerName": "Fenrir & Greg",
-    "network": "Buzzsprout",
     "people": [
       {
         "name": "Fenrir Thorvaldsen",
@@ -126,7 +128,6 @@
     ]
   },
   "creators": [
-    "Fenrir & Greg",
     "Fenrir Thorvaldsen",
     "Gregory Alexander Sharp"
   ],
@@ -911,7 +912,5 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
-  "creatorId": "fenrir-greg",
-  "networkId": "buzzsprout"
+  "updatedAt": "2026-08-15"
 }

@@ -83,21 +83,16 @@
   "credits": {
     "creatorName": "Arnie Niekamp",
     "ownerName": "Arnie Niekamp",
-    "network": "Hello from the Magic Tavern",
-    "writers": [
-      "Garrett Schultz"
-    ],
     "people": [
       {
         "name": "Garrett Schultz",
-        "role": "author",
+        "role": "post-production",
         "url": ""
       }
     ]
   },
   "creators": [
-    "Arnie Niekamp",
-    "Garrett Schultz"
+    "Arnie Niekamp"
   ],
   "cast": [],
   "verification": {
@@ -789,6 +784,5 @@
   "featured": false,
   "createdAt": "2026-08-15",
   "updatedAt": "2026-08-15",
-  "creatorId": "arnie-niekamp",
-  "networkId": "hello-from-the-magic-tavern"
+  "creatorId": "arnie-niekamp"
 }

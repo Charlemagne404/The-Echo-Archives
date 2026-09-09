@@ -1,5 +1,8 @@
 {
   "id": "archive-81",
+  "entityLinks": [
+    {"entityId":"dead-signals","role":"production-company"}
+  ],
   "title": "Archive 81",
   "subtitle": "Found-footage horror about ritual, sound, and the feeling that a recording can bite back.",
   "description": "Archive 81 is a fiction podcast about horror, cities, and the subconscious. New episodes will be released every other Wednesday. Start from \"01 - A Body In A New Place\"",
@@ -92,7 +95,8 @@
     "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
   },
   "creators": [
-    "Dead Signals"
+    "Marc Sollinger",
+    "Dan Powell"
   ],
   "cast": [],
   "createdAt": "2026-06-30",

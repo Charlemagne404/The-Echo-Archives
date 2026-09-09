@@ -1,5 +1,10 @@
 {
   "id": "max-ivan-fugitives",
+  "entityLinks": [
+    {"entityId":"storyglass","role":"production-company"},
+    {"entityId":"max-olesker","role":"creator"},
+    {"entityId":"ivan-gonzalez","role":"creator"}
+  ],
   "title": "Max & Ivan: Fugitives",
   "subtitle": "Two lowly tech developers acquire a laptop full of contraband data, witness a murder, and then narrowly escape being assassinated. Suddenly, they find themselves sucked into a world of state-funded disinformation campaigns, bot farms, all-k",
   "description": "Two lowly tech developers acquire a laptop full of contraband data, witness a murder, and then narrowly escape being assassinated. Suddenly, they find themselves sucked into a world of state-funded disinformation campaigns, bot farms, all-knowing Big Data organisations, and shadowy terror groups. Inspired by the chaotic way global politics is currently unfolding, Max & Ivan: Fugitives is an on-the-run comedy thriller set across international borders. Written and performed by Max Olesker and Ivan Gonzalez it stars Gemma Whelan, Alice Lowe, Adam Buxton, Kyle Kinane and Stephen Mangan. The cast also includes Celeste Dring, Dan Tetsell, Elina Alminas, Ernest Gromov, Freya Parker, Jak Malone, Jason Forbes, Justin Edwards, Katia Kvinge, Margaret Cabourn-Smith, Sammy Broly and Steve Furst. Sound design is by Rich Evans and photography by Idil Sukan. The series is produced by Ben Walker for Storyglass. Hosted on Acast. See acast.com/privacy for more information.",
@@ -85,10 +90,15 @@
     "funding": ""
   },
   "credits": {
-    "creatorName": "Storyglass"
+    "creatorName": [
+      "Max Olesker",
+      "Ivan Gonzalez"
+    ],
+    "productionCompany": "Storyglass"
   },
   "creators": [
-    "Storyglass"
+    "Max Olesker",
+    "Ivan Gonzalez"
   ],
   "cast": [],
   "verification": {
@@ -673,6 +683,5 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
-  "creatorId": "storyglass"
+  "updatedAt": "2026-09-08"
 }

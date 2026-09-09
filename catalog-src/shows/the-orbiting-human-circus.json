@@ -1,5 +1,9 @@
 {
   "id": "the-orbiting-human-circus",
+  "entityLinks": [
+    {"entityId":"wnyc-studios","role":"production-company"},
+    {"entityId":"night-vale-presents","role":"production-company"}
+  ],
   "title": "The Orbiting Human Circus",
   "subtitle": "",
   "description": "Discover a wondrously surreal world of magic, music, and mystery. This immersive, cinematic audio spectacle follows the adventures of a lonely, stage-struck janitor who is drawn into the larger-than-life universe of the Orbiting Human Circus, a fantastical, wildly popular radio show broadcast from the top of the Eiffel Tower. WNYC Studios presents a special director’s cut of this joyous, moving break from reality. Starring John Cameron Mitchell, Julian Koster, Tim Robbins, Drew Callander, Susannah Flood, and featuring Mandy Patinkin and Charlie Day. Season one of The Orbiting Human Circus (of the Air) is a co-presentation of WNYC Studios and Night Vale Presents.",
@@ -93,13 +97,10 @@
     "funding": ""
   },
   "credits": {
-    "creatorName": "WNYC Studios and Night Vale Presents",
-    "ownerName": "WNYC Studios and Night Vale Presents",
-    "network": "WNYC Studios"
+    "creatorName": [],
+    "ownerName": "WNYC Studios and Night Vale Presents"
   },
-  "creators": [
-    "WNYC Studios and Night Vale Presents"
-  ],
+  "creators": [],
   "cast": [],
   "verification": {
     "status": "maintainer-source-reviewed",
@@ -748,7 +749,5 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "wnyc-studios-and-night-vale-presents",
-  "networkId": "wnyc-studios"
+  "updatedAt": "2026-08-14"
 }

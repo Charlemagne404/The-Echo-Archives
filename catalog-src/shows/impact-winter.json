@@ -1,5 +1,8 @@
 {
   "id": "impact-winter",
+  "entityLinks": [
+    {"entityId":"audible-originals","role":"production-company"}
+  ],
   "title": "Impact Winter",
   "subtitle": "Post-apocalyptic vampire survival under endless winter.",
   "description": "Impact Winter is a post-apocalyptic audio drama set seven years after a comet slammed into Earth, plunging the world into a devastating winter and endless darkness. But that was not the only nightmare unleashed. From the shadows came bloodthirsty monsters. Vampires. The year is 2042. Darci and her younger sister Hope live in a bunker beneath a medieval castle, surviving alongside a small group of others while they wait for the sun to return. But in this brutal new world, nothing is as it seems, including the monsters everyone thinks they understand.",

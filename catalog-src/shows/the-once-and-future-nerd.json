@@ -95,7 +95,10 @@
     "discord": "https://discord.gg/2DTKSvq"
   },
   "credits": {
-    "creatorName": "Glass & Madera"
+    "creatorName": [
+      "Zach Glass",
+      "Christian Kelley-Madera"
+    ]
   },
   "verification": {
     "status": "source-verified",
@@ -139,7 +142,6 @@
   },
   "featured": false,
   "createdAt": "2026-07-09",
-  "creatorId": "glass-madera",
   "updatedAt": "2026-07-18",
   "cast": [],
   "creators": [

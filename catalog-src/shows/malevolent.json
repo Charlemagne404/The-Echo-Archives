@@ -1,6 +1,7 @@
 {
   "entityLinks": [
-    {"entityId":"rusty-quill","role":"network"}
+    {"entityId":"rusty-quill","role":"network"},
+    {"entityId":"harlan-guthrie","role":"creator"}
   ],
   "id": "malevolent",
   "title": "Malevolent",

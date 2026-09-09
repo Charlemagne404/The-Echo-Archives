@@ -786,7 +786,11 @@ body.filter-sheet-open {
 .rating-guide-trigger:focus-visible {
   border-color: rgba(240, 238, 233, 0.52);
   color: var(--text-primary);
-  outline: none;
+}
+
+:is(.rating-guide-trigger, .active-browse-chip, .active-browse-clear, .collection-carousel-arrow):focus-visible {
+  outline: 2px solid rgba(255, 197, 182, 0.82);
+  outline-offset: 3px;
 }
 
 .rating-guide-tooltip {
@@ -926,7 +930,6 @@ body.filter-sheet-open {
   border-color: rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.06);
   color: var(--text-primary);
-  outline: none;
 }
 
 .active-browse-chip-remove {
@@ -951,7 +954,6 @@ body.filter-sheet-open {
 .active-browse-clear:hover,
 .active-browse-clear:focus-visible {
   color: var(--text-primary);
-  outline: none;
 }
 
 .active-browse-chip.is-exiting,
@@ -1185,10 +1187,6 @@ body.filter-sheet-open {
   box-shadow: 0 20px 38px rgba(0, 0, 0, 0.36);
 }
 
-.collection-carousel-arrow:focus-visible {
-  outline: none;
-}
-
 .collection-carousel-arrow-prev:hover,
 .collection-carousel-arrow-prev:focus-visible {
   transform: translate3d(4px, -50%, 0) scale(1.02);
@@ -1346,7 +1344,8 @@ body.filter-sheet-open {
 }
 
 .home-page .popular-card:focus-visible {
-  outline: none;
+  outline: 2px solid rgba(255, 197, 182, 0.82);
+  outline-offset: 3px;
 }
 
 .home-page .popular-card-media {
@@ -2398,7 +2397,10 @@ body.filter-sheet-open {
     display: block;
     width: min(100%, 220px);
     min-width: 0;
+    order: 1;
   }
+
+  .site-nav-close { order: 2; }
 
   .site-nav-drawer-brand img {
     width: 100%;

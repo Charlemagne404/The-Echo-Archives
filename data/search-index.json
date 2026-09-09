@@ -19,6 +19,32 @@
     "creators": [
       "Chris Porter"
     ],
+    "entityLinks": [
+      {
+        "entityId": "curtco-media",
+        "role": "production-company"
+      },
+      {
+        "entityId": "chris-porter",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "curtco-media",
+        "name": "CurtCo Media",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      },
+      {
+        "id": "chris-porter",
+        "name": "Chris Porter",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
+    ],
     "accent": {
       "hex": "#cc5b42",
       "rgb": "204, 91, 66"
@@ -106,7 +132,6 @@
         "Jenny Curtis"
       ],
       "soundDesign": "CJ Drumeller",
-      "network": "CurtCo Media",
       "coverArt": "Not verified"
     },
     "availability": {
@@ -277,7 +302,8 @@
     "cover": "shows/from now/fromnow.jpeg",
     "coverAlt": "From Now cover art",
     "creators": [
-      "Rhys Wakefield and William Day Frank"
+      "Rhys Wakefield",
+      "William Day Frank"
     ],
     "entityLinks": [
       {
@@ -553,6 +579,32 @@
       "AJ Churchill",
       "Victor Lee"
     ],
+    "entityLinks": [
+      {
+        "entityId": "the-lunar-company",
+        "role": "production-company"
+      },
+      {
+        "entityId": "apollo-podcasts",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "the-lunar-company",
+        "name": "The Lunar Company",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      },
+      {
+        "id": "apollo-podcasts",
+        "name": "Apollo Podcasts",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
+    ],
     "accent": {
       "hex": "#4e657c",
       "rgb": "78, 101, 124"
@@ -675,7 +727,8 @@
     "cover": "shows/vast horizon/vasthorizon.jpeg",
     "coverAlt": "Vast Horizon cover art",
     "creators": [
-      "K.A. Statz and Travis Vengroff"
+      "K.A. Statz",
+      "Travis Vengroff"
     ],
     "entityLinks": [
       {
@@ -697,7 +750,6 @@
         "name": "Fool & Scholar Productions",
         "type": "production-company",
         "aliases": [
-          "Fool and Scholar Productions",
           "Fool & Scholar",
           "Fool & Scholar Productions : Podcasts"
         ],
@@ -972,7 +1024,26 @@
     "cover": "shows/windfall/windfall.jpeg",
     "coverAlt": "Windfall cover art",
     "creators": [
-      "Rogue Dialogue Productions"
+      "Bob Raymonda",
+      "Christie Donato",
+      "Adam Raymonda"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "rogue-dialogue-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "rogue-dialogue-productions",
+        "name": "Rogue Dialogue Productions",
+        "type": "production-company",
+        "aliases": [
+          "Rogue Dialogue"
+        ],
+        "role": "production-company"
+      }
     ],
     "accent": {
       "hex": "#8f3b3e",
@@ -1057,7 +1128,6 @@
       "producer": "Rogue Dialogue Productions",
       "soundDesign": "Adam Raymonda",
       "composer": "Adam Raymonda",
-      "network": "Rogue Dialogue Productions",
       "cast": "Not fully verified",
       "coverArt": "Sam Twardy"
     },
@@ -1098,7 +1168,22 @@
     ],
     "coverAlt": "The Waystation cover art",
     "creators": [
-      "Wired Cowslip"
+      "Elliot Somerfield"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "wired-cowslip",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "wired-cowslip",
+        "name": "Wired Cowslip",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
     ],
     "accent": {
       "hex": "#497f8a",
@@ -1174,7 +1259,6 @@
       "soundDesign": "Kathryn Stanley",
       "composer": "Tatenda Shamiso",
       "productionCompany": "Wired Cowslip",
-      "network": "Wired Cowslip",
       "cast": [
         "Nicole Tuttle",
         "Daphne Nitsuga",
@@ -1214,6 +1298,32 @@
     "coverAlt": "We're Alive cover art",
     "creators": [
       "Kc Wayland"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "wayland-productions",
+        "role": "production-company"
+      },
+      {
+        "entityId": "kc-wayland",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "wayland-productions",
+        "name": "Wayland Productions",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      },
+      {
+        "id": "kc-wayland",
+        "name": "Kc Wayland",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "accent": {
       "hex": "#7d4f3e",
@@ -1335,6 +1445,23 @@
     "coverAlt": "Impact Winter cover art",
     "creators": [
       "Travis Beacham"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "audible-originals",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "audible-originals",
+        "name": "Audible Originals",
+        "type": "production-company",
+        "aliases": [
+          "Audible Original"
+        ],
+        "role": "production-company"
+      }
     ],
     "accent": {
       "hex": "#851a28",
@@ -1478,8 +1605,7 @@
         "name": "Fable & Folly",
         "type": "network",
         "aliases": [
-          "Fable & Folly Network",
-          "Fable and Folly"
+          "Fable & Folly Network"
         ],
         "role": "network"
       }
@@ -1610,7 +1736,8 @@
     ],
     "coverAlt": "Ars Paradoxica cover art",
     "creators": [
-      "Mischa Stanton and Daniel Manning"
+      "Mischa Stanton",
+      "Daniel Manning"
     ],
     "entityLinks": [
       {
@@ -1782,8 +1909,7 @@
         "name": "Fable & Folly",
         "type": "network",
         "aliases": [
-          "Fable & Folly Network",
-          "Fable and Folly"
+          "Fable & Folly Network"
         ],
         "role": "network"
       }
@@ -1910,7 +2036,8 @@
     ],
     "coverAlt": "The White Vault cover art",
     "creators": [
-      "K.A. Statz and Travis Vengroff"
+      "K.A. Statz",
+      "Travis Vengroff"
     ],
     "entityLinks": [
       {
@@ -1932,7 +2059,6 @@
         "name": "Fool & Scholar Productions",
         "type": "production-company",
         "aliases": [
-          "Fool and Scholar Productions",
           "Fool & Scholar",
           "Fool & Scholar Productions : Podcasts"
         ],
@@ -2086,6 +2212,32 @@
     "creators": [
       "Justin McLachlan"
     ],
+    "entityLinks": [
+      {
+        "entityId": "planetm",
+        "role": "production-company"
+      },
+      {
+        "entityId": "justin-mclachlan",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "planetm",
+        "name": "PlanetM",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      },
+      {
+        "id": "justin-mclachlan",
+        "name": "Justin McLachlan",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
+    ],
     "accent": {
       "hex": "#497b84",
       "rgb": "73, 123, 132"
@@ -2200,6 +2352,21 @@
     "coverAlt": "Desert Skies cover art",
     "creators": [
       "Jared Carter"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "jared-carter",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "jared-carter",
+        "name": "Jared Carter",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "accent": {
       "hex": "#ae7b4c",
@@ -2316,6 +2483,21 @@
     "coverAlt": "Wolf 359 cover art",
     "creators": [
       "Gabriel Urbina"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "gabriel-urbina",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "gabriel-urbina",
+        "name": "Gabriel Urbina",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "accent": {
       "hex": "#728187",
@@ -2438,12 +2620,17 @@
     ],
     "coverAlt": "Station 151 cover art",
     "creators": [
-      "Andy Scearce and Steven James Scearce"
+      "Andy Scearce",
+      "Steven James Scearce"
     ],
     "entityLinks": [
       {
         "entityId": "realm",
         "role": "network"
+      },
+      {
+        "entityId": "pale-matter-productions",
+        "role": "production-company"
       }
     ],
     "resolvedEntities": [
@@ -2455,6 +2642,15 @@
           "Realm Media"
         ],
         "role": "network"
+      },
+      {
+        "id": "pale-matter-productions",
+        "name": "Pale Matter Productions",
+        "type": "production-company",
+        "aliases": [
+          "Pale Matter"
+        ],
+        "role": "production-company"
       }
     ],
     "accent": {
@@ -2580,6 +2776,32 @@
     "creators": [
       "Joe Fisher"
     ],
+    "entityLinks": [
+      {
+        "entityId": "business-goose-media",
+        "role": "production-company"
+      },
+      {
+        "entityId": "joe-fisher",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "business-goose-media",
+        "name": "Business Goose Media",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      },
+      {
+        "id": "joe-fisher",
+        "name": "Joe Fisher",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
+    ],
     "accent": {
       "hex": "#b26745",
       "rgb": "178, 103, 69"
@@ -2688,6 +2910,21 @@
     "creators": [
       "Stef Howerton"
     ],
+    "entityLinks": [
+      {
+        "entityId": "station-blue-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "station-blue-productions",
+        "name": "Station Blue",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
+    ],
     "accent": {
       "hex": "#61718c",
       "rgb": "97, 113, 140"
@@ -2750,14 +2987,13 @@
       "ads": "Unknown."
     },
     "credits": {
-      "creatorName": "Jordan Cobb",
+      "creatorName": "Stef Howerton",
       "writer": "Stef Howerton",
       "director": "Not verified",
       "producer": "Stef Howerton",
       "soundDesign": "Not verified",
       "composer": "Tim Rosko",
       "productionCompany": "Station Blue",
-      "network": "indie",
       "cast": "Not fully verified",
       "coverArt": "Not verified"
     },
@@ -2789,6 +3025,32 @@
     "coverAlt": "The Phenomenon cover art",
     "creators": [
       "Jared J. Smith"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "luciola-creative",
+        "role": "production-company"
+      },
+      {
+        "entityId": "jared-j-smith",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "luciola-creative",
+        "name": "Luciola Creative",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      },
+      {
+        "id": "jared-j-smith",
+        "name": "Jared J. Smith",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "accent": {
       "hex": "#5a5e79",
@@ -3053,6 +3315,32 @@
     "coverAlt": "Derelict cover art",
     "creators": [
       "J. Barton Mitchell"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "night-rocket-productions",
+        "role": "production-company"
+      },
+      {
+        "entityId": "j-barton-mitchell",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "night-rocket-productions",
+        "name": "Night Rocket Productions",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      },
+      {
+        "id": "j-barton-mitchell",
+        "name": "J. Barton Mitchell",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "accent": {
       "hex": "#4a6580",
@@ -3732,7 +4020,22 @@
     ],
     "coverAlt": "Wooden Overcoats cover art",
     "creators": [
-      "Wooden Overcoats Ltd"
+      "David K. Barnes"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "wooden-overcoats-ltd",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "wooden-overcoats-ltd",
+        "name": "Wooden Overcoats Ltd",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -3824,6 +4127,21 @@
     "coverAlt": "Alice Isn't Dead cover art",
     "creators": [
       "Joseph Fink"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "joseph-fink",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "joseph-fink",
+        "name": "Joseph Fink",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -3920,7 +4238,33 @@
     ],
     "coverAlt": "Mirrors cover art",
     "creators": [
-      "ZoomDoom Stories"
+      "Jamie Killen"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "zoomdoom-stories",
+        "role": "production-company"
+      },
+      {
+        "entityId": "jamie-killen",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "zoomdoom-stories",
+        "name": "ZoomDoom Stories",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      },
+      {
+        "id": "jamie-killen",
+        "name": "Jamie Killen",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -4344,6 +4688,10 @@
       {
         "entityId": "rusty-quill",
         "role": "network"
+      },
+      {
+        "entityId": "harlan-guthrie",
+        "role": "creator"
       }
     ],
     "resolvedEntities": [
@@ -4355,6 +4703,13 @@
           "Rusty Quill Ltd."
         ],
         "role": "network"
+      },
+      {
+        "id": "harlan-guthrie",
+        "name": "Harlan Guthrie",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
       }
     ],
     "status": "published",
@@ -4677,7 +5032,7 @@
     "coverAlt": "Mabel cover art",
     "creators": [
       "Becca De La Rosa",
-      "Mabel Martin"
+      "Maybell Marten"
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -4781,7 +5136,23 @@
     ],
     "coverAlt": "Archive 81 cover art",
     "creators": [
-      "Dead Signals"
+      "Marc Sollinger",
+      "Dan Powell"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "dead-signals",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "dead-signals",
+        "name": "Dead Signals",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -4887,7 +5258,8 @@
     ],
     "coverAlt": "Homecoming cover art",
     "creators": [
-      "Gimlet Media"
+      "Eli Horowitz",
+      "Micah Bloomberg"
     ],
     "entityLinks": [
       {
@@ -4962,7 +5334,10 @@
     "archiveTake": "A strong start-here option for listeners who want prestige-thriller pacing in a compact fiction-podcast form.",
     "facts": {},
     "credits": {
-      "creatorName": "Eli Horowitz and Micah Bloomberg",
+      "creatorName": [
+        "Eli Horowitz",
+        "Micah Bloomberg"
+      ],
       "productionCompany": "Gimlet"
     },
     "availability": {
@@ -5006,6 +5381,14 @@
       {
         "entityId": "night-vale-presents",
         "role": "production-company"
+      },
+      {
+        "entityId": "joseph-fink",
+        "role": "creator"
+      },
+      {
+        "entityId": "jeffrey-cranor",
+        "role": "creator"
       }
     ],
     "resolvedEntities": [
@@ -5015,6 +5398,20 @@
         "type": "network",
         "aliases": [],
         "role": "production-company"
+      },
+      {
+        "id": "joseph-fink",
+        "name": "Joseph Fink",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      },
+      {
+        "id": "jeffrey-cranor",
+        "name": "Jeffrey Cranor",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
       }
     ],
     "status": "published",
@@ -5797,7 +6194,10 @@
     "archiveTake": "A strong short-run recommendation for listeners who want creepy recorded-media horror without committing to a huge catalog.",
     "facts": {},
     "credits": {
-      "creatorName": "Nick Braccia and Mike Monello",
+      "creatorName": [
+        "Nick Braccia",
+        "Mike Monello"
+      ],
       "writer": "Ben Rock & Bob DeRosa",
       "director": "Ben Rock",
       "productionCompany": "Shudder"
@@ -5926,7 +6326,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-08"
   },
   {
     "id": "the-black-tapes",
@@ -6209,8 +6609,14 @@
     "archiveTake": "A sharp recommendation when you want comedy, a clean mystery engine, and a setting that does half the work for the show.",
     "facts": {},
     "credits": {
-      "creatorName": "Long Cat Media",
-      "network": "ART19"
+      "creatorName": [
+        "Lindsay Sharman",
+        "Laurence Owen"
+      ],
+      "writers": [
+        "Lindsay Sharman"
+      ],
+      "director": "Lindsay Sharman"
     },
     "availability": {
       "transcripts": "available from Long Cat Media",
@@ -6248,6 +6654,21 @@
     "coverAlt": "Forest 404 cover art",
     "creators": [
       "Timothy X Atack"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "timothy-x-atack",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "timothy-x-atack",
+        "name": "Timothy X Atack",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -6304,7 +6725,7 @@
     "archiveTake": "A worthwhile shorter run when you want dystopian sci-fi with atmosphere and a cleaner thematic spine.",
     "facts": {},
     "credits": {
-      "creatorName": "BBC Radio 4",
+      "creatorName": "Timothy X Atack",
       "network": "BBC"
     },
     "availability": {
@@ -6398,7 +6819,10 @@
     "archiveTake": "One of the archive's better picks for listeners who want a big ensemble and humor that still makes room for depth.",
     "facts": {},
     "credits": {
-      "creatorName": "Alexander Danner & Jeff Van Dreason",
+      "creatorName": [
+        "Alexander Danner",
+        "Jeff Van Dreason"
+      ],
       "network": "Greater Boston"
     },
     "availability": {
@@ -6558,6 +6982,10 @@
       {
         "entityId": "no-such-thing-productions",
         "role": "production-company"
+      },
+      {
+        "entityId": "jordan-cobb",
+        "role": "creator"
       }
     ],
     "resolvedEntities": [
@@ -6570,6 +6998,13 @@
           "No Such Thing Audio Drama Productions"
         ],
         "role": "production-company"
+      },
+      {
+        "id": "jordan-cobb",
+        "name": "Jordan Cobb",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
       }
     ],
     "status": "published",
@@ -6627,7 +7062,7 @@
     "archiveTake": "A smart pick for listeners who want sci-fi horror with structure, patience, and a payoff built into the format itself.",
     "facts": {},
     "credits": {
-      "creatorName": "No Such Thing Productions",
+      "creatorName": "Jordan Cobb",
       "network": "Nosuchthing"
     },
     "availability": {
@@ -6666,6 +7101,21 @@
     "coverAlt": "Spines cover art",
     "creators": [
       "ZoomDoom Stories"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "zoomdoom-stories",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "zoomdoom-stories",
+        "name": "ZoomDoom Stories",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -6763,6 +7213,10 @@
       {
         "entityId": "the-whisperforge",
         "role": "production-company"
+      },
+      {
+        "entityId": "tau-zaman",
+        "role": "creator"
       }
     ],
     "resolvedEntities": [
@@ -6774,6 +7228,13 @@
           "Whisperforge"
         ],
         "role": "production-company"
+      },
+      {
+        "id": "tau-zaman",
+        "name": "Tau Zaman",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
       }
     ],
     "status": "published",
@@ -6830,7 +7291,7 @@
     "archiveTake": "A strong pick when you want fantasy adventure with heart instead of grimness as the default setting.",
     "facts": {},
     "credits": {
-      "creatorName": "The Whisperforge"
+      "creatorName": "Tau Zaman"
     },
     "availability": {
       "transcripts": "available on the official Whisperforge site",
@@ -6923,7 +7384,7 @@
     "archiveTake": "A useful lighter-space recommendation when you want comedy that still benefits from being stuck with the crew.",
     "facts": {},
     "credits": {
-      "creatorName": "Oblivity"
+      "creatorName": "Rob Stringer"
     },
     "availability": {
       "transcripts": "not verified",
@@ -7019,7 +7480,10 @@
     "archiveTake": "Worth the commitment if you want fantasy that grows well past its premise and keeps getting more politically textured.",
     "facts": {},
     "credits": {
-      "creatorName": "Glass & Madera"
+      "creatorName": [
+        "Zach Glass",
+        "Christian Kelley-Madera"
+      ]
     },
     "availability": {
       "transcripts": "available through the official episode guide",
@@ -7204,7 +7668,7 @@
     "archiveTake": "A lively archive pick when you want comedy that feels sticky, loud, and very sure of its own world.",
     "facts": {},
     "credits": {
-      "creatorName": "Brimstone Valley Mall",
+      "creatorName": "Kristen DiMercurio",
       "network": "ART19"
     },
     "availability": {
@@ -7243,6 +7707,32 @@
     "coverAlt": "Midnight Radio cover art",
     "creators": [
       "Bobbie Parker"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "martlet-radio",
+        "role": "network"
+      },
+      {
+        "entityId": "bobbie-parker",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "martlet-radio",
+        "name": "Martlet Radio",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      },
+      {
+        "id": "bobbie-parker",
+        "name": "Bobbie Parker",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -7297,7 +7787,7 @@
     "archiveTake": "A quieter recommendation for listeners who want mood, mystery, and a little ache instead of constant plot violence.",
     "facts": {},
     "credits": {
-      "creatorName": "Martlet Radio"
+      "creatorName": "Bobbie Parker"
     },
     "availability": {
       "transcripts": "available from Martlet Radio",
@@ -7337,6 +7827,21 @@
       "Pete Barry",
       "J. Michael DeAngelis",
       "John P. Dowgin"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "the-porch-room",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "the-porch-room",
+        "name": "The Porch Room",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -7393,8 +7898,17 @@
     "archiveTake": "Easy to recommend when you want comedy with action energy and a cast that thrives on being the B-team.",
     "facts": {},
     "credits": {
-      "creatorName": "The Porch Room",
-      "network": "Mission: Rejected"
+      "creatorName": [
+        "Pete Barry",
+        "J. Michael DeAngelis",
+        "John P. Dowgin"
+      ],
+      "writers": [
+        "Pete Barry",
+        "J. Michael DeAngelis",
+        "John P. Dowgin"
+      ],
+      "productionCompany": "The Porch Room"
     },
     "availability": {
       "transcripts": "available from the official show site",
@@ -7433,6 +7947,23 @@
     "creators": [
       "Beth Crane",
       "Hedley Knights"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "battle-bird-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "battle-bird-productions",
+        "name": "Battle Bird Productions",
+        "type": "production-company",
+        "aliases": [
+          "Battle Bird"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -7488,8 +8019,11 @@
     "archiveTake": "One of the easier archive recommendations when someone wants funny sci-fi that still knows how tired and broke its characters are.",
     "facts": {},
     "credits": {
-      "creatorName": "Battle Bird Productions",
-      "network": "Battle Bird Productions"
+      "creatorName": [
+        "Beth Crane",
+        "Hedley Knights"
+      ],
+      "productionCompany": "Battle Bird Productions"
     },
     "availability": {
       "transcripts": "available from Battle Bird Productions",
@@ -7527,6 +8061,32 @@
     "coverAlt": "Harbor cover art",
     "creators": [
       "Faraday Roke"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "tartarus-jenny-studios",
+        "role": "production-company"
+      },
+      {
+        "entityId": "faraday-roke",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "tartarus-jenny-studios",
+        "name": "Tartarus Jenny Studios",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      },
+      {
+        "id": "faraday-roke",
+        "name": "Faraday Roke",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -7584,7 +8144,8 @@
     "archiveTake": "A worthwhile choice when you want small-town supernatural fiction that treats character stress as part of the monster texture.",
     "facts": {},
     "credits": {
-      "creatorName": "Tartarus Jenny Studios",
+      "creatorName": "Faraday Roke",
+      "productionCompany": "Tartarus Jenny Studios",
       "network": "Harbor - An Audio Drama Podcast"
     },
     "availability": {
@@ -8347,6 +8908,21 @@
     "coverAlt": "The Strata cover art",
     "creators": [
       "Mark R. Healy"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "mark-r-healy",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "mark-r-healy",
+        "name": "Mark R. Healy",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -9665,7 +10241,36 @@
     ],
     "coverAlt": "Not Quite Dead cover art",
     "creators": [
-      "Eira Major's Hanging Sloth"
+      "Eira Major"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "hanging-sloth-studios",
+        "role": "production-company"
+      },
+      {
+        "entityId": "eira-major",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "hanging-sloth-studios",
+        "name": "Hanging Sloth Studios",
+        "type": "production-company",
+        "aliases": [
+          "Hanging Sloth",
+          "Eira Major's Hanging Sloth"
+        ],
+        "role": "production-company"
+      },
+      {
+        "id": "eira-major",
+        "name": "Eira Major",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -9709,9 +10314,8 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "Eira Major's Hanging Sloth",
-      "ownerName": "Eira Major",
-      "network": "Hanging Sloth"
+      "creatorName": "Eira Major",
+      "ownerName": "Eira Major"
     },
     "availability": {
       "transcripts": "unknown",
@@ -9908,9 +10512,7 @@
         "id": "shadow-static-productions",
         "name": "Shadow & Static Productions",
         "type": "production-company",
-        "aliases": [
-          "Shadow and Static Productions"
-        ],
+        "aliases": [],
         "role": "production-company"
       }
     ],
@@ -9993,8 +10595,7 @@
         "name": "Fable & Folly",
         "type": "network",
         "aliases": [
-          "Fable & Folly Network",
-          "Fable and Folly"
+          "Fable & Folly Network"
         ],
         "role": "production-company"
       }
@@ -10392,8 +10993,25 @@
     ],
     "coverAlt": "Observable Radio cover art",
     "creators": [
-      "Observable Radio",
-      "Cameron Suey"
+      "Cameron Suey",
+      "Phil van Hest",
+      "Purpurina",
+      "Wendy Hector"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "observable-radio-studio",
+        "role": "studio"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "observable-radio-studio",
+        "name": "Observable Radio",
+        "type": "studio",
+        "aliases": [],
+        "role": "studio"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -10432,17 +11050,15 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "Observable Radio",
+      "creatorName": [
+        "Cameron Suey",
+        "Phil van Hest",
+        "Purpurina",
+        "Wendy Hector"
+      ],
       "ownerName": "Observable Radio",
-      "network": "Observable Radio",
       "writers": [
         "Cameron Suey"
-      ],
-      "people": [
-        {
-          "name": "Cameron Suey",
-          "role": "author"
-        }
       ]
     },
     "availability": {
@@ -10567,9 +11183,7 @@
         "id": "spectrevision-radio",
         "name": "SpectreVision Radio",
         "type": "network",
-        "aliases": [
-          "Spectrevision Radio"
-        ],
+        "aliases": [],
         "role": "network"
       }
     ],
@@ -10640,8 +11254,7 @@
     ],
     "coverAlt": "The Cryptonaturalist cover art",
     "creators": [
-      "Jarod K. Anderson",
-      "Jarod Anderson"
+      "Jarod K. Anderson"
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -10680,11 +11293,11 @@
       "ownerName": "Jarod K. Anderson",
       "network": "The CryptoNaturalist",
       "writers": [
-        "Jarod Anderson"
+        "Jarod K. Anderson"
       ],
       "people": [
         {
-          "name": "Jarod Anderson",
+          "name": "Jarod K. Anderson",
           "role": "author"
         }
       ]
@@ -11830,6 +12443,21 @@
     "creators": [
       "Gideon Media"
     ],
+    "entityLinks": [
+      {
+        "entityId": "gideon-media",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "gideon-media",
+        "name": "Gideon Media",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -12243,6 +12871,10 @@
       {
         "entityId": "rusty-quill",
         "role": "network"
+      },
+      {
+        "entityId": "jonathan-sims",
+        "role": "creator"
       }
     ],
     "resolvedEntities": [
@@ -12254,6 +12886,13 @@
           "Rusty Quill Ltd."
         ],
         "role": "network"
+      },
+      {
+        "id": "jonathan-sims",
+        "name": "Jonathan Sims",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
       }
     ],
     "status": "published",
@@ -12359,7 +12998,6 @@
     ],
     "coverAlt": "The Magnus Protocol cover art",
     "creators": [
-      "Jonathan Sims and Alexander J Newall",
       "Jonathan Sims",
       "Alexander J Newall"
     ],
@@ -12367,6 +13005,14 @@
       {
         "entityId": "rusty-quill",
         "role": "network"
+      },
+      {
+        "entityId": "jonathan-sims",
+        "role": "creator"
+      },
+      {
+        "entityId": "alexander-j-newall",
+        "role": "creator"
       }
     ],
     "resolvedEntities": [
@@ -12378,6 +13024,20 @@
           "Rusty Quill Ltd."
         ],
         "role": "network"
+      },
+      {
+        "id": "jonathan-sims",
+        "name": "Jonathan Sims",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      },
+      {
+        "id": "alexander-j-newall",
+        "name": "Alexander J Newall",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
       }
     ],
     "status": "published",
@@ -12419,7 +13079,10 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "Jonathan Sims and Alexander J Newall",
+      "creatorName": [
+        "Jonathan Sims",
+        "Alexander J Newall"
+      ],
       "ownerName": "Rusty Quill",
       "network": "Rusty Quill",
       "writers": [
@@ -12491,6 +13154,10 @@
       {
         "entityId": "leviathan-audio-productions",
         "role": "network"
+      },
+      {
+        "entityId": "christof-laputka",
+        "role": "creator"
       }
     ],
     "resolvedEntities": [
@@ -12502,6 +13169,13 @@
           "Leviathan Audio"
         ],
         "role": "network"
+      },
+      {
+        "id": "christof-laputka",
+        "name": "Christof Laputka",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
       }
     ],
     "status": "published",
@@ -12589,6 +13263,10 @@
       {
         "entityId": "leviathan-audio-productions",
         "role": "network"
+      },
+      {
+        "entityId": "christof-laputka",
+        "role": "creator"
       }
     ],
     "resolvedEntities": [
@@ -12600,6 +13278,13 @@
           "Leviathan Audio"
         ],
         "role": "network"
+      },
+      {
+        "id": "christof-laputka",
+        "name": "Christof Laputka",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
       }
     ],
     "status": "published",
@@ -13604,8 +14289,32 @@
       }
     ],
     "coverAlt": "The Orbiting Human Circus cover art",
-    "creators": [
-      "WNYC Studios and Night Vale Presents"
+    "creators": [],
+    "entityLinks": [
+      {
+        "entityId": "wnyc-studios",
+        "role": "production-company"
+      },
+      {
+        "entityId": "night-vale-presents",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "wnyc-studios",
+        "name": "WNYC Studios",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      },
+      {
+        "id": "night-vale-presents",
+        "name": "Night Vale Presents",
+        "type": "network",
+        "aliases": [],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -13641,9 +14350,7 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "WNYC Studios and Night Vale Presents",
-      "ownerName": "WNYC Studios and Night Vale Presents",
-      "network": "WNYC Studios"
+      "ownerName": "WNYC Studios and Night Vale Presents"
     },
     "availability": {
       "transcripts": "unknown",
@@ -13817,6 +14524,14 @@
       {
         "entityId": "night-vale-presents",
         "role": "network"
+      },
+      {
+        "entityId": "joseph-fink",
+        "role": "creator"
+      },
+      {
+        "entityId": "jeffrey-cranor",
+        "role": "creator"
       }
     ],
     "resolvedEntities": [
@@ -13826,6 +14541,20 @@
         "type": "network",
         "aliases": [],
         "role": "network"
+      },
+      {
+        "id": "joseph-fink",
+        "name": "Joseph Fink",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      },
+      {
+        "id": "jeffrey-cranor",
+        "name": "Jeffrey Cranor",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
       }
     ],
     "status": "published",
@@ -13980,7 +14709,7 @@
     ],
     "coverAlt": "Marvel's Wolverine: The Lost Trail cover art",
     "creators": [
-      "Marvel | Realm"
+      "Marvel & Realm"
     ],
     "entityLinks": [
       {
@@ -14030,7 +14759,7 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "Marvel | Realm",
+      "creatorName": "Marvel & Realm",
       "ownerName": "Marvel & Realm"
     },
     "availability": {
@@ -14504,7 +15233,24 @@
     ],
     "coverAlt": "The Dead Letters Podcast cover art",
     "creators": [
-      "deadletterspodcast"
+      "V.P. Morris"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "vp-morris",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "vp-morris",
+        "name": "V.P. Morris",
+        "type": "person",
+        "aliases": [
+          "VP Morris"
+        ],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -14539,9 +15285,8 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "deadletterspodcast",
-      "ownerName": "deadletterspodcast",
-      "network": "deadletterspodcast"
+      "creatorName": "V.P. Morris",
+      "ownerName": "V.P. Morris"
     },
     "availability": {
       "transcripts": "unknown",
@@ -14721,7 +15466,6 @@
         "name": "Fool & Scholar Productions",
         "type": "production-company",
         "aliases": [
-          "Fool and Scholar Productions",
           "Fool & Scholar",
           "Fool & Scholar Productions : Podcasts"
         ],
@@ -14800,6 +15544,10 @@
       {
         "entityId": "good-pointe",
         "role": "network"
+      },
+      {
+        "entityId": "jeremy-ellett",
+        "role": "creator"
       }
     ],
     "resolvedEntities": [
@@ -14809,6 +15557,13 @@
         "type": "production-company",
         "aliases": [],
         "role": "network"
+      },
+      {
+        "id": "jeremy-ellett",
+        "name": "Jeremy Ellett",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
       }
     ],
     "status": "published",
@@ -14884,6 +15639,10 @@
       {
         "entityId": "good-pointe",
         "role": "network"
+      },
+      {
+        "entityId": "jeremy-ellett",
+        "role": "creator"
       }
     ],
     "resolvedEntities": [
@@ -14893,6 +15652,13 @@
         "type": "production-company",
         "aliases": [],
         "role": "network"
+      },
+      {
+        "id": "jeremy-ellett",
+        "name": "Jeremy Ellett",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
       }
     ],
     "status": "published",
@@ -15447,6 +16213,21 @@
     "creators": [
       "Jake Kerr"
     ],
+    "entityLinks": [
+      {
+        "entityId": "jake-kerr",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "jake-kerr",
+        "name": "Jake Kerr",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -15509,6 +16290,21 @@
     "coverAlt": "Artifacts of the Arcane cover art",
     "creators": [
       "Jake Kerr"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "jake-kerr",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "jake-kerr",
+        "name": "Jake Kerr",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -15590,7 +16386,6 @@
         "name": "Fool & Scholar Productions",
         "type": "production-company",
         "aliases": [
-          "Fool and Scholar Productions",
           "Fool & Scholar",
           "Fool & Scholar Productions : Podcasts"
         ],
@@ -17273,8 +18068,8 @@
     ],
     "coverAlt": "Petrified cover art",
     "creators": [
-      "Liam Geraghty / Peter Dunne",
-      "The Linktree Team"
+      "Liam Geraghty",
+      "Peter Dunne"
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -17308,17 +18103,13 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "Liam Geraghty / Peter Dunne",
-      "ownerName": "Liam Geraghty",
-      "network": "Linktree",
-      "writers": [
-        "The Linktree Team"
+      "creatorName": [
+        "Liam Geraghty",
+        "Peter Dunne"
       ],
-      "people": [
-        {
-          "name": "The Linktree Team",
-          "role": "author"
-        }
+      "ownerName": "Liam Geraghty",
+      "writers": [
+        "Peter Dunne"
       ]
     },
     "availability": {
@@ -18061,8 +18852,7 @@
     ],
     "coverAlt": "Hello From The Magic Tavern cover art",
     "creators": [
-      "Arnie Niekamp",
-      "Garrett Schultz"
+      "Arnie Niekamp"
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -18094,14 +18884,10 @@
     "credits": {
       "creatorName": "Arnie Niekamp",
       "ownerName": "Arnie Niekamp",
-      "network": "Hello from the Magic Tavern",
-      "writers": [
-        "Garrett Schultz"
-      ],
       "people": [
         {
           "name": "Garrett Schultz",
-          "role": "author"
+          "role": "post-production"
         }
       ]
     },
@@ -19126,8 +19912,8 @@
     ],
     "coverAlt": "The Fourth Ambit cover art",
     "creators": [
-      "Dawson Nichols and Jim Horne",
-      "Dawson Nichols"
+      "Dawson Nichols",
+      "Jim Horne"
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -19157,15 +19943,23 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "Dawson Nichols and Jim Horne",
+      "creatorName": [
+        "Dawson Nichols",
+        "Jim Horne"
+      ],
       "ownerName": "Jim Horne",
       "network": "The Ambit Group",
       "writers": [
-        "Dawson Nichols"
+        "Dawson Nichols",
+        "Jim Horne"
       ],
       "people": [
         {
           "name": "Dawson Nichols",
+          "role": "author"
+        },
+        {
+          "name": "Jim Horne",
           "role": "author"
         }
       ]
@@ -19771,7 +20565,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-08"
   },
   {
     "id": "relativity",
@@ -20000,6 +20794,21 @@
     "creators": [
       "Tal Minear"
     ],
+    "entityLinks": [
+      {
+        "entityId": "tal-minear",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "tal-minear",
+        "name": "Tal Minear",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -20059,6 +20868,21 @@
     "coverAlt": "Sidequesting cover art",
     "creators": [
       "Tal Minear"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "tal-minear",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "tal-minear",
+        "name": "Tal Minear",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -20367,6 +21191,21 @@
     "coverAlt": "Someone Dies In This Elevator cover art",
     "creators": [
       "Tal Minear"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "tal-minear",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "tal-minear",
+        "name": "Tal Minear",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -21581,6 +22420,23 @@
     "creators": [
       "Audible Originals"
     ],
+    "entityLinks": [
+      {
+        "entityId": "audible-originals",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "audible-originals",
+        "name": "Audible Originals",
+        "type": "production-company",
+        "aliases": [
+          "Audible Original"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -21704,7 +22560,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-08"
   },
   {
     "id": "you-feeling-this",
@@ -21815,7 +22671,7 @@
     ],
     "coverAlt": "Marvel's Wastelanders cover art",
     "creators": [
-      "Marvel | Realm"
+      "Marvel & Realm"
     ],
     "entityLinks": [
       {
@@ -21861,7 +22717,7 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "Marvel | Realm",
+      "creatorName": "Marvel & Realm",
       "ownerName": "Marvel & Realm"
     },
     "availability": {
@@ -21890,7 +22746,7 @@
     ],
     "coverAlt": "Marvel’s Squirrel Girl: The Unbeatable Radio Show! cover art",
     "creators": [
-      "Marvel | Realm"
+      "Marvel & Realm"
     ],
     "entityLinks": [
       {
@@ -21937,7 +22793,7 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "Marvel | Realm",
+      "creatorName": "Marvel & Realm",
       "ownerName": "Marvel & Realm"
     },
     "availability": {
@@ -22658,9 +23514,7 @@
         "id": "spectrevision-radio",
         "name": "SpectreVision Radio",
         "type": "network",
-        "aliases": [
-          "Spectrevision Radio"
-        ],
+        "aliases": [],
         "role": "network"
       }
     ],
@@ -22925,7 +23779,7 @@
     ],
     "coverAlt": "Cry Havoc! Ask Questions Later cover art",
     "creators": [
-      "Rusty Quill Ltd."
+      "Rusty Quill Ltd"
     ],
     "entityLinks": [
       {
@@ -22975,8 +23829,8 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "Rusty Quill Ltd.",
-      "ownerName": "Rusty Quill Ltd."
+      "creatorName": "Rusty Quill Ltd",
+      "ownerName": "Rusty Quill Ltd"
     },
     "availability": {
       "transcripts": "unknown",
@@ -23396,6 +24250,21 @@
     "coverAlt": "The Road of Shadows cover art",
     "creators": [
       "Mark R. Healy"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "mark-r-healy",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "mark-r-healy",
+        "name": "Mark R. Healy",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -24002,6 +24871,21 @@
     "coverAlt": "Bloodrock Springs cover art",
     "creators": [
       "Mark R. Healy"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "mark-r-healy",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "mark-r-healy",
+        "name": "Mark R. Healy",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -25073,7 +25957,36 @@
     ],
     "coverAlt": "Spirit Box Radio cover art",
     "creators": [
-      "Eira Major's Hanging Sloth"
+      "Eira Major"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "hanging-sloth-studios",
+        "role": "production-company"
+      },
+      {
+        "entityId": "eira-major",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "hanging-sloth-studios",
+        "name": "Hanging Sloth Studios",
+        "type": "production-company",
+        "aliases": [
+          "Hanging Sloth",
+          "Eira Major's Hanging Sloth"
+        ],
+        "role": "production-company"
+      },
+      {
+        "id": "eira-major",
+        "name": "Eira Major",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -25103,7 +26016,7 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "Eira Major's Hanging Sloth",
+      "creatorName": "Eira Major",
       "ownerName": "Eira Major"
     },
     "availability": {
@@ -26125,6 +27038,21 @@
     "creators": [
       "Alternative Stories"
     ],
+    "entityLinks": [
+      {
+        "entityId": "alternative-stories",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "alternative-stories",
+        "name": "Alternative Stories",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -26721,8 +27649,25 @@
     ],
     "coverAlt": "Superhuman Public Radio cover art",
     "creators": [
-      "Superhuman Public Radio",
-      "john dorsey"
+      "John Dorsey",
+      "Maximilian Clark"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "superhuman-public-radio-studio",
+        "role": "studio"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "superhuman-public-radio-studio",
+        "name": "Superhuman Public Radio",
+        "type": "studio",
+        "aliases": [
+          "SPR"
+        ],
+        "role": "studio"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -26751,17 +27696,14 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "Superhuman Public Radio",
-      "ownerName": "Superhuman Public Radio",
-      "network": "Superhuman Public Radio",
-      "writers": [
-        "john dorsey"
+      "creatorName": [
+        "John Dorsey",
+        "Maximilian Clark"
       ],
-      "people": [
-        {
-          "name": "john dorsey",
-          "role": "author"
-        }
+      "ownerName": "Superhuman Public Radio",
+      "writers": [
+        "John Dorsey",
+        "Maximilian Clark"
       ]
     },
     "availability": {
@@ -27214,8 +28156,7 @@
     ],
     "coverAlt": "Girl Tales cover art",
     "creators": [
-      "Starglow Media / Cordelia Studios",
-      "girltalespodcast"
+      "Starglow Media / Cordelia Studios"
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -27245,17 +28186,7 @@
     "facts": {},
     "credits": {
       "creatorName": "Starglow Media / Cordelia Studios",
-      "ownerName": "Girl Tales",
-      "network": "Girl Tales",
-      "writers": [
-        "girltalespodcast"
-      ],
-      "people": [
-        {
-          "name": "girltalespodcast",
-          "role": "author"
-        }
-      ]
+      "ownerName": "Girl Tales"
     },
     "availability": {
       "transcripts": "unknown",
@@ -27425,6 +28356,23 @@
     "creators": [
       "Audible Originals"
     ],
+    "entityLinks": [
+      {
+        "entityId": "audible-originals",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "audible-originals",
+        "name": "Audible Originals",
+        "type": "production-company",
+        "aliases": [
+          "Audible Original"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -27467,7 +28415,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-08"
   },
   {
     "id": "max-ivan-fugitives",
@@ -27487,7 +28435,45 @@
     ],
     "coverAlt": "Max & Ivan: Fugitives cover art",
     "creators": [
-      "Storyglass"
+      "Max Olesker",
+      "Ivan Gonzalez"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "storyglass",
+        "role": "production-company"
+      },
+      {
+        "entityId": "max-olesker",
+        "role": "creator"
+      },
+      {
+        "entityId": "ivan-gonzalez",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "storyglass",
+        "name": "Storyglass",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      },
+      {
+        "id": "max-olesker",
+        "name": "Max Olesker",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      },
+      {
+        "id": "ivan-gonzalez",
+        "name": "Ivan Gonzalez",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -27517,7 +28503,11 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "Storyglass"
+      "creatorName": [
+        "Max Olesker",
+        "Ivan Gonzalez"
+      ],
+      "productionCompany": "Storyglass"
     },
     "availability": {
       "transcripts": "unknown",
@@ -27529,7 +28519,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-08"
   },
   {
     "id": "keep-it-steady",
@@ -28460,8 +29450,25 @@
     ],
     "coverAlt": "StanLand cover art",
     "creators": [
-      "The Sonar Network",
-      "marianna958"
+      "Mike Sacks",
+      "S.G. Wilson"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "the-sonar-network",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "the-sonar-network",
+        "name": "The Sonar Network",
+        "type": "network",
+        "aliases": [
+          "The Sonar Podcast Network"
+        ],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -28491,17 +29498,15 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "The Sonar Network",
-      "ownerName": "The Sonar Podcast Network",
-      "network": "StanLand",
-      "writers": [
-        "marianna958"
+      "creatorName": [
+        "Mike Sacks",
+        "S.G. Wilson"
       ],
-      "people": [
-        {
-          "name": "marianna958",
-          "role": "author"
-        }
+      "ownerName": "The Sonar Podcast Network",
+      "productionCompany": "The Sonar Network",
+      "writers": [
+        "Mike Sacks",
+        "S.G. Wilson"
       ]
     },
     "availability": {
@@ -31308,6 +32313,21 @@
     "creators": [
       "Dead Signals"
     ],
+    "entityLinks": [
+      {
+        "entityId": "dead-signals",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "dead-signals",
+        "name": "Dead Signals",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -31645,6 +32665,10 @@
       {
         "entityId": "long-story-short-productions",
         "role": "production-company"
+      },
+      {
+        "entityId": "gabriel-urbina",
+        "role": "creator"
       }
     ],
     "resolvedEntities": [
@@ -31656,6 +32680,13 @@
           "Long Story Short Production"
         ],
         "role": "production-company"
+      },
+      {
+        "id": "gabriel-urbina",
+        "name": "Gabriel Urbina",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
       }
     ],
     "status": "published",
@@ -34945,9 +35976,7 @@
         "id": "shadow-static-productions",
         "name": "Shadow & Static Productions",
         "type": "production-company",
-        "aliases": [
-          "Shadow and Static Productions"
-        ],
+        "aliases": [],
         "role": "production-company"
       }
     ],
@@ -35072,6 +36101,21 @@
     "coverAlt": "Burnout: A Cyberpunk Thriller cover art",
     "creators": [
       "Alternative Stories"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "alternative-stories",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "alternative-stories",
+        "name": "Alternative Stories",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -36953,7 +37997,33 @@
     ],
     "coverAlt": "The Six Disappearances of Ella McCray cover art",
     "creators": [
-      "ZoomDoom Stories"
+      "Jamie Killen"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "zoomdoom-stories",
+        "role": "production-company"
+      },
+      {
+        "entityId": "jamie-killen",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "zoomdoom-stories",
+        "name": "ZoomDoom Stories",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      },
+      {
+        "id": "jamie-killen",
+        "name": "Jamie Killen",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -36983,7 +38053,7 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "ZoomDoom Stories",
+      "creatorName": "Jamie Killen",
       "ownerName": "ZoomDoom Stories",
       "network": "The Six Disappearances of Ella McCray"
     },
@@ -37146,7 +38216,36 @@
     ],
     "coverAlt": "The Twelvelms Conspiracy cover art",
     "creators": [
-      "Eira Major's Hanging Sloth"
+      "Eira Major"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "hanging-sloth-studios",
+        "role": "production-company"
+      },
+      {
+        "entityId": "eira-major",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "hanging-sloth-studios",
+        "name": "Hanging Sloth Studios",
+        "type": "production-company",
+        "aliases": [
+          "Hanging Sloth",
+          "Eira Major's Hanging Sloth"
+        ],
+        "role": "production-company"
+      },
+      {
+        "id": "eira-major",
+        "name": "Eira Major",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -37175,7 +38274,7 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "Eira Major's Hanging Sloth",
+      "creatorName": "Eira Major",
       "ownerName": "Eira Major"
     },
     "availability": {
@@ -37822,6 +38921,21 @@
     "coverAlt": "Heroics cover art",
     "creators": [
       "PlanetM"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "planetm",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "planetm",
+        "name": "PlanetM",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -41275,6 +42389,23 @@
     "creators": [
       "Audible Originals"
     ],
+    "entityLinks": [
+      {
+        "entityId": "audible-originals",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "audible-originals",
+        "name": "Audible Originals",
+        "type": "production-company",
+        "aliases": [
+          "Audible Original"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -41408,7 +42539,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-08"
   },
   {
     "id": "greenhouse",
@@ -48064,6 +49195,21 @@
     "creators": [
       "Tal Minear"
     ],
+    "entityLinks": [
+      {
+        "entityId": "tal-minear",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "tal-minear",
+        "name": "Tal Minear",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -48433,7 +49579,6 @@
     ],
     "coverAlt": "Werewolf the Podcast: A Serial (Killer) Drama cover art",
     "creators": [
-      "Fenrir & Greg",
       "Fenrir Thorvaldsen",
       "Gregory Alexander Sharp"
     ],
@@ -48465,9 +49610,11 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "Fenrir & Greg",
+      "creatorName": [
+        "Fenrir Thorvaldsen",
+        "Gregory Alexander Sharp"
+      ],
       "ownerName": "Fenrir & Greg",
-      "network": "Buzzsprout",
       "people": [
         {
           "name": "Fenrir Thorvaldsen",
@@ -48723,8 +49870,7 @@
     ],
     "coverAlt": "The Pancake Eating Robots cover art",
     "creators": [
-      "The Pancake Eating Robots",
-      "Major X"
+      "Mark Searcy Middleton"
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -48754,9 +49900,12 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "The Pancake Eating Robots",
+      "creatorName": "Mark Searcy Middleton",
       "ownerName": "The Pancake Eating Robots",
-      "network": "Buzzsprout",
+      "writers": [
+        "Mark Searcy Middleton"
+      ],
+      "producer": "Mark Searcy Middleton",
       "people": [
         {
           "name": "Major X",
@@ -49997,9 +51146,7 @@
       }
     ],
     "coverAlt": "Claudia, A Viral Love Story cover art",
-    "creators": [
-      "Unknown"
-    ],
+    "creators": [],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -50027,10 +51174,7 @@
     "similarReasons": {},
     "archiveTake": "",
     "facts": {},
-    "credits": {
-      "creatorName": "Unknown",
-      "network": "Profile Theatre"
-    },
+    "credits": {},
     "availability": {
       "transcripts": "unknown",
       "captions": "unknown",
@@ -53338,6 +54482,23 @@
     "creators": [
       "Two-Up Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "two-up-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "two-up-productions",
+        "name": "Two-Up Productions",
+        "type": "production-company",
+        "aliases": [
+          "Two-Up"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -53659,6 +54820,21 @@
     "creators": [
       "Gideon Media"
     ],
+    "entityLinks": [
+      {
+        "entityId": "gideon-media",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "gideon-media",
+        "name": "Gideon Media",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -53922,8 +55098,35 @@
     ],
     "coverAlt": "The Cleansed cover art",
     "creators": [
-      "FinalRune Productions",
-      "fred@finalrune.com"
+      "Fred Greenhalgh"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "finalrune-productions",
+        "role": "production-company"
+      },
+      {
+        "entityId": "fred-greenhalgh",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "finalrune-productions",
+        "name": "FinalRune Productions",
+        "type": "production-company",
+        "aliases": [
+          "FinalRune"
+        ],
+        "role": "production-company"
+      },
+      {
+        "id": "fred-greenhalgh",
+        "name": "Fred Greenhalgh",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -53957,17 +55160,8 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "FinalRune Productions",
-      "ownerName": "Dagaz Media",
-      "writers": [
-        "fred@finalrune.com"
-      ],
-      "people": [
-        {
-          "name": "fred@finalrune.com",
-          "role": "author"
-        }
-      ]
+      "creatorName": "Fred Greenhalgh",
+      "ownerName": "Dagaz Media"
     },
     "availability": {
       "transcripts": "unknown",
@@ -54273,6 +55467,23 @@
     "creators": [
       "Tin Can Audio"
     ],
+    "entityLinks": [
+      {
+        "entityId": "tin-can-audio",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "tin-can-audio",
+        "name": "Tin Can Audio",
+        "type": "production-company",
+        "aliases": [
+          "Tin Can"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -54528,7 +55739,33 @@
     ],
     "coverAlt": "The Harrowing cover art",
     "creators": [
-      "Storyglass"
+      "Mark Healy"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "storyglass",
+        "role": "production-company"
+      },
+      {
+        "entityId": "mark-healy",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "storyglass",
+        "name": "Storyglass",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      },
+      {
+        "id": "mark-healy",
+        "name": "Mark Healy",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -54563,8 +55800,9 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "Storyglass",
-      "ownerName": "steve.carsey@storyglass.co.uk"
+      "creatorName": "Mark Healy",
+      "ownerName": "Storyglass",
+      "productionCompany": "Storyglass"
     },
     "availability": {
       "transcripts": "unknown",
@@ -54576,7 +55814,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-09-06",
-    "updatedAt": "2026-09-06"
+    "updatedAt": "2026-09-08"
   },
   {
     "id": "escape-pod",
@@ -54740,6 +55978,21 @@
     "coverAlt": "Deviser cover art",
     "creators": [
       "Harlan Guthrie"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "harlan-guthrie",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "harlan-guthrie",
+        "name": "Harlan Guthrie",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",

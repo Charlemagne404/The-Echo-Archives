@@ -1,5 +1,8 @@
 {
   "id": "conversations-with-ghosts",
+  "entityLinks": [
+    {"entityId":"dead-signals","role":"production-company"}
+  ],
   "title": "Conversations with Ghosts",
   "subtitle": "",
   "description": "Conversations with Ghosts is an audio drama about loss, history and the things we leave behind, brought to you by the creators of Archive 81. The podcast follows mausoleum attendant Mal Fleming as he tries to convince the spirits of Grey Briar Cemetery to pass on. In each episode, Mal sits down with a new ghost to build a portrait of their life, their death, and their afterlife... all to help them release whatever still ties their soul to this reality. New episodes every Wednesday, beginning October 22nd.",

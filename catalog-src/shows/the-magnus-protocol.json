@@ -1,6 +1,8 @@
 {
   "entityLinks": [
-    {"entityId":"rusty-quill","role":"network"}
+    {"entityId":"rusty-quill","role":"network"},
+    {"entityId":"jonathan-sims","role":"creator"},
+    {"entityId":"alexander-j-newall","role":"creator"}
   ],
   "id": "the-magnus-protocol",
   "title": "The Magnus Protocol",
@@ -105,7 +107,10 @@
     "funding": ""
   },
   "credits": {
-    "creatorName": "Jonathan Sims and Alexander J Newall",
+    "creatorName": [
+      "Jonathan Sims",
+      "Alexander J Newall"
+    ],
     "ownerName": "Rusty Quill",
     "network": "Rusty Quill",
     "writers": [
@@ -142,7 +147,6 @@
     ]
   },
   "creators": [
-    "Jonathan Sims and Alexander J Newall",
     "Jonathan Sims",
     "Alexander J Newall"
   ],

@@ -194,6 +194,16 @@
   max-width: 18ch;
   font-size: 0.96rem;
   line-height: 1.35;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.detail-best-for-text:hover,
+.detail-best-for-text:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: rgba(var(--detail-accent-rgb), 0.72);
+  text-underline-offset: 3px;
 }
 
 .detail-content-layout {

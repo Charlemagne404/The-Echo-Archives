@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"station-blue-productions","role":"production-company"}
+  ],
   "id": "spectre",
   "title": "Spectre",
   "subtitle": "Space mystery with a colder, more watchful tone.",
@@ -87,14 +90,13 @@
     "facebook": ""
   },
   "credits": {
-    "creatorName": "Jordan Cobb",
+    "creatorName": "Stef Howerton",
     "writer": "Stef Howerton",
     "director": "Not verified",
     "producer": "Stef Howerton",
     "soundDesign": "Not verified",
     "composer": "Tim Rosko",
     "productionCompany": "Station Blue",
-    "network": "indie",
     "cast": "Not fully verified",
     "coverArt": "Not verified"
   },
@@ -160,8 +162,6 @@
     "note": "First date from composer page / premiere note; official episode page exposes at least 1.07 on 2022-09-04. Exact final episode date should still be feed-checked."
   },
   "createdAt": "2026-06-01",
-  "creatorId": "not-verified",
-  "networkId": "not-verified",
   "similarReasons": {
     "solar": "Keeps the spacebound threat active with more direct survival pressure.",
     "the-deca-tapes": "A puzzle-box mystery branch if atmosphere matters more than forward drive.",

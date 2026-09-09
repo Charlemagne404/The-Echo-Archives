@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"jared-carter","role":"creator"}
+  ],
   "id": "desert-skies",
   "title": "Desert Skies",
   "subtitle": "A warmer, stranger fantasy-comedy entry.",
@@ -170,7 +173,6 @@
   ],
   "createdAt": "2026-06-01",
   "creatorId": "jared-carter",
-  "networkId": "desert-skies-jared-carter",
   "similarReasons": {
     "midnight-burger": "The clearest next stop if you want the warmth to scale up into bigger speculative range.",
     "story": "Keeps the gentle entry-point quality intact while staying grounded and inviting.",

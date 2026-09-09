@@ -1,5 +1,9 @@
 {
   "id": "midnight-radio",
+  "entityLinks": [
+    {"entityId":"martlet-radio","role":"network"},
+    {"entityId":"bobbie-parker","role":"creator"}
+  ],
   "title": "Midnight Radio",
   "subtitle": "A ghost broadcaster and a living listener begin an impossible correspondence.",
   "description": "Drawing inspiration from 1950s radio serials and ghost stories, Midnight Radio follows two women finding love through an unlikely correspondence about community, leaving your small hometown, our relationship to the past, what it means to be haunted, and what we leave behind when we die. Remember: all ghost stories are love stories.",
@@ -91,7 +95,7 @@
     "website": ""
   },
   "credits": {
-    "creatorName": "Martlet Radio"
+    "creatorName": "Bobbie Parker"
   },
   "verification": {
     "status": "source-verified",
@@ -135,7 +139,6 @@
   },
   "featured": false,
   "createdAt": "2026-07-09",
-  "creatorId": "martlet-radio",
   "updatedAt": "2026-07-18",
   "cast": [],
   "creators": [

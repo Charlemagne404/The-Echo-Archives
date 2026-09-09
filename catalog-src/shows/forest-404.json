@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"timothy-x-atack","role":"creator"}
+  ],
   "id": "forest-404",
   "title": "Forest 404",
   "subtitle": "An environmental sci-fi thriller about an archivist discovering a vanished natural world.",
@@ -93,7 +96,7 @@
     "website": "https://www.bbc.co.uk/programmes/p06tqsg3"
   },
   "credits": {
-    "creatorName": "BBC Radio 4",
+    "creatorName": "Timothy X Atack",
     "network": "BBC"
   },
   "verification": {
@@ -138,7 +141,6 @@
   },
   "featured": false,
   "createdAt": "2026-07-09",
-  "creatorId": "bbc-radio-4",
   "networkId": "bbc",
   "updatedAt": "2026-07-18",
   "cast": [],

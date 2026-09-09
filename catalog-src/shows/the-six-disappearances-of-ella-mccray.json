@@ -1,5 +1,9 @@
 {
   "id": "the-six-disappearances-of-ella-mccray",
+  "entityLinks": [
+    {"entityId":"zoomdoom-stories","role":"production-company"},
+    {"entityId":"jamie-killen","role":"creator"}
+  ],
   "title": "The Six Disappearances of Ella McCray",
   "subtitle": "",
   "description": "On March 20th, 2014, Ella McCray disappeared. There were six witnesses to her disappearance. Six conflicting accounts of what happened to her. Who is lying? Who is telling the truth? And what really happened to Ella? You can support the show by visiting https://www.patreon.com/sixdisappearancespod or by subscribing and leaving a review at your favorite podcatcher. For episode content warnings and other information, visit https://www.sixdisappearancespodcast.com/ For episode-specific content warnings, visit https://www.sixdisappearancespodcast.com/about This show is written by Jamie Killen. Sound design and original music by Jon Erik DeGuzman and Dog and Pony Studios.",
@@ -86,12 +90,12 @@
     "funding": ""
   },
   "credits": {
-    "creatorName": "ZoomDoom Stories",
+    "creatorName": "Jamie Killen",
     "ownerName": "ZoomDoom Stories",
     "network": "The Six Disappearances of Ella McCray"
   },
   "creators": [
-    "ZoomDoom Stories"
+    "Jamie Killen"
   ],
   "cast": [],
   "verification": {
@@ -703,7 +707,5 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
-  "creatorId": "zoomdoom-stories",
-  "networkId": "the-six-disappearances-of-ella-mccray"
+  "updatedAt": "2026-08-15"
 }

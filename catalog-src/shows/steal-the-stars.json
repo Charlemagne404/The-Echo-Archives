@@ -1,5 +1,8 @@
 {
   "id": "steal-the-stars",
+  "entityLinks": [
+    {"entityId":"gideon-media","role":"production-company"}
+  ],
   "title": "Steal the Stars",
   "subtitle": "The current publisher feed is titled Stories from Among the Stars; Steal the Stars is its first season.",
   "description": "A Macmillan Audio fiction feed that serializes science-fiction and fantasy audiobooks with bold characters, daring adventures, and smart, compelling stories. Its first season is best known as Steal the Stars.",

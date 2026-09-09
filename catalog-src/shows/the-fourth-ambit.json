@@ -85,23 +85,32 @@
     "funding": ""
   },
   "credits": {
-    "creatorName": "Dawson Nichols and Jim Horne",
+    "creatorName": [
+      "Dawson Nichols",
+      "Jim Horne"
+    ],
     "ownerName": "Jim Horne",
     "network": "The Ambit Group",
     "writers": [
-      "Dawson Nichols"
+      "Dawson Nichols",
+      "Jim Horne"
     ],
     "people": [
       {
         "name": "Dawson Nichols",
         "role": "author",
         "url": ""
+      },
+      {
+        "name": "Jim Horne",
+        "role": "author",
+        "url": ""
       }
     ]
   },
   "creators": [
-    "Dawson Nichols and Jim Horne",
-    "Dawson Nichols"
+    "Dawson Nichols",
+    "Jim Horne"
   ],
   "cast": [],
   "verification": {
@@ -707,6 +716,5 @@
   "featured": false,
   "createdAt": "2026-08-15",
   "updatedAt": "2026-08-15",
-  "creatorId": "dawson-nichols-and-jim-horne",
   "networkId": "the-ambit-group"
 }

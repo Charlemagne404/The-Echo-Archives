@@ -1,5 +1,9 @@
 {
   "id": "harbor",
+  "entityLinks": [
+    {"entityId":"tartarus-jenny-studios","role":"production-company"},
+    {"entityId":"faraday-roke","role":"creator"}
+  ],
   "title": "Harbor",
   "subtitle": "Queer small-town cryptid drama with found-family warmth and bureaucratic bite.",
   "description": "The Greer siblings have a lot on their plate- stressful jobs, southern heat, small town politics AND Cryptids with personal problems. Remember, normal is what you get used to. Harbor is an audio drama intended for mature audiences with instances of language, violence and implied sexual situations. Listener discretion is advised.",
@@ -96,7 +100,8 @@
     "website": "https://harborpodcast.com/"
   },
   "credits": {
-    "creatorName": "Tartarus Jenny Studios",
+    "creatorName": "Faraday Roke",
+    "productionCompany": "Tartarus Jenny Studios",
     "network": "Harbor - An Audio Drama Podcast"
   },
   "verification": {
@@ -140,7 +145,6 @@
   },
   "featured": false,
   "createdAt": "2026-07-09",
-  "creatorId": "tartarus-jenny-studios",
   "networkId": "harbor-an-audio-drama-podcast",
   "updatedAt": "2026-07-18",
   "cast": [],

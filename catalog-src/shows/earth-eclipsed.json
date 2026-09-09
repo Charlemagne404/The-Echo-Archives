@@ -1,4 +1,8 @@
 {
+  "entityLinks": [
+    {"entityId":"the-lunar-company","role":"production-company"},
+    {"entityId":"apollo-podcasts","role":"network"}
+  ],
   "id": "earth-eclipsed",
   "title": "Earth Eclipsed",
   "subtitle": "Dystopian sci-fi with a heavier thriller edge.",
@@ -192,8 +196,6 @@
     "Andrew Oakes"
   ],
   "createdAt": "2026-06-01",
-  "creatorId": "the-lunar-company",
-  "networkId": "the-lunar-company-apollo-podcasts",
   "similarReasons": {
     "windfall": "A grounded dystopian cousin if the political pressure mattered as much as the sci-fi wrapper.",
     "impact-winter": "Keeps the catastrophe scale high and the pacing aggressive.",

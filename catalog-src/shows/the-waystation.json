@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"wired-cowslip","role":"production-company"}
+  ],
   "id": "the-waystation",
   "title": "The Waystation",
   "subtitle": "A recovered-recording space-station mystery under cosmic pressure.",
@@ -96,7 +99,6 @@
     "soundDesign": "Kathryn Stanley",
     "composer": "Tatenda Shamiso",
     "productionCompany": "Wired Cowslip",
-    "network": "Wired Cowslip",
     "cast": [
       "Nicole Tuttle",
       "Daphne Nitsuga",
@@ -164,7 +166,7 @@
   ],
   "transcriptLanguages": [],
   "creators": [
-    "Wired Cowslip"
+    "Elliot Somerfield"
   ],
   "cast": [
     "Nicole Tuttle",
@@ -182,7 +184,6 @@
   },
   "createdAt": "2026-06-01",
   "creatorId": "elliot-somerfield",
-  "networkId": "wired-cowslip",
   "similarReasons": {
     "vast-horizon": "Another full-cast deep-space mystery built around a crew under escalating survival pressure.",
     "archive-81": "Shares the recovered-recording structure, institutional investigation, and reality-bending horror.",

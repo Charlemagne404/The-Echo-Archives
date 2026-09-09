@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"observable-radio-studio","role":"studio"}
+  ],
   "id": "observable-radio",
   "title": "Observable Radio",
   "subtitle": "Observable Radio is a found footage anthology podcast of retro sci-fi and analog horror from Cameron Suey, Phil van Hest, and Purpurina.When he discovers something beneath the static of the worlds’s communication network, an unnamed Observe",
@@ -95,23 +98,22 @@
     "funding": ""
   },
   "credits": {
-    "creatorName": "Observable Radio",
+    "creatorName": [
+      "Cameron Suey",
+      "Phil van Hest",
+      "Purpurina",
+      "Wendy Hector"
+    ],
     "ownerName": "Observable Radio",
-    "network": "Observable Radio",
     "writers": [
       "Cameron Suey"
-    ],
-    "people": [
-      {
-        "name": "Cameron Suey",
-        "role": "author",
-        "url": ""
-      }
     ]
   },
   "creators": [
-    "Observable Radio",
-    "Cameron Suey"
+    "Cameron Suey",
+    "Phil van Hest",
+    "Purpurina",
+    "Wendy Hector"
   ],
   "cast": [],
   "verification": {
@@ -811,7 +813,5 @@
   },
   "featured": false,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-07-31",
-  "creatorId": "observable-radio",
-  "networkId": "observable-radio"
+  "updatedAt": "2026-07-31"
 }

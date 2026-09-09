@@ -445,7 +445,7 @@ function getRelatedCollections(collection, collections = []) {
 function renderCollectionHeroTags(collection) {
   const tags = [];
   if (collection.label) tags.push(`<span class="collection-intent-tag-featured">${escapeHtml(collection.label)}</span>`);
-  (collection.intentTags || []).slice(0, 4).forEach((tag) => tags.push(`<span>${escapeHtml(toPublicLabel(tag))}</span>`));
+  (collection.intentTags || []).slice(0, 4).forEach((tag) => tags.push(`<a class="collection-intent-tag-link" href="/collections?intent=${encodeURIComponent(tag)}#collectionsDirectorySection">${escapeHtml(toPublicLabel(tag))}</a>`));
   return `<div class="collection-intent-tags collection-hero-tags">${tags.join("")}</div>`;
 }
 

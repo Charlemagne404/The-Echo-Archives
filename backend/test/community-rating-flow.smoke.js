@@ -125,7 +125,8 @@ test("full-review detail page promotes community, trims the rail, and preserves 
     assert.ok(layout.heroTagCount >= 1);
     assert.equal(layout.disabledChips, 0);
     assert.deepEqual(layout.factLabels, [
-      "creator / network",
+      "created by",
+      "produced by",
       "fact check",
       "official / listen links",
       "status",
@@ -222,7 +223,7 @@ test("detail community rating renders Turnstile and sends the verification token
   });
   const page = await context.newPage();
   const ratingRequests = [];
-  const summaryProfileIds = [];
+  const summaryRequests = [];
   let profileRequests = 0;
 
   try {
@@ -259,7 +260,8 @@ test("detail community rating renders Turnstile and sends the verification token
 
     await page.route("**/api/community/ratings/summary?*", async (route) => {
       const profileId = route.request().headers()["x-echo-profile-id"] || null;
-      summaryProfileIds.push(profileId);
+      const podcastIds = new URL(route.request().url()).searchParams.get("podcastIds")?.split(",").filter(Boolean) || [];
+      summaryRequests.push({ profileId, podcastIds });
       await route.fulfill({
         status: 200,
         contentType: "application/json",
@@ -310,7 +312,9 @@ test("detail community rating renders Turnstile and sends the verification token
     await page.locator(".community-review-panel .community-turnstile-shell").waitFor({ state: "visible" });
     await page.waitForFunction(() => /complete/i.test(document.querySelector(".community-turnstile-status")?.textContent || ""));
     assert.equal(profileRequests, 0);
-    assert.deepEqual(summaryProfileIds, [null]);
+    assert.ok(summaryRequests.length >= 1);
+    assert.ok(summaryRequests.every(({ profileId }) => profileId === null));
+    assert.ok(summaryRequests.some(({ podcastIds }) => podcastIds.length === 1 && podcastIds[0] === "impact-winter"));
     assert.equal(
       await page.evaluate(() => window.localStorage.getItem("echo-community-profile-id")),
       null,
@@ -345,7 +349,11 @@ test("detail community rating renders Turnstile and sends the verification token
     await page.locator(".community-review-button.is-active").waitFor();
 
     assert.equal(profileRequests, 1);
-    assert.equal(summaryProfileIds.at(-1), "00000000-0000-4000-8000-000000000007");
+    assert.ok(summaryRequests.some(({ profileId, podcastIds }) => (
+      profileId === "00000000-0000-4000-8000-000000000007"
+      && podcastIds.length === 1
+      && podcastIds[0] === "impact-winter"
+    )));
     assert.equal(await page.locator(".community-review-button.is-active").textContent(), "7");
     assert.equal(await page.locator(".community-review-clear").isVisible(), true);
   } finally {

@@ -96,7 +96,10 @@
     "youtube": ""
   },
   "credits": {
-    "creatorName": "Nick Braccia and Mike Monello",
+    "creatorName": [
+      "Nick Braccia",
+      "Mike Monello"
+    ],
     "writer": "Ben Rock & Bob DeRosa",
     "director": "Ben Rock",
     "productionCompany": "Shudder"
@@ -139,7 +142,6 @@
   },
   "featured": false,
   "createdAt": "2026-07-01",
-  "creatorId": "shudder",
   "updatedAt": "2026-07-18",
   "creators": [
     "Nick Braccia",

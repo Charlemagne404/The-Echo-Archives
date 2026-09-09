@@ -50,6 +50,33 @@ const VALID_REVIEW_STATUSES = new Set(REVIEW_STATUSES);
 const VALID_STATUS_VALUES = new Set(SHOW_STATUSES);
 const VALID_RELEASE_STATUSES = new Set(RELEASE_STATUSES);
 const VALID_COMPLETION_STATUSES = new Set(COMPLETION_STATUSES);
+const SHOW_STRING_ARRAY_FIELDS = [
+  "genres",
+  "tones",
+  "formats",
+  "tags",
+  "aliases",
+  "themes",
+  "contentNotes",
+  "languages",
+  "transcriptLanguages",
+  "cast",
+  "creators",
+  "bestFor",
+  "similarTo",
+];
+const SHOW_OBJECT_FIELDS = [
+  "length",
+  "releaseDates",
+  "quote",
+  "facts",
+  "credits",
+  "availability",
+  "content",
+  "metadata",
+  "verification",
+  "accent",
+];
 
 function readJsonFile(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -93,38 +120,78 @@ function isValidSlug(value = "") {
   return typeof value === "string" && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value);
 }
 
-function isValidOptionalNumber(value) {
-  if (typeof value === "number") {
-    return Number.isFinite(value);
-  }
-
-  if (typeof value !== "string" || !value.trim()) {
-    return false;
-  }
-
-  return Number.isFinite(Number.parseFloat(value.trim()));
+function isPlainObject(value) {
+  return value !== null && typeof value === "object" && !Array.isArray(value);
 }
 
-function parseOptionalNumber(value) {
+function parseStrictNumber(value) {
   if (typeof value === "number") {
     return Number.isFinite(value) ? value : null;
   }
 
-  if (typeof value !== "string" || !value.trim()) {
+  if (typeof value !== "string") {
     return null;
   }
 
-  const parsed = Number.parseFloat(value.trim());
+  const text = value.trim();
+  if (!/^[+-]?(?:(?:\d+\.?\d*)|(?:\.\d+))(?:e[+-]?\d+)?$/i.test(text)) {
+    return null;
+  }
+
+  const parsed = Number(text);
   return Number.isFinite(parsed) ? parsed : null;
 }
 
+function isValidOptionalNumber(value) {
+  return parseStrictNumber(value) !== null;
+}
+
+function parseOptionalNumber(value) {
+  return parseStrictNumber(value);
+}
+
 function validateUrlMap(showId, fieldName, value) {
-  const links = value && typeof value === "object" && !Array.isArray(value) ? value : {};
-  Object.entries(links).forEach(([key, href]) => {
-    if (!isValidUrl(href || "")) {
+  if (value === undefined) {
+    return;
+  }
+
+  if (!isPlainObject(value)) {
+    throw new Error(`Show "${showId}" has invalid ${fieldName} data.`);
+  }
+
+  Object.entries(value).forEach(([key, href]) => {
+    if (typeof href !== "string" || !isValidUrl(href)) {
       throw new Error(`Show "${showId}" has invalid ${fieldName}.${key} URL.`);
     }
   });
+}
+
+function validateArrayOfStrings(recordType, recordId, fieldName, value) {
+  if (value === undefined) {
+    return;
+  }
+
+  if (!Array.isArray(value) || value.some((entry) => typeof entry !== "string" || !entry.trim())) {
+    throw new Error(`${recordType} "${recordId}" has invalid ${fieldName} data.`);
+  }
+}
+
+function validateOptionalObjects(record, recordType) {
+  SHOW_OBJECT_FIELDS.forEach((fieldName) => {
+    if (record[fieldName] !== undefined && !isPlainObject(record[fieldName])) {
+      throw new Error(`${recordType} "${record.id}" has invalid ${fieldName} data.`);
+    }
+  });
+}
+
+function validateTextMap(recordType, recordId, fieldName, value) {
+  if (value === undefined) {
+    return;
+  }
+
+  if (!isPlainObject(value) || Object.values(value).some((entry) => typeof entry !== "string")) {
+    throw new Error(`${recordType} "${recordId}" has invalid ${fieldName} data.`);
+  }
 }
 
 function assertUniqueNormalized(collection, fieldName, showId) {
@@ -166,7 +233,7 @@ function validateRatingMap(showId, value) {
     return;
   }
 
-  if (!value || typeof value !== "object" || Array.isArray(value)) {
+  if (!isPlainObject(value)) {
     throw new Error(`Show "${showId}" has invalid ratings data.`);
   }
 
@@ -338,6 +405,9 @@ function validateShowRecord(record, seenIds) {
     throw new Error(`Show "${record.id}" has invalid completionStatus "${record.completionStatus}".`);
   }
 
+  SHOW_STRING_ARRAY_FIELDS.forEach((fieldName) => validateArrayOfStrings("Show", record.id, fieldName, record[fieldName]));
+  validateOptionalObjects(record, "Show");
+  validateTextMap("Show", record.id, "similarReasons", record.similarReasons);
   validatePublishedDiscoveryMetadata(record);
   validateDiscoveryTags(record);
   validateImportedRecord(record);
@@ -353,6 +423,11 @@ function validateShowRecord(record, seenIds) {
   assertUniqueNormalized(record.transcriptLanguages, "transcriptLanguages", record.id);
   assertUniqueNormalized(record.cast, "cast", record.id);
   assertUniqueNormalized(record.creators, "creators", record.id);
+  assertUniqueNormalized(record.similarTo, "similarTo", record.id);
+
+  if (Array.isArray(record.similarTo) && record.similarTo.includes(record.id)) {
+    throw new Error(`Show "${record.id}" cannot reference itself in similarTo.`);
+  }
 
   if (record.createdAt && !isValidDateValue(record.createdAt)) {
     throw new Error(`Show "${record.id}" has invalid createdAt "${record.createdAt}".`);
@@ -370,12 +445,8 @@ function validateShowRecord(record, seenIds) {
     throw new Error(`Show "${record.id}" has invalid networkId "${record.networkId}".`);
   }
 
-  if (record.similarReasons && (typeof record.similarReasons !== "object" || Array.isArray(record.similarReasons))) {
-    throw new Error(`Show "${record.id}" has invalid similarReasons data.`);
-  }
-
   if (record.popularity !== undefined) {
-    if (!record.popularity || typeof record.popularity !== "object" || Array.isArray(record.popularity)) {
+    if (!isPlainObject(record.popularity)) {
       throw new Error(`Show "${record.id}" has invalid popularity data.`);
     }
 
@@ -389,7 +460,7 @@ function validateShowRecord(record, seenIds) {
   validateUrlMap(record.id, "officialLinks", record.officialLinks);
 
   if (record.officialDescription !== undefined) {
-    if (!record.officialDescription || typeof record.officialDescription !== "object" || Array.isArray(record.officialDescription)) {
+    if (!isPlainObject(record.officialDescription)) {
       throw new Error(`Show "${record.id}" has invalid officialDescription data.`);
     }
     const official = record.officialDescription;
@@ -447,9 +518,21 @@ function validateCollectionRecord(record, seenIds, knownShowIds) {
   }
   seenIds.add(record.id);
 
+  if (typeof record.title !== "string" || !record.title.trim()) {
+    throw new Error(`Collection "${record.id}" is missing a title.`);
+  }
+
+  if (typeof record.description !== "string" || !record.description.trim()) {
+    throw new Error(`Collection "${record.id}" is missing a description.`);
+  }
+
   if (!Array.isArray(record.showIds) || record.showIds.length === 0) {
     throw new Error(`Collection "${record.id}" must include showIds.`);
   }
+
+  ["showIds", "coverShowIds", "intentTags"].forEach((fieldName) => {
+    validateArrayOfStrings("Collection", record.id, fieldName, record[fieldName]);
+  });
 
   assertUniqueNormalizedCollection(record.showIds, "showIds", record.id);
   assertUniqueNormalizedCollection(record.coverShowIds, "coverShowIds", record.id);
@@ -481,6 +564,10 @@ function validateCollectionRecord(record, seenIds, knownShowIds) {
     if (!knownShowIds.has(record.anchorShowId)) {
       throw new Error(`Collection "${record.id}" references unknown anchorShowId "${record.anchorShowId}".`);
     }
+
+    if (record.kind === "similarity" && record.showIds.includes(record.anchorShowId)) {
+      throw new Error(`Collection "${record.id}" cannot include its anchorShowId in showIds.`);
+    }
   }
 
   if (record.coverShowIds !== undefined && !Array.isArray(record.coverShowIds)) {
@@ -497,9 +584,7 @@ function validateCollectionRecord(record, seenIds, knownShowIds) {
     throw new Error(`Collection "${record.id}" has invalid intentTags data.`);
   }
 
-  if (record.showReasons && (typeof record.showReasons !== "object" || Array.isArray(record.showReasons))) {
-    throw new Error(`Collection "${record.id}" has invalid showReasons data.`);
-  }
+  validateTextMap("Collection", record.id, "showReasons", record.showReasons);
 
   if (record.descriptionProvenance !== undefined && !["manual", "generated"].includes(record.descriptionProvenance)) {
     throw new Error(`Collection "${record.id}" has invalid descriptionProvenance data.`);

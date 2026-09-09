@@ -1,5 +1,9 @@
 {
   "id": "not-quite-dead",
+  "entityLinks": [
+    {"entityId":"hanging-sloth-studios","role":"production-company"},
+    {"entityId":"eira-major","role":"creator"}
+  ],
   "title": "Not Quite Dead",
   "subtitle": "A show about vampires.",
   "description": "Alfie, an A&E nurse, is nearly killed by a walking corpse and saved by Casper, a vampire investigating the dead roaming Alfie’s hometown. This gory horror-romance audio drama explores identity, sexuality, and death.",
@@ -103,12 +107,11 @@
     "funding": ""
   },
   "credits": {
-    "creatorName": "Eira Major's Hanging Sloth",
-    "ownerName": "Eira Major",
-    "network": "Hanging Sloth"
+    "creatorName": "Eira Major",
+    "ownerName": "Eira Major"
   },
   "creators": [
-    "Eira Major's Hanging Sloth"
+    "Eira Major"
   ],
   "cast": [],
   "verification": {
@@ -508,7 +511,5 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
-  "creatorId": "eira-majors-hanging-sloth",
-  "networkId": "hanging-sloth"
+  "updatedAt": "2026-07-21"
 }

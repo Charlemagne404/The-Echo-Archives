@@ -164,11 +164,15 @@ complete discography or a list of every person in the credits.
 | QCODE | 10 shows | Explicit production-company/owner credits and official QCODE show pages, including co-productions |
 | Night Vale Presents | 4 shows | Explicit network/creator/owner credits and official Night Vale show pages |
 
-The curated registry now contains 40 public organization entities and two public
-person entities. The listed catalogues describe confirmed archive connections
-and are not claims to be complete company discographies. Hosting and
-distribution labels such as ART19, Buzzsprout, RSS.com, Spreaker and Spotify
-remain infrastructure metadata, not creator-directory entities.
+The curated registry currently contains 101 public entities: 69 organizations
+and 32 people. Forty-eight organization entities are visible in the main
+directory; people and one-show organizations can remain linked from show and
+detail surfaces without becoming directory cards. The registry currently has
+278 explicit show relationships across 228 published shows. These catalogues
+describe confirmed archive connections and are not claims to be complete
+company discographies. Hosting and distribution labels such as ART19,
+Buzzsprout, RSS.com, Spreaker and Spotify remain infrastructure metadata, not
+creator-directory entities.
 
 ## Maintenance checks
 

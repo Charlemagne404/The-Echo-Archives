@@ -99,23 +99,18 @@
     "funding": ""
   },
   "credits": {
-    "creatorName": "Liam Geraghty / Peter Dunne",
-    "ownerName": "Liam Geraghty",
-    "network": "Linktree",
-    "writers": [
-      "The Linktree Team"
+    "creatorName": [
+      "Liam Geraghty",
+      "Peter Dunne"
     ],
-    "people": [
-      {
-        "name": "The Linktree Team",
-        "role": "author",
-        "url": ""
-      }
+    "ownerName": "Liam Geraghty",
+    "writers": [
+      "Peter Dunne"
     ]
   },
   "creators": [
-    "Liam Geraghty / Peter Dunne",
-    "The Linktree Team"
+    "Liam Geraghty",
+    "Peter Dunne"
   ],
   "cast": [],
   "verification": {
@@ -707,7 +702,5 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "liam-geraghty-peter-dunne",
-  "networkId": "linktree"
+  "updatedAt": "2026-08-14"
 }

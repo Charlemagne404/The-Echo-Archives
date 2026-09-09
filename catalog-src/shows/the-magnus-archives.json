@@ -1,6 +1,7 @@
 {
   "entityLinks": [
-    {"entityId":"rusty-quill","role":"network"}
+    {"entityId":"rusty-quill","role":"network"},
+    {"entityId":"jonathan-sims","role":"creator"}
   ],
   "id": "the-magnus-archives",
   "title": "The Magnus Archives",

@@ -4,6 +4,7 @@
   "scripts": {
     "start": "node tools/run-backend.js",
     "build:catalog": "node tools/build-catalog.js",
+    "validate:data": "npm --prefix backend run validate:data",
     "dev": "node tools/run-backend.js --watch",
     "check:config": "node tools/run-backend.js --check-config",
     "backup:database": "node tools/backup-database.js",

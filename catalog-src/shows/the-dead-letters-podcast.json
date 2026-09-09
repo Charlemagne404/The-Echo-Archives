@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"vp-morris","role":"creator"}
+  ],
   "id": "the-dead-letters-podcast",
   "title": "The Dead Letters Podcast",
   "subtitle": "",
@@ -92,12 +95,11 @@
     "funding": ""
   },
   "credits": {
-    "creatorName": "deadletterspodcast",
-    "ownerName": "deadletterspodcast",
-    "network": "deadletterspodcast"
+    "creatorName": "V.P. Morris",
+    "ownerName": "V.P. Morris"
   },
   "creators": [
-    "deadletterspodcast"
+    "V.P. Morris"
   ],
   "cast": [],
   "verification": {
@@ -729,7 +731,5 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "deadletterspodcast",
-  "networkId": "deadletterspodcast"
+  "updatedAt": "2026-08-14"
 }

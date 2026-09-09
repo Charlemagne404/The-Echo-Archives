@@ -1,6 +1,7 @@
 {
   "entityLinks": [
-    {"entityId":"no-such-thing-productions","role":"production-company"}
+    {"entityId":"no-such-thing-productions","role":"production-company"},
+    {"entityId":"jordan-cobb","role":"creator"}
   ],
   "id": "janus-descending",
   "title": "Janus Descending",
@@ -98,7 +99,7 @@
     "patreon": "http://www.patreon.com/nosuchthingproductions"
   },
   "credits": {
-    "creatorName": "No Such Thing Productions",
+    "creatorName": "Jordan Cobb",
     "network": "Nosuchthing"
   },
   "verification": {
@@ -143,7 +144,6 @@
   },
   "featured": false,
   "createdAt": "2026-07-09",
-  "creatorId": "no-such-thing-productions",
   "networkId": "nosuchthing",
   "updatedAt": "2026-07-18",
   "cast": [],

@@ -81,12 +81,9 @@
     "funding": ""
   },
   "credits": {
-    "creatorName": "Unknown",
-    "network": "Profile Theatre"
+    "creatorName": []
   },
-  "creators": [
-    "Unknown"
-  ],
+  "creators": [],
   "cast": [],
   "verification": {
     "status": "automated-source-checked",
@@ -624,7 +621,5 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
-  "creatorId": "unknown",
-  "networkId": "profile-theatre"
+  "updatedAt": "2026-08-15"
 }

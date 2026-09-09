@@ -1,5 +1,9 @@
 {
   "id": "the-harrowing",
+  "entityLinks": [
+    {"entityId":"storyglass","role":"production-company"},
+    {"entityId":"mark-healy","role":"creator"}
+  ],
   "title": "The Harrowing",
   "subtitle": "A once-in-a-century storm hits a remote Scottish island. As the isolated community take shelter, a barbaric crime heralds the rise of an ancient evil, threatening the world. Starring Golden Globe winner Joanne Froggatt and Bridgerton's Rege",
   "description": "A once-in-a-century storm hits the remote Scottish island of Toll Mòr. As the isolated community takes shelter, a barbaric crime sets off a chain of events that heralds the rise of an ancient evil and threatens the course of history.",
@@ -81,17 +85,18 @@
     "funding": ""
   },
   "credits": {
-    "creatorName": "Storyglass",
-    "ownerName": "steve.carsey@storyglass.co.uk"
+    "creatorName": "Mark Healy",
+    "ownerName": "Storyglass",
+    "productionCompany": "Storyglass"
   },
   "creators": [
-    "Storyglass"
+    "Mark Healy"
   ],
   "cast": [],
   "verification": {
     "status": "maintainer-source-reviewed",
     "verifiedAt": "2026-09-06",
-    "source": "https://shows.acast.com/the-harrowing; https://feeds.acast.com/public/shows/2c1c6fc3-d27b-481e-b2c0-1d8d3f6ee890; https://podcasts.apple.com/us/podcast/the-harrowing/id1518315074?uo=4",
+    "source": "https://shows.acast.com/the-harrowing; https://feeds.acast.com/public/shows/2c1c6fc3-d27b-481e-b2c0-1d8d3f6ee890; https://podcasts.apple.com/us/podcast/the-harrowing/id1518315074?uo=4; https://robertdelamere.co.uk/productions/?i=52",
     "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
   },
   "availability": {
@@ -106,7 +111,8 @@
     "objectiveSources": [
       "https://shows.acast.com/the-harrowing",
       "https://feeds.acast.com/public/shows/2c1c6fc3-d27b-481e-b2c0-1d8d3f6ee890",
-      "https://podcasts.apple.com/us/podcast/the-harrowing/id1518315074?uo=4"
+      "https://podcasts.apple.com/us/podcast/the-harrowing/id1518315074?uo=4",
+      "https://robertdelamere.co.uk/productions/?i=52"
     ],
     "sourceCategories": [
       "Horror",
@@ -407,6 +413,5 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "storyglass"
+  "updatedAt": "2026-09-08"
 }

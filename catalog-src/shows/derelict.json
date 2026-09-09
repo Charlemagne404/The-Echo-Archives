@@ -1,4 +1,8 @@
 {
+  "entityLinks": [
+    {"entityId":"night-rocket-productions","role":"production-company"},
+    {"entityId":"j-barton-mitchell","role":"creator"}
+  ],
   "id": "derelict",
   "title": "Derelict",
   "subtitle": "Big-scale sci-fi tension with a thriller engine underneath it.",
@@ -173,7 +177,6 @@
   "cast": [],
   "createdAt": "2026-06-01",
   "creatorId": "j-barton-mitchell",
-  "networkId": "night-rocket-productions",
   "similarReasons": {
     "impact-winter": "Big-scale danger and cinematic urgency make it the clearest adjacent high-pressure listen.",
     "solar": "A tighter survival chamber for listeners who want the tension without the same scope.",

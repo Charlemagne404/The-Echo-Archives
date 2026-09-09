@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"the-sonar-network","role":"network"}
+  ],
   "id": "stanland",
   "title": "StanLand",
   "subtitle": "A fantasy world brought to you by late-stage capitalism.",
@@ -85,23 +88,20 @@
     "funding": ""
   },
   "credits": {
-    "creatorName": "The Sonar Network",
-    "ownerName": "The Sonar Podcast Network",
-    "network": "StanLand",
-    "writers": [
-      "marianna958"
+    "creatorName": [
+      "Mike Sacks",
+      "S.G. Wilson"
     ],
-    "people": [
-      {
-        "name": "marianna958",
-        "role": "author",
-        "url": ""
-      }
+    "ownerName": "The Sonar Podcast Network",
+    "productionCompany": "The Sonar Network",
+    "writers": [
+      "Mike Sacks",
+      "S.G. Wilson"
     ]
   },
   "creators": [
-    "The Sonar Network",
-    "marianna958"
+    "Mike Sacks",
+    "S.G. Wilson"
   ],
   "cast": [],
   "verification": {
@@ -786,7 +786,5 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
-  "creatorId": "the-sonar-network",
-  "networkId": "stanland"
+  "updatedAt": "2026-08-15"
 }

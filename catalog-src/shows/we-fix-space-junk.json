@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"battle-bird-productions","role":"production-company"}
+  ],
   "id": "we-fix-space-junk",
   "title": "We Fix Space Junk",
   "subtitle": "Two women cross a corporate dystopia doing odd jobs on the fringes of the law.",
@@ -91,8 +94,11 @@
     "patreon": "https://www.patreon.com/battlebirdprod"
   },
   "credits": {
-    "creatorName": "Battle Bird Productions",
-    "network": "Battle Bird Productions"
+    "creatorName": [
+      "Beth Crane",
+      "Hedley Knights"
+    ],
+    "productionCompany": "Battle Bird Productions"
   },
   "verification": {
     "status": "source-verified",
@@ -136,8 +142,6 @@
   },
   "featured": false,
   "createdAt": "2026-07-09",
-  "creatorId": "battle-bird-productions",
-  "networkId": "battle-bird-productions",
   "updatedAt": "2026-07-18",
   "cast": [],
   "creators": [

@@ -32,6 +32,18 @@ export function createArchiveGenreHref(genreId) {
   return `/?genre=${encodeURIComponent(genreId)}#archive`;
 }
 
+export function createArchiveTagHref(tag) {
+  return `/?tags=${encodeURIComponent(tag)}#archive`;
+}
+
+export function createArchiveBestForHref(value) {
+  return `/?bestFor=${encodeURIComponent(value)}#archive`;
+}
+
+export function createCollectionIntentHref(intent) {
+  return `/collections?intent=${encodeURIComponent(intent)}#collectionsDirectorySection`;
+}
+
 export function createSubmissionHref(submissionType = "", showId = "") {
   const query = new URLSearchParams();
   if (submissionType) {

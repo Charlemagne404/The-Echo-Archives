@@ -147,7 +147,7 @@ test("Browse search discovers creator pages alongside legacy and linked show res
     const webPage = data["@graph"].find((entry) => entry["@type"] === "WebPage");
     assert.equal(webPage.mentions.length, 3);
     assert.match(await page.locator("#more-from-title").innerText(), /Fool & Scholar Productions/);
-    await page.goto(`${baseUrl}/shows/midnight-burger`);
+    await page.goto(`${baseUrl}/shows/escape-pod`);
     await waitForAppReady(page);
     assert.match(await page.locator("#facts-links").innerText(), /Creator \/ network/i);
   } finally { await page.close(); }

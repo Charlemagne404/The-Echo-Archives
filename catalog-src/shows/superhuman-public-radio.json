@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"superhuman-public-radio-studio","role":"studio"}
+  ],
   "id": "superhuman-public-radio",
   "title": "Superhuman Public Radio",
   "subtitle": "Super, human stories",
@@ -85,23 +88,19 @@
     "funding": ""
   },
   "credits": {
-    "creatorName": "Superhuman Public Radio",
-    "ownerName": "Superhuman Public Radio",
-    "network": "Superhuman Public Radio",
-    "writers": [
-      "john dorsey"
+    "creatorName": [
+      "John Dorsey",
+      "Maximilian Clark"
     ],
-    "people": [
-      {
-        "name": "john dorsey",
-        "role": "author",
-        "url": ""
-      }
+    "ownerName": "Superhuman Public Radio",
+    "writers": [
+      "John Dorsey",
+      "Maximilian Clark"
     ]
   },
   "creators": [
-    "Superhuman Public Radio",
-    "john dorsey"
+    "John Dorsey",
+    "Maximilian Clark"
   ],
   "cast": [],
   "verification": {
@@ -776,7 +775,5 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
-  "creatorId": "superhuman-public-radio",
-  "networkId": "superhuman-public-radio"
+  "updatedAt": "2026-08-15"
 }

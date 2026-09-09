@@ -93,21 +93,11 @@
   "credits": {
     "creatorName": "Starglow Media / Cordelia Studios",
     "ownerName": "Girl Tales",
-    "network": "Girl Tales",
-    "writers": [
-      "girltalespodcast"
-    ],
-    "people": [
-      {
-        "name": "girltalespodcast",
-        "role": "author",
-        "url": ""
-      }
-    ]
+    "writers": [],
+    "people": []
   },
   "creators": [
-    "Starglow Media / Cordelia Studios",
-    "girltalespodcast"
+    "Starglow Media / Cordelia Studios"
   ],
   "cast": [],
   "verification": {
@@ -838,7 +828,5 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
-  "creatorId": "starglow-media-cordelia-studios",
-  "networkId": "girl-tales"
+  "updatedAt": "2026-08-15"
 }

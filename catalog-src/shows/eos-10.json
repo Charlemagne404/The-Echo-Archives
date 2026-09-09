@@ -1,4 +1,8 @@
 {
+  "entityLinks": [
+    {"entityId":"planetm","role":"production-company"},
+    {"entityId":"justin-mclachlan","role":"creator"}
+  ],
   "id": "eos-10",
   "title": "EOS 10",
   "subtitle": "Space comedy with a stronger station-sitcom pulse.",
@@ -161,7 +165,6 @@
   "cast": [],
   "createdAt": "2026-06-01",
   "creatorId": "justin-mclachlan",
-  "networkId": "planetm-justin-mclachlan",
   "similarReasons": {
     "oz-9": "Turns the dysfunction and comic disaster energy even louder.",
     "wolf-359": "A stronger character-payoff branch if you want the station comedy to deepen over time.",

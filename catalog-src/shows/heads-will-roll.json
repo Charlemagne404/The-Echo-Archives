@@ -1,5 +1,8 @@
 {
   "id": "heads-will-roll",
+  "entityLinks": [
+    {"entityId":"audible-originals","role":"production-company"}
+  ],
   "title": "Heads Will Roll",
   "subtitle": "",
   "description": "Queen Mortuana of the Night Realm (Kate McKinnon) and her ditsy raven minion JoJo (Emily Lynne) receive a prophecy about a peasant uprising. Together, they must journey to find the Shard of Acquiescence, which will put down the rebellion and save the throne. Will their friendship survive sensitive generals, chatty sex slaves, whiny behemoths, princes with bird fetishes, and the notion of democracy? Produced by Broadway Video and created by McKinnon and her real-life sister Lynne, this raunchy, 10-episode, star-studded, audio comedy features performances from Meryl Streep, Tim Gunn, Peter Dinklage, Queer Eye’s Fab Five, and so many&nbsp;more. Laugh your ears off with more A-list comedy at audible.com/soundsfunny Cast: Kate McKinnon, Emily Lynne, Tim Gunn, Meryl Streep, Peter Dinklage and more Produced by Broadway Video",
@@ -622,7 +625,5 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
-  "creatorId": "audible-originals",
-  "networkId": "art19"
+  "updatedAt": "2026-09-08"
 }

@@ -1,5 +1,9 @@
 {
   "id": "mirrors",
+  "entityLinks": [
+    {"entityId":"zoomdoom-stories","role":"production-company"},
+    {"entityId":"jamie-killen","role":"creator"}
+  ],
   "title": "Mirrors",
   "subtitle": "A sci-fi ghost story with a colder, more deliberate sense of haunting.",
   "description": "Three women. Three centuries. One haunting. Mirrors is a sci-fi ghost story from ZoomDoom Stories. Find out more at https://www.mirrorspodcast.com/ Our cover image is courtesy of the Wellcome Library and has been made available under Creative Commons License 4.0.",
@@ -90,7 +94,7 @@
     "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
   },
   "creators": [
-    "ZoomDoom Stories"
+    "Jamie Killen"
   ],
   "cast": [],
   "createdAt": "2026-06-30",

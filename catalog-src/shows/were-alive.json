@@ -1,4 +1,8 @@
 {
+  "entityLinks": [
+    {"entityId":"wayland-productions","role":"production-company"},
+    {"entityId":"kc-wayland","role":"creator"}
+  ],
   "id": "were-alive",
   "title": "We're Alive",
   "subtitle": "A survival-first apocalypse staple with real archive gravity.",
@@ -167,7 +171,6 @@
   "cast": [],
   "createdAt": "2026-06-01",
   "creatorId": "kc-wayland",
-  "networkId": "wayland-productions",
   "similarReasons": {
     "impact-winter": "High-pressure survival storytelling with comparable momentum and scale.",
     "end-of-all-hope": "A more spacefaring branch that still puts survival decisions at the center.",

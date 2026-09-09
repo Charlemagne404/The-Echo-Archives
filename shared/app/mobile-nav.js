@@ -17,8 +17,8 @@ export function initializeMobileNav() {
     return;
   }
 
-  const closeButtons = Array.from(shell.querySelectorAll("[data-site-nav-close]")).filter(
-    (node) => node instanceof HTMLButtonElement,
+  const closeTriggers = Array.from(shell.querySelectorAll("[data-site-nav-close]")).filter(
+    (node) => node instanceof HTMLElement,
   );
   const navLinks = Array.from(nav.querySelectorAll("a"));
   const mediaQuery = window.matchMedia(MOBILE_NAV_BREAKPOINT);
@@ -27,6 +27,7 @@ export function initializeMobileNav() {
   let lockedScrollY = 0;
   let previousBodyStyles = null;
   let previousDocumentStyles = null;
+  const backgroundStates = new Map();
 
   const getFocusables = () => {
     const focusables = Array.from(drawer.querySelectorAll("a[href], button:not([disabled])")).filter(
@@ -37,6 +38,55 @@ export function initializeMobileNav() {
     return closeButton instanceof HTMLElement && focusables.includes(closeButton)
       ? [closeButton, ...focusables.filter((node) => node !== closeButton)]
       : focusables;
+  };
+
+  const getBackgroundTargets = () => {
+    const targets = [];
+
+    Array.from(document.body.children).forEach((node) => {
+      if (!(node instanceof HTMLElement) || node.tagName === "SCRIPT") {
+        return;
+      }
+
+      if (node.contains(shell)) {
+        Array.from(node.children).forEach((child) => {
+          if (child instanceof HTMLElement && child !== shell) {
+            targets.push(child);
+          }
+        });
+        return;
+      }
+
+      targets.push(node);
+    });
+
+    return targets;
+  };
+
+  const setBackgroundInert = (inert) => {
+    if (inert) {
+      getBackgroundTargets().forEach((node) => {
+        if (!backgroundStates.has(node)) {
+          backgroundStates.set(node, {
+            ariaHidden: node.getAttribute("aria-hidden"),
+            inert: node.inert,
+          });
+        }
+        node.inert = true;
+        node.setAttribute("aria-hidden", "true");
+      });
+      return;
+    }
+
+    backgroundStates.forEach((state, node) => {
+      node.inert = state.inert;
+      if (state.ariaHidden === null) {
+        node.removeAttribute("aria-hidden");
+      } else {
+        node.setAttribute("aria-hidden", state.ariaHidden);
+      }
+    });
+    backgroundStates.clear();
   };
 
   const isMobile = () => mediaQuery.matches;
@@ -84,6 +134,7 @@ export function initializeMobileNav() {
     toggle.setAttribute("aria-label", isOpen ? "Close site navigation" : "Open site navigation");
     document.body.classList.toggle("site-nav-open", isMobile() && isOpen);
     shell.setAttribute("aria-hidden", String(isMobile() ? !isOpen : false));
+    setBackgroundInert(isMobile() && isOpen);
 
     if (isMobile() && isOpen) {
       lockBackgroundScroll();
@@ -155,8 +206,8 @@ export function initializeMobileNav() {
     openNav();
   });
 
-  closeButtons.forEach((button) => {
-    button.addEventListener("click", () => closeNav());
+  closeTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => closeNav());
   });
 
   navLinks.forEach((link) => {
@@ -190,6 +241,12 @@ export function initializeMobileNav() {
     const firstFocusable = focusables[0];
     const lastFocusable = focusables[focusables.length - 1];
     const activeElement = document.activeElement;
+
+    if (!drawer.contains(activeElement)) {
+      event.preventDefault();
+      firstFocusable.focus();
+      return;
+    }
 
     if (event.shiftKey && activeElement === firstFocusable) {
       event.preventDefault();

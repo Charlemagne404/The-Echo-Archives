@@ -1,4 +1,4 @@
-import { createArchiveGenreHref } from "../urls.js";
+import { createArchiveBestForHref, createArchiveGenreHref, createArchiveTagHref } from "../urls.js";
 import { getPreferredCoverSource, getResponsiveImageSource } from "../images.js";
 import {
   escapeHtml,
@@ -176,7 +176,7 @@ function renderHeroKeyTags(show) {
     <div class="detail-hero-tag-row" aria-label="Key tags">
       <span class="detail-hero-tag-label">Key tags</span>
       <div class="detail-hero-tag-list">
-        ${tags.map((value) => `<span class="detail-tag">${escapeHtml(toDisplayTag(value))}</span>`).join("")}
+        ${tags.map((value) => `<a class="detail-tag detail-tag-link" href="${escapeHtml(createArchiveTagHref(value))}">${escapeHtml(toDisplayTag(value))}</a>`).join("")}
       </div>
     </div>
   `;
@@ -220,7 +220,7 @@ function renderBestForStrip(show) {
             (value) => `
               <article class="detail-best-for-item">
                 <span class="detail-best-for-icon" aria-hidden="true">${getBestForIconMarkup(value)}</span>
-                <span class="detail-best-for-text">${escapeHtml(toDisplayTag(value))}</span>
+                <a class="detail-best-for-text" href="${escapeHtml(createArchiveBestForHref(value))}">${escapeHtml(toDisplayTag(value))}</a>
               </article>
             `,
           )

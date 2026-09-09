@@ -1,5 +1,9 @@
 {
   "id": "the-twelvelms-conspiracy",
+  "entityLinks": [
+    {"entityId":"hanging-sloth-studios","role":"production-company"},
+    {"entityId":"eira-major","role":"creator"}
+  ],
   "title": "The Twelvelms Conspiracy",
   "subtitle": "",
   "description": "The Twelvelms Conspiracy is a brand new fantasy mystery audio drama from Eira Major, creator of Remnants , Not Quite Dead and Spirit Box Radio . Set in a magical world hidden just out of sight, it’s a story fraught with social and class tension, exploring ideas about what it means to belong, and what it means to live with the legacy of terrible decisions made generations ago whose consequences have shaped everything around you. Cyan Goodman does not belong at twelvelms and everyone knows it. Especially him. The university has trained the finest mages in magedom for centuries, but Cyan only found out it existed two weeks ago. Out of his depth, with nowhere else to go, Cyan is allowed to enroll at Twelvelms under one condition; that he keeps the circumstances under which he was admitted completely secret. To make things more complicated, the only reason he was given a space at the school at all is because another boy has gone missing, under extremely mysterious circumstances. It seems like there’s a much bigger problem lurking just out of sight at Twelvelms, one which reaches far beyond Cyan’s secrets and into the foundations of magedom itself. Cyan narrates his story years after these events, and his circumstances have become even stranger... Hosted on Acast. See acast.com/privacy for more information.",
@@ -84,11 +88,11 @@
     "funding": ""
   },
   "credits": {
-    "creatorName": "Eira Major's Hanging Sloth",
+    "creatorName": "Eira Major",
     "ownerName": "Eira Major"
   },
   "creators": [
-    "Eira Major's Hanging Sloth"
+    "Eira Major"
   ],
   "cast": [],
   "verification": {
@@ -707,6 +711,5 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
-  "creatorId": "eira-majors-hanging-sloth"
+  "updatedAt": "2026-08-15"
 }

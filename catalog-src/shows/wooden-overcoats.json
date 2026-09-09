@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"wooden-overcoats-ltd","role":"production-company"}
+  ],
   "id": "wooden-overcoats",
   "title": "Wooden Overcoats",
   "subtitle": "A funeral-home sitcom full of vanity, sabotage, and immaculate comic timing.",
@@ -87,7 +90,7 @@
     "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
   },
   "creators": [
-    "Wooden Overcoats Ltd"
+    "David K. Barnes"
   ],
   "cast": [],
   "createdAt": "2026-06-30",

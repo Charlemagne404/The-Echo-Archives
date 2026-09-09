@@ -194,7 +194,8 @@
   gap: 7px;
 }
 
-.collection-intent-tags span {
+.collection-intent-tags span,
+.collection-intent-tags a {
   display: inline-flex;
   align-items: center;
   min-height: 27px;
@@ -204,7 +205,15 @@
   background: rgba(255, 255, 255, 0.035);
   color: rgba(247, 247, 243, 0.7);
   font-size: 0.72rem;
+  text-decoration: none;
   white-space: nowrap;
+}
+
+.collection-intent-tag-link:hover,
+.collection-intent-tag-link:focus-visible {
+  border-color: rgba(229, 72, 56, 0.48);
+  background: rgba(229, 72, 56, 0.1);
+  color: var(--text-primary);
 }
 
 .collection-hero-tags .collection-intent-tag-featured {

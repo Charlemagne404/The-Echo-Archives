@@ -24,9 +24,9 @@
 <meta name="robots" content="index, follow, max-image-preview:large" />
 
 <script src="/shared/app/scroll-restoration-boot.js?v=2435952c77"></script>
-<link rel="stylesheet" href="/style.css?v=027a8399dc" />
-<link rel="stylesheet" href="/home.css?v=5987c07078" />
-<link rel="stylesheet" href="/collections.css?v=68a023c3e1" />
+<link rel="stylesheet" href="/style.css?v=78458fbb6a" />
+<link rel="stylesheet" href="/home.css?v=c46a1b3ffb" />
+<link rel="stylesheet" href="/collections.css?v=c971476988" />
 <link rel="stylesheet" href="/public-heroes.css?v=9384126766" />
 <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32 48x48 64x64 128x128 256x256" />
 <link rel="icon" type="image/png" href="/icon-192.png" sizes="192x192" />
@@ -36,7 +36,7 @@
 <link rel="preload" as="image" href="/images/hero-archive-dish.webp" type="image/webp" fetchpriority="high" />
 <script id="pageStructuredData" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://echoarchives.net/#website","name":"The Echo Archives","alternateName":"The Echo Archives — Audio Drama Discovery","url":"https://echoarchives.net/","description":"Audio drama discovery with fiction podcast recommendations, reviews, collections, and similar shows.","about":[{"@type":"Thing","name":"Audio drama discovery"},{"@type":"Thing","name":"Fiction podcast recommendations"},{"@type":"Thing","name":"Audio drama reviews"}],"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://echoarchives.net/?q={search_term_string}#archive"},"query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://echoarchives.net/#webpage","url":"https://echoarchives.net/","name":"The Echo Archives — Audio Drama Discovery","description":"Audio drama discovery with fiction podcast recommendations, reviews, collections, and similar shows.","isPartOf":{"@id":"https://echoarchives.net/#website"}}]}</script>
 </head>
-<body class="home-page" data-site-url="https://echoarchives.net" data-chat-stylesheet="/chat.css?v=68c3b55e2b" data-archivist-enabled="false" data-home-card-hover-expand-enabled="false" data-shows-version="023feb948d" data-collections-version="d7061331b7" data-search-index-version="1e1397618f">
+<body class="home-page" data-site-url="https://echoarchives.net" data-chat-stylesheet="/chat.css?v=68c3b55e2b" data-archivist-enabled="false" data-home-card-hover-expand-enabled="false" data-shows-version="6f570ae4d7" data-collections-version="d7061331b7" data-search-index-version="51e99701e4">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
@@ -77,18 +77,18 @@
   </nav>
 
   <div class="site-nav-shell" id="siteNavShell" data-state="closed" aria-hidden="true">
-    <button class="site-nav-backdrop" type="button" data-site-nav-close tabindex="-1" aria-label="Close site navigation"></button>
+    <div class="site-nav-backdrop" data-site-nav-close aria-hidden="true"></div>
     <aside class="site-nav-drawer" role="dialog" aria-modal="true" aria-labelledby="siteNavDrawerTitle">
       <div class="site-nav-drawer-head">
-        <a class="site-nav-drawer-brand" href="/" aria-label="The Echo Archives home">
-          <img src="/echo-wordmark-nosub1.svg" alt="The Echo Archives" width="6000" height="900" />
-        </a>
-        <p class="site-nav-drawer-title" id="siteNavDrawerTitle">Site navigation</p>
         <button class="site-nav-close" type="button" data-site-nav-close aria-label="Close site navigation">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6 6 18 18M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" />
           </svg>
         </button>
+        <a class="site-nav-drawer-brand" href="/" aria-label="The Echo Archives home">
+          <img src="/echo-wordmark-nosub1.svg" alt="The Echo Archives" width="6000" height="900" />
+        </a>
+        <p class="site-nav-drawer-title" id="siteNavDrawerTitle">Site navigation</p>
       </div>
 
       <nav class="site-mobile-drawer-nav" aria-label="Full site navigation">
@@ -163,6 +163,7 @@
           </button>
 
           <label class="search-field sticky-search-field" id="stickySearchField" for="stickySearch" aria-hidden="true">
+            <span class="sr-only">Search the archive</span>
             <span class="search-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24">
                 <path d="m21 21-4.35-4.35M10.8 18a7.2 7.2 0 1 0 0-14.4 7.2 7.2 0 0 0 0 14.4Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
@@ -181,7 +182,7 @@
             <span id="stickyFilterCount" class="filter-count" hidden>0</span>
           </button>
 
-          <button class="filter-sheet-backdrop" type="button" data-filter-sheet-dismiss tabindex="-1" aria-label="Close archive filters" hidden></button>
+          <div class="filter-sheet-backdrop" data-filter-sheet-dismiss hidden></div>
           <div id="stickyFilterDropdown" class="dropdown" aria-labelledby="stickyFilterDialogTitle" hidden>
             <div class="filter-dropdown-header">
               <div>
@@ -211,7 +212,7 @@
           <p>
             An archive of audio dramas and fiction podcasts. Browse by mood, tone, format, completion status, and shows like the ones you already love.
           </p>
-          <div class="home-hero-actions" aria-label="Suggested starting points">
+          <nav class="home-hero-actions" aria-label="Suggested starting points">
             <a class="home-hero-route is-primary" href="/collections/shows-like-midnight-burger" aria-label="Browse shows like Midnight Burger">
               <span class="home-hero-route-kicker">Shows like</span>
               <span class="home-hero-route-label">Midnight Burger</span>
@@ -224,11 +225,12 @@
               <span class="home-hero-route-kicker">Shows like</span>
               <span class="home-hero-route-label">Welcome to Night Vale</span>
             </a>
-          </div>
+          </nav>
         </div>
 
         <div class="search-container" aria-label="Archive controls">
           <label class="search-field" for="search">
+            <span class="sr-only">Search the archive</span>
             <span class="search-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24">
                 <path d="m21 21-4.35-4.35M10.8 18a7.2 7.2 0 1 0 0-14.4 7.2 7.2 0 0 0 0 14.4Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
@@ -247,7 +249,7 @@
                 <span id="filterCount" class="filter-count" hidden>0</span>
               </button>
 
-              <button class="filter-sheet-backdrop" type="button" data-filter-sheet-dismiss tabindex="-1" aria-label="Close archive filters" hidden></button>
+              <div class="filter-sheet-backdrop" data-filter-sheet-dismiss hidden></div>
               <div id="filterDropdown" class="dropdown" aria-labelledby="filterDialogTitle" hidden>
                 <div class="filter-dropdown-header">
                   <div>
@@ -287,7 +289,7 @@
           <p class="archive-trust-item"><strong id="homeShowCount">752</strong> <span>shows indexed</span></p>
           <p class="archive-trust-item"><strong id="homeReviewCount">7</strong> <span>reviews</span></p>
           <p class="archive-trust-item"><strong id="homeCollectionCount">46</strong> <span>collections</span></p>
-          <p class="archive-trust-item"><span>Updated</span> <strong id="homeLastUpdated">Sep 7</strong></p>
+          <p class="archive-trust-item"><span>Updated</span> <strong id="homeLastUpdated">Sep 8</strong></p>
         </section>
       </div>
     </section>
@@ -298,7 +300,7 @@
           <h2>Browse the archive</h2>
         </div>
         <div class="results-heading-meta">
-          <p id="resultsSummary" class="results-summary">60 of 752 results • 7 full reviews</p>
+          <p id="resultsSummary" class="results-summary" role="status" aria-live="polite" aria-atomic="true">60 of 752 results • 7 full reviews</p>
           <div class="rating-guide">
             <button class="rating-guide-trigger" type="button" aria-label="What do the ratings mean?" aria-describedby="ratingGuideTooltip">?</button>
             <div class="rating-guide-tooltip" id="ratingGuideTooltip" role="tooltip">
@@ -515,6 +517,37 @@
     </div>
         </div>
       </a>
+    </div><div class="podcast-card-shell" data-podcast-id="the-harrowing">
+      <a class="podcast-card" href="/shows/the-harrowing" data-podcast-id="the-harrowing">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/the-harrowing.jpg" srcset="/images/generated/covers/the-harrowing-78b2ee7fd6-320.webp 320w, /images/generated/covers/the-harrowing-78b2ee7fd6-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="The Harrowing cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">The Harrowing</h2>
+        <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Isolation • Supernatural</p>
+        <div class="rating">
+          <div class="listener-review-inline-score" data-podcast-id="the-harrowing" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+      <span class="inline-score-topline">
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
+      </span>
+
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="the-harrowing" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+
+    </div>
+        </div>
+      </a>
     </div><div class="podcast-card-shell" data-podcast-id="36-questions">
       <a class="podcast-card" href="/shows/36-questions" data-podcast-id="36-questions">
         <div class="editorial-badges" aria-hidden="true"></div>
@@ -562,37 +595,6 @@
     </div>
           <span class="rating-divider" aria-hidden="true"></span>
           <div class="community-inline-score" data-podcast-id="afflicted" aria-label="Community score --/10. No ratings yet.">
-      <span class="inline-score-topline">
-        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
-          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
-          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
-          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
-          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
-          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
-          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
-        </svg>
-        <span class="community-inline-score-value">--/10</span>
-      </span>
-
-    </div>
-        </div>
-      </a>
-    </div><div class="podcast-card-shell" data-podcast-id="alba-salix-royal-physician">
-      <a class="podcast-card" href="/shows/alba-salix-royal-physician" data-podcast-id="alba-salix-royal-physician">
-        <div class="editorial-badges" aria-hidden="true"></div>
-        <img src="/images/covers/alba-salix-royal-physician.jpg" srcset="/images/generated/covers/alba-salix-royal-physician-563b55622f-320.webp 320w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Alba Salix, Royal Physician cover art" loading="lazy" decoding="async" width="320" height="320" />
-        <h2 data-card-title="true">Alba Salix, Royal Physician</h2>
-        <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Fantasy • Urban Fantasy</p>
-        <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="alba-salix-royal-physician" aria-label="Listener Review Score --/10. No published listener reviews yet.">
-      <span class="inline-score-topline">
-        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
-      </span>
-
-    </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="alba-salix-royal-physician" aria-label="Community score --/10. No ratings yet.">
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -2632,34 +2634,34 @@
       </nav>
     </div>
   </div>
-  <div class="footer-links" aria-label="Footer">
-    <div class="footer-link-group">
-      <p class="footer-link-heading">Explore</p>
+  <nav class="footer-links" aria-label="Footer">
+    <section class="footer-link-group" aria-labelledby="footerExploreHeading">
+      <h2 class="footer-link-heading" id="footerExploreHeading">Explore</h2>
       <a href="/">Browse all shows</a>
       <a href="/collections">Collections</a>
       <a href="/about">About the archive</a>
-    </div>
-    <div class="footer-link-group">
-      <p class="footer-link-heading">Creators</p>
+    </section>
+    <section class="footer-link-group" aria-labelledby="footerCreatorsHeading">
+      <h2 class="footer-link-heading" id="footerCreatorsHeading">Creators</h2>
       <a href="/for-creators">For creators</a>
       <a href="/submit">Submit or correct</a>
       <a href="/creator-standards">Creator standards</a>
-    </div>
-    <div class="footer-link-group">
-      <p class="footer-link-heading">Support</p>
+    </section>
+    <section class="footer-link-group" aria-labelledby="footerSupportHeading">
+      <h2 class="footer-link-heading" id="footerSupportHeading">Support</h2>
       <a href="/help-center">Help Center</a>
       <a href="https://contact.continental-hub.com/">Contact</a>
       <a href="/submit">Send a correction</a>
       <a href="/supporters">Supporters</a>
-    </div>
-    <div class="footer-link-group">
-      <p class="footer-link-heading">Policies</p>
+    </section>
+    <section class="footer-link-group" aria-labelledby="footerPoliciesHeading">
+      <h2 class="footer-link-heading" id="footerPoliciesHeading">Policies</h2>
       <a href="/privacy">Privacy</a>
       <a href="/terms">Terms</a>
       <a href="/cookies">Cookies</a>
       <a href="/copyright">Copyright &amp; Takedown</a>
-    </div>
-  </div>
+    </section>
+  </nav>
   <div class="footer-support-panel">
     <div class="footer-support-body">
       <p class="footer-support-kicker">Help improve the archive</p>
@@ -2680,8 +2682,8 @@
 
   <script src="/shared/archive-search.js?v=eecee870aa"></script>
 
-  <script src="/shared/archive-entities.js?v=8d61c0b0ee"></script>
+  <script src="/shared/archive-entities.js?v=1106437375"></script>
 
-  <script type="module" src="/script.js?v=32ec7b6ece"></script>
+  <script type="module" src="/script.js?v=06ac24dbe7"></script>
 </body>
 </html>

@@ -1,4 +1,8 @@
 {
+  "entityLinks": [
+    {"entityId":"curtco-media","role":"production-company"},
+    {"entityId":"chris-porter","role":"creator"}
+  ],
   "id": "solar",
   "title": "Solar",
   "subtitle": "A spacebound thriller with a steady pressure-cooker pulse.",
@@ -117,7 +121,6 @@
       "Jenny Curtis"
     ],
     "soundDesign": "CJ Drumeller",
-    "network": "CurtCo Media",
     "coverArt": "Not verified"
   },
   "availability": {
@@ -189,7 +192,6 @@
   ],
   "createdAt": "2026-06-01",
   "creatorId": "chris-porter",
-  "networkId": "curtco-media-workhouse-media",
   "similarReasons": {
     "vast-horizon": "Another spacebound survival lane if you want the vacuum, danger, and forward motion with a slightly wider adventure feel.",
     "spectre": "Keeps the dark sci-fi mystery tone intact while trading direct survival pressure for stranger atmosphere.",

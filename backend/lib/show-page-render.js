@@ -119,6 +119,10 @@ function createSubmissionHref(submissionType = "", showId = "") {
   return `/submit${search ? `?${search}` : ""}`;
 }
 
+function createArchiveFilterHref(groupId, value) {
+  return `/?${encodeURIComponent(groupId)}=${encodeURIComponent(value)}#archive`;
+}
+
 function renderParagraphs(paragraphs, fallbackText = "") {
   const entries = (Array.isArray(paragraphs) ? paragraphs : [])
     .map((entry) => String(entry || "").trim())
@@ -314,7 +318,7 @@ function renderHeroKeyTags(show) {
     <div class="detail-hero-tag-row" aria-label="Key tags">
       <span class="detail-hero-tag-label">Key tags</span>
       <div class="detail-hero-tag-list">
-        ${tags.map((value) => `<span class="detail-tag">${escapeHtml(toDisplayTag(value))}</span>`).join("")}
+        ${tags.map((value) => `<a class="detail-tag detail-tag-link" href="${escapeHtml(createArchiveFilterHref("tags", value))}">${escapeHtml(toDisplayTag(value))}</a>`).join("")}
       </div>
     </div>
   `;
@@ -335,7 +339,7 @@ function renderBestForStrip(show) {
             (value) => `
               <article class="detail-best-for-item">
                 <span class="detail-best-for-icon" aria-hidden="true">${getBestForIconMarkup(value)}</span>
-                <span class="detail-best-for-text">${escapeHtml(toDisplayTag(value))}</span>
+                <a class="detail-best-for-text" href="${escapeHtml(createArchiveFilterHref("bestFor", value))}">${escapeHtml(toDisplayTag(value))}</a>
               </article>
             `,
           )

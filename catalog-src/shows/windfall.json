@@ -1,4 +1,7 @@
 {
+  "entityLinks": [
+    {"entityId":"rogue-dialogue-productions","role":"production-company"}
+  ],
   "id": "windfall",
   "title": "Windfall",
   "subtitle": "Mystery-thriller energy with a darker speculative edge.",
@@ -114,7 +117,6 @@
     "producer": "Rogue Dialogue Productions",
     "soundDesign": "Adam Raymonda",
     "composer": "Adam Raymonda",
-    "network": "Rogue Dialogue Productions",
     "cast": "Not fully verified",
     "coverArt": "Sam Twardy"
   },
@@ -173,12 +175,12 @@
   ],
   "transcriptLanguages": [],
   "creators": [
-    "Rogue Dialogue Productions"
+    "Bob Raymonda",
+    "Christie Donato",
+    "Adam Raymonda"
   ],
   "cast": [],
   "createdAt": "2026-06-01",
-  "creatorId": "rogue-dialogue-productions",
-  "networkId": "rogue-dialogue-productions",
   "similarReasons": {
     "earth-eclipsed": "Another pressure-heavy dystopian route when you want systems failing around the characters.",
     "the-deca-tapes": "A puzzle-box branch if you want more suspicion and less open momentum.",

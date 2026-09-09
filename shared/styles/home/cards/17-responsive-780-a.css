@@ -187,7 +187,10 @@
     display: block;
     width: min(100%, 220px);
     min-width: 0;
+    order: 1;
   }
+
+  .site-nav-close { order: 2; }
 
   .site-nav-drawer-brand img {
     width: 100%;

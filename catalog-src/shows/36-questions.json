@@ -1,5 +1,8 @@
 {
   "id": "36-questions",
+  "entityLinks": [
+    {"entityId":"two-up-productions","role":"production-company"}
+  ],
   "title": "36 Questions",
   "subtitle": "Hear what The New York Times calls \"the future of musicals\"... 36 Questions, a three-part podcast musical starring Jonathan Groff and Jessie Shelton.",
   "description": "Hear what The New York Times calls “the future of musicals”: 36 Questions, a three-part podcast musical starring Jonathan Groff and Jessie Shelton. Produced by Two-Up, the producers of Limetown and The Wilderness.",

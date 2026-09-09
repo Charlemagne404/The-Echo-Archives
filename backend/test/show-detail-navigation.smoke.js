@@ -92,7 +92,9 @@ test("indexed-only detail page shows truthful canonical metadata without narrow 
       const reviewHeading = Array.from(document.querySelectorAll(".detail-section-header h2"))
         .map((node) => (node.textContent || "").trim())
         .find((text) => /reviews/i.test(text)) || "";
-      const creatorValue = document.querySelector(".detail-fact-row:nth-child(1) dd")?.textContent?.trim() || "";
+      const creatorValue = Array.from(document.querySelectorAll(".detail-fact-row dd"))
+        .map((node) => node.textContent?.trim() || "")
+        .join(" ");
       const linkStatus = document.querySelector(".detail-link-status")?.textContent?.trim() || "";
       const firstRelease = Array.from(document.querySelectorAll(".detail-fact-row"))
         .find((row) => /first release/i.test(row.querySelector("dt")?.textContent || ""))
@@ -138,6 +140,8 @@ test("indexed-only detail page shows truthful canonical metadata without narrow 
     assert.equal(state.hasScoreBreakdown, false);
     assert.match(state.creatorValue, /Chris Porter/i);
     assert.match(state.creatorValue, /CurtCo Media/i);
+    assert.equal(await page.locator('.detail-tag-link[href="/?tags=Spacecraft%20disaster#archive"]').count(), 1);
+    assert.equal(await page.locator('.detail-best-for-text[href="/?bestFor=late-night#archive"]').count(), 1);
     assert.equal(state.linkStatus, "");
     assert.match(state.firstRelease, /2022/i);
     assert.match(state.latestRelease, /2022/i);

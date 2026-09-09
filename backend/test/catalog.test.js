@@ -73,10 +73,10 @@ test("loadCatalog reads the structured show catalog", async () => {
 test("importer-origin catalogue entries retain their publication tier", () => {
   const authoredShows = JSON.parse(fs.readFileSync(path.join(siteRoot, "data", "shows.json"), "utf8"));
   const importerOrigin = authoredShows.filter((show) => show.metadata?.import);
-  assert.equal(importerOrigin.length, 656);
-  assert.equal(importerOrigin.filter((show) => show.reviewStatus === "indexed-only").length, 139);
-  assert.equal(importerOrigin.filter((show) => show.reviewStatus === "imported").length, 517);
-  assert.ok(importerOrigin.every((show) => ["indexed-only", "imported"].includes(show.reviewStatus)));
+  const publicationTiers = new Set(importerOrigin.map((show) => show.reviewStatus));
+
+  assert.ok(importerOrigin.length > 0);
+  assert.deepEqual([...publicationTiers].sort(), ["imported", "indexed-only"]);
 });
 
 test("Imported source provenance exposes exact full-cast formats without copying keywords into tags", async () => {
@@ -172,6 +172,63 @@ test("optional start-listening links accept absolute URLs and reject invalid val
   await assert.rejects(loadCatalog(tempRoot), /invalid listenLinks\.start URL/i);
 
   fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("catalog loading rejects malformed shapes before normalization can erase public metadata", async () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+  const malformedShows = [
+    ["tones", "dark", /invalid tones data/i],
+    ["formats", ["full-cast", 42], /invalid formats data/i],
+    ["similarTo", "neighbor-show", /invalid similarTo data/i],
+    ["listenLinks", "https:\/\/example.com", /invalid listenLinks data/i],
+    ["facts", "not an object", /invalid facts data/i],
+    ["length", null, /invalid length data/i],
+    ["releaseDates", "2024-01-01", /invalid releaseDates data/i],
+    ["ratings", { archive: "8\/10" }, /invalid ratings\.archive value/i],
+    ["similarReasons", null, /invalid similarReasons data/i],
+  ];
+
+  try {
+    writeJson(path.join(dataRoot, "collections.json"), []);
+    for (const [fieldName, value, error] of malformedShows) {
+      writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ listenLinks: {}, [fieldName]: value })]);
+      await assert.rejects(loadCatalog(tempRoot), error);
+    }
+  } finally {
+    fs.rmSync(tempRoot, { recursive: true, force: true });
+  }
+});
+
+test("similarity relationships reject duplicate and self references", async () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+
+  try {
+    writeJson(path.join(dataRoot, "collections.json"), []);
+    writeJson(path.join(dataRoot, "shows.json"), [
+      createShowRecord({
+        id: "first-show",
+        listenLinks: {},
+        similarTo: ["second-show", "second-show"],
+        similarReasons: { "second-show": "A duplicated relationship must not publish." },
+      }),
+      createShowRecord({ id: "second-show", listenLinks: {} }),
+    ]);
+    await assert.rejects(loadCatalog(tempRoot), /duplicate similarTo value/i);
+
+    writeJson(path.join(dataRoot, "shows.json"), [
+      createShowRecord({
+        id: "first-show",
+        listenLinks: {},
+        similarTo: ["first-show"],
+        similarReasons: { "first-show": "A show cannot recommend itself." },
+      }),
+    ]);
+    await assert.rejects(loadCatalog(tempRoot), /cannot reference itself/i);
+  } finally {
+    fs.rmSync(tempRoot, { recursive: true, force: true });
+  }
 });
 
 test("published catalog records require approved discovery signals instead of filler tags", async () => {
@@ -641,6 +698,58 @@ test("similarity collections reject unknown anchorShowId", () => {
   );
 
   fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("similarity collections keep their anchor out of recommendation alternatives", () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+
+  try {
+    writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ listenLinks: {} })]);
+    writeJson(path.join(dataRoot, "collections.json"), [{
+      id: "shows-like-demo-show",
+      title: "Shows like Demo Show",
+      description: "Similarity route with its anchor duplicated in the alternatives.",
+      kind: "similarity",
+      anchorShowId: "demo-show",
+      showIds: ["demo-show"],
+    }]);
+
+    assert.throws(
+      () => loadCollections(tempRoot, new Set(["demo-show"])),
+      /cannot include its anchorShowId/i,
+    );
+  } finally {
+    fs.rmSync(tempRoot, { recursive: true, force: true });
+  }
+});
+
+test("collections reject missing descriptive fields and malformed relationship metadata", () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+  const baseCollection = {
+    id: "demo-collection",
+    title: "Demo collection",
+    description: "A source-backed collection description for validation tests.",
+    showIds: ["demo-show"],
+    showReasons: {},
+  };
+
+  try {
+    writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ listenLinks: {} })]);
+    for (const [fieldName, value, error] of [
+      ["title", "", /missing a title/i],
+      ["description", null, /missing a description/i],
+      ["intentTags", "long-walks", /invalid intentTags data/i],
+      ["showReasons", null, /invalid showReasons data/i],
+      ["coverShowIds", ["other-show"], /coverShowId for a show outside showIds/i],
+    ]) {
+      writeJson(path.join(dataRoot, "collections.json"), [{ ...baseCollection, [fieldName]: value }]);
+      assert.throws(() => loadCollections(tempRoot, new Set(["demo-show"])), error);
+    }
+  } finally {
+    fs.rmSync(tempRoot, { recursive: true, force: true });
+  }
 });
 
 test("indexed-only factual records can publish without editorial discovery fields", async () => {

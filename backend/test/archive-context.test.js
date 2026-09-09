@@ -55,7 +55,8 @@ test("loadArchiveContext keeps legacy datasets empty while exposing curated crea
   assert.deepEqual(archiveContext.networks, []);
   assert.deepEqual(archiveContext.changelog, []);
   assert.equal(archiveContext.featureAvailability.hasPublicChangelog, false);
-  assert.equal(archiveContext.entities.length, 42);
+  assert.ok(archiveContext.entities.length > 0);
+  assert.equal(archiveContext.entities.length, new Set(archiveContext.entities.map((entity) => entity.id)).size);
   assert.equal(archiveContext.featureAvailability.hasCreatorPages, true);
   assert.equal(archiveContext.featureAvailability.hasNetworkPages, false);
 });

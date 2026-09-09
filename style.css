@@ -1657,7 +1657,8 @@ img.is-image-fallback {
   border-color: rgba(255, 255, 255, 0.22);
   background: rgba(15, 18, 24, 0.94);
   transform: translateY(-1px);
-  outline: none;
+  outline: 2px solid rgba(255, 197, 182, 0.82);
+  outline-offset: 3px;
 }
 
 .home-hero-route.is-primary {
@@ -1739,6 +1740,13 @@ img.is-image-fallback {
 .home-page #stickySearch:focus,
 .home-page #userInput:focus {
   outline: none;
+}
+
+.home-page #search:focus-visible,
+.home-page #stickySearch:focus-visible,
+.home-page #userInput:focus-visible {
+  outline: 2px solid rgba(255, 197, 182, 0.82);
+  outline-offset: 3px;
 }
 
 .search-actions {
@@ -3367,7 +3375,10 @@ img.is-image-fallback {
     display: block;
     width: min(100%, 220px);
     min-width: 0;
+    order: 1;
   }
+
+  .site-nav-close { order: 2; }
 
   .site-nav-drawer-brand img {
     width: 100%;

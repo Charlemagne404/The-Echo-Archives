@@ -586,6 +586,25 @@ test("show and collection pages expose honest empty states and working copy-link
   }
 });
 
+test("collection detail exposes intent-filter routes", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+
+  try {
+    await page.goto(`${baseUrl}/collections/serious-sci-fi`, { waitUntil: "networkidle" });
+    await page.waitForFunction(() => document.querySelectorAll("#collectionShowGrid .podcast-card").length > 0);
+    const state = await page.evaluate(() => ({
+      intentHref: document.querySelector("#collectionHeroTags .collection-intent-tag-link")?.getAttribute("href") || "",
+      nestedIntentLinks: document.querySelectorAll(".collections-directory-card .collection-intent-tag-link").length,
+    }));
+
+    assert.match(state.intentHref, /^\/collections\?intent=/);
+    assert.match(state.intentHref, /#collectionsDirectorySection$/);
+    assert.equal(state.nestedIntentLinks, 0);
+  } finally {
+    await page.close();
+  }
+});
+
 test("similarity collection pages render anchor context in the overview panel", async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
   const similarityCollection = collectionFixtures.find((collection) => collection.id === firstSimilarityCollectionId);

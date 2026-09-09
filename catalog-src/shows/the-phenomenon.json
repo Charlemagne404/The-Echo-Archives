@@ -1,4 +1,8 @@
 {
+  "entityLinks": [
+    {"entityId":"luciola-creative","role":"production-company"},
+    {"entityId":"jared-j-smith","role":"creator"}
+  ],
   "id": "the-phenomenon",
   "title": "The Phenomenon",
   "subtitle": "Survival mystery built around a threat you feel before you understand.",
@@ -171,7 +175,6 @@
   "cast": [],
   "createdAt": "2026-06-01",
   "creatorId": "jared-j-smith",
-  "networkId": "luciola-creative",
   "similarReasons": {
     "the-white-vault": "A colder isolation branch once the environmental dread is what matters most.",
     "impact-winter": "Keeps the catastrophe pressure high while making the genre spectacle bigger.",

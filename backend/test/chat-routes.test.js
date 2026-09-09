@@ -337,7 +337,7 @@ test("chat route refuses to invent details for title questions outside the archi
 
   try {
     const result = await postJson(context.baseUrl, {
-      message: "What's MarsCorp about?",
+      message: "What's The Uncatalogued Moon about?",
       history: [],
       page: {
         path: "/",

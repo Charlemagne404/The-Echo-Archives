@@ -93,8 +93,14 @@
     "website": "https://www.longcatmedia.com/mockery-manor"
   },
   "credits": {
-    "creatorName": "Long Cat Media",
-    "network": "ART19"
+    "creatorName": [
+      "Lindsay Sharman",
+      "Laurence Owen"
+    ],
+    "writers": [
+      "Lindsay Sharman"
+    ],
+    "director": "Lindsay Sharman"
   },
   "verification": {
     "status": "source-verified",
@@ -138,8 +144,6 @@
   },
   "featured": false,
   "createdAt": "2026-07-09",
-  "creatorId": "long-cat-media",
-  "networkId": "art19",
   "updatedAt": "2026-07-18",
   "cast": [],
   "creators": [

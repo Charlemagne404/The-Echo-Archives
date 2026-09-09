@@ -5,8 +5,11 @@ const os = require("node:os");
 const path = require("node:path");
 const { spawn } = require("node:child_process");
 const { loadCatalog, loadCollections } = require("../lib/catalog");
+const { buildCollectionPath, isIndexableCollection } = require("../lib/seo");
+const { loadEntities } = require("../lib/entities");
 const { injectRuntimeSiteConfig } = require("../lib/public-page-render");
 const { findFreePort } = require("./helpers/free-port");
+const { entityPath, getEntityShows, isIndexableEntity } = require("../../shared/archive-entities");
 
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
@@ -106,6 +109,7 @@ test("public clean routes resolve and legacy html routes redirect", async () => 
       "/privacy",
       "/shows/impact-winter",
       "/collections/best-for-long-walks",
+      "/creators",
     ]) {
       const response = await fetch(`${context.baseUrl}${route}`);
       assert.equal(response.status, 200, route);
@@ -130,6 +134,58 @@ test("public clean routes resolve and legacy html routes redirect", async () => 
       const alias = await fetch(`${context.baseUrl}${route}`, { redirect: "manual" });
       assert.equal(alias.status, 301, route);
       assert.equal(alias.headers.get("location"), location, route);
+    }
+  } finally {
+    await stopPublicRouteServer(context);
+  }
+});
+
+test("all indexable creator and collection routes serve canonical structured pages", async () => {
+  const context = await startPublicRouteServer();
+
+  try {
+    const catalog = await loadCatalog(siteRoot);
+    const publishedShows = catalog.filter((show) => show.status === "published");
+    const showMap = new Map(publishedShows.map((show) => [show.id, show]));
+    const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)));
+    const entities = loadEntities(siteRoot, catalog);
+    const routes = [
+      ...entities.filter((entity) => isIndexableEntity(entity, publishedShows)).map((entity) => ({
+        path: entityPath(entity.id),
+        count: getEntityShows(entity.id, publishedShows).length,
+        type: "CollectionPage",
+      })),
+      ...collections
+        .map((collection) => ({
+          collection,
+          shows: collection.showIds.map((showId) => showMap.get(showId)).filter(Boolean),
+        }))
+        .filter(({ collection, shows }) => isIndexableCollection(collection, shows))
+        .map(({ collection, shows }) => ({
+          path: buildCollectionPath(collection.id),
+          count: shows.length,
+          type: "CollectionPage",
+        })),
+    ];
+
+    assert.ok(routes.length > 0);
+    for (const route of routes) {
+      const response = await fetch(`${context.baseUrl}${route.path}`);
+      assert.equal(response.status, 200, route.path);
+      const html = await response.text();
+      const canonical = `${context.baseUrl}${route.path}`;
+      assert.ok(html.includes(`<link rel="canonical" href="${canonical}" />`), route.path);
+
+      const structuredDataMatch = html.match(
+        /<script id="pageStructuredData" type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/,
+      );
+      assert.ok(structuredDataMatch, route.path);
+      const structuredData = JSON.parse(structuredDataMatch[1]);
+      const page = graphNode(structuredData, route.type);
+      const itemList = graphNode(structuredData, "ItemList");
+      assert.equal(page.url, canonical, route.path);
+      assert.equal(itemList.numberOfItems, route.count, route.path);
+      assert.equal(itemList.itemListElement.length, route.count, route.path);
     }
   } finally {
     await stopPublicRouteServer(context);

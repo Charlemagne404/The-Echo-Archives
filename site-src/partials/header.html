@@ -28,18 +28,18 @@
   </nav>
 
   <div class="site-nav-shell" id="siteNavShell" data-state="closed" aria-hidden="true">
-    <button class="site-nav-backdrop" type="button" data-site-nav-close tabindex="-1" aria-label="Close site navigation"></button>
+    <div class="site-nav-backdrop" data-site-nav-close aria-hidden="true"></div>
     <aside class="site-nav-drawer" role="dialog" aria-modal="true" aria-labelledby="siteNavDrawerTitle">
       <div class="site-nav-drawer-head">
-        <a class="site-nav-drawer-brand" href="/" aria-label="The Echo Archives home">
-          <img src="/echo-wordmark-nosub1.svg" alt="The Echo Archives" width="6000" height="900" />
-        </a>
-        <p class="site-nav-drawer-title" id="siteNavDrawerTitle">Site navigation</p>
         <button class="site-nav-close" type="button" data-site-nav-close aria-label="Close site navigation">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6 6 18 18M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" />
           </svg>
         </button>
+        <a class="site-nav-drawer-brand" href="/" aria-label="The Echo Archives home">
+          <img src="/echo-wordmark-nosub1.svg" alt="The Echo Archives" width="6000" height="900" />
+        </a>
+        <p class="site-nav-drawer-title" id="siteNavDrawerTitle">Site navigation</p>
       </div>
 
       {{mobileDrawerNav}}

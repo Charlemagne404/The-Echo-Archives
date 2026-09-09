@@ -1,6 +1,6 @@
 import { getCollectionShows } from "./data.js";
 import { configureShowImageElement, getPreferredCoverSource } from "./images.js";
-import { createArchiveCollectionHref, createCollectionHref } from "./urls.js";
+import { createArchiveCollectionHref, createCollectionHref, createCollectionIntentHref } from "./urls.js";
 import { toDisplayTag } from "./utils.js";
 
 const COLLAGE_LIMIT = 4;
@@ -111,7 +111,9 @@ export function createCollectionHeroTagList(collection, maxItems = 3) {
   }
 
   (collection.intentTags || []).slice(0, maxItems).forEach((tag) => {
-    const item = document.createElement("span");
+    const item = document.createElement("a");
+    item.className = "collection-intent-tag-link";
+    item.href = createCollectionIntentHref(tag);
     item.textContent = toDisplayTag(tag);
     list.appendChild(item);
   });
