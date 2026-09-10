@@ -245,6 +245,8 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.match(releaseWorkflow, /adopt-current/);
   assert.match(releaseWorkflow, /preflight_legacy_worktree_status/);
   assert.match(releaseWorkflow, /legacy checkout was dirty during preflight/);
+  assert.match(releaseWorkflow, /npm --prefix "\$\{temporary_path\}\/backend" ci --include=dev/);
+  assert.match(releaseWorkflow, /npm --prefix "\$\{temporary_path\}\/backend" prune --omit=dev/);
   assert.doesNotMatch(releaseWorkflow, /git merge|git reset --hard/);
 
   const compatibilityUpdateScript = read("update-echo-archives.sh");

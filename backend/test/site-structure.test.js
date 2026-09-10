@@ -299,10 +299,16 @@ test("favicon is a compact PNG-backed ICO with standard browser sizes", () => {
   ]);
 });
 
-test("committed sitemap includes generated show and collection routes", () => {
+test("generated sitemap uses the configured origin and includes show and collection routes", () => {
+  const indexHtml = fs.readFileSync(path.join(siteRoot, "index.html"), "utf8");
   const sitemapXml = fs.readFileSync(path.join(siteRoot, "sitemap.xml"), "utf8");
+  const configuredSiteUrl = indexHtml.match(/<body\b[^>]*\bdata-site-url="([^"]+)"/i)?.[1];
 
-  assert.match(sitemapXml, /<loc>https:\/\/echoarchives\.net\/shows\/[a-z0-9-]+<\/loc>/);
-  assert.match(sitemapXml, /<loc>https:\/\/echoarchives\.net\/collections\/[a-z0-9-]+<\/loc>/);
+  assert.ok(configuredSiteUrl, "generated homepage should expose the configured site URL");
+  const siteOrigin = new URL(configuredSiteUrl).origin;
+  const escapedOrigin = siteOrigin.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+  assert.match(sitemapXml, new RegExp(`<loc>${escapedOrigin}\\/shows\\/[a-z0-9-]+<\\/loc>`));
+  assert.match(sitemapXml, new RegExp(`<loc>${escapedOrigin}\\/collections\\/[a-z0-9-]+<\\/loc>`));
   assert.doesNotMatch(sitemapXml, /\?(?:id|q)=/);
 });

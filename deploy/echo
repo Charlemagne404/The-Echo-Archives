@@ -163,7 +163,7 @@ build_release() {
 
   log "Installing locked backend dependencies for ${commit}."
   if ! run_with_environment "${environment}" "${site_url}" "${env_file}" "${temporary_path}" \
-    npm --prefix "${temporary_path}/backend" ci --no-audit --no-fund; then
+    npm --prefix "${temporary_path}/backend" ci --include=dev --no-audit --no-fund; then
     rm -rf -- "${temporary_path}"
     die "dependency installation failed for ${commit}"
   fi
@@ -172,6 +172,13 @@ build_release() {
   if ! validate_release_build "${environment}" "${site_url}" "${env_file}" "${temporary_path}"; then
     rm -rf -- "${temporary_path}"
     die "release validation failed for ${commit}"
+  fi
+
+  log "Pruning development-only dependencies from the runtime artifact."
+  if ! run_with_environment "${environment}" "${site_url}" "${env_file}" "${temporary_path}" \
+    npm --prefix "${temporary_path}/backend" prune --omit=dev --no-audit --no-fund; then
+    rm -rf -- "${temporary_path}"
+    die "could not prune development dependencies for ${commit}"
   fi
 
   if ! finalize_release "${environment}" "${site_url}" "${temporary_path}" "${final_path}" "${commit}"; then

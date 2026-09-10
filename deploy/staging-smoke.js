@@ -220,7 +220,7 @@ async function main() {
     shortDescription: "Disposable staging smoke submission.",
     verificationNotes: "Created by staging smoke test; safe to remove from staging.",
     legalAcknowledged: true,
-    legalVersion: "2026-08-20",
+    legalVersion: "2026-09-08",
   };
   if (!writeTests) {
     // Exercise the submission endpoint without creating a row or consuming the
@@ -233,10 +233,11 @@ async function main() {
     body: submissionBody,
     expected: writeTests ? [201] : [202],
   });
-  if (!(parseJson("isolated submission write", submission.body) || {}).accepted) fail("isolated submission write", "submission was not accepted");
-  if (writeTests) {
+  const submissionPayload = parseJson("isolated submission write", submission.body) || {};
+  if (!submissionPayload.accepted) fail("isolated submission write", "submission was not accepted");
+  if (writeTests && submission.response?.status === 201 && submissionPayload.accepted) {
     warnings.push("staging smoke created one disposable submission in the isolated staging database");
-  } else {
+  } else if (!writeTests) {
     record("submission endpoint filtered-write safety path");
   }
 
