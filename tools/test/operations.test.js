@@ -249,6 +249,77 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.match(releaseWorkflow, /npm --prefix "\$\{temporary_path\}\/backend" prune --omit=dev/);
   assert.doesNotMatch(releaseWorkflow, /git merge|git reset --hard/);
 
+  const testEnvironmentRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-release-test-env-probe-"));
+  const stagingEnvironment = {
+    ...process.env,
+    NODE_ENV: "production",
+    DEPLOYMENT_ENV: "staging",
+    SITE_URL: "https://staging.echoarchives.net",
+    STATIC_ROOT: "/srv/echo-archives/runtime/staging/current",
+    DB_PATH: "/var/lib/echo-archives-staging/community.sqlite",
+    IMPORT_STAGING_ROOT: "/srv/echo-archives/runtime/staging/current/import-staging",
+    PORT: "3011",
+    INTERNAL_HEALTH_PORT: "4011",
+    SERVE_STATIC: "true",
+    ECHO_ENV_FILE: "/srv/echo-archives/shared/env/staging.env",
+    MAINTAINER_REVIEW_PASSPHRASE: "",
+    MAINTAINER_REVIEW_COOKIE_SECRET: "",
+  };
+
+  try {
+    const probe = spawnSync(
+      "bash",
+      [
+        "-c",
+        'set -Eeuo pipefail; source "$1"; run_in_test_environment "$2" /usr/bin/env',
+        "release-test-environment-probe",
+        path.join(ROOT, "deploy", "release-common.sh"),
+        testEnvironmentRoot,
+      ],
+      { cwd: ROOT, env: stagingEnvironment, encoding: "utf8" },
+    );
+
+    assert.equal(probe.status, 0, probe.stderr);
+    const isolatedEnvironment = Object.fromEntries(
+      probe.stdout
+        .trim()
+        .split("\n")
+        .filter(Boolean)
+        .map((entry) => {
+          const separator = entry.indexOf("=");
+          return [entry.slice(0, separator), entry.slice(separator + 1)];
+        }),
+    );
+
+    assert.equal(isolatedEnvironment.NODE_ENV, "test");
+    assert.equal(isolatedEnvironment.DEPLOYMENT_ENV, undefined);
+    assert.equal(isolatedEnvironment.SITE_URL, "http://127.0.0.1");
+    assert.equal(isolatedEnvironment.HOST, "127.0.0.1");
+    assert.equal(isolatedEnvironment.STATIC_ROOT, testEnvironmentRoot);
+    assert.match(isolatedEnvironment.DB_PATH, /^\/tmp\/echo-release-test-env\.[^/]+\/community\.sqlite$/);
+    assert.notEqual(isolatedEnvironment.DB_PATH, stagingEnvironment.DB_PATH);
+    assert.match(
+      isolatedEnvironment.IMPORT_STAGING_ROOT,
+      /^\/tmp\/echo-release-test-env\.[^/]+\/import-staging$/,
+    );
+    assert.equal(isolatedEnvironment.INTERNAL_HEALTH_PORT, "0");
+    assert.equal(isolatedEnvironment.SERVE_STATIC, "true");
+    assert.equal(isolatedEnvironment.IMPORT_AUTO_WORKER, "false");
+    assert.equal(isolatedEnvironment.IMPORT_AUTO_DISCOVERY, "false");
+
+    for (const key of [
+      "PORT",
+      "ECHO_ENV_FILE",
+      "NODE_OPTIONS",
+      "MAINTAINER_REVIEW_PASSPHRASE",
+      "MAINTAINER_REVIEW_COOKIE_SECRET",
+    ]) {
+      assert.equal(isolatedEnvironment[key], undefined, `${key} leaked into release tests`);
+    }
+  } finally {
+    fs.rmSync(testEnvironmentRoot, { recursive: true, force: true });
+  }
+
   const compatibilityUpdateScript = read("update-echo-archives.sh");
   assert.match(compatibilityUpdateScript, /CANONICAL_WORKFLOW=.*deploy\/echo/);
   assert.match(compatibilityUpdateScript, /exec "\$\{CANONICAL_WORKFLOW\}" "\$@"/);

@@ -123,12 +123,27 @@ run_in_test_environment() {
   local root="$1"
   shift
   [[ -d "${root}" && ! -L "${root}" ]] || die "test root is missing or unsafe: ${root}"
+
+  local test_state
+  test_state="$(mktemp -d /tmp/echo-release-test-env.XXXXXX)" || return 1
+
   (
+    trap 'rm -rf -- "${test_state}"' EXIT
     cd "${root}"
+    mkdir -p "${test_state}/import-staging"
     env -i \
       "PATH=${PATH}" \
       "HOME=${HOME:-/tmp}" \
       NODE_ENV=test \
+      HOST=127.0.0.1 \
+      SITE_URL=http://127.0.0.1 \
+      STATIC_ROOT="${root}" \
+      DB_PATH="${test_state}/community.sqlite" \
+      IMPORT_STAGING_ROOT="${test_state}/import-staging" \
+      SERVE_STATIC=true \
+      INTERNAL_HEALTH_PORT=0 \
+      IMPORT_AUTO_WORKER=false \
+      IMPORT_AUTO_DISCOVERY=false \
       "$@"
   )
 }

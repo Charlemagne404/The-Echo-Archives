@@ -74,16 +74,16 @@ main() {
       continue
     }
   done
-  run_step "locked dependency installation" npm --prefix "${TEMP_ROOT}/backend" ci --no-audit --no-fund
-  run_step "full project verification" env -i \
-    "PATH=${PATH}" \
-    "HOME=${HOME:-/tmp}" \
-    NODE_ENV=test \
+  run_step "locked dependency installation" run_in_test_environment "${TEMP_ROOT}" \
+    npm --prefix "${TEMP_ROOT}/backend" ci --include=dev --no-audit --no-fund
+  run_step "full project verification" run_in_test_environment "${TEMP_ROOT}" \
     npm --prefix "${TEMP_ROOT}" run verify
-  run_step "catalog/entity/route sanity" node "${TEMP_ROOT}/deploy/catalog-sanity.js" "${TEMP_ROOT}"
+  run_step "catalog/entity/route sanity" run_in_test_environment "${TEMP_ROOT}" \
+    node "${TEMP_ROOT}/deploy/catalog-sanity.js" "${TEMP_ROOT}"
 
   if [[ "${EXTERNAL_LINKS}" == true ]]; then
-    run_step "catalog external-link checks" npm --prefix "${TEMP_ROOT}/backend" run check:external-links -- --confirm-network
+    run_step "catalog external-link checks" run_in_test_environment "${TEMP_ROOT}" \
+      npm --prefix "${TEMP_ROOT}/backend" run check:external-links -- --confirm-network
   else
     WARNINGS+=("external catalog links were not checked; pass --external-links to opt in")
   fi
