@@ -321,7 +321,7 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   }
 
   const realValidationRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-real-release-validation-"));
-  const releaseCommit = spawnSync("git", ["rev-parse", "HEAD"], { cwd: ROOT, encoding: "utf8" }).stdout.trim();
+  const releaseCommit = "0".repeat(40);
   try {
     const validation = spawnSync(
       "bash",
@@ -329,39 +329,43 @@ test("deployment shell scripts parse and preserve the required safety order", ()
         "-c",
         String.raw`
           set -Eeuo pipefail
-          source_repo="$3"
           deploy_root="$2/deploy-root"
-          export SOURCE_REPO="$source_repo"
           export DEPLOY_ROOT="$deploy_root"
           source "$1" help >/dev/null
           ensure_layout
           release_root="$(create_temporary_release_path "$4")"
-          git -C "$SOURCE_REPO" archive --format=tar "$4" | tar -x -C "$release_root"
+          tar -C "$3" --exclude='./.git' --exclude='./node_modules' --exclude='./backend/node_modules' -cf - . | tar -x -C "$release_root"
           printf 'RELEASE_ROOT=%s\n' "$release_root"
           test_port="$(/usr/bin/node -e 'const net = require("node:net"); const server = net.createServer(); server.listen(0, "127.0.0.1", () => { console.log(server.address().port); server.close(); });')"
           server_log="$2/server.log"
-          run_in_test_environment "$release_root" env PORT="$test_port" MAINTAINER_REVIEW_PASSPHRASE=archive-test-passphrase MAINTAINER_REVIEW_COOKIE_SECRET=archive-test-cookie-secret-0123456789 OLLAMA_URL=http://127.0.0.1:9/api/generate /usr/bin/node "$5" >"$server_log" 2>&1 &
-          server_pid=$!
-          cleanup() {
-            if kill -0 "$server_pid" 2>/dev/null; then
-              kill "$server_pid" 2>/dev/null || true
-            fi
-            wait "$server_pid" 2>/dev/null || true
-          }
-          trap cleanup EXIT
-          ready=false
-          for attempt in $(seq 1 100); do
-            if curl --silent --show-error --fail --max-time 2 "http://127.0.0.1:$test_port/api/health" >/dev/null; then
-              ready=true
-              break
-            fi
-            sleep 0.1
-          done
-          [[ "$ready" == true ]] || { sed -n '1,120p' "$server_log" >&2; exit 1; }
-          for route in /style.css /maintainer/submissions.html /maintainer/imports.html; do
-            status="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' --max-time 5 "http://127.0.0.1:$test_port$route")"
-            [[ "$status" == 200 ]] || { echo "$route returned $status" >&2; sed -n '1,120p' "$server_log" >&2; exit 1; }
-          done
+          run_in_test_environment "$release_root" bash -c '
+            set -Eeuo pipefail
+            server_log="$1"
+            test_port="$2"
+            server_script="$3"
+            env PORT="$test_port" MAINTAINER_REVIEW_PASSPHRASE=archive-test-passphrase MAINTAINER_REVIEW_COOKIE_SECRET=archive-test-cookie-secret-0123456789 OLLAMA_URL=http://127.0.0.1:9/api/generate /usr/bin/node "$server_script" >"$server_log" 2>&1 &
+            server_pid=$!
+            cleanup() {
+              if kill -0 "$server_pid" 2>/dev/null; then
+                kill "$server_pid" 2>/dev/null || true
+              fi
+              wait "$server_pid" 2>/dev/null || true
+            }
+            trap cleanup EXIT
+            ready=false
+            for attempt in $(seq 1 100); do
+              if curl --silent --show-error --fail --max-time 2 "http://127.0.0.1:$test_port/api/health" >/dev/null; then
+                ready=true
+                break
+              fi
+              sleep 0.1
+            done
+            [[ "$ready" == true ]] || { sed -n "1,120p" "$server_log" >&2; exit 1; }
+            for route in /style.css /maintainer/submissions.html /maintainer/imports.html; do
+              status="$(curl --silent --show-error --output /dev/null --write-out "%{http_code}" --max-time 5 "http://127.0.0.1:$test_port$route")"
+              [[ "$status" == 200 ]] || { echo "$route returned $status" >&2; sed -n "1,120p" "$server_log" >&2; exit 1; }
+            done
+          ' _ "$server_log" "$test_port" "$5"
           printf 'TEST_ENV=isolated\n'
           printf 'STATIC_ROOT=%s\n' "$release_root"
           printf 'ROUTES=style.css,maintainer/submissions.html,maintainer/imports.html\n'
