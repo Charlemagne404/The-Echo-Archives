@@ -76,6 +76,16 @@ validate_release_build() {
   run_in_test_environment "${release_root}" npm --prefix backend test || return 1
 }
 
+create_temporary_release_path() {
+  local commit="$1"
+  assert_release_id "${commit}"
+
+  # Validation starts a server against this directory. Express rejects static
+  # paths containing a dot-prefixed parent, so the disposable workspace must
+  # not use the hidden-directory naming pattern used by ordinary temp files.
+  mktemp -d "${RELEASES_DIR}/release-${commit}.XXXXXX"
+}
+
 finalize_release() {
   local environment="$1"
   local site_url="$2"
@@ -123,7 +133,7 @@ build_release() {
   [[ ! -e "${final_path}" ]] || die "release path exists but is not a directory: ${final_path}"
 
   local temporary_path
-  temporary_path="$(mktemp -d "${RELEASES_DIR}/.${commit}.XXXXXX")"
+  temporary_path="$(create_temporary_release_path "${commit}")"
 
   log "Creating isolated release ${commit} from the exact Git commit."
   if ! git -C "${SOURCE_REPO}" archive --format=tar "${commit}" | tar -x -C "${temporary_path}"; then
