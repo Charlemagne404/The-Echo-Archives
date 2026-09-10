@@ -955,7 +955,7 @@ verify_public_echo() {
   node - "${health}" <<'NODE' || return 1
 const fs = require("node:fs");
 const health = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
-if (health.ok !== true || health.service !== "echo-archives") process.exit(1);
+if (health.ok !== true || health.status !== "ok") process.exit(1);
 NODE
   curl --fail --silent --show-error --max-time 20 \
     --output "${homepage}" https://echoarchives.net/ || return 1
@@ -1096,12 +1096,7 @@ const fs = require("node:fs");
 const health = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
 if (
   health.ok !== true ||
-  !(health.catalogCount > 0) ||
-  health.features?.communityRatingWrites !== true ||
-  health.features?.maintainerReview !== true ||
-  health.features?.accessLogs !== true ||
-  health.durability?.journalMode !== "WAL" ||
-  health.durability?.synchronous !== "FULL"
+  health.status !== "ok"
 ) process.exit(1);
 NODE
 }

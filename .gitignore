@@ -1,19 +1,66 @@
+# Dependencies
 podcast-ai/node_modules/
 backend/node_modules/
-podcast-ai/.env
-backend/.env
+
+# Populated environment files. Keep examples trackable below.
 .env
+.env.*
+*.env
+*.env.*
+!**/.env.example
+!**/.env.*.example
+!**/*.env.example
+!**/*.env.*.example
+
+# Local databases, exports, journals, and sidecars.
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-*
+*.dump
+backup/
+backups/
+backend/data/backups/
+import-staging/
+backend/data/import-staging/
+podcast-ai/data/import-staging/
+
+# Private key and credential material.
+*.key
+*.pem
+*.p12
+*.pfx
+*.jks
+*.crt
+*.cer
+
+# Logs and local runtime state.
+*.log
+*.pid
+*.pid.lock
+*.sock
+tmp/
+runtime/
+.runtime/
+state/
+.state/
+
+# Backups, temporary files, and local archives.
+*.bak
+*.old
+*.tmp
+*.swp
+*.swo
+*~
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+
+# Operating-system and local-agent metadata.
 .DS_Store
 **/.DS_Store
-podcast-ai/data/*.sqlite
-podcast-ai/data/*.sqlite-*
-backend/data/*.sqlite
-backend/data/*.sqlite-*
-backend/data/backups/
-backend/data/import-staging/
-podcast-ai/.DS_Store
-backend/.DS_Store
-*.log
-tmp/
 /.codex-artifacts
 .codex

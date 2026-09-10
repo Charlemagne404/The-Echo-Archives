@@ -12,7 +12,7 @@ requires a multi-location failure quorum before opening an incident.
 
 | Check | Interval | Success condition |
 | --- | ---: | --- |
-| API health | 1 minute | `GET https://echoarchives.net/api/health` returns 2xx and contains `"ok":true` |
+| API health | 1 minute | `GET https://echoarchives.net/api/health` returns 2xx and contains `"ok":true` and `"status":"ok"` |
 | Homepage identity | 5 minutes | `GET https://echoarchives.net/` returns 200 and contains `The Echo Archives` |
 
 Route outage and automatic recovery notifications to
@@ -21,10 +21,11 @@ on-call owner where the account and device support it. Use 60-second
 confirmation/recovery periods for API health and 300-second periods for the
 homepage to avoid single-sample alerts.
 
-The root-owned local monitor continues to enforce the deeper health contract:
-`catalogCount > 0`, `collectionCount > 0`, expected production feature flags,
-redirect behavior, and TLS lifetime. Better Stack is the independent observer
-for public API and homepage availability.
+The root-owned local monitor continues to enforce deeper checks through the
+loopback-only detailed health listener when the release service is installed:
+catalog counts, expected production feature flags, SQLite durability, redirect
+behavior, and TLS lifetime. Better Stack is the independent observer for public
+API and homepage availability.
 
 ## Host checks
 

@@ -13,6 +13,7 @@ WorkingDirectory=/home/charlie/The-Echo-Archives/backend
 Environment=NODE_ENV=production
 Environment=HOST=127.0.0.1
 Environment=PORT=3010
+Environment=INTERNAL_HEALTH_PORT=4010
 Environment=STATIC_ROOT=/home/charlie/The-Echo-Archives
 Environment=SERVE_STATIC=true
 Environment=SITE_URL=https://echoarchives.net

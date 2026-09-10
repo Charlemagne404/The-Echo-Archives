@@ -316,7 +316,7 @@ validate_json_health() {
   node -e '
     const fs = require("node:fs");
     const health = JSON.parse(fs.readFileSync(process.argv[1]));
-    if (health.ok !== true || health.catalogCount < 1 || health.collectionCount < 1) {
+    if (health.ok !== true || health.status !== "ok") {
       process.exit(1);
     }
   ' "${file}"

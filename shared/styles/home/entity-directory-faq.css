@@ -1,0 +1,83 @@
+/* Keep the directory guide visually aligned with the For creators FAQ. */
+.entity-faq {
+  display: grid;
+  gap: 18px;
+}
+
+.entity-faq-heading {
+  align-items: start;
+}
+
+.entity-faq-heading h2 {
+  margin: 0 0 8px;
+}
+
+.entity-faq-heading p {
+  max-width: 58ch;
+  margin: 4px 0 0;
+  color: var(--text-muted);
+  font-size: 0.94rem;
+  line-height: 1.48;
+}
+
+.entity-faq .page-card-kicker {
+  display: inline-flex;
+  margin-bottom: 7px;
+  color: rgba(239, 89, 67, 0.82);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.entity-faq-item summary {
+  list-style: none;
+}
+
+.entity-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.entity-faq-item summary::marker {
+  content: "";
+}
+
+.entity-faq-item[open] {
+  border-color: rgba(239, 89, 67, 0.22);
+  background:
+    linear-gradient(180deg, rgba(239, 89, 67, 0.06), transparent 100%),
+    rgba(10, 13, 18, 0.78);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.2);
+}
+
+.entity-faq-item[open]::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.entity-faq-item[open] .creator-faq-toggle-icon {
+  transform: rotate(45deg);
+  color: rgba(239, 89, 67, 0.98);
+  border-color: rgba(239, 89, 67, 0.22);
+  background: rgba(239, 89, 67, 0.08);
+}
+
+.entity-faq .creator-faq-toggle:focus-visible {
+  outline: 2px solid rgba(239, 89, 67, 0.58);
+  outline-offset: -3px;
+}
+
+.entity-faq .creator-faq-answer-inner p {
+  margin: 0;
+}
+
+.entity-faq .creator-faq-answer-inner a {
+  color: rgba(255, 143, 119, 0.96);
+  text-underline-offset: 3px;
+}
+
+.entity-faq .creator-faq-answer-inner a:hover,
+.entity-faq .creator-faq-answer-inner a:focus-visible {
+  color: #fff7f4;
+}

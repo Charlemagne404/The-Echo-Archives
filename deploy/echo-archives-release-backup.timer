@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily release-aware database backup for The Echo Archives
+
+[Timer]
+OnCalendar=*-*-* 03:15:00
+Persistent=true
+RandomizedDelaySec=15m
+Unit=echo-archives-release-backup.service
+
+[Install]
+WantedBy=timers.target

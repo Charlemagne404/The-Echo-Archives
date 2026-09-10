@@ -1,0 +1,61 @@
+.entity-detail-catalogue {
+  margin-bottom: 0;
+}
+
+.entity-detail-section-heading {
+  align-items: end;
+  margin-bottom: 18px;
+}
+
+.entity-detail-section-heading > div,
+.entity-detail-related-heading > div {
+  min-width: 0;
+}
+
+.entity-detail-section-heading h2 {
+  margin: 5px 0 7px;
+}
+
+.entity-detail-section-heading p,
+.entity-detail-related-heading p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.entity-detail-section-link {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 7px;
+  color: rgba(239, 89, 67, 0.98);
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.entity-detail-section-link:hover,
+.entity-detail-section-link:focus-visible {
+  color: #ff7d61;
+}
+
+.entity-detail-catalogue .podcast-card-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.entity-detail-catalogue .entity-show-role {
+  min-width: 0;
+  margin: -3px 16px 0;
+  overflow: hidden;
+  color: rgba(255, 143, 119, 0.82);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}

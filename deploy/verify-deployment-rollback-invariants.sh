@@ -5,6 +5,7 @@ umask 0077
 
 REPO_ROOT="/home/charlie/The-Echo-Archives"
 PORT="${ROLLBACK_DRILL_PORT:-3921}"
+INTERNAL_HEALTH_PORT="$((PORT + 1000))"
 EXPECTED_COMMIT="${1:-}"
 TEMP_ROOT=""
 WORKTREE=""
@@ -57,6 +58,8 @@ trap 'on_signal HUP 129' HUP
   fail "pass the exact expected 40-character commit"
 [[ "${PORT}" =~ ^[1-9][0-9]*$ && "${PORT}" -le 65535 ]] ||
   fail "ROLLBACK_DRILL_PORT must be between 1 and 65535"
+[[ "${INTERNAL_HEALTH_PORT}" -le 65535 ]] ||
+  fail "ROLLBACK_DRILL_PORT leaves no room for the loopback health listener"
 
 for command_name in cp curl date find git grep kill ln mktemp node sed setsid sleep ss; do
   command -v "${command_name}" >/dev/null 2>&1 ||
@@ -115,6 +118,7 @@ start_isolated() {
     NODE_ENV=development \
     HOST=127.0.0.1 \
     PORT="${PORT}" \
+    INTERNAL_HEALTH_PORT="${INTERNAL_HEALTH_PORT}" \
     STATIC_ROOT="${WORKTREE}" \
     SERVE_STATIC=true \
     SITE_URL=https://echoarchives.net \
@@ -133,6 +137,8 @@ wait_for_health() {
   for attempt in {1..20}; do
     if curl --fail --silent --show-error --max-time 2 \
       --output "${health_json}" "http://127.0.0.1:${PORT}/api/health"; then
+      curl --fail --silent --show-error --max-time 2 \
+        --output "${health_json}" "http://127.0.0.1:${INTERNAL_HEALTH_PORT}/api/health" || return 1
       return
     fi
     kill -0 "${APP_PID}" 2>/dev/null ||

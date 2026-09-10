@@ -15,6 +15,11 @@ Use it as the source of truth for:
 - documentation maintenance rules
 - where dated QA and historical records live
 
+In command examples below, `ECHO_SOURCE_ROOT` means the deployment checkout
+and defaults to `/srv/echo-archives/source`; set it to the local checkout path
+when following the procedure. The deployment user and group are likewise
+host-specific and should be supplied by the host's service configuration.
+
 ## Release 1.0 Status
 
 This runbook is current for the 1.0 release baseline as of **2026-08-20**.
@@ -42,36 +47,45 @@ The supported production shape is:
 - Caddy terminating HTTPS for `https://echoarchives.net`
 - systemd running the app as the dedicated `echo-archives` account
 - SQLite at `/var/lib/echo-archives/community.sqlite`
-- runtime secrets and overrides in `/home/charlie/The-Echo-Archives/backend/.env`
+- release secrets and overrides in `/srv/echo-archives/shared/env/production.env`
 
-The checked-in service unit sets the public origin, static root, database path,
-and production mode. It applies device, kernel, capability, address-family,
-personality, realtime, and setuid/setgid isolation that is compatible with the
-current importer and publication paths. `backend/.env` supplies feature state
-and secrets; before migration, keep it owned by `charlie`, mode `0600`, and
-outside Git. The migration preserves that owner and adds only a named read ACL
-for the runtime account. Because the ACL mask occupies the numeric group-mode
-bits, verify the effective entries with `getfacl backend/.env` rather than
-assuming a post-migration numeric mode of `0600`.
+The checked-in release service unit sets the public origin, static root,
+database path, and production mode. It applies device, kernel, capability,
+address-family, personality, realtime, and setuid/setgid isolation that is
+compatible with the current importer and publication paths. The current live
+host remains on the legacy checkout until the explicit release-service
+cutover; do not treat this repository-side unit as proof that cutover has
+occurred.
 
-The checkout remains owned and deployed by `charlie`. The runtime account can
+The checkout remains owned and deployed by the deployment user. The runtime account can
 read it but cannot write application code or `.git`. It can write only the
 dedicated SQLite state directory and the importer staging/publication paths
 listed in the dedicated-account procedure below.
 
-The canonical deployment installs dependencies as `charlie`, then applies
-read/traverse ACLs to the immutable candidate `node_modules` tree and verifies
-module resolution as `echo-archives` before restarting. Do not replace that
-step with a recursive ownership change; deployment and runtime ownership remain
-separate.
+The release deployment installs dependencies as the deployment user, applies read/traverse
+ACLs to each release, and grants only the active release's existing
+catalog/publication paths the runtime write access needed by the app. Deployment
+and runtime ownership remain separate.
 
 The service runs a configuration preflight before every start. Invalid production configuration prevents startup instead of silently using a development fallback.
 
+## Release workflow
+
+The active staging, promotion, rollback, backup, and disaster-recovery
+procedure is [`deploy/RELEASE_WORKFLOW.md`](../deploy/RELEASE_WORKFLOW.md).
+Read it before changing the production host. It keeps staging on port `3011`
+with its own database and promotes an already-tested SHA by switching a
+symlink; normal promotion does not reload Caddy.
+
 ## Production Environment
 
-Copy [`backend/.env.example`](../backend/.env.example) to `backend/.env`, then replace or remove example values. Do not put `NODE_ENV` in the environment file; systemd sets it to `production`.
+Until the one-time cutover, the legacy service reads
+`${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}/backend/.env`. The release service reads
+`/srv/echo-archives/shared/env/production.env`. Keep either file
+outside Git, mode `0600`, and replace all placeholders before promotion. Do not
+put `NODE_ENV` in the release environment file; systemd sets it to `production`.
 
-`backend/.env` is the single production source for application feature flags.
+The release environment file is the production source for application feature flags.
 The systemd unit sets runtime location and process values but does not duplicate
 feature flags. The local production monitor independently declares the expected
 public state through `EXPECTED_COMMUNITY_RATING_WRITES` and
@@ -224,14 +238,14 @@ gate.
 
 ## First Server Install
 
-On the server, clone the repository at `/home/charlie/The-Echo-Archives`, then run as the `charlie` user:
+On the server, clone the repository at `${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}`, then run as the deployment user:
 
 ```bash
-cd /home/charlie/The-Echo-Archives
+cd "${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}"
 npm --prefix backend ci --omit=dev
 ```
 
-Configure `/home/charlie/The-Echo-Archives/backend/.env`, validate it, then install the checked-in systemd and Caddy configuration:
+Configure `${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}/backend/.env`, validate it, then install the checked-in systemd and Caddy configuration:
 
 ```bash
 NODE_ENV=production npm run check:config
@@ -257,11 +271,11 @@ It does not configure DNS, create secrets, or modify a live database.
 The guarded migration moves the live database out of the deploy checkout,
 creates the system account with a non-login shell, installs the hardened
 service, and adds a hardened discovery-service drop-in. Run it once from the
-canonical clean production checkout as `charlie`:
+canonical clean production checkout as the deployment user:
 
 ```bash
-sudo /home/charlie/The-Echo-Archives/deploy/migrate-echo-archives-runtime-account.sh --apply
-sudo /home/charlie/The-Echo-Archives/deploy/migrate-echo-archives-runtime-account.sh --check
+sudo "${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}/deploy/migrate-echo-archives-runtime-account.sh" --apply
+sudo "${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}/deploy/migrate-echo-archives-runtime-account.sh" --check
 ```
 
 The migration stops only Echo Archives application, discovery, monitoring, and
@@ -283,9 +297,9 @@ The runtime account receives write access only to:
 Those checkout exceptions are required because approved importer publication
 currently writes authored and generated artifacts in place. Publication can
 therefore make the production checkout dirty. Review, validate, commit, and
-push those artifacts as `charlie` before the next canonical deployment. The
+push those artifacts as the deployment user before the next canonical deployment. The
 migration uses targeted ACLs; it does not recursively transfer checkout
-ownership or add the service account to `charlie`'s group.
+ownership or add the service account to the deployment user's group.
 
 The migration checks runtime database writes, checkout protection, importer
 write paths, static serving, loopback Ollama access, discovery identity, a
@@ -294,8 +308,8 @@ backup. Roll back to the recorded migration backup, or name a specific
 protected backup, with:
 
 ```bash
-sudo /home/charlie/The-Echo-Archives/deploy/migrate-echo-archives-runtime-account.sh --rollback
-sudo /home/charlie/The-Echo-Archives/deploy/migrate-echo-archives-runtime-account.sh --rollback /var/backups/echo-archives-runtime-account/<timestamp>
+sudo "${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}/deploy/migrate-echo-archives-runtime-account.sh" --rollback
+sudo "${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}/deploy/migrate-echo-archives-runtime-account.sh" --rollback /var/backups/echo-archives-runtime-account/<timestamp>
 ```
 
 Rollback first captures the newest dedicated-account database into the legacy
@@ -337,28 +351,21 @@ search-engine signals.
 
 ## Routine Server Update
 
-Run routine updates as the `charlie` application user, not root:
+Run routine updates as the deployment user, not root, through the
+release workflow:
 
 ```bash
-cd /home/charlie/The-Echo-Archives
-./deploy/update-echo-archives.sh
+cd "${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}"
+./deploy/echo staging origin/main
+./deploy/echo smoke
+./deploy/echo promote
 ```
 
-`deploy/update-echo-archives.sh` is the only supported deployment
-implementation. The repository-root `update-echo-archives.sh` exists only as a
-compatibility wrapper and immediately delegates to the canonical script;
-automation and runbooks should use the `deploy/` path directly.
-
-The update script deliberately stops before restart unless all of these succeed:
-
-1. The checkout is clean, on a branch with an upstream.
-2. The upstream update can be applied fast-forward-only.
-3. The locked production dependencies install with `npm ci --omit=dev`.
-4. Production configuration validates.
-5. Catalog/page generation, structure, tool tests, data, links, and backend tests pass without changing tracked output.
-6. An online SQLite backup completes and passes `PRAGMA integrity_check`.
-
-It then restarts the service and polls `/api/health`. A failed health check prints systemd status and the last 80 journal entries and exits nonzero. It does not automatically roll back code or data; inspect the failure before choosing a revision or restoring a database.
+`deploy/update-echo-archives.sh` and the repository-root
+`update-echo-archives.sh` are now fail-closed compatibility entry points; they
+do not update a checkout or restart production. Use `./deploy/echo staging`
+for the build/test step and `./deploy/echo promote` for the explicit approval
+boundary. `./deploy/echo rollback` performs the fast no-build release rollback.
 
 ## Post-Reboot Local Launch Completion
 
@@ -366,7 +373,7 @@ After the reviewed host-maintenance pass and reboot, run the guarded local
 completion once from the production checkout:
 
 ```bash
-sudo /home/charlie/The-Echo-Archives/deploy/complete-local-launch-readiness.sh --apply
+sudo "${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}/deploy/complete-local-launch-readiness.sh" --apply
 ```
 
 The script captures the exact UFW, nftables, iptables, and ip6tables state under
@@ -462,7 +469,7 @@ after upload and remote verification. It never writes the live database.
 The guarded first-time completion and repeat restore-drill procedure is:
 
 ```bash
-sudo /home/charlie/The-Echo-Archives/deploy/complete-pi-backup-setup.sh --apply
+sudo "${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}/deploy/complete-pi-backup-setup.sh" --apply
 ```
 
 If the restore drill has already passed and only the automatic service needs
@@ -470,7 +477,7 @@ repair, use the repair-only mode. It validates the recorded successful restore
 and does not repeat it:
 
 ```bash
-sudo /home/charlie/The-Echo-Archives/deploy/complete-pi-backup-setup.sh --repair-automation
+sudo "${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}/deploy/complete-pi-backup-setup.sh" --repair-automation
 ```
 
 It does not initialize a repository or restore over production. It selects the
@@ -523,7 +530,11 @@ Local readiness:
 curl --fail --show-error --silent http://127.0.0.1:3010/api/health
 ```
 
-The endpoint is not cached. It returns a failure status when SQLite is unavailable and exposes only service readiness, feature readiness, and public catalog counts.
+The public endpoint is not cached and intentionally returns only coarse
+readiness: `{ "ok": true, "status": "ok" }` when SQLite and the application
+are ready. Detailed feature, catalog, durability, and release checks belong on
+the separate loopback-only health listener used by the release service and
+local monitor; they are not proxied through Caddy.
 
 Service status and recent logs:
 
@@ -539,13 +550,13 @@ leaving at least 1 GiB free, and expires entries after 14 days. The service uses
 request IDs for backend diagnostics. When investigating a public 5xx response,
 correlate its response request ID with the journal without copying submission
 bodies, contact details, cookies, or secrets into tickets. The production
-monitor requires health to report `features.accessLogs=true` when
-`EXPECTED_ACCESS_LOGS=true`.
+monitor checks the detailed loopback-only health response for the expected
+access-log setting when `EXPECTED_ACCESS_LOGS=true`.
 
 If startup fails, run the production preflight as the application user before changing the unit:
 
 ```bash
-cd /home/charlie/The-Echo-Archives
+cd "${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}"
 NODE_ENV=production npm run check:config
 ```
 

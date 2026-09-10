@@ -519,10 +519,10 @@ run_runtime_checks() {
   if ! /usr/bin/node -e '
     const fs = require("node:fs");
     const health = JSON.parse(fs.readFileSync(process.argv[1], "utf8"));
-    process.exit(health?.features?.accessLogs === true ? 0 : 1);
+    process.exit(health?.ok === true && health?.status === "ok" ? 0 : 1);
   ' "${health_output}"; then
     rm -f -- "${health_output}"
-    die "Access observability is not enabled in the runtime health response."
+    die "The runtime health response was not healthy."
   fi
   sleep 1
   if ! journalctl --namespace=echo-archives --unit "${SERVICE_NAME}" \

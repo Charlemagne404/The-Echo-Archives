@@ -142,14 +142,15 @@ test("chat, community, and submission writes return 429 with Retry-After and rec
     const healthResponse = await fetch(`${context.baseUrl}/api/health`);
     const health = await healthResponse.json();
     assert.equal(health.ok, true);
+    assert.equal(health.status, "ok");
     assert.equal(healthResponse.headers.get("cache-control"), "no-store");
     assert.equal(Object.hasOwn(health, "databasePath"), false);
     assert.equal(Object.hasOwn(health, "model"), false);
-    assert.equal(typeof health.features.communityRatingWrites, "boolean");
-    assert.deepEqual(health.durability, {
-      journalMode: "WAL",
-      synchronous: "FULL",
-    });
+    assert.equal(Object.hasOwn(health, "features"), false);
+    assert.equal(Object.hasOwn(health, "durability"), false);
+    assert.equal(Object.hasOwn(health, "release"), false);
+    assert.equal(healthResponse.headers.get("x-echo-release"), null);
+    assert.equal(healthResponse.headers.get("x-echo-commit"), null);
 
     const chatBody = { message: "Find me a completed sci-fi show.", history: [] };
     assert.equal((await postJson(`${context.baseUrl}/api/chat`, chatBody)).status, 200);

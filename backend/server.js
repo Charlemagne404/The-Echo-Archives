@@ -148,6 +148,19 @@ function getPublicDataRevision(staticRoot) {
     .join("|");
 }
 
+function readReleaseMetadata(staticRoot) {
+  try {
+    const metadata = JSON.parse(fs.readFileSync(path.join(staticRoot, "release.json"), "utf8"));
+    return {
+      id: typeof metadata.releaseId === "string" ? metadata.releaseId : "",
+      commit: typeof metadata.commit === "string" ? metadata.commit : "",
+      builtAt: typeof metadata.builtAt === "string" ? metadata.builtAt : "",
+    };
+  } catch (_error) {
+    return { id: "", commit: "", builtAt: "" };
+  }
+}
+
 function setPublicCacheHeaders(req, res, { image = false } = {}) {
   if (typeof req.query.v === "string" && req.query.v.trim()) {
     res.set("Cache-Control", "public, max-age=31536000, immutable");
@@ -208,6 +221,7 @@ function buildStaticPageMetadata({ routePath, requestSiteUrl, manifestEntry }) {
 async function startServer() {
   config.validateConfig(config);
   const app = express();
+  const releaseMetadata = readReleaseMetadata(config.STATIC_ROOT);
   const state = {
     catalog: [],
     publicCatalog: [],
@@ -406,10 +420,58 @@ async function startServer() {
   });
   const maintainerAuth = createMaintainerAuth(config);
 
+  function getHealthPayload({ detailed = false } = {}) {
+    try {
+      database.prepare("SELECT 1 AS ready").get();
+      const payload = { ok: true, status: "ok" };
+      if (!detailed) {
+        return payload;
+      }
+
+      const journalMode = String(database.pragma("journal_mode", { simple: true }) || "").toUpperCase();
+      const synchronousCode = Number(database.pragma("synchronous", { simple: true }));
+      const synchronous =
+        {
+          0: "OFF",
+          1: "NORMAL",
+          2: "FULL",
+          3: "EXTRA",
+        }[synchronousCode] || `UNKNOWN(${synchronousCode})`;
+
+      return {
+        ...payload,
+        service: "echo-archives",
+        environment: config.DEPLOYMENT_ENV,
+        release: releaseMetadata,
+        catalogCount: state.publicCatalog.length,
+        collectionCount: state.collections.length,
+        durability: {
+          journalMode,
+          synchronous,
+        },
+        features: {
+          communityRatingWrites: Boolean(config.COMMUNITY_RATING_WRITES_ENABLED),
+          maintainerReview: maintainerAuth.enabled,
+          accessLogs: Boolean(config.ACCESS_LOG_ENABLED),
+        },
+      };
+    } catch (_error) {
+      return {
+        ok: false,
+        status: "unhealthy",
+      };
+    }
+  }
+
+  function sendHealth(res, { detailed = false } = {}) {
+    const payload = getHealthPayload({ detailed });
+    return res.status(payload.ok ? 200 : 503).json(payload);
+  }
+
   config.getConfigWarnings(config).forEach((warning) => console.warn(warning));
 
-  const applyRuntimeSiteConfig = (html, nonce = "") =>
-    injectRuntimeSiteConfig(html, {
+  const applyRuntimeSiteConfig = (html, nonce = "") => {
+    const configured = injectRuntimeSiteConfig(html, {
       archivistEnabled: config.ARCHIVIST_ENABLED,
       homeCardHoverExpandEnabled: config.HOME_CARD_HOVER_EXPAND_ENABLED,
       siteUrl: config.SITE_URL,
@@ -418,6 +480,8 @@ async function startServer() {
       searchIndexVersion: state.searchIndexVersion,
       nonce,
     });
+    return config.IS_STAGING ? injectNoIndex(configured) : configured;
+  };
 
   const renderErrorPage = (req, fileName) => {
     const isServerError = fileName === "500.html";
@@ -449,6 +513,13 @@ async function startServer() {
   );
   app.use(applySecurityHeaders);
   app.use((_req, res, next) => {
+    if (config.IS_STAGING) {
+      res.set("X-Echo-Environment", "staging");
+      res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+    }
+    next();
+  });
+  app.use((_req, res, next) => {
     res.set("Cache-Control", "no-cache");
     next();
   });
@@ -469,39 +540,7 @@ async function startServer() {
 
   app.get("/api/health", (_req, res) => {
     res.set("Cache-Control", "no-store");
-    try {
-      database.prepare("SELECT 1 AS ready").get();
-      const journalMode = String(database.pragma("journal_mode", { simple: true }) || "").toUpperCase();
-      const synchronousCode = Number(database.pragma("synchronous", { simple: true }));
-      const synchronous =
-        {
-          0: "OFF",
-          1: "NORMAL",
-          2: "FULL",
-          3: "EXTRA",
-        }[synchronousCode] || `UNKNOWN(${synchronousCode})`;
-      return res.json({
-        ok: true,
-        service: "echo-archives",
-        catalogCount: state.publicCatalog.length,
-        collectionCount: state.collections.length,
-        durability: {
-          journalMode,
-          synchronous,
-        },
-        features: {
-          communityRatingWrites: Boolean(config.COMMUNITY_RATING_WRITES_ENABLED),
-          maintainerReview: maintainerAuth.enabled,
-          accessLogs: Boolean(config.ACCESS_LOG_ENABLED),
-        },
-      });
-    } catch (_error) {
-      return res.status(503).json({
-        ok: false,
-        service: "echo-archives",
-        error: "Database readiness check failed.",
-      });
-    }
+    return sendHealth(res);
   });
 
   if (process.env.ENABLE_TEST_ERROR_ROUTES === "true") {
@@ -528,6 +567,9 @@ async function startServer() {
 
   app.get("/robots.txt", (_req, res) => {
     res.set("Cache-Control", "public, max-age=3600, stale-while-revalidate=3600");
+    if (config.IS_STAGING) {
+      return res.type("text/plain").send(["User-agent: *", "Disallow: /", ""].join("\n"));
+    }
     res.type("text/plain").send(
       [
         "User-agent: *",
@@ -874,7 +916,15 @@ async function startServer() {
     app.get("/offline.html", (_req, res) => {
       res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
       res.set("Cache-Control", "no-cache");
-      return res.sendFile(path.join(config.STATIC_ROOT, "offline.html"));
+      const template = readPublicPageTemplate("offline.html");
+      const rendered = injectPageMetadata(template, {
+        title: "Offline - The Echo Archives",
+        description: "The archive cannot reach the network right now. Reconnect to keep browsing and fetching live data.",
+        canonicalUrl: `${normalizeSiteUrl(config.SITE_URL)}/offline.html`,
+        imageUrl: `${normalizeSiteUrl(config.SITE_URL)}/echo-wordmark1.png`,
+        imageAlt: "The Echo Archives social preview",
+      });
+      return res.type("html").send(applyRuntimeSiteConfig(rendered, _req.cspNonce));
     });
     app.get("/404.html", (req, res) => {
       res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
@@ -1004,6 +1054,26 @@ async function startServer() {
     console.log(`Echo Archives listening on http://${config.HOST}:${config.PORT}`);
   });
 
+  const internalHealthApp = express();
+  internalHealthApp.disable("x-powered-by");
+  internalHealthApp.get("/api/health", (_req, res) => {
+    res.set("Cache-Control", "no-store");
+    return sendHealth(res, { detailed: true });
+  });
+  internalHealthApp.use((_req, res) => res.status(404).json({ error: "Not found." }));
+
+  let internalHealthServer = null;
+  if (config.INTERNAL_HEALTH_PORT > 0) {
+    internalHealthServer = internalHealthApp.listen(config.INTERNAL_HEALTH_PORT, "127.0.0.1", () => {
+      console.log(`Echo Archives internal health listening on http://127.0.0.1:${config.INTERNAL_HEALTH_PORT}`);
+    });
+    internalHealthServer.on("error", (error) => {
+      console.error(`Internal health listener failed: ${error.message || error}`);
+      process.exitCode = 1;
+      server.close();
+    });
+  }
+
   let shuttingDown = false;
   function shutdown(signal) {
     if (shuttingDown) return;
@@ -1014,11 +1084,15 @@ async function startServer() {
     const forceTimer = setTimeout(() => {
       console.error("Graceful shutdown timed out; forcing remaining connections closed.");
       server.closeAllConnections?.();
+      internalHealthServer?.closeAllConnections?.();
       process.exit(1);
     }, 10_000);
     forceTimer.unref();
 
-    server.close(() => {
+    let remainingListeners = internalHealthServer ? 2 : 1;
+    const finishListenerClose = () => {
+      remainingListeners -= 1;
+      if (remainingListeners > 0) return;
       clearTimeout(forceTimer);
       try {
         database.close();
@@ -1026,14 +1100,18 @@ async function startServer() {
         // The database may already be closed during a startup or process failure.
       }
       process.exit(0);
-    });
+    };
+
+    server.close(finishListenerClose);
+    internalHealthServer?.close(finishListenerClose);
     server.closeIdleConnections?.();
+    internalHealthServer?.closeIdleConnections?.();
   }
 
   process.once("SIGTERM", () => shutdown("SIGTERM"));
   process.once("SIGINT", () => shutdown("SIGINT"));
 
-  return { app, server, database };
+  return { app, server, database, internalHealthServer };
 }
 
 startServer().catch((error) => {

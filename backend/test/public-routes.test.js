@@ -192,6 +192,66 @@ test("all indexable creator and collection routes serve canonical structured pag
   }
 });
 
+test("staging responses identify the environment and are excluded from indexing", async () => {
+  const context = await startPublicRouteServer({
+    NODE_ENV: "production",
+    DEPLOYMENT_ENV: "staging",
+    SITE_URL: "https://staging.echoarchives.com",
+    COMMUNITY_RATING_WRITES_ENABLED: "true",
+    COMMUNITY_TURNSTILE_ENABLED: "false",
+    COMMUNITY_VOTER_HASH_SECRET: "staging-test-voter-secret-123456789",
+  });
+
+  try {
+    const response = await fetch(`${context.baseUrl}/`);
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get("x-echo-environment"), "staging");
+    assert.equal(response.headers.get("x-robots-tag"), "noindex, nofollow, noarchive");
+    assert.match(await response.text(), /<meta[^>]+name="robots"[^>]+noindex/i);
+
+    const health = await fetch(`${context.baseUrl}/api/health`);
+    assert.equal(health.status, 200);
+    const healthJson = await health.json();
+    assert.deepEqual(healthJson, { ok: true, status: "ok" });
+    assert.equal(health.headers.get("x-echo-release"), null);
+    assert.equal(health.headers.get("x-echo-commit"), null);
+
+    const robots = await fetch(`${context.baseUrl}/robots.txt`);
+    assert.equal(robots.status, 200);
+    assert.match(await robots.text(), /Disallow: \/\s*$/m);
+
+    const offline = await fetch(`${context.baseUrl}/offline.html`);
+    assert.equal(offline.status, 200);
+    assert.match(await offline.text(), /data-site-url="https:\/\/staging\.echoarchives\.com"/);
+  } finally {
+    await stopPublicRouteServer(context);
+  }
+});
+
+test("public health stays coarse while detailed health remains loopback-only", async () => {
+  const internalPort = await findFreePort();
+  const context = await startPublicRouteServer({
+    INTERNAL_HEALTH_PORT: String(internalPort),
+  });
+
+  try {
+    const publicHealth = await fetch(`${context.baseUrl}/api/health`);
+    assert.deepEqual(await publicHealth.json(), { ok: true, status: "ok" });
+    assert.equal(publicHealth.headers.get("x-echo-release"), null);
+    assert.equal(publicHealth.headers.get("x-echo-commit"), null);
+
+    const internalHealth = await fetch(`http://127.0.0.1:${internalPort}/api/health`);
+    assert.equal(internalHealth.status, 200);
+    const internalJson = await internalHealth.json();
+    assert.equal(internalJson.ok, true);
+    assert.equal(internalJson.status, "ok");
+    assert.equal(internalJson.service, "echo-archives");
+    assert.equal(internalJson.durability.synchronous, "FULL");
+  } finally {
+    await stopPublicRouteServer(context);
+  }
+});
+
 test("show and collection routes include crawler-visible metadata in the raw HTML response", async () => {
   const context = await startPublicRouteServer();
 

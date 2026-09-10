@@ -6,6 +6,7 @@ umask 0077
 APP_USER="${APP_USER:-charlie}"
 REPO_ROOT="/home/charlie/The-Echo-Archives"
 PORT="${RESTORE_TEST_PORT:-3911}"
+INTERNAL_HEALTH_PORT="$((PORT + 1000))"
 DATABASE_PATH="${1:-}"
 EXPECTED_PODCASTS="${2:-}"
 OLLAMA_URL_OVERRIDE="${OLLAMA_URL_OVERRIDE:-http://127.0.0.1:11434/api/generate}"
@@ -61,6 +62,8 @@ if [[ -n "${VERIFY_ARCHIVIST_EXPECTED_SOURCE}" ]]; then
 fi
 [[ "${PORT}" =~ ^[1-9][0-9]*$ && "${PORT}" -le 65535 ]] ||
   fail "RESTORE_TEST_PORT must be between 1 and 65535"
+[[ "${INTERNAL_HEALTH_PORT}" -le 65535 ]] ||
+  fail "RESTORE_TEST_PORT leaves no room for the loopback health listener"
 
 for command_name in chown chmod curl find grep kill mktemp node realpath runuser sed setsid sleep ss; do
   command -v "${command_name}" >/dev/null 2>&1 ||
@@ -126,6 +129,7 @@ setsid runuser -u "${APP_USER}" -- env -i \
   NODE_ENV=development \
   HOST=127.0.0.1 \
   PORT="${PORT}" \
+  INTERNAL_HEALTH_PORT="${INTERNAL_HEALTH_PORT}" \
   STATIC_ROOT="${REPO_ROOT}" \
   SERVE_STATIC=true \
   SITE_URL=https://echoarchives.net \
@@ -155,6 +159,10 @@ for attempt in {1..30}; do
   fi
   sleep 1
 done
+
+curl --fail --silent --show-error --max-time 5 \
+  --output "${health_json}" "http://127.0.0.1:${INTERNAL_HEALTH_PORT}/api/health" ||
+  fail "isolated application detailed health listener did not become ready"
 
 ss -H -ltn | awk -v port=":${PORT}" '
   index($4, port) && $4 != "127.0.0.1" port { bad = 1 }

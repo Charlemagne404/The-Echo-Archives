@@ -157,8 +157,8 @@ test("prepared Better Stack files contain no credentials and preserve backup ord
   const backupScript = fs.readFileSync(path.join(ROOT, "deploy/echo-archives-offsite-backup.sh"), "utf8");
   const plan = fs.readFileSync(path.join(ROOT, "deploy/MONITORING_PLAN.md"), "utf8");
 
-  assert.match(accountEnv, /^BETTER_STACK_API_TOKEN=$/m);
-  assert.match(heartbeatEnv, /^BETTER_STACK_BACKUP_HEARTBEAT_URL=$/m);
+  assert.match(accountEnv, /^BETTER_STACK_API_TOKEN=(?:$|CHANGE_ME_[A-Z_]+)$/m);
+  assert.match(heartbeatEnv, /^BETTER_STACK_BACKUP_HEARTBEAT_URL=(?:$|CHANGE_ME_[A-Z_]+)$/m);
   assert.doesNotMatch(`${accountEnv}\n${heartbeatEnv}`, /api\/v1\/heartbeat\/[A-Za-z0-9_-]{8,}/);
   assert.match(dropIn, /ExecStartPost=.*notify-better-stack-heartbeat\.js success/);
   assert.match(dropIn, /ExecStopPost=.*notify-better-stack-heartbeat\.js systemd-result/);

@@ -201,6 +201,12 @@ test("deployment shell scripts parse and preserve the required safety order", ()
     "deploy/migrate-echo-archives-runtime-account.sh",
     "deploy/migrate-echoarchives-domain.sh",
     "deploy/production-host-maintenance.sh",
+    "deploy/prepare-staging-caddy-candidate.sh",
+    "deploy/staging-smoke.sh",
+    "deploy/deep-validate.sh",
+    "deploy/preflight.sh",
+    "deploy/echo",
+    "deploy/release-common.sh",
     "deploy/update-echo-archives.sh",
     "deploy/verify-deployment-rollback-invariants.sh",
     "deploy/verify-restored-application.sh",
@@ -211,46 +217,74 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   }
 
   const updateScript = read("deploy/update-echo-archives.sh");
-  assertOrdered(updateScript, [
-    "git status --porcelain",
-    "git fetch --prune",
-    'git worktree add --detach "${CANDIDATE_WORKTREE}" "${TARGET_REVISION}"',
-    'npm --prefix "${CANDIDATE_WORKTREE}/backend" ci --omit=dev',
-    'grant_runtime_dependency_read_access "${CANDIDATE_WORKTREE}/backend/node_modules"',
-    "NODE_ENV=production npm run check:config",
-    "npm run test:tools",
-    "npm run backup:database",
-    'git merge --ff-only "${TARGET_REVISION}"',
-    'sudo systemctl restart "${SERVICE_NAME}"',
+  assert.match(updateScript, /Direct production checkout updates are disabled/);
+  assert.match(updateScript, /\.\/deploy\/echo staging <commit-or-ref>/);
+  assert.doesNotMatch(updateScript, /git (?:fetch|merge|reset)|npm (?:install|ci)|systemctl (?:reload|restart|start|stop)/);
+
+  const releaseWorkflow = read("deploy/echo");
+  const stagingDeployment = releaseWorkflow.slice(releaseWorkflow.indexOf("deploy_staging() {"));
+  assertOrdered(stagingDeployment, [
+    "fetch_source",
+    "build_release",
+    "atomic_switch \"${STAGING_LINK}\" \"${commit}\"",
+    "start_and_check_staging \"${commit}\"",
+    "record_staging_test",
   ]);
-  assert.match(
-    updateScript,
-    /wait_for_health\(\)[\s\S]*curl --fail --silent --show-error --max-time 5[\s\S]*"\$\{HEALTH_URL\}"/,
-  );
-  assert.match(
-    updateScript,
-    /sudo systemctl restart "\$\{SERVICE_NAME\}"[\s\S]*if ! wait_for_health/,
-  );
-  assert.match(updateScript, /journalctl --namespace=echo-archives/);
-  assert.match(
-    updateScript,
-    /mv "\$\{CANDIDATE_WORKTREE\}\/backend\/node_modules" "\$\{REPO_ROOT\}\/backend\/node_modules"[\s\S]*verify_runtime_dependency_access[\s\S]*sudo systemctl restart/,
-  );
-  assert.match(
-    updateScript,
-    /PREVIOUS_DEPENDENCIES="\$\{CANDIDATE_PARENT\}\/node_modules\.previous"[\s\S]*git merge --ff-only "\$\{TARGET_REVISION\}"[\s\S]*DEPLOYMENT_APPLIED=true[\s\S]*mv "\$\{REPO_ROOT\}\/backend\/node_modules"/,
-  );
-  assert.match(
-    updateScript,
-    /HEALTH_SUMMARY="\$\([\s\S]*health\.service !== "echo-archives"[\s\S]*DEPLOYMENT_APPLIED=false[\s\S]*cleanup_tree "\$\{PREVIOUS_DEPENDENCIES\}"/,
-  );
-  assert.match(updateScript, /setfacl -m "u:\$\{RUNTIME_USER\}:r-x,d:u:\$\{RUNTIME_USER\}:r-x"/);
-  assert.match(updateScript, /sudo -u "\$\{RUNTIME_USER\}" -- \/usr\/bin\/node/);
+  const stagingHealth = releaseWorkflow.slice(releaseWorkflow.indexOf("start_and_check_staging() {"));
+  assertOrdered(stagingHealth, [
+    "restart_service \"${STAGING_SERVICE}\"",
+    "health_check \"staging\"",
+    "staging-smoke.sh",
+  ]);
+  assert.match(releaseWorkflow, /health_check \"production\"/);
+  const releaseCommon = read("deploy/release-common.sh");
+  assert.match(releaseCommon, /verify_running_release \"\$\{expected_environment\}" \"\$\{expected_commit\}"/);
+  assert.match(releaseWorkflow, /atomic_switch \"\$\{CURRENT_LINK\}\" \"\$\{staging_release\}\"/);
+  assert.match(releaseWorkflow, /automatic-rollback/);
+  assert.match(releaseWorkflow, /Production was not touched/);
+  assert.match(releaseWorkflow, /adopt-current/);
+  assert.match(releaseWorkflow, /preflight_legacy_worktree_status/);
+  assert.match(releaseWorkflow, /legacy checkout was dirty during preflight/);
+  assert.doesNotMatch(releaseWorkflow, /git merge|git reset --hard/);
 
   const compatibilityUpdateScript = read("update-echo-archives.sh");
-  assert.match(compatibilityUpdateScript, /CANONICAL_UPDATE=.*deploy\/update-echo-archives\.sh/);
-  assert.match(compatibilityUpdateScript, /exec "\$\{CANONICAL_UPDATE\}" "\$@"/);
+  assert.match(compatibilityUpdateScript, /CANONICAL_WORKFLOW=.*deploy\/echo/);
+  assert.match(compatibilityUpdateScript, /exec "\$\{CANONICAL_WORKFLOW\}" "\$@"/);
   assert.doesNotMatch(compatibilityUpdateScript, /npm (?:install|ci)|systemctl (?:reload|restart)/);
+
+  const stagingCaddy = read("deploy/Caddyfile.staging.echo");
+  assert.match(stagingCaddy, /staging\.echoarchives\.net\s*\{/);
+  assert.match(stagingCaddy, /reverse_proxy 127\.0\.0\.1:3011/);
+  assert.match(stagingCaddy, /abort @not_cloudflare/);
+
+  const releaseService = read("deploy/echo-archives-release.service");
+  const stagingService = read("deploy/echo-archives-staging.service");
+  const releaseBackupService = read("deploy/echo-archives-release-backup.service");
+  const releaseBackupTimer = read("deploy/echo-archives-release-backup.timer");
+  assert.match(releaseService, /WorkingDirectory=\/srv\/echo-archives\/current\/backend/);
+  assert.match(releaseService, /ExecStart=\/usr\/bin\/node \/srv\/echo-archives\/current\/backend\/server\.js/);
+  assert.match(releaseService, /Environment=PORT=3010/);
+  assert.match(releaseService, /Environment=INTERNAL_HEALTH_PORT=4010/);
+  assert.match(releaseService, /Environment=STATIC_ROOT=\/srv\/echo-archives\/runtime\/production\/current/);
+  assert.match(releaseService, /Environment=IMPORT_STAGING_ROOT=\/srv\/echo-archives\/runtime\/production\/current\/import-staging/);
+  assert.match(releaseService, /EnvironmentFile=\/srv\/echo-archives\/shared\/env\/production\.env/);
+  assert.match(stagingService, /WorkingDirectory=\/srv\/echo-archives\/staging\/backend/);
+  assert.match(stagingService, /ExecStart=\/usr\/bin\/node \/srv\/echo-archives\/staging\/backend\/server\.js/);
+  assert.match(stagingService, /Environment=PORT=3011/);
+  assert.match(stagingService, /Environment=INTERNAL_HEALTH_PORT=4011/);
+  assert.match(stagingService, /Environment=STATIC_ROOT=\/srv\/echo-archives\/runtime\/staging\/current/);
+  assert.match(stagingService, /Environment=IMPORT_STAGING_ROOT=\/srv\/echo-archives\/runtime\/staging\/current\/import-staging/);
+  assert.match(stagingService, /EnvironmentFile=\/srv\/echo-archives\/shared\/env\/staging\.env/);
+  assert.match(stagingService, /DB_PATH=\/var\/lib\/echo-archives-staging\/community\.sqlite/);
+  assert.match(releaseBackupService, /--source \/var\/lib\/echo-archives\/community\.sqlite/);
+  assert.match(releaseBackupService, /BACKUP_DIR=\/var\/backups\/echo-archives/);
+  assert.match(releaseBackupService, /current\/tools\/backup-database\.js/);
+  assert.match(releaseBackupTimer, /Unit=echo-archives-release-backup\.service/);
+
+  const releaseDiscoveryService = read("deploy/echo-archives-release-discovery.service");
+  assert.match(releaseDiscoveryService, /WorkingDirectory=\/srv\/echo-archives\/current\/backend/);
+  assert.match(releaseDiscoveryService, /Environment=STATIC_ROOT=\/srv\/echo-archives\/runtime\/production\/current/);
+  assert.match(releaseDiscoveryService, /Environment=IMPORT_STAGING_ROOT=\/srv\/echo-archives\/runtime\/production\/current\/import-staging/);
 
   const installScript = read("deploy/install-echo-archives-system.sh");
   assert.match(installScript, /Caddyfile\.global\.echo/);
@@ -330,7 +364,7 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.match(runtimeMigration, /10-runtime-account\.conf/);
   assert.match(runtimeMigration, /echo-archives-journald\.conf/);
   assert.match(runtimeMigration, /MaxRetentionSec=14day/);
-  assert.match(runtimeMigration, /health\?\.features\?\.accessLogs === true/);
+  assert.match(runtimeMigration, /health\?\.ok === true && health\?\.status === \"ok\"/);
   assert.match(runtimeMigration, /journalctl --namespace=echo-archives/);
   assert.match(runtimeMigration, /"event":"http_request"/);
   assert.match(

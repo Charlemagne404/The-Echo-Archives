@@ -1,0 +1,28 @@
+[Unit]
+Description=The Echo Archives release-based show discovery
+After=network-online.target echo-archives.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=echo-archives
+Group=echo-archives
+WorkingDirectory=/srv/echo-archives/current/backend
+EnvironmentFile=/srv/echo-archives/shared/env/production.env
+Environment=NODE_ENV=production
+Environment=DEPLOYMENT_ENV=production
+Environment=STATIC_ROOT=/srv/echo-archives/runtime/production/current
+Environment=IMPORT_STAGING_ROOT=/srv/echo-archives/runtime/production/current/import-staging
+Environment=DB_PATH=/var/lib/echo-archives/community.sqlite
+ExecStart=/usr/bin/node /srv/echo-archives/current/backend/scripts/import-discover.js
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=read-only
+ProtectSystem=strict
+ReadWritePaths=/var/lib/echo-archives
+ReadWritePaths=/srv/echo-archives/runtime/production/current/import-staging
+ReadWritePaths=/srv/echo-archives/runtime/production/current/catalog-src/shows
+ReadWritePaths=/srv/echo-archives/runtime/production/current/images/covers
+UMask=0027
+StandardOutput=journal
+StandardError=journal

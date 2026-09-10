@@ -32,6 +32,8 @@ Node.js 22.12 or newer is required. CI pins the current production runtime, Node
 Copy `.env.example` to `.env` if you want to override defaults.
 
 - `PORT`: API and site port. Defaults to `3010` to avoid common local conflicts.
+- `DEPLOYMENT_ENV`: `development`, `test`, `staging`, or `production`; staging and production enable stricter origin/database checks
+- `INTERNAL_HEALTH_PORT`: optional loopback-only listener for detailed local deployment checks; leave it empty for ordinary development
 - `OLLAMA_URL`: Ollama generate endpoint
 - `OLLAMA_MODEL`: model name sent to Ollama
 - `ARCHIVIST_ENABLED`: exposes the preserved Archivist UI and chat API. Defaults to `false`
@@ -39,6 +41,7 @@ Copy `.env.example` to `.env` if you want to override defaults.
 - `SERVE_STATIC`: serve the site and assets from the same process
 - `REQUEST_TIMEOUT_MS`: timeout for the model request
 - `DB_PATH`: SQLite database path for community features
+- `SQLITE_SYNCHRONOUS`: SQLite durability mode. Use `FULL` for staging and production
 - `SITE_URL`: authoritative public origin for canonical and discovery metadata
 - `TRUST_PROXY`: Express trusted-proxy setting. Defaults to `loopback`
 - `PODCAST_INDEX_API_KEY`: optional Podcast Index API key for import enrichment
@@ -70,7 +73,11 @@ Copy `.env.example` to `.env` if you want to override defaults.
 - `PLAUSIBLE_DOMAIN`: optional public analytics domain injected into generated public pages during `npm run build:pages`
 - `PLAUSIBLE_SCRIPT_SRC`: optional Plausible script URL override used during page generation
 
-Run `npm run check:config` before local startup. Run `NODE_ENV=production npm run check:config` before deployment. Production requirements, backup/restore, and deployment procedures live in [`docs/OPERATIONS.md`](../docs/OPERATIONS.md).
+`ENABLE_TEST_ERROR_ROUTES` and `SMOKE_BROWSER` are test-only variables and must
+not be placed in a deployment environment file. Run `npm run check:config`
+before local startup. Run `NODE_ENV=production npm run check:config` before
+deployment. Production requirements, backup/restore, and deployment procedures
+live in [`docs/OPERATIONS.md`](../docs/OPERATIONS.md).
 
 ## Maintainer review workflow
 

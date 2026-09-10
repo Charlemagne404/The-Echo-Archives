@@ -1562,5 +1562,22 @@
       "https://robertdelamere.co.uk/productions/?i=52",
       "https://www.imdb.com/title/tt14928712/"
     ]
+  },
+  {
+    "id": "profile-theatre",
+    "name": "Profile Theatre",
+    "type": "production-company",
+    "aliases": [],
+    "directory": false,
+    "publication": "public",
+    "indexable": false,
+    "website": "https://profiletheatre.org/",
+    "reviewedAt": "2026-09-10",
+    "sources": [
+      "https://profiletheatre.org/about-us/",
+      "https://profiletheatre.org/",
+      "https://feeds.castos.com/ox85",
+      "https://podcasts.apple.com/us/podcast/claudia-a-viral-love-story/id1518857050?uo=4"
+    ]
   }
 ]

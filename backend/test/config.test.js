@@ -67,6 +67,19 @@ test("production configuration rejects non-origin SITE_URL and incomplete mainta
   assert.match(incompleteAuth.stderr, /must be configured together/i);
 });
 
+test("staging configuration permits isolated rating writes without production Turnstile", () => {
+  const result = runConfig({
+    DEPLOYMENT_ENV: "staging",
+    SITE_URL: "https://staging.echo.example.com",
+    DB_PATH: path.join(backendRoot, "data", "staging-test.sqlite"),
+    COMMUNITY_RATING_WRITES_ENABLED: "true",
+    COMMUNITY_TURNSTILE_ENABLED: "false",
+    COMMUNITY_VOTER_HASH_SECRET: "a-stable-staging-voter-secret-123456789",
+  }, "const c=require('./lib/config'); c.validateConfig(c); process.stdout.write(JSON.stringify({environment:c.DEPLOYMENT_ENV,staging:c.IS_STAGING,writes:c.COMMUNITY_RATING_WRITES_ENABLED}));");
+  assert.equal(result.status, 0, result.stderr);
+  assert.deepEqual(JSON.parse(result.stdout), { environment: "staging", staging: true, writes: true });
+});
+
 test("production rating writes require complete Turnstile and voter-secret configuration", () => {
   const incomplete = runConfig({ COMMUNITY_RATING_WRITES_ENABLED: "true" });
   assert.equal(incomplete.status, 1);

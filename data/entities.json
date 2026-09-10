@@ -1562,5 +1562,22 @@
       "https://www.imdb.com/title/tt14928712/"
     ],
     "directory": false
+  },
+  {
+    "id": "profile-theatre",
+    "name": "Profile Theatre",
+    "type": "production-company",
+    "aliases": [],
+    "website": "https://profiletheatre.org/",
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-10",
+    "sources": [
+      "https://profiletheatre.org/about-us/",
+      "https://profiletheatre.org/",
+      "https://feeds.castos.com/ox85",
+      "https://podcasts.apple.com/us/podcast/claudia-a-viral-love-story/id1518857050?uo=4"
+    ],
+    "directory": false
   }
 ]

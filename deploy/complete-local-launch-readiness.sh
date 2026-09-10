@@ -133,8 +133,7 @@ validate_echo_health() {
   node -e '
     const fs = require("node:fs");
     const value = JSON.parse(fs.readFileSync(process.argv[1], "utf8"));
-    if (value.ok !== true || value.service !== "echo-archives" ||
-        !(value.catalogCount > 0) || !(value.collectionCount > 0)) process.exit(1);
+    if (value.ok !== true || value.status !== "ok") process.exit(1);
   ' "${output}" || die "Echo health semantics failed for ${url}."
 }
 
@@ -407,9 +406,9 @@ curl --resolve echoarchives.net:443:127.0.0.1 \
   --output "${TEMP_DIR}/echo-origin.json" \
   "https://echoarchives.net/api/health"
 node -e '
-  const fs = require("node:fs");
-  const value = JSON.parse(fs.readFileSync(process.argv[1], "utf8"));
-  if (value.ok !== true || value.service !== "echo-archives") process.exit(1);
+const fs = require("node:fs");
+const value = JSON.parse(fs.readFileSync(process.argv[1], "utf8"));
+if (value.ok !== true || value.status !== "ok") process.exit(1);
 ' "${TEMP_DIR}/echo-origin.json" || die "Origin-direct Echo health failed."
 curl --resolve www.echoarchives.net:443:127.0.0.1 \
   --silent --show-error --max-time 15 \

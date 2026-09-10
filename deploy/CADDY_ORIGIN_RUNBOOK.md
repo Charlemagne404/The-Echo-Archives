@@ -12,7 +12,7 @@ redirect remains directly reachable. It does not alter unrelated site blocks.
    ```bash
    ./deploy/prepare-caddy-origin-candidate.sh \
      /etc/caddy/Caddyfile \
-     /home/charlie/.local/state/echo-archives-rollbacks/Caddyfile.candidate
+     ${ROLLBACK_STATE_ROOT:-/var/lib/echo-archives/rollback-state}/Caddyfile.candidate
    ```
 
 3. Review the full diff. The only intended changes are:

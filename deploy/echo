@@ -1,0 +1,465 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+IFS=$'\n\t'
+umask 0077
+
+SCRIPT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=release-common.sh
+source "${SCRIPT_ROOT}/release-common.sh"
+
+usage() {
+  cat <<'EOF'
+The Echo Archives release workflow
+
+Usage:
+  ./deploy/echo staging <commit-or-ref>
+  ./deploy/echo smoke [--crawl] [base-url]
+  ./deploy/echo validate <commit-or-ref> [--external-links] [--crawl]
+  ./deploy/echo preflight
+  ./deploy/echo adopt-current <legacy-release-sha>
+  ./deploy/echo promote
+  ./deploy/echo rollback [release-sha]
+  ./deploy/echo status
+  ./deploy/echo cleanup [keep-count]
+
+The staging command is the only command that fetches/builds a Git commit.
+Promotion and rollback operate only on already-created release directories.
+Production commands require the release-backed production service to have been
+installed separately; this tool never falls back to the legacy checkout.
+EOF
+}
+
+require_common_commands() {
+  for command_name in awk cp curl date env find flock getent git ln mkdir mktemp mv npm node readlink rm setfacl sort stat sudo systemctl tac tar; do
+    require_command "${command_name}"
+  done
+  [[ -x /usr/bin/node ]] || die "the system Node runtime is missing at /usr/bin/node"
+  /usr/bin/node -e '
+    const [major, minor] = process.versions.node.split(".").map(Number);
+    process.exit(major > 22 || (major === 22 && minor >= 12) ? 0 : 1);
+  ' || die "Node.js 22.12 or newer is required"
+}
+
+write_release_metadata() {
+  local release_root="$1"
+  local release_id="$2"
+  local commit="$3"
+  local site_url="$4"
+  local build_environment="$5"
+  /usr/bin/node - "${release_root}/release.json" "${release_id}" "${commit}" "${site_url}" "${build_environment}" <<'NODE'
+const fs = require("node:fs");
+const [filePath, releaseId, commit, siteUrl, buildEnvironment] = process.argv.slice(2);
+fs.writeFileSync(filePath, `${JSON.stringify({
+  releaseId,
+  commit,
+  builtAt: new Date().toISOString(),
+  node: process.versions.node,
+  buildEnvironment,
+  buildSiteUrl: siteUrl,
+}, null, 2)}\n`, { mode: 0o640 });
+NODE
+}
+
+validate_release_build() {
+  local environment="$1"
+  local site_url="$2"
+  local env_file="$3"
+  local release_root="$4"
+  run_with_environment "${environment}" "${site_url}" "${env_file}" "${release_root}" node backend/scripts/check-config.js || return 1
+  run_with_environment "${environment}" "${site_url}" "${env_file}" "${release_root}" npm run build:catalog || return 1
+  run_with_environment "${environment}" "${site_url}" "${env_file}" "${release_root}" npm run build:pages || return 1
+  run_with_environment "${environment}" "${site_url}" "${env_file}" "${release_root}" node deploy/catalog-sanity.js "${release_root}" || return 1
+  run_with_environment "${environment}" "${site_url}" "${env_file}" "${release_root}" npm run check:structure || return 1
+  run_in_test_environment "${release_root}" npm run test:tools || return 1
+  run_with_environment "${environment}" "${site_url}" "${env_file}" "${release_root}" npm --prefix backend run validate:data || return 1
+  run_with_environment "${environment}" "${site_url}" "${env_file}" "${release_root}" npm --prefix backend run check:links || return 1
+  run_in_test_environment "${release_root}" npm --prefix backend test || return 1
+}
+
+finalize_release() {
+  local environment="$1"
+  local site_url="$2"
+  local temporary_path="$3"
+  local final_path="$4"
+  local commit="$5"
+  mkdir -p -m 0700 "${temporary_path}/backend/data/import-staging" || return 1
+  write_release_metadata "${temporary_path}" "${commit}" "${commit}" "${site_url}" "${environment}" || return 1
+  prepare_release_permissions "${temporary_path}" || return 1
+  chmod 0750 "${temporary_path}" || return 1
+  mv -Tf -- "${temporary_path}" "${final_path}" || return 1
+}
+
+start_and_check_staging() {
+  local commit="$1"
+  restart_service "${STAGING_SERVICE}" || return 1
+  health_check "staging" "${STAGING_HEALTH_URL}" "staging" "${commit}" || return 1
+  if [[ "${RUN_STAGING_SMOKE:-true}" == "true" ]]; then
+    STAGING_SMOKE_BASE_URL="${STAGING_URL}" "${SCRIPT_ROOT}/staging-smoke.sh" "${STAGING_URL}" || return 1
+  else
+    log "RUN_STAGING_SMOKE=false; the release is health-checked but not promotion-eligible."
+  fi
+}
+
+start_and_check_production() {
+  local commit="$1"
+  restart_service "${PRODUCTION_SERVICE}" || return 1
+  health_check "production" "${PRODUCTION_HEALTH_URL}" "production" "${commit}" || return 1
+}
+
+build_release() {
+  local environment="$1"
+  local site_url="$2"
+  local env_file="$3"
+  local commit="$4"
+  local final_path
+  final_path="$(release_path "${commit}")"
+
+  if [[ -d "${final_path}" ]]; then
+    verify_release "${commit}" "${commit}"
+    prepare_release_permissions "${final_path}"
+    log "Release ${commit} already exists; reusing the built artifact."
+    return 0
+  fi
+  [[ ! -e "${final_path}" ]] || die "release path exists but is not a directory: ${final_path}"
+
+  local temporary_path
+  temporary_path="$(mktemp -d "${RELEASES_DIR}/.${commit}.XXXXXX")"
+
+  log "Creating isolated release ${commit} from the exact Git commit."
+  if ! git -C "${SOURCE_REPO}" archive --format=tar "${commit}" | tar -x -C "${temporary_path}"; then
+    rm -rf -- "${temporary_path}"
+    die "could not extract the requested Git commit"
+  fi
+  if [[ ! -f "${temporary_path}/package.json" || ! -f "${temporary_path}/backend/package-lock.json" ]]; then
+    rm -rf -- "${temporary_path}"
+    die "the requested commit is not an Echo Archives application tree"
+  fi
+
+  if ! {
+    # Historical commits may predate this release workflow. These helpers are
+    # deployment metadata, not application source; add only missing helpers so
+    # an old production commit can be adopted into the release layout.
+    local helper_failed=false
+    if ! mkdir -p "${temporary_path}/deploy"; then
+      helper_failed=true
+    fi
+    for helper in catalog-sanity.js run-with-env.js validate-env.js; do
+      if [[ ! -f "${temporary_path}/deploy/${helper}" ]]; then
+        if [[ -f "${SCRIPT_ROOT}/${helper}" ]]; then
+          if ! cp -p -- "${SCRIPT_ROOT}/${helper}" "${temporary_path}/deploy/${helper}"; then
+            helper_failed=true
+          fi
+        else
+          log "ERROR: workflow helper is missing: ${SCRIPT_ROOT}/${helper}" >&2
+          helper_failed=true
+        fi
+      fi
+    done
+    [[ "${helper_failed}" == false ]]
+  }; then
+    rm -rf -- "${temporary_path}"
+    die "could not prepare release workflow helpers for ${commit}"
+  fi
+
+  log "Installing locked backend dependencies for ${commit}."
+  if ! run_with_environment "${environment}" "${site_url}" "${env_file}" "${temporary_path}" \
+    npm --prefix "${temporary_path}/backend" ci --no-audit --no-fund; then
+    rm -rf -- "${temporary_path}"
+    die "dependency installation failed for ${commit}"
+  fi
+
+  log "Building and validating the production-shaped release."
+  if ! validate_release_build "${environment}" "${site_url}" "${env_file}" "${temporary_path}"; then
+    rm -rf -- "${temporary_path}"
+    die "release validation failed for ${commit}"
+  fi
+
+  if ! finalize_release "${environment}" "${site_url}" "${temporary_path}" "${final_path}" "${commit}"; then
+    rm -rf -- "${temporary_path}"
+    die "could not finalize release ${commit}"
+  fi
+  log "Release artifact ready: ${final_path}"
+}
+
+restore_staging_after_failure() {
+  local previous_release="$1"
+  if [[ -n "${previous_release}" ]]; then
+    log "Restoring the previous staging release ${previous_release}."
+    prepare_runtime_tree "staging" "${previous_release}" || return 1
+    atomic_switch "${STAGING_LINK}" "${previous_release}" || return 1
+    atomic_runtime_switch "staging" "${previous_release}" || return 1
+    grant_active_runtime_write_paths "staging" || return 1
+    restart_service "${STAGING_SERVICE}" || return 1
+    health_check "staging rollback" "${STAGING_HEALTH_URL}" "staging" "$(release_commit "${previous_release}")" || return 1
+  else
+    log "There was no previous staging release; stopping the staging unit."
+    sudo systemctl stop "${STAGING_SERVICE}" || return 1
+    remove_release_link "${STAGING_LINK}" || return 1
+    remove_runtime_link "staging" || return 1
+  fi
+}
+
+deploy_staging() {
+  require_deployment_user
+  require_common_commands
+  ensure_layout
+  acquire_deployment_lock
+  validate_environment_file "staging" "${STAGING_ENV_FILE}"
+  assert_release_service "${STAGING_SERVICE}" "${STAGING_LINK}" "${STAGING_ENV_FILE}" "${STAGING_PORT}" \
+    "${STAGING_SITE_LINK}" "${STAGING_SITE_LINK}/import-staging"
+  [[ "$#" -eq 1 ]] || die "staging requires exactly one commit or ref"
+
+  fetch_source
+  local commit
+  commit="$(resolve_commit "$1")"
+  local previous_release=""
+  previous_release="$(link_release_id "${STAGING_LINK}" 2>/dev/null || true)"
+  build_release "staging" "${STAGING_URL}" "${STAGING_ENV_FILE}" "${commit}"
+  prepare_runtime_tree "staging" "${commit}" || die "could not prepare isolated staging runtime content"
+
+  if ! atomic_switch "${STAGING_LINK}" "${commit}" ||
+    ! atomic_runtime_switch "staging" "${commit}" ||
+    ! grant_active_runtime_write_paths "staging" ||
+    ! start_and_check_staging "${commit}"; then
+    restore_staging_after_failure "${previous_release}" ||
+      die "staging deployment failed and the previous staging release could not be restored"
+    die "staging deployment failed; production was not touched"
+  fi
+
+  if [[ "${RUN_STAGING_SMOKE:-true}" == "true" ]]; then
+    record_staging_test "${commit}" "${commit}"
+  fi
+  log "Staging deployment completed for ${commit}. Production was not touched."
+}
+
+promote_staging() {
+  require_deployment_user
+  require_common_commands
+  ensure_layout
+  acquire_deployment_lock
+  validate_environment_file "production" "${PRODUCTION_ENV_FILE}"
+  [[ -L "${STAGING_LINK}" ]] || die "no staging release is selected"
+  local staging_release
+  staging_release="$(link_release_id "${STAGING_LINK}")"
+  local staging_commit
+  staging_commit="$(release_commit "${staging_release}")"
+  local tested_commit
+  tested_commit="$(tested_staging_commit 2>/dev/null || true)"
+  [[ "${tested_commit}" == "${staging_commit}" ]] ||
+    die "staging release ${staging_release} has not passed the recorded smoke test; deploy/retest it first"
+  verify_release "${staging_release}" "${staging_commit}"
+  validate_environment_with_root "production" "${PRODUCTION_ENV_FILE}" "$(release_path "${staging_release}")"
+  assert_release_service "${STAGING_SERVICE}" "${STAGING_LINK}" "${STAGING_ENV_FILE}" "${STAGING_PORT}" \
+    "${STAGING_SITE_LINK}" "${STAGING_SITE_LINK}/import-staging"
+  assert_release_service "${PRODUCTION_SERVICE}" "${CURRENT_LINK}" "${PRODUCTION_ENV_FILE}" "${PRODUCTION_PORT}" \
+    "${PRODUCTION_SITE_LINK}" "${PRODUCTION_SITE_LINK}/import-staging"
+  health_check "staging before promotion" "${STAGING_HEALTH_URL}" "staging" "${staging_commit}"
+
+  require_recent_preflight
+  [[ -L "${CURRENT_LINK}" ]] ||
+    die "production release link is not installed; complete the one-time release-service cutover explicitly first"
+  local previous_release
+  previous_release="$(link_release_id "${CURRENT_LINK}")"
+  [[ "${previous_release}" != "${staging_release}" ]] || die "staging is already the current production release"
+  verify_release "${previous_release}"
+  [[ "$(runtime_link_release_id production 2>/dev/null || true)" == "${previous_release}" ]] ||
+    die "production runtime content does not match current release; repair the release selection before promoting"
+  prepare_runtime_tree "production" "${previous_release}" ||
+    die "could not prepare retained production runtime content for ${previous_release}"
+  prepare_runtime_tree "production" "${staging_release}" ||
+    die "could not prepare isolated production runtime content for ${staging_release}"
+
+  log "Promoting the tested release ${staging_release} (${staging_commit}) to production."
+  if ! atomic_switch "${CURRENT_LINK}" "${staging_release}" ||
+    ! atomic_runtime_switch "production" "${staging_release}" ||
+    ! grant_active_runtime_write_paths "production" ||
+    ! start_and_check_production "${staging_commit}"; then
+    log "Production startup/health failed; automatically restoring ${previous_release}."
+    atomic_switch "${CURRENT_LINK}" "${previous_release}" ||
+      die "promotion failed and the previous production link could not be restored"
+    atomic_runtime_switch "production" "${previous_release}" ||
+      die "promotion failed and the previous production runtime content could not be restored"
+    grant_active_runtime_write_paths "production" ||
+      die "promotion failed and the previous production runtime permissions could not be restored"
+    restart_service "${PRODUCTION_SERVICE}" ||
+      die "AUTOMATIC PRODUCTION ROLLBACK FAILED; service intervention is required"
+    health_check "production rollback" "${PRODUCTION_HEALTH_URL}" "production" "$(release_commit "${previous_release}")" ||
+      die "AUTOMATIC PRODUCTION ROLLBACK FAILED; service intervention is required"
+    record_production_history "automatic-rollback" "${staging_release}" "${previous_release}"
+    die "promotion failed; previous production release was restored"
+  fi
+  record_production_history "promote" "${previous_release}" "${staging_release}"
+  log "Promotion complete. Caddy was not reloaded; the production port stayed unchanged."
+}
+
+adopt_current() {
+  require_deployment_user
+  require_common_commands
+  ensure_layout
+  acquire_deployment_lock
+  [[ "$#" -eq 1 ]] || die "adopt-current requires exactly one legacy commit SHA"
+  require_recent_preflight
+  [[ ! -e "${CURRENT_LINK}" && ! -L "${CURRENT_LINK}" ]] ||
+    die "production current link already exists; adopt-current is one-time only"
+  local release_id="$1"
+  assert_release_id "${release_id}"
+  local recorded_commit
+  recorded_commit="$(preflight_legacy_commit 2>/dev/null || true)"
+  [[ "${release_id}" == "${recorded_commit}" ]] ||
+    die "the requested release does not match the legacy commit recorded by the latest preflight"
+  local legacy_worktree_status
+  legacy_worktree_status="$(preflight_legacy_worktree_status 2>/dev/null || true)"
+  [[ "${legacy_worktree_status}" == "0" ]] ||
+    die "the legacy checkout was dirty during preflight; the running legacy code cannot be represented by a commit SHA (resolve the checkout and run preflight again)"
+  validate_environment_file "production" "${PRODUCTION_ENV_FILE}"
+  fetch_source
+  if [[ ! -d "$(release_path "${release_id}")" ]]; then
+    build_release "production" "${PRODUCTION_URL}" "${PRODUCTION_ENV_FILE}" "${release_id}"
+  fi
+  verify_release "${release_id}"
+  assert_release_service "${PRODUCTION_SERVICE}" "${CURRENT_LINK}" "${PRODUCTION_ENV_FILE}" "${PRODUCTION_PORT}" \
+    "${PRODUCTION_SITE_LINK}" "${PRODUCTION_SITE_LINK}/import-staging"
+  validate_environment_with_root "production" "${PRODUCTION_ENV_FILE}" "$(release_path "${release_id}")"
+  prepare_runtime_tree "production" "${release_id}" ||
+    die "could not prepare isolated production runtime content for ${release_id}"
+  if ! atomic_switch "${CURRENT_LINK}" "${release_id}" ||
+    ! atomic_runtime_switch "production" "${release_id}" ||
+    ! grant_active_runtime_write_paths "production"; then
+    if [[ -L "${PRODUCTION_SITE_LINK}" ]]; then
+      remove_runtime_link "production"
+    fi
+    if [[ -L "${CURRENT_LINK}" ]]; then
+      remove_release_link "${CURRENT_LINK}"
+    fi
+    die "could not initialize the production release links; production service was not restarted"
+  fi
+  log "Production current link initialized to ${release_id}; no production service restart or Caddy reload was performed."
+  log "Review the link, then run ./deploy/echo promote after explicit production approval."
+}
+
+rollback_production() {
+  require_deployment_user
+  require_common_commands
+  ensure_layout
+  acquire_deployment_lock
+  [[ -L "${CURRENT_LINK}" ]] || die "no release-backed production current link exists"
+  assert_release_service "${PRODUCTION_SERVICE}" "${CURRENT_LINK}" "${PRODUCTION_ENV_FILE}" "${PRODUCTION_PORT}" \
+    "${PRODUCTION_SITE_LINK}" "${PRODUCTION_SITE_LINK}/import-staging"
+  local current_release
+  current_release="$(link_release_id "${CURRENT_LINK}")"
+  local target_release="${1:-}"
+  if [[ -z "${target_release}" ]]; then
+    target_release="$(previous_production_release "${current_release}" || true)"
+  fi
+  [[ -n "${target_release}" ]] || die "no previous known-good release was found; pass an explicit release SHA"
+  verify_release "${target_release}"
+  [[ "${target_release}" != "${current_release}" ]] || die "requested rollback is already current"
+  local target_commit
+  target_commit="$(release_commit "${target_release}")"
+  log "Rolling production back from ${current_release} to ${target_release}; no Git operation or rebuild will run."
+  prepare_runtime_tree "production" "${target_release}" ||
+    die "could not prepare retained production runtime content for ${target_release}"
+  if ! atomic_switch "${CURRENT_LINK}" "${target_release}" ||
+    ! atomic_runtime_switch "production" "${target_release}" ||
+    ! grant_active_runtime_write_paths "production" ||
+    ! start_and_check_production "${target_commit}"; then
+    log "Rollback target failed health; restoring ${current_release}."
+    atomic_switch "${CURRENT_LINK}" "${current_release}" ||
+      die "rollback recovery failed; current production link could not be restored"
+    atomic_runtime_switch "production" "${current_release}" ||
+      die "rollback recovery failed; current production runtime content could not be restored"
+    grant_active_runtime_write_paths "production" ||
+      die "rollback recovery failed; current production runtime permissions could not be restored"
+    restart_service "${PRODUCTION_SERVICE}" ||
+      die "rollback recovery failed; service intervention is required"
+    health_check "production rollback recovery" "${PRODUCTION_HEALTH_URL}" "production" "$(release_commit "${current_release}")" ||
+      die "rollback recovery failed; service intervention is required"
+    die "rollback target failed; original production release was restored"
+  fi
+  record_production_history "rollback" "${current_release}" "${target_release}"
+  log "Rollback complete. The production database and other persistent data were not changed."
+}
+
+cleanup_releases() {
+  require_deployment_user
+  require_common_commands
+  ensure_layout
+  acquire_deployment_lock
+  local keep="${1:-${KEEP_RELEASES}}"
+  [[ "${keep}" =~ ^[1-9][0-9]*$ ]] || die "cleanup keep-count must be a positive integer"
+  local current_release="$(link_release_id "${CURRENT_LINK}" 2>/dev/null || true)"
+  local staging_release="$(link_release_id "${STAGING_LINK}" 2>/dev/null || true)"
+  local production_runtime_release=""
+  local staging_runtime_release=""
+  if [[ -L "${PRODUCTION_SITE_LINK}" ]]; then
+    production_runtime_release="$(runtime_link_release_id production)" ||
+      die "production runtime link is invalid; refusing release cleanup"
+  fi
+  if [[ -L "${STAGING_SITE_LINK}" ]]; then
+    staging_runtime_release="$(runtime_link_release_id staging)" ||
+      die "staging runtime link is invalid; refusing release cleanup"
+  fi
+  mapfile -t candidates < <(find "${RELEASES_DIR}" -mindepth 1 -maxdepth 1 -type d -printf '%T@ %f\n' | sort -nr | awk '{print $2}')
+  local index=0
+  for release_id in "${candidates[@]}"; do
+    [[ "${release_id}" =~ ^[0-9a-f]{40}$ ]] || continue
+    index=$((index + 1))
+    if (( index <= keep )) || [[ "${release_id}" == "${current_release}" ||
+      "${release_id}" == "${staging_release}" ||
+      "${release_id}" == "${production_runtime_release}" ||
+      "${release_id}" == "${staging_runtime_release}" ]]; then
+      continue
+    fi
+    log "Removing unreferenced old release ${release_id}."
+    remove_release_dir "${release_id}"
+    for environment in staging production; do
+      local runtime_candidate
+      runtime_candidate="$(runtime_path "${environment}" "${release_id}")"
+      if [[ -d "${runtime_candidate}" && ! -L "${runtime_candidate}" ]]; then
+        log "Removing unreferenced ${environment} runtime content ${release_id}."
+        rm -rf -- "${runtime_candidate}"
+      fi
+    done
+  done
+}
+
+status() {
+  require_common_commands
+  ensure_layout
+  local current_release="$(link_release_id "${CURRENT_LINK}" 2>/dev/null || echo none)"
+  local staging_release="$(link_release_id "${STAGING_LINK}" 2>/dev/null || echo none)"
+  echo "deploy root: ${DEPLOY_ROOT}"
+  echo "current: ${current_release}"
+  echo "staging: ${staging_release}"
+  echo "production runtime: $(runtime_link_release_id production 2>/dev/null || echo none)"
+  echo "staging runtime: $(runtime_link_release_id staging 2>/dev/null || echo none)"
+  echo "staging tested commit: $(tested_staging_commit 2>/dev/null || echo none)"
+  if [[ "${staging_release}" != none ]]; then
+    curl --fail --silent --show-error --max-time 5 "${STAGING_HEALTH_URL}" || echo "staging health unavailable"
+    echo
+  fi
+  if [[ "${current_release}" != none ]]; then
+    curl --fail --silent --show-error --max-time 5 "${PRODUCTION_HEALTH_URL}" || echo "production health unavailable"
+    echo
+  fi
+}
+
+main() {
+  local command="${1:-help}"
+  shift || true
+  case "${command}" in
+    staging) deploy_staging "$@" ;;
+    smoke) exec "${SCRIPT_ROOT}/staging-smoke.sh" "$@" ;;
+    validate) exec "${SCRIPT_ROOT}/deep-validate.sh" "$@" ;;
+    preflight) exec "${SCRIPT_ROOT}/preflight.sh" "$@" ;;
+    adopt-current) adopt_current "$@" ;;
+    promote) [[ "$#" -eq 0 ]] || die "promote takes no arguments"; promote_staging ;;
+    rollback) [[ "$#" -le 1 ]] || die "rollback accepts at most one release SHA"; rollback_production "$@" ;;
+    status) [[ "$#" -eq 0 ]] || die "status takes no arguments"; status ;;
+    cleanup) [[ "$#" -le 1 ]] || die "cleanup accepts at most one keep-count"; cleanup_releases "$@" ;;
+    help|-h|--help) usage ;;
+    *) usage >&2; exit 2 ;;
+  esac
+}
+
+main "$@"

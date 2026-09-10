@@ -390824,6 +390824,12 @@
   },
   {
     "id": "claudia-a-viral-love-story",
+    "entityLinks": [
+      {
+        "entityId": "profile-theatre",
+        "role": "production-company"
+      }
+    ],
     "title": "Claudia, A Viral Love Story",
     "subtitle": "A NEW SERIAL AUDIO PLAY BY PROFILE THEATRE Based on Pulitzer Prize-winner Paula Vogel's \"Covid Bake-Off\" writing prompt, and written by an astounding group of 9 playwrights and screenwriters. CLAUDIA, A VIRAL LOVE STORY will take you around",
     "description": "A NEW SERIAL AUDIO PLAY BY PROFILE THEATRE Based on Pulitzer Prize-winner Paula Vogel's \"Covid Bake-Off\" writing prompt, and written by an astounding group of 9 playwrights and screenwriters. CLAUDIA, A VIRAL LOVE STORY will take you around the world in 5 Podcast episodes.",
@@ -391385,9 +391391,18 @@
     "imageAlt": "Claudia, A Viral Love Story cover art",
     "summary": "A NEW SERIAL AUDIO PLAY BY PROFILE THEATRE Based on Pulitzer Prize-winner Paula Vogel's \"Covid Bake-Off\" writing prompt, and written by an astounding group of 9 playwrights and screenwriters. CLAUDIA, A VIRAL LOVE STORY will take you around the world in 5 Podcast episodes.",
     "finalRating": null,
-    "searchText": "claudia a viral love story a new serial audio play by profile theatre based on pulitzer prize winner paula vogel s covid bake off writing prompt and written by an astounding group of 9 playwrights and screenwriters claudia a viral love story will take you around a new serial audio play by profile theatre based on pulitzer prize winner paula vogel s covid bake off writing prompt and written by an astounding group of 9 playwrights and screenwriters claudia a viral love story will take you around the world in 5 podcast episodes drama comedy episodic claudia a viral love story english unclear imported unknown unknown 0",
+    "searchText": "claudia a viral love story a new serial audio play by profile theatre based on pulitzer prize winner paula vogel s covid bake off writing prompt and written by an astounding group of 9 playwrights and screenwriters claudia a viral love story will take you around a new serial audio play by profile theatre based on pulitzer prize winner paula vogel s covid bake off writing prompt and written by an astounding group of 9 playwrights and screenwriters claudia a viral love story will take you around the world in 5 podcast episodes drama comedy episodic claudia a viral love story profile theatre english unclear imported unknown unknown 0",
     "tagTokens": [],
     "bestForTokens": [],
+    "resolvedEntities": [
+      {
+        "id": "profile-theatre",
+        "name": "Profile Theatre",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
+    ],
     "coverVariants": [
       {
         "src": "/images/generated/covers/claudia-a-viral-love-story-825174f9ea-320.webp",
@@ -431879,11 +431894,11 @@
     ],
     "coverVariants": [
       {
-        "src": "/images/generated/covers/deviser-98432a4621-320.webp",
+        "src": "/images/generated/covers/deviser-d9cfad28ee-320.webp",
         "width": 320
       },
       {
-        "src": "/images/generated/covers/deviser-98432a4621-640.webp",
+        "src": "/images/generated/covers/deviser-d9cfad28ee-640.webp",
         "width": 640
       }
     ]
@@ -433575,11 +433590,11 @@
     "bestForTokens": [],
     "coverVariants": [
       {
-        "src": "/images/generated/covers/twilight-histories-4d3fdf6737-320.webp",
+        "src": "/images/generated/covers/twilight-histories-a44619b627-320.webp",
         "width": 320
       },
       {
-        "src": "/images/generated/covers/twilight-histories-4d3fdf6737-640.webp",
+        "src": "/images/generated/covers/twilight-histories-a44619b627-640.webp",
         "width": 640
       }
     ]

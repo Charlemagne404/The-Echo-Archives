@@ -3,6 +3,9 @@ const path = require("node:path");
 const PROJECT_ROOT = path.resolve(__dirname, "..");
 const DATA_ROOT = path.resolve(PROJECT_ROOT, "data");
 const IS_PRODUCTION = process.env.NODE_ENV === "production";
+const DEPLOYMENT_ENV = process.env.DEPLOYMENT_ENV || (IS_PRODUCTION ? "production" : "development");
+const IS_LIVE_PRODUCTION = DEPLOYMENT_ENV === "production";
+const IS_STAGING = DEPLOYMENT_ENV === "staging";
 
 function parseBoolean(value, fallback = false) {
   if (value === undefined) {
@@ -29,9 +32,13 @@ const accessLogEnabled = parseBoolean(process.env.ACCESS_LOG_ENABLED, false);
 
 const config = {
   NODE_ENV: process.env.NODE_ENV || "development",
+  DEPLOYMENT_ENV,
   IS_PRODUCTION,
+  IS_LIVE_PRODUCTION,
+  IS_STAGING,
   HOST: process.env.HOST || (IS_PRODUCTION ? "127.0.0.1" : "0.0.0.0"),
   PORT: parseInteger(process.env.PORT, 3010),
+  INTERNAL_HEALTH_PORT: parseInteger(process.env.INTERNAL_HEALTH_PORT, 0),
   ARCHIVIST_ENABLED: parseBoolean(process.env.ARCHIVIST_ENABLED, false),
   OLLAMA_URL: process.env.OLLAMA_URL || "http://127.0.0.1:11434/api/generate",
   OLLAMA_MODEL: process.env.OLLAMA_MODEL || "mistral",
@@ -40,6 +47,7 @@ const config = {
   TRUST_PROXY: process.env.TRUST_PROXY || "loopback",
   STATIC_ROOT: path.resolve(PROJECT_ROOT, process.env.STATIC_ROOT || ".."),
   DB_PATH: process.env.DB_PATH || path.join(DATA_ROOT, "community.sqlite"),
+  IMPORT_STAGING_ROOT: process.env.IMPORT_STAGING_ROOT || path.join(DATA_ROOT, "import-staging"),
   SITE_URL: process.env.SITE_URL || "https://echoarchives.net",
   ACCESS_LOG_ENABLED: accessLogEnabled,
   ACCESS_LOG_HMAC_SECRET: process.env.ACCESS_LOG_HMAC_SECRET || "",
@@ -159,6 +167,14 @@ function isValidAbsoluteUrl(value, { httpsOnly = false } = {}) {
 function validateConfig(candidate = config) {
   const errors = [];
 
+  if (!["development", "test", "staging", "production"].includes(candidate.DEPLOYMENT_ENV)) {
+    errors.push("DEPLOYMENT_ENV must be one of development, test, staging, or production.");
+  }
+
+  if (candidate.DEPLOYMENT_ENV === "production" && candidate.NODE_ENV !== "production") {
+    errors.push("DEPLOYMENT_ENV=production requires NODE_ENV=production.");
+  }
+
   POSITIVE_INTEGER_KEYS.forEach((key) => {
     if (!Number.isInteger(candidate[key]) || candidate[key] <= 0) {
       errors.push(`${key} must be a positive integer.`);
@@ -167,6 +183,13 @@ function validateConfig(candidate = config) {
 
   if (candidate.PORT > 65535) {
     errors.push("PORT must be between 1 and 65535.");
+  }
+
+  if (!Number.isInteger(candidate.INTERNAL_HEALTH_PORT) || candidate.INTERNAL_HEALTH_PORT < 0 || candidate.INTERNAL_HEALTH_PORT > 65535) {
+    errors.push("INTERNAL_HEALTH_PORT must be 0 or a port between 1 and 65535.");
+  }
+  if (candidate.INTERNAL_HEALTH_PORT > 0 && candidate.INTERNAL_HEALTH_PORT === candidate.PORT) {
+    errors.push("INTERNAL_HEALTH_PORT must be different from PORT.");
   }
 
   if (candidate.SUBMISSION_NETWORK_DATA_RETENTION_DAYS > candidate.SUBMISSION_PERSONAL_DATA_RETENTION_DAYS) {
@@ -194,8 +217,9 @@ function validateConfig(candidate = config) {
     errors.push("HOST must not be empty.");
   }
 
-  if (!isValidAbsoluteUrl(candidate.SITE_URL, { httpsOnly: candidate.IS_PRODUCTION })) {
-    errors.push(`SITE_URL must be an absolute ${candidate.IS_PRODUCTION ? "HTTPS " : ""}URL.`);
+  const requiresHttps = candidate.IS_LIVE_PRODUCTION || candidate.IS_STAGING;
+  if (!isValidAbsoluteUrl(candidate.SITE_URL, { httpsOnly: requiresHttps })) {
+    errors.push(`SITE_URL must be an absolute ${requiresHttps ? "HTTPS " : ""}URL.`);
   } else {
     const siteUrl = new URL(candidate.SITE_URL);
     if (
@@ -212,14 +236,14 @@ function validateConfig(candidate = config) {
   if (!isValidAbsoluteUrl(candidate.OLLAMA_URL)) {
     errors.push("OLLAMA_URL must be an absolute URL.");
   }
-  if (!isValidAbsoluteUrl(candidate.COMMUNITY_TURNSTILE_VERIFY_URL, { httpsOnly: candidate.IS_PRODUCTION })) {
+  if (!isValidAbsoluteUrl(candidate.COMMUNITY_TURNSTILE_VERIFY_URL, { httpsOnly: requiresHttps })) {
     errors.push(
-      `COMMUNITY_TURNSTILE_VERIFY_URL must be an absolute ${candidate.IS_PRODUCTION ? "HTTPS " : ""}URL.`,
+      `COMMUNITY_TURNSTILE_VERIFY_URL must be an absolute ${requiresHttps ? "HTTPS " : ""}URL.`,
     );
   }
 
-  if (candidate.IS_PRODUCTION && !path.isAbsolute(candidate.DB_PATH)) {
-    errors.push("DB_PATH must be absolute in production.");
+  if ((candidate.IS_PRODUCTION || candidate.IS_STAGING) && !path.isAbsolute(candidate.DB_PATH)) {
+    errors.push("DB_PATH must be absolute in staging and production.");
   }
 
   const hasMaintainerPassphrase = Boolean(String(candidate.MAINTAINER_REVIEW_PASSPHRASE || ""));
@@ -228,7 +252,7 @@ function validateConfig(candidate = config) {
     errors.push("MAINTAINER_REVIEW_PASSPHRASE and MAINTAINER_REVIEW_COOKIE_SECRET must be configured together.");
   }
 
-  if (candidate.IS_PRODUCTION && hasMaintainerPassphrase) {
+  if (candidate.IS_LIVE_PRODUCTION && hasMaintainerPassphrase) {
     const passphrase = String(candidate.MAINTAINER_REVIEW_PASSPHRASE);
     const secret = String(candidate.MAINTAINER_REVIEW_COOKIE_SECRET);
     if (passphrase.length < 12 || /^(?:change-?me|password|secret|archive-test)/i.test(passphrase)) {
@@ -242,7 +266,7 @@ function validateConfig(candidate = config) {
     }
   }
 
-  if (candidate.IS_PRODUCTION && candidate.COMMUNITY_RATING_WRITES_ENABLED) {
+  if (candidate.IS_LIVE_PRODUCTION && candidate.COMMUNITY_RATING_WRITES_ENABLED) {
     if (!candidate.COMMUNITY_TURNSTILE_ENABLED) {
       errors.push("COMMUNITY_TURNSTILE_ENABLED must be true when community rating writes are enabled.");
     }
@@ -274,7 +298,7 @@ function validateConfig(candidate = config) {
 function getConfigWarnings(candidate = config) {
   const warnings = [];
   if (
-    candidate.IS_PRODUCTION &&
+    candidate.IS_LIVE_PRODUCTION &&
     (!candidate.MAINTAINER_REVIEW_PASSPHRASE || !candidate.MAINTAINER_REVIEW_COOKIE_SECRET)
   ) {
     warnings.push(

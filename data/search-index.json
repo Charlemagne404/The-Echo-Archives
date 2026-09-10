@@ -51147,6 +51147,21 @@
     ],
     "coverAlt": "Claudia, A Viral Love Story cover art",
     "creators": [],
+    "entityLinks": [
+      {
+        "entityId": "profile-theatre",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "profile-theatre",
+        "name": "Profile Theatre",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -55967,11 +55982,11 @@
     "cover": "images/covers/deviser.jpg",
     "coverVariants": [
       {
-        "src": "/images/generated/covers/deviser-98432a4621-320.webp",
+        "src": "/images/generated/covers/deviser-d9cfad28ee-320.webp",
         "width": 320
       },
       {
-        "src": "/images/generated/covers/deviser-98432a4621-640.webp",
+        "src": "/images/generated/covers/deviser-d9cfad28ee-640.webp",
         "width": 640
       }
     ],
@@ -56300,11 +56315,11 @@
     "cover": "images/covers/twilight-histories.png",
     "coverVariants": [
       {
-        "src": "/images/generated/covers/twilight-histories-4d3fdf6737-320.webp",
+        "src": "/images/generated/covers/twilight-histories-a44619b627-320.webp",
         "width": 320
       },
       {
-        "src": "/images/generated/covers/twilight-histories-4d3fdf6737-640.webp",
+        "src": "/images/generated/covers/twilight-histories-a44619b627-640.webp",
         "width": 640
       }
     ],

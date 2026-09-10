@@ -700,6 +700,7 @@
   outline: none;
 }
 
+/* Source: shared/styles/home/entity-directory-faq.css */
 /* Keep the directory guide visually aligned with the For creators FAQ. */
 .entity-faq {
   display: grid;
@@ -1484,6 +1485,8 @@
 }
 
 /* Source: shared/styles/home/entity-detail.css */
+/* Creator detail pages are assembled from focused modules in archive order. */
+/* Source: shared/styles/home/entity-detail-hero.css */
 /* Creator detail pages borrow the archive hero rhythm from collection and show details. */
 .entity-detail-hero {
   margin-bottom: 0;
@@ -1723,7 +1726,7 @@
 .entity-detail-collage .collection-cover-frame[data-cover-index="1"] {
   opacity: 0.74;
 }
-
+/* Source: shared/styles/home/entity-detail-overview.css */
 .entity-detail-overview,
 .entity-detail-related-section,
 .entity-detail-correction {
@@ -1961,7 +1964,7 @@
   color: rgba(247, 247, 243, 0.7);
   font-size: 0.7rem;
 }
-
+/* Source: shared/styles/home/entity-detail-catalogue.css */
 .entity-detail-catalogue {
   margin-bottom: 0;
 }
@@ -2023,7 +2026,7 @@
   text-transform: uppercase;
   white-space: nowrap;
 }
-
+/* Source: shared/styles/home/entity-detail-related.css */
 .entity-detail-related-section {
   display: grid;
   gap: 16px;

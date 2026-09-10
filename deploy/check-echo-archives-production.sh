@@ -5,6 +5,7 @@ umask 0077
 
 REPO_ROOT="/home/charlie/The-Echo-Archives"
 LOCAL_HEALTH_URL="http://127.0.0.1:3010/api/health"
+LOCAL_INTERNAL_HEALTH_URL="${LOCAL_INTERNAL_HEALTH_URL:-http://127.0.0.1:4010/api/health}"
 PUBLIC_ORIGIN="https://echoarchives.net"
 WWW_ORIGIN="https://www.echoarchives.net"
 LEGACY_ORIGIN="https://echo.continental-hub.com"
@@ -56,47 +57,72 @@ done
 failed_units="$(systemctl --failed --no-legend --plain)"
 [[ -z "${failed_units}" ]] || fail "One or more systemd units are failed."
 
-validate_health_json() {
+validate_public_health_json() {
+  local file="$1"
+  node -e '
+    const fs = require("node:fs");
+    const health = JSON.parse(fs.readFileSync(process.argv[1]));
+    if (health.ok !== true || health.status !== "ok") process.exit(1);
+  ' "${file}"
+}
+
+validate_internal_health_json() {
   local file="$1"
   node -e '
     const fs = require("node:fs");
     const health = JSON.parse(fs.readFileSync(process.argv[1]));
     const parseExpected = (value, label) => {
-      if (value !== "true" && value !== "false") {
-        throw new Error(`${label} must be true or false`);
-      }
+      if (value !== "true" && value !== "false") throw new Error(`${label} must be true or false`);
       return value === "true";
     };
-    if (health.ok !== true || !(health.catalogCount > 0) || !(health.collectionCount > 0)) {
-      process.exit(1);
-    }
-    if (health.features?.communityRatingWrites !== parseExpected(process.argv[2], "EXPECTED_COMMUNITY_RATING_WRITES")) {
-      process.exit(1);
-    }
-    if (health.features?.maintainerReview !== parseExpected(process.argv[3], "EXPECTED_MAINTAINER_REVIEW")) {
-      process.exit(1);
-    }
-    if (health.features?.accessLogs !== parseExpected(process.argv[4], "EXPECTED_ACCESS_LOGS")) {
-      process.exit(1);
-    }
     if (
+      health.ok !== true ||
+      health.status !== "ok" ||
+      !(health.catalogCount > 0) ||
+      !(health.collectionCount > 0) ||
+      health.features?.communityRatingWrites !== parseExpected(process.argv[2], "EXPECTED_COMMUNITY_RATING_WRITES") ||
+      health.features?.maintainerReview !== parseExpected(process.argv[3], "EXPECTED_MAINTAINER_REVIEW") ||
+      health.features?.accessLogs !== parseExpected(process.argv[4], "EXPECTED_ACCESS_LOGS") ||
       health.durability?.journalMode !== "WAL" ||
       health.durability?.synchronous !== "FULL"
-    ) {
-      process.exit(1);
-    }
+    ) process.exit(1);
   ' "${file}" "${EXPECTED_COMMUNITY_RATING_WRITES}" "${EXPECTED_MAINTAINER_REVIEW}" "${EXPECTED_ACCESS_LOGS}"
+}
+
+validate_catalog_json() {
+  local origin="$1"
+  local label="$2"
+  for resource in data/shows.json data/collections.json; do
+    local output="${TEMP_DIR}/${label//[^a-zA-Z0-9_-]/_}-${resource##*/}"
+    curl --fail --silent --show-error --max-time 15 \
+      --output "${output}" "${origin}/${resource}" || fail "${label} ${resource} request failed."
+    node -e '
+      const fs = require("node:fs");
+      const value = JSON.parse(fs.readFileSync(process.argv[1]));
+      if (!Array.isArray(value) || value.length < 1) process.exit(1);
+    ' "${output}" || fail "${label} ${resource} was empty or invalid."
+  done
 }
 
 curl --fail --silent --show-error --max-time 10 \
   --output "${TEMP_DIR}/local-health.json" "${LOCAL_HEALTH_URL}" ||
   fail "Local health request failed."
-validate_health_json "${TEMP_DIR}/local-health.json" || fail "Local health response semantics failed."
+validate_public_health_json "${TEMP_DIR}/local-health.json" || fail "Local health response semantics failed."
+
+if curl --fail --silent --show-error --max-time 10 \
+  --output "${TEMP_DIR}/local-internal-health.json" "${LOCAL_INTERNAL_HEALTH_URL}"; then
+  validate_internal_health_json "${TEMP_DIR}/local-internal-health.json" ||
+    fail "Loopback internal health response semantics failed."
+else
+  log "Detailed loopback health is unavailable; continuing with coarse legacy health checks."
+fi
+validate_catalog_json "http://127.0.0.1:3010" "local" || fail "Local catalog checks failed."
 
 curl --fail --silent --show-error --max-time 15 \
   --output "${TEMP_DIR}/public-health.json" "${PUBLIC_ORIGIN}/api/health" ||
   fail "Public health request failed."
-validate_health_json "${TEMP_DIR}/public-health.json" || fail "Public health response semantics failed."
+validate_public_health_json "${TEMP_DIR}/public-health.json" || fail "Public health response semantics failed."
+validate_catalog_json "${PUBLIC_ORIGIN}" "public" || fail "Public catalog checks failed."
 
 curl --fail --silent --show-error --max-time 15 \
   --output "${TEMP_DIR}/apex.html" "${PUBLIC_ORIGIN}/" ||

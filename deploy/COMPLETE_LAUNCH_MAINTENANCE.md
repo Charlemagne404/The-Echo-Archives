@@ -41,7 +41,7 @@ In `--apply` mode the script performs these fail-fast stages in order:
 5. Upgrades only the Caddy package from 2.10.2 to 2.11.4, retaining the
    conffile, then repeats configuration, shared-host, public, and origin checks.
 6. Runs the guarded `echo-archives` service-account migration. Application code
-   remains owned by `charlie`; the runtime account receives read access to
+   remains owned by the deployment user; the runtime account receives read access to
    deployed files and targeted write access only to the database, staging,
    generated catalog, covers, reviews, and other declared runtime paths. The
    stage applies the hardened unit and 14-day namespaced journal configuration.
@@ -120,8 +120,8 @@ live-application stage verify its production behavior without extra downtime.
 
 ## Prerequisites
 
-- Run on `charlie-Legion-T530-28ICB`, from the fixed
-  `/home/charlie/The-Echo-Archives` checkout, as `charlie` through `sudo`.
+- Run on the target production host, from the configured
+  `${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}` checkout, as the deployment user through `sudo`.
 - `main`, `HEAD`, and `origin/main` must be the same explicitly supplied
   40-character commit and the checkout must be clean.
 - Caddy, Echo, and Ollama must be healthy before starting. Failed system units
@@ -136,7 +136,7 @@ live-application stage verify its production behavior without extra downtime.
 - The private artifact directory must remain:
 
   ```text
-  /home/charlie/.local/state/echo-archives-rollbacks/20260728T124747Z
+  ${ROLLBACK_STATE_ROOT:-/var/lib/echo-archives/rollback-state}/<timestamp>
   ```
 
   It contains checked upgrade and rollback packages for Caddy 2.11.4/2.10.2
@@ -189,7 +189,7 @@ shell parsing, systemd candidates, staged Caddy candidate, and all four artifact
 digests:
 
 ```bash
-cd /home/charlie/The-Echo-Archives
+cd "${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}"
 ./deploy/complete-launch-maintenance.sh \
   --repository-check \
   --expected-commit "$(git rev-parse HEAD)"
@@ -205,7 +205,7 @@ and evidence directories and processes but does not apply production
 configuration; guarded cleanup removes its temporary copies:
 
 ```bash
-cd /home/charlie/The-Echo-Archives
+cd "${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}"
 sudo ./deploy/complete-launch-maintenance.sh \
   --check \
   --expected-commit "$(git rev-parse HEAD)"
@@ -216,7 +216,7 @@ sudo ./deploy/complete-launch-maintenance.sh \
 Run exactly:
 
 ```bash
-cd /home/charlie/The-Echo-Archives
+cd "${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}"
 sudo ./deploy/complete-launch-maintenance.sh \
   --apply \
   --expected-commit "$(git rev-parse HEAD)"
@@ -296,7 +296,7 @@ protected log path, and evidence-directory path for a targeted recovery command.
 During the apply run, a second terminal may perform only read-only observation:
 
 ```bash
-watch -n 10 'curl -fsS https://echoarchives.net/api/health | jq "{ok,service,durability,features}"'
+watch -n 10 'curl -fsS https://echoarchives.net/api/health | jq "{ok,status}"'
 ```
 
 From a genuinely different external connection, keep these ready for the
