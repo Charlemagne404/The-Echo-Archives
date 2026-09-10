@@ -33,6 +33,9 @@ STAGING_PUBLIC_HEALTH_URL="${STAGING_PUBLIC_HEALTH_URL:-${STAGING_URL}/api/healt
 PRODUCTION_PUBLIC_HEALTH_URL="${PRODUCTION_PUBLIC_HEALTH_URL:-${PRODUCTION_URL}/api/health}"
 GIT_REMOTE="${GIT_REMOTE:-origin}"
 KEEP_RELEASES="${KEEP_RELEASES:-8}"
+HEALTH_CHECK_TIMEOUT_SECONDS="${HEALTH_CHECK_TIMEOUT_SECONDS:-30}"
+HEALTH_CHECK_INTERVAL_SECONDS="${HEALTH_CHECK_INTERVAL_SECONDS:-1}"
+HEALTH_CHECK_REQUEST_TIMEOUT_SECONDS="${HEALTH_CHECK_REQUEST_TIMEOUT_SECONDS:-2}"
 
 log() {
   printf '[%s] %s\n' "$(date --iso-8601=seconds)" "$*"
@@ -502,35 +505,148 @@ acquire_deployment_lock() {
   flock -n 9 || die "another Echo release operation is already running: ${lock_path}"
 }
 
+health_duration_milliseconds() {
+  local value="$1"
+  [[ "${value}" =~ ^[0-9]+([.][0-9]+)?$ ]] || return 1
+  awk -v value="${value}" 'BEGIN {
+    milliseconds = value * 1000;
+    if (milliseconds < 1) exit 1;
+    printf "%.0f\n", milliseconds;
+  }'
+}
+
+health_now_milliseconds() {
+  date +%s%3N
+}
+
+health_response_is_ready() {
+  local output="$1"
+  local expected_environment="$2"
+  local expected_commit="$3"
+  /usr/bin/node - "${output}" "${expected_environment}" "${expected_commit}" <<'NODE'
+const fs = require("node:fs");
+const [filePath, expectedEnvironment, expectedCommit] = process.argv.slice(2);
+let health = null;
+try {
+  health = JSON.parse(fs.readFileSync(filePath, "utf8"));
+} catch (_error) {
+  process.exit(1);
+}
+
+const release = health && typeof health.release === "object" && health.release !== null ? health.release : {};
+const summary = {
+  ok: health?.ok,
+  status: health?.status,
+  environment: health?.environment,
+  release: {
+    id: release.id,
+    commit: release.commit,
+  },
+};
+
+if (
+  health?.ok !== true ||
+  health?.status !== "ok" ||
+  health?.environment !== expectedEnvironment ||
+  release.id !== expectedCommit ||
+  release.commit !== expectedCommit
+) {
+  console.error(JSON.stringify(summary));
+  process.exit(1);
+}
+NODE
+}
+
+sanitize_readiness_diagnostics() {
+  sed -E \
+    -e 's/(password|secret|token|cookie|authorization|api[-_]?key|hmac)[[:space:]]*[=:][[:space:]]*[^[:space:]]+/\1=[REDACTED]/Ig' \
+    -e 's/(bearer[[:space:]]+)[^[:space:]]+/\1[REDACTED]/Ig'
+}
+
+readiness_diagnostics() {
+  local label="$1"
+  local service="$2"
+  log "Sanitized ${label} readiness diagnostics for ${service}:" >&2
+  {
+    systemctl show "${service}" -p ActiveState -p SubState -p MainPID -p ExecMainStatus -p Result -p WorkingDirectory || true
+    systemctl status "${service}" --no-pager --lines=20 || true
+    journalctl -u "${service}" -n 40 --no-pager -o short-iso || true
+  } 2>&1 | sanitize_readiness_diagnostics >&2
+}
+
 health_check() {
   local label="$1"
   local url="$2"
   local expected_environment="$3"
   local expected_commit="$4"
+  local timeout_seconds="${HEALTH_CHECK_TIMEOUT_SECONDS}"
+  local interval_seconds="${HEALTH_CHECK_INTERVAL_SECONDS}"
+  local request_timeout_seconds="${HEALTH_CHECK_REQUEST_TIMEOUT_SECONDS}"
+  local timeout_ms interval_ms request_timeout_ms
+  timeout_ms="$(health_duration_milliseconds "${timeout_seconds}")" ||
+    die "HEALTH_CHECK_TIMEOUT_SECONDS must be a positive duration"
+  interval_ms="$(health_duration_milliseconds "${interval_seconds}")" ||
+    die "HEALTH_CHECK_INTERVAL_SECONDS must be a positive duration"
+  request_timeout_ms="$(health_duration_milliseconds "${request_timeout_seconds}")" ||
+    die "HEALTH_CHECK_REQUEST_TIMEOUT_SECONDS must be a positive duration"
+
+  local service
+  case "${expected_environment}" in
+    staging) service="${STAGING_SERVICE}" ;;
+    production) service="${PRODUCTION_SERVICE}" ;;
+    *)
+      log "ERROR: unknown health environment: ${expected_environment}" >&2
+      return 1
+      ;;
+  esac
+
   local output
   output="$(mktemp /tmp/echo-release-health.XXXXXX)"
-  if ! curl --fail --silent --show-error --max-time 10 --output "${output}" "${url}"; then
+  local start_ms deadline_ms now_ms remaining_ms request_max_time sleep_seconds
+  start_ms="$(health_now_milliseconds)"
+  deadline_ms=$((start_ms + timeout_ms))
+  local attempt=0
+  local last_failure="the health endpoint was not ready"
+
+  while :; do
+    now_ms="$(health_now_milliseconds)"
+    (( now_ms < deadline_ms )) || break
+    remaining_ms=$((deadline_ms - now_ms))
+    request_max_time="${request_timeout_seconds}"
+    if (( request_timeout_ms > remaining_ms )); then
+      request_max_time="$(awk -v milliseconds="${remaining_ms}" 'BEGIN { printf "%.3f", milliseconds / 1000 }')"
+    fi
+    attempt=$((attempt + 1))
+
+    if curl --fail --silent --show-error --max-time "${request_max_time}" --output "${output}" "${url}" 2>/dev/null; then
+      if ! health_response_is_ready "${output}" "${expected_environment}" "${expected_commit}" 2>/dev/null; then
+        last_failure="the health response was unhealthy or did not identify ${expected_environment}/${expected_commit}"
+      elif ! verify_running_release "${expected_environment}" "${expected_commit}" >/dev/null 2>&1; then
+        last_failure="the service or running release did not yet match ${expected_environment}/${expected_commit}"
+      else
+        rm -f -- "${output}"
+        log "${label} health passed for ${expected_commit} after ${attempt} attempt(s)."
+        return 0
+      fi
+    else
+      last_failure="the health endpoint was unavailable"
+    fi
     rm -f -- "${output}"
-    log "ERROR: ${label} health request failed: ${url}" >&2
-    return 1
-  fi
-  if ! /usr/bin/node - "${output}" <<'NODE'
-const fs = require("node:fs");
-const [filePath] = process.argv.slice(2);
-const health = JSON.parse(fs.readFileSync(filePath, "utf8"));
-if (health.ok !== true || health.status !== "ok") {
-  console.error(JSON.stringify({ health }));
-  process.exit(1);
-}
-NODE
-  then
-    rm -f -- "${output}"
-    log "ERROR: ${label} health response was not healthy" >&2
-    return 1
-  fi
+
+    now_ms="$(health_now_milliseconds)"
+    (( now_ms < deadline_ms )) || break
+    remaining_ms=$((deadline_ms - now_ms))
+    sleep_seconds="${interval_seconds}"
+    if (( interval_ms > remaining_ms )); then
+      sleep_seconds="$(awk -v milliseconds="${remaining_ms}" 'BEGIN { printf "%.3f", milliseconds / 1000 }')"
+    fi
+    sleep "${sleep_seconds}"
+  done
+
   rm -f -- "${output}"
-  verify_running_release "${expected_environment}" "${expected_commit}" || return 1
-  log "${label} health passed for ${expected_commit}."
+  log "ERROR: ${label} health did not become ready within ${timeout_seconds}s after ${attempt} attempt(s): ${last_failure}." >&2
+  readiness_diagnostics "${label}" "${service}"
+  return 1
 }
 
 verify_running_release() {

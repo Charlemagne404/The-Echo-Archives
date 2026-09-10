@@ -30,7 +30,7 @@ EOF
 }
 
 require_common_commands() {
-  for command_name in awk cp curl date env find flock getent git ln mkdir mktemp mv npm node readlink rm setfacl sort stat sudo systemctl tac tar; do
+  for command_name in awk cp curl date env find flock getent git journalctl ln mkdir mktemp mv npm node readlink rm sed setfacl sleep sort stat sudo systemctl tac tar; do
     require_command "${command_name}"
   done
   [[ -x /usr/bin/node ]] || die "the system Node runtime is missing at /usr/bin/node"

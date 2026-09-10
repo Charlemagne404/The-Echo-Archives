@@ -397,6 +397,190 @@ test("deployment shell scripts parse and preserve the required safety order", ()
     fs.rmSync(realValidationRoot, { recursive: true, force: true });
   }
 
+  const readinessFixtureScript = String.raw`
+set -Eeuo pipefail
+source "$1" help >/dev/null
+SCENARIO="$3"
+NEW_COMMIT=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+OLD_COMMIT=bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+STAGING_SERVICE=fixture-staging.service
+STAGING_HEALTH_URL=http://127.0.0.1:4011/api/health
+RUN_STAGING_SMOKE=false
+
+ensure_layout
+
+write_release() {
+  local release_id="$1"
+  local release_dir
+  release_dir="$(release_path "$release_id")"
+  mkdir -p "$release_dir/backend/node_modules"
+  printf '{"releaseId":"%s","commit":"%s"}\n' "$release_id" "$release_id" > "$release_dir/release.json"
+  : > "$release_dir/backend/server.js"
+}
+
+write_release "$NEW_COMMIT"
+write_release "$OLD_COMMIT"
+ln -s "releases/$OLD_COMMIT" "$STAGING_LINK"
+
+require_deployment_user() { :; }
+require_common_commands() { :; }
+validate_environment_file() { :; }
+assert_release_service() { :; }
+fetch_source() { :; }
+resolve_commit() { printf '%s\n' "$NEW_COMMIT"; }
+build_release() { :; }
+prepare_runtime_tree() { :; }
+atomic_runtime_switch() { :; }
+grant_active_runtime_write_paths() { :; }
+
+RESTART_COUNT=0
+PHASE_CALLS=0
+HEALTH_PHASE=none
+restart_service() {
+  RESTART_COUNT=$((RESTART_COUNT + 1))
+  PHASE_CALLS=0
+  if [[ "$RESTART_COUNT" -eq 1 ]]; then
+    HEALTH_PHASE=forward
+    printf 'FIXTURE_FORWARD_RESTART_MS=%s\n' "$(date +%s%3N)"
+  else
+    HEALTH_PHASE=rollback
+    printf 'FIXTURE_ROLLBACK_RESTART_MS=%s\n' "$(date +%s%3N)"
+  fi
+}
+
+systemctl() {
+  case "$1" in
+    is-active) printf 'active\n' ;;
+    show)
+      if [[ "$*" == *MainPID* ]]; then
+        printf '4242\n'
+      elif [[ "$*" == *WorkingDirectory* ]]; then
+        printf '%s/backend\n' "$STAGING_LINK"
+      else
+        printf 'active\n'
+      fi
+      ;;
+    status) printf 'fixture status phase=%s\n' "$HEALTH_PHASE" ;;
+    *) return 0 ;;
+  esac
+}
+
+journalctl() {
+  printf 'fixture journal phase=%s token=fixture-secret\n' "$HEALTH_PHASE"
+}
+
+curl() {
+  local output=""
+  while (($#)); do
+    case "$1" in
+      --output) output="$2"; shift 2 ;;
+      *) shift ;;
+    esac
+  done
+  PHASE_CALLS=$((PHASE_CALLS + 1))
+  local response_mode=healthy
+  local response_commit="$NEW_COMMIT"
+  case "$SCENARIO" in
+    forward-delayed)
+      if [[ "$PHASE_CALLS" -eq 1 ]]; then response_mode=unavailable; fi
+      ;;
+    forward-fails-rollback-delayed)
+      if [[ "$HEALTH_PHASE" == forward || "$PHASE_CALLS" -eq 1 ]]; then response_mode=unavailable; fi
+      if [[ "$HEALTH_PHASE" == rollback ]]; then response_commit="$OLD_COMMIT"; fi
+      ;;
+    forward-fails-rollback-never)
+      response_mode=unavailable
+      ;;
+    mismatch)
+      response_mode=mismatch
+      ;;
+    *)
+      printf 'unknown fixture scenario: %s\n' "$SCENARIO" >&2
+      return 2
+      ;;
+  esac
+  if [[ "$response_mode" == unavailable ]]; then return 7; fi
+  if [[ "$response_mode" == mismatch ]]; then
+    printf '{"ok":true,"status":"ok","environment":"production","release":{"id":"%s","commit":"%s"}}\n' "$OLD_COMMIT" "$OLD_COMMIT" > "$output"
+  else
+    printf '{"ok":true,"status":"ok","environment":"staging","release":{"id":"%s","commit":"%s"}}\n' "$response_commit" "$response_commit" > "$output"
+  fi
+}
+
+if [[ "$SCENARIO" == mismatch ]]; then
+  HEALTH_PHASE=forward
+  if health_check mismatch "$STAGING_HEALTH_URL" staging "$NEW_COMMIT"; then
+    printf 'RESULT=mismatch-accepted\n'
+    exit 1
+  fi
+  [[ "$PHASE_CALLS" -gt 1 ]]
+  printf 'RESULT=mismatch-rejected\n'
+  exit 0
+fi
+
+deploy_staging "$NEW_COMMIT"
+printf 'RESULT=forward-success\n'
+printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
+`;
+
+  const runReadinessFixture = (scenario) => {
+    const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-release-health-race-"));
+    try {
+      const result = spawnSync(
+        "bash",
+        [
+          "-c",
+          readinessFixtureScript,
+          "release-health-readiness-fixture",
+          path.join(ROOT, "deploy", "echo"),
+          fixtureRoot,
+          scenario,
+        ],
+        {
+          cwd: ROOT,
+          env: {
+            ...stagingEnvironment,
+            DEPLOY_ROOT: fixtureRoot,
+            HEALTH_CHECK_TIMEOUT_SECONDS: "0.3",
+            HEALTH_CHECK_INTERVAL_SECONDS: "0.02",
+            HEALTH_CHECK_REQUEST_TIMEOUT_SECONDS: "0.05",
+          },
+          encoding: "utf8",
+        },
+      );
+      return { ...result, combined: `${result.stdout}\n${result.stderr}` };
+    } finally {
+      fs.rmSync(fixtureRoot, { recursive: true, force: true });
+    }
+  };
+
+  const delayedReadiness = runReadinessFixture("forward-delayed");
+  assert.equal(delayedReadiness.status, 0, delayedReadiness.combined);
+  assert.match(delayedReadiness.combined, /RESULT=forward-success/);
+  assert.match(delayedReadiness.combined, /health passed for a{40} after 2 attempt/);
+
+  const rollbackReadiness = runReadinessFixture("forward-fails-rollback-delayed");
+  assert.notEqual(rollbackReadiness.status, 0, rollbackReadiness.combined);
+  assert.match(rollbackReadiness.combined, /staging health did not become ready within 0\.3s/);
+  assert.match(rollbackReadiness.combined, /staging rollback health passed for b{40} after 2 attempt/);
+  const forwardRestart = Number(rollbackReadiness.combined.match(/FIXTURE_FORWARD_RESTART_MS=(\d+)/)?.[1]);
+  const rollbackRestart = Number(rollbackReadiness.combined.match(/FIXTURE_ROLLBACK_RESTART_MS=(\d+)/)?.[1]);
+  assert.ok(Number.isFinite(forwardRestart) && Number.isFinite(rollbackRestart));
+  assert.ok(rollbackRestart - forwardRestart >= 250, rollbackReadiness.combined);
+
+  const failedRollback = runReadinessFixture("forward-fails-rollback-never");
+  assert.notEqual(failedRollback.status, 0, failedRollback.combined);
+  assert.match(failedRollback.combined, /staging health did not become ready within 0\.3s/);
+  assert.match(failedRollback.combined, /staging rollback health did not become ready within 0\.3s/);
+  assert.match(failedRollback.combined, /previous staging release could not be restored/);
+
+  const mismatchedReadiness = runReadinessFixture("mismatch");
+  assert.equal(mismatchedReadiness.status, 0, mismatchedReadiness.combined);
+  assert.match(mismatchedReadiness.combined, /RESULT=mismatch-rejected/);
+  assert.match(mismatchedReadiness.combined, /did not identify staging\/a{40}/);
+  assert.doesNotMatch(mismatchedReadiness.combined, /fixture-secret/);
+  assert.match(mismatchedReadiness.combined, /token=\[REDACTED\]/);
+
   const compatibilityUpdateScript = read("update-echo-archives.sh");
   assert.match(compatibilityUpdateScript, /CANONICAL_WORKFLOW=.*deploy\/echo/);
   assert.match(compatibilityUpdateScript, /exec "\$\{CANONICAL_WORKFLOW\}" "\$@"/);
