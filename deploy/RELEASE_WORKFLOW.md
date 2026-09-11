@@ -48,6 +48,10 @@ layout is:
 /var/lib/echo-archives/community.sqlite
 /var/lib/echo-archives-staging/community.sqlite
 /var/backups/echo-archives/*.sqlite
+
+/usr/local/lib/echo-archives/
+  check-echo-archives-production.sh  root-owned host monitor copy
+  echo-archives-offsite-backup.sh    root-owned host off-site orchestration copy
 ```
 
 Release directories contain no `.git` checkout and no runtime database, logs,
@@ -75,6 +79,8 @@ same bootstrap. It creates the runtime account and directories, installs the
 checked-in systemd units/timers, creates environment-file skeletons if absent,
 installs monitoring/off-site environment skeletons, removes only the known
 migration-era discovery drop-in, installs journal retention configuration,
+installs the reviewed monitor and off-site scripts into
+`/usr/local/lib/echo-archives` with root ownership and runtime-readable mode,
 backs up replaced unit files under `/var/backups/echo-archives/host-units/`,
 validates unit syntax, reloads the systemd manager, and leaves the off-site
 timer disabled until its external prerequisites are ready. It does not start,
@@ -296,5 +302,7 @@ systemd read/restart/start operations and protected production validation or
 backup. Host bootstrap, unit installation, environment-file ownership, Caddy
 changes, timer enablement, and service enable/start are host operations and
 require a separately reviewed sudo action. A normal app release does not
-recreate directories, rewrite unit files, modify firewall/DNS, or reload
-Caddy.
+recreate directories, rewrite unit files, update host tooling, modify
+firewall/DNS, or reload Caddy. Updating the monitor or off-site orchestration
+therefore requires host bootstrap/convergence, but not an application release
+deployment.

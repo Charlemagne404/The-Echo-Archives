@@ -14,6 +14,7 @@ commands and examples are in [`RELEASE_WORKFLOW.md`](RELEASE_WORKFLOW.md).
 | Secrets/config | `/srv/echo-archives/shared/env/*.env` | host-managed | systemd; production root-only |
 | Operational state | `/var/lib/echo-archives*` | yes | dedicated runtime account |
 | Backups | `/var/backups/echo-archives` and verified off-site storage | append/retention | backup service/root off-site job |
+| Host tooling | `/usr/local/lib/echo-archives` | host-managed | monitor/off-site orchestration; runtime-readable |
 | Host config | systemd, journald, Caddy, permissions | host-managed | guarded bootstrap/host procedure |
 
 The release artifact is constructed in a visible temporary directory, validated,
@@ -57,10 +58,13 @@ record is not required for application releases.
 ## Host versus release operations
 
 Host bootstrap installs accounts, directories, ACL foundations, systemd units,
-timers, and journal configuration. It does not start services or change Caddy.
-Normal release commands only build/validate an SHA, prepare overlays, switch
-pointers, restart the relevant service, and verify readiness. Caddy and DNS are
-not release inputs.
+timers, journal configuration, and the root-owned host tooling copies under
+`/usr/local/lib/echo-archives`. It does not start services or change Caddy.
+The monitor and off-site units execute those stable host copies; they use the
+explicit `APP_RELEASE_ROOT` only for version-coupled release helpers such as
+database/recovery verification. Normal release commands only build/validate
+an SHA, prepare overlays, switch pointers, restart the relevant service, and
+verify readiness. Caddy and DNS are not release inputs.
 
 ## Recovery limits
 

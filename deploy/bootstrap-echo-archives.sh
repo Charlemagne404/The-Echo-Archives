@@ -25,7 +25,7 @@ require_command() {
   command -v "$1" >/dev/null 2>&1 || die "required command is missing: $1"
 }
 
-for command_name in cp date grep id install rmdir setfacl stat systemd-analyze systemctl useradd; do
+for command_name in cp date getent grep id install rmdir setfacl stat systemd-analyze systemctl useradd; do
   require_command "${command_name}"
 done
 
@@ -46,6 +46,7 @@ RUNTIME_DIR="${DEPLOY_ROOT}/runtime"
 SHARED_DIR="${DEPLOY_ROOT}/shared"
 ENV_DIR="${SHARED_DIR}/env"
 STATE_DIR="${SHARED_DIR}/state"
+HOST_TOOLING_DIR="/usr/local/lib/echo-archives"
 
 install -d -o "${DEPLOY_USER}" -g "${DEPLOY_GROUP}" -m 0750 \
   "${DEPLOY_ROOT}" \
@@ -133,6 +134,19 @@ for unit_name in \
   backup_host_unit "/etc/systemd/system/${unit_name}"
 done
 
+install_host_tooling() {
+  install -d -o root -g "${RUNTIME_GROUP}" -m 0750 "${HOST_TOOLING_DIR}"
+  for source_path in \
+    "${REPO_ROOT}/deploy/check-echo-archives-production.sh" \
+    "${REPO_ROOT}/deploy/echo-archives-offsite-backup.sh"; do
+    local source_name="${source_path##*/}"
+    [[ -f "${source_path}" && ! -L "${source_path}" ]] ||
+      die "host tooling source is missing or unsafe: ${source_path}"
+    install -o root -g "${RUNTIME_GROUP}" -m 0750 \
+      "${source_path}" "${HOST_TOOLING_DIR}/${source_name}"
+  done
+}
+
 # The migration-era discovery drop-in added permissions for the frozen
 # checkout. Remove only that exact, recognizable stale artifact; an unknown
 # drop-in is a hard failure so bootstrap cannot discard host policy silently.
@@ -147,6 +161,8 @@ if [[ -e "${LEGACY_DISCOVERY_DROPIN}" ]]; then
   rm -f -- "${LEGACY_DISCOVERY_DROPIN}"
   rmdir --ignore-fail-on-non-empty "$(dirname -- "${LEGACY_DISCOVERY_DROPIN}")" 2>/dev/null || true
 fi
+
+install_host_tooling
 
 install -m 0644 "${REPO_ROOT}/deploy/echo-archives.service" \
   /etc/systemd/system/echo-archives.service
@@ -191,7 +207,7 @@ systemctl disable --now echo-archives-offsite-backup.timer
 systemctl reset-failed echo-archives-offsite-backup.service 2>/dev/null || true
 
 printf '%s\n' \
-  'Host layout and release service templates are installed.' \
+  'Host layout, host tooling, and release service templates are installed.' \
   'Application services were not started, restarted, stopped, or enabled.' \
   "Existing unit backups are under ${HOST_UNIT_BACKUP_DIR} when replacements were made." \
   'The off-site backup timer remains disabled until external storage is configured and tested.' \

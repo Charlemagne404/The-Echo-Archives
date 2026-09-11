@@ -7,15 +7,16 @@ Wants=network-online.target
 Type=oneshot
 User=echo-archives
 Group=echo-archives
-WorkingDirectory=/srv/echo-archives/current
+WorkingDirectory=/usr/local/lib/echo-archives
 EnvironmentFile=-/etc/echo-archives/monitoring.env
-Environment=REPO_ROOT=/srv/echo-archives/current
+Environment=APP_RELEASE_ROOT=/srv/echo-archives/current
 Environment=BACKUP_DIR=/var/backups/echo-archives
-ExecStart=/bin/bash /srv/echo-archives/current/deploy/check-echo-archives-production.sh
+ExecStart=/bin/bash /usr/local/lib/echo-archives/check-echo-archives-production.sh
 UMask=0077
 NoNewPrivileges=true
 PrivateTmp=true
 ProtectHome=read-only
 ProtectSystem=strict
+ReadOnlyPaths=/usr/local/lib/echo-archives
 ReadOnlyPaths=/srv/echo-archives
 ReadOnlyPaths=/var/lib/echo-archives

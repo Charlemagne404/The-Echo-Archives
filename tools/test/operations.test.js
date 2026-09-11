@@ -624,6 +624,11 @@ printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
   assert.doesNotMatch(installScript, /Caddyfile/);
   const bootstrapScript = read("deploy/bootstrap-echo-archives.sh");
   assert.match(bootstrapScript, /\/srv\/echo-archives/);
+  assert.match(bootstrapScript, /HOST_TOOLING_DIR="\/usr\/local\/lib\/echo-archives"/);
+  assert.match(bootstrapScript, /install -d -o root -g "\$\{RUNTIME_GROUP\}" -m 0750 "\$\{HOST_TOOLING_DIR\}"/);
+  assert.match(bootstrapScript, /install -o root -g "\$\{RUNTIME_GROUP\}" -m 0750/);
+  assert.match(bootstrapScript, /check-echo-archives-production\.sh/);
+  assert.match(bootstrapScript, /echo-archives-offsite-backup\.sh/);
   assert.match(bootstrapScript, /echo-archives-staging\.service/);
   assert.match(bootstrapScript, /systemd-analyze verify/);
   assert.match(bootstrapScript, /systemctl daemon-reload/);
@@ -636,6 +641,7 @@ printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
   assert.match(bootstrapScript, /systemctl disable --now echo-archives-offsite-backup\.timer/);
   assert.doesNotMatch(bootstrapScript, /systemctl (?:start|restart|stop|reload|enable)/);
   assert.doesNotMatch(bootstrapScript, /Caddyfile/);
+  assert.doesNotMatch(bootstrapScript, /community\.sqlite/);
 
   const migrationScript = read("deploy/migrate-echoarchives-domain.sh");
   assert.match(migrationScript, /SITE_URL="https:\/\/echoarchives\.net"/);
@@ -673,6 +679,9 @@ printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
   const localMonitor = read("deploy/check-echo-archives-production.sh");
   assert.match(localMonitor, /--output "\$\{TEMP_DIR\}\/apex\.html"/);
   assert.match(localMonitor, /tools\/check-database-backup\.js/);
+  assert.match(localMonitor, /APP_RELEASE_ROOT="\$\{APP_RELEASE_ROOT:-\$\{DEPLOY_ROOT\}\/current\}"/);
+  assert.doesNotMatch(localMonitor, /\bREPO_ROOT\b/);
+  assert.doesNotMatch(localMonitor, /\/home\/charlie\/The-Echo-Archives/);
   assert.match(localMonitor, /BACKUP_DIR="\$\{BACKUP_DIR:-\/var\/backups\/echo-archives\}"/);
   assert.match(localMonitor, /REQUIRE_OFFSITE_BACKUP/);
   assert.match(localMonitor, /EXPECTED_COMMUNITY_RATING_WRITES/);
@@ -714,6 +723,8 @@ printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
   assert.doesNotMatch(runtimeMigration, /rm\s+-rf\b/);
 
   const offsiteBackup = read("deploy/echo-archives-offsite-backup.sh");
+  assert.match(offsiteBackup, /APP_RELEASE_ROOT="\$\{APP_RELEASE_ROOT:-\$\{DEPLOY_ROOT\}\/current\}"/);
+  assert.doesNotMatch(offsiteBackup, /\bREPO_ROOT\b/);
   assert.match(
     offsiteBackup,
     /Optional recovery configuration is absent: \$\{destination_name\}[\s\S]*return 0/,
@@ -1012,13 +1023,18 @@ test("checked-in service and proxy retain production hardening", () => {
   const offsiteScript = read("deploy/echo-archives-offsite-backup.sh");
   const offsiteTimer = read("deploy/echo-archives-offsite-backup.timer");
   assert.match(localMonitorService, /User=echo-archives/);
-  assert.match(localMonitorService, /REPO_ROOT=\/srv\/echo-archives\/current/);
+  assert.match(localMonitorService, /WorkingDirectory=\/usr\/local\/lib\/echo-archives/);
+  assert.match(localMonitorService, /APP_RELEASE_ROOT=\/srv\/echo-archives\/current/);
   assert.match(
     localMonitorService,
-    /ExecStart=\/bin\/bash \/srv\/echo-archives\/current\/deploy\/check-echo-archives-production\.sh/,
+    /ExecStart=\/bin\/bash \/usr\/local\/lib\/echo-archives\/check-echo-archives-production\.sh/,
   );
+  assert.doesNotMatch(localMonitorService, /ExecStart=.*\/srv\/echo-archives\/current/);
+  assert.doesNotMatch(localMonitorService, /ExecStart=.*\/home\/charlie/);
   assert.match(localMonitorService, /NoNewPrivileges=true/);
   assert.match(offsiteService, /After=network-online\.target tailscaled\.service echo-archives-backup\.service/);
+  assert.match(offsiteService, /WorkingDirectory=\/usr\/local\/lib\/echo-archives/);
+  assert.match(offsiteService, /APP_RELEASE_ROOT=\/srv\/echo-archives\/current/);
   assert.match(offsiteService, /ProtectSystem=strict/);
   assert.match(offsiteService, /ProtectHome=read-only/);
   assert.match(
@@ -1033,8 +1049,10 @@ test("checked-in service and proxy retain production hardening", () => {
   assert.match(offsiteService, /Environment=MAX_LOCAL_BACKUP_AGE_HOURS=6/);
   assert.match(
     offsiteService,
-    /ExecStart=\/bin\/bash \/srv\/echo-archives\/current\/deploy\/echo-archives-offsite-backup\.sh/,
+    /ExecStart=\/bin\/bash \/usr\/local\/lib\/echo-archives\/echo-archives-offsite-backup\.sh/,
   );
+  assert.doesNotMatch(offsiteService, /ExecStart=.*\/srv\/echo-archives\/current/);
+  assert.doesNotMatch(offsiteService, /ExecStart=.*\/home\/charlie/);
   assert.match(offsiteService, /ExecStartPre=\/usr\/bin\/tailscale ping/);
   assert.match(offsiteService, /ExecStartPre=\/usr\/bin\/ssh .* echo-backup-pi/);
   for (const deploymentFile of [

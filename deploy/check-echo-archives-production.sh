@@ -4,7 +4,7 @@ IFS=$'\n\t'
 umask 0077
 
 DEPLOY_ROOT="${DEPLOY_ROOT:-/srv/echo-archives}"
-REPO_ROOT="${REPO_ROOT:-${DEPLOY_ROOT}/current}"
+APP_RELEASE_ROOT="${APP_RELEASE_ROOT:-${DEPLOY_ROOT}/current}"
 BACKUP_DIR="${BACKUP_DIR:-/var/backups/echo-archives}"
 LOCAL_HEALTH_URL="http://127.0.0.1:3010/api/health"
 LOCAL_INTERNAL_HEALTH_URL="${LOCAL_INTERNAL_HEALTH_URL:-http://127.0.0.1:4010/api/health}"
@@ -71,7 +71,7 @@ for command_name in curl date df grep mktemp node npm openssl rm stat systemctl 
   command -v "${command_name}" >/dev/null 2>&1 || fail "Required command is missing: ${command_name}"
 done
 
-[[ -d "${REPO_ROOT}" ]] || fail "Repository is missing: ${REPO_ROOT}"
+[[ -d "${APP_RELEASE_ROOT}" ]] || fail "Application release is missing: ${APP_RELEASE_ROOT}"
 TEMP_DIR="$(mktemp -d /tmp/echo-production-check.XXXXXX)"
 
 for unit in \
@@ -194,12 +194,12 @@ for host in echoarchives.net www.echoarchives.net echo.continental-hub.com; do
     fail "Caddy's origin TLS certificate for ${host} expires within 21 days."
 done
 
-/usr/bin/node "${REPO_ROOT}/tools/check-database-backup.js" \
+/usr/bin/node "${APP_RELEASE_ROOT}/tools/check-database-backup.js" \
   --directory "${BACKUP_DIR}" \
   --max-age-hours "${MAX_BACKUP_AGE_HOURS}"
 
-disk_percent="$(df --output=pcent "${REPO_ROOT}" | tail -n 1 | tr -cd '0-9')"
-available_bytes="$(df --output=avail -B1 "${REPO_ROOT}" | tail -n 1 | tr -d ' ')"
+disk_percent="$(df --output=pcent "${APP_RELEASE_ROOT}" | tail -n 1 | tr -cd '0-9')"
+available_bytes="$(df --output=avail -B1 "${APP_RELEASE_ROOT}" | tail -n 1 | tr -d ' ')"
 minimum_bytes=$((MIN_FREE_GIB * 1024 * 1024 * 1024))
 (( disk_percent <= MAX_DISK_PERCENT )) ||
   fail "Production filesystem usage is ${disk_percent}%."

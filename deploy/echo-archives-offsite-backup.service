@@ -5,16 +5,18 @@ After=network-online.target tailscaled.service echo-archives-backup.service
 
 [Service]
 Type=oneshot
+WorkingDirectory=/usr/local/lib/echo-archives
 Environment=HOME=/root
 Environment=RESTIC_CACHE_DIR=/var/cache/echo-archives-pi-restic
 Environment=MAX_LOCAL_BACKUP_AGE_HOURS=6
+Environment=APP_RELEASE_ROOT=/srv/echo-archives/current
 EnvironmentFile=/etc/echo-archives/pi-restic.env
 ExecStartPre=/usr/bin/test -r /etc/echo-archives/pi-restic.env
 ExecStartPre=/usr/bin/test -r /etc/echo-archives/pi-restic-password
 ExecStartPre=/usr/bin/test -r /root/.ssh/echo-archives-pi-backup
 ExecStartPre=/usr/bin/tailscale ping --c=1 --timeout=20s --until-direct=false 100.102.113.86
 ExecStartPre=/usr/bin/ssh -o BatchMode=yes -o ConnectTimeout=20 echo-backup-pi /usr/bin/true
-ExecStart=/bin/bash /srv/echo-archives/current/deploy/echo-archives-offsite-backup.sh
+ExecStart=/bin/bash /usr/local/lib/echo-archives/echo-archives-offsite-backup.sh
 UMask=0077
 TimeoutStartSec=3h
 CacheDirectory=echo-archives-pi-restic
@@ -31,6 +33,7 @@ ProtectKernelLogs=true
 ProtectKernelModules=true
 ProtectKernelTunables=true
 RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+ReadOnlyPaths=/usr/local/lib/echo-archives
 ReadOnlyPaths=/srv/echo-archives
 ReadWritePaths=/var/cache/echo-archives-pi-restic /var/lib/echo-archives-monitoring
 ReadWritePaths=/var/backups/echo-archives

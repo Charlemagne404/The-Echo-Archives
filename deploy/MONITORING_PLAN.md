@@ -22,7 +22,7 @@ confirmation/recovery periods for API health and 300-second periods for the
 homepage to avoid single-sample alerts.
 
 The root-owned local monitor continues to enforce deeper checks through the
-loopback-only detailed health listener when the release service is installed:
+loopback-only detailed health listener when the host monitor unit is installed:
 catalog counts, expected production feature flags, SQLite durability, redirect
 behavior, and TLS lifetime. Better Stack is the independent observer for public
 API and homepage availability.
@@ -49,6 +49,13 @@ Credential-neutral local preparation is checked in as:
 - `deploy/check-echo-archives-production.sh`;
 - `deploy/echo-archives-local-monitor.service`;
 - `deploy/echo-archives-local-monitor.timer`.
+
+The monitor and off-site orchestration scripts are host tooling, not release
+entrypoints. Bootstrap installs reviewed copies into
+`/usr/local/lib/echo-archives`; the units execute those copies through
+`/bin/bash`. They retain an explicit `APP_RELEASE_ROOT` for the
+version-coupled database/recovery helper scripts they invoke, while a monitor
+orchestration update does not require an application redeploy.
 
 Better Stack-specific repository preparation is checked in as:
 

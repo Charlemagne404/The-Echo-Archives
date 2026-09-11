@@ -4,7 +4,7 @@ IFS=$'\n\t'
 umask 0077
 
 DEPLOY_ROOT="${DEPLOY_ROOT:-/srv/echo-archives}"
-REPO_ROOT="${REPO_ROOT:-${DEPLOY_ROOT}/current}"
+APP_RELEASE_ROOT="${APP_RELEASE_ROOT:-${DEPLOY_ROOT}/current}"
 PUBLICATION_ROOT="${PUBLICATION_ROOT:-${DEPLOY_ROOT}/runtime/production/current}"
 BACKUP_DIR="${BACKUP_DIR:-/var/backups/echo-archives}"
 IMPORT_STAGING_DIR="${IMPORT_STAGING_DIR:-${PUBLICATION_ROOT}/import-staging}"
@@ -18,7 +18,7 @@ MARKER_TEMP=""
 VERIFY_DIR=""
 BACKUP_WRITE_PROBE=""
 REMOTE_RESTORE_DIR=""
-INVENTORY_VERIFIER="${REPO_ROOT}/tools/verify-restic-recovery-inventory.js"
+INVENTORY_VERIFIER="${APP_RELEASE_ROOT}/tools/verify-restic-recovery-inventory.js"
 
 log() {
   printf '[%s] %s\n' "$(date --iso-8601=seconds)" "$*"
@@ -208,7 +208,7 @@ install -d -m 0700 "${recovery_root}/database" "${recovery_root}/configuration"
 cp --preserve=mode,timestamps -- "${latest_backup}" "${staged_backup}"
 
 log "Verifying a protected byte-for-byte staging copy of the newest completed local backup."
-node "${REPO_ROOT}/tools/check-database-backup.js" \
+node "${APP_RELEASE_ROOT}/tools/check-database-backup.js" \
   --file "${staged_backup}" \
   --max-age-hours "${MAX_LOCAL_BACKUP_AGE_HOURS}"
 cmp --silent -- "${latest_backup}" "${staged_backup}" ||
@@ -365,7 +365,7 @@ restic check
 remove_recovery_inventory
 
 log "Applying owner-approved 30-day local retention after verified off-site recovery."
-node "${REPO_ROOT}/tools/prune-local-backups.js" \
+node "${APP_RELEASE_ROOT}/tools/prune-local-backups.js" \
   --directory "${BACKUP_DIR}" \
   --retention-days 30 \
   --minimum-keep 7 \
