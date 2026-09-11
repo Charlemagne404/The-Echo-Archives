@@ -5,13 +5,20 @@ Wants=network-online.target
 
 [Service]
 Type=oneshot
-User=charlie
-Group=charlie
-WorkingDirectory=/home/charlie/The-Echo-Archives
-EnvironmentFile=-/home/charlie/The-Echo-Archives/backend/.env
-ExecStart=/usr/bin/node /home/charlie/The-Echo-Archives/tools/backup-database.js
+User=echo-archives
+Group=echo-archives
+WorkingDirectory=/srv/echo-archives/current
+Environment=DB_PATH=/var/lib/echo-archives/community.sqlite
+Environment=BACKUP_DIR=/var/backups/echo-archives
+ExecStart=/usr/bin/node /srv/echo-archives/current/tools/backup-database.js --source /var/lib/echo-archives/community.sqlite
 UMask=0077
 NoNewPrivileges=true
 PrivateTmp=true
-ProtectSystem=full
-
+ProtectSystem=strict
+ProtectHome=read-only
+ReadOnlyPaths=/srv/echo-archives
+ReadOnlyPaths=/var/lib/echo-archives
+ReadWritePaths=/var/backups/echo-archives
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=echo-archives-backup

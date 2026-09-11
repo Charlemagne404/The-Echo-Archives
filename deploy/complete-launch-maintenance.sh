@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
+# HOST-MAINTENANCE/RECOVERY-ONLY: not part of the normal release workflow.
 set -Eeuo pipefail
 IFS=$'\n\t'
 umask 0077
 export LC_ALL=C
 
-REPO_ROOT="/home/charlie/The-Echo-Archives"
-OPERATOR_USER="charlie"
+SCRIPT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+REPO_ROOT="${REPO_ROOT:-$(cd "${SCRIPT_ROOT}/.." && pwd -P)}"
+OPERATOR_USER="${OPERATOR_USER:-${SUDO_USER:-$(id -un)}}"
 RUNTIME_USER="echo-archives"
 EXPECTED_HOST="charlie-Legion-T530-28ICB"
 EXPECTED_BRANCH="main"
 EXPECTED_COMMIT=""
 MODE=""
 
-ARTIFACT_ROOT="/home/charlie/.local/state/echo-archives-rollbacks/20260728T124747Z"
+ARTIFACT_ROOT="${ARTIFACT_ROOT:-/var/lib/echo-archives-launch-maintenance}"
 CADDY_NEW_PACKAGE="${ARTIFACT_ROOT}/caddy_2.11.4_linux_amd64.deb"
 CADDY_OLD_PACKAGE="${ARTIFACT_ROOT}/caddy_2.10.2_linux_amd64.deb"
 CADDY_STAGED_BIN="${ARTIFACT_ROOT}/caddy-2.11.4-stage/usr/bin/caddy"
@@ -566,12 +568,12 @@ classify_backup_unit_transition() {
     > "${installed_unit}"
 
   grep -Fq \
-    "ReadWritePaths=${REPO_ROOT}/backend/data/backups" \
+    "ReadWritePaths=/var/backups/echo-archives" \
     "${OFFSITE_BACKUP_UNIT_CANDIDATE}" ||
     fail "reviewed off-site unit does not contain the required backup write path"
 
   if ! grep -Fq \
-    "ReadWritePaths=${REPO_ROOT}/backend/data/backups" \
+    "ReadWritePaths=/var/backups/echo-archives" \
     "${installed_unit}"; then
     BACKUP_UNIT_NEEDS_INSTALL="yes"
   fi

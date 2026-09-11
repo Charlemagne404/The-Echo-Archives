@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
+# RECOVERY-ONLY: runs an isolated restored-application drill.
 set -Eeuo pipefail
 IFS=$'\n\t'
 umask 0077
 
 APP_USER="${APP_USER:-charlie}"
-REPO_ROOT="/home/charlie/The-Echo-Archives"
+SCRIPT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+REPO_ROOT="${REPO_ROOT:-$(cd "${SCRIPT_ROOT}/.." && pwd -P)}"
 PORT="${RESTORE_TEST_PORT:-3911}"
 INTERNAL_HEALTH_PORT="$((PORT + 1000))"
 DATABASE_PATH="${1:-}"

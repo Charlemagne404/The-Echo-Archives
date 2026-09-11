@@ -164,6 +164,12 @@ function isValidAbsoluteUrl(value, { httpsOnly = false } = {}) {
   }
 }
 
+function isLoopbackHostname(hostname) {
+  return ["127.0.0.1", "localhost", "::1"].includes(
+    String(hostname || "").toLowerCase().replace(/^\[|\]$/g, ""),
+  );
+}
+
 function validateConfig(candidate = config) {
   const errors = [];
 
@@ -217,7 +223,21 @@ function validateConfig(candidate = config) {
     errors.push("HOST must not be empty.");
   }
 
-  const requiresHttps = candidate.IS_LIVE_PRODUCTION || candidate.IS_STAGING;
+  let parsedSiteUrl = null;
+  try {
+    parsedSiteUrl = new URL(candidate.SITE_URL);
+  } catch (_error) {
+    // The generic URL validation below reports the actionable error.
+  }
+  const privateStagingOrigin =
+    candidate.IS_STAGING &&
+    parsedSiteUrl &&
+    isLoopbackHostname(parsedSiteUrl.hostname) &&
+    parsedSiteUrl.port === "3011";
+  const requiresHttps = candidate.IS_LIVE_PRODUCTION || (candidate.IS_STAGING && !privateStagingOrigin);
+  if (candidate.IS_STAGING && !privateStagingOrigin) {
+    errors.push("Staging SITE_URL must be a private loopback origin on port 3011.");
+  }
   if (!isValidAbsoluteUrl(candidate.SITE_URL, { httpsOnly: requiresHttps })) {
     errors.push(`SITE_URL must be an absolute ${requiresHttps ? "HTTPS " : ""}URL.`);
   } else {

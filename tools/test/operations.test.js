@@ -191,6 +191,7 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   for (const relativePath of [
     "deploy/check-echo-archives-production.sh",
     "deploy/check-cloudflare-proxy-ranges.sh",
+    "deploy/bootstrap-echo-archives.sh",
     "deploy/complete-launch-maintenance.sh",
     "deploy/complete-local-launch-readiness.sh",
     "deploy/complete-pi-backup-setup.sh",
@@ -201,7 +202,6 @@ test("deployment shell scripts parse and preserve the required safety order", ()
     "deploy/migrate-echo-archives-runtime-account.sh",
     "deploy/migrate-echoarchives-domain.sh",
     "deploy/production-host-maintenance.sh",
-    "deploy/prepare-staging-caddy-candidate.sh",
     "deploy/staging-smoke.sh",
     "deploy/deep-validate.sh",
     "deploy/preflight.sh",
@@ -245,6 +245,9 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.match(releaseWorkflow, /adopt-current/);
   assert.match(releaseWorkflow, /preflight_legacy_worktree_status/);
   assert.match(releaseWorkflow, /legacy checkout was dirty during preflight/);
+  const promotionWorkflow = releaseWorkflow.slice(releaseWorkflow.indexOf("promote_staging() {"), releaseWorkflow.indexOf("adopt_current() {"));
+  assert.doesNotMatch(promotionWorkflow, /require_recent_preflight|preflight-latest/);
+  assert.match(promotionWorkflow, /backup_production_database/);
   assert.match(releaseWorkflow, /npm --prefix "\$\{temporary_path\}\/backend" ci --include=dev/);
   assert.match(releaseWorkflow, /npm --prefix "\$\{temporary_path\}\/backend" prune --omit=dev/);
   assert.doesNotMatch(releaseWorkflow, /git merge|git reset --hard/);
@@ -254,7 +257,7 @@ test("deployment shell scripts parse and preserve the required safety order", ()
     ...process.env,
     NODE_ENV: "production",
     DEPLOYMENT_ENV: "staging",
-    SITE_URL: "https://staging.echoarchives.net",
+    SITE_URL: "http://127.0.0.1:3011",
     STATIC_ROOT: "/srv/echo-archives/runtime/staging/current",
     DB_PATH: "/var/lib/echo-archives-staging/community.sqlite",
     IMPORT_STAGING_ROOT: "/srv/echo-archives/runtime/staging/current/import-staging",
@@ -586,15 +589,10 @@ printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
   assert.match(compatibilityUpdateScript, /exec "\$\{CANONICAL_WORKFLOW\}" "\$@"/);
   assert.doesNotMatch(compatibilityUpdateScript, /npm (?:install|ci)|systemctl (?:reload|restart)/);
 
-  const stagingCaddy = read("deploy/Caddyfile.staging.echo");
-  assert.match(stagingCaddy, /staging\.echoarchives\.net\s*\{/);
-  assert.match(stagingCaddy, /reverse_proxy 127\.0\.0\.1:3011/);
-  assert.match(stagingCaddy, /abort @not_cloudflare/);
-
-  const releaseService = read("deploy/echo-archives-release.service");
+  const releaseService = read("deploy/echo-archives.service");
   const stagingService = read("deploy/echo-archives-staging.service");
-  const releaseBackupService = read("deploy/echo-archives-release-backup.service");
-  const releaseBackupTimer = read("deploy/echo-archives-release-backup.timer");
+  const releaseBackupService = read("deploy/echo-archives-backup.service");
+  const releaseBackupTimer = read("deploy/echo-archives-backup.timer");
   assert.match(releaseService, /WorkingDirectory=\/srv\/echo-archives\/current\/backend/);
   assert.match(releaseService, /ExecStart=\/usr\/bin\/node \/srv\/echo-archives\/current\/backend\/server\.js/);
   assert.match(releaseService, /Environment=PORT=3010/);
@@ -613,34 +611,28 @@ printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
   assert.match(releaseBackupService, /--source \/var\/lib\/echo-archives\/community\.sqlite/);
   assert.match(releaseBackupService, /BACKUP_DIR=\/var\/backups\/echo-archives/);
   assert.match(releaseBackupService, /current\/tools\/backup-database\.js/);
-  assert.match(releaseBackupTimer, /Unit=echo-archives-release-backup\.service/);
+  assert.match(releaseBackupTimer, /Unit=echo-archives-backup\.service/);
 
-  const releaseDiscoveryService = read("deploy/echo-archives-release-discovery.service");
+  const releaseDiscoveryService = read("deploy/echo-archives-discovery.service");
   assert.match(releaseDiscoveryService, /WorkingDirectory=\/srv\/echo-archives\/current\/backend/);
   assert.match(releaseDiscoveryService, /Environment=STATIC_ROOT=\/srv\/echo-archives\/runtime\/production\/current/);
   assert.match(releaseDiscoveryService, /Environment=IMPORT_STAGING_ROOT=\/srv\/echo-archives\/runtime\/production\/current\/import-staging/);
 
   const installScript = read("deploy/install-echo-archives-system.sh");
-  assert.match(installScript, /Caddyfile\.global\.echo/);
-  assert.match(installScript, /trusted_proxies_strict/);
-  assert.match(installScript, /client_ip_headers CF-Connecting-IP/);
-  assert.match(installScript, /strict_sni_host on/);
-  assert.match(installScript, /RUNTIME_ACCOUNT_READINESS="\/var\/lib\/echo-archives-runtime-account\/readiness"/);
-  assert.match(installScript, /migrate-echo-archives-runtime-account\.sh/);
-  assert.match(installScript, /echo-archives-journald\.conf/);
-  assert.match(installScript, /journalctl --namespace=echo-archives/);
-  assertOrdered(installScript, [
-    'caddy validate --config "${TMP_CADDYFILE}" --adapter caddyfile',
-    'install -m 0644 "${TMP_CADDYFILE}" "${CADDYFILE}"',
-    'install -m 0644 "${JOURNAL_CONFIG_SOURCE}" "${JOURNAL_CONFIG_DEST}"',
-    'install -m 0644 "${BACKUP_SERVICE_SOURCE}" "${BACKUP_SERVICE_DEST}"',
-    'install -m 0644 "${BACKUP_TIMER_SOURCE}" "${BACKUP_TIMER_DEST}"',
-    "systemctl restart echo-archives.service",
-    '"${RUNTIME_ACCOUNT_MIGRATION}" --check',
-    "systemctl enable --now echo-archives-backup.timer",
-    "systemctl reload caddy",
-  ]);
-  assert.match(installScript, /systemctl list-timers echo-archives-backup\.timer echo-archives-discovery\.timer/);
+  assert.match(installScript, /bootstrap-echo-archives\.sh/);
+  assert.doesNotMatch(installScript, /systemctl (?:start|restart|stop|reload|enable)/);
+  assert.doesNotMatch(installScript, /Caddyfile/);
+  const bootstrapScript = read("deploy/bootstrap-echo-archives.sh");
+  assert.match(bootstrapScript, /\/srv\/echo-archives/);
+  assert.match(bootstrapScript, /echo-archives-staging\.service/);
+  assert.match(bootstrapScript, /systemd-analyze verify/);
+  assert.match(bootstrapScript, /systemctl daemon-reload/);
+  assert.match(bootstrapScript, /monitoring\.env\.example/);
+  assert.match(bootstrapScript, /offsite-backup\.env\.example/);
+  assert.match(bootstrapScript, /LEGACY_DISCOVERY_DROPIN/);
+  assert.match(bootstrapScript, /refusing to remove an unrecognized discovery drop-in/);
+  assert.doesNotMatch(bootstrapScript, /systemctl (?:start|restart|stop|reload|enable)/);
+  assert.doesNotMatch(bootstrapScript, /Caddyfile/);
 
   const migrationScript = read("deploy/migrate-echoarchives-domain.sh");
   assert.match(migrationScript, /SITE_URL="https:\/\/echoarchives\.net"/);
@@ -668,6 +660,7 @@ printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
   ]);
   assert.match(maintenanceScript, /npm --prefix "\$\{DEPENDENCY_STAGE\}" ci --omit=dev/);
   assert.match(maintenanceScript, /ALLOWED_APT_REMOVAL="netdata-plugin-otel-signal-viewer"/);
+  assert.match(maintenanceScript, /HOST-MAINTENANCE\/RECOVERY-ONLY/);
   assert.match(maintenanceScript, /nft list ruleset/);
   assert.match(maintenanceScript, /ufw status verbose/);
   assert.match(maintenanceScript, /REBOOT REQUIRED\. This script will not reboot automatically/);
@@ -676,7 +669,8 @@ printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
 
   const localMonitor = read("deploy/check-echo-archives-production.sh");
   assert.match(localMonitor, /--output "\$\{TEMP_DIR\}\/apex\.html"/);
-  assert.match(localMonitor, /npm --prefix "\$\{REPO_ROOT\}" run check:backup/);
+  assert.match(localMonitor, /tools\/check-database-backup\.js/);
+  assert.match(localMonitor, /BACKUP_DIR="\$\{BACKUP_DIR:-\/var\/backups\/echo-archives\}"/);
   assert.match(localMonitor, /REQUIRE_OFFSITE_BACKUP/);
   assert.match(localMonitor, /EXPECTED_COMMUNITY_RATING_WRITES/);
   assert.match(localMonitor, /EXPECTED_MAINTAINER_REVIEW/);
@@ -734,7 +728,9 @@ printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
   assert.match(offsiteBackup, /\.retention-write-probe\.\*/);
   assert.match(offsiteBackup, /service sandbox can apply retention/);
   assert.match(offsiteBackup, /cp --archive --no-dereference/);
-  assert.match(offsiteBackup, /backend\/data\/import-staging/);
+  assert.match(offsiteBackup, /PUBLICATION_ROOT/);
+  assert.match(offsiteBackup, /IMPORT_STAGING_DIR=.*PUBLICATION_ROOT.*import-staging/);
+  assert.doesNotMatch(offsiteBackup, /\/home\/charlie\/The-Echo-Archives/);
   assert.match(
     offsiteBackup,
     /Importer staging root must not be a symbolic link/,
@@ -803,7 +799,7 @@ printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
   assert.match(piBackupCompletion, /restic snapshots --json --tag echo-archives/);
   assert.match(piBackupCompletion, /restic restore --verify --target "\$\{RESTORE_DIR\}"/);
   assert.match(piBackupCompletion, /APPLICATION_CHECK/);
-  assert.match(piBackupCompletion, /OPERATOR_USER="charlie"/);
+  assert.match(piBackupCompletion, /OPERATOR_USER="\$\{OPERATOR_USER:-\$\{SUDO_USER:-\$\(id -un\)\}\}"/);
   assert.match(piBackupCompletion, /APP_USER="echo-archives"/);
   assert.match(
     piBackupCompletion,
@@ -879,13 +875,20 @@ printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
 
 test("checked-in service and proxy retain production hardening", () => {
   const service = read("deploy/echo-archives.service");
+  const stagingService = read("deploy/echo-archives-staging.service");
   for (const setting of [
     "User=echo-archives",
     "Group=echo-archives",
     "Environment=NODE_ENV=production",
+    "Environment=DEPLOYMENT_ENV=production",
     "Environment=HOST=127.0.0.1",
     "Environment=DB_PATH=/var/lib/echo-archives/community.sqlite",
-    "ExecStartPre=/usr/bin/node /home/charlie/The-Echo-Archives/backend/scripts/check-config.js",
+    "WorkingDirectory=/srv/echo-archives/current/backend",
+    "EnvironmentFile=/srv/echo-archives/shared/env/production.env",
+    "Environment=STATIC_ROOT=/srv/echo-archives/runtime/production/current",
+    "Environment=IMPORT_STAGING_ROOT=/srv/echo-archives/runtime/production/current/import-staging",
+    "ExecStartPre=/usr/bin/node /srv/echo-archives/current/backend/scripts/check-config.js",
+    "ExecStart=/usr/bin/node /srv/echo-archives/current/backend/server.js",
     "Restart=on-failure",
     "TimeoutStopSec=15",
     "UMask=0027",
@@ -911,28 +914,26 @@ test("checked-in service and proxy retain production hardening", () => {
     "SystemCallArchitectures=native",
     "StateDirectory=echo-archives",
     "StateDirectoryMode=0750",
-    "ReadOnlyPaths=/home/charlie/The-Echo-Archives",
+    "ReadOnlyPaths=/srv/echo-archives/releases",
     "ReadWritePaths=/var/lib/echo-archives",
+    "ReadWritePaths=/srv/echo-archives/runtime/production/current/data",
     "LogNamespace=echo-archives",
   ]) {
     assert.match(service, new RegExp(setting.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   }
   for (const path of [
-    "backend/data/import-staging",
+    "import-staging",
     "catalog-src/shows",
     "images/covers",
     "images/generated/covers",
+    "data",
     "data/reviews",
-    "data/shows.json",
-    "data/collections.json",
-    "data/search-index.json",
-    "data/archive-stats.json",
-    "docs/generated/catalog-status.json",
-    "docs/generated/catalog-status.md",
+    "docs/generated",
   ]) {
-    assert.match(service, new RegExp(`^ReadWritePaths=/home/charlie/The-Echo-Archives/${path.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`, "m"));
+    assert.match(service, new RegExp(`^ReadWritePaths=/srv/echo-archives/runtime/production/current/${path.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`, "m"));
   }
-  assert.doesNotMatch(service, /^ReadWritePaths=\/home\/charlie(?:\/The-Echo-Archives)?$/m);
+  assert.doesNotMatch(service, /\/home\/charlie\/The-Echo-Archives/);
+  assert.doesNotMatch(service, /^EnvironmentFile=-/m);
   assert.doesNotMatch(service, /^Environment=COMMUNITY_RATING_WRITES_ENABLED=/m);
 
   const journalConfig = read("deploy/echo-archives-journald.conf");
@@ -995,21 +996,27 @@ test("checked-in service and proxy retain production hardening", () => {
   const backupService = read("deploy/echo-archives-backup.service");
   const backupTimer = read("deploy/echo-archives-backup.timer");
   assert.match(backupService, /ExecStart=\/usr\/bin\/node .*tools\/backup-database\.js/);
+  assert.match(backupService, /User=echo-archives/);
+  assert.match(backupService, /--source \/var\/lib\/echo-archives\/community\.sqlite/);
+  assert.match(backupService, /BACKUP_DIR=\/var\/backups\/echo-archives/);
   assert.match(backupService, /UMask=0077/);
   assert.match(backupTimer, /Persistent=true/);
   assert.match(backupTimer, /Unit=echo-archives-backup\.service/);
 
   const localMonitorService = read("deploy/echo-archives-local-monitor.service");
   const offsiteService = read("deploy/echo-archives-offsite-backup.service");
+  const discoveryService = read("deploy/echo-archives-discovery.service");
+  const offsiteScript = read("deploy/echo-archives-offsite-backup.sh");
   const offsiteTimer = read("deploy/echo-archives-offsite-backup.timer");
-  assert.match(localMonitorService, /User=charlie/);
+  assert.match(localMonitorService, /User=echo-archives/);
+  assert.match(localMonitorService, /REPO_ROOT=\/srv\/echo-archives\/current/);
   assert.match(localMonitorService, /NoNewPrivileges=true/);
   assert.match(offsiteService, /After=network-online\.target tailscaled\.service echo-archives-backup\.service/);
   assert.match(offsiteService, /ProtectSystem=strict/);
   assert.match(offsiteService, /ProtectHome=read-only/);
   assert.match(
     offsiteService,
-    /^ReadWritePaths=\/home\/charlie\/The-Echo-Archives\/backend\/data\/backups$/m,
+    /^ReadWritePaths=\/var\/backups\/echo-archives$/m,
   );
   assert.doesNotMatch(
     offsiteService,
@@ -1017,9 +1024,20 @@ test("checked-in service and proxy retain production hardening", () => {
   );
   assert.match(offsiteService, /EnvironmentFile=\/etc\/echo-archives\/pi-restic\.env/);
   assert.match(offsiteService, /Environment=MAX_LOCAL_BACKUP_AGE_HOURS=6/);
-  assert.match(offsiteService, /ExecStart=\/home\/charlie\/The-Echo-Archives\/deploy\/echo-archives-offsite-backup\.sh/);
+  assert.match(offsiteService, /ExecStart=\/srv\/echo-archives\/current\/deploy\/echo-archives-offsite-backup\.sh/);
   assert.match(offsiteService, /ExecStartPre=\/usr\/bin\/tailscale ping/);
   assert.match(offsiteService, /ExecStartPre=\/usr\/bin\/ssh .* echo-backup-pi/);
+  for (const deploymentFile of [
+    service,
+    stagingService,
+    backupService,
+    discoveryService,
+    localMonitorService,
+    offsiteService,
+    offsiteScript,
+  ]) {
+    assert.doesNotMatch(deploymentFile, /\/home\/charlie\/The-Echo-Archives/);
+  }
   assert.match(offsiteTimer, /OnCalendar=\*-\*-\* 04:00:00/);
   assert.match(offsiteTimer, /Unit=echo-archives-offsite-backup\.service/);
 

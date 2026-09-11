@@ -79,9 +79,12 @@ function classifySource(snapshot, markerFormat) {
   ) {
     return { sourceRoot: normalized, inventoryFormat: "expanded" };
   }
+  // Legacy markers may refer to the frozen pre-release checkout. Keep this
+  // compatibility path limited to recovery selection and do not depend on
+  // the historical operator username.
   if (
     markerFormat === "legacy" &&
-    /^\/home\/charlie\/The-Echo-Archives\/backend\/data\/backups\/community-[^/]+\.sqlite$/.test(normalized)
+    /^\/home\/[^/]+\/The-Echo-Archives\/backend\/data\/backups\/community-[^/]+\.sqlite$/.test(normalized)
   ) {
     return { sourceRoot: normalized, inventoryFormat: "legacy-database" };
   }

@@ -19,7 +19,7 @@ Environment=INTERNAL_HEALTH_PORT=4011
 Environment=STATIC_ROOT=/srv/echo-archives/runtime/staging/current
 Environment=IMPORT_STAGING_ROOT=/srv/echo-archives/runtime/staging/current/import-staging
 Environment=SERVE_STATIC=true
-Environment=SITE_URL=https://staging.echoarchives.net
+Environment=SITE_URL=http://127.0.0.1:3011
 Environment=DB_PATH=/var/lib/echo-archives-staging/community.sqlite
 Environment=ARCHIVIST_ENABLED=false
 Environment=IMPORT_AUTO_WORKER=false

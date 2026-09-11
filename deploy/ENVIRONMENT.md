@@ -10,8 +10,10 @@ the root-only environment files outside Git:
 /srv/echo-archives/shared/env/production.env
 ```
 
-Both files must be regular files with mode `0600`. Validate them without
-printing values:
+Both files must be regular files with mode `0600`. The deployment user may
+read staging; production is intentionally root-readable only. The release
+tool validates production through a short-lived privileged process without
+printing or copying secret values. Validate them without printing values:
 
 ```bash
 ECHO_ENV_FILE=/srv/echo-archives/shared/env/staging.env \
@@ -43,7 +45,7 @@ Caddy routes and must not be bound to a non-loopback address.
 | Variable | Staging | Production |
 | --- | --- | --- |
 | `DEPLOYMENT_ENV` | `staging` | `production` |
-| `SITE_URL` | `https://staging.echoarchives.net` | `https://echoarchives.net` |
+| `SITE_URL` | `http://127.0.0.1:3011` | `https://echoarchives.net` |
 | `DB_PATH` | `/var/lib/echo-archives-staging/community.sqlite` | `/var/lib/echo-archives/community.sqlite` |
 | `SQLITE_SYNCHRONOUS` | `FULL` | `FULL` |
 | `COMMUNITY_RATING_WRITES_ENABLED` | `true`, isolated DB | current production policy; currently `true` |

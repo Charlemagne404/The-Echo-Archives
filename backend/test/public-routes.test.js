@@ -196,7 +196,7 @@ test("staging responses identify the environment and are excluded from indexing"
   const context = await startPublicRouteServer({
     NODE_ENV: "production",
     DEPLOYMENT_ENV: "staging",
-    SITE_URL: "https://staging.echoarchives.com",
+    SITE_URL: "http://127.0.0.1:3011",
     COMMUNITY_RATING_WRITES_ENABLED: "true",
     COMMUNITY_TURNSTILE_ENABLED: "false",
     COMMUNITY_VOTER_HASH_SECRET: "staging-test-voter-secret-123456789",
@@ -222,7 +222,7 @@ test("staging responses identify the environment and are excluded from indexing"
 
     const offline = await fetch(`${context.baseUrl}/offline.html`);
     assert.equal(offline.status, 200);
-    assert.match(await offline.text(), /data-site-url="https:\/\/staging\.echoarchives\.com"/);
+    assert.match(await offline.text(), /data-site-url="http:\/\/127\.0\.0\.1:3011"/);
   } finally {
     await stopPublicRouteServer(context);
   }

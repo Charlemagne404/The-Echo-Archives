@@ -15,12 +15,12 @@ Usage:
   ./deploy/echo staging <commit-or-ref>
   ./deploy/echo smoke [--crawl] [base-url]
   ./deploy/echo validate <commit-or-ref> [--external-links] [--crawl]
-  ./deploy/echo preflight
-  ./deploy/echo adopt-current <legacy-release-sha>
+  ./deploy/echo preflight                 # recovery/cutover evidence only
+  ./deploy/echo adopt-current <legacy-release-sha> # one-time recovery only
   ./deploy/echo promote
   ./deploy/echo rollback [release-sha]
   ./deploy/echo status
-  ./deploy/echo cleanup [keep-count]
+  ./deploy/echo cleanup [keep-count] [--apply]
 
 The staging command is the only command that fetches/builds a Git commit.
 Promotion and rollback operate only on already-created release directories.
@@ -30,7 +30,7 @@ EOF
 }
 
 require_common_commands() {
-  for command_name in awk cp curl date env find flock getent git journalctl ln mkdir mktemp mv npm node readlink rm sed setfacl sleep sort stat sudo systemctl tac tar; do
+  for command_name in awk cp curl date env find flock getent git journalctl ln mkdir mktemp mv npm node readlink rm sed setfacl sleep sort stat sudo systemctl tac tail tar; do
     require_command "${command_name}"
   done
   [[ -x /usr/bin/node ]] || die "the system Node runtime is missing at /usr/bin/node"
@@ -46,16 +46,23 @@ write_release_metadata() {
   local commit="$3"
   local site_url="$4"
   local build_environment="$5"
-  /usr/bin/node - "${release_root}/release.json" "${release_id}" "${commit}" "${site_url}" "${build_environment}" <<'NODE'
+  /usr/bin/node - "${release_root}/release.json" "${release_root}" "${release_id}" "${commit}" "${site_url}" "${build_environment}" <<'NODE'
 const fs = require("node:fs");
-const [filePath, releaseId, commit, siteUrl, buildEnvironment] = process.argv.slice(2);
+const crypto = require("node:crypto");
+const [filePath, releaseRoot, releaseId, commit, siteUrl, buildEnvironment] = process.argv.slice(2);
+const packageLockPath = `${releaseRoot}/backend/package-lock.json`;
+const packageLockSha256 = fs.existsSync(packageLockPath)
+  ? crypto.createHash("sha256").update(fs.readFileSync(packageLockPath)).digest("hex")
+  : undefined;
 fs.writeFileSync(filePath, `${JSON.stringify({
+  schemaVersion: 1,
   releaseId,
   commit,
   builtAt: new Date().toISOString(),
   node: process.versions.node,
   buildEnvironment,
   buildSiteUrl: siteUrl,
+  ...(packageLockSha256 ? { packageLockSha256 } : {}),
 }, null, 2)}\n`, { mode: 0o640 });
 NODE
 }
@@ -221,6 +228,7 @@ deploy_staging() {
   require_common_commands
   ensure_layout
   acquire_deployment_lock
+  cleanup_stale_temporary_artifacts true
   validate_environment_file "staging" "${STAGING_ENV_FILE}"
   assert_release_service "${STAGING_SERVICE}" "${STAGING_LINK}" "${STAGING_ENV_FILE}" "${STAGING_PORT}" \
     "${STAGING_SITE_LINK}" "${STAGING_SITE_LINK}/import-staging"
@@ -254,6 +262,7 @@ promote_staging() {
   require_common_commands
   ensure_layout
   acquire_deployment_lock
+  cleanup_stale_temporary_artifacts true
   validate_environment_file "production" "${PRODUCTION_ENV_FILE}"
   [[ -L "${STAGING_LINK}" ]] || die "no staging release is selected"
   local staging_release
@@ -272,7 +281,6 @@ promote_staging() {
     "${PRODUCTION_SITE_LINK}" "${PRODUCTION_SITE_LINK}/import-staging"
   health_check "staging before promotion" "${STAGING_HEALTH_URL}" "staging" "${staging_commit}"
 
-  require_recent_preflight
   [[ -L "${CURRENT_LINK}" ]] ||
     die "production release link is not installed; complete the one-time release-service cutover explicitly first"
   local previous_release
@@ -285,6 +293,8 @@ promote_staging() {
     die "could not prepare retained production runtime content for ${previous_release}"
   prepare_runtime_tree "production" "${staging_release}" ||
     die "could not prepare isolated production runtime content for ${staging_release}"
+
+  backup_production_database
 
   log "Promoting the tested release ${staging_release} (${staging_commit}) to production."
   if ! atomic_switch "${CURRENT_LINK}" "${staging_release}" ||
@@ -359,6 +369,7 @@ rollback_production() {
   require_common_commands
   ensure_layout
   acquire_deployment_lock
+  cleanup_stale_temporary_artifacts true
   [[ -L "${CURRENT_LINK}" ]] || die "no release-backed production current link exists"
   assert_release_service "${PRODUCTION_SERVICE}" "${CURRENT_LINK}" "${PRODUCTION_ENV_FILE}" "${PRODUCTION_PORT}" \
     "${PRODUCTION_SITE_LINK}" "${PRODUCTION_SITE_LINK}/import-staging"
@@ -402,12 +413,16 @@ cleanup_releases() {
   require_common_commands
   ensure_layout
   acquire_deployment_lock
+  local apply="${2:-false}"
+  [[ "${apply}" == "true" || "${apply}" == "false" ]] || die "cleanup apply mode must be true or false"
+  cleanup_stale_temporary_artifacts "${apply}"
   local keep="${1:-${KEEP_RELEASES}}"
   [[ "${keep}" =~ ^[1-9][0-9]*$ ]] || die "cleanup keep-count must be a positive integer"
   local current_release="$(link_release_id "${CURRENT_LINK}" 2>/dev/null || true)"
   local staging_release="$(link_release_id "${STAGING_LINK}" 2>/dev/null || true)"
   local production_runtime_release=""
   local staging_runtime_release=""
+  local rollback_release=""
   if [[ -L "${PRODUCTION_SITE_LINK}" ]]; then
     production_runtime_release="$(runtime_link_release_id production)" ||
       die "production runtime link is invalid; refusing release cleanup"
@@ -415,6 +430,9 @@ cleanup_releases() {
   if [[ -L "${STAGING_SITE_LINK}" ]]; then
     staging_runtime_release="$(runtime_link_release_id staging)" ||
       die "staging runtime link is invalid; refusing release cleanup"
+  fi
+  if [[ "${current_release}" =~ ^[0-9a-f]{40}$ ]]; then
+    rollback_release="$(previous_production_release "${current_release}" 2>/dev/null || true)"
   fi
   mapfile -t candidates < <(find "${RELEASES_DIR}" -mindepth 1 -maxdepth 1 -type d -printf '%T@ %f\n' | sort -nr | awk '{print $2}')
   local index=0
@@ -424,25 +442,70 @@ cleanup_releases() {
     if (( index <= keep )) || [[ "${release_id}" == "${current_release}" ||
       "${release_id}" == "${staging_release}" ||
       "${release_id}" == "${production_runtime_release}" ||
-      "${release_id}" == "${staging_runtime_release}" ]]; then
+      "${release_id}" == "${staging_runtime_release}" ||
+      "${release_id}" == "${rollback_release}" ]]; then
       continue
     fi
-    log "Removing unreferenced old release ${release_id}."
-    remove_release_dir "${release_id}"
+    if [[ "${apply}" == "true" ]]; then
+      log "Removing unreferenced old release ${release_id}."
+      remove_release_dir "${release_id}"
+    else
+      log "Would remove unreferenced old release ${release_id}."
+    fi
     for environment in staging production; do
       local runtime_candidate
       runtime_candidate="$(runtime_path "${environment}" "${release_id}")"
       if [[ -d "${runtime_candidate}" && ! -L "${runtime_candidate}" ]]; then
-        log "Removing unreferenced ${environment} runtime content ${release_id}."
-        rm -rf -- "${runtime_candidate}"
+        if [[ "${apply}" == "true" ]]; then
+          log "Removing unreferenced ${environment} runtime content ${release_id}."
+          rm -rf -- "${runtime_candidate}"
+        else
+          log "Would remove unreferenced ${environment} runtime content ${release_id}."
+        fi
       fi
     done
   done
 }
 
+print_release_metadata() {
+  local environment="$1"
+  local release_id="$2"
+  [[ "${release_id}" != none ]] || return 0
+  /usr/bin/node - "${environment}" "${release_id}" "$(release_path "${release_id}")/release.json" <<'NODE'
+const fs = require("node:fs");
+const [environment, releaseId, filePath] = process.argv.slice(2);
+const metadata = JSON.parse(fs.readFileSync(filePath, "utf8"));
+console.log(`${environment} metadata: id=${metadata.releaseId || releaseId} commit=${metadata.commit || "unknown"} builtAt=${metadata.builtAt || "unknown"} node=${metadata.node || "unknown"}`);
+NODE
+}
+
+systemctl_property() {
+  local service="$1"
+  local property="$2"
+  local value
+  if value="$(systemctl show "${service}" -p "${property}" --value 2>/dev/null)"; then
+    printf '%s\n' "${value}"
+    return 0
+  fi
+  sudo systemctl show "${service}" -p "${property}" --value 2>/dev/null || printf 'unknown\n'
+}
+
+print_service_status() {
+  local environment="$1"
+  local service="$2"
+  local database_path="$3"
+  local active substate pid result exit_status
+  active="$(systemctl_property "${service}" ActiveState)"
+  substate="$(systemctl_property "${service}" SubState)"
+  pid="$(systemctl_property "${service}" MainPID)"
+  result="$(systemctl_property "${service}" Result)"
+  exit_status="$(systemctl_property "${service}" ExecMainStatus)"
+  echo "${environment} service: ${service} active=${active} substate=${substate} pid=${pid} result=${result} exit=${exit_status}"
+  echo "${environment} database: ${database_path}"
+}
+
 status() {
   require_common_commands
-  ensure_layout
   local current_release="$(link_release_id "${CURRENT_LINK}" 2>/dev/null || echo none)"
   local staging_release="$(link_release_id "${STAGING_LINK}" 2>/dev/null || echo none)"
   echo "deploy root: ${DEPLOY_ROOT}"
@@ -451,6 +514,13 @@ status() {
   echo "production runtime: $(runtime_link_release_id production 2>/dev/null || echo none)"
   echo "staging runtime: $(runtime_link_release_id staging 2>/dev/null || echo none)"
   echo "staging tested commit: $(tested_staging_commit 2>/dev/null || echo none)"
+  echo "production previous: $(previous_production_release "${current_release}" 2>/dev/null || echo none)"
+  echo "staging URL: ${STAGING_URL}"
+  echo "production URL: ${PRODUCTION_URL}"
+  print_release_metadata staging "${staging_release}"
+  print_release_metadata production "${current_release}"
+  print_service_status staging "${STAGING_SERVICE}" "${STAGING_DATABASE_PATH}"
+  print_service_status production "${PRODUCTION_SERVICE}" "${PRODUCTION_DATABASE_PATH}"
   if [[ "${staging_release}" != none ]]; then
     curl --fail --silent --show-error --max-time 5 "${STAGING_HEALTH_URL}" || echo "staging health unavailable"
     echo
@@ -458,6 +528,12 @@ status() {
   if [[ "${current_release}" != none ]]; then
     curl --fail --silent --show-error --max-time 5 "${PRODUCTION_HEALTH_URL}" || echo "production health unavailable"
     echo
+  fi
+  if [[ -f "${STATE_DIR}/production-history.log" ]]; then
+    echo "recent production history:"
+    tail -n 5 "${STATE_DIR}/production-history.log"
+  else
+    echo "recent production history: none"
   fi
 }
 
@@ -473,7 +549,23 @@ main() {
     promote) [[ "$#" -eq 0 ]] || die "promote takes no arguments"; promote_staging ;;
     rollback) [[ "$#" -le 1 ]] || die "rollback accepts at most one release SHA"; rollback_production "$@" ;;
     status) [[ "$#" -eq 0 ]] || die "status takes no arguments"; status ;;
-    cleanup) [[ "$#" -le 1 ]] || die "cleanup accepts at most one keep-count"; cleanup_releases "$@" ;;
+    cleanup)
+      local_keep="${KEEP_RELEASES}"
+      cleanup_apply=false
+      cleanup_count_seen=false
+      for cleanup_arg in "$@"; do
+        case "${cleanup_arg}" in
+          --apply) cleanup_apply=true ;;
+          ''|*[!0-9]*) die "cleanup accepts a positive keep-count and optional --apply" ;;
+          *)
+            [[ "${cleanup_count_seen}" == false ]] || die "cleanup accepts only one keep-count"
+            local_keep="${cleanup_arg}"
+            cleanup_count_seen=true
+            ;;
+        esac
+      done
+      cleanup_releases "${local_keep}" "${cleanup_apply}"
+      ;;
     help|-h|--help) usage ;;
     *) usage >&2; exit 2 ;;
   esac

@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
+# RECOVERY-ONLY: configures and drills optional off-site backup infrastructure.
+# Normal app releases do not invoke this script.
 set -Eeuo pipefail
 IFS=$'\n\t'
 umask 0077
 export LC_ALL=C
 
-OPERATOR_USER="charlie"
+OPERATOR_USER="${OPERATOR_USER:-${SUDO_USER:-$(id -un)}}"
 APP_USER="echo-archives"
 APP_GROUP="echo-archives"
-REPO_ROOT="/home/charlie/The-Echo-Archives"
+SCRIPT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+REPO_ROOT="${REPO_ROOT:-$(cd "${SCRIPT_ROOT}/.." && pwd -P)}"
 SERVICE_NAME="echo-archives-offsite-backup.service"
 TIMER_NAME="echo-archives-offsite-backup.timer"
 MONITOR_SERVICE="echo-archives-local-monitor.service"

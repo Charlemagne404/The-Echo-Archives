@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
+# RECOVERY-ONLY: diagnostic for a disposable restored database.
 set -Eeuo pipefail
 IFS=$'\n\t'
 umask 0077
 
-REPO_ROOT="/home/charlie/The-Echo-Archives"
+SCRIPT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+REPO_ROOT="${REPO_ROOT:-$(cd "${SCRIPT_ROOT}/.." && pwd -P)}"
+BACKUP_DIR="${BACKUP_DIR:-/var/backups/echo-archives}"
+export REPO_ROOT
 APP_USER="echo-archives"
 RESTORE_ROOT=""
 
@@ -26,7 +30,7 @@ fail() {
 id "${APP_USER}" >/dev/null 2>&1 || fail "runtime account is missing: ${APP_USER}"
 
 source_db="$(
-  find "${REPO_ROOT}/backend/data/backups" -maxdepth 1 -type f \
+  find "${BACKUP_DIR}" -maxdepth 1 -type f \
     -name 'community-*.sqlite' -printf '%T@ %p\n' |
     sort -nr |
     sed -n '1s/^[^ ]* //p'
@@ -67,7 +71,7 @@ runuser -u "${APP_USER}" -- test -w "${runtime_db_dir}" ||
   fail "runtime account cannot create SQLite sidecars"
 
 runuser -u "${APP_USER}" -- /usr/bin/node -e '
-const Database = require("/home/charlie/The-Echo-Archives/backend/node_modules/better-sqlite3");
+const Database = require(require.resolve("better-sqlite3", { paths: [`${process.env.REPO_ROOT}/backend`] }));
 const database = new Database(process.argv[1]);
 try {
   console.log("SQLite open: OK");

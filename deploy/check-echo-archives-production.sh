@@ -3,7 +3,9 @@ set -Eeuo pipefail
 IFS=$'\n\t'
 umask 0077
 
-REPO_ROOT="/home/charlie/The-Echo-Archives"
+DEPLOY_ROOT="${DEPLOY_ROOT:-/srv/echo-archives}"
+REPO_ROOT="${REPO_ROOT:-${DEPLOY_ROOT}/current}"
+BACKUP_DIR="${BACKUP_DIR:-/var/backups/echo-archives}"
 LOCAL_HEALTH_URL="http://127.0.0.1:3010/api/health"
 LOCAL_INTERNAL_HEALTH_URL="${LOCAL_INTERNAL_HEALTH_URL:-http://127.0.0.1:4010/api/health}"
 PUBLIC_ORIGIN="https://echoarchives.net"
@@ -166,7 +168,8 @@ for host in echoarchives.net www.echoarchives.net echo.continental-hub.com; do
     fail "Caddy's origin TLS certificate for ${host} expires within 21 days."
 done
 
-npm --prefix "${REPO_ROOT}" run check:backup -- \
+/usr/bin/node "${REPO_ROOT}/tools/check-database-backup.js" \
+  --directory "${BACKUP_DIR}" \
   --max-age-hours "${MAX_BACKUP_AGE_HOURS}"
 
 disk_percent="$(df --output=pcent "${REPO_ROOT}" | tail -n 1 | tr -cd '0-9')"

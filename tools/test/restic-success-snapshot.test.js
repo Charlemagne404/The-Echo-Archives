@@ -44,7 +44,7 @@ test("legacy marker selects the last successful snapshot before newer orphans", 
     const verified = snapshot(
       "a",
       new Date(completed.getTime() - 10_000).toISOString(),
-      "/home/charlie/The-Echo-Archives/backend/data/backups/community-verified.sqlite",
+      "/home/frozen-recovery/The-Echo-Archives/backend/data/backups/community-verified.sqlite",
     );
     const orphan = snapshot(
       "b",

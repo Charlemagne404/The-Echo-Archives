@@ -67,8 +67,16 @@ if (value("DB_PATH") && !path.isAbsolute(value("DB_PATH"))) {
 }
 
 if (environment === "staging") {
-  if (value("SITE_URL") !== "https://staging.echoarchives.net") {
-    errors.push("Staging SITE_URL must be https://staging.echoarchives.net.");
+  let stagingSiteUrl;
+  try {
+    stagingSiteUrl = new URL(value("SITE_URL"));
+  } catch (_error) {
+    stagingSiteUrl = null;
+  }
+  const privateStagingHost = stagingSiteUrl &&
+    ["127.0.0.1", "localhost", "::1"].includes(stagingSiteUrl.hostname.replace(/^\[|\]$/g, ""));
+  if (!privateStagingHost || !["http:", "https:"].includes(stagingSiteUrl.protocol) || stagingSiteUrl.port !== "3011") {
+    errors.push("Staging SITE_URL must be a private loopback origin on port 3011 (for example http://127.0.0.1:3011).");
   }
   if (path.resolve(value("DB_PATH")) !== "/var/lib/echo-archives-staging/community.sqlite") {
     errors.push("Staging DB_PATH must be /var/lib/echo-archives-staging/community.sqlite.");

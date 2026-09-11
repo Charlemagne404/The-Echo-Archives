@@ -3,7 +3,7 @@ set -Eeuo pipefail
 IFS=$'\n\t'
 
 SCRIPT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-BASE_URL="${STAGING_SMOKE_BASE_URL:-https://staging.echoarchives.net}"
+BASE_URL="${STAGING_SMOKE_BASE_URL:-http://127.0.0.1:3011}"
 if [[ "$#" -gt 0 && "$1" != --* ]]; then
   BASE_URL="$1"
   shift

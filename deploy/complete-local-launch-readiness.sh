@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
+# HOST-MAINTENANCE/RECOVERY-ONLY: not part of the normal release workflow.
 set -Eeuo pipefail
 IFS=$'\n\t'
 umask 0077
 export LC_ALL=C
 
-APP_USER="charlie"
-APP_GROUP="charlie"
-APP_HOME="/home/charlie"
-REPO_ROOT="/home/charlie/The-Echo-Archives"
+APP_USER="${APP_USER:-${SUDO_USER:-$(id -un)}}"
+APP_GROUP="${APP_GROUP:-$(id -gn "${APP_USER}")}"
+APP_HOME="${APP_HOME:-$(getent passwd "${APP_USER}" | cut -d: -f6)}"
+SCRIPT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+REPO_ROOT="${REPO_ROOT:-$(cd "${SCRIPT_ROOT}/.." && pwd -P)}"
 USER_AUTH_SERVICE="continental-id-auth.service"
 ROOT_AUTH_SERVICE="continental-dashboard-auth.service"
 USER_AUTH_UNIT="${APP_HOME}/.config/systemd/user/${USER_AUTH_SERVICE}"

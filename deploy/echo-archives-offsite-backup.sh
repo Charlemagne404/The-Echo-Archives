@@ -3,10 +3,12 @@ set -Eeuo pipefail
 IFS=$'\n\t'
 umask 0077
 
-REPO_ROOT="/home/charlie/The-Echo-Archives"
-BACKUP_DIR="${REPO_ROOT}/backend/data/backups"
-IMPORT_STAGING_DIR="${REPO_ROOT}/backend/data/import-staging"
-BACKEND_ENV="${REPO_ROOT}/backend/.env"
+DEPLOY_ROOT="${DEPLOY_ROOT:-/srv/echo-archives}"
+REPO_ROOT="${REPO_ROOT:-${DEPLOY_ROOT}/current}"
+PUBLICATION_ROOT="${PUBLICATION_ROOT:-${DEPLOY_ROOT}/runtime/production/current}"
+BACKUP_DIR="${BACKUP_DIR:-/var/backups/echo-archives}"
+IMPORT_STAGING_DIR="${IMPORT_STAGING_DIR:-${PUBLICATION_ROOT}/import-staging}"
+BACKEND_ENV="${BACKEND_ENV:-${DEPLOY_ROOT}/shared/env/production.env}"
 SUCCESS_MARKER="/var/lib/echo-archives-monitoring/offsite-backup-success"
 STATE_DIR="/var/lib/echo-archives-monitoring"
 CACHE_DIR="${RESTIC_CACHE_DIR:-/var/cache/echo-archives-pi-restic}"
@@ -109,7 +111,7 @@ stage_private_configuration() {
 
 stage_publication_directory() {
   local relative_path="$1"
-  local source="${REPO_ROOT}/${relative_path}"
+  local source="${PUBLICATION_ROOT}/${relative_path}"
   local destination_parent="${recovery_root}/publication/$(dirname -- "${relative_path}")"
   [[ -d "${source}" && ! -L "${source}" ]] ||
     fail "Runtime publication directory is missing or unsafe: ${source}"
@@ -123,7 +125,7 @@ stage_publication_directory() {
 
 stage_publication_file() {
   local relative_path="$1"
-  local source="${REPO_ROOT}/${relative_path}"
+  local source="${PUBLICATION_ROOT}/${relative_path}"
   local destination="${recovery_root}/publication/${relative_path}"
   [[ -f "${source}" && ! -L "${source}" ]] ||
     fail "Runtime publication file is missing or unsafe: ${source}"
@@ -236,6 +238,7 @@ for relative_path in \
   data/collections.json \
   data/search-index.json \
   data/archive-stats.json \
+  data/tag-taxonomy.json \
   docs/generated/catalog-status.json \
   docs/generated/catalog-status.md; do
   stage_publication_file "${relative_path}"

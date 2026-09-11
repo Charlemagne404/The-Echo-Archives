@@ -6,7 +6,7 @@ This is the active operations and runbook reference for The Echo Archives.
 
 Use it as the source of truth for:
 
-- release preflight
+- release validation and deployment
 - production configuration and deployment
 - database backup and recovery
 - health checks and incident diagnostics
@@ -16,9 +16,9 @@ Use it as the source of truth for:
 - where dated QA and historical records live
 
 In command examples below, `ECHO_SOURCE_ROOT` means the deployment checkout
-and defaults to `/srv/echo-archives/source`; set it to the local checkout path
-when following the procedure. The deployment user and group are likewise
-host-specific and should be supplied by the host's service configuration.
+used to run the release tool and defaults to `/srv/echo-archives/source`; set it
+to the actual source checkout when following the procedure. The deployment
+user and group are host-specific. The service never runs from this checkout.
 
 ## Release 1.0 Status
 
@@ -52,20 +52,11 @@ The supported production shape is:
 The checked-in release service unit sets the public origin, static root,
 database path, and production mode. It applies device, kernel, capability,
 address-family, personality, realtime, and setuid/setgid isolation that is
-compatible with the current importer and publication paths. The current live
-host remains on the legacy checkout until the explicit release-service
-cutover; do not treat this repository-side unit as proof that cutover has
-occurred.
-
-The checkout remains owned and deployed by the deployment user. The runtime account can
-read it but cannot write application code or `.git`. It can write only the
-dedicated SQLite state directory and the importer staging/publication paths
-listed in the dedicated-account procedure below.
-
-The release deployment installs dependencies as the deployment user, applies read/traverse
-ACLs to each release, and grants only the active release's existing
-catalog/publication paths the runtime write access needed by the app. Deployment
-and runtime ownership remain separate.
+compatible with the current importer and publication paths. The release
+deployment installs dependencies as the deployment user, applies read/traverse
+ACLs to each immutable release, and grants only the active runtime overlay's
+explicit catalog/publication paths the runtime write access needed by the app.
+Deployment and runtime ownership remain separate.
 
 The service runs a configuration preflight before every start. Invalid production configuration prevents startup instead of silently using a development fallback.
 
@@ -79,11 +70,11 @@ symlink; normal promotion does not reload Caddy.
 
 ## Production Environment
 
-Until the one-time cutover, the legacy service reads
-`${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}/backend/.env`. The release service reads
-`/srv/echo-archives/shared/env/production.env`. Keep either file
-outside Git, mode `0600`, and replace all placeholders before promotion. Do not
-put `NODE_ENV` in the release environment file; systemd sets it to `production`.
+The release service reads `/srv/echo-archives/shared/env/production.env`.
+Keep it outside Git, root-owned, mode `0600`, and replace all placeholders
+before promotion. Local development may still use `backend/.env`; that file is
+not a production deployment input. Do not put `NODE_ENV` in the release
+environment file; systemd sets it to `production`.
 
 The release environment file is the production source for application feature flags.
 The systemd unit sets runtime location and process values but does not duplicate
@@ -220,104 +211,16 @@ The working tree should stay clean after verification. If `npm run build:pages` 
 
 Do not install production dependencies or restart the live service until the release commit passes the complete workstation preflight, including Playwright. The production server update intentionally runs the non-browser subset after installing only production dependencies.
 
-## Release 1.0 deployment maintenance
+## Host bootstrap and Caddy
 
-For current 1.0 production maintenance, use only
-[`deploy/complete-launch-maintenance.sh`](../deploy/complete-launch-maintenance.sh)
-and its
-[`COMPLETE_LAUNCH_MAINTENANCE.md`](../deploy/COMPLETE_LAUNCH_MAINTENANCE.md)
-runbook. The orchestrator pins the exact clean commit, coordinates the reviewed
-Caddy/runtime-account/backup/Ollama changes, validates every shared Caddy host,
-and stops with current-stage rollback on failure. It has unprivileged
-`--repository-check`, privileged non-applying `--check`, and privileged
-`--apply` modes.
+For a fresh host, use [`deploy/RELEASE_WORKFLOW.md`](../deploy/RELEASE_WORKFLOW.md)
+and run `sudo ./deploy/bootstrap-echo-archives.sh`. It installs directories,
+environment-file skeletons, release-backed systemd units, timers, and journal
+retention without starting a service or changing Caddy. The compatibility
+`install-echo-archives-system.sh` entry point invokes the same non-disruptive
+bootstrap.
 
-Do not combine that session with the older broad local/host readiness scripts.
-They cover unrelated co-hosted services or predate the Cloudflare-only origin
-gate.
-
-## First Server Install
-
-On the server, clone the repository at `${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}`, then run as the deployment user:
-
-```bash
-cd "${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}"
-npm --prefix backend ci --omit=dev
-```
-
-Configure `${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}/backend/.env`, validate it, then install the checked-in systemd and Caddy configuration:
-
-```bash
-NODE_ENV=production npm run check:config
-sudo ./deploy/migrate-echo-archives-runtime-account.sh --apply
-sudo ./deploy/install-echo-archives-system.sh
-```
-
-The installer:
-
-- composes and validates the complete Caddyfile before replacing the live file
-- keeps timestamped backups of the prior Caddyfile and installed systemd units
-- requires and rechecks the completed dedicated-account migration
-- installs the isolated 14-day Echo Archives journal configuration
-- installs and restarts `echo-archives.service`
-- installs the discovery and verified-backup units, enabling both timers
-- waits for the local health endpoint before reloading Caddy
-- prints service status, the health response, and both timer schedules
-
-It does not configure DNS, create secrets, or modify a live database.
-
-### Dedicated runtime-account migration
-
-The guarded migration moves the live database out of the deploy checkout,
-creates the system account with a non-login shell, installs the hardened
-service, and adds a hardened discovery-service drop-in. Run it once from the
-canonical clean production checkout as the deployment user:
-
-```bash
-sudo "${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}/deploy/migrate-echo-archives-runtime-account.sh" --apply
-sudo "${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}/deploy/migrate-echo-archives-runtime-account.sh" --check
-```
-
-The migration stops only Echo Archives application, discovery, monitoring, and
-backup units while it takes an integrity-checked SQLite copy. It does not
-delete the legacy database. Protected rollback material is recorded under
-`/var/backups/echo-archives-runtime-account/`, and the successful backup path is
-recorded in `/var/lib/echo-archives-runtime-account/readiness`.
-
-The runtime account receives write access only to:
-
-- `/var/lib/echo-archives`
-- `backend/data/import-staging`
-- `catalog-src/shows`
-- `images/covers`
-- `images/generated/covers`
-- `data/reviews`
-- the six generated catalog/status files declared in the service unit
-
-Those checkout exceptions are required because approved importer publication
-currently writes authored and generated artifacts in place. Publication can
-therefore make the production checkout dirty. Review, validate, commit, and
-push those artifacts as the deployment user before the next canonical deployment. The
-migration uses targeted ACLs; it does not recursively transfer checkout
-ownership or add the service account to the deployment user's group.
-
-The migration checks runtime database writes, checkout protection, importer
-write paths, static serving, loopback Ollama access, discovery identity, a
-structured access event in the isolated journal, and a normal verified local
-backup. Roll back to the recorded migration backup, or name a specific
-protected backup, with:
-
-```bash
-sudo "${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}/deploy/migrate-echo-archives-runtime-account.sh" --rollback
-sudo "${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}/deploy/migrate-echo-archives-runtime-account.sh" --rollback /var/backups/echo-archives-runtime-account/<timestamp>
-```
-
-Rollback first captures the newest dedicated-account database into the legacy
-location, restores prior units, environment, ACLs, and active timer state, and
-keeps the dedicated account, state directory, and rollback bundle for
-inspection. It does not delete production data.
-
-## Production Domain Migration
+## Production Caddy and DNS
 
 The canonical public origin is `https://echoarchives.net`. The checked-in Caddy
 configuration serves that host and sends `https://www.echoarchives.net` and
@@ -330,24 +233,15 @@ Before installing the migration on the production server:
    at the Caddy host. Keep the existing `echo.continental-hub.com` records
    pointed there too; Caddy must be able to serve HTTPS before it can return
    either redirect.
-2. In the production `backend/.env`, set `SITE_URL=https://echoarchives.net`.
-   The environment file is authoritative for application feature flags; the
-   unit supplies only the fixed runtime defaults documented above.
-3. Pull the release, install production dependencies, run the production
-   configuration check, then run `sudo ./deploy/install-echo-archives-system.sh`.
+2. Set `SITE_URL=https://echoarchives.net` in the protected
+   `/srv/echo-archives/shared/env/production.env` file. The environment file
+   owns feature flags; the unit owns fixed runtime paths and ports.
+3. Validate the host Caddyfile and install/reload it only as a separate,
+   explicitly reviewed host operation. Normal releases never touch Caddy.
 
-The committed domain cutover helper performs the environment update, Caddy and
-systemd installation, local HTTPS health check, and legacy-redirect check in
-one operation. Run it from the production checkout after pulling the release:
-
-```bash
-sudo ./deploy/migrate-echoarchives-domain.sh
-```
-
-After the install, verify the new host serves the application and the legacy
-host returns a permanent redirect before updating any external links. Retain the
-legacy redirect for the foreseeable future to preserve existing bookmarks and
-search-engine signals.
+Keep the existing `www` and legacy-origin redirects where they are part of the
+host's public compatibility contract. Do not add a public staging site for a
+normal release.
 
 ## Routine Server Update
 
@@ -394,18 +288,25 @@ The following optional shell variables are available for nonstandard installatio
 
 ## Database Backups And Restore
 
-Create a verified online backup from the repo root:
+Create a verified online backup from a release root or use the host service:
 
 ```bash
-npm run backup:database
+/usr/bin/node /srv/echo-archives/current/tools/backup-database.js \
+  --source /var/lib/echo-archives/community.sqlite
 ```
 
-By default this reads `DB_PATH` from `backend/.env` and writes a mode-`0600`, timestamped SQLite file under `backend/data/backups/`. The directory is ignored by git. `BACKUP_DIR` may select a different default directory. No retention deletion is automatic; copy backups off-host and apply a reviewed retention policy separately.
+The canonical service reads exactly `/var/lib/echo-archives/community.sqlite` and
+writes mode-`0600`, timestamped SQLite files under
+`/var/backups/echo-archives/`. Promotion takes an additional verified backup
+immediately before switching production. No retention deletion is automatic in
+the local timer; off-site retention is applied only after a verified restore.
 
 Explicit paths are supported for one-off checks and off-host mount points. Relative paths are resolved from `backend/`:
 
 ```bash
-npm run backup:database -- --source /absolute/path/community.sqlite --destination /absolute/path/community-backup.sqlite
+/usr/bin/node /srv/echo-archives/current/tools/backup-database.js \
+  --source /absolute/path/community.sqlite \
+  --destination /absolute/path/community-backup.sqlite
 ```
 
 ### Daily local backup timer

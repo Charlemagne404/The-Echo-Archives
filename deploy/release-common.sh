@@ -21,18 +21,22 @@ STAGING_ENV_FILE="${STAGING_ENV_FILE:-${ENV_DIR}/staging.env}"
 PRODUCTION_ENV_FILE="${PRODUCTION_ENV_FILE:-${ENV_DIR}/production.env}"
 STAGING_SERVICE="${STAGING_SERVICE:-echo-archives-staging.service}"
 PRODUCTION_SERVICE="${PRODUCTION_SERVICE:-echo-archives.service}"
+PRODUCTION_BACKUP_SERVICE="${PRODUCTION_BACKUP_SERVICE:-echo-archives-backup.service}"
 STAGING_PORT="${STAGING_PORT:-3011}"
 PRODUCTION_PORT="${PRODUCTION_PORT:-3010}"
-STAGING_URL="${STAGING_URL:-https://staging.echoarchives.net}"
+STAGING_URL="${STAGING_URL:-http://127.0.0.1:3011}"
 PRODUCTION_URL="${PRODUCTION_URL:-https://echoarchives.net}"
+PRODUCTION_DATABASE_PATH="${PRODUCTION_DATABASE_PATH:-/var/lib/echo-archives/community.sqlite}"
+STAGING_DATABASE_PATH="${STAGING_DATABASE_PATH:-/var/lib/echo-archives-staging/community.sqlite}"
+PRODUCTION_BACKUP_DIR="${PRODUCTION_BACKUP_DIR:-/var/backups/echo-archives}"
 STAGING_INTERNAL_HEALTH_PORT="${STAGING_INTERNAL_HEALTH_PORT:-4011}"
 PRODUCTION_INTERNAL_HEALTH_PORT="${PRODUCTION_INTERNAL_HEALTH_PORT:-4010}"
 STAGING_HEALTH_URL="${STAGING_HEALTH_URL:-http://127.0.0.1:${STAGING_INTERNAL_HEALTH_PORT}/api/health}"
 PRODUCTION_HEALTH_URL="${PRODUCTION_HEALTH_URL:-http://127.0.0.1:${PRODUCTION_INTERNAL_HEALTH_PORT}/api/health}"
-STAGING_PUBLIC_HEALTH_URL="${STAGING_PUBLIC_HEALTH_URL:-${STAGING_URL}/api/health}"
 PRODUCTION_PUBLIC_HEALTH_URL="${PRODUCTION_PUBLIC_HEALTH_URL:-${PRODUCTION_URL}/api/health}"
 GIT_REMOTE="${GIT_REMOTE:-origin}"
 KEEP_RELEASES="${KEEP_RELEASES:-8}"
+TEMPORARY_ARTIFACT_MAX_AGE_HOURS="${TEMPORARY_ARTIFACT_MAX_AGE_HOURS:-24}"
 HEALTH_CHECK_TIMEOUT_SECONDS="${HEALTH_CHECK_TIMEOUT_SECONDS:-30}"
 HEALTH_CHECK_INTERVAL_SECONDS="${HEALTH_CHECK_INTERVAL_SECONDS:-1}"
 HEALTH_CHECK_REQUEST_TIMEOUT_SECONDS="${HEALTH_CHECK_REQUEST_TIMEOUT_SECONDS:-2}"
@@ -58,6 +62,39 @@ ensure_layout() {
   [[ -n "${DEPLOY_ROOT}" && "${DEPLOY_ROOT}" != "/" && "${DEPLOY_ROOT}" != "${SOURCE_REPO}" ]] ||
     die "DEPLOY_ROOT must be a dedicated directory distinct from SOURCE_REPO"
   mkdir -p -m 0750 "${RELEASES_DIR}" "${STAGING_RUNTIME_DIR}" "${PRODUCTION_RUNTIME_DIR}" "${ENV_DIR}" "${STATE_DIR}"
+}
+
+cleanup_stale_temporary_artifacts() {
+  local apply="${1:-false}"
+  [[ "${apply}" == "true" || "${apply}" == "false" ]] ||
+    die "temporary artifact cleanup mode must be true or false"
+  [[ "${TEMPORARY_ARTIFACT_MAX_AGE_HOURS}" =~ ^[1-9][0-9]*$ ]] ||
+    die "TEMPORARY_ARTIFACT_MAX_AGE_HOURS must be a positive integer"
+
+  local now
+  now="$(date +%s)"
+  local root candidate name modified_at age_seconds
+  for root in "${RELEASES_DIR}" "${STAGING_RUNTIME_DIR}" "${PRODUCTION_RUNTIME_DIR}"; do
+    [[ -d "${root}" && ! -L "${root}" ]] || continue
+    while IFS= read -r -d '' candidate; do
+      [[ -d "${candidate}" && ! -L "${candidate}" ]] || continue
+      name="${candidate##*/}"
+      if [[ "${root}" == "${RELEASES_DIR}" ]]; then
+        [[ "${name}" =~ ^release-[0-9a-f]{40}\.[A-Za-z0-9]+$ ]] || continue
+      else
+        [[ "${name}" =~ ^runtime-[0-9a-f]{40}\.[A-Za-z0-9]+$ ]] || continue
+      fi
+      modified_at="$(stat -c '%Y' "${candidate}")"
+      age_seconds=$((now - modified_at))
+      (( age_seconds >= TEMPORARY_ARTIFACT_MAX_AGE_HOURS * 3600 )) || continue
+      if [[ "${apply}" == "true" ]]; then
+        log "Removing stale temporary deployment artifact ${candidate}."
+        rm -rf -- "${candidate}"
+      else
+        log "Would remove stale temporary deployment artifact ${candidate}."
+      fi
+    done < <(find "${root}" -mindepth 1 -maxdepth 1 -type d -print0)
+  done
 }
 
 assert_environment_file() {
@@ -87,19 +124,27 @@ validate_environment_with_root() {
 
   # Node's --env-file intentionally does not override inherited variables. Use
   # a small clean environment so a developer's shell cannot silently change the
-  # values being validated or leak unrelated credentials into a build.
-  env -i \
-    "PATH=${PATH}" \
-    "HOME=${HOME:-/tmp}" \
-    "NODE_ENV=production" \
-    "ECHO_ENV_FILE=${file_path}" \
-    /usr/bin/node --env-file="${file_path}" "${application_root}/deploy/validate-env.js" "${environment}"
-  env -i \
-    "PATH=${PATH}" \
-    "HOME=${HOME:-/tmp}" \
-    "NODE_ENV=production" \
-    "ECHO_ENV_FILE=${file_path}" \
-    /usr/bin/node --env-file="${file_path}" "${application_root}/backend/scripts/check-config.js"
+  # values being validated or leak unrelated credentials into a build. The
+  # production env file is root-readable on the host by design; if the
+  # deployment user cannot read it, validate it in a short-lived sudo process
+  # without printing or copying its contents.
+  local -a clean_environment=(
+    "PATH=${PATH}"
+    "HOME=${HOME:-/tmp}"
+    "NODE_ENV=production"
+    "ECHO_ENV_FILE=${file_path}"
+  )
+  if [[ -r "${file_path}" ]]; then
+    env -i "${clean_environment[@]}" \
+      /usr/bin/node --env-file="${file_path}" "${application_root}/deploy/validate-env.js" "${environment}"
+    env -i "${clean_environment[@]}" \
+      /usr/bin/node --env-file="${file_path}" "${application_root}/backend/scripts/check-config.js"
+  else
+    sudo env -i "${clean_environment[@]}" \
+      /usr/bin/node --env-file="${file_path}" "${application_root}/deploy/validate-env.js" "${environment}"
+    sudo env -i "${clean_environment[@]}" \
+      /usr/bin/node --env-file="${file_path}" "${application_root}/backend/scripts/check-config.js"
+  fi
 }
 
 run_with_environment() {
@@ -109,6 +154,7 @@ run_with_environment() {
   local root="$4"
   shift 4
   [[ -d "${root}" && ! -L "${root}" ]] || die "release root is missing or unsafe: ${root}"
+  [[ -r "${file_path}" ]] || die "environment file is not readable by the deployment user: ${file_path}"
   (
     cd "${root}"
     env -i \
@@ -277,6 +323,50 @@ copy_runtime_mutable_tree() {
   fi
 }
 
+runtime_mutable_paths=(
+  import-staging
+  catalog-src/shows
+  images/covers
+  images/generated/covers
+  data/shows.json
+  data/collections.json
+  data/search-index.json
+  data/archive-stats.json
+  data/tag-taxonomy.json
+  data/reviews
+  docs/generated
+)
+
+active_runtime_path() {
+  local environment="$1"
+  local link_path
+  link_path="$(runtime_site_link "${environment}")"
+  [[ -L "${link_path}" ]] || return 1
+  local resolved
+  resolved="$(readlink -f -- "${link_path}")"
+  local expected_root="${RUNTIME_DIR}/${environment}"
+  [[ "${resolved}" == "${expected_root}"/* && -d "${resolved}" && ! -L "${resolved}" ]] || return 1
+  printf '%s\n' "${resolved}"
+}
+
+preserve_runtime_mutable_state() {
+  local source_root="$1"
+  local target_root="$2"
+  [[ -d "${source_root}" && ! -L "${source_root}" ]] || return 0
+  [[ -d "${target_root}" && ! -L "${target_root}" ]] || return 1
+  [[ "${source_root}" != "${target_root}" ]] || return 0
+
+  local relative_path source_path target_path
+  for relative_path in "${runtime_mutable_paths[@]}"; do
+    source_path="${source_root}/${relative_path}"
+    target_path="${target_root}/${relative_path}"
+    [[ -e "${source_path}" || -L "${source_path}" ]] || continue
+    rm -rf -- "${target_path}"
+    mkdir -p "$(dirname -- "${target_path}")"
+    cp -a -- "${source_path}" "${target_path}"
+  done
+}
+
 prepare_runtime_tree() {
   local environment="$1"
   local release_id="$2"
@@ -286,8 +376,12 @@ prepare_runtime_tree() {
   environment_dir="$(runtime_environment_dir "${environment}")"
   local final_path
   final_path="$(runtime_path "${environment}" "${release_id}")"
+  local previous_runtime_path
+  previous_runtime_path="$(active_runtime_path "${environment}" 2>/dev/null || true)"
 
   if [[ -d "${final_path}" ]]; then
+    preserve_runtime_mutable_state "${previous_runtime_path}" "${final_path}" ||
+      die "could not preserve ${environment} mutable runtime state"
     verify_runtime_tree "${environment}" "${release_id}"
     prepare_runtime_permissions "${final_path}"
     log "Runtime content for ${environment} ${release_id} already exists; reusing it."
@@ -296,8 +390,12 @@ prepare_runtime_tree() {
   [[ ! -e "${final_path}" ]] || die "runtime path exists but is not a directory: ${final_path}"
 
   local temporary_path
-  temporary_path="$(mktemp -d "${environment_dir}/.${release_id}.XXXXXX")"
+  # Keep the temporary parent visible and safe for Express static path
+  # resolution. It is never selected by a runtime pointer until it is renamed
+  # to the complete release-specific directory.
+  temporary_path="$(mktemp -d "${environment_dir}/runtime-${release_id}.XXXXXX")"
   if ! copy_runtime_mutable_tree "${release_root}" "${temporary_path}" ||
+    ! preserve_runtime_mutable_state "${previous_runtime_path}" "${temporary_path}" ||
     ! prepare_runtime_permissions "${temporary_path}"; then
     rm -rf -- "${temporary_path}"
     return 1
@@ -450,8 +548,14 @@ verify_release() {
   path="$(release_path "${release_id}")"
   [[ -d "${path}" && ! -L "${path}" ]] || die "release is missing: ${release_id}"
   [[ -f "${path}/release.json" && ! -L "${path}/release.json" ]] || die "release metadata is missing: ${release_id}"
-  [[ "$(release_commit "${release_id}")" == "${expected_commit}" ]] ||
-    die "release metadata does not match expected commit: ${release_id}"
+  /usr/bin/node - "${path}/release.json" "${release_id}" "${expected_commit}" <<'NODE' ||
+const fs = require("node:fs");
+const [filePath, expectedReleaseId, expectedCommit] = process.argv.slice(2);
+const metadata = JSON.parse(fs.readFileSync(filePath, "utf8"));
+if (metadata.commit !== expectedCommit) process.exit(1);
+if (metadata.releaseId && metadata.releaseId !== expectedReleaseId) process.exit(1);
+NODE
+    die "release metadata does not match expected commit or release id: ${release_id}"
   [[ -f "${path}/backend/server.js" && -d "${path}/backend/node_modules" ]] ||
     die "release is incomplete: ${release_id}"
 }
@@ -715,24 +819,78 @@ assert_release_service() {
   [[ "${unit_contents}" == *"EnvironmentFile=${environment_file}"* ]] ||
     die "${service} does not use ${environment_file}"
 
-  local actual_working_directory actual_exec_start
+  local expected_database_path
+  case "${link_path}" in
+    "${CURRENT_LINK}")
+      expected_database_path="${PRODUCTION_DATABASE_PATH}"
+      ;;
+    "${STAGING_LINK}")
+      expected_database_path="${STAGING_DATABASE_PATH}"
+      ;;
+    *)
+      die "${service} uses an unapproved release pointer: ${link_path}"
+      ;;
+  esac
+  [[ "${unit_contents}" == *"User=echo-archives"* ]] ||
+    die "${service} must run as echo-archives"
+  [[ "${unit_contents}" == *"Group=echo-archives"* ]] ||
+    die "${service} must use the echo-archives group"
+  [[ "${unit_contents}" == *"Environment=DB_PATH=${expected_database_path}"* ]] ||
+    die "${service} must use the isolated database ${expected_database_path}"
+
+  local actual_working_directory actual_exec_start actual_user actual_group
   actual_working_directory="$(sudo systemctl show "${service}" -p WorkingDirectory --value)" ||
     die "cannot inspect the effective working directory for ${service}"
   actual_exec_start="$(sudo systemctl show "${service}" -p ExecStart --value)" ||
     die "cannot inspect the effective command for ${service}"
+  actual_user="$(sudo systemctl show "${service}" -p User --value)" ||
+    die "cannot inspect the effective user for ${service}"
+  actual_group="$(sudo systemctl show "${service}" -p Group --value)" ||
+    die "cannot inspect the effective group for ${service}"
   [[ "${actual_working_directory}" == "${link_path}/backend" ]] ||
     die "${service} effective WorkingDirectory is not ${link_path}/backend"
   [[ "${actual_exec_start}" == *"/usr/bin/node ${link_path}/backend/server.js"* ]] ||
     die "${service} effective ExecStart is not ${link_path}/backend/server.js"
+  [[ "${actual_user}" == "echo-archives" ]] ||
+    die "${service} effective user is not echo-archives"
+  [[ "${actual_group}" == "echo-archives" ]] ||
+    die "${service} effective group is not echo-archives"
+}
+
+assert_production_backup_service() {
+  local unit_contents
+  unit_contents="$(sudo systemctl cat "${PRODUCTION_BACKUP_SERVICE}")" ||
+    die "cannot read installed production backup unit ${PRODUCTION_BACKUP_SERVICE}"
+  [[ "${unit_contents}" == *"User=echo-archives"* ]] ||
+    die "${PRODUCTION_BACKUP_SERVICE} must run as echo-archives"
+  [[ "${unit_contents}" == *"--source ${PRODUCTION_DATABASE_PATH}"* ]] ||
+    die "${PRODUCTION_BACKUP_SERVICE} must back up ${PRODUCTION_DATABASE_PATH} explicitly"
+  [[ "${unit_contents}" == *"Environment=BACKUP_DIR=${PRODUCTION_BACKUP_DIR}"* ]] ||
+    die "${PRODUCTION_BACKUP_SERVICE} must write to ${PRODUCTION_BACKUP_DIR}"
+  [[ "${unit_contents}" == *"${CURRENT_LINK}/tools/backup-database.js"* ]] ||
+    die "${PRODUCTION_BACKUP_SERVICE} must resolve backup tooling from current"
+}
+
+backup_production_database() {
+  assert_production_backup_service
+  log "Creating a verified production database backup before promotion."
+  sudo systemctl start --wait "${PRODUCTION_BACKUP_SERVICE}" ||
+    die "production database backup failed; promotion was not attempted"
 }
 
 record_staging_test() {
   local release_id="$1"
   local commit="$2"
   local temporary_file="${STATE_DIR}/staging-tested.json.tmp.$$"
-  cat >"${temporary_file}" <<EOF
-{"releaseId":"${release_id}","commit":"${commit}","testedAt":"$(date --iso-8601=seconds)","url":"${STAGING_URL}"}
-EOF
+  /usr/bin/node - "${temporary_file}" "${release_id}" "${commit}" "${STAGING_URL}" <<'NODE'
+const fs = require("node:fs");
+const [filePath, releaseId, commit, url] = process.argv.slice(2);
+fs.writeFileSync(
+  filePath,
+  `${JSON.stringify({ releaseId, commit, testedAt: new Date().toISOString(), url })}\n`,
+  { mode: 0o600 },
+);
+NODE
   chmod 0600 "${temporary_file}"
   mv -f -- "${temporary_file}" "${STATE_DIR}/staging-tested.json"
 }

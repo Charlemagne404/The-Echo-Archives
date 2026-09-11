@@ -1,5 +1,5 @@
 [Unit]
-Description=The Echo Archives website and API
+Description=The Echo Archives production release
 After=network-online.target ollama.service
 Wants=network-online.target
 StartLimitIntervalSec=60
@@ -9,21 +9,24 @@ StartLimitBurst=5
 Type=simple
 User=echo-archives
 Group=echo-archives
-WorkingDirectory=/home/charlie/The-Echo-Archives/backend
+WorkingDirectory=/srv/echo-archives/current/backend
+EnvironmentFile=/srv/echo-archives/shared/env/production.env
 Environment=NODE_ENV=production
+Environment=DEPLOYMENT_ENV=production
 Environment=HOST=127.0.0.1
 Environment=PORT=3010
 Environment=INTERNAL_HEALTH_PORT=4010
-Environment=STATIC_ROOT=/home/charlie/The-Echo-Archives
+Environment=STATIC_ROOT=/srv/echo-archives/runtime/production/current
+Environment=IMPORT_STAGING_ROOT=/srv/echo-archives/runtime/production/current/import-staging
 Environment=SERVE_STATIC=true
 Environment=SITE_URL=https://echoarchives.net
 Environment=DB_PATH=/var/lib/echo-archives/community.sqlite
 Environment=OLLAMA_URL=http://127.0.0.1:11434/api/generate
 Environment=OLLAMA_MODEL=mistral
 Environment=REQUEST_TIMEOUT_MS=30000
-EnvironmentFile=-/home/charlie/The-Echo-Archives/backend/.env
-ExecStartPre=/usr/bin/node /home/charlie/The-Echo-Archives/backend/scripts/check-config.js
-ExecStart=/usr/bin/node /home/charlie/The-Echo-Archives/backend/server.js
+ExecStartPre=/usr/bin/node /srv/echo-archives/current/deploy/validate-env.js production
+ExecStartPre=/usr/bin/node /srv/echo-archives/current/backend/scripts/check-config.js
+ExecStart=/usr/bin/node /srv/echo-archives/current/backend/server.js
 Restart=on-failure
 RestartSec=5
 TimeoutStartSec=30
@@ -52,19 +55,16 @@ RestrictSUIDSGID=true
 SystemCallArchitectures=native
 StateDirectory=echo-archives
 StateDirectoryMode=0750
-ReadOnlyPaths=/home/charlie/The-Echo-Archives
+ReadOnlyPaths=/srv/echo-archives/releases
 ReadWritePaths=/var/lib/echo-archives
-ReadWritePaths=/home/charlie/The-Echo-Archives/backend/data/import-staging
-ReadWritePaths=/home/charlie/The-Echo-Archives/catalog-src/shows
-ReadWritePaths=/home/charlie/The-Echo-Archives/images/covers
-ReadWritePaths=/home/charlie/The-Echo-Archives/images/generated/covers
-ReadWritePaths=/home/charlie/The-Echo-Archives/data/reviews
-ReadWritePaths=/home/charlie/The-Echo-Archives/data/shows.json
-ReadWritePaths=/home/charlie/The-Echo-Archives/data/collections.json
-ReadWritePaths=/home/charlie/The-Echo-Archives/data/search-index.json
-ReadWritePaths=/home/charlie/The-Echo-Archives/data/archive-stats.json
-ReadWritePaths=/home/charlie/The-Echo-Archives/docs/generated/catalog-status.json
-ReadWritePaths=/home/charlie/The-Echo-Archives/docs/generated/catalog-status.md
+ReadWritePaths=/srv/echo-archives/runtime/production/current/import-staging
+ReadWritePaths=/srv/echo-archives/runtime/production/current/catalog-src/shows
+ReadWritePaths=/srv/echo-archives/runtime/production/current/images/covers
+ReadWritePaths=/srv/echo-archives/runtime/production/current/images/generated/covers
+ReadWritePaths=/srv/echo-archives/runtime/production/current/data
+ReadWritePaths=/srv/echo-archives/runtime/production/current/data/reviews
+ReadWritePaths=/srv/echo-archives/runtime/production/current/docs/generated
+SyslogIdentifier=echo-archives
 LogNamespace=echo-archives
 StandardOutput=journal
 StandardError=journal

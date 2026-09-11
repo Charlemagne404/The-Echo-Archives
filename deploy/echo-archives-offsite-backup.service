@@ -14,7 +14,7 @@ ExecStartPre=/usr/bin/test -r /etc/echo-archives/pi-restic-password
 ExecStartPre=/usr/bin/test -r /root/.ssh/echo-archives-pi-backup
 ExecStartPre=/usr/bin/tailscale ping --c=1 --timeout=20s --until-direct=false 100.102.113.86
 ExecStartPre=/usr/bin/ssh -o BatchMode=yes -o ConnectTimeout=20 echo-backup-pi /usr/bin/true
-ExecStart=/home/charlie/The-Echo-Archives/deploy/echo-archives-offsite-backup.sh
+ExecStart=/srv/echo-archives/current/deploy/echo-archives-offsite-backup.sh
 UMask=0077
 TimeoutStartSec=3h
 CacheDirectory=echo-archives-pi-restic
@@ -31,5 +31,6 @@ ProtectKernelLogs=true
 ProtectKernelModules=true
 ProtectKernelTunables=true
 RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+ReadOnlyPaths=/srv/echo-archives
 ReadWritePaths=/var/cache/echo-archives-pi-restic /var/lib/echo-archives-monitoring
-ReadWritePaths=/home/charlie/The-Echo-Archives/backend/data/backups
+ReadWritePaths=/var/backups/echo-archives

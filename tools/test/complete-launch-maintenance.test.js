@@ -34,7 +34,7 @@ function runBackupTransitionFixture({
     fs.writeFileSync(
       path.join(fixture, "installed-unit"),
       installedUnitIsReviewed
-        ? "ReadWritePaths=/home/charlie/The-Echo-Archives/backend/data/backups\n"
+        ? "ReadWritePaths=/var/backups/echo-archives\n"
         : "ReadWritePaths=/unreviewed/path\n",
     );
     fs.writeFileSync(path.join(fixture, "offsite-journal"), offsiteJournal);
@@ -173,7 +173,8 @@ test("complete launch maintenance is fail-fast, locked, pinned, and staged", () 
   assert.match(script, /^set -Eeuo pipefail$/m);
   assert.match(script, /^umask 0077$/m);
   assert.match(script, /EXPECTED_HOST="charlie-Legion-T530-28ICB"/);
-  assert.match(script, /REPO_ROOT="\/home\/charlie\/The-Echo-Archives"/);
+  assert.match(script, /REPO_ROOT="\$\{REPO_ROOT:-\$\(cd "\$\{SCRIPT_ROOT\}\/\.\."/);
+  assert.match(script, /OPERATOR_USER="\$\{OPERATOR_USER:-\$\{SUDO_USER:-\$\(id -un\)\}\}"/);
   assert.match(script, /EXPECTED_COMMIT.*\^\[0-9a-f\]\{40\}\$/);
   assert.match(script, /flock -n 9/);
   assert.match(script, /nft node npm openssl/);

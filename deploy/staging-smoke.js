@@ -1,4 +1,4 @@
-const baseUrl = String(process.env.STAGING_SMOKE_BASE_URL || process.argv[2] || "https://staging.echoarchives.net").replace(/\/+$/, "");
+const baseUrl = String(process.env.STAGING_SMOKE_BASE_URL || process.argv[2] || "http://127.0.0.1:3011").replace(/\/+$/, "");
 const args = new Set(process.argv.slice(2));
 const crawlAll = args.has("--crawl");
 const writeTests = args.has("--write-tests");

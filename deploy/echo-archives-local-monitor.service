@@ -5,13 +5,17 @@ Wants=network-online.target
 
 [Service]
 Type=oneshot
-User=charlie
-Group=charlie
-WorkingDirectory=/home/charlie/The-Echo-Archives
+User=echo-archives
+Group=echo-archives
+WorkingDirectory=/srv/echo-archives/current
 EnvironmentFile=-/etc/echo-archives/monitoring.env
-ExecStart=/home/charlie/The-Echo-Archives/deploy/check-echo-archives-production.sh
+Environment=REPO_ROOT=/srv/echo-archives/current
+Environment=BACKUP_DIR=/var/backups/echo-archives
+ExecStart=/srv/echo-archives/current/deploy/check-echo-archives-production.sh
 UMask=0077
 NoNewPrivileges=true
 PrivateTmp=true
 ProtectHome=read-only
-ProtectSystem=full
+ProtectSystem=strict
+ReadOnlyPaths=/srv/echo-archives
+ReadOnlyPaths=/var/lib/echo-archives

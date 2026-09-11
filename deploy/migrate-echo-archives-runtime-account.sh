@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# RECOVERY-ONLY: this is the historical runtime-account migration procedure.
+# Normal releases use deploy/bootstrap-echo-archives.sh and deploy/echo.
 set -Eeuo pipefail
 IFS=$'\n\t'
 umask 0077
@@ -6,9 +8,12 @@ export LC_ALL=C
 
 APP_USER="echo-archives"
 APP_GROUP="echo-archives"
-DEPLOY_USER="charlie"
-DEPLOY_GROUP="charlie"
-REPO_ROOT="/home/charlie/The-Echo-Archives"
+DEPLOY_USER="${DEPLOY_USER:-${SUDO_USER:-$(id -un)}}"
+DEPLOY_GROUP="${DEPLOY_GROUP:-$(id -gn "${DEPLOY_USER}")}"
+SCRIPT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+REPO_ROOT="${REPO_ROOT:-$(cd "${SCRIPT_ROOT}/.." && pwd -P)}"
+DEPLOY_HOME="${DEPLOY_HOME:-$(getent passwd "${DEPLOY_USER}" | cut -d: -f6)}"
+export REPO_ROOT
 SERVICE_NAME="echo-archives.service"
 DISCOVERY_SERVICE="echo-archives-discovery.service"
 DISCOVERY_TIMER="echo-archives-discovery.timer"
@@ -156,7 +161,7 @@ create_migration_backup() {
   backup_optional_file "${DISCOVERY_DROPIN}" "discovery-runtime-account.conf"
   cp -a -- "${ENV_FILE}" "${BACKUP_DIR}/backend.env"
   getfacl --absolute-names --recursive "${REPO_ROOT}" > "${BACKUP_DIR}/repository.acl"
-  getfacl --absolute-names /home/charlie > "${BACKUP_DIR}/home.acl"
+  getfacl --absolute-names "${DEPLOY_HOME}" > "${BACKUP_DIR}/home.acl"
 
   {
     printf 'service_active=%s\n' "$(unit_is_active "${SERVICE_NAME}")"
@@ -272,7 +277,7 @@ update_environment_database_path() {
 }
 
 grant_runtime_read_access() {
-  setfacl -m "u:${APP_USER}:--x" /home/charlie
+  setfacl -m "u:${APP_USER}:--x" "${DEPLOY_HOME}"
 
   find "${REPO_ROOT}" -xdev \
     -path "${REPO_ROOT}/.git" -prune -o \
@@ -413,7 +418,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const dbPath = process.argv[2];
 const modulePath = require.resolve("better-sqlite3", {
-  paths: ["/home/charlie/The-Echo-Archives/backend"],
+  paths: [`${process.env.REPO_ROOT}/backend`],
 });
 const Database = require(modulePath);
 const database = new Database(dbPath, { fileMustExist: true, readonly: true });

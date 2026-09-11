@@ -1,21 +1,24 @@
 #!/usr/bin/env bash
+# HOST-MAINTENANCE/RECOVERY-ONLY: the frozen-checkout maintenance path is not
+# part of the normal exact-SHA release workflow.
 set -Eeuo pipefail
 IFS=$'\n\t'
 umask 0077
 
-APP_USER="charlie"
-APP_GROUP="charlie"
-APP_HOME="/home/charlie"
+APP_USER="${APP_USER:-${SUDO_USER:-$(id -un)}}"
+APP_GROUP="${APP_GROUP:-$(id -gn "${APP_USER}")}"
+APP_HOME="${APP_HOME:-$(getent passwd "${APP_USER}" | cut -d: -f6)}"
 SERVICE_NAME="echo-archives.service"
 BACKUP_TIMER="echo-archives-backup.timer"
 DISCOVERY_TIMER="echo-archives-discovery.timer"
 LOCAL_HEALTH_URL="http://127.0.0.1:3010/api/health"
 PUBLIC_ORIGIN="https://echoarchives.net"
 LEGACY_ORIGIN="https://echo.continental-hub.com"
-AUTH_SERVICE_UNIT="/home/charlie/.config/systemd/user/continental-id-auth.service"
+AUTH_SERVICE_UNIT="${APP_HOME}/.config/systemd/user/continental-id-auth.service"
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 REPO_ROOT="$(cd -- "${SCRIPT_DIR}/.." && pwd -P)"
+LEGACY_REPOSITORY_ROOT="${LEGACY_REPOSITORY_ROOT:-${APP_HOME}/The-Echo-Archives}"
 BACKEND_ROOT="${REPO_ROOT}/backend"
 CADDYFILE="/etc/caddy/Caddyfile"
 CADDY_SNIPPET="${REPO_ROOT}/deploy/Caddyfile.echo"
@@ -187,7 +190,7 @@ fi
 if [[ "$(id -gn "${APP_USER}")" != "${APP_GROUP}" ]]; then
   die "Application user's primary group is not ${APP_GROUP}."
 fi
-if [[ "${REPO_ROOT}" != "${APP_HOME}/The-Echo-Archives" ]]; then
+if [[ "${REPO_ROOT}" != "${LEGACY_REPOSITORY_ROOT}" ]]; then
   die "Unexpected repository path: ${REPO_ROOT}"
 fi
 

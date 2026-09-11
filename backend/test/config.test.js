@@ -70,7 +70,7 @@ test("production configuration rejects non-origin SITE_URL and incomplete mainta
 test("staging configuration permits isolated rating writes without production Turnstile", () => {
   const result = runConfig({
     DEPLOYMENT_ENV: "staging",
-    SITE_URL: "https://staging.echo.example.com",
+    SITE_URL: "http://127.0.0.1:3011",
     DB_PATH: path.join(backendRoot, "data", "staging-test.sqlite"),
     COMMUNITY_RATING_WRITES_ENABLED: "true",
     COMMUNITY_TURNSTILE_ENABLED: "false",
@@ -78,6 +78,29 @@ test("staging configuration permits isolated rating writes without production Tu
   }, "const c=require('./lib/config'); c.validateConfig(c); process.stdout.write(JSON.stringify({environment:c.DEPLOYMENT_ENV,staging:c.IS_STAGING,writes:c.COMMUNITY_RATING_WRITES_ENABLED}));");
   assert.equal(result.status, 0, result.stderr);
   assert.deepEqual(JSON.parse(result.stdout), { environment: "staging", staging: true, writes: true });
+});
+
+test("staging may use a loopback HTTP origin but not a public HTTP origin", () => {
+  const privateOrigin = runConfig({
+    DEPLOYMENT_ENV: "staging",
+    SITE_URL: "http://127.0.0.1:3011",
+    DB_PATH: path.join(backendRoot, "data", "staging-test.sqlite"),
+    COMMUNITY_RATING_WRITES_ENABLED: "true",
+    COMMUNITY_TURNSTILE_ENABLED: "false",
+    COMMUNITY_VOTER_HASH_SECRET: "a-stable-staging-voter-secret-123456789",
+  });
+  assert.equal(privateOrigin.status, 0, privateOrigin.stderr);
+
+  const publicHttp = runConfig({
+    DEPLOYMENT_ENV: "staging",
+    SITE_URL: "http://staging.example.test:3011",
+    DB_PATH: path.join(backendRoot, "data", "staging-test.sqlite"),
+    COMMUNITY_RATING_WRITES_ENABLED: "true",
+    COMMUNITY_TURNSTILE_ENABLED: "false",
+    COMMUNITY_VOTER_HASH_SECRET: "a-stable-staging-voter-secret-123456789",
+  });
+  assert.equal(publicHttp.status, 1);
+  assert.match(publicHttp.stderr, /private loopback origin/i);
 });
 
 test("production rating writes require complete Turnstile and voter-secret configuration", () => {

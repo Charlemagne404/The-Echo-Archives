@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
+# RECOVERY-ONLY: disposable rollback drill; normal rollback uses deploy/echo.
 set -Eeuo pipefail
 IFS=$'\n\t'
 umask 0077
 
-REPO_ROOT="/home/charlie/The-Echo-Archives"
+SCRIPT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+REPO_ROOT="${REPO_ROOT:-$(cd "${SCRIPT_ROOT}/.." && pwd -P)}"
+BACKUP_DIR="${BACKUP_DIR:-/var/backups/echo-archives}"
+export REPO_ROOT
 PORT="${ROLLBACK_DRILL_PORT:-3921}"
 INTERNAL_HEALTH_PORT="$((PORT + 1000))"
 EXPECTED_COMMIT="${1:-}"
@@ -73,7 +77,7 @@ done
 previous_commit="$(git -C "${REPO_ROOT}" rev-parse "${EXPECTED_COMMIT}^")" ||
   fail "the expected commit has no parent for the rollback drill"
 latest_backup="$(
-  find "${REPO_ROOT}/backend/data/backups" -maxdepth 1 -type f \
+  find "${BACKUP_DIR}" -maxdepth 1 -type f \
     -name 'community-*.sqlite' -printf '%T@ %p\n' |
     sort -nr |
     sed -n '1s/^[^ ]* //p'
@@ -95,7 +99,7 @@ ln -s "${REPO_ROOT}/backend/node_modules" "${WORKTREE}/backend/node_modules"
 
 node - "${database_copy}" <<'NODE'
 const dbPath = process.argv[2];
-const Database = require("/home/charlie/The-Echo-Archives/backend/node_modules/better-sqlite3");
+const Database = require(require.resolve("better-sqlite3", { paths: [`${process.env.REPO_ROOT}/backend`] }));
 const database = new Database(dbPath);
 try {
   database.pragma("journal_mode = WAL");
@@ -209,7 +213,7 @@ assert_semantic_health
 
 node - "${database_copy}" <<'NODE'
 const dbPath = process.argv[2];
-const Database = require("/home/charlie/The-Echo-Archives/backend/node_modules/better-sqlite3");
+const Database = require(require.resolve("better-sqlite3", { paths: [`${process.env.REPO_ROOT}/backend`] }));
 const database = new Database(dbPath, { readonly: true, fileMustExist: true });
 try {
   const value = database.prepare(
