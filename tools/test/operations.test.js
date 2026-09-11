@@ -1013,6 +1013,10 @@ test("checked-in service and proxy retain production hardening", () => {
   const offsiteTimer = read("deploy/echo-archives-offsite-backup.timer");
   assert.match(localMonitorService, /User=echo-archives/);
   assert.match(localMonitorService, /REPO_ROOT=\/srv\/echo-archives\/current/);
+  assert.match(
+    localMonitorService,
+    /ExecStart=\/bin\/bash \/srv\/echo-archives\/current\/deploy\/check-echo-archives-production\.sh/,
+  );
   assert.match(localMonitorService, /NoNewPrivileges=true/);
   assert.match(offsiteService, /After=network-online\.target tailscaled\.service echo-archives-backup\.service/);
   assert.match(offsiteService, /ProtectSystem=strict/);
@@ -1027,7 +1031,10 @@ test("checked-in service and proxy retain production hardening", () => {
   );
   assert.match(offsiteService, /EnvironmentFile=\/etc\/echo-archives\/pi-restic\.env/);
   assert.match(offsiteService, /Environment=MAX_LOCAL_BACKUP_AGE_HOURS=6/);
-  assert.match(offsiteService, /ExecStart=\/srv\/echo-archives\/current\/deploy\/echo-archives-offsite-backup\.sh/);
+  assert.match(
+    offsiteService,
+    /ExecStart=\/bin\/bash \/srv\/echo-archives\/current\/deploy\/echo-archives-offsite-backup\.sh/,
+  );
   assert.match(offsiteService, /ExecStartPre=\/usr\/bin\/tailscale ping/);
   assert.match(offsiteService, /ExecStartPre=\/usr\/bin\/ssh .* echo-backup-pi/);
   for (const deploymentFile of [

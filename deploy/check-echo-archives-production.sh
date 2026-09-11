@@ -21,6 +21,20 @@ EXPECTED_COMMUNITY_RATING_WRITES="${EXPECTED_COMMUNITY_RATING_WRITES:-true}"
 EXPECTED_MAINTAINER_REVIEW="${EXPECTED_MAINTAINER_REVIEW:-true}"
 EXPECTED_ACCESS_LOGS="${EXPECTED_ACCESS_LOGS:-true}"
 
+# Deliberately exclude this oneshot service and the intentionally disabled
+# off-site service. A previous local-monitor failure must not make the next
+# monitor invocation fail before it can perform current checks. The backup
+# and discovery services are included alongside their timers so a failed
+# scheduled operation remains visible.
+MONITORED_SYSTEMD_UNITS=(
+  echo-archives.service
+  caddy.service
+  echo-archives-backup.timer
+  echo-archives-backup.service
+  echo-archives-discovery.timer
+  echo-archives-discovery.service
+)
+
 TEMP_DIR=""
 
 log() {
@@ -36,6 +50,19 @@ cleanup() {
 fail() {
   log "FAIL: $*"
   exit 1
+}
+
+check_required_systemd_failures() {
+  local unit
+  local failed_units=()
+  for unit in "${MONITORED_SYSTEMD_UNITS[@]}"; do
+    if systemctl is-failed --quiet "${unit}"; then
+      failed_units+=("${unit}")
+    fi
+  done
+  if ((${#failed_units[@]} > 0)); then
+    fail "Required systemd units are failed: ${failed_units[*]}."
+  fi
 }
 
 trap cleanup EXIT
@@ -56,8 +83,7 @@ for unit in \
   systemctl is-active --quiet "${unit}" || fail "${unit} is not active."
 done
 
-failed_units="$(systemctl --failed --no-legend --plain)"
-[[ -z "${failed_units}" ]] || fail "One or more systemd units are failed."
+check_required_systemd_failures
 
 validate_public_health_json() {
   local file="$1"

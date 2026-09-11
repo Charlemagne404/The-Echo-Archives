@@ -14,7 +14,7 @@ ExecStartPre=/usr/bin/test -r /etc/echo-archives/pi-restic-password
 ExecStartPre=/usr/bin/test -r /root/.ssh/echo-archives-pi-backup
 ExecStartPre=/usr/bin/tailscale ping --c=1 --timeout=20s --until-direct=false 100.102.113.86
 ExecStartPre=/usr/bin/ssh -o BatchMode=yes -o ConnectTimeout=20 echo-backup-pi /usr/bin/true
-ExecStart=/srv/echo-archives/current/deploy/echo-archives-offsite-backup.sh
+ExecStart=/bin/bash /srv/echo-archives/current/deploy/echo-archives-offsite-backup.sh
 UMask=0077
 TimeoutStartSec=3h
 CacheDirectory=echo-archives-pi-restic
