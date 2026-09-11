@@ -75,9 +75,10 @@ same bootstrap. It creates the runtime account and directories, installs the
 checked-in systemd units/timers, creates environment-file skeletons if absent,
 installs monitoring/off-site environment skeletons, removes only the known
 migration-era discovery drop-in, installs journal retention configuration,
-validates unit syntax, and reloads the systemd manager. It intentionally does
-not start, restart, stop, enable, or reload a service and it does not change
-Caddy.
+backs up replaced unit files under `/var/backups/echo-archives/host-units/`,
+validates unit syntax, reloads the systemd manager, and leaves the off-site
+timer disabled until its external prerequisites are ready. It does not start,
+restart, or enable an application service and it does not change Caddy.
 
 Review and fill the files outside Git:
 

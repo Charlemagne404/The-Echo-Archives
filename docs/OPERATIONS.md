@@ -216,7 +216,11 @@ Do not install production dependencies or restart the live service until the rel
 For a fresh host, use [`deploy/RELEASE_WORKFLOW.md`](../deploy/RELEASE_WORKFLOW.md)
 and run `sudo ./deploy/bootstrap-echo-archives.sh`. It installs directories,
 environment-file skeletons, release-backed systemd units, timers, and journal
-retention without starting a service or changing Caddy. The compatibility
+retention, preserving replaced unit files under
+`/var/backups/echo-archives/host-units/`. It does not start application
+services, changes no Caddy configuration, and leaves the off-site timer
+disabled until its external prerequisites and restore drill are ready. The
+compatibility
 `install-echo-archives-system.sh` entry point invokes the same non-disruptive
 bootstrap.
 
