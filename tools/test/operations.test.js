@@ -683,7 +683,9 @@ printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
   assert.doesNotMatch(localMonitor, /\bREPO_ROOT\b/);
   assert.doesNotMatch(localMonitor, /\/home\/charlie\/The-Echo-Archives/);
   assert.match(localMonitor, /BACKUP_DIR="\$\{BACKUP_DIR:-\/var\/backups\/echo-archives\}"/);
-  assert.match(localMonitor, /REQUIRE_OFFSITE_BACKUP/);
+  assert.match(localMonitor, /OFFSITE_BACKUP_TIMER="\$\{OFFSITE_BACKUP_TIMER:-echo-archives-offsite-backup\.timer\}"/);
+  assert.match(localMonitor, /systemctl is-enabled --quiet "\$\{OFFSITE_BACKUP_TIMER\}"/);
+  assert.doesNotMatch(localMonitor, /REQUIRE_OFFSITE_BACKUP/);
   assert.match(localMonitor, /EXPECTED_COMMUNITY_RATING_WRITES/);
   assert.match(localMonitor, /EXPECTED_MAINTAINER_REVIEW/);
   assert.match(localMonitor, /EXPECTED_ACCESS_LOGS/);

@@ -288,10 +288,7 @@ test("complete launch maintenance validates artifacts and preserves rollback sou
     script,
     /Deferring the systemd monitor freshness check until the off-site stage/,
   );
-  assert.match(
-    script,
-    /REQUIRE_OFFSITE_BACKUP=false \\\s*"\$\{REPO_ROOT\}\/deploy\/check-echo-archives-production\.sh"/,
-  );
+  assert.match(script, /"\$\{REPO_ROOT\}\/deploy\/check-echo-archives-production\.sh"/);
   assert.match(script, /pause_local_monitor_timer/);
   assert.match(script, /resume_local_monitor_timer/);
   assert.match(script, /systemctl stop echo-archives-local-monitor\.timer/);
@@ -602,7 +599,7 @@ test("complete launch maintenance does not mutate UFW or expose monitoring secre
   assert.match(script, /run_remaining_stage_preflight/);
   assert.match(script, /Protocol version: TLSv1\.2/);
   assert.match(script, /Protocol version: TLSv1\.3/);
-  assert.match(script, /REQUIRE_OFFSITE_BACKUP=true/);
+  assert.doesNotMatch(script, /REQUIRE_OFFSITE_BACKUP/);
   assert.match(script, /public access event is correlated|expected_request_id/);
 });
 

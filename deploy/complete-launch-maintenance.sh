@@ -1140,8 +1140,7 @@ stage_application_verification() {
       echo-archives-offsite-backup.service \
       echo-archives-local-monitor.service
   fi
-  REQUIRE_OFFSITE_BACKUP=false \
-    "${REPO_ROOT}/deploy/check-echo-archives-production.sh"
+  "${REPO_ROOT}/deploy/check-echo-archives-production.sh"
   if [[ "${BACKUP_MONITOR_FRESHNESS_DEFERRED}" == "yes" ]]; then
     log "Deferring the systemd monitor freshness check until the off-site stage completes a verified Restic backup."
   elif [[ "${BACKUP_UNIT_TRANSITION}" == "yes" ]]; then
@@ -1745,8 +1744,7 @@ stage_final_verification() {
   systemctl is-active --quiet ollama.service
   [[ -z "$(systemctl --failed --no-legend --plain)" ]] ||
     fail "one or more system units failed during maintenance"
-  REQUIRE_OFFSITE_BACKUP=true \
-    "${REPO_ROOT}/deploy/check-echo-archives-production.sh"
+  "${REPO_ROOT}/deploy/check-echo-archives-production.sh"
   log "Final local/public health, origin/spoof, TLS, shared-host, service, and structured-log checks passed."
 }
 

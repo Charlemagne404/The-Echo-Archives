@@ -11,7 +11,7 @@ function read(relativePath) {
   return fs.readFileSync(path.join(ROOT, relativePath), "utf8");
 }
 
-function runFailureFixture(failedUnit) {
+function runFailureFixture(failedUnit, { offsiteTimerEnabled = false } = {}) {
   const monitor = read("deploy/check-echo-archives-production.sh");
   const units = monitor.match(/^MONITORED_SYSTEMD_UNITS=\([\s\S]*?^\)/m);
   const functionSource = monitor.match(
@@ -26,6 +26,8 @@ function runFailureFixture(failedUnit) {
       "-c",
       `set -Eeuo pipefail
 FAILED_UNIT="$1"
+OFFSITE_TIMER_ENABLED="$OFFSITE_TIMER_ENABLED"
+OFFSITE_BACKUP_TIMER="echo-archives-offsite-backup.timer"
 fail() {
   printf 'FAIL: %s\\n' "$*" >&2
   exit 42
@@ -37,6 +39,10 @@ systemctl() {
     [[ "$3" == "$FAILED_UNIT" ]]
     return
   fi
+  if [[ "$1" == is-enabled && "$2" == --quiet ]]; then
+    [[ "$3" == "$OFFSITE_BACKUP_TIMER" && "$OFFSITE_TIMER_ENABLED" == true ]]
+    return
+  fi
   return 1
 }
 check_required_systemd_failures
@@ -45,8 +51,68 @@ printf 'PASS\\n'
       "monitor-failure-fixture",
       failedUnit,
     ],
-    { cwd: ROOT, encoding: "utf8" },
+    {
+      cwd: ROOT,
+      encoding: "utf8",
+      env: {
+        ...process.env,
+        OFFSITE_TIMER_ENABLED: offsiteTimerEnabled ? "true" : "false",
+      },
+    },
   );
+}
+
+function runOffsiteFreshnessFixture({ timerEnabled, marker }) {
+  const monitor = read("deploy/check-echo-archives-production.sh");
+  const functionSource = monitor.match(
+    /^check_offsite_backup_freshness\(\) \{\n[\s\S]*?^\}/m,
+  );
+  assert.ok(functionSource, "offsite freshness function was not found");
+
+  const fixture = fs.mkdtempSync(path.join(os.tmpdir(), "echo-offsite-monitor-"));
+  const markerPath = path.join(fixture, "offsite-backup-success");
+  if (marker !== "missing") {
+    fs.writeFileSync(markerPath, "fixture\n");
+    const ageHours = marker === "stale" ? 31 : 1;
+    const timestamp = new Date(Date.now() - ageHours * 60 * 60 * 1000);
+    fs.utimesSync(markerPath, timestamp, timestamp);
+  }
+
+  try {
+    return spawnSync(
+      "bash",
+      [
+        "-c",
+        `set -Eeuo pipefail
+OFFSITE_BACKUP_TIMER="echo-archives-offsite-backup.timer"
+OFFSITE_SUCCESS_MARKER="$1"
+MAX_BACKUP_AGE_HOURS=30
+TIMER_ENABLED="$2"
+log() { printf '%s\\n' "$*"; }
+fail() {
+  printf 'FAIL: %s\\n' "$*" >&2
+  exit 42
+}
+systemctl() {
+  if [[ "$1" == is-enabled && "$2" == --quiet ]]; then
+    [[ "$3" == "$OFFSITE_BACKUP_TIMER" && "$TIMER_ENABLED" == true ]]
+    return
+  fi
+  return 1
+}
+${functionSource[0]}
+check_offsite_backup_freshness
+printf 'PASS\\n'
+`,
+        "monitor-offsite-freshness-fixture",
+        markerPath,
+        timerEnabled ? "true" : "false",
+      ],
+      { cwd: ROOT, encoding: "utf8" },
+    );
+  } finally {
+    fs.rmSync(fixture, { recursive: true, force: true });
+  }
 }
 
 test("host tooling units invoke stable copies and preserve executable Git metadata", () => {
@@ -142,4 +208,41 @@ test("a failed required production unit still fails monitoring", () => {
   const result = runFailureFixture("echo-archives-backup.service");
   assert.equal(result.status, 42, result.stdout);
   assert.match(result.stderr, /Required systemd units are failed: echo-archives-backup\.service/);
+});
+
+test("disabled offsite freshness is skipped even when its marker is stale or missing", () => {
+  for (const marker of ["stale", "missing"]) {
+    const result = runOffsiteFreshnessFixture({ timerEnabled: false, marker });
+    assert.equal(result.status, 0, `${marker}: ${result.stderr}`);
+    assert.match(result.stdout, /off-site backup freshness is not required/);
+  }
+});
+
+test("enabled offsite freshness accepts a fresh marker and rejects stale or missing markers", () => {
+  const fresh = runOffsiteFreshnessFixture({ timerEnabled: true, marker: "fresh" });
+  assert.equal(fresh.status, 0, fresh.stderr);
+  assert.match(fresh.stdout, /PASS/);
+
+  for (const marker of ["stale", "missing"]) {
+    const result = runOffsiteFreshnessFixture({ timerEnabled: true, marker });
+    assert.equal(result.status, 42, `${marker}: ${result.stdout}`);
+    assert.match(result.stderr, /Off-site backup success marker/);
+  }
+});
+
+test("successful inactive oneshot backup and discovery services do not fail monitoring", () => {
+  const result = runFailureFixture("");
+  assert.equal(result.status, 0, result.stderr);
+  assert.match(result.stdout, /PASS/);
+});
+
+test("an enabled offsite service failure remains visible", () => {
+  const result = runFailureFixture("echo-archives-offsite-backup.service", {
+    offsiteTimerEnabled: true,
+  });
+  assert.equal(result.status, 42, result.stdout);
+  assert.match(
+    result.stderr,
+    /Required systemd units are failed: echo-archives-offsite-backup\.service/,
+  );
 });

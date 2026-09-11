@@ -65,7 +65,7 @@ Better Stack-specific repository preparation is checked in as:
 - `deploy/notify-better-stack-heartbeat.js`;
 - `deploy/echo-archives-offsite-backup-heartbeat.conf`.
 
-The check validates an explicit set of required systemd units, local and public health semantics, apex identity, the `www` redirect, public TLS lifetime, local backup freshness/integrity, and disk thresholds. Its required-unit set excludes the monitor's own previous failure and the intentionally disabled off-site service, while failed backup or discovery units remain visible. It warns about a pending reboot. Off-site freshness becomes mandatory only when `REQUIRE_OFFSITE_BACKUP=true` is placed in the root-owned monitoring environment file.
+The check validates an explicit set of required systemd units, local and public health semantics, apex identity, the `www` redirect, public TLS lifetime, local backup freshness/integrity, and disk thresholds. Its required-unit set excludes the monitor's own previous failure and a deliberately disabled off-site service, while failed backup or discovery units remain visible. If `echo-archives-offsite-backup.timer` is enabled, the off-site service and its success-marker freshness become required; when the timer is disabled, off-site freshness is intentionally skipped. A successful inactive oneshot is not a failed unit. It warns about a pending reboot.
 
 `deploy/final-production-launch-maintenance.sh` installs these files, creates the credential-neutral root-owned settings file, enables the timer, and requires its first run to pass. Local journald checks are useful evidence but do not replace an external observer or alert delivery.
 

@@ -12,7 +12,7 @@ PUBLIC_ORIGIN="https://echoarchives.net"
 WWW_ORIGIN="https://www.echoarchives.net"
 LEGACY_ORIGIN="https://echo.continental-hub.com"
 OFFSITE_SUCCESS_MARKER="${OFFSITE_SUCCESS_MARKER:-/var/lib/echo-archives-monitoring/offsite-backup-success}"
-REQUIRE_OFFSITE_BACKUP="${REQUIRE_OFFSITE_BACKUP:-false}"
+OFFSITE_BACKUP_TIMER="${OFFSITE_BACKUP_TIMER:-echo-archives-offsite-backup.timer}"
 MAX_BACKUP_AGE_HOURS="${MAX_BACKUP_AGE_HOURS:-30}"
 MIN_FREE_GIB="${MIN_FREE_GIB:-10}"
 MAX_DISK_PERCENT="${MAX_DISK_PERCENT:-80}"
@@ -21,11 +21,11 @@ EXPECTED_COMMUNITY_RATING_WRITES="${EXPECTED_COMMUNITY_RATING_WRITES:-true}"
 EXPECTED_MAINTAINER_REVIEW="${EXPECTED_MAINTAINER_REVIEW:-true}"
 EXPECTED_ACCESS_LOGS="${EXPECTED_ACCESS_LOGS:-true}"
 
-# Deliberately exclude this oneshot service and the intentionally disabled
-# off-site service. A previous local-monitor failure must not make the next
-# monitor invocation fail before it can perform current checks. The backup
-# and discovery services are included alongside their timers so a failed
-# scheduled operation remains visible.
+# A previous local-monitor failure must not make the next monitor invocation
+# fail before it can perform current checks. The backup and discovery
+# services are included alongside their timers so a failed scheduled
+# operation remains visible. The off-site service is added dynamically only
+# while its timer is enabled; a disabled off-site installation is intentional.
 MONITORED_SYSTEMD_UNITS=(
   echo-archives.service
   caddy.service
@@ -60,9 +60,36 @@ check_required_systemd_failures() {
       failed_units+=("${unit}")
     fi
   done
+  if systemctl is-enabled --quiet "${OFFSITE_BACKUP_TIMER}"; then
+    if systemctl is-failed --quiet echo-archives-offsite-backup.service; then
+      failed_units+=(echo-archives-offsite-backup.service)
+    fi
+  fi
   if ((${#failed_units[@]} > 0)); then
     fail "Required systemd units are failed: ${failed_units[*]}."
   fi
+}
+
+check_offsite_backup_freshness() {
+  local marker_time
+  local now
+  local marker_age_hours
+
+  if ! systemctl is-enabled --quiet "${OFFSITE_BACKUP_TIMER}"; then
+    log "WARN: off-site backup freshness is not required because ${OFFSITE_BACKUP_TIMER} is disabled."
+    return 0
+  fi
+
+  [[ -f "${OFFSITE_SUCCESS_MARKER}" && ! -L "${OFFSITE_SUCCESS_MARKER}" ]] ||
+    fail "Off-site backup success marker is missing or unsafe."
+  marker_time="$(stat -c %Y "${OFFSITE_SUCCESS_MARKER}")"
+  now="$(date +%s)"
+  [[ "${marker_time}" =~ ^[0-9]+$ && "${now}" =~ ^[0-9]+$ &&
+    "${marker_time}" -le "${now}" ]] ||
+    fail "Off-site backup success marker timestamp is invalid or in the future."
+  marker_age_hours=$(( (now - marker_time) / 3600 ))
+  (( marker_age_hours <= MAX_BACKUP_AGE_HOURS )) ||
+    fail "Off-site backup success marker is ${marker_age_hours}h old."
 }
 
 trap cleanup EXIT
@@ -206,20 +233,7 @@ minimum_bytes=$((MIN_FREE_GIB * 1024 * 1024 * 1024))
 (( available_bytes >= minimum_bytes )) ||
   fail "Production filesystem has less than ${MIN_FREE_GIB} GiB free."
 
-if [[ "${REQUIRE_OFFSITE_BACKUP}" == "true" ]]; then
-  [[ -f "${OFFSITE_SUCCESS_MARKER}" && ! -L "${OFFSITE_SUCCESS_MARKER}" ]] ||
-    fail "Off-site backup success marker is missing or unsafe."
-  marker_time="$(stat -c %Y "${OFFSITE_SUCCESS_MARKER}")"
-  now="$(date +%s)"
-  [[ "${marker_time}" =~ ^[0-9]+$ && "${now}" =~ ^[0-9]+$ &&
-    "${marker_time}" -le "${now}" ]] ||
-    fail "Off-site backup success marker timestamp is invalid or in the future."
-  marker_age_hours=$(( (now - marker_time) / 3600 ))
-  (( marker_age_hours <= MAX_BACKUP_AGE_HOURS )) ||
-    fail "Off-site backup success marker is ${marker_age_hours}h old."
-else
-  log "WARN: off-site backup freshness is not required until external storage is configured."
-fi
+check_offsite_backup_freshness
 
 if [[ -e /run/reboot-required ]]; then
   log "WARN: the host reports that a reboot is required."
