@@ -631,6 +631,9 @@ printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
   assert.match(bootstrapScript, /offsite-backup\.env\.example/);
   assert.match(bootstrapScript, /LEGACY_DISCOVERY_DROPIN/);
   assert.match(bootstrapScript, /refusing to remove an unrecognized discovery drop-in/);
+  assert.match(bootstrapScript, /HOST_UNIT_BACKUP_DIR/);
+  assert.match(bootstrapScript, /backup_host_unit/);
+  assert.match(bootstrapScript, /systemctl disable --now echo-archives-offsite-backup\.timer/);
   assert.doesNotMatch(bootstrapScript, /systemctl (?:start|restart|stop|reload|enable)/);
   assert.doesNotMatch(bootstrapScript, /Caddyfile/);
 

@@ -25,7 +25,7 @@ require_command() {
   command -v "$1" >/dev/null 2>&1 || die "required command is missing: $1"
 }
 
-for command_name in grep id install rmdir setfacl stat systemd-analyze systemctl useradd; do
+for command_name in cp date grep id install rmdir setfacl stat systemd-analyze systemctl useradd; do
   require_command "${command_name}"
 done
 
@@ -102,6 +102,37 @@ fi
 assert_environment_file /etc/echo-archives/monitoring.env "root:root"
 assert_environment_file /etc/echo-archives/pi-restic.env "root:root"
 
+HOST_UNIT_BACKUP_DIR="/var/backups/echo-archives/host-units/$(date -u +%Y%m%dT%H%M%SZ)-$$"
+HOST_UNIT_BACKUP_CREATED=false
+
+backup_host_unit() {
+  local source_path="$1"
+  [[ -e "${source_path}" || -L "${source_path}" ]] || return 0
+
+  if [[ "${HOST_UNIT_BACKUP_CREATED}" == false ]]; then
+    install -d -o root -g root -m 0700 "${HOST_UNIT_BACKUP_DIR}"
+    HOST_UNIT_BACKUP_CREATED=true
+  fi
+
+  local relative_path="${source_path#/etc/systemd/system/}"
+  install -d -o root -g root -m 0700 "${HOST_UNIT_BACKUP_DIR}/$(dirname -- "${relative_path}")"
+  cp -a -- "${source_path}" "${HOST_UNIT_BACKUP_DIR}/${relative_path}"
+}
+
+for unit_name in \
+  echo-archives.service \
+  echo-archives-staging.service \
+  echo-archives-backup.service \
+  echo-archives-backup.timer \
+  echo-archives-discovery.service \
+  echo-archives-discovery.timer \
+  echo-archives-local-monitor.service \
+  echo-archives-local-monitor.timer \
+  echo-archives-offsite-backup.service \
+  echo-archives-offsite-backup.timer; do
+  backup_host_unit "/etc/systemd/system/${unit_name}"
+done
+
 # The migration-era discovery drop-in added permissions for the frozen
 # checkout. Remove only that exact, recognizable stale artifact; an unknown
 # drop-in is a hard failure so bootstrap cannot discard host policy silently.
@@ -109,6 +140,7 @@ LEGACY_DISCOVERY_DROPIN=/etc/systemd/system/echo-archives-discovery.service.d/10
 if [[ -e "${LEGACY_DISCOVERY_DROPIN}" ]]; then
   [[ -f "${LEGACY_DISCOVERY_DROPIN}" && ! -L "${LEGACY_DISCOVERY_DROPIN}" ]] ||
     die "unexpected discovery drop-in is not a regular file: ${LEGACY_DISCOVERY_DROPIN}"
+  backup_host_unit "${LEGACY_DISCOVERY_DROPIN}"
   grep -Eq '/home/[^[:space:]]*/The-Echo-Archives|backend/data/(community\.sqlite|import-staging|backups)' \
     "${LEGACY_DISCOVERY_DROPIN}" ||
     die "refusing to remove an unrecognized discovery drop-in: ${LEGACY_DISCOVERY_DROPIN}"
@@ -152,9 +184,17 @@ systemd-analyze verify \
   /etc/systemd/system/echo-archives-offsite-backup.timer
 systemctl daemon-reload
 
+# Off-site backup is intentionally not enabled until its external peer,
+# credentials, and restore drill are ready. This also clears a stale failure
+# from the migration-era service so the local monitor can report current state.
+systemctl disable --now echo-archives-offsite-backup.timer
+systemctl reset-failed echo-archives-offsite-backup.service 2>/dev/null || true
+
 printf '%s\n' \
   'Host layout and release service templates are installed.' \
-  'No service was started, restarted, stopped, enabled, or reloaded.' \
+  'Application services were not started, restarted, stopped, or enabled.' \
+  "Existing unit backups are under ${HOST_UNIT_BACKUP_DIR} when replacements were made." \
+  'The off-site backup timer remains disabled until external storage is configured and tested.' \
   "Fill and validate ${ENV_DIR}/staging.env and ${ENV_DIR}/production.env before enabling services." \
   'Caddy is intentionally unchanged; review/install its host configuration separately.' \
   'Next: deploy/echo status, then explicitly enable the reviewed units and start staging.'
