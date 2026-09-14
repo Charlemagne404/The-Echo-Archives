@@ -108,6 +108,7 @@ cd backend
 npm run review:new -- <show-id>
 npm run review:publish -- <show-id>
 npm run review:report
+npm run report:entity-graph
 npm run import:seed -- --file ./tmp/import-list.txt
 npm run import:hydrate -- --candidate <candidate-id>
 npm run import:report
@@ -122,6 +123,7 @@ npm run import:discover -- --all
 - `review:new` creates a review companion file and moves `imported` or `indexed-only` shows to `planned`
 - `review:publish` validates the companion review file and promotes the show to `full-review`
 - `review:report` prints a published-show audit for review coverage and metadata gaps
+- `report:entity-graph` prints source-only creator/entity coverage, density, weak/orphan entity lists, legacy evidence queues, and relationship review signals; add `--json` for complete machine-readable output or `--all` to include drafts
 - `import:seed` creates internal candidates from pasted titles, Apple URLs, RSS URLs, or mixed newline lists
 - `import:hydrate` fetches objective metadata snapshots from Apple, RSS, Podcast Index, and website sources when available
 - `import:report` prints current import queue and gap state

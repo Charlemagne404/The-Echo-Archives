@@ -176,6 +176,19 @@ creator-directory entities.
 
 ## Maintenance checks
 
+Run `npm run report:entity-graph` to inspect the authored graph before doing
+enrichment work. By default it reports published shows against public entities
+and includes coverage percentages, relationship density, zero/weakly linked
+shows, top and weak entities, orphan entities, role counts, legacy evidence
+queues, and suspicious relationship signals. Use `--json` for complete
+show/entity lists or `--all` to include draft source records.
+
+Legacy `creatorId`, `networkId`, `creators`, and selected `credits` fields are
+reported as evidence only. The report can expose exact registry-name matches,
+unresolved values, and non-public links for review, but it never creates or
+recommends an automatic relationship. It performs no external requests and
+does not replace source-backed review.
+
 Run `npm run build:catalog`, then `npm run build:pages`. Relevant checks are
 `npm --prefix backend run validate:data`, `npm --prefix backend run check:links`,
 `npm --prefix backend run test:entities`, `npm run test:tools`, and

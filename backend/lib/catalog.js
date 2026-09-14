@@ -19,6 +19,9 @@ const {
 } = require("../../shared/archive-record");
 const {
   COMPLETION_STATUSES,
+  DISCOVERY_PROFILE_FIELDS,
+  DISCOVERY_PROFILE_VALUES,
+  isValidDiscoveryProfileValue,
   RELEASE_STATUSES,
   REVIEW_STATUSES,
   SHOW_STATUSES,
@@ -76,6 +79,7 @@ const SHOW_OBJECT_FIELDS = [
   "metadata",
   "verification",
   "accent",
+  "discovery",
 ];
 
 function readJsonFile(filePath) {
@@ -180,6 +184,33 @@ function validateOptionalObjects(record, recordType) {
   SHOW_OBJECT_FIELDS.forEach((fieldName) => {
     if (record[fieldName] !== undefined && !isPlainObject(record[fieldName])) {
       throw new Error(`${recordType} "${record.id}" has invalid ${fieldName} data.`);
+    }
+  });
+}
+
+function validateDiscoveryProfile(record) {
+  if (record.discovery === undefined) {
+    return;
+  }
+
+  if (!isPlainObject(record.discovery)) {
+    throw new Error(`Show "${record.id}" has invalid discovery data.`);
+  }
+
+  Object.keys(record.discovery).forEach((fieldName) => {
+    if (!DISCOVERY_PROFILE_FIELDS.includes(fieldName)) {
+      throw new Error(`Show "${record.id}" has unknown discovery field "${fieldName}".`);
+    }
+
+    const value = record.discovery[fieldName];
+    if (value === "") {
+      return;
+    }
+
+    if (typeof value !== "string" || !isValidDiscoveryProfileValue(fieldName, value)) {
+      throw new Error(
+        `Show "${record.id}" has invalid discovery.${fieldName} value; expected one of ${DISCOVERY_PROFILE_VALUES[fieldName].join(", ")}.`,
+      );
     }
   });
 }
@@ -345,7 +376,7 @@ function validateImportedRecord(record) {
   const forbiddenEditorialFields = [
     "ratings", "archiveTake", "spoilerFreeReview", "thoughts", "quote", "tones",
     "themes", "contentNotes", "bestFor", "similarTo", "similarReasons", "featured",
-    "popularity", "accent",
+    "popularity", "accent", "discovery",
   ];
   const populated = forbiddenEditorialFields.filter((fieldName) => hasPopulatedValue(record[fieldName]));
   if (populated.length > 0) {
@@ -407,6 +438,7 @@ function validateShowRecord(record, seenIds) {
 
   SHOW_STRING_ARRAY_FIELDS.forEach((fieldName) => validateArrayOfStrings("Show", record.id, fieldName, record[fieldName]));
   validateOptionalObjects(record, "Show");
+  validateDiscoveryProfile(record);
   validateTextMap("Show", record.id, "similarReasons", record.similarReasons);
   validatePublishedDiscoveryMetadata(record);
   validateDiscoveryTags(record);

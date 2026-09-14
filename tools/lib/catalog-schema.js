@@ -2,6 +2,17 @@ const SHOW_STATUSES = ["published", "draft"];
 const REVIEW_STATUSES = ["full-review", "spotlight", "indexed-only", "imported", "planned"];
 const RELEASE_STATUSES = ["active", "completed", "hiatus", "inactive", "unknown"];
 const COMPLETION_STATUSES = ["ongoing", "finished", "cancelled", "unclear"];
+const DISCOVERY_PROFILE_VALUES = Object.freeze({
+  voiceStyle: Object.freeze(["primarily-acted", "primarily-narrated", "mixed"]),
+  narrativeFocus: Object.freeze(["character-driven", "plot-driven", "balanced"]),
+  intensity: Object.freeze(["low", "medium", "high", "variable"]),
+  commitment: Object.freeze(["single-sitting", "short", "medium", "long", "deep-dive"]),
+});
+const DISCOVERY_PROFILE_FIELDS = Object.freeze(Object.keys(DISCOVERY_PROFILE_VALUES));
+
+function isValidDiscoveryProfileValue(fieldName, value) {
+  return DISCOVERY_PROFILE_VALUES[fieldName]?.includes(value) === true;
+}
 
 function slugToTitle(slug = "") {
   return String(slug || "")
@@ -93,6 +104,7 @@ function createShowTemplate({ id, title = "", today = "" }) {
     verification: {},
     availability: {},
     content: {},
+    discovery: {},
     metadata: {
       objectiveSources: [],
       researchGaps: [],
@@ -126,10 +138,13 @@ function createCollectionTemplate({ id, title = "", today = "", order = 0, showI
 
 module.exports = {
   COMPLETION_STATUSES,
+  DISCOVERY_PROFILE_FIELDS,
+  DISCOVERY_PROFILE_VALUES,
   RELEASE_STATUSES,
   REVIEW_STATUSES,
   SHOW_STATUSES,
   createCollectionTemplate,
   createShowTemplate,
+  isValidDiscoveryProfileValue,
   slugToTitle,
 };

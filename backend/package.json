@@ -16,6 +16,7 @@
     "check:config": "node ../tools/run-backend.js --check-config",
     "validate:data": "node scripts/validate-data.js",
     "report:discovery-gaps": "node scripts/discovery-gap-report.js",
+    "report:entity-graph": "node scripts/entity-graph-report.js",
     "check:links": "node scripts/check-links.js",
     "check:external-links": "node scripts/check-external-links.js",
     "review:new": "node scripts/review-new.js",

@@ -125,6 +125,76 @@ test("integrity validation aggregates duplicate, reference, URL, date, and numer
   assert.match(report.errors.join("\n"), /showReasons references unknown show "missing-show"/);
 });
 
+test("raw integrity validates optional discovery profiles without requiring them", () => {
+  const validReport = collectCatalogIntegrityIssues({
+    sourceData: {
+      mode: "runtime",
+      shows: [show({
+        discovery: {
+          voiceStyle: "primarily-narrated",
+          narrativeFocus: "character-driven",
+          intensity: "variable",
+          commitment: "deep-dive",
+        },
+      })],
+      collections: [],
+      reviewsById: {},
+    },
+    entities: [],
+    creators: [],
+    networks: [],
+    changelog: [],
+  });
+  assert.equal(validReport.ok, true);
+
+  const invalidReport = collectCatalogIntegrityIssues({
+    sourceData: {
+      mode: "runtime",
+      shows: [show({ discovery: { narrativeFocus: "character-first" } })],
+      collections: [],
+      reviewsById: {},
+    },
+    entities: [],
+    creators: [],
+    networks: [],
+    changelog: [],
+  });
+  assert.match(invalidReport.errors.join("\n"), /discovery\.narrativeFocus must be one of/);
+});
+
+test("entity graph validation surfaces role/type divergence and multi-role links as warnings", () => {
+  const report = collectCatalogIntegrityIssues({
+    sourceData: {
+      mode: "runtime",
+      shows: [show({
+        entityLinks: [
+          { entityId: "sample-network", role: "network" },
+          { entityId: "sample-network", role: "production-company" },
+        ],
+      })],
+      collections: [],
+      reviewsById: {},
+    },
+    entities: [{
+      id: "sample-network",
+      name: "Sample Network",
+      type: "network",
+      aliases: [],
+      publication: "public",
+      indexable: true,
+      reviewedAt: "2026-09-01",
+      sources: ["https://example.com/sample-network"],
+    }],
+    creators: [],
+    networks: [],
+    changelog: [],
+  });
+
+  assert.equal(report.ok, true);
+  assert.match(report.warnings.join("\n"), /type "network" but is linked with role "production-company"/);
+  assert.match(report.warnings.join("\n"), /under multiple roles: network, production-company/);
+});
+
 test("optional creator and network registries resolve show references", () => {
   const report = collectCatalogIntegrityIssues({
     sourceData: {

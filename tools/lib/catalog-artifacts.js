@@ -75,6 +75,7 @@ function createSearchIndexRecord(record) {
     genres: runtimeRecord.genres,
     tones: runtimeRecord.tones,
     formats: runtimeRecord.formats,
+    discovery: runtimeRecord.discovery,
     tags: runtimeRecord.tags,
     aliases: runtimeRecord.aliases,
     themes: runtimeRecord.themes,

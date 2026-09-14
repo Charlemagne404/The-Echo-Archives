@@ -187,6 +187,7 @@ test("catalog loading rejects malformed shapes before normalization can erase pu
     ["releaseDates", "2024-01-01", /invalid releaseDates data/i],
     ["ratings", { archive: "8\/10" }, /invalid ratings\.archive value/i],
     ["similarReasons", null, /invalid similarReasons data/i],
+    ["discovery", "curated", /invalid discovery data/i],
   ];
 
   try {
@@ -195,6 +196,47 @@ test("catalog loading rejects malformed shapes before normalization can erase pu
       writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ listenLinks: {}, [fieldName]: value })]);
       await assert.rejects(loadCatalog(tempRoot), error);
     }
+  } finally {
+    fs.rmSync(tempRoot, { recursive: true, force: true });
+  }
+});
+
+test("optional discovery profiles preserve curated values and reject unsupported values", async () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+  const discovery = {
+    voiceStyle: "primarily-acted",
+    narrativeFocus: "balanced",
+    intensity: "medium",
+    commitment: "short",
+  };
+
+  try {
+    writeJson(path.join(dataRoot, "collections.json"), []);
+    writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ discovery })]);
+    const [loadedShow] = await loadCatalog(tempRoot);
+    assert.deepEqual(loadedShow.discovery, discovery);
+    assert.ok(loadedShow.searchIndex.fields.discovery.includes("primarily acted"));
+
+    writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ discovery: { intensity: "medium-high" } })]);
+    await assert.rejects(loadCatalog(tempRoot), /invalid discovery\.intensity value/i);
+
+    writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ discovery: { mood: "dark" } })]);
+    await assert.rejects(loadCatalog(tempRoot), /unknown discovery field "mood"/i);
+
+    writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({
+      reviewStatus: "imported",
+      tones: [],
+      bestFor: [],
+      similarTo: [],
+      similarReasons: {},
+      archiveTake: "",
+      ratings: {},
+      metadata: { import: { pipelineVersion: "2" } },
+      verification: { status: "automated-source-checked" },
+      discovery,
+    })]);
+    await assert.rejects(loadCatalog(tempRoot), /human-owned editorial fields: discovery/i);
   } finally {
     fs.rmSync(tempRoot, { recursive: true, force: true });
   }

@@ -4,6 +4,9 @@ const path = require("node:path");
 const { readCatalogSource } = require("../../tools/lib/catalog-source");
 const {
   COMPLETION_STATUSES,
+  DISCOVERY_PROFILE_FIELDS,
+  DISCOVERY_PROFILE_VALUES,
+  isValidDiscoveryProfileValue,
   RELEASE_STATUSES,
   REVIEW_STATUSES,
   SHOW_STATUSES,
@@ -46,6 +49,7 @@ const SHOW_OBJECT_FIELDS = [
   "popularity",
   "provenance",
   "similarReasons",
+  "discovery",
 ];
 const DATE_PATHS = [
   "createdAt",
@@ -237,6 +241,30 @@ function checkObjectField(record, recordLabel, fieldName, errors) {
   }
 }
 
+function checkDiscoveryProfile(show, recordLabel, errors) {
+  if (!hasOwn(show, "discovery") || !isRecord(show.discovery)) {
+    return;
+  }
+
+  Object.entries(show.discovery).forEach(([fieldName, value]) => {
+    if (!DISCOVERY_PROFILE_FIELDS.includes(fieldName)) {
+      addIssue(errors, `${recordLabel}.discovery has unknown field "${fieldName}".`);
+      return;
+    }
+
+    if (value === "") {
+      return;
+    }
+
+    if (typeof value !== "string" || !isValidDiscoveryProfileValue(fieldName, value)) {
+      addIssue(
+        errors,
+        `${recordLabel}.discovery.${fieldName} must be one of ${DISCOVERY_PROFILE_VALUES[fieldName].join(", ")}.`,
+      );
+    }
+  });
+}
+
 function checkUrlValue(value, label, errors) {
   if (value === "" || value === undefined || value === null) return;
   if (!isHttpUrl(value)) addIssue(errors, `${label} must be an absolute HTTP(S) URL: "${value}".`);
@@ -418,6 +446,8 @@ function checkEntityRecords(entities, shows, errors, warnings) {
       return;
     }
     const relationships = new Set();
+    const rolesByEntity = new Map();
+    const roleDivergenceKeys = new Set();
     show.entityLinks.forEach((link, index) => {
       if (!isRecord(link)) {
         addIssue(errors, `${label}[${index}] must be an object.`);
@@ -430,8 +460,24 @@ function checkEntityRecords(entities, shows, errors, warnings) {
       if (relationships.has(key)) addIssue(errors, `Show "${show.id}" has duplicate entity relationship "${key}".`);
       relationships.add(key);
       const entity = entityById.get(link.entityId);
+      if (entity && ROLES.includes(link.role)) {
+        if (!rolesByEntity.has(link.entityId)) rolesByEntity.set(link.entityId, new Set());
+        rolesByEntity.get(link.entityId).add(link.role);
+      }
       if (entity?.type === "person" && link.role !== "creator") {
         addIssue(errors, `Person "${link.entityId}" must use the creator role on "${show.id}".`);
+      }
+      if (entity && entity.type !== "person" && ROLES.includes(link.role) && entity.type !== link.role) {
+        const divergenceKey = `${link.entityId}:${link.role}`;
+        if (!roleDivergenceKeys.has(divergenceKey)) {
+          warnings.push(`Entity "${link.entityId}" has type "${entity.type}" but is linked with role "${link.role}" on show "${show.id}"; review the source-backed relationship.`);
+          roleDivergenceKeys.add(divergenceKey);
+        }
+      }
+    });
+    rolesByEntity.forEach((roles, entityId) => {
+      if (roles.size > 1) {
+        warnings.push(`Show "${show.id}" links entity "${entityId}" under multiple roles: ${[...roles].sort().join(", ")}; review whether one relationship is redundant.`);
       }
     });
   });
@@ -479,6 +525,7 @@ function checkShowRecord(show, index, showIds, entityIds, errors) {
   ["genres", "tags"].forEach((fieldName) => checkStringArray(show, label, fieldName, errors, { required: true }));
   STRING_ARRAY_FIELDS.filter((fieldName) => !["genres", "tags"].includes(fieldName)).forEach((fieldName) => checkStringArray(show, label, fieldName, errors));
   SHOW_OBJECT_FIELDS.forEach((fieldName) => checkObjectField(show, label, fieldName, errors));
+  checkDiscoveryProfile(show, label, errors);
 
   if (!isSlug(show.id)) return;
   if (!SHOW_STATUSES.includes(show.status)) addIssue(errors, `${label} has invalid status "${show.status}".`);

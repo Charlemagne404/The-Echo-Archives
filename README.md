@@ -108,6 +108,7 @@ Root commands:
 | `npm run backup:database` | Creates and integrity-checks a timestamped SQLite backup |
 | `npm run build:catalog` | Regenerates runtime catalog data, the search index, responsive cover variants, and the generated catalog snapshot |
 | `npm run report:catalog` | Prints solo-dev catalog gaps and generated-output drift |
+| `npm run report:entity-graph` | Reports creator/entity coverage, density, orphan/weak entities, and enrichment queues |
 | `npm run catalog:new:show -- --id <show-id> [--title "Title"]` | Scaffolds a new show source record |
 | `npm run catalog:new:collection -- --id <collection-id> --show-id <show-id> [--title "Title"]` | Scaffolds a new collection source record |
 | `npm run build:pages` | Regenerates committed root HTML from `site-src/` |
@@ -122,6 +123,7 @@ Useful backend commands:
 | `npm --prefix backend test` | Runs backend tests |
 | `npm --prefix backend run test:smoke` | Runs Playwright smoke coverage |
 | `npm --prefix backend run validate:data` | Validates catalog and collection data |
+| `npm --prefix backend run report:entity-graph` | Reports source-backed entity graph coverage and enrichment queues |
 | `npm --prefix backend run check:links` | Checks internal and external archive links |
 | `npm --prefix backend run review:new -- <show-id>` | Scaffolds a review companion and moves a show to `planned` |
 | `npm --prefix backend run review:publish -- <show-id>` | Publishes a completed review companion and promotes the show to `full-review` |

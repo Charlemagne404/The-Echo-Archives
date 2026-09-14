@@ -49,6 +49,7 @@ The repo-root command surface is intentionally small:
 - `npm run dev`
 - `npm run build:catalog`
 - `npm run report:catalog`
+- `npm run report:entity-graph`
 - `npm run build:pages`
 - `npm run check:structure`
 - `npm run verify`
@@ -389,6 +390,7 @@ Key verification commands:
 - `npm run build:pages`
 - `npm run check:structure`
 - `npm --prefix backend run validate:data`
+- `npm --prefix backend run report:entity-graph`
 - `npm --prefix backend run check:links`
 - `npm --prefix backend test`
 - `npm --prefix backend run test:smoke`

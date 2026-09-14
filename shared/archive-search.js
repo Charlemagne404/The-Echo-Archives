@@ -291,6 +291,7 @@
       genres: createFieldTerms(record.genres || []),
       tones: createFieldTerms(record.tones || []),
       formats: createFieldTerms(record.formats || []),
+      discovery: createFieldTerms(flattenStructuredValues(record.discovery)),
       bestFor: createFieldTerms(record.bestFor || []),
       themes: createFieldTerms(record.themes || []),
       contentNotes: createFieldTerms(record.contentNotes || []),
@@ -319,6 +320,7 @@
       genres: createFieldTokens(record.genres || []),
       tones: createFieldTokens(record.tones || []),
       formats: createFieldTokens(record.formats || []),
+      discovery: createFieldTokens(flattenStructuredValues(record.discovery)),
       bestFor: createFieldTokens(record.bestFor || []),
       creators: createFieldTokens(creatorTerms),
     };
@@ -335,6 +337,7 @@
       record.genres || [],
       record.tones || [],
       record.formats || [],
+      flattenStructuredValues(record.discovery),
       record.bestFor || [],
       record.aliases || [],
       record.themes || [],

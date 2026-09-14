@@ -6,7 +6,7 @@ const path = require("node:path");
 
 const { buildCatalog } = require("../../tools/build-catalog");
 const { scaffoldCatalogEntry } = require("../../tools/scaffold-catalog");
-const { buildCatalogSnapshot, serializeRuntimeShow } = require("../../tools/lib/catalog-artifacts");
+const { buildCatalogSnapshot, createSearchIndexRecord, serializeRuntimeShow } = require("../../tools/lib/catalog-artifacts");
 const {
   ensureSplitCatalogSource,
   readCatalogSource,
@@ -111,10 +111,21 @@ test("public catalogue artifacts retain Imported trust state without maintainer 
     anchorShowsWithTooFewCollectionMemberships: [],
     routeCollectionsMissingShowReasons: [],
   }, { creators: [], networks: [], changelog: [] });
+  const curated = createShowRecord({
+    discovery: {
+      voiceStyle: "mixed",
+      narrativeFocus: "plot-driven",
+      intensity: "high",
+      commitment: "medium",
+    },
+  });
+  const curatedRuntime = serializeRuntimeShow(curated);
 
   assert.equal(runtime.reviewStatus, "imported");
   assert.equal(runtime.metadata.import.publication.tier, "imported");
   assert.equal(runtime.metadata.import.factualReview.reviewedBy, undefined);
+  assert.deepEqual(curatedRuntime.discovery, curated.discovery);
+  assert.deepEqual(createSearchIndexRecord(curated).discovery, curated.discovery);
   assert.equal(snapshot.metrics.imported, 1);
 });
 

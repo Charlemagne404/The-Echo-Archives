@@ -23,6 +23,7 @@ test("show templates include an explicit legacy-safe provenance shape", () => {
     logos: [],
     rightsNotes: "",
   });
+  assert.deepEqual(template.discovery, {});
 });
 
 test("provenance validation accepts canonical data and rejects unsafe URLs", () => {

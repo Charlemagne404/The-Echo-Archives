@@ -89,6 +89,12 @@ Each show record uses this practical v1 shape:
   "genres": ["sci-fi"],
   "tones": ["dark", "cinematic"],
   "formats": ["full-cast", "serialized"],
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "long"
+  },
   "tags": ["Survival", "Post-apocalyptic", "Vampires"],
   "aliases": ["Impact Winter Podcast"],
   "themes": ["survival", "found family"],
@@ -323,6 +329,23 @@ If no cover can be resolved, catalog load keeps running, logs a warning, and use
 - `limited-series`
 - `long-running`
 
+### Optional `discovery` profile
+
+`discovery` is a small, maintainer-curated synthesis of listener-facing
+attributes that are not represented cleanly by the older fields. It is
+optional; an absent value means unknown and is preferable to a guess. It is
+separate from `formats`, `content`, and `length` so those backward-compatible
+fields can continue to retain their existing meanings.
+
+- `voiceStyle`: `primarily-acted`, `primarily-narrated`, or `mixed`
+- `narrativeFocus`: `character-driven`, `plot-driven`, or `balanced`
+- `intensity`: `low`, `medium`, `high`, or `variable`
+- `commitment`: `single-sitting`, `short`, `medium`, `long`, or `deep-dive`
+
+`content.intensity` remains valid legacy metadata. New curated intensity
+values should use `discovery.intensity`; do not bulk-copy or mechanically
+translate existing free text.
+
 ### Preferred `bestFor`
 
 - `long-walks`
@@ -364,6 +387,7 @@ Useful optional structured objects:
 - `credits`: creator, cast, writer, director, composer, studio, network, or production credits
 - `availability`: transcript, captions, region, platform, or access notes
 - `content`: setting, POV, source material, intensity, framing device, or similar descriptive metadata
+- `discovery`: optional curated voice, narrative-focus, intensity, and commitment signals for listener discovery
 - `verification`: creator-verified or officially sourced factual status plus provenance
 - `metadata`: extra structured archive-only notes that do not fit elsewhere yet
 - `popularity`: archive-owned popularity metadata that must stay separate from `ratings.archive` and creator verification
@@ -375,6 +399,12 @@ These fields are optional and may remain partially filled. Prefer truthful parti
 - Every `id` must be unique.
 - Every `similarTo` id must resolve to a real show.
 - Every `similarReasons` key must also appear in `similarTo`.
+
+The reusable deterministic comparison layer is documented in
+[`docs/SIMILARITY.md`](../docs/SIMILARITY.md). It treats `similarTo` and
+anchored similarity collections as explicit editorial evidence, compares only
+structured catalog signals, and returns dimension-level reasons. It does not
+generate or rewrite `similarTo` relationships.
 - Every populated URL in `listenLinks` must be a valid absolute URL.
 - `listenLinks.start` is optional and reserved for a verified canonical beginning: an official episode-one, season-one, or explicit start-here page. Do not infer it from episode counts, use a generic show landing page, or link directly to an RSS audio enclosure.
 - Every populated URL in `officialLinks` must be a valid absolute URL.
@@ -384,6 +414,7 @@ These fields are optional and may remain partially filled. Prefer truthful parti
 - `firstRelease`, `firstReleasedAt`, `latestRelease`, `lastReleasedAt`, `releaseDates.first`, `releaseDates.latest`, and `verification.verifiedAt` must be valid dates when present.
 - `creatorId` and `networkId` must use slug ids when present.
 - `bestFor`, `tags`, `genres`, `tones`, and `formats` must not contain duplicates after lowercase normalization.
+- When present, `discovery` must be an object containing only the controlled fields and values listed above. Blank field values are treated as absent.
 - Published shows must have two to six specific discovery tags, each 2-48 characters long.
 - Use `Sci-fi` as the only science-fiction tag spelling; variants such as `Science Fiction`, `SciFi`, and `sci fi` are rejected.
 - Discovery tags must use canonical sentence casing and aliases such as `Analog horror`, `Alternate history`, `Found audio`, `Full cast`, and `Folk horror`.
@@ -396,6 +427,7 @@ These fields are optional and may remain partially filled. Prefer truthful parti
 - `kind: "similarity"` collections must include an `anchorShowId` that resolves to a real show.
 - `reviewStatus: full-review` should only be used when richer review fields actually exist.
 - `reviewStatus: imported` requires `verification.status: automated-source-checked`, importer provenance, and no archive-owned editorial fields.
+- Populated `discovery` is maintainer-curated and is not allowed on `reviewStatus: imported` records.
 
 The normal `npm run validate:data` gate also performs a raw-source integrity pass before runtime normalization. It checks split-source filenames and order manifests, duplicate ids/slugs and normalized list values, known URL-bearing fields and provenance URL lists, date ordering, bounded ratings/runtime/coverage numbers, show-to-show and collection relationships, entity links, optional creator/network/changelog references, and orphaned review/entity records. It reports deterministic failures together so a single bad record does not hide later issues.
 
