@@ -17,6 +17,7 @@
     "validate:data": "node scripts/validate-data.js",
     "report:discovery-gaps": "node scripts/discovery-gap-report.js",
     "report:entity-graph": "node scripts/entity-graph-report.js",
+    "report:entity-candidates": "node scripts/entity-enrichment-candidates.js",
     "check:links": "node scripts/check-links.js",
     "check:external-links": "node scripts/check-external-links.js",
     "review:new": "node scripts/review-new.js",
@@ -34,6 +35,7 @@
     "import:live-smoke": "node scripts/import-live-smoke.js",
     "verify": "npm run validate:data && npm run check:links && npm test && npm run test:smoke",
     "test:entities": "node --test test/entities.test.js test/entity-directory.smoke.js",
+    "test:entity-candidates": "node --test test/entity-enrichment-candidates.test.js",
     "test:serial": "node --test --test-concurrency=1 test/*.test.js"
   },
   "engines": {

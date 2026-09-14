@@ -197,6 +197,11 @@ Key editorial principles:
 - objective metadata stays separate from archive editorial opinion
 - operational and community storage must not become the editorial source of truth
 
+Manual listener-facing discovery curation is kept in the developer-only
+[`Discovery Enrichment Workflow`](DISCOVERY-ENRICHMENT.md). It consumes the
+existing discovery-quality priority order and writes one authored show record
+at a time; generated runtime/public data remains a separate build step.
+
 Automated collection definitions remain in `catalog-src/collections/` alongside editorial routes. SQLite holds the operational side of the collection engine: private candidate proposals, AI confidence and rationale per membership, manual add/pin/remove overrides, audit events, and regeneration runs. A successful regeneration writes only the affected collection's resolved `showIds` and reasons back to the authored source before regenerating public artifacts. This preserves static-site delivery while ensuring that a manual removal cannot be reintroduced by automation.
 
 ## Current Catalog Baseline

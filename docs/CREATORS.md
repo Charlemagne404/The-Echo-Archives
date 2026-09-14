@@ -189,6 +189,18 @@ unresolved values, and non-public links for review, but it never creates or
 recommends an automatic relationship. It performs no external requests and
 does not replace source-backed review.
 
+For a batched, report-only review queue, run `npm run report:entity-candidates`.
+It reads the same authored sources plus explicit credit fields such as
+production company, studio, network, creator, owner, author, cast, and other
+stored credit strings. JSON includes show-level exact evidence, existing entity
+matches, possible new-entity leads, grouped batches, and a separate compound
+evidence queue. CSV provides one row per candidate for manual sorting. Use
+`--include-linked` for partially connected shows or `--all` for draft source
+records. The candidate tool never writes relationships, creates entities,
+scrapes external sources, or infers links from descriptions or other vague
+prose. See [Entity enrichment candidate workflow](ENTITY-ENRICHMENT-CANDIDATES.md)
+for the evidence and confidence policy.
+
 Run `npm run build:catalog`, then `npm run build:pages`. Relevant checks are
 `npm --prefix backend run validate:data`, `npm --prefix backend run check:links`,
 `npm --prefix backend run test:entities`, `npm run test:tools`, and

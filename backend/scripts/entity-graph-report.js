@@ -111,7 +111,7 @@ function printHumanReport(report, limit, includeAll) {
   console.log("");
   console.log(`Unresolved legacy evidence values: ${report.evidence.unresolvedLegacyValueCount} unique field/value combinations across unlinked shows.`);
   console.log("Legacy evidence is a review queue only; this report never creates or recommends an automatic relationship.");
-  console.log("Use --json for show-level evidence, entity show IDs, unresolved values, and complete queues.");
+  console.log("Use npm run report:entity-candidates for grouped, report-only enrichment candidates; use --json for show-level evidence, entity show IDs, unresolved values, and complete queues.");
 }
 
 function loadReport(siteRoot, includeAll) {
