@@ -39,8 +39,12 @@ export function createMostPopularController({
 
     if (!hasRenderedShowOrder()) {
       popularGrid.textContent = "";
-      mostPopularShows.forEach((show) => {
-        popularGrid.appendChild(createMostPopularCard(show));
+      mostPopularShows.forEach((show, index) => {
+        popularGrid.appendChild(
+          createMostPopularCard(show, {
+            resultPositionBucket: index === 0 ? "1" : index < 4 ? "2-4" : "5-9",
+          }),
+        );
       });
     }
     syncMostPopularSectionVisibility();

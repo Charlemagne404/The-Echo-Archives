@@ -7,8 +7,8 @@
   "coverAlt": "The Crime at Camp Ashwood cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -537,14 +537,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 0.95,
+          "method": "explicit-completion",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 0.95,
+          "method": "explicit-completion",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://anchor.fm/s/e50e5cb4/podcast/rss"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -580,8 +586,8 @@
         "description": "e8815cdbe807528fe9252b3db77340b4688c169d83d4bbb0617f93c27f03bf58",
         "cover": "7fb648414cc325be1f1c1e81ad9a84e6c9599420889edef8f47aecf892f59c0e",
         "coverAlt": "75a39e3522afd26e44223546b91ddce46871ac6db380dce43084744e531704c2",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "305a5089566ec55655e34014db1e579b87e5411e20f0001fa6e5a3806ee2d53a",
         "officialLinks": "e6b0371e3a826779d242c20637578a9f3844ae26f97d833f266f7eb8f4b25b89",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
@@ -600,7 +606,6 @@
       },
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
@@ -611,6 +616,6 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-14",
   "creatorId": "dragon-hunter-productions-new-girl-pictures"
 }

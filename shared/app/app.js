@@ -1,4 +1,5 @@
 import { initializeArchivistLauncher } from "./archivist-launcher.js";
+import { trackDiscoveryEvent, trackDiscoveryPageview } from "./discovery-analytics.js";
 import { initializeHorizontalScrollAffordances } from "./horizontal-scroll-affordance.js";
 import { initializeManagedImages } from "./images.js";
 import { initializeMobileNav } from "./mobile-nav.js";
@@ -7,6 +8,7 @@ import { showToast } from "./toast.js";
 import { initializeViewportMetrics } from "./viewport-metrics.js";
 
 export async function initializeApp() {
+  initializeDiscoveryAnalytics();
   initializeViewportMetrics();
   initializeServiceWorker();
   initializeMobileNav();
@@ -85,6 +87,85 @@ export async function initializeApp() {
   if (document.body) {
     document.body.dataset.appReady = "true";
   }
+}
+
+function initializeDiscoveryAnalytics() {
+  if (document.documentElement.dataset.discoveryAnalyticsBound === "true") {
+    return;
+  }
+
+  document.documentElement.dataset.discoveryAnalyticsBound = "true";
+  trackDiscoveryPageview();
+
+  document.addEventListener("click", (event) => {
+    if (event.isTrusted !== true || event.defaultPrevented) {
+      return;
+    }
+
+    const target = event.target;
+    if (!(target instanceof Element)) {
+      return;
+    }
+
+    const anchor = target.closest("a");
+    if (!anchor || anchor.closest('[data-collection-clone="true"]')) {
+      return;
+    }
+
+    const listenShowId = anchor.dataset.discoveryListenShowId;
+    if (listenShowId) {
+      trackDiscoveryEvent("Listen Link Opened", {
+        show_id: listenShowId,
+        provider: anchor.dataset.discoveryProvider || "other",
+        link_role: anchor.dataset.discoveryLinkRole || "alternate",
+        discovery_surface: anchor.dataset.discoverySurface || "show_page_facts",
+        content_profile: anchor.dataset.discoveryContentProfile || "unknown",
+      });
+      return;
+    }
+
+    const showId = anchor.dataset.discoveryShowId;
+    if (showId) {
+      const props = {
+        show_id: showId,
+        discovery_surface: anchor.dataset.discoverySurface || "unknown_internal",
+        browse_state: anchor.dataset.discoveryBrowseState || "default",
+        result_type: anchor.dataset.discoveryResultType || "show_card",
+        recommendation_source: anchor.dataset.discoveryRecommendationSource || "unknown",
+        result_position_bucket: anchor.dataset.discoveryResultPositionBucket || "unknown",
+        content_profile: anchor.dataset.discoveryContentProfile || "unknown",
+      };
+
+      if (anchor.dataset.discoveryCollectionId) {
+        props.collection_id = anchor.dataset.discoveryCollectionId;
+      }
+      if (anchor.dataset.discoveryEntityId) {
+        props.entity_id = anchor.dataset.discoveryEntityId;
+      }
+
+      trackDiscoveryEvent("Show Opened", props);
+      return;
+    }
+
+    const collectionId = anchor.dataset.discoveryCollectionId;
+    if (collectionId) {
+      trackDiscoveryEvent("Collection Opened", {
+        collection_id: collectionId,
+        collection_kind: anchor.dataset.discoveryCollectionKind || "curated",
+        discovery_surface: anchor.dataset.discoverySurface || "internal_navigation",
+      });
+      return;
+    }
+
+    const entityId = anchor.dataset.discoveryEntityId;
+    if (entityId) {
+      trackDiscoveryEvent("Entity Opened", {
+        entity_id: entityId,
+        entity_type: anchor.dataset.discoveryEntityType || "unknown",
+        discovery_surface: anchor.dataset.discoverySurface || "internal_navigation",
+      });
+    }
+  });
 }
 
 function initializeLazySharedChatLauncher() {

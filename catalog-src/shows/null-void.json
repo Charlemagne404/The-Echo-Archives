@@ -1,5 +1,11 @@
 {
   "id": "null-void",
+  "entityLinks": [
+    {
+      "entityId": "poc-podcast-network",
+      "role": "network"
+    }
+  ],
   "title": "Null/Void",
   "subtitle": "",
   "description": "Null /Void is a science fiction audio drama about a young woman, Piper Lee, whose life is saved by a mysterious voice named Adelaide. Piper soon uncovers a malicious plot by a monopoly of a tech company and must work with her friends and an unusual ally to help foil their deadly plot.",

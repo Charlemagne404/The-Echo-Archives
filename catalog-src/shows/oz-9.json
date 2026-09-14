@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"fable-and-folly","role":"network"}
+    {
+      "entityId": "fable-and-folly",
+      "role": "network"
+    }
   ],
   "id": "oz-9",
   "title": "Oz 9",
@@ -88,7 +91,7 @@
     "hex": "#07ac3e",
     "rgb": "7, 172, 62"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "releaseDates": {
     "first": "2018-11-18",
     "latest": "2026-06-02"
@@ -181,5 +184,11 @@
     "eos-10": "The cleanest adjacent pick for listeners who want more medical-space banter and ensemble friction.",
     "wolf-359": "A bigger character-payoff branch for listeners who liked the station setup but want more growth.",
     "wooden-overcoats": "Keeps the timing, vanity, and petty disasters intact without the sci-fi wrapper."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "low",
+    "commitment": "deep-dive"
   }
 }

@@ -1,5 +1,11 @@
 {
   "id": "the-lovecraft-investigations",
+  "entityLinks": [
+    {
+      "entityId": "bbc-radio-4",
+      "role": "production-company"
+    }
+  ],
   "title": "The Lovecraft Investigations",
   "subtitle": "Faux-journalism cosmic horror that turns investigation into contagion.",
   "description": "Julian Simpson's mystery thriller/horror fiction series, based on several works by H.P. Lovecraft and his Cthulhu Mythos.",

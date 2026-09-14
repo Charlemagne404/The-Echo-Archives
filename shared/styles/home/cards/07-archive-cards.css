@@ -327,9 +327,6 @@
   display: none !important;
 }
 
-.home-page .listener-review-inline-score[hidden] {
-  display: none !important;
-}
 
 .home-page .rating-divider {
   flex: 0 0 1px;

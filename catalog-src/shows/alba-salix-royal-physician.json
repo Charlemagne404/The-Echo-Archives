@@ -433,6 +433,10 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "forgery-league"
+  "updatedAt": "2026-09-14",
+  "creatorId": "forgery-league",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "commitment": "medium"
+  }
 }

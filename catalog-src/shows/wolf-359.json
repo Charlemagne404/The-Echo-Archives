@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"gabriel-urbina","role":"creator"}
+    {
+      "entityId": "gabriel-urbina",
+      "role": "creator"
+    }
   ],
   "id": "wolf-359",
   "title": "Wolf 359",
@@ -81,7 +84,7 @@
     "hex": "#728187",
     "rgb": "114, 129, 135"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "releaseDates": {
     "first": "2014-08-15",
     "latest": "2025-11-13"
@@ -178,5 +181,11 @@
     "oz-9": "Pushes the absurdity higher for listeners who liked the comic chaos more than the emotional turn.",
     "midnight-burger": "A warmer, more idea-rich follow-up if the character attachment matters most.",
     "wooden-overcoats": "Keeps the sharp comic timing and ensemble friction while leaving space entirely behind."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "medium",
+    "commitment": "deep-dive"
   }
 }

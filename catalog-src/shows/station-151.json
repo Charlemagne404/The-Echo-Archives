@@ -1,7 +1,13 @@
 {
   "entityLinks": [
-    {"entityId":"realm","role":"network"},
-    {"entityId":"pale-matter-productions","role":"production-company"}
+    {
+      "entityId": "realm",
+      "role": "network"
+    },
+    {
+      "entityId": "pale-matter-productions",
+      "role": "production-company"
+    }
   ],
   "id": "station-151",
   "title": "Station 151",
@@ -84,7 +90,7 @@
     "hex": "#5e7571",
     "rgb": "94, 117, 113"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "releaseDates": {
     "first": "2022-11-10",
     "latest": "2026-01-13",
@@ -181,5 +187,11 @@
     "wolf-359": "A more character-driven station follow-up with broader tonal range.",
     "tower-4": "A colder isolation variant once the comedy stops being the main attraction.",
     "archive-81": "Leans harder into strange signal horror for listeners chasing the unsettling side."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium",
+    "commitment": "medium"
   }
 }

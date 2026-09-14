@@ -7,8 +7,8 @@
   "coverAlt": "For King and Country cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -648,14 +648,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://www.spreaker.com/show/6877064/episodes/feed"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://www.spreaker.com/show/6877064/episodes/feed"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -691,8 +697,8 @@
         "description": "e72264e010d1b129810f67b44368592a0b8920eda47e1e198759799d73b9971c",
         "cover": "69543d568934c3aa21b93d291afeff896dd86833e0fd4d9a661f4ea4159ff7af",
         "coverAlt": "9e8bf8bc2d815d6a9d4ba5b35728d4318d9fcdd384bb49455d98e6775931155c",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "483fff665ed2110c537f39e0c8a1684f582ada3b28568d4e92c6a71dce4daa24",
         "officialLinks": "fd95bfe74d6407e334d806d6e2e356ecca5e9213f16f62ac5989047d9fa6b394",
         "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
@@ -711,7 +717,6 @@
       },
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
@@ -722,7 +727,7 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-14",
   "creatorId": "alexander-hogg",
   "networkId": "spreaker"
 }

@@ -7,8 +7,8 @@
   "coverAlt": "The Heron cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -544,14 +544,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/theheron"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/theheron"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -587,8 +593,8 @@
         "description": "e62756632ac0ab5a590a777272a05c94581db2b93246ae36e4921bffc613ee5d",
         "cover": "2abc54f2363df543bccc11463f6300d99db79b78f54482b6b6866f69a6cc26d6",
         "coverAlt": "fb5c67954232ce89e171083c75895092a7f17657882f3b43bb36223f0fde5477",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "781773f09412f9fbc909ad27f5d3a55459b8f52950c21086eece4bf4561d2cb1",
         "officialLinks": "db645deb7f7d9cae54a7f6d0c88ba989a6aff77604c1f6105a18fd1caac46b34",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
@@ -608,7 +614,6 @@
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
@@ -619,6 +624,6 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-14",
   "creatorId": "matthew-mccarty-charles-hopkins"
 }

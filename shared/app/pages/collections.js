@@ -1,4 +1,4 @@
-import { DEFAULT_SOCIAL_IMAGE } from "../constants.js";
+import { DEFAULT_SOCIAL_IMAGE, archiveSearch } from "../constants.js";
 import { buildShowMap, getCollectionShows, getPublishedShows, loadCollections, loadSearchIndex } from "../data.js";
 import { createCollectionDirectoryCard, createCollectionFeatureCard, getCollectionAnchorShow } from "../render-collections.js";
 import { renderRouteErrorSurface } from "../route-error.js";
@@ -8,6 +8,12 @@ import { formatDate, normalizeTag, setTextContent, updateDocumentMetadata } from
 import { buildIntentCounts, buildIntentFilters, createStickyMoodBarController, mountMoodChips, syncMoodChipState } from "./collections-intents.js";
 import { getCollectionsGridMotionProfile, syncCollectionGrid } from "./collections-grid-motion.js";
 import { prefersReducedMotion, syncCollectionsSummary, syncCollectionsSurfaceVisibility } from "./collections-motion.js";
+import {
+  bucketDiscoveryClearedFilterCount,
+  bucketDiscoveryFilterCount,
+  bucketDiscoveryResultCount,
+  trackDiscoveryEvent,
+} from "../discovery-analytics.js";
 
 const COLLECTION_SORT_MODES = new Set(["editorial", "newest", "title", "shows", "rating", "popularity"]);
 const SIMILARITY_COLLECTIONS_PAGE_SIZE = 5;
@@ -256,10 +262,24 @@ export async function initializeCollectionsPage() {
   );
   const validIntentIds = new Set(intentFilters.map((filter) => filter.id));
   const state = getInitialState(validIntentIds);
+  const collectionsAnalytics = {
+    hasRendered: false,
+    previousResultCountBucket: "unknown",
+    lastResultCount: 0,
+    seenSearchStates: new Set(),
+    pendingFilterChanges: [],
+    pendingClear: null,
+    searchAnalyticsTimer: 0,
+    pendingSearch: null,
+  };
   const similarityState = {
     visibleCount: SIMILARITY_COLLECTIONS_PAGE_SIZE,
   };
   const handleMoodSelection = (intent, sourceSurface = "hero") => {
+    collectionsAnalytics.pendingFilterChanges.push({
+      action: state.intent === intent ? "removed" : "added",
+      filterValue: intent,
+    });
     state.intent = state.intent === intent ? "" : intent;
     render("explicit", sourceSurface);
   };
@@ -389,6 +409,76 @@ export async function initializeCollectionsPage() {
       });
     }
     syncUrlState(state);
+
+    const resultCountBucket = bucketDiscoveryResultCount(filtered.length);
+    const recoveryContext = collectionsAnalytics.previousResultCountBucket === "0"
+      ? "after_zero_results"
+      : collectionsAnalytics.hasRendered
+        ? "none"
+        : "unknown";
+    const searchSignature = JSON.stringify({ query: state.query.trim(), intent: state.intent });
+    if (state.query.trim()) {
+      collectionsAnalytics.pendingSearch = {
+        signature: searchSignature,
+        query: state.query,
+        resultCountBucket,
+        activeFilterCountBucket: bucketDiscoveryFilterCount(Number(Boolean(state.intent))),
+        recoveryContext,
+      };
+      if (collectionsAnalytics.searchAnalyticsTimer) {
+        window.clearTimeout(collectionsAnalytics.searchAnalyticsTimer);
+      }
+      collectionsAnalytics.searchAnalyticsTimer = window.setTimeout(() => {
+        collectionsAnalytics.searchAnalyticsTimer = 0;
+        const pendingSearch = collectionsAnalytics.pendingSearch;
+        collectionsAnalytics.pendingSearch = null;
+        if (!pendingSearch || collectionsAnalytics.seenSearchStates.has(pendingSearch.signature)) return;
+        collectionsAnalytics.seenSearchStates.add(pendingSearch.signature);
+        const queryShape = archiveSearch.classifyQueryShape(publishedShows, pendingSearch.query);
+        trackDiscoveryEvent("Search Used", {
+          discovery_surface: "collections_directory",
+          query_kind: queryShape.queryKind,
+          structured_clause_group: queryShape.structuredClauseGroup,
+          result_count_bucket: pendingSearch.resultCountBucket,
+          active_filter_count_bucket: pendingSearch.activeFilterCountBucket,
+          recovery_context: pendingSearch.recoveryContext,
+        });
+      }, 350);
+    } else {
+      collectionsAnalytics.pendingSearch = null;
+      if (collectionsAnalytics.searchAnalyticsTimer) {
+        window.clearTimeout(collectionsAnalytics.searchAnalyticsTimer);
+        collectionsAnalytics.searchAnalyticsTimer = 0;
+      }
+    }
+
+    collectionsAnalytics.pendingFilterChanges.splice(0).forEach(({ action, filterValue }) => {
+      trackDiscoveryEvent("Filter Changed", {
+        discovery_surface: "collections_directory",
+        filter_group: "intent",
+        filter_action: action,
+        filter_value: filterValue,
+        active_filter_count_bucket: bucketDiscoveryFilterCount(Number(Boolean(state.intent))),
+        result_count_bucket: resultCountBucket,
+        recovery_context: recoveryContext,
+      });
+    });
+
+    if (collectionsAnalytics.pendingClear) {
+      const { count, hadSearch } = collectionsAnalytics.pendingClear;
+      trackDiscoveryEvent("Filters Cleared", {
+        discovery_surface: "collections_directory",
+        clear_scope: "all",
+        cleared_filter_count_bucket: bucketDiscoveryClearedFilterCount(count),
+        had_search: hadSearch,
+        result_count_bucket_before: bucketDiscoveryResultCount(collectionsAnalytics.lastResultCount),
+      });
+      collectionsAnalytics.pendingClear = null;
+    }
+
+    collectionsAnalytics.lastResultCount = filtered.length;
+    collectionsAnalytics.previousResultCountBucket = resultCountBucket;
+    collectionsAnalytics.hasRendered = true;
   };
 
   elements.searchInput?.addEventListener("input", () => {
@@ -400,6 +490,14 @@ export async function initializeCollectionsPage() {
     render("explicit");
   });
   elements.clearSearch?.addEventListener("click", () => {
+    const hadSearch = Boolean(state.query.trim());
+    const hadIntent = Boolean(state.intent);
+    if (hadSearch || hadIntent) {
+      collectionsAnalytics.pendingClear = {
+        count: Number(hadSearch) + Number(hadIntent),
+        hadSearch,
+      };
+    }
     state.query = "";
     state.intent = "";
     if (elements.searchInput instanceof HTMLInputElement) {

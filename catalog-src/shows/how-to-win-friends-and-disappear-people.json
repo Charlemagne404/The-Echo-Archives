@@ -16,8 +16,8 @@
   "coverAlt": "How to Win Friends and Disappear People cover art",
   "status": "published",
   "reviewStatus": "indexed-only",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "https://open.spotify.com/show/1sRiKXNwNEvelnh6ABsFKa?si=a3c06b70bf3548a1",
@@ -218,10 +218,8 @@
             "https://qcodemedia.com/how-to-win-friends-and-disappear-people"
           ]
         },
-        "notes": "Maintainer confirmed factual identity and metadata against the publisher feed and Apple listing. Completion status remains unknown unless explicitly stated by the source.",
-        "uncertainFields": [
-          "completionStatus"
-        ],
+        "notes": "Maintainer confirmed factual identity and metadata against the publisher feed and Apple listing. Completion status is resolved from the source-declared 10-episode run and the observed cataloged episodes.",
+        "uncertainFields": [],
         "reviewedAt": "2026-08-14T20:55:26.837Z"
       },
       "fields": {
@@ -564,14 +562,20 @@
           "sources": []
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/QCD8471344481"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/QCD8471344481"
+          }]
         },
         "formats": {
           "confidence": 1,
@@ -602,8 +606,8 @@
         "description": "c9f2bd784a0a602f093a1b64ecc3cf07d5445c84cf1bd0b9fe3fc0280758be88",
         "cover": "409614f7cf19cf139f83fee511e0a965cf2c116fcfcb94ad2b25554757c0826a",
         "coverAlt": "c54fb8adb95005de20ea18457ea2af3559bc9e08c13a04233e6a26b81e8d33cd",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "c2019274b9ff20a30c43e50e801fe37fe8379eafbda7e285e3d1e064311f4bf5",
         "officialLinks": "bb2e0a79dfdd6020e8a655b6a81272e8d539a474ddb698f152fd15d53cc3703c",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
@@ -622,8 +626,7 @@
       },
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
-        "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+        "No structured transcript links were exposed by the feed."
       ],
       "publication": {
         "tier": "indexed-only",
@@ -638,7 +641,7 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-14",
   "creatorId": "qcode",
   "networkId": "qcode-media"
 }

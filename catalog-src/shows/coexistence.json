@@ -630,6 +630,11 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "coex-studios"
+  "updatedAt": "2026-09-14",
+  "creatorId": "coex-studios",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high"
+  }
 }

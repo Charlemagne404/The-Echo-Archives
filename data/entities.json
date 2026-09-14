@@ -1579,5 +1579,303 @@
       "https://podcasts.apple.com/us/podcast/claudia-a-viral-love-story/id1518857050?uo=4"
     ],
     "directory": false
+  },
+  {
+    "id": "tandon-productions",
+    "name": "Tandon Productions",
+    "type": "network",
+    "aliases": [],
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-14",
+    "sources": [
+      "https://tandonproductions.com/all-in-my-head/"
+    ],
+    "directory": false
+  },
+  {
+    "id": "cytochrome-hear",
+    "name": "CYTOCHROME HEAR",
+    "type": "network",
+    "aliases": [],
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-14",
+    "sources": [
+      "https://cytochromehear.wordpress.com/home/eelers-choice/",
+      "https://cytochromehear.wordpress.com/home/about/",
+      "https://cytochromehear.wordpress.com/home/eelers-choice/eelers-choice-season-1-2-cast-and-crew/"
+    ],
+    "directory": false
+  },
+  {
+    "id": "poc-podcast-network",
+    "name": "POC Podcast Network",
+    "type": "network",
+    "aliases": [],
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-14",
+    "sources": [
+      "https://pocpodcasting.wixsite.com/pocpn/nullvoid"
+    ],
+    "directory": false
+  },
+  {
+    "id": "wgc-productions",
+    "name": "WGC Productions",
+    "type": "network",
+    "aliases": [
+      "WGCProductions"
+    ],
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-14",
+    "sources": [
+      "https://www.wgcproductions.com/shows/small-victories",
+      "https://www.wgcproductions.com/about"
+    ],
+    "directory": false
+  },
+  {
+    "id": "the-ambit-group",
+    "name": "The Ambit Group",
+    "type": "network",
+    "aliases": [],
+    "website": "https://ambitgroup.com/",
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-14",
+    "sources": [
+      "https://ambitgroup.com/",
+      "https://ambitgroup.com/podcast/"
+    ],
+    "directory": false
+  },
+  {
+    "id": "ghostly-thistle",
+    "name": "Ghostly Thistle",
+    "type": "network",
+    "aliases": [],
+    "website": "https://ghostlythistle.com/about/",
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-14",
+    "sources": [
+      "https://ghostlythistle.com/blog/",
+      "https://ghostlythistle.com/about/"
+    ],
+    "directory": false
+  },
+  {
+    "id": "thats-not-canon-productions",
+    "name": "That's Not Canon Productions",
+    "type": "network",
+    "aliases": [],
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-14",
+    "sources": [
+      "https://thatsnotcanon.com/themistholmemuseum/",
+      "https://thatsnotcanon.com/the-jomocast"
+    ],
+    "directory": false
+  },
+  {
+    "id": "underwood-press",
+    "name": "Underwood Press",
+    "type": "network",
+    "aliases": [],
+    "website": "https://underwoodpress.com/about/",
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-14",
+    "sources": [
+      "https://underwoodpress.com/podcasts/",
+      "https://underwoodpress.com/about/"
+    ],
+    "directory": false
+  },
+  {
+    "id": "2e-production",
+    "name": "2E Production",
+    "type": "network",
+    "aliases": [],
+    "website": "https://2eproduction.com/",
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-14",
+    "sources": [
+      "https://2eproduction.com/"
+    ],
+    "directory": false
+  },
+  {
+    "id": "strong-branch-productions",
+    "name": "Strong Branch Productions",
+    "type": "network",
+    "aliases": [],
+    "website": "https://strongbranchproductions.wordpress.com/",
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-14",
+    "sources": [
+      "https://strongbranchproductions.wordpress.com/",
+      "https://strongbranchproductions.wordpress.com/podcasts/scripts-and-transcripts/",
+      "https://strongbranchproductions.wordpress.com/strong-branch-press/"
+    ],
+    "directory": false
+  },
+  {
+    "id": "hug-house-productions",
+    "name": "Hug House Productions",
+    "type": "network",
+    "aliases": [],
+    "website": "https://hughouse.productions/about-us/",
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-14",
+    "sources": [
+      "https://hughouse.productions/podcasts/valence/",
+      "https://hughouse.productions/about-us/",
+      "https://hughouse.productions/tag/valence-episodes/"
+    ],
+    "directory": false
+  },
+  {
+    "id": "bbc-radio-4",
+    "name": "BBC Radio 4",
+    "type": "production-company",
+    "aliases": [],
+    "website": "https://www.bbc.co.uk/programmes/m002xnkw",
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-14",
+    "sources": [
+      "https://www.bbc.co.uk/programmes/m002xnkw",
+      "https://podcasts.files.bbci.co.uk/m002xnkw.rss"
+    ],
+    "directory": false
+  },
+  {
+    "id": "shudder",
+    "name": "Shudder",
+    "type": "production-company",
+    "aliases": [],
+    "website": "https://www.shudder.com/",
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-14",
+    "sources": [
+      "https://www.shudder.com/"
+    ],
+    "directory": false
+  },
+  {
+    "id": "ester-ellis",
+    "name": "Ester Ellis",
+    "type": "person",
+    "aliases": [],
+    "publication": "public",
+    "indexable": true,
+    "reviewedAt": "2026-09-14",
+    "sources": [
+      "https://rss.libsyn.com/shows/111344/destinations/617247.xml",
+      "https://podcasts.apple.com/us/podcast/the-goblet-wire/id1626460425?uo=4",
+      "https://rss.libsyn.com/shows/417521/destinations/3467807.xml"
+    ],
+    "directory": false
+  },
+  {
+    "id": "nathan-comstock",
+    "name": "Nathan Comstock",
+    "type": "person",
+    "aliases": [],
+    "publication": "public",
+    "indexable": true,
+    "reviewedAt": "2026-09-14",
+    "sources": [
+      "https://podcasts.apple.com/us/podcast/electromancy/id1573591656?uo=4",
+      "https://rss.libsyn.com/shows/351989/destinations/2876159.xml",
+      "https://podcasts.apple.com/us/podcast/shelar-and-the-scavengers/id1836946809?uo=4",
+      "https://anchor.fm/s/108e71234/podcast/rss"
+    ],
+    "directory": false
+  },
+  {
+    "id": "meet-cute",
+    "name": "Meet Cute",
+    "type": "production-company",
+    "aliases": [],
+    "website": "https://www.meetcute.com/",
+    "publication": "public",
+    "indexable": true,
+    "reviewedAt": "2026-09-14",
+    "sources": [
+      "https://podcasts.apple.com/us/podcast/meet-cute-originals/id1491088065?uo=4",
+      "https://feeds.megaphone.fm/FOXM4411427017",
+      "https://podcasts.apple.com/us/podcast/my-date-with-lainey-lee/id1746402630?uo=4",
+      "https://feeds.megaphone.fm/FOXM2290599318"
+    ]
+  },
+  {
+    "id": "passer-vulpes-productions",
+    "name": "Passer Vulpes Productions",
+    "type": "production-company",
+    "aliases": [],
+    "publication": "public",
+    "indexable": true,
+    "reviewedAt": "2026-09-14",
+    "sources": [
+      "https://podcasts.apple.com/us/podcast/love-and-luck/id1271073009?uo=4",
+      "https://pinecast.com/feed/loveandluckpodcast",
+      "https://podcasts.apple.com/us/podcast/supernatural-sexuality-with-dr-seabrooke/id1480362942?uo=4",
+      "https://pinecast.com/feed/supersexradio"
+    ]
+  },
+  {
+    "id": "ponders-productions",
+    "name": "Ponders Productions",
+    "type": "production-company",
+    "aliases": [],
+    "publication": "public",
+    "indexable": true,
+    "reviewedAt": "2026-09-14",
+    "sources": [
+      "https://podcasts.apple.com/us/podcast/mars-best-brisket/id1531640765?uo=4",
+      "https://pinecast.com/feed/mars-best-brisket",
+      "https://podcasts.apple.com/us/podcast/the-wanderer/id1543718673?uo=4",
+      "https://feeds.megaphone.fm/wanderer"
+    ]
+  },
+  {
+    "id": "red-fathom-entertainment",
+    "name": "Red Fathom Entertainment",
+    "type": "production-company",
+    "aliases": [],
+    "publication": "public",
+    "indexable": true,
+    "reviewedAt": "2026-09-14",
+    "sources": [
+      "https://podcasts.apple.com/us/podcast/cybernautica/id1448453998?uo=4",
+      "https://rss.art19.com/cybernautica",
+      "https://podcasts.apple.com/us/podcast/hannahpocalypse/id1536198867?uo=4",
+      "https://rss.art19.com/hannahpocalypse"
+    ]
+  },
+  {
+    "id": "wizzard-wizzard-productions",
+    "name": "Wizzard Wizzard Productions",
+    "type": "production-company",
+    "aliases": [],
+    "publication": "public",
+    "indexable": true,
+    "reviewedAt": "2026-09-14",
+    "sources": [
+      "https://podcasts.apple.com/us/podcast/starfall/id1574102152?uo=4",
+      "https://pinecast.com/feed/starfall",
+      "https://podcasts.apple.com/us/podcast/the-beacon/id1412439234?uo=4",
+      "https://pinecast.com/feed/the-beacon"
+    ]
   }
 ]

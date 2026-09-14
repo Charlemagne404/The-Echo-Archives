@@ -8,7 +8,7 @@ import {
   loadSearchIndex,
 } from "../data.js";
 import { syncCommunityCardBadges } from "../community.js";
-import { createCollectionShowCard } from "../render-cards.js";
+import { createCollectionShowCard, setShowDiscoveryMarker } from "../render-cards.js";
 import { renderRouteErrorSurface } from "../route-error.js";
 import {
   createCollectionCoverCollage,
@@ -23,6 +23,7 @@ import { buildCollectionSeoDescription, buildCollectionSeoTitle } from "../seo.j
 import { buildCollectionStructuredData } from "../structured-data.js";
 import { createArchiveCollectionHref, createCollectionHref, getCollectionIdFromLocation } from "../urls.js";
 import { formatCount, formatDate, setTextContent, toDisplayTag, updateDocumentMetadata } from "../utils.js";
+import { getDiscoveryContentProfile } from "../discovery-analytics.js";
 
 function createCollectionLoadingCard() {
   const shell = document.createElement("article");
@@ -180,6 +181,15 @@ function populateOverviewMetaLine(container, { showCount, routeTypeLabel, update
     const link = document.createElement("a");
     link.className = "collection-detail-anchor-link";
     link.href = anchorShow.href;
+    setShowDiscoveryMarker(link, {
+      showId: anchorShow.id,
+      surface: "collection_membership",
+      resultType: "collection_member",
+      recommendationSource: "collection_membership",
+      resultPositionBucket: "unknown",
+      contentProfile: getDiscoveryContentProfile(anchorShow.reviewStatus),
+      collectionId: collection.id,
+    });
     link.textContent = anchorShow.title;
     anchor.append(prefix, link);
     container.appendChild(anchor);
@@ -379,7 +389,12 @@ export async function initializeCollectionPage() {
 
   grid.textContent = "";
   collectionShows.forEach((show) => {
-    grid.appendChild(createCollectionShowCard(show, getCollectionShowReason(collection, show.id)));
+    grid.appendChild(createCollectionShowCard(show, getCollectionShowReason(collection, show.id), {
+      surface: "collection_page_grid",
+      resultType: "collection_member",
+      recommendationSource: collection.kind === "similarity" ? "similarity_collection" : "collection_membership",
+      collectionId: collection.id,
+    }));
   });
   void syncCommunityCardBadges(grid, collectionShows);
 
@@ -393,6 +408,7 @@ export async function initializeCollectionPage() {
         createCollectionDirectoryCard(relatedCollection, getCollectionShows(relatedCollection, showMap), {
           compact: true,
           anchorShow: getCollectionAnchorShow(relatedCollection, showMap),
+          discoverySurface: "collection_page_related",
         }),
       );
     });

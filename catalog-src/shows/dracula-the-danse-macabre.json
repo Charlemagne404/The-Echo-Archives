@@ -11,8 +11,8 @@
   "coverAlt": "Dracula: The Danse Macabre cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -611,14 +611,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/draculathedansemacabre"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -654,8 +660,8 @@
         "description": "bc0f9fb64f5d16c510ef502a8b11a5dd165dde60a365405f2c6b6c6d9e9b3c87",
         "cover": "cafa905b93432c1ffd19a47f831e74e705a78493c8352422bc88e5ca2c78a65c",
         "coverAlt": "00d04b7f7470285b5ede2c2a9ef69d31c896e25bd0510949720e750e666711d6",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "4968a6502f5e41af39a66f9db4c96878de7a8925bc36bf7d83b565ea3cbf2a66",
         "officialLinks": "897621f160c458f318ae94ba8f9ff8f93ee70077f776090b4bc8c6eb4120618d",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
@@ -675,7 +681,6 @@
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
@@ -686,7 +691,7 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-14",
   "creatorId": "gabriel-urbina",
   "networkId": "dracula-the-danse-macabre"
 }

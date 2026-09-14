@@ -1,7 +1,13 @@
 {
   "entityLinks": [
-    {"entityId":"curtco-media","role":"production-company"},
-    {"entityId":"chris-porter","role":"creator"}
+    {
+      "entityId": "curtco-media",
+      "role": "production-company"
+    },
+    {
+      "entityId": "chris-porter",
+      "role": "creator"
+    }
   ],
   "id": "solar",
   "title": "Solar",
@@ -81,7 +87,7 @@
     "hex": "#cc5b42",
     "rgb": "204, 91, 66"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "releaseDates": {
     "first": "2022-03-29",
     "latest": "2022-06-07",
@@ -196,5 +202,11 @@
     "vast-horizon": "Another spacebound survival lane if you want the vacuum, danger, and forward motion with a slightly wider adventure feel.",
     "spectre": "Keeps the dark sci-fi mystery tone intact while trading direct survival pressure for stranger atmosphere.",
     "derelict": "A louder industrial escalation if the serious sci-fi pressure is the part you want more of."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
   }
 }

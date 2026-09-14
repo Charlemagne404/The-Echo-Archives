@@ -1,5 +1,11 @@
 {
   "id": "the-wanderer",
+  "entityLinks": [
+    {
+      "entityId": "ponders-productions",
+      "role": "creator"
+    }
+  ],
   "title": "The Wanderer",
   "subtitle": "",
   "description": "With only his guitar by his side, a bard has made a deal with the forest- wander, and you just might find your love. A folk tale about being separated from the ones you love to keep them safe. Written and performed by T.H. Ponders. A member of Fable and Folly.",

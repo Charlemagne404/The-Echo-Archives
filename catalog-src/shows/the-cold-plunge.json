@@ -7,8 +7,8 @@
   "coverAlt": "The Cold Plunge cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -643,14 +643,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://media.rss.com/the-cold-plunge/feed.xml"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://media.rss.com/the-cold-plunge/feed.xml"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -686,8 +692,8 @@
         "description": "6d8b500dec3366ce144719c9b1d9bac5ea4a82c2e3c602bc8d5eefe6888fb540",
         "cover": "5b39d5061d6f3274d0d957feaed258e98d82d57237616bb8497207ac4f8f7fd1",
         "coverAlt": "be040c33b79f61c470aae4405bfd8ae71f0b54603ecdf4279ffca68477f3b6e6",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "bf11359aad9d055a67c5c5ade22ad5487364b538c08d633cbd908656ab3a7ca4",
         "officialLinks": "a544314e8eeaaa01fd3533cc40ea25ecf37020defb4d7abca4f5b519654924c0",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
@@ -707,7 +713,6 @@
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
@@ -718,7 +723,7 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-14",
   "creatorId": "sunny-bleckinger",
   "networkId": "the-cold-plunge"
 }

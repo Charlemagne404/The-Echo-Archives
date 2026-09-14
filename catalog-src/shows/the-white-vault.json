@@ -95,7 +95,7 @@
     "hex": "#6c7e89",
     "rgb": "108, 126, 137"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "releaseDates": {
     "first": "2017-08-02",
     "latest": "2026-03-10"
@@ -203,5 +203,11 @@
     "archive-81": "For listeners who want stranger archival horror once the environmental dread has taken hold.",
     "malevolent": "A darker supernatural escalation for listeners who want more threat and more occult texture.",
     "how-i-died": "Keeps the mystery and supernatural investigation lane active while dialing down the arctic scale."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
   }
 }

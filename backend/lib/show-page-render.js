@@ -1,4 +1,5 @@
 const { renderEntityFacts, renderMoreFrom } = require("../../shared/archive-entities");
+const { createSimilarityIndex } = require("../../shared/archive-similarity");
 const { renderCollectionShowCard } = require("../../tools/lib/home-page-prerender");
 
 const {
@@ -8,6 +9,53 @@ const {
   getPublicVerificationLabel,
   toPublicLabel,
 } = require("../../shared/archive-record");
+
+const similarityIndexCache = new WeakMap();
+
+function getDiscoveryContentProfile(reviewStatus) {
+  switch (String(reviewStatus || "").trim().toLowerCase()) {
+    case "full-review": return "full_review";
+    case "imported": return "imported";
+    case "indexed-only": return "indexed_only";
+    default: return "unknown";
+  }
+}
+
+function getDiscoveryPositionBucket(position) {
+  const numericPosition = Number(position);
+  if (!Number.isFinite(numericPosition) || numericPosition < 1) return "unknown";
+  if (numericPosition === 1) return "1";
+  if (numericPosition <= 4) return "2-4";
+  if (numericPosition <= 9) return "5-9";
+  if (numericPosition <= 24) return "10-24";
+  return "25+";
+}
+
+function renderShowDiscoveryAttributes(show, {
+  surface = "unknown_internal",
+  browseState = "default",
+  resultType = "show_card",
+  recommendationSource = "unknown",
+  resultPositionBucket = "unknown",
+  collectionId = "",
+  entityId = "",
+} = {}) {
+  return [
+    `data-discovery-show-id="${escapeHtml(show.id || "")}"`,
+    `data-discovery-surface="${escapeHtml(surface)}"`,
+    `data-discovery-browse-state="${escapeHtml(browseState)}"`,
+    `data-discovery-result-type="${escapeHtml(resultType)}"`,
+    `data-discovery-recommendation-source="${escapeHtml(recommendationSource)}"`,
+    `data-discovery-result-position-bucket="${escapeHtml(resultPositionBucket)}"`,
+    `data-discovery-content-profile="${getDiscoveryContentProfile(show.reviewStatus)}"`,
+    collectionId ? `data-discovery-collection-id="${escapeHtml(collectionId)}"` : "",
+    entityId ? `data-discovery-entity-id="${escapeHtml(entityId)}"` : "",
+  ].filter(Boolean).join(" ");
+}
+
+function renderListenDiscoveryAttributes(show, provider, linkRole, discoverySurface) {
+  return `data-discovery-listen-show-id="${escapeHtml(show.id || "")}" data-discovery-provider="${escapeHtml(provider || "other")}" data-discovery-link-role="${escapeHtml(linkRole)}" data-discovery-surface="${escapeHtml(discoverySurface)}" data-discovery-content-profile="${getDiscoveryContentProfile(show.reviewStatus)}"`;
+}
 
 function escapeHtml(value = "") {
   return String(value)
@@ -275,7 +323,7 @@ function renderDetailHero(show, reviewData = {}) {
             <div class="detail-actions">
               ${
                 primaryLink
-                  ? `<a class="detail-primary-action detail-listen-action" href="${escapeHtml(primaryLink.href)}" target="_blank" rel="noreferrer">${primaryLink.key === "start" ? "Start listening" : `Open ${escapeHtml(primaryLink.label)}`}</a>`
+                  ? `<a class="detail-primary-action detail-listen-action" href="${escapeHtml(primaryLink.href)}" ${renderListenDiscoveryAttributes(show, primaryLink.key, "primary", "show_page_hero")} target="_blank" rel="noreferrer">${primaryLink.key === "start" ? "Start listening" : `Open ${escapeHtml(primaryLink.label)}`}</a>`
                   : hasListenLinks ? '<a class="detail-primary-action detail-listen-action" href="#facts-links" data-detail-anchor>Find listen links</a>' : ""
               }
               ${archiveTarget ? `<a class="detail-secondary-action" href="${archiveTarget}" data-detail-anchor>${show.reviewStatus === "full-review" ? "Archive review" : "Archive note"}</a>` : ""}
@@ -560,7 +608,7 @@ function renderFactsLinksCard(show, { inline = false } = {}) {
   const linkLabels = { start: "Start listening", website: "Website", apple: "Apple", spotify: "Spotify", rss: "RSS" };
   const linkChips = ["start", "website", "apple", "spotify", "rss"]
     .filter((key) => links[key] && links[key] !== primaryLink?.href)
-    .map((key) => `<a class="detail-link-chip" href="${escapeHtml(links[key])}" target="_blank" rel="noreferrer">${linkLabels[key]}</a>`)
+    .map((key) => `<a class="detail-link-chip" href="${escapeHtml(links[key])}" ${renderListenDiscoveryAttributes(show, key, "alternate", "show_page_facts")} target="_blank" rel="noreferrer">${linkLabels[key]}</a>`)
     .join("");
   const nextRelease = show.releaseDates?.next ? `<div class="detail-fact-row"><dt>Next release</dt><dd class="detail-fact-value">${escapeHtml(formatDate(show.releaseDates.next))}</dd></div>` : "";
   const cadence = String(show.metadata?.schedule?.label || "").trim();
@@ -578,7 +626,7 @@ function renderFactsLinksCard(show, { inline = false } = {}) {
   const rows = [
     renderEntityFacts(show) || (!creatorNetwork.isEmpty ? `<div class="detail-fact-row"><dt>Creator / network</dt><dd class="detail-fact-value">${escapeHtml(creatorNetwork.text)}</dd></div>` : ""),
     factCheck,
-    hasLinks ? `<div class="detail-fact-row is-wide"><dt>Official / listen links</dt><dd class="detail-fact-value"><div class="detail-link-cluster"><a class="detail-link-primary" href="${escapeHtml(primaryLink.href)}" target="_blank" rel="noreferrer">${primaryLink.key === "start" ? "Start listening" : `Open ${escapeHtml(primaryLink.label)}`}</a>${linkChips ? `<div class="detail-link-chip-row">${linkChips}</div>` : ""}</div></dd></div>` : "",
+    hasLinks ? `<div class="detail-fact-row is-wide"><dt>Official / listen links</dt><dd class="detail-fact-value"><div class="detail-link-cluster"><a class="detail-link-primary" href="${escapeHtml(primaryLink.href)}" ${renderListenDiscoveryAttributes(show, primaryLink.key, "primary", "show_page_facts")} target="_blank" rel="noreferrer">${primaryLink.key === "start" ? "Start listening" : `Open ${escapeHtml(primaryLink.label)}`}</a>${linkChips ? `<div class="detail-link-chip-row">${linkChips}</div>` : ""}</div></dd></div>` : "",
     status ? `<div class="detail-fact-row is-wide"><dt>Status</dt><dd class="detail-fact-value"><div class="detail-fact-pill-row"><span class="detail-fact-pill">${escapeHtml(status)}</span></div></dd></div>` : "",
     seasonsEpisodes ? `<div class="detail-fact-row"><dt>Seasons / episodes</dt><dd class="detail-fact-value">${escapeHtml(seasonsEpisodes)}</dd></div>` : "",
     show.releaseDates?.first ? `<div class="detail-fact-row"><dt>First release</dt><dd class="detail-fact-value">${escapeHtml(formatDate(show.releaseDates.first))}</dd></div>` : "",
@@ -599,29 +647,62 @@ function renderFactsLinksCard(show, { inline = false } = {}) {
   `;
 }
 
-function renderSimilarSection(show, showMap) {
-  const neighbors = (show.similarTo || [])
+function resolveSimilarityIndex(showMap, collections, providedIndex = null) {
+  if (providedIndex) return providedIndex;
+  if (!showMap || typeof showMap !== "object") return null;
+
+  const cached = similarityIndexCache.get(showMap);
+  if (cached?.collections === collections) return cached.index;
+
+  const index = createSimilarityIndex({ shows: [...showMap.values()], collections });
+  similarityIndexCache.set(showMap, { collections, index });
+  return index;
+}
+
+function renderSimilarSection(show, showMap, collections = [], providedSimilarityIndex = null) {
+  const authoredNeighbors = (Array.isArray(show.similarTo) ? show.similarTo : [])
     .map((id) => ({ neighbor: showMap.get(id), reason: String(show.similarReasons?.[id] || "").trim() }))
     .filter(({ neighbor, reason }) => neighbor && reason)
     .slice(0, 3);
-  if (neighbors.length === 0) {
+
+  const authoredIds = new Set((Array.isArray(show.similarTo) ? show.similarTo : []).map((id) => String(id || "").trim()).filter(Boolean));
+  const similarityIndex = resolveSimilarityIndex(showMap, collections, providedSimilarityIndex);
+  const computedNeighbors = similarityIndex
+    ? similarityIndex.getPublicSimilarityMatches(show.id)
+      .filter(({ show: neighbor }) => neighbor && !authoredIds.has(neighbor.id))
+      .map(({ show: neighbor, explanation }) => ({ neighbor, reason: explanation }))
+    : [];
+
+  if (authoredNeighbors.length === 0 && computedNeighbors.length === 0) {
     return "";
   }
 
   return `
-    <section class="detail-section detail-similar-section">
-      <div class="detail-section-header"><div><h2>Try next</h2><p>Closest neighboring picks in the archive once you finish this one.</p></div></div>
+    <section class="detail-section detail-similar-section" aria-labelledby="detail-similar-title">
+      <div class="detail-section-header"><div><h2 id="detail-similar-title">Try next</h2><p>Curated picks lead; high-confidence archive matches appear separately when the metadata supports them.</p></div></div>
+      <div class="detail-similar-groups">
+        ${authoredNeighbors.length ? renderSimilarGroup("curated", "Curated by the archive", "Editorial picks", "Written relationship notes from the archive.", authoredNeighbors) : ""}
+        ${computedNeighbors.length ? renderSimilarGroup("computed", "Computed archive matches", "A second signal", "Matches across multiple archive dimensions. These are not authored links.", computedNeighbors) : ""}
+      </div>
+    </section>
+  `;
+}
+
+function renderSimilarGroup(source, kicker, title, description, neighbors) {
+  return `
+    <section class="detail-similar-group detail-similar-group--${source}" data-recommendation-source="${source}" aria-labelledby="detail-similar-${source}-title">
+      <div class="detail-similar-group-heading">
+        <p class="detail-similar-kicker">${escapeHtml(kicker)}</p>
+        <h3 id="detail-similar-${source}-title">${escapeHtml(title)}</h3>
+        <p>${escapeHtml(description)}</p>
+      </div>
       <div class="detail-similar-grid">
-        ${neighbors
-          .map(
-            ({ neighbor, reason }) => `
-              <article class="detail-similar-card">
-                <img src="${escapeHtml(getShowImageSrc(neighbor))}"${renderResponsiveCoverAttributes(neighbor, "(max-width: 959px) 84vw, (max-width: 1120px) 42vw, 320px")} alt="${escapeHtml(neighbor.coverAlt || `${neighbor.title || "Untitled show"} cover art`)}" width="320" height="320" loading="lazy" decoding="async" />
-                <div class="detail-card-copy"><h3>${escapeHtml(neighbor.title || "Untitled show")}</h3><p class="detail-similar-reason">${escapeHtml(reason)}</p><a class="detail-archive-link" href="${escapeHtml(neighbor.href || `/shows/${encodeURIComponent(neighbor.id || "")}`)}">Open show</a></div>
-              </article>
-            `,
-          )
-          .join("")}
+        ${neighbors.map(({ neighbor, reason }, index) => `
+          <article class="detail-similar-card" data-recommendation-source="${source}">
+            <img src="${escapeHtml(getShowImageSrc(neighbor))}"${renderResponsiveCoverAttributes(neighbor, "(max-width: 959px) 84vw, (max-width: 1120px) 42vw, 320px")} alt="${escapeHtml(neighbor.coverAlt || `${neighbor.title || "Untitled show"} cover art`)}" width="320" height="320" loading="lazy" decoding="async" />
+            <div class="detail-card-copy"><h4>${escapeHtml(neighbor.title || "Untitled show")}</h4><p class="detail-similar-reason">${escapeHtml(reason)}</p><a class="detail-archive-link" href="${escapeHtml(neighbor.href || `/shows/${encodeURIComponent(neighbor.id || "")}`)}" ${renderShowDiscoveryAttributes(neighbor, { surface: "show_similar", resultType: "similar_show", recommendationSource: source === "curated" ? "authored_similarity" : "computed_similarity", resultPositionBucket: getDiscoveryPositionBucket(index + 1) })}>Open show</a></div>
+          </article>
+        `).join("")}
       </div>
     </section>
   `;
@@ -641,7 +722,7 @@ function renderCollectionsSection(show, collections = [], showMap = new Map()) {
     const art = coverShows.length
       ? `<span class="detail-collection-route-art collection-cover-collage" aria-hidden="true"${accentStyle}>${coverShows.map((coverShow, index) => `<span class="collection-cover-frame" data-cover-index="${index + 1}"><img src="${escapeHtml(getShowImageSrc(coverShow))}"${renderResponsiveCoverAttributes(coverShow, "(max-width: 640px) 116px, 168px")} alt="" width="168" height="168" loading="lazy" decoding="async" /></span>`).join("")}</span>`
       : '<span class="detail-collection-route-art is-empty" aria-hidden="true"></span>';
-    return `<a class="detail-collection-route" href="/collections/${encodeURIComponent(collection.id)}">${art}<span class="detail-collection-route-copy"><span class="detail-collection-route-title">${escapeHtml(collection.title)}</span><span class="detail-collection-route-reason">${escapeHtml(collection.showReasons?.[show.id] || "Collection in the archive.")}</span></span></a>`;
+    return `<a class="detail-collection-route" href="/collections/${encodeURIComponent(collection.id)}" data-discovery-collection-id="${escapeHtml(collection.id || "")}" data-discovery-collection-kind="${escapeHtml(collection.kind || "curated")}" data-discovery-surface="show_page_membership">${art}<span class="detail-collection-route-copy"><span class="detail-collection-route-title">${escapeHtml(collection.title)}</span><span class="detail-collection-route-reason">${escapeHtml(collection.showReasons?.[show.id] || "Collection in the archive.")}</span></span></a>`;
   };
   return `
     <section class="detail-section detail-collections-section">
@@ -722,7 +803,7 @@ function renderCommunityScoreBreakdown(show, scoreSummary = {}) {
   `;
 }
 
-function createShowPageMarkup(show, showMap, collections = [], reviewData = {}) {
+function createShowPageMarkup(show, showMap, collections = [], reviewData = {}, similarityIndex = null) {
   const isFullReview = show.reviewStatus === "full-review";
   const facts = renderFactsLinksCard(show, { inline: !isFullReview });
   return `
@@ -734,8 +815,13 @@ function createShowPageMarkup(show, showMap, collections = [], reviewData = {}) 
         </div>
         ${renderCommunityFallback()}
         ${isFullReview && facts ? `<aside class="detail-side-rail">${facts}</aside>` : ""}
-        ${renderMoreFrom(show, [...showMap.values()], (entry) => renderCollectionShowCard(entry))}
-        ${renderSimilarSection(show, showMap)}
+        ${renderMoreFrom(show, [...showMap.values()], (entry, entity) => renderCollectionShowCard(entry, "", {
+          surface: "show_more_from",
+          resultType: "more_from",
+          recommendationSource: "creator_more_from",
+          entityId: entity?.id || "",
+        }))}
+        ${renderSimilarSection(show, showMap, collections, similarityIndex)}
         ${renderCollectionsSection(show, collections, showMap)}
         ${renderCorrectionSection(show)}
       </div>

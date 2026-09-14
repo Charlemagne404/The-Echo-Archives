@@ -121,7 +121,7 @@ test("enrichment candidates split explicit compound evidence without inventing a
   assert.equal(report.candidates.some((candidate) => candidate.show.id === "already-linked"), false);
 });
 
-test("real source candidate report preserves the graph scope and surfaces the 91 compound records", () => {
+test("real source candidate report preserves the graph scope and surfaces the current compound records", () => {
   const source = readCatalogSource(ROOT);
   const entities = loadEntities(ROOT, source.shows);
   const report = buildEntityEnrichmentCandidates(source.shows, entities);
@@ -130,9 +130,9 @@ test("real source candidate report preserves the graph scope and surfaces the 91
   assert.deepEqual(report.scope.entityPublications, ["public"]);
   assert.equal(report.scope.unlinkedOnly, true);
   assert.equal(report.summary.showCount, 752);
-  assert.equal(report.summary.unlinkedShowCount, 523);
-  assert.equal(report.summary.compoundEvidenceShowCount, 91);
-  assert.equal(report.summary.compoundReviewCount, 91);
+  assert.equal(report.summary.unlinkedShowCount, 496);
+  assert.equal(report.summary.compoundEvidenceShowCount, 88);
+  assert.equal(report.summary.compoundReviewCount, 88);
   assert.ok(report.summary.relationshipCandidateCount > 0);
   assert.ok(report.summary.batchCount > 0);
   assert.ok(report.compoundBatches.length > 0);

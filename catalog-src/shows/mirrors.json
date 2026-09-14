@@ -1,8 +1,14 @@
 {
   "id": "mirrors",
   "entityLinks": [
-    {"entityId":"zoomdoom-stories","role":"production-company"},
-    {"entityId":"jamie-killen","role":"creator"}
+    {
+      "entityId": "zoomdoom-stories",
+      "role": "production-company"
+    },
+    {
+      "entityId": "jamie-killen",
+      "role": "creator"
+    }
   ],
   "title": "Mirrors",
   "subtitle": "A sci-fi ghost story with a colder, more deliberate sense of haunting.",
@@ -98,7 +104,7 @@
   ],
   "cast": [],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "similarReasons": {
     "the-white-vault": "Keeps the dread serious while shifting the haunting toward a broader speculative frame.",
     "archive-81": "A more ritual-heavy horror branch if the sound-driven weirdness is what you want more of.",
@@ -137,5 +143,9 @@
       "Karin Heimdahl",
       "Sarah Rhea Warner"
     ]
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced"
   }
 }

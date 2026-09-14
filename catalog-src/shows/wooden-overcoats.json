@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"wooden-overcoats-ltd","role":"production-company"}
+    {
+      "entityId": "wooden-overcoats-ltd",
+      "role": "production-company"
+    }
   ],
   "id": "wooden-overcoats",
   "title": "Wooden Overcoats",
@@ -94,7 +97,7 @@
   ],
   "cast": [],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "similarReasons": {
     "wolf-359": "Keeps the ensemble friction and running bit energy alive in a bigger sci-fi frame.",
     "oz-9": "Pushes the incompetence and comic disaster angle much harder.",
@@ -126,5 +129,10 @@
     "creatorName": "David K. Barnes",
     "headWriter": "David K. Barnes",
     "productionCompany": "Wooden Overcoats Ltd"
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "low"
   }
 }

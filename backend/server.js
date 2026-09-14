@@ -26,6 +26,7 @@ const { createElevationService } = require("./lib/services/elevation-service");
 const { createRateLimitService } = require("./lib/services/rate-limit-service");
 const { createSubmissionService } = require("./lib/services/submission-service");
 const { createPublishedListenerReviewService } = require("./lib/services/published-listener-review-service");
+const { createSimilarityIndex } = require("../shared/archive-similarity");
 const { applyGeneratedCoverVariants } = require("./lib/responsive-images");
 const { createTurnstileService } = require("./lib/services/turnstile-service");
 const { createChatRouter } = require("./lib/routes/chat-routes");
@@ -231,6 +232,7 @@ async function startServer() {
     collections: [],
     archiveContext: null,
     siteHelpContext: null,
+    similarityIndex: null,
     showsVersion: "",
     collectionsVersion: "",
     searchIndexVersion: "",
@@ -251,6 +253,7 @@ async function startServer() {
     const publicRuntimeCatalog = publicCatalog.map(serializeRuntimeShow);
     const publicSearchIndex = publicCatalog.map(createSearchIndexRecord);
     const collections = loadCollections(config.STATIC_ROOT, new Set(catalog.map((show) => show.id)));
+    const similarityIndex = createSimilarityIndex({ shows: publicCatalog, collections });
     const archiveContext = await loadArchiveContext(config.STATIC_ROOT, catalog, collections);
     const siteHelpContext = loadSiteHelpContext({ catalog: publicCatalog, collections, archiveContext });
 
@@ -260,6 +263,7 @@ async function startServer() {
     state.publicRuntimeCatalog = publicRuntimeCatalog;
     state.publicSearchIndex = publicSearchIndex;
     state.collections = collections;
+    state.similarityIndex = similarityIndex;
     state.archiveContext = archiveContext;
     state.siteHelpContext = siteHelpContext;
     state.showsVersion = hashPublicFile(config.STATIC_ROOT, "data/shows.json");
@@ -856,6 +860,7 @@ async function startServer() {
             showMap,
             state.collections,
             publishedListenerReviewService.getPublicReviewPage(show.id, { page: 1, pageSize: 1 }),
+            state.similarityIndex,
           ),
         ),
         buildShowPageMetadata({

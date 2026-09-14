@@ -11,6 +11,7 @@ import {
   getReleaseNote,
   toDisplayTag,
 } from "./utils.js";
+import { getDiscoveryContentProfile } from "../discovery-analytics.js";
 
 const HERO_LINK_LABELS = {
   start: "Start listening",
@@ -21,6 +22,10 @@ const HERO_LINK_LABELS = {
 };
 
 const HERO_LINK_ORDER = ["start", "website", "apple", "spotify", "rss"];
+
+function renderListenDiscoveryAttributes(show, provider, linkRole, discoverySurface) {
+  return `data-discovery-listen-show-id="${escapeHtml(show.id || "")}" data-discovery-provider="${escapeHtml(provider || "other")}" data-discovery-link-role="${escapeHtml(linkRole)}" data-discovery-surface="${escapeHtml(discoverySurface)}" data-discovery-content-profile="${getDiscoveryContentProfile(show.reviewStatus)}"`;
+}
 
 export function renderDetailHero(show, reviewData = {}) {
   const coverSource = getResponsiveImageSource(show, "(max-width: 959px) 84vw, 320px");
@@ -83,7 +88,7 @@ export function renderDetailHero(show, reviewData = {}) {
             <div class="detail-actions">
               ${
                 primaryLink
-                  ? `<a class="detail-primary-action detail-listen-action" href="${escapeHtml(primaryLink.href)}" target="_blank" rel="noreferrer">${primaryLink.key === "start" ? "Start listening" : `Open ${escapeHtml(primaryLink.label)}`}</a>`
+                  ? `<a class="detail-primary-action detail-listen-action" href="${escapeHtml(primaryLink.href)}" ${renderListenDiscoveryAttributes(show, primaryLink.key, "primary", "show_page_hero")} target="_blank" rel="noreferrer">${primaryLink.key === "start" ? "Start listening" : `Open ${escapeHtml(primaryLink.label)}`}</a>`
                   : hasListenLinks ? '<a class="detail-primary-action detail-listen-action" href="#facts-links" data-detail-anchor>Find listen links</a>' : ""
               }
               ${archiveTarget ? `<a class="detail-secondary-action" href="${archiveTarget}" data-detail-anchor>${show.reviewStatus === "full-review" ? "Archive review" : "Archive note"}</a>` : ""}

@@ -122,6 +122,51 @@ function createCollectionHref(id = "") {
   return `/collections/${encodeURIComponent(id)}`;
 }
 
+function getDiscoveryContentProfile(reviewStatus) {
+  switch (String(reviewStatus || "").trim().toLowerCase()) {
+    case "full-review":
+      return "full_review";
+    case "imported":
+      return "imported";
+    case "indexed-only":
+      return "indexed_only";
+    default:
+      return "unknown";
+  }
+}
+
+function getDiscoveryPositionBucket(position) {
+  const numericPosition = Number(position);
+  if (!Number.isFinite(numericPosition) || numericPosition < 1) return "unknown";
+  if (numericPosition === 1) return "1";
+  if (numericPosition <= 4) return "2-4";
+  if (numericPosition <= 9) return "5-9";
+  if (numericPosition <= 24) return "10-24";
+  return "25+";
+}
+
+function renderShowDiscoveryAttributes(show, {
+  surface = "home_archive_grid",
+  browseState = "default",
+  resultType = "show_card",
+  recommendationSource = "none",
+  resultPositionBucket = "unknown",
+  collectionId = "",
+  entityId = "",
+} = {}) {
+  return [
+    `data-discovery-show-id="${escapeAttribute(show.id || "")}"`,
+    `data-discovery-surface="${escapeAttribute(surface)}"`,
+    `data-discovery-browse-state="${escapeAttribute(browseState)}"`,
+    `data-discovery-result-type="${escapeAttribute(resultType)}"`,
+    `data-discovery-recommendation-source="${escapeAttribute(recommendationSource)}"`,
+    `data-discovery-result-position-bucket="${escapeAttribute(resultPositionBucket)}"`,
+    `data-discovery-content-profile="${getDiscoveryContentProfile(show.reviewStatus)}"`,
+    collectionId ? `data-discovery-collection-id="${escapeAttribute(collectionId)}"` : "",
+    entityId ? `data-discovery-entity-id="${escapeAttribute(entityId)}"` : "",
+  ].filter(Boolean).join(" ");
+}
+
 function getSortableDateValue(value) {
   const timestamp = Date.parse(String(value || "").trim());
   return Number.isFinite(timestamp) ? timestamp : Number.NEGATIVE_INFINITY;
@@ -272,12 +317,12 @@ function renderListenerReviewScore(show, { showLabel = true } = {}) {
   const reviewCount = Number(show?.listenerReviewScore?.reviewCount);
   const averageRating = Number(show?.listenerReviewScore?.averageRating);
   const hasScore = Number.isInteger(reviewCount) && reviewCount > 0 && Number.isFinite(averageRating) && averageRating >= 0 && averageRating <= 10;
-  const value = hasScore ? `${averageRating.toFixed(1)}/10` : "";
+  const value = hasScore ? `${averageRating.toFixed(1)}/10` : "--/10";
   const ariaLabel = hasScore
     ? `Listener Review Score ${value} from ${reviewCount} ${reviewCount === 1 ? "review" : "reviews"}.`
-    : "Listener review score";
+    : "Listener Review Score --/10. No published listener reviews yet.";
   return `
-    <div class="listener-review-inline-score" data-podcast-id="${escapeAttribute(show.id || "")}" aria-label="${escapeAttribute(ariaLabel)}"${hasScore ? "" : " hidden"}>
+    <div class="listener-review-inline-score" data-podcast-id="${escapeAttribute(show.id || "")}" aria-label="${escapeAttribute(ariaLabel)}">
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
         <span class="listener-review-inline-score-value">${value}</span>
@@ -296,7 +341,7 @@ function renderPrimaryScore(show, options = {}) {
 
 function renderCommunityScore(show, { showLabel = true } = {}) {
   return `
-    <div class="community-inline-score" data-podcast-id="${escapeAttribute(show.id || "")}" aria-label="Community rating" hidden>
+    <div class="community-inline-score" data-podcast-id="${escapeAttribute(show.id || "")}" aria-label="Community score --/10. No ratings yet.">
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -306,14 +351,14 @@ function renderCommunityScore(show, { showLabel = true } = {}) {
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value"></span>
+        <span class="community-inline-score-value">--/10</span>
       </span>
       ${showLabel ? '<span class="inline-score-label">Community Rating</span>' : ""}
     </div>
   `.trim();
 }
 
-function renderArchiveCard(show) {
+function renderArchiveCard(show, discovery = {}) {
   const cardMetadata = archiveRecord.getCardDiscoveryMetadata(show, 2);
   const metaText = cardMetadata.text;
   const title = escapeHtml(show.title || "Untitled show");
@@ -323,14 +368,14 @@ function renderArchiveCard(show) {
 
   return `
     <div class="podcast-card-shell" data-podcast-id="${escapeAttribute(show.id || "unknown-show")}">
-      <a class="podcast-card" href="${href}" data-podcast-id="${escapeAttribute(show.id || "unknown-show")}">
+      <a class="podcast-card" href="${href}" data-podcast-id="${escapeAttribute(show.id || "unknown-show")}" ${renderShowDiscoveryAttributes(show, discovery)}>
         ${renderEditorialBadges(show)}
         <img src="${imageSrc}"${renderResponsiveCoverAttributes(show, "(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px")} alt="${imageAlt}" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">${title}</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="${escapeAttribute(cardMetadata.kind)}"${metaText ? "" : " hidden"}>${escapeHtml(metaText)}</p>
         <div class="rating">
           ${renderPrimaryScore(show, { showLabel: false })}
-          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <span class="rating-divider" aria-hidden="true"></span>
           ${renderCommunityScore(show, { showLabel: false })}
         </div>
       </a>
@@ -338,9 +383,14 @@ function renderArchiveCard(show) {
   `.trim();
 }
 
-function renderCollectionShowCard(show, reason = "") {
+function renderCollectionShowCard(show, reason = "", discovery = {}) {
   const note = String(reason || "").trim();
-  let card = renderArchiveCard(show)
+  let card = renderArchiveCard(show, {
+    surface: "collection_page_grid",
+    resultType: "collection_member",
+    recommendationSource: "collection_membership",
+    ...discovery,
+  })
     .replace('class="podcast-card-shell"', 'class="podcast-card-shell collection-show-card-shell"')
     .replace('class="podcast-card"', 'class="podcast-card collection-show-card"');
   if (note) {
@@ -352,7 +402,7 @@ function renderCollectionShowCard(show, reason = "") {
   return card;
 }
 
-function renderMostPopularCard(show) {
+function renderMostPopularCard(show, index = 0) {
   const lifecycleLabel = getMostPopularLifecycleLabel(show);
   const chips = [];
   if ((show.finalRating || 0) >= 9) {
@@ -373,7 +423,7 @@ function renderMostPopularCard(show) {
   const copy = String(show.archiveTake || show.description || "").trim();
 
   return `
-    <a class="popular-card" href="${escapeAttribute(show.href || createShowHref(show.id || ""))}" data-podcast-id="${escapeAttribute(show.id || "")}" aria-label="Open ${escapeAttribute(show.title || "Untitled show")} in the archive"${accentStyle}>
+    <a class="popular-card" href="${escapeAttribute(show.href || createShowHref(show.id || ""))}" data-podcast-id="${escapeAttribute(show.id || "")}" ${renderShowDiscoveryAttributes(show, { surface: "home_popular_rail", resultPositionBucket: getDiscoveryPositionBucket(Number(index) + 1) })} aria-label="Open ${escapeAttribute(show.title || "Untitled show")} in the archive"${accentStyle}>
       <div class="popular-card-media">
         <img src="${escapeAttribute(show.imageSrc || resolveImageSrc(show.cover))}"${renderResponsiveCoverAttributes(show, "(max-width: 560px) 44vw, (max-width: 960px) 44vw, 320px")} alt="${escapeAttribute(show.imageAlt || show.coverAlt || `${show.title || "Untitled show"} cover art`)}" loading="lazy" decoding="async" width="320" height="320" />
       </div>
@@ -386,7 +436,7 @@ function renderMostPopularCard(show) {
         <div class="popular-card-footer">
           <div class="popular-card-ratings">
             ${renderPrimaryScore(show)}
-            <span class="rating-divider" aria-hidden="true" hidden></span>
+            <span class="rating-divider" aria-hidden="true"></span>
             ${renderCommunityScore(show)}
           </div>
         </div>
@@ -410,7 +460,7 @@ function renderCollectionCard(collection, showMap) {
   const styleAttribute = styleFragments.length > 0 ? ` style="${styleFragments.join("; ")}"` : "";
 
   return `
-    <a class="collection-card" href="${escapeAttribute(createCollectionHref(collection.id || ""))}" aria-label="Browse the ${escapeAttribute(collection.title || "Untitled collection")} collection" data-collection-id="${escapeAttribute(collection.id || "")}"${anchorShow?.id ? ` data-anchor-show-id="${escapeAttribute(anchorShow.id)}"` : ""}${styleAttribute}>
+    <a class="collection-card" href="${escapeAttribute(createCollectionHref(collection.id || ""))}" aria-label="Browse the ${escapeAttribute(collection.title || "Untitled collection")} collection" data-collection-id="${escapeAttribute(collection.id || "")}" data-discovery-collection-id="${escapeAttribute(collection.id || "")}" data-discovery-collection-kind="${escapeAttribute(collection.kind || "curated")}" data-discovery-surface="home_collection_rail"${anchorShow?.id ? ` data-anchor-show-id="${escapeAttribute(anchorShow.id)}"` : ""}${styleAttribute}>
       <h3>${escapeHtml(collection.title || "Untitled collection")}</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">${escapeHtml(`${collectionShows.length} ${collectionShows.length === 1 ? "show" : "shows"}`)}</p>
@@ -420,7 +470,7 @@ function renderCollectionCard(collection, showMap) {
   `.trim();
 }
 
-function renderCollectionDirectoryCard(collection, showMap, { compact = false } = {}) {
+function renderCollectionDirectoryCard(collection, showMap, { compact = false, discoverySurface = "collections_directory" } = {}) {
   const collectionShows = getCollectionShows(collection, showMap);
   const anchorShow = getCollectionAnchorShow(collection, showMap);
   const coverShows = getCollectionCollageShows(collection, collectionShows, anchorShow);
@@ -435,7 +485,7 @@ function renderCollectionDirectoryCard(collection, showMap, { compact = false } 
     .join("");
   const meta = `${collectionShows.length} ${collectionShows.length === 1 ? "show" : "shows"} / ${collection.commitment || collection.kind || "Collection"}`;
 
-  return `<a class="collections-directory-card${compact ? " collections-directory-card-compact" : ""}" href="${escapeAttribute(createCollectionHref(collection.id || ""))}" data-collection-id="${escapeAttribute(collection.id || "")}"${anchorShow?.id ? ` data-anchor-show-id="${escapeAttribute(anchorShow.id)}"` : ""} data-intent-tags="${escapeAttribute((collection.intentTags || []).join(" "))}" aria-label="Open the ${escapeAttribute(title)} collection"${accent ? ` style="--collection-accent: ${escapeAttribute(accent)}"` : ""}>
+  return `<a class="collections-directory-card${compact ? " collections-directory-card-compact" : ""}" href="${escapeAttribute(createCollectionHref(collection.id || ""))}" data-collection-id="${escapeAttribute(collection.id || "")}" data-discovery-collection-id="${escapeAttribute(collection.id || "")}" data-discovery-collection-kind="${escapeAttribute(collection.kind || "curated")}" data-discovery-surface="${escapeAttribute(discoverySurface)}"${anchorShow?.id ? ` data-anchor-show-id="${escapeAttribute(anchorShow.id)}"` : ""} data-intent-tags="${escapeAttribute((collection.intentTags || []).join(" "))}" aria-label="Open the ${escapeAttribute(title)} collection"${accent ? ` style="--collection-accent: ${escapeAttribute(accent)}"` : ""}>
     ${coverMarkup}
     <span class="collections-card-label">${escapeHtml(collection.label || (collection.featured ? "Featured collection" : "Collection"))}</span>
     <h3>${escapeHtml(title)}</h3>
@@ -524,19 +574,25 @@ function renderHomePagePrerender(pageBody, { rootDir, homeMostPopularIds = [], h
   rendered = replaceMarkup(
     rendered,
     /<div class="popular-grid" id="popularGrid"><\/div>/,
-    `<div class="popular-grid" id="popularGrid" data-home-prerendered="true">${mostPopularShows.map(renderMostPopularCard).join("")}</div>`,
+    `<div class="popular-grid" id="popularGrid" data-home-prerendered="true">${mostPopularShows.map((show, index) => renderMostPopularCard(show, index)).join("")}</div>`,
     "most popular grid",
   );
   rendered = replaceMarkup(
     rendered,
     /<div id="recentlyAddedGrid" class="podcast-card-grid recently-added-grid"><\/div>/,
-    `<div id="recentlyAddedGrid" class="podcast-card-grid recently-added-grid" data-home-prerendered="true">${recentlyAddedShows.map(renderArchiveCard).join("")}</div>`,
+    `<div id="recentlyAddedGrid" class="podcast-card-grid recently-added-grid" data-home-prerendered="true">${recentlyAddedShows.map((show, index) => renderArchiveCard(show, {
+      surface: "home_recent_rail",
+      resultPositionBucket: getDiscoveryPositionBucket(index + 1),
+    })).join("")}</div>`,
     "recently added grid",
   );
   rendered = replaceMarkup(
     rendered,
     /<div id="podcast-grid"><\/div>/,
-    `<div id="podcast-grid" data-home-prerendered="true">${initialShows.map(renderArchiveCard).join("")}</div>`,
+    `<div id="podcast-grid" data-home-prerendered="true">${initialShows.map((show, index) => renderArchiveCard(show, {
+      surface: "home_archive_grid",
+      resultPositionBucket: getDiscoveryPositionBucket(index + 1),
+    })).join("")}</div>`,
     "archive grid",
   );
   const loadMoreSurfaceMatch = rendered.match(/<div id="archiveLoadMore"[\s\S]*?<\/div>/);

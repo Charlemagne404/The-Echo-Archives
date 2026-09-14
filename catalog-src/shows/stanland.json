@@ -10,8 +10,8 @@
   "coverAlt": "StanLand cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "https://open.spotify.com/show/7fTAz1LM80deuZZyiyqMa9",
@@ -713,14 +713,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/6761ab1bf4445443731a441c"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/6761ab1bf4445443731a441c"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -756,8 +762,8 @@
         "description": "ac1ec59e47665df50c8ddb8557edc68362ae4ee6c0ae1dca00e03af1ea321126",
         "cover": "3f615243b6b59cc6d5b7f6bb712ca1c22b0e164d4bd257a5aaad7505060f0455",
         "coverAlt": "899e4f1efb33e5d683c3b8750f4f5a2b94d5cd03cc24fe7f3505901f965951a5",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "e2831738600d594830d416ec9b8606f352265ba4615a36a3bed0d87d4ce66f83",
         "officialLinks": "40053231cab13a928f9e780dd6b40069974cacfade667c4e2cc9050d6283d67e",
         "genres": "d43a44c3885ca363e39a4f53c298e71bcb32009530bcab70ecf719f799bcd00a",
@@ -775,8 +781,7 @@
         "verification": "bb4d35c2e07b2c06b0ca06aca32d91d806121812023696dad1263db001567eca"
       },
       "optionalGaps": [
-        "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+        "No structured transcript links were exposed by the feed."
       ],
       "publication": {
         "tier": "imported",
@@ -786,5 +791,5 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15"
+  "updatedAt": "2026-09-14"
 }

@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"realm","role":"network"}
+    {
+      "entityId": "realm",
+      "role": "network"
+    }
   ],
   "id": "the-deca-tapes",
   "title": "The Deca Tapes",
@@ -81,7 +84,7 @@
     "hex": "#6f5664",
     "rgb": "111, 86, 100"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "releaseDates": {
     "first": "2019-03-11",
     "latest": "2025-09-08",
@@ -176,5 +179,10 @@
     "spectre": "Another closed-loop mystery lane if you want atmosphere and slow uncertainty.",
     "red-valley": "Keeps the puzzle-box intrigue and controlled weirdness alive.",
     "homecoming": "A tighter prestige-thriller branch for listeners who want another cleanly engineered mystery."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "commitment": "medium"
   }
 }

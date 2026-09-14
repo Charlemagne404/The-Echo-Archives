@@ -1,11 +1,12 @@
 import { HOME_CARD_PREVIEW_ID_PREFIX } from "../constants.js";
+import { getDiscoveryContentProfile } from "../discovery-analytics.js";
 import { configureShowImageElement } from "../images.js";
 import { setHighlightedText, toDisplayTag } from "../utils.js";
 import { createEditorialBadges } from "./badges.js";
 import { createCommunityScoreElement, createPrimaryScoreElement, createRatingDividerElement, syncInlineScoreGroup } from "./scores.js";
 import { formatCardDiscoveryMetadata, getCardDiscoveryMetadata } from "./shared.js";
 
-export function createShowCard(show, { previewMode = "", archiveScoreOptions = {} } = {}) {
+export function createShowCard(show, { previewMode = "", archiveScoreOptions = {}, discovery = {} } = {}) {
   const showId = show.id || "unknown-show";
   const shell = document.createElement("div");
   shell.className = "podcast-card-shell";
@@ -19,21 +20,28 @@ export function createShowCard(show, { previewMode = "", archiveScoreOptions = {
     isPreviewTrigger: previewMode === "inline-expand",
     previewId,
     archiveScoreOptions,
+    discovery,
   });
   shell.append(card);
   if (previewMode === "inline-expand") {
     shell.__homeCardPreviewShow = show;
     shell.__homeCardPreviewId = previewId;
+    shell.__homeCardDiscovery = discovery;
   }
   syncShowCardPresentation(shell, show);
   return shell;
 }
 
-function createShowCardPrimary(show, { isPreviewTrigger = false, previewId = "", archiveScoreOptions = {} } = {}) {
+function createShowCardPrimary(show, { isPreviewTrigger = false, previewId = "", archiveScoreOptions = {}, discovery = {} } = {}) {
   const card = document.createElement("a");
   card.className = isPreviewTrigger ? "podcast-card podcast-card-primary" : "podcast-card";
   card.href = show.href || "/";
   card.dataset.podcastId = show.id || "unknown-show";
+  setShowDiscoveryMarker(card, {
+    showId: show.id,
+    contentProfile: getDiscoveryContentProfile(show.reviewStatus),
+    ...discovery,
+  });
   if (isPreviewTrigger) {
     card.setAttribute("aria-controls", previewId);
     card.setAttribute("aria-expanded", "false");
@@ -98,7 +106,7 @@ export function ensureShellPreviewPanel(shell) {
     return null;
   }
 
-  const layer = createHomeCardPreviewPanel(show, previewId);
+  const layer = createHomeCardPreviewPanel(show, previewId, shell.__homeCardDiscovery || {});
   shell.appendChild(layer);
   return layer.querySelector(".home-card-preview");
 }
@@ -115,7 +123,7 @@ function markPreviewStage(element, { delay = 0, offset = 10, scale = 0.985 } = {
   return element;
 }
 
-function createHomeCardPreviewPanel(show, previewId) {
+function createHomeCardPreviewPanel(show, previewId, discovery = {}) {
   const layer = document.createElement("div");
   layer.className = "home-card-preview-layer";
   layer.hidden = true;
@@ -215,6 +223,11 @@ function createHomeCardPreviewPanel(show, previewId) {
   const openLink = document.createElement("a");
   openLink.className = "preview-open-link";
   openLink.href = show.href || "/";
+  setShowDiscoveryMarker(openLink, {
+    showId: show.id,
+    contentProfile: getDiscoveryContentProfile(show.reviewStatus),
+    ...discovery,
+  });
   openLink.setAttribute("tabindex", "-1");
   openLink.setAttribute("aria-label", `Open the ${titleText} archive page`);
   const openText = document.createElement("span");
@@ -242,9 +255,15 @@ function createHomeCardPreviewPanel(show, previewId) {
   return layer;
 }
 
-export function createCollectionShowCard(show, reason = "") {
+export function createCollectionShowCard(show, reason = "", discovery = {}) {
   const shell = createShowCard(show, {
     archiveScoreOptions: { treatZeroAsUnrated: true },
+    discovery: {
+      surface: "collection_page_grid",
+      resultType: "collection_member",
+      recommendationSource: "collection_membership",
+      ...discovery,
+    },
   });
   shell.classList.add("collection-show-card-shell");
 
@@ -267,6 +286,42 @@ export function createCollectionShowCard(show, reason = "") {
   }
 
   return shell;
+}
+
+export function setShowDiscoveryMarker(anchor, {
+  showId,
+  surface = "unknown_internal",
+  browseState = "default",
+  resultType = "show_card",
+  recommendationSource = "unknown",
+  resultPositionBucket = "unknown",
+  contentProfile = "unknown",
+  collectionId = "",
+  entityId = "",
+} = {}) {
+  if (!anchor?.dataset) {
+    return anchor;
+  }
+
+  if (showId) anchor.dataset.discoveryShowId = String(showId);
+  anchor.dataset.discoverySurface = surface;
+  anchor.dataset.discoveryBrowseState = browseState;
+  anchor.dataset.discoveryResultType = resultType;
+  anchor.dataset.discoveryRecommendationSource = recommendationSource;
+  anchor.dataset.discoveryResultPositionBucket = resultPositionBucket;
+  anchor.dataset.discoveryContentProfile = contentProfile;
+  if (collectionId) {
+    anchor.dataset.discoveryCollectionId = String(collectionId);
+  } else {
+    delete anchor.dataset.discoveryCollectionId;
+  }
+  if (entityId) {
+    anchor.dataset.discoveryEntityId = String(entityId);
+  } else {
+    delete anchor.dataset.discoveryEntityId;
+  }
+
+  return anchor;
 }
 
 export function syncShowCardPresentation(shell, show) {

@@ -7,8 +7,8 @@
   "coverAlt": "Jack and Lou: A Gangster Love Story cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -535,14 +535,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://anchor.fm/s/5fee0264/podcast/rss"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://anchor.fm/s/5fee0264/podcast/rss"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -578,8 +584,8 @@
         "description": "b503c942a3fff700111f4a37aca2f2538a72933a293d62b8b2b9e40225769ff1",
         "cover": "4f8ac654832f02c2cb71efe43ffb0fffe898990554dcde9d63b7989ddbdb433d",
         "coverAlt": "33fcc4eb4195bdafa2b20d005ff5f4946bde50baf6f1e80049ff960594695ce8",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "72b3980ec51d209ab85da178f3897c359e06eeab94c39060de442aa50be98e77",
         "officialLinks": "ecafea739567d523a791c0e430d1f46a589233f6970e5e1f5decc39a01173dd8",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
@@ -599,7 +605,6 @@
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
@@ -610,6 +615,6 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-14",
   "creatorId": "jack-and-lou-a-gangster-love-story"
 }

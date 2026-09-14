@@ -577,6 +577,11 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "endeavor-content"
+  "updatedAt": "2026-09-14",
+  "creatorId": "endeavor-content",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium"
+  }
 }

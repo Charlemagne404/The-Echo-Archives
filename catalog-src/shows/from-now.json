@@ -81,7 +81,7 @@
     "hex": "#8d413e",
     "rgb": "141, 65, 62"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "releaseDates": {
     "first": "2020-12-21",
     "latest": "2022-08-23"
@@ -187,5 +187,10 @@
     "ars-paradoxica": "The clearest next step if the time-dislocation premise makes you want denser science-fiction consequences.",
     "red-valley": "Keeps the secret-project unease and controlled weirdness active.",
     "case-63": "A compact paradox-thriller branch for listeners who want cleaner suspense around time travel."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "commitment": "short"
   }
 }

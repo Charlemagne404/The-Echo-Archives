@@ -34,6 +34,52 @@
     minimumAnchorDimensions: 1,
   });
 
+  // The diagnostic gate is intentionally broad enough to reveal useful
+  // catalogue signals. Public computed matches need a materially stronger
+  // evidence floor so that metadata overlap never reads like editorial
+  // recommendation. Keep this as a policy adapter around getSimilarShows;
+  // the scoring model remains the single source of similarity evidence.
+  const PUBLIC_MATCH_POLICY = Object.freeze({
+    minimumScore: 20,
+    minimumMetadataCoverage: 0.65,
+    minimumRecordMetadataCoverage: 0.65,
+    minimumMetadataDimensions: 3,
+    minimumAnchorDimensions: 2,
+    minimumSpecificDimensions: 2,
+    maximumResults: 2,
+    explanationReasons: 2,
+  });
+
+  const PUBLIC_SPECIFIC_DIMENSION_IDS = Object.freeze([
+    "entity",
+    "tone",
+    "theme",
+    "tag",
+    "bestFor",
+    "voiceStyle",
+    "narrativeFocus",
+    "intensity",
+    "commitment",
+  ]);
+  const PUBLIC_SPECIFIC_DIMENSION_SET = new Set(PUBLIC_SPECIFIC_DIMENSION_IDS);
+  const PUBLIC_REASON_PRIORITY = Object.freeze({
+    entity: 0,
+    tone: 1,
+    theme: 2,
+    tag: 3,
+    bestFor: 4,
+    voiceStyle: 5,
+    narrativeFocus: 6,
+    intensity: 7,
+    commitment: 8,
+    sharedCollection: 9,
+    releaseProfile: 10,
+    format: 11,
+    genre: 12,
+    episodeLength: 13,
+    catalogLength: 14,
+  });
+
   // These weights are deliberately conservative. The score is a ranking aid,
   // not a claim that two shows are interchangeable. Editorial links are kept
   // separate from metadata overlap and ratings are evidence-only.
@@ -680,6 +726,38 @@
     };
   }
 
+  function getPublicSimilarityReasons(similarity, options = {}) {
+    const requestedLimit = Number(options.limit);
+    const limit = Math.max(
+      1,
+      Number.isFinite(requestedLimit) ? requestedLimit : PUBLIC_MATCH_POLICY.explanationReasons,
+    );
+    const seen = new Set();
+
+    return asArray(similarity?.reasons)
+      .filter((reason) => reason && reason.dimension !== "editorial")
+      .filter((reason) => reason.includedInScore !== false && Number(reason.contribution) > 0)
+      .filter((reason) => normalizeText(reason.text))
+      .sort((left, right) => {
+        const priorityDifference = (PUBLIC_REASON_PRIORITY[left.dimension] ?? 99) - (PUBLIC_REASON_PRIORITY[right.dimension] ?? 99);
+        return priorityDifference || Number(right.contribution || 0) - Number(left.contribution || 0) || String(left.text).localeCompare(String(right.text), "en");
+      })
+      .filter((reason) => {
+        const key = normalizeText(reason.text);
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      })
+      .slice(0, limit);
+  }
+
+  function buildPublicSimilarityExplanation(similarity, options = {}) {
+    return getPublicSimilarityReasons(similarity, options)
+      .map((reason) => normalizeText(reason.text))
+      .filter(Boolean)
+      .join(" · ");
+  }
+
   function createSimilarityIndex({ shows = [], collections = [] } = {}) {
     const publicShows = asArray(shows).filter(isPublishedShow);
     const showById = new Map(publicShows.filter((show) => normalizeText(show.id)).map((show) => [show.id, show]));
@@ -722,6 +800,7 @@
     context.metadataCoverageDenominatorWeight = context.coverageDefinitions
       .filter((definition) => context.coverageDefinitionIds.has(definition.id))
       .reduce((total, definition) => total + definition.weight, 0);
+    const publicMatchCache = new Map();
 
     function compare(sourceOrId, targetOrId) {
       const source = typeof sourceOrId === "string" ? showById.get(sourceOrId) : sourceOrId;
@@ -780,6 +859,47 @@
         .slice(0, limit);
     }
 
+    function getPublicSimilarityMatches(sourceOrId, options = {}) {
+      const source = typeof sourceOrId === "string" ? showById.get(sourceOrId) : sourceOrId;
+      if (!source || !normalizeText(source.id)) return [];
+
+      const requestedLimit = Number(options.limit);
+      const limit = Math.min(
+        PUBLIC_MATCH_POLICY.maximumResults,
+        Math.max(1, Number.isFinite(requestedLimit) ? requestedLimit : PUBLIC_MATCH_POLICY.maximumResults),
+      );
+      const cacheKey = `${source.id}:${limit}`;
+      if (publicMatchCache.has(cacheKey)) return publicMatchCache.get(cacheKey);
+      const authoredIds = new Set(asArray(source.similarTo).map(normalizeText).filter(Boolean));
+      const candidates = getSimilarShows(source.id, {
+        limit: publicShows.length,
+        minimumScore: PUBLIC_MATCH_POLICY.minimumScore,
+        minimumMetadataDimensions: PUBLIC_MATCH_POLICY.minimumMetadataDimensions,
+        minimumAnchorDimensions: PUBLIC_MATCH_POLICY.minimumAnchorDimensions,
+      });
+
+      const matches = candidates
+        .filter(({ show, similarity }) => {
+          if (authoredIds.has(show.id) || similarity.curatedEvidence) return false;
+          if (similarity.metadataCoverage < PUBLIC_MATCH_POLICY.minimumMetadataCoverage) return false;
+          if (similarity.sourceMetadataCoverage < PUBLIC_MATCH_POLICY.minimumRecordMetadataCoverage) return false;
+          if (similarity.targetMetadataCoverage < PUBLIC_MATCH_POLICY.minimumRecordMetadataCoverage) return false;
+
+          const specificMatches = similarity.metadataMatches.filter((id) => PUBLIC_SPECIFIC_DIMENSION_SET.has(id));
+          return specificMatches.length >= PUBLIC_MATCH_POLICY.minimumSpecificDimensions;
+        })
+        .map(({ show, similarity }) => ({
+          show,
+          similarity,
+          reasons: getPublicSimilarityReasons(similarity),
+          explanation: buildPublicSimilarityExplanation(similarity),
+        }))
+        .filter((entry) => entry.explanation)
+        .slice(0, limit);
+      publicMatchCache.set(cacheKey, matches);
+      return matches;
+    }
+
     function getMetadataProfile(sourceOrId) {
       const source = typeof sourceOrId === "string" ? showById.get(sourceOrId) : sourceOrId;
       if (!source) return null;
@@ -791,6 +911,7 @@
       collections: publicCollections,
       compare,
       getSimilarShows,
+      getPublicSimilarityMatches,
       getMetadataProfile,
       fieldFrequencies: context.frequencies,
       dimensions: DIMENSION_DEFINITIONS,
@@ -804,8 +925,12 @@
     METADATA_SCORE_WEIGHT,
     SCORE_MAX,
     MATCH_POLICY,
+    PUBLIC_MATCH_POLICY,
+    PUBLIC_SPECIFIC_DIMENSION_IDS,
+    buildPublicSimilarityExplanation,
     createSimilarityIndex,
     compareShows,
+    getPublicSimilarityReasons,
     displayValue,
     normalizeValue,
   };

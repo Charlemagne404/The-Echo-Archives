@@ -1,5 +1,11 @@
 {
   "id": "the-fourth-ambit",
+  "entityLinks": [
+    {
+      "entityId": "the-ambit-group",
+      "role": "network"
+    }
+  ],
   "title": "The Fourth Ambit",
   "subtitle": "Gilles never wanted to be a tracker...",
   "description": "The internet has grown into a fully immersive virtual world known as the Ambit. It's a chaotic conglomeration of parks where people can indulge in all kinds of games and fantasies – for a price.",

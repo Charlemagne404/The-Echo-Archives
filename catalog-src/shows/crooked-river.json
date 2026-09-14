@@ -606,7 +606,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-14",
   "creatorId": "heywood",
-  "networkId": "dave-beazley"
+  "networkId": "dave-beazley",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high"
+  }
 }

@@ -3,8 +3,36 @@ const assert = require("node:assert/strict");
 const collections = require("../../data/collections.json");
 const shows = require("../../data/shows.json");
 const { createShowPageMarkup } = require("../lib/show-page-render");
+const { createSimilarityIndex } = require("../../shared/archive-similarity");
 
 const showMap = new Map(shows.map((show) => [show.id, show]));
+
+test("show relationships keep authored recommendations distinct from computed archive matches", () => {
+  const base = showMap.get("solar");
+  const source = {
+    ...base,
+    id: "relationship-source",
+    title: "Relationship Source",
+    similarTo: ["relationship-authored"],
+    similarReasons: { "relationship-authored": "An authored archive route." },
+  };
+  const authored = { ...base, id: "relationship-authored", title: "Authored Route", similarTo: [], similarReasons: {} };
+  const computed = { ...base, id: "relationship-computed", title: "Computed Route", similarTo: [], similarReasons: {} };
+  const relationshipMap = new Map([source, authored, computed].map((show) => [show.id, show]));
+  const similarityIndex = createSimilarityIndex({ shows: [source, authored, computed] });
+  const markup = createShowPageMarkup(source, relationshipMap, [], {}, similarityIndex);
+
+  assert.match(markup, /Try next/);
+  assert.match(markup, /data-recommendation-source="curated"/);
+  assert.match(markup, /data-recommendation-source="computed"/);
+  assert.match(markup, /Curated by the archive/);
+  assert.match(markup, /Computed archive matches/);
+  assert.match(markup, /Matches across multiple archive dimensions\. These are not authored links\./);
+  assert.match(markup, /An authored archive route\./);
+  const computedGroup = markup.match(/<section class="detail-similar-group detail-similar-group--computed"[\s\S]*?<\/section>/)?.[0] || "";
+  assert.doesNotMatch(computedGroup, /score|\/100/i);
+  assert.ok(markup.indexOf("data-recommendation-source=\"curated\"") < markup.indexOf("data-recommendation-source=\"computed\""));
+});
 
 test("empty indexed entries move editorial context out of Reviews and invite the first listener review", () => {
   const markup = createShowPageMarkup(showMap.get("were-alive"), showMap, collections);
@@ -257,6 +285,8 @@ test("Derelict's primary listen handoff uses its verified Apple show page", () =
   const markup = createShowPageMarkup(showMap.get("derelict"), showMap, collections);
 
   assert.match(markup, /href="https:\/\/podcasts\.apple\.com\/us\/podcast\/derelict\/id1473460202"[^>]*>Start listening<\/a>/);
+  assert.match(markup, /data-discovery-listen-show-id="derelict"[^>]*data-discovery-provider="start"[^>]*data-discovery-link-role="primary"[^>]*data-discovery-surface="show_page_hero"/);
+  assert.match(markup, /data-discovery-listen-show-id="derelict"[^>]*data-discovery-provider="start"[^>]*data-discovery-link-role="primary"[^>]*data-discovery-surface="show_page_facts"/);
   assert.doesNotMatch(markup, /derelictpodcast\.com\/season-one/);
 });
 

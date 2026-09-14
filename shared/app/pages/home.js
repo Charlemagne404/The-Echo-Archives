@@ -1,4 +1,4 @@
-import { DEFAULT_SOCIAL_IMAGE, HOME_CARD_HOVER_EXPAND_ENABLED, HOME_FAVORITE_ROUTE_IDS, archiveSearch } from "../constants.js";
+import { DEFAULT_SOCIAL_IMAGE, HOME_CARD_HOVER_EXPAND_ENABLED, HOME_FAVORITE_ROUTE_IDS, archiveSearch, archiveSimilarity } from "../constants.js";
 import { createScrollRestoration } from "../scroll-restoration.js";
 import {
   applyArchiveStats,
@@ -31,6 +31,12 @@ import { createHomeState } from "./home/state.js";
 import { createStickyBrowseController } from "./home/sticky-search.js";
 import { createStickyBrowseVisibilityController } from "./home/sticky-visibility.js";
 import { seedHomeStateFromParams } from "./home/url-state.js";
+import {
+  bucketDiscoveryClearedFilterCount,
+  bucketDiscoveryFilterCount,
+  bucketDiscoveryResultCount,
+  trackDiscoveryEvent,
+} from "../discovery-analytics.js";
 
 const SHOW_HOME_RECENTLY_ADDED_BAND = true;
 
@@ -68,7 +74,8 @@ export async function initializeHomePage() {
   const publishedShows = shows.filter((show) => show.status === "published");
   const collectionsById = buildCollectionMap(collections);
   const favoriteCollections = HOME_FAVORITE_ROUTE_IDS.map((collectionId) => collectionsById.get(collectionId)).filter(Boolean);
-  const searchPerformanceCache = createHomeSearchPerformanceCache({ shows, archiveSearch });
+  const similarityIndex = archiveSimilarity?.createSimilarityIndex?.({ shows, collections }) || null;
+  const searchPerformanceCache = createHomeSearchPerformanceCache({ shows, archiveSearch, similarityIndex });
   const filterGroupsById = new Map(structuredFilterGroups.map((group) => [group.id, group]));
   const filterOptionsByGroup = new Map(
     structuredFilterGroups.map((group) => [group.id, new Map(group.options.map((option) => [option.id, option.label]))]),
@@ -76,6 +83,16 @@ export async function initializeHomePage() {
   const state = createHomeState(structuredFilterGroups);
   seedHomeStateFromParams({ state, shows, collectionsById, structuredFilterGroups });
   const searchInputs = [elements.searchInput, elements.stickySearchInput];
+  const homeAnalytics = {
+    hasRendered: false,
+    previousResultCountBucket: "unknown",
+    lastResultCount: 0,
+    seenSearchStates: new Set(),
+    pendingFilterChanges: [],
+    pendingClears: [],
+    searchAnalyticsTimer: 0,
+    pendingSearch: null,
+  };
 
   const previewMode = HOME_CARD_HOVER_EXPAND_ENABLED ? "inline-expand" : "";
   const previewController = HOME_CARD_HOVER_EXPAND_ENABLED
@@ -120,6 +137,36 @@ export async function initializeHomePage() {
   }
   let filterSurfaceController;
 
+  const getActiveFilterCountForAnalytics = () =>
+    Object.values(state.filters).reduce((count, values) => count + values.size, 0) + Number(Boolean(state.selectedCollectionId));
+  const getBrowseStateForAnalytics = () => {
+    const hasSearch = Boolean(state.query.trim());
+    const hasFilters = getActiveFilterCountForAnalytics() > 0 || Boolean(state.selectedCollectionId);
+    return hasSearch ? (hasFilters ? "search_and_filtered" : "search") : hasFilters ? "filtered" : "default";
+  };
+  const getFilterStateSignature = () =>
+    JSON.stringify({
+      query: state.query.trim(),
+      selectedCollectionId: state.selectedCollectionId,
+      filters: Object.fromEntries(
+        Object.entries(state.filters).map(([groupId, values]) => [groupId, Array.from(values).sort()]),
+      ),
+    });
+
+  const recordFilterClear = ({ clearScope = "all", filterGroup = "", count, hadSearch }) => {
+    if (count <= 0 && !hadSearch) {
+      return;
+    }
+
+    homeAnalytics.pendingClears.push({
+      clearScope,
+      filterGroup,
+      count: Math.max(1, count),
+      hadSearch,
+      resultCountBefore: homeAnalytics.lastResultCount,
+    });
+  };
+
   const syncSearchInputs = (nextValue, sourceInput = null) => {
     searchInputs.forEach((input) => {
       if (input !== sourceInput && input.value !== nextValue) {
@@ -133,6 +180,13 @@ export async function initializeHomePage() {
       window.clearTimeout(searchRenderTimer);
       searchRenderTimer = 0;
     }
+    const activeFilterCount = getActiveFilterCountForAnalytics();
+    const hadSearch = Boolean(state.query.trim());
+    recordFilterClear({
+      clearScope: "all",
+      count: activeFilterCount,
+      hadSearch,
+    });
     Object.values(state.filters).forEach((values) => values.clear());
     state.selectedCollectionId = "";
     state.sortMode = "default";
@@ -148,7 +202,17 @@ export async function initializeHomePage() {
       return;
     }
 
+    const hadSearch = Boolean(state.query.trim());
     bucket.groups.forEach((group) => {
+      const selectedCount = state.filters[group.id]?.size || 0;
+      if (selectedCount > 0) {
+        recordFilterClear({
+          clearScope: "group",
+          filterGroup: group.id,
+          count: selectedCount,
+          hadSearch,
+        });
+      }
       state.filters[group.id]?.clear();
     });
     state.selectedCollectionId = "";
@@ -161,12 +225,14 @@ export async function initializeHomePage() {
       return;
     }
 
-    if (selectedValues.has(filterId)) {
+    const action = selectedValues.has(filterId) ? "removed" : "added";
+    if (action === "removed") {
       selectedValues.delete(filterId);
     } else {
       selectedValues.add(filterId);
     }
 
+    homeAnalytics.pendingFilterChanges.push({ groupId, action, filterValue: filterId });
     state.selectedCollectionId = "";
     scheduleHomeResults("explicit");
   };
@@ -210,6 +276,82 @@ export async function initializeHomePage() {
     shows,
     state,
     stickyBrowseController,
+    onResultsRendered: ({ resultCount }) => {
+      const resultCountBucket = bucketDiscoveryResultCount(resultCount);
+      const activeFilterCount = getActiveFilterCountForAnalytics();
+      const recoveryContext = homeAnalytics.previousResultCountBucket === "0"
+        ? "after_zero_results"
+        : homeAnalytics.hasRendered
+          ? "none"
+          : "unknown";
+
+      if (state.query.trim()) {
+        homeAnalytics.pendingSearch = {
+          signature: getFilterStateSignature(),
+          query: state.query,
+          resultCountBucket,
+          activeFilterCountBucket: bucketDiscoveryFilterCount(activeFilterCount),
+          recoveryContext,
+        };
+        if (homeAnalytics.searchAnalyticsTimer) {
+          window.clearTimeout(homeAnalytics.searchAnalyticsTimer);
+        }
+        homeAnalytics.searchAnalyticsTimer = window.setTimeout(() => {
+          homeAnalytics.searchAnalyticsTimer = 0;
+          const pendingSearch = homeAnalytics.pendingSearch;
+          homeAnalytics.pendingSearch = null;
+          if (!pendingSearch || homeAnalytics.seenSearchStates.has(pendingSearch.signature)) {
+            return;
+          }
+          homeAnalytics.seenSearchStates.add(pendingSearch.signature);
+          const queryShape = archiveSearch.classifyQueryShape(publishedShows, pendingSearch.query);
+          trackDiscoveryEvent("Search Used", {
+            discovery_surface: "home_archive",
+            query_kind: queryShape.queryKind,
+            structured_clause_group: queryShape.structuredClauseGroup,
+            result_count_bucket: pendingSearch.resultCountBucket,
+            active_filter_count_bucket: pendingSearch.activeFilterCountBucket,
+            recovery_context: pendingSearch.recoveryContext,
+          });
+        }, 350);
+      } else {
+        homeAnalytics.pendingSearch = null;
+        if (homeAnalytics.searchAnalyticsTimer) {
+          window.clearTimeout(homeAnalytics.searchAnalyticsTimer);
+          homeAnalytics.searchAnalyticsTimer = 0;
+        }
+      }
+
+      homeAnalytics.pendingFilterChanges.splice(0).forEach(({ groupId, action, filterValue }) => {
+        trackDiscoveryEvent("Filter Changed", {
+          discovery_surface: "home_archive",
+          filter_group: groupId,
+          filter_action: action,
+          filter_value: archiveSearch.normalizeTag(filterValue),
+          active_filter_count_bucket: bucketDiscoveryFilterCount(activeFilterCount),
+          result_count_bucket: resultCountBucket,
+          recovery_context: recoveryContext,
+        });
+      });
+
+      homeAnalytics.pendingClears.splice(0).forEach(({ clearScope, filterGroup, count, hadSearch, resultCountBefore }) => {
+        const props = {
+          discovery_surface: "home_archive",
+          clear_scope: clearScope,
+          cleared_filter_count_bucket: bucketDiscoveryClearedFilterCount(count),
+          had_search: hadSearch,
+          result_count_bucket_before: bucketDiscoveryResultCount(resultCountBefore),
+        };
+        if (clearScope === "group") {
+          props.filter_group = filterGroup;
+        }
+        trackDiscoveryEvent("Filters Cleared", props);
+      });
+
+      homeAnalytics.lastResultCount = resultCount;
+      homeAnalytics.previousResultCountBucket = resultCountBucket;
+      homeAnalytics.hasRendered = true;
+    },
   });
   const stickyBrowseVisibilityController = createStickyBrowseVisibilityController({
     elements,

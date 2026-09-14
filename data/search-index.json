@@ -65,6 +65,12 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "medium"
+    },
     "tags": [
       "Spacecraft disaster",
       "Survival",
@@ -151,7 +157,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "story",
@@ -342,6 +348,11 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "commitment": "short"
+    },
     "tags": [
       "Twins",
       "Conspiracy"
@@ -425,7 +436,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "the-deca-tapes",
@@ -486,6 +497,11 @@
       "serialized",
       "limited-series"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "commitment": "medium"
+    },
     "tags": [
       "Locked-room mystery",
       "Found media",
@@ -555,7 +571,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "earth-eclipsed",
@@ -794,6 +810,12 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "long"
+    },
     "tags": [
       "Colony ship",
       "Survival",
@@ -876,7 +898,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "how-i-died",
@@ -1207,6 +1229,12 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "medium",
+      "commitment": "short"
+    },
     "tags": [
       "Space station",
       "Found media",
@@ -1287,7 +1315,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "were-alive",
@@ -1347,6 +1375,12 @@
       "serialized",
       "long-running"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "deep-dive"
+    },
     "tags": [
       "Zombie apocalypse",
       "Survival",
@@ -1424,7 +1458,7 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "impact-winter",
@@ -1484,6 +1518,12 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "long"
+    },
     "tags": [
       "Survival",
       "Post-apocalyptic",
@@ -1581,7 +1621,7 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "oz-9",
@@ -1632,6 +1672,12 @@
       "serialized",
       "long-running"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "low",
+      "commitment": "deep-dive"
+    },
     "tags": [
       "Sci-fi",
       "Comedy",
@@ -1716,7 +1762,7 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "ars-paradoxica",
@@ -1778,6 +1824,11 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "commitment": "long"
+    },
     "tags": [
       "Time travel",
       "Alternate history"
@@ -1874,7 +1925,7 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "red-valley",
@@ -2103,6 +2154,12 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "deep-dive"
+    },
     "tags": [
       "Arctic horror",
       "Isolation",
@@ -2190,7 +2247,7 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "eos-10",
@@ -2390,6 +2447,12 @@
       "narrated",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-narrated",
+      "narrativeFocus": "character-driven",
+      "intensity": "low",
+      "commitment": "medium"
+    },
     "tags": [
       "Afterlife",
       "Road trip",
@@ -2462,7 +2525,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "wolf-359",
@@ -2519,6 +2582,12 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "balanced",
+      "intensity": "medium",
+      "commitment": "deep-dive"
+    },
     "tags": [
       "Space station",
       "Found family",
@@ -2600,7 +2669,7 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "station-151",
@@ -2675,6 +2744,12 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "medium",
+      "commitment": "medium"
+    },
     "tags": [
       "Antarctica",
       "Isolation",
@@ -2754,7 +2829,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "midnight-burger",
@@ -2824,6 +2899,12 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "balanced",
+      "intensity": "medium",
+      "commitment": "deep-dive"
+    },
     "tags": [
       "Time travel",
       "Found family",
@@ -2898,7 +2979,7 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "spectre",
@@ -2946,6 +3027,12 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "medium",
+      "commitment": "medium"
+    },
     "tags": [
       "Space opera",
       "Technology",
@@ -3014,7 +3101,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "the-phenomenon",
@@ -3073,6 +3160,12 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "medium"
+    },
     "tags": [
       "Apocalypse",
       "Survival",
@@ -3151,7 +3244,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "paralyzed",
@@ -3364,6 +3457,12 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "long"
+    },
     "tags": [
       "Underwater",
       "Corporate secrecy",
@@ -3440,7 +3539,7 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "crystal-blue",
@@ -3513,6 +3612,11 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "medium"
+    },
     "tags": [
       "Remote colony",
       "Alien contact",
@@ -3584,7 +3688,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "end-of-all-hope",
@@ -3800,6 +3904,11 @@
       "narrated",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-narrated",
+      "narrativeFocus": "plot-driven",
+      "intensity": "medium"
+    },
     "tags": [
       "Isolation",
       "Conspiracy",
@@ -3874,7 +3983,7 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "the-bright-sessions",
@@ -3931,6 +4040,12 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "character-driven",
+      "intensity": "medium",
+      "commitment": "deep-dive"
+    },
     "tags": [
       "Superpowers",
       "Found family",
@@ -4000,7 +4115,7 @@
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-08-29"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "wooden-overcoats",
@@ -4054,6 +4169,11 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "character-driven",
+      "intensity": "low"
+    },
     "tags": [
       "Sitcom",
       "Small town"
@@ -4106,7 +4226,7 @@
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "alice-isnt-dead",
@@ -4161,6 +4281,11 @@
       "narrated",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-narrated",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high"
+    },
     "tags": [
       "Horror",
       "Road trip",
@@ -4218,7 +4343,7 @@
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "mirrors",
@@ -4284,6 +4409,10 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "balanced"
+    },
     "tags": [
       "Horror",
       "Ghosts",
@@ -4346,7 +4475,7 @@
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "unwell",
@@ -4403,6 +4532,11 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "balanced",
+      "intensity": "medium"
+    },
     "tags": [
       "Gothic",
       "Small town",
@@ -4462,7 +4596,7 @@
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "midst",
@@ -4730,6 +4864,12 @@
       "narrated",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-narrated",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "deep-dive"
+    },
     "tags": [
       "Cosmic horror",
       "Private investigator",
@@ -4806,7 +4946,7 @@
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-08-03"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "case-63",
@@ -5296,6 +5436,10 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "intensity": "high"
+    },
     "tags": [
       "Psychological",
       "Thriller",
@@ -5354,7 +5498,7 @@
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-08-14"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "welcome-to-night-vale",
@@ -5432,6 +5576,9 @@
       "narrated",
       "episodic"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-narrated"
+    },
     "tags": [
       "Weird fiction",
       "Community radio",
@@ -5500,7 +5647,7 @@
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "marsfall",
@@ -5542,7 +5689,7 @@
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "hiatus",
-    "completionStatus": "unclear",
+    "completionStatus": "ongoing",
     "genres": [
       "sci-fi",
       "drama",
@@ -5557,6 +5704,12 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "long"
+    },
     "tags": [
       "Mars colony",
       "Survival",
@@ -5613,7 +5766,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "the-strange-case-of-starship-iris",
@@ -5952,7 +6105,7 @@
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "hiatus",
-    "completionStatus": "unclear",
+    "completionStatus": "ongoing",
     "genres": [
       "sci-fi",
       "comedy",
@@ -6018,7 +6171,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "the-lovecraft-investigations",
@@ -6039,6 +6192,21 @@
     "coverAlt": "The Lovecraft Investigations cover art",
     "creators": [
       "Julian Simpson"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "bbc-radio-4",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "bbc-radio-4",
+        "name": "BBC Radio 4",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -6137,6 +6305,21 @@
       "Nick Braccia",
       "Mike Monello"
     ],
+    "entityLinks": [
+      {
+        "entityId": "shudder",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "shudder",
+        "name": "Shudder",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -6155,6 +6338,12 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "medium"
+    },
     "tags": [
       "Found media",
       "Occult",
@@ -6216,7 +6405,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "limetown",
@@ -7135,6 +7324,12 @@
       "narrated",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-narrated",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "medium"
+    },
     "tags": [
       "Horror",
       "Supernatural",
@@ -7187,7 +7382,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "caravan",
@@ -8842,6 +9037,21 @@
     "creators": [
       "Ester Ellis"
     ],
+    "entityLinks": [
+      {
+        "entityId": "ester-ellis",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "ester-ellis",
+        "name": "Ester Ellis",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -9311,6 +9521,21 @@
     "coverAlt": "The Mistholme Museum of Mystery, Morbidity, and Mortality cover art",
     "creators": [
       "Dominic Guilfoyle"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "thats-not-canon-productions",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "thats-not-canon-productions",
+        "name": "That's Not Canon Productions",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -9791,6 +10016,21 @@
     "coverAlt": "The McIlwraith Statements cover art",
     "creators": [
       "Ghostly Thistle"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "ghostly-thistle",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "ghostly-thistle",
+        "name": "Ghostly Thistle",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -13456,6 +13696,10 @@
     "formats": [
       "serialized"
     ],
+    "discovery": {
+      "narrativeFocus": "plot-driven",
+      "intensity": "high"
+    },
     "tags": [
       "Survival",
       "Action",
@@ -13490,7 +13734,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-08-14"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "scp-archives",
@@ -13692,8 +13936,8 @@
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama",
       "thriller"
@@ -13735,7 +13979,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-08-14"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "the-horror-of-dolores-roach",
@@ -14802,6 +15046,9 @@
     "formats": [
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted"
+    },
     "tags": [
       "Romance",
       "Adventure",
@@ -14837,7 +15084,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-08-14"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "rabbits",
@@ -16753,6 +17000,11 @@
     "formats": [
       "episodic"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "medium"
+    },
     "tags": [
       "Sci-fi",
       "Dystopian",
@@ -16786,7 +17038,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-08-14"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "the-other-stories-sci-fi-horror-thriller-wtf-stories",
@@ -17057,6 +17309,11 @@
     "formats": [
       "episodic"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "medium"
+    },
     "tags": [
       "Mystery",
       "Investigation",
@@ -17090,7 +17347,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-08-14"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "wake-up-new-vilirth",
@@ -17246,6 +17503,21 @@
     "coverAlt": "Hannahpocalypse cover art",
     "creators": [
       "Red Fathom Entertainment"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "red-fathom-entertainment",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "red-fathom-entertainment",
+        "name": "Red Fathom Entertainment",
+        "type": "production-company",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -17476,6 +17748,10 @@
     "formats": [
       "serialized"
     ],
+    "discovery": {
+      "narrativeFocus": "plot-driven",
+      "intensity": "medium"
+    },
     "tags": [
       "Mystery",
       "Cryptids",
@@ -17511,7 +17787,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-08-14"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "anticrastination",
@@ -17610,8 +17886,8 @@
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama"
     ],
@@ -17654,7 +17930,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-08-14"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "unkillable",
@@ -17801,8 +18077,8 @@
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama"
     ],
@@ -17810,6 +18086,11 @@
     "formats": [
       "serialized"
     ],
+    "discovery": {
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "short"
+    },
     "tags": [
       "Horror",
       "Thriller",
@@ -17844,7 +18125,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-08-14"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "out-of-place",
@@ -17874,6 +18155,9 @@
     "formats": [
       "serialized"
     ],
+    "discovery": {
+      "narrativeFocus": "plot-driven"
+    },
     "tags": [
       "Mystery",
       "Conspiracy",
@@ -17907,7 +18191,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-08-14"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "coexistence",
@@ -17937,6 +18221,11 @@
     "formats": [
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high"
+    },
     "tags": [
       "Sci-fi",
       "Post-apocalyptic",
@@ -17971,7 +18260,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-08-14"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "liminal",
@@ -18008,8 +18297,8 @@
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama",
       "sci-fi"
@@ -18052,7 +18341,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-08-14"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "petrified",
@@ -18215,6 +18504,10 @@
     "formats": [
       "episodic"
     ],
+    "discovery": {
+      "narrativeFocus": "plot-driven",
+      "intensity": "medium"
+    },
     "tags": [
       "Mystery",
       "Horror",
@@ -18251,7 +18544,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-08-14"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "dust",
@@ -18411,6 +18704,10 @@
     "formats": [
       "episodic"
     ],
+    "discovery": {
+      "narrativeFocus": "plot-driven",
+      "intensity": "high"
+    },
     "tags": [
       "1930s",
       "Horror",
@@ -18445,7 +18742,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-08-14"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "dreamboy",
@@ -18552,6 +18849,11 @@
     "formats": [
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high"
+    },
     "tags": [
       "1930s",
       "Historical",
@@ -18587,7 +18889,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-08-14"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "1865",
@@ -19331,6 +19633,21 @@
     "creators": [
       "Meet Cute"
     ],
+    "entityLinks": [
+      {
+        "entityId": "meet-cute",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "meet-cute",
+        "name": "Meet Cute",
+        "type": "production-company",
+        "aliases": [],
+        "role": "creator"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "active",
@@ -19915,6 +20232,21 @@
       "Dawson Nichols",
       "Jim Horne"
     ],
+    "entityLinks": [
+      {
+        "entityId": "the-ambit-group",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "the-ambit-group",
+        "name": "The Ambit Group",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -19996,6 +20328,21 @@
     "creators": [
       "Passer Vulpes Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "passer-vulpes-productions",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "passer-vulpes-productions",
+        "name": "Passer Vulpes Productions",
+        "type": "production-company",
+        "aliases": [],
+        "role": "creator"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -20007,6 +20354,9 @@
     "formats": [
       "serialized"
     ],
+    "discovery": {
+      "narrativeFocus": "character-driven"
+    },
     "tags": [
       "Queer",
       "Romance",
@@ -20041,7 +20391,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "almelem",
@@ -20205,6 +20555,21 @@
     "coverAlt": "VALENCE cover art",
     "creators": [
       "Hug House Productions"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "hug-house-productions",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "hug-house-productions",
+        "name": "Hug House Productions",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -20736,6 +21101,21 @@
     "creators": [
       "Wizzard Wizzard Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "wizzard-wizzard-productions",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "wizzard-wizzard-productions",
+        "name": "Wizzard Wizzard Productions",
+        "type": "production-company",
+        "aliases": [],
+        "role": "creator"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -20811,8 +21191,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama",
       "sci-fi"
@@ -20851,7 +21231,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "sidequesting",
@@ -21473,6 +21853,21 @@
     "creators": [
       "Red Fathom Entertainment"
     ],
+    "entityLinks": [
+      {
+        "entityId": "red-fathom-entertainment",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "red-fathom-entertainment",
+        "name": "Red Fathom Entertainment",
+        "type": "production-company",
+        "aliases": [],
+        "role": "creator"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -21695,8 +22090,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama"
     ],
@@ -21733,7 +22128,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "hunted",
@@ -21836,8 +22231,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama",
       "comedy"
@@ -21875,7 +22270,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "aftershock",
@@ -23720,8 +24115,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama",
       "sci-fi"
@@ -23759,7 +24154,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "cry-havoc-ask-questions-later",
@@ -24746,6 +25141,21 @@
     "creators": [
       "Tandon Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "tandon-productions",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "tandon-productions",
+        "name": "Tandon Productions",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -25298,6 +25708,21 @@
     "creators": [
       "Daisy McNamara, Lou Sutcliffe"
     ],
+    "entityLinks": [
+      {
+        "entityId": "cytochrome-hear",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "cytochrome-hear",
+        "name": "CYTOCHROME HEAR",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "active",
@@ -25646,8 +26071,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama"
     ],
@@ -25684,7 +26109,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "liars-leeches",
@@ -28089,6 +28514,23 @@
     "creators": [
       "WGC Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "wgc-productions",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "wgc-productions",
+        "name": "WGC Productions",
+        "type": "network",
+        "aliases": [
+          "WGCProductions"
+        ],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "active",
@@ -28297,6 +28739,21 @@
     "creators": [
       "Passer Vulpes Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "passer-vulpes-productions",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "passer-vulpes-productions",
+        "name": "Passer Vulpes Productions",
+        "type": "production-company",
+        "aliases": [],
+        "role": "creator"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -28375,8 +28832,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "comedy",
       "drama"
@@ -28415,7 +28872,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-09-08"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "max-ivan-fugitives",
@@ -28623,8 +29080,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama"
     ],
@@ -28661,7 +29118,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "supreme-the-battle-for-roe",
@@ -29472,8 +29929,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "comedy",
       "drama"
@@ -29519,7 +29976,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "in-media-res",
@@ -30211,6 +30668,21 @@
     "creators": [
       "Wizzard Wizzard Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "wizzard-wizzard-productions",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "wizzard-wizzard-productions",
+        "name": "Wizzard Wizzard Productions",
+        "type": "production-company",
+        "aliases": [],
+        "role": "creator"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -30335,6 +30807,21 @@
     "creators": [
       "Strong Branch Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "strong-branch-productions",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "strong-branch-productions",
+        "name": "Strong Branch Productions",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -30398,6 +30885,21 @@
     "coverAlt": "Electromancy cover art",
     "creators": [
       "Nathan Comstock"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "nathan-comstock",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "nathan-comstock",
+        "name": "Nathan Comstock",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -31099,8 +31601,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama",
       "sci-fi"
@@ -31139,7 +31641,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "little-did-i-know",
@@ -32691,8 +33193,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama"
     ],
@@ -32730,7 +33232,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "ergo-antz",
@@ -35298,8 +35800,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama"
     ],
@@ -35336,7 +35838,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "the-marksbury-incident",
@@ -35419,6 +35921,21 @@
     "coverAlt": "The Nephilim Hunter cover art",
     "creators": [
       "Underwood Press"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "underwood-press",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "underwood-press",
+        "name": "Underwood Press",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -37306,6 +37823,21 @@
     "creators": [
       "Cole Burkhardt"
     ],
+    "entityLinks": [
+      {
+        "entityId": "poc-podcast-network",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "poc-podcast-network",
+        "name": "POC Podcast Network",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -37810,6 +38342,21 @@
     "coverAlt": "The Goblet Wire cover art",
     "creators": [
       "Ester Ellis"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "ester-ellis",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "ester-ellis",
+        "name": "Ester Ellis",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -38514,8 +39061,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "comedy",
       "drama"
@@ -38553,7 +39100,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "somewhere-city",
@@ -38859,6 +39406,21 @@
     "coverAlt": "The Wanderer cover art",
     "creators": [
       "Ponders Productions"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "ponders-productions",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "ponders-productions",
+        "name": "Ponders Productions",
+        "type": "production-company",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -39267,8 +39829,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama"
     ],
@@ -39305,7 +39867,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "agent-stoker",
@@ -39649,8 +40211,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama",
       "comedy",
@@ -39699,7 +40261,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "infinitas",
@@ -40401,8 +40963,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama",
       "sci-fi"
@@ -40440,7 +41002,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "deep-space-radio",
@@ -40840,6 +41402,21 @@
     "coverAlt": "Shelar and the Scavengers cover art",
     "creators": [
       "Nathan Comstock"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "nathan-comstock",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "nathan-comstock",
+        "name": "Nathan Comstock",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -41810,8 +42387,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama",
       "comedy"
@@ -41860,7 +42437,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "flula-makes-five",
@@ -41945,6 +42522,21 @@
     "coverAlt": "Mars' Best Brisket cover art",
     "creators": [
       "Ponders Productions"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "ponders-productions",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "ponders-productions",
+        "name": "Ponders Productions",
+        "type": "production-company",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -44686,8 +45278,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama",
       "comedy"
@@ -44726,7 +45318,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "gabriela-the-inn-between",
@@ -45130,8 +45722,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama",
       "sci-fi"
@@ -45170,7 +45762,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "lisa-upside-down",
@@ -47147,8 +47739,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama",
       "sci-fi",
@@ -47187,7 +47779,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "elias-the-caretaker",
@@ -48159,6 +48751,21 @@
     "creators": [
       "2e Production"
     ],
+    "entityLinks": [
+      {
+        "entityId": "2e-production",
+        "role": "network"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "2e-production",
+        "name": "2E Production",
+        "type": "network",
+        "aliases": [],
+        "role": "network"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -49077,8 +49684,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama"
     ],
@@ -49115,7 +49722,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "mondaze",
@@ -50579,8 +51186,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama"
     ],
@@ -50617,7 +51224,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "welcome-to-hope-springs",
@@ -51602,8 +52209,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama"
     ],
@@ -51641,7 +52248,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "tagged",
@@ -52051,8 +52658,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama"
     ],
@@ -52092,7 +52699,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "professionally-possessed",
@@ -52888,6 +53495,21 @@
     "coverAlt": "My Date With Lainey Lee cover art",
     "creators": [
       "Meet Cute"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "meet-cute",
+        "role": "creator"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "meet-cute",
+        "name": "Meet Cute",
+        "type": "production-company",
+        "aliases": [],
+        "role": "creator"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -53739,8 +54361,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama",
       "comedy"
@@ -53782,7 +54404,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "the-cold-plunge",
@@ -53806,8 +54428,8 @@
     ],
     "status": "published",
     "reviewStatus": "imported",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "drama"
     ],
@@ -53845,7 +54467,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-15",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "true-urban-legends",
@@ -55005,6 +55627,11 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "medium"
+    },
     "tags": [
       "Crime",
       "Psychological",
@@ -55035,7 +55662,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-09-06",
-    "updatedAt": "2026-09-06"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "wormwood-a-serialized-mystery",
@@ -55223,6 +55850,10 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "commitment": "medium"
+    },
     "tags": [
       "Mars colony",
       "Workplace",
@@ -55254,7 +55885,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-09-06",
-    "updatedAt": "2026-09-06"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "i-am-in-eskew",
@@ -55289,6 +55920,10 @@
       "serialized",
       "narrated"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-narrated",
+      "commitment": "long"
+    },
     "tags": [
       "Weird fiction",
       "Isolation",
@@ -55321,7 +55956,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-09-06",
-    "updatedAt": "2026-09-06"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "palimpsest",
@@ -55581,6 +56216,11 @@
       "full-cast",
       "episodic"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "commitment": "medium"
+    },
     "tags": [
       "Time travel",
       "Investigation",
@@ -55612,7 +56252,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-09-06",
-    "updatedAt": "2026-09-06"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "the-fitzroy-diaries",
@@ -55866,6 +56506,9 @@
       "anthology",
       "narrated"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-narrated"
+    },
     "tags": [
       "Genre anthology",
       "Sci-fi",
@@ -55906,7 +56549,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-09-06",
-    "updatedAt": "2026-09-06"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "eleanor-amplified",
@@ -55941,6 +56584,11 @@
       "serialized",
       "full-cast"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "commitment": "long"
+    },
     "tags": [
       "Adventure",
       "Investigation",
@@ -55972,7 +56620,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-09-06",
-    "updatedAt": "2026-09-06"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "deviser",
@@ -56086,6 +56734,12 @@
       "full-cast",
       "episodic"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "medium"
+    },
     "tags": [
       "Supernatural",
       "Demons",
@@ -56118,7 +56772,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-09-06",
-    "updatedAt": "2026-09-06"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "alba-salix-royal-physician",
@@ -56150,6 +56804,10 @@
       "serialized",
       "full-cast"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "commitment": "medium"
+    },
     "tags": [
       "Fantasy",
       "Urban fantasy",
@@ -56182,7 +56840,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-09-06",
-    "updatedAt": "2026-09-06"
+    "updatedAt": "2026-09-14"
   },
   {
     "id": "the-sojourn",

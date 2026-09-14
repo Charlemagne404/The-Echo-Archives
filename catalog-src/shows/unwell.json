@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"audacious-machine-creative","role":"production-company"}
+    {
+      "entityId": "audacious-machine-creative",
+      "role": "production-company"
+    }
   ],
   "id": "unwell",
   "title": "Unwell",
@@ -97,7 +100,7 @@
   ],
   "cast": [],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "similarReasons": {
     "story": "Another approachable, character-first entry if you want warmth before the weirdness gets denser.",
     "mabel": "A quieter ghost-story branch once the voice-led haunting becomes the main attraction.",
@@ -134,5 +137,10 @@
     "director": "Jeffrey Nils Gardner",
     "composer": "Stephen Poon",
     "productionCompany": "Audacious Machine Creative"
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "medium"
   }
 }

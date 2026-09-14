@@ -1,7 +1,10 @@
 {
   "id": "spines-podcast",
   "entityLinks": [
-    {"entityId":"zoomdoom-stories","role":"production-company"}
+    {
+      "entityId": "zoomdoom-stories",
+      "role": "production-company"
+    }
   ],
   "title": "Spines",
   "subtitle": "A blood-soaked awakening leads into cults, missing memories, and dangerous powers.",
@@ -140,10 +143,16 @@
   "featured": false,
   "createdAt": "2026-07-09",
   "creatorId": "zoomdoom-stories",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "cast": [],
   "creators": [
     "ZoomDoom Stories"
   ],
-  "popularity": {}
+  "popularity": {},
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

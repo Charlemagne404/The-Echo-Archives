@@ -7,8 +7,8 @@
   "coverAlt": "Celeritas cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -537,14 +537,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/SBP2001311146"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -580,8 +586,8 @@
         "description": "50805d6c1ac2ecf532b9358826dc4548c75001d9ada3e4dfb34553c29b5bc342",
         "cover": "cd62deee8b1a6f1af50ef7916efcd7900140e33b47cf2b2e61a0a7aa09c4f705",
         "coverAlt": "a06351c433c72799791da8bdd82a9c0b36d16379c64180a6eb9b14f6b70f6d24",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "d6ef72f97a1cb826b7a4dc34bc62fc8c623eaa0547b09aeb62de70fbc5d68482",
         "officialLinks": "887ab5dcc0b61bb85004d7310764bd35edc2a35c641acd770b96f80ca666f756",
         "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
@@ -601,7 +607,6 @@
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
@@ -612,6 +617,6 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-14",
   "creatorId": "magnesium-film"
 }

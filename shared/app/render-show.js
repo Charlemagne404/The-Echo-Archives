@@ -36,8 +36,13 @@ export function createShowPageMarkup(show, showMap, collections = [], reviewData
 
         ${isFullReview && facts ? `<aside class="detail-side-rail">${facts}</aside>` : ""}
 
-        ${globalThis.EchoArchiveEntities.renderMoreFrom(show, [...showMap.values()], (entry) => createCollectionShowCard(entry).outerHTML)}
-        ${renderSimilarSection(show, showMap)}
+        ${globalThis.EchoArchiveEntities.renderMoreFrom(show, [...showMap.values()], (entry, entity) => createCollectionShowCard(entry, "", {
+          surface: "show_more_from",
+          resultType: "more_from",
+          recommendationSource: "creator_more_from",
+          entityId: entity?.id || "",
+        }).outerHTML)}
+        ${renderSimilarSection(show, showMap, collections)}
         ${renderCollectionsSection(show, collections, showMap)}
         ${renderCorrectionSection(show)}
       </div>

@@ -551,8 +551,8 @@ test("homepage community badges stay truthful across empty, offline, and stale a
     serviceWorkers: "block",
   });
   const page = await context.newPage();
-  const emptyShowId = "impact-winter";
-  const delayedShowId = "impact-winter";
+  const emptyShowId = "welcome-to-night-vale";
+  const delayedShowId = "welcome-to-night-vale";
   const activeShowId = "midnight-burger";
 
   try {
@@ -561,16 +561,33 @@ test("homepage community badges stay truthful across empty, offline, and stale a
 
     let badgeState = await page.evaluate((showId) => {
       const badge = document.querySelector(`#podcast-grid .podcast-card-shell[data-podcast-id="${showId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${showId}"]`);
+      const ratingGroup = badge?.closest(".rating");
+      const listenerScore = ratingGroup?.querySelector(".listener-review-inline-score");
       const value = badge?.querySelector(".community-inline-score-value")?.textContent?.trim() || "";
       return {
         value,
         aria: badge?.getAttribute("aria-label") || "",
+        hidden: Boolean(badge?.hidden),
+        listenerValue: listenerScore?.querySelector(".listener-review-inline-score-value")?.textContent?.trim() || "",
+        listenerHidden: Boolean(listenerScore?.hidden),
+        dividerHidden: Boolean(ratingGroup?.querySelector(".rating-divider")?.hidden),
       };
     }, emptyShowId);
-    assert.equal(badgeState.value, "");
+    assert.equal(badgeState.value, "--/10");
     assert.match(badgeState.aria, /No community ratings yet/i);
+    assert.equal(badgeState.hidden, false);
+    assert.equal(badgeState.listenerValue, "--/10");
+    assert.equal(badgeState.listenerHidden, false);
+    assert.equal(badgeState.dividerHidden, false);
 
     await page.route("**/api/community/ratings/summary?*", async (route) => {
+      await route.fulfill({
+        status: 503,
+        contentType: "application/json",
+        body: JSON.stringify({ error: "offline" }),
+      });
+    });
+    await page.route("**/api/reviews/scores/summary?*", async (route) => {
       await route.fulfill({
         status: 503,
         contentType: "application/json",
@@ -588,16 +605,26 @@ test("homepage community badges stay truthful across empty, offline, and stale a
 
     badgeState = await page.evaluate((showId) => {
       const badge = document.querySelector(`#podcast-grid .podcast-card-shell[data-podcast-id="${showId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${showId}"]`);
+      const ratingGroup = badge?.closest(".rating");
       const value = badge?.querySelector(".community-inline-score-value")?.textContent?.trim() || "";
       return {
         value,
         aria: badge?.getAttribute("aria-label") || "",
+        hidden: Boolean(badge?.hidden),
+        listenerValue: ratingGroup?.querySelector(".listener-review-inline-score-value")?.textContent?.trim() || "",
+        listenerHidden: Boolean(ratingGroup?.querySelector(".listener-review-inline-score")?.hidden),
+        dividerHidden: Boolean(ratingGroup?.querySelector(".rating-divider")?.hidden),
       };
     }, emptyShowId);
-    assert.equal(badgeState.value, "");
+    assert.equal(badgeState.value, "--/10");
     assert.match(badgeState.aria, /unavailable/i);
+    assert.equal(badgeState.hidden, false);
+    assert.equal(badgeState.listenerValue, "--/10");
+    assert.equal(badgeState.listenerHidden, false);
+    assert.equal(badgeState.dividerHidden, false);
 
     await page.unroute("**/api/community/ratings/summary?*");
+    await page.unroute("**/api/reviews/scores/summary?*");
 
     let releaseDelayedResponse;
     const delayedRequestSeen = new Promise((resolve) => {
@@ -665,7 +692,7 @@ test("homepage community badges stay truthful across empty, offline, and stale a
         activeValue: activeBadge?.querySelector(".community-inline-score-value")?.textContent?.trim() || "",
       };
     }, { delayedShowId, activeShowId });
-    assert.equal(staleState.delayedValue, "");
+    assert.equal(staleState.delayedValue, "--/10");
     assert.equal(staleState.activeValue, "6.5/10");
 
     releaseDelayedResponse();
@@ -679,7 +706,7 @@ test("homepage community badges stay truthful across empty, offline, and stale a
         activeValue: activeBadge?.querySelector(".community-inline-score-value")?.textContent?.trim() || "",
       };
     }, { delayedShowId, activeShowId });
-    assert.equal(staleState.delayedValue, "");
+    assert.equal(staleState.delayedValue, "--/10");
     assert.equal(staleState.activeValue, "6.5/10");
   } finally {
     await context.close();

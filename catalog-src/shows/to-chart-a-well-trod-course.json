@@ -7,8 +7,8 @@
   "coverAlt": "To Chart a Well-Trod Course cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -628,14 +628,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://www.spreaker.com/show/4961035/episodes/feed"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://www.spreaker.com/show/4961035/episodes/feed"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -671,8 +677,8 @@
         "description": "eb2a8aa446350fb94ed8225c630fb692b78be63382d2b0ae59423ab919e60472",
         "cover": "9b0d8190c103bbc0b60b615b10cff4db2b3ffcfd6a2b5519a6f87b965937af61",
         "coverAlt": "6d97e357f5fb45700b2c0efb4edcfd28a1d9a0847258510c35dd5e7f9d9d8111",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "354822d2662d697980b264bf219707e4a359db89da4650a855cab609873e63be",
         "officialLinks": "7f6dc75743a68d77e978324bfd7ede5583db900333006ded6eeed1c41006a61e",
         "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
@@ -692,7 +698,6 @@
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
@@ -703,7 +708,7 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-14",
   "creatorId": "to-chart-a-well-trod-course",
   "networkId": "spreaker"
 }

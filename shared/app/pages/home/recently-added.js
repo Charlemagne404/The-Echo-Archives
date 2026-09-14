@@ -1,6 +1,7 @@
 import { syncCommunityCardBadges } from "../../community.js";
 import { archiveRecord } from "../../constants.js";
 import { createShowCard } from "../../render-cards.js";
+import { bucketDiscoveryPosition, getDiscoveryContentProfile } from "../../discovery-analytics.js";
 
 const RECENTLY_ADDED_LIMIT = 4;
 
@@ -39,8 +40,16 @@ export function createRecentlyAddedController({
       return;
     }
 
-    recentlyAddedShows.forEach((show) => {
-      recentlyAddedGrid.appendChild(createShowCard(show));
+    recentlyAddedShows.forEach((show, index) => {
+      recentlyAddedGrid.appendChild(createShowCard(show, {
+        discovery: {
+          surface: "home_recent_rail",
+          resultType: "show_card",
+          recommendationSource: "none",
+          resultPositionBucket: bucketDiscoveryPosition(index + 1),
+          contentProfile: getDiscoveryContentProfile(show.reviewStatus),
+        },
+      }));
     });
     void syncCommunityCardBadges(recentlyAddedGrid, recentlyAddedShows);
   }

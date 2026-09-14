@@ -10,8 +10,8 @@
   "coverAlt": "Invaded cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -613,14 +613,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/67d6dafbb3ef7ea352ef6a51"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/67d6dafbb3ef7ea352ef6a51"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -656,8 +662,8 @@
         "description": "a503d3b93a006baec8317847fa100f21b006f2cf2c9086453e3778830fd4ab5f",
         "cover": "0022f3483ebc2b8ba7e799a41d9069b048ae60cd6703efa567ea78084e1a04ee",
         "coverAlt": "578e6460fdee7b15f44a8746e95a71a8d5d14cb7334b24437a82d2822bdfcbaa",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "5dfa4dbd2f764daa4d4bfb00e0300c78341b6c6e1d68914c131a698c07001428",
         "officialLinks": "35ee662b333b09fd4eeed09597b2941875bf3f7629d753aac367afe543604819",
         "genres": "d43a44c3885ca363e39a4f53c298e71bcb32009530bcab70ecf719f799bcd00a",
@@ -677,7 +683,6 @@
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
@@ -688,6 +693,6 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-14",
   "creatorId": "blue-parrot-audio"
 }

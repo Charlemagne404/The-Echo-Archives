@@ -2,9 +2,12 @@ const assert = require("node:assert/strict");
 const test = require("node:test");
 
 const {
+  buildPublicSimilarityExplanation,
   createSimilarityIndex,
   DIMENSION_DEFINITIONS,
   MATCH_POLICY,
+  PUBLIC_MATCH_POLICY,
+  PUBLIC_SPECIFIC_DIMENSION_IDS,
   SCORE_MAX,
 } = require("../../shared/archive-similarity");
 
@@ -252,6 +255,84 @@ test("rich records combine typed entities, collections, runtime, catalogue size,
   assert.ok(comparison.reasons.some((reason) => /Night Rocket Productions/.test(reason.text)));
   assert.ok(comparison.reasons.some((reason) => /Finished arcs/.test(reason.text)));
   assert.deepEqual(comparison, index.compare("rich-left", "rich-right"));
+});
+
+test("public computed matches require enriched factual overlap and explain themselves without scores", () => {
+  const left = show("left", {
+    title: "Left Show",
+    entityLinks: [{ entityId: "night-rocket", role: "production-company" }],
+    resolvedEntities: [{ id: "night-rocket", name: "Night Rocket Productions", role: "production-company" }],
+  });
+  const right = show("right", {
+    title: "Right Show",
+    entityLinks: [{ entityId: "night-rocket", role: "production-company" }],
+    resolvedEntities: [{ id: "night-rocket", name: "Night Rocket Productions", role: "production-company" }],
+  });
+  const index = createSimilarityIndex({ shows: [left, right] });
+  const [match] = index.getPublicSimilarityMatches("left");
+
+  assert.equal(match.show.id, "right");
+  assert.ok(match.similarity.metadataCoverage >= PUBLIC_MATCH_POLICY.minimumMetadataCoverage);
+  assert.ok(
+    match.similarity.metadataMatches.filter((id) => PUBLIC_SPECIFIC_DIMENSION_IDS.includes(id)).length >= PUBLIC_MATCH_POLICY.minimumSpecificDimensions,
+  );
+  assert.match(match.explanation, /Shared production company: Night Rocket Productions/);
+  assert.doesNotMatch(match.explanation, /score|\/100/i);
+  assert.equal(match.explanation, buildPublicSimilarityExplanation(match.similarity));
+});
+
+test("public computed matches reject sparse and broad genre-format-runtime neighbors", () => {
+  const enriched = show("enriched", { title: "Enriched" });
+  const sparse = sparseShow("sparse", { title: "Sparse" });
+  const broad = show("broad", {
+    title: "Broad Neighbor",
+    tones: [],
+    themes: [],
+    tags: [],
+    bestFor: [],
+    content: {},
+    discovery: {},
+  });
+  const index = createSimilarityIndex({ shows: [enriched, sparse, broad] });
+
+  assert.deepEqual(index.getPublicSimilarityMatches("sparse"), []);
+  assert.equal(index.getPublicSimilarityMatches("enriched").some((entry) => entry.show.id === "broad"), false);
+});
+
+test("public computed matches do not duplicate authored targets and keep authored evidence stronger", () => {
+  const source = show("source", {
+    title: "Source",
+    similarTo: ["authored"],
+    similarReasons: { authored: "The archive chose this relationship." },
+    entityLinks: [{ entityId: "shared-studio", role: "studio" }],
+    resolvedEntities: [{ id: "shared-studio", name: "Shared Studio", role: "studio" }],
+  });
+  const authored = show("authored", {
+    title: "Authored",
+    entityLinks: [{ entityId: "shared-studio", role: "studio" }],
+    resolvedEntities: [{ id: "shared-studio", name: "Shared Studio", role: "studio" }],
+  });
+  const computed = show("computed", {
+    title: "Computed",
+    entityLinks: [{ entityId: "shared-studio", role: "studio" }],
+    resolvedEntities: [{ id: "shared-studio", name: "Shared Studio", role: "studio" }],
+  });
+  const index = createSimilarityIndex({ shows: [source, authored, computed] });
+  const ranked = index.getSimilarShows("source", { limit: 2 });
+  const publicMatches = index.getPublicSimilarityMatches("source");
+
+  assert.equal(ranked[0].show.id, "authored");
+  assert.equal(ranked[0].similarity.curatedEvidence, true);
+  assert.deepEqual(publicMatches.map((entry) => entry.show.id), ["computed"]);
+  assert.equal(publicMatches.some((entry) => entry.show.id === "authored"), false);
+});
+
+test("public computed matches return nothing when the confidence floor is not met", () => {
+  const source = sparseShow("source", { title: "Source" });
+  const target = sparseShow("target", { title: "Target", genres: ["mystery"] });
+  const index = createSimilarityIndex({ shows: [source, target] });
+
+  assert.deepEqual(index.getPublicSimilarityMatches("source"), []);
 });
 
 test("similarity weights remain explicit and sum to the public score budget", () => {

@@ -7,8 +7,8 @@
   "coverAlt": "Newts! cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "https://open.spotify.com/show/4K7X2gY9MwYFWuXEdpyFC7",
@@ -620,14 +620,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.feedburner.com/newtspodcast"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.feedburner.com/newtspodcast"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -663,8 +669,8 @@
         "description": "ba2182c46eaf354fe42fef41d4eb87ef34223fc0f742fc61aac030e95f395c94",
         "cover": "fc56e4b364632876b317cb1a32307243d0ba4477b3e37505d18689fb125c025a",
         "coverAlt": "f786b4b604bd820cbe088bb0c20e2dee14de7c22812b47ec5a26d62e9e1acde0",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "fe13e8ad20b1fcff9970bd75303a62feaadd0ff1e5e173a8853ca1821b90c065",
         "officialLinks": "2af3b2164362f365c140d5fc4108e685b10faf19c3f052108e411cb11135ca4d",
         "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
@@ -683,8 +689,7 @@
       },
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
-        "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+        "No structured transcript links were exposed by the feed."
       ],
       "publication": {
         "tier": "imported",
@@ -694,7 +699,7 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-14",
   "creatorId": "prx",
   "networkId": "newts"
 }

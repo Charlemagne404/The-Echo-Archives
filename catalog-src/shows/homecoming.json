@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"gimlet","role":"production-company"}
+    {
+      "entityId": "gimlet",
+      "role": "production-company"
+    }
   ],
   "id": "homecoming",
   "title": "Homecoming",
@@ -104,7 +107,7 @@
     "Amy Sedaris"
   ],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-14",
   "similarReasons": {
     "case-63": "A compact prestige-thriller branch if you want another slickly delivered mystery with speculative edges.",
     "the-deca-tapes": "Keeps the engineered puzzle-box feel alive while changing the emotional texture.",
@@ -138,5 +141,9 @@
     "objectiveVerifiedAt": "2026-08-14",
     "objectiveNote": "Official site, Apple Podcasts, Spotify, and the current Megaphone feed metadata verify core show identity, link targets, and current feed activity.",
     "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "intensity": "high"
   }
 }

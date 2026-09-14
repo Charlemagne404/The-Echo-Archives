@@ -1,7 +1,13 @@
 {
   "entityLinks": [
-    {"entityId":"business-goose-media","role":"production-company"},
-    {"entityId":"joe-fisher","role":"creator"}
+    {
+      "entityId": "business-goose-media",
+      "role": "production-company"
+    },
+    {
+      "entityId": "joe-fisher",
+      "role": "creator"
+    }
   ],
   "id": "midnight-burger",
   "title": "Midnight Burger",
@@ -84,7 +90,7 @@
     "hex": "#b26745",
     "rgb": "178, 103, 69"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "releaseDates": {
     "first": "2020-10-27",
     "latest": "2026-05-26",
@@ -177,5 +183,11 @@
     "wolf-359": "A comic space ensemble that starts loose and eventually earns much deeper attachment.",
     "the-waystation": "A darker station-to-station branch that keeps the cosmic setting but swaps warmth for recovered-recording mystery.",
     "midst": "A stranger, more reality-bending branch for listeners chasing the cosmic side of the appeal."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "medium",
+    "commitment": "deep-dive"
   }
 }

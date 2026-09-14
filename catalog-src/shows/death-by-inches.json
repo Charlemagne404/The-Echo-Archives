@@ -7,8 +7,8 @@
   "coverAlt": "Death by Inches cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -566,14 +566,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 0.95,
+          "method": "explicit-completion",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.redcircle.com/37fc8096-ef53-4594-9078-6f320264997f"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 0.95,
+          "method": "explicit-completion",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.redcircle.com/37fc8096-ef53-4594-9078-6f320264997f"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -609,8 +615,8 @@
         "description": "0148ee349957c5d18ab62f7c142c124d01b40277a1b5b9b3ef8f84b5544af5a5",
         "cover": "b533f3e7072d3caccb28e8f8e28cb14570f211cbb21ae173c973745a51903ba6",
         "coverAlt": "4981250c95c57c37335c65bbe32de2153a3d4c9a4a531fcf15f092d94243b439",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "8eb7e9e49428976704971083932c01994a7d4e81ef8a3f05f5375d32552af3d3",
         "officialLinks": "e43f261a5536e8f4878fbc4cb0f9ab3f957ffe8a89ee5052d0531755f4a292ff",
         "genres": "821180fff3b21544e41b758f314c5a8c5f9ed4f3c3d2e27d1acaf1686d42e588",
@@ -630,7 +636,6 @@
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
@@ -641,6 +646,6 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-14",
   "creatorId": "creative-genus-audio"
 }

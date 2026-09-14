@@ -13,8 +13,8 @@
   "coverAlt": "The Hatred | A Supernatural Thriller Miniseries cover art",
   "status": "published",
   "reviewStatus": "indexed-only",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -195,10 +195,8 @@
             "https://podcasts.apple.com/us/podcast/the-hatred-a-supernatural-thriller-miniseries/id1809248562"
           ]
         },
-        "notes": "Maintainer confirmed factual identity and metadata against the publisher feed and Apple listing. Completion status remains unknown unless explicitly stated by the source.",
-        "uncertainFields": [
-          "completionStatus"
-        ],
+        "notes": "Maintainer confirmed factual identity and metadata against the publisher feed and Apple listing. Completion status is resolved from the source-declared complete miniseries wording and the observed cataloged episodes.",
+        "uncertainFields": [],
         "reviewedAt": "2026-08-14T20:55:26.871Z"
       },
       "fields": {
@@ -513,14 +511,20 @@
           "sources": []
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 0.95,
+          "method": "explicit-completion",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/thehatred"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 0.95,
+          "method": "explicit-completion",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/thehatred"
+          }]
         },
         "formats": {
           "confidence": 1,
@@ -551,8 +555,8 @@
         "description": "b7365f58a6615618005b969fc74b06a7b6376636e05f9286d0522d12711de84b",
         "cover": "6c2bdd9ae482a4dce3429ff0ca2f276ed38a81ae4f55be6b1e798b96d3bbdf25",
         "coverAlt": "768d2053fea17c2dcebd28b7648cf6491896a74cc4feb40d974f91a32d303ec1",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "f506af3761b360be257b73e908a529e4e8edb7270dc3774fce3d275a466627b3",
         "officialLinks": "3e90311e92e6a807f26afc63f0f877db98c2816987c9089b5efb84a615aa3b2e",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
@@ -572,7 +576,6 @@
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
@@ -588,6 +591,11 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "madhouse-radio"
+  "updatedAt": "2026-09-14",
+  "creatorId": "madhouse-radio",
+  "discovery": {
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "short"
+  }
 }

@@ -1,7 +1,8 @@
 import { createEntitySearchResults } from "./entity-results.js";
 import { syncCommunityCardBadges } from "../../community.js";
 import { ARCHIVIST_ENABLED } from "../../constants.js";
-import { syncShowCardPresentation } from "../../render-cards.js";
+import { setShowDiscoveryMarker, syncShowCardPresentation } from "../../render-cards.js";
+import { bucketDiscoveryPosition, getDiscoveryContentProfile } from "../../discovery-analytics.js";
 import { syncBrowseUrlState } from "./url-state.js";
 import { formatResultsSummaryPrefix, matchesSelectedFilters, renderActiveBrowseState, syncHomeControls } from "./filters.js";
 import { patchArchiveGrid, sortVisibleShows } from "./layout.js";
@@ -26,6 +27,7 @@ export function createHomeResultsController({
   shows,
   state,
   stickyBrowseController,
+  onResultsRendered = () => {},
 }) {
   const renderEntityResults = createEntitySearchResults(elements.archiveGrid, shows);
   let pendingRenderReason = "";
@@ -183,10 +185,39 @@ export function createHomeResultsController({
     displayedResultCount = visibleShows.length;
     const activeDescriptors = getDescriptors();
 
-    visibleShows.forEach((show) => {
+    const browseState = state.query
+      ? (getActiveFilterCountForResults(state.filters) > 0 || selectedCollection ? "search_and_filtered" : "search")
+      : (getActiveFilterCountForResults(state.filters) > 0 || selectedCollection ? "filtered" : "default");
+    visibleShows.forEach((show, index) => {
       const shell = archiveCardShellsById.get(show.id);
       if (shell) {
         syncShowCardPresentation(shell, show);
+        const card = shell.querySelector(".podcast-card");
+        const hasCollectionMembership = Boolean(selectedCollection?.id);
+        const discovery = {
+          showId: show.id,
+          surface: "home_archive_grid",
+          browseState,
+          resultType: hasCollectionMembership ? "collection_member" : state.query ? "search_result" : "show_card",
+          recommendationSource: hasCollectionMembership ? "collection_membership" : "none",
+          resultPositionBucket: bucketDiscoveryPosition(index + 1),
+          contentProfile: getDiscoveryContentProfile(show.reviewStatus),
+          collectionId: selectedCollection?.id || "",
+        };
+        setShowDiscoveryMarker(card, discovery);
+        shell.__homeCardDiscovery = {
+          surface: discovery.surface,
+          browseState: discovery.browseState,
+          resultType: discovery.resultType,
+          recommendationSource: discovery.recommendationSource,
+          resultPositionBucket: discovery.resultPositionBucket,
+          contentProfile: discovery.contentProfile,
+          collectionId: discovery.collectionId,
+        };
+        const previewLink = shell.querySelector(".preview-open-link");
+        if (previewLink) {
+          setShowDiscoveryMarker(previewLink, discovery);
+        }
       }
     });
 
@@ -250,6 +281,14 @@ export function createHomeResultsController({
       sortMode: state.sortMode,
     });
     stickyBrowseController.syncStickySearchMode();
+    onResultsRendered({
+      changeReason,
+      query: state.query,
+      resultCount: matchingResultCount,
+      displayedResultCount,
+      activeFilterCount: Object.values(state.filters).reduce((count, values) => count + values.size, 0),
+      selectedCollectionId: state.selectedCollectionId,
+    });
     hasRenderedHomeResults = true;
   }
 
@@ -278,4 +317,8 @@ export function createHomeResultsController({
   window.addEventListener("touchend", handleTouchEnd, { passive: true });
 
   return { renderHomeResults, scheduleHomeResults };
+}
+
+function getActiveFilterCountForResults(filters) {
+  return Object.values(filters).reduce((count, values) => count + values.size, 0);
 }

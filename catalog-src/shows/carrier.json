@@ -16,8 +16,8 @@
   "coverAlt": "Carrier cover art",
   "status": "published",
   "reviewStatus": "indexed-only",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -550,14 +550,20 @@
           "sources": []
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/QCD1940458558"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/QCD1940458558"
+          }]
         },
         "formats": {
           "confidence": 1,
@@ -592,8 +598,8 @@
         "description": "e9fb30d991cdd31ac5917f91d41031560a10b7170da9d19c75b3fce93ce831b0",
         "cover": "033aa91756bd6db27bc3acbdc44574c50a67e75781eec99bba0f425ead135c59",
         "coverAlt": "9dee5e99241938a6b110e2910e16bc217a6bf85b396b2bcf7ef4af58f8af8935",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "b747a8d56238b6ec822058db95321e73ec2b7cd7f7f9d34af26baed49859b128",
         "officialLinks": "f5738951360c774ba724e50eee46a4d44957de1f5cd17d77e129dd28a55b81dc",
         "genres": "6a8db8ddae727da381a5307da1a12e8155a6e0039d2db8f3970a558c38a5e219",
@@ -613,7 +619,6 @@
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
@@ -629,6 +634,6 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-14",
   "creatorId": "qcode"
 }

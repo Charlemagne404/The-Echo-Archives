@@ -1,5 +1,11 @@
 {
   "id": "video-palace",
+  "entityLinks": [
+    {
+      "entityId": "shudder",
+      "role": "production-company"
+    }
+  ],
   "title": "Video Palace",
   "subtitle": "Found-audio horror about cursed media and the kind of mystery that keeps getting worse.",
   "description": "When video collector Mark Cambria watches a mysterious VHS tape, he begins talking in his sleep in a language that doesn't exist. Mark and his girlfriend Tamra set out to investigate the tape's origin and find themselves caught up in a web of conspiracy, occult, and dread surrounding a legendary video store with a sinister purpose beyond imagining. Video Palace was created by Nick Braccia and Mike Monello, directed by Ben Rock, written by Ben Rock & Bob DeRosa and stars Chase Williamson and Devin Sidell.",
@@ -142,7 +148,7 @@
   },
   "featured": false,
   "createdAt": "2026-07-01",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "creators": [
     "Nick Braccia",
     "Mike Monello"
@@ -150,5 +156,11 @@
   "cast": [
     "Chase Williamson",
     "Devin Sidell"
-  ]
+  ],
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

@@ -451,7 +451,10 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-14",
   "creatorId": "spotify-studios",
-  "networkId": "spotify"
+  "networkId": "spotify",
+  "discovery": {
+    "voiceStyle": "primarily-acted"
+  }
 }

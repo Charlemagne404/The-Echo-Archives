@@ -92,7 +92,7 @@
     "hex": "#457693",
     "rgb": "69, 118, 147"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "releaseDates": {
     "first": "2019-05-28",
     "latest": "2022-11-29"
@@ -198,5 +198,11 @@
     "solar": "A tighter survival chamber if you want the space danger without the same wandering sprawl.",
     "the-waystation": "Another stranded-space mystery with full-cast survival pressure, framed through recovered recordings.",
     "midst": "A stranger worldbuilding escalation for listeners who want the setting to get weirder and bigger."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "long"
   }
 }

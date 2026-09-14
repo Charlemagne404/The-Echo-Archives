@@ -10,8 +10,8 @@
   "coverAlt": "The Foxes of Hydesville cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -515,14 +515,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -558,8 +564,8 @@
         "description": "56b732a7210a5223e8dc67ca340a3da3870b60927583567ba222fe87066bd038",
         "cover": "80aabbe3acf3a73b8e8c8dee101eb45ad712c2d1a75bafdb7a27e21f30db422e",
         "coverAlt": "f8633e67e94524c8becebec7f76bad16850c2f9e2d8b8e9e65257083f218951c",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "c4b1b7705c804ea8ac8e6f641a9aa4b089b299fcc685764168a09397115f526d",
         "officialLinks": "3e90311e92e6a807f26afc63f0f877db98c2816987c9089b5efb84a615aa3b2e",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
@@ -579,7 +585,6 @@
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
@@ -590,6 +595,6 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-14",
   "creatorId": "qcode-criminal-content"
 }

@@ -7,8 +7,8 @@
   "coverAlt": "1972 - The Chisholm Campaign Trail and the Davis Trial cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -526,14 +526,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/1972"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/1972"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -569,8 +575,8 @@
         "description": "61beb27c9c9bfa7dc09b51551b7e2e9c75a206f01900213aa0c90df07763329f",
         "cover": "6bd7f9763fefd2e3a81dc29a5816c40fa6f186ac41487083eaadae422c109c93",
         "coverAlt": "dd29fc1f8baaa05615aada4f0fed7cabd5eba6524c6aa68404bca50c2350ec5f",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "2c2f20db83367f45fb4d47fcbd9cddd57f2c742c3e14e65e646d9b22c52d51b0",
         "officialLinks": "7674c8ec2409b59d2de18f38927dbde61dd5f55a111f0f03bc8d1d8ea06c5ec9",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
@@ -590,7 +596,7 @@
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
@@ -601,6 +607,6 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-14",
   "creatorId": "yhane-washington-smith"
 }

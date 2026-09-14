@@ -377,6 +377,11 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "spotify-warner-bros-dc"
+  "updatedAt": "2026-09-14",
+  "creatorId": "spotify-warner-bros-dc",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium"
+  }
 }

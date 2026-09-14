@@ -16,8 +16,8 @@
   "coverAlt": "Liminal cover art",
   "status": "published",
   "reviewStatus": "indexed-only",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -226,10 +226,8 @@
             "https://www.acornartsandentertainment.com/liminal"
           ]
         },
-        "notes": "Maintainer confirmed factual identity and metadata against the publisher feed and Apple listing. Completion status remains unknown unless explicitly stated by the source.",
-        "uncertainFields": [
-          "completionStatus"
-        ],
+        "notes": "Maintainer confirmed factual identity and metadata against the publisher feed and Apple listing. Completion status is resolved from the source-declared four-episode limited run and the observed cataloged episodes.",
+        "uncertainFields": [],
         "reviewedAt": "2026-08-14T20:55:26.905Z"
       },
       "fields": {
@@ -584,14 +582,20 @@
           "sources": []
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://anchor.fm/s/109146680/podcast/rss"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://anchor.fm/s/109146680/podcast/rss"
+          }]
         },
         "formats": {
           "confidence": 1,
@@ -622,8 +626,8 @@
         "description": "99743cd00d36621a7715dcde259fc54d296df7badeb44f175ee52a822df4edc1",
         "cover": "c2fa753765f80da7222c434ccbd48a007e75e4309eaf4959ee1de22a95acb0e3",
         "coverAlt": "2bca76716bc1d49677a3875eb2a030b48cb51b61dad6344b2e51e657aa8aa5b7",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "43336d604a80d9bc702f7017d285b0468725b37cd269f62df9697031ba888c7b",
         "officialLinks": "7e0e480f3cc3f68541ae5fec7ab15fcd500c4585bedbeac8d0db3929667a08a4",
         "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
@@ -643,7 +647,6 @@
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
@@ -659,7 +662,7 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-14",
   "creatorId": "acorn-arts-and-entertainment",
   "networkId": "acorn-a-e"
 }

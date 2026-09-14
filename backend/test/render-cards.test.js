@@ -95,9 +95,16 @@ test("primary card score preserves Archive Rating and otherwise uses the written
   assert.match(listenerScore.innerHTML, /Listener Review Score/);
   assert.match(listenerScore.innerHTML, />8\.3\/10</);
   assert.equal(listenerScore.attributes["aria-label"], "Listener Review Score 8.3/10 from 6 reviews.");
-  assert.equal(emptyListenerScore.hidden, true);
-  assert.doesNotMatch(emptyListenerScore.innerHTML, /--\/10/);
-  assert.equal(emptyListenerScore.attributes["aria-label"], "Listener review score");
+  assert.equal(emptyListenerScore.hidden, false);
+  assert.match(emptyListenerScore.innerHTML, />--\/10</);
+  assert.equal(emptyListenerScore.attributes["aria-label"], "Listener Review Score --/10. No published listener reviews yet.");
+
+  const { createCommunityScoreElement, createRatingDividerElement } = await import("../../shared/app/render-cards/scores.js");
+  const emptyCommunityScore = createCommunityScoreElement({ id: "empty-show" });
+  const divider = createRatingDividerElement();
+  assert.equal(emptyCommunityScore.hidden, false);
+  assert.match(emptyCommunityScore.innerHTML, /community-inline-score-value">--\/10</);
+  assert.equal(divider.hidden, false);
 
   cleanupFrontendGlobals();
 });

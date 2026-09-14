@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"realm","role":"network"}
+    {
+      "entityId": "realm",
+      "role": "network"
+    }
   ],
   "id": "marsfall",
   "title": "Marsfall",
@@ -17,7 +20,7 @@
   "status": "published",
   "reviewStatus": "indexed-only",
   "releaseStatus": "hiatus",
-  "completionStatus": "unclear",
+  "completionStatus": "ongoing",
   "listenLinks": {
     "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/marsfall/id1267375227?uo=4",
@@ -134,14 +137,20 @@
     },
     "objectiveImportedAt": "2026-07-01T14:06:47.023Z",
     "objectiveVerifiedAt": "2026-07-18",
-    "objectiveNote": "Imported candidate was promoted after archive review and metadata cleanup using current official, Apple, and feed sources.",
+  "objectiveNote": "Imported candidate was promoted after archive review and metadata cleanup using current official, Apple, and feed sources. The existing source-backed hiatus state maps to ongoing under the catalog's established hiatus/ongoing pairing; no completion or cancellation evidence was added.",
     "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "featured": false,
   "createdAt": "2026-07-01",
   "creatorId": "marsfall-llc-realm",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "creators": [
     "Marsfall LLC"
-  ]
+  ],
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "long"
+  }
 }

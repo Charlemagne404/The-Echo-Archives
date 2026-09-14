@@ -1,5 +1,11 @@
 {
   "id": "the-antique-shop",
+  "entityLinks": [
+    {
+      "entityId": "ghostly-thistle",
+      "role": "network"
+    }
+  ],
   "title": "The McIlwraith Statements",
   "subtitle": "",
   "description": "Sarah McIlwraith is haunted by the past. It doesn’t help that she can also see ghosts. Listen to Sarah as she recounts her involvement in the infamous IPP study, and her search for the truth behind the disaster.",

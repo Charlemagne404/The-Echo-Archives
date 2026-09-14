@@ -1,6 +1,6 @@
 const SEARCH_SCORE_CACHE_LIMIT = 12;
 
-export function createHomeSearchPerformanceCache({ shows, archiveSearch }) {
+export function createHomeSearchPerformanceCache({ shows, archiveSearch, similarityIndex = null }) {
   const collectionShowIdSets = new Map();
   const scoredSearchResultsByQuery = new Map();
 
@@ -28,7 +28,10 @@ export function createHomeSearchPerformanceCache({ shows, archiveSearch }) {
         return cachedResults;
       }
 
-      const scoredResults = archiveSearch.scoreCatalog(shows, cacheKey);
+      const scoredResults = archiveSearch.scoreCatalog(shows, cacheKey, {
+        includeComputedSimilarityFallback: true,
+        similarityIndex,
+      });
       scoredSearchResultsByQuery.set(cacheKey, scoredResults);
       if (scoredSearchResultsByQuery.size > SEARCH_SCORE_CACHE_LIMIT) {
         const oldestKey = scoredSearchResultsByQuery.keys().next().value;

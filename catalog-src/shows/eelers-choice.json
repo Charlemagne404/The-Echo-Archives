@@ -1,5 +1,11 @@
 {
   "id": "eelers-choice",
+  "entityLinks": [
+    {
+      "entityId": "cytochrome-hear",
+      "role": "network"
+    }
+  ],
   "title": "Eeler's Choice",
   "subtitle": "The ocean never gives back what it takes unchanged",
   "description": "\"No respect for the sea, for the living things in it, for what's owed. They're fishing in the eel breeding grounds now, the fools .\" Eeler's Choice is a maritime horror fantasy podcast set in Eskmouth, a small coastal town whose economy has lived and died on the hunting of the Great Eels for generations. As demand for product has increased, so have the catches... but even the generosity of the sea has its limits, and all debts must come due. Releasing biweekly. Hosted on Acast. See acast.com/privacy for more information.",

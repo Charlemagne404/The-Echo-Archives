@@ -5,6 +5,7 @@ export {
   createShowCard,
   ensureShellPreviewPanel,
   getShellPreviewPanel,
+  setShowDiscoveryMarker,
   syncShowCardPresentation,
 } from "./render-cards/preview.js";
 export {

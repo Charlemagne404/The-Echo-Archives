@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"wired-cowslip","role":"production-company"}
+    {
+      "entityId": "wired-cowslip",
+      "role": "production-company"
+    }
   ],
   "id": "the-waystation",
   "title": "The Waystation",
@@ -81,7 +84,7 @@
     "hex": "#497f8a",
     "rgb": "73, 127, 138"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "officialLinks": {
     "website": "https://thewaystation.carrd.co/",
     "patreon": "",
@@ -188,5 +191,11 @@
     "vast-horizon": "Another full-cast deep-space mystery built around a crew under escalating survival pressure.",
     "archive-81": "Shares the recovered-recording structure, institutional investigation, and reality-bending horror.",
     "station-151": "The closest compact follow-up for isolation, recorded logs, and an unexplained threat at a remote station."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium",
+    "commitment": "short"
   }
 }

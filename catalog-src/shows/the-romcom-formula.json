@@ -7,8 +7,8 @@
   "coverAlt": "The Romcom Formula cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -592,14 +592,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -635,8 +641,8 @@
         "description": "3492bafd6db87e504e314cff0529269aab9af034021ec25b6134bd349486cdc2",
         "cover": "b759191b94857598fcee818a5ab392b1660cb36e223a52f70239f7399235c08d",
         "coverAlt": "b0a8ac9217f34383c609e2f9989561947579184e536cbd42dafb7bdedf05a5c7",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "15cfadf40407f44f1e1574c1db4972535446a320e6571329c5b35ffbcbce4c73",
         "officialLinks": "3715a7fad30ad60a728047f7d8bd9aae6976abe522328a8da99fa00796ae31bd",
         "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
@@ -655,7 +661,6 @@
       },
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
@@ -666,7 +671,7 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-14",
   "creatorId": "susan-cooper",
   "networkId": "susan-cooper-vo"
 }

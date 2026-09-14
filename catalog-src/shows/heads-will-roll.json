@@ -10,8 +10,8 @@
   "coverAlt": "Heads Will Roll cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -550,14 +550,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.art19.com/heads-will-roll"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.art19.com/heads-will-roll"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -593,8 +599,8 @@
         "description": "ee67d482021b240c55d15c495d93e0e76b994a52fa6616aa105c38bcf15970c4",
         "cover": "d52b2415ec54324190e06d98f0b05b11bf0ea3268b533f5a0e9eb00c4b72b223",
         "coverAlt": "f4f99eaa8a879afcafebba5db7e9fc9296180067ce03bef51335b39cf4330830",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "7659bed4079d3a90d9a49ebf1a6e8aa39ccf193c44e9359a8e5ba4767ef35704",
         "officialLinks": "80841ddb4c79a83908b5277f7bbe7dfc38576ec0a3e7d3cd99511200f598d8b4",
         "genres": "d43a44c3885ca363e39a4f53c298e71bcb32009530bcab70ecf719f799bcd00a",
@@ -614,7 +620,6 @@
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
@@ -625,5 +630,5 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-09-08"
+  "updatedAt": "2026-09-14"
 }

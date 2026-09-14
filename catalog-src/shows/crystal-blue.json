@@ -87,7 +87,7 @@
     "hex": "#6c6ea0",
     "rgb": "108, 110, 160"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "officialLinks": {
     "website": "https://www.7lamb.com/audiodramas",
     "patreon": "",
@@ -181,5 +181,10 @@
     "eos-10": "Keeps the lighter sci-fi comedy lane active with more ensemble banter than chaos.",
     "oz-9": "A messier comic escalation if you want the dysfunction pushed harder.",
     "station-151": "A colder, stranger outpost branch for listeners who liked the off-kilter sci-fi tone."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium"
   }
 }

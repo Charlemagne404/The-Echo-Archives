@@ -468,7 +468,7 @@ function renderCollectionOverview(collection, collectionShows, anchorShow) {
     `<span class="collection-detail-meta-text">${escapeHtml(formatCount(collectionShows.length, "show"))}</span>`,
     `<span class="collection-detail-meta-separator" aria-hidden="true"> · </span>`,
     `<span class="collection-detail-meta-text">${escapeHtml(routeTypeLabel)}</span>`,
-    collection.kind === "similarity" && anchorShow ? `<span class="collection-detail-meta-separator" aria-hidden="true"> · </span><span class="collection-detail-meta-text collection-detail-meta-text-anchor"><span class="collection-detail-anchor-prefix">Starts with </span><a class="collection-detail-anchor-link" href="${escapeAttribute(buildShowPath(anchorShow.id))}">${escapeHtml(anchorShow.title)}</a></span>` : "",
+    collection.kind === "similarity" && anchorShow ? `<span class="collection-detail-meta-separator" aria-hidden="true"> · </span><span class="collection-detail-meta-text collection-detail-meta-text-anchor"><span class="collection-detail-anchor-prefix">Starts with </span><a class="collection-detail-anchor-link" href="${escapeAttribute(buildShowPath(anchorShow.id))}" data-discovery-show-id="${escapeAttribute(anchorShow.id)}" data-discovery-surface="collection_membership" data-discovery-browse-state="default" data-discovery-result-type="collection_member" data-discovery-recommendation-source="collection_membership" data-discovery-result-position-bucket="unknown" data-discovery-content-profile="${anchorShow.reviewStatus === "full-review" ? "full_review" : anchorShow.reviewStatus === "imported" ? "imported" : anchorShow.reviewStatus === "indexed-only" ? "indexed_only" : "unknown"}" data-discovery-collection-id="${escapeAttribute(collection.id)}">${escapeHtml(anchorShow.title)}</a></span>` : "",
     collection.updatedAt ? `<span class="collection-detail-meta-separator" aria-hidden="true"> · </span><span class="collection-detail-meta-text">Updated ${escapeHtml(formatCollectionDate(collection.updatedAt))}</span>` : "",
   ].join("");
   const chips = [collection.label, ...(collection.intentTags || []).slice(0, 2)]
@@ -498,7 +498,7 @@ function injectCollectionSummary(html, { collection, collectionShows = [], ancho
   rendered = rendered.replace('id="collectionRoot" class="page-card collection-detail-overview" aria-label="Collection at a glance" hidden', 'id="collectionRoot" class="page-card collection-detail-overview" aria-label="Collection at a glance" data-collection-prerendered="true"');
   const showMap = new Map(allShows.map((show) => [show.id, show]));
   const relatedMarkup = getRelatedCollections(collection, collections)
-    .map((relatedCollection) => renderCollectionDirectoryCard(relatedCollection, showMap, { compact: true }))
+    .map((relatedCollection) => renderCollectionDirectoryCard(relatedCollection, showMap, { compact: true, discoverySurface: "collection_page_related" }))
     .join("");
   if (relatedMarkup) {
     rendered = replaceElementContents(rendered, "collectionRelatedGrid", relatedMarkup);
@@ -510,7 +510,12 @@ function injectCollectionSummary(html, { collection, collectionShows = [], ancho
 function injectCollectionShowCards(html, { collection, collectionShows = [] }) {
   const showReasons = collection.showReasons && typeof collection.showReasons === "object" ? collection.showReasons : {};
   const markup = collectionShows
-    .map((show) => renderCollectionShowCard(show, showReasons[show.id]))
+    .map((show) => renderCollectionShowCard(show, showReasons[show.id], {
+      surface: "collection_page_grid",
+      resultType: "collection_member",
+      recommendationSource: collection.kind === "similarity" ? "similarity_collection" : "collection_membership",
+      collectionId: collection.id,
+    }))
     .join("");
   return html.replace(
     /(<div\s+id="collectionShowGrid"\s+class="podcast-card-grid">)[\s\S]*?(<\/div>)/i,

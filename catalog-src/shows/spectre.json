@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"station-blue-productions","role":"production-company"}
+    {
+      "entityId": "station-blue-productions",
+      "role": "production-company"
+    }
   ],
   "id": "spectre",
   "title": "Spectre",
@@ -79,7 +82,7 @@
     "hex": "#61718c",
     "rgb": "97, 113, 140"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "officialLinks": {
     "website": "",
     "patreon": "",
@@ -166,5 +169,11 @@
     "solar": "Keeps the spacebound threat active with more direct survival pressure.",
     "the-deca-tapes": "A puzzle-box mystery branch if atmosphere matters more than forward drive.",
     "derelict": "A louder industrial escalation for listeners who want the sci-fi pressure to get meaner."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium",
+    "commitment": "medium"
   }
 }

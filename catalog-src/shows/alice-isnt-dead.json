@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"joseph-fink","role":"creator"}
+    {
+      "entityId": "joseph-fink",
+      "role": "creator"
+    }
   ],
   "id": "alice-isnt-dead",
   "title": "Alice Isn't Dead",
@@ -102,7 +105,7 @@
     "Jasika Nicole"
   ],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "similarReasons": {
     "tower-4": "The cleanest next stop if the solitary voice and remote unease are the hook.",
     "the-white-vault": "A colder environmental-horror branch once the sense of isolation becomes the main appetite.",
@@ -135,5 +138,10 @@
     "objectiveVerifiedAt": "2026-07-18",
     "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
     "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high"
   }
 }

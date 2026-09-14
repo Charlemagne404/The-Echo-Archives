@@ -2,6 +2,13 @@ import { syncInlineScoreGroup } from "../render-cards.js";
 import { loadCommunitySummaries } from "./api.js";
 import { formatCommunityBadgeAriaLabel, formatCommunityBadgeText } from "./formatters.js";
 
+const EMPTY_CARD_SCORE_TEXT = "--/10";
+
+function formatCommunityCardScoreText(summary) {
+  const text = formatCommunityBadgeText(summary);
+  return text && text !== "Pending" ? text : EMPTY_CARD_SCORE_TEXT;
+}
+
 function formatListenerReviewScoreText(summary) {
   const averageRating = Number(summary?.averageRating);
   const reviewCount = Number(summary?.reviewCount);
@@ -23,9 +30,9 @@ async function syncListenerReviewCardScores(container, shows) {
   const scores = Array.from(container.querySelectorAll(".listener-review-inline-score"));
   scores.forEach((score) => {
     const value = score.querySelector(".listener-review-inline-score-value");
-    if (value) value.textContent = "";
-    score.hidden = true;
-    score.setAttribute("aria-label", "Listener review score");
+    if (value) value.textContent = EMPTY_CARD_SCORE_TEXT;
+    score.hidden = false;
+    score.setAttribute("aria-label", "Listener Review Score --/10. No published listener reviews yet.");
   });
 
   const ids = Array.from(new Set((Array.isArray(shows) ? shows : []).map((show) => show?.id).filter(Boolean)));
@@ -41,13 +48,15 @@ async function syncListenerReviewCardScores(container, shows) {
       const summary = summaries[score.dataset.podcastId || ""];
       const value = score.querySelector(".listener-review-inline-score-value");
       const text = formatListenerReviewScoreText(summary);
-      if (value) value.textContent = text;
-      score.hidden = !text;
+      if (value) value.textContent = text || EMPTY_CARD_SCORE_TEXT;
+      score.hidden = false;
       score.setAttribute("aria-label", formatListenerReviewScoreAriaLabel(summary));
     });
   } catch (_error) {
     scores.forEach((score) => {
-      score.hidden = true;
+      const value = score.querySelector(".listener-review-inline-score-value");
+      if (value) value.textContent = EMPTY_CARD_SCORE_TEXT;
+      score.hidden = false;
       score.setAttribute("aria-label", "Listener review score unavailable.");
     });
   }
@@ -66,9 +75,9 @@ export async function syncCommunityCardBadges(container, shows) {
   badges.forEach((badge) => {
     const value = badge.querySelector(".community-inline-score-value");
     if (value) {
-      value.textContent = "";
+      value.textContent = EMPTY_CARD_SCORE_TEXT;
     }
-    badge.hidden = true;
+    badge.hidden = false;
     badge.setAttribute("aria-label", "Community rating");
   });
   container.querySelectorAll(".rating, .home-card-preview-ratings, .popular-card-ratings").forEach((group) => {
@@ -88,13 +97,13 @@ export async function syncCommunityCardBadges(container, shows) {
 
     badges.forEach((badge) => {
       const summary = summaries[badge.dataset.podcastId || ""];
-      const text = formatCommunityBadgeText(summary);
+      const text = formatCommunityCardScoreText(summary);
       const value = badge.querySelector(".community-inline-score-value");
       if (value) {
         value.textContent = text;
       }
       badge.setAttribute("aria-label", formatCommunityBadgeAriaLabel(summary));
-      badge.hidden = !text;
+      badge.hidden = false;
     });
     container.querySelectorAll(".rating, .home-card-preview-ratings, .popular-card-ratings").forEach((group) => {
       syncInlineScoreGroup(group);
@@ -107,9 +116,9 @@ export async function syncCommunityCardBadges(container, shows) {
     badges.forEach((badge) => {
       const value = badge.querySelector(".community-inline-score-value");
       if (value) {
-        value.textContent = "";
+        value.textContent = EMPTY_CARD_SCORE_TEXT;
       }
-      badge.hidden = true;
+      badge.hidden = false;
       badge.setAttribute("aria-label", "Community rating unavailable.");
     });
     container.querySelectorAll(".rating, .home-card-preview-ratings, .popular-card-ratings").forEach((group) => {

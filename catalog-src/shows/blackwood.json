@@ -652,7 +652,11 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-14",
   "creatorId": "scary-fun",
-  "networkId": "art19"
+  "networkId": "art19",
+  "discovery": {
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium"
+  }
 }

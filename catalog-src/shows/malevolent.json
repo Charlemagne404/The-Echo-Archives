@@ -1,7 +1,13 @@
 {
   "entityLinks": [
-    {"entityId":"rusty-quill","role":"network"},
-    {"entityId":"harlan-guthrie","role":"creator"}
+    {
+      "entityId": "rusty-quill",
+      "role": "network"
+    },
+    {
+      "entityId": "harlan-guthrie",
+      "role": "creator"
+    }
   ],
   "id": "malevolent",
   "title": "Malevolent",
@@ -131,7 +137,7 @@
   ],
   "cast": [],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-08-03",
+  "updatedAt": "2026-09-14",
   "similarReasons": {
     "the-white-vault": "Keeps the dread intense while turning the threat colder and more environmental.",
     "tower-4": "A quieter paranoia branch if the voice-driven unease is the part you want to keep.",
@@ -211,5 +217,11 @@
     "composer": "Harlan Guthrie",
     "ownerName": "Harlan Guthrie",
     "network": "Rusty Quill Ltd"
+  },
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
   }
 }

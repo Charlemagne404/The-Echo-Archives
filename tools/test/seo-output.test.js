@@ -58,6 +58,7 @@ test("service-worker install list stays within the offline-shell budget", () => 
     app: "app-version",
     archiveRecord: "record-version",
     archiveSearch: "search-version",
+    archiveSimilarity: "similarity-version",
     script: "script-version",
     style: "style-version",
     extra: new Map([["info.css", "info-version"]]),
@@ -65,6 +66,7 @@ test("service-worker install list stays within the offline-shell budget", () => 
 
   assert.ok(urls.length <= 30, `expected no more than 30 install URLs, received ${urls.length}`);
   assert.ok(urls.includes("/offline.html"));
+  assert.ok(urls.includes("/shared/archive-similarity.js?v=similarity-version"));
   assert.ok(urls.some((url) => url.startsWith("/info.css?v=")));
   assert.equal(urls.some((url) => url.includes("/data/")), false);
   assert.equal(urls.some((url) => url.includes("/pages/") || url.includes("maintainer") || url.includes("chat")), false);

@@ -72,7 +72,7 @@
     if (!entities.length) return "";
     const rows = ROLES.flatMap((role) => {
       const related = entities.filter((entity) => entity.role === role);
-      return related.length ? [{ label: ROLE_LABELS[role], html: related.map((entity) => `<a href="${entityPath(entity.id)}">${escapeHtml(entity.name)}</a>`).join(" · ") }] : [];
+      return related.length ? [{ label: ROLE_LABELS[role], html: related.map((entity) => `<a href="${entityPath(entity.id)}" data-discovery-entity-id="${escapeHtml(entity.id)}" data-discovery-entity-type="${escapeHtml(entity.type || "unknown")}" data-discovery-surface="show_page_credit">${escapeHtml(entity.name)}</a>`).join(" · ") }] : [];
     });
     // Keep unmigrated individual credits when only the company/network was linked.
     // This is display fallback only; it never creates a relationship or public URL.
@@ -86,7 +86,7 @@
   function renderMoreFrom(show, shows, renderCard) {
     const selected = selectMoreFrom(show, shows);
     if (!selected) return "";
-    return `<section class="detail-section detail-more-from" aria-labelledby="more-from-title"><div class="detail-section-header"><h2 id="more-from-title">From ${escapeHtml(selected.entity.name)}</h2><a class="detail-archive-link" href="${entityPath(selected.entity.id)}">View all ${selected.shows.length}</a></div><div class="podcast-card-grid">${selected.shows.slice(0, 4).map(renderCard).join("")}</div></section>`;
+    return `<section class="detail-section detail-more-from" aria-labelledby="more-from-title"><div class="detail-section-header"><h2 id="more-from-title">From ${escapeHtml(selected.entity.name)}</h2><a class="detail-archive-link" href="${entityPath(selected.entity.id)}" data-discovery-entity-id="${escapeHtml(selected.entity.id)}" data-discovery-entity-type="${escapeHtml(selected.entity.type || "unknown")}" data-discovery-surface="entity_page_related">View all ${selected.shows.length}</a></div><div class="podcast-card-grid">${selected.shows.slice(0, 4).map((entry) => renderCard(entry, selected.entity)).join("")}</div></section>`;
   }
 
   function entityStructuredData(entity, siteUrl) {

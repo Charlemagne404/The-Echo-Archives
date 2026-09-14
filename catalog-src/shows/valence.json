@@ -1,5 +1,11 @@
 {
   "id": "valence",
+  "entityLinks": [
+    {
+      "entityId": "hug-house-productions",
+      "role": "network"
+    }
+  ],
   "title": "VALENCE",
   "subtitle": "An urban fantasy fiction podcast",
   "description": "In the city of New Candler, magic is scarce by design. A tech mogul wants to keep it that way. And a magic user wants freedom. Welcome to New Candler, cultural epicenter of the United States. | VALENCE is an Audio Verse Award-winning serialized fiction podcast meant for adult audiences. See our website for transcripts and content warnings for each episode.",

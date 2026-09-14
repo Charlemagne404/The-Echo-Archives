@@ -1,5 +1,11 @@
 {
   "id": "the-goblet-wire",
+  "entityLinks": [
+    {
+      "entityId": "ester-ellis",
+      "role": "creator"
+    }
+  ],
   "title": "The Goblet Wire",
   "subtitle": "",
   "description": "A surreal MicroFiction Podcast. \"A role playing game hums within a global network of power lines, fiber optic cables and obsolete satellites. Players who gain access to this mysterious phenomenon create a projection and are guided by the Dictator to realms not yet known to the conscious mind.\"",

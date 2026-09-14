@@ -7,8 +7,8 @@
   "coverAlt": "Proxy Zone Reboot cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "https://open.spotify.com/show/2evWH0Nc4PgpL0lBD7Xb9P",
@@ -680,14 +680,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://media.rss.com/proxy-zone-reboot/feed.xml"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://media.rss.com/proxy-zone-reboot/feed.xml"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -723,8 +729,8 @@
         "description": "7398cdf38f8b1803e60b85d10f4705e5922d983f1ba5c9529abfd99459450a52",
         "cover": "363a0ed38b612138f41e167cdaf4ea8f2984e7e22e1bb20aeb5401e99d58a9f7",
         "coverAlt": "91de15dea307e3dab72687ee42171f952dddda0cea4591a011513b175c6baff2",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "eccc56df7d0461be65cebea75f0759871378edc1054ac07ff69bc6d98e676327",
         "officialLinks": "8520cdb5daacd4938655535978bb48bdff139f5ed82e72a71dd87531d1de2305",
         "genres": "54b64656959d327c4ed1684ee817dcd15faa2b613a81ba887f8254860650d9c6",
@@ -742,8 +748,7 @@
         "verification": "62fe61f1a59b8b3efd7c8e0943cd062de36aad881c0a356194f24021f4ea9db8"
       },
       "optionalGaps": [
-        "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+        "No structured transcript links were exposed by the feed."
       ],
       "publication": {
         "tier": "imported",
@@ -753,7 +758,7 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-14",
   "creatorId": "gerald-burke-and-daniel-schaal",
   "networkId": "rss-com"
 }

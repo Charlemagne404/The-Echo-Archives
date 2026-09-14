@@ -17,6 +17,7 @@ export const DEFAULT_SOCIAL_IMAGE = "/echo-wordmark1.png";
 export const DEFAULT_FALLBACK_COVER_IMAGE = "/images/TEA-Logo-S.png";
 export const TOP_RATED_BADGE_ASSET_URL = "/images/badges/top-rated-bookmark.png";
 export const archiveSearch = globalThis.EchoArchiveSearch;
+export const archiveSimilarity = globalThis.EchoArchiveSimilarity;
 export const archiveRecord = globalThis.EchoArchiveRecord;
 export const CHAT_STORAGE_KEY = "echo-archives-chat-v3";
 export const COMMUNITY_PROFILE_KEY = "echo-community-profile-id";

@@ -11,6 +11,7 @@ import {
   toDisplayTag,
   toLabel,
 } from "./utils.js";
+import { getDiscoveryContentProfile } from "../discovery-analytics.js";
 
 const DETAIL_LINK_LABELS = {
   start: "Start listening",
@@ -21,6 +22,10 @@ const DETAIL_LINK_LABELS = {
 };
 
 const DETAIL_LINK_ORDER = ["start", "website", "apple", "spotify", "rss"];
+
+function renderListenDiscoveryAttributes(show, provider, linkRole, discoverySurface) {
+  return `data-discovery-listen-show-id="${escapeHtml(show.id || "")}" data-discovery-provider="${escapeHtml(provider || "other")}" data-discovery-link-role="${escapeHtml(linkRole)}" data-discovery-surface="${escapeHtml(discoverySurface)}" data-discovery-content-profile="${getDiscoveryContentProfile(show.reviewStatus)}"`;
+}
 
 export function renderFactsLinksCard(show, { inline = false } = {}) {
   const creatorNetwork = getCreatorNetworkLabel(show);
@@ -148,17 +153,17 @@ function renderListenLinkCluster(show) {
     <div class="detail-link-cluster">
       ${
         primaryLink
-          ? `<a class="detail-link-primary" href="${escapeHtml(primaryLink.href)}" target="_blank" rel="noreferrer">${primaryLink.key === "start" ? "Start listening" : `Open ${escapeHtml(primaryLink.label)}`}</a>`
+          ? `<a class="detail-link-primary" href="${escapeHtml(primaryLink.href)}" ${renderListenDiscoveryAttributes(show, primaryLink.key, "primary", "show_page_facts")} target="_blank" rel="noreferrer">${primaryLink.key === "start" ? "Start listening" : `Open ${escapeHtml(primaryLink.label)}`}</a>`
           : '<p class="detail-link-status is-empty">Links being verified</p>'
       }
-      ${alternateLinks.length ? `<div class="detail-link-chip-row">${alternateLinks.map((key) => renderListenLinkChip(key, links[key])).join("")}</div>` : ""}
+      ${alternateLinks.length ? `<div class="detail-link-chip-row">${alternateLinks.map((key) => renderListenLinkChip(key, links[key], show)).join("")}</div>` : ""}
     </div>
   `;
 }
 
-function renderListenLinkChip(key, href) {
+function renderListenLinkChip(key, href, show) {
   const label = DETAIL_LINK_LABELS[key] || toLabel(key);
-  return `<a class="detail-link-chip" href="${escapeHtml(href)}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`;
+  return `<a class="detail-link-chip" href="${escapeHtml(href)}" ${renderListenDiscoveryAttributes(show, key, "alternate", "show_page_facts")} target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`;
 }
 
 function getPrimaryListenLink(show) {

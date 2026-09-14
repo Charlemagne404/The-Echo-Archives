@@ -10,8 +10,8 @@
   "coverAlt": "Paradise Cab cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -577,14 +577,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/67d6cb031807f0dc08d9d7e2"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/67d6cb031807f0dc08d9d7e2"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -620,8 +626,8 @@
         "description": "bfc77b752271b2545918736517b7fbc8e735c356529685bc92f5658674861cea",
         "cover": "d3e2f994570ade1cc012c7854497e96e331cf364931232d9000041225682d1ba",
         "coverAlt": "45ec7d81e051590a58977db1e4d4a2537071f71b0ac5d7c3f8ea512e0b60c8de",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "8f6f1bff09686a4fbc73296bc058d5729e2a4f9ac9e82451ffc9fbd9044f658b",
         "officialLinks": "25c86aaa6abd76ade9f0838a80787c1d46dae3dc051ac6853c57e25783ea66fb",
         "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
@@ -641,7 +647,6 @@
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
@@ -652,6 +657,6 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-14",
   "creatorId": "blue-parrot-audio"
 }

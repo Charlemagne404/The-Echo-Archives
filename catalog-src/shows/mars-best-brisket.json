@@ -1,5 +1,11 @@
 {
   "id": "mars-best-brisket",
+  "entityLinks": [
+    {
+      "entityId": "ponders-productions",
+      "role": "creator"
+    }
+  ],
   "title": "Mars' Best Brisket",
   "subtitle": "Red(ish) planet. Red(ish) meat.",
   "description": "A long time from now on a planet that's right next to ours, an Earthling couple decide to open up the very first vegan brisket restaurant on Mars. And when you're the first, you're also the best. Mars' Best Brisket is a limited run, audio sci-fi restaurant sitcom. It's also a charity event, raising money for The Lovin' Spoonfuls, a food rescue located in Boston, Mass.",

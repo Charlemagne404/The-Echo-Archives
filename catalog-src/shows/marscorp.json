@@ -415,6 +415,10 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "definitely-human"
+  "updatedAt": "2026-09-14",
+  "creatorId": "definitely-human",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "commitment": "medium"
+  }
 }

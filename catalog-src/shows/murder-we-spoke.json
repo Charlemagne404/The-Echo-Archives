@@ -7,8 +7,8 @@
   "coverAlt": "Murder, We Spoke cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "https://open.spotify.com/show/1UwDClG0nj1xZUUkwnoO3D?si=42652eeebb38475e",
@@ -667,14 +667,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.buzzsprout.com/2261589.rss"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.buzzsprout.com/2261589.rss"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -710,8 +716,8 @@
         "description": "45c48fd05d111c5512b34acc063df36b8748fb599f3910c872bb6ea9e4a17c52",
         "cover": "77da35996941dfbe17dd50a6f2d86f94d688f8f8dbf6495eabef88767928fa0d",
         "coverAlt": "6c26977380177399247b2731a1d3a67d35d19e0d0d8938b9321a447bbabf12fd",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "0ea05b6c397769b0ddf39dc96eae3d7899e03e71c1e1c1ffa8f5df0f72fb882f",
         "officialLinks": "339a3ade06f1daec887b9e892954452927d1d5388d7ec06a2313e915816a72ff",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
@@ -730,8 +736,7 @@
       },
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
-        "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+        "No structured transcript links were exposed by the feed."
       ],
       "publication": {
         "tier": "imported",
@@ -741,7 +746,7 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-14",
   "creatorId": "rachel-bykowski",
   "networkId": "murder-we-spoke-a-narrative-podcast-to-kill-for"
 }

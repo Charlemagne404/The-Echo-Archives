@@ -7,8 +7,8 @@
   "coverAlt": "The Lovecraft Covenant cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -636,14 +636,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://audiofiction.co.uk/archive/20170820-02/20170820-02.xml"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://audiofiction.co.uk/archive/20170820-02/20170820-02.xml"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -679,8 +685,8 @@
         "description": "3ff6b155567cfb94db5108addb13e783457aa2f51f26357f507ba824dfba88bb",
         "cover": "ee539038cb3891a68a285824573a46146483d88387d3d62fd4a4fb7f68c0f352",
         "coverAlt": "a8be410800d9dd1446a56f01d0d33ba313747b1189b4eb134c598fdec94b60ec",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "b089ef6d06aa1e13d7e74a03bc0bef54e1370d5850951274896c6a990b813a19",
         "officialLinks": "153f8bde42cbc231aa852e052019624fed2e76cf129cc96b947466c2a2c20444",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
@@ -700,7 +706,6 @@
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
@@ -711,6 +716,6 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-14",
   "creatorId": "robert-f-mason"
 }

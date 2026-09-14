@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"jared-carter","role":"creator"}
+    {
+      "entityId": "jared-carter",
+      "role": "creator"
+    }
   ],
   "id": "desert-skies",
   "title": "Desert Skies",
@@ -81,7 +84,7 @@
     "hex": "#ae7b4c",
     "rgb": "174, 123, 76"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "releaseDates": {
     "first": "2022-07-12",
     "latest": "2026-06-22",
@@ -177,5 +180,11 @@
     "midnight-burger": "The clearest next stop if you want the warmth to scale up into bigger speculative range.",
     "story": "Keeps the gentle entry-point quality intact while staying grounded and inviting.",
     "welcome-to-night-vale": "A weirder, darker branch for listeners ready to lean harder into voice-driven weird fiction."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "character-driven",
+    "intensity": "low",
+    "commitment": "medium"
   }
 }

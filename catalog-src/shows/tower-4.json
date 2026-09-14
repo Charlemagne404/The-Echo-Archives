@@ -87,7 +87,7 @@
     "hex": "#7e6448",
     "rgb": "126, 100, 72"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "officialLinks": {
     "website": "https://www.7lamb.com/audiodramas/tower-4",
     "patreon": "",
@@ -179,5 +179,10 @@
     "station-151": "A stranger outpost variation that keeps the remote-post unease alive.",
     "alice-isnt-dead": "A road-haunted branch for listeners who liked the voice, solitude, and ambient menace.",
     "archive-81": "A more ritual-heavy horror route for listeners who want the mystery to get weirder."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium"
   }
 }

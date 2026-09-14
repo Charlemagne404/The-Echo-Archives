@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"the-whisperforge","role":"production-company"}
+    {
+      "entityId": "the-whisperforge",
+      "role": "production-company"
+    }
   ],
   "id": "ars-paradoxica",
   "title": "Ars Paradoxica",
@@ -88,7 +91,7 @@
     "hex": "#217997",
     "rgb": "33, 121, 151"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "releaseDates": {
     "first": "2015-05-31",
     "latest": "2020-03-20"
@@ -201,5 +204,10 @@
     "from-now": "A shorter time-dislocation branch for listeners who want the conceptual hook quickly.",
     "case-63": "A cleaner time-paradox thriller route with stronger suspense than lore sprawl.",
     "the-program-audio-series": "Pushes toward colder, more idea-forward speculative fiction once the science hook is what matters most."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "commitment": "long"
   }
 }

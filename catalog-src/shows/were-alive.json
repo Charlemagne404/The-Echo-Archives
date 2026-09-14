@@ -1,7 +1,13 @@
 {
   "entityLinks": [
-    {"entityId":"wayland-productions","role":"production-company"},
-    {"entityId":"kc-wayland","role":"creator"}
+    {
+      "entityId": "wayland-productions",
+      "role": "production-company"
+    },
+    {
+      "entityId": "kc-wayland",
+      "role": "creator"
+    }
   ],
   "id": "were-alive",
   "title": "We're Alive",
@@ -84,7 +90,7 @@
     "hex": "#7d4f3e",
     "rgb": "125, 79, 62"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "releaseDates": {
     "first": "2009-05-04",
     "latest": "2026-06-30"
@@ -176,5 +182,11 @@
     "end-of-all-hope": "A more spacefaring branch that still puts survival decisions at the center.",
     "the-phenomenon": "For listeners who want the large-scale threat level and relentless public danger.",
     "the-white-vault": "A colder, more isolated survival-horror variant once the ensemble chaos cools down."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
   }
 }

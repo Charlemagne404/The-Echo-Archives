@@ -2,12 +2,22 @@ import { createCommunityScoreElement, createPrimaryScoreElement, createRatingDiv
 import { configureShowImageElement } from "../images.js";
 import { getCardDiscoveryMetadata } from "./shared.js";
 import { normalizeArchiveRating, toDisplayTag } from "../utils.js";
+import { getDiscoveryContentProfile } from "../discovery-analytics.js";
+import { setShowDiscoveryMarker } from "./preview.js";
 
-export function createMostPopularCard(show) {
+export function createMostPopularCard(show, discovery = {}) {
   const card = document.createElement("a");
   card.className = "popular-card";
   card.href = show.href || "/";
   card.dataset.podcastId = show.id || "";
+  setShowDiscoveryMarker(card, {
+    showId: show.id,
+    surface: "home_popular_rail",
+    resultType: "show_card",
+    recommendationSource: "none",
+    contentProfile: getDiscoveryContentProfile(show.reviewStatus),
+    ...discovery,
+  });
   card.setAttribute("aria-label", `Open ${show.title || "Untitled show"} in the archive`);
 
   if (show.accent?.rgb) {

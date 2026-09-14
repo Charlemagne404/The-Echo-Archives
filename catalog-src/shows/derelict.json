@@ -1,7 +1,13 @@
 {
   "entityLinks": [
-    {"entityId":"night-rocket-productions","role":"production-company"},
-    {"entityId":"j-barton-mitchell","role":"creator"}
+    {
+      "entityId": "night-rocket-productions",
+      "role": "production-company"
+    },
+    {
+      "entityId": "j-barton-mitchell",
+      "role": "creator"
+    }
   ],
   "id": "derelict",
   "title": "Derelict",
@@ -85,7 +91,7 @@
     "hex": "#4a6580",
     "rgb": "74, 101, 128"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "releaseDates": {
     "first": "2019-07-18",
     "latest": "2025-10-06",
@@ -182,5 +188,11 @@
     "solar": "A tighter survival chamber for listeners who want the tension without the same scope.",
     "earth-eclipsed": "Another dark sci-fi route with a serious tone and looming catastrophe in the walls.",
     "the-program-audio-series": "A colder, idea-driven sci-fi branch for listeners who liked the controlled threat level."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "long"
   }
 }

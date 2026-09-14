@@ -781,6 +781,78 @@
     return clauses;
   }
 
+  function classifyQueryShape(catalog, message) {
+    const normalizedQuery = normalizeText(message);
+    const similarityQuery = normalizedQuery === "shows like" || /(?:^|\s)(?:shows? like|like|similar to)\s+/.test(normalizedQuery) ||
+      /^what(?:'s| is)\s+.+\s+similar to$/.test(normalizedQuery) ||
+      /^.+\s+like$/.test(normalizedQuery);
+
+    if (similarityQuery) {
+      const seed = resolveSeedShow(catalog, normalizedQuery);
+      if (!seed) {
+        return {
+          queryKind: "shows_like_unresolved",
+          structuredClauseGroup: "none",
+        };
+      }
+
+      const seedTokens = tokenizeQuery(seed.titleQuery, { minLength: 1 }).filter(
+        (token) => token.length > 1 || !QUERY_STOP_WORDS.has(token),
+      );
+      return {
+        queryKind: "shows_like_resolved",
+        structuredClauseGroup: classifyStructuredClauseGroup(seed.titleQuery, seedTokens),
+      };
+    }
+
+    const tokens = tokenizeQuery(normalizedQuery, { minLength: 1 }).filter(
+      (token) => token.length > 1 || !QUERY_STOP_WORDS.has(token),
+    );
+
+    return {
+      queryKind: "text",
+      structuredClauseGroup: classifyStructuredClauseGroup(normalizedQuery, tokens),
+    };
+  }
+
+  function classifyStructuredClauseGroup(normalizedQuery, tokens) {
+    const fields = new Set(
+      buildRequiredClauses(normalizedQuery, tokens)
+        .map((clause) => clause.fieldName)
+        .filter(Boolean),
+    );
+    const groups = new Set();
+
+    fields.forEach((fieldName) => {
+      switch (fieldName) {
+        case "genres":
+          groups.add("genre");
+          break;
+        case "formats":
+          groups.add("format");
+          break;
+        case "completionStatus":
+          groups.add("completion");
+          break;
+        case "reviewStatus":
+          groups.add("review");
+          break;
+        case "bestFor":
+          groups.add("best_for");
+          break;
+        case "transcriptAvailability":
+          groups.add("transcript");
+          break;
+        default:
+          break;
+      }
+    });
+
+    if (groups.size === 0) return "none";
+    if (groups.size > 1) return "multiple";
+    return Array.from(groups)[0];
+  }
+
   function satisfiesClause(searchIndex, clause) {
     const fieldTokens = clause.fieldName
       ? new Set((searchIndex.fields[clause.fieldName] || []).flatMap((value) => tokenizeQuery(value)))
@@ -868,6 +940,20 @@
     const avoidSeedRecords = Array.from(toOptionSet(options.avoidSimilaritySeedIds))
       .map((showId) => catalogById.get(showId))
       .filter(Boolean);
+    const canUseComputedSimilarityFallback = Boolean(
+      options.includeComputedSimilarityFallback === true &&
+        preparedQuery.seedRecord &&
+        (!Array.isArray(preparedQuery.seedRecord.similarTo) || preparedQuery.seedRecord.similarTo.length === 0) &&
+        typeof options.similarityIndex?.getPublicSimilarityMatches === "function",
+    );
+    const computedSimilarityById = canUseComputedSimilarityFallback
+      ? new Map(
+          options.similarityIndex
+            .getPublicSimilarityMatches(preparedQuery.seedRecord.id)
+            .map((entry) => [entry?.show?.id, entry])
+            .filter(([id]) => id),
+        )
+      : new Map();
 
     return (Array.isArray(catalog) ? catalog : [])
       .map((record) => {
@@ -877,6 +963,7 @@
         const titleTerms = [];
         let score = 0;
         let relatedToSeed = false;
+        const computedSimilarity = computedSimilarityById.get(record.id) || null;
 
         if (excludeIds.has(record.id)) {
           return {
@@ -896,6 +983,10 @@
           if (relatedToSeed) {
             score += 90;
             pushReason(reasons, `similar to ${preparedQuery.seedRecord.title}`);
+          } else if (computedSimilarity) {
+            relatedToSeed = true;
+            score += 52 + Math.round(Math.min(Number(computedSimilarity.similarity?.score || 0), 40) / 2);
+            pushReason(reasons, `archive match for ${preparedQuery.seedRecord.title}`);
           }
 
           if (record.id === seedId) {
@@ -1184,16 +1275,19 @@
         const satisfiesQuery = preparedQuery.seedRecord
           ? record.id !== preparedQuery.seedRecord.id && relatedToSeed && hasRequiredFieldCoverage
           : (hasRelevantClauseCoverage || (!hasStructuredClause && hasFuzzyClauseCoverage)) && hasRequiredFieldCoverage;
+        const publicSimilarityScore = computedSimilarity ? Math.min(score, 89) : score;
 
         return {
           ...record,
-          score,
+          score: publicSimilarityScore,
           reasons,
-          searchPresentation: selectSearchPresentation({
-            record,
-            titleTerms,
-            metadataMatches,
-          }),
+          searchPresentation: computedSimilarity
+            ? {
+                titleTerms: Array.from(new Set(titleTerms.filter(Boolean))),
+                metaText: `Computed archive match · ${computedSimilarity.explanation}`,
+                metaTerms: [],
+              }
+            : selectSearchPresentation({ record, titleTerms, metadataMatches }),
           satisfiesQuery,
         };
       })
@@ -1216,6 +1310,7 @@
     hydrateCatalogSearch,
     normalizeTag,
     normalizeText,
+    classifyQueryShape,
     scoreCatalog,
     tokenizeQuery,
   };

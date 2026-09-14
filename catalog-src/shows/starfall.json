@@ -1,5 +1,11 @@
 {
   "id": "starfall",
+  "entityLinks": [
+    {
+      "entityId": "wizzard-wizzard-productions",
+      "role": "creator"
+    }
+  ],
   "title": "Starfall",
   "subtitle": "",
   "description": "Starfall is a fantasy audio drama about the adventures of the Carouvel Traveling Acting Troupe - a theatre troupe that uses magical items to create illusions for their shows as they move around the Falstenian Empire. The story begins as the troupe is joined by Leona, a young warrior with a mysterious past and even more mysterious powers. With their new guardian in tow, the troupe traverses the continent, encountering the dangers of humans, fae, and greater forces alike, all while still trying to put on a good show.",

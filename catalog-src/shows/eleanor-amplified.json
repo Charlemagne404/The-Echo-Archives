@@ -415,6 +415,11 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "whyy"
+  "updatedAt": "2026-09-14",
+  "creatorId": "whyy",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "commitment": "long"
+  }
 }

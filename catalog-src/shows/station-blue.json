@@ -1,5 +1,11 @@
 {
   "id": "station-blue",
+  "entityLinks": [
+    {
+      "entityId": "ester-ellis",
+      "role": "creator"
+    }
+  ],
   "title": "Station Blue",
   "subtitle": "",
   "description": "Desperate to find meaning in his life, troubled Matthew Leads takes a job as the caretaker of an Antarctic Research Facility. An atmospheric isolation horror following his struggles with mental illness, a broken heart and the suffocating presence of Station Blue.",

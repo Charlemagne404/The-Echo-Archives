@@ -1,5 +1,11 @@
 {
   "id": "cybernautica",
+  "entityLinks": [
+    {
+      "entityId": "red-fathom-entertainment",
+      "role": "creator"
+    }
+  ],
   "title": "Cybernautica",
   "subtitle": "",
   "description": "A high action, serial audio drama adventure following the wild lives of those living in the cyberpunk-deco city of Neo-Atlantis, 2112.",

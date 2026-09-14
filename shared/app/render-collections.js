@@ -132,6 +132,9 @@ export function createCollectionCard(collection, index, showMap, { isClone = fal
   card.href = collectionId ? createCollectionHref(collectionId) : "/collections";
   card.setAttribute("aria-label", `Open the ${title} collection`);
   card.dataset.collectionId = collectionId;
+  card.dataset.discoveryCollectionId = collectionId;
+  card.dataset.discoveryCollectionKind = collection.kind || "curated";
+  card.dataset.discoverySurface = "home_collection_rail";
   if (anchorShow?.id) {
     card.dataset.anchorShowId = anchorShow.id;
   }
@@ -172,6 +175,9 @@ export function createCollectionFeatureCard(collection, shows, { anchorShow = nu
   card.className = "collections-feature-card";
   card.href = collectionId ? createCollectionHref(collectionId) : "/collections";
   card.dataset.collectionId = collectionId;
+  card.dataset.discoveryCollectionId = collectionId;
+  card.dataset.discoveryCollectionKind = collection.kind || "curated";
+  card.dataset.discoverySurface = "collections_featured";
   if (anchorShow?.id) {
     card.dataset.anchorShowId = anchorShow.id;
   }
@@ -200,13 +206,16 @@ export function createCollectionFeatureCard(collection, shows, { anchorShow = nu
   return card;
 }
 
-export function createCollectionDirectoryCard(collection, shows, { compact = false, anchorShow = null } = {}) {
+export function createCollectionDirectoryCard(collection, shows, { compact = false, anchorShow = null, discoverySurface = "collections_directory" } = {}) {
   const collectionId = collection.id || "";
   const titleText = collection.title || "Untitled collection";
   const article = document.createElement("a");
   article.className = compact ? "collections-directory-card collections-directory-card-compact" : "collections-directory-card";
   article.href = collectionId ? createCollectionHref(collectionId) : "/collections";
   article.dataset.collectionId = collectionId;
+  article.dataset.discoveryCollectionId = collectionId;
+  article.dataset.discoveryCollectionKind = collection.kind || "curated";
+  article.dataset.discoverySurface = discoverySurface;
   if (anchorShow?.id) {
     article.dataset.anchorShowId = anchorShow.id;
   }
@@ -275,6 +284,7 @@ export function getShowCollectionMemberships(showId, collections = []) {
       title: collection.title,
       reason: getCollectionShowReason(collection, showId),
       featured: Boolean(collection.featured),
+      kind: collection.kind || "curated",
       coverShowIds: collection.coverShowIds || [],
       showIds: collection.showIds || [],
     }));

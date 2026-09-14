@@ -62,7 +62,7 @@ test("homepage prerender injects initial discovery content into the build templa
   assert.match(rendered, /Listener Review Score<\/strong> Average from written listener reviews/);
 });
 
-test("Imported cards, collection cards, and popular cards carry a compact tier signal and intentional unrated state", () => {
+test("Imported cards, collection cards, and popular cards keep visible unrated rating placeholders", () => {
   const show = {
     id: "imported-show",
     title: "Imported Show",
@@ -79,13 +79,36 @@ test("Imported cards, collection cards, and popular cards carry a compact tier s
     assert.match(markup, /editorial-badge-imported">Imported/);
     assert.match(markup, /listener-review-inline-score/);
     assert.match(markup, /listener-review-score-icon/);
-    assert.match(markup, /listener-review-inline-score-value"><\/span>/);
+    assert.match(markup, /listener-review-inline-score-value">--\/10<\/span>/);
+    assert.match(markup, /community-inline-score-value">--\/10<\/span>/);
+    assert.match(markup, /<span class="rating-divider" aria-hidden="true"><\/span>/);
+    assert.doesNotMatch(markup, /listener-review-inline-score[^>]* hidden/);
+    assert.doesNotMatch(markup, /community-inline-score[^>]* hidden/);
     assert.doesNotMatch(markup, /archive-inline-score/);
   });
+  const popularMarkup = renderMostPopularCard(show);
+  assert.match(popularMarkup, /listener-review-inline-score/);
+  assert.match(popularMarkup, /listener-review-inline-score-value">--\/10<\/span>/);
+  assert.match(popularMarkup, /community-inline-score-value">--\/10<\/span>/);
+  assert.match(popularMarkup, /<span class="rating-divider" aria-hidden="true"><\/span>/);
+  assert.doesNotMatch(popularMarkup, /listener-review-inline-score[^>]* hidden/);
+  assert.doesNotMatch(popularMarkup, /community-inline-score[^>]* hidden/);
+  assert.match(renderArchiveCard(show), /data-discovery-show-id="imported-show"[^>]*data-discovery-surface="home_archive_grid"/);
+  assert.match(
+    renderCollectionShowCard(show, "", {
+      recommendationSource: "similarity_collection",
+      collectionId: "shows-like-imported-show",
+    }),
+    /data-discovery-recommendation-source="similarity_collection"[^>]*data-discovery-collection-id="shows-like-imported-show"/,
+  );
   assert.match(renderArchiveCard(show), /Genre: Sci-fi/);
   assert.doesNotMatch(renderArchiveCard(show), /Mystery/);
   assert.match(renderMostPopularCard(show), /Genre: Sci-fi/);
   assert.match(renderMostPopularCard(show), /popular-card-chip is-imported">Imported/);
+
+  const ratedMarkup = renderArchiveCard({ ...show, id: "rated-show", finalRating: 8.5 });
+  assert.match(ratedMarkup, /inline-score-value">8\.5\/10<\/span>/);
+  assert.match(ratedMarkup, /community-inline-score-value">--\/10<\/span>/);
 });
 
 test("Imported cards disclose when only a generic drama mapping is available", () => {

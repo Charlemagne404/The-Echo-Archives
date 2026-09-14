@@ -1,7 +1,10 @@
 {
   "id": "impact-winter",
   "entityLinks": [
-    {"entityId":"audible-originals","role":"production-company"}
+    {
+      "entityId": "audible-originals",
+      "role": "production-company"
+    }
   ],
   "title": "Impact Winter",
   "subtitle": "Post-apocalyptic vampire survival under endless winter.",
@@ -89,7 +92,7 @@
     "hex": "#851a28",
     "rgb": "133, 26, 40"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-14",
   "releaseDates": {
     "first": "2022-02-17",
     "latest": "2024-07-18",
@@ -197,5 +200,11 @@
     "end-of-all-hope": "Keeps the catastrophe pressure high while shifting the setting into space opera territory.",
     "the-white-vault": "A colder, more locked-in branch for listeners who loved the environmental dread.",
     "malevolent": "A darker supernatural escalation for listeners who want the same intensity with more occult horror."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "long"
   }
 }

@@ -1,13 +1,13 @@
 # Catalog Status
 
-Latest catalog update: `2026-09-08`
+Latest catalog update: `2026-09-14`
 
 ## Snapshot
 
 | Metric | Value |
 | --- | ---: |
-| Curated public entities | 102 |
-| Shows with explicit public entity links | 229 |
+| Curated public entities | 122 |
+| Shows with explicit public entity links | 256 |
 | Total shows | 752 |
 | Published shows | 752 |
 | Draft shows | 0 |

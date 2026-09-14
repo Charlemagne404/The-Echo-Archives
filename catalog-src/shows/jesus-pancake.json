@@ -7,8 +7,8 @@
   "coverAlt": "Jesus Pancake cover art",
   "status": "published",
   "reviewStatus": "imported",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "start": "",
     "spotify": "",
@@ -687,14 +687,20 @@
           ]
         },
         "releaseStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.captivate.fm/jesus-pancake/"
+          }]
         },
         "completionStatus": {
-          "confidence": 0,
-          "method": "unknown",
-          "sources": []
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": [{
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.captivate.fm/jesus-pancake/"
+          }]
         },
         "formats": {
           "confidence": 0.95,
@@ -730,8 +736,8 @@
         "description": "93aa974cd816a38f572f4bccf1ee57cee14f1b88671d09138829e5fd97877ac0",
         "cover": "a07d6d79b3f39cdeae0b45d0ca06f99cbc988500ce604bf65a093df59b18bea8",
         "coverAlt": "0a760bfb0a31c234b46770e4e29d0531f40b09b01a5c8293837a4acf6ebab68a",
-        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
-        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
         "listenLinks": "7293d620fd69e0cf858f76a241feec09b71f1aa0b43842304f1e80753b005b73",
         "officialLinks": "7c763eb30965e14c3e1b5602d8f1874919edf373601f7300328db51cf451584a",
         "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
@@ -751,7 +757,6 @@
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
-        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {
@@ -762,6 +767,6 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-14",
   "creatorId": "artist-soapbox"
 }

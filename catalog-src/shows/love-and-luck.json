@@ -1,5 +1,11 @@
 {
   "id": "love-and-luck",
+  "entityLinks": [
+    {
+      "entityId": "passer-vulpes-productions",
+      "role": "creator"
+    }
+  ],
   "title": "Love and Luck",
   "subtitle": "A queer slice of life romance story, with a touch of magic.",
   "description": "A queer, slice of life love story audio drama.",
@@ -777,7 +783,10 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-14",
   "creatorId": "passer-vulpes-productions",
-  "networkId": "the-love-and-luck-podcast"
+  "networkId": "the-love-and-luck-podcast",
+  "discovery": {
+    "narrativeFocus": "character-driven"
+  }
 }

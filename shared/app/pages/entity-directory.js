@@ -1,3 +1,10 @@
+import {
+  bucketDiscoveryClearedFilterCount,
+  bucketDiscoveryFilterCount,
+  bucketDiscoveryResultCount,
+  trackDiscoveryEvent,
+} from "../discovery-analytics.js";
+
 const { matchesEntityQuery } = globalThis.EchoArchiveEntities;
 
 const DIRECTORY_FILTER_VALUES = new Set(["all", "production-company", "studio", "network"]);
@@ -47,6 +54,16 @@ export async function initializeEntityDirectory() {
   const state = {
     type: normalizeFilter(url.searchParams.get("type")),
     sort: normalizeSort(url.searchParams.get("sort")),
+  };
+  const entityAnalytics = {
+    hasRendered: false,
+    previousResultCountBucket: "unknown",
+    lastResultCount: 0,
+    seenSearchStates: new Set(),
+    pendingFilterChange: null,
+    pendingClear: null,
+    searchAnalyticsTimer: 0,
+    pendingSearch: null,
   };
 
   const update = () => {
@@ -109,6 +126,76 @@ export async function initializeEntityDirectory() {
     if (state.sort === "name") nextUrl.searchParams.delete("sort");
     else nextUrl.searchParams.set("sort", state.sort);
     history.replaceState(history.state, "", nextUrl);
+
+    const resultCountBucket = bucketDiscoveryResultCount(count);
+    const recoveryContext = entityAnalytics.previousResultCountBucket === "0"
+      ? "after_zero_results"
+      : entityAnalytics.hasRendered
+        ? "none"
+        : "unknown";
+    const searchSignature = JSON.stringify({ query: query.trim(), type: state.type });
+    if (query.trim()) {
+      entityAnalytics.pendingSearch = {
+        signature: searchSignature,
+        resultCountBucket,
+        activeFilterCountBucket: bucketDiscoveryFilterCount(Number(state.type !== "all")),
+        recoveryContext,
+      };
+      if (entityAnalytics.searchAnalyticsTimer) {
+        window.clearTimeout(entityAnalytics.searchAnalyticsTimer);
+      }
+      entityAnalytics.searchAnalyticsTimer = window.setTimeout(() => {
+        entityAnalytics.searchAnalyticsTimer = 0;
+        const pendingSearch = entityAnalytics.pendingSearch;
+        entityAnalytics.pendingSearch = null;
+        if (!pendingSearch || entityAnalytics.seenSearchStates.has(pendingSearch.signature)) return;
+        entityAnalytics.seenSearchStates.add(pendingSearch.signature);
+        trackDiscoveryEvent("Search Used", {
+          discovery_surface: "entity_directory",
+          query_kind: "text",
+          structured_clause_group: "none",
+          result_count_bucket: pendingSearch.resultCountBucket,
+          active_filter_count_bucket: pendingSearch.activeFilterCountBucket,
+          recovery_context: pendingSearch.recoveryContext,
+        });
+      }, 350);
+    } else {
+      entityAnalytics.pendingSearch = null;
+      if (entityAnalytics.searchAnalyticsTimer) {
+        window.clearTimeout(entityAnalytics.searchAnalyticsTimer);
+        entityAnalytics.searchAnalyticsTimer = 0;
+      }
+    }
+
+    if (entityAnalytics.pendingFilterChange) {
+      const { action, filterValue } = entityAnalytics.pendingFilterChange;
+      trackDiscoveryEvent("Filter Changed", {
+        discovery_surface: "entity_directory",
+        filter_group: "entityType",
+        filter_action: action,
+        filter_value: filterValue,
+        active_filter_count_bucket: bucketDiscoveryFilterCount(Number(state.type !== "all")),
+        result_count_bucket: resultCountBucket,
+        recovery_context: recoveryContext,
+      });
+      entityAnalytics.pendingFilterChange = null;
+    }
+
+    if (entityAnalytics.pendingClear) {
+      const { count: clearedCount, hadSearch } = entityAnalytics.pendingClear;
+      trackDiscoveryEvent("Filters Cleared", {
+        discovery_surface: "entity_directory",
+        clear_scope: "all",
+        cleared_filter_count_bucket: bucketDiscoveryClearedFilterCount(clearedCount),
+        had_search: hadSearch,
+        result_count_bucket_before: bucketDiscoveryResultCount(entityAnalytics.lastResultCount),
+      });
+      entityAnalytics.pendingClear = null;
+    }
+
+    entityAnalytics.lastResultCount = count;
+    entityAnalytics.previousResultCountBucket = resultCountBucket;
+    entityAnalytics.hasRendered = true;
   };
 
   form.addEventListener("submit", (event) => { event.preventDefault(); update(); });
@@ -116,20 +203,40 @@ export async function initializeEntityDirectory() {
   input.addEventListener("keydown", (event) => {
     if (event.key !== "Escape" || !input.value) return;
     event.preventDefault();
+    entityAnalytics.pendingClear = { count: 1, hadSearch: true };
     input.value = "";
     update();
   });
   clearButton?.addEventListener("click", () => {
+    if (input.value.trim()) {
+      entityAnalytics.pendingClear = { count: 1, hadSearch: true };
+    }
     input.value = "";
     update();
     input.focus();
   });
   for (const button of filterButtons) {
-    button.addEventListener("click", () => { state.type = normalizeFilter(button.dataset.entityFilter); update(); });
+    button.addEventListener("click", () => {
+      const nextType = normalizeFilter(button.dataset.entityFilter);
+      if (nextType !== state.type) {
+        entityAnalytics.pendingFilterChange = {
+          action: nextType === "all" ? "removed" : "added",
+          filterValue: nextType === "all" ? state.type : nextType,
+        };
+      }
+      state.type = nextType;
+      update();
+    });
   }
   sortSelect?.addEventListener("change", () => { state.sort = normalizeSort(sortSelect.value); update(); });
   resetLinks.forEach((resetLink) => resetLink.addEventListener("click", (event) => {
     event.preventDefault();
+    if (input.value.trim() || state.type !== "all") {
+      entityAnalytics.pendingClear = {
+        count: Number(Boolean(input.value.trim())) + Number(state.type !== "all"),
+        hadSearch: Boolean(input.value.trim()),
+      };
+    }
     input.value = "";
     state.type = "all";
     state.sort = "name";

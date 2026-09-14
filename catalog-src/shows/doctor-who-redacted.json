@@ -404,6 +404,11 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "bbc-sounds-bbc"
+  "updatedAt": "2026-09-14",
+  "creatorId": "bbc-sounds-bbc",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "commitment": "medium"
+  }
 }

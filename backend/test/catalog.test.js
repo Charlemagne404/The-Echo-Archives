@@ -8,6 +8,7 @@ const { loadCatalog, loadCollections, resolveCollectionView, scoreCatalog } = re
 const { assertDiscoveryTaxonomyIntegrity, isApprovedDiscoveryTag } = require("../../shared/archive-tags");
 const { buildFallbackAnswer, sanitizeAnswerText } = require("../lib/ai/chat");
 const { validateSiteData } = require("../scripts/review-helpers");
+const { createSimilarityIndex } = require("../../shared/archive-similarity");
 
 const siteRoot = path.resolve(__dirname, "../..");
 
@@ -438,6 +439,45 @@ test("scoreCatalog matches natural discovery phrases across status, intent, and 
   const directTitle = scoreCatalog(catalog, "derelict");
   assert.ok(directTitle.length > 0);
   assert.equal(directTitle[0].title, "Derelict");
+});
+
+test("scoreCatalog can opt into high-confidence computed fallback for authored-free shows-like searches", () => {
+  const sharedFields = {
+    genres: ["sci-fi"],
+    formats: ["full-cast", "serialized"],
+    tones: ["dark"],
+    themes: ["isolation"],
+    tags: ["Found audio"],
+    bestFor: ["headphones-on"],
+    content: { intensity: "high" },
+    discovery: { voiceStyle: "primarily-acted", narrativeFocus: "plot-driven", intensity: "high", commitment: "medium" },
+    length: { avgEpisodeMinutes: 30 },
+    entityLinks: [{ entityId: "shared-studio", role: "production-company" }],
+    resolvedEntities: [{ id: "shared-studio", name: "Shared Studio", role: "production-company" }],
+  };
+  const source = createShowRecord({ id: "seed-show", title: "Seed Show", ...sharedFields, similarTo: [], similarReasons: {} });
+  const target = createShowRecord({ id: "target-show", title: "Target Show", ...sharedFields, similarTo: [], similarReasons: {} });
+  const similarityIndex = createSimilarityIndex({ shows: [source, target] });
+
+  assert.deepEqual(scoreCatalog([source, target], "like Seed Show"), []);
+
+  const fallbackResults = scoreCatalog([source, target], "like Seed Show", {
+    includeComputedSimilarityFallback: true,
+    similarityIndex,
+  });
+  assert.deepEqual(fallbackResults.map((result) => result.id), ["target-show"]);
+  assert.match(fallbackResults[0].searchPresentation.metaText, /^Computed archive match · Shared production company: Shared Studio/);
+  assert.doesNotMatch(fallbackResults[0].searchPresentation.metaText, /score|\/100/i);
+  assert.equal(Object.hasOwn(fallbackResults[0], "similarity"), false);
+
+  const authoredSource = { ...source, similarTo: ["target-show"], similarReasons: { "target-show": "Authored route." } };
+  const authoredIndex = createSimilarityIndex({ shows: [authoredSource, target] });
+  const authoredResults = scoreCatalog([authoredSource, target], "like Seed Show", {
+    includeComputedSimilarityFallback: true,
+    similarityIndex: authoredIndex,
+  });
+  assert.deepEqual(authoredResults.map((result) => result.id), ["target-show"]);
+  assert.match(authoredResults[0].reasons[0], /similar to Seed Show/);
 });
 
 test("scoreCatalog supports title prefixes from the first character and keeps stronger matches first", async () => {

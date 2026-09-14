@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"atypical-artists","role":"production-company"}
+    {
+      "entityId": "atypical-artists",
+      "role": "production-company"
+    }
   ],
   "id": "the-bright-sessions",
   "title": "The Bright Sessions",
@@ -129,7 +132,7 @@
     "Elizabeth Laird as Sarah"
   ],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-08-29",
+  "updatedAt": "2026-09-14",
   "similarReasons": {
     "ars-paradoxica": "A denser science-fiction branch if the speculative mechanics matter as much as the characters.",
     "story": "Keeps the softer emotional legibility intact while stepping away from the superpowered frame.",
@@ -168,5 +171,11 @@
     "objectiveVerifiedAt": "2026-08-29",
     "objectiveNote": "Official show site and current publisher feed verify the season structure, episode mix, content warnings, transcript link, and production credits.",
     "auditPass": "Factual catalog expansion on 2026-08-29. Official publisher sources were used to expand objective episode, content-warning, transcript, cast, and production metadata. Archive ratings and long-form editorial reviews were preserved."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "deep-dive"
   }
 }

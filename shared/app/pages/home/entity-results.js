@@ -15,6 +15,6 @@ export function createEntitySearchResults(grid, shows) {
   return (query) => {
     const matches = entities.filter((entity) => matchesEntityQuery(entity, query)).slice(0, 4);
     section.hidden = matches.length === 0;
-    section.innerHTML = matches.length ? `<p>Creators in the archive</p><div>${matches.map((entity) => `<a class="collection-action" href="${entityPath(entity.id)}">${escapeHtml(entity.name)} <span>${TYPE_LABELS[entity.type]} · ${entity.showIds.size} shows</span></a>`).join("")}</div>` : "";
+    section.innerHTML = matches.length ? `<p>Creators in the archive</p><div>${matches.map((entity) => `<a class="collection-action" href="${entityPath(entity.id)}" data-discovery-entity-id="${escapeHtml(entity.id)}" data-discovery-entity-type="${escapeHtml(entity.type || "unknown")}" data-discovery-surface="home_entity_results">${escapeHtml(entity.name)} <span>${TYPE_LABELS[entity.type]} · ${entity.showIds.size} shows</span></a>`).join("")}</div>` : "";
   };
 }

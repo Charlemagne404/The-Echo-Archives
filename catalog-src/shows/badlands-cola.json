@@ -634,7 +634,11 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-14",
   "creatorId": "renee-taylor-klint",
-  "networkId": "badlands-cola"
+  "networkId": "badlands-cola",
+  "discovery": {
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium"
+  }
 }
