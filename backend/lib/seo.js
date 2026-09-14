@@ -1,7 +1,7 @@
 const BRAND_NAME = "The Echo Archives";
 const BRAND_DESCRIPTOR = "The Echo Archives — Audio Drama Discovery";
 const DEFAULT_DESCRIPTION =
-  "Audio drama discovery with fiction podcast recommendations, reviews, collections, and similar shows.";
+  "Fiction podcasts and audio dramas to browse by mood, format, completion status, and similar shows.";
 const COLLECTION_MIN_INDEXABLE_SHOWS = 4;
 const COLLECTION_MIN_DESCRIPTION_LENGTH = 60;
 const { getPublicContentProfile } = require("../../shared/archive-record");
@@ -81,12 +81,12 @@ function buildShowSeoDescription(show = {}) {
       ? "Find official listening links and factual episode details."
     : "See the archive guide and find similar fiction podcasts.";
   return truncateDescription(profile.imported
-    ? `Discover ${title}, a ${genrePhrase}audio drama. ${action} ${editorialText}`
-    : `Discover ${title}, a ${genrePhrase}audio drama. ${editorialText} ${action}`);
+    ? `${title} is a ${genrePhrase}audio drama. ${action} ${editorialText}`
+    : `${title} is a ${genrePhrase}audio drama. ${editorialText} ${action}`);
 }
 
 function buildCollectionSeoTitle(collection = {}) {
-  const title = cleanText(collection.title) || "Fiction podcast recommendations";
+  const title = cleanText(collection.title) || "Fiction podcast collection";
   return `${title}: Audio Drama Recommendations | ${BRAND_NAME}`;
 }
 
@@ -94,7 +94,7 @@ function buildCollectionSeoDescription(collection = {}, collectionShows = []) {
   const description = truncateDescription(cleanText(collection.description), 72);
   const showTitles = uniqueText(collectionShows.map((show) => show?.title)).slice(0, 3);
   const examples = showTitles.length > 0 ? ` Featuring ${showTitles.join(", ")}${collectionShows.length > 3 ? ", and more" : ""}.` : "";
-  return truncateDescription(`${description} Audio drama and fiction podcast recommendations.${examples}`);
+  return truncateDescription(`${description} Audio dramas and fiction podcasts.${examples}`);
 }
 
 function isIndexableCollection(collection = {}, collectionShows = []) {

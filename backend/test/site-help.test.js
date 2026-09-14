@@ -29,7 +29,7 @@ test("site help answers privacy questions with grounded storage details and acti
   });
 
   assert.match(response.answer, /session storage/i);
-  assert.match(response.answer, /local profile id|local profile/i);
+  assert.match(response.answer, /local browser identifier/i);
   assert.deepEqual(response.actions, [{ label: "Read Privacy", href: "/privacy", external: false }]);
 });
 

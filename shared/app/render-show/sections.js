@@ -145,7 +145,7 @@ export function renderReviewSection(show, reviewData = {}) {
   const empty = totalSlides === 0;
   return `
     <section class="detail-section detail-review-section" id="review-notes" tabindex="-1">
-      <div class="detail-section-header detail-review-section-header"><div><h2>Reviews</h2><p>Archive Rating is editorial. Listener Review Score averages published written reviews. Community Rating is a quick wider-community rating.</p></div><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Write a review</a></div>
+      <div class="detail-section-header detail-review-section-header"><div><h2>Reviews</h2><p>Archive Rating is editorial. Listener Review Score averages published listener reviews. Community Rating is a quick score from listeners.</p></div><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Write a review</a></div>
       ${empty ? `<div class="empty-state-card detail-reviews-empty-state"><p>No reviews are published for this show yet. Listener reviews are moderated before appearing here.</p><div class="empty-state-actions"><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Submit the first review</a></div></div>` : `
         <div class="detail-review-carousel" data-review-carousel data-show-id="${escapeHtml(show.id)}" data-has-archive="${String(hasArchive)}" data-listener-total="${totalListenerReviews}" data-current-index="${initialIndex}">
           <button type="button" class="detail-review-carousel-arrow is-previous" data-review-carousel-previous aria-label="Previous review" ${initialIndex === 0 ? "disabled" : ""}>‹</button>
@@ -170,12 +170,10 @@ export function renderFirstReviewCta(show, reviewData = {}) {
 }
 
 export function renderCommunityScoreBreakdown(show, scoreSummary = {}) {
-  const isFullReview = show.reviewStatus === "full-review";
-  const visibleCategories = CATEGORY_ORDER.filter(([key]) => {
+  const categoriesToRender = CATEGORY_ORDER.filter(([key]) => {
     const summary = scoreSummary?.[key] || {};
     return Boolean(summary.isPublic) && Number.isFinite(Number(summary.averageRating));
   });
-  const categoriesToRender = isFullReview ? CATEGORY_ORDER : visibleCategories;
   if (categoriesToRender.length === 0) return "";
   return `
     <section class="detail-section detail-community-score-section" aria-labelledby="community-score-breakdown-title">
@@ -185,11 +183,9 @@ export function renderCommunityScoreBreakdown(show, scoreSummary = {}) {
           const summary = scoreSummary?.[key] || {};
           const ratingCount = Number(summary.ratingCount || 0);
           const average = Number(summary.averageRating);
-          const isPublic = Boolean(summary.isPublic) && Number.isFinite(average);
-          const remaining = Math.max(0, 3 - ratingCount);
-          const display = isPublic ? `${average.toFixed(1)}/10` : "Building";
-          const subline = isPublic ? formatCount(ratingCount, "rating") : remaining > 0 ? `${ratingCount} recorded · ${remaining} more to reveal` : `${ratingCount} recorded`;
-          return `<article class="detail-rating-card detail-community-rating-card"><div class="detail-rating-topline"><span>${escapeHtml(label)}</span><span>${display}</span></div><div class="detail-rating-bar"><div class="detail-rating-fill" style="width: ${isPublic ? Math.max(0, Math.min(100, average * 10)) : 0}%"></div></div><p>${escapeHtml(subline)}</p></article>`;
+          const display = `${average.toFixed(1)}/10`;
+          const subline = formatCount(ratingCount, "rating");
+          return `<article class="detail-rating-card detail-community-rating-card"><div class="detail-rating-topline"><span>${escapeHtml(label)}</span><span>${display}</span></div><div class="detail-rating-bar"><div class="detail-rating-fill" style="width: ${Math.max(0, Math.min(100, average * 10))}%"></div></div><p>${escapeHtml(subline)}</p></article>`;
         }).join("")}
       </div>
     </section>
@@ -199,7 +195,7 @@ export function renderCommunityScoreBreakdown(show, scoreSummary = {}) {
 export function renderCommunityFallback() {
   return `
     <section class="detail-section detail-community-slot detail-community-fallback" aria-busy="true" aria-live="polite">
-      <div class="detail-section-header"><div><h2>Community Rating</h2><p>Quick ratings from the wider community. Archive Rating and Listener Review Score are separate.</p></div></div>
+      <div class="detail-section-header"><div><h2>Community Rating</h2><p>Quick ratings from listeners. Archive Rating and Listener Review Score are separate.</p></div></div>
       <p class="detail-community-fallback-copy">Loading community rating…</p>
     </section>
   `;

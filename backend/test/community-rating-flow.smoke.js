@@ -154,14 +154,16 @@ test("full-review detail page promotes community, trims the rail, and preserves 
     const communityState = await page.evaluate(() => {
       const distribution = document.querySelector(".community-review-distribution");
       const distributionBounds = distribution?.getBoundingClientRect();
-      const distributionRows = Array.from(document.querySelectorAll(".community-distribution-row")).map((row) => {
-        const bounds = row.getBoundingClientRect();
-        return {
-          rating: Number(row.dataset.ratingValue),
-          left: bounds.left,
-          top: bounds.top,
-        };
-      });
+      const distributionRows = Array.from(document.querySelectorAll(".community-distribution-row"))
+        .filter((row) => !row.closest("[hidden]"))
+        .map((row) => {
+          const bounds = row.getBoundingClientRect();
+          return {
+            rating: Number(row.dataset.ratingValue),
+            left: bounds.left,
+            top: bounds.top,
+          };
+        });
       const midpoint = (distributionBounds?.left || 0) + (distributionBounds?.width || 0) / 2;
 
       return {
@@ -180,12 +182,12 @@ test("full-review detail page promotes community, trims the rail, and preserves 
         clearVisible: !document.querySelector(".community-review-clear")?.hidden,
       };
     });
-    assert.equal(communityState.railValue, "--/10");
+    assert.equal(communityState.railValue, "");
     assert.equal(communityState.ratingButtonsDisabled, true);
-    assert.deepEqual(communityState.distributionRows.map((row) => row.rating), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    assert.deepEqual(communityState.distributionLeftRatings, [1, 2, 3, 4, 5]);
-    assert.deepEqual(communityState.distributionRightRatings, [6, 7, 8, 9, 10]);
-    assert.equal(communityState.distributionVisible, true);
+    assert.deepEqual(communityState.distributionRows, []);
+    assert.deepEqual(communityState.distributionLeftRatings, []);
+    assert.deepEqual(communityState.distributionRightRatings, []);
+    assert.equal(communityState.distributionVisible, false);
     assert.equal(communityState.clearVisible, false);
   } finally {
     await page.close();
@@ -444,12 +446,13 @@ test("review carousel keeps the server-rendered archive first, supports accessib
         hasQuote: Boolean(document.querySelector(".detail-quote")),
         reviewTop: reviews?.getBoundingClientRect().top || 0,
         scoreTop: scoreBreakdown?.getBoundingClientRect().top || 0,
+        hasScoreBreakdown: Boolean(scoreBreakdown),
         scoreInsideReviews: Boolean(reviews?.contains(scoreBreakdown)),
       };
     });
     assert.equal(sectionOrder.hasQuote, false);
     assert.equal(sectionOrder.scoreInsideReviews, false);
-    assert.ok(sectionOrder.scoreTop > sectionOrder.reviewTop);
+    assert.ok(!sectionOrder.hasScoreBreakdown || sectionOrder.scoreTop > sectionOrder.reviewTop);
     assert.equal(await carousel.locator("[data-review-carousel-slide] .detail-archive-review").count(), 1);
 
     await carousel.locator("[data-review-carousel-next]").click();
@@ -554,7 +557,7 @@ test("homepage community badges stay truthful across empty, offline, and stale a
 
   try {
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
-    await page.locator(`#podcast-grid .podcast-card-shell[data-podcast-id="${emptyShowId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${emptyShowId}"]`).waitFor();
+    await page.locator(`#podcast-grid .podcast-card-shell[data-podcast-id="${emptyShowId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${emptyShowId}"]`).waitFor({ state: "attached" });
 
     let badgeState = await page.evaluate((showId) => {
       const badge = document.querySelector(`#podcast-grid .podcast-card-shell[data-podcast-id="${showId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${showId}"]`);
@@ -564,8 +567,8 @@ test("homepage community badges stay truthful across empty, offline, and stale a
         aria: badge?.getAttribute("aria-label") || "",
       };
     }, emptyShowId);
-    assert.equal(badgeState.value, "--/10");
-    assert.match(badgeState.aria, /No ratings yet/i);
+    assert.equal(badgeState.value, "");
+    assert.match(badgeState.aria, /No community ratings yet/i);
 
     await page.route("**/api/community/ratings/summary?*", async (route) => {
       await route.fulfill({
@@ -591,7 +594,7 @@ test("homepage community badges stay truthful across empty, offline, and stale a
         aria: badge?.getAttribute("aria-label") || "",
       };
     }, emptyShowId);
-    assert.equal(badgeState.value, "--/10");
+    assert.equal(badgeState.value, "");
     assert.match(badgeState.aria, /unavailable/i);
 
     await page.unroute("**/api/community/ratings/summary?*");
@@ -662,7 +665,7 @@ test("homepage community badges stay truthful across empty, offline, and stale a
         activeValue: activeBadge?.querySelector(".community-inline-score-value")?.textContent?.trim() || "",
       };
     }, { delayedShowId, activeShowId });
-    assert.equal(staleState.delayedValue, "--/10");
+    assert.equal(staleState.delayedValue, "");
     assert.equal(staleState.activeValue, "6.5/10");
 
     releaseDelayedResponse();
@@ -676,7 +679,7 @@ test("homepage community badges stay truthful across empty, offline, and stale a
         activeValue: activeBadge?.querySelector(".community-inline-score-value")?.textContent?.trim() || "",
       };
     }, { delayedShowId, activeShowId });
-    assert.equal(staleState.delayedValue, "--/10");
+    assert.equal(staleState.delayedValue, "");
     assert.equal(staleState.activeValue, "6.5/10");
   } finally {
     await context.close();

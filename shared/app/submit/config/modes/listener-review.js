@@ -1,5 +1,5 @@
 export const listenerReviewModeConfig = {
-  heroDescription: "Help keep The Echo Archives accurate and complete. Submit a show, send a correction, share a listener review, or request creator verification.",
+  heroDescription: "Submit a show, send a factual correction, share a listener review, or request creator verification.",
   cardTitle: "Submit a listener review",
   cardDescription: "Share your take with other listeners.",
   cardIcon: "mode-review",

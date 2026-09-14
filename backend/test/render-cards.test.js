@@ -95,8 +95,9 @@ test("primary card score preserves Archive Rating and otherwise uses the written
   assert.match(listenerScore.innerHTML, /Listener Review Score/);
   assert.match(listenerScore.innerHTML, />8\.3\/10</);
   assert.equal(listenerScore.attributes["aria-label"], "Listener Review Score 8.3/10 from 6 reviews.");
-  assert.match(emptyListenerScore.innerHTML, /--\/10/);
-  assert.equal(emptyListenerScore.attributes["aria-label"], "Listener Review Score --/10. No published listener reviews yet.");
+  assert.equal(emptyListenerScore.hidden, true);
+  assert.doesNotMatch(emptyListenerScore.innerHTML, /--\/10/);
+  assert.equal(emptyListenerScore.attributes["aria-label"], "Listener review score");
 
   cleanupFrontendGlobals();
 });

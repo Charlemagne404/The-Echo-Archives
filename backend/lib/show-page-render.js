@@ -138,7 +138,7 @@ function getArchivePerspectiveText(show) {
     String(show.archiveTake || "").trim() ||
     String(show.spoilerFreeReview || "").trim() ||
     String(show.thoughts || "").trim() ||
-    "The archive review is not finished yet. This show is still listed in the archive."
+    "This entry is in the archive, but its full review is not finished yet."
   );
 }
 
@@ -160,7 +160,7 @@ function getSummaryDescriptor(show) {
 
   const archiveSummary = String(show?.description || show?.subtitle || "").trim();
   return archiveSummary
-    ? { title: "About this show", description: "A concise spoiler-free setup from the archive.", text: archiveSummary }
+    ? { title: "About this show", description: "A short, spoiler-free setup from the archive.", text: archiveSummary }
     : null;
 }
 
@@ -264,7 +264,7 @@ function renderDetailHero(show, reviewData = {}) {
             <div class="detail-decision-console" aria-label="Quick listening decision">
               <div class="detail-score-cluster">
                 ${hasArchiveRating ? `<article class="detail-hero-score-card detail-score-card-archive"><span class="detail-meta-label">Archive Rating</span><strong class="detail-hero-score-value">${archiveRatingValue}</strong><span class="detail-meta-note">${archiveRatingNote}</span></article>` : ""}
-                <article class="detail-hero-score-card detail-score-card-listener"><span class="detail-meta-label">Listener Review Score</span><strong class="detail-hero-score-value">${listenerReviewScore.value}</strong><span class="detail-meta-note">${listenerReviewScore.note}</span></article>
+                ${listenerReviewScore.hasScore ? `<article class="detail-hero-score-card detail-score-card-listener"><span class="detail-meta-label">Listener Review Score</span><strong class="detail-hero-score-value">${listenerReviewScore.value}</strong><span class="detail-meta-note">${listenerReviewScore.note}</span></article>` : ""}
               </div>
               <div class="detail-meta-grid">
                 <article class="detail-meta-card"><span class="detail-meta-label">Runtime</span><span class="detail-meta-value">${escapeHtml(getHeroRuntimeValue(show))}</span></article>
@@ -300,9 +300,10 @@ function getListenerReviewScore(summary = {}) {
   const reviewCount = Number(summary?.reviewCount);
   const averageRating = Number(summary?.averageRating);
   if (!Number.isInteger(reviewCount) || reviewCount < 1 || !Number.isFinite(averageRating) || averageRating < 0 || averageRating > 10) {
-    return { value: "--/10", note: "No published listener reviews yet" };
+    return { hasScore: false, value: "", note: "" };
   }
   return {
+    hasScore: true,
     value: `${averageRating.toFixed(1)}/10`,
     note: `from ${reviewCount} ${reviewCount === 1 ? "review" : "reviews"}`,
   };
@@ -493,7 +494,7 @@ function renderReviewSection(show, reviewData = {}) {
   const initialCard = hasArchive ? archiveCard : initialListenerReview ? renderListenerReviewCard(initialListenerReview) : "";
   return `
     <section class="detail-section detail-review-section" id="review-notes" tabindex="-1">
-      <div class="detail-section-header detail-review-section-header"><div><h2>Reviews</h2><p>Archive Rating is editorial. Listener Review Score averages published written reviews. Community Rating is a quick wider-community rating.</p></div><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Write a review</a></div>
+      <div class="detail-section-header detail-review-section-header"><div><h2>Reviews</h2><p>Archive Rating is editorial. Listener Review Score averages published listener reviews. Community Rating is a quick score from listeners.</p></div><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Write a review</a></div>
       ${totalSlides === 0 ? `<div class="empty-state-card detail-reviews-empty-state"><p>No reviews are published for this show yet. Listener reviews are moderated before appearing here.</p><div class="empty-state-actions"><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Submit the first review</a></div></div>` : `
         <div class="detail-review-carousel" data-review-carousel data-show-id="${escapeHtml(show.id)}" data-has-archive="${String(hasArchive)}" data-listener-total="${totalListenerReviews}" data-current-index="0">
           <button type="button" class="detail-review-carousel-arrow is-previous" data-review-carousel-previous aria-label="Previous review" disabled>‹</button>
@@ -537,7 +538,7 @@ function renderImportedTransparency(show) {
 function renderCommunityFallback() {
   return `
     <section class="detail-section detail-community-slot detail-community-fallback" aria-busy="true" aria-live="polite">
-      <div class="detail-section-header"><div><h2>Community Rating</h2><p>Quick ratings from the wider community. Archive Rating and Listener Review Score are separate.</p></div></div>
+      <div class="detail-section-header"><div><h2>Community Rating</h2><p>Quick ratings from listeners. Archive Rating and Listener Review Score are separate.</p></div></div>
       <p class="detail-community-fallback-copy">Loading community rating…</p>
     </section>
   `;
@@ -699,12 +700,10 @@ function renderCommunityScoreBreakdown(show, scoreSummary = {}) {
     ["ads", "Ad experience"],
     ["length", "Episode length & pacing"],
   ];
-  const isFullReview = show.reviewStatus === "full-review";
-  const visibleCategories = categories.filter(([key]) => {
+  const categoriesToRender = categories.filter(([key]) => {
     const summary = scoreSummary?.[key] || {};
     return Boolean(summary.isPublic) && Number.isFinite(Number(summary.averageRating));
   });
-  const categoriesToRender = isFullReview ? categories : visibleCategories;
   if (categoriesToRender.length === 0) return "";
   return `
     <section class="detail-section detail-community-score-section" aria-labelledby="community-score-breakdown-title">
@@ -714,11 +713,9 @@ function renderCommunityScoreBreakdown(show, scoreSummary = {}) {
           const summary = scoreSummary?.[key] || {};
           const ratingCount = Number(summary.ratingCount || 0);
           const average = Number(summary.averageRating);
-          const isPublic = Boolean(summary.isPublic) && Number.isFinite(average);
-          const remaining = Math.max(0, 3 - ratingCount);
-          const display = isPublic ? `${average.toFixed(1)}/10` : "Building";
-          const subline = isPublic ? formatCount(ratingCount, "rating") : remaining > 0 ? `${ratingCount} recorded · ${remaining} more to reveal` : `${ratingCount} recorded`;
-          return `<article class="detail-rating-card detail-community-rating-card"><div class="detail-rating-topline"><span>${escapeHtml(label)}</span><span>${display}</span></div><div class="detail-rating-bar"><div class="detail-rating-fill" style="width: ${isPublic ? Math.max(0, Math.min(100, average * 10)) : 0}%"></div></div><p>${escapeHtml(subline)}</p></article>`;
+          const display = `${average.toFixed(1)}/10`;
+          const subline = formatCount(ratingCount, "rating");
+          return `<article class="detail-rating-card detail-community-rating-card"><div class="detail-rating-topline"><span>${escapeHtml(label)}</span><span>${display}</span></div><div class="detail-rating-bar"><div class="detail-rating-fill" style="width: ${Math.max(0, Math.min(100, average * 10))}%"></div></div><p>${escapeHtml(subline)}</p></article>`;
         }).join("")}
       </div>
     </section>

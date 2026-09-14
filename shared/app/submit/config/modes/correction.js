@@ -1,10 +1,10 @@
 export const correctionModeConfig = {
-  heroDescription: "Help keep The Echo Archives accurate and complete. Submit a show, send a correction, share a listener review, or request creator verification.",
+  heroDescription: "Submit a show, send a factual correction, share a listener review, or request creator verification.",
   cardTitle: "Suggest a correction",
   cardDescription: "Fix factual data on a show or creator page.",
   cardIcon: "mode-correction",
   introTitle: "Correction",
-  introDescription: "Choose what is wrong and provide only the evidence that correction needs.",
+  introDescription: "Tell us what is wrong and include the evidence we need.",
   introIcon: "document",
   submitLabel: "Submit correction",
   footerNote: "Next: evidence is checked against the current archive entry.",

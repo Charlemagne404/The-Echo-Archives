@@ -65,7 +65,7 @@ export async function initializeEntityDirectory() {
       if (!entry.element.hidden) count += 1;
     }
 
-    results.textContent = `${count} ${count === 1 ? "organization" : "organizations"}${query || state.type !== "all" ? " found" : " to explore"}.`;
+    results.textContent = `${count} ${count === 1 ? "organization" : "organizations"}${query || state.type !== "all" ? " found" : " in the directory"}.`;
     emptyState.hidden = count > 0;
     browseLink.href = query ? `/?q=${encodeURIComponent(query)}#archive` : "/#archive";
     const activeState = Boolean(query || state.type !== "all" || state.sort !== "name");
@@ -77,16 +77,16 @@ export async function initializeEntityDirectory() {
     if (emptyTitle && emptyDescription) {
       const activeFilter = filterButtons.find((button) => button.dataset.entityFilter === state.type)?.querySelector("span")?.textContent?.toLowerCase() || "organizations";
       if (query && state.type !== "all") {
-        emptyTitle.textContent = `No ${activeFilter} match “${query}”`;
-        emptyDescription.textContent = "Try a shorter organization name or clear the search and filter.";
+        emptyTitle.textContent = `Nothing matched ${activeFilter} “${query}”`;
+        emptyDescription.textContent = "Try a shorter name or clear the search and filter.";
       } else if (query) {
-        emptyTitle.textContent = `No organizations match “${query}”`;
+        emptyTitle.textContent = `Nothing matched “${query}”`;
         emptyDescription.textContent = "Try a shorter name, search the main archive for shows, or clear the search.";
       } else if (state.type !== "all") {
         emptyTitle.textContent = `No ${activeFilter} yet`;
-        emptyDescription.textContent = "Choose All organizations or clear the filter to keep exploring.";
+        emptyDescription.textContent = "Choose All organizations or clear the filter.";
       } else {
-        emptyTitle.textContent = "No matching organizations yet";
+        emptyTitle.textContent = "Nothing matched that search";
         emptyDescription.textContent = "Try a shorter name, search the main archive for shows, or clear your search.";
       }
     }

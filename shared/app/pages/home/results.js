@@ -54,7 +54,7 @@ export function createHomeResultsController({
       ? '<button class="quick-filter" type="button" data-open-chat data-chat-initial-prompt="Help me find something finished or easy to jump into.">Ask the Archivist</button>'
       : "";
     state.innerHTML = `
-      <p>No matches yet. Try a tone, format, completion status, or a search like "Midnight Burger like".</p>
+      <p>Nothing matched that search. Try a broader term, clear a filter, or browse collections.</p>
       <div class="empty-state-actions">
         <button id="clearResultsState" class="quick-filter" type="button">Clear filters</button>
         <a class="collection-action" href="/collections">Browse collections</a>

@@ -103,7 +103,7 @@ function replaceStructuredDataOrigin(html, previousSiteUrl, nextSiteUrl) {
 function fallbackDescription(description = "") {
   return (
     String(description || "").trim() ||
-    "An archive for discovering fiction podcasts by mood, tone, format, completion status, and similar shows."
+    "Fiction podcasts and audio dramas to browse by mood, tone, format, completion status, and similar shows."
   );
 }
 

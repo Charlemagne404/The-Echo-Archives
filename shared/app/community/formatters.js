@@ -1,4 +1,4 @@
-const EMPTY_COMMUNITY_SCORE_TEXT = "--/10";
+const EMPTY_COMMUNITY_SCORE_TEXT = "—";
 
 function normalizeIntegerInRange(value, { min = 0, max = Number.MAX_SAFE_INTEGER, fallback = 0 } = {}) {
   const numericValue = Number(value);
@@ -55,14 +55,13 @@ function normalizeCommunitySummary(summary) {
 function formatDetailCommunitySummary(summary) {
   summary = normalizeCommunitySummary(summary);
   if (!summary || summary.ratingCount === 0) {
-    return "No community ratings yet. Listener Review Scores and Archive Ratings stay separate from quick Community Ratings.";
+    return "Archive Rating and Listener Review Score are separate.";
   }
 
   if (summary.averageRating === null) {
     const noun = summary.ratingCount === 1 ? "rating" : "ratings";
     const yourRating = summary.myRating ? ` Your rating: ${summary.myRating}/10.` : "";
-    const threshold = summary.minimumRatingCount || 3;
-    return `Community average appears after ${threshold} verified ratings. ${summary.ratingCount} ${noun} recorded so far.${yourRating}`;
+    return `The community average is not shown yet. ${summary.ratingCount} listener ${noun} recorded.${yourRating}`;
   }
 
   const noun = summary.ratingCount === 1 ? "rating" : "ratings";
@@ -73,7 +72,7 @@ function formatDetailCommunitySummary(summary) {
 function getDetailCommunityMetricValue(summary) {
   summary = normalizeCommunitySummary(summary);
   if (!summary || summary.ratingCount === 0 || summary.averageRating === null) {
-    return EMPTY_COMMUNITY_SCORE_TEXT;
+    return "";
   }
 
   return `${summary.averageRating.toFixed(1)}/10`;
@@ -82,16 +81,20 @@ function getDetailCommunityMetricValue(summary) {
 function getDetailCommunityMetricCount(summary) {
   summary = normalizeCommunitySummary(summary);
   if (!summary || summary.ratingCount === 0) {
-    return "No ratings yet";
+    return "No listener ratings yet";
   }
 
-  return `${summary.ratingCount} ${summary.ratingCount === 1 ? "rating" : "ratings"}`;
+  return `${summary.ratingCount} listener ${summary.ratingCount === 1 ? "rating" : "ratings"}`;
 }
 
 function formatCommunityBadgeText(summary) {
   summary = normalizeCommunitySummary(summary);
-  if (!summary || summary.ratingCount === 0 || summary.averageRating === null) {
-    return EMPTY_COMMUNITY_SCORE_TEXT;
+  if (!summary || summary.ratingCount === 0) {
+    return "";
+  }
+
+  if (summary.averageRating === null) {
+    return "Pending";
   }
 
   return `${summary.averageRating.toFixed(1)}/10`;
@@ -100,13 +103,12 @@ function formatCommunityBadgeText(summary) {
 function formatCommunityBadgeAriaLabel(summary) {
   summary = normalizeCommunitySummary(summary);
   if (!summary || summary.ratingCount === 0) {
-    return "Community score --/10. No ratings yet.";
+    return "No community ratings yet.";
   }
 
   if (summary.averageRating === null) {
     const noun = summary.ratingCount === 1 ? "rating" : "ratings";
-    const threshold = summary.minimumRatingCount || 3;
-    return `Community score hidden until ${threshold} verified ratings. ${summary.ratingCount} ${noun} recorded.`;
+    return `Community rating pending. ${summary.ratingCount} listener ${noun} recorded.`;
   }
 
   const noun = summary.ratingCount === 1 ? "rating" : "ratings";

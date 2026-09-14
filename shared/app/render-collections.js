@@ -130,7 +130,7 @@ export function createCollectionCard(collection, index, showMap, { isClone = fal
   const card = document.createElement("a");
   card.className = "collection-card";
   card.href = collectionId ? createCollectionHref(collectionId) : "/collections";
-  card.setAttribute("aria-label", `Browse the ${title} collection`);
+  card.setAttribute("aria-label", `Open the ${title} collection`);
   card.dataset.collectionId = collectionId;
   if (anchorShow?.id) {
     card.dataset.anchorShowId = anchorShow.id;
@@ -158,7 +158,7 @@ export function createCollectionCard(collection, index, showMap, { isClone = fal
 
   const cta = document.createElement("span");
   cta.className = "collection-card-cta";
-  cta.textContent = "Browse";
+  cta.textContent = "Open";
 
   footer.append(count, cta);
   card.append(titleNode, footer);

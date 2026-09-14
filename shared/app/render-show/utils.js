@@ -50,7 +50,7 @@ export function getArchivePerspectiveText(show) {
     return thoughts;
   }
 
-  return "The archive review is not finished yet. This show is still listed in the archive.";
+  return "This entry is in the archive, but its full review is not finished yet.";
 }
 
 export function getSummaryDescriptor(show) {
@@ -82,7 +82,7 @@ export function getSummaryDescriptor(show) {
   if (description) {
     return {
       title: "About this show",
-      description: "A concise spoiler-free setup from the archive.",
+      description: "A short, spoiler-free setup from the archive.",
       text: description,
     };
   }
@@ -91,7 +91,7 @@ export function getSummaryDescriptor(show) {
   if (subtitle) {
     return {
       title: "About this show",
-      description: "A concise spoiler-free setup from the archive.",
+      description: "A short, spoiler-free setup from the archive.",
       text: subtitle,
     };
   }

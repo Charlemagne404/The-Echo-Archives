@@ -39,15 +39,15 @@ function loadSiteHelpContext({ catalog, collections, archiveContext }) {
       finishedShows: finishedShows.length,
     },
     routes: {
-      browse: { label: "Browse Archive", href: "/#archive", external: false },
-      collections: { label: "Browse Collections", href: "/collections", external: false },
-      about: { label: "Read About", href: "/about", external: false },
-      creators: { label: "Open For Creators", href: "/for-creators", external: false },
-      submit: { label: "Open Submit", href: "/submit", external: false },
+      browse: { label: "Browse shows", href: "/#archive", external: false },
+      collections: { label: "See collections", href: "/collections", external: false },
+      about: { label: "About the archive", href: "/about", external: false },
+      creators: { label: "For creators", href: "/for-creators", external: false },
+      submit: { label: "Submit or correct", href: "/submit", external: false },
       helpCenter: { label: "Open Help Center", href: "/help-center", external: false },
       privacy: { label: "Read Privacy", href: "/privacy", external: false },
       terms: { label: "Read Terms", href: "/terms", external: false },
-      supporters: { label: "Support Archive", href: "/supporters", external: false },
+      supporters: { label: "Support the archive", href: "/supporters", external: false },
       contact: { label: "Contact Continental", href: "https://contact.continental-hub.com/", external: true },
     },
     featureAvailability: archiveContext?.featureAvailability || {},
@@ -179,7 +179,7 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
     case "submission":
       return {
         answer:
-          "The submit page has four forms: new show, show or creator-page correction, listener review, and creator verification. Nothing auto-publishes, and every submission is manually reviewed before it affects the archive.",
+          "The submit page has four forms: new show, show or creator-page correction, listener review, and creator verification. Nothing auto-publishes, and submissions are reviewed before they affect the archive.",
         actions: [siteHelpContext.routes.submit],
         suggestedPrompts: [
           "How do I submit a correction?",
@@ -205,7 +205,7 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
     case "privacy":
       return {
         answer:
-          "The chat panel stores recent conversation history in session storage for the current browser session, and publicly anonymous community ratings use a pseudonymous HTTP-only voter cookie plus a linked local profile id. Submission and rating requests can also send the request body plus limited IP and user-agent data for moderation, abuse prevention, and rate limiting.",
+          "The chat panel stores recent conversation history in session storage for the current browser session. When you submit a community rating, the site uses a private browser cookie and local browser identifier to remember it. Submission and rating requests can also send the request body plus limited IP and user-agent data for moderation, abuse prevention, and rate limiting.",
         actions: [siteHelpContext.routes.privacy],
         suggestedPrompts: [
           "Does the site use cookies?",
@@ -267,7 +267,7 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
       return {
         answer:
           "I can help with Echo Archives pages, archive metadata, and site flows, but I cannot diagnose Spotify, Apple Podcasts, or other player issues from here. For playback or account problems, use the platform's support or the show's official links.",
-        actions: show ? [{ label: "Open Show", href: show.href, external: false }] : [siteHelpContext.routes.contact],
+        actions: show ? [{ label: "Open show", href: show.href, external: false }] : [siteHelpContext.routes.contact],
         suggestedPrompts: [
           "Where can I submit a broken link correction?",
           "What official links does this show have?",
@@ -397,10 +397,10 @@ function buildCorrectionResponse(show, siteHelpContext, supportContext) {
       showSentence,
       "Corrections are for factual metadata and links, not editorial disagreement with ratings or reviews.",
       followUpSentence,
-      "Nothing auto-publishes; a human reviews it before the archive changes.",
+      "Nothing auto-publishes; the correction is reviewed before the archive changes.",
     ]),
     actions: buildActionList([
-      show ? { label: "Open Show", href: show.href, external: false } : null,
+      show ? { label: "Open show", href: show.href, external: false } : null,
       siteHelpContext.routes.submit,
       supportContext.hasFollowUp ? siteHelpContext.routes.contact : null,
     ]),
@@ -421,7 +421,7 @@ function buildBrokenLinkResponse(show, siteHelpContext, supportContext) {
   ]);
   const escalationSentence = supportContext.hasFollowUp
     ? "If you already reported it and it is still live, use the contact page as a follow-up and include the broken URL plus the corrected destination if you have it."
-    : "Report the exact bad URL and the corrected destination when you have it, because link fixes are reviewed manually rather than auto-applied.";
+    : "Report the exact bad URL and the corrected destination when you have it. Link fixes are reviewed before they are applied.";
 
   return {
     answer: joinSentences([
@@ -431,7 +431,7 @@ function buildBrokenLinkResponse(show, siteHelpContext, supportContext) {
       escalationSentence,
     ]),
     actions: buildActionList([
-      show ? { label: "Open Show", href: show.href, external: false } : null,
+      show ? { label: "Open show", href: show.href, external: false } : null,
       siteHelpContext.routes.submit,
       supportContext.hasFollowUp ? siteHelpContext.routes.contact : null,
     ]),
@@ -452,7 +452,7 @@ function buildRatingHelpResponse(show, siteHelpContext, supportContext) {
   const mentionsClear =
     /\b(clear|remove|delete)\b/i.test(message) && /\b(rating|score)\b/i.test(message);
   const intro = pickVariant(`${supportContext.normalizedMessage}|rating-help`, [
-    "Community ratings are publicly anonymous and tied to a pseudonymous browser profile rather than a public account.",
+    "Community ratings are shown anonymously and tied to this browser rather than a public account.",
     "The listener-rating flow is local-browser based, so persistence issues usually come from the browser side or the verification step.",
     "The rating widget has a couple of guardrails that can make it look like a score did not save.",
   ]);
@@ -463,9 +463,9 @@ function buildRatingHelpResponse(show, siteHelpContext, supportContext) {
       answer: joinSentences([
         showSentence,
         "To remove a saved community rating, use the Clear your rating control in the listener-rating panel on the show page.",
-        "If the removal fails, the usual causes are the verification check not completing or the browser blocking the pseudonymous rating profile from persisting.",
+        "If the removal fails, the usual causes are the verification check not completing or this browser not keeping the rating information.",
       ]),
-      actions: buildActionList([show ? { label: "Open Show", href: show.href, external: false } : siteHelpContext.routes.browse]),
+      actions: buildActionList([show ? { label: "Open show", href: show.href, external: false } : siteHelpContext.routes.browse]),
       suggestedPrompts: [
         "Why did my rating not stick?",
         "How are community ratings different?",
@@ -482,7 +482,7 @@ function buildRatingHelpResponse(show, siteHelpContext, supportContext) {
         "A saved rating can exist before the public community average appears.",
         "The archive hides the public average until enough verified ratings accumulate, so an early rating may be recorded without producing a visible score badge yet.",
       ]),
-      actions: buildActionList([show ? { label: "Open Show", href: show.href, external: false } : siteHelpContext.routes.browse]),
+      actions: buildActionList([show ? { label: "Open show", href: show.href, external: false } : siteHelpContext.routes.browse]),
       suggestedPrompts: [
         "Why did my rating not stick?",
         "How are community ratings different?",
@@ -496,12 +496,12 @@ function buildRatingHelpResponse(show, siteHelpContext, supportContext) {
     answer: joinSentences([
       intro,
       showSentence,
-      "The site keeps a pseudonymous profile id in local storage for ratings, uses a site cookie for abuse protection, and may require the listener verification check before saving.",
-      "If a rating does not stick, the usual causes are blocked browser storage, cleared cookies, an incomplete verification check, or the backend being unavailable for that request.",
+      "The site remembers ratings in this browser, uses a cookie to help protect the feature, and may require the listener verification check before saving.",
+      "If a rating does not stick, the usual causes are blocked browser storage, cleared cookies, an incomplete verification check, or the rating service being unavailable for that request.",
       "A saved rating can also exist before the public community average appears, because the average stays hidden until enough verified ratings accumulate.",
     ]),
     actions: buildActionList([
-      show ? { label: "Open Show", href: show.href, external: false } : siteHelpContext.routes.browse,
+      show ? { label: "Open show", href: show.href, external: false } : siteHelpContext.routes.browse,
       siteHelpContext.routes.privacy,
       siteHelpContext.routes.helpCenter,
     ]),
@@ -517,8 +517,8 @@ function buildRatingHelpResponse(show, siteHelpContext, supportContext) {
 function buildSearchHelpResponse(page, siteHelpContext, supportContext) {
   const isCollectionsPage = page.pageType === "collections" || page.pageType === "collection";
   const intro = pickVariant(`${page.pageType}|${supportContext.normalizedMessage}|search`, [
-    "Archive search is broader than exact-title lookup.",
-    "The browse tools read more than just show titles.",
+    "Archive search also looks at creators, genres, tones, formats, and tags.",
+    "The browse tools use creators, genres, tones, formats, and tags as well as show titles.",
     "Search here works best when you treat it like archive metadata search, not only a title box.",
   ]);
   const pageSentence = isCollectionsPage
@@ -557,7 +557,7 @@ function buildSubmissionStatusResponse(siteHelpContext, supportContext) {
   ]);
   const followUpSentence = supportContext.hasFollowUp
     ? "If you are following up on an existing request, use the contact page and include the show title plus whether it was a new-show submission, correction, listener review, or creator-verification request."
-    : "New shows, corrections, listener reviews, and creator verification requests are all manually reviewed before they affect public pages.";
+    : "New shows, corrections, listener reviews, and creator verification requests are reviewed before they affect public pages.";
 
   return {
     answer: joinSentences([
@@ -594,8 +594,8 @@ function buildPageNavigationResponse(page, show, collection, siteHelpContext, su
       "Use Browse Archive for individual titles, Collections for mood-based discovery, Submit for corrections, reviews, and verification, and Help Center for support.",
     ]),
     actions: buildActionList([
-      show ? { label: "Open Show", href: show.href, external: false } : null,
-      collection ? { label: "Open Collection", href: `/collections/${encodeURIComponent(collection.id)}`, external: false } : null,
+      show ? { label: "Open show", href: show.href, external: false } : null,
+      collection ? { label: "Open collection", href: `/collections/${encodeURIComponent(collection.id)}`, external: false } : null,
       siteHelpContext.routes.browse,
       siteHelpContext.routes.collections,
       siteHelpContext.routes.submit,
@@ -658,7 +658,7 @@ function buildCollectionsResponse(collection, siteHelpContext) {
     return {
       answer: `${collection.title} is a collection, not a generic genre folder. It currently has ${collection.showIds.length} shows and is meant to help you browse by mood, tone, or use case.`,
       actions: [
-        { label: "Open Collection", href: `/collections/${encodeURIComponent(collection.id)}`, external: false },
+        { label: "Open collection", href: `/collections/${encodeURIComponent(collection.id)}`, external: false },
         siteHelpContext.routes.collections,
       ],
       suggestedPrompts: [
@@ -693,13 +693,13 @@ function buildRatingsResponse(show, siteHelpContext, message = "") {
         : "";
       return {
         answer: `${show.title} has no Archive Rating yet.${importedNote} Community ratings and moderated listener reviews remain available and separate from archive editorial scoring.`,
-        actions: [{ label: "Open Show", href: show.href, external: false }],
+        actions: [{ label: "Open show", href: show.href, external: false }],
         suggestedPrompts: ["What does Imported mean?", "Is this show finished?", "Where can I listen?", "Recommend something like this"],
       };
     }
     return {
       answer: `${show.title} currently has an Archive Rating of ${formatNumber(archiveRating)}/10. Community rating is separate from that editorial score, and creator verification never means creator approval of the rating or review.`,
-      actions: [{ label: "Read About Ratings", href: "/about", external: false }],
+      actions: [{ label: "About ratings", href: "/about", external: false }],
       suggestedPrompts: [
         "What does creator verified mean?",
         "Is this show finished?",
@@ -714,7 +714,7 @@ function buildRatingsResponse(show, siteHelpContext, message = "") {
 
     return {
       answer: `Some of the strongest Archive Rating picks right now are ${joinReadableList(topRatedTitles)}. Community rating remains separate from that editorial score, and creator verification does not change either one.`,
-      actions: [siteHelpContext.routes.browse, { label: "Read About Ratings", href: "/about", external: false }],
+      actions: [siteHelpContext.routes.browse, { label: "About ratings", href: "/about", external: false }],
       suggestedPrompts: [
         "Which shows are creator verified?",
         "What collections do you have?",
@@ -727,7 +727,7 @@ function buildRatingsResponse(show, siteHelpContext, message = "") {
   return {
     answer:
       "Archive Rating is the editorial score from Echo Archives. Community rating reflects listener response separately, and creator verification only means factual metadata was checked, not that the creator approved the rating or curation.",
-    actions: [{ label: "Read About Ratings", href: "/about", external: false }, siteHelpContext.routes.terms],
+    actions: [{ label: "About ratings", href: "/about", external: false }, siteHelpContext.routes.terms],
     suggestedPrompts: [
       "What does creator verified mean?",
       "How do listener reviews work?",
@@ -832,7 +832,7 @@ function buildShowSummaryResponse(show, siteHelpContext) {
 
   return {
     answer: `${show.title}: ${pieces.join(" ") || "The archive has only limited summary metadata for this entry right now."}`.trim(),
-    actions: [{ label: "Open Show", href: show.href, external: false }],
+    actions: [{ label: "Open show", href: show.href, external: false }],
     suggestedPrompts: [
       "How long is this show?",
       "Who made this show?",
@@ -846,7 +846,7 @@ function buildShowStatusResponse(show, siteHelpContext, message = "") {
   if (!show) {
     if (/\bimported\b/i.test(message)) {
       return {
-        answer: "Imported is the archive's lowest-confidence public tier. Objective metadata passed strict automated source checks, but an archive maintainer has not individually checked the entry yet. Imported shows remain searchable, rateable, and open to corrections, while archive scores and editorial recommendations stay absent until human review.",
+        answer: "Imported is the archive's lowest-confidence public tier. Objective metadata passed strict automated source checks, but an archive maintainer has not individually checked the entry yet. Imported shows remain searchable, rateable, and open to corrections, while archive scores and editorial recommendations stay absent until a maintainer reviews the entry.",
         actions: [siteHelpContext.routes.about, siteHelpContext.routes.browse],
         suggestedPrompts: ["What does indexed only mean?", "How are community ratings different?", "How do I submit a correction?", "Recommend a finished show"],
       };
@@ -866,7 +866,7 @@ function buildShowStatusResponse(show, siteHelpContext, message = "") {
 
   return {
     answer: `${show.title} is ${toReadableCompletionStatus(show.completionStatus)} and its archive entry is ${toReadableReviewStatus(show.reviewStatus)}. ${show.releaseStatus ? `The release status is ${show.releaseStatus}.` : ""}`.trim(),
-    actions: [{ label: "Open Show", href: show.href, external: false }],
+    actions: [{ label: "Open show", href: show.href, external: false }],
     suggestedPrompts: [
       "How long is this show?",
       "Where can I listen to this show?",
@@ -909,7 +909,7 @@ function buildShowLinksResponse(show, siteHelpContext) {
 
   return {
     answer: `${show.title} keeps official links separate from listening links. ${pieces.join(" ")}`.trim(),
-    actions: [{ label: "Open Show", href: show.href, external: false }, siteHelpContext.routes.submit],
+    actions: [{ label: "Open show", href: show.href, external: false }, siteHelpContext.routes.submit],
     suggestedPrompts: [
       "How do I submit a broken link correction?",
       "Is this show finished?",
@@ -939,7 +939,7 @@ function buildShowRuntimeResponse(show, siteHelpContext) {
 
   return {
     answer: `${show.title} currently shows ${runtimeSentence}`,
-    actions: [{ label: "Open Show", href: show.href, external: false }],
+    actions: [{ label: "Open show", href: show.href, external: false }],
     suggestedPrompts: [
       "Who made this show?",
       "Does this show have transcripts?",
@@ -987,7 +987,7 @@ function buildShowCreditsResponse(show, siteHelpContext) {
 
   return {
     answer: `${show.title}: ${pieces.join(" ")}`.trim(),
-    actions: [{ label: "Open Show", href: show.href, external: false }],
+    actions: [{ label: "Open show", href: show.href, external: false }],
     suggestedPrompts: [
       "How long is this show?",
       "Does this show have transcripts?",
@@ -1036,7 +1036,7 @@ function buildShowFormatResponse(show, siteHelpContext) {
 
   return {
     answer: `${show.title}: ${pieces.join(" ") || "The archive has only limited format notes for this entry right now."}`.trim(),
-    actions: [{ label: "Open Show", href: show.href, external: false }],
+    actions: [{ label: "Open show", href: show.href, external: false }],
     suggestedPrompts: [
       "How long is this show?",
       "Does this show have transcripts?",
@@ -1068,7 +1068,7 @@ function buildShowTranscriptsResponse(show, siteHelpContext) {
 
   return {
     answer: `${show.title}: ${transcriptSentence}${languageNote}`.trim(),
-    actions: [{ label: "Open Show", href: show.href, external: false }],
+    actions: [{ label: "Open show", href: show.href, external: false }],
     suggestedPrompts: [
       "Who made this show?",
       "How long is this show?",
@@ -1096,7 +1096,7 @@ function buildShowContentNotesResponse(show, siteHelpContext) {
   if (show.contentNotes.length === 0) {
     return {
       answer: `${show.title} does not currently have specific content notes recorded in the archive.`,
-      actions: [{ label: "Open Show", href: show.href, external: false }],
+      actions: [{ label: "Open show", href: show.href, external: false }],
       suggestedPrompts: [
         "Does this show have transcripts?",
         "What is this show similar to?",
@@ -1108,7 +1108,7 @@ function buildShowContentNotesResponse(show, siteHelpContext) {
 
   return {
     answer: `${show.title} currently carries content notes for ${joinReadableList(show.contentNotes)}.`,
-    actions: [{ label: "Open Show", href: show.href, external: false }],
+    actions: [{ label: "Open show", href: show.href, external: false }],
     suggestedPrompts: [
       "Does this show have transcripts?",
       "How long is this show?",
@@ -1136,7 +1136,7 @@ function buildShowSimilarResponse(show, siteHelpContext) {
   if (!Array.isArray(show.similarTo) || show.similarTo.length === 0) {
     return {
       answer: `${show.title} does not currently have explicit similar-show links mapped in the archive yet.`,
-      actions: [{ label: "Open Show", href: show.href, external: false }],
+      actions: [{ label: "Open show", href: show.href, external: false }],
       suggestedPrompts: [
         "Recommend something like this",
         "What collections is this in?",
@@ -1153,7 +1153,7 @@ function buildShowSimilarResponse(show, siteHelpContext) {
 
   return {
     answer: `${show.title} is currently linked to ${joinReadableList(relatedTitles.slice(0, 4))} as its nearest archive neighbors.`,
-    actions: [{ label: "Open Show", href: show.href, external: false }],
+    actions: [{ label: "Open show", href: show.href, external: false }],
     recommendationIds: show.similarTo.slice(0, 3),
     suggestedPrompts: [
       "Recommend something like this",
@@ -1184,7 +1184,7 @@ function buildShowCollectionsResponse(show, collections, siteHelpContext) {
   if (memberships.length === 0) {
     return {
       answer: `${show.title} is not currently placed in a named archive collection.`,
-      actions: [{ label: "Open Show", href: show.href, external: false }, siteHelpContext.routes.collections],
+      actions: [{ label: "Open show", href: show.href, external: false }, siteHelpContext.routes.collections],
       suggestedPrompts: [
         "What is this show similar to?",
         "Recommend something like this",
@@ -1197,8 +1197,8 @@ function buildShowCollectionsResponse(show, collections, siteHelpContext) {
   return {
     answer: `${show.title} currently appears in ${joinReadableList(memberships.map((entry) => entry.title).slice(0, 4))}.`,
     actions: [
-      { label: "Open Show", href: show.href, external: false },
-      { label: "Browse Collections", href: "/collections", external: false },
+      { label: "Open show", href: show.href, external: false },
+      { label: "See collections", href: "/collections", external: false },
     ],
     suggestedPrompts: [
       "What is this show similar to?",

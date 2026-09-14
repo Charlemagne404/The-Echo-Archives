@@ -45,6 +45,19 @@ function entitySeoLabel(entity) {
   return ENTITY_SEO_LABELS[entity?.type] || "Audio Drama Creator";
 }
 
+function entityShowCountLabel(count) {
+  return `${count} ${count === 1 ? "show" : "shows"}`;
+}
+
+function entityFallbackLede(entity, count) {
+  const typeLabel = TYPE_LABELS[entity?.type] || "Creator";
+  return `See ${entityShowCountLabel(count)} connected to this ${typeLabel.toLowerCase()} in The Echo Archives.`;
+}
+
+function entitySeoConnectionSentence(entity, count) {
+  return `See ${entityShowCountLabel(count)} connected to ${cleanEntityText(entity.name)} in The Echo Archives.`;
+}
+
 function getEntityPageProfile(entity, shows, collections = []) {
   const catalogue = orderedShows(entity, shows);
   const showIds = new Set(catalogue.map((show) => show.id));
@@ -83,9 +96,7 @@ function buildEntitySeoTitle(entity = null) {
 function buildEntitySeoDescription(entity = null, shows = [], collections = [], entities = []) {
   if (!entity) {
     const directory = getPublicDirectoryEntities(entities, shows);
-    const publicEntityIds = new Set(directory.map((record) => record.id));
-    const connectedShowCount = shows.filter((show) => show.status === "published" && (show.entityLinks || []).some((link) => publicEntityIds.has(link.entityId))).length;
-    return truncateDescription(`Browse ${directory.length} source-backed audio drama production companies, studios, and networks connected to ${connectedShowCount} fiction podcast shows. Find creator catalogues, listening links, and curated recommendations in The Echo Archives.`);
+    return truncateDescription(`These ${directory.length} production companies, studios, and networks have source-backed links to shows in the archive. Individual creators stay linked from their show pages.`);
   }
 
   const profile = getEntityPageProfile(entity, shows, collections);
@@ -93,8 +104,8 @@ function buildEntitySeoDescription(entity = null, shows = [], collections = [], 
   const leadTitle = cleanEntityText(profile.catalogue[0]?.title);
   const sourceDescription = cleanEntityText(entity.description);
   const description = sourceDescription
-    ? `${sourceDescription} Explore ${countLabel} connected audio dramas and fiction podcasts in The Echo Archives.`
-    : `${cleanEntityText(entity.name)} — ${entitySeoLabel(entity)} with ${countLabel} in The Echo Archives${leadTitle ? `, including ${leadTitle}` : ""}. Find fiction podcast details, listening links, and curated collections.`;
+    ? `${sourceDescription} ${entitySeoConnectionSentence(entity, profile.catalogue.length)}`
+    : `${cleanEntityText(entity.name)} — ${entitySeoLabel(entity)} with ${countLabel} in The Echo Archives${leadTitle ? `, including ${leadTitle}` : ""}. Browse connected shows, listening links, and related collections.`;
   return truncateDescription(description);
 }
 
@@ -155,7 +166,7 @@ function formatEntityDate(value) {
 
 function renderEntityShortcut(entity, catalogue, index) {
   const countLabel = `${catalogue.length} ${catalogue.length === 1 ? "show" : "shows"}`;
-  return `<a class="home-hero-route entity-featured-route${index === 0 ? " is-primary" : ""}" href="${entityPath(entity.id)}" aria-label="Explore ${escapeHtml(entity.name)}, ${countLabel}"><span class="home-hero-route-kicker">${countLabel}</span><span class="home-hero-route-label">${escapeHtml(entity.name)}</span></a>`;
+  return `<a class="home-hero-route entity-featured-route${index === 0 ? " is-primary" : ""}" href="${entityPath(entity.id)}" aria-label="Open ${escapeHtml(entity.name)}, ${countLabel}"><span class="home-hero-route-kicker">${countLabel}</span><span class="home-hero-route-label">${escapeHtml(entity.name)}</span></a>`;
 }
 
 function createEntityCorrectionHref(entity = null) {
@@ -191,15 +202,15 @@ function renderDirectoryControls(entities, activeFilter, activeSort, query = "")
 function getDirectoryEmptyCopy(query, entityType) {
   const filter = DIRECTORY_FILTERS.find((entry) => entry.value === entityType);
   if (query && filter && entityType !== "all") {
-    return { title: `No ${filter.label.toLowerCase()} match “${query}”`, description: "Try a shorter organization name or clear the search and filter." };
+    return { title: `Nothing matched ${filter.label.toLowerCase()} “${query}”`, description: "Try a shorter name or clear the search and filter." };
   }
   if (query) {
-    return { title: `No organizations match “${query}”`, description: "Try a shorter name, search the main archive for shows, or clear the search." };
+    return { title: `Nothing matched “${query}”`, description: "Try a shorter name, search the main archive for shows, or clear the search." };
   }
   if (filter && entityType !== "all") {
-    return { title: `No ${filter.label.toLowerCase()} yet`, description: "Choose All organizations or clear the filter to keep exploring." };
+    return { title: `No ${filter.label.toLowerCase()} yet`, description: "Choose All organizations or clear the filter." };
   }
-  return { title: "No matching organizations yet", description: "Try a shorter name, search the main archive for shows, or clear your search." };
+  return { title: "Nothing matched that search", description: "Try a shorter name, search the main archive for shows, or clear your search." };
 }
 
 function renderDirectoryFaqItem(kicker, question, answer) {
@@ -207,7 +218,7 @@ function renderDirectoryFaqItem(kicker, question, answer) {
 }
 
 function renderDirectoryFaq() {
-  return `<section class="page-card entity-faq creator-faq-section" aria-labelledby="entityFaqTitle"><div class="creator-section-header entity-faq-heading"><div><span class="page-card-kicker">Creator directory guide</span><h2 id="entityFaqTitle">Questions about the Creators index</h2><p>How the directory is curated, checked, and connected to the rest of the archive.</p></div></div><div class="creator-faq-list entity-faq-list">${renderDirectoryFaqItem("Directory", "What is included in the Creators directory?", "It lists production companies, studios, and networks with source-backed connections to published shows in The Echo Archives. Individual people can still appear as credited creators on show pages without becoming organization cards.")}${renderDirectoryFaqItem("Sources", "How are creator connections checked?", "Each public entity has a review date and source evidence in the archive registry. A connection describes a factual credit or affiliation; it does not mean the creator approved an archive rating, review, or recommendation.")}${renderDirectoryFaqItem("Boundaries", "What is the difference between Creators and For creators?", 'Creators is the listener-facing catalogue of the teams behind shows. <a href="/for-creators">For creators</a> explains how to submit a show, request a factual correction, or ask for creator verification.')}</div></section>`;
+  return `<section class="page-card entity-faq creator-faq-section" aria-labelledby="entityFaqTitle"><div class="creator-section-header entity-faq-heading"><div><span class="page-card-kicker">Creator directory guide</span><h2 id="entityFaqTitle">Questions about the Creators index</h2><p>What is listed here, how connections are checked, and where to send a correction.</p></div></div><div class="creator-faq-list entity-faq-list">${renderDirectoryFaqItem("Directory", "What is included in the Creators directory?", "It lists production companies, studios, and networks with source-backed connections to published shows in The Echo Archives. Individual people can still appear as credited creators on show pages without becoming organization cards.")}${renderDirectoryFaqItem("Sources", "How are creator connections checked?", "Each public entity has a review date and source evidence in the archive registry. A connection describes a factual credit or affiliation; it does not mean the creator approved an archive rating, review, or recommendation.")}${renderDirectoryFaqItem("Boundaries", "What is the difference between Creators and For creators?", 'Creators is the listener-facing catalogue of the teams behind shows. <a href="/for-creators">For creators</a> explains how to submit a show, request a factual correction, or ask for creator verification.')}</div></section>`;
 }
 
 function stripDirectoryKicker(markup) {
@@ -226,11 +237,11 @@ function directoryContent(entities, shows, query, options = {}) {
   const publicEntityIds = new Set(directoryEntities.map((entity) => entity.id));
   const connectedShowCount = shows.filter((show) => show.status === "published" && (show.entityLinks || []).some((link) => publicEntityIds.has(link.entityId))).length;
   const latestReviewedAt = directoryEntities.map((entity) => entity.reviewedAt).filter(Boolean).sort().at(-1) || "";
-  const summary = `Browse ${directoryEntities.length} source-backed production companies, studios, and networks connected to published audio dramas and fiction podcasts. Individual creators remain linked from their shows and detail pages.`;
+  const summary = `These ${directoryEntities.length} production companies, studios, and networks have source-backed links to shows in the archive. Individual creators stay linked from their show pages.`;
   const matches = (entity) => (entityType === "all" || entity.type === entityType) && (!query || matchesEntityQuery(entity, query));
   const visibleCount = sorted.filter(matches).length;
   const resultLabel = visibleCount === 1 ? "organization" : "organizations";
-  const initialResults = `${visibleCount} ${resultLabel}${query || entityType !== "all" ? " found" : " to explore"}.`;
+  const initialResults = `${visibleCount} ${resultLabel}${query || entityType !== "all" ? " found" : " in the directory"}.`;
   const emptyCopy = getDirectoryEmptyCopy(query, entityType);
   const hasActiveState = Boolean(query || entityType !== "all" || sort !== "name");
   const directoryFaq = renderDirectoryFaq();
@@ -245,14 +256,14 @@ function detailContent(entity, shows, collections) {
   const showMap = new Map(shows.filter((show) => show.status === "published").map((show) => [show.id, show]));
   const countLabel = `${catalogue.length} ${catalogue.length === 1 ? "show" : "shows"}`;
   const typeLabel = TYPE_LABELS[entity.type];
-  const lede = entity.description || `Explore the published shows currently connected to this ${typeLabel.toLowerCase()} in The Echo Archives.`;
+  const lede = entity.description || entityFallbackLede(entity, catalogue.length);
   const reviewNote = entity.reviewedAt ? `Archive record checked ${formatEntityDate(entity.reviewedAt)}` : "Archive record reviewed from published sources";
   const directoryLinkLabel = "Browse all creators";
   const relatedSummary = "Listening paths that include these shows.";
-  return `<section class="hero-shell entity-detail-hero" aria-labelledby="entityTitle"><div class="hero-panel page-panel entity-detail-hero-panel"><div class="hero-copy entity-detail-hero-copy">${breadcrumb(entity)}<div class="entity-detail-status-row"><span class="entity-detail-kicker">${escapeHtml(typeLabel)}</span><span class="entity-detail-status"><span class="entity-detail-status-dot" aria-hidden="true"></span>Confirmed archive connection</span></div><h1 id="entityTitle">${escapeHtml(entity.name)}</h1><p class="entity-detail-lede">${escapeHtml(lede)}</p><div class="entity-detail-actions"><a class="collection-action entity-detail-primary" href="#entityShows">Explore ${escapeHtml(countLabel)} ${renderArrowIcon()}</a>${entity.website ? `<a class="collection-secondary-link entity-detail-secondary" href="${escapeHtml(entity.website)}" rel="external">Official website ${renderArrowIcon({ external: true })}</a>` : ""}<a class="collection-secondary-link entity-detail-secondary" href="/creators">${directoryLinkLabel} ${renderArrowIcon()}</a></div><p class="entity-detail-trust"><span class="entity-detail-trust-label">Archive note</span><span>Connections describe factual credits; archive ratings and reviews remain separate.</span></p></div><div class="entity-detail-art" aria-hidden="true">${renderEntityHeroArt(catalogue)}</div></div></section>
+  return `<section class="hero-shell entity-detail-hero" aria-labelledby="entityTitle"><div class="hero-panel page-panel entity-detail-hero-panel"><div class="hero-copy entity-detail-hero-copy">${breadcrumb(entity)}<div class="entity-detail-status-row"><span class="entity-detail-kicker">${escapeHtml(typeLabel)}</span><span class="entity-detail-status"><span class="entity-detail-status-dot" aria-hidden="true"></span>Confirmed archive connection</span></div><h1 id="entityTitle">${escapeHtml(entity.name)}</h1><p class="entity-detail-lede">${escapeHtml(lede)}</p><div class="entity-detail-actions"><a class="collection-action entity-detail-primary" href="#entityShows">View ${escapeHtml(countLabel)} ${renderArrowIcon()}</a>${entity.website ? `<a class="collection-secondary-link entity-detail-secondary" href="${escapeHtml(entity.website)}" rel="external">Official website ${renderArrowIcon({ external: true })}</a>` : ""}<a class="collection-secondary-link entity-detail-secondary" href="/creators">${directoryLinkLabel} ${renderArrowIcon()}</a></div><p class="entity-detail-trust"><span class="entity-detail-trust-label">Archive note</span><span>Connections describe factual credits; archive ratings and reviews remain separate.</span></p></div><div class="entity-detail-art" aria-hidden="true">${renderEntityHeroArt(catalogue)}</div></div></section>
     <section class="page-card entity-detail-overview" aria-label="Entity at a glance"><div class="entity-detail-overview-head"><span class="page-card-kicker">At a glance</span><span class="entity-detail-reviewed">${escapeHtml(reviewNote)}</span></div><dl class="entity-detail-stat-grid"><div class="entity-detail-stat"><dt>Shows in archive</dt><dd>${catalogue.length}</dd></div><div class="entity-detail-stat"><dt>Listening routes</dt><dd>${linkedCollections.length}</dd></div><div class="entity-detail-stat"><dt>Archive role</dt><dd>${escapeHtml(typeLabel)}</dd></div></dl>${entity.aliases?.length ? `<div class="entity-detail-aliases"><span>Also indexed as</span>${entity.aliases.map((alias) => `<span>${escapeHtml(alias)}</span>`).join("")}</div>` : ""}</section>
    <section id="entityShows" class="archive-section entity-catalogue entity-detail-catalogue" aria-labelledby="entityShowsTitle"><div class="section-heading entity-detail-section-heading"><div><span class="page-card-kicker">Catalogued works</span><h2 id="entityShowsTitle">Shows in the archive</h2><p>${escapeHtml(countLabel)} with a confirmed connection to ${escapeHtml(entity.name)}.</p></div><a class="entity-detail-section-link" href="/creators">${directoryLinkLabel} ${renderArrowIcon()}</a></div><div class="podcast-card-grid">${catalogue.map((show) => renderEntityShowCard(entity, show)).join("")}</div></section>
-   ${related.length ? `<section class="page-card entity-collections entity-detail-related-section" aria-labelledby="entityCollectionsTitle"><div class="section-heading entity-detail-related-heading"><div><span class="page-card-kicker">Keep browsing</span><h2 id="entityCollectionsTitle">Explore through collections</h2><p>${relatedSummary}</p></div></div><div class="entity-collection-grid">${related.map(({ collection }) => renderCollectionDirectoryCard(collection, showMap, { compact: true })).join("")}</div></section>` : ""}
+   ${related.length ? `<section class="page-card entity-collections entity-detail-related-section" aria-labelledby="entityCollectionsTitle"><div class="section-heading entity-detail-related-heading"><div><span class="page-card-kicker">Keep browsing</span><h2 id="entityCollectionsTitle">Collections with these shows</h2><p>${relatedSummary}</p></div></div><div class="entity-collection-grid">${related.map(({ collection }) => renderCollectionDirectoryCard(collection, showMap, { compact: true })).join("")}</div></section>` : ""}
     <section class="page-card entity-detail-correction" aria-labelledby="entityCorrectionTitle"><div><span class="page-card-kicker">Archive maintenance</span><h2 id="entityCorrectionTitle">See a missing or incorrect credit?</h2><p>Help keep this creator record useful by sending a factual correction to the archive.</p></div><a class="collection-action" href="${escapeHtml(createEntityCorrectionHref(entity))}">Correct this creator page ${renderArrowIcon()}</a></section>`;
 }
 
@@ -268,16 +279,20 @@ function enhancedDirectoryContent(entities, shows, query, options = {}) {
   const publicEntityIds = new Set(directoryEntities.map((entity) => entity.id));
   const connectedShowCount = shows.filter((show) => show.status === "published" && (show.entityLinks || []).some((link) => publicEntityIds.has(link.entityId))).length;
   const latestReviewedAt = directoryEntities.map((entity) => entity.reviewedAt).filter(Boolean).sort().at(-1) || "";
-  const summary = `Browse ${directoryEntities.length} source-backed production companies, studios, and networks connected to published audio dramas and fiction podcasts. Individual creators remain linked from their shows and detail pages.`;
+  const summary = `These ${directoryEntities.length} production companies, studios, and networks have source-backed links to shows in the archive. Individual creators stay linked from their show pages.`;
   const matches = (entity) => (entityType === "all" || entity.type === entityType) && (!query || matchesEntityQuery(entity, query));
   const visibleCount = sorted.filter(matches).length;
   const resultLabel = visibleCount === 1 ? "organization" : "organizations";
-  const initialResults = `${visibleCount} ${resultLabel}${query || entityType !== "all" ? " found" : " to explore"}.`;
+  const initialResults = `${visibleCount} ${resultLabel}${query || entityType !== "all" ? " found" : " in the directory"}.`;
   const emptyCopy = getDirectoryEmptyCopy(query, entityType);
   const hasActiveState = Boolean(query || entityType !== "all" || sort !== "name");
   const hero = `<section class="hero-shell entity-hero-shell" id="creatorsHero" aria-labelledby="creatorsHeroTitle"><div class="hero-panel creators-hero-panel entity-hero-panel"><div class="hero-copy entity-hero-copy"><span class="entity-directory-kicker">Creator directory · organizations</span><h1 id="creatorsHeroTitle">Production companies, studios &amp; networks</h1><p>Trace a favorite show back to the production companies, studios, and networks behind it. Individual creators remain linked from their shows.</p><div class="entity-featured-rail"><div class="home-hero-actions entity-featured-routes" aria-label="Featured creator organizations">${featured.map((entity, index) => renderEntityShortcut(entity, catalogues.get(entity.id), index)).join("")}</div></div></div><form class="entity-search" role="search" action="/creators" method="get"><label class="entity-search-label" for="entitySearch">Search production companies, studios, and networks</label><div class="entity-search-control"><div class="entity-search-field"><span class="entity-search-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m21 21-4.35-4.35M10.8 18a7.2 7.2 0 1 0 0-14.4 7.2 7.2 0 0 0 0 14.4Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" /></svg></span><input id="entitySearch" type="search" name="q" value="${escapeHtml(query)}" placeholder="Try 7 Lamb or Fool &amp; Scholar" autocomplete="off" aria-controls="entityGrid" /><button class="entity-search-clear" type="button" data-entity-clear aria-label="Clear organization search"${query ? "" : " hidden"}>Clear</button></div><button class="entity-search-submit" type="submit">Search ${renderArrowIcon()}</button></div></form><section class="archive-trust-grid entity-trust-grid" aria-label="Creator organization directory snapshot"><p class="archive-trust-item"><strong>${directoryEntities.length}</strong> <span>creator organizations</span></p><p class="archive-trust-item"><strong>${connectedShowCount}</strong> <span>connected shows</span></p><p class="archive-trust-item entity-trust-updated"><span>Last reviewed</span> <strong>${formatEntityDate(latestReviewedAt)}</strong></p></section></div></section>`;
   const browse = `<section class="entity-explore-section" id="entityDirectorySection" aria-labelledby="entityDirectoryTitle"><div class="entity-section-heading"><div><h2 id="entityDirectoryTitle">Browse production companies, studios, and networks</h2><p>${summary}</p></div><a class="entity-section-link" href="${escapeHtml(createEntityCorrectionHref())}">Suggest a creator connection ${renderArrowIcon()}</a></div>${renderDirectoryControls(directoryEntities, entityType, sort, query)}<div class="entity-results-row"><p id="entityResults" class="entity-results" role="status" aria-live="polite">${initialResults}</p><a class="entity-results-reset" href="/creators" data-entity-reset${hasActiveState ? "" : " hidden"}>Clear search and filters</a></div><div id="entityGrid" class="entity-grid">${sorted.map((entity) => renderEntityCard(entity, shows).replace("<article ", `<article ${matches(entity) ? "" : "hidden "}`)).join("")}</div><div id="entityEmpty" class="empty-state-card"${visibleCount > 0 ? " hidden" : ""}><h2 id="entityEmptyTitle">${escapeHtml(emptyCopy.title)}</h2><p id="entityEmptyDescription">${escapeHtml(emptyCopy.description)}</p><div class="entity-empty-actions"><a class="collection-action" href="${query ? `/?q=${encodeURIComponent(query)}#archive` : "/#archive"}" data-entity-browse>Search shows</a><a class="collection-secondary-link" href="/creators" data-entity-reset>Clear search and filters</a></div></div></section><p class="entity-footnote">Know a missing connection? <a href="${escapeHtml(createEntityCorrectionHref())}">Send a creator-page correction</a> or <a href="/for-creators">visit For creators</a>.</p>`;
-  return stripDirectoryKicker(`${hero}${browse}${renderDirectoryFaq()}`);
+  const editorialHero = hero.replace("Trace a favorite show back to the production companies, studios, and networks behind it. Individual creators remain linked from their shows.", "See the production companies, studios, and networks behind the shows you listen to. Individual creators remain linked from their shows.");
+  const editorialBrowse = browse
+    .replace("<h2 id=\"entityDirectoryTitle\">Browse production companies, studios, and networks</h2>", "<h2 id=\"entityDirectoryTitle\">Browse organizations</h2>")
+    .replace("Suggest a creator connection", "Send a creator correction");
+  return stripDirectoryKicker(`${editorialHero}${editorialBrowse}${renderDirectoryFaq()}`);
 }
 
 function enhancedDetailContent(entity, shows, collections) {
@@ -287,7 +302,7 @@ function enhancedDetailContent(entity, shows, collections) {
   const showMap = new Map(shows.filter((show) => show.status === "published").map((show) => [show.id, show]));
   const countLabel = `${catalogue.length} ${catalogue.length === 1 ? "show" : "shows"}`;
   const typeLabel = TYPE_LABELS[entity.type];
-  const lede = entity.description || `Explore ${countLabel} connected audio dramas and fiction podcasts from this ${typeLabel.toLowerCase()} in The Echo Archives.`;
+  const lede = entity.description || entityFallbackLede(entity, catalogue.length);
   const reviewNote = entity.reviewedAt ? `Sources reviewed ${formatEntityDate(entity.reviewedAt)}` : "Sources reviewed from published records";
   const reviewMarkup = entity.reviewedAt
     ? `<time datetime="${escapeHtml(entity.reviewedAt)}">${escapeHtml(reviewNote)}</time>`
@@ -295,17 +310,21 @@ function enhancedDetailContent(entity, shows, collections) {
   const genreLabels = profile.genres.slice(0, 4).map(toPublicLabel);
   const tagLabels = profile.tags.slice(0, 4).map(toPublicLabel).filter((tag) => !genreLabels.includes(tag));
   const signalMarkup = genreLabels.length || tagLabels.length || profile.statuses.length
-    ? `<div class="entity-detail-signals"><span class="entity-detail-signals-label">Catalogued signals</span>${genreLabels.length ? `<span><strong>Genres</strong> ${escapeHtml(genreLabels.join(" · "))}</span>` : ""}${tagLabels.length ? `<span><strong>Tags</strong> ${escapeHtml(tagLabels.join(" · "))}</span>` : ""}${profile.statuses.length ? `<span><strong>Status</strong> ${escapeHtml(profile.statuses.join(" · "))}</span>` : ""}</div>`
+    ? `<div class="entity-detail-signals"><span class="entity-detail-signals-label">Genres, tags, and status</span>${genreLabels.length ? `<span><strong>Genres</strong> ${escapeHtml(genreLabels.join(" · "))}</span>` : ""}${tagLabels.length ? `<span><strong>Tags</strong> ${escapeHtml(tagLabels.join(" · "))}</span>` : ""}${profile.statuses.length ? `<span><strong>Status</strong> ${escapeHtml(profile.statuses.join(" · "))}</span>` : ""}</div>`
     : "";
   const genreSummary = genreLabels.length ? ` Catalogued genres include ${genreLabels.join(", ")}.` : "";
   const directoryLinkLabel = entity.type === "person" ? "Browse organizations" : "Browse all organizations";
   const relatedSummary = linkedCollections.length > related.length
-    ? `Showing ${related.length} of ${linkedCollections.length} listening routes connected to these shows.`
-    : "Listening paths that include these shows.";
-  return `<section class="hero-shell entity-detail-hero" aria-labelledby="entityTitle"><div class="hero-panel page-panel entity-detail-hero-panel"><div class="hero-copy entity-detail-hero-copy">${breadcrumb(entity)}<div class="entity-detail-status-row"><span class="entity-detail-kicker">${escapeHtml(typeLabel)}</span><span class="entity-detail-status"><span class="entity-detail-status-dot" aria-hidden="true"></span>Source-backed connection</span></div><h1 id="entityTitle">${escapeHtml(entity.name)}</h1><p class="entity-detail-lede">${escapeHtml(lede)}</p><div class="entity-detail-actions"><a class="collection-action entity-detail-primary" href="#entityShows">Explore ${escapeHtml(countLabel)} ${renderArrowIcon()}</a>${entity.website ? `<a class="collection-secondary-link entity-detail-secondary" href="${escapeHtml(entity.website)}" rel="external">Official website ${renderArrowIcon({ external: true })}</a>` : ""}<a class="collection-secondary-link entity-detail-secondary" href="/creators">${directoryLinkLabel} ${renderArrowIcon()}</a></div><p class="entity-detail-trust"><span class="entity-detail-trust-label">Source note</span><span>Links reflect factual credits; they are not creator verification or endorsement. Archive ratings and reviews remain separate.</span></p></div><div class="entity-detail-art" aria-hidden="true">${renderEntityHeroArt(catalogue)}</div></div></section>
-    <section class="page-card entity-detail-overview" aria-label="Entity at a glance"><div class="entity-detail-overview-head"><div class="entity-detail-overview-meta"><span class="page-card-kicker">At a glance</span><span class="entity-detail-reviewed">${reviewMarkup}</span></div><a class="collection-action entity-detail-overview-action" href="#entityShows">View ${escapeHtml(countLabel)} ${renderArrowIcon()}</a></div><dl class="entity-detail-stat-grid"><div class="entity-detail-stat"><dt>Shows in archive</dt><dd>${catalogue.length}</dd></div><div class="entity-detail-stat"><dt>Listening routes</dt><dd>${linkedCollections.length}</dd></div><div class="entity-detail-stat"><dt>Entity type</dt><dd>${escapeHtml(typeLabel)}</dd></div><div class="entity-detail-stat"><dt>Genres represented</dt><dd>${genreLabels.length || "—"}</dd></div></dl><details class="entity-detail-overview-extra"><summary>Archive details</summary><div class="entity-detail-context"><p>Curated archive selection; not a complete discography.</p>${signalMarkup}</div>${entity.aliases?.length ? `<div class="entity-detail-aliases"><span>Also indexed as</span>${entity.aliases.map((alias) => `<span>${escapeHtml(alias)}</span>`).join("")}</div>` : ""}</details></section>
+    ? `Showing ${related.length} of ${linkedCollections.length} collections that include these shows.`
+    : "Collections that include these shows.";
+  const isSparseEntity = catalogue.length <= 1;
+  const overview = isSparseEntity
+    ? `<section class="page-card entity-detail-overview entity-detail-overview--compact" aria-label="Entity at a glance"><div class="entity-detail-overview-head"><div class="entity-detail-overview-meta"><span class="page-card-kicker">At a glance</span><span class="entity-detail-reviewed">${reviewMarkup}</span></div><a class="collection-action entity-detail-overview-action" href="#entityShows">View ${escapeHtml(countLabel)} ${renderArrowIcon()}</a></div><p class="entity-detail-overview-summary">${escapeHtml(`${countLabel} connected to this ${typeLabel.toLowerCase()}.`)}</p>${entity.aliases?.length ? `<div class="entity-detail-aliases"><span>Also indexed as</span>${entity.aliases.map((alias) => `<span>${escapeHtml(alias)}</span>`).join("")}</div>` : ""}</section>`
+    : `<section class="page-card entity-detail-overview" aria-label="Entity at a glance"><div class="entity-detail-overview-head"><div class="entity-detail-overview-meta"><span class="page-card-kicker">At a glance</span><span class="entity-detail-reviewed">${reviewMarkup}</span></div><a class="collection-action entity-detail-overview-action" href="#entityShows">View ${escapeHtml(countLabel)} ${renderArrowIcon()}</a></div><dl class="entity-detail-stat-grid"><div class="entity-detail-stat"><dt>Shows in archive</dt><dd>${catalogue.length}</dd></div><div class="entity-detail-stat"><dt>Listening routes</dt><dd>${linkedCollections.length}</dd></div><div class="entity-detail-stat"><dt>Entity type</dt><dd>${escapeHtml(typeLabel)}</dd></div><div class="entity-detail-stat"><dt>Genres represented</dt><dd>${genreLabels.length || "—"}</dd></div></dl><details class="entity-detail-overview-extra"><summary>Archive details</summary><div class="entity-detail-context"><p>Curated archive selection; not a complete discography.</p>${signalMarkup}</div>${entity.aliases?.length ? `<div class="entity-detail-aliases"><span>Also indexed as</span>${entity.aliases.map((alias) => `<span>${escapeHtml(alias)}</span>`).join("")}</div>` : ""}</details></section>`;
+  return `<section class="hero-shell entity-detail-hero" aria-labelledby="entityTitle"><div class="hero-panel page-panel entity-detail-hero-panel"><div class="hero-copy entity-detail-hero-copy">${breadcrumb(entity)}<div class="entity-detail-status-row"><span class="entity-detail-kicker">${escapeHtml(typeLabel)}</span><span class="entity-detail-status"><span class="entity-detail-status-dot" aria-hidden="true"></span>Source-backed connection</span></div><h1 id="entityTitle">${escapeHtml(entity.name)}</h1><p class="entity-detail-lede">${escapeHtml(lede)}</p><div class="entity-detail-actions"><a class="collection-action entity-detail-primary" href="#entityShows">View ${escapeHtml(countLabel)} ${renderArrowIcon()}</a>${entity.website ? `<a class="collection-secondary-link entity-detail-secondary" href="${escapeHtml(entity.website)}" rel="external">Official website ${renderArrowIcon({ external: true })}</a>` : ""}<a class="collection-secondary-link entity-detail-secondary" href="/creators">${directoryLinkLabel} ${renderArrowIcon()}</a></div><p class="entity-detail-trust"><span class="entity-detail-trust-label">Source note</span><span>Links reflect factual credits; they are not creator verification or endorsement. Archive ratings and reviews remain separate.</span></p></div><div class="entity-detail-art" aria-hidden="true">${renderEntityHeroArt(catalogue)}</div></div></section>
+    ${overview}
    <section id="entityShows" class="archive-section entity-catalogue entity-detail-catalogue" aria-labelledby="entityShowsTitle"><div class="section-heading entity-detail-section-heading"><div><span class="page-card-kicker">Complete catalogue</span><h2 id="entityShowsTitle">Audio dramas and fiction podcasts connected to ${escapeHtml(entity.name)}</h2><p>${escapeHtml(countLabel)} with a source-backed connection to ${escapeHtml(entity.name)}.${genreSummary}</p></div><a class="entity-detail-section-link" href="/creators">${directoryLinkLabel} ${renderArrowIcon()}</a></div><div class="podcast-card-grid">${catalogue.map((show) => renderEntityShowCard(entity, show)).join("")}</div></section>
-   ${related.length ? `<section class="page-card entity-collections entity-detail-related-section" aria-labelledby="entityCollectionsTitle"><div class="section-heading entity-detail-related-heading"><div><span class="page-card-kicker">Keep browsing</span><h2 id="entityCollectionsTitle">Explore through collections</h2><p>${relatedSummary}</p></div>${linkedCollections.length > related.length ? `<a class="entity-detail-section-link" href="/collections">Browse all collections ${renderArrowIcon()}</a>` : ""}</div><div class="entity-collection-grid">${related.map(({ collection }) => renderCollectionDirectoryCard(collection, showMap, { compact: true })).join("")}</div></section>` : ""}
+   ${related.length ? `<section class="page-card entity-collections entity-detail-related-section" aria-labelledby="entityCollectionsTitle"><div class="section-heading entity-detail-related-heading"><div><span class="page-card-kicker">Keep browsing</span><h2 id="entityCollectionsTitle">Collections with these shows</h2><p>${relatedSummary}</p></div>${linkedCollections.length > related.length ? `<a class="entity-detail-section-link" href="/collections">Browse all collections ${renderArrowIcon()}</a>` : ""}</div><div class="entity-collection-grid">${related.map(({ collection }) => renderCollectionDirectoryCard(collection, showMap, { compact: true })).join("")}</div></section>` : ""}
     <section class="page-card entity-detail-correction" aria-labelledby="entityCorrectionTitle"><div><span class="page-card-kicker">Archive maintenance</span><h2 id="entityCorrectionTitle">See a missing or incorrect credit?</h2><p>Help keep this creator record useful by sending a factual correction to the archive.</p></div><a class="collection-action" href="${escapeHtml(createEntityCorrectionHref(entity))}">Correct this creator page ${renderArrowIcon()}</a></section>`;
 }
 

@@ -290,9 +290,10 @@ export async function initializeCollectionsPage() {
   setTextContent("collectionsShowReach", String(coveredShowIds.size));
   setTextContent("collectionsFeaturedCount", String(featuredCount));
   setTextContent("collectionsLastUpdated", latestUpdatedAt ? formatDate(latestUpdatedAt) : "Unknown");
+  const similarityLabel = similarityCollections.length === 1 ? "collection" : "collections";
   setTextContent(
     "collectionsSimilaritySummary",
-    `${similarityCollections.length} “shows like” collection${similarityCollections.length === 1 ? "" : "s"} based on a favorite show.`,
+    `${similarityCollections.length} “shows like” ${similarityLabel} that branch out from a show in the archive.`,
   );
 
   const renderSimilarityCollections = (changeReason = "initial") => {
@@ -369,7 +370,7 @@ export async function initializeCollectionsPage() {
     if (elements.featuredSummary) {
       syncCollectionsSummary(
         elements.featuredSummary,
-        activeMood ? `Featured collections matching ${activeMood.toLowerCase()}.` : "Featured collections from the archive.",
+        activeMood ? `Collections matching ${activeMood.toLowerCase()}.` : "Use mood, format, or listening time to narrow the list.",
         { skipAnimation: changeReason === "initial" },
       );
     }

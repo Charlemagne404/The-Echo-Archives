@@ -1316,6 +1316,10 @@
   gap: 10px;
 }
 
+.community-review-distribution[hidden] {
+  display: none !important;
+}
+
 .community-distribution-row {
   display: grid;
   grid-template-columns: 26px minmax(0, 1fr) 34px;

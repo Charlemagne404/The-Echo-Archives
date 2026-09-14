@@ -286,12 +286,12 @@ function renderListenerReviewScore(show, { showLabel = true } = {}) {
   const reviewCount = Number(show?.listenerReviewScore?.reviewCount);
   const averageRating = Number(show?.listenerReviewScore?.averageRating);
   const hasScore = Number.isInteger(reviewCount) && reviewCount > 0 && Number.isFinite(averageRating) && averageRating >= 0 && averageRating <= 10;
-  const value = hasScore ? `${averageRating.toFixed(1)}/10` : "--/10";
+  const value = hasScore ? `${averageRating.toFixed(1)}/10` : "";
   const ariaLabel = hasScore
     ? `Listener Review Score ${value} from ${reviewCount} ${reviewCount === 1 ? "review" : "reviews"}.`
-    : "Listener Review Score --/10. No published listener reviews yet.";
+    : "Listener review score";
   return `
-    <div class="listener-review-inline-score" data-podcast-id="${escapeAttribute(show.id || "")}" aria-label="${escapeAttribute(ariaLabel)}">
+    <div class="listener-review-inline-score" data-podcast-id="${escapeAttribute(show.id || "")}" aria-label="${escapeAttribute(ariaLabel)}"${hasScore ? "" : " hidden"}>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
         <span class="listener-review-inline-score-value">${value}</span>
@@ -310,7 +310,7 @@ function renderPrimaryScore(show, options = {}) {
 
 function renderCommunityScore(show, { showLabel = true } = {}) {
   return `
-    <div class="community-inline-score" data-podcast-id="${escapeAttribute(show.id || "")}" aria-label="Community score --/10. No ratings yet.">
+    <div class="community-inline-score" data-podcast-id="${escapeAttribute(show.id || "")}" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -320,7 +320,7 @@ function renderCommunityScore(show, { showLabel = true } = {}) {
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
       ${showLabel ? '<span class="inline-score-label">Community Rating</span>' : ""}
     </div>
@@ -344,7 +344,7 @@ function renderArchiveCard(show) {
         <p class="tags" data-card-meta="true" data-card-meta-kind="${escapeAttribute(cardMetadata.kind)}"${metaText ? "" : " hidden"}>${escapeHtml(metaText)}</p>
         <div class="rating">
           ${renderPrimaryScore(show, { showLabel: false })}
-          <span class="rating-divider" aria-hidden="true"></span>
+          <span class="rating-divider" aria-hidden="true" hidden></span>
           ${renderCommunityScore(show, { showLabel: false })}
         </div>
       </a>
@@ -400,7 +400,7 @@ function renderMostPopularCard(show) {
         <div class="popular-card-footer">
           <div class="popular-card-ratings">
             ${renderPrimaryScore(show)}
-            <span class="rating-divider" aria-hidden="true"></span>
+            <span class="rating-divider" aria-hidden="true" hidden></span>
             ${renderCommunityScore(show)}
           </div>
         </div>

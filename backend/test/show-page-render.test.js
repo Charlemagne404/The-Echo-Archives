@@ -68,8 +68,8 @@ test("Imported show pages disclose automation, preserve community routes, and om
   assert.match(serverMarkup, /has not yet been individually checked/);
   assert.match(serverMarkup, /Be the first to review/);
   assert.doesNotMatch(serverMarkup, /Archive verdict|detail-archive-review/);
-  assert.match(serverMarkup, /Listener Review Score/);
-  assert.match(serverMarkup, />--\/10</);
+  assert.doesNotMatch(serverMarkup, /detail-score-card-listener/);
+  assert.doesNotMatch(serverMarkup, />--\/10</);
 
   global.document = { body: { dataset: {} }, getElementById: () => null, querySelector: () => null };
   global.EchoArchiveSearch = {};
@@ -77,7 +77,7 @@ test("Imported show pages disclose automation, preserve community routes, and om
   try {
     const { createShowPageMarkup: createClientShowPageMarkup } = await import("../../shared/app/render-show.js");
     const clientMarkup = createClientShowPageMarkup(show, map, [], { reviews: [], pagination: { totalReviews: 0 }, scoreSummary: {} });
-    ["detail-status-chip is-imported", "Imported · source checked by automation", "Listener Review Score"].forEach((fragment) => {
+    ["detail-status-chip is-imported", "Imported · source checked by automation"].forEach((fragment) => {
       assert.match(clientMarkup, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
     });
   } finally {
@@ -264,8 +264,8 @@ test("server-rendered show pages never coerce missing or invalid archive ratings
     const show = { ...baseShow, finalRating };
     const markup = createShowPageMarkup(show, new Map([[show.id, show]]), []);
 
-    assert.match(markup, /<strong class="detail-hero-score-value">--\/10<\/strong>/);
-    assert.match(markup, /No published listener reviews yet/);
+    assert.doesNotMatch(markup, /<strong class="detail-hero-score-value">--\/10<\/strong>/);
+    assert.doesNotMatch(markup, /No listener reviews yet/);
     assert.match(markup, /<span class="detail-review-rating">Unrated<\/span>/);
     assert.doesNotMatch(markup, /\b0(?:\.0)?\/10\b/);
     assert.doesNotMatch(markup, /detail-score-card-archive/);
@@ -307,8 +307,8 @@ test("client-rendered show pages use the same strict archive-rating behavior", a
       const show = { ...baseShow, finalRating };
       const markup = createClientShowPageMarkup(show, new Map([[show.id, show]]), []);
 
-      assert.match(markup, /<strong class="detail-hero-score-value">--\/10<\/strong>/);
-      assert.match(markup, /No published listener reviews yet/);
+      assert.doesNotMatch(markup, /<strong class="detail-hero-score-value">--\/10<\/strong>/);
+      assert.doesNotMatch(markup, /No listener reviews yet/);
       assert.match(markup, /<span class="detail-review-rating">Unrated<\/span>/);
       assert.doesNotMatch(markup, /\b0(?:\.0)?\/10\b/);
       assert.doesNotMatch(markup, /detail-score-card-archive/);

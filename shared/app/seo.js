@@ -1,7 +1,7 @@
 export const BRAND_NAME = "The Echo Archives";
 export const BRAND_DESCRIPTOR = "The Echo Archives — Audio Drama Discovery";
 export const DEFAULT_SEO_DESCRIPTION =
-  "Audio drama discovery with fiction podcast recommendations, reviews, collections, and similar shows.";
+  "Fiction podcasts and audio dramas to browse by mood, format, completion status, and similar shows.";
 
 function cleanText(value = "") {
   return String(value || "").replace(/\s+/g, " ").trim();
@@ -41,21 +41,21 @@ export function buildShowSeoDescription(show = {}) {
     ? "Read the archive review and find similar fiction podcasts."
     : profile.imported
       ? "Find official listening links and factual episode details."
-    : "Explore the archive guide and find similar fiction podcasts.";
+    : "See the archive guide and find similar fiction podcasts.";
   return truncateDescription(profile.imported
-    ? `Discover ${title}, a ${genrePhrase}audio drama. ${action} ${editorialText}`
-    : `Discover ${title}, a ${genrePhrase}audio drama. ${editorialText} ${action}`);
+    ? `${title} is a ${genrePhrase}audio drama. ${action} ${editorialText}`
+    : `${title} is a ${genrePhrase}audio drama. ${editorialText} ${action}`);
 }
 
 export function buildCollectionSeoTitle(collection = {}) {
-  return `${cleanText(collection.title) || "Curated fiction podcasts"}: Audio Drama Recommendations | ${BRAND_NAME}`;
+  return `${cleanText(collection.title) || "Fiction podcast collection"}: Audio Drama Recommendations | ${BRAND_NAME}`;
 }
 
 export function buildCollectionSeoDescription(collection = {}, shows = []) {
   const showTitles = [...new Set((shows || []).map((show) => cleanText(show?.title)).filter(Boolean))].slice(0, 3);
   const examples = showTitles.length > 0 ? ` Featuring ${showTitles.join(", ")}${shows.length > 3 ? ", and more" : ""}.` : "";
   return truncateDescription(
-    `${truncateDescription(cleanText(collection.description), 72)} Audio drama and fiction podcast recommendations.${examples}`,
+    `${truncateDescription(cleanText(collection.description), 72)} Audio dramas and fiction podcasts.${examples}`,
   );
 }
 import { archiveRecord } from "./constants.js";

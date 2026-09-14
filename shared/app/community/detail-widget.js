@@ -6,7 +6,6 @@ import {
   submitCommunityRating,
 } from "./api.js";
 import {
-  EMPTY_COMMUNITY_SCORE_TEXT,
   formatDetailCommunitySummary,
   getDetailCommunityMetricCount,
   getDetailCommunityMetricValue,
@@ -70,17 +69,18 @@ function mountDetailRatingWidget(detailRoot, podcast) {
 
   const metricValue = document.createElement("strong");
   metricValue.className = "community-review-metric-value";
-  metricValue.textContent = EMPTY_COMMUNITY_SCORE_TEXT;
+  metricValue.textContent = "";
 
   const metricCount = document.createElement("span");
   metricCount.className = "community-review-metric-count";
-  metricCount.textContent = "No ratings yet";
+  metricCount.textContent = "";
+  metricCount.hidden = true;
 
   metricRow.append(metricValue, metricCount);
 
   const summary = document.createElement("p");
   summary.className = "community-review-summary";
-  summary.textContent = formatDetailCommunitySummary(null);
+  summary.textContent = "Loading community ratings…";
 
   const buttons = document.createElement("div");
   buttons.className = "community-review-buttons";
@@ -89,6 +89,7 @@ function mountDetailRatingWidget(detailRoot, podcast) {
 
   const distribution = document.createElement("div");
   distribution.className = "community-review-distribution";
+  distribution.hidden = true;
   distribution.setAttribute("role", "list");
   distribution.setAttribute("aria-label", "Community rating distribution");
 
@@ -263,6 +264,9 @@ function syncDetailRatingWidget(widget, summary) {
   widget.summary.textContent = formatDetailCommunitySummary(summary);
   setRollingTextNodeContent(widget.metricValue, getDetailCommunityMetricValue(summary), shouldAnimateMetrics);
   setRollingTextNodeContent(widget.metricCount, getDetailCommunityMetricCount(summary), shouldAnimateMetrics);
+  const hasRatings = Boolean(summary?.ratingCount);
+  widget.metricCount.hidden = false;
+  widget.distribution.hidden = !hasRatings;
   widget.clearButton.hidden = !summary?.myRating;
   widget.ratingHint.hidden = Boolean(summary?.myRating);
 
@@ -312,8 +316,10 @@ function setCommunityWidgetReadOnly(widget) {
 function setCommunityWidgetUnavailable(widget) {
   widget.lastSummary = null;
   widget.summary.textContent = "Community ratings are temporarily unavailable.";
-  setRollingTextNodeContent(widget.metricValue, EMPTY_COMMUNITY_SCORE_TEXT, false);
-  setRollingTextNodeContent(widget.metricCount, "Offline", false);
+  setRollingTextNodeContent(widget.metricValue, "", false);
+  setRollingTextNodeContent(widget.metricCount, "", false);
+  widget.metricCount.hidden = true;
+  widget.distribution.hidden = true;
   widget.ratingButtons.forEach((button) => {
     button.disabled = true;
   });

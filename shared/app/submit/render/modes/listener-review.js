@@ -33,7 +33,7 @@ export function renderListenerReviewMode(draft, context) {
       label: "Review title (optional)",
       value: draft.reviewTitle,
       maxLength: 80,
-      placeholder: "A short, descriptive title for your review.",
+      placeholder: "A short title that says what your review is about.",
     }),
     renderTextareaField({
       id: "submitReviewText",

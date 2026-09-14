@@ -15,10 +15,10 @@
         <div class="hero-copy collections-hero-copy">
           <h1 id="collectionsHeroTitle">Audio drama and fiction podcast collections</h1>
           <p>
-            Recommendations for what you feel like listening to and how much time you have.
+            Routes through the archive, grouped by mood, format, and listening time.
           </p>
           <div class="collections-hero-actions">
-            <button id="startWithMood" class="collection-action collections-primary-action" type="button">Start with a mood</button>
+            <button id="startWithMood" class="collection-action collections-primary-action" type="button">Filter by mood</button>
             <button id="browseAllCollections" class="collection-secondary-link collections-secondary-action" type="button">Browse all collections</button>
           </div>
         </div>
@@ -41,8 +41,8 @@
     <section class="collections-featured-section" id="collectionsSimilaritySection" aria-labelledby="collectionsSimilarityTitle">
       <div class="section-heading collections-section-heading">
         <div>
-          <h2 id="collectionsSimilarityTitle">Start from a favorite show</h2>
-          <p id="collectionsSimilaritySummary">Shows like X collections from the archive.</p>
+          <h2 id="collectionsSimilarityTitle">Related collections</h2>
+          <p id="collectionsSimilaritySummary">Collections that branch out from a show.</p>
         </div>
         <a
           id="collectionsSimilarityBrowseAll"
@@ -69,8 +69,8 @@
     <section class="collections-featured-section" aria-labelledby="collectionsFeaturedTitle">
       <div class="section-heading collections-section-heading">
         <div>
-          <h2 id="collectionsFeaturedTitle">Start somewhere great</h2>
-          <p id="collectionsFeaturedSummary">Featured collections from the archive.</p>
+          <h2 id="collectionsFeaturedTitle">A few routes into the archive</h2>
+          <p id="collectionsFeaturedSummary">Use mood, format, or listening time to narrow the list.</p>
         </div>
         <a class="section-link" href="#collectionsDirectorySection">View all collections</a>
       </div>
@@ -81,7 +81,7 @@
       <div class="section-heading collections-section-heading">
         <div>
           <h2 id="collectionsDirectoryTitle">All collections</h2>
-          <p id="collectionsDirectorySummary">Search all collections in the archive.</p>
+          <p id="collectionsDirectorySummary">Find a collection by mood, genre, or show.</p>
         </div>
       </div>
 
@@ -93,7 +93,7 @@
               <path d="m21 21-4.35-4.35M10.8 18a7.2 7.2 0 1 0 0-14.4 7.2 7.2 0 0 0 0 14.4Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
             </svg>
           </span>
-          <input type="text" id="collectionsSearch" placeholder="Search by mood, genre, or show..." autocomplete="off" />
+          <input type="text" id="collectionsSearch" placeholder="Search mood, genre, or show" autocomplete="off" />
         </label>
         <label class="collections-sort-field" for="collectionsSort">
           <span>Sort</span>
@@ -111,7 +111,7 @@
       <div id="collectionsDirectory" class="collections-directory-grid" aria-live="polite"></div>
       <div id="collectionsEmptyState" class="collections-empty-state" hidden>
         <h3>No matching collections</h3>
-        <p>Try a broader mood, clear the search, or browse every collection.</p>
+        <p>Try a broader search, clear the filters, or browse the full list.</p>
         <button id="collectionsClearSearch" class="collection-action" type="button">Clear search</button>
       </div>
     </section>

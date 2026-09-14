@@ -400,7 +400,7 @@ export async function initializeCollectionPage() {
   relatedSection.hidden = relatedCollections.length === 0;
   if (relatedSummary) {
     relatedSummary.textContent =
-      "Related collections from the archive.";
+      "More listening paths with similar moods or shows.";
   }
 }
 
@@ -410,7 +410,7 @@ async function loadCollectionPageData({ root, grid }) {
   } catch (_error) {
     renderRouteErrorSurface(root, {
       title: "Collection data did not load",
-      explanation: "This collection needs the public catalog before its shows and archive links can be shown.",
+      explanation: "The public catalog is needed before this collection’s shows and links can appear.",
       primaryAction: { href: "/collections", label: "Browse collections" },
       secondaryAction: { href: "/", label: "Back to archive" },
       onRetry: () => window.location.reload(),

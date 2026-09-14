@@ -52,7 +52,7 @@ export async function initializeSubmitPage() {
     shows: [],
     showMap: new Map(),
     lookupStatus: "idle",
-    lookupMessage: "The show list loads when this form needs it.",
+    lookupMessage: "The show list will load when you choose a form that needs it.",
     lookupPromise: null,
     requestedShowId: "",
     showContexts: new Map(),
@@ -153,7 +153,7 @@ export async function initializeSubmitPage() {
       })
       .catch((error) => {
         state.lookupStatus = "error";
-        state.lookupMessage = "The show list is temporarily unavailable. Retry here, or use the new-show form now.";
+        state.lookupMessage = "The show list is unavailable right now. Try again, or switch to the new-show form.";
         renderPreservingFocus();
         throw error;
       })

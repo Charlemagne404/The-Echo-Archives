@@ -337,7 +337,7 @@ export function renderCategoryRatingFields(categoryScores, categories, { open = 
       <fieldset class="submit-category-ratings">
         <legend class="sr-only">Optional detailed ratings</legend>
         <p class="submit-category-ratings-copy">Rate only the categories you want to judge. Scores contribute to public averages only after the review is published.</p>
-        ${categories.map(({ key, label, description = "1 = weak; 10 = exceptional" }) => {
+        ${categories.map(({ key, label, description = "1 = needs work; 10 = a standout" }) => {
         const fieldId = `submitCategory${key[0].toUpperCase()}${key.slice(1)}`;
         const selected = Number(categoryScores?.[key]) || 0;
         const sliderValue = selected || 1;

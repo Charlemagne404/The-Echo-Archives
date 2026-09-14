@@ -6,25 +6,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="color-scheme" content="dark" />
 <title>The Echo Archives — Audio Drama Discovery</title>
-<meta name="description" content="Audio drama discovery with fiction podcast recommendations, reviews, collections, and similar shows." />
+<meta name="description" content="Fiction podcasts and audio dramas to browse by mood, format, completion status, and similar shows." />
 <link rel="canonical" href="https://echoarchives.net/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="The Echo Archives" />
 <meta property="og:title" content="The Echo Archives — Audio Drama Discovery" />
-<meta property="og:description" content="Audio drama discovery with fiction podcast recommendations, reviews, collections, and similar shows." />
+<meta property="og:description" content="Fiction podcasts and audio dramas to browse by mood, format, completion status, and similar shows." />
 <meta property="og:url" content="https://echoarchives.net/" />
 <meta property="og:image" content="https://echoarchives.net/echo-wordmark1.png" />
 <meta property="og:image:alt" content="The Echo Archives social preview" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="The Echo Archives — Audio Drama Discovery" />
-<meta name="twitter:description" content="Audio drama discovery with fiction podcast recommendations, reviews, collections, and similar shows." />
+<meta name="twitter:description" content="Fiction podcasts and audio dramas to browse by mood, format, completion status, and similar shows." />
 <meta name="twitter:image" content="https://echoarchives.net/echo-wordmark1.png" />
 <meta name="twitter:image:alt" content="The Echo Archives social preview" />
 <meta name="theme-color" content="#06080b" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 
 <script src="/shared/app/scroll-restoration-boot.js?v=2435952c77"></script>
-<link rel="stylesheet" href="/style.css?v=78458fbb6a" />
+<link rel="stylesheet" href="/style.css?v=eba4040579" />
 <link rel="stylesheet" href="/home.css?v=c46a1b3ffb" />
 <link rel="stylesheet" href="/collections.css?v=c971476988" />
 <link rel="stylesheet" href="/public-heroes.css?v=9384126766" />
@@ -34,7 +34,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 <link rel="preload" as="image" href="/images/hero-archive-dish.webp" type="image/webp" fetchpriority="high" />
-<script id="pageStructuredData" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://echoarchives.net/#website","name":"The Echo Archives","alternateName":"The Echo Archives — Audio Drama Discovery","url":"https://echoarchives.net/","description":"Audio drama discovery with fiction podcast recommendations, reviews, collections, and similar shows.","about":[{"@type":"Thing","name":"Audio drama discovery"},{"@type":"Thing","name":"Fiction podcast recommendations"},{"@type":"Thing","name":"Audio drama reviews"}],"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://echoarchives.net/?q={search_term_string}#archive"},"query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://echoarchives.net/#webpage","url":"https://echoarchives.net/","name":"The Echo Archives — Audio Drama Discovery","description":"Audio drama discovery with fiction podcast recommendations, reviews, collections, and similar shows.","isPartOf":{"@id":"https://echoarchives.net/#website"}}]}</script>
+<script id="pageStructuredData" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://echoarchives.net/#website","name":"The Echo Archives","alternateName":"The Echo Archives — Audio Drama Discovery","url":"https://echoarchives.net/","description":"Fiction podcasts and audio dramas to browse by mood, format, completion status, and similar shows.","about":[{"@type":"Thing","name":"Audio drama discovery"},{"@type":"Thing","name":"Fiction podcast recommendations"},{"@type":"Thing","name":"Audio drama reviews"}],"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://echoarchives.net/?q={search_term_string}#archive"},"query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://echoarchives.net/#webpage","url":"https://echoarchives.net/","name":"The Echo Archives — Audio Drama Discovery","description":"Fiction podcasts and audio dramas to browse by mood, format, completion status, and similar shows.","isPartOf":{"@id":"https://echoarchives.net/#website"}}]}</script>
 </head>
 <body class="home-page" data-site-url="https://echoarchives.net" data-chat-stylesheet="/chat.css?v=68c3b55e2b" data-archivist-enabled="false" data-home-card-hover-expand-enabled="false" data-shows-version="6290f1940e" data-collections-version="d7061331b7" data-search-index-version="6b995d2d54">
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -208,9 +208,9 @@
     <section class="hero-shell" id="browse">
       <div class="hero-panel">
         <div class="hero-copy">
-          <h1>Find your next audio drama or fiction podcast</h1>
+          <h1>What should you listen to next?</h1>
           <p>
-            An archive of audio dramas and fiction podcasts. Browse by mood, tone, format, completion status, and shows like the ones you already love.
+            An archive of audio dramas and fiction podcasts. Browse by mood, tone, format, completion status, or a show you already like.
           </p>
           <nav class="home-hero-actions" aria-label="Suggested starting points">
             <a class="home-hero-route is-primary" href="/collections/shows-like-midnight-burger" aria-label="Browse shows like Midnight Burger">
@@ -347,8 +347,8 @@
       </span>
       <span class="inline-score-label">Archive Rating</span>
     </div>
-            <span class="rating-divider" aria-hidden="true"></span>
-            <div class="community-inline-score" data-podcast-id="midnight-burger" aria-label="Community score --/10. No ratings yet.">
+            <span class="rating-divider" aria-hidden="true" hidden></span>
+            <div class="community-inline-score" data-podcast-id="midnight-burger" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -358,7 +358,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
       <span class="inline-score-label">Community Rating</span>
     </div>
@@ -384,8 +384,8 @@
       </span>
       <span class="inline-score-label">Archive Rating</span>
     </div>
-            <span class="rating-divider" aria-hidden="true"></span>
-            <div class="community-inline-score" data-podcast-id="were-alive" aria-label="Community score --/10. No ratings yet.">
+            <span class="rating-divider" aria-hidden="true" hidden></span>
+            <div class="community-inline-score" data-podcast-id="were-alive" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -395,7 +395,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
       <span class="inline-score-label">Community Rating</span>
     </div>
@@ -421,8 +421,8 @@
       </span>
       <span class="inline-score-label">Archive Rating</span>
     </div>
-            <span class="rating-divider" aria-hidden="true"></span>
-            <div class="community-inline-score" data-podcast-id="red-valley" aria-label="Community score --/10. No ratings yet.">
+            <span class="rating-divider" aria-hidden="true" hidden></span>
+            <div class="community-inline-score" data-podcast-id="red-valley" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -432,7 +432,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
       <span class="inline-score-label">Community Rating</span>
     </div>
@@ -458,8 +458,8 @@
       </span>
       <span class="inline-score-label">Archive Rating</span>
     </div>
-            <span class="rating-divider" aria-hidden="true"></span>
-            <div class="community-inline-score" data-podcast-id="derelict" aria-label="Community score --/10. No ratings yet.">
+            <span class="rating-divider" aria-hidden="true" hidden></span>
+            <div class="community-inline-score" data-podcast-id="derelict" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -469,7 +469,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
       <span class="inline-score-label">Community Rating</span>
     </div>
@@ -493,15 +493,15 @@
         <h2 data-card-title="true">Rosanna&#39;s Secret</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Vampires</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="rosannas-secret" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="rosannas-secret" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="rosannas-secret" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="rosannas-secret" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -511,7 +511,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -524,15 +524,15 @@
         <h2 data-card-title="true">The Harrowing</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Isolation • Supernatural</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="the-harrowing" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="the-harrowing" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="the-harrowing" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="the-harrowing" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -542,7 +542,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -555,15 +555,15 @@
         <h2 data-card-title="true">36 Questions</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Romance • Ensemble</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="36-questions" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="36-questions" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="36-questions" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="36-questions" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -573,7 +573,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -586,15 +586,15 @@
         <h2 data-card-title="true">Afflicted</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Supernatural • Demons</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="afflicted" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="afflicted" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="afflicted" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="afflicted" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -604,7 +604,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -614,7 +614,7 @@
       </section>
 
       <div class="archive-grid-divider" role="separator" aria-label="All archive shows">
-        <span aria-hidden="true">All archive shows</span>
+        <span aria-hidden="true">All shows in the archive</span>
       </div>
 
       <div id="podcast-grid" data-home-prerendered="true"><div class="podcast-card-shell" data-podcast-id="solar">
@@ -631,8 +631,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="solar" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="solar" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -642,7 +642,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -662,8 +662,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="story" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="story" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -673,7 +673,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -693,8 +693,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="from-now" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="from-now" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -704,7 +704,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -724,8 +724,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="the-deca-tapes" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="the-deca-tapes" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -735,7 +735,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -755,8 +755,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="earth-eclipsed" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="earth-eclipsed" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -766,7 +766,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -786,8 +786,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="vast-horizon" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="vast-horizon" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -797,7 +797,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -817,8 +817,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="how-i-died" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="how-i-died" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -828,7 +828,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -848,8 +848,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="windfall" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="windfall" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -859,7 +859,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -879,8 +879,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="the-waystation" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="the-waystation" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -890,7 +890,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -910,8 +910,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="were-alive" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="were-alive" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -921,7 +921,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -941,8 +941,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="impact-winter" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="impact-winter" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -952,7 +952,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -972,8 +972,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="oz-9" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="oz-9" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -983,7 +983,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1003,8 +1003,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="ars-paradoxica" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="ars-paradoxica" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1014,7 +1014,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1034,8 +1034,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="red-valley" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="red-valley" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1045,7 +1045,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1065,8 +1065,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="the-white-vault" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="the-white-vault" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1076,7 +1076,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1096,8 +1096,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="eos-10" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="eos-10" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1107,7 +1107,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1127,8 +1127,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="desert-skies" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="desert-skies" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1138,7 +1138,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1158,8 +1158,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="wolf-359" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="wolf-359" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1169,7 +1169,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1189,8 +1189,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="station-151" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="station-151" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1200,7 +1200,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1220,8 +1220,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="midnight-burger" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="midnight-burger" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1231,7 +1231,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1251,8 +1251,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="spectre" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="spectre" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1262,7 +1262,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1282,8 +1282,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="the-phenomenon" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="the-phenomenon" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1293,7 +1293,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1313,8 +1313,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="paralyzed" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="paralyzed" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1324,7 +1324,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1344,8 +1344,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="derelict" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="derelict" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1355,7 +1355,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1375,8 +1375,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="crystal-blue" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="crystal-blue" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1386,7 +1386,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1406,8 +1406,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="end-of-all-hope" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="end-of-all-hope" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1417,7 +1417,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1437,8 +1437,8 @@
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="tower-4" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="tower-4" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1448,7 +1448,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1461,15 +1461,15 @@
         <h2 data-card-title="true">The Bright Sessions</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Superpowers • Found Family</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="the-bright-sessions" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="the-bright-sessions" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="the-bright-sessions" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="the-bright-sessions" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1479,7 +1479,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1492,15 +1492,15 @@
         <h2 data-card-title="true">Wooden Overcoats</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Sitcom • Small Town</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="wooden-overcoats" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="wooden-overcoats" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="wooden-overcoats" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="wooden-overcoats" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1510,7 +1510,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1523,15 +1523,15 @@
         <h2 data-card-title="true">Alice Isn&#39;t Dead</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Horror • Road Trip</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="alice-isnt-dead" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="alice-isnt-dead" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="alice-isnt-dead" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="alice-isnt-dead" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1541,7 +1541,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1554,15 +1554,15 @@
         <h2 data-card-title="true">Mirrors</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Horror • Ghosts</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="mirrors" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="mirrors" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="mirrors" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="mirrors" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1572,7 +1572,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1585,15 +1585,15 @@
         <h2 data-card-title="true">Unwell</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Gothic • Small Town</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="unwell" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="unwell" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="unwell" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="unwell" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1603,7 +1603,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1616,15 +1616,15 @@
         <h2 data-card-title="true">Midst</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Science Fantasy • Space</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="midst" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="midst" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="midst" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="midst" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1634,7 +1634,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1647,15 +1647,15 @@
         <h2 data-card-title="true">The Program audio series</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Sci-Fi • Dystopian</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="the-program-audio-series" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="the-program-audio-series" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="the-program-audio-series" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="the-program-audio-series" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1665,7 +1665,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1678,15 +1678,15 @@
         <h2 data-card-title="true">Malevolent</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Cosmic Horror • Private Investigator</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="malevolent" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="malevolent" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="malevolent" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="malevolent" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1696,7 +1696,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1709,15 +1709,15 @@
         <h2 data-card-title="true">Case 63</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Sci-Fi • Time Travel</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="case-63" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="case-63" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="case-63" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="case-63" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1727,7 +1727,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1740,15 +1740,15 @@
         <h2 data-card-title="true">Borrasca</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Horror • Thriller</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="borrasca" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="borrasca" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="borrasca" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="borrasca" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1758,7 +1758,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1771,15 +1771,15 @@
         <h2 data-card-title="true">Mabel</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Horror • Ghosts</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="mabel" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="mabel" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="mabel" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="mabel" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1789,7 +1789,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1802,15 +1802,15 @@
         <h2 data-card-title="true">Archive 81</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Found Media • Archival Horror</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="archive-81" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="archive-81" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="archive-81" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="archive-81" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1820,7 +1820,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1833,15 +1833,15 @@
         <h2 data-card-title="true">Homecoming</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Psychological • Thriller</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="homecoming" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="homecoming" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="homecoming" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="homecoming" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1851,7 +1851,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1864,15 +1864,15 @@
         <h2 data-card-title="true">Welcome to Night Vale</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Weird Fiction • Community Radio</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="welcome-to-night-vale" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="welcome-to-night-vale" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="welcome-to-night-vale" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="welcome-to-night-vale" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1882,7 +1882,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1895,15 +1895,15 @@
         <h2 data-card-title="true">Marsfall</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Mars Colony • Survival</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="marsfall" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="marsfall" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="marsfall" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="marsfall" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1913,7 +1913,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1926,15 +1926,15 @@
         <h2 data-card-title="true">The Strange Case of Starship Iris</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Space Opera • Found Family</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="the-strange-case-of-starship-iris" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="the-strange-case-of-starship-iris" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="the-strange-case-of-starship-iris" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="the-strange-case-of-starship-iris" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1944,7 +1944,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1957,15 +1957,15 @@
         <h2 data-card-title="true">The Amelia Project</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Black Comedy • Identity</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="the-amelia-project" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="the-amelia-project" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="the-amelia-project" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="the-amelia-project" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -1975,7 +1975,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -1988,15 +1988,15 @@
         <h2 data-card-title="true">Victoriocity</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Detective • Comedy</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="victoriocity" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="victoriocity" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="victoriocity" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="victoriocity" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -2006,7 +2006,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -2019,15 +2019,15 @@
         <h2 data-card-title="true">StarTripper!!</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Road Trip • Space Travel</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="startripper" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="startripper" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="startripper" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="startripper" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -2037,7 +2037,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -2050,15 +2050,15 @@
         <h2 data-card-title="true">The Lovecraft Investigations</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Cosmic Horror • Investigation</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="the-lovecraft-investigations" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="the-lovecraft-investigations" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="the-lovecraft-investigations" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="the-lovecraft-investigations" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -2068,7 +2068,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -2081,15 +2081,15 @@
         <h2 data-card-title="true">Video Palace</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Found Media • Occult</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="video-palace" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="video-palace" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="video-palace" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="video-palace" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -2099,7 +2099,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -2112,15 +2112,15 @@
         <h2 data-card-title="true">Limetown</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Conspiracy • Investigation</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="limetown" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="limetown" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="limetown" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="limetown" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -2130,7 +2130,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -2143,15 +2143,15 @@
         <h2 data-card-title="true">The Black Tapes</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Horror • Paranormal</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="the-black-tapes" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="the-black-tapes" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="the-black-tapes" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="the-black-tapes" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -2161,7 +2161,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -2174,15 +2174,15 @@
         <h2 data-card-title="true">Girl in Space</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Sci-Fi • Space</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="girl-in-space" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="girl-in-space" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="girl-in-space" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="girl-in-space" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -2192,7 +2192,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -2205,15 +2205,15 @@
         <h2 data-card-title="true">Mockery Manor</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Murder • Mystery</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="mockery-manor" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="mockery-manor" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="mockery-manor" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="mockery-manor" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -2223,7 +2223,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -2236,15 +2236,15 @@
         <h2 data-card-title="true">Forest 404</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Sci-Fi • Climate</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="forest-404" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="forest-404" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="forest-404" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="forest-404" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -2254,7 +2254,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -2267,15 +2267,15 @@
         <h2 data-card-title="true">Greater Boston</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Ensemble • Magical Realism</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="greater-boston" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="greater-boston" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="greater-boston" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="greater-boston" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -2285,7 +2285,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -2298,15 +2298,15 @@
         <h2 data-card-title="true">Tumanbay</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Historical • Political Intrigue</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="tumanbay" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="tumanbay" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="tumanbay" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="tumanbay" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -2316,7 +2316,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -2329,15 +2329,15 @@
         <h2 data-card-title="true">Janus Descending</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Sci-Fi • Horror</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="janus-descending" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="janus-descending" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="janus-descending" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="janus-descending" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -2347,7 +2347,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -2360,15 +2360,15 @@
         <h2 data-card-title="true">Spines</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Horror • Supernatural</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="spines-podcast" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="spines-podcast" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="spines-podcast" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="spines-podcast" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -2378,7 +2378,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -2391,15 +2391,15 @@
         <h2 data-card-title="true">Caravan</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Portal Worlds • Fantasy</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="caravan" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="caravan" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="caravan" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="caravan" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -2409,7 +2409,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -2422,15 +2422,15 @@
         <h2 data-card-title="true">Oblivity</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Sci-Fi • Workplace</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="oblivity" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="oblivity" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="oblivity" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="oblivity" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -2440,7 +2440,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -2453,15 +2453,15 @@
         <h2 data-card-title="true">The Once and Future Nerd</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="tag">Fantasy • Portal Worlds</p>
         <div class="rating">
-          <div class="listener-review-inline-score" data-podcast-id="the-once-and-future-nerd" aria-label="Listener Review Score --/10. No published listener reviews yet.">
+          <div class="listener-review-inline-score" data-podcast-id="the-once-and-future-nerd" aria-label="Listener review score" hidden>
       <span class="inline-score-topline">
         <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
-        <span class="listener-review-inline-score-value">--/10</span>
+        <span class="listener-review-inline-score-value"></span>
       </span>
 
     </div>
-          <span class="rating-divider" aria-hidden="true"></span>
-          <div class="community-inline-score" data-podcast-id="the-once-and-future-nerd" aria-label="Community score --/10. No ratings yet.">
+          <span class="rating-divider" aria-hidden="true" hidden></span>
+          <div class="community-inline-score" data-podcast-id="the-once-and-future-nerd" aria-label="Community rating" hidden>
       <span class="inline-score-topline">
         <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
           <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
@@ -2471,7 +2471,7 @@
           <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
           <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
         </svg>
-        <span class="community-inline-score-value">--/10</span>
+        <span class="community-inline-score-value"></span>
       </span>
 
     </div>
@@ -2547,7 +2547,7 @@
     <section class="collection-band" id="favoriteRoutes" aria-labelledby="favoriteRoutesTitle" data-home-prerendered="true">
       <div class="section-heading">
         <div>
-          <h2 id="favoriteRoutesTitle">Similar-show routes</h2>
+          <h2 id="favoriteRoutesTitle">Start from a show you like</h2>
         </div>
         <a class="section-link" href="/collections#collectionsSimilaritySection">View all “shows like” collections</a>
       </div>
@@ -2665,7 +2665,7 @@
   <div class="footer-support-panel">
     <div class="footer-support-body">
       <p class="footer-support-kicker">Help improve the archive</p>
-      <p class="footer-support-copy">Submit a show, send a correction, or support independent recommendations made for listeners.</p>
+      <p class="footer-support-copy">Submit a show, send a correction, or help keep the archive free to use.</p>
     </div>
     <div class="footer-support-actions">
       <a class="footer-support-primary" href="/submit">Submit to the archive</a>
@@ -2684,6 +2684,6 @@
 
   <script src="/shared/archive-entities.js?v=1106437375"></script>
 
-  <script type="module" src="/script.js?v=06ac24dbe7"></script>
+  <script type="module" src="/script.js?v=1b8c16a8cc"></script>
 </body>
 </html>

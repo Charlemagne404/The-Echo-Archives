@@ -113,10 +113,10 @@ export const REVIEW_STRENGTH_OPTIONS = [
 ];
 
 export const LISTENER_REVIEW_CATEGORIES = [
-  { key: "voiceActing", label: "Voice acting", description: "1 = weak; 10 = exceptional" },
-  { key: "soundDesign", label: "Sound design", description: "1 = weak; 10 = exceptional" },
-  { key: "story", label: "Story", description: "1 = weak; 10 = exceptional" },
-  { key: "characters", label: "Characters", description: "1 = weak; 10 = exceptional" },
+  { key: "voiceActing", label: "Voice acting", description: "1 = needs work; 10 = a standout" },
+  { key: "soundDesign", label: "Sound design", description: "1 = needs work; 10 = a standout" },
+  { key: "story", label: "Story", description: "1 = needs work; 10 = a standout" },
+  { key: "characters", label: "Characters", description: "1 = needs work; 10 = a standout" },
   { key: "ads", label: "Ad experience", description: "1 = very disruptive; 10 = ad-free or unobtrusive" },
   { key: "length", label: "Episode length & pacing", description: "1 = poorly matched; 10 = feels right for the show" },
 ];

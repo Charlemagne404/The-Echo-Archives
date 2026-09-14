@@ -29,7 +29,7 @@ function getListenerReviewScore(show) {
 
 function formatListenerReviewScoreAriaLabel({ averageRating, reviewCount }) {
   if (averageRating === null || reviewCount === 0) {
-    return "Listener Review Score --/10. No published listener reviews yet.";
+    return "No listener reviews yet.";
   }
   return `Listener Review Score ${averageRating.toFixed(1)}/10 from ${reviewCount} ${reviewCount === 1 ? "review" : "reviews"}.`;
 }
@@ -38,15 +38,16 @@ export function createListenerReviewScoreElement(show, { showLabel = true } = {}
   const summary = getListenerReviewScore(show);
   const score = document.createElement("div");
   score.className = "listener-review-inline-score";
+  score.hidden = summary.averageRating === null;
   score.dataset.podcastId = show.id || "";
-  score.setAttribute("aria-label", formatListenerReviewScoreAriaLabel(summary));
+  score.setAttribute("aria-label", summary.averageRating === null ? "Listener review score" : formatListenerReviewScoreAriaLabel(summary));
   score.innerHTML = `
     <span class="inline-score-topline">
       <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false">
         <path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/>
         <path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/>
       </svg>
-      <span class="listener-review-inline-score-value">${summary.averageRating === null ? "--/10" : `${summary.averageRating.toFixed(1)}/10`}</span>
+      <span class="listener-review-inline-score-value">${summary.averageRating === null ? "" : `${summary.averageRating.toFixed(1)}/10`}</span>
     </span>
     ${showLabel ? '<span class="inline-score-label">Listener Review Score</span>' : ""}
   `;
@@ -65,8 +66,8 @@ export function createCommunityScoreElement(show, { showLabel = true } = {}) {
   const communityBadge = document.createElement("div");
   communityBadge.className = "community-inline-score";
   communityBadge.dataset.podcastId = show.id;
-  communityBadge.hidden = false;
-  communityBadge.setAttribute("aria-label", "Community score --/10. No ratings yet.");
+  communityBadge.hidden = true;
+  communityBadge.setAttribute("aria-label", "Community rating");
   communityBadge.innerHTML = `
     <span class="inline-score-topline">
       <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
@@ -77,7 +78,7 @@ export function createCommunityScoreElement(show, { showLabel = true } = {}) {
         <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
         <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
       </svg>
-      <span class="community-inline-score-value">--/10</span>
+      <span class="community-inline-score-value"></span>
     </span>
     ${showLabel ? '<span class="inline-score-label">Community Rating</span>' : ""}
   `;
@@ -103,5 +104,5 @@ export function syncInlineScoreGroup(group) {
     return;
   }
 
-  divider.hidden = !communityScore || communityScore.hidden;
+  divider.hidden = !communityScore || communityScore.hidden || primaryScore.hidden;
 }

@@ -55,7 +55,7 @@ function createRecommendationStrip(recommendations) {
 
     const why = document.createElement("p");
     why.className = "chat-recommendation-why";
-    why.textContent = recommendation.why || "Matches what you asked for.";
+    why.textContent = recommendation.why || "This fits your request.";
 
     const meta = document.createElement("p");
     meta.className = "chat-recommendation-meta";

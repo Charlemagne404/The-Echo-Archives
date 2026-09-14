@@ -1,13 +1,13 @@
 export const showModeConfig = {
-  heroDescription: "Help keep The Echo Archives accurate and complete. Submit a show, send a correction, share a listener review, or request creator verification.",
+  heroDescription: "Submit a show, send a factual correction, share a listener review, or request creator verification.",
   cardTitle: "Submit a new show",
   cardDescription: "Not listed in the archive yet.",
   cardIcon: "mode-show",
   introTitle: "New show",
-  introDescription: "Start with the title and one reliable source. The importer can enrich the rest.",
+  introDescription: "Give us a title and one reliable source. The importer can fill in more details.",
   introIcon: "document",
   submitLabel: "Submit new show",
-  footerNote: "Next: archive screening and duplicate review.",
+  footerNote: "Next: scope and duplicate check.",
   steps: [
     { title: "Screen", body: "We check scope and possible duplicates." },
     { title: "Enrich", body: "Accepted submissions enter the protected importer for source-backed facts." },

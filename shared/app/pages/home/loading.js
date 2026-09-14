@@ -36,7 +36,7 @@ export function renderHomeLoadingState(elements) {
   for (let index = 0; index < 12; index += 1) {
     elements.archiveGrid.appendChild(createHomeSkeletonCard());
   }
-  elements.resultsSummary.textContent = "Loading archive...";
+  elements.resultsSummary.textContent = "Loading the archive…";
   elements.loadMoreSurface.hidden = true;
   elements.noResultsMount.replaceChildren();
   elements.popularSection.hidden = true;
@@ -59,7 +59,7 @@ export function renderHomeErrorState(elements, createErrorSurface, { preserveExi
   elements.archiveGrid.textContent = "";
   delete elements.archiveGrid.dataset.loading;
   elements.archiveGrid.appendChild(createErrorSurface());
-  elements.resultsSummary.textContent = "Archive data could not load.";
+  elements.resultsSummary.textContent = "The archive data could not load.";
   elements.loadMoreSurface.hidden = true;
   elements.noResultsMount.replaceChildren();
   elements.popularSection.hidden = true;

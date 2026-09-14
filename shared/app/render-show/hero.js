@@ -69,7 +69,7 @@ export function renderDetailHero(show, reviewData = {}) {
             <div class="detail-decision-console" aria-label="Quick listening decision">
               <div class="detail-score-cluster">
                 ${hasArchiveRating ? renderHeroScoreCard("Archive Rating", archiveRatingValue, archiveRatingNote, "archive") : ""}
-                ${renderHeroScoreCard("Listener Review Score", listenerReviewScore.value, listenerReviewScore.note, "listener")}
+                ${listenerReviewScore.hasScore ? renderHeroScoreCard("Listener Review Score", listenerReviewScore.value, listenerReviewScore.note, "listener") : ""}
               </div>
 
               <div class="detail-meta-grid">
@@ -120,9 +120,10 @@ function getListenerReviewScore(summary = {}) {
   const reviewCount = Number(summary?.reviewCount);
   const averageRating = Number(summary?.averageRating);
   if (!Number.isInteger(reviewCount) || reviewCount < 1 || !Number.isFinite(averageRating) || averageRating < 0 || averageRating > 10) {
-    return { value: "--/10", note: "No published listener reviews yet" };
+    return { hasScore: false, value: "", note: "" };
   }
   return {
+    hasScore: true,
     value: `${averageRating.toFixed(1)}/10`,
     note: `from ${reviewCount} ${reviewCount === 1 ? "review" : "reviews"}`,
   };

@@ -14,6 +14,17 @@
   padding: 16px 18px 14px;
 }
 
+.entity-detail-overview--compact {
+  gap: 10px;
+}
+
+.entity-detail-overview-summary {
+  margin: 0;
+  color: rgba(247, 247, 243, 0.68);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
 .entity-detail-overview-head {
   display: flex;
   flex-wrap: wrap;

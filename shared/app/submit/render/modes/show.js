@@ -22,7 +22,7 @@ export function renderShowMode(draft, context) {
         maxLength: 160,
         placeholder: "you@example.com",
         autocomplete: "email",
-        helper: "Used only if the review team needs clarification.",
+        helper: "Used only if we need clarification.",
       }),
     ]),
     renderFormRow([

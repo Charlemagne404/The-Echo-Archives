@@ -186,13 +186,30 @@ test("server renderer escapes data, uses Person or Organization and canonical en
   assert.ok(data.producer[0]["@id"].endsWith("/creators/fool-and-scholar-productions#entity"));
 });
 
+test("sparse creator pages keep the record useful without dashboard statistics", () => {
+  const template = fs.readFileSync(path.join(root, "creators.html"), "utf8");
+  const sparseEntity = entities.find((entity) => entity.id === "j-barton-mitchell");
+  const sparseHtml = renderEntityPage(template, { entity: sparseEntity, entities, shows, siteUrl: "https://example.com" });
+
+  assert.match(sparseHtml, /entity-detail-overview--compact/);
+  assert.match(sparseHtml, /Sources reviewed/);
+  assert.match(sparseHtml, /J\. Barton Mitchell/);
+  assert.doesNotMatch(sparseHtml, /Listening routes|Genres represented/);
+
+  const richEntity = entities.find((entity) => entity.id === "7-lamb-productions");
+  const richHtml = renderEntityPage(template, { entity: richEntity, entities, shows, siteUrl: "https://example.com" });
+  assert.doesNotMatch(richHtml, /entity-detail-overview--compact/);
+  assert.match(richHtml, /Listening routes/);
+  assert.match(richHtml, /Genres represented/);
+});
+
 test("creator SEO exposes unique intent, rich catalogue lists, social images, and review dates", () => {
   const directory = buildEntityPageData({ entities, shows, siteUrl: "https://example.com" });
   const directoryEntities = getPublicDirectoryEntities(entities, shows);
   const connectedShowCount = shows.filter((show) => show.status === "published" && (show.entityLinks || []).some((link) => directoryEntities.some((entity) => entity.id === link.entityId))).length;
   assert.equal(directory.metadata.title, "Audio Drama Creators & Production Companies | The Echo Archives");
-  assert.match(directory.metadata.description, new RegExp(`${directoryEntities.length} source-backed audio drama production companies`, "i"));
-  assert.match(directory.metadata.description, new RegExp(`${connectedShowCount} fiction podcast shows`, "i"));
+  assert.match(directory.metadata.description, new RegExp(`These ${directoryEntities.length} production companies, studios, and networks have source-backed links to shows in the archive`, "i"));
+  assert.match(directory.metadata.description, /Individual creators stay linked from their show pages/i);
   assert.match(directory.metadata.imageUrl, /images\/(?:generated\/covers|covers)\//);
 
   const directoryList = directory.structuredData["@graph"].find((entry) => entry["@type"] === "ItemList");
