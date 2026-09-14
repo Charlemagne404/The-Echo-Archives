@@ -119,8 +119,8 @@
     const key = normalized.toLowerCase().replace(/[\s_]+/g, "-");
     const labels = {
       ai: "AI",
-      "sci-fi": "Sci-Fi",
-      "science-fiction": "Sci-Fi",
+      "sci-fi": "Sci-fi",
+      "science-fiction": "Sci-fi",
       indie: "Independent",
       independent: "Independent",
     };

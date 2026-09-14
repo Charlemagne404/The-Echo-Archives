@@ -19,7 +19,7 @@ Historical architecture and migration docs live in `docs/archive/`.
 
 The Echo Archives is a structured, static-first archive with a small Node and Express backend in `backend/`.
 
-It has four main layers:
+It has five main layers:
 
 - authored catalog source in `catalog-src/`
 - authored page source in `site-src/`
@@ -28,7 +28,7 @@ It has four main layers:
 - shared runtime modules and backend services in `shared/` and `backend/`
 
 The main architecture problem is no longer migration away from handwritten
-pages. The current problem is how to operate a broad 1.0 catalog, protected
+pages. The current problem is how to operate a broad catalog, protected
 import/elevation workflows, and automated collection membership without
 weakening trust or overbuilding.
 
@@ -61,6 +61,7 @@ The current generated page set includes:
 
 - `index.html`
 - `about.html`
+- `creators.html`
 - `for-creators.html`
 - `creator-standards.html`
 - `supporters.html`
@@ -73,6 +74,9 @@ The current generated page set includes:
 - `terms.html`
 - `cookies.html`
 - `copyright.html`
+- `404.html`
+- `500.html`
+- `offline.html`
 - `maintainer/submissions.html`
 - `maintainer/submissions/report.html`
 - `maintainer/imports.html`
@@ -114,6 +118,7 @@ Maintainer-only routes when configured:
 - `/maintainer/submissions/report.html`
 - `/maintainer/imports.html`
 - `/maintainer/imports/report.html`
+- `/maintainer/collections.html`
 
 Legacy detail HTML and `/show?id=...` or `/collection?id=...` aliases are compatibility routes only. The backend permanently redirects them to the clean canonical routes, which are the only detail URLs emitted by internal links and the sitemap.
 
@@ -197,12 +202,14 @@ Automated collection definitions remain in `catalog-src/collections/` alongside 
 
 The generated snapshot for current counts and metadata coverage lives in
 [`docs/generated/catalog-status.md`](generated/catalog-status.md). The current
-1.1 snapshot contains 724 published shows, 517 automation-checked `imported`
-records, 200 maintainer fact-checked `indexed-only` records, 7 `full-review`
-records, and 46 collections. The generated report records zero catalog-quality
-blocking errors, zero actionable RSS gaps, and 17 explicit research-gap records.
-Gate B is complete for the current authored snapshot; deployment, provider,
-recovery, and live-browser evidence remain separate gates.
+1.1.0 snapshot contains 102 public entities, 229 shows with explicit public
+entity links, 752 published shows, 517 automation-checked `imported` records,
+228 maintainer fact-checked `indexed-only` records, 7 `full-review` records,
+and 46 collections. The generated report is `content-pending`: numeric targets
+pass, but it records 10 Phase 2 blocking errors, 2 actionable RSS gaps, 4
+documented missing RSS links, 4 documented runtime unknowns, and 22 explicit
+research-gap records. Deployment, provider, recovery, and live-browser evidence
+remain separate gates.
 
 The archive supports three public catalogue confidence levels:
 automation-checked `imported`, maintainer fact-checked `indexed-only`, and
@@ -215,7 +222,10 @@ existing review workflow).
 
 - `GET /api/health`
 - `GET /sitemap.xml`
+- `GET /robots.txt`
 - `GET /data/shows.json`
+- `GET /data/collections.json`
+- `GET /data/entities.json`
 - `GET /data/search-index.json`
 - `POST /api/chat`
 - `GET /api/chat/health`
@@ -224,6 +234,11 @@ existing review workflow).
 - `GET /api/community/ratings/summary`
 - `PUT /api/community/podcasts/:podcastId/rating`
 - `DELETE /api/community/podcasts/:podcastId/rating`
+- `GET /api/reviews/shows/:showId`
+- `GET /api/reviews/scores/summary`
+- `PUT /api/reviews/:reviewId/helpful`
+- `DELETE /api/reviews/:reviewId/helpful`
+- `GET /api/submissions/shows/:showId/context`
 - `POST /api/submissions/shows`
 - protected maintainer session and submission queue APIs
 - protected asynchronous import runs, factual preparation, evidence review, and explicit publication APIs
@@ -279,7 +294,7 @@ If no cover can be resolved, the process logs a warning and falls back to a shar
 
 ## Archive Assistant And Site Help
 
-Ask the Archivist is an optional 1.0 integration, disabled by default, not just
+Ask the Archivist is an optional current-release integration, disabled by default, not just
 a raw LLM endpoint.
 
 The chat layer combines:
@@ -396,11 +411,11 @@ Current assumptions:
 The current limitations are mostly catalog-quality, editorial, and operations
 related:
 
-- the 724-show catalog is broad but uneven in depth
+- the 752-show catalog is broad but uneven in depth
 - full-review coverage is still sparse at 7 shows
-- two published records currently block the generated catalog report because their runtime gaps are undocumented
-- 624 shows have weak collection coverage and 654 are outside the preferred similarity-link range; these are tracked as quality follow-up rather than invented away
-- curated creator discovery is available for a seven-entity pilot; most legacy credits remain unmigrated
+- the generated catalog report is `content-pending` with 10 Phase 2 blocking errors; see `docs/generated/catalog-status.md` for the exact list
+- 637 shows have weak collection coverage and 681 are outside the preferred similarity-link range; these are tracked as quality follow-up rather than invented away
+- curated creator discovery currently covers 102 public entities and 229 linked published shows; most legacy credits remain unmigrated
 - legacy optional creator/network datasets and the changelog dataset remain unpopulated
 - moderation remains intentionally manual
 - some richer filter ideas still depend on more complete metadata

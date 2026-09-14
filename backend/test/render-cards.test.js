@@ -119,7 +119,7 @@ test("client card metadata mirrors the Imported source-genre policy", async () =
 
   assert.equal(
     formatCardDiscoveryMetadata({ reviewStatus: "imported", genres: ["drama", "sci-fi"], tags: [] }, 2),
-    "Genre: Sci-Fi",
+    "Genre: Sci-fi",
   );
   assert.equal(
     formatCardDiscoveryMetadata({ reviewStatus: "imported", genres: ["drama"], tags: [] }, 2),

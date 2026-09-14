@@ -65,7 +65,7 @@ export function renderChipGroupField({
                 class="submit-chip is-selected"
                 data-chip-field="${fieldName}"
                 data-chip-value="${escapeAttribute(option)}"
-                aria-pressed="true"
+                aria-label="Remove ${escapeAttribute(option)}"
               >
                 <span>${escapeHtml(option)}</span>
                 <span class="submit-chip-close" aria-hidden="true">×</span>
@@ -131,7 +131,6 @@ export function renderChipGroupField({
                 class="submit-chip ${index === highlightIndex ? "is-highlighted" : ""}"
                 data-tag-suggestion="${escapeAttribute(option)}"
                 data-tag-field="${fieldName}"
-                aria-pressed="false"
                 role="option"
                 aria-selected="${String(index === highlightIndex)}"
               >

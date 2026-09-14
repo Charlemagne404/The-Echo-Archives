@@ -244,15 +244,15 @@ function renderDetailHero(show, reviewData = {}) {
   return `
     <section class="detail-hero-shell">
       <div class="detail-hero-panel" style="--detail-cover-image: url('${escapeHtml(coverBackground)}');">
-        <div class="detail-breadcrumbs">
+        <nav class="detail-breadcrumbs" aria-label="Breadcrumb">
           <a href="/">Archive</a>
           ${
             firstGenre
               ? `<span class="detail-breadcrumb-divider">/</span><a href="/?genre=${encodeURIComponent(firstGenre)}#archive">${escapeHtml(toDisplayTag(firstGenre))}</a>`
               : ""
           }
-          <span class="detail-breadcrumb-divider">/</span><span>${escapeHtml(show.title)}</span>
-        </div>
+          <span class="detail-breadcrumb-divider">/</span><span aria-current="page">${escapeHtml(show.title)}</span>
+        </nav>
         <div class="detail-hero-grid">
           <div class="detail-hero-copy">
             <header class="detail-title-group">

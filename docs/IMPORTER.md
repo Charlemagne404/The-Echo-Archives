@@ -1,4 +1,4 @@
-# Scalable Show Importer — 1.0
+# Scalable Show Importer
 
 ## Contract
 
@@ -12,7 +12,7 @@ RSS and Podcasting 2.0 data are primary for identity, dates, episodes, descripti
 
 Publisher-supplied RSS/iTunes categories and keywords remain provenance in `metadata.sourceCategories` and `metadata.sourceKeywords`. Deterministic source mappings may populate canonical genres and feed formats: an exact source label of `full-cast` or `full cast` maps to the canonical `full-cast` format, while broader wording is not inferred. Imported cards expose non-generic source-derived genres in a compact `Genre:` metadata line; a drama-only mapping is disclosed as `Genre not yet reviewed` because it does not distinguish content from the audio-drama medium. This card display does not populate public `tags`. Public discovery tags must use the approved taxonomy and are never copied from raw source keywords automatically. Human taxonomy selection, external research, and AI/editorial suggestions remain non-binding for Imported publication and require factual review when applied.
 
-### 1.0 scope boundary
+### Default scope boundary
 
 The ordinary automatic discovery/publication lane accepts English-language
 fiction and audio drama. Non-English candidates and actual play/TTRPG content

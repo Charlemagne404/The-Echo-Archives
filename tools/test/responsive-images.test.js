@@ -142,7 +142,7 @@ test("static information illustrations receive WebP and AVIF variants", async (t
 
   const imagesDirectory = path.join(siteRoot, "images");
   fs.mkdirSync(imagesDirectory, { recursive: true });
-  for (const fileName of ["about-discovery-panel-v2.png", "about-continental-orbit.png"]) {
+  for (const fileName of ["about-continental-orbit.png"]) {
     await sharp({
       create: {
         width: 1200,
@@ -154,7 +154,7 @@ test("static information illustrations receive WebP and AVIF variants", async (t
   }
 
   const result = await generateStaticImageVariants(siteRoot);
-  assert.equal(result.generated, 8);
+  assert.equal(result.generated, 4);
   Object.values(result.manifest).flat().forEach((variant) => {
     const outputPath = path.join(siteRoot, variant.src.replace(/^\/+/, ""));
     assert.ok(fs.existsSync(outputPath));

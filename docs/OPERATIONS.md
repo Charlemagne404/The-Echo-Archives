@@ -20,23 +20,23 @@ used to run the release tool and defaults to `/srv/echo-archives/source`; set it
 to the actual source checkout when following the procedure. The deployment
 user and group are host-specific. The service never runs from this checkout.
 
-## Release 1.0 Status
+## Current Release Status
 
-This runbook is current for the 1.0 release baseline as of **2026-08-20**.
-The repository contains the released static-first product and its protected
-submission, import, elevation, and collection-maintainer workflows. The
-generated catalog snapshot currently has 724 published shows, 517 imported
-records, 200 indexed-only records, 7 full reviews, and 46 collections. The catalog
-report is complete with zero blocking errors
-and zero actionable RSS gaps; the remaining missing-source and runtime facts
-are explicitly documented.
+This runbook reflects the current 1.1.0 repository and generated catalog
+snapshot through **2026-09-08**. The repository contains the released
+static-first product, creator discovery, and protected submission, import,
+elevation, and collection-maintainer workflows. The generated catalog snapshot
+has 752 published shows, 517 imported records, 228 indexed-only records, 7 full
+reviews, and 46 collections. Its status is `content-pending`: numeric floors
+pass, but the report lists 10 Phase 2 blocking errors, including 2 actionable
+RSS gaps and 5 undocumented runtime gaps.
 
 Do not treat the product release marker or local catalog checks as proof that
 every deployment gate has passed. Host, provider, recovery, monitoring, and
-production-device/browser evidence must still be verified separately. The
-current evidence and handoff checklist is recorded in
-[`docs/qa/2026-08-20-1.0-todo-evidence.md`](qa/2026-08-20-1.0-todo-evidence.md);
-the 2026-08-18 report remains a historical snapshot.
+production-device/browser evidence must still be verified separately. Use the
+generated catalog report for current catalog evidence and the relevant dated
+reports in `docs/qa/` for focused release, legal, creator, and linking checks.
+The 2026-08-20 and 2026-08-18 reports remain historical snapshots.
 
 ## Production Runtime Contract
 
@@ -265,30 +265,16 @@ do not update a checkout or restart production. Use `./deploy/echo staging`
 for the build/test step and `./deploy/echo promote` for the explicit approval
 boundary. `./deploy/echo rollback` performs the fast no-build release rollback.
 
-## Post-Reboot Local Launch Completion
+## Post-Reboot Host Boundary
 
-After the reviewed host-maintenance pass and reboot, run the guarded local
-completion once from the production checkout:
+`deploy/complete-local-launch-readiness.sh` is a legacy host-specific script for
+unrelated Continental ID and MongoDB services. It is not part of the Echo
+Archives application release workflow and must not be used as Echo setup or
+recovery guidance.
 
-```bash
-sudo "${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}/deploy/complete-local-launch-readiness.sh" --apply
-```
-
-The script captures the exact UFW, nftables, iptables, and ip6tables state under
-`/var/backups/echo-archives-local-readiness/`; requires the reviewed public
-allows and rejects the obsolete rules; installs a user-service drop-in that
-waits for a successful MongoDB ping before starting Continental ID auth; keeps
-the obsolete root auth service disabled; restarts and verifies the intended
-user service; and runs firewall, listener, Caddy, Echo, auth, and local-monitor
-postflight checks. It rolls back the auth drop-in if a post-change check fails
-and never reboots the host.
-
-The following optional shell variables are available for nonstandard installations:
-
-- `SERVICE_NAME`
-- `HEALTH_URL`
-- `HEALTH_ATTEMPTS`
-- `HEALTH_INTERVAL_SECONDS`
+After a reboot, follow [`deploy/RELEASE_WORKFLOW.md`](../deploy/RELEASE_WORKFLOW.md)
+for the Echo Archives service, health, and deployment checks. Firewall, Caddy,
+and other host changes remain separate reviewed host operations.
 
 ## Database Backups And Restore
 
@@ -554,7 +540,7 @@ Checks:
 - homepage most-popular band behaves sensibly with and without community summary data
 - no-results recovery actions work
 - inline preview and card interactions do not produce layout breakage
-- when `ARCHIVIST_ENABLED=true`, Ask the Archivist opens and closes cleanly; the default 1.0 build keeps its UI and API disabled
+- when `ARCHIVIST_ENABLED=true`, Ask the Archivist opens and closes cleanly; the current default build keeps its UI and API disabled
 - show and collection missing states stay coherent
 - show and collection share actions work, including copy/share feedback
 - offline fallback appears after service-worker registration when the network is cut
@@ -814,7 +800,11 @@ Documentation rules:
 
 The current dated QA records have different scopes:
 
-- `docs/qa/2026-08-20-1.0-todo-evidence.md` is the current 1.0 TODO/evidence record. It supersedes the 2026-08-18 snapshot for current catalog status without rewriting that historical report.
+- `docs/qa/creator-data-audit-2026-09-08.md` records the latest creator/entity source audit and its local validation boundaries.
+- `docs/qa/internal-linking-audit-2026-09-08.md` records the latest generated-route and relationship audit.
+- `docs/qa/2026-09-07-legal-review.md` records the latest legal-readiness and deployment-parity review.
+- `docs/qa/2026-09-05-release-1.1-creators.md` records the Creators release validation snapshot.
+- `docs/qa/2026-08-20-1.0-todo-evidence.md` is a historical 1.0 TODO/evidence record; it does not replace the current generated catalog status.
 - `docs/qa/2026-07-28-launch-readiness-audit.md` is a historical launch-readiness audit; its **Not ready** verdict and July evidence are retained for context, not as the current catalog snapshot.
 - `docs/qa/2026-07-14-show-importer-review-and-publish.md` records importer operation and automated coverage.
 - `docs/qa/2026-06-07-mobile-qa.md` is the latest dedicated manual mobile pass.

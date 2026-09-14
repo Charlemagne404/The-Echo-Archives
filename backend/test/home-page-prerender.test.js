@@ -4,6 +4,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const { renderArchiveCard, renderCollectionDirectoryCard, renderCollectionShowCard, renderHomePagePrerender, renderMostPopularCard } = require("../../tools/lib/home-page-prerender");
+const { toPublicLabel } = require("../../shared/archive-record");
 
 const ROOT = path.resolve(__dirname, "../..");
 const HOME_MOST_POPULAR_IDS = ["midnight-burger", "were-alive", "red-valley", "derelict"];
@@ -15,6 +16,25 @@ const HOME_FAVORITE_ROUTE_IDS = [
   "shows-like-midst",
   "shows-like-malevolent",
 ];
+
+test("canonical sci-fi labels stay stable between first paint and hydration", () => {
+  const source = fs.readFileSync(path.join(ROOT, "site-src", "pages", "index.html"), "utf8");
+
+  assert.match(source, /data-chip-filter="sci-fi"[^>]*>Sci-fi<\/button>/);
+  assert.equal(toPublicLabel("sci-fi"), "Sci-fi");
+  assert.match(
+    renderArchiveCard({
+      id: "sci-fi-show",
+      title: "Sci-Fi Show",
+      status: "published",
+      reviewStatus: "indexed-only",
+      genres: ["sci-fi"],
+      tags: [],
+      cover: "images/Circle-S-Logo.png",
+    }),
+    /Genre: Sci-fi/,
+  );
+});
 
 test("homepage prerender injects initial discovery content into the build template", () => {
   const pageBody = fs.readFileSync(path.join(ROOT, "site-src", "pages", "index.html"), "utf8");
@@ -59,12 +79,12 @@ test("Imported cards, collection cards, and popular cards carry a compact tier s
     assert.match(markup, /editorial-badge-imported">Imported/);
     assert.match(markup, /listener-review-inline-score/);
     assert.match(markup, /listener-review-score-icon/);
-    assert.match(markup, /listener-review-inline-score-value">--\/10/);
+    assert.match(markup, /listener-review-inline-score-value"><\/span>/);
     assert.doesNotMatch(markup, /archive-inline-score/);
   });
-  assert.match(renderArchiveCard(show), /Genre: Sci-Fi/);
+  assert.match(renderArchiveCard(show), /Genre: Sci-fi/);
   assert.doesNotMatch(renderArchiveCard(show), /Mystery/);
-  assert.match(renderMostPopularCard(show), /Genre: Sci-Fi/);
+  assert.match(renderMostPopularCard(show), /Genre: Sci-fi/);
   assert.match(renderMostPopularCard(show), /popular-card-chip is-imported">Imported/);
 });
 
@@ -95,7 +115,7 @@ test("reviewed cards continue to prefer approved discovery tags over genres", ()
   });
 
   assert.match(markup, />Space<\/p>/);
-  assert.doesNotMatch(markup, /Genre: Sci-Fi/);
+  assert.doesNotMatch(markup, /Genre: Sci-fi/);
 });
 
 test("prerendered compact collection cards retain the four-cover collage and anchor show", () => {

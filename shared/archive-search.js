@@ -7,6 +7,11 @@
 
   root.EchoArchiveSearch = api;
 })(typeof globalThis !== "undefined" ? globalThis : this, function () {
+  const PUBLIC_LABEL_OVERRIDES = {
+    "sci-fi": "Sci-fi",
+    "science-fiction": "Sci-fi",
+  };
+
   const ALIAS_GROUPS = [
     ["sci fi", ["sci fi", "sci-fi", "science fiction", "scifi"]],
     ["full cast", ["full cast", "full-cast", "fullcast"]],
@@ -135,7 +140,13 @@
   }
 
   function toDisplayTag(value) {
-    return String(value || "")
+    const normalized = String(value || "").trim();
+    const key = normalized.toLowerCase().replace(/[\s_]+/g, "-");
+    if (PUBLIC_LABEL_OVERRIDES[key]) {
+      return PUBLIC_LABEL_OVERRIDES[key];
+    }
+
+    return normalized
       .split(/[-\s]+/)
       .filter(Boolean)
       .map((part) => {

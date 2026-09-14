@@ -1,6 +1,7 @@
 # Dependencies
 podcast-ai/node_modules/
 backend/node_modules/
+node_modules/
 
 # Populated environment files. Keep examples trackable below.
 .env
@@ -38,6 +39,7 @@ podcast-ai/data/import-staging/
 
 # Logs and local runtime state.
 *.log
+*.log.*
 *.pid
 *.pid.lock
 *.sock
@@ -58,6 +60,20 @@ state/
 *.tar.gz
 *.tgz
 *.zip
+
+# Common test, build, and editor state.
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+.cache/
+.vite/
+*.tsbuildinfo
+.idea/
+.vscode/
+*.code-workspace
+*.orig
+*.rej
 
 # Operating-system and local-agent metadata.
 .DS_Store

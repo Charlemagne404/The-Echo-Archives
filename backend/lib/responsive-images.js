@@ -10,11 +10,6 @@ const COVER_TARGETS = [
 ];
 const STATIC_IMAGE_TARGETS = [
   {
-    source: "images/about-discovery-panel-v2.png",
-    outputStem: "about-discovery-panel",
-    widths: [480, 960],
-  },
-  {
     source: "images/about-discovery-microphone.jpg",
     outputStem: "about-discovery-microphone",
     widths: [480, 960],

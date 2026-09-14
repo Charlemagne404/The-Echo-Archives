@@ -13,23 +13,24 @@ Use it as the current-release reality check alongside:
 
 ## Snapshot Date
 
-This narrative snapshot reflects the repository as of **2026-09-06**. The latest
-catalog-authored update in the generated snapshot is **2026-09-04**; for exact
+This narrative snapshot reflects the repository as of **2026-09-08**. The latest
+catalog-authored update in the generated snapshot is **2026-09-08**; for exact
 counts and coverage gaps, use [`docs/generated/catalog-status.md`](generated/catalog-status.md).
 
-## Release 1.0 Posture
+## Current Release Posture
 
-The 1.0 product baseline is shipped in the repository. It is a static-first,
-listener-facing archive with protected maintainer workflows and a current
-catalog of 724 published shows, 7 full reviews, and 46 collections. The
-Archivist remains preserved but disabled by default, and production community
-rating writes remain configuration-gated.
+The 1.0 product baseline and 1.1.0 Creators release are represented in the
+repository. It is a static-first, listener-facing archive with protected
+maintainer workflows and a current catalog of 752 published shows, 7 full
+reviews, and 46 collections. The Archivist remains preserved but disabled by
+default, and production community rating writes remain configuration-gated.
 
 Release status is separate from catalog-quality and production-operations
-gates. The current generated catalog report is complete with zero blocking
-errors and zero actionable RSS gaps; remaining source and runtime unknowns are
-explicitly documented. The current dated evidence report records the remaining
-repository, host, provider, recovery, and browser checks.
+gates. The current generated catalog report is `content-pending`: its numeric
+floors pass, but it records 10 Phase 2 blocking errors, including two core
+metadata gaps, two actionable RSS gaps, five undocumented runtime gaps, and one
+out-of-scope published record. The current dated evidence reports record the
+remaining repository, host, provider, recovery, and browser checks.
 
 ## Summary
 
@@ -40,13 +41,13 @@ It is already a working static-first discovery site with:
 - a live structured show catalog
 - reusable show and collection routes
 - search and filter-driven browsing
-- preserved catalog-grounded Archivist integration (disabled by default in 1.0)
+- preserved catalog-grounded Archivist integration (disabled by default)
 - community rating infrastructure
 - moderation-first submission intake
 - a protected maintainer review surface
 
 The project has moved past migration, foundation, and public-beta work. The
-1.0 release baseline is in place. Catalog-quality follow-up, creator
+current release baseline is in place. Catalog-quality follow-up, creator
 verification, deeper editorial coverage, and production operations remain
 separately tracked work.
 
@@ -103,19 +104,18 @@ Generated runtime/public catalog output now lives under:
 
 What that means in practice:
 
-- the catalog is broad at 724 published shows, but it is still uneven in depth
+- the catalog is broad at 752 published shows, but it is still uneven in depth
 - metadata structure is stronger than review depth
 - the archive already supports recommendation logic, but coverage is still narrow
 - creator verification is supported by the system but not yet represented in live catalog data
 - the importer supports an automation-checked `imported` tier, now used by 517 live catalog records
-- 200 live records are `indexed-only` and 7 have full editorial reviews
+- 228 live records are `indexed-only` and 7 have full editorial reviews
 
-The generated report records zero actionable RSS gaps, zero editorial or
-collection blockers, a stable 165-label taxonomy, and zero out-of-scope
-published records. It also records 17 explicit research-gap records, three
-missing RSS links that are documented, and four documented runtime unknowns.
-Sparse indexed-only discovery gaps remain informational when they contain no
-unsupported editorial claims.
+The generated report records two core metadata gaps, two actionable RSS gaps,
+four documented missing RSS links, four documented runtime unknowns, 22 explicit
+research-gap records, no editorial/collection/taxonomy blockers, and one
+out-of-scope published record. Sparse indexed-only discovery gaps remain
+informational when they contain no unsupported editorial claims.
 
 ## Current Browse Experience
 
@@ -165,7 +165,7 @@ Implemented now:
 - anonymous community rating bootstrap
 - rating submission and removal
 - public rating-summary support with thresholds
-- preserved Ask the Archivist chat endpoint (disabled by default in 1.0)
+- preserved Ask the Archivist chat endpoint (disabled by default)
 - show submission intake
 - correction intake
 - listener-review intake
@@ -183,8 +183,9 @@ This is a strong foundation for trust. It also means the product is already more
 
 ## Current Architecture Shape
 
-The current system is split into four main layers:
+The current system is split into five main layers:
 
+- `catalog-src/entities.json` for the authored creator/entity registry
 - `site-src/` for authored page sources and partials
 - repo-root generated HTML and stable CSS/JS entry assets
 - `shared/` for active frontend modules and shared styles
@@ -243,18 +244,21 @@ production operations rather than missing core architecture.
 
 Most important gaps today, from the current generated catalog report:
 
-- 624 published shows have fewer than two collection memberships; this is informational under the tier-aware policy when records remain factual-only
-- 654 published shows fall outside the preferred similarity-link range; current report policy keeps this separate from the editorial blocker count
-- 3 published shows lack RSS links and 4 records retain explicitly documented runtime-duration gaps
-- 15 records retain explicit research-gap notes for facts that are not currently verifiable
+- 637 published shows have fewer than two collection memberships; this is informational under the tier-aware policy when records remain factual-only
+- 681 published shows fall outside the preferred similarity-link range; current report policy keeps this separate from the editorial blocker count
+- 6 published shows lack RSS links: 2 are actionable and 4 are explicitly documented
+- 5 published records lack verified runtime data without a documented gap; 4 other runtime gaps are documented
+- 22 records retain explicit research-gap notes for facts that are not currently verifiable
+- one published record is outside the locked English fiction/audio-drama scope
 - editorial depth still lags metadata breadth
 - creator verification exists as a workflow but has no live verified records yet
 - many of the strongest future recommendation routes depend on denser catalog coverage
 - filter confidence can only grow as metadata vocabulary gets broader and more consistent
 - the archive still needs more "serious enough to trust" volume before the final vision fully lands
 
-This is a broad 1.0 gap profile, but the catalog gate is now complete because
-the remaining unverifiable facts are explicit. Production host, provider,
+This is the current release gap profile. Numeric floors pass, but the generated
+catalog remains `content-pending` until the listed factual, scope, and runtime
+blockers are resolved or explicitly documented. Production host, provider,
 recovery, and browser checks are also release operations, not facts that local
 repository tests can establish.
 

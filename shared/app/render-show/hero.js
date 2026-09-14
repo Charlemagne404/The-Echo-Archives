@@ -140,9 +140,9 @@ function renderDetailBreadcrumbs(show) {
   }
 
   parts.push('<span class="detail-breadcrumb-divider">/</span>');
-  parts.push(`<span>${escapeHtml(show.title)}</span>`);
+  parts.push(`<span aria-current="page">${escapeHtml(show.title)}</span>`);
 
-  return `<div class="detail-breadcrumbs">${parts.join("")}</div>`;
+  return `<nav class="detail-breadcrumbs" aria-label="Breadcrumb">${parts.join("")}</nav>`;
 }
 
 function renderHeroMetaCard(label, value, note = "") {

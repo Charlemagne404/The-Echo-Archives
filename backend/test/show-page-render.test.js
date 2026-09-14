@@ -10,6 +10,8 @@ test("empty indexed entries move editorial context out of Reviews and invite the
   const markup = createShowPageMarkup(showMap.get("were-alive"), showMap, collections);
 
   assert.match(markup, /detail-main--indexed/);
+  assert.match(markup, /<nav class="detail-breadcrumbs" aria-label="Breadcrumb">/);
+  assert.match(markup, /<span aria-current="page">We&#39;re Alive<\/span>/);
   assert.match(markup, /<h2>Official description<\/h2>/);
   assert.match(markup, /detail-indexed-archive-note/);
   assert.match(markup, /id="archive-note" tabindex="-1"/);
@@ -77,6 +79,8 @@ test("Imported show pages disclose automation, preserve community routes, and om
   try {
     const { createShowPageMarkup: createClientShowPageMarkup } = await import("../../shared/app/render-show.js");
     const clientMarkup = createClientShowPageMarkup(show, map, [], { reviews: [], pagination: { totalReviews: 0 }, scoreSummary: {} });
+    assert.match(clientMarkup, /<nav class="detail-breadcrumbs" aria-label="Breadcrumb">/);
+    assert.match(clientMarkup, /<span aria-current="page">Imported Solar<\/span>/);
     ["detail-status-chip is-imported", "Imported · source checked by automation"].forEach((fragment) => {
       assert.match(clientMarkup, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
     });

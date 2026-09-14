@@ -1,7 +1,7 @@
-# Backend — The Echo Archives 1.0
+# Backend — The Echo Archives
 
-This service runs the backend for The Echo Archives 1.0. The Archivist is a
-preserved optional integration and is disabled by default in the release.
+This service runs the backend for the current Echo Archives release. The
+Archivist is a preserved optional integration and is disabled by default.
 
 ## What it does
 
@@ -29,7 +29,9 @@ Node.js 22.12 or newer is required. CI pins the current production runtime, Node
 
 ## Environment
 
-Copy `.env.example` to `.env` if you want to override defaults.
+From the repository root, copy `backend/.env.example` to `backend/.env` if you
+want to override defaults. When already in `backend/`, the same files are
+`.env.example` and `.env`.
 
 - `PORT`: API and site port. Defaults to `3010` to avoid common local conflicts.
 - `DEPLOYMENT_ENV`: `development`, `test`, `staging`, or `production`; staging and production enable stricter origin/database checks
@@ -70,7 +72,7 @@ Copy `.env.example` to `.env` if you want to override defaults.
 - `MAINTAINER_REVIEW_COOKIE_SECRET`: signs the maintainer session cookie
 - `MAINTAINER_REVIEW_SESSION_TTL_HOURS`: maintainer session lifetime in hours
 - `MAINTAINER_LOGIN_WINDOW_MS`, `MAINTAINER_LOGIN_MAX`: maintainer login throttling policy
-- `PLAUSIBLE_DOMAIN`: optional public analytics domain injected into generated public pages during `npm run build:pages`
+- `PLAUSIBLE_DOMAIN`: optional public analytics domain injected into generated public pages during the repository-root `npm run build:pages`
 - `PLAUSIBLE_SCRIPT_SRC`: optional Plausible script URL override used during page generation
 
 `ENABLE_TEST_ERROR_ROUTES` and `SMOKE_BROWSER` are test-only variables and must

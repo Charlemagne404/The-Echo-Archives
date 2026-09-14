@@ -2,7 +2,8 @@
 
 ## Purpose
 
-This is the active roadmap for The Echo Archives after the 1.0 release.
+This is the active roadmap for The Echo Archives after the 1.1.0 Creators
+release.
 
 Use it as the source of truth for:
 
@@ -38,23 +39,23 @@ The current generated catalog snapshot contains:
 
 | Metric | Current value |
 | --- | ---: |
-| Published shows | 724 |
+| Published shows | 752 |
 | Imported shows | 517 |
-| Indexed-only shows | 200 |
+| Indexed-only shows | 228 |
 | Full reviews | 7 |
 | Collections | 46 |
 | Creator-verified shows | 0 |
 
 Exact counts and gap detail remain generated evidence, not hand-maintained
-product copy. The latest catalog-authored update is 2026-09-04.
+product copy. The latest catalog-authored update is 2026-09-08.
 
-The catalog report is complete as of 2026-09-04: Big Grande has verified
-observed runtime data from its current official RSS/Apple sources, and Machina
-has an explicit evidence-backed `metadata.researchGaps` note because no full
-episode duration can currently be verified. The three missing RSS links and
-the other documented research gaps remain visible in the generated report.
-This is separate from host, provider, recovery, browser, and deployment checks,
-which are recorded in the current dated release QA report.
+The current generated report is `content-pending`: numeric floors pass, but it
+lists 10 Phase 2 blocking errors, including two core metadata gaps, two
+actionable RSS gaps, five undocumented runtime gaps, and one out-of-scope
+published record. Four missing RSS links, four documented runtime unknowns, and
+22 other research-gap records remain explicit in the generated report. This is
+separate from host, provider, recovery, browser, and deployment checks, which
+are recorded in the relevant dated QA reports.
 
 ## Roadmap Rules
 
@@ -82,8 +83,8 @@ Keep these out of scope unless a demonstrated bottleneck changes the decision:
 
 ## Current Priorities
 
-1. Close or explicitly document the two runtime-duration blockers so the generated catalog report is green.
-2. Complete the repository, host, external-provider, backup/restore, monitoring, and browser gates recorded in the 1.0 release QA report.
+1. Resolve or explicitly document the current factual, runtime, and scope blockers listed in the generated catalog report.
+2. Complete the repository, host, external-provider, backup/restore, monitoring, and browser gates recorded in the relevant dated QA reports.
 3. Increase editorial depth beyond 7 full reviews without weakening the factual Imported/indexed-only lanes.
 4. Improve weak collection and similarity coverage where it creates a real listener route.
 5. Add creator verification only when a real official-source review has been completed.
@@ -92,7 +93,7 @@ Keep these out of scope unless a demonstrated bottleneck changes the decision:
 ## Catalog Quality Policy
 
 The previous Phase 2 numeric floor was 129 published shows, 7 full reviews, and
-29 collections. The 1.0 catalog exceeds those floors numerically, but the
+29 collections. The current catalog exceeds those floors numerically, but the
 current generated report is the authority for whether the quality gate is
 complete. Numeric breadth alone does not close a factual blocker.
 
@@ -107,11 +108,11 @@ The active policy is tier-aware:
 
 ## Workstream: Catalog And Editorial Depth
 
-The catalog is broad enough for a real 1.0 release but remains uneven in depth.
+The catalog is broad enough for a real release but remains uneven in depth.
 
 Next work:
 
-- preserve the three documented missing RSS cases and documented runtime unknowns until new evidence appears
+- preserve the four documented missing RSS cases and four documented runtime unknowns until new evidence appears
 - convert selected Imported records to indexed-only through current factual review
 - move selected high-value records through the elevation desk into full review
 - add reviews where they improve recommendation routes, not merely to raise a count
@@ -119,7 +120,8 @@ Next work:
 
 Exit evidence:
 
-- `npm run report:catalog` has zero blocking errors
+- `npm run report:catalog` reproduces the generated status; it currently reports
+  `content-pending` and exits non-zero while the 10 Phase 2 blockers remain
 - `npm --prefix backend run validate:data` passes
 - review, taxonomy, scope, and link checks pass
 - generated catalog output matches its authored source
@@ -131,8 +133,8 @@ the next advantage must come from better data and reasoning.
 
 Next work:
 
-- improve the 624 records with fewer than two collection memberships where a real route exists
-- review the 654 records outside the preferred similarity-link range without fabricating relationships
+- improve the 637 records with fewer than two collection memberships where a real route exists
+- review the 681 records outside the preferred similarity-link range without fabricating relationships
 - keep collection reasons specific, listener-facing, and source-backed by the archive’s editorial policy
 - expose new filters only when the supporting metadata is consistent enough to be trustworthy
 - preserve fast short-query search and identity-field relevance
@@ -147,7 +149,7 @@ Exit evidence:
 
 ## Workstream: Trust And Contribution
 
-The 1.0 contribution layer is moderation-first and intentionally lightweight.
+The current contribution layer is moderation-first and intentionally lightweight.
 
 Next work:
 
@@ -221,11 +223,11 @@ not mark these gates complete from local unit tests alone.
 
 | Gate | Status | Meaning |
 | --- | --- | --- |
-| 1.0 product baseline | Current | The shipped static-first product and protected workflows are represented in the repository. |
-| Catalog quality | `complete` | Numeric floors are exceeded and the generated report has zero blocking errors and zero actionable RSS gaps; remaining gaps are explicitly documented. |
+| 1.1.0 product baseline | Current | The shipped static-first product, creator discovery, and protected workflows are represented in the repository. |
+| Catalog quality | `content-pending` | Numeric floors are exceeded, but the generated report still lists 10 Phase 2 blocking errors. |
 | Repository verification | `partial` | Backend validation and tests pass, and the structure check completes with soft-limit warnings; the full root gate and complete browser batch have not passed in this closeout. |
 | Production operations | `unverified` | Host, external provider, recovery, monitoring, and live browser evidence are not established by this local docs pass. |
-| Post-1.0 discovery | `next` | Improve data-backed search, filters, collection routes, and recommendation context. |
+| Post-1.1 discovery | `next` | Improve data-backed search, filters, collection routes, and recommendation context. |
 | Mature archive | `future` | Broader editorial depth, creator context, and sustained quality follow-through. |
 
 Status labels:

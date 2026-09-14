@@ -2,7 +2,8 @@
 
 ## Purpose
 
-This document describes the destination beyond the current 1.0 release. It is
+This document describes the destination beyond the current 1.1.0 Creators
+release. It is
 not a current-state or release-readiness document.
 
 Use it as the long-form destination doc alongside:

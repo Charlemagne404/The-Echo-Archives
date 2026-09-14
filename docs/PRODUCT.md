@@ -2,7 +2,8 @@
 
 ## Purpose
 
-This is the active product brief for the 1.0 release of The Echo Archives.
+This is the active product brief for the current 1.1.0 release of The Echo
+Archives.
 
 Use it as the source of truth for:
 
@@ -42,19 +43,19 @@ The Echo Archives exists to solve that discovery problem directly by:
 - helping creators get represented accurately
 - building a human-curated archive that feels specific, trustworthy, and alive
 
-## Release 1.0 Baseline
+## Release 1.1.0 Baseline
 
-The 1.0 release is a working static-first discovery product, not a prototype
-or playback app. The current generated catalog contains 724 published shows,
-7 full reviews, 46 collections, 517 automation-checked Imported records, and
-200 fact-checked indexed-only records. Exact counts and readiness errors belong
-to [`docs/generated/catalog-status.md`](generated/catalog-status.md), not to
-hand-maintained product copy.
+The current release is a working static-first discovery product, not a
+prototype or playback app. The current generated catalog contains 752 published
+shows, 7 full reviews, 46 collections, 517 automation-checked Imported records,
+and 228 fact-checked indexed-only records. Exact counts and readiness errors
+belong to [`docs/generated/catalog-status.md`](generated/catalog-status.md), not
+to hand-maintained product copy.
 
 The release includes browse/search, structured filters, collections, show pages,
 moderated contributions, community rating infrastructure, protected importer
 and collection-maintainer workflows, and an offline fallback. Ask the Archivist
-is preserved but disabled by default in 1.0. Production rating writes,
+is preserved but disabled by default in the current release. Production rating writes,
 maintainer access, analytics, and external provider integrations remain
 configuration-gated.
 
@@ -82,7 +83,7 @@ The archive should serve both deep fans and newcomers without turning into a gen
 
 ## Catalog Confidence And Publication Policy
 
-The 1.0 catalog uses a tier-aware standard. Full-review and spotlight records
+The current catalog uses a tier-aware standard. Full-review and spotlight records
 carry archive takes, spoiler-safe editorial content, tones, formats, best-for
 signals, detailed length, and reasoned similarity/collection context. Sparse
 indexed-only records may remain factual-only; they must not receive invented
@@ -161,7 +162,7 @@ The live repo supports:
 - a compact homepage with search, structured filters, quick filters, a recently updated browse mode, featured collections, and a most-popular band
 - reusable show and collection detail routes
 - About, For Creators, Creator Standards, Supporters, Help Center, Privacy, Terms, and Cookies pages
-- Ask the Archivist chat integration, preserved but disabled by default in 1.0
+- Ask the Archivist chat integration, preserved but disabled by default in the current release
 - anonymous community ratings
 - moderated submissions for new shows, corrections, listener reviews, and creator verification
 - a protected maintainer queue and report surface

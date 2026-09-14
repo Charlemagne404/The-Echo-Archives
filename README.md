@@ -10,7 +10,8 @@ This repo is not a generic podcast directory or a playback app. It is a dark, ed
 
 The repository now implements curated creator, studio, production-company and
 network discovery, with explicit show relationships and stable creator pages.
-The first pilot links seven entities to 17 existing shows. See
+The current catalog snapshot contains 102 public entities and 229 published
+shows with explicit public entity links. See
 [Creators authoring](docs/CREATORS.md) for the data model and maintenance workflow,
 and [1.1.0 release notes](docs/qa/2026-09-05-release-1.1-creators.md) for validation
 and remaining limitations. Local implementation is separate from deployment.
@@ -27,7 +28,7 @@ The live catalog snapshot now lives in [`docs/generated/catalog-status.md`](docs
 | Main browse surface | Homepage with structured filters, quick filters, search, recently updated mode, featured collections, and a most-popular band |
 | Detail routes | Reusable show pages at `/shows/<show-id>` and collection pages at `/collections/<collection-id>` |
 | Community layer | Publicly anonymous, pseudonymous ratings, moderated submissions, corrections, listener reviews, and creator verification intake |
-| Assistant | Preserved Archivist integration, disabled by default for 1.0 |
+| Assistant | Preserved Archivist integration, disabled by default for the current release |
 | Maintainer tools | Passphrase-gated submissions, catalog imports, collection automation, report pages, and explicit publication/promotion controls |
 | Delivery model | Generated static pages at repo root, authored sources in `site-src/`, shared runtime in `shared/`, backend in `backend/` |
 
@@ -83,7 +84,9 @@ npm --prefix backend ci
 
 Optionally copy `backend/.env.example` to `backend/.env` for local overrides. The root start/dev/config/backup commands load that file without replacing variables already exported by the shell.
 
-The Archivist feature is disabled by default for the 1.0 release. Set `ARCHIVIST_ENABLED=true` in `backend/.env` and regenerate the pages with `npm run build:pages` when you are ready to expose the preserved feature again.
+The Archivist feature is disabled by default for the current release. Set
+`ARCHIVIST_ENABLED=true` in `backend/.env` and regenerate the pages with
+`npm run build:pages` when you are ready to expose the preserved feature again.
 
 Start the local app:
 
@@ -103,7 +106,7 @@ Root commands:
 | `npm run dev` | Starts the local backend and static site through `backend/` |
 | `npm run check:config` | Loads `backend/.env` when present and validates the effective configuration |
 | `npm run backup:database` | Creates and integrity-checks a timestamped SQLite backup |
-| `npm run build:catalog` | Regenerates runtime catalog data, the search index, and the generated catalog snapshot |
+| `npm run build:catalog` | Regenerates runtime catalog data, the search index, responsive cover variants, and the generated catalog snapshot |
 | `npm run report:catalog` | Prints solo-dev catalog gaps and generated-output drift |
 | `npm run catalog:new:show -- --id <show-id> [--title "Title"]` | Scaffolds a new show source record |
 | `npm run catalog:new:collection -- --id <collection-id> --show-id <show-id> [--title "Title"]` | Scaffolds a new collection source record |

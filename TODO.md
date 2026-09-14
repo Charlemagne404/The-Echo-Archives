@@ -1,9 +1,13 @@
-# TODO — 1.0 follow-up
+# TODO — Current follow-up
+
+Dated COMPLETE and HISTORICAL entries below preserve the snapshot they describe.
+For current catalog counts, quality status, and blockers, use
+[`docs/generated/catalog-status.md`](docs/generated/catalog-status.md).
 
 ## Data Cleanup
 
-- 2026-08-20 COMPLETE — The Big Grande audit now uses the current official RSS, Apple, and website sources and records verified observed runtime data. Machina retains an evidence-backed `metadata.researchGaps` note because the current feed exposes only a 61-second trailer and no full episodes. The catalog report is green with zero blocking errors and zero actionable RSS gaps. See [the dated QA/evidence record](docs/qa/2026-08-20-1.0-todo-evidence.md).
-- 2026-08-20 COMPLETE — The previous RSS audit remains unchanged for `impact-winter`, `homecoming`, `earth-eclipsed`, `the-rapscallion-agency`, and `the-invenios-expeditions`. The three missing RSS links and the documented runtime unknowns remain explicit; no ambiguous or shared RSS identity was restored. See [the dated QA/evidence record](docs/qa/2026-08-20-1.0-todo-evidence.md).
+- 2026-08-20 COMPLETE — At the time of this dated evidence record, the Big Grande audit used the current official RSS, Apple, and website sources and recorded verified observed runtime data. Machina retained an evidence-backed `metadata.researchGaps` note because the feed exposed only a 61-second trailer and no full episodes. The catalog report was green with zero blocking errors and zero actionable RSS gaps at that snapshot. See [the dated QA/evidence record](docs/qa/2026-08-20-1.0-todo-evidence.md).
+- 2026-08-20 COMPLETE — At the time of this dated evidence record, the previous RSS audit remained unchanged for `impact-winter`, `homecoming`, `earth-eclipsed`, `the-rapscallion-agency`, and `the-invenios-expeditions`. The three missing RSS links and the documented runtime unknowns remained explicit; no ambiguous or shared RSS identity was restored. See [the dated QA/evidence record](docs/qa/2026-08-20-1.0-todo-evidence.md).
 
 ## Legal and privacy follow-ups
 

@@ -1,7 +1,7 @@
 # Discovery Tag Taxonomy
 
 `catalog-src/tag-taxonomy.json` is the authoritative vocabulary for public
-discovery tags in the 1.0 release. A tag is a reusable listener-facing
+discovery tags in the current release. A tag is a reusable listener-facing
 discovery signal, not a transcription of every publisher keyword or plot
 detail.
 
@@ -26,7 +26,8 @@ Free-text terms are not a fallback public vocabulary. The importer preserves the
 
 Published records use only approved labels. Deprecated or unknown labels block publication. Browse filters expose only tags used by at least two published shows; approved low-frequency tags remain searchable in full text until they gain reuse.
 
-Run `rtk node tools/migrate-discovery-tags.js` to inspect the controlled migration, or add `--write` only when intentionally applying its reviewed dispositions.
+Run `node tools/migrate-discovery-tags.js` to inspect the controlled migration,
+or add `--write` only when intentionally applying its reviewed dispositions.
 
 ## Vocabulary health
 

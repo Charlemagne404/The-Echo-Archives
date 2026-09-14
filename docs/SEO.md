@@ -1,7 +1,7 @@
-# SEO operating rules — 1.0
+# SEO operating rules — 1.1
 
-This document defines the maintained search contract for the 1.0 release of The
-Echo Archives. The goal is durable discoverability for useful catalog and
+This document defines the maintained search contract for the current 1.1.0
+release of The Echo Archives. The goal is durable discoverability for useful catalog and
 editorial content, not an audit score or high-volume keyword publishing.
 
 ## Entity and brand strategy

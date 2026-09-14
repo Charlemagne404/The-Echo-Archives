@@ -29,21 +29,7 @@ function escapeAttribute(value = "") {
 }
 
 function toDisplayTag(value = "") {
-  return String(value || "")
-    .split(/[-\s]+/)
-    .filter(Boolean)
-    .map((part) => {
-      if (/^[A-Z0-9]+$/.test(part)) {
-        return part;
-      }
-
-      if (part.length <= 3 && part === part.toUpperCase()) {
-        return part;
-      }
-
-      return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
-    })
-    .join(" ");
+  return archiveRecord.toPublicLabel(value);
 }
 
 function formatRating(value) {

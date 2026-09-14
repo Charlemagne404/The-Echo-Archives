@@ -220,6 +220,7 @@
   outline: none;
 }
 
+.entity-directory-main .entity-search-field:focus-within { outline: 2px solid #ed8b6c; outline-offset: 3px; }
 .entity-directory-main .entity-search input::placeholder {
   color: rgba(247, 247, 243, 0.44);
 }
