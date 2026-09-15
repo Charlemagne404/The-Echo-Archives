@@ -38,7 +38,7 @@ These boundaries are intentional and should be preserved:
 
 - `site-src/`: authored page sources, page manifest, and reusable HTML partials
 - `catalog-src/`: authored catalog source files and order manifests
-- repo root `*.html`, route CSS bundles, and `script.js`: generated, committed public output and stable browser entry assets
+- repo root `*.html`, route CSS bundles, and `script.js`: generated public output and stable browser entry assets; generated HTML is produced at build time and is not committed
 - `shared/`: browser modules, rendering helpers, search logic, shared CSS partials, and compatibility manifests
 - `data/`: generated runtime/public catalog data only
 - `backend/`: backend services, tests, validation scripts, and SQLite-backed workflow storage
@@ -51,12 +51,13 @@ The repo-root command surface is intentionally small:
 - `npm run report:catalog`
 - `npm run report:entity-graph`
 - `npm run build:pages`
+- `npm run check:generated`
 - `npm run check:structure`
 - `npm run verify`
 
 ## Generated Page Model
 
-Pages are authored in `site-src/pages/`, routed through `site-src/page-manifest.json`, and emitted into committed root HTML by `tools/build-pages.js`.
+Pages are authored in `site-src/pages/`, routed through `site-src/page-manifest.json`, and emitted into build output by `tools/build-pages.js`. The generated HTML is intentionally ignored by Git so a clean checkout can reproduce it from the authored source and catalog data.
 
 The current generated page set includes:
 
@@ -84,7 +85,10 @@ The current generated page set includes:
 - `maintainer/imports/report.html`
 - `maintainer/collections.html`
 
-Do not hand-edit generated root HTML when the corresponding source exists in `site-src/`.
+The page build also emits the clean-route `index.html` aliases and one public
+creator page for each catalog entity that is eligible for publication.
+
+Do not hand-edit generated root HTML when the corresponding source exists in `site-src/`. `npm run check:structure` verifies that every manifest page, clean-route alias, and generated creator page exists after the build; `npm run check:generated` verifies the generated HTML is ignored and untracked without ignoring authored HTML.
 
 ## Public Routes
 
@@ -132,7 +136,7 @@ The frontend should:
 - keep `script.js` as the single browser entry while `shared/app/` owns the implementation
 - derive search, filters, cards, and detail views from shared metadata rather than duplicated markup
 - preserve the current visual identity
-- keep root HTML generated from `site-src/`
+- keep root HTML generated from `site-src/` at build time rather than treating it as source
 - keep public CSS URLs stable while `shared/styles/` owns imported partials; `style.css` is the common shell, while `home.css`, `info.css`, `collections.css`, `creators.css`, `submit.css`, `maintainer.css`, and `detail.css` are route-owned bundles
 - load `chat.css` only when the shared chat launcher is used
 
@@ -393,6 +397,7 @@ The current safety net includes:
 Key verification commands:
 
 - `npm run build:pages`
+- `npm run check:generated`
 - `npm run check:structure`
 - `npm --prefix backend run validate:data`
 - `npm --prefix backend run report:entity-graph`
@@ -436,5 +441,5 @@ related:
 - Separate editorial truth from community and moderation workflow data.
 - Prefer additive optional datasets over duplicated route-specific data.
 - Keep the repo root as the intentional public web surface unless deployment needs materially change.
-- Keep `site-src/` as the authored page-shell source and treat root HTML as generated output.
+- Keep `site-src/` as the authored page-shell source and treat root HTML as ignored generated output.
 - Treat public routes, query params, API shapes, storage keys, and DOM hooks as compatibility boundaries during hygiene refactors.

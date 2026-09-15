@@ -1303,6 +1303,7 @@ if (require.main === module) {
 module.exports = {
   createPrecacheUrlSet,
   resolveManifestCanonicalUrls,
+  resolveCleanRouteAlias,
   resolveSiteUrl,
   serializeStructuredData,
 };

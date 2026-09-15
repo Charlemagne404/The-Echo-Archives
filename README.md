@@ -58,7 +58,7 @@ Legacy HTML and query-string detail routes remain compatibility entry points and
 - `catalog-src/` holds the authored source of truth for shows, creator entities, collections, and review companions.
 - `data/` holds generated runtime/public catalog data, including `search-index.json`.
 - `site-src/` holds authored page sources, partials, and the page manifest.
-- The repo root holds generated public output such as `index.html`, `show.html`, `collection.html`, and the stable CSS and JS entry files.
+- The repo root receives generated public output such as `index.html`, `show.html`, and `collection.html` from the build; generated HTML is ignored by Git, while stable CSS and JS entry files remain tracked.
 - `shared/` holds browser modules, shared rendering helpers, search logic, and CSS partials.
 - `backend/` holds the Express backend for chat, ratings, submissions, maintainer review, sitemap generation, and validation tooling.
 - `tools/` holds repo-level page build and structure-check scripts.
@@ -80,6 +80,16 @@ Install backend dependencies once:
 
 ```bash
 npm --prefix backend ci
+```
+
+Build the complete public site after a fresh clone (generated HTML is build
+output, not committed source):
+
+```bash
+npm run build:catalog
+npm run build:pages
+npm run check:structure
+npm run check:generated
 ```
 
 Optionally copy `backend/.env.example` to `backend/.env` for local overrides. The root start/dev/config/backup commands load that file without replacing variables already exported by the shell.
@@ -111,7 +121,8 @@ Root commands:
 | `npm run report:entity-graph` | Reports creator/entity coverage, density, orphan/weak entities, and enrichment queues |
 | `npm run catalog:new:show -- --id <show-id> [--title "Title"]` | Scaffolds a new show source record |
 | `npm run catalog:new:collection -- --id <collection-id> --show-id <show-id> [--title "Title"]` | Scaffolds a new collection source record |
-| `npm run build:pages` | Regenerates committed root HTML from `site-src/` |
+| `npm run build:pages` | Generates the ignored public HTML, route bundles, service worker, sitemap, and robots output from `site-src/` |
+| `npm run check:generated` | Verifies the complete generated HTML set is present, ignored, and untracked while authored HTML remains trackable |
 | `npm run check:structure` | Enforces repo structure and generated-source boundaries |
 | `npm run test:tools` | Runs repository build/SEO/operations tool tests |
 | `npm run verify` | Regenerates catalog + pages, checks repo structure, then runs backend tests, smoke tests, and data/link validation |

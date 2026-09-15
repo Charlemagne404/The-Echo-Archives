@@ -186,7 +186,7 @@ If `npm run verify` fails, do not publish.
 
 `npm run verify` currently:
 
-- regenerates committed root HTML from `site-src/`
+- regenerates the complete public HTML output from `site-src/`; the output is ignored by Git and checked for completeness
 - runs repo structure checks
 - runs repository build, SEO, and operations tool tests
 - runs backend data validation
@@ -207,7 +207,9 @@ is cached, verifies cached navigation and the uncached offline fallback, and the
 restarts the server. The same real network-failure path runs in Chromium,
 Firefox, and WebKit.
 
-The working tree should stay clean after verification. If `npm run build:pages` or `npm run verify` changes generated root HTML, review the diff and commit it instead of hand-editing the public page files.
+The working tree should stay clean after verification. Generated HTML is ignored
+by Git, so review tracked catalog, CSS, JS, sitemap, and service-worker output
+for drift; never hand-edit the generated public page files.
 
 Do not install production dependencies or restart the live service until the release commit passes the complete workstation preflight, including Playwright. The production server update intentionally runs the non-browser subset after installing only production dependencies.
 
@@ -479,13 +481,14 @@ Keep these ownership rules intact:
 
 - `catalog-src/` is authored catalog source
 - `site-src/` is authored page source
-- root HTML files are generated, committed public output
+- root HTML files are generated release output, not committed source; `site-src/`
+  and the page manifest are the authored inputs
 - `shared/` contains active runtime code, shared styles, and active config
 - `data/` contains generated runtime/public catalog output only
 - `docs/`, `docs/research/`, and `docs/archive/` are never runtime inputs
 - temporary outputs belong in ignored temp locations, not tracked repo folders
 
-Catalog/page builds also own `images/generated/covers/`, `images/generated/info/`, and the root route CSS bundles. Run `npm run build:catalog` before `npm run build:pages`; review generated image, runtime catalog, stylesheet, page, and service-worker diffs together. Do not copy responsive image metadata into authored catalog records or hand-edit generated variants.
+Catalog/page builds also own `images/generated/covers/`, `images/generated/info/`, and the root route CSS bundles. Run `npm run build:catalog` before `npm run build:pages`; review generated image, runtime catalog, stylesheet, page, and service-worker output together. Only tracked non-HTML artifacts produce Git diffs; do not copy responsive image metadata into authored catalog records or hand-edit generated variants.
 
 ## Catalog And Asset Checks
 
@@ -557,7 +560,7 @@ If maintainer auth is enabled, also verify:
 ## Launch Checks
 
 - production must serve `/shows/:showId`, `/collections/:collectionId`, their compatibility redirects, and `/sitemap.xml` through the backend so crawlers and social scrapers receive entry-specific metadata and real status codes
-- the committed `sitemap.xml` should contain show and collection URLs generated from the live catalog, not just top-level pages
+- the generated `sitemap.xml` should contain show and collection URLs generated from the live catalog, not just top-level pages
 - `sitemap.xml` loads
 - `robots.txt` loads
 - `sw.js` loads

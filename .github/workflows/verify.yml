@@ -27,8 +27,10 @@ jobs:
       - name: Install Playwright Chromium
         run: npx --prefix backend playwright install --with-deps chromium
 
-      - name: Run repo verification
+      - name: Build and verify the complete generated site
         run: npm run verify
 
-      - name: Fail on stale generated output
-        run: git diff --exit-code
+      - name: Confirm clean checkout remains reproducible
+        run: |
+          test -z "$(git status --porcelain --untracked-files=all)"
+          git diff --exit-code

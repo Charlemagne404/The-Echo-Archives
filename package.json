@@ -21,9 +21,10 @@
     "catalog:new:show": "node tools/scaffold-catalog.js show",
     "catalog:new:collection": "node tools/scaffold-catalog.js collection",
     "build:pages": "node tools/build-pages.js",
+    "check:generated": "node tools/check-generated-boundary.js",
     "check:structure": "node tools/check-structure.js",
     "test:tools": "node --test tools/test/*.test.js",
-    "verify": "npm run build:catalog && npm run build:pages && npm run check:structure && npm run test:tools && npm --prefix backend run verify"
+    "verify": "npm run build:catalog && npm run build:pages && npm run check:structure && npm run check:generated && npm run test:tools && npm --prefix backend run verify"
   },
   "engines": {
     "node": ">=22.12"
