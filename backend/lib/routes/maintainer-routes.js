@@ -16,7 +16,17 @@ function createAuthRequiredError() {
   return error;
 }
 
-function createMaintainerRouter({ auth, staticRoot, submissionService, publishedListenerReviewService, importService, elevationService, collectionService, rateLimiter = null }) {
+function createMaintainerRouter({
+  auth,
+  staticRoot,
+  submissionService,
+  publishedListenerReviewService,
+  importService,
+  elevationService,
+  collectionService,
+  rateLimiter = null,
+  analyticsStore = null,
+}) {
   const router = express.Router();
 
   router.use(["/maintainer", "/api/maintainer"], (req, res, next) => {
@@ -48,6 +58,7 @@ function createMaintainerRouter({ auth, staticRoot, submissionService, published
   router.get("/maintainer/imports.html", sendMaintainerPage("maintainer/imports.html"));
   router.get("/maintainer/imports/report.html", sendMaintainerPage("maintainer/imports/report.html"));
   router.get("/maintainer/collections.html", sendMaintainerPage("maintainer/collections.html"));
+  router.get("/maintainer/analytics.html", sendMaintainerPage("maintainer/analytics.html"));
 
   router.post("/api/maintainer/session", (req, res, next) => {
     if (!auth.authenticate(req.body?.passphrase || "")) {
@@ -64,6 +75,17 @@ function createMaintainerRouter({ auth, staticRoot, submissionService, published
   router.delete("/api/maintainer/session", (req, res) => {
     auth.clearSessionCookie(req, res);
     return res.status(204).end();
+  });
+
+  router.get("/api/maintainer/analytics", requireMaintainerSession, (req, res, next) => {
+    try {
+      if (!analyticsStore) {
+        return res.status(503).json({ error: "Analytics storage is unavailable." });
+      }
+      return res.json(analyticsStore.getDashboard({ range: req.query.range }));
+    } catch (error) {
+      return next(error);
+    }
   });
 
   router.get("/api/maintainer/submissions", requireMaintainerSession, (req, res, next) => {

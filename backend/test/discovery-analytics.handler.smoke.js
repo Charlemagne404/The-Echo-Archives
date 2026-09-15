@@ -21,8 +21,6 @@ function fixtureMarkup(enabled = true) {
     <a id="collection" href="#collection" data-discovery-collection-id="fixture-collection" data-discovery-collection-kind="curated" data-discovery-surface="collections_directory"><span>Collection</span></a>
     <a id="synthetic-show" href="javascript:void(0)" data-discovery-show-id="fixture-show" data-discovery-surface="home_archive_grid" data-discovery-browse-state="default" data-discovery-result-type="show_card" data-discovery-recommendation-source="none" data-discovery-result-position-bucket="1" data-discovery-content-profile="full_review">Synthetic show</a>
     <script>
-      window.__discoveryAnalyticsCalls = [];
-      window.plausible = (...args) => window.__discoveryAnalyticsCalls.push(args);
       window.EchoArchiveSearch = {};
       window.EchoArchiveSimilarity = {};
       window.EchoArchiveRecord = {};
@@ -41,6 +39,12 @@ function createFixtureServer() {
     if (requestUrl.pathname === "/discovery-fixture") {
       response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
       response.end(fixtureMarkup(requestUrl.searchParams.get("disabled") !== "1"));
+      return;
+    }
+
+    if (requestUrl.pathname === "/api/analytics/events") {
+      response.writeHead(204);
+      response.end();
       return;
     }
 
@@ -91,6 +95,12 @@ test.after(async () => {
 
 test("delegated analytics ignores clones and synthetic clicks while direct listening navigation succeeds", async () => {
   const page = await browser.newPage();
+  const analyticsRequests = [];
+  page.on("request", (request) => {
+    if (new URL(request.url()).pathname === "/api/analytics/events" && request.postData()) {
+      analyticsRequests.push(JSON.parse(request.postData()));
+    }
+  });
   const consoleErrors = [];
   const pageErrors = [];
   page.on("console", (message) => {
@@ -117,25 +127,25 @@ test("delegated analytics ignores clones and synthetic clicks while direct liste
     assert.equal(popup.url(), "https://example.com/listen?utm_source=echo");
     await popup.close();
 
-    const calls = await page.evaluate(() => window.__discoveryAnalyticsCalls || []);
-    const listenCalls = calls.filter(([eventName]) => eventName === "Listen Link Opened");
-    const collectionCalls = calls.filter(([eventName]) => eventName === "Collection Opened");
-    const showCalls = calls.filter(([eventName]) => eventName === "Show Opened");
+    await page.waitForTimeout(100);
+    const listenCalls = analyticsRequests.filter(({ eventName }) => eventName === "Listen Link Opened");
+    const collectionCalls = analyticsRequests.filter(({ eventName }) => eventName === "Collection Opened");
+    const showCalls = analyticsRequests.filter(({ eventName }) => eventName === "Show Opened");
 
     assert.equal(listenCalls.length, 1);
     assert.equal(collectionCalls.length, 1);
     assert.equal(showCalls.length, 0);
-    assert.equal(listenCalls[0][1].props.show_id, "fixture-show");
-    assert.equal(listenCalls[0][1].props.provider, "spotify");
-    assert.equal(collectionCalls[0][1].props.collection_id, "fixture-collection");
-    assert.equal(listenCalls[0][1].url, `${baseUrl}/discovery-fixture`);
+    assert.equal(listenCalls[0].properties.show_id, "fixture-show");
+    assert.equal(listenCalls[0].properties.provider, "spotify");
+    assert.equal(collectionCalls[0].properties.collection_id, "fixture-collection");
+    assert.equal(listenCalls[0].pagePath, "/discovery-fixture");
     assert.equal(page.url(), `${baseUrl}/discovery-fixture?q=raw%20query#collection`);
     assert.deepEqual(consoleErrors, []);
     assert.deepEqual(pageErrors, []);
 
-    const serializedCalls = JSON.stringify(calls);
+    const serializedCalls = JSON.stringify(analyticsRequests);
     assert.doesNotMatch(serializedCalls, /raw query|example\.com|utm_source/i);
-    assert.ok(calls.some(([eventName]) => eventName === "pageview"));
+    assert.ok(analyticsRequests.some(({ eventName }) => eventName === "Page Viewed"));
   } finally {
     await page.close();
   }

@@ -14,6 +14,7 @@ Archivist is a preserved optional integration and is disabled by default.
 - Exposes show submission intake at `/api/submissions/shows`
 - Exposes a protected internal import lane for machine-found catalog candidates
 - Exposes a protected collection automation workspace for candidate review, membership overrides, and regeneration
+- Exposes a protected first-party analytics dashboard for aggregate public usage
 - When Archivist is enabled, uses Ollama when available and falls back to grounded heuristic recommendations when it is not
 
 ## Run locally
@@ -66,14 +67,16 @@ want to override defaults. When already in `backend/`, the same files are
 - `SUBMISSION_NETWORK_DATA_RETENTION_DAYS`: retention period for submission source IP and user-agent fields. Defaults to `30` days
 - `SUBMISSION_PERSONAL_DATA_RETENTION_DAYS`: retention period for unaccepted/unpublished submission content and contact details. Defaults to `180` days
 - `DATA_RETENTION_CLEANUP_INTERVAL_MS`: interval for the in-process privacy cleanup job. Defaults to `300000` milliseconds
+- `ANALYTICS_HMAC_SECRET`: stable random secret used to HMAC-hash first-party visitor and session tokens before SQLite storage; required in production
+- `ANALYTICS_RETENTION_DAYS`: retention for aggregate analytics events. Defaults to `400` days
+- `ANALYTICS_RATE_LIMIT_WINDOW_MS`, `ANALYTICS_RATE_LIMIT_MAX`: collector rate-limit policy. Defaults to `60000` milliseconds and `180`
 - `COMMUNITY_VOTER_COOKIE_NAME`: HTTP-only voter cookie name. Defaults to `echo-community-voter`
 - `COMMUNITY_VOTER_HASH_SECRET`: stable secret used to hash voter cookies and abuse signals
 - `MAINTAINER_REVIEW_PASSPHRASE`: enables the protected maintainer review queue when set
 - `MAINTAINER_REVIEW_COOKIE_SECRET`: signs the maintainer session cookie
 - `MAINTAINER_REVIEW_SESSION_TTL_HOURS`: maintainer session lifetime in hours
 - `MAINTAINER_LOGIN_WINDOW_MS`, `MAINTAINER_LOGIN_MAX`: maintainer login throttling policy
-- `PLAUSIBLE_DOMAIN`: optional public analytics domain injected into generated public pages during the repository-root `npm run build:pages`
-- `PLAUSIBLE_SCRIPT_SRC`: optional Plausible script URL override used during page generation
+- `PUBLIC_ANALYTICS_ENABLED`: build-time browser collection flag. Defaults to `true`; set to `false` for staging or isolated builds
 
 `ENABLE_TEST_ERROR_ROUTES` and `SMOKE_BROWSER` are test-only variables and must
 not be placed in a deployment environment file. Run `npm run check:config`
@@ -93,9 +96,13 @@ Protected maintainer submission workflow routes:
 - `/maintainer/imports.html`
 - `/maintainer/imports/report.html`
 - `/maintainer/collections.html`
+- `/maintainer/analytics.html`
 - `/api/maintainer/session`
 - `/api/maintainer/submissions`
 - `/api/maintainer/imports`
+- `/api/maintainer/analytics`
+
+Public analytics collection uses `POST /api/analytics/events`. It records only allow-listed first-party events and fails harmlessly when storage is unavailable. See [`docs/ANALYTICS.md`](../docs/ANALYTICS.md) for collection, counting, noise-filtering, and historical-coverage details.
 
 The maintainer queue is passphrase-gated, reads from the same SQLite submission store as public intake, and lets you update `status`, `priority`, `review_notes`, and `reviewed_by` without opening the database directly.
 

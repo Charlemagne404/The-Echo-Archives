@@ -67,6 +67,11 @@ export async function destroyMaintainerSession() {
   });
 }
 
+export async function fetchMaintainerAnalytics(range = "7d", options = {}) {
+  const search = createSearch({ range });
+  return requestJson(`${MAINTAINER_API_ROOT}/analytics${search ? `?${search}` : ""}`, { signal: options.signal });
+}
+
 export function createMaintainerListHref(filters = {}) {
   const search = createSearch(filters);
   return `${MAINTAINER_API_ROOT}/submissions${search ? `?${search}` : ""}`;

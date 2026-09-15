@@ -197,8 +197,14 @@ test("maintainer session and queue routes enforce auth and allow queue updates a
     assert.equal(pageResponse.status, 200);
     assert.match(await pageResponse.text(), /maintainer passphrase/i);
 
+    const analyticsPageResponse = await fetch(`${context.baseUrl}/maintainer/analytics.html`);
+    assert.equal(analyticsPageResponse.status, 200);
+    assert.match(await analyticsPageResponse.text(), /archive pulse/i);
+
     const unauthorizedList = await fetch(`${context.baseUrl}/api/maintainer/submissions`);
     assert.equal(unauthorizedList.status, 401);
+    const unauthorizedAnalytics = await fetch(`${context.baseUrl}/api/maintainer/analytics`);
+    assert.equal(unauthorizedAnalytics.status, 401);
 
     const rejectedLogin = await fetch(`${context.baseUrl}/api/maintainer/session`, {
       method: "POST",
@@ -215,6 +221,35 @@ test("maintainer session and queue routes enforce auth and allow queue updates a
     assert.equal(loginResponse.status, 204);
     const cookie = loginResponse.headers.get("set-cookie") || "";
     assert.match(cookie, /echo-maintainer-session=/);
+
+    const collectorResponse = await fetch(`${context.baseUrl}/api/analytics/events`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "User-Agent": "Mozilla/5.0",
+        "X-Echo-Analytics-Visitor": "browser-visitor-test-1234567890",
+        "X-Echo-Analytics-Session": "browser-session-test-1234567890",
+        "X-Echo-Analytics-Event-Id": "collector-event-test-1234567890",
+        "X-Echo-Analytics-Path": "/shows/impact-winter",
+        "X-Echo-Analytics-Source": "direct",
+      },
+      body: JSON.stringify({
+        eventName: "Page Viewed",
+        properties: { page_kind: "show", show_id: "impact-winter" },
+      }),
+    });
+    assert.equal(collectorResponse.status, 204);
+
+    const authenticatedAnalytics = await fetch(`${context.baseUrl}/api/maintainer/analytics?range=7d`, {
+      headers: { Cookie: cookie },
+    });
+    assert.equal(authenticatedAnalytics.status, 200);
+    const analyticsPayload = await authenticatedAnalytics.json();
+    assert.ok(analyticsPayload.metrics.pageViews.value >= 1);
+    assert.ok(analyticsPayload.metrics.showPageViews.value >= 1);
+    assert.equal(analyticsPayload.privacy.rawIpStored, false);
+    assert.equal(analyticsPayload.privacy.browserIdsStored, false);
+    assert.ok(analyticsPayload.coverage.trackingStartedAt);
 
     const authenticatedList = await fetch(`${context.baseUrl}/api/maintainer/submissions`, {
       headers: { Cookie: cookie },

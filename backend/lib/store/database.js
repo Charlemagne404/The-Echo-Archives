@@ -415,6 +415,51 @@ function migrate(db) {
       created_at_ms INTEGER NOT NULL
     );
 
+    CREATE TABLE IF NOT EXISTS analytics_meta (
+      key TEXT PRIMARY KEY,
+      value TEXT NOT NULL
+    );
+
+    CREATE TABLE IF NOT EXISTS analytics_events (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      event_id TEXT NOT NULL UNIQUE,
+      event_name TEXT NOT NULL,
+      occurred_at TEXT NOT NULL,
+      visitor_key TEXT NOT NULL DEFAULT '',
+      session_key TEXT NOT NULL DEFAULT '',
+      page_path TEXT NOT NULL DEFAULT '',
+      show_id TEXT NOT NULL DEFAULT '',
+      collection_id TEXT NOT NULL DEFAULT '',
+      source TEXT NOT NULL DEFAULT 'direct',
+      properties_json TEXT NOT NULL DEFAULT '{}',
+      is_server_event INTEGER NOT NULL DEFAULT 0,
+      dedupe_key TEXT
+    );
+
+    CREATE TABLE IF NOT EXISTS analytics_visitors (
+      visitor_key TEXT PRIMARY KEY,
+      first_seen_at TEXT NOT NULL,
+      last_seen_at TEXT NOT NULL,
+      first_source TEXT NOT NULL DEFAULT 'direct',
+      last_source TEXT NOT NULL DEFAULT 'direct'
+    );
+
+    CREATE UNIQUE INDEX IF NOT EXISTS idx_analytics_events_dedupe
+      ON analytics_events (dedupe_key)
+      WHERE dedupe_key IS NOT NULL;
+
+    CREATE INDEX IF NOT EXISTS idx_analytics_events_time_name
+      ON analytics_events (occurred_at, event_name);
+
+    CREATE INDEX IF NOT EXISTS idx_analytics_events_show_time
+      ON analytics_events (show_id, occurred_at);
+
+    CREATE INDEX IF NOT EXISTS idx_analytics_events_path_time
+      ON analytics_events (page_path, occurred_at);
+
+    CREATE INDEX IF NOT EXISTS idx_analytics_visitors_last_seen
+      ON analytics_visitors (last_seen_at);
+
     CREATE INDEX IF NOT EXISTS idx_rating_submissions_podcast
       ON rating_submissions (podcast_id);
 
@@ -612,6 +657,12 @@ function migrate(db) {
   ensureColumn(db, "rating_submissions", "verified_at", "verified_at TEXT");
   ensureColumn(db, "rating_submissions", "abuse_hash", "abuse_hash TEXT NOT NULL DEFAULT ''");
   ensureColumn(db, "rating_events", "abuse_hash", "abuse_hash TEXT NOT NULL DEFAULT ''");
+
+  applyMigrationOnce(db, "first-party-analytics-2026-09-15", () => {
+    db.prepare(
+      "INSERT OR IGNORE INTO analytics_meta (key, value) VALUES ('tracking_started_at', ?)",
+    ).run(new Date().toISOString());
+  });
   ensureColumn(
     db,
     "published_listener_reviews",

@@ -3,8 +3,9 @@ import {
   normalizeLinkRows,
   pickPrimaryListenLink,
 } from "./utils.js";
+import { getDiscoveryAnalyticsHeaders } from "../discovery-analytics.js";
 
-const LEGAL_DOCUMENT_VERSION = "2026-09-08";
+const LEGAL_DOCUMENT_VERSION = "2026-09-15";
 
 function legalAcknowledgementFields(draft) {
   return {
@@ -159,7 +160,10 @@ export async function submitSubmission(payload) {
   try {
     response = await fetch("/api/submissions/shows", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        ...getDiscoveryAnalyticsHeaders(),
+      },
       body: JSON.stringify(payload),
     });
   } catch (_error) {

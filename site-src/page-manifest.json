@@ -233,6 +233,22 @@
     "includeFloatingControls": false
   },
   {
+    "source": "maintainer/analytics.html",
+    "output": "maintainer/analytics.html",
+    "title": "Archive Pulse - The Echo Archives",
+    "description": "Private maintainer analytics for public usage, discovery, ratings, and archive submissions.",
+    "canonicalUrl": "/maintainer/analytics.html",
+    "bodyClass": "home-page maintainer-page maintainer-analytics-page info-page",
+    "activeNav": "",
+    "extraStylesheets": [
+      "maintainer.css"
+    ],
+    "includeAnalytics": false,
+    "noIndex": true,
+    "includeChatShell": false,
+    "includeFloatingControls": false
+  },
+  {
     "source": "maintainer/report.html",
     "output": "maintainer/submissions/report.html",
     "title": "Submission Report - The Echo Archives",

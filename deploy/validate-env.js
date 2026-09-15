@@ -85,11 +85,9 @@ if (environment === "staging") {
   booleanValue("COMMUNITY_TURNSTILE_ENABLED", "false");
   booleanValue("IMPORT_AUTO_WORKER", "false");
   booleanValue("IMPORT_AUTO_DISCOVERY", "false");
+  booleanValue("PUBLIC_ANALYTICS_ENABLED", "false");
   if (value("COMMUNITY_TURNSTILE_SITE_KEY") || value("COMMUNITY_TURNSTILE_SECRET_KEY")) {
     errors.push("Staging must not contain production Turnstile credentials.");
-  }
-  if (value("PLAUSIBLE_DOMAIN") || value("PLAUSIBLE_SCRIPT_SRC")) {
-    errors.push("Staging analytics must remain disabled.");
   }
   if (value("PODCAST_INDEX_API_KEY") || value("PODCAST_INDEX_API_SECRET")) {
     errors.push("Staging must not contain Podcast Index credentials.");
@@ -112,6 +110,11 @@ if (environment === "staging") {
       errors.push("COMMUNITY_VOTER_HASH_SECRET must be at least 32 characters in production.");
     }
   }
+  booleanValue("PUBLIC_ANALYTICS_ENABLED", "true");
+  required("ANALYTICS_HMAC_SECRET");
+  if (value("ANALYTICS_HMAC_SECRET").length < 32) {
+    errors.push("ANALYTICS_HMAC_SECRET must be at least 32 characters in production.");
+  }
 }
 
 for (const name of ["NODE_ENV", "HOST", "PORT", "INTERNAL_HEALTH_PORT", "STATIC_ROOT", "SERVE_STATIC", "IMPORT_STAGING_ROOT"]) {
@@ -127,6 +130,7 @@ for (const name of [
   "COMMUNITY_TURNSTILE_ENABLED",
   "IMPORT_AUTO_WORKER",
   "IMPORT_AUTO_DISCOVERY",
+  "PUBLIC_ANALYTICS_ENABLED",
 ]) {
   booleanSyntax(name);
 }
@@ -138,6 +142,7 @@ for (const name of [
   "MAINTAINER_REVIEW_PASSPHRASE",
   "MAINTAINER_REVIEW_COOKIE_SECRET",
   "ACCESS_LOG_HMAC_SECRET",
+  "ANALYTICS_HMAC_SECRET",
 ]) {
   const secret = value(name);
   if (secret && isPlaceholderSecret(secret)) {

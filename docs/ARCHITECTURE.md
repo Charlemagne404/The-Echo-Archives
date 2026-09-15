@@ -80,6 +80,7 @@ The current generated page set includes:
 - `500.html`
 - `offline.html`
 - `maintainer/submissions.html`
+- `maintainer/analytics.html`
 - `maintainer/submissions/report.html`
 - `maintainer/imports.html`
 - `maintainer/imports/report.html`
@@ -231,6 +232,7 @@ existing review workflow).
 `backend/server.js` currently serves:
 
 - `GET /api/health`
+- `POST /api/analytics/events` (allow-listed first-party collector; no raw IP or user-agent storage)
 - `GET /sitemap.xml`
 - `GET /robots.txt`
 - `GET /data/shows.json`
@@ -251,6 +253,7 @@ existing review workflow).
 - `GET /api/submissions/shows/:showId/context`
 - `POST /api/submissions/shows`
 - protected maintainer session and submission queue APIs
+- protected maintainer analytics dashboard API
 - protected asynchronous import runs, factual preparation, evidence review, and explicit publication APIs
 - protected collection candidate, membership override, regeneration, and audit APIs
 - optional static file serving from the repo root

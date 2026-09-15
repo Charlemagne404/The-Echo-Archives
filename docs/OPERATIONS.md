@@ -556,6 +556,7 @@ If maintainer auth is enabled, also verify:
 - `/maintainer/imports.html`
 - `/maintainer/imports/report.html`
 - `/maintainer/collections.html`
+- `/maintainer/analytics.html`
 
 ## Launch Checks
 
@@ -570,7 +571,7 @@ If maintainer auth is enabled, also verify:
 - submission queue behavior is the live intake path; no public email-delivery feature is assumed
 - community rating writes are either fully configured and tested with Turnstile plus voter-hash secrets, or clearly left read-only on purpose
 - run a private/incognito pass on `/`, `/shows/<known-show-id>`, `/collections/<known-collection-id>`, and `/submit`
-- verify Plausible pageview analytics only when `PLAUSIBLE_DOMAIN` is configured for the build
+- verify the first-party analytics collector and `/maintainer/analytics.html` after `ANALYTICS_HMAC_SECRET` is configured; staging builds keep `PUBLIC_ANALYTICS_ENABLED=false`
 - docs stay accurate when routes, schema, or operating assumptions change
 
 ## Submission Intake Surface

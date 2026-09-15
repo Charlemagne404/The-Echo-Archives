@@ -1,7 +1,20 @@
 const express = require("express");
 
-function createSubmissionRouter({ submissionService }) {
+function createSubmissionRouter({
+  submissionService,
+  analyticsStore = null,
+  getAnalyticsRequestContext = () => ({}),
+  isInternalRequest = () => false,
+}) {
   const router = express.Router();
+
+  function recordAnalytics(payload) {
+    try {
+      analyticsStore?.recordServerInteraction(payload);
+    } catch (_error) {
+      // Analytics must never turn a successful submission into a failure.
+    }
+  }
 
   router.get("/shows/:showId/context", (req, res, next) => {
     try {
@@ -25,6 +38,17 @@ function createSubmissionRouter({ submissionService }) {
           accepted: true,
         });
       }
+
+      recordAnalytics({
+        ...getAnalyticsRequestContext(req),
+        eventName: "Catalogue Submission",
+        properties: {
+          submission_type: result.submission.submissionType,
+          ...(result.submission.existingShowId ? { show_id: result.submission.existingShowId } : {}),
+        },
+        userAgent: req.get("user-agent") || "",
+        internal: isInternalRequest(req),
+      });
 
       return res.status(201).json({
         accepted: true,

@@ -4,11 +4,11 @@
         <div class="hero-copy info-hero-copy">
           <h1>Privacy</h1>
           <p>
-            The Echo Archives keeps the data footprint small. This page explains what information the current site uses for browsing, ratings, submissions, and moderation.
+            The Echo Archives keeps the data footprint small. This page explains what information the current site uses for browsing, aggregate usage reporting, ratings, submissions, and moderation.
           </p>
           <p class="info-policy-meta">
             <span>Last updated</span>
-            <time datetime="2026-09-08">September 8, 2026</time>
+            <time datetime="2026-09-15">September 15, 2026</time>
             <span>Controller</span>
             <strong>Charlie Arnerstål</strong>
           </p>
@@ -40,7 +40,7 @@
         </span>
         <div>
           <h2>Small footprint</h2>
-          <p>The reviewed repository build does not load Plausible analytics. Cloudflare may inject its own Real User Monitoring (RUM) at the edge depending on production settings; that beacon is not part of this repository or page build. This page does not claim a fixed RUM dataset, retention period, cookie or local-storage behavior, or identity outcome. The site does not use advertising trackers or ad-tech profiling.</p>
+          <p>The archive uses a lightweight first-party, aggregate usage signal so the maintainer can see whether discovery is working. The protected maintainer analytics workspace shows aggregate reports only; it does not expose individual browsing histories. It stores HMAC-derived visitor and session keys rather than browser identifiers, and does not use advertising trackers, fingerprinting, or third-party analytics.</p>
         </div>
       </article>
       <article class="page-card info-summary-card info-summary-card-community">
@@ -112,6 +112,10 @@
               <p>Cloudflare may inject Real User Monitoring (RUM) at the edge depending on production-zone settings. RUM is managed by Cloudflare rather than included in this repository’s HTML or build. The archive therefore does not state a fixed RUM dataset, retention period, cookie or local-storage behavior, or identity outcome without current provider and production evidence.</p>
             </li>
             <li>
+              <strong>First-party aggregate analytics</strong>
+              <p>Public pages can create one random visitor token in <code>localStorage</code> and one short-lived session token in <code>sessionStorage</code>. The browser sends only controlled event names, route paths without query strings or fragments, supported show or collection ids, controlled discovery-surface labels, and a coarse source hostname. The server HMAC-hashes those tokens before storage; raw browser ids, IP addresses, and user-agent strings are not stored in the analytics tables. Analytics events are retained for the configured period, 400 days by default, and are used only for aggregate counts and rates such as page views, approximate visitors and sessions, search and filter activity, collection and show routes, listening-link clicks, ratings, and submissions. The dashboard can show grouped top pages, shows, collections, sources, and discovery surfaces for a selected range, but it does not expose an individual visitor history. The resulting report is available only through the passphrase-protected maintainer analytics workspace at <code>/maintainer/analytics.html</code>; its dashboard API requires an active maintainer session and is not a public data endpoint. The maintainer page itself is excluded from browser analytics collection.</p>
+            </li>
+            <li>
               <strong>Catalogue and public-source data</strong>
               <p>The archive stores and displays show metadata gathered from official or public sources and from submitted material. This can include show titles, creator or performer names and aliases, credits, descriptions, artwork, links, release or status facts, tags, and source or provenance notes. It is used to maintain a curated discovery record. Factual corrections and rights requests can be sent through <a href="/submit">Submit or correct</a> or the <a href="/copyright">Copyright &amp; Takedown</a> route.</p>
             </li>
@@ -125,7 +129,7 @@
             </li>
             <li>
               <strong>Technical and moderation data</strong>
-              <p>The site receives IP address and user-agent data with requests. Raw client IPs used for rate limiting are retained only for the configured rate-limit window and then removed by cleanup. Submission records store source IP and user agent for up to 30 days from receipt. Community rating profiles retain a voter hash while an active rating or helpful vote remains, but user-agent and profile abuse metadata are removed after 30 days of profile inactivity; stored rating abuse hashes are redacted after 30 days without a rating update. The reviewed repository build does not contain a repo-managed RUM beacon or load Plausible analytics. Cloudflare edge services may run after delivery as described above; production settings must be checked separately.</p>
+              <p>The site receives IP address and user-agent data with requests. Raw client IPs used for rate limiting are retained only for the configured rate-limit window and then removed by cleanup. Submission records store source IP and user agent for up to 30 days from receipt. Community rating profiles retain a voter hash while an active rating or helpful vote remains, but user-agent and profile abuse metadata are removed after 30 days of profile inactivity; stored rating abuse hashes are redacted after 30 days without a rating update. The separate first-party analytics tables do not store raw IPs, raw user agents, or browser tokens, and are cleaned up after 400 days by default. Cloudflare edge services may run after delivery as described above; production settings must be checked separately.</p>
             </li>
           </ul>
         </article>
@@ -149,6 +153,10 @@
             <li>
               <strong>To keep ratings and submissions safe from abuse</strong>
               <p>Rate limits, short-lived technical request data, hashed abuse signals, and Turnstile checks are used to reduce spam, automated voting, and moderation abuse. That is part of the archive’s legitimate interest in keeping the system trustworthy.</p>
+            </li>
+            <li>
+              <strong>To understand and improve discovery</strong>
+              <p>The first-party aggregate analytics signal and protected maintainer analytics workspace help the controller understand page reach, discovery routes, listening-link engagement, ratings, and catalogue intake. This processing is based on the controller’s legitimate interest in operating and improving a useful archive, and is not used for advertising or cross-site profiling.</p>
             </li>
             <li>
               <strong>To follow up when you ask for it</strong>
@@ -180,6 +188,10 @@
               <p>Community rating abuse hashes and rating-event records are retained on a rolling 30-day window. User-agent and profile abuse metadata are removed after 30 days of profile inactivity, and an active rating’s stored abuse hash is redacted after 30 days without a rating update. Unreferenced profiles are deleted after 90 days of inactivity.</p>
             </li>
             <li>
+              <strong>First-party aggregate analytics</strong>
+              <p>HMAC-derived analytics event and visitor records are kept for the configured retention period, 400 days by default, and then removed by the retention job. The dashboard shows the tracking start and available retention coverage; it does not reconstruct usage from periods before tracking was enabled. Browser visitor storage remains until you clear site data, while the session storage expires with the browser session or after 30 minutes idle/24 hours maximum.</p>
+            </li>
+            <li>
               <strong>Operational request telemetry</strong>
               <p>If application access observability is enabled, pseudonymized request telemetry is retained for 14 days. It records a weekly rotating keyed pseudonym, route template, status, latency, and request id rather than raw client addresses, headers, bodies, or query strings. The client pseudonym is not intended to identify a person across rotation periods. Cloudflare’s edge processing, any RUM behavior, and retention follow the enabled services, applicable provider terms, and zone settings; repository inspection cannot establish those details.</p>
             </li>
@@ -197,7 +209,7 @@
             </li>
             <li>
               <strong>Maintainer session access</strong>
-              <p>The protected maintainer session cookie currently lasts up to 12 hours after sign-in unless it is cleared earlier by logout or browser controls.</p>
+              <p>The protected maintainer session cookie used by moderation, publishing, and the analytics workspace currently lasts up to 12 hours after sign-in unless it is cleared earlier by logout or browser controls. Analytics dashboard data is returned only to an active maintainer session.</p>
             </li>
           </ul>
           <p>See the <a href="/cookies">cookies and browser storage page</a> for the storage-by-storage list.</p>
@@ -228,7 +240,7 @@
           <p>Cloudflare provides the site’s edge delivery and security and can perform browser or challenge checks on visits, including use of the <code>cf_clearance</code> cookie. Community rating requests may also use Cloudflare Turnstile when that protection is enabled, and Cloudflare may provide edge RUM depending on production settings. Where Cloudflare processes information on the controller’s behalf, it is treated as a processor or service provider under the applicable customer terms and data-processing agreement. Some Cloudflare services may operate under Cloudflare’s own service terms or role. Cloudflare’s <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noreferrer">privacy policy</a> and the controller’s applicable <a href="https://www.cloudflare.com/resources/assets/slt3lc6tev37/1M1j5uuFDuLTYiZJJDPBag/bca17eba6b088462dcd1ad928253f5c3/cloudflare-customer-dpa.pdf" target="_blank" rel="noreferrer">Cloudflare data-processing terms</a> apply to the relevant provider relationship. The controller should verify enabled services, transfer safeguards, and retention from current account and provider records; the repository cannot prove those settings.</p>
           <p>The site also links out to official show sites, listening platforms, Patreon, Ko-fi, GitHub, and the external Continental contact route. If you open those destinations, your browser connects to them directly and their own terms and privacy rules apply.</p>
           <p>The current archive implementation does not embed Patreon or Ko-fi payment widgets or import supporter account data. Those providers handle any payment or account information directly under their own policies.</p>
-          <p>The reviewed repository build does not embed Plausible analytics. Production settings must be checked before relying on that statement. Cloudflare RUM may be injected at the edge as a separate performance-measurement service and is described above. If another analytics service or processor is enabled later, this page must be updated before that deployment to identify the provider, purpose, data categories, legal basis, and applicable transfer information, and any required consent flow must be implemented.</p>
+          <p>The current archive does not embed a third-party analytics provider. Its first-party aggregate collector is described above. Cloudflare RUM may still be injected at the edge as a separate performance-measurement service and is described above. If another analytics service or processor is enabled later, this page must be updated before that deployment to identify the provider, purpose, data categories, legal basis, and applicable transfer information, and any required consent flow must be implemented.</p>
         </article>
       </div>
     </section>

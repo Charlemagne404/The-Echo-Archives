@@ -20,6 +20,7 @@ function runConfig(envOverrides = {}, source = "const c=require('./lib/config');
     MAINTAINER_REVIEW_COOKIE_SECRET: "",
     ACCESS_LOG_ENABLED: "false",
     ACCESS_LOG_HMAC_SECRET: "",
+    ANALYTICS_HMAC_SECRET: "test-production-analytics-secret-value-123456789",
     ...envOverrides,
   };
   Object.keys(env).forEach((key) => {
@@ -138,4 +139,14 @@ test("access observability requires a private HMAC secret when enabled", () => {
     ACCESS_LOG_HMAC_SECRET: "test-production-log-secret-value-123456789",
   });
   assert.equal(valid.status, 0, valid.stderr);
+});
+
+test("production analytics requires a stable private HMAC secret", () => {
+  const missing = runConfig({ ANALYTICS_HMAC_SECRET: "" });
+  assert.equal(missing.status, 1);
+  assert.match(missing.stderr, /ANALYTICS_HMAC_SECRET/);
+
+  const placeholder = runConfig({ ANALYTICS_HMAC_SECRET: "REPLACE_WITH_A_RANDOM_32_PLUS_CHARACTER_SECRET" });
+  assert.equal(placeholder.status, 1);
+  assert.match(placeholder.stderr, /ANALYTICS_HMAC_SECRET/);
 });

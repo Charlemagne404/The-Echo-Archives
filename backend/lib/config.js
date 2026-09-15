@@ -29,6 +29,7 @@ const communityTurnstileEnabled = parseBoolean(
 );
 const communityRatingWritesEnabled = parseBoolean(process.env.COMMUNITY_RATING_WRITES_ENABLED, !IS_PRODUCTION);
 const accessLogEnabled = parseBoolean(process.env.ACCESS_LOG_ENABLED, false);
+const analyticsHmacSecret = process.env.ANALYTICS_HMAC_SECRET || (IS_PRODUCTION ? "" : "echo-analytics-dev-secret-2026-local");
 
 const config = {
   NODE_ENV: process.env.NODE_ENV || "development",
@@ -51,6 +52,10 @@ const config = {
   SITE_URL: process.env.SITE_URL || "https://echoarchives.net",
   ACCESS_LOG_ENABLED: accessLogEnabled,
   ACCESS_LOG_HMAC_SECRET: process.env.ACCESS_LOG_HMAC_SECRET || "",
+  ANALYTICS_HMAC_SECRET: analyticsHmacSecret,
+  ANALYTICS_RETENTION_DAYS: parseInteger(process.env.ANALYTICS_RETENTION_DAYS, 400),
+  ANALYTICS_RATE_LIMIT_WINDOW_MS: parseInteger(process.env.ANALYTICS_RATE_LIMIT_WINDOW_MS, 60000),
+  ANALYTICS_RATE_LIMIT_MAX: parseInteger(process.env.ANALYTICS_RATE_LIMIT_MAX, 180),
   CHAT_RATE_LIMIT_WINDOW_MS: parseInteger(process.env.CHAT_RATE_LIMIT_WINDOW_MS, 600000),
   CHAT_RATE_LIMIT_MAX: parseInteger(process.env.CHAT_RATE_LIMIT_MAX, 40),
   CHAT_MESSAGE_MAX_LENGTH: parseInteger(process.env.CHAT_MESSAGE_MAX_LENGTH, 2000),
@@ -125,6 +130,9 @@ const config = {
 const POSITIVE_INTEGER_KEYS = [
   "PORT",
   "REQUEST_TIMEOUT_MS",
+  "ANALYTICS_RETENTION_DAYS",
+  "ANALYTICS_RATE_LIMIT_WINDOW_MS",
+  "ANALYTICS_RATE_LIMIT_MAX",
   "CHAT_RATE_LIMIT_WINDOW_MS",
   "CHAT_RATE_LIMIT_MAX",
   "CHAT_MESSAGE_MAX_LENGTH",
@@ -303,6 +311,13 @@ function validateConfig(candidate = config) {
     String(candidate.ACCESS_LOG_HMAC_SECRET || "").length < 32
   ) {
     errors.push("ACCESS_LOG_HMAC_SECRET must be at least 32 characters when access logging is enabled.");
+  }
+
+  if (candidate.IS_LIVE_PRODUCTION) {
+    const analyticsSecret = String(candidate.ANALYTICS_HMAC_SECRET || "");
+    if (analyticsSecret.length < 32 || /^(?:change-?me|password|secret|archive-test|replace)/i.test(analyticsSecret)) {
+      errors.push("ANALYTICS_HMAC_SECRET must be at least 32 characters and not a placeholder in production.");
+    }
   }
 
   if (errors.length > 0) {

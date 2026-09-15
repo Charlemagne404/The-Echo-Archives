@@ -53,7 +53,8 @@ Caddy routes and must not be bound to a non-loopback address.
 | `COMMUNITY_VOTER_HASH_SECRET` | separate random secret | separate production secret |
 | `IMPORT_AUTO_WORKER` | `false` | current production policy; normally `true` |
 | `IMPORT_AUTO_DISCOVERY` | `false` | enable only through the release-based unit after review |
-| `PLAUSIBLE_DOMAIN` / `PLAUSIBLE_SCRIPT_SRC` | empty | supply only if production analytics are intentionally enabled |
+| `PUBLIC_ANALYTICS_ENABLED` | `false` | `true` for the first-party collector |
+| `ANALYTICS_HMAC_SECRET` | separate random secret, even when public collection is off | stable random secret of at least 32 characters |
 | maintainer credentials | empty by default | distinct production credentials |
 | Podcast Index credentials | empty | supply only if production import workflows need them |
 
@@ -61,4 +62,4 @@ All other variables are optional defaults documented in
 [`backend/README.md`](../backend/README.md) and
 [`backend/.env.example`](../backend/.env.example). The validator rejects a
 staging database equal to the production database, staging Turnstile
-credentials, staging analytics, and placeholder secrets.
+credentials, public analytics collection, and placeholder secrets.

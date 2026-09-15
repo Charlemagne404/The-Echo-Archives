@@ -225,7 +225,7 @@ test("chat, community, and submission writes return 429 with Retry-After and rec
       archiveFitNote: "Worth archiving.",
       website: "",
       legalAcknowledged: true,
-      legalVersion: "2026-09-08",
+      legalVersion: "2026-09-15",
     };
     const acceptedSubmission = await postJson(`${context.baseUrl}/api/submissions/shows`, submissionBody);
     assert.equal(acceptedSubmission.status, 201);

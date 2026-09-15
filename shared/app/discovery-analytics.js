@@ -1,4 +1,10 @@
+import { createAnonymousId, getAnalyticsPageProps, getAnalyticsSource, getAnonymousContext, sendAnalyticsPayload } from "./analytics-transport.js";
+
 const EVENT_CONTRACTS = Object.freeze({
+  "Page Viewed": {
+    required: ["page_kind"],
+    allowed: ["page_kind", "show_id", "collection_id", "entity_id"],
+  },
   "Search Used": {
     required: [
       "discovery_surface",
@@ -112,6 +118,7 @@ const FORBIDDEN_PROPERTY_NAMES = new Set([
 ]);
 
 const ENUMS = Object.freeze({
+  page_kind: new Set(["home", "collections", "collection", "show", "entity_directory", "entity", "submit", "info", "not_found", "other"]),
   discovery_surface: new Set([
     "home_archive",
     "collections_directory",
@@ -413,40 +420,55 @@ function normalizeDiscoveryProps(eventName, props) {
 }
 
 export function trackDiscoveryEvent(eventName, props) {
-  const runtimeWindow = getRuntimeWindow();
-  const plausible = runtimeWindow?.plausible || globalThis.plausible;
-  if (!isDiscoveryAnalyticsEnabled() || typeof plausible !== "function") {
+  if (!isDiscoveryAnalyticsEnabled()) {
     return false;
   }
-
   const safeProps = normalizeDiscoveryProps(eventName, props);
-  const safeUrl = sanitizeDiscoveryUrl(runtimeWindow?.location || globalThis.location);
-  if (!safeProps || !safeUrl) {
-    return false;
-  }
-
-  try {
-    plausible(eventName, { props: safeProps, url: safeUrl });
-    return true;
-  } catch (_error) {
-    return false;
-  }
+  const { pathname } = getAnalyticsPageProps();
+  if (!safeProps || !pathname) return false;
+  const context = getAnonymousContext();
+  return sendAnalyticsPayload({
+    eventId: createAnonymousId(),
+    eventName,
+    visitorId: context.visitorId,
+    sessionId: context.sessionId,
+    pagePath: pathname,
+    source: getAnalyticsSource(),
+    properties: safeProps,
+  });
 }
 
 export function trackDiscoveryPageview() {
-  const runtimeWindow = getRuntimeWindow();
-  const plausible = runtimeWindow?.plausible || globalThis.plausible;
-  const safeUrl = sanitizeDiscoveryUrl(runtimeWindow?.location || globalThis.location);
-  if (!isDiscoveryAnalyticsEnabled() || typeof plausible !== "function" || !safeUrl) {
+  if (!isDiscoveryAnalyticsEnabled()) {
     return false;
   }
+  const { pathname, props } = getAnalyticsPageProps();
+  const safeProps = normalizeDiscoveryProps("Page Viewed", props);
+  if (!safeProps || !pathname) return false;
+  const context = getAnonymousContext();
+  return sendAnalyticsPayload({
+    eventId: createAnonymousId(),
+    eventName: "Page Viewed",
+    visitorId: context.visitorId,
+    sessionId: context.sessionId,
+    pagePath: pathname,
+    source: getAnalyticsSource(),
+    properties: safeProps,
+  });
+}
 
-  try {
-    plausible("pageview", { url: safeUrl });
-    return true;
-  } catch (_error) {
-    return false;
-  }
+export function getDiscoveryAnalyticsHeaders() {
+  if (!isDiscoveryAnalyticsEnabled()) return {};
+  const { pathname } = getAnalyticsPageProps();
+  if (!pathname) return {};
+  const context = getAnonymousContext();
+  return {
+    "X-Echo-Analytics-Visitor": context.visitorId,
+    "X-Echo-Analytics-Session": context.sessionId,
+    "X-Echo-Analytics-Event-Id": createAnonymousId(),
+    "X-Echo-Analytics-Path": pathname,
+    "X-Echo-Analytics-Source": getAnalyticsSource(),
+  };
 }
 
 export function validateDiscoveryProps(eventName, props) {

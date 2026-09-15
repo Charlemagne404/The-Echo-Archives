@@ -1,0 +1,100 @@
+.analytics-breakdown-panel {
+  padding-bottom: 18px;
+}
+
+.analytics-breakdown {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.analytics-breakdown-item {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: rgba(7, 9, 11, 0.66);
+}
+
+.analytics-breakdown-item span {
+  overflow: hidden;
+  color: #d2d7d9;
+  font-size: 0.72rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.analytics-breakdown-item strong {
+  color: #f5f1ea;
+  font-size: 1.1rem;
+}
+
+.analytics-breakdown-item small {
+  color: #8f999b;
+  font-size: 0.68rem;
+}
+
+.analytics-discovery-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: 14px;
+}
+
+.analytics-surface-list {
+  display: grid;
+  gap: 13px;
+}
+
+.analytics-surface-item {
+  display: grid;
+  gap: 6px;
+}
+
+.analytics-surface-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  color: #d9ddde;
+  font-size: 0.78rem;
+}
+
+.analytics-surface-heading strong {
+  overflow: hidden;
+  color: #f2eee8;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.analytics-surface-heading span,
+.analytics-surface-item small {
+  color: #8f999b;
+  font-size: 0.7rem;
+}
+
+.analytics-surface-heading span {
+  flex: 0 0 auto;
+}
+
+.analytics-surface-bar {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.075);
+}
+
+.analytics-surface-bar span {
+  display: block;
+  width: var(--bar-width);
+  min-width: 3px;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #d65a4b, #d7964e);
+}
+
+.analytics-surface-item small {
+  line-height: 1.35;
+}

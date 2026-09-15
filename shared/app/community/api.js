@@ -1,4 +1,5 @@
 import { COMMUNITY_PROFILE_HEADER, COMMUNITY_PROFILE_KEY, communityState, dataCache } from "../constants.js";
+import { getDiscoveryAnalyticsHeaders } from "../discovery-analytics.js";
 import { normalizeCommunitySummary } from "./formatters.js";
 
 function readStoredProfileId() {
@@ -126,6 +127,7 @@ async function submitCommunityRating(podcastId, rating, turnstileToken = "") {
     headers: {
       "Content-Type": "application/json",
       [COMMUNITY_PROFILE_HEADER]: profileId,
+      ...getDiscoveryAnalyticsHeaders(),
     },
     body: JSON.stringify({ rating, turnstileToken }),
   });
@@ -144,6 +146,7 @@ async function clearCommunityRating(podcastId, turnstileToken = "") {
     headers: {
       "Content-Type": "application/json",
       [COMMUNITY_PROFILE_HEADER]: profileId,
+      ...getDiscoveryAnalyticsHeaders(),
     },
     body: JSON.stringify({ turnstileToken }),
   });

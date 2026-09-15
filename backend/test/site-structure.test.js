@@ -170,14 +170,14 @@ test("legal pages and submission acknowledgement stay aligned to the current Sep
 
   [...generatedPaths, ...sourcePaths].forEach((pagePath) => {
     const html = fs.readFileSync(path.join(siteRoot, pagePath), "utf8");
-    assert.match(html, /datetime="2026-09-08"/, `${pagePath} should expose the current legal version date.`);
+    assert.match(html, /datetime="2026-09-15"/, `${pagePath} should expose the current legal version date.`);
     assert.doesNotMatch(html, /August 20, 2026/, `${pagePath} should not retain the superseded legal date.`);
   });
 
   const browserSubmitApi = fs.readFileSync(path.join(siteRoot, "shared/app/submit/api.js"), "utf8");
   const backendSubmissionService = fs.readFileSync(path.join(siteRoot, "backend/lib/services/submission-service.js"), "utf8");
-  assert.match(browserSubmitApi, /const LEGAL_DOCUMENT_VERSION = "2026-09-08"/);
-  assert.match(backendSubmissionService, /const LEGAL_DOCUMENT_VERSION = "2026-09-08"/);
+  assert.match(browserSubmitApi, /const LEGAL_DOCUMENT_VERSION = "2026-09-15"/);
+  assert.match(backendSubmissionService, /const LEGAL_DOCUMENT_VERSION = "2026-09-15"/);
 });
 
 test("legacy redirect manifest matches redirect shim files", () => {

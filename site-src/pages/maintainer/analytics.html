@@ -1,0 +1,222 @@
+<main class="home-main page-main maintainer-main maintainer-analytics-main">
+  <section class="hero-shell maintainer-hero-shell">
+    <div class="hero-panel page-panel maintainer-hero-panel">
+      <div class="maintainer-hero-copy">
+        <p class="maintainer-kicker">Maintainer workspace</p>
+        <h1>Archive pulse</h1>
+        <p>A compact read on real public usage: where listeners enter, what they choose next, and whether discovery is turning into listening, ratings, or archive intake.</p>
+        <div class="analytics-hero-meta" aria-label="Analytics boundaries">
+          <span>Aggregate signal</span>
+          <span>First-party only</span>
+          <span>No raw search text</span>
+        </div>
+      </div>
+      <div class="maintainer-hero-actions">
+        <a class="maintainer-link-button" href="/maintainer/submissions.html">Submission queue</a>
+        <button id="maintainerRefreshButton" class="maintainer-ghost-button" type="button" hidden>Refresh pulse</button>
+        <button id="maintainerLogoutButton" class="maintainer-ghost-button" type="button" hidden>Log out</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="maintainerStatePanel" class="page-card maintainer-state-panel" role="region" aria-labelledby="maintainerStateTitle">
+    <div>
+      <p class="maintainer-kicker">Protected workspace</p>
+      <h2 id="maintainerStateTitle">Checking maintainer access</h2>
+      <p id="maintainerStateMessage" aria-live="polite">Loading the protected analytics dashboard…</p>
+    </div>
+    <button id="maintainerRetryButton" class="maintainer-ghost-button" type="button" hidden>Retry</button>
+  </section>
+
+  <section id="maintainerAuthPanel" class="page-card maintainer-auth-panel" hidden>
+    <div class="maintainer-auth-copy">
+      <p class="maintainer-kicker">Protected</p>
+      <h2>Maintainer passphrase</h2>
+      <p>This usage view is private and uses the same protected session as the submission queue. No analytics data is exposed publicly.</p>
+    </div>
+    <form id="maintainerAuthForm" class="maintainer-auth-form">
+      <label class="maintainer-field">
+        <span>Passphrase</span>
+        <input id="maintainerPassphrase" type="password" autocomplete="current-password" required />
+      </label>
+      <div class="maintainer-auth-actions">
+        <button class="maintainer-primary-button" type="submit">Unlock analytics</button>
+        <p id="maintainerAuthStatus" class="maintainer-status-copy">Sign in to continue.</p>
+      </div>
+    </form>
+  </section>
+
+  <section id="maintainerAppShell" class="maintainer-app-shell" hidden>
+    <section class="page-card analytics-toolbar-card" aria-labelledby="maintainerWorkspaceTitle">
+      <div class="analytics-toolbar-heading">
+        <div>
+          <p class="maintainer-kicker">Operational overview</p>
+          <h2 id="maintainerWorkspaceTitle" tabindex="-1">Usage overview</h2>
+        </div>
+        <div class="analytics-range-control" role="group" aria-label="Analytics time range">
+          <button class="analytics-range-button" type="button" data-analytics-range="24h">24 hours</button>
+          <button class="analytics-range-button" type="button" data-analytics-range="7d">7 days</button>
+          <button class="analytics-range-button" type="button" data-analytics-range="30d">30 days</button>
+          <button class="analytics-range-button" type="button" data-analytics-range="all">All tracked</button>
+        </div>
+      </div>
+      <div class="analytics-toolbar-meta-row">
+        <p id="analyticsRangeMeta" class="maintainer-toolbar-meta">Loading range…</p>
+        <p id="analyticsCoverageMeta" class="maintainer-toolbar-meta">Tracking coverage is loading…</p>
+      </div>
+    </section>
+
+    <div id="maintainerSummaryCards" class="maintainer-summary-grid analytics-summary-grid" aria-live="polite"></div>
+
+    <section class="analytics-chart-grid" aria-label="Usage trends">
+      <article class="page-card analytics-panel analytics-panel--wide">
+        <div class="maintainer-panel-heading">
+          <div>
+            <p class="maintainer-kicker">Traffic</p>
+            <h2>Traffic over time</h2>
+          </div>
+          <p class="maintainer-panel-meta">Views · show routes · approximate visitors</p>
+        </div>
+        <div id="analyticsTrafficChart" class="analytics-chart" aria-live="polite"></div>
+      </article>
+
+      <article class="page-card analytics-panel">
+        <div class="maintainer-panel-heading">
+          <div>
+            <p class="maintainer-kicker">Depth</p>
+            <h2>Interactions over time</h2>
+          </div>
+          <p class="maintainer-panel-meta">Search, navigation, shows, and listens</p>
+        </div>
+        <div id="analyticsInteractionsChart" class="analytics-chart" aria-live="polite"></div>
+      </article>
+
+      <article class="page-card analytics-panel">
+        <div class="maintainer-panel-heading">
+          <div>
+            <p class="maintainer-kicker">Community</p>
+            <h2>Ratings and submissions</h2>
+          </div>
+          <p class="maintainer-panel-meta">Tracked successful writes</p>
+        </div>
+        <div id="analyticsContributionsChart" class="analytics-chart" aria-live="polite"></div>
+      </article>
+    </section>
+
+    <section class="analytics-detail-grid" aria-label="Content engagement">
+      <article class="page-card analytics-panel">
+        <div class="maintainer-panel-heading">
+          <div>
+            <p class="maintainer-kicker">Content</p>
+            <h2>Most-viewed shows</h2>
+          </div>
+          <p class="maintainer-panel-meta">Views · listens · ratings</p>
+        </div>
+        <div id="analyticsTopShows" class="analytics-list" aria-live="polite"></div>
+      </article>
+
+        <article class="page-card analytics-panel">
+          <div class="maintainer-panel-heading">
+            <div>
+              <p class="maintainer-kicker">Routes</p>
+              <h2>Most-viewed pages</h2>
+          </div>
+          <p class="maintainer-panel-meta">Path only; no query strings</p>
+        </div>
+          <div id="analyticsTopPages" class="analytics-list" aria-live="polite"></div>
+        </article>
+
+        <article class="page-card analytics-panel">
+          <div class="maintainer-panel-heading">
+            <div>
+              <p class="maintainer-kicker">Collections</p>
+              <h2>Most-opened collections</h2>
+            </div>
+            <p class="maintainer-panel-meta">Opens · show routes · sessions</p>
+          </div>
+          <div id="analyticsTopCollections" class="analytics-list" aria-live="polite"></div>
+        </article>
+
+        <article class="page-card analytics-panel">
+        <div class="maintainer-panel-heading">
+          <div>
+            <p class="maintainer-kicker">Ratings</p>
+            <h2>Most-rated shows</h2>
+          </div>
+          <p class="maintainer-panel-meta">Current active records</p>
+        </div>
+        <div id="analyticsMostRated" class="analytics-list" aria-live="polite"></div>
+      </article>
+    </section>
+
+    <section class="analytics-discovery-grid" aria-label="Discovery pathways">
+      <article class="page-card analytics-panel">
+        <div class="maintainer-panel-heading">
+          <div>
+            <p class="maintainer-kicker">Pathways</p>
+            <h2>Discovery routes that get used</h2>
+          </div>
+          <p class="maintainer-panel-meta">Coarse surface labels only</p>
+        </div>
+        <div id="analyticsDiscoverySurfaces" class="analytics-surfaces" aria-live="polite"></div>
+      </article>
+
+      <article class="page-card analytics-panel">
+        <div class="maintainer-panel-heading">
+          <div>
+            <p class="maintainer-kicker">Signal</p>
+            <h2>Search and browse activity</h2>
+          </div>
+          <p class="maintainer-panel-meta">Selected range</p>
+        </div>
+        <div id="analyticsDiscoverySignals" class="analytics-signals" aria-live="polite"></div>
+      </article>
+    </section>
+
+    <section class="analytics-bottom-grid" aria-label="Conversion and sources">
+      <article class="page-card analytics-panel">
+        <div class="maintainer-panel-heading">
+          <div>
+            <p class="maintainer-kicker">Conversion</p>
+            <h2>From visit to action</h2>
+          </div>
+          <p id="analyticsReturningVisitors" class="maintainer-panel-meta">New and returning are approximate</p>
+        </div>
+        <div id="analyticsFunnel" class="analytics-funnel" aria-live="polite"></div>
+      </article>
+
+      <article class="page-card analytics-panel">
+        <div class="maintainer-panel-heading">
+          <div>
+            <p class="maintainer-kicker">Sources</p>
+            <h2>Where visits came from</h2>
+          </div>
+          <p class="maintainer-panel-meta">Coarse referrer hostname only</p>
+        </div>
+        <div id="analyticsSources" class="analytics-list" aria-live="polite"></div>
+      </article>
+
+      <article class="page-card analytics-panel">
+        <div class="maintainer-panel-heading">
+          <div>
+            <p class="maintainer-kicker">Archive ledger</p>
+            <h2>Current community records</h2>
+          </div>
+          <p class="maintainer-panel-meta">Existing SQLite records, not fabricated history</p>
+        </div>
+        <div id="analyticsRecordTotals" class="analytics-ledger" aria-live="polite"></div>
+      </article>
+    </section>
+
+    <section class="page-card analytics-panel analytics-breakdown-panel">
+      <div class="maintainer-panel-heading">
+        <div>
+          <p class="maintainer-kicker">Signal mix</p>
+          <h2>Interaction breakdown</h2>
+        </div>
+        <p class="maintainer-panel-meta">Counts are tracked events in the selected range</p>
+      </div>
+      <div id="analyticsInteractionBreakdown" class="analytics-breakdown" aria-live="polite"></div>
+    </section>
+  </section>
+</main>

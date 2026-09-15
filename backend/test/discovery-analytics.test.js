@@ -10,24 +10,40 @@ test.before(async () => {
 
 test.afterEach(() => {
   delete globalThis.window;
-  delete globalThis.plausible;
 });
 
-function installAnalyticsWindow({ enabled = true, plausible = null, href = "https://echoarchives.net/?q=raw%20query#archive" } = {}) {
-  const calls = [];
+function createStorage() {
+  const values = new Map();
+  return {
+    getItem: (key) => values.get(key) || null,
+    setItem: (key, value) => values.set(key, String(value)),
+    removeItem: (key) => values.delete(key),
+  };
+}
+
+function installAnalyticsWindow({ enabled = true, href = "https://echoarchives.net/?q=raw%20query#archive", referrer = "", bodyClass = "" } = {}) {
+  const requests = [];
+  const location = new URL(href);
   globalThis.window = {
     location: {
-      href,
-      origin: "https://echoarchives.net",
-      pathname: "/",
+      href: location.href,
+      origin: location.origin,
+      pathname: location.pathname,
+      search: location.search,
     },
     document: {
-      body: { dataset: { analyticsEnabled: String(enabled) } },
+      body: { className: bodyClass, dataset: { analyticsEnabled: String(enabled) } },
       documentElement: { dataset: {} },
+      referrer,
     },
-    plausible: plausible || ((...args) => calls.push(args)),
+    localStorage: createStorage(),
+    sessionStorage: createStorage(),
+    fetch: (url, init) => {
+      requests.push({ url, init });
+      return Promise.resolve({ ok: true });
+    },
   };
-  return calls;
+  return requests;
 }
 
 test("analytics disabled is a quiet no-op", () => {
@@ -48,27 +64,21 @@ test("analytics disabled is a quiet no-op", () => {
   assert.equal(calls.length, 0);
 });
 
-test("an unavailable or throwing Plausible provider cannot break the caller", () => {
-  installAnalyticsWindow({ plausible: null });
-  delete globalThis.window.plausible;
-  assert.doesNotThrow(() => analytics.trackDiscoveryPageview());
-  assert.equal(analytics.trackDiscoveryPageview(), false);
-
-  installAnalyticsWindow({ plausible: () => { throw new Error("blocked"); } });
-  assert.doesNotThrow(() => analytics.trackDiscoveryEvent("Collection Opened", {
-    collection_id: "best-for-long-walks",
-    collection_kind: "curated",
-    discovery_surface: "collections_directory",
-  }));
-  assert.equal(analytics.trackDiscoveryEvent("Collection Opened", {
-    collection_id: "best-for-long-walks",
-    collection_kind: "curated",
-    discovery_surface: "collections_directory",
-  }), false);
+test("an unavailable first-party transport cannot break the caller", () => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = undefined;
+  try {
+    installAnalyticsWindow();
+    delete globalThis.window.fetch;
+    assert.doesNotThrow(() => analytics.trackDiscoveryPageview());
+    assert.equal(analytics.trackDiscoveryPageview(), false);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
 });
 
-test("the seven v1 events accept only the controlled scalar contract", () => {
-  const calls = installAnalyticsWindow();
+test("public discovery events accept only the controlled scalar contract", () => {
+  const requests = installAnalyticsWindow();
   const eventProps = [
     ["Search Used", {
       discovery_surface: "home_archive",
@@ -127,10 +137,13 @@ test("the seven v1 events accept only the controlled scalar contract", () => {
   eventProps.forEach(([eventName, props]) => {
     assert.equal(analytics.trackDiscoveryEvent(eventName, props), true, eventName);
   });
-  assert.deepEqual(calls.map(([eventName]) => eventName), eventProps.map(([eventName]) => eventName));
-  calls.forEach(([, options], index) => {
-    assert.deepEqual(options.props, eventProps[index][1]);
-    assert.equal(options.url, "https://echoarchives.net/");
+  const payloads = requests.map(({ init }) => JSON.parse(init.body));
+  assert.deepEqual(payloads.map(({ eventName }) => eventName), eventProps.map(([eventName]) => eventName));
+  payloads.forEach((payload, index) => {
+    assert.deepEqual(payload.properties, eventProps[index][1]);
+    assert.equal(payload.pagePath, "/");
+    assert.ok(payload.visitorId);
+    assert.ok(payload.sessionId);
   });
 
   assert.equal(analytics.trackDiscoveryEvent("Search Used", {
@@ -144,7 +157,7 @@ test("the seven v1 events accept only the controlled scalar contract", () => {
 });
 
 test("raw search data, forbidden keys, nested values, and query-bearing URLs never leave the browser", () => {
-  const calls = installAnalyticsWindow({ href: "https://echoarchives.net/?q=raw%20query#archive" });
+  const requests = installAnalyticsWindow({ href: "https://echoarchives.net/?q=raw%20query#archive" });
   const rawQuery = "raw query with personal detail";
 
   assert.equal(analytics.trackDiscoveryEvent("Search Used", {
@@ -166,14 +179,32 @@ test("raw search data, forbidden keys, nested values, and query-bearing URLs nev
     recovery_context: "none",
   }), false);
   assert.equal(analytics.trackDiscoveryPageview(), true);
-  assert.equal(calls.length, 1);
-  const serializedCalls = JSON.stringify(calls);
+  assert.equal(requests.length, 1);
+  const serializedCalls = JSON.stringify(requests.map(({ init }) => JSON.parse(init.body)));
   assert.doesNotMatch(serializedCalls, /raw query/i);
   assert.doesNotMatch(serializedCalls, /\?q=/i);
   assert.doesNotMatch(serializedCalls, /#archive/i);
   assert.equal(analytics.sanitizeDiscoveryUrl({ origin: "https://echoarchives.net", pathname: "/collections", search: "?q=secret", hash: "#archive" }), "https://echoarchives.net/collections");
   assert.equal(analytics.sanitizeDiscoveryUrl({ origin: "https://echoarchives.net", pathname: "/collections?q=secret#archive" }), "https://echoarchives.net/collections");
   assert.equal(analytics.sanitizeDiscoveryUrl({ href: "http://[invalid", origin: "https://echoarchives.net", pathname: "/collections?q=secret#archive" }), "https://echoarchives.net/collections");
+});
+
+test("page views keep route-safe content ids while dropping query strings", () => {
+  const requests = installAnalyticsWindow({ href: "https://echoarchives.net/shows/impact-winter?utm_source=private" });
+
+  assert.equal(analytics.trackDiscoveryPageview(), true);
+  const payload = JSON.parse(requests[0].init.body);
+  assert.equal(payload.pagePath, "/shows/impact-winter");
+  assert.deepEqual(payload.properties, { page_kind: "show", show_id: "impact-winter" });
+  assert.doesNotMatch(JSON.stringify(payload), /utm_source|private/i);
+});
+
+test("not-found routes do not attribute route-shaped ids to archive content", () => {
+  const requests = installAnalyticsWindow({ href: "https://echoarchives.net/shows/not-a-real-show", bodyClass: "not-found-page" });
+
+  assert.equal(analytics.trackDiscoveryPageview(), true);
+  const payload = JSON.parse(requests[0].init.body);
+  assert.deepEqual(payload.properties, { page_kind: "not_found" });
 });
 
 test("invalid or unknown event contracts fail closed", () => {
@@ -195,7 +226,7 @@ test("invalid or unknown event contracts fail closed", () => {
 });
 
 test("unknown provider and entity type values collapse to their safe enum values", () => {
-  const calls = installAnalyticsWindow();
+  const requests = installAnalyticsWindow();
 
   assert.equal(analytics.trackDiscoveryEvent("Listen Link Opened", {
     show_id: "midnight-burger",
@@ -209,9 +240,10 @@ test("unknown provider and entity type values collapse to their safe enum values
     entity_type: "Avery Example",
     discovery_surface: "entity_directory_card",
   }), true);
-  assert.equal(calls[0][1].props.provider, "other");
-  assert.equal(calls[1][1].props.entity_type, "unknown");
-  assert.doesNotMatch(JSON.stringify(calls), /provider\.example|email=secret/i);
+  const payloads = requests.map(({ init }) => JSON.parse(init.body));
+  assert.equal(payloads[0].properties.provider, "other");
+  assert.equal(payloads[1].properties.entity_type, "unknown");
+  assert.doesNotMatch(JSON.stringify(payloads), /provider\.example|email=secret/i);
 });
 
 test("query classification stays controlled and never returns the query or seed title", () => {

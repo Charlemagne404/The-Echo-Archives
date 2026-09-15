@@ -1,6 +1,6 @@
 # Privacy-respecting discovery analytics implementation proposal
 
-**Status:** Read-only proposal. No application code, configuration, event tracking, deployment, commit, or push was changed for this proposal.
+**Status:** Superseded on 2026-09-15 by the implemented first-party collector and maintainer dashboard. Retained as a historical design record; use [`docs/ANALYTICS.md`](../ANALYTICS.md) for the current event contract, storage, privacy, and operational behavior.
 
 **Scope:** Public discovery behavior in The Echo Archives. This proposal does not cover advertising, marketing attribution, cross-site tracking, user profiling, audio playback telemetry, or maintainer operations.
 
@@ -702,4 +702,3 @@ No backend product-analytics changes are necessary. Do not add an event table, A
 One small helper, one shared click dispatcher, localized hooks in the existing home/collection/entity/show render paths, a local search-shape classifier, source/provider markers, focused tests, and synchronized privacy/deployment documentation. This is a small implementation measured in a handful of modules and tests, not a new analytics subsystem.
 
 The success criterion is not event volume. It is whether Echo can make a defensible aggregate statement such as: “Among visitors who used a particular discovery route, a measurable share opened a show and expressed intent to listen elsewhere,” while still being unable to answer which person typed which query, what they wrote in a review, or what happened after they left Echo.
-

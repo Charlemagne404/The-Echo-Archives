@@ -24,7 +24,7 @@ Environment=DB_PATH=/var/lib/echo-archives-staging/community.sqlite
 Environment=ARCHIVIST_ENABLED=false
 Environment=IMPORT_AUTO_WORKER=false
 Environment=IMPORT_AUTO_DISCOVERY=false
-Environment=PLAUSIBLE_DOMAIN=
+Environment=PUBLIC_ANALYTICS_ENABLED=false
 ExecStartPre=/usr/bin/node /srv/echo-archives/staging/deploy/validate-env.js staging
 ExecStartPre=/usr/bin/node /srv/echo-archives/staging/backend/scripts/check-config.js
 ExecStart=/usr/bin/node /srv/echo-archives/staging/backend/server.js

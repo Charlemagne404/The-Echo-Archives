@@ -34,8 +34,22 @@ function parsePositiveInteger(value, fallback = 1, maximum = 100) {
   return Number.isInteger(parsed) && parsed > 0 ? Math.min(parsed, maximum) : fallback;
 }
 
-function createPublishedListenerReviewRouter({ reviewService, config }) {
+function createPublishedListenerReviewRouter({
+  reviewService,
+  config,
+  analyticsStore = null,
+  getAnalyticsRequestContext = () => ({}),
+  isInternalRequest = () => false,
+}) {
   const router = express.Router();
+
+  function recordAnalytics(payload) {
+    try {
+      analyticsStore?.recordServerInteraction(payload);
+    } catch (_error) {
+      // Analytics must never turn a successful helpful vote into a failure.
+    }
+  }
 
   function getExistingVoterSecret(req) {
     const secret = parseCookies(req.get("cookie") || "")[config.COMMUNITY_VOTER_COOKIE_NAME];
@@ -85,12 +99,22 @@ function createPublishedListenerReviewRouter({ reviewService, config }) {
       if (!config.COMMUNITY_RATING_WRITES_ENABLED) {
         return res.status(503).json({ error: "Community rating writes are unavailable." });
       }
+      const reviewId = String(req.params.reviewId || "").trim();
+      const showId = reviewService.getPublishedShowId(reviewId);
+      const userAgent = req.get("user-agent") || "";
       const result = await reviewService.updateHelpful({
-        reviewId: String(req.params.reviewId || "").trim(),
+        reviewId,
         helpful,
         voterSecret: ensureVoterSecret(req, res),
-        userAgent: req.get("user-agent") || "",
+        userAgent,
         sourceIp: req.ip || "",
+      });
+      recordAnalytics({
+        ...getAnalyticsRequestContext(req),
+        eventName: helpful ? "Helpful Vote" : "Helpful Vote Removed",
+        properties: { show_id: showId },
+        userAgent,
+        internal: isInternalRequest(req),
       });
       return res.json(result);
     } catch (error) {

@@ -2,6 +2,7 @@ function createDataRetentionService({
   communityStore,
   rateLimitStore,
   submissionStore,
+  analyticsStore = null,
   policy,
 }) {
   function run({ now = new Date() } = {}) {
@@ -21,11 +22,15 @@ function createDataRetentionService({
       networkRetentionDays: policy.submissionNetworkDataRetentionDays,
       personalRetentionDays: policy.submissionPersonalDataRetentionDays,
     });
+    const analytics = analyticsStore
+      ? analyticsStore.purgeExpiredEvents({ now: nowDate })
+      : { eventsDeleted: 0, visitorsDeleted: 0 };
 
     return {
       rateLimitRowsPruned,
       community,
       submissions,
+      analytics,
     };
   }
 

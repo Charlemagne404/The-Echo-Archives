@@ -251,12 +251,12 @@ test("server-side submission service requires the current legal acknowledgement 
     const result = service.submit({
       ...baseBody,
       legalAcknowledged: true,
-      legalVersion: "2026-09-08",
+      legalVersion: "2026-09-15",
     }, { sourceIp: "127.0.0.1", userAgent: "test-agent" });
 
     assert.equal(result.accepted, true);
     assert.deepEqual(result.submission.provenance_json.legalAcknowledgement, {
-      version: "2026-09-08",
+      version: "2026-09-15",
       acknowledgedAt: result.submission.provenance_json.legalAcknowledgement.acknowledgedAt,
     });
     assert.match(result.submission.provenance_json.legalAcknowledgement.acknowledgedAt, /^\d{4}-\d{2}-\d{2}T/);

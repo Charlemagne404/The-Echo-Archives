@@ -203,6 +203,11 @@ The schema is intentionally allowed to be richer than the current UI. If structu
 
 Internal machine-ingest workflow state lives separately in SQLite under the import tables managed by `backend/`. Those operational records include asynchronous runs, leased jobs, identity mappings, cached/retained source data, field evidence, staged-cover metadata, prepared records, conflicts, and readiness reports. They are not a public or editorial source of truth.
 
+First-party usage analytics uses the same SQLite database in `analytics_meta`,
+`analytics_events`, and `analytics_visitors`. These are aggregate operational
+records rather than catalog data: browser identity tokens are HMAC-derived
+before storage, and the existing retention job prunes event history.
+
 The import lane prepares entirely in SQLite. Only explicit maintainer approval writes a factual published record into the authored show source, then regenerates `data/` once. New automation-first records publish as `imported`; `indexed-only` publication requires a current factual-review stamp. Existing importer-origin indexed-only records are not reclassified.
 
 Staged cover bytes live under `backend/data/import-staging/`. This directory is

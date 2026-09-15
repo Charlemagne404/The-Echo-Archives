@@ -210,6 +210,16 @@ function createPublishedListenerReviewService({
     return store.listPublishedForShow(showId).map(toPublicReview);
   }
 
+  function getPublishedShowId(reviewId) {
+    const review = store.getPublishedById(reviewId);
+    if (!review) {
+      const error = new Error("Published listener review not found.");
+      error.statusCode = 404;
+      throw error;
+    }
+    return review.showId;
+  }
+
   async function updateHelpful({ reviewId, voterSecret, userAgent = "", sourceIp = "", helpful }) {
     if (!communityStore) throw new Error("Community profiles are unavailable.");
     const review = store.getPublishedById(reviewId);
@@ -239,6 +249,7 @@ function createPublishedListenerReviewService({
     getForMaintainer,
     getListenerReviewScoreSummaries,
     getPublicReviewPage,
+    getPublishedShowId,
     listPublicForShow,
     publishForMaintainer,
     saveForMaintainer,

@@ -29,8 +29,12 @@ test("listen analytics is best-effort while the outbound link still opens", asyn
 
   try {
     await page.addInitScript(() => {
-      window.__discoveryAnalyticsCalls = [];
-      window.plausible = (...args) => window.__discoveryAnalyticsCalls.push(args);
+    });
+    const analyticsRequests = [];
+    page.on("request", (request) => {
+      if (new URL(request.url()).pathname === "/api/analytics/events" && request.postData()) {
+        analyticsRequests.push(JSON.parse(request.postData()));
+      }
     });
     await gotoSmokePage(page, `${baseUrl}/shows/${encodeURIComponent(showId)}`);
     await page.evaluate(() => {
@@ -49,15 +53,14 @@ test("listen analytics is best-effort while the outbound link still opens", asyn
     assert.equal(page.url(), `${baseUrl}/shows/${encodeURIComponent(showId)}`);
     assert.ok(popup);
 
-    const listenCalls = await page.evaluate(() =>
-      (window.__discoveryAnalyticsCalls || []).filter(([eventName]) => eventName === "Listen Link Opened"),
-    );
+    await page.waitForTimeout(100);
+    const listenCalls = analyticsRequests.filter(({ eventName }) => eventName === "Listen Link Opened");
     assert.equal(listenCalls.length, 1);
-    assert.equal(listenCalls[0][1].props.show_id, showId);
-    assert.equal(listenCalls[0][1].props.provider, await listenLink.getAttribute("data-discovery-provider"));
-    assert.equal(listenCalls[0][1].url, `${baseUrl}/shows/${encodeURIComponent(showId)}`);
-    assert.doesNotMatch(JSON.stringify(listenCalls[0][1].props), /https?:\/\//);
-    assert.doesNotMatch(JSON.stringify(listenCalls[0][1].props), /[?&#]/);
+    assert.equal(listenCalls[0].properties.show_id, showId);
+    assert.equal(listenCalls[0].properties.provider, await listenLink.getAttribute("data-discovery-provider"));
+    assert.equal(listenCalls[0].pagePath, `${new URL(page.url()).pathname}`);
+    assert.doesNotMatch(JSON.stringify(listenCalls[0].properties), /https?:\/\//);
+    assert.doesNotMatch(JSON.stringify(listenCalls[0].properties), /[?&#]/);
   } finally {
     await page.close();
   }

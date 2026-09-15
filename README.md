@@ -29,7 +29,7 @@ The live catalog snapshot now lives in [`docs/generated/catalog-status.md`](docs
 | Detail routes | Reusable show pages at `/shows/<show-id>` and collection pages at `/collections/<collection-id>` |
 | Community layer | Publicly anonymous, pseudonymous ratings, moderated submissions, corrections, listener reviews, and creator verification intake |
 | Assistant | Preserved Archivist integration, disabled by default for the current release |
-| Maintainer tools | Passphrase-gated submissions, catalog imports, collection automation, report pages, and explicit publication/promotion controls |
+| Maintainer tools | Passphrase-gated submissions, catalog imports, collection automation, analytics, report pages, and explicit publication/promotion controls |
 | Delivery model | Generated static pages at repo root, authored sources in `site-src/`, shared runtime in `shared/`, backend in `backend/` |
 
 The current public page set includes:
@@ -62,6 +62,9 @@ Legacy HTML and query-string detail routes remain compatibility entry points and
 - `shared/` holds browser modules, shared rendering helpers, search logic, and CSS partials.
 - `backend/` holds the Express backend for chat, ratings, submissions, maintainer review, sitemap generation, and validation tooling.
 - `tools/` holds repo-level page build and structure-check scripts.
+
+The first-party analytics design and retention boundary are documented in
+[`docs/ANALYTICS.md`](docs/ANALYTICS.md).
 
 ## Stack
 

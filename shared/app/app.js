@@ -59,7 +59,10 @@ export async function initializeApp() {
     await initializeSubmitPage();
   }
 
-  if (document.body.classList.contains("maintainer-page")) {
+  if (document.body.classList.contains("maintainer-analytics-page")) {
+    const { initializeMaintainerAnalyticsPage } = await import("./pages/maintainer-analytics.js");
+    await initializeMaintainerAnalyticsPage();
+  } else if (document.body.classList.contains("maintainer-page")) {
     const { initializeMaintainerPage } = await import("./pages/maintainer.js");
     await initializeMaintainerPage();
   }

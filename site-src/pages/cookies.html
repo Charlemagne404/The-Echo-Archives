@@ -8,7 +8,7 @@
           </p>
           <p class="info-policy-meta">
             <span>Last updated</span>
-            <time datetime="2026-09-08">September 8, 2026</time>
+            <time datetime="2026-09-15">September 15, 2026</time>
             <span>Controller</span>
             <strong>Charlie Arnerstål</strong>
           </p>
@@ -42,7 +42,7 @@
         </span>
         <div>
           <h2>No ad-tech layer</h2>
-          <p>The reviewed repository build does not load Plausible analytics. Cloudflare may inject RUM at the edge depending on production settings; that service is not represented by a repository-side script. The site does not use advertising cookies or cross-site marketing trackers.</p>
+          <p>The reviewed repository build uses a lightweight first-party aggregate analytics signal described below. Cloudflare may inject RUM at the edge depending on production settings; that service is not represented by a repository-side script. The site does not use advertising cookies or cross-site marketing trackers.</p>
         </div>
       </article>
       <article class="page-card info-summary-card info-summary-card-community">
@@ -68,7 +68,7 @@
         </span>
         <div>
           <h2>Maintainer-only auth</h2>
-          <p>Protected moderation routes can set a short-lived session cookie, but public browsing does not require a login.</p>
+          <p>Protected moderation, publishing, and analytics routes can set a short-lived session cookie, but public browsing does not require a login.</p>
         </div>
       </article>
     </section>
@@ -92,7 +92,7 @@
           <span class="page-card-kicker">Operator and scope</span>
           <h2>What this page covers</h2>
           <p>The legal operator and data controller is Charlie Arnerstål. The Echo Archives is a Continental project, not a separate legal entity, and the controller is established in Sweden. Privacy questions can be sent to <a href="mailto:privacy@echoarchives.net">privacy@echoarchives.net</a>.</p>
-          <p>This page covers first-party cookies, sessionStorage, localStorage, and the small number of related server-side identifiers that matter for the current community-rating flow. For broader personal-data handling, see <a href="/privacy">Privacy</a>.</p>
+          <p>This page covers first-party cookies, sessionStorage, localStorage, the first-party aggregate analytics signal, and the small number of related server-side identifiers used by the current archive. For broader personal-data handling, see <a href="/privacy">Privacy</a>.</p>
         </article>
 
         <article class="page-card info-section-card" id="cookies-inventory">
@@ -134,6 +134,20 @@
                   <td>After you submit or clear a community rating or mark a listener review helpful; passive show-page browsing does not create a profile.</td>
                 </tr>
                 <tr>
+                  <td><code>echo-analytics-visitor-v1</code></td>
+                  <td><code>localStorage</code></td>
+                  <td>Keeps a random first-party visitor token so the protected maintainer analytics workspace at <code>/maintainer/analytics.html</code> can estimate unique and returning visitors without storing the token itself on the server.</td>
+                  <td>Until site data is cleared or the key is removed.</td>
+                  <td>When a public page records its first analytics event while first-party analytics is enabled.</td>
+                </tr>
+                <tr>
+                  <td><code>echo-analytics-session-v1</code></td>
+                  <td><code>sessionStorage</code></td>
+                  <td>Groups page views and actions into a short browser visit for aggregate session and conversion counts.</td>
+                  <td>Until the browser session ends; a new session is created after 30 minutes idle or 24 hours.</td>
+                  <td>When a public page records an analytics event while first-party analytics is enabled.</td>
+                </tr>
+                <tr>
                   <td><code>echo-community-voter</code></td>
                   <td>HTTP-only cookie</td>
                   <td>Stores a pseudonymous device token used by the server to keep one device tied to one community-rating profile without a public account.</td>
@@ -157,7 +171,7 @@
                 <tr>
                   <td><code>echo-maintainer-session</code></td>
                   <td>HTTP-only cookie</td>
-                  <td>Keeps a maintainer signed in to the protected moderation routes.</td>
+                  <td>Keeps a maintainer signed in to the protected moderation, publishing, and analytics routes.</td>
                   <td>Up to about 12 hours after sign-in, or until logout/clear.</td>
                   <td>After a successful maintainer sign-in.</td>
                 </tr>
@@ -176,8 +190,8 @@
         <article class="page-card info-section-card" id="cookies-essential">
           <span class="page-card-kicker">Essential and optional use</span>
           <h2>What kind of storage this is</h2>
-          <p>The current storage items are functional or security-related. They support chat and scroll continuity, publicly anonymous ratings, Cloudflare challenge protection, and maintainer authentication.</p>
-          <p>The reviewed repository build does not load Plausible analytics and does not use optional advertising cookies, analytics cookies, or cross-site marketing cookies. No separate preference-cookie layer is implemented today. Cloudflare may inject RUM at the edge as a performance-measurement service; this page does not assert its storage or retention behavior without current provider and production evidence. Cloudflare separately processes request and security data and may set challenge-related storage as described in the inventory above.</p>
+          <p>The current storage items are functional or security-related. They support chat and scroll continuity, publicly anonymous ratings, Cloudflare challenge protection, and maintainer authentication. The community voter storage is technically necessary for the rating or helpful-vote functionality; first-party analytics storage is only for aggregate operational measurement. The protected report can group trends, top pages, shows, collections, discovery surfaces, and conversion stages for a selected range, but it does not expose an individual browsing history. The maintainer analytics page does not collect its own browser analytics, and its report data is available only after maintainer authentication.</p>
+          <p>The archive does not use advertising cookies, third-party analytics cookies, or cross-site marketing cookies. Public pages do use the two first-party browser-storage keys listed above for aggregate operational analytics; they do not hold raw IPs, raw user agents, or a fingerprint on the server. No separate preference-cookie layer is implemented today. Cloudflare may inject RUM at the edge as a performance-measurement service; this page does not assert its storage or retention behavior without current provider and production evidence. Cloudflare separately processes request and security data and may set challenge-related storage as described in the inventory above.</p>
         </article>
 
         <article class="page-card info-section-card" id="cookies-ratings">
@@ -185,7 +199,7 @@
           <h2>What happens on show pages</h2>
           <p>Opening a show page reads the public rating summary and can read an existing rating profile, but it does not create a profile or set the archive’s voter cookie. The publicly anonymous, pseudonymous rating identifiers are created only when you submit or clear a score or mark a listener review helpful.</p>
           <p>In practical terms, the rating system currently uses both the HTTP-only voter cookie and the linked local profile id. The cookie is not readable from frontend JavaScript, while the local profile id is used by the browser-side rating UI.</p>
-          <p>For the current implementation, these identifiers are treated as technically necessary for the rating or helpful-vote functionality after you actively request that action: they let the browser and server maintain, update, clear, and protect that action. Passive browsing does not create them. This classification would need to be revisited if the same storage were reused for analytics, advertising, profiling, or another purpose, or if it were set before the requested action.</p>
+          <p>For the current implementation, the community identifiers support rating or helpful-vote actions after you actively request them. The separate analytics identifiers support aggregate operational measurement on public pages and are not reused for ratings, advertising, profiling, or cross-site tracking. Blocking or clearing browser storage can make visitor, session, and conversion counts less complete; page-view counts can still be recorded without a durable browser token.</p>
         </article>
 
         <article class="page-card info-section-card" id="cookies-controls">
@@ -193,7 +207,7 @@
           <h2>How to clear or limit storage</h2>
           <ul>
             <li>Clearing site data in your browser removes session storage, localStorage, and first-party cookies for the archive.</li>
-            <li>Blocking the archive’s cookies can interfere with publicly anonymous community rating behavior.</li>
+            <li>Blocking the archive’s cookies can interfere with publicly anonymous community rating behavior; blocking browser storage reduces the accuracy of analytics visitor and session estimates.</li>
             <li>Logging out of protected maintainer routes clears the maintainer session cookie.</li>
           </ul>
         </article>
@@ -201,9 +215,9 @@
         <article class="page-card info-section-card" id="cookies-future">
           <span class="page-card-kicker">Future changes</span>
           <h2>What happens if storage changes later</h2>
-          <p>If optional analytics cookies, advertising cookies, or preference cookies are introduced later, this page should be updated with the purpose, duration, and whether that storage is essential or optional. The <a href="/privacy">privacy page</a> should be updated at the same time.</p>
+          <p>If the archive adds advertising, third-party analytics, or preference storage later, this page should be updated with the purpose, duration, and whether that storage is essential or optional. The <a href="/privacy">privacy page</a> should be updated at the same time.</p>
           <div class="info-callout-note">
-            <p>The current implementation does not add a site-wide cookie banner because the reviewed repository build does not use optional analytics, advertising, or marketing cookies. If that changes, this page and the consent flow must be updated before the change is deployed.</p>
+            <p>The current implementation does not add a site-wide cookie banner for advertising or third-party marketing cookies. The first-party analytics storage is documented in the inventory above. If the storage model or legal basis changes, this page and the consent flow must be updated before deployment.</p>
           </div>
         </article>
       </div>

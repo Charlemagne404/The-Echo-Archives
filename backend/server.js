@@ -18,6 +18,7 @@ const { createCollectionStore } = require("./lib/store/collection-store");
 const { createPublishedListenerReviewStore } = require("./lib/store/published-listener-review-store");
 const { createRateLimitStore } = require("./lib/store/rate-limit-store");
 const { createSubmissionStore } = require("./lib/store/submission-store");
+const { createAnalyticsStore } = require("./lib/store/analytics-store");
 const { createCommunityService } = require("./lib/services/community-service");
 const { createDataRetentionService } = require("./lib/services/data-retention-service");
 const { createImportService } = require("./lib/services/import-service");
@@ -183,8 +184,8 @@ function applySecurityHeaders(req, res, next) {
       "form-action 'self'",
       "img-src 'self' data: https:",
       "style-src 'self' 'unsafe-inline'",
-      `script-src 'self' 'nonce-${req.cspNonce}' https://plausible.io https://challenges.cloudflare.com`,
-      "connect-src 'self' https://plausible.io https://challenges.cloudflare.com",
+      `script-src 'self' 'nonce-${req.cspNonce}' https://challenges.cloudflare.com`,
+      "connect-src 'self' https://challenges.cloudflare.com",
       "frame-src https://challenges.cloudflare.com",
       "worker-src 'self'",
       "manifest-src 'self'",
@@ -221,6 +222,7 @@ function buildStaticPageMetadata({ routePath, requestSiteUrl, manifestEntry }) {
 
 async function startServer() {
   config.validateConfig(config);
+  const { validateDiscoveryProps } = await import("../shared/app/discovery-analytics.js");
   const app = express();
   const releaseMetadata = readReleaseMetadata(config.STATIC_ROOT);
   const state = {
@@ -288,6 +290,13 @@ async function startServer() {
 
   await reloadState();
   const database = openDatabase(config.DB_PATH);
+  const analyticsStore = createAnalyticsStore({
+    db: database,
+    secret: config.ANALYTICS_HMAC_SECRET,
+    validateClientEvent: validateDiscoveryProps,
+    retentionDays: config.ANALYTICS_RETENTION_DAYS,
+    collections: state.collections,
+  });
   const rateLimitStore = createRateLimitStore({ db: database });
   const rateLimitService = createRateLimitService({
     store: rateLimitStore,
@@ -307,6 +316,10 @@ async function startServer() {
       "maintainer-login": {
         windowMs: config.MAINTAINER_LOGIN_WINDOW_MS,
         max: config.MAINTAINER_LOGIN_MAX,
+      },
+      analytics: {
+        windowMs: config.ANALYTICS_RATE_LIMIT_WINDOW_MS,
+        max: config.ANALYTICS_RATE_LIMIT_MAX,
       },
     },
   });
@@ -354,12 +367,14 @@ async function startServer() {
     communityStore,
     rateLimitStore,
     submissionStore,
+    analyticsStore,
     policy: {
       communityAbuseRetentionDays: config.COMMUNITY_ABUSE_RETENTION_DAYS,
       communityProfileMetadataRetentionDays: config.COMMUNITY_PROFILE_METADATA_RETENTION_DAYS,
       communityOrphanProfileRetentionDays: config.COMMUNITY_ORPHAN_PROFILE_RETENTION_DAYS,
       submissionNetworkDataRetentionDays: config.SUBMISSION_NETWORK_DATA_RETENTION_DAYS,
       submissionPersonalDataRetentionDays: config.SUBMISSION_PERSONAL_DATA_RETENTION_DAYS,
+      analyticsRetentionDays: config.ANALYTICS_RETENTION_DAYS,
       rateLimitWindows: {
         chat: config.CHAT_RATE_LIMIT_WINDOW_MS,
         community: config.COMMUNITY_WRITE_WINDOW_MS,
@@ -380,7 +395,9 @@ async function startServer() {
         result.community.orphanProfilesDeleted +
         result.submissions.networkRowsRedacted +
         result.submissions.submissionsDeleted +
-        result.submissions.publishedSubmissionRowsRedacted;
+        result.submissions.publishedSubmissionRowsRedacted +
+        result.analytics.eventsDeleted +
+        result.analytics.visitorsDeleted;
       if (totalRows > 0) {
         console.log(JSON.stringify({ level: "info", event: "privacy_retention_cleanup", result }));
       }
@@ -397,6 +414,7 @@ async function startServer() {
   dataRetentionTimer.unref();
   async function syncLiveCatalogState() {
     await reloadState();
+    analyticsStore.setCollections(state.collections);
     communityStore.syncCatalog(state.publicCatalog);
     submissionService.setKnownShows(state.publicCatalog);
     publishedListenerReviewService.setKnownShowIds(new Set(state.publicCatalog.map((show) => show.id)));
@@ -423,6 +441,16 @@ async function startServer() {
     onPublished: refreshCollectionsForCatalogChange,
   });
   const maintainerAuth = createMaintainerAuth(config);
+
+  function getAnalyticsRequestContext(req) {
+    return {
+      visitorId: req.get("x-echo-analytics-visitor") || "",
+      sessionId: req.get("x-echo-analytics-session") || "",
+      eventId: req.get("x-echo-analytics-event-id") || "",
+      pagePath: req.get("x-echo-analytics-path") || "",
+      source: req.get("x-echo-analytics-source") || "",
+    };
+  }
 
   function getHealthPayload({ detailed = false } = {}) {
     try {
@@ -547,6 +575,40 @@ async function startServer() {
     return sendHealth(res);
   });
 
+  app.post("/api/analytics/events", (req, res) => {
+    if (!analyticsStore.enabled) {
+      return res.status(204).end();
+    }
+
+    const userAgent = req.get("user-agent") || "";
+    const internal = maintainerAuth.hasSession(req);
+    if (analyticsStore.requestShouldBeIgnored({ userAgent, internal })) {
+      return res.status(204).end();
+    }
+
+    try {
+      rateLimitService.check("analytics", req.ip || "");
+      analyticsStore.recordClientEvent({
+        ...getAnalyticsRequestContext(req),
+        eventName: typeof req.body?.eventName === "string" ? req.body.eventName : "",
+        properties: req.body?.properties,
+        userAgent,
+        internal,
+      });
+    } catch (error) {
+      if (error?.statusCode !== 429) {
+        console.error(JSON.stringify({
+          level: "warn",
+          event: "analytics_event_failed",
+          requestId: req.requestId,
+          error: error.message || String(error),
+        }));
+      }
+    }
+
+    return res.status(204).end();
+  });
+
   if (process.env.ENABLE_TEST_ERROR_ROUTES === "true") {
     app.get("/__test/boom", () => {
       throw new Error("Intentional test route failure.");
@@ -620,9 +682,36 @@ async function startServer() {
       rateLimiter: rateLimitService,
     }),
   );
-  app.use("/api/community", createCommunityRouter({ communityService, config, rateLimiter: rateLimitService }));
-  app.use("/api/reviews", createPublishedListenerReviewRouter({ reviewService: publishedListenerReviewService, config }));
-  app.use("/api/submissions", createSubmissionRouter({ submissionService }));
+  app.use(
+    "/api/community",
+    createCommunityRouter({
+      communityService,
+      config,
+      rateLimiter: rateLimitService,
+      analyticsStore,
+      getAnalyticsRequestContext,
+      isInternalRequest: (req) => maintainerAuth.hasSession(req),
+    }),
+  );
+  app.use(
+    "/api/reviews",
+    createPublishedListenerReviewRouter({
+      reviewService: publishedListenerReviewService,
+      config,
+      analyticsStore,
+      getAnalyticsRequestContext,
+      isInternalRequest: (req) => maintainerAuth.hasSession(req),
+    }),
+  );
+  app.use(
+    "/api/submissions",
+    createSubmissionRouter({
+      submissionService,
+      analyticsStore,
+      getAnalyticsRequestContext,
+      isInternalRequest: (req) => maintainerAuth.hasSession(req),
+    }),
+  );
   app.use(
     createMaintainerRouter({
       auth: maintainerAuth,
@@ -633,6 +722,7 @@ async function startServer() {
       elevationService,
       collectionService,
       rateLimiter: rateLimitService,
+      analyticsStore,
     }),
   );
 

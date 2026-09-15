@@ -41,8 +41,23 @@ function createVoterSecret() {
   return crypto.randomBytes(32).toString("base64url");
 }
 
-function createCommunityRouter({ communityService, config, rateLimiter = null }) {
+function createCommunityRouter({
+  communityService,
+  config,
+  rateLimiter = null,
+  analyticsStore = null,
+  getAnalyticsRequestContext = () => ({}),
+  isInternalRequest = () => false,
+}) {
   const router = express.Router();
+
+  function recordAnalytics(payload) {
+    try {
+      analyticsStore?.recordServerInteraction(payload);
+    } catch (_error) {
+      // Analytics must never turn a successful community write into a failure.
+    }
+  }
 
   function getProfileId(req) {
     const fromHeader = req.get(config.PROFILE_HEADER);
@@ -133,6 +148,13 @@ function createCommunityRouter({ communityService, config, rateLimiter = null })
         source: "web",
         sourceIp: getSourceIp(req),
       });
+      recordAnalytics({
+        ...getAnalyticsRequestContext(req),
+        eventName: "Rating Submitted",
+        properties: { show_id: req.params.podcastId },
+        userAgent: req.get("user-agent") || "",
+        internal: isInternalRequest(req),
+      });
       res.json(result);
     } catch (error) {
       next(error);
@@ -152,6 +174,13 @@ function createCommunityRouter({ communityService, config, rateLimiter = null })
         userAgent: req.get("user-agent") || "",
         source: "web",
         sourceIp: getSourceIp(req),
+      });
+      recordAnalytics({
+        ...getAnalyticsRequestContext(req),
+        eventName: "Rating Removed",
+        properties: { show_id: req.params.podcastId },
+        userAgent: req.get("user-agent") || "",
+        internal: isInternalRequest(req),
       });
       res.json(result);
     } catch (error) {
