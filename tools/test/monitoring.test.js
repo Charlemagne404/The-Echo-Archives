@@ -115,7 +115,7 @@ printf 'PASS\\n'
   }
 }
 
-test("host tooling units invoke stable copies and preserve executable Git metadata", () => {
+test("host tooling units invoke stable copies and preserve executable file modes", () => {
   const monitorUnit = read("deploy/echo-archives-local-monitor.service");
   const offsiteUnit = read("deploy/echo-archives-offsite-backup.service");
   const bootstrap = read("deploy/bootstrap-echo-archives.sh");
@@ -157,12 +157,24 @@ test("host tooling units invoke stable copies and preserve executable Git metada
     "deploy/check-echo-archives-production.sh",
     "deploy/echo-archives-offsite-backup.sh",
   ]) {
-    const result = spawnSync("git", ["ls-files", "--stage", relativePath], {
-      cwd: ROOT,
-      encoding: "utf8",
-    });
-    assert.equal(result.status, 0, result.stderr);
-    assert.match(result.stdout, /^100755 /, `${relativePath} lost its executable Git mode`);
+    const absolutePath = path.join(ROOT, relativePath);
+    assert.ok(
+      fs.statSync(absolutePath).mode & 0o111,
+      `${relativePath} lost its executable file mode`,
+    );
+
+    // Release artifacts are extracted with `git archive` and intentionally do
+    // not contain .git. Preserve the stronger Git-index assertion when this
+    // test runs from the source checkout, while keeping the release test
+    // focused on the executable mode that the artifact actually carries.
+    if (fs.existsSync(path.join(ROOT, ".git"))) {
+      const result = spawnSync("git", ["ls-files", "--stage", relativePath], {
+        cwd: ROOT,
+        encoding: "utf8",
+      });
+      assert.equal(result.status, 0, result.stderr);
+      assert.match(result.stdout, /^100755 /, `${relativePath} lost its executable Git mode`);
+    }
   }
 });
 
