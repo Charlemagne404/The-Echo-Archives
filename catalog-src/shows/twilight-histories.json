@@ -24,7 +24,11 @@
     "fantasy",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "cinematic",
+    "weird",
+    "tense"
+  ],
   "formats": [
     "episodic",
     "anthology"
@@ -38,7 +42,12 @@
   "aliases": [
     "Twilight Histories"
   ],
-  "themes": [],
+  "themes": [
+    "alternate histories",
+    "time travel",
+    "parallel worlds",
+    "historical divergence"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -65,9 +74,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "worldbuilding",
+    "long-walks"
+  ],
+  "similarTo": [
+    "ars-paradoxica",
+    "the-big-loop"
+  ],
+  "similarReasons": {
+    "ars-paradoxica": "Both use alternate histories and time travel to turn science into a personal story; Twilight Histories changes the world episode by episode, while Ars Paradoxica stays with a serialized Cold War investigation.",
+    "the-big-loop": "Both use self-contained audio-fiction episodes to explore strange speculative worlds; Twilight Histories leans into alternate history and immersive soundscapes while The Big Loop centers intimate character stories."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -104,7 +123,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "alternate-history worlds across the multiverse",
+    "pov": "the listener as a time-traveling hero",
+    "structure": "self-contained immersive audio-fiction episodes with full soundscapes"
+  },
   "metadata": {
     "researchGaps": [],
     "objectiveSources": [
@@ -418,6 +442,12 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "dark-lord-studios"
+  "updatedAt": "2026-09-16",
+  "creatorId": "dark-lord-studios",
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "balanced",
+    "intensity": "variable",
+    "commitment": "deep-dive"
+  }
 }

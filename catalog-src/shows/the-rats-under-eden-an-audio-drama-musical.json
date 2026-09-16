@@ -29,7 +29,11 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "cinematic",
+    "tense"
+  ],
   "formats": [
     "episodic"
   ],
@@ -41,7 +45,11 @@
   "aliases": [
     "The Rats Under Eden: An Audio Drama Musical"
   ],
-  "themes": [],
+  "themes": [
+    "religious power",
+    "resistance",
+    "oppression"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -75,9 +83,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "headphones-on",
+    "late-night"
+  ],
+  "similarTo": [
+    "the-deca-tapes"
+  ],
+  "similarReasons": {
+    "the-deca-tapes": "Both use controlled societies and recorded or acted testimony to examine resistance; The Rats Under Eden makes the uprising musical and religious while The Deca Tapes reveals its system through rotating tapes."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -115,7 +131,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "dystopian Eden City",
+    "pov": "the Young Nun, Guardian 57, and the Five Martyrs",
+    "structure": "short audio drama musical"
+  },
   "metadata": {
     "objectiveSources": [
       "https://anchor.fm/s/f6d21198/podcast/rss"
@@ -611,11 +632,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-09-14",
+  "updatedAt": "2026-09-16",
   "creatorId": "the-mayor-of-eden-city",
   "discovery": {
     "voiceStyle": "primarily-acted",
     "narrativeFocus": "plot-driven",
-    "intensity": "medium"
+    "intensity": "medium",
+    "commitment": "short"
   }
 }

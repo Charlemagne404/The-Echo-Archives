@@ -30,7 +30,11 @@
     "comedy",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "weird",
+    "warm"
+  ],
   "formats": [
     "serialized"
   ],
@@ -42,7 +46,12 @@
   "aliases": [
     "The Land Whale Murders"
   ],
-  "themes": [],
+  "themes": [
+    "historical mystery",
+    "birding and obsession",
+    "murder and spectacle",
+    "confectionery capers"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -77,9 +86,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "binge-listening",
+    "warm-weird"
+  ],
+  "similarTo": [
+    "victoriocity",
+    "mockery-manor"
+  ],
+  "similarReasons": {
+    "victoriocity": "Both combine period settings, investigation, and comedy; The Land Whale Murders moves into Gilded Age satire while Victoriocity favors alternate-1887 detective conspiracy.",
+    "mockery-manor": "Both use ensemble comedy to carry a murder or mystery engine through a highly specific setting; The Land Whale Murders shifts to Gilded Age birders and confectionery while Mockery Manor stays inside a theme park."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -117,7 +135,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "the Gilded Age",
+    "pov": "birders, investigators, and the conspiracy around them",
+    "structure": "serialized historical comedy mystery"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.landwhalepod.com/cast",
@@ -705,6 +728,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "roi-gold-productions"
+  "updatedAt": "2026-09-16",
+  "creatorId": "roi-gold-productions",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium",
+    "commitment": "medium"
+  }
 }

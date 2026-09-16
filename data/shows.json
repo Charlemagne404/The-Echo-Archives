@@ -3792,7 +3792,7 @@
       "feedEntriesApprox": 53
     },
     "ratings": {
-      "archive": 6
+      "archive": 7
     },
     "facts": {
       "structure": "Indexed entry.",
@@ -3924,7 +3924,7 @@
     "image": "shows/desert-skies/DesertSkies.jpeg",
     "imageAlt": "Desert Skies cover art",
     "summary": "On a lonely highway between life and the next life there's one last stop that we all have to make. Desert Skies Astral Plane Fuel and Service Station serves travelers as they embark on their journey through the celestial spheres. Meet the Attendant, the Mechanic, and C.A.S.H. Register. Together, they'll make sure you're prepared for the ride. All episodes written and produced, and all characters performed, by Jared Carter. Club 86: https://patreon.com/desertskies Merch: https://desertskies.myshopify.com Discord: https://discord.gg/7fuUU78mUh Website: https://desertskiespodcast.com/",
-    "finalRating": 6,
+    "finalRating": 7,
     "searchText": "desert skies a warmer stranger fantasy comedy entry on a lonely highway between life and the next life there s one last stop that we all have to make desert skies astral plane fuel and service station serves travelers as they embark on their journey through the celestial spheres meet the attendant the mechanic and c a s h register together they ll make sure you re prepared for the ride all episodes written and produced and all characters performed by jared carter club 86 https patreon com desertskies merch https desertskies myshopify com discord https discord gg 7fuuu78muh website https desertskiespodcast com useful when the listener wants something gentler without losing personality afterlife road trip found family fantasy comedy drama warm weird hopeful narrated serialized primarily narrated character driven low medium easy entry desert skies desert skies podcast emotion fantasy comedy drama comedic tone jared carter jared carter jared carter voices every character english english midnight burger story welcome to night vale ongoing indexed only indexed entry unknown unknown jared carter jared carter jared carter jared carter voices every character not verified not verified not verified not verified not verified not verified available via official transcript index not applicable official site links to platform listening and support pages original fiction astral plane fuel and service station serialized fantasy comedy drama low current feed and platform metadata now cover the previously unresolved archive modeling questions for this record",
     "tagTokens": [
       "afterlife",
@@ -25190,7 +25190,11 @@
     "genres": [
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "bleak",
+      "weird",
+      "melancholic"
+    ],
     "formats": [
       "episodic",
       "narrated"
@@ -25201,7 +25205,11 @@
     "aliases": [
       "The Antique Shop"
     ],
-    "themes": [],
+    "themes": [
+      "ghosts and hauntings",
+      "investigation",
+      "memory and truth"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
@@ -25230,9 +25238,17 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "headphones-on",
+      "late-night",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "the-magnus-archives"
+    ],
+    "similarReasons": {
+      "the-magnus-archives": "Both use statements and supernatural investigation to build a larger mystery; The McIlwraith Statements stays with one narrator and a compact IPP disaster while The Magnus Archives widens into an archive-scale mythology."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -25263,7 +25279,12 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "the paranormal aftermath of the IPP study",
+      "pov": "Sarah McIlwraith's account",
+      "structure": "episodic narrated statements"
+    },
     "metadata": {
       "objectiveSources": [
         "https://ghostlythistle.com/2021/07/15/episode-3-2/",
@@ -25786,9 +25807,15 @@
     },
     "featured": false,
     "createdAt": "2026-07-21",
-    "updatedAt": "2026-08-15",
+    "updatedAt": "2026-09-16",
     "creatorId": "ghostly-thistle",
     "networkId": "ghostly-thistle",
+    "discovery": {
+      "voiceStyle": "primarily-narrated",
+      "narrativeFocus": "character-driven",
+      "intensity": "medium",
+      "commitment": "medium"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "officialDescription": {
@@ -25804,11 +25831,15 @@
     "imageAlt": "The McIlwraith Statements cover art",
     "summary": "Sarah McIlwraith is haunted by the past. It doesn’t help that she can also see ghosts. Listen to Sarah as she recounts her involvement in the infamous IPP study, and her search for the truth behind the disaster.",
     "finalRating": null,
-    "searchText": "the mcilwraith statements sarah mcilwraith is haunted by the past it doesn t help that she can also see ghosts listen to sarah as she recounts her involvement in the infamous ipp study and her search for the truth behind the disaster supernatural drama episodic narrated the antique shop ghostly thistle ghostly thistle english unclear indexed only ghostly thistle ghostly thistle ghostly thistle unknown unknown 0",
+    "searchText": "the mcilwraith statements sarah mcilwraith is haunted by the past it doesn t help that she can also see ghosts listen to sarah as she recounts her involvement in the infamous ipp study and her search for the truth behind the disaster supernatural drama bleak weird melancholic episodic narrated primarily narrated character driven medium medium headphones on late night binge listening the antique shop ghosts and hauntings investigation memory and truth ghostly thistle ghostly thistle english the magnus archives unclear indexed only ghostly thistle ghostly thistle ghostly thistle unknown unknown 0 original fiction the paranormal aftermath of the ipp study sarah mcilwraith s account episodic narrated statements",
     "tagTokens": [
       "supernatural"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "headphones-on",
+      "late-night",
+      "binge-listening"
+    ],
     "resolvedEntities": [
       {
         "id": "ghostly-thistle",
@@ -27115,7 +27146,11 @@
     "genres": [
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "weird",
+      "tense"
+    ],
     "formats": [
       "full-cast",
       "anthology",
@@ -27130,7 +27165,9 @@
     ],
     "themes": [
       "Small-town secrets",
-      "Urban legends"
+      "Urban legends",
+      "creature folklore",
+      "community under pressure"
     ],
     "contentNotes": [
       "Horror"
@@ -27162,9 +27199,19 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "late-night",
+      "headphones-on",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "wrong-station",
+      "the-antique-shop"
+    ],
+    "similarReasons": {
+      "wrong-station": "Both are full-cast episodic supernatural anthologies where local stories make ordinary places unsettling; Mayfair centers a town and Trevor Henderson's creatures while Wrong Station is a broader weird-fiction route.",
+      "the-antique-shop": "Both turn supernatural events into collected accounts; Mayfair uses a community and creature sightings, while The McIlwraith Statements stays with one investigator's account of ghosts and the IPP study."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -27194,7 +27241,12 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "the town of Mayfair",
+      "pov": "a community encountering Trevor Henderson's creatures",
+      "structure": "episodic full-cast supernatural anthology"
+    },
     "metadata": {
       "objectiveSources": [
         "https://podcasts.apple.com/us/podcast/mayfair-watchers-society/id1646154626?uo=4",
@@ -27385,8 +27437,14 @@
     },
     "featured": false,
     "createdAt": "2026-07-21",
-    "updatedAt": "2026-07-21",
+    "updatedAt": "2026-09-16",
     "creatorId": "bloody-fm",
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "balanced",
+      "intensity": "high",
+      "commitment": "deep-dive"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "officialDescription": {
@@ -27402,12 +27460,16 @@
     "imageAlt": "Mayfair Watchers Society cover art",
     "summary": "Trevor Henderson’s creatures come to life in Mayfair, a town of tidy lawns and book clubs with a secret lurking along its bus routes, wooded roads, and dark edges. A Bloody FM original fiction series.",
     "finalRating": null,
-    "searchText": "mayfair watchers society trevor henderson s creatures come to life in mayfair a town of tidy lawns and book clubs with a secret lurking along its bus routes wooded roads and dark edges a bloody fm original fiction series horror supernatural drama full cast anthology episodic mayfair watchers society small town secrets urban legends horror bloody fm bloody fm english ongoing indexed only bloody fm trevor henderson and pacific obadiah unknown unknown 0",
+    "searchText": "mayfair watchers society trevor henderson s creatures come to life in mayfair a town of tidy lawns and book clubs with a secret lurking along its bus routes wooded roads and dark edges a bloody fm original fiction series horror supernatural drama dark weird tense full cast anthology episodic primarily acted balanced high deep dive late night headphones on binge listening mayfair watchers society small town secrets urban legends creature folklore community under pressure horror bloody fm bloody fm english wrong station the mcilwraith statements ongoing indexed only bloody fm trevor henderson and pacific obadiah unknown unknown 0 original fiction the town of mayfair a community encountering trevor henderson s creatures episodic full cast supernatural anthology",
     "tagTokens": [
       "horror",
       "supernatural"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "late-night",
+      "headphones-on",
+      "binge-listening"
+    ],
     "resolvedEntities": [
       {
         "id": "bloody-fm",
@@ -47678,7 +47740,11 @@
       "adventure",
       "thriller"
     ],
-    "tones": [],
+    "tones": [
+      "cinematic",
+      "tense",
+      "hopeful"
+    ],
     "formats": [
       "serialized"
     ],
@@ -47692,7 +47758,9 @@
     ],
     "themes": [
       "Treasure hunting",
-      "Ocean exploration"
+      "Ocean exploration",
+      "crew loyalty",
+      "global conspiracy"
     ],
     "contentNotes": [],
     "languages": [
@@ -47716,9 +47784,19 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "headphones-on",
+      "binge-listening",
+      "worldbuilding"
+    ],
+    "similarTo": [
+      "the-leviathan-chronicles",
+      "tumanbay"
+    ],
+    "similarReasons": {
+      "the-leviathan-chronicles": "This is a direct saga bridge: The Invenios Expeditions continues Captain Tulley and Oberlin's treasure-hunt thread after The Leviathan Chronicles, rather than being a generic shared-genre match.",
+      "tumanbay": "Both are globe-spanning, high-stakes ensemble adventures built around power, trust, and survival; The Invenios Expeditions goes to sea while Tumanbay turns those pressures into imperial politics."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -47758,7 +47836,12 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "a globe-trotting ocean adventure in the Leviathan Chronicles universe",
+      "pov": "Captain Jeffery Tulley, Oberlin St. Claire, and the Invenios crew",
+      "structure": "serialized treasure-hunting adventure"
+    },
     "metadata": {
       "objectiveSources": [
         "https://theinveniosexpeditions.com/episodes/",
@@ -47969,9 +48052,14 @@
     },
     "featured": false,
     "createdAt": "2026-08-03",
-    "updatedAt": "2026-08-14",
+    "updatedAt": "2026-09-16",
     "creatorId": "christof-laputka",
     "networkId": "leviathan-audio-productions",
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "officialDescription": {
@@ -47987,13 +48075,17 @@
     "imageAlt": "The Invenios Expeditions cover art",
     "summary": "The Invenios Expeditions is a swashbuckling audio drama that takes listeners on a globe-trotting adventure with Captain Jeffery Tulley and his loyal first mate, Oberlin St. Claire. After finding the fabled Elando Cortez shipwreck at the end of The Leviathan Chronicles, Tulley and Oberlin build the world’s most advanced treasure-hunting vessel, The Invenios.",
     "finalRating": null,
-    "searchText": "the invenios expeditions the invenios expeditions is a swashbuckling audio drama that takes listeners on a globe trotting adventure with captain jeffery tulley and his loyal first mate oberlin st claire after finding the fabled elando cortez shipwreck at the end of the leviathan chronicles tulley and oberlin build the world s most advanced treasure hunting vessel the invenios sci fi adventure ocean sci fi adventure thriller serialized the invenios expeditions treasure hunting ocean exploration christof laputka leviathan audio productions leviathan audio christof laputka english unclear indexed only christof laputka leviathan audio productions christof laputka christof laputka writer unknown unknown 0",
+    "searchText": "the invenios expeditions the invenios expeditions is a swashbuckling audio drama that takes listeners on a globe trotting adventure with captain jeffery tulley and his loyal first mate oberlin st claire after finding the fabled elando cortez shipwreck at the end of the leviathan chronicles tulley and oberlin build the world s most advanced treasure hunting vessel the invenios sci fi adventure ocean sci fi adventure thriller cinematic tense hopeful serialized primarily acted plot driven high headphones on binge listening worldbuilding the invenios expeditions treasure hunting ocean exploration crew loyalty global conspiracy christof laputka leviathan audio productions leviathan audio christof laputka english the leviathan chronicles tumanbay unclear indexed only christof laputka leviathan audio productions christof laputka christof laputka writer unknown unknown 0 original fiction a globe trotting ocean adventure in the leviathan chronicles universe captain jeffery tulley oberlin st claire and the invenios crew serialized treasure hunting adventure",
     "tagTokens": [
       "sci-fi",
       "adventure",
       "ocean"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "headphones-on",
+      "binge-listening",
+      "worldbuilding"
+    ],
     "resolvedEntities": [
       {
         "id": "leviathan-audio-productions",
@@ -57085,7 +57177,11 @@
       "fantasy",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "warm",
+      "hopeful",
+      "tense"
+    ],
     "formats": [
       "serialized"
     ],
@@ -57098,7 +57194,12 @@
     "aliases": [
       "The Two Princes"
     ],
-    "themes": [],
+    "themes": [
+      "queer love",
+      "found family",
+      "duty and identity",
+      "end-of-world stakes"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
@@ -57131,9 +57232,17 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "easy-entry",
+      "binge-listening",
+      "warm-weird"
+    ],
+    "similarTo": [
+      "the-penumbra-podcast"
+    ],
+    "similarReasons": {
+      "the-penumbra-podcast": "Both make queer relationships and chosen bonds central to speculative adventure; The Two Princes is a compact fairy-tale serial while The Penumbra Podcast opens into broader science-fiction and fantasy worlds."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -57162,7 +57271,12 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "a fantasy kingdom facing an end-of-world threat",
+      "pov": "Rupert and Amir",
+      "structure": "serialized romantic fantasy adventure"
+    },
     "metadata": {
       "objectiveSources": [
         "https://open.spotify.com/",
@@ -57387,11 +57501,14 @@
     },
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-09-14",
+    "updatedAt": "2026-09-16",
     "creatorId": "spotify-studios",
     "networkId": "spotify",
     "discovery": {
-      "voiceStyle": "primarily-acted"
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "character-driven",
+      "intensity": "medium",
+      "commitment": "medium"
     },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
@@ -57402,14 +57519,18 @@
     "imageAlt": "The Two Princes cover art",
     "summary": "Rupert and Amir are finally getting married and this time nothing is going to stop them. Not the handsome new prince who’s rolled into town and only has eyes for Rupert. Not the mysterious disappearance of half the kingdom’s population. Not even the End of the World. Yes, this time the princes are definitely, absolutely, 100% getting married – even if it’s the last thing they do.&nbsp;Season 3 is out now!The Two Princes stars Noah Galvin,&nbsp;Ari'el Stachel,&nbsp;Jonah Fields, Gideon Glick, Michelle Gomez, Mandi Masden, Wesley Taylor,&nbsp;Samira Wiley, and&nbsp;CJ Wilson.&nbsp;The Two Princes was written by Kevin Christopher Snipes and directed by Mimi O’Donnell. Music and lyrics by Matt Schatz.Executive producer Mimi O'Donnell, senior producer Katie Pastore, associate producer Julie Balefsky. Recorded and mixed by Jonathon Roberts, engineered by Armando Serrano, sound design by Daniel Brunelle. Music direction by Jonathon Roberts. Score by Greg Laswell.",
     "finalRating": null,
-    "searchText": "the two princes rupert and amir are finally getting married and this time nothing is going to stop them not the handsome new prince who s rolled into town and only has eyes for rupert not the mysterious disappearance of half the kingdom s population not even the end of the world yes this time the princes are definitely absolutely 100 getting married even if it s the last thing they do and nbsp season 3 is out now the two princes stars noah galvin and nbsp ari el stachel and nbsp jonah fields gideon glick michelle gomez mandi masden wesley taylor and nbsp samira wiley and and nbsp cj wilson and nbsp the two princes was written by kevin christopher snipes and directed by mimi o donnell music and lyrics by matt schatz executive producer mimi o donnell senior producer katie pastore associate producer julie balefsky recorded and mixed by jonathon roberts engineered by armando serrano sound design by daniel brunelle music direction by jonathon roberts score by greg laswell romance adventure found family queer fantasy drama serialized primarily acted the two princes spotify studios english unclear indexed only spotify studios spotify studios spotify unknown unknown 0",
+    "searchText": "the two princes rupert and amir are finally getting married and this time nothing is going to stop them not the handsome new prince who s rolled into town and only has eyes for rupert not the mysterious disappearance of half the kingdom s population not even the end of the world yes this time the princes are definitely absolutely 100 getting married even if it s the last thing they do and nbsp season 3 is out now the two princes stars noah galvin and nbsp ari el stachel and nbsp jonah fields gideon glick michelle gomez mandi masden wesley taylor and nbsp samira wiley and and nbsp cj wilson and nbsp the two princes was written by kevin christopher snipes and directed by mimi o donnell music and lyrics by matt schatz executive producer mimi o donnell senior producer katie pastore associate producer julie balefsky recorded and mixed by jonathon roberts engineered by armando serrano sound design by daniel brunelle music direction by jonathon roberts score by greg laswell romance adventure found family queer fantasy drama warm hopeful tense serialized primarily acted character driven medium medium easy entry binge listening warm weird the two princes queer love found family duty and identity end of world stakes spotify studios english the penumbra podcast unclear indexed only spotify studios spotify studios spotify unknown unknown 0 original fiction a fantasy kingdom facing an end of world threat rupert and amir serialized romantic fantasy adventure",
     "tagTokens": [
       "romance",
       "adventure",
       "found-family",
       "queer"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "easy-entry",
+      "binge-listening",
+      "warm-weird"
+    ],
     "coverVariants": [
       {
         "src": "/images/generated/covers/the-two-princes-3c74a5b0c3-320.webp",
@@ -58198,7 +58319,11 @@
       "drama",
       "sci-fi"
     ],
-    "tones": [],
+    "tones": [
+      "funny",
+      "weird",
+      "bleak"
+    ],
     "formats": [
       "episodic"
     ],
@@ -58210,7 +58335,12 @@
     "aliases": [
       "Our Fair City"
     ],
-    "themes": [],
+    "themes": [
+      "workplace survival",
+      "community under pressure",
+      "post-apocalyptic rebuilding",
+      "institutional control"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
@@ -58249,9 +58379,17 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "long-walks",
+      "binge-listening",
+      "worldbuilding"
+    ],
+    "similarTo": [
+      "world-gone-wrong-a-fictional-chat-show-about-friendship-at-the-end-of-the-world"
+    ],
+    "similarReasons": {
+      "world-gone-wrong-a-fictional-chat-show-about-friendship-at-the-end-of-the-world": "Both turn end-of-world conditions into ensemble comedy and community pressure; Our Fair City expands that pressure into a subterranean dystopian city."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -58282,7 +58420,12 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "dystopian future Hartford, Connecticut, centered on a subterranean city",
+      "pov": "residents of a city governed by HartLife",
+      "structure": "long-running episodic ensemble"
+    },
     "metadata": {
       "objectiveSources": [
         "https://art19.com/shows/our-fair-city",
@@ -58697,9 +58840,15 @@
     },
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-08-14",
+    "updatedAt": "2026-09-16",
     "creatorId": "audacious-machine-creative",
     "networkId": "art19",
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "balanced",
+      "intensity": "variable",
+      "commitment": "deep-dive"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "popularity": {},
@@ -58709,13 +58858,17 @@
     "imageAlt": "Our Fair City cover art",
     "summary": "Our Fair City is a campy, post-apocalyptic audio drama, produced by HartLife NFP in Chicago, IL. Learn more at www.ourfaircity.com",
     "finalRating": null,
-    "searchText": "our fair city our fair city is a campy post apocalyptic audio drama produced by hartlife nfp in chicago il learn more at www ourfaircity com post apocalyptic dystopian workplace drama sci fi episodic our fair city audacious machine creative audacious machine creative audacious machine english ongoing indexed only audacious machine creative jeffrey gardner art19 unknown unknown 0",
+    "searchText": "our fair city our fair city is a campy post apocalyptic audio drama produced by hartlife nfp in chicago il learn more at www ourfaircity com post apocalyptic dystopian workplace drama sci fi funny weird bleak episodic primarily acted balanced variable deep dive long walks binge listening worldbuilding our fair city workplace survival community under pressure post apocalyptic rebuilding institutional control audacious machine creative audacious machine creative audacious machine english world gone wrong a fictional chat show about friendship at the end of the world ongoing indexed only audacious machine creative jeffrey gardner art19 unknown unknown 0 original fiction dystopian future hartford connecticut centered on a subterranean city residents of a city governed by hartlife long running episodic ensemble",
     "tagTokens": [
       "post-apocalyptic",
       "dystopian",
       "workplace"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "long-walks",
+      "binge-listening",
+      "worldbuilding"
+    ],
     "resolvedEntities": [
       {
         "id": "audacious-machine-creative",
@@ -65038,7 +65191,11 @@
       "comedy",
       "sci-fi"
     ],
-    "tones": [],
+    "tones": [
+      "funny",
+      "weird",
+      "warm"
+    ],
     "formats": [
       "serialized"
     ],
@@ -65050,7 +65207,12 @@
     "aliases": [
       "The Land Whale Murders"
     ],
-    "themes": [],
+    "themes": [
+      "historical mystery",
+      "birding and obsession",
+      "murder and spectacle",
+      "confectionery capers"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
@@ -65084,9 +65246,18 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "binge-listening",
+      "warm-weird"
+    ],
+    "similarTo": [
+      "victoriocity",
+      "mockery-manor"
+    ],
+    "similarReasons": {
+      "victoriocity": "Both combine period settings, investigation, and comedy; The Land Whale Murders moves into Gilded Age satire while Victoriocity favors alternate-1887 detective conspiracy.",
+      "mockery-manor": "Both use ensemble comedy to carry a murder or mystery engine through a highly specific setting; The Land Whale Murders shifts to Gilded Age birders and confectionery while Mockery Manor stays inside a theme park."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -65118,7 +65289,12 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "the Gilded Age",
+      "pov": "birders, investigators, and the conspiracy around them",
+      "structure": "serialized historical comedy mystery"
+    },
     "metadata": {
       "objectiveSources": [
         "https://www.landwhalepod.com/cast",
@@ -65593,8 +65769,14 @@
     },
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-08-14",
+    "updatedAt": "2026-09-16",
     "creatorId": "roi-gold-productions",
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "medium",
+      "commitment": "medium"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "popularity": {},
@@ -65604,13 +65786,16 @@
     "imageAlt": "The Land Whale Murders cover art",
     "summary": "A Gilded Age Comedy about Birders, Murders, and Confectionery Capers",
     "finalRating": null,
-    "searchText": "the land whale murders a gilded age comedy about birders murders and confectionery capers comedy murder genre anthology drama comedy sci fi serialized the land whale murders roi gold productions english unclear indexed only roi gold productions roi gold productions unknown unknown 0",
+    "searchText": "the land whale murders a gilded age comedy about birders murders and confectionery capers comedy murder genre anthology drama comedy sci fi funny weird warm serialized primarily acted plot driven medium medium binge listening warm weird the land whale murders historical mystery birding and obsession murder and spectacle confectionery capers roi gold productions english victoriocity mockery manor unclear indexed only roi gold productions roi gold productions unknown unknown 0 original fiction the gilded age birders investigators and the conspiracy around them serialized historical comedy mystery",
     "tagTokens": [
       "comedy",
       "murder",
       "genre-anthology"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "binge-listening",
+      "warm-weird"
+    ],
     "coverVariants": [
       {
         "src": "/images/generated/covers/the-land-whale-murders-45e20a5f25-320.webp",
@@ -71154,7 +71339,11 @@
       "drama",
       "sci-fi"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "cinematic",
+      "tense"
+    ],
     "formats": [
       "episodic"
     ],
@@ -71166,7 +71355,11 @@
     "aliases": [
       "The Rats Under Eden: An Audio Drama Musical"
     ],
-    "themes": [],
+    "themes": [
+      "religious power",
+      "resistance",
+      "oppression"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
@@ -71199,9 +71392,17 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "short-under-five-hours",
+      "headphones-on",
+      "late-night"
+    ],
+    "similarTo": [
+      "the-deca-tapes"
+    ],
+    "similarReasons": {
+      "the-deca-tapes": "Both use controlled societies and recorded or acted testimony to examine resistance; The Rats Under Eden makes the uprising musical and religious while The Deca Tapes reveals its system through rotating tapes."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -71229,7 +71430,12 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "dystopian Eden City",
+      "pov": "the Young Nun, Guardian 57, and the Five Martyrs",
+      "structure": "short audio drama musical"
+    },
     "metadata": {
       "objectiveSources": [
         "https://anchor.fm/s/f6d21198/podcast/rss"
@@ -71622,12 +71828,13 @@
     },
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-09-14",
+    "updatedAt": "2026-09-16",
     "creatorId": "the-mayor-of-eden-city",
     "discovery": {
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "plot-driven",
-      "intensity": "medium"
+      "intensity": "medium",
+      "commitment": "short"
     },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
@@ -71638,13 +71845,17 @@
     "imageAlt": "The Rats Under Eden: An Audio Drama Musical cover art",
     "summary": "A musical podcast series. In this dystopian sci-fi thriller, follow The Young Nun, The Guardian, and The Five Martyrs as they challenge the oppressive regime of Eden City. Cast: Joy Heino: Amorous Ted Graeter: Guardian 57 Alexis Weinstein: Mother Nadia Kimberly Estenson: Prudence Dashawn Glover: Pope Rashad IV David Park: Stephen and Mine Boss Jocelyn Lauracuente: Amara and the Nuns The Mayor: Sargent \"Big Bob\" Deed, Guardian 23",
     "finalRating": null,
-    "searchText": "the rats under eden an audio drama musical a musical podcast series in this dystopian sci fi thriller follow the young nun the guardian and the five martyrs as they challenge the oppressive regime of eden city cast joy heino amorous ted graeter guardian 57 alexis weinstein mother nadia kimberly estenson prudence dashawn glover pope rashad iv david park stephen and mine boss jocelyn lauracuente amara and the nuns the mayor sargent big bob deed guardian 23 sci fi dystopian ensemble drama sci fi episodic primarily acted plot driven medium the rats under eden an audio drama musical the mayor of eden city english unclear indexed only the mayor of eden city the mayor of eden city unknown unknown 0",
+    "searchText": "the rats under eden an audio drama musical a musical podcast series in this dystopian sci fi thriller follow the young nun the guardian and the five martyrs as they challenge the oppressive regime of eden city cast joy heino amorous ted graeter guardian 57 alexis weinstein mother nadia kimberly estenson prudence dashawn glover pope rashad iv david park stephen and mine boss jocelyn lauracuente amara and the nuns the mayor sargent big bob deed guardian 23 sci fi dystopian ensemble drama sci fi dark cinematic tense episodic primarily acted plot driven medium short short under five hours headphones on late night the rats under eden an audio drama musical religious power resistance oppression the mayor of eden city english the deca tapes unclear indexed only the mayor of eden city the mayor of eden city unknown unknown 0 original fiction dystopian eden city the young nun guardian 57 and the five martyrs short audio drama musical",
     "tagTokens": [
       "sci-fi",
       "dystopian",
       "ensemble"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "short-under-five-hours",
+      "headphones-on",
+      "late-night"
+    ],
     "coverVariants": [
       {
         "src": "/images/generated/covers/the-rats-under-eden-an-audio-drama-musical-ead789e6cd-320.webp",
@@ -426646,7 +426857,11 @@
       "drama",
       "adventure"
     ],
-    "tones": [],
+    "tones": [
+      "cinematic",
+      "funny",
+      "tense"
+    ],
     "formats": [
       "full-cast",
       "episodic"
@@ -426660,7 +426875,11 @@
     "aliases": [
       "The Red Panda Adventures"
     ],
-    "themes": [],
+    "themes": [
+      "pulp justice",
+      "masked identity",
+      "partnership"
+    ],
     "contentNotes": [],
     "languages": [],
     "transcriptLanguages": [],
@@ -426697,9 +426916,19 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "long-walks",
+      "binge-listening",
+      "headphones-on"
+    ],
+    "similarTo": [
+      "victoriocity",
+      "the-thrilling-adventure-hour"
+    ],
+    "similarReasons": {
+      "victoriocity": "Both use period settings, investigation, and performed ensemble energy; The Red Panda Adventures brings pulp radio heroics while Victoriocity leans into civic mystery.",
+      "the-thrilling-adventure-hour": "Both draw on old-time radio adventure and comedy; The Red Panda Adventures offers a long-running serial hero route while The Thrilling Adventure Hour anthologizes several recurring story worlds."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -426730,7 +426959,12 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "1930s Toronto",
+      "pov": "The Red Panda and The Flying Squirrel",
+      "structure": "long-running pulp radio adventure"
+    },
     "metadata": {
       "objectiveSources": [
         "https://decoderringtheatre.com/shows/red-panda-adventures/",
@@ -426936,8 +427170,14 @@
     },
     "featured": false,
     "createdAt": "2026-09-06",
-    "updatedAt": "2026-09-06",
+    "updatedAt": "2026-09-16",
     "creatorId": "decoder-ring-theatre",
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "medium",
+      "commitment": "deep-dive"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "officialDescription": {
@@ -426953,14 +427193,18 @@
     "imageAlt": "The Red Panda Adventures cover art",
     "summary": "In the tradition of the great mystery men of radio, pulp fiction, and the golden age of comics comes The Red Panda, famed protector of 1930s Toronto. Hiding his identity behind a red domino mask, The Red Panda dispenses two-fisted pulp justice with strength, courage, and eerie hypnotic powers, joined by The Flying Squirrel.",
     "finalRating": null,
-    "searchText": "the red panda adventures in the tradition of the great mystery men of radio pulp fiction and the golden age of comics comes the red panda famed protector of 1930s toronto hiding his identity behind a red domino mask the red panda dispenses two fisted pulp justice with strength courage and eerie hypnotic powers joined by the flying squirrel 1930s classic radio pulp adventure mystery drama adventure full cast episodic the red panda adventures decoder ring theatre unclear indexed only decoder ring theatre gregg taylor unknown unknown 0",
+    "searchText": "the red panda adventures in the tradition of the great mystery men of radio pulp fiction and the golden age of comics comes the red panda famed protector of 1930s toronto hiding his identity behind a red domino mask the red panda dispenses two fisted pulp justice with strength courage and eerie hypnotic powers joined by the flying squirrel 1930s classic radio pulp adventure mystery drama adventure cinematic funny tense full cast episodic primarily acted plot driven medium deep dive long walks binge listening headphones on the red panda adventures pulp justice masked identity partnership decoder ring theatre victoriocity the thrilling adventure hour unclear indexed only decoder ring theatre gregg taylor unknown unknown 0 original fiction 1930s toronto the red panda and the flying squirrel long running pulp radio adventure",
     "tagTokens": [
       "1930s",
       "classic-radio",
       "pulp-adventure",
       "mystery"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "long-walks",
+      "binge-listening",
+      "headphones-on"
+    ],
     "coverVariants": [
       {
         "src": "/images/generated/covers/the-red-panda-adventures-3273901578-320.webp",
@@ -430845,7 +431089,11 @@
       "fantasy",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "hopeful",
+      "cinematic"
+    ],
     "formats": [
       "full-cast",
       "serialized",
@@ -430860,7 +431108,12 @@
     "aliases": [
       "Camlann"
     ],
-    "themes": [],
+    "themes": [
+      "Arthurian folklore",
+      "found family",
+      "survival after collapse",
+      "folkloric monsters"
+    ],
     "contentNotes": [],
     "languages": [],
     "transcriptLanguages": [],
@@ -430890,9 +431143,19 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "headphones-on",
+      "worldbuilding",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "the-two-princes",
+      "the-hidden-people"
+    ],
+    "similarReasons": {
+      "the-two-princes": "Both open fantasy through relationship-driven adventure and found bonds; Camlann adds post-apocalyptic Wales and folklore while The Two Princes is a compact royal romance.",
+      "the-hidden-people": "Both bring folklore and hidden or monstrous worlds into a human story; Camlann makes survival and hope explicit while The Hidden People starts as a murder mystery."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -430923,7 +431186,12 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "post-apocalyptic Wales shaped by Arthurian folklore",
+      "pov": "three survivors and their dog",
+      "structure": "serialized full-cast fantasy audio drama"
+    },
     "metadata": {
       "objectiveSources": [
         "https://www.tincanaudio.co.uk/camlann",
@@ -431126,8 +431394,14 @@
     },
     "featured": false,
     "createdAt": "2026-09-06",
-    "updatedAt": "2026-09-06",
+    "updatedAt": "2026-09-16",
     "creatorId": "tin-can-audio",
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "character-driven",
+      "intensity": "high",
+      "commitment": "short"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "officialDescription": {
@@ -431143,14 +431417,18 @@
     "imageAlt": "Camlann cover art",
     "summary": "Camlann is a post-apocalyptic fantasy by Ella Watts from Tin Can Audio, a serialised fiction podcast inspired by folklore and Arthurian legends. It is also about three friends and a dog in Wales, fighting for their lives.",
     "finalRating": null,
-    "searchText": "camlann camlann is a post apocalyptic fantasy by ella watts from tin can audio a serialised fiction podcast inspired by folklore and arthurian legends it is also about three friends and a dog in wales fighting for their lives fantasy post apocalyptic found family survival fantasy drama full cast serialized episodic camlann tin can audio tin can audio tin can unclear indexed only tin can audio tin can audio unknown unknown 0",
+    "searchText": "camlann camlann is a post apocalyptic fantasy by ella watts from tin can audio a serialised fiction podcast inspired by folklore and arthurian legends it is also about three friends and a dog in wales fighting for their lives fantasy post apocalyptic found family survival fantasy drama dark hopeful cinematic full cast serialized episodic primarily acted character driven high short headphones on worldbuilding binge listening camlann arthurian folklore found family survival after collapse folkloric monsters tin can audio tin can audio tin can the two princes the hidden people unclear indexed only tin can audio tin can audio unknown unknown 0 original fiction post apocalyptic wales shaped by arthurian folklore three survivors and their dog serialized full cast fantasy audio drama",
     "tagTokens": [
       "fantasy",
       "post-apocalyptic",
       "found-family",
       "survival"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "headphones-on",
+      "worldbuilding",
+      "binge-listening"
+    ],
     "resolvedEntities": [
       {
         "id": "tin-can-audio",
@@ -435074,7 +435352,11 @@
       "fantasy",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "cinematic",
+      "weird",
+      "tense"
+    ],
     "formats": [
       "episodic",
       "anthology"
@@ -435088,7 +435370,12 @@
     "aliases": [
       "Twilight Histories"
     ],
-    "themes": [],
+    "themes": [
+      "alternate histories",
+      "time travel",
+      "parallel worlds",
+      "historical divergence"
+    ],
     "contentNotes": [],
     "languages": [],
     "transcriptLanguages": [],
@@ -435114,9 +435401,19 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "headphones-on",
+      "worldbuilding",
+      "long-walks"
+    ],
+    "similarTo": [
+      "ars-paradoxica",
+      "the-big-loop"
+    ],
+    "similarReasons": {
+      "ars-paradoxica": "Both use alternate histories and time travel to turn science into a personal story; Twilight Histories changes the world episode by episode, while Ars Paradoxica stays with a serialized Cold War investigation.",
+      "the-big-loop": "Both use self-contained audio-fiction episodes to explore strange speculative worlds; Twilight Histories leans into alternate history and immersive soundscapes while The Big Loop centers intimate character stories."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -435145,7 +435442,12 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "alternate-history worlds across the multiverse",
+      "pov": "the listener as a time-traveling hero",
+      "structure": "self-contained immersive audio-fiction episodes with full soundscapes"
+    },
     "metadata": {
       "objectiveSources": [
         "https://twilighthistories.com/",
@@ -435353,8 +435655,14 @@
     },
     "featured": false,
     "createdAt": "2026-09-06",
-    "updatedAt": "2026-09-06",
+    "updatedAt": "2026-09-16",
     "creatorId": "dark-lord-studios",
+    "discovery": {
+      "voiceStyle": "mixed",
+      "narrativeFocus": "balanced",
+      "intensity": "variable",
+      "commitment": "deep-dive"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "officialDescription": {
@@ -435370,14 +435678,18 @@
     "imageAlt": "Twilight Histories cover art",
     "summary": "Twilight Histories is immersive alternate-history audio fiction. Each episode takes you to a different world where history happened differently, with full soundscapes.",
     "finalRating": null,
-    "searchText": "twilight histories twilight histories is immersive alternate history audio fiction each episode takes you to a different world where history happened differently with full soundscapes alternate history time travel space adventure sci fi fantasy drama episodic anthology twilight histories dark lord studios unclear indexed only dark lord studios unknown unknown 0",
+    "searchText": "twilight histories twilight histories is immersive alternate history audio fiction each episode takes you to a different world where history happened differently with full soundscapes alternate history time travel space adventure sci fi fantasy drama cinematic weird tense episodic anthology mixed balanced variable deep dive headphones on worldbuilding long walks twilight histories alternate histories time travel parallel worlds historical divergence dark lord studios ars paradoxica the big loop unclear indexed only dark lord studios unknown unknown 0 original fiction alternate history worlds across the multiverse the listener as a time traveling hero self contained immersive audio fiction episodes with full soundscapes",
     "tagTokens": [
       "alternate-history",
       "time-travel",
       "space",
       "adventure"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "headphones-on",
+      "worldbuilding",
+      "long-walks"
+    ],
     "coverVariants": [
       {
         "src": "/images/generated/covers/twilight-histories-a44619b627-320.webp",

@@ -32,7 +32,11 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "weird",
+    "bleak"
+  ],
   "formats": [
     "episodic"
   ],
@@ -44,7 +48,12 @@
   "aliases": [
     "Our Fair City"
   ],
-  "themes": [],
+  "themes": [
+    "workplace survival",
+    "community under pressure",
+    "post-apocalyptic rebuilding",
+    "institutional control"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -84,9 +93,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "long-walks",
+    "binge-listening",
+    "worldbuilding"
+  ],
+  "similarTo": [
+    "world-gone-wrong-a-fictional-chat-show-about-friendship-at-the-end-of-the-world"
+  ],
+  "similarReasons": {
+    "world-gone-wrong-a-fictional-chat-show-about-friendship-at-the-end-of-the-world": "Both turn end-of-world conditions into ensemble comedy and community pressure; Our Fair City expands that pressure into a subterranean dystopian city."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -125,7 +142,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "dystopian future Hartford, Connecticut, centered on a subterranean city",
+    "pov": "residents of a city governed by HartLife",
+    "structure": "long-running episodic ensemble"
+  },
   "metadata": {
     "objectiveSources": [
       "https://art19.com/shows/our-fair-city",
@@ -662,7 +684,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-16",
   "creatorId": "audacious-machine-creative",
-  "networkId": "art19"
+  "networkId": "art19",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "variable",
+    "commitment": "deep-dive"
+  }
 }

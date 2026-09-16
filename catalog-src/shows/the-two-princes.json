@@ -29,7 +29,11 @@
     "fantasy",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "warm",
+    "hopeful",
+    "tense"
+  ],
   "formats": [
     "serialized"
   ],
@@ -42,7 +46,12 @@
   "aliases": [
     "The Two Princes"
   ],
-  "themes": [],
+  "themes": [
+    "queer love",
+    "found family",
+    "duty and identity",
+    "end-of-world stakes"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -76,9 +85,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "binge-listening",
+    "warm-weird"
+  ],
+  "similarTo": [
+    "the-penumbra-podcast"
+  ],
+  "similarReasons": {
+    "the-penumbra-podcast": "Both make queer relationships and chosen bonds central to speculative adventure; The Two Princes is a compact fairy-tale serial while The Penumbra Podcast opens into broader science-fiction and fantasy worlds."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -117,7 +134,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "a fantasy kingdom facing an end-of-world threat",
+    "pov": "Rupert and Amir",
+    "structure": "serialized romantic fantasy adventure"
+  },
   "metadata": {
     "objectiveSources": [
       "https://open.spotify.com/",
@@ -451,10 +473,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-09-14",
+  "updatedAt": "2026-09-16",
   "creatorId": "spotify-studios",
   "networkId": "spotify",
   "discovery": {
-    "voiceStyle": "primarily-acted"
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "medium"
   }
 }

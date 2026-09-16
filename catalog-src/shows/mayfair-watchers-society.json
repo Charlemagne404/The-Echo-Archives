@@ -25,7 +25,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "weird",
+    "tense"
+  ],
   "formats": [
     "full-cast",
     "anthology",
@@ -40,7 +44,9 @@
   ],
   "themes": [
     "Small-town secrets",
-    "Urban legends"
+    "Urban legends",
+    "creature folklore",
+    "community under pressure"
   ],
   "contentNotes": [
     "Horror"
@@ -73,9 +79,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "wrong-station",
+    "the-antique-shop"
+  ],
+  "similarReasons": {
+    "wrong-station": "Both are full-cast episodic supernatural anthologies where local stories make ordinary places unsettling; Mayfair centers a town and Trevor Henderson's creatures while Wrong Station is a broader weird-fiction route.",
+    "the-antique-shop": "Both turn supernatural events into collected accounts; Mayfair uses a community and creature sightings, while The McIlwraith Statements stays with one investigator's account of ghosts and the IPP study."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -113,7 +129,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "the town of Mayfair",
+    "pov": "a community encountering Trevor Henderson's creatures",
+    "structure": "episodic full-cast supernatural anthology"
+  },
   "metadata": {
     "objectiveSources": [
       "https://podcasts.apple.com/us/podcast/mayfair-watchers-society/id1646154626?uo=4",
@@ -402,6 +423,12 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
-  "creatorId": "bloody-fm"
+  "updatedAt": "2026-09-16",
+  "creatorId": "bloody-fm",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

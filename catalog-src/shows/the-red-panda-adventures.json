@@ -23,7 +23,11 @@
     "drama",
     "adventure"
   ],
-  "tones": [],
+  "tones": [
+    "cinematic",
+    "funny",
+    "tense"
+  ],
   "formats": [
     "full-cast",
     "episodic"
@@ -37,7 +41,11 @@
   "aliases": [
     "The Red Panda Adventures"
   ],
-  "themes": [],
+  "themes": [
+    "pulp justice",
+    "masked identity",
+    "partnership"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -75,9 +83,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "long-walks",
+    "binge-listening",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "victoriocity",
+    "the-thrilling-adventure-hour"
+  ],
+  "similarReasons": {
+    "victoriocity": "Both use period settings, investigation, and performed ensemble energy; The Red Panda Adventures brings pulp radio heroics while Victoriocity leans into civic mystery.",
+    "the-thrilling-adventure-hour": "Both draw on old-time radio adventure and comedy; The Red Panda Adventures offers a long-running serial hero route while The Thrilling Adventure Hour anthologizes several recurring story worlds."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -115,7 +133,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "1930s Toronto",
+    "pov": "The Red Panda and The Flying Squirrel",
+    "structure": "long-running pulp radio adventure"
+  },
   "metadata": {
     "objectiveSources": [
       "https://decoderringtheatre.com/shows/red-panda-adventures/",
@@ -425,6 +448,12 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "decoder-ring-theatre"
+  "updatedAt": "2026-09-16",
+  "creatorId": "decoder-ring-theatre",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium",
+    "commitment": "deep-dive"
+  }
 }

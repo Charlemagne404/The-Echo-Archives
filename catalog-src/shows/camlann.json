@@ -26,7 +26,11 @@
     "fantasy",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "hopeful",
+    "cinematic"
+  ],
   "formats": [
     "full-cast",
     "serialized",
@@ -41,7 +45,12 @@
   "aliases": [
     "Camlann"
   ],
-  "themes": [],
+  "themes": [
+    "Arthurian folklore",
+    "found family",
+    "survival after collapse",
+    "folkloric monsters"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -72,9 +81,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "worldbuilding",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-two-princes",
+    "the-hidden-people"
+  ],
+  "similarReasons": {
+    "the-two-princes": "Both open fantasy through relationship-driven adventure and found bonds; Camlann adds post-apocalyptic Wales and folklore while The Two Princes is a compact royal romance.",
+    "the-hidden-people": "Both bring folklore and hidden or monstrous worlds into a human story; Camlann makes survival and hope explicit while The Hidden People starts as a murder mystery."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -112,7 +131,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "post-apocalyptic Wales shaped by Arthurian folklore",
+    "pov": "three survivors and their dog",
+    "structure": "serialized full-cast fantasy audio drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.tincanaudio.co.uk/camlann",
@@ -420,6 +444,12 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "tin-can-audio"
+  "updatedAt": "2026-09-16",
+  "creatorId": "tin-can-audio",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "high",
+    "commitment": "short"
+  }
 }

@@ -28,7 +28,11 @@
     "adventure",
     "thriller"
   ],
-  "tones": [],
+  "tones": [
+    "cinematic",
+    "tense",
+    "hopeful"
+  ],
   "formats": [
     "serialized"
   ],
@@ -42,7 +46,9 @@
   ],
   "themes": [
     "Treasure hunting",
-    "Ocean exploration"
+    "Ocean exploration",
+    "crew loyalty",
+    "global conspiracy"
   ],
   "contentNotes": [],
   "languages": [
@@ -68,9 +74,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "binge-listening",
+    "worldbuilding"
+  ],
+  "similarTo": [
+    "the-leviathan-chronicles",
+    "tumanbay"
+  ],
+  "similarReasons": {
+    "the-leviathan-chronicles": "This is a direct saga bridge: The Invenios Expeditions continues Captain Tulley and Oberlin's treasure-hunt thread after The Leviathan Chronicles, rather than being a generic shared-genre match.",
+    "tumanbay": "Both are globe-spanning, high-stakes ensemble adventures built around power, trust, and survival; The Invenios Expeditions goes to sea while Tumanbay turns those pressures into imperial politics."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -117,7 +133,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "a globe-trotting ocean adventure in the Leviathan Chronicles universe",
+    "pov": "Captain Jeffery Tulley, Oberlin St. Claire, and the Invenios crew",
+    "structure": "serialized treasure-hunting adventure"
+  },
   "metadata": {
     "objectiveSources": [
       "https://theinveniosexpeditions.com/episodes/",
@@ -420,7 +441,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-03",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-16",
   "creatorId": "christof-laputka",
-  "networkId": "leviathan-audio-productions"
+  "networkId": "leviathan-audio-productions",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high"
+  }
 }

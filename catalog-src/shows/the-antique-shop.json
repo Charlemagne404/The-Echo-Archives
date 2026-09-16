@@ -28,7 +28,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "bleak",
+    "weird",
+    "melancholic"
+  ],
   "formats": [
     "episodic",
     "narrated"
@@ -39,7 +43,11 @@
   "aliases": [
     "The Antique Shop"
   ],
-  "themes": [],
+  "themes": [
+    "ghosts and hauntings",
+    "investigation",
+    "memory and truth"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -69,9 +77,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-magnus-archives"
+  ],
+  "similarReasons": {
+    "the-magnus-archives": "Both use statements and supernatural investigation to build a larger mystery; The McIlwraith Statements stays with one narrator and a compact IPP disaster while The Magnus Archives widens into an archive-scale mythology."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -110,7 +126,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "the paranormal aftermath of the IPP study",
+    "pov": "Sarah McIlwraith's account",
+    "structure": "episodic narrated statements"
+  },
   "metadata": {
     "objectiveSources": [
       "https://ghostlythistle.com/2021/07/15/episode-3-2/",
@@ -700,7 +721,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-09-16",
   "creatorId": "ghostly-thistle",
-  "networkId": "ghostly-thistle"
+  "networkId": "ghostly-thistle",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "medium"
+  }
 }

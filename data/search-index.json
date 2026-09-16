@@ -2520,7 +2520,7 @@
       "intensity": "low"
     },
     "ratings": {
-      "archive": 6
+      "archive": 7
     },
     "popularity": {},
     "featured": false,
@@ -10054,26 +10054,48 @@
     "genres": [
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "bleak",
+      "weird",
+      "melancholic"
+    ],
     "formats": [
       "episodic",
       "narrated"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-narrated",
+      "narrativeFocus": "character-driven",
+      "intensity": "medium",
+      "commitment": "medium"
+    },
     "tags": [
       "Supernatural"
     ],
     "aliases": [
       "The Antique Shop"
     ],
-    "themes": [],
+    "themes": [
+      "ghosts and hauntings",
+      "investigation",
+      "memory and truth"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "headphones-on",
+      "late-night",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "the-magnus-archives"
+    ],
+    "similarReasons": {
+      "the-magnus-archives": "Both use statements and supernatural investigation to build a larger mystery; The McIlwraith Statements stays with one narrator and a compact IPP disaster while The Magnus Archives widens into an archive-scale mythology."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -10086,12 +10108,17 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "the paranormal aftermath of the IPP study",
+      "pov": "Sarah McIlwraith's account",
+      "structure": "episodic narrated statements"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-21",
-    "updatedAt": "2026-08-15"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "re-dracula",
@@ -10364,12 +10391,22 @@
     "genres": [
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "weird",
+      "tense"
+    ],
     "formats": [
       "full-cast",
       "anthology",
       "episodic"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "balanced",
+      "intensity": "high",
+      "commitment": "deep-dive"
+    },
     "tags": [
       "Horror",
       "Supernatural"
@@ -10379,7 +10416,9 @@
     ],
     "themes": [
       "Small-town secrets",
-      "Urban legends"
+      "Urban legends",
+      "creature folklore",
+      "community under pressure"
     ],
     "contentNotes": [
       "Horror"
@@ -10388,9 +10427,19 @@
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "late-night",
+      "headphones-on",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "wrong-station",
+      "the-antique-shop"
+    ],
+    "similarReasons": {
+      "wrong-station": "Both are full-cast episodic supernatural anthologies where local stories make ordinary places unsettling; Mayfair centers a town and Trevor Henderson's creatures while Wrong Station is a broader weird-fiction route.",
+      "the-antique-shop": "Both turn supernatural events into collected accounts; Mayfair uses a community and creature sightings, while The McIlwraith Statements stays with one investigator's account of ghosts and the IPP study."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -10402,12 +10451,17 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "the town of Mayfair",
+      "pov": "a community encountering Trevor Henderson's creatures",
+      "structure": "episodic full-cast supernatural anthology"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-21",
-    "updatedAt": "2026-07-21"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "wrong-station",
@@ -13726,10 +13780,19 @@
       "adventure",
       "thriller"
     ],
-    "tones": [],
+    "tones": [
+      "cinematic",
+      "tense",
+      "hopeful"
+    ],
     "formats": [
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high"
+    },
     "tags": [
       "Sci-fi",
       "Adventure",
@@ -13740,16 +13803,28 @@
     ],
     "themes": [
       "Treasure hunting",
-      "Ocean exploration"
+      "Ocean exploration",
+      "crew loyalty",
+      "global conspiracy"
     ],
     "contentNotes": [],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "headphones-on",
+      "binge-listening",
+      "worldbuilding"
+    ],
+    "similarTo": [
+      "the-leviathan-chronicles",
+      "tumanbay"
+    ],
+    "similarReasons": {
+      "the-leviathan-chronicles": "This is a direct saga bridge: The Invenios Expeditions continues Captain Tulley and Oberlin's treasure-hunt thread after The Leviathan Chronicles, rather than being a generic shared-genre match.",
+      "tumanbay": "Both are globe-spanning, high-stakes ensemble adventures built around power, trust, and survival; The Invenios Expeditions goes to sea while Tumanbay turns those pressures into imperial politics."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -13770,12 +13845,17 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "a globe-trotting ocean adventure in the Leviathan Chronicles universe",
+      "pov": "Captain Jeffery Tulley, Oberlin St. Claire, and the Invenios crew",
+      "structure": "serialized treasure-hunting adventure"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-03",
-    "updatedAt": "2026-08-14"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "sandra",
@@ -15325,12 +15405,19 @@
       "fantasy",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "warm",
+      "hopeful",
+      "tense"
+    ],
     "formats": [
       "serialized"
     ],
     "discovery": {
-      "voiceStyle": "primarily-acted"
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "character-driven",
+      "intensity": "medium",
+      "commitment": "medium"
     },
     "tags": [
       "Romance",
@@ -15341,15 +15428,28 @@
     "aliases": [
       "The Two Princes"
     ],
-    "themes": [],
+    "themes": [
+      "queer love",
+      "found family",
+      "duty and identity",
+      "end-of-world stakes"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "easy-entry",
+      "binge-listening",
+      "warm-weird"
+    ],
+    "similarTo": [
+      "the-penumbra-podcast"
+    ],
+    "similarReasons": {
+      "the-penumbra-podcast": "Both make queer relationships and chosen bonds central to speculative adventure; The Two Princes is a compact fairy-tale serial while The Penumbra Podcast opens into broader science-fiction and fantasy worlds."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -15362,12 +15462,17 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "a fantasy kingdom facing an end-of-world threat",
+      "pov": "Rupert and Amir",
+      "structure": "serialized romantic fantasy adventure"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-09-14"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "rabbits",
@@ -15552,10 +15657,20 @@
       "drama",
       "sci-fi"
     ],
-    "tones": [],
+    "tones": [
+      "funny",
+      "weird",
+      "bleak"
+    ],
     "formats": [
       "episodic"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "balanced",
+      "intensity": "variable",
+      "commitment": "deep-dive"
+    },
     "tags": [
       "Post-apocalyptic",
       "Dystopian",
@@ -15564,15 +15679,28 @@
     "aliases": [
       "Our Fair City"
     ],
-    "themes": [],
+    "themes": [
+      "workplace survival",
+      "community under pressure",
+      "post-apocalyptic rebuilding",
+      "institutional control"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "long-walks",
+      "binge-listening",
+      "worldbuilding"
+    ],
+    "similarTo": [
+      "world-gone-wrong-a-fictional-chat-show-about-friendship-at-the-end-of-the-world"
+    ],
+    "similarReasons": {
+      "world-gone-wrong-a-fictional-chat-show-about-friendship-at-the-end-of-the-world": "Both turn end-of-world conditions into ensemble comedy and community pressure; Our Fair City expands that pressure into a subterranean dystopian city."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -15585,12 +15713,17 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "dystopian future Hartford, Connecticut, centered on a subterranean city",
+      "pov": "residents of a city governed by HartLife",
+      "structure": "long-running episodic ensemble"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-08-14"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "darkest-night",
@@ -16546,10 +16679,20 @@
       "comedy",
       "sci-fi"
     ],
-    "tones": [],
+    "tones": [
+      "funny",
+      "weird",
+      "warm"
+    ],
     "formats": [
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "medium",
+      "commitment": "medium"
+    },
     "tags": [
       "Comedy",
       "Murder",
@@ -16558,15 +16701,29 @@
     "aliases": [
       "The Land Whale Murders"
     ],
-    "themes": [],
+    "themes": [
+      "historical mystery",
+      "birding and obsession",
+      "murder and spectacle",
+      "confectionery capers"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "binge-listening",
+      "warm-weird"
+    ],
+    "similarTo": [
+      "victoriocity",
+      "mockery-manor"
+    ],
+    "similarReasons": {
+      "victoriocity": "Both combine period settings, investigation, and comedy; The Land Whale Murders moves into Gilded Age satire while Victoriocity favors alternate-1887 detective conspiracy.",
+      "mockery-manor": "Both use ensemble comedy to carry a murder or mystery engine through a highly specific setting; The Land Whale Murders shifts to Gilded Age birders and confectionery while Mockery Manor stays inside a theme park."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -16578,12 +16735,17 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "the Gilded Age",
+      "pov": "birders, investigators, and the conspiracy around them",
+      "structure": "serialized historical comedy mystery"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-08-14"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "the-way-we-haunt-now",
@@ -17357,14 +17519,19 @@
       "drama",
       "sci-fi"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "cinematic",
+      "tense"
+    ],
     "formats": [
       "episodic"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "plot-driven",
-      "intensity": "medium"
+      "intensity": "medium",
+      "commitment": "short"
     },
     "tags": [
       "Sci-fi",
@@ -17374,15 +17541,27 @@
     "aliases": [
       "The Rats Under Eden: An Audio Drama Musical"
     ],
-    "themes": [],
+    "themes": [
+      "religious power",
+      "resistance",
+      "oppression"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "short-under-five-hours",
+      "headphones-on",
+      "late-night"
+    ],
+    "similarTo": [
+      "the-deca-tapes"
+    ],
+    "similarReasons": {
+      "the-deca-tapes": "Both use controlled societies and recorded or acted testimony to examine resistance; The Rats Under Eden makes the uprising musical and religious while The Deca Tapes reveals its system through rotating tapes."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -17394,12 +17573,17 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "dystopian Eden City",
+      "pov": "the Young Nun, Guardian 57, and the Five Martyrs",
+      "structure": "short audio drama musical"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-14",
-    "updatedAt": "2026-09-14"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "the-other-stories-sci-fi-horror-thriller-wtf-stories",
@@ -55811,11 +55995,21 @@
       "drama",
       "adventure"
     ],
-    "tones": [],
+    "tones": [
+      "cinematic",
+      "funny",
+      "tense"
+    ],
     "formats": [
       "full-cast",
       "episodic"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "medium",
+      "commitment": "deep-dive"
+    },
     "tags": [
       "1930s",
       "Classic radio",
@@ -55825,13 +56019,27 @@
     "aliases": [
       "The Red Panda Adventures"
     ],
-    "themes": [],
+    "themes": [
+      "pulp justice",
+      "masked identity",
+      "partnership"
+    ],
     "contentNotes": [],
     "languages": [],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "long-walks",
+      "binge-listening",
+      "headphones-on"
+    ],
+    "similarTo": [
+      "victoriocity",
+      "the-thrilling-adventure-hour"
+    ],
+    "similarReasons": {
+      "victoriocity": "Both use period settings, investigation, and performed ensemble energy; The Red Panda Adventures brings pulp radio heroics while Victoriocity leans into civic mystery.",
+      "the-thrilling-adventure-hour": "Both draw on old-time radio adventure and comedy; The Red Panda Adventures offers a long-running serial hero route while The Thrilling Adventure Hour anthologizes several recurring story worlds."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -55843,12 +56051,17 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "1930s Toronto",
+      "pov": "The Red Panda and The Flying Squirrel",
+      "structure": "long-running pulp radio adventure"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-09-06",
-    "updatedAt": "2026-09-06"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "second-shift",
@@ -56759,12 +56972,22 @@
       "fantasy",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "hopeful",
+      "cinematic"
+    ],
     "formats": [
       "full-cast",
       "serialized",
       "episodic"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "character-driven",
+      "intensity": "high",
+      "commitment": "short"
+    },
     "tags": [
       "Fantasy",
       "Post-apocalyptic",
@@ -56774,13 +56997,28 @@
     "aliases": [
       "Camlann"
     ],
-    "themes": [],
+    "themes": [
+      "Arthurian folklore",
+      "found family",
+      "survival after collapse",
+      "folkloric monsters"
+    ],
     "contentNotes": [],
     "languages": [],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "headphones-on",
+      "worldbuilding",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "the-two-princes",
+      "the-hidden-people"
+    ],
+    "similarReasons": {
+      "the-two-princes": "Both open fantasy through relationship-driven adventure and found bonds; Camlann adds post-apocalyptic Wales and folklore while The Two Princes is a compact royal romance.",
+      "the-hidden-people": "Both bring folklore and hidden or monstrous worlds into a human story; Camlann makes survival and hope explicit while The Hidden People starts as a murder mystery."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -56792,12 +57030,17 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "post-apocalyptic Wales shaped by Arthurian folklore",
+      "pov": "three survivors and their dog",
+      "structure": "serialized full-cast fantasy audio drama"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-09-06",
-    "updatedAt": "2026-09-06"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "doctor-who-redacted",
@@ -57659,11 +57902,21 @@
       "fantasy",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "cinematic",
+      "weird",
+      "tense"
+    ],
     "formats": [
       "episodic",
       "anthology"
     ],
+    "discovery": {
+      "voiceStyle": "mixed",
+      "narrativeFocus": "balanced",
+      "intensity": "variable",
+      "commitment": "deep-dive"
+    },
     "tags": [
       "Alternate history",
       "Time travel",
@@ -57673,13 +57926,28 @@
     "aliases": [
       "Twilight Histories"
     ],
-    "themes": [],
+    "themes": [
+      "alternate histories",
+      "time travel",
+      "parallel worlds",
+      "historical divergence"
+    ],
     "contentNotes": [],
     "languages": [],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "headphones-on",
+      "worldbuilding",
+      "long-walks"
+    ],
+    "similarTo": [
+      "ars-paradoxica",
+      "the-big-loop"
+    ],
+    "similarReasons": {
+      "ars-paradoxica": "Both use alternate histories and time travel to turn science into a personal story; Twilight Histories changes the world episode by episode, while Ars Paradoxica stays with a serialized Cold War investigation.",
+      "the-big-loop": "Both use self-contained audio-fiction episodes to explore strange speculative worlds; Twilight Histories leans into alternate history and immersive soundscapes while The Big Loop centers intimate character stories."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -57690,12 +57958,17 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "alternate-history worlds across the multiverse",
+      "pov": "the listener as a time-traveling hero",
+      "structure": "self-contained immersive audio-fiction episodes with full soundscapes"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-09-06",
-    "updatedAt": "2026-09-06"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "rosannas-secret",
