@@ -59,7 +59,7 @@ function createCommunityService({
     };
   }
 
-  function getRatingSummaries({ podcastIds, profileId, voterSecret }) {
+  function getRatingSummaries({ podcastIds, profileId, voterSecret, compact = false }) {
     const ids = Array.from(
       new Set(Array.isArray(podcastIds) ? podcastIds : sanitizePodcastIds(podcastIds)),
     ).slice(0, Math.max(1, maxSummaryIds));
@@ -69,9 +69,16 @@ function createCommunityService({
         ? store.findProfileId(profileId)
         : null;
 
+    const summaries = store.listRatingSummaries(ids, resolvedProfileId);
     return {
-      profileId: resolvedProfileId,
-      summaries: store.listRatingSummaries(ids, resolvedProfileId),
+      profileId: compact ? null : resolvedProfileId,
+      summaries: compact
+        ? Object.fromEntries(Object.entries(summaries).map(([podcastId, summary]) => [podcastId, {
+            averageRating: summary.averageRating,
+            ratingCount: summary.ratingCount,
+            minimumRatingCount: summary.minimumRatingCount,
+          }]))
+        : summaries,
     };
   }
 

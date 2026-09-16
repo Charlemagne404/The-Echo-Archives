@@ -164,13 +164,16 @@ function readReleaseMetadata(staticRoot) {
 }
 
 function setPublicCacheHeaders(req, res, { image = false } = {}) {
+  let cacheControl;
   if (typeof req.query.v === "string" && req.query.v.trim()) {
-    res.set("Cache-Control", "public, max-age=31536000, immutable");
+    cacheControl = "public, max-age=31536000, immutable";
   } else if (image) {
-    res.set("Cache-Control", "public, max-age=86400, stale-while-revalidate=604800");
+    cacheControl = "public, max-age=86400, stale-while-revalidate=604800";
   } else {
-    res.set("Cache-Control", "public, max-age=0, must-revalidate, stale-while-revalidate=60");
+    cacheControl = "public, max-age=0, must-revalidate, stale-while-revalidate=60";
   }
+  res.set("Cache-Control", cacheControl);
+  res.set("CDN-Cache-Control", cacheControl);
 }
 
 function applySecurityHeaders(req, res, next) {
@@ -1037,7 +1040,7 @@ async function startServer() {
         const extension = path.extname(fileName).toLowerCase();
         setPublicCacheHeaders(req, res, { image: PUBLIC_IMAGE_EXTENSIONS.has(extension) });
         if (fileName === "sw.js") {
-          res.set("Cache-Control", "no-cache");
+          res.set({ "Cache-Control": "no-cache", "CDN-Cache-Control": "no-cache" });
         }
         if (fileName === "favicon.ico") {
           res.set("Content-Type", "image/x-icon");

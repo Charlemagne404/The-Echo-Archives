@@ -308,6 +308,35 @@ test("community summary batches are capped before querying the store", async () 
   }
 });
 
+test("compact community summaries contain only public aggregate fields", async () => {
+  const context = await createCommunityContext({ minPublicRatings: 1 });
+
+  try {
+    await context.community.submitRating({
+      podcastId: "impact-winter",
+      rating: 9,
+      voterSecret: "device-one",
+      userAgent: "test-agent",
+    });
+
+    const result = context.community.getRatingSummaries({
+      podcastIds: "impact-winter",
+      profileId: null,
+      voterSecret: "device-one",
+      compact: true,
+    });
+
+    assert.equal(result.profileId, null);
+    assert.deepEqual(result.summaries["impact-winter"], {
+      averageRating: 9,
+      ratingCount: 1,
+      minimumRatingCount: 1,
+    });
+  } finally {
+    cleanupCommunityContext(context);
+  }
+});
+
 test("community summary reads never create profiles for unrecognized client identifiers", async () => {
   const context = await createCommunityContext({ minPublicRatings: 1 });
 

@@ -217,8 +217,9 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   }
 
   const updateScript = read("deploy/update-echo-archives.sh");
-  assert.match(updateScript, /Direct production checkout updates are disabled/);
-  assert.match(updateScript, /\.\/deploy\/echo staging <commit-or-ref>/);
+  assert.match(updateScript, /CANONICAL_WORKFLOW=.*SCRIPT_ROOT.*echo/);
+  assert.match(updateScript, /if \[\[ "\$#" -eq 0 \]\]; then[\s\S]*set -- deploy/);
+  assert.match(updateScript, /exec "\$\{CANONICAL_WORKFLOW\}" "\$@"/);
   assert.doesNotMatch(updateScript, /git (?:fetch|merge|reset)|npm (?:install|ci)|systemctl (?:reload|restart|start|stop)/);
 
   const releaseWorkflow = read("deploy/echo");
@@ -236,8 +237,19 @@ test("deployment shell scripts parse and preserve the required safety order", ()
     "health_check \"staging\"",
     "staging-smoke.sh",
   ]);
+  const fastRelease = releaseWorkflow.slice(
+    releaseWorkflow.indexOf("deploy_release() {"),
+    releaseWorkflow.indexOf("promote_staging() {"),
+  );
+  assert.match(fastRelease, /local requested="\$\{1:-\$\{GIT_REMOTE\}\/main\}"/);
+  assertOrdered(fastRelease, [
+    "deploy_staging \"${requested}\"",
+    "promote_staging",
+  ]);
   assert.match(releaseWorkflow, /health_check \"production\"/);
   const releaseCommon = read("deploy/release-common.sh");
+  assert.match(releaseCommon, /DEPLOYMENT_LOCK_HELD=false/);
+  assert.match(releaseCommon, /if \[\[ "\$\{DEPLOYMENT_LOCK_HELD:-false\}" == "true" \]\]/);
   assert.match(releaseCommon, /verify_running_release \"\$\{expected_environment\}" \"\$\{expected_commit\}"/);
   assert.match(releaseWorkflow, /atomic_switch \"\$\{CURRENT_LINK\}\" \"\$\{staging_release\}\"/);
   assert.match(releaseWorkflow, /automatic-rollback/);
@@ -251,6 +263,28 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.match(releaseWorkflow, /npm --prefix "\$\{temporary_path\}\/backend" ci --include=dev/);
   assert.match(releaseWorkflow, /npm --prefix "\$\{temporary_path\}\/backend" prune --omit=dev/);
   assert.doesNotMatch(releaseWorkflow, /git merge|git reset --hard/);
+
+  const fastDeploy = spawnSync(
+    "bash",
+    [
+      "-c",
+      String.raw`
+        set -Eeuo pipefail
+        source "$1" help >/dev/null
+        GIT_REMOTE=fixture-origin
+        calls=()
+        deploy_staging() { calls+=("staging:$1"); }
+        promote_staging() { calls+=("promote"); }
+        deploy_release
+        printf 'CALL=%s\n' "${"$"}{calls[@]}"
+      `,
+      "fast-deploy-fixture",
+      path.join(ROOT, "deploy", "echo"),
+    ],
+    { cwd: ROOT, encoding: "utf8" },
+  );
+  assert.equal(fastDeploy.status, 0, fastDeploy.stderr);
+  assert.match(fastDeploy.stdout, /CALL=staging:fixture-origin\/main\nCALL=promote/);
 
   const testEnvironmentRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-release-test-env-probe-"));
   const stagingEnvironment = {
@@ -586,6 +620,7 @@ printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
 
   const compatibilityUpdateScript = read("update-echo-archives.sh");
   assert.match(compatibilityUpdateScript, /CANONICAL_WORKFLOW=.*deploy\/echo/);
+  assert.match(compatibilityUpdateScript, /if \[\[ "\$#" -eq 0 \]\]; then[\s\S]*set -- deploy/);
   assert.match(compatibilityUpdateScript, /exec "\$\{CANONICAL_WORKFLOW\}" "\$@"/);
   assert.doesNotMatch(compatibilityUpdateScript, /npm (?:install|ci)|systemctl (?:reload|restart)/);
 

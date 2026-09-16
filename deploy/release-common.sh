@@ -40,6 +40,7 @@ TEMPORARY_ARTIFACT_MAX_AGE_HOURS="${TEMPORARY_ARTIFACT_MAX_AGE_HOURS:-24}"
 HEALTH_CHECK_TIMEOUT_SECONDS="${HEALTH_CHECK_TIMEOUT_SECONDS:-30}"
 HEALTH_CHECK_INTERVAL_SECONDS="${HEALTH_CHECK_INTERVAL_SECONDS:-1}"
 HEALTH_CHECK_REQUEST_TIMEOUT_SECONDS="${HEALTH_CHECK_REQUEST_TIMEOUT_SECONDS:-2}"
+DEPLOYMENT_LOCK_HELD=false
 
 log() {
   printf '[%s] %s\n' "$(date --iso-8601=seconds)" "$*"
@@ -604,9 +605,13 @@ restart_service() {
 
 acquire_deployment_lock() {
   require_command flock
+  if [[ "${DEPLOYMENT_LOCK_HELD:-false}" == "true" ]]; then
+    return 0
+  fi
   local lock_path="${STATE_DIR}/deployment.lock"
   exec 9>"${lock_path}"
   flock -n 9 || die "another Echo release operation is already running: ${lock_path}"
+  DEPLOYMENT_LOCK_HELD=true
 }
 
 health_duration_milliseconds() {

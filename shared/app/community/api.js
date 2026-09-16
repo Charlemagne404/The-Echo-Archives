@@ -73,7 +73,10 @@ async function fetchCommunityConfig() {
   if (!communityState.configPromise) {
     communityState.configPromise = (async () => {
       try {
-        const response = await fetch("/api/community/config");
+        const response = await fetch("/api/community/config", {
+          credentials: "omit",
+          headers: { Accept: "application/json" },
+        });
         if (!response.ok) {
           throw new Error(`Community config request failed with ${response.status}`);
         }
@@ -100,16 +103,19 @@ async function fetchCommunityConfig() {
   return communityState.configPromise;
 }
 
-async function fetchRatingSummaries(podcastIds, profileId) {
+async function fetchRatingSummaries(podcastIds, profileId, { compact = false } = {}) {
   const query = new URLSearchParams();
   query.set("podcastIds", podcastIds.join(","));
+  if (compact) {
+    query.set("view", "compact");
+  }
 
   const response = await fetch(`/api/community/ratings/summary?${query.toString()}`, {
-    headers: profileId
-      ? {
-          [COMMUNITY_PROFILE_HEADER]: profileId,
-        }
-      : {},
+    credentials: compact ? "omit" : "same-origin",
+    headers: {
+      Accept: "application/json",
+      ...(profileId ? { [COMMUNITY_PROFILE_HEADER]: profileId } : {}),
+    },
   });
 
   if (!response.ok) {
@@ -160,27 +166,29 @@ async function clearCommunityRating(podcastId, turnstileToken = "") {
 
 async function loadCommunitySummaries(podcastIds) {
   const ids = Array.from(new Set((Array.isArray(podcastIds) ? podcastIds : []).filter(Boolean)));
+  const batchSize = 100;
   const missingIds = ids.filter(
     (id) => !dataCache.communitySummaries.has(id) && !dataCache.communitySummaryRequests.has(id),
   );
 
-  if (missingIds.length > 0) {
-    const request = fetchRatingSummaries(missingIds, null)
+  for (let index = 0; index < missingIds.length; index += batchSize) {
+    const batchIds = missingIds.slice(index, index + batchSize);
+    const request = fetchRatingSummaries(batchIds, null, { compact: true })
       .then((summaries) => {
-        missingIds.forEach((id) => {
+        batchIds.forEach((id) => {
           const summary = summaries[id];
           dataCache.communitySummaries.set(id, summary ? normalizeCommunitySummary(summary) : null);
         });
       })
       .finally(() => {
-        missingIds.forEach((id) => {
+        batchIds.forEach((id) => {
           if (dataCache.communitySummaryRequests.get(id) === request) {
             dataCache.communitySummaryRequests.delete(id);
           }
         });
       });
 
-    missingIds.forEach((id) => dataCache.communitySummaryRequests.set(id, request));
+    batchIds.forEach((id) => dataCache.communitySummaryRequests.set(id, request));
   }
 
   const pendingRequests = Array.from(

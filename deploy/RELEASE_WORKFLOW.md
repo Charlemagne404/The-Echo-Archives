@@ -118,70 +118,62 @@ Run the following as the deployment user from the source repository. No step
 uses `git pull`, installs dependencies into the source checkout, or rebuilds in
 production.
 
+### Fast path
+
 1. Commit and push the intended change.
 
-2. Resolve and record the exact commit:
+2. Run one command:
 
    ```bash
-   git fetch --prune origin
-   SHA="$(git rev-parse origin/main^{commit})"
-   printf '%s\n' "${SHA}"
+   ./deploy/echo deploy
    ```
 
-3. Build and deploy that exact SHA to private staging:
+   With no argument, `deploy` fetches the latest `origin/main`. A specific
+   commit or ref can be supplied when needed:
 
    ```bash
-   ./deploy/echo staging "${SHA}"
+   ./deploy/echo deploy <commit-or-ref>
    ```
 
    The command builds an isolated `release-<sha>.XXXXXX` temporary directory,
    runs locked dependency installation, catalog/page generation, configuration
    checks, tools/backend tests, data/link checks, and production-shaped
-   validation. Only after those checks pass is the temporary directory renamed
-   to the final exact-SHA release directory. It prepares the staging overlay,
-   switches both staging pointers atomically, restarts staging, polls detailed
-   loopback health, and runs the staging smoke test. A failed post-switch check
-   restores the prior staging release.
+   validation. It then deploys the exact artifact to private staging, polls
+   detailed loopback health, runs the staging smoke test, and promotes that
+   same tested artifact to production. There is no separate `smoke` or
+   `promote` command in the normal path.
 
-4. Inspect staging through an SSH tunnel. Staging is private by design; there
-   is no required `staging.echoarchives.net` DNS record or Caddy site:
+   If the staging build, health check, or smoke test fails, production is not
+   touched. Promotion creates a verified production SQLite backup, switches
+   the production pointers atomically, restarts only `echo-archives.service`,
+   and gives production its own bounded readiness window. If startup or
+   readiness fails, the previous production release is restored and
+   independently health-checked.
 
-   ```bash
-   ssh -N -L 3011:127.0.0.1:3011 user@echo-host
-   curl --fail --silent --show-error http://127.0.0.1:3011/api/health | jq .
-   ./deploy/echo smoke http://127.0.0.1:3011
-   journalctl --user --no-pager 2>/dev/null || true
-   sudo journalctl --no-pager -u echo-archives-staging.service -n 100
-   ```
+The command uses the remote commit, not uncommitted files in the source
+checkout. Staging remains private by design. If you want to inspect staging
+before choosing to promote, use the manual path instead:
 
-   If local port 3011 is occupied, tunnel to another local port and pass that
-   URL to `deploy/echo smoke`.
+```bash
+./deploy/echo staging origin/main
+ssh -N -L 3011:127.0.0.1:3011 user@echo-host
+curl --fail --silent --show-error http://127.0.0.1:3011/api/health | jq .
+./deploy/echo smoke http://127.0.0.1:3011  # optional; staging already smoke-tests by default
+./deploy/echo promote
+```
 
-5. Promote the same tested artifact:
+There is no required `staging.echoarchives.net` DNS record or Caddy site. If
+local port 3011 is occupied, tunnel to another local port and pass that URL to
+`deploy/echo smoke`.
 
-   ```bash
-   ./deploy/echo promote
-   ```
+After either path, the optional status check is:
 
-   Promotion refuses an untested staging SHA, validates production against the
-   release code, confirms both installed services are release-backed, creates
-   a verified production SQLite backup using the explicit production database
-   path, prepares the production overlay, atomically switches `current` and
-   the production runtime pointer, restarts only `echo-archives.service`, and
-   gives production its own bounded readiness window. Caddy remains unchanged.
+```bash
+./deploy/echo status
+```
 
-   If startup or readiness fails, the previous production pointer and runtime
-   pointer are restored and independently health-checked. Promotion exits
-   nonzero even after an automatic rollback so the failed release is not
-   mistaken for a successful deployment.
-
-6. Confirm the result locally:
-
-   ```bash
-   ./deploy/echo status
-   curl --fail --silent --show-error https://echoarchives.net/api/health | jq .
-   sudo journalctl --no-pager -u echo-archives.service -n 100
-   ```
+The one-time host bootstrap and release-service cutover remain separate host
+operations; routine releases do not need them.
 
 ## Private staging access
 

@@ -10,4 +10,7 @@ if [[ ! -x "${CANONICAL_WORKFLOW}" ]]; then
 fi
 
 printf 'Delegating to the release workflow: deploy/echo\n'
+if [[ "$#" -eq 0 ]]; then
+  set -- deploy
+fi
 exec "${CANONICAL_WORKFLOW}" "$@"

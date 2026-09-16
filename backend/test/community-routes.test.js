@@ -221,6 +221,22 @@ test("community rating routes use the voter cookie instead of forged profile hea
     assert.equal(summaryPayload.summaries["impact-winter"].ratingCount, 1);
     assert.equal(summaryPayload.summaries["impact-winter"].averageRating, 5);
     assert.equal(summaryPayload.summaries["impact-winter"].myRating, 5);
+
+    const compactSummaryResponse = await fetch(
+      `${context.baseUrl}/api/community/ratings/summary?podcastIds=impact-winter&view=compact`,
+      { headers: { cookie } },
+    );
+    assert.equal(compactSummaryResponse.headers.get("cache-control"), "public, max-age=30, stale-while-revalidate=120");
+    assert.deepEqual(await compactSummaryResponse.json(), {
+      profileId: null,
+      summaries: {
+        "impact-winter": {
+          averageRating: 5,
+          ratingCount: 1,
+          minimumRatingCount: 1,
+        },
+      },
+    });
   } finally {
     await stopCommunityServer(context);
   }
@@ -324,7 +340,7 @@ test("published review pages paginate listener reviews and helpful votes use the
 
     const scoreSummaryResponse = await fetch(`${context.baseUrl}/api/reviews/scores/summary?showIds=impact-winter,unknown-show`);
     assert.equal(scoreSummaryResponse.status, 200);
-    assert.equal(scoreSummaryResponse.headers.get("cache-control"), "no-store");
+    assert.equal(scoreSummaryResponse.headers.get("cache-control"), "public, max-age=60, stale-while-revalidate=300");
     assert.deepEqual((await scoreSummaryResponse.json()).summaries, {
       "impact-winter": { averageRating: 8, reviewCount: 1 },
     });

@@ -12,6 +12,7 @@ usage() {
 The Echo Archives release workflow
 
 Usage:
+  ./deploy/echo deploy [commit-or-ref]
   ./deploy/echo staging <commit-or-ref>
   ./deploy/echo smoke [--crawl] [base-url]
   ./deploy/echo validate <commit-or-ref> [--external-links] [--crawl]
@@ -21,6 +22,11 @@ Usage:
   ./deploy/echo rollback [release-sha]
   ./deploy/echo status
   ./deploy/echo cleanup [keep-count] [--apply]
+
+The deploy command is the fast path for a normal release. It defaults to
+origin/main, fetches/builds that Git commit, deploys it to private staging,
+runs the staging smoke test, and promotes the same tested artifact to
+production.
 
 The staging command is the only command that fetches/builds a Git commit.
 Promotion and rollback operate only on already-created release directories.
@@ -255,6 +261,16 @@ deploy_staging() {
     record_staging_test "${commit}" "${commit}"
   fi
   log "Staging deployment completed for ${commit}. Production was not touched."
+}
+
+deploy_release() {
+  [[ "$#" -le 1 ]] || die "deploy accepts at most one commit or ref"
+  local requested="${1:-${GIT_REMOTE}/main}"
+
+  log "Starting release for ${requested}."
+  deploy_staging "${requested}"
+  promote_staging
+  log "Release for ${requested} is live in production."
 }
 
 promote_staging() {
@@ -541,6 +557,7 @@ main() {
   local command="${1:-help}"
   shift || true
   case "${command}" in
+    deploy) deploy_release "$@" ;;
     staging) deploy_staging "$@" ;;
     smoke) exec "${SCRIPT_ROOT}/staging-smoke.sh" "$@" ;;
     validate) exec "${SCRIPT_ROOT}/deep-validate.sh" "$@" ;;

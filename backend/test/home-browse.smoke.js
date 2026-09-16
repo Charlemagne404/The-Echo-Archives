@@ -236,6 +236,7 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
       const shells = Array.from(document.querySelectorAll("#podcast-grid .podcast-card-shell"));
       return (
         grid?.dataset.gridMotionReason === "explicit" &&
+        document.getElementById("filterCount")?.hidden === true &&
         (shells.some((shell) => shell.classList.contains("is-grid-entering")) ||
           (document.getElementById("activeBrowseState")?.hidden === true &&
             document.getElementById("filterCount")?.hidden === true))

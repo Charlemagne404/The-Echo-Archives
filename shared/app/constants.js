@@ -41,11 +41,17 @@ export const HOME_CARD_PREVIEW_ID_PREFIX = "archiveCardPreview";
 
 export const dataCache = {
   archiveStats: null,
+  archiveStatsPromise: null,
   shows: null,
+  showsPromise: null,
   collections: null,
+  collectionsPromise: null,
   searchIndex: null,
+  searchIndexPromise: null,
   communitySummaries: new Map(),
   communitySummaryRequests: new Map(),
+  listenerReviewSummaries: new Map(),
+  listenerReviewSummaryRequests: new Map(),
 };
 
 export const chatState = {

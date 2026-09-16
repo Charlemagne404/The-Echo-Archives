@@ -107,6 +107,8 @@ function createCommunityRouter({
   });
 
   router.get("/config", (_req, res) => {
+    const cacheControl = "public, max-age=300, stale-while-revalidate=3600";
+    res.set({ "Cache-Control": cacheControl, "CDN-Cache-Control": cacheControl });
     res.json({
       minPublicRatings: config.COMMUNITY_MIN_PUBLIC_RATINGS,
       ratings: {
@@ -121,12 +123,18 @@ function createCommunityRouter({
 
   router.get("/ratings/summary", (req, res, next) => {
     try {
-      const voterSecret = getExistingVoterSecret(req);
+      const compact = req.query.view === "compact";
+      const voterSecret = compact ? null : getExistingVoterSecret(req);
       const result = communityService.getRatingSummaries({
         podcastIds: typeof req.query.podcastIds === "string" ? req.query.podcastIds : "",
-        profileId: getProfileId(req),
+        profileId: compact ? null : getProfileId(req),
         voterSecret,
+        compact,
       });
+      if (compact) {
+        const cacheControl = "public, max-age=30, stale-while-revalidate=120";
+        res.set({ "Cache-Control": cacheControl, "CDN-Cache-Control": cacheControl });
+      }
       res.json(result);
     } catch (error) {
       next(error);

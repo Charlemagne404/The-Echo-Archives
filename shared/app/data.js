@@ -64,44 +64,63 @@ function assertJsonArray(value, url, label) {
   return value;
 }
 
-export async function loadShows() {
-  if (dataCache.shows) {
-    return dataCache.shows;
+function loadCachedData(cacheKey, promiseKey, loader) {
+  if (dataCache[cacheKey]) {
+    return Promise.resolve(dataCache[cacheKey]);
   }
 
-  const records = assertJsonArray(await fetchJson(SHOWS_DATA_URL), SHOWS_DATA_URL, "Show data");
-  dataCache.shows = archiveSearch.hydrateCatalogSearch(records.map((record) => normalizeShowRecord(record)));
-  return dataCache.shows;
+  if (!dataCache[promiseKey]) {
+    const request = loader()
+      .then((value) => {
+        dataCache[cacheKey] = value;
+        return value;
+      })
+      .finally(() => {
+        if (dataCache[promiseKey] === request) {
+          dataCache[promiseKey] = null;
+        }
+      });
+    dataCache[promiseKey] = request;
+  }
+
+  return dataCache[promiseKey];
+}
+
+export async function loadShows() {
+  return loadCachedData("shows", "showsPromise", async () => {
+    const records = assertJsonArray(
+      await fetchJson(SHOWS_DATA_URL, { credentials: "omit" }),
+      SHOWS_DATA_URL,
+      "Show data",
+    );
+    return archiveSearch.hydrateCatalogSearch(records.map((record) => normalizeShowRecord(record)));
+  });
 }
 
 export async function loadArchiveStats() {
-  if (dataCache.archiveStats) {
-    return dataCache.archiveStats;
-  }
-
-  const record = await fetchJson(ARCHIVE_STATS_URL);
-  dataCache.archiveStats = record;
-  return dataCache.archiveStats;
+  return loadCachedData("archiveStats", "archiveStatsPromise", () => fetchJson(ARCHIVE_STATS_URL, { credentials: "omit" }));
 }
 
 export async function loadSearchIndex() {
-  if (dataCache.searchIndex) {
-    return dataCache.searchIndex;
-  }
-
-  const records = assertJsonArray(await fetchJson(SEARCH_INDEX_URL), SEARCH_INDEX_URL, "Search index data");
-  dataCache.searchIndex = archiveSearch.hydrateCatalogSearch(records.map((record) => normalizeShowRecord(record)));
-  return dataCache.searchIndex;
+  return loadCachedData("searchIndex", "searchIndexPromise", async () => {
+    const records = assertJsonArray(
+      await fetchJson(SEARCH_INDEX_URL, { credentials: "omit" }),
+      SEARCH_INDEX_URL,
+      "Search index data",
+    );
+    return archiveSearch.hydrateCatalogSearch(records.map((record) => normalizeShowRecord(record)));
+  });
 }
 
 export async function loadCollections() {
-  if (dataCache.collections) {
-    return dataCache.collections;
-  }
-
-  const records = assertJsonArray(await fetchJson(COLLECTIONS_DATA_URL), COLLECTIONS_DATA_URL, "Collection data");
-  dataCache.collections = records.map((record) => normalizeCollectionRecord(record));
-  return dataCache.collections;
+  return loadCachedData("collections", "collectionsPromise", async () => {
+    const records = assertJsonArray(
+      await fetchJson(COLLECTIONS_DATA_URL, { credentials: "omit" }),
+      COLLECTIONS_DATA_URL,
+      "Collection data",
+    );
+    return records.map((record) => normalizeCollectionRecord(record));
+  });
 }
 
 export function getPublishedShows(shows) {

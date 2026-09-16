@@ -169,6 +169,8 @@ test("private pages and generated asset plumbing have launch-safe output", () =>
   assert.match(serviceWorker, /"\/public-heroes\.css\?v=[a-f0-9]+"/);
   assert.doesNotMatch(serviceWorker, /"\/data\/(?:shows|collections|search-index)\.json/);
   assert.doesNotMatch(serviceWorker, /"\/shared\/app\/(?:chat|maintainer|pages)\//);
+  assert.match(serviceWorker, /function isImmutableAssetRequest\(request, url\)/);
+  assert.doesNotMatch(serviceWorker, /shouldUseNetworkFirstAssetStrategy|handleNetworkFirstAssetRequest/);
 });
 
 test("archive statistics are present before client JavaScript runs", () => {

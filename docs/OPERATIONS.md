@@ -256,16 +256,20 @@ release workflow:
 
 ```bash
 cd "${ECHO_SOURCE_ROOT:-/srv/echo-archives/source}"
-./deploy/echo staging origin/main
-./deploy/echo smoke
-./deploy/echo promote
+./deploy/echo deploy
 ```
 
-`deploy/update-echo-archives.sh` and the repository-root
-`update-echo-archives.sh` are now fail-closed compatibility entry points; they
-do not update a checkout or restart production. Use `./deploy/echo staging`
-for the build/test step and `./deploy/echo promote` for the explicit approval
-boundary. `./deploy/echo rollback` performs the fast no-build release rollback.
+With no argument, `deploy` fetches the latest `origin/main`, builds and checks
+it, deploys it to private staging, runs the staging smoke test, and promotes
+the same tested artifact to production. A specific commit or ref can be passed
+as `./deploy/echo deploy <commit-or-ref>`. The normal path does not require a
+separate `smoke` or `promote` command. The repository-root
+`./update-echo-archives.sh` and `./deploy/update-echo-archives.sh` wrappers
+also default to this fast path when called without arguments.
+
+The command does not update the source checkout, install dependencies there,
+or use uncommitted files. `./deploy/echo rollback` performs the fast no-build
+release rollback.
 
 ## Post-Reboot Host Boundary
 

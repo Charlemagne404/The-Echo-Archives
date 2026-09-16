@@ -85,7 +85,8 @@ function createPublishedListenerReviewRouter({
 
   router.get("/scores/summary", (req, res, next) => {
     try {
-      res.set("Cache-Control", "no-store");
+      const cacheControl = "public, max-age=60, stale-while-revalidate=300";
+      res.set({ "Cache-Control": cacheControl, "CDN-Cache-Control": cacheControl });
       res.json(reviewService.getListenerReviewScoreSummaries(
         typeof req.query.showIds === "string" ? req.query.showIds : "",
       ));

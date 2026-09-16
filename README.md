@@ -109,6 +109,17 @@ npm run dev
 
 This runs the backend and serves the static site together at [http://localhost:3010](http://localhost:3010).
 
+For a routine production release from the configured deployment host, commit
+and push the change, then run this single command from the source repository:
+
+```bash
+./deploy/echo deploy
+```
+
+It fetches the latest `origin/main`, validates a release in private staging,
+runs the staging smoke test, and promotes the same tested artifact. Use
+`./deploy/echo deploy <commit-or-ref>` to release a specific ref.
+
 ## Repo Commands
 
 Root commands:

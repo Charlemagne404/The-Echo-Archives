@@ -1,18 +1,17 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-cat >&2 <<'EOF'
-Direct production checkout updates are disabled.
+SCRIPT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CANONICAL_WORKFLOW="${SCRIPT_ROOT}/echo"
 
-Use the release workflow instead:
-  ./deploy/echo staging <commit-or-ref>
-  ./deploy/echo smoke
-  ./deploy/echo promote
+if [[ ! -x "${CANONICAL_WORKFLOW}" ]]; then
+  printf 'Release workflow unavailable: %s\n' "${CANONICAL_WORKFLOW}" >&2
+  exit 1
+fi
 
-For an already-built release rollback:
-  ./deploy/echo rollback
+if [[ "$#" -eq 0 ]]; then
+  set -- deploy
+fi
 
-This compatibility entry point intentionally performs no Git operation,
-dependency installation, service restart, Caddy reload, or production deploy.
-EOF
-exit 2
+printf 'Delegating to the release workflow: deploy/echo\n'
+exec "${CANONICAL_WORKFLOW}" "$@"

@@ -14,15 +14,16 @@ export function initializeServiceWorker() {
   }
 
   window.addEventListener("load", () => {
+    const wasControlledBeforeRegistration = Boolean(navigator.serviceWorker.controller);
     navigator.serviceWorker.register("/sw.js")
-      .then(() => warmVisitedPageCache())
+      .then(() => warmVisitedPageCache({ preferBrowserCache: !wasControlledBeforeRegistration }))
       .catch(() => {
         // The archive should stay fully usable without service worker registration.
       });
   });
 }
 
-async function warmVisitedPageCache() {
+async function warmVisitedPageCache({ preferBrowserCache = false } = {}) {
   await navigator.serviceWorker.ready;
   const controller = await waitForServiceWorkerController();
   if (!controller) {
@@ -30,23 +31,6 @@ async function warmVisitedPageCache() {
   }
 
   const urls = new Set([window.location.href]);
-  const dataUrls = [
-    "/data/archive-stats.json",
-    ["/data/search-index.json", document.body?.dataset.searchIndexVersion],
-    ["/data/collections.json", document.body?.dataset.collectionsVersion],
-    ["/data/shows.json", document.body?.dataset.showsVersion],
-  ];
-  dataUrls.forEach((entry) => {
-    if (typeof entry === "string") {
-      urls.add(entry);
-      return;
-    }
-
-    const [pathname, version] = entry;
-    if (version) {
-      urls.add(`${pathname}?v=${encodeURIComponent(version)}`);
-    }
-  });
   performance.getEntriesByType("resource").forEach((entry) => {
     try {
       const url = new URL(entry.name, window.location.href);
@@ -67,7 +51,11 @@ async function warmVisitedPageCache() {
     }, { once: true });
     channel.port1.start();
     controller.postMessage(
-      { type: "CACHE_VISITED_RESOURCES", urls: [...urls] },
+      {
+        type: "CACHE_VISITED_RESOURCES",
+        urls: [...urls],
+        cacheMode: preferBrowserCache ? "force-cache" : "default",
+      },
       [channel.port2],
     );
   });

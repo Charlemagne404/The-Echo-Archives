@@ -3,6 +3,7 @@ import { loadCommunitySummaries, syncCommunityCardBadges } from "../../community
 import { createMostPopularCard } from "../../render-cards.js";
 
 const HOME_MOST_POPULAR_LIMIT = 4;
+const COMMUNITY_SUMMARY_CANDIDATE_LIMIT = 100;
 
 export function createMostPopularController({
   showMap,
@@ -129,7 +130,10 @@ export function createMostPopularController({
     const requestToken = ++mostPopularResolutionToken;
 
     try {
-      const communitySummaries = await loadCommunitySummaries(publishedShows.map((show) => show.id));
+      const communitySummaryCandidates = publishedShows
+        .slice(0, COMMUNITY_SUMMARY_CANDIDATE_LIMIT)
+        .map((show) => show.id);
+      const communitySummaries = await loadCommunitySummaries(communitySummaryCandidates);
       if (requestToken !== mostPopularResolutionToken) {
         return;
       }

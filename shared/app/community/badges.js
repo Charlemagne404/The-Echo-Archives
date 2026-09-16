@@ -1,8 +1,10 @@
 import { syncInlineScoreGroup } from "../render-cards.js";
+import { dataCache } from "../constants.js";
 import { loadCommunitySummaries } from "./api.js";
 import { formatCommunityBadgeAriaLabel, formatCommunityBadgeText } from "./formatters.js";
 
 const EMPTY_CARD_SCORE_TEXT = "--/10";
+const LISTENER_REVIEW_SUMMARY_BATCH_SIZE = 100;
 
 function formatCommunityCardScoreText(summary) {
   const text = formatCommunityBadgeText(summary);
@@ -26,6 +28,53 @@ function formatListenerReviewScoreAriaLabel(summary) {
   return `Listener Review Score ${text} from ${reviewCount} ${reviewCount === 1 ? "review" : "reviews"}.`;
 }
 
+async function fetchListenerReviewSummaryBatch(showIds) {
+  const query = new URLSearchParams({ showIds: showIds.join(",") });
+  const response = await fetch(`/api/reviews/scores/summary?${query.toString()}`, {
+    credentials: "omit",
+    headers: { Accept: "application/json" },
+  });
+  if (!response.ok) throw new Error(`Listener review score request failed with ${response.status}`);
+  return response.json();
+}
+
+async function loadListenerReviewSummaries(showIds) {
+  const ids = Array.from(new Set((Array.isArray(showIds) ? showIds : []).filter(Boolean)));
+  const missingIds = ids.filter(
+    (id) => !dataCache.listenerReviewSummaries.has(id) && !dataCache.listenerReviewSummaryRequests.has(id),
+  );
+
+  for (let index = 0; index < missingIds.length; index += LISTENER_REVIEW_SUMMARY_BATCH_SIZE) {
+    const batchIds = missingIds.slice(index, index + LISTENER_REVIEW_SUMMARY_BATCH_SIZE);
+    const request = fetchListenerReviewSummaryBatch(batchIds)
+      .then((payload) => {
+        const summaries = payload?.summaries || {};
+        batchIds.forEach((id) => {
+          dataCache.listenerReviewSummaries.set(id, Object.hasOwn(summaries, id) ? summaries[id] : null);
+        });
+      })
+      .finally(() => {
+        batchIds.forEach((id) => {
+          if (dataCache.listenerReviewSummaryRequests.get(id) === request) {
+            dataCache.listenerReviewSummaryRequests.delete(id);
+          }
+        });
+      });
+
+    batchIds.forEach((id) => dataCache.listenerReviewSummaryRequests.set(id, request));
+  }
+
+  const pendingRequests = Array.from(
+    new Set(ids.map((id) => dataCache.listenerReviewSummaryRequests.get(id)).filter(Boolean)),
+  );
+  await Promise.all(pendingRequests);
+
+  return ids.reduce((result, id) => {
+    result[id] = dataCache.listenerReviewSummaries.get(id) || null;
+    return result;
+  }, {});
+}
+
 async function syncListenerReviewCardScores(container, shows) {
   const scores = Array.from(container.querySelectorAll(".listener-review-inline-score"));
   scores.forEach((score) => {
@@ -39,11 +88,7 @@ async function syncListenerReviewCardScores(container, shows) {
   if (scores.length === 0 || ids.length === 0) return;
 
   try {
-    const query = new URLSearchParams({ showIds: ids.join(",") });
-    const response = await fetch(`/api/reviews/scores/summary?${query.toString()}`);
-    if (!response.ok) throw new Error(`Listener review score request failed with ${response.status}`);
-    const payload = await response.json();
-    const summaries = payload?.summaries || {};
+    const summaries = await loadListenerReviewSummaries(ids);
     scores.forEach((score) => {
       const summary = summaries[score.dataset.podcastId || ""];
       const value = score.querySelector(".listener-review-inline-score-value");
