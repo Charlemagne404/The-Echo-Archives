@@ -149,13 +149,22 @@ validate_catalog_json() {
   local label="$2"
   for resource in data/shows.json data/collections.json; do
     local output="${TEMP_DIR}/${label//[^a-zA-Z0-9_-]/_}-${resource##*/}"
-    curl --fail --silent --show-error --max-time 15 \
+    curl --compressed --fail --silent --show-error --max-time 15 \
       --output "${output}" "${origin}/${resource}" || fail "${label} ${resource} request failed."
     node -e '
       const fs = require("node:fs");
       const value = JSON.parse(fs.readFileSync(process.argv[1]));
       if (!Array.isArray(value) || value.length < 1) process.exit(1);
     ' "${output}" || fail "${label} ${resource} was empty or invalid."
+  done
+}
+
+validate_catalog_routes() {
+  local origin="$1"
+  local label="$2"
+  for resource in data/shows.json data/collections.json; do
+    curl --fail --silent --show-error --head --max-time 15 \
+      --output /dev/null "${origin}/${resource}" || fail "${label} ${resource} route request failed."
   done
 }
 
@@ -177,7 +186,10 @@ curl --fail --silent --show-error --max-time 15 \
   --output "${TEMP_DIR}/public-health.json" "${PUBLIC_ORIGIN}/api/health" ||
   fail "Public health request failed."
 validate_public_health_json "${TEMP_DIR}/public-health.json" || fail "Public health response semantics failed."
-validate_catalog_json "${PUBLIC_ORIGIN}" "public" || fail "Public catalog checks failed."
+# The local check validates catalog bodies. Keep the public check header-only so
+# the five-minute monitor does not repeatedly download the full catalog through
+# Cloudflare just to prove the routes are reachable.
+validate_catalog_routes "${PUBLIC_ORIGIN}" "public" || fail "Public catalog route checks failed."
 
 curl --fail --silent --show-error --max-time 15 \
   --output "${TEMP_DIR}/apex.html" "${PUBLIC_ORIGIN}/" ||

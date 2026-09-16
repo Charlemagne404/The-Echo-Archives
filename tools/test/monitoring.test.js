@@ -178,6 +178,23 @@ test("host tooling units invoke stable copies and preserve executable file modes
   }
 });
 
+test("production catalog monitoring compresses local bodies and avoids public body downloads", () => {
+  const monitor = read("deploy/check-echo-archives-production.sh");
+  const bodyValidation = monitor.match(
+    /^validate_catalog_json\(\) \{\n[\s\S]*?^\}/m,
+  );
+  const routeValidation = monitor.match(
+    /^validate_catalog_routes\(\) \{\n[\s\S]*?^\}/m,
+  );
+
+  assert.ok(bodyValidation, "catalog body validation function was not found");
+  assert.ok(routeValidation, "catalog route validation function was not found");
+  assert.match(bodyValidation[0], /curl --compressed/);
+  assert.match(routeValidation[0], /curl [^\n]*--head/);
+  assert.match(monitor, /validate_catalog_routes "\$\{PUBLIC_ORIGIN\}" "public"/);
+  assert.doesNotMatch(monitor, /validate_catalog_json "\$\{PUBLIC_ORIGIN\}" "public"/);
+});
+
 test("host tooling installation is idempotent and runtime-readable", () => {
   const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-host-tooling-"));
   const targetRoot = path.join(tempRoot, "usr", "local", "lib", "echo-archives");
