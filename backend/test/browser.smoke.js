@@ -60,7 +60,7 @@ test("main routes render expected page titles", async () => {
   try {
     const routes = [
       { url: `${baseUrl}/`, title: "The Echo Archives — Audio Drama Discovery" },
-      { url: `${baseUrl}/about`, title: "About Our Audio Drama Archive | The Echo Archives" },
+      { url: `${baseUrl}/about`, title: "About The Echo Archives" },
       { url: `${baseUrl}/for-creators`, title: "For Audio Drama Creators | The Echo Archives" },
       { url: `${baseUrl}/creator-standards`, title: "Creator Standards - The Echo Archives" },
       { url: `${baseUrl}/supporters`, title: "Support the Archive - The Echo Archives" },

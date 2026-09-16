@@ -553,7 +553,7 @@ test("submit defers archive lookup and keeps the new-show intake usable when loo
     await page.locator('[data-submission-mode="correction"]').click();
     await page.locator('.submit-lookup-status[data-state="error"]').waitFor();
     assert.equal(lookupRequests, 1);
-    assert.match(await page.locator(".submit-lookup-status").innerText(), /temporarily unavailable/i);
+    assert.match(await page.locator(".submit-lookup-status").innerText(), /unavailable right now/i);
     assert.equal(await page.locator("#submitExistingShowSearch").isDisabled(), true);
     assert.equal(await page.locator("[data-retry-submit-lookup]").isVisible(), true);
 

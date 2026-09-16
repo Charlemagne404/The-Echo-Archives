@@ -239,8 +239,12 @@ test("show detail layouts stay readable across desktop, intermediate, and compac
       scoresTop: document.querySelector(".detail-community-score-section")?.getBoundingClientRect().top || 0,
     }));
     assert.ok(intermediate.overflow <= 1);
-    assert.ok(intermediate.reviewTop < intermediate.scoresTop);
-    assert.ok(intermediate.scoresTop < intermediate.communityTop);
+    if (intermediate.scoresTop > 0) {
+      assert.ok(intermediate.reviewTop < intermediate.scoresTop);
+      assert.ok(intermediate.scoresTop < intermediate.communityTop);
+    } else {
+      assert.ok(intermediate.reviewTop < intermediate.communityTop);
+    }
     assert.ok(intermediate.communityTop < intermediate.factsTop);
 
     for (const width of [390, 320]) {

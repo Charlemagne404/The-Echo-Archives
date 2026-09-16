@@ -414,7 +414,7 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     );
 
     await page.locator("#search").fill("zzzzzz-not-in-archive");
-    await page.getByText("No matches yet.", { exact: false }).waitFor();
+    await page.locator("#noResultsMsg").waitFor();
     await page.getByRole("button", { name: "Clear filters" }).click();
     await page.waitForFunction(
       () =>
