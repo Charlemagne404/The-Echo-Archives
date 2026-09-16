@@ -20,12 +20,13 @@ function isIgnored(relativePath) {
 }
 
 function main() {
-  if (!fs.existsSync(path.join(ROOT, ".git"))) {
-    throw new Error("Generated HTML Git-boundary validation requires a Git checkout.");
-  }
-
   const { expected } = validateGeneratedPages(ROOT);
   const expectedPaths = [...expected].sort();
+  if (!fs.existsSync(path.join(ROOT, ".git"))) {
+    console.log(`Generated HTML output is valid: ${expectedPaths.length} generated pages present; Git boundary checks skipped outside a checkout.`);
+    return;
+  }
+
   const tracked = runGit(["ls-files", "--", ...expectedPaths]).trim().split("\n").filter(Boolean);
   if (tracked.length) {
     throw new Error(`Generated HTML must not be tracked: ${tracked.join(", ")}`);
