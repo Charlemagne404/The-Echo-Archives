@@ -23,7 +23,10 @@
     "sci-fi",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "cinematic",
+    "tense"
+  ],
   "formats": [
     "full-cast",
     "serialized"
@@ -36,8 +39,15 @@
   "aliases": [
     "The Orphans"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "survival",
+    "identity",
+    "found family"
+  ],
+  "contentNotes": [
+    "violence",
+    "survival peril"
+  ],
   "languages": [
     "English"
   ],
@@ -74,9 +84,21 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "serious-sci-fi",
+    "headphones-on",
+    "long-walks"
+  ],
+  "similarTo": [
+    "the-strange-case-of-starship-iris",
+    "marsfall",
+    "solar"
+  ],
+  "similarReasons": {
+    "the-strange-case-of-starship-iris": "Both follow ensemble survivors after interstellar conflict; Starship Iris leans harder into identity, resistance, and found family.",
+    "marsfall": "Another high-pressure full-cast space-survival story, with hostile worlds, alien contact, and AI systems driving the danger.",
+    "solar": "A tighter crew-survival listen where spacecraft failure forces separate characters to solve the same crisis from different compartments."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -498,5 +520,11 @@
   "createdAt": "2026-07-31",
   "updatedAt": "2026-07-31",
   "creatorId": "the-light-and-tragic-company",
-  "networkId": "realms-of-peril-glory"
+  "networkId": "realms-of-peril-glory",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "high",
+    "commitment": "long"
+  }
 }

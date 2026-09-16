@@ -29,7 +29,10 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "tense",
+    "weird"
+  ],
   "formats": [
     "serialized"
   ],
@@ -41,7 +44,11 @@
   "aliases": [
     "Out of Place"
   ],
-  "themes": [],
+  "themes": [
+    "alternate histories",
+    "investigation",
+    "institutional secrecy"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -76,9 +83,21 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night",
+    "worldbuilding"
+  ],
+  "similarTo": [
+    "ars-paradoxica",
+    "red-valley",
+    "the-polybius-conspiracy"
+  ],
+  "similarReasons": {
+    "ars-paradoxica": "Idea-forward investigation where scientific anomalies become personal and institutional secrets reshape the story.",
+    "red-valley": "Both treat experimental science, memory, and hidden institutions as the engine of the mystery.",
+    "the-polybius-conspiracy": "Artifact-led investigations blur the line between documented history and an impossible story."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -621,6 +640,8 @@
   "updatedAt": "2026-09-14",
   "creatorId": "midnight-disease-productions-llc",
   "discovery": {
-    "narrativeFocus": "plot-driven"
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium",
+    "commitment": "medium"
   }
 }

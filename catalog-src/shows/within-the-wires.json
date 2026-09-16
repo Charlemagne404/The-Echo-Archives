@@ -43,7 +43,11 @@
     "sci-fi",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "weird",
+    "bleak",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -55,7 +59,11 @@
   "aliases": [
     "Within the Wires"
   ],
-  "themes": [],
+  "themes": [
+    "political control",
+    "memory and identity",
+    "resistance"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -98,9 +106,21 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "worldbuilding",
+    "long-walks"
+  ],
+  "similarTo": [
+    "alice-isnt-dead",
+    "the-deca-tapes",
+    "limetown"
+  ],
+  "similarReasons": {
+    "alice-isnt-dead": "Both turn voice-led travel and recorded testimony into a surreal conspiracy, with the world widening as the narrator keeps listening.",
+    "the-deca-tapes": "In-universe recordings reveal a controlled system one voice and instruction at a time.",
+    "limetown": "Found-audio and documentary texture make the act of assembling a missing record part of the story."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -486,5 +506,11 @@
   "createdAt": "2026-08-14",
   "updatedAt": "2026-08-14",
   "creatorId": "night-vale-presents",
-  "networkId": "night-vale-presents"
+  "networkId": "night-vale-presents",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "balanced",
+    "intensity": "medium",
+    "commitment": "deep-dive"
+  }
 }

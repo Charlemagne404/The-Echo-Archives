@@ -30,7 +30,11 @@
     "horror",
     "comedy"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "weird",
+    "funny"
+  ],
   "formats": [
     "serialized"
   ],
@@ -42,8 +46,16 @@
   "aliases": [
     "the Dead Letter Office of Somewhere, Ohio"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "community and belonging",
+    "identity",
+    "the uncanny in ordinary places"
+  ],
+  "contentNotes": [
+    "body horror",
+    "derealization",
+    "disturbing imagery"
+  ],
   "languages": [
     "English"
   ],
@@ -78,9 +90,21 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "welcome-to-night-vale",
+    "the-storage-papers",
+    "mabel"
+  ],
+  "similarReasons": {
+    "welcome-to-night-vale": "Darkly funny weird fiction where ordinary civic and administrative life becomes the doorway to surreal danger.",
+    "the-storage-papers": "A record-keeping frame turns strange incidents into a growing archive; The Storage Papers is the more case-file-driven route.",
+    "mabel": "Intimate, voice-led supernatural storytelling about memory, family secrets, and the feeling that a place is listening."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -608,5 +632,10 @@
   "createdAt": "2026-08-14",
   "updatedAt": "2026-08-14",
   "creatorId": "rat-grimes",
-  "networkId": "horror-podcasts-set-in-the-midwest"
+  "networkId": "horror-podcasts-set-in-the-midwest",
+  "discovery": {
+    "narrativeFocus": "balanced",
+    "intensity": "medium",
+    "commitment": "medium"
+  }
 }

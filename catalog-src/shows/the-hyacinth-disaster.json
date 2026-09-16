@@ -24,7 +24,10 @@
     "thriller",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "full-cast",
     "serialized",
@@ -38,7 +41,11 @@
   "aliases": [
     "The Hyacinth Disaster"
   ],
-  "themes": [],
+  "themes": [
+    "survival",
+    "corporate exploitation",
+    "crew loyalty"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -68,9 +75,21 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "serious-sci-fi",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "solar",
+    "derelict",
+    "the-waystation"
+  ],
+  "similarReasons": {
+    "solar": "Tight full-cast spacecraft survival after a mission failure, with crew decisions carrying the momentum.",
+    "derelict": "Industrial-scale sci-fi mystery puts a dangerous discovery inside a high-pressure corporate operation.",
+    "the-waystation": "A shorter station-and-recordings route for listeners who want unexplained space danger without a long commitment."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -718,5 +737,11 @@
   "createdAt": "2026-07-31",
   "updatedAt": "2026-07-31",
   "creatorId": "david-carlson",
-  "networkId": "the-hyacinth-disaster"
+  "networkId": "the-hyacinth-disaster",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "short"
+  }
 }

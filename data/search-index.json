@@ -10611,10 +10611,18 @@
     "genres": [
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "tense"
+    ],
     "formats": [
       "episodic"
     ],
+    "discovery": {
+      "narrativeFocus": "character-driven",
+      "intensity": "variable",
+      "commitment": "deep-dive"
+    },
     "tags": [
       "Horror",
       "Supernatural",
@@ -10624,15 +10632,35 @@
     "aliases": [
       "Hi Nay"
     ],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "family legacy",
+      "immigration",
+      "Filipino folklore"
+    ],
+    "contentNotes": [
+      "violence",
+      "death",
+      "supernatural peril"
+    ],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "long-walks",
+      "binge-listening",
+      "late-night"
+    ],
+    "similarTo": [
+      "old-gods-of-appalachia",
+      "hello-from-the-hallowoods",
+      "the-night-post"
+    ],
+    "similarReasons": {
+      "old-gods-of-appalachia": "Tradition-centered supernatural horror where family, place, and inherited stories carry real consequences; the cultural settings are distinct.",
+      "hello-from-the-hallowoods": "Long-form queer supernatural fiction where identity, community, and hope have to survive the horror.",
+      "the-night-post": "A tradition-and-frontier route for listeners who want supernatural danger rooted in a living culture rather than a generic monster hunt."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -11366,11 +11394,21 @@
       "mystery",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "tense",
+      "cinematic"
+    ],
     "formats": [
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "balanced",
+      "intensity": "high",
+      "commitment": "short"
+    },
     "tags": [
       "Paranormal",
       "Small town",
@@ -11381,15 +11419,34 @@
       "October's Children Trailer - October's Children",
       "October's Children a New England Paranormal Horror / Mystery"
     ],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "found family",
+      "small-town secrets",
+      "creature intrusion"
+    ],
+    "contentNotes": [
+      "gore",
+      "loud noises"
+    ],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "short-under-five-hours",
+      "late-night",
+      "headphones-on"
+    ],
+    "similarTo": [
+      "unwell",
+      "bridgewater",
+      "the-secret-of-st-kilda"
+    ],
+    "similarReasons": {
+      "unwell": "Small-town supernatural ensemble where relationships and local secrets matter as much as the threat.",
+      "bridgewater": "A folklore-led mystery starts with a local question and opens onto a larger supernatural history.",
+      "the-secret-of-st-kilda": "Full-cast remote-community thriller where strange inhabitants and escalating supernatural pressure close in."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -12034,12 +12091,21 @@
       "thriller",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "tense",
+      "cinematic"
+    ],
     "formats": [
       "full-cast",
       "serialized",
       "limited-series"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "short"
+    },
     "tags": [
       "Sci-fi",
       "Spacecraft disaster",
@@ -12048,15 +12114,31 @@
     "aliases": [
       "The Hyacinth Disaster"
     ],
-    "themes": [],
+    "themes": [
+      "survival",
+      "corporate exploitation",
+      "crew loyalty"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "short-under-five-hours",
+      "serious-sci-fi",
+      "headphones-on"
+    ],
+    "similarTo": [
+      "solar",
+      "derelict",
+      "the-waystation"
+    ],
+    "similarReasons": {
+      "solar": "Tight full-cast spacecraft survival after a mission failure, with crew decisions carrying the momentum.",
+      "derelict": "Industrial-scale sci-fi mystery puts a dangerous discovery inside a high-pressure corporate operation.",
+      "the-waystation": "A shorter station-and-recordings route for listeners who want unexplained space danger without a long commitment."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -12351,12 +12433,21 @@
       "sci-fi",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "tense",
+      "weird"
+    ],
     "formats": [
       "full-cast",
       "serialized",
       "limited-series"
     ],
+    "discovery": {
+      "voiceStyle": "mixed",
+      "narrativeFocus": "plot-driven",
+      "intensity": "medium",
+      "commitment": "short"
+    },
     "tags": [
       "Mystery",
       "1980s",
@@ -12365,15 +12456,31 @@
     "aliases": [
       "The Polybius Conspiracy"
     ],
-    "themes": [],
+    "themes": [
+      "urban legend",
+      "obsession",
+      "truth and belief"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "short-under-five-hours",
+      "headphones-on",
+      "late-night"
+    ],
+    "similarTo": [
+      "the-deca-tapes",
+      "video-palace",
+      "limetown"
+    ],
+    "similarReasons": {
+      "the-deca-tapes": "Recorded evidence, a contained puzzle, and instructions whose source becomes the mystery connect the two shows at the level of form and investigation.",
+      "video-palace": "A media artifact opens into conspiracy and obsession; choose this for a darker occult branch of the analog mystery.",
+      "limetown": "Hybrid investigative fiction uses documentary texture and gaps in testimony to make the central mystery feel real."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -12486,11 +12593,20 @@
       "sci-fi",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "cinematic",
+      "tense"
+    ],
     "formats": [
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "balanced",
+      "intensity": "high",
+      "commitment": "long"
+    },
     "tags": [
       "Sci-fi",
       "Survival",
@@ -12499,15 +12615,34 @@
     "aliases": [
       "The Orphans"
     ],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "survival",
+      "identity",
+      "found family"
+    ],
+    "contentNotes": [
+      "violence",
+      "survival peril"
+    ],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "serious-sci-fi",
+      "headphones-on",
+      "long-walks"
+    ],
+    "similarTo": [
+      "the-strange-case-of-starship-iris",
+      "marsfall",
+      "solar"
+    ],
+    "similarReasons": {
+      "the-strange-case-of-starship-iris": "Both follow ensemble survivors after interstellar conflict; Starship Iris leans harder into identity, resistance, and found family.",
+      "marsfall": "Another high-pressure full-cast space-survival story, with hostile worlds, alien contact, and AI systems driving the danger.",
+      "solar": "A tighter crew-survival listen where spacecraft failure forces separate characters to solve the same crisis from different compartments."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -14844,10 +14979,20 @@
       "sci-fi",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "weird",
+      "bleak",
+      "cinematic"
+    ],
     "formats": [
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-narrated",
+      "narrativeFocus": "balanced",
+      "intensity": "medium",
+      "commitment": "deep-dive"
+    },
     "tags": [
       "Found media",
       "Epistolary",
@@ -14856,15 +15001,31 @@
     "aliases": [
       "Within the Wires"
     ],
-    "themes": [],
+    "themes": [
+      "political control",
+      "memory and identity",
+      "resistance"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "headphones-on",
+      "worldbuilding",
+      "long-walks"
+    ],
+    "similarTo": [
+      "alice-isnt-dead",
+      "the-deca-tapes",
+      "limetown"
+    ],
+    "similarReasons": {
+      "alice-isnt-dead": "Both turn voice-led travel and recorded testimony into a surreal conspiracy, with the world widening as the narrator keeps listening.",
+      "the-deca-tapes": "In-universe recordings reveal a controlled system one voice and instruction at a time.",
+      "limetown": "Found-audio and documentary texture make the act of assembling a missing record part of the story."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -15611,10 +15772,19 @@
       "horror",
       "comedy"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "weird",
+      "funny"
+    ],
     "formats": [
       "serialized"
     ],
+    "discovery": {
+      "narrativeFocus": "balanced",
+      "intensity": "medium",
+      "commitment": "medium"
+    },
     "tags": [
       "Horror",
       "Comedy",
@@ -15623,15 +15793,35 @@
     "aliases": [
       "the Dead Letter Office of Somewhere, Ohio"
     ],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "community and belonging",
+      "identity",
+      "the uncanny in ordinary places"
+    ],
+    "contentNotes": [
+      "body horror",
+      "derealization",
+      "disturbing imagery"
+    ],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "headphones-on",
+      "late-night",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "welcome-to-night-vale",
+      "the-storage-papers",
+      "mabel"
+    ],
+    "similarReasons": {
+      "welcome-to-night-vale": "Darkly funny weird fiction where ordinary civic and administrative life becomes the doorway to surreal danger.",
+      "the-storage-papers": "A record-keeping frame turns strange incidents into a growing archive; The Storage Papers is the more case-file-driven route.",
+      "mabel": "Intimate, voice-led supernatural storytelling about memory, family secrets, and the feeling that a place is listening."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -16152,10 +16342,16 @@
       "drama",
       "horror"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "weird"
+    ],
     "formats": [
       "serialized"
     ],
+    "discovery": {
+      "commitment": "short"
+    },
     "tags": [
       "Horror",
       "Wilderness",
@@ -16164,15 +16360,34 @@
     "aliases": [
       "The Viridian Wild"
     ],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "field research",
+      "magical creatures",
+      "wilderness danger"
+    ],
+    "contentNotes": [
+      "animal death",
+      "human death",
+      "wilderness injury"
+    ],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "short-under-five-hours",
+      "late-night"
+    ],
+    "similarTo": [
+      "the-night-post",
+      "the-left-right-game",
+      "old-gods-of-appalachia"
+    ],
+    "similarReasons": {
+      "the-night-post": "Both make supernatural fieldwork feel like a journey into a living frontier, but The Night Post shifts the emphasis from creature study to tradition and survival.",
+      "the-left-right-game": "A stronger investigation-led route for listeners who want expeditions into phenomena that do not obey ordinary rules.",
+      "old-gods-of-appalachia": "Folklore and the natural world carry real danger here; choose this for a broader mythology branch rather than a single investigator."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -18186,12 +18401,17 @@
       "drama",
       "sci-fi"
     ],
-    "tones": [],
+    "tones": [
+      "tense",
+      "weird"
+    ],
     "formats": [
       "serialized"
     ],
     "discovery": {
-      "narrativeFocus": "plot-driven"
+      "narrativeFocus": "plot-driven",
+      "intensity": "medium",
+      "commitment": "medium"
     },
     "tags": [
       "Mystery",
@@ -18201,15 +18421,31 @@
     "aliases": [
       "Out of Place"
     ],
-    "themes": [],
+    "themes": [
+      "alternate histories",
+      "investigation",
+      "institutional secrecy"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "headphones-on",
+      "late-night",
+      "worldbuilding"
+    ],
+    "similarTo": [
+      "ars-paradoxica",
+      "red-valley",
+      "the-polybius-conspiracy"
+    ],
+    "similarReasons": {
+      "ars-paradoxica": "Idea-forward investigation where scientific anomalies become personal and institutional secrets reshape the story.",
+      "red-valley": "Both treat experimental science, memory, and hidden institutions as the engine of the mystery.",
+      "the-polybius-conspiracy": "Artifact-led investigations blur the line between documented history and an impossible story."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -56096,13 +56332,19 @@
       "horror",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "bleak",
+      "weird",
+      "dark"
+    ],
     "formats": [
       "serialized",
       "narrated"
     ],
     "discovery": {
       "voiceStyle": "primarily-narrated",
+      "narrativeFocus": "character-driven",
+      "intensity": "high",
       "commitment": "long"
     },
     "tags": [
@@ -56114,13 +56356,33 @@
     "aliases": [
       "I Am in Eskew"
     ],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "isolation",
+      "identity",
+      "institutional control"
+    ],
+    "contentNotes": [
+      "body horror",
+      "graphic violence",
+      "disturbing behavior"
+    ],
     "languages": [],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "cold-isolation-horror",
+      "headphones-on",
+      "worldbuilding"
+    ],
+    "similarTo": [
+      "spines-podcast",
+      "alice-isnt-dead",
+      "the-magnus-archives"
+    ],
+    "similarReasons": {
+      "spines-podcast": "Narrated horror driven by a central character's missing knowledge, identity crisis, and steadily widening occult threat.",
+      "alice-isnt-dead": "Solitary first-person travel through impossible places, with the emotional search carrying the horror as much as the plot.",
+      "the-magnus-archives": "Recorded accounts and investigations accumulate into an expanding mythology; The Magnus Archives offers a more explicit archive and case-file structure."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {

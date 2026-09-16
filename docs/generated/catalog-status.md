@@ -26,8 +26,8 @@ Latest catalog update: `2026-09-16`
 ## Discovery Gaps
 
 - Shows missing similarReasons: 0
-- Shows with out-of-range similar links: 681
-- Shows with fewer than 2 collection memberships: 623
+- Shows with out-of-range similar links: 671
+- Shows with fewer than 2 collection memberships: 613
 - Anchor shows with fewer than 3 collection memberships: 0
 - Route collections missing showReasons: 0
 
@@ -45,6 +45,6 @@ Latest catalog update: `2026-09-16`
 - Explicit unknowns/research gaps: 25 records; 6 missing RSS and 4 runtime gaps are documented rather than hidden
 - Editorial/recommendation gaps: 0; collection blockers: 0
 - Taxonomy: 165 controlled labels; unknown/non-approved public tags: 0
-- Sparse indexed-only discovery gaps are informational: 162 sparse records; 130 have fewer than two collections, 162 have no editorial similarity set, and 0 contain unsupported editorial claims
+- Sparse indexed-only discovery gaps are informational: 152 sparse records; 120 have fewer than two collections, 152 have no editorial similarity set, and 0 contain unsupported editorial claims
 - Phase 2 blocking errors: 0
 

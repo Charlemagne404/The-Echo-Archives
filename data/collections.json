@@ -28,7 +28,10 @@
       "derelict",
       "impact-winter",
       "midnight-burger",
-      "the-white-vault"
+      "the-white-vault",
+      "the-orphans",
+      "within-the-wires",
+      "hi-nay"
     ],
     "showReasons": {
       "impact-winter": "Cinematic urgency and seasonal momentum make it easy to stay locked in.",
@@ -41,7 +44,10 @@
       "tumanbay": "A long-form palace-intrigue run that benefits from real uninterrupted time.",
       "old-gods-of-appalachia": "A deep, place-rooted mythology with enough episodes to make a long walk feel like a real chapter.",
       "the-silt-verses": "Long episodes and a steadily widening folk-horror world reward a listener with time to settle in.",
-      "the-penumbra-podcast": "A large back catalogue and several connected story worlds make it an easy long-haul companion."
+      "the-penumbra-podcast": "A large back catalogue and several connected story worlds make it an easy long-haul companion.",
+      "the-orphans": "A multi-season connected galaxy gives a longer walk an ensemble survival story with room to expand.",
+      "within-the-wires": "Ten connected seasons and a slow-build alternate history reward an uninterrupted long listen.",
+      "hi-nay": "A 100-hour-plus ongoing supernatural run offers a deep episodic route for listeners who want a long companion."
     },
     "featured": true,
     "order": 10,
@@ -140,7 +146,10 @@
       "the-waystation",
       "the-deca-tapes",
       "derelict",
-      "impact-winter"
+      "impact-winter",
+      "the-orphans",
+      "the-hyacinth-disaster",
+      "out-of-place"
     ],
     "showReasons": {
       "impact-winter": "A big, cinematic survival story with genre pressure at the front.",
@@ -159,7 +168,10 @@
       "moonbase-theta-out": "Keeps the emotional weight high while staying rooted in a clear sci-fi premise.",
       "red-frontier": "A Mars-colony survival mystery keeps the science-fiction frame tight and the stakes immediate.",
       "the-waystation": "A damaged wormhole station and the investigation around it keep the speculative pressure focused.",
-      "the-deca-tapes": "A controlled, puzzle-box dystopia for listeners who want systems and suspense instead of banter."
+      "the-deca-tapes": "A controlled, puzzle-box dystopia for listeners who want systems and suspense instead of banter.",
+      "the-orphans": "Cinematic survival in a harsh connected universe keeps the pressure on the science-fiction premise.",
+      "the-hyacinth-disaster": "A deadline-driven Jovian mission keeps the science-fiction stakes focused on work, systems, and survival.",
+      "out-of-place": "Artifacts from another reality turn scientific curiosity and institutional secrecy into the show's central pressure."
     },
     "featured": true,
     "order": 30,
@@ -236,7 +248,8 @@
       "the-secret-of-st-kilda",
       "red-frontier",
       "impact-winter",
-      "the-white-vault"
+      "the-white-vault",
+      "i-am-in-eskew"
     ],
     "showReasons": {
       "the-white-vault": "This is the clearest match for the collection's remote-expedition horror.",
@@ -247,7 +260,8 @@
       "how-i-died": "Supernatural investigation keeps the horror direct and readable.",
       "the-phenomenon": "Bleak large-scale tension makes the world itself feel hostile.",
       "the-secret-of-st-kilda": "A remote island setting and supernatural thriller premise turn isolation into the pressure point.",
-      "red-frontier": "Complete isolation on a Mars mission turns the setting itself into a survival pressure."
+      "red-frontier": "Complete isolation on a Mars mission turns the setting itself into a survival pressure.",
+      "i-am-in-eskew": "A man trapped in an ever-changing city turns isolation, hostile space, and body horror into the core listening pressure."
     },
     "featured": true,
     "order": 50,
@@ -333,7 +347,10 @@
       "janus-descending",
       "mage-in-the-machine",
       "the-secret-of-st-kilda",
-      "red-frontier"
+      "red-frontier",
+      "the-polybius-conspiracy",
+      "octobers-children",
+      "the-dead-letter-office-of-somewhere-ohio"
     ],
     "showReasons": {
       "solar": "Tight survival tension fits a focused night listen.",
@@ -355,12 +372,15 @@
       "janus-descending": "Isolation horror and reverse-log structure make this a strong headphones-at-night pick.",
       "mage-in-the-machine": "Cursed cases, supernatural menace, and compact episodes make this an easy after-dark horror listen.",
       "the-secret-of-st-kilda": "Supernatural danger, cult pressure, and a quiet island setting give it an after-dark tension route.",
-      "red-frontier": "A mysterious epidemic, a remote Mars base, and a survival mystery make it an easy after-dark tension fit."
+      "red-frontier": "A mysterious epidemic, a remote Mars base, and a survival mystery make it an easy after-dark tension fit.",
+      "the-polybius-conspiracy": "Pacific Northwest arcade lore, conspiracy, and uncertain reality give the investigation a quietly unnerving after-dark route.",
+      "octobers-children": "The escalating creature threat and boundary-blurring premise suit a tense after-dark listen.",
+      "the-dead-letter-office-of-somewhere-ohio": "Dead letters, surreal lost mail, and horror-comedy make ordinary nighttime listening feel pleasantly off-kilter."
     },
     "featured": false,
     "order": 70,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-08-29"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "headphones-on-immersion",
@@ -394,7 +414,12 @@
       "red-frontier",
       "derelict",
       "impact-winter",
-      "the-white-vault"
+      "the-white-vault",
+      "the-dead-letter-office-of-somewhere-ohio",
+      "i-am-in-eskew",
+      "the-hyacinth-disaster",
+      "out-of-place",
+      "within-the-wires"
     ],
     "showReasons": {
       "impact-winter": "Big scenes and layered production make headphones worthwhile.",
@@ -410,7 +435,12 @@
       "passenger-list": "Conspiracy thriller layering makes more sense when the listener can stay fully inside it.",
       "moonbase-theta-out": "Emotional sci-fi with transmission framing lands best in an uninterrupted listen.",
       "the-chronicles-of-astrimos": "Full-cast performances, original music, and layered sound design reward close listening.",
-      "red-frontier": "Full-cast performances, sound design, and an original score reward close listening."
+      "red-frontier": "Full-cast performances, sound design, and an original score reward close listening.",
+      "the-dead-letter-office-of-somewhere-ohio": "Solo performance, original scoring, and two-story episodes reward close listening to texture and voice.",
+      "i-am-in-eskew": "Diary-like narration and an ever-changing city reward focused listening to the clues accumulating beneath the horror.",
+      "the-hyacinth-disaster": "Full-cast mission pressure and a compact space setting benefit from an uninterrupted listen.",
+      "out-of-place": "The brown-paper-bag artifact frame rewards close attention to what each object reveals and withholds.",
+      "within-the-wires": "Found audio, museum guides, relaxation tapes, and original music make form and sound central to the experience."
     },
     "featured": false,
     "order": 80,
@@ -511,7 +541,11 @@
       "homecoming",
       "the-amelia-project",
       "forest-404",
-      "mage-in-the-machine"
+      "mage-in-the-machine",
+      "the-viridian-wild",
+      "the-polybius-conspiracy",
+      "the-hyacinth-disaster",
+      "octobers-children"
     ],
     "showReasons": {
       "from-now": "Six main story episodes make it the cleanest quick sci-fi start.",
@@ -522,12 +556,16 @@
       "homecoming": "A compact prestige-thriller binge when you want something polished and easy to sample fast.",
       "the-amelia-project": "Interview-shaped episodes make it easy to sample before committing deeper.",
       "forest-404": "A shorter conceptual sci-fi entry when the listener wants something compact.",
-      "mage-in-the-machine": "Seven short-to-medium episodes make its cursed-case premise easy to sample before committing deeper."
+      "mage-in-the-machine": "Seven short-to-medium episodes make its cursed-case premise easy to sample before committing deeper.",
+      "the-viridian-wild": "Its observed run is about 2.4 hours, making the creature-investigation premise an unusually compact entry point.",
+      "the-polybius-conspiracy": "A compact 3.5-hour investigation gives listeners a focused doorway into archive mysteries.",
+      "the-hyacinth-disaster": "Seven episodes and roughly three observed hours make the disaster route easy to try without a long-series commitment.",
+      "octobers-children": "At roughly four observed hours, its full-cast paranormal setup is a compact first route into the archive."
     },
     "featured": false,
     "order": 100,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "warm-weird-comfort",
@@ -611,7 +649,9 @@
       "janus-descending",
       "derelict",
       "impact-winter",
-      "the-white-vault"
+      "the-white-vault",
+      "the-orphans",
+      "the-hyacinth-disaster"
     ],
     "showReasons": {
       "were-alive": "Long-running ensemble survival gives it endurance.",
@@ -626,7 +666,9 @@
       "vast-horizon": "A colony ship crisis turns isolation and limited resources into the central problem.",
       "solar": "A spacecraft disaster keeps every choice close to the edge of failure.",
       "marsfall": "A Mars settlement under pressure gives the collection a frontier-survival route with room for consequence.",
-      "janus-descending": "A doomed xenoarchaeology mission turns discovery into a fight to stay alive."
+      "janus-descending": "A doomed xenoarchaeology mission turns discovery into a fight to stay alive.",
+      "the-orphans": "Castaways, hostile worlds, and emotionally entangled AIs make each next decision part of survival.",
+      "the-hyacinth-disaster": "The crew has to reach a sister ship before the window closes; the premise is all next decisions and dwindling time."
     },
     "featured": false,
     "order": 120,
@@ -667,7 +709,10 @@
       "the-penumbra-podcast",
       "the-mistholme-museum-of-mystery-morbidity-and-mortality",
       "impact-winter",
-      "midnight-burger"
+      "midnight-burger",
+      "the-orphans",
+      "within-the-wires",
+      "hi-nay"
     ],
     "showReasons": {
       "midnight-burger": "Its cosmic premise keeps opening into more places and people.",
@@ -685,7 +730,10 @@
       "the-silt-verses": "A fully inhabited religious and political world where every new place changes the stakes.",
       "old-gods-of-appalachia": "A long-running regional mythology gives the collection depth of history as well as scale.",
       "the-penumbra-podcast": "Multiple connected worlds and long arcs reward listeners who want more than one setting to explore.",
-      "the-mistholme-museum-of-mystery-morbidity-and-mortality": "A museum frame turns each strange artifact into another doorway into the archive's wider world."
+      "the-mistholme-museum-of-mystery-morbidity-and-mortality": "A museum frame turns each strange artifact into another doorway into the archive's wider world.",
+      "the-orphans": "Five seasons revisit the same galaxy from new vantage points, rewarding listeners who want scope beyond one mission.",
+      "within-the-wires": "Ten standalone-but-connected seasons gradually map an alternate universe and its political history.",
+      "hi-nay": "A long-running family and community story gives listeners room to stay with its supernatural world rather than sample a single case."
     },
     "featured": false,
     "order": 130,
@@ -730,7 +778,7 @@
     "featured": false,
     "order": 135,
     "createdAt": "2026-07-10",
-    "updatedAt": "2026-08-29"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "ensemble-chaos-with-heart",
@@ -802,7 +850,8 @@
       "greater-boston",
       "the-penumbra-podcast",
       "the-mistholme-museum-of-mystery-morbidity-and-mortality",
-      "fairies-and-dragons-ponies-and-knights"
+      "fairies-and-dragons-ponies-and-knights",
+      "the-viridian-wild"
     ],
     "showReasons": {
       "caravan": "A hidden-road fantasy that keeps rewarding curiosity and movement.",
@@ -812,12 +861,13 @@
       "greater-boston": "Urban magical realism makes the familiar city feel quietly impossible.",
       "the-penumbra-podcast": "Connected sci-fi and fantasy worlds offer several different ways into the same larger imaginative project.",
       "the-mistholme-museum-of-mystery-morbidity-and-mortality": "A museum of magical artifacts makes every episode another small detour into a hidden world.",
-      "fairies-and-dragons-ponies-and-knights": "An all-ages dragon-egg adventure with live guest-artist performances opens a gentler branch of the hidden-worlds route."
+      "fairies-and-dragons-ponies-and-knights": "An all-ages dragon-egg adventure with live guest-artist performances opens a gentler branch of the hidden-worlds route.",
+      "the-viridian-wild": "A mythozoologist's field journey uses magical creatures to open a hidden-world route one encounter at a time."
     },
     "featured": false,
     "order": 137,
     "createdAt": "2026-07-10",
-    "updatedAt": "2026-09-04"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "short-finished-thrillers",
@@ -886,7 +936,9 @@
       "the-sheridan-tapes",
       "the-deca-tapes",
       "shelterwood",
-      "the-white-vault"
+      "the-white-vault",
+      "the-polybius-conspiracy",
+      "within-the-wires"
     ],
     "showReasons": {
       "archive-81": "Archival recordings and occult history make the act of cataloging part of the danger.",
@@ -898,7 +950,9 @@
       "the-storage-papers": "Recovered documents and case files keep the supernatural mystery grounded in an accumulating archive.",
       "the-sheridan-tapes": "A large mystery assembled from recorded material turns the missing evidence into the listening engine.",
       "the-deca-tapes": "Segmented recordings and a locked-room puzzle make the format itself part of the mystery.",
-      "shelterwood": "A docu-horror search for a missing sister uses found footage, interviews, and an impossible suburb as its evidence trail."
+      "shelterwood": "A docu-horror search for a missing sister uses found footage, interviews, and an impossible suburb as its evidence trail.",
+      "the-polybius-conspiracy": "A hybrid documentary-fiction investigation makes the recovered-story frame part of the arcade mystery.",
+      "within-the-wires": "Its in-universe recordings and institutional documents are not just presentation; they are the evidence the listener has to interpret."
     },
     "featured": false,
     "order": 138.5,
@@ -929,7 +983,8 @@
       "the-town-whispers",
       "the-secret-of-st-kilda",
       "the-milkman-of-st-gaffs",
-      "the-wyrd-side"
+      "the-wyrd-side",
+      "hi-nay"
     ],
     "showReasons": {
       "old-gods-of-appalachia": "A long-running regional mythology gives every new story the weight of something older underneath it.",
@@ -937,12 +992,13 @@
       "the-town-whispers": "Small-town scale makes folklore feel local, intimate, and impossible to leave behind.",
       "the-secret-of-st-kilda": "An isolated island, cult pressure, and supernatural danger put old beliefs at the center.",
       "the-milkman-of-st-gaffs": "A Lovecraftian village turns ritual and social order into the threat.",
-      "the-wyrd-side": "New Weird and folk-horror signals make it a compact route when you want strangeness without a huge back catalogue."
+      "the-wyrd-side": "New Weird and folk-horror signals make it a compact route when you want strangeness without a huge back catalogue.",
+      "hi-nay": "Filipino supernatural tradition and a babaylan family put inherited knowledge and place at the center of the danger."
     },
     "featured": false,
     "order": 139,
     "createdAt": "2026-08-29",
-    "updatedAt": "2026-08-29"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "comedy-with-a-mystery",
@@ -1369,7 +1425,8 @@
       "case-63",
       "the-program-audio-series",
       "the-bright-sessions",
-      "midst"
+      "midst",
+      "out-of-place"
     ],
     "showReasons": {
       "from-now": "A shorter time-dislocation story when you want the conceptual hook without the same scope.",
@@ -1377,12 +1434,13 @@
       "case-63": "A cleaner paradox-thriller branch if the time-travel tension is what you want more of.",
       "the-program-audio-series": "Leans harder into system design and speculative consequences than character warmth.",
       "the-bright-sessions": "A more emotional, character-first branch for listeners who liked the careful sci-fi construction.",
-      "midst": "A stranger, more formally daring branch once the appetite shifts from science to worldview."
+      "midst": "A stranger, more formally daring branch once the appetite shifts from science to worldview.",
+      "out-of-place": "A plot-led speculative investigation belongs here for listeners who want ideas and institutions to drive the mystery."
     },
     "featured": false,
     "order": 200,
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "shows-like-tower-4",
@@ -1532,7 +1590,8 @@
       "king-falls-am",
       "harbor",
       "midnight-radio",
-      "midnight-burger"
+      "midnight-burger",
+      "the-dead-letter-office-of-somewhere-ohio"
     ],
     "showReasons": {
       "alice-isnt-dead": "A road-haunted branch for listeners who liked the intimate narration and lurking unreality.",
@@ -1540,6 +1599,7 @@
       "unwell": "Small-town gothic affection makes it a strong stop if the community feeling mattered as much as the cosmic oddness.",
       "mabel": "A quieter, more intimate ghost-story branch once the voice-first weirdness is the main draw.",
       "midnight-burger": "For listeners who want the humor, heart, and metaphysical appetite to scale outward.",
+      "the-dead-letter-office-of-somewhere-ohio": "A strange civic archive and dark comedy offer a more intimate, horror-forward branch of community-scale weirdness.",
       "story": "A softer, more legible branch if the listener wants warmth and curiosity before the darkness thickens.",
       "king-falls-am": "A natural pick for listeners who want more late-night-broadcast weirdness and community-scale oddity.",
       "harbor": "A straighter small-town supernatural branch when the listener wants local weirdness with stronger family pressure.",
@@ -1663,7 +1723,8 @@
       "knifepoint-horror",
       "scp-archives",
       "the-black-tapes",
-      "a-voice-from-darkness"
+      "a-voice-from-darkness",
+      "i-am-in-eskew"
     ],
     "showReasons": {
       "the-lovecraft-investigations": "A reporting-led investigation that grows from strange cases into a much larger cosmic horror story.",
@@ -1673,12 +1734,13 @@
       "knifepoint-horror": "The cleanest anthology detour when the standalone case-file dread is the part you want most.",
       "scp-archives": "A dossier-shaped anthology for listeners who enjoy strange reports accumulating into a larger catalog of dread.",
       "the-black-tapes": "A skeptical investigation route when the research, recordings, and escalating paranormal question are the hook.",
-      "a-voice-from-darkness": "Call-in supernatural warnings preserve the intimate, voice-led feeling of being told about something you should not investigate."
+      "a-voice-from-darkness": "Call-in supernatural warnings preserve the intimate, voice-led feeling of being told about something you should not investigate.",
+      "i-am-in-eskew": "Daily records of a bizarre place gradually widen into a larger mythology, making it a more intimate urban route into case-file horror."
     },
     "featured": false,
     "order": 270,
     "createdAt": "2026-08-29",
-    "updatedAt": "2026-08-29"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "shows-like-the-amelia-project",

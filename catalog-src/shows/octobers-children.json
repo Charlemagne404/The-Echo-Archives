@@ -24,7 +24,11 @@
     "mystery",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "full-cast",
     "serialized"
@@ -39,8 +43,15 @@
     "October's Children Trailer - October's Children",
     "October's Children a New England Paranormal Horror / Mystery"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "found family",
+    "small-town secrets",
+    "creature intrusion"
+  ],
+  "contentNotes": [
+    "gore",
+    "loud noises"
+  ],
   "languages": [
     "English"
   ],
@@ -73,9 +84,21 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "late-night",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "unwell",
+    "bridgewater",
+    "the-secret-of-st-kilda"
+  ],
+  "similarReasons": {
+    "unwell": "Small-town supernatural ensemble where relationships and local secrets matter as much as the threat.",
+    "bridgewater": "A folklore-led mystery starts with a local question and opens onto a larger supernatural history.",
+    "the-secret-of-st-kilda": "Full-cast remote-community thriller where strange inhabitants and escalating supernatural pressure close in."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -755,5 +778,11 @@
   "featured": false,
   "createdAt": "2026-07-31",
   "updatedAt": "2026-07-31",
-  "creatorId": "jacob-mandell-derrick-valen-in-collaboration-with-arcanacast"
+  "creatorId": "jacob-mandell-derrick-valen-in-collaboration-with-arcanacast",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "high",
+    "commitment": "short"
+  }
 }

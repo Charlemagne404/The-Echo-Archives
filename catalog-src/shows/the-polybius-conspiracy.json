@@ -24,7 +24,10 @@
     "sci-fi",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "tense",
+    "weird"
+  ],
   "formats": [
     "full-cast",
     "serialized",
@@ -38,7 +41,11 @@
   "aliases": [
     "The Polybius Conspiracy"
   ],
-  "themes": [],
+  "themes": [
+    "urban legend",
+    "obsession",
+    "truth and belief"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -68,9 +75,21 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "headphones-on",
+    "late-night"
+  ],
+  "similarTo": [
+    "the-deca-tapes",
+    "video-palace",
+    "limetown"
+  ],
+  "similarReasons": {
+    "the-deca-tapes": "Recorded evidence, a contained puzzle, and instructions whose source becomes the mystery connect the two shows at the level of form and investigation.",
+    "video-palace": "A media artifact opens into conspiracy and obsession; choose this for a darker occult branch of the analog mystery.",
+    "limetown": "Hybrid investigative fiction uses documentary texture and gaps in testimony to make the central mystery feel real."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -431,5 +450,11 @@
   "createdAt": "2026-07-31",
   "updatedAt": "2026-07-31",
   "creatorId": "jon-frechette-todd-luoto",
-  "networkId": "jon-frechette-todd-luoto"
+  "networkId": "jon-frechette-todd-luoto",
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium",
+    "commitment": "short"
+  }
 }

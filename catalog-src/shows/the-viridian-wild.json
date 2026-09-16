@@ -29,7 +29,10 @@
     "drama",
     "horror"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "weird"
+  ],
   "formats": [
     "serialized"
   ],
@@ -41,8 +44,16 @@
   "aliases": [
     "The Viridian Wild"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "field research",
+    "magical creatures",
+    "wilderness danger"
+  ],
+  "contentNotes": [
+    "animal death",
+    "human death",
+    "wilderness injury"
+  ],
   "languages": [
     "English"
   ],
@@ -75,9 +86,20 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "late-night"
+  ],
+  "similarTo": [
+    "the-night-post",
+    "the-left-right-game",
+    "old-gods-of-appalachia"
+  ],
+  "similarReasons": {
+    "the-night-post": "Both make supernatural fieldwork feel like a journey into a living frontier, but The Night Post shifts the emphasis from creature study to tradition and survival.",
+    "the-left-right-game": "A stronger investigation-led route for listeners who want expeditions into phenomena that do not obey ordinary rules.",
+    "old-gods-of-appalachia": "Folklore and the natural world carry real danger here; choose this for a broader mythology branch rather than a single investigator."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -593,5 +615,8 @@
   "featured": false,
   "createdAt": "2026-08-14",
   "updatedAt": "2026-08-14",
-  "creatorId": "always-in-my-head-productions"
+  "creatorId": "always-in-my-head-productions",
+  "discovery": {
+    "commitment": "short"
+  }
 }

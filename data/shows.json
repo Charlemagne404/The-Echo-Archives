@@ -28236,7 +28236,10 @@
     "genres": [
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "tense"
+    ],
     "formats": [
       "episodic"
     ],
@@ -28249,8 +28252,16 @@
     "aliases": [
       "Hi Nay"
     ],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "family legacy",
+      "immigration",
+      "Filipino folklore"
+    ],
+    "contentNotes": [
+      "violence",
+      "death",
+      "supernatural peril"
+    ],
     "languages": [
       "English"
     ],
@@ -28282,9 +28293,21 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "long-walks",
+      "binge-listening",
+      "late-night"
+    ],
+    "similarTo": [
+      "old-gods-of-appalachia",
+      "hello-from-the-hallowoods",
+      "the-night-post"
+    ],
+    "similarReasons": {
+      "old-gods-of-appalachia": "Tradition-centered supernatural horror where family, place, and inherited stories carry real consequences; the cultural settings are distinct.",
+      "hello-from-the-hallowoods": "Long-form queer supernatural fiction where identity, community, and hope have to survive the horror.",
+      "the-night-post": "A tradition-and-frontier route for listeners who want supernatural danger rooted in a living culture rather than a generic monster hunt."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -28967,6 +28990,11 @@
     "createdAt": "2026-07-21",
     "updatedAt": "2026-07-21",
     "creatorId": "motzie-dapul",
+    "discovery": {
+      "narrativeFocus": "character-driven",
+      "intensity": "variable",
+      "commitment": "deep-dive"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "officialDescription": {
@@ -28982,14 +29010,18 @@
     "imageAlt": "Hi Nay cover art",
     "summary": "Hi Nay, literally translated to “Hi Mom”, is a supernatural horror fictional podcast about Filipina immigrant Mari Datuin, whose babaylan (shaman) family background accidentally gets her involved in stopping dangerous supernatural events in Toronto. Written, directed, produced, and created by Motzie Dapul and co-created by Reg Geli. Hosted on Acast. See acast.com/privacy for more information.",
     "finalRating": null,
-    "searchText": "hi nay hi nay literally translated to hi mom is a supernatural horror fictional podcast about filipina immigrant mari datuin whose babaylan shaman family background accidentally gets her involved in stopping dangerous supernatural events in toronto written directed produced and created by motzie dapul and co created by reg geli hosted on acast see acast com privacy for more information horror supernatural mystery filipino drama episodic hi nay motzie dapul english ongoing indexed only motzie dapul motzie dapul unknown unknown 0",
+    "searchText": "hi nay hi nay literally translated to hi mom is a supernatural horror fictional podcast about filipina immigrant mari datuin whose babaylan shaman family background accidentally gets her involved in stopping dangerous supernatural events in toronto written directed produced and created by motzie dapul and co created by reg geli hosted on acast see acast com privacy for more information horror supernatural mystery filipino drama dark tense episodic character driven variable deep dive long walks binge listening late night hi nay family legacy immigration filipino folklore violence death supernatural peril motzie dapul english old gods of appalachia hello from the hallowoods the night post ongoing indexed only motzie dapul motzie dapul unknown unknown 0",
     "tagTokens": [
       "horror",
       "supernatural",
       "mystery",
       "filipino"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "long-walks",
+      "binge-listening",
+      "late-night"
+    ],
     "coverVariants": [
       {
         "src": "/images/generated/covers/hi-nay-70125d769d-320.webp",
@@ -34393,7 +34425,11 @@
       "mystery",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "tense",
+      "cinematic"
+    ],
     "formats": [
       "full-cast",
       "serialized"
@@ -34408,8 +34444,15 @@
       "October's Children Trailer - October's Children",
       "October's Children a New England Paranormal Horror / Mystery"
     ],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "found family",
+      "small-town secrets",
+      "creature intrusion"
+    ],
+    "contentNotes": [
+      "gore",
+      "loud noises"
+    ],
     "languages": [
       "English"
     ],
@@ -34441,9 +34484,21 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "short-under-five-hours",
+      "late-night",
+      "headphones-on"
+    ],
+    "similarTo": [
+      "unwell",
+      "bridgewater",
+      "the-secret-of-st-kilda"
+    ],
+    "similarReasons": {
+      "unwell": "Small-town supernatural ensemble where relationships and local secrets matter as much as the threat.",
+      "bridgewater": "A folklore-led mystery starts with a local question and opens onto a larger supernatural history.",
+      "the-secret-of-st-kilda": "Full-cast remote-community thriller where strange inhabitants and escalating supernatural pressure close in."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -34987,6 +35042,12 @@
     "createdAt": "2026-07-31",
     "updatedAt": "2026-07-31",
     "creatorId": "jacob-mandell-derrick-valen-in-collaboration-with-arcanacast",
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "balanced",
+      "intensity": "high",
+      "commitment": "short"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "officialDescription": {
@@ -35002,13 +35063,17 @@
     "imageAlt": "October's Children cover art",
     "summary": "\"October’s Children\" is an episodic full-cast paranormal mystery/horror audio drama set in a small college town in New England. \"October’s Children\" focuses on a small, diverse group of 20- and 30-somethings trying to survive the trials and tribulations of ‘everyday’ life in Wolfbrook, New Hampshire. Unbeknownst to them at series start, the group will face increasingly strange and dangerous situations as the boundaries between our world and another fade, and monstrous creatures begin to infiltrate and invade Wolfbrook. October's Children is written by Jacob Mandell and produced by Derrick Valen. Find us on social media here https://linktr.ee/octoberschildrenpodcast email us at Octoberschildrenpodcast@gmail.com October's Children features the voices of Joseph Bozlinski as Conrad Fielding Paul Warren as Jeffery Tremblay Tian Skarxin as Ashley Slake Suzannah Snowden-Ifft as Ollie Masterson Liz Moss as Renee Simard Karyn O Braynt as Sophia Castellanos Jhonni Machado as Victoria Beaumonte Luna Luna as Xerxes Medina Moria Todd as Grace Burnell Halloween Bloodfrost as Monk Ballish Ray O Hare as Samuel Meyer Stephen Murdock as John Walters and Alexandra Ovitt, Jon Kava, and Whilimina Marie as misc voices",
     "finalRating": null,
-    "searchText": "october s children a new england paranormal mystery horror audio drama october s children is an episodic full cast paranormal mystery horror audio drama set in a small college town in new england october s children focuses on a small diverse group of 20 and 30 somethings trying to survive the trials and tribulations of everyday life in wolfbrook new hampshire unbeknownst to them at series start the group will face increasingly strange and dangerous situations as the boundaries between our world and another fade and monstrous creatures begin to infiltrate and invade wolfbrook october s children is written by jacob mandell and produced by derrick valen find us on social media here https linktr ee octoberschildrenpodcast email us at octoberschildrenpodcast gmail com october s children features the voices of joseph bozlinski as conrad fielding paul warren as jeffery tremblay tian skarxin as ashley slake suzannah snowden ifft as ollie masterson liz moss as renee simard karyn o braynt as sophia castellanos jhonni machado as victoria beaumonte luna luna as xerxes medina moria todd as grace burnell halloween bloodfrost as monk ballish ray o hare as samuel meyer stephen murdock as john walters and alexandra ovitt jon kava and whilimina marie as misc voices paranormal small town creature horror horror mystery drama full cast serialized october s children october s children trailer october s children october s children a new england paranormal horror mystery jacob mandell and derrick valen in collaboration with arcanacast english unclear indexed only jacob mandell and derrick valen in collaboration with arcanacast jacob mandell and derrick valen in collaboration with arcanacast 6 observed episodes unknown 0 545 text html",
+    "searchText": "october s children a new england paranormal mystery horror audio drama october s children is an episodic full cast paranormal mystery horror audio drama set in a small college town in new england october s children focuses on a small diverse group of 20 and 30 somethings trying to survive the trials and tribulations of everyday life in wolfbrook new hampshire unbeknownst to them at series start the group will face increasingly strange and dangerous situations as the boundaries between our world and another fade and monstrous creatures begin to infiltrate and invade wolfbrook october s children is written by jacob mandell and produced by derrick valen find us on social media here https linktr ee octoberschildrenpodcast email us at octoberschildrenpodcast gmail com october s children features the voices of joseph bozlinski as conrad fielding paul warren as jeffery tremblay tian skarxin as ashley slake suzannah snowden ifft as ollie masterson liz moss as renee simard karyn o braynt as sophia castellanos jhonni machado as victoria beaumonte luna luna as xerxes medina moria todd as grace burnell halloween bloodfrost as monk ballish ray o hare as samuel meyer stephen murdock as john walters and alexandra ovitt jon kava and whilimina marie as misc voices paranormal small town creature horror horror mystery drama dark tense cinematic full cast serialized primarily acted balanced high short short under five hours late night headphones on october s children october s children trailer october s children october s children a new england paranormal horror mystery found family small town secrets creature intrusion gore loud noises jacob mandell and derrick valen in collaboration with arcanacast english unwell bridgewater the secret of st kilda unclear indexed only jacob mandell and derrick valen in collaboration with arcanacast jacob mandell and derrick valen in collaboration with arcanacast 6 observed episodes unknown 0 545 text html",
     "tagTokens": [
       "paranormal",
       "small-town",
       "creature-horror"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "short-under-five-hours",
+      "late-night",
+      "headphones-on"
+    ],
     "coverVariants": [
       {
         "src": "/images/generated/covers/octobers-children-47c7f53fe9-320.webp",
@@ -39192,7 +39257,10 @@
       "thriller",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "tense",
+      "cinematic"
+    ],
     "formats": [
       "full-cast",
       "serialized",
@@ -39206,7 +39274,11 @@
     "aliases": [
       "The Hyacinth Disaster"
     ],
-    "themes": [],
+    "themes": [
+      "survival",
+      "corporate exploitation",
+      "crew loyalty"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
@@ -39235,9 +39307,21 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "short-under-five-hours",
+      "serious-sci-fi",
+      "headphones-on"
+    ],
+    "similarTo": [
+      "solar",
+      "derelict",
+      "the-waystation"
+    ],
+    "similarReasons": {
+      "solar": "Tight full-cast spacecraft survival after a mission failure, with crew decisions carrying the momentum.",
+      "derelict": "Industrial-scale sci-fi mystery puts a dangerous discovery inside a high-pressure corporate operation.",
+      "the-waystation": "A shorter station-and-recordings route for listeners who want unexplained space danger without a long commitment."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -39746,6 +39830,12 @@
     "updatedAt": "2026-07-31",
     "creatorId": "david-carlson",
     "networkId": "the-hyacinth-disaster",
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "short"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "officialDescription": {
@@ -39761,13 +39851,17 @@
     "imageAlt": "The Hyacinth Disaster cover art",
     "summary": "The crew of the MRS Hyacinth rush to survey a Jovian asteroid, hoping it is worth enough to ransom the crew of their sister ship - the Corvus - before the deadline hits. Hosted on Acast. See acast.com/privacy for more information.",
     "finalRating": null,
-    "searchText": "the hyacinth disaster a thriller in jupiter s shadow the crew of the mrs hyacinth rush to survey a jovian asteroid hoping it is worth enough to ransom the crew of their sister ship the corvus before the deadline hits hosted on acast see acast com privacy for more information sci fi spacecraft disaster survival sci fi thriller drama full cast serialized limited series the hyacinth disaster david carlson english unclear indexed only david carlson david carlson the hyacinth disaster david carlson david carlson author unknown unknown 0",
+    "searchText": "the hyacinth disaster a thriller in jupiter s shadow the crew of the mrs hyacinth rush to survey a jovian asteroid hoping it is worth enough to ransom the crew of their sister ship the corvus before the deadline hits hosted on acast see acast com privacy for more information sci fi spacecraft disaster survival sci fi thriller drama tense cinematic full cast serialized limited series primarily acted plot driven high short short under five hours serious sci fi headphones on the hyacinth disaster survival corporate exploitation crew loyalty david carlson english solar derelict the waystation unclear indexed only david carlson david carlson the hyacinth disaster david carlson david carlson author unknown unknown 0",
     "tagTokens": [
       "sci-fi",
       "spacecraft-disaster",
       "survival"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "short-under-five-hours",
+      "serious-sci-fi",
+      "headphones-on"
+    ],
     "coverVariants": [
       {
         "src": "/images/generated/covers/the-hyacinth-disaster-5aafa7b0a6-320.webp",
@@ -41388,7 +41482,10 @@
       "sci-fi",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "tense",
+      "weird"
+    ],
     "formats": [
       "full-cast",
       "serialized",
@@ -41402,7 +41499,11 @@
     "aliases": [
       "The Polybius Conspiracy"
     ],
-    "themes": [],
+    "themes": [
+      "urban legend",
+      "obsession",
+      "truth and belief"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
@@ -41431,9 +41532,21 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "short-under-five-hours",
+      "headphones-on",
+      "late-night"
+    ],
+    "similarTo": [
+      "the-deca-tapes",
+      "video-palace",
+      "limetown"
+    ],
+    "similarReasons": {
+      "the-deca-tapes": "Recorded evidence, a contained puzzle, and instructions whose source becomes the mystery connect the two shows at the level of form and investigation.",
+      "video-palace": "A media artifact opens into conspiracy and obsession; choose this for a darker occult branch of the analog mystery.",
+      "limetown": "Hybrid investigative fiction uses documentary texture and gaps in testimony to make the central mystery feel real."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -41676,6 +41789,12 @@
     "updatedAt": "2026-07-31",
     "creatorId": "jon-frechette-todd-luoto",
     "networkId": "jon-frechette-todd-luoto",
+    "discovery": {
+      "voiceStyle": "mixed",
+      "narrativeFocus": "plot-driven",
+      "intensity": "medium",
+      "commitment": "short"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "officialDescription": {
@@ -41691,13 +41810,17 @@
     "imageAlt": "The Polybius Conspiracy cover art",
     "summary": "Originally heard on Radiotopia's Showcase, The Polybius Conspiracy tells the story of a mysterious arcade game from the '80s whose alleged existence in the Pacific Northwest is fueled by a blending of fact and fiction.",
     "finalRating": null,
-    "searchText": "the polybius conspiracy originally heard on radiotopia s showcase the polybius conspiracy tells the story of a mysterious arcade game from the 80s whose alleged existence in the pacific northwest is fueled by a blending of fact and fiction originally heard on radiotopia s showcase the polybius conspiracy tells the story of a mysterious arcade game from the 80s whose alleged existence in the pacific northwest is fueled by a blending of fact and fiction mystery 1980s conspiracy mystery sci fi drama full cast serialized limited series the polybius conspiracy jon frechette todd luoto english unclear indexed only jon frechette todd luoto flight 305 media llc jon frechette and todd luoto unknown unknown 0",
+    "searchText": "the polybius conspiracy originally heard on radiotopia s showcase the polybius conspiracy tells the story of a mysterious arcade game from the 80s whose alleged existence in the pacific northwest is fueled by a blending of fact and fiction originally heard on radiotopia s showcase the polybius conspiracy tells the story of a mysterious arcade game from the 80s whose alleged existence in the pacific northwest is fueled by a blending of fact and fiction mystery 1980s conspiracy mystery sci fi drama tense weird full cast serialized limited series mixed plot driven medium short short under five hours headphones on late night the polybius conspiracy urban legend obsession truth and belief jon frechette todd luoto english the deca tapes video palace limetown unclear indexed only jon frechette todd luoto flight 305 media llc jon frechette and todd luoto unknown unknown 0",
     "tagTokens": [
       "mystery",
       "1980s",
       "conspiracy"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "short-under-five-hours",
+      "headphones-on",
+      "late-night"
+    ],
     "coverVariants": [
       {
         "src": "/images/generated/covers/the-polybius-conspiracy-c7f88b2240-320.webp",
@@ -42155,7 +42278,10 @@
       "sci-fi",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "cinematic",
+      "tense"
+    ],
     "formats": [
       "full-cast",
       "serialized"
@@ -42168,8 +42294,15 @@
     "aliases": [
       "The Orphans"
     ],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "survival",
+      "identity",
+      "found family"
+    ],
+    "contentNotes": [
+      "violence",
+      "survival peril"
+    ],
     "languages": [
       "English"
     ],
@@ -42205,9 +42338,21 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "serious-sci-fi",
+      "headphones-on",
+      "long-walks"
+    ],
+    "similarTo": [
+      "the-strange-case-of-starship-iris",
+      "marsfall",
+      "solar"
+    ],
+    "similarReasons": {
+      "the-strange-case-of-starship-iris": "Both follow ensemble survivors after interstellar conflict; Starship Iris leans harder into identity, resistance, and found family.",
+      "marsfall": "Another high-pressure full-cast space-survival story, with hostile worlds, alien contact, and AI systems driving the danger.",
+      "solar": "A tighter crew-survival listen where spacecraft failure forces separate characters to solve the same crisis from different compartments."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -42509,6 +42654,12 @@
     "updatedAt": "2026-07-31",
     "creatorId": "the-light-and-tragic-company",
     "networkId": "realms-of-peril-glory",
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "balanced",
+      "intensity": "high",
+      "commitment": "long"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "officialDescription": {
@@ -42524,13 +42675,17 @@
     "imageAlt": "The Orphans cover art",
     "summary": "The Orphans is a cinematic sci-fi audio drama about survival in a harsh universe: castaways on a hostile world, A.I.s with unprecedented emotions, strangers who share faces, love and loss in a far-flung future. Each season explores a new vantage point in an ever-expanding and interconnected galaxy.",
     "finalRating": null,
-    "searchText": "the orphans the orphans is a cinematic sci fi audio drama about survival in a harsh universe castaways on a hostile world a i s with unprecedented emotions strangers who share faces love and loss in a far flung future each season explores a new vantage point in an ever expanding and interconnected galaxy sci fi survival space opera sci fi drama full cast serialized the orphans the light and tragic company english unclear indexed only the light and tragic company the light and tragic company realms of peril and glory unknown unknown 0",
+    "searchText": "the orphans the orphans is a cinematic sci fi audio drama about survival in a harsh universe castaways on a hostile world a i s with unprecedented emotions strangers who share faces love and loss in a far flung future each season explores a new vantage point in an ever expanding and interconnected galaxy sci fi survival space opera sci fi drama cinematic tense full cast serialized primarily acted balanced high long serious sci fi headphones on long walks the orphans survival identity found family violence survival peril the light and tragic company english the strange case of starship iris marsfall solar unclear indexed only the light and tragic company the light and tragic company realms of peril and glory unknown unknown 0",
     "tagTokens": [
       "sci-fi",
       "survival",
       "space-opera"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "serious-sci-fi",
+      "headphones-on",
+      "long-walks"
+    ],
     "coverVariants": [
       {
         "src": "/images/generated/covers/the-orphans-793e6f93c1-320.webp",
@@ -55298,7 +55453,11 @@
       "sci-fi",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "weird",
+      "bleak",
+      "cinematic"
+    ],
     "formats": [
       "serialized"
     ],
@@ -55310,7 +55469,11 @@
     "aliases": [
       "Within the Wires"
     ],
-    "themes": [],
+    "themes": [
+      "political control",
+      "memory and identity",
+      "resistance"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
@@ -55352,9 +55515,21 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "headphones-on",
+      "worldbuilding",
+      "long-walks"
+    ],
+    "similarTo": [
+      "alice-isnt-dead",
+      "the-deca-tapes",
+      "limetown"
+    ],
+    "similarReasons": {
+      "alice-isnt-dead": "Both turn voice-led travel and recorded testimony into a surreal conspiracy, with the world widening as the narrator keeps listening.",
+      "the-deca-tapes": "In-universe recordings reveal a controlled system one voice and instruction at a time.",
+      "limetown": "Found-audio and documentary texture make the act of assembling a missing record part of the story."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -55623,6 +55798,12 @@
     "updatedAt": "2026-08-14",
     "creatorId": "night-vale-presents",
     "networkId": "night-vale-presents",
+    "discovery": {
+      "voiceStyle": "primarily-narrated",
+      "narrativeFocus": "balanced",
+      "intensity": "medium",
+      "commitment": "deep-dive"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "popularity": {},
@@ -55632,13 +55813,17 @@
     "imageAlt": "Within the Wires cover art",
     "summary": "An immersive fiction podcast told through found audio from an alternate universe. Each season is a standalone story set in the same world. Written by Jeffrey Cranor and Janina Matthewson. Original music by Mary Epworth.",
     "finalRating": null,
-    "searchText": "within the wires stories told through found audio from an alternate universe season 9 of within the wires audiobook is a romantic drama told entirely through outtakes from an audiobook recording session actress kat waterford arrives in studio to recor an immersive fiction podcast told through found audio from an alternate universe each season is a standalone story set in the same world written by jeffrey cranor and janina matthewson original music by mary epworth found media epistolary political intrigue sci fi drama serialized within the wires night vale presents night vale presents joseph fink jeffrey cranor english unclear indexed only night vale presents night vale presents night vale presents unknown unknown 0",
+    "searchText": "within the wires stories told through found audio from an alternate universe season 9 of within the wires audiobook is a romantic drama told entirely through outtakes from an audiobook recording session actress kat waterford arrives in studio to recor an immersive fiction podcast told through found audio from an alternate universe each season is a standalone story set in the same world written by jeffrey cranor and janina matthewson original music by mary epworth found media epistolary political intrigue sci fi drama weird bleak cinematic serialized primarily narrated balanced medium deep dive headphones on worldbuilding long walks within the wires political control memory and identity resistance night vale presents night vale presents joseph fink jeffrey cranor english alice isn t dead the deca tapes limetown unclear indexed only night vale presents night vale presents night vale presents unknown unknown 0",
     "tagTokens": [
       "found-media",
       "epistolary",
       "political-intrigue"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "headphones-on",
+      "worldbuilding",
+      "long-walks"
+    ],
     "resolvedEntities": [
       {
         "id": "night-vale-presents",
@@ -59996,7 +60181,11 @@
       "horror",
       "comedy"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "weird",
+      "funny"
+    ],
     "formats": [
       "serialized"
     ],
@@ -60008,8 +60197,16 @@
     "aliases": [
       "the Dead Letter Office of Somewhere, Ohio"
     ],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "community and belonging",
+      "identity",
+      "the uncanny in ordinary places"
+    ],
+    "contentNotes": [
+      "body horror",
+      "derealization",
+      "disturbing imagery"
+    ],
     "languages": [
       "English"
     ],
@@ -60043,9 +60240,21 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "headphones-on",
+      "late-night",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "welcome-to-night-vale",
+      "the-storage-papers",
+      "mabel"
+    ],
+    "similarReasons": {
+      "welcome-to-night-vale": "Darkly funny weird fiction where ordinary civic and administrative life becomes the doorway to surreal danger.",
+      "the-storage-papers": "A record-keeping frame turns strange incidents into a growing archive; The Storage Papers is the more case-file-driven route.",
+      "mabel": "Intimate, voice-led supernatural storytelling about memory, family secrets, and the feeling that a place is listening."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -60432,6 +60641,11 @@
     "updatedAt": "2026-08-14",
     "creatorId": "rat-grimes",
     "networkId": "horror-podcasts-set-in-the-midwest",
+    "discovery": {
+      "narrativeFocus": "balanced",
+      "intensity": "medium",
+      "commitment": "medium"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "popularity": {},
@@ -60441,13 +60655,17 @@
     "imageAlt": "the Dead Letter Office of Somewhere, Ohio cover art",
     "summary": "A series of weird horror podcasts set in the midwest. The Dead Letter Office of Somewhere, Ohio is a horror-comedy fiction podcast set within one of the last remaining Dead Letter Offices in the country. Join Conway, Wren, and the rest as they archive strange, spooky, surreal pieces of lost mail. A solo project by a nonbinary creator inspired by Kentucky Route Zero, Twin Peaks, Edgar Allen Poe, and more. Each episode features 2 short stories connected in some way, either narratively or thematically. What begins as an anthology evolves into...something else. Content warnings are posted in the show notes, along with transcripts. Written, performed, and scored by Rat Grimes (they/he) Art by Nerdvolkurisu",
     "finalRating": null,
-    "searchText": "the dead letter office of somewhere ohio a series of weird horror podcasts set in the midwest the dead letter office of somewhere ohio is a horror comedy fiction podcast set within one of the last remaining dead letter offices in the country join conway wren and the rest as they archive strange spooky surreal pieces of lost mail a solo project by a nonbinary creator inspired by kentucky route zero twin peaks edgar allen poe and more each episode features 2 short stories connected in some way either narratively or thematically what begins as an anthology evolves into something else content warnings are posted in the show notes along with transcripts written performed and scored by rat grimes they he art by nerdvolkurisu horror comedy genre anthology drama horror comedy serialized the dead letter office of somewhere ohio rat grimes english unclear indexed only rat grimes rat grimes horror podcasts set in the midwest unknown unknown 0",
+    "searchText": "the dead letter office of somewhere ohio a series of weird horror podcasts set in the midwest the dead letter office of somewhere ohio is a horror comedy fiction podcast set within one of the last remaining dead letter offices in the country join conway wren and the rest as they archive strange spooky surreal pieces of lost mail a solo project by a nonbinary creator inspired by kentucky route zero twin peaks edgar allen poe and more each episode features 2 short stories connected in some way either narratively or thematically what begins as an anthology evolves into something else content warnings are posted in the show notes along with transcripts written performed and scored by rat grimes they he art by nerdvolkurisu horror comedy genre anthology drama horror comedy dark weird funny serialized balanced medium medium headphones on late night binge listening the dead letter office of somewhere ohio community and belonging identity the uncanny in ordinary places body horror derealization disturbing imagery rat grimes english welcome to night vale the storage papers mabel unclear indexed only rat grimes rat grimes horror podcasts set in the midwest unknown unknown 0",
     "tagTokens": [
       "horror",
       "comedy",
       "genre-anthology"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "headphones-on",
+      "late-night",
+      "binge-listening"
+    ],
     "coverVariants": [
       {
         "src": "/images/generated/covers/the-dead-letter-office-of-somewhere-ohio-b68cb3229c-320.webp",
@@ -64166,7 +64384,10 @@
       "drama",
       "horror"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "weird"
+    ],
     "formats": [
       "serialized"
     ],
@@ -64178,8 +64399,16 @@
     "aliases": [
       "The Viridian Wild"
     ],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "field research",
+      "magical creatures",
+      "wilderness danger"
+    ],
+    "contentNotes": [
+      "animal death",
+      "human death",
+      "wilderness injury"
+    ],
     "languages": [
       "English"
     ],
@@ -64211,9 +64440,20 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "short-under-five-hours",
+      "late-night"
+    ],
+    "similarTo": [
+      "the-night-post",
+      "the-left-right-game",
+      "old-gods-of-appalachia"
+    ],
+    "similarReasons": {
+      "the-night-post": "Both make supernatural fieldwork feel like a journey into a living frontier, but The Night Post shifts the emphasis from creature study to tradition and survival.",
+      "the-left-right-game": "A stronger investigation-led route for listeners who want expeditions into phenomena that do not obey ordinary rules.",
+      "old-gods-of-appalachia": "Folklore and the natural world carry real danger here; choose this for a broader mythology branch rather than a single investigator."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -64610,6 +64850,9 @@
     "createdAt": "2026-08-14",
     "updatedAt": "2026-08-14",
     "creatorId": "always-in-my-head-productions",
+    "discovery": {
+      "commitment": "short"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "popularity": {},
@@ -64619,13 +64862,16 @@
     "imageAlt": "The Viridian Wild cover art",
     "summary": "Mythozoologist Sebastian Verwood travels the world studying magical creatures.",
     "finalRating": null,
-    "searchText": "the viridian wild mythozoologist sebastian verwood travels the world studying magical creatures horror wilderness investigation drama horror serialized the viridian wild always in my head productions english unclear indexed only always in my head productions always in my head productions unknown unknown 0",
+    "searchText": "the viridian wild mythozoologist sebastian verwood travels the world studying magical creatures horror wilderness investigation drama horror dark weird serialized short short under five hours late night the viridian wild field research magical creatures wilderness danger animal death human death wilderness injury always in my head productions english the night post the left right game old gods of appalachia unclear indexed only always in my head productions always in my head productions unknown unknown 0",
     "tagTokens": [
       "horror",
       "wilderness",
       "investigation"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "short-under-five-hours",
+      "late-night"
+    ],
     "coverVariants": [
       {
         "src": "/images/generated/covers/the-viridian-wild-85bb87a6cc-320.webp",
@@ -80178,7 +80424,10 @@
       "drama",
       "sci-fi"
     ],
-    "tones": [],
+    "tones": [
+      "tense",
+      "weird"
+    ],
     "formats": [
       "serialized"
     ],
@@ -80190,7 +80439,11 @@
     "aliases": [
       "Out of Place"
     ],
-    "themes": [],
+    "themes": [
+      "alternate histories",
+      "investigation",
+      "institutional secrecy"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
@@ -80224,9 +80477,21 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "headphones-on",
+      "late-night",
+      "worldbuilding"
+    ],
+    "similarTo": [
+      "ars-paradoxica",
+      "red-valley",
+      "the-polybius-conspiracy"
+    ],
+    "similarReasons": {
+      "ars-paradoxica": "Idea-forward investigation where scientific anomalies become personal and institutional secrets reshape the story.",
+      "red-valley": "Both treat experimental science, memory, and hidden institutions as the engine of the mystery.",
+      "the-polybius-conspiracy": "Artifact-led investigations blur the line between documented history and an impossible story."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -80641,7 +80906,9 @@
     "updatedAt": "2026-09-14",
     "creatorId": "midnight-disease-productions-llc",
     "discovery": {
-      "narrativeFocus": "plot-driven"
+      "narrativeFocus": "plot-driven",
+      "intensity": "medium",
+      "commitment": "medium"
     },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
@@ -80652,13 +80919,17 @@
     "imageAlt": "Out of Place cover art",
     "summary": "Andrew Moss loved his anthropology job, until mysterious artifacts from a Mr. Havisham started arriving in brown paper bags. The artifacts are... Wrong. Hosted on Acast. See acast.com/privacy for more information.",
     "finalRating": null,
-    "searchText": "out of place andrew moss loved his anthropology job until mysterious artifacts from a mr havisham started arriving in brown paper bags the artifacts are wrong hosted on acast see acast com privacy for more information mystery conspiracy investigation drama sci fi serialized plot driven out of place midnight disease productions llc english unclear indexed only midnight disease productions llc midnight disease productions llc unknown unknown 0",
+    "searchText": "out of place andrew moss loved his anthropology job until mysterious artifacts from a mr havisham started arriving in brown paper bags the artifacts are wrong hosted on acast see acast com privacy for more information mystery conspiracy investigation drama sci fi tense weird serialized plot driven medium medium headphones on late night worldbuilding out of place alternate histories investigation institutional secrecy midnight disease productions llc english ars paradoxica red valley the polybius conspiracy unclear indexed only midnight disease productions llc midnight disease productions llc unknown unknown 0",
     "tagTokens": [
       "mystery",
       "conspiracy",
       "investigation"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "headphones-on",
+      "late-night",
+      "worldbuilding"
+    ],
     "coverVariants": [
       {
         "src": "/images/generated/covers/out-of-place-b054b0e87c-320.webp",
@@ -429310,7 +429581,11 @@
       "horror",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "bleak",
+      "weird",
+      "dark"
+    ],
     "formats": [
       "serialized",
       "narrated"
@@ -429324,8 +429599,16 @@
     "aliases": [
       "I Am in Eskew"
     ],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "isolation",
+      "identity",
+      "institutional control"
+    ],
+    "contentNotes": [
+      "body horror",
+      "graphic violence",
+      "disturbing behavior"
+    ],
     "languages": [],
     "transcriptLanguages": [],
     "length": {
@@ -429354,9 +429637,21 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "cold-isolation-horror",
+      "headphones-on",
+      "worldbuilding"
+    ],
+    "similarTo": [
+      "spines-podcast",
+      "alice-isnt-dead",
+      "the-magnus-archives"
+    ],
+    "similarReasons": {
+      "spines-podcast": "Narrated horror driven by a central character's missing knowledge, identity crisis, and steadily widening occult threat.",
+      "alice-isnt-dead": "Solitary first-person travel through impossible places, with the emotional search carrying the horror as much as the plot.",
+      "the-magnus-archives": "Recorded accounts and investigations accumulate into an expanding mythology; The Magnus Archives offers a more explicit archive and case-file structure."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -429596,6 +429891,8 @@
     "creatorId": "muna-hussen-and-jon-ware",
     "discovery": {
       "voiceStyle": "primarily-narrated",
+      "narrativeFocus": "character-driven",
+      "intensity": "high",
       "commitment": "long"
     },
     "spoilerFreeReviewParagraphs": [],
@@ -429613,14 +429910,18 @@
     "imageAlt": "I Am in Eskew cover art",
     "summary": "I Am in Eskew is a horror and weird-fiction audio drama set in a bizarre city. A man trapped in Eskew makes endless recordings of his day-to-day experiences, hoping to reach the outside world.",
     "finalRating": null,
-    "searchText": "i am in eskew trapped in the horror filled and impossible city of eskew a man makes endless recordings of his day to day experiences hoping to reach the outside world this show routinely contains body horror and other disturbing scenes see the website i am in eskew is a horror and weird fiction audio drama set in a bizarre city a man trapped in eskew makes endless recordings of his day to day experiences hoping to reach the outside world weird fiction isolation new weird psychological horror drama serialized narrated primarily narrated long i am in eskew muna hussen and jon ware finished indexed only muna hussen and jon ware david ward unknown unknown 0",
+    "searchText": "i am in eskew trapped in the horror filled and impossible city of eskew a man makes endless recordings of his day to day experiences hoping to reach the outside world this show routinely contains body horror and other disturbing scenes see the website i am in eskew is a horror and weird fiction audio drama set in a bizarre city a man trapped in eskew makes endless recordings of his day to day experiences hoping to reach the outside world weird fiction isolation new weird psychological horror drama bleak weird dark serialized narrated primarily narrated character driven high long cold isolation horror headphones on worldbuilding i am in eskew isolation identity institutional control body horror graphic violence disturbing behavior muna hussen and jon ware spines alice isn t dead the magnus archives finished indexed only muna hussen and jon ware david ward unknown unknown 0",
     "tagTokens": [
       "weird-fiction",
       "isolation",
       "new-weird",
       "psychological"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "cold-isolation-horror",
+      "headphones-on",
+      "worldbuilding"
+    ],
     "coverVariants": [
       {
         "src": "/images/generated/covers/i-am-in-eskew-e43aaad305-320.webp",

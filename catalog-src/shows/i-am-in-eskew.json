@@ -23,7 +23,11 @@
     "horror",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "bleak",
+    "weird",
+    "dark"
+  ],
   "formats": [
     "serialized",
     "narrated"
@@ -37,8 +41,16 @@
   "aliases": [
     "I Am in Eskew"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "isolation",
+    "identity",
+    "institutional control"
+  ],
+  "contentNotes": [
+    "body horror",
+    "graphic violence",
+    "disturbing behavior"
+  ],
   "languages": [],
   "transcriptLanguages": [],
   "length": {
@@ -68,9 +80,21 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "cold-isolation-horror",
+    "headphones-on",
+    "worldbuilding"
+  ],
+  "similarTo": [
+    "spines-podcast",
+    "alice-isnt-dead",
+    "the-magnus-archives"
+  ],
+  "similarReasons": {
+    "spines-podcast": "Narrated horror driven by a central character's missing knowledge, identity crisis, and steadily widening occult threat.",
+    "alice-isnt-dead": "Solitary first-person travel through impossible places, with the emotional search carrying the horror as much as the plot.",
+    "the-magnus-archives": "Recorded accounts and investigations accumulate into an expanding mythology; The Magnus Archives offers a more explicit archive and case-file structure."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -421,6 +445,8 @@
   "creatorId": "muna-hussen-and-jon-ware",
   "discovery": {
     "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "character-driven",
+    "intensity": "high",
     "commitment": "long"
   }
 }

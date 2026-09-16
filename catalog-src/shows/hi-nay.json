@@ -22,7 +22,10 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense"
+  ],
   "formats": [
     "episodic"
   ],
@@ -35,8 +38,16 @@
   "aliases": [
     "Hi Nay"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "family legacy",
+    "immigration",
+    "Filipino folklore"
+  ],
+  "contentNotes": [
+    "violence",
+    "death",
+    "supernatural peril"
+  ],
   "languages": [
     "English"
   ],
@@ -69,9 +80,21 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "long-walks",
+    "binge-listening",
+    "late-night"
+  ],
+  "similarTo": [
+    "old-gods-of-appalachia",
+    "hello-from-the-hallowoods",
+    "the-night-post"
+  ],
+  "similarReasons": {
+    "old-gods-of-appalachia": "Tradition-centered supernatural horror where family, place, and inherited stories carry real consequences; the cultural settings are distinct.",
+    "hello-from-the-hallowoods": "Long-form queer supernatural fiction where identity, community, and hope have to survive the horror.",
+    "the-night-post": "A tradition-and-frontier route for listeners who want supernatural danger rooted in a living culture rather than a generic monster hunt."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -818,5 +841,10 @@
   "featured": false,
   "createdAt": "2026-07-21",
   "updatedAt": "2026-07-21",
-  "creatorId": "motzie-dapul"
+  "creatorId": "motzie-dapul",
+  "discovery": {
+    "narrativeFocus": "character-driven",
+    "intensity": "variable",
+    "commitment": "deep-dive"
+  }
 }
