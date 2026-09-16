@@ -6,8 +6,8 @@ Latest catalog update: `2026-09-16`
 
 | Metric | Value |
 | --- | ---: |
-| Curated public entities | 122 |
-| Shows with explicit public entity links | 256 |
+| Curated public entities | 132 |
+| Shows with explicit public entity links | 266 |
 | Total shows | 752 |
 | Published shows | 752 |
 | Draft shows | 0 |
@@ -21,13 +21,13 @@ Latest catalog update: `2026-09-16`
 | Creator-verified shows | 0 |
 | Shows with RSS | 746 |
 | Shows missing metadata.objectiveSources | 0 |
-| Shows with metadata.researchGaps | 22 |
+| Shows with metadata.researchGaps | 25 |
 
 ## Discovery Gaps
 
 - Shows missing similarReasons: 0
 - Shows with out-of-range similar links: 681
-- Shows with fewer than 2 collection memberships: 622
+- Shows with fewer than 2 collection memberships: 623
 - Anchor shows with fewer than 3 collection memberships: 0
 - Route collections missing showReasons: 0
 
@@ -39,22 +39,12 @@ Latest catalog update: `2026-09-16`
 
 ## Phase 2 Readiness (Gate B)
 
-- Status: `content-pending`
+- Status: `complete`
 - Numeric targets: 752 published shows (floor 129), 7 full reviews (floor 7), 46 collections (floor 29)
-- Factual metadata gaps: 2 core, 0 missing provenance, 2 actionable RSS, 0 missing detailed runtime
-- Explicit unknowns/research gaps: 22 records; 4 missing RSS and 4 runtime gaps are documented rather than hidden
+- Factual metadata gaps: 0 core, 0 missing provenance, 0 actionable RSS, 0 missing detailed runtime
+- Explicit unknowns/research gaps: 25 records; 6 missing RSS and 4 runtime gaps are documented rather than hidden
 - Editorial/recommendation gaps: 0; collection blockers: 0
 - Taxonomy: 165 controlled labels; unknown/non-approved public tags: 0
-- Sparse indexed-only discovery gaps are informational: 162 sparse records; 129 have fewer than two collections, 162 have no editorial similarity set, and 0 contain unsupported editorial claims
-- Phase 2 blocking errors: 10
-  - Factual metadata missing for "the-orbiting-human-circus": creator.
-  - Factual metadata missing for "claudia-a-viral-love-story": creator.
-  - Published show "batman-unburied" is missing an RSS link without a documented research gap.
-  - Published show "rosannas-secret" is missing an RSS link without a documented research gap.
-  - Published show "batman-unburied" has no verified runtime duration and no documented research gap.
-  - Published show "wormwood-a-serialized-mystery" has no verified runtime duration and no documented research gap.
-  - Published show "parkdale-haunt" has no verified runtime duration and no documented research gap.
-  - Published show "the-harrowing" has no verified runtime duration and no documented research gap.
-  - Published show "the-sojourn" has no verified runtime duration and no documented research gap.
-  - Published show "twilight-histories" falls outside the locked English fiction/audio-drama scope.
+- Sparse indexed-only discovery gaps are informational: 162 sparse records; 130 have fewer than two collections, 162 have no editorial similarity set, and 0 contain unsupported editorial claims
+- Phase 2 blocking errors: 0
 

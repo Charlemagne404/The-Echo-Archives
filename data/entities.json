@@ -1112,6 +1112,19 @@
     "directory": false
   },
   {
+    "id": "julian-koster",
+    "name": "Julian Koster",
+    "type": "person",
+    "aliases": [],
+    "publication": "public",
+    "indexable": true,
+    "reviewedAt": "2026-09-16",
+    "sources": [
+      "https://www.wnycstudios.org/podcasts/orbitinghumancircus/the-team"
+    ],
+    "directory": false
+  },
+  {
     "id": "alexander-j-newall",
     "name": "Alexander J Newall",
     "type": "person",
@@ -1877,5 +1890,143 @@
       "https://podcasts.apple.com/us/podcast/the-beacon/id1412439234?uo=4",
       "https://pinecast.com/feed/the-beacon"
     ]
+  },
+  {
+    "id": "david-s-goyer",
+    "name": "David S. Goyer",
+    "type": "person",
+    "aliases": [],
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-16",
+    "sources": [
+      "https://www.dc.com/blog/2020/09/29/david-s-goyer-warner-bros-and-dc-set-to-bring-batman-unburied-to-spotify",
+      "https://newsroom.spotify.com/2021-02-22/audio-brings-new-dimension-to-the-dc-comics-universe/"
+    ],
+    "directory": false
+  },
+  {
+    "id": "warner-bros",
+    "name": "Warner Bros.",
+    "type": "production-company",
+    "aliases": [],
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-16",
+    "sources": [
+      "https://www.dc.com/blog/2020/09/29/david-s-goyer-warner-bros-and-dc-set-to-bring-batman-unburied-to-spotify",
+      "https://newsroom.spotify.com/2021-02-22/audio-brings-new-dimension-to-the-dc-comics-universe/"
+    ],
+    "directory": false
+  },
+  {
+    "id": "third-person",
+    "name": "Third Person",
+    "type": "studio",
+    "aliases": [],
+    "website": "https://www.thirdperson.media/",
+    "publication": "public",
+    "indexable": true,
+    "reviewedAt": "2026-09-16",
+    "sources": [
+      "https://www.thirdperson.media/",
+      "https://www.blueberrieshill.com/"
+    ]
+  },
+  {
+    "id": "goblin-booth-productions",
+    "name": "Goblin Booth Productions",
+    "type": "production-company",
+    "aliases": [
+      "Goblin Booth Productions, LLC"
+    ],
+    "website": "https://www.goblinboothproductions.com/",
+    "publication": "public",
+    "indexable": true,
+    "reviewedAt": "2026-09-16",
+    "sources": [
+      "https://www.goblinboothproductions.com/",
+      "https://shows.acast.com/route6point6",
+      "https://shows.acast.com/the-harrowing-of-minerva-damson"
+    ]
+  },
+  {
+    "id": "goatshead-castle-productions",
+    "name": "Goatshead Castle Productions",
+    "type": "production-company",
+    "aliases": [
+      "Goatshead Castle Creations"
+    ],
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-16",
+    "sources": [
+      "https://samanthavhutton.com/podcast/rosannas-secret-2/",
+      "https://www.youtube.com/playlist?list=PLQHiDb_oo19OUDZ83ovUHm36acdM2degU",
+      "https://open.spotify.com/episode/5yzy8xOszgpVCKRKM6Okr4"
+    ],
+    "directory": false
+  },
+  {
+    "id": "dirt-road-theater",
+    "name": "Dirt Road Theater",
+    "type": "production-company",
+    "aliases": [],
+    "website": "https://www.dirtroadtheater.com/",
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-16",
+    "sources": [
+      "https://www.dirtroadtheater.com/fadpak",
+      "https://www.dirtroadtheater.com/customer-service"
+    ],
+    "directory": false
+  },
+  {
+    "id": "stak",
+    "name": "Stak",
+    "type": "production-company",
+    "aliases": [],
+    "website": "https://www.stak.london/",
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-16",
+    "sources": [
+      "https://www.stak.london/",
+      "https://stak.london/shows/jackie-the-ripper/"
+    ],
+    "directory": false
+  },
+  {
+    "id": "metal-steve-productions",
+    "name": "Metal Steve Productions",
+    "type": "production-company",
+    "aliases": [],
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-16",
+    "sources": [
+      "https://stationarcadia.wixsite.com/podcast/listen-now",
+      "https://podcasts.apple.com/us/podcast/station-arcadia/id1523613569"
+    ],
+    "directory": false
+  },
+  {
+    "id": "strangekind-studio",
+    "name": "Strangekind Studio",
+    "type": "studio",
+    "aliases": [
+      "STRANGEKIND STUDIO"
+    ],
+    "website": "https://strangekindstudio.weebly.com/",
+    "publication": "public",
+    "indexable": false,
+    "reviewedAt": "2026-09-16",
+    "sources": [
+      "https://strangekindstudio.weebly.com/",
+      "https://strangekindstudio.weebly.com/mercycastcrew.html",
+      "https://podcasts.apple.com/us/podcast/mercy-a-queer-eldritch-western/id1762529135?uo=4"
+    ],
+    "directory": false
   }
 ]

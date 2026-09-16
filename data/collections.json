@@ -18,7 +18,6 @@
       "the-white-vault"
     ],
     "showIds": [
-      "the-white-vault",
       "wolf-359",
       "tower-4",
       "startripper",
@@ -28,7 +27,8 @@
       "the-penumbra-podcast",
       "derelict",
       "impact-winter",
-      "midnight-burger"
+      "midnight-burger",
+      "the-white-vault"
     ],
     "showReasons": {
       "impact-winter": "Cinematic urgency and seasonal momentum make it easy to stay locked in.",
@@ -185,14 +185,14 @@
       "eos-10"
     ],
     "showIds": [
-      "oz-9",
       "eos-10",
       "wolf-359",
       "station-151",
       "crystal-blue",
       "oblivity",
       "we-fix-space-junk",
-      "midnight-burger"
+      "midnight-burger",
+      "oz-9"
     ],
     "showReasons": {
       "oz-9": "Maximum shipboard dysfunction for listeners who want comedy first.",
@@ -228,7 +228,6 @@
       "how-i-died"
     ],
     "showIds": [
-      "the-white-vault",
       "tower-4",
       "station-151",
       "copperheart-a-riggstories-audio-drama",
@@ -236,7 +235,8 @@
       "the-phenomenon",
       "the-secret-of-st-kilda",
       "red-frontier",
-      "impact-winter"
+      "impact-winter",
+      "the-white-vault"
     ],
     "showReasons": {
       "the-white-vault": "This is the clearest match for the collection's remote-expedition horror.",
@@ -384,7 +384,6 @@
       "solar",
       "vast-horizon",
       "ars-paradoxica",
-      "the-white-vault",
       "the-lovecraft-investigations",
       "video-palace",
       "limetown",
@@ -394,7 +393,8 @@
       "the-chronicles-of-astrimos",
       "red-frontier",
       "derelict",
-      "impact-winter"
+      "impact-winter",
+      "the-white-vault"
     ],
     "showReasons": {
       "impact-winter": "Big scenes and layered production make headphones worthwhile.",
@@ -602,7 +602,6 @@
       "were-alive",
       "end-of-all-hope",
       "the-phenomenon",
-      "the-white-vault",
       "copperheart-a-riggstories-audio-drama",
       "windfall",
       "red-frontier",
@@ -611,7 +610,8 @@
       "marsfall",
       "janus-descending",
       "derelict",
-      "impact-winter"
+      "impact-winter",
+      "the-white-vault"
     ],
     "showReasons": {
       "were-alive": "Long-running ensemble survival gives it endurance.",
@@ -878,7 +878,6 @@
     ],
     "showIds": [
       "archive-81",
-      "the-white-vault",
       "video-palace",
       "limetown",
       "the-black-tapes",
@@ -886,7 +885,8 @@
       "the-storage-papers",
       "the-sheridan-tapes",
       "the-deca-tapes",
-      "shelterwood"
+      "shelterwood",
+      "the-white-vault"
     ],
     "showReasons": {
       "archive-81": "Archival recordings and occult history make the act of cataloging part of the danger.",
@@ -903,7 +903,7 @@
     "featured": false,
     "order": 138.5,
     "createdAt": "2026-08-29",
-    "updatedAt": "2026-09-04"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "folk-horror-and-old-gods",
@@ -1035,7 +1035,6 @@
       "paradise-cab",
       "proxy-zone-reboot",
       "the-cleansed",
-      "the-sojourn",
       "to-chart-a-well-trod-course",
       "what-will-be-here"
     ],
@@ -1067,7 +1066,6 @@
       "paradise-cab": "Rule match: completed + Sci-Fi.",
       "proxy-zone-reboot": "Rule match: completed + Sci-Fi.",
       "the-cleansed": "Rule match: completed + Sci-Fi.",
-      "the-sojourn": "Rule match: completed + Sci-Fi.",
       "to-chart-a-well-trod-course": "Rule match: completed + Sci-Fi.",
       "what-will-be-here": "Rule match: completed + Sci-Fi."
     },
@@ -1164,8 +1162,8 @@
       "the-program-audio-series",
       "spectre",
       "earth-eclipsed",
-      "the-white-vault",
-      "impact-winter"
+      "impact-winter",
+      "the-white-vault"
     ],
     "showReasons": {
       "solar": "Contained space survival gives a similar pressure-first entry.",
@@ -1243,13 +1241,13 @@
     ],
     "showIds": [
       "eos-10",
-      "oz-9",
       "wooden-overcoats",
       "station-151",
       "crystal-blue",
       "oblivity",
       "we-fix-space-junk",
-      "midnight-burger"
+      "midnight-burger",
+      "oz-9"
     ],
     "showReasons": {
       "eos-10": "The closest station-comedy cousin if the ensemble friction is the thing you want more of.",
@@ -1288,10 +1286,10 @@
     "showIds": [
       "end-of-all-hope",
       "the-phenomenon",
-      "the-white-vault",
       "borrasca",
       "malevolent",
-      "impact-winter"
+      "impact-winter",
+      "the-white-vault"
     ],
     "showReasons": {
       "impact-winter": "Keeps the survival pressure high while leaning harder into cinematic genre spectacle.",
@@ -1327,11 +1325,11 @@
     ],
     "showIds": [
       "were-alive",
-      "the-white-vault",
       "end-of-all-hope",
       "malevolent",
       "archive-81",
-      "solar"
+      "solar",
+      "the-white-vault"
     ],
     "showReasons": {
       "were-alive": "The foundational survival-saga branch if you want endurance and ensemble consequence.",
@@ -1344,7 +1342,7 @@
     "featured": false,
     "order": 190,
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "shows-like-ars-paradoxica",
@@ -1406,12 +1404,12 @@
       "archive-81"
     ],
     "showIds": [
-      "the-white-vault",
       "station-151",
       "alice-isnt-dead",
       "archive-81",
       "malevolent",
-      "how-i-died"
+      "how-i-died",
+      "the-white-vault"
     ],
     "showReasons": {
       "the-white-vault": "The closest next stop for listeners who want environmental hostility and a real sense of isolation.",
@@ -1424,7 +1422,7 @@
     "featured": false,
     "order": 210,
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "shows-like-station-151",
@@ -1446,12 +1444,12 @@
       "archive-81"
     ],
     "showIds": [
-      "oz-9",
       "wolf-359",
       "tower-4",
       "archive-81",
+      "midnight-burger",
       "the-white-vault",
-      "midnight-burger"
+      "oz-9"
     ],
     "showReasons": {
       "oz-9": "Leans harder into comedy if the broken-space-station absurdity is what you want more of.",
@@ -1613,14 +1611,14 @@
     ],
     "showIds": [
       "archive-81",
-      "the-white-vault",
       "mabel",
       "mirrors",
       "alice-isnt-dead",
       "paralyzed",
       "spines-podcast",
       "the-black-tapes",
-      "mage-in-the-machine"
+      "mage-in-the-machine",
+      "the-white-vault"
     ],
     "showReasons": {
       "archive-81": "A stranger signal-horror branch once the occult mystery needs more structure and sound design.",
@@ -1636,7 +1634,7 @@
     "featured": false,
     "order": 260,
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "shows-like-the-magnus-archives",
@@ -1916,7 +1914,6 @@
     "commitment": "",
     "coverShowIds": [],
     "showIds": [
-      "oz-9",
       "station-151",
       "crystal-blue",
       "end-of-all-hope",
@@ -1990,10 +1987,11 @@
       "startripper",
       "derelict",
       "impact-winter",
-      "midnight-burger"
+      "midnight-burger",
+      "the-sojourn",
+      "oz-9"
     ],
     "showReasons": {
-      "oz-9": "Rule match: ongoing + Sci-Fi.",
       "station-151": "Rule match: ongoing + Sci-Fi.",
       "crystal-blue": "Rule match: ongoing + Sci-Fi.",
       "end-of-all-hope": "Rule match: ongoing + Sci-Fi.",
@@ -2067,7 +2065,9 @@
       "startripper": "Rule match: ongoing + Sci-Fi.",
       "derelict": "Rule match: ongoing + Sci-Fi.",
       "impact-winter": "Rule match: ongoing + Sci-Fi.",
-      "midnight-burger": "Rule match: ongoing + Sci-Fi."
+      "midnight-burger": "Rule match: ongoing + Sci-Fi.",
+      "the-sojourn": "Rule match: ongoing + Sci-Fi.",
+      "oz-9": "Rule match: ongoing + Sci-Fi."
     },
     "automation": {
       "mode": "rule",
@@ -2105,7 +2105,6 @@
     "commitment": "",
     "coverShowIds": [],
     "showIds": [
-      "oz-9",
       "desert-skies",
       "wooden-overcoats",
       "welcome-to-night-vale",
@@ -2156,10 +2155,10 @@
       "startripper",
       "the-chronicles-of-astrimos",
       "the-thrilling-adventure-hour",
-      "midnight-burger"
+      "midnight-burger",
+      "oz-9"
     ],
     "showReasons": {
-      "oz-9": "Rule match: ongoing + Comedy.",
       "desert-skies": "Rule match: ongoing + Comedy.",
       "wooden-overcoats": "Rule match: ongoing + Comedy.",
       "welcome-to-night-vale": "Rule match: ongoing + Comedy.",
@@ -2210,7 +2209,8 @@
       "startripper": "Rule match: ongoing + Comedy.",
       "the-chronicles-of-astrimos": "Rule match: ongoing + Comedy.",
       "the-thrilling-adventure-hour": "Rule match: ongoing + Comedy.",
-      "midnight-burger": "Rule match: ongoing + Comedy."
+      "midnight-burger": "Rule match: ongoing + Comedy.",
+      "oz-9": "Rule match: ongoing + Comedy."
     },
     "automation": {
       "mode": "rule",
@@ -2250,7 +2250,6 @@
     "showIds": [
       "how-i-died",
       "were-alive",
-      "the-white-vault",
       "station-151",
       "paralyzed",
       "alice-isnt-dead",
@@ -2273,12 +2272,12 @@
       "the-elmwood-strain",
       "the-other-stories-sci-fi-horror-thriller-wtf-stories",
       "shelterwood",
-      "mage-in-the-machine"
+      "mage-in-the-machine",
+      "the-white-vault"
     ],
     "showReasons": {
       "how-i-died": "Rule match: ongoing + Horror.",
       "were-alive": "Rule match: ongoing + Horror.",
-      "the-white-vault": "Rule match: ongoing + Horror.",
       "station-151": "Rule match: ongoing + Horror.",
       "paralyzed": "Rule match: ongoing + Horror.",
       "alice-isnt-dead": "Rule match: ongoing + Horror.",
@@ -2301,7 +2300,8 @@
       "the-elmwood-strain": "Rule match: ongoing + Horror.",
       "the-other-stories-sci-fi-horror-thriller-wtf-stories": "Rule match: ongoing + Horror.",
       "shelterwood": "Rule match: ongoing + Horror.",
-      "mage-in-the-machine": "Rule match: ongoing + Horror."
+      "mage-in-the-machine": "Rule match: ongoing + Horror.",
+      "the-white-vault": "Rule match: ongoing + Horror."
     },
     "automation": {
       "mode": "rule",
@@ -2400,7 +2400,6 @@
       "the-lovecraft-covenant",
       "the-radio-adventures-of-dr-floyd",
       "the-romcom-formula",
-      "the-sojourn",
       "to-chart-a-well-trod-course",
       "what-will-be-here"
     ],
@@ -2466,7 +2465,6 @@
       "the-lovecraft-covenant": "Rule match: completed + Drama.",
       "the-radio-adventures-of-dr-floyd": "Rule match: completed + Drama.",
       "the-romcom-formula": "Rule match: completed + Drama.",
-      "the-sojourn": "Rule match: completed + Drama.",
       "to-chart-a-well-trod-course": "Rule match: completed + Drama.",
       "what-will-be-here": "Rule match: completed + Drama."
     },

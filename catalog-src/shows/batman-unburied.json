@@ -1,5 +1,15 @@
 {
   "id": "batman-unburied",
+  "entityLinks": [
+    {
+      "entityId": "david-s-goyer",
+      "role": "creator"
+    },
+    {
+      "entityId": "warner-bros",
+      "role": "production-company"
+    }
+  ],
   "title": "Batman Unburied",
   "subtitle": "",
   "description": "A serial killer known as the Harvester terrorizes Gotham City, but Bruce Wayne has no memory of being Batman and must investigate the case from his work as a forensic pathologist.",

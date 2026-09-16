@@ -9,7 +9,6 @@
   "commitment": "",
   "coverShowIds": [],
   "showIds": [
-    "oz-9",
     "station-151",
     "crystal-blue",
     "end-of-all-hope",
@@ -83,10 +82,11 @@
     "startripper",
     "derelict",
     "impact-winter",
-    "midnight-burger"
+    "midnight-burger",
+    "the-sojourn",
+    "oz-9"
   ],
   "showReasons": {
-    "oz-9": "Rule match: ongoing + Sci-Fi.",
     "station-151": "Rule match: ongoing + Sci-Fi.",
     "crystal-blue": "Rule match: ongoing + Sci-Fi.",
     "end-of-all-hope": "Rule match: ongoing + Sci-Fi.",
@@ -160,7 +160,9 @@
     "startripper": "Rule match: ongoing + Sci-Fi.",
     "derelict": "Rule match: ongoing + Sci-Fi.",
     "impact-winter": "Rule match: ongoing + Sci-Fi.",
-    "midnight-burger": "Rule match: ongoing + Sci-Fi."
+    "midnight-burger": "Rule match: ongoing + Sci-Fi.",
+    "the-sojourn": "Rule match: ongoing + Sci-Fi.",
+    "oz-9": "Rule match: ongoing + Sci-Fi."
   },
   "automation": {
     "mode": "rule",

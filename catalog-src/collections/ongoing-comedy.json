@@ -9,7 +9,6 @@
   "commitment": "",
   "coverShowIds": [],
   "showIds": [
-    "oz-9",
     "desert-skies",
     "wooden-overcoats",
     "welcome-to-night-vale",
@@ -60,10 +59,10 @@
     "startripper",
     "the-chronicles-of-astrimos",
     "the-thrilling-adventure-hour",
-    "midnight-burger"
+    "midnight-burger",
+    "oz-9"
   ],
   "showReasons": {
-    "oz-9": "Rule match: ongoing + Comedy.",
     "desert-skies": "Rule match: ongoing + Comedy.",
     "wooden-overcoats": "Rule match: ongoing + Comedy.",
     "welcome-to-night-vale": "Rule match: ongoing + Comedy.",
@@ -114,7 +113,8 @@
     "startripper": "Rule match: ongoing + Comedy.",
     "the-chronicles-of-astrimos": "Rule match: ongoing + Comedy.",
     "the-thrilling-adventure-hour": "Rule match: ongoing + Comedy.",
-    "midnight-burger": "Rule match: ongoing + Comedy."
+    "midnight-burger": "Rule match: ongoing + Comedy.",
+    "oz-9": "Rule match: ongoing + Comedy."
   },
   "automation": {
     "mode": "rule",

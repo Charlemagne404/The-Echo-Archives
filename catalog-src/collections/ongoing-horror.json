@@ -11,7 +11,6 @@
   "showIds": [
     "how-i-died",
     "were-alive",
-    "the-white-vault",
     "station-151",
     "paralyzed",
     "alice-isnt-dead",
@@ -34,12 +33,12 @@
     "the-elmwood-strain",
     "the-other-stories-sci-fi-horror-thriller-wtf-stories",
     "shelterwood",
-    "mage-in-the-machine"
+    "mage-in-the-machine",
+    "the-white-vault"
   ],
   "showReasons": {
     "how-i-died": "Rule match: ongoing + Horror.",
     "were-alive": "Rule match: ongoing + Horror.",
-    "the-white-vault": "Rule match: ongoing + Horror.",
     "station-151": "Rule match: ongoing + Horror.",
     "paralyzed": "Rule match: ongoing + Horror.",
     "alice-isnt-dead": "Rule match: ongoing + Horror.",
@@ -62,7 +61,8 @@
     "the-elmwood-strain": "Rule match: ongoing + Horror.",
     "the-other-stories-sci-fi-horror-thriller-wtf-stories": "Rule match: ongoing + Horror.",
     "shelterwood": "Rule match: ongoing + Horror.",
-    "mage-in-the-machine": "Rule match: ongoing + Horror."
+    "mage-in-the-machine": "Rule match: ongoing + Horror.",
+    "the-white-vault": "Rule match: ongoing + Horror."
   },
   "automation": {
     "mode": "rule",

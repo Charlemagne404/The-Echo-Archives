@@ -1,6 +1,6 @@
 {
-  "publicEntities": 122,
-  "showsWithEntityLinks": 256,
+  "publicEntities": 132,
+  "showsWithEntityLinks": 266,
   "totalShows": 752,
   "publishedShows": 752,
   "draftShows": 0,
@@ -14,7 +14,7 @@
   "creatorVerified": 0,
   "withRss": 746,
   "missingObjectiveSources": 0,
-  "withResearchGaps": 22,
+  "withResearchGaps": 25,
   "phase2": {
     "policy": {
       "fullReviewFloor": 7,
@@ -40,22 +40,7 @@
       }
     },
     "factual": {
-      "coreMetadataGaps": [
-        {
-          "id": "the-orbiting-human-circus",
-          "title": "The Orbiting Human Circus",
-          "missing": [
-            "creator"
-          ]
-        },
-        {
-          "id": "claudia-a-viral-love-story",
-          "title": "Claudia, A Viral Love Story",
-          "missing": [
-            "creator"
-          ]
-        }
-      ],
+      "coreMetadataGaps": [],
       "missingObjectiveSources": [],
       "missingRss": [
         "earth-eclipsed",
@@ -69,12 +54,11 @@
         "earth-eclipsed",
         "the-rapscallion-agency",
         "the-invenios-expeditions",
-        "the-sojourn"
-      ],
-      "actionableMissingRss": [
         "batman-unburied",
+        "the-sojourn",
         "rosannas-secret"
       ],
+      "actionableMissingRss": [],
       "missingRuntime": [],
       "documentedRuntimeUnknowns": [
         "the-rapscallion-agency",
@@ -178,6 +162,13 @@
           ]
         },
         {
+          "id": "two-flat-earthers-kidnap-a-freemason",
+          "title": "Two Flat Earthers Kidnap a Freemason",
+          "gaps": [
+            "No distinct canonical Spotify show URL was found for Two Flat Earthers Kidnap a Freemason. The previous URL resolves to a shared Good Pointe/STITCHES platform identity and was removed pending a platform-confirmed listing for this Apple/RSS record."
+          ]
+        },
+        {
           "id": "edict-zero-fis",
           "title": "Edict Zero - FIS",
           "gaps": [
@@ -199,6 +190,13 @@
           ]
         },
         {
+          "id": "route-6-6",
+          "title": "Route 6.6",
+          "gaps": [
+            "No distinct canonical Spotify show URL was found for Route 6.6. The previous URL resolves to The Harrowing of Minerva Damson, while Route 6.6 has distinct Acast and Apple identities; the Spotify link was removed pending platform confirmation."
+          ]
+        },
+        {
           "id": "fairies-and-dragons-ponies-and-knights",
           "title": "Fairies and Dragons, Ponies and Knights",
           "gaps": [
@@ -216,43 +214,40 @@
           "id": "batman-unburied",
           "title": "Batman Unburied",
           "gaps": [
-            "current Spotify canonical page presents the related Fallen City continuation"
+            "No canonical public RSS feed was found for Batman Unburied. The current Spotify show ID resolves to Batman Unburied: Fallen City and the original season-one episode pages remain under that platform identity; a separate season-one show URL was not verified."
           ]
         },
         {
           "id": "parkdale-haunt",
           "title": "Parkdale Haunt",
           "gaps": [
-            "current Apple listing uses the related Woodbine title for the same feed identity"
+            "The Megaphone RSS, Spotify show, and Apple collection are shared provider identities for Parkdale Haunt and Woodbine: A Parkdale Haunts Production. Parkdale-specific counts use feed seasons 1–3; Woodbine begins at season 4. The feed marks 33 Parkdale items as full, 4 bonus, and 7 trailers."
+          ]
+        },
+        {
+          "id": "the-harrowing",
+          "title": "The Harrowing",
+          "gaps": [
+            "The current Acast feed and Apple collection are empty or unavailable, so a current canonical episode list was not verified."
           ]
         },
         {
           "id": "the-sojourn",
           "title": "The Sojourn",
           "gaps": [
-            "official distribution is through audiobook retailers and no public podcast RSS f"
+            "Official pages describe The Sojourn as an audiobook-retailer and Spotify-collection release rather than a podcast-RSS show; no public podcast RSS feed was found. Season Two Volume Three (episodes 7–9) is announced as coming soon and is not included in the released count."
           ]
         },
         {
-          "id": "twilight-histories",
-          "title": "Twilight Histories",
+          "id": "rosannas-secret",
+          "title": "Rosanna's Secret",
           "gaps": [
-            "the source directory also labels the feed as Games because of its role-playing p"
+            "No canonical show RSS feed was found on the official Rosanna's Secret page, its listed YouTube series playlist, or the Spotify episode. The WordPress feed at samanthavhutton.com/feed/ is a general site feed, not a show feed."
           ]
         }
       ],
       "sparseEditorialViolations": [],
-      "blockingErrors": [
-        "Factual metadata missing for \"the-orbiting-human-circus\": creator.",
-        "Factual metadata missing for \"claudia-a-viral-love-story\": creator.",
-        "Published show \"batman-unburied\" is missing an RSS link without a documented research gap.",
-        "Published show \"rosannas-secret\" is missing an RSS link without a documented research gap.",
-        "Published show \"batman-unburied\" has no verified runtime duration and no documented research gap.",
-        "Published show \"wormwood-a-serialized-mystery\" has no verified runtime duration and no documented research gap.",
-        "Published show \"parkdale-haunt\" has no verified runtime duration and no documented research gap.",
-        "Published show \"the-harrowing\" has no verified runtime duration and no documented research gap.",
-        "Published show \"the-sojourn\" has no verified runtime duration and no documented research gap."
-      ]
+      "blockingErrors": []
     },
     "editorial": {
       "eligibleShows": [
@@ -398,6 +393,7 @@
         "escape-pod",
         "eleanor-amplified",
         "alba-salix-royal-physician",
+        "the-sojourn",
         "red-for-revolution",
         "twilight-histories",
         "rosannas-secret"
@@ -585,32 +581,17 @@
       "blockingErrors": []
     },
     "scope": {
-      "outOfScopePublished": [
-        "twilight-histories"
-      ],
-      "blockingErrors": [
-        "Published show \"twilight-histories\" falls outside the locked English fiction/audio-drama scope."
-      ]
+      "outOfScopePublished": [],
+      "blockingErrors": []
     },
     "sparseIndexedOnly": {
       "count": 162,
       "outOfRangeSimilarLinks": 162,
-      "fewerThanTwoCollections": 129,
+      "fewerThanTwoCollections": 130,
       "editorialViolations": [],
       "informationalOnly": true
     },
-    "blockingErrors": [
-      "Factual metadata missing for \"the-orbiting-human-circus\": creator.",
-      "Factual metadata missing for \"claudia-a-viral-love-story\": creator.",
-      "Published show \"batman-unburied\" is missing an RSS link without a documented research gap.",
-      "Published show \"rosannas-secret\" is missing an RSS link without a documented research gap.",
-      "Published show \"batman-unburied\" has no verified runtime duration and no documented research gap.",
-      "Published show \"wormwood-a-serialized-mystery\" has no verified runtime duration and no documented research gap.",
-      "Published show \"parkdale-haunt\" has no verified runtime duration and no documented research gap.",
-      "Published show \"the-harrowing\" has no verified runtime duration and no documented research gap.",
-      "Published show \"the-sojourn\" has no verified runtime duration and no documented research gap.",
-      "Published show \"twilight-histories\" falls outside the locked English fiction/audio-drama scope."
-    ],
-    "complete": false
+    "blockingErrors": [],
+    "complete": true
   }
 }

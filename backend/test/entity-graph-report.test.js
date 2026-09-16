@@ -46,49 +46,49 @@ test("the current source snapshot reports graph coverage without loading generat
   });
   assert.deepEqual(report.summary, {
     showCount: 752,
-    entityCount: 122,
-    relationshipCount: 306,
-    rawRelationshipCount: 306,
-    uniqueShowEntityPairCount: 306,
-    connectedShowCount: 256,
-    connectedShowPercent: 34.04,
-    zeroRelationshipShowCount: 496,
-    weaklyLinkedShowCount: 708,
-    unlinkedShowWithEvidenceCount: 496,
+    entityCount: 132,
+    relationshipCount: 318,
+    rawRelationshipCount: 318,
+    uniqueShowEntityPairCount: 318,
+    connectedShowCount: 266,
+    connectedShowPercent: 35.37,
+    zeroRelationshipShowCount: 486,
+    weaklyLinkedShowCount: 707,
+    unlinkedShowWithEvidenceCount: 486,
     unlinkedShowWithoutEvidenceCount: 0,
     collectionCount: 46,
-    collectionMembershipCount: 620,
-    showsWithCollectionMembership: 243,
-    showsWithoutCollectionMembership: 509,
+    collectionMembershipCount: 687,
+    showsWithCollectionMembership: 290,
+    showsWithoutCollectionMembership: 462,
     orphanEntityCount: 0,
-    weakEntityCount: 53,
+    weakEntityCount: 61,
     duplicateRelationshipGroupCount: 0,
     sameEntityMultipleRoleCount: 0,
-    roleTypeDivergenceCount: 41,
+    roleTypeDivergenceCount: 43,
     linkedEvidenceConflictCount: 0,
   });
-  assert.equal(report.coverage.creatorRelationship.showCount, 59);
+  assert.equal(report.coverage.creatorRelationship.showCount, 61);
   assert.equal(report.coverage.creatorEvidenceWithoutRelationship.showCount, 691);
   assert.deepEqual(report.relationshipTypeCounts.map(({ role, relationships, showCount }) => ({ role, relationships, showCount })), [
-    { role: "creator", relationships: 65, showCount: 59 },
-    { role: "production-company", relationships: 157, showCount: 156 },
-    { role: "studio", relationships: 9, showCount: 9 },
+    { role: "creator", relationships: 67, showCount: 61 },
+    { role: "production-company", relationships: 166, showCount: 165 },
+    { role: "studio", relationships: 10, showCount: 10 },
     { role: "network", relationships: 75, showCount: 75 },
   ]);
-  assert.equal(report.zeroRelationshipShows.length, 496);
-  assert.equal(report.priorityQueues.researchSourceAndLink.length, 496);
+  assert.equal(report.zeroRelationshipShows.length, 486);
+  assert.equal(report.priorityQueues.researchSourceAndLink.length, 486);
   assert.equal(report.priorityQueues.reviewRegistryMatch.length, 0);
   assert.equal(report.priorityQueues.noKnownEvidence.length, 0);
   assert.equal(report.orphanEntities.length, 0);
   assert.deepEqual(report.collectionCoverage.summary, {
     collectionCount: 46,
-    membershipCount: 620,
-    rawMembershipCount: 620,
-    showsWithMembership: 243,
-    showsWithoutMembership: 509,
-    showsWithMembershipPercent: 32.31,
-    averageCollectionsPerShow: 0.82,
-    collectionBipartitePercent: 1.79,
+    membershipCount: 687,
+    rawMembershipCount: 687,
+    showsWithMembership: 290,
+    showsWithoutMembership: 462,
+    showsWithMembershipPercent: 38.56,
+    averageCollectionsPerShow: 0.91,
+    collectionBipartitePercent: 1.99,
     orphanCollectionCount: 0,
     duplicateMembershipGroupCount: 0,
     unknownShowMembershipCount: 0,
@@ -97,7 +97,7 @@ test("the current source snapshot reports graph coverage without loading generat
   });
   assert.equal(report.topConnectedEntities[0].entityId, "realm");
   assert.equal(report.topConnectedEntities[0].showCount, 21);
-  assert.equal(report.suspiciousRelationships.roleTypeDivergences.length, 41);
+  assert.equal(report.suspiciousRelationships.roleTypeDivergences.length, 43);
   assert.ok(report.entityCoverageByType.every((entry) => Object.hasOwn(entry, "linkedEntityPercent")));
   assert.ok(report.evidence.byField.every((entry) => Number.isInteger(entry.uniqueValueCount)));
 });

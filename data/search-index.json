@@ -1719,7 +1719,7 @@
       "wolf-359": "A bigger character-payoff branch for listeners who liked the station setup but want more growth.",
       "wooden-overcoats": "Keeps the timing, vanity, and petty disasters intact without the sci-fi wrapper."
     },
-    "archiveTake": "Chaotic, unserious, and easy to understand once you stop waiting for it to behave like a straight sci-fi drama.",
+    "archiveTake": "A chaotic, deeply unserious sci-fi comedy that works best if you’re here for the characters and the nonsense more than the plot.",
     "facts": {
       "structure": "Bounces between different characters and places.",
       "narrator": "Yes (in-universe character).",
@@ -1762,7 +1762,7 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-09-14"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "ars-paradoxica",
@@ -2203,7 +2203,7 @@
       "malevolent": "A darker supernatural escalation for listeners who want more threat and more occult texture.",
       "how-i-died": "Keeps the mystery and supernatural investigation lane active while dialing down the arctic scale."
     },
-    "archiveTake": "Still one of the archive's best isolation-horror anchors when the environment itself needs to feel hostile.",
+    "archiveTake": "A slow-burning supernatural mystery where every answer only makes the whole thing more unsettling.",
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
@@ -2247,7 +2247,7 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-09-14"
+    "updatedAt": "2026-09-16"
   },
   {
     "id": "eos-10",
@@ -4617,6 +4617,21 @@
     "coverAlt": "Midst cover art",
     "creators": [
       "Third Person"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "third-person",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "third-person",
+        "name": "Third Person",
+        "type": "studio",
+        "aliases": [],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -14533,7 +14548,9 @@
       }
     ],
     "coverAlt": "The Orbiting Human Circus cover art",
-    "creators": [],
+    "creators": [
+      "Julian Koster"
+    ],
     "entityLinks": [
       {
         "entityId": "wnyc-studios",
@@ -14542,6 +14559,10 @@
       {
         "entityId": "night-vale-presents",
         "role": "production-company"
+      },
+      {
+        "entityId": "julian-koster",
+        "role": "creator"
       }
     ],
     "resolvedEntities": [
@@ -14558,6 +14579,13 @@
         "type": "network",
         "aliases": [],
         "role": "production-company"
+      },
+      {
+        "id": "julian-koster",
+        "name": "Julian Koster",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
       }
     ],
     "status": "published",
@@ -14594,7 +14622,14 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "ownerName": "WNYC Studios and Night Vale Presents"
+      "creatorName": "Julian Koster",
+      "ownerName": "WNYC Studios and Night Vale Presents",
+      "writers": [
+        "Julian Koster"
+      ],
+      "directors": [
+        "Julian Koster"
+      ]
     },
     "availability": {
       "transcripts": "unknown",
@@ -26194,6 +26229,23 @@
     "creators": [
       "Strangekind Studio"
     ],
+    "entityLinks": [
+      {
+        "entityId": "strangekind-studio",
+        "role": "studio"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "strangekind-studio",
+        "name": "Strangekind Studio",
+        "type": "studio",
+        "aliases": [
+          "STRANGEKIND STUDIO"
+        ],
+        "role": "studio"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -31026,6 +31078,21 @@
     "creators": [
       "Metal Steve Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "metal-steve-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "metal-steve-productions",
+        "name": "Metal Steve Productions",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -31976,6 +32043,21 @@
     "coverAlt": "Jackie the Ripper cover art",
     "creators": [
       "Stak"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "stak",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "stak",
+        "name": "Stak",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -35592,6 +35674,23 @@
     "coverAlt": "The Harrowing of Minerva Damson cover art",
     "creators": [
       "Goblin Booth Productions, LLC"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "goblin-booth-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "goblin-booth-productions",
+        "name": "Goblin Booth Productions",
+        "type": "production-company",
+        "aliases": [
+          "Goblin Booth Productions, LLC"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -41148,6 +41247,23 @@
     "coverAlt": "Route 6.6 cover art",
     "creators": [
       "Goblin Booth Productions, LLC"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "goblin-booth-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "goblin-booth-productions",
+        "name": "Goblin Booth Productions",
+        "type": "production-company",
+        "aliases": [
+          "Goblin Booth Productions, LLC"
+        ],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "imported",
@@ -49359,6 +49475,21 @@
     "creators": [
       "Third Person"
     ],
+    "entityLinks": [
+      {
+        "entityId": "third-person",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "third-person",
+        "name": "Third Person",
+        "type": "studio",
+        "aliases": [],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "imported",
     "releaseStatus": "unknown",
@@ -51033,6 +51164,21 @@
     "creators": [
       "Gracelyn, Oliver and Dominic Spillane"
     ],
+    "entityLinks": [
+      {
+        "entityId": "dirt-road-theater",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "dirt-road-theater",
+        "name": "Dirt Road Theater",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -51753,7 +51899,9 @@
       }
     ],
     "coverAlt": "Claudia, A Viral Love Story cover art",
-    "creators": [],
+    "creators": [
+      "Profile Theatre"
+    ],
     "entityLinks": [
       {
         "entityId": "profile-theatre",
@@ -51796,7 +51944,10 @@
     "similarReasons": {},
     "archiveTake": "",
     "facts": {},
-    "credits": {},
+    "credits": {
+      "creatorName": "Profile Theatre",
+      "productionCompany": "Profile Theatre"
+    },
     "availability": {
       "transcripts": "unknown",
       "captions": "unknown",
@@ -55612,7 +55763,33 @@
     ],
     "coverAlt": "Batman Unburied cover art",
     "creators": [
-      "Spotify / Warner Bros. / DC"
+      "David S. Goyer"
+    ],
+    "entityLinks": [
+      {
+        "entityId": "david-s-goyer",
+        "role": "creator"
+      },
+      {
+        "entityId": "warner-bros",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "david-s-goyer",
+        "name": "David S. Goyer",
+        "type": "person",
+        "aliases": [],
+        "role": "creator"
+      },
+      {
+        "id": "warner-bros",
+        "name": "Warner Bros.",
+        "type": "production-company",
+        "aliases": [],
+        "role": "production-company"
+      }
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -55650,7 +55827,11 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "Spotify / Warner Bros. / DC"
+      "creatorName": "David S. Goyer",
+      "writer": "David S. Goyer",
+      "executiveProducer": "David S. Goyer",
+      "productionCompany": "Warner Bros.",
+      "distributor": "Spotify"
     },
     "availability": {
       "transcripts": "unknown",
@@ -56362,7 +56543,8 @@
     "archiveTake": "",
     "facts": {},
     "credits": {
-      "creatorName": "Emily Kellogg & Alex Nursall"
+      "creatorName": "Emily Kellogg & Alex Nursall",
+      "distributor": "Realm"
     },
     "availability": {
       "transcripts": "unknown",
@@ -56860,8 +57042,8 @@
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "completed",
-    "completionStatus": "finished",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
     "genres": [
       "sci-fi",
       "drama"
@@ -56969,7 +57151,7 @@
     "id": "twilight-histories",
     "title": "Twilight Histories",
     "subtitle": "",
-    "description": "The Twilight Histories is an immersive audio adventure that casts you as a time-traveling hero. Each episode transports you to a new world, blending alternate history, science fiction, fantasy, and role-playing into a fully soundscaped audio drama.",
+    "description": "Twilight Histories is immersive alternate-history audio fiction. Each episode takes you to a different world where history happened differently, with full soundscapes.",
     "cover": "images/covers/twilight-histories.png",
     "coverVariants": [
       {
@@ -57052,6 +57234,23 @@
     "creators": [
       "Goatshead Castle Productions"
     ],
+    "entityLinks": [
+      {
+        "entityId": "goatshead-castle-productions",
+        "role": "production-company"
+      }
+    ],
+    "resolvedEntities": [
+      {
+        "id": "goatshead-castle-productions",
+        "name": "Goatshead Castle Productions",
+        "type": "production-company",
+        "aliases": [
+          "Goatshead Castle Creations"
+        ],
+        "role": "production-company"
+      }
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
@@ -57086,7 +57285,7 @@
     "credits": {
       "creatorName": "Goatshead Castle Productions",
       "ownerName": "Samantha V Hutton",
-      "network": "Goatshead Castle Productions",
+      "productionCompany": "Goatshead Castle Productions",
       "writers": [
         "Samantha V Hutton"
       ],

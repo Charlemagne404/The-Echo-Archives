@@ -1,5 +1,11 @@
 {
   "id": "blueberries-hill",
+  "entityLinks": [
+    {
+      "entityId": "third-person",
+      "role": "production-company"
+    }
+  ],
   "title": "Blueberries Hill",
   "subtitle": "",
   "description": "An extremely well-behaved Beatrix Potter-ish storybook podcast series ostensibly for children.",
