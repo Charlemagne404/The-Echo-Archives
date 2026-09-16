@@ -76,6 +76,15 @@ Use `noindex, follow, noarchive` for discovery filter/search states so crawlers 
 
 Important content, card links, collection reasons, headings, and breadcrumbs must exist in the raw HTML response. Client JavaScript may enhance or refresh that content, but must not be the only way a crawler can discover it. See [Google’s JavaScript SEO basics](https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics).
 
+Agents may request the same canonical public content URL with
+`Accept: text/markdown`. The response uses `Content-Type: text/markdown;
+charset=utf-8` and `Vary: Accept`; HTML remains the default representation.
+Markdown includes the canonical page URL, source-backed metadata, editorial or
+community review content where public, and absolute internal links. Forms,
+APIs, maintainer tools, aliases, error pages, and offline pages do not expose a
+Markdown representation. No separate alternate `<link>` is emitted because
+the Markdown and HTML variants are negotiated at the same URL.
+
 ## Collection-page quality gate
 
 A collection can be indexed and included in the sitemap only when all of these are true:

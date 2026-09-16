@@ -659,7 +659,7 @@ function resolveSimilarityIndex(showMap, collections, providedIndex = null) {
   return index;
 }
 
-function renderSimilarSection(show, showMap, collections = [], providedSimilarityIndex = null) {
+function getSimilarShowGroups(show, showMap, collections = [], providedSimilarityIndex = null) {
   const authoredNeighbors = (Array.isArray(show.similarTo) ? show.similarTo : [])
     .map((id) => ({ neighbor: showMap.get(id), reason: String(show.similarReasons?.[id] || "").trim() }))
     .filter(({ neighbor, reason }) => neighbor && reason)
@@ -672,6 +672,17 @@ function renderSimilarSection(show, showMap, collections = [], providedSimilarit
       .filter(({ show: neighbor }) => neighbor && !authoredIds.has(neighbor.id))
       .map(({ show: neighbor, explanation }) => ({ neighbor, reason: explanation }))
     : [];
+
+  return { authoredNeighbors, computedNeighbors };
+}
+
+function renderSimilarSection(show, showMap, collections = [], providedSimilarityIndex = null) {
+  const { authoredNeighbors, computedNeighbors } = getSimilarShowGroups(
+    show,
+    showMap,
+    collections,
+    providedSimilarityIndex,
+  );
 
   if (authoredNeighbors.length === 0 && computedNeighbors.length === 0) {
     return "";
@@ -709,7 +720,7 @@ function renderSimilarGroup(source, kicker, title, description, neighbors) {
 }
 
 function renderCollectionsSection(show, collections = [], showMap = new Map()) {
-  const memberships = collections.filter((collection) => Array.isArray(collection.showIds) && collection.showIds.includes(show.id));
+  const memberships = getCollectionMemberships(show, collections);
   if (memberships.length === 0) {
     return "";
   }
@@ -731,6 +742,10 @@ function renderCollectionsSection(show, collections = [], showMap = new Map()) {
       ${hiddenMemberships.length ? `<details class="detail-route-overflow"><summary>${formatRouteExpansion(hiddenMemberships.length)}</summary><div class="detail-route-overflow-grid">${hiddenMemberships.map(renderRoute).join("")}</div></details>` : ""}
     </section>
   `;
+}
+
+function getCollectionMemberships(show, collections = []) {
+  return collections.filter((collection) => Array.isArray(collection.showIds) && collection.showIds.includes(show.id));
 }
 
 function getCollectionCoverShows(collection, showMap) {
@@ -852,5 +867,15 @@ function injectShowRootContent(html, content) {
 module.exports = {
   createMissingShowPageMarkup,
   createShowPageMarkup,
+  getArchivePerspectiveText,
+  getCollectionMemberships,
+  getCreatorNetworkLabel,
+  getHeroRuntimeValue,
+  getListenerReviewScore,
+  getPrimaryListenLink,
+  getReviewPage,
+  getSimilarShowGroups,
+  getSummaryDescriptor,
+  hasArchiveReviewContent,
   injectShowRootContent,
 };

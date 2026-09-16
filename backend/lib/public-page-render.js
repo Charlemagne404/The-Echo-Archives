@@ -528,6 +528,7 @@ module.exports = {
   buildCollectionStructuredData,
   buildShowPageMetadata,
   buildShowStructuredData,
+  getRelatedCollections,
   injectRuntimeSiteConfig,
   injectPageMetadata,
   injectCollectionSummary,

@@ -90,9 +90,14 @@ test("generated public metadata and discovery documents use one configured origi
     assert.match(html, /<meta name="twitter:image:alt" content="[^"]+"/);
   });
 
-  assert.match(read("robots.txt"), new RegExp(`Sitemap: ${siteUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\/sitemap\\.xml`));
-  assert.match(read("robots.txt"), /^Disallow: \/maintainer\/$/m);
-  assert.match(read("robots.txt"), /^Disallow: \/api\/$/m);
+  const robots = read("robots.txt");
+  const robotsGeneralGroup = robots.split(/\n\s*\n/)[0];
+  assert.match(robotsGeneralGroup, /^User-agent: \*$/m);
+  assert.match(robotsGeneralGroup, /^Content-Signal: ai-train=no, search=yes, ai-input=yes$/m);
+  assert.match(robotsGeneralGroup, /^Allow: \/$/m);
+  assert.match(robotsGeneralGroup, /^Disallow: \/maintainer\/$/m);
+  assert.match(robotsGeneralGroup, /^Disallow: \/api\/$/m);
+  assert.match(robots, new RegExp(`Sitemap: ${siteUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\/sitemap\\.xml`));
   assert.match(read("sitemap.xml"), new RegExp(`<loc>${siteUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\/</loc>`));
   assert.doesNotMatch(read("sitemap.xml"), /\/(?:show|collection)\?id=/);
 });

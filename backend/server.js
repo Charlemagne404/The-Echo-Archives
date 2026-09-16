@@ -36,6 +36,24 @@ const { createMaintainerRouter } = require("./lib/routes/maintainer-routes");
 const { createSubmissionRouter } = require("./lib/routes/submission-routes");
 const { createPublishedListenerReviewRouter } = require("./lib/routes/published-listener-review-routes");
 const { loadSiteHelpContext } = require("./lib/ai/site-help");
+const { buildRobotsTxt } = require("./lib/robots");
+const {
+  markNegotiatedResponse,
+  prefersMarkdown,
+  sendMarkdown,
+} = require("./lib/markdown-negotiation");
+const {
+  STATIC_MARKDOWN_FILES,
+  getStaticPageValues,
+  renderCollectionDirectoryMarkdown,
+  renderCollectionMarkdown,
+  renderEntityDirectoryMarkdown,
+  renderEntityMarkdown,
+  renderHomeMarkdown,
+  renderMissingMarkdown,
+  renderShowMarkdown,
+  renderStaticPageMarkdown,
+} = require("./lib/public-markdown-render");
 const {
   buildCollectionPageMetadata,
   buildCollectionStructuredData,
@@ -636,19 +654,7 @@ async function startServer() {
 
   app.get("/robots.txt", (_req, res) => {
     res.set("Cache-Control", "public, max-age=3600, stale-while-revalidate=3600");
-    if (config.IS_STAGING) {
-      return res.type("text/plain").send(["User-agent: *", "Disallow: /", ""].join("\n"));
-    }
-    res.type("text/plain").send(
-      [
-        "User-agent: *",
-        "Allow: /",
-        "Disallow: /api/",
-        "Disallow: /maintainer/",
-        `Sitemap: ${normalizeSiteUrl(config.SITE_URL)}/sitemap.xml`,
-        "",
-      ].join("\n"),
-    );
+    res.type("text/plain").send(buildRobotsTxt({ siteUrl: config.SITE_URL, isStaging: config.IS_STAGING }));
   });
 
   app.get("/data/shows.json", (_req, res) => {
@@ -828,11 +834,38 @@ async function startServer() {
     });
 
     const sendEntityPage = (req, res, entity = null) => {
+      markNegotiatedResponse(res);
       const query = !entity && typeof req.query.q === "string" ? req.query.q.trim().slice(0, 200) : "";
       const entityType = !entity && typeof req.query.type === "string" ? req.query.type.trim().slice(0, 40) : "";
       const sort = !entity && typeof req.query.sort === "string" ? req.query.sort.trim().slice(0, 40) : "";
+      const isNoIndex = Object.keys(req.query).length || (entity && !isIndexableEntity(entity, state.publicCatalog));
+      if (prefersMarkdown(req.get("accept"))) {
+        if (isNoIndex) {
+          res.set("X-Robots-Tag", "noindex, follow, noarchive");
+        }
+        res.set("Cache-Control", "no-cache");
+        const markdown = entity
+          ? renderEntityMarkdown({
+              entity,
+              entities: state.entities,
+              shows: state.publicCatalog,
+              collections: state.collections,
+              siteUrl: config.SITE_URL,
+            })
+          : renderEntityDirectoryMarkdown({
+              entities: state.entities,
+              shows: state.publicCatalog,
+              collections: state.collections,
+              siteUrl: config.SITE_URL,
+              query,
+              entityType,
+              sort,
+            });
+        return sendMarkdown(res, markdown);
+      }
+
       let rendered = renderEntityPage(readPublicPageTemplate("creators.html"), { entity, entities: state.entities, shows: state.publicCatalog, collections: state.collections, siteUrl: config.SITE_URL, query, entityType, sort });
-      if (Object.keys(req.query).length || (entity && !isIndexableEntity(entity, state.publicCatalog))) {
+      if (isNoIndex) {
         res.set("X-Robots-Tag", "noindex, follow, noarchive");
         rendered = injectNoIndex(rendered, { follow: true });
       }
@@ -842,9 +875,25 @@ async function startServer() {
     app.get("/creators", (req, res) => sendEntityPage(req, res));
     app.get(["/creators/:entityId", "/creators/:entityId/index.html"], (req, res) => {
       const entity = state.entities.find((entry) => entry.id === req.params.entityId);
+      const isCanonicalEntityPath = req.path === entityPath(req.params.entityId);
       if (!entity) {
         res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
         res.set("Cache-Control", "no-cache");
+        if (isCanonicalEntityPath) {
+          markNegotiatedResponse(res);
+        }
+        if (isCanonicalEntityPath && prefersMarkdown(req.get("accept"))) {
+          return sendMarkdown(
+            res,
+            renderMissingMarkdown({
+              description: "The requested Echo Archives creator page could not be found.",
+              routePath: `/creators/${req.params.entityId}`,
+              siteUrl: config.SITE_URL,
+              title: "Creator not found - The Echo Archives",
+            }),
+            404,
+          );
+        }
         return res.status(404).type("html").send(renderErrorPage(req, "404.html"));
       }
       if (req.path !== entityPath(entity.id) || Object.keys(req.query).length) return res.redirect(301, entityPath(entity.id));
@@ -852,11 +901,24 @@ async function startServer() {
     });
 
     const renderCollectionPage = (req, res, collectionId) => {
+      markNegotiatedResponse(res);
       const collection = state.collections.find((entry) => entry.id === collectionId);
 
       if (!collection) {
         res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
         res.set("Cache-Control", "no-cache");
+        if (prefersMarkdown(req.get("accept"))) {
+          return sendMarkdown(
+            res,
+            renderMissingMarkdown({
+              description: "The requested Echo Archives collection could not be found.",
+              routePath: buildCollectionPath(collectionId),
+              siteUrl: config.SITE_URL,
+              title: "Collection not found - The Echo Archives",
+            }),
+            404,
+          );
+        }
         return res.status(404).type("html").send(renderErrorPage(req, "404.html"));
       }
 
@@ -866,6 +928,22 @@ async function startServer() {
         .filter(Boolean);
       const anchorShow =
         collection.anchorShowId && showMap.has(collection.anchorShowId) ? showMap.get(collection.anchorShowId) : null;
+      if (prefersMarkdown(req.get("accept"))) {
+        if (!isIndexableCollection(collection, collectionShows)) {
+          res.set("X-Robots-Tag", "noindex, follow, noarchive");
+        }
+        res.set("Cache-Control", "no-cache");
+        return sendMarkdown(
+          res,
+          renderCollectionMarkdown({
+            collection,
+            collectionShows,
+            anchorShow,
+            collections: state.collections,
+            siteUrl: config.SITE_URL,
+          }),
+        );
+      }
       const template = readPublicPageTemplate("collection.html");
       let rendered = injectPageMetadata(
         injectCollectionShowCards(
@@ -924,11 +1002,29 @@ async function startServer() {
       return res.redirect(301, buildCollectionPath(collection.id));
     });
 
-    const renderShowPage = (req, res, showId) => {
+    const renderShowPage = (req, res, showId, { allowMarkdown = true } = {}) => {
+      if (allowMarkdown) {
+        markNegotiatedResponse(res);
+      }
       const show = state.publicCatalog.find((entry) => entry.id === showId);
-      const template = readPublicPageTemplate("show.html");
 
       if (!show) {
+        if (allowMarkdown && prefersMarkdown(req.get("accept"))) {
+          res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+          res.set("Cache-Control", "no-cache");
+          return sendMarkdown(
+            res,
+            renderMissingMarkdown({
+              description: "The requested Echo Archives show page could not be found.",
+              routePath: buildShowPath(showId),
+              siteUrl: config.SITE_URL,
+              title: "Show not found - The Echo Archives",
+            }),
+            404,
+          );
+        }
+
+        const template = readPublicPageTemplate("show.html");
         const renderedMissing = injectPageMetadata(
           injectNoIndex(injectShowRootContent(template, createMissingShowPageMarkup())),
           {
@@ -945,6 +1041,25 @@ async function startServer() {
       }
 
       const showMap = new Map(state.publicCatalog.map((entry) => [entry.id, entry]));
+      if (prefersMarkdown(req.get("accept"))) {
+        const reviewData = publishedListenerReviewService.getPublicReviewPage(show.id, { page: 1, pageSize: 10 });
+        const communitySummary = communityService.getRatingSummaries({ podcastIds: [show.id], compact: true }).summaries?.[show.id] || {};
+        res.set("Cache-Control", "no-cache");
+        return sendMarkdown(
+          res,
+          renderShowMarkdown({
+            show,
+            shows: state.publicCatalog,
+            collections: state.collections,
+            siteUrl: config.SITE_URL,
+            reviewData,
+            communitySummary,
+            similarityIndex: state.similarityIndex,
+          }),
+        );
+      }
+
+      const template = readPublicPageTemplate("show.html");
       let rendered = injectPageMetadata(
         injectShowRootContent(
           template,
@@ -981,17 +1096,62 @@ async function startServer() {
       const showId = typeof req.query.id === "string" ? req.query.id.trim() : "";
       const show = state.publicCatalog.find((entry) => entry.id === showId);
       if (!show) {
-        return renderShowPage(req, res, showId);
+        return renderShowPage(req, res, showId, { allowMarkdown: false });
       }
       return res.redirect(301, buildShowPath(show.id));
     });
 
     PUBLIC_PAGE_FILES.forEach((fileName, routePath) => {
       app.get(routePath, (req, res) => {
+        const supportsMarkdown = routePath === "/" || routePath === "/collections" || routePath === "/creators" || STATIC_MARKDOWN_FILES.has(fileName);
+        if (supportsMarkdown) {
+          markNegotiatedResponse(res);
+        }
         res.set("Cache-Control", "no-cache");
         const manifestEntry = publicPageManifestByFile.get(fileName);
         if (!manifestEntry) {
           return res.sendFile(path.join(config.STATIC_ROOT, fileName));
+        }
+
+        const isFilteredDiscoveryPage = ["/", "/collections"].includes(routePath) && Object.keys(req.query).length > 0;
+        if (supportsMarkdown && prefersMarkdown(req.get("accept"))) {
+          if (isFilteredDiscoveryPage) {
+            res.set("X-Robots-Tag", "noindex, follow, noarchive");
+          }
+          const metadata = buildStaticPageMetadata({
+            routePath,
+            requestSiteUrl: config.SITE_URL,
+            manifestEntry,
+          });
+          let markdown;
+          if (routePath === "/") {
+            markdown = renderHomeMarkdown({
+              shows: state.publicCatalog,
+              collections: state.collections,
+              siteUrl: config.SITE_URL,
+              metadata,
+            });
+          } else if (routePath === "/collections") {
+            markdown = renderCollectionDirectoryMarkdown({
+              collections: state.collections,
+              metadata,
+              shows: state.publicCatalog,
+              siteUrl: config.SITE_URL,
+              query: typeof req.query.q === "string" ? req.query.q.trim().slice(0, 200) : "",
+              intent: typeof req.query.intent === "string" ? req.query.intent.trim().slice(0, 80) : "",
+            });
+          } else {
+            const sourcePath = path.join(config.STATIC_ROOT, "site-src", "pages", manifestEntry.source || fileName);
+            markdown = renderStaticPageMarkdown({
+              sourceHtml: fs.readFileSync(sourcePath, "utf8"),
+              metadata,
+              siteUrl: config.SITE_URL,
+              routePath,
+              dynamicValues: getStaticPageValues(fileName, { shows: state.publicCatalog, collections: state.collections }),
+              archivistEnabled: config.ARCHIVIST_ENABLED,
+            });
+          }
+          return sendMarkdown(res, markdown);
         }
 
         let rendered = injectPageMetadata(
@@ -1002,7 +1162,6 @@ async function startServer() {
             manifestEntry,
           }),
         );
-        const isFilteredDiscoveryPage = ["/", "/collections"].includes(routePath) && Object.keys(req.query).length > 0;
         if (isFilteredDiscoveryPage) {
           rendered = injectNoIndex(rendered, { follow: true });
           res.set("X-Robots-Tag", "noindex, follow, noarchive");

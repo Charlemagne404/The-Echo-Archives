@@ -186,6 +186,7 @@ function compareRecentlyAdded(left, right) {
 }
 
 function getArchiveStats(shows, collections) {
+  const creatorNames = new Set(shows.flatMap((show) => Array.isArray(show.creators) ? show.creators.filter(Boolean) : []));
   const fullReviewCount = shows.filter((show) => show.reviewStatus === "full-review").length;
   const latestUpdatedAt = [
     ...shows.map((show) => show.updatedAt),
@@ -200,6 +201,10 @@ function getArchiveStats(shows, collections) {
     fullReviewCount,
     collectionCount: collections.length,
     latestUpdatedAt: latestUpdatedAt || "",
+    creatorCount: creatorNames.size,
+    metadataCheckedCount: shows.filter((show) => Boolean(
+      show.verification?.status || show.verification?.verifiedAt || show.metadata?.objectiveVerifiedAt,
+    )).length,
   };
 }
 
@@ -714,6 +719,9 @@ function renderCollectionsPagePrerender(pageBody, { rootDir }) {
 }
 
 module.exports = {
+  compareRecentlyAdded,
+  getArchiveStats,
+  getCollectionShows,
   renderArchiveCard,
   renderCollectionShowCard,
   renderCollectionDirectoryCard,

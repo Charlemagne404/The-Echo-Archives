@@ -128,6 +128,19 @@ Maintainer-only routes when configured:
 
 Legacy detail HTML and `/show?id=...` or `/collection?id=...` aliases are compatibility routes only. The backend permanently redirects them to the clean canonical routes, which are the only detail URLs emitted by internal links and the sitemap.
 
+Public content negotiation
+
+The Express public-route layer also serves a negotiated Markdown representation
+when a client gives `text/markdown` a higher `Accept` quality than
+`text/html`. HTML remains the default and the existing HTML templates and
+browser behavior are unchanged. `Vary: Accept` is set on every route that can
+serve both representations; public pages already use `Cache-Control: no-cache`,
+so the representation cannot be reused as a long-lived CDN/browser cache
+variant. Markdown is rendered from the same normalized catalog, review,
+collection, entity, and page-source inputs as the HTML route. It excludes
+navigation, controls, scripts, styles, decorative media, form pages, API/data
+endpoints, maintainer routes, redirects, and error/offline pages.
+
 ## Frontend Role
 
 The frontend should:

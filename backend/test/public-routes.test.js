@@ -140,6 +140,136 @@ test("public clean routes resolve and legacy html routes redirect", async () => 
   }
 });
 
+test("public content pages negotiate Markdown without changing HTML defaults", async () => {
+  const context = await startPublicRouteServer();
+
+  try {
+    const showPath = "/shows/impact-winter";
+    const browserResponse = await fetch(`${context.baseUrl}${showPath}`);
+    assert.equal(browserResponse.status, 200);
+    assert.match(browserResponse.headers.get("content-type") || "", /text\/html/);
+    assert.equal(browserResponse.headers.get("vary"), "Accept");
+    assert.equal(browserResponse.headers.get("cache-control"), "no-cache");
+    assert.match(await browserResponse.text(), /<html\b/i);
+
+    const htmlResponse = await fetch(`${context.baseUrl}${showPath}`, {
+      headers: { Accept: "text/html" },
+    });
+    assert.equal(htmlResponse.status, 200);
+    assert.match(htmlResponse.headers.get("content-type") || "", /text\/html/);
+    assert.equal(htmlResponse.headers.get("vary"), "Accept");
+
+    const markdownResponse = await fetch(`${context.baseUrl}${showPath}`, {
+      headers: { Accept: "text/markdown" },
+    });
+    assert.equal(markdownResponse.status, 200);
+    assert.match(markdownResponse.headers.get("content-type") || "", /^text\/markdown;\s*charset=utf-8/i);
+    assert.equal(markdownResponse.headers.get("vary"), "Accept");
+    assert.equal(markdownResponse.headers.get("cache-control"), "no-cache");
+    assert.match(markdownResponse.headers.get("x-markdown-tokens") || "", /^\d+$/);
+    const markdown = await markdownResponse.text();
+    assert.match(markdown, /^---\ntitle:/);
+    assert.match(markdown, /^# Impact Winter$/m);
+    assert.match(markdown, /^## Archive review$/m);
+    assert.match(markdown, /Season one hits hardest/);
+    assert.match(markdown, /http:\/\/127\.0\.0\.1:\d+\/shows\/impact-winter/);
+    assert.doesNotMatch(markdown, /<(?:html|nav|script|style|button|form|footer)\b/i);
+
+    const markdownPreferred = await fetch(`${context.baseUrl}${showPath}`, {
+      headers: { Accept: "text/markdown, text/html;q=0.9" },
+    });
+    assert.match(markdownPreferred.headers.get("content-type") || "", /^text\/markdown;/i);
+    assert.equal(markdownPreferred.headers.get("vary"), "Accept");
+
+    const htmlPreferred = await fetch(`${context.baseUrl}${showPath}`, {
+      headers: { Accept: "text/html, text/markdown;q=0.9" },
+    });
+    assert.match(htmlPreferred.headers.get("content-type") || "", /text\/html/);
+    assert.equal(htmlPreferred.headers.get("vary"), "Accept");
+
+    const textWildcard = await fetch(`${context.baseUrl}${showPath}`, {
+      headers: { Accept: "text/*" },
+    });
+    assert.match(textWildcard.headers.get("content-type") || "", /^text\/markdown;/i);
+    assert.equal(textWildcard.headers.get("vary"), "Accept");
+
+    const anyWildcard = await fetch(`${context.baseUrl}${showPath}`, {
+      headers: { Accept: "*/*" },
+    });
+    assert.match(anyWildcard.headers.get("content-type") || "", /text\/html/);
+    assert.equal(anyWildcard.headers.get("vary"), "Accept");
+
+    const markdownRejected = await fetch(`${context.baseUrl}${showPath}`, {
+      headers: { Accept: "text/markdown;q=0" },
+    });
+    assert.match(markdownRejected.headers.get("content-type") || "", /text\/html/);
+    assert.equal(markdownRejected.headers.get("vary"), "Accept");
+
+    const entityResponse = await fetch(`${context.baseUrl}/creators/7-lamb-productions`, {
+      headers: { Accept: "text/markdown" },
+    });
+    assert.equal(entityResponse.status, 200);
+    assert.match(entityResponse.headers.get("content-type") || "", /^text\/markdown;/i);
+    const entityMarkdown = await entityResponse.text();
+    assert.match(entityMarkdown, /^# 7 Lamb Productions$/m);
+    assert.match(entityMarkdown, /^## Connected shows$/m);
+    assert.match(entityMarkdown, /\/shows\/tower-4/);
+
+    const collectionResponse = await fetch(`${context.baseUrl}/collections/best-for-long-walks`, {
+      headers: { Accept: "text/markdown" },
+    });
+    assert.equal(collectionResponse.status, 200);
+    assert.match(collectionResponse.headers.get("content-type") || "", /^text\/markdown;/i);
+    const collectionMarkdown = await collectionResponse.text();
+    assert.match(collectionMarkdown, /^# Best for long walks$/m);
+    assert.match(collectionMarkdown, /Cinematic urgency and seasonal momentum/);
+    assert.match(collectionMarkdown, /\/shows\/impact-winter/);
+
+    const aboutResponse = await fetch(`${context.baseUrl}/about`, {
+      headers: { Accept: "text/markdown" },
+    });
+    assert.equal(aboutResponse.status, 200);
+    assert.match(aboutResponse.headers.get("content-type") || "", /^text\/markdown;/i);
+    const aboutMarkdown = await aboutResponse.text();
+    assert.match(aboutMarkdown, /^# Why The Echo Archives exists$/m);
+    assert.match(aboutMarkdown, /Published fiction podcasts in the archive/);
+    assert.doesNotMatch(aboutMarkdown, /<(?:nav|script|style|button|form|footer)\b/i);
+
+    const submissionResponse = await fetch(`${context.baseUrl}/submit`, {
+      headers: { Accept: "text/markdown" },
+    });
+    assert.equal(submissionResponse.status, 200);
+    assert.match(submissionResponse.headers.get("content-type") || "", /text\/html/);
+    assert.equal(submissionResponse.headers.get("vary"), null);
+
+    const missingResponse = await fetch(`${context.baseUrl}/shows/not-a-real-show`, {
+      headers: { Accept: "text/markdown" },
+    });
+    assert.equal(missingResponse.status, 404);
+    assert.match(missingResponse.headers.get("content-type") || "", /^text\/markdown;/i);
+    assert.equal(missingResponse.headers.get("vary"), "Accept");
+    assert.equal(missingResponse.headers.get("cache-control"), "no-cache");
+    assert.match(missingResponse.headers.get("x-robots-tag") || "", /noindex/i);
+    assert.match(await missingResponse.text(), /^# Show not found - The Echo Archives$/m);
+
+    const missingEntityHtmlResponse = await fetch(`${context.baseUrl}/creators/not-a-real-creator`, {
+      headers: { Accept: "text/html" },
+    });
+    assert.equal(missingEntityHtmlResponse.status, 404);
+    assert.match(missingEntityHtmlResponse.headers.get("content-type") || "", /text\/html/);
+    assert.equal(missingEntityHtmlResponse.headers.get("vary"), "Accept");
+
+    const apiResponse = await fetch(`${context.baseUrl}/api/health`, {
+      headers: { Accept: "text/markdown" },
+    });
+    assert.equal(apiResponse.status, 200);
+    assert.match(apiResponse.headers.get("content-type") || "", /application\/json/);
+    assert.equal(apiResponse.headers.get("vary"), null);
+  } finally {
+    await stopPublicRouteServer(context);
+  }
+});
+
 test("all indexable creator and collection routes serve canonical structured pages", async () => {
   const context = await startPublicRouteServer();
 
@@ -513,6 +643,10 @@ test("errors, contact, robots, canonical origin, and security headers have safe 
     const robots = await fetch(`${context.baseUrl}/robots.txt`);
     assert.equal(robots.status, 200);
     const robotsText = await robots.text();
+    const robotsGeneralGroup = robotsText.split(/\n\s*\n/)[0];
+    assert.match(robotsGeneralGroup, /^User-agent: \*$/m);
+    assert.match(robotsGeneralGroup, /^Content-Signal: ai-train=no, search=yes, ai-input=yes$/m);
+    assert.match(robotsGeneralGroup, /^Allow: \/$/m);
     assert.match(robotsText, new RegExp(`Sitemap: ${context.baseUrl}/sitemap\\.xml`));
     assert.match(robotsText, /Disallow: \/maintainer\//);
     assert.match(robotsText, /Disallow: \/api\//);

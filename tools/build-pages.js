@@ -5,6 +5,7 @@ const { pathToFileURL } = require("node:url");
 
 const { renderEntityPage } = require("../backend/lib/entity-page-render");
 const { loadEntities, publicEntityRecords } = require("../backend/lib/entities");
+const { buildRobotsTxt } = require("../backend/lib/robots");
 const { buildSitemapXml } = require("../backend/lib/sitemap");
 const { BRAND_DESCRIPTOR, DEFAULT_DESCRIPTION } = require("../backend/lib/seo");
 const { generateStaticImageVariants } = require("../backend/lib/responsive-images");
@@ -1126,16 +1127,7 @@ function writeStaticSitemap({ siteUrl, catalog, collections, entities }) {
 }
 
 function writeRobots({ siteUrl }) {
-  const contents = [
-    "User-agent: *",
-    "Allow: /",
-    "Disallow: /api/",
-    "Disallow: /maintainer/",
-    "",
-    `Sitemap: ${new URL("/sitemap.xml", `${siteUrl}/`).toString()}`,
-    "",
-  ].join("\n");
-  writeFile(path.join(ROOT, "robots.txt"), contents);
+  writeFile(path.join(ROOT, "robots.txt"), buildRobotsTxt({ siteUrl }));
 }
 
 async function loadHomeConfig() {

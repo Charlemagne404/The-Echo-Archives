@@ -444,4 +444,15 @@ function renderEntityPage(template, { entity = null, entities = [], shows = [], 
   return html;
 }
 
-module.exports = { renderEntityPage, buildEntityPageData, buildEntitySeoTitle, buildEntitySeoDescription };
+module.exports = {
+  buildEntityPageData,
+  buildEntitySeoDescription,
+  buildEntitySeoTitle,
+  getEntityPageProfile,
+  getEntityShowRoles,
+  normalizeDirectoryFilter,
+  normalizeDirectorySort,
+  orderedShows,
+  renderEntityPage,
+  sortDirectoryEntities,
+};
