@@ -17,9 +17,6 @@
     "the-white-vault"
   ],
   "showIds": [
-    "impact-winter",
-    "derelict",
-    "midnight-burger",
     "the-white-vault",
     "wolf-359",
     "tower-4",
@@ -27,7 +24,10 @@
     "tumanbay",
     "old-gods-of-appalachia",
     "the-silt-verses",
-    "the-penumbra-podcast"
+    "the-penumbra-podcast",
+    "derelict",
+    "impact-winter",
+    "midnight-burger"
   ],
   "showReasons": {
     "impact-winter": "Cinematic urgency and seasonal momentum make it easy to stay locked in.",
@@ -45,5 +45,5 @@
   "featured": true,
   "order": 10,
   "createdAt": "2026-06-01",
-  "updatedAt": "2026-08-29"
+  "updatedAt": "2026-09-16"
 }

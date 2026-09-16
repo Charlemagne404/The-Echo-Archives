@@ -33,7 +33,20 @@
     "janus-descending",
     "moonbase-theta-out",
     "flash-gordon-and-buck-rogers-radio-adventurers",
-    "hallway-to-nowhere"
+    "hallway-to-nowhere",
+    "celeritas",
+    "death-by-inches",
+    "deviser",
+    "doctor-who-redacted",
+    "liminal",
+    "marscorp",
+    "newts",
+    "paradise-cab",
+    "proxy-zone-reboot",
+    "the-cleansed",
+    "the-sojourn",
+    "to-chart-a-well-trod-course",
+    "what-will-be-here"
   ],
   "showReasons": {
     "solar": "Completed science-fiction match from verified completion status and genre metadata.",
@@ -52,7 +65,20 @@
     "janus-descending": "Completed science-fiction match from verified completion status and genre metadata.",
     "moonbase-theta-out": "Completed science-fiction match from verified completion status and genre metadata.",
     "flash-gordon-and-buck-rogers-radio-adventurers": "Completed science-fiction match from verified completion status and genre metadata.",
-    "hallway-to-nowhere": "Completed science-fiction match from verified completion status and genre metadata."
+    "hallway-to-nowhere": "Completed science-fiction match from verified completion status and genre metadata.",
+    "celeritas": "Rule match: completed + Sci-Fi.",
+    "death-by-inches": "Rule match: completed + Sci-Fi.",
+    "deviser": "Rule match: completed + Sci-Fi.",
+    "doctor-who-redacted": "Rule match: completed + Sci-Fi.",
+    "liminal": "Rule match: completed + Sci-Fi.",
+    "marscorp": "Rule match: completed + Sci-Fi.",
+    "newts": "Rule match: completed + Sci-Fi.",
+    "paradise-cab": "Rule match: completed + Sci-Fi.",
+    "proxy-zone-reboot": "Rule match: completed + Sci-Fi.",
+    "the-cleansed": "Rule match: completed + Sci-Fi.",
+    "the-sojourn": "Rule match: completed + Sci-Fi.",
+    "to-chart-a-well-trod-course": "Rule match: completed + Sci-Fi.",
+    "what-will-be-here": "Rule match: completed + Sci-Fi."
   },
   "automation": {
     "mode": "rule",
@@ -77,5 +103,5 @@
   "featured": false,
   "order": 165,
   "createdAt": "2026-08-16",
-  "updatedAt": "2026-08-16"
+  "updatedAt": "2026-09-16"
 }

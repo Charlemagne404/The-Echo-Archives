@@ -15,6 +15,7 @@ const { normalizeParagraphs, normalizeQuote, normalizeReviewRecord } = require("
 const { validateSiteData } = require("../../scripts/review-helpers");
 
 const FULL_REVIEW_SOURCE_STATUSES = new Set(["imported", "indexed-only", "planned"]);
+const EDITABLE_REVIEW_STATUSES = new Set([...FULL_REVIEW_SOURCE_STATUSES, "full-review"]);
 
 function text(value, limit = 4_000) {
   return String(value || "").trim().slice(0, limit);
@@ -138,6 +139,22 @@ function rankEntry(show, candidate, collections, fullReviews, target) {
     blockers,
     eligible: blockers.length === 0,
     createdAt: candidate?.createdAt || show.updatedAt || "",
+    updatedAt: show.updatedAt || "",
+  };
+}
+
+function existingReviewEntry(show) {
+  return {
+    showId: show.id,
+    title: show.title,
+    reviewStatus: show.reviewStatus,
+    target: "published",
+    score: 0,
+    factors: [show.updatedAt ? `Last updated ${show.updatedAt}` : "Published archive review"],
+    blockers: [],
+    eligible: true,
+    createdAt: show.updatedAt || "",
+    updatedAt: show.updatedAt || "",
   };
 }
 
@@ -238,16 +255,24 @@ function createElevationService({ staticRoot, importService, onPublished = null 
   }
 
   function listForMaintainer(target = "indexed-only") {
-    const selectedTarget = target === "full-review" ? "full-review" : "indexed-only";
+    const selectedTarget = ["full-review", "published"].includes(target) ? target : "indexed-only";
     const source = readCatalogSource(staticRoot);
     const fullReviews = source.shows.filter((show) => show.reviewStatus === "full-review");
     return {
       target: selectedTarget,
       items: source.shows
         .filter((show) => show.status === "published")
-        .filter((show) => selectedTarget === "indexed-only" ? show.reviewStatus === "imported" : FULL_REVIEW_SOURCE_STATUSES.has(show.reviewStatus))
-        .map((show) => rankEntry(show, importService.getPublishedCandidateForShow(show.id), source.collections, fullReviews, selectedTarget))
-        .sort((left, right) => right.score - left.score || String(left.createdAt).localeCompare(String(right.createdAt)) || left.showId.localeCompare(right.showId)),
+        .filter((show) => selectedTarget === "indexed-only"
+          ? show.reviewStatus === "imported"
+          : selectedTarget === "published"
+            ? show.reviewStatus === "full-review"
+            : FULL_REVIEW_SOURCE_STATUSES.has(show.reviewStatus))
+        .map((show) => selectedTarget === "published"
+          ? existingReviewEntry(show)
+          : rankEntry(show, importService.getPublishedCandidateForShow(show.id), source.collections, fullReviews, selectedTarget))
+        .sort((left, right) => selectedTarget === "published"
+          ? String(right.updatedAt || right.createdAt).localeCompare(String(left.updatedAt || left.createdAt)) || left.showId.localeCompare(right.showId)
+          : right.score - left.score || String(left.createdAt).localeCompare(String(right.createdAt)) || left.showId.localeCompare(right.showId)),
     };
   }
 
@@ -268,7 +293,7 @@ function createElevationService({ staticRoot, importService, onPublished = null 
         sources: candidate.sources.map((entry) => ({ sourceType: entry.sourceType, sourceUrl: entry.sourceUrl, sourceKey: entry.sourceKey, fetchStatus: entry.fetchStatus, fetchedAt: entry.fetchedAt })),
       } : null,
       factualCurrent,
-      editorialMissing: missingEditorialFields(show, review, source.collections, factualCurrent),
+      editorialMissing: show.reviewStatus === "full-review" ? [] : missingEditorialFields(show, review, source.collections, factualCurrent),
       collections: source.collections.map((collection) => ({ id: collection.id, title: collection.title, selected: collection.showIds?.includes(showId), reason: collection.showReasons?.[showId] || "" })),
     };
   }
@@ -279,7 +304,7 @@ function createElevationService({ staticRoot, importService, onPublished = null 
 
   async function saveReviewDraft(showId, rawDraft = {}) {
     const { source, show } = getShow(showId);
-    if (!FULL_REVIEW_SOURCE_STATUSES.has(show.reviewStatus)) {
+    if (!EDITABLE_REVIEW_STATUSES.has(show.reviewStatus)) {
       const error = new Error("This record cannot enter the full-review workflow.");
       error.statusCode = 409;
       throw error;
@@ -295,11 +320,14 @@ function createElevationService({ staticRoot, importService, onPublished = null 
       reviewStatus: show.reviewStatus === "imported" ? "planned" : show.reviewStatus,
       updatedAt: new Date().toISOString().slice(0, 10),
     };
+    const isPublishedReview = show.reviewStatus === "full-review";
     if (draft.archiveRating !== null) updatedShow.ratings = { ...(show.ratings || {}), archive: draft.archiveRating };
     ["tones", "formats", "bestFor", "similarTo"].forEach((field) => {
-      if (draft[field].length) updatedShow[field] = draft[field];
+      if (draft[field].length || isPublishedReview) updatedShow[field] = draft[field];
     });
-    if (draft.similarTo.length) updatedShow.similarReasons = Object.fromEntries(draft.similarTo.map((id) => [id, draft.similarReasons[id] || ""]));
+    if (draft.similarTo.length || isPublishedReview) {
+      updatedShow.similarReasons = Object.fromEntries(draft.similarTo.map((id) => [id, draft.similarReasons[id] || ""]));
+    }
     const selected = new Map(draft.collections.map((entry) => [entry.id, entry.reason]));
     const changedCollectionIds = [];
     const updatedCollections = source.collections.map((collection) => {

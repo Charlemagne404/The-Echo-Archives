@@ -196,6 +196,9 @@ test("indexed listener reviews and public category scores appear only when they 
 
   assert.match(listenerMarkup, /data-has-archive="false"/);
   assert.match(listenerMarkup, /Listener42/);
+  assert.match(listenerMarkup, /<p class="detail-review-byline">Listener42<\/p>/);
+  assert.match(listenerMarkup, /<p class="detail-review-published"><time datetime="2026-07-16T12:00:00\.000Z">Published July 16, 2026<\/time><\/p>/);
+  assert.ok(listenerMarkup.indexOf('class="detail-review-published"') > listenerMarkup.indexOf('data-review-helpful="listener-1"'));
   assert.match(listenerMarkup, /Reveal spoilers/);
   assert.match(listenerMarkup, /data-review-helpful="listener-1"/);
   assert.doesNotMatch(listenerMarkup, /The Echo Archives/);

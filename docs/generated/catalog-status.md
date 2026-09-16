@@ -1,6 +1,6 @@
 # Catalog Status
 
-Latest catalog update: `2026-09-14`
+Latest catalog update: `2026-09-16`
 
 ## Snapshot
 
@@ -27,7 +27,7 @@ Latest catalog update: `2026-09-14`
 
 - Shows missing similarReasons: 0
 - Shows with out-of-range similar links: 681
-- Shows with fewer than 2 collection memberships: 637
+- Shows with fewer than 2 collection memberships: 622
 - Anchor shows with fewer than 3 collection memberships: 0
 - Route collections missing showReasons: 0
 
@@ -45,7 +45,7 @@ Latest catalog update: `2026-09-14`
 - Explicit unknowns/research gaps: 22 records; 4 missing RSS and 4 runtime gaps are documented rather than hidden
 - Editorial/recommendation gaps: 0; collection blockers: 0
 - Taxonomy: 165 controlled labels; unknown/non-approved public tags: 0
-- Sparse indexed-only discovery gaps are informational: 162 sparse records; 136 have fewer than two collections, 162 have no editorial similarity set, and 0 contain unsupported editorial claims
+- Sparse indexed-only discovery gaps are informational: 162 sparse records; 129 have fewer than two collections, 162 have no editorial similarity set, and 0 contain unsupported editorial claims
 - Phase 2 blocking errors: 10
   - Factual metadata missing for "the-orbiting-human-circus": creator.
   - Factual metadata missing for "claudia-a-viral-love-story": creator.

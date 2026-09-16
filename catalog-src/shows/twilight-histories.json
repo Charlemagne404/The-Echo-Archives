@@ -2,7 +2,7 @@
   "id": "twilight-histories",
   "title": "Twilight Histories",
   "subtitle": "",
-  "description": "The Twilight Histories is an immersive audio adventure that casts you as a time-traveling hero. Each episode transports you to a new world, blending alternate history, science fiction, fantasy, and role-playing into a fully soundscaped audio drama.",
+  "description": "Twilight Histories is immersive alternate-history audio fiction. Each episode takes you to a different world where history happened differently, with full soundscapes.",
   "cover": "images/covers/twilight-histories.png",
   "coverAlt": "Twilight Histories cover art",
   "status": "published",
@@ -106,10 +106,9 @@
   },
   "content": {},
   "metadata": {
-    "researchGaps": [
-      "the source directory also labels the feed as Games because of its role-playing p"
-    ],
+    "researchGaps": [],
     "objectiveSources": [
+      "https://twilighthistories.com/",
       "http://twilighthistories.com/",
       "https://audioboom.com/channels/4662184.rss",
       "https://podcasts.apple.com/us/podcast/twilight-histories/id475159941?uo=4"
@@ -126,7 +125,7 @@
       "Space",
       "Adventure"
     ],
-    "importOfficialSummary": "The Twilight Histories is an immersive audio adventure that casts you as a time-traveling hero. Each episode transports you to a new world, blending alternate history, science fiction, fantasy, and role-playing into a fully soundscaped audio drama.",
+    "importOfficialSummary": "Twilight Histories is immersive alternate-history audio fiction. Each episode takes you to a different world where history happened differently, with full soundscapes.",
     "socialUrls": [],
     "funding": [],
     "schedule": {
@@ -181,6 +180,7 @@
       ],
       "externalResearch": {
         "sourceUrls": [
+          "https://twilighthistories.com/",
           "http://twilighthistories.com/",
           "https://audioboom.com/channels/4662184.rss",
           "https://podcasts.apple.com/us/podcast/twilight-histories/id475159941?uo=4"
@@ -202,10 +202,8 @@
             "https://podcasts.apple.com/us/podcast/twilight-histories/id475159941?uo=4"
           ]
         },
-        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
-        "uncertainFields": [
-          "the source directory also labels the feed as Games because of its role-playing p"
-        ],
+        "notes": "Scope review: the official site describes Twilight Histories as immersive alternate-history audio fiction and Apple describes it as immersive audio drama. The sources mention role-playing as a story element, not an actual-play, TTRPG, or tabletop format, so the record remains inside the locked English fiction/audio-drama scope.",
+        "uncertainFields": [],
         "reviewedAt": "2026-09-06T18:04:39.437Z"
       },
       "fields": {

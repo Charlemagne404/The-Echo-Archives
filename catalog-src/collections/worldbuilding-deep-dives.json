@@ -17,10 +17,8 @@
     "ars-paradoxica"
   ],
   "showIds": [
-    "midnight-burger",
     "vast-horizon",
     "ars-paradoxica",
-    "impact-winter",
     "the-waystation",
     "were-alive",
     "midst",
@@ -32,7 +30,9 @@
     "the-silt-verses",
     "old-gods-of-appalachia",
     "the-penumbra-podcast",
-    "the-mistholme-museum-of-mystery-morbidity-and-mortality"
+    "the-mistholme-museum-of-mystery-morbidity-and-mortality",
+    "impact-winter",
+    "midnight-burger"
   ],
   "showReasons": {
     "midnight-burger": "Its cosmic premise keeps opening into more places and people.",
@@ -55,5 +55,5 @@
   "featured": false,
   "order": 130,
   "createdAt": "2026-06-23",
-  "updatedAt": "2026-08-29"
+  "updatedAt": "2026-09-16"
 }

@@ -2542,6 +2542,16 @@
   justify-content: flex-end;
 }
 
+.detail-review-published {
+  margin: 0;
+  color: var(--detail-text-muted);
+  font-size: 0.76rem;
+}
+
+.detail-review-published time {
+  color: inherit;
+}
+
 .detail-review-helpful {
   min-height: 34px;
   padding: 0 12px;

@@ -11,7 +11,7 @@
   "completionStatus": "unclear",
   "listenLinks": {
     "start": "",
-    "spotify": "https://open.spotify.com/show/2i1BSgfNBaQkqCIlUu3EGx",
+    "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/route-6-6/id1763626837?uo=4",
     "website": "https://shows.acast.com/route6point6",
     "rss": "https://feeds.acast.com/public/shows/66c16ec397d5e0cc4f8169d0",
@@ -108,12 +108,16 @@
   },
   "content": {},
   "metadata": {
+    "researchGaps": [
+      "No distinct canonical Spotify show URL was found for Route 6.6. The previous URL resolves to The Harrowing of Minerva Damson, while Route 6.6 has distinct Acast and Apple identities; the Spotify link was removed pending platform confirmation."
+    ],
     "objectiveSources": [
       "https://shows.acast.com/route6point6/episodes/s1e7-customer-service",
       "https://shows.acast.com/route6point6/episodes/s1e8-just-desserts",
       "https://shows.acast.com/route6point6/episodes",
       "https://shows.acast.com/route6point6/episodes/s1e85-leftovers",
       "https://shows.acast.com/route6point6",
+      "https://open.spotify.com/show/2i1BSgfNBaQkqCIlUu3EGx",
       "https://feeds.acast.com/public/shows/66c16ec397d5e0cc4f8169d0",
       "https://podcasts.apple.com/us/podcast/route-6-6/id1763626837?uo=4"
     ],

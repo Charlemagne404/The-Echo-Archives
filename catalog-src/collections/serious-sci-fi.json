@@ -17,11 +17,9 @@
     "solar"
   ],
   "showIds": [
-    "impact-winter",
     "ars-paradoxica",
     "solar",
     "vast-horizon",
-    "derelict",
     "spectre",
     "the-program-audio-series",
     "midst",
@@ -33,7 +31,9 @@
     "moonbase-theta-out",
     "red-frontier",
     "the-waystation",
-    "the-deca-tapes"
+    "the-deca-tapes",
+    "derelict",
+    "impact-winter"
   ],
   "showReasons": {
     "impact-winter": "A big, cinematic survival story with genre pressure at the front.",
@@ -57,5 +57,5 @@
   "featured": true,
   "order": 30,
   "createdAt": "2026-06-01",
-  "updatedAt": "2026-08-29"
+  "updatedAt": "2026-09-16"
 }

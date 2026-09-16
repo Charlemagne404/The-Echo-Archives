@@ -47,14 +47,23 @@
   "languages": [],
   "transcriptLanguages": [],
   "length": {
-    "label": "1 season observed",
+    "label": "1 season observed • at least 8 full episodes • 32 min median",
     "seasons": 1,
-    "durationCoverage": 0,
+    "episodes": 8,
+    "avgEpisodeMinutes": 32,
+    "medianEpisodeMinutes": 32,
+    "minEpisodeMinutes": 23,
+    "maxEpisodeMinutes": 44,
+    "totalObservedHours": 4.3,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
     "countQualifier": "at-least",
     "episodeCounts": {
-      "full": 0,
+      "full": 8,
       "bonus": 0,
-      "trailer": 0
+      "trailer": 3
     }
   },
   "releaseDates": {
@@ -108,11 +117,16 @@
   },
   "content": {},
   "metadata": {
+    "researchGaps": [
+      "The current Acast feed and Apple collection are empty or unavailable, so a current canonical episode list was not verified."
+    ],
     "objectiveSources": [
       "https://shows.acast.com/the-harrowing",
       "https://feeds.acast.com/public/shows/2c1c6fc3-d27b-481e-b2c0-1d8d3f6ee890",
       "https://podcasts.apple.com/us/podcast/the-harrowing/id1518315074?uo=4",
-      "https://robertdelamere.co.uk/productions/?i=52"
+      "https://robertdelamere.co.uk/productions/?i=52",
+      "https://www.listennotes.com/podcasts/the-harrowing-storyglass-1Plw7G8WEZg/",
+      "https://www.listennotes.com/podcasts/undertow-familiar/the-harrowing-e8-G-Y5uqA2B6T/"
     ],
     "sourceCategories": [
       "Horror",
@@ -179,7 +193,10 @@
         "sourceUrls": [
           "https://shows.acast.com/the-harrowing",
           "https://feeds.acast.com/public/shows/2c1c6fc3-d27b-481e-b2c0-1d8d3f6ee890",
-          "https://podcasts.apple.com/us/podcast/the-harrowing/id1518315074?uo=4"
+          "https://podcasts.apple.com/us/podcast/the-harrowing/id1518315074?uo=4",
+          "https://robertdelamere.co.uk/productions/?i=52",
+          "https://www.listennotes.com/podcasts/the-harrowing-storyglass-1Plw7G8WEZg/",
+          "https://www.listennotes.com/podcasts/undertow-familiar/the-harrowing-e8-G-Y5uqA2B6T/"
         ],
         "fieldSources": {
           "genres": [
@@ -198,8 +215,10 @@
             "https://podcasts.apple.com/us/podcast/the-harrowing/id1518315074?uo=4"
           ]
         },
-        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
-        "uncertainFields": [],
+        "notes": "The current Acast feed returned no episodes and the Apple lookup returned no collection. The official Robert Delamere page confirms the Storyglass production and Mark Healy credit. Runtime uses historical Listen Notes captures for episodes 1–7 plus the separately indexed E8 page; three historical trailers are kept outside the full-episode count.",
+        "uncertainFields": [
+          "The current canonical RSS episode list and Apple collection are unavailable. The eight-episode runtime is historical secondary evidence, including E8 from a separate indexed page, and should be rechecked if the publisher restores the feed."
+        ],
         "reviewedAt": "2026-09-06T18:04:39.410Z"
       },
       "fields": {

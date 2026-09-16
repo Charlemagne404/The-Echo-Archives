@@ -17,7 +17,6 @@
     "story"
   ],
   "showIds": [
-    "midnight-burger",
     "desert-skies",
     "story",
     "eos-10",
@@ -28,7 +27,8 @@
     "victoriocity",
     "startripper",
     "greater-boston",
-    "caravan"
+    "caravan",
+    "midnight-burger"
   ],
   "showReasons": {
     "midnight-burger": "The archive's strongest warm-cosmic weirdness lane.",
@@ -47,5 +47,5 @@
   "featured": false,
   "order": 110,
   "createdAt": "2026-06-23",
-  "updatedAt": "2026-07-18"
+  "updatedAt": "2026-09-16"
 }

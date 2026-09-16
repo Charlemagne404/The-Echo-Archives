@@ -200,7 +200,9 @@ function createPublishedListenerReviewStore({ db }) {
   }) {
     const existing = getBySubmissionId(submissionId);
     const now = new Date().toISOString();
-    const publishedAt = publish ? existing?.published ? existing.publishedAt : now : existing?.publishedAt || null;
+    const publishedAt = publish
+      ? existing?.published && existing.publishedAt ? existing.publishedAt : now
+      : existing?.publishedAt || null;
     const isPublished = publish || existing?.published ? 1 : 0;
     const scoreValues = Object.fromEntries(
       Object.entries(CATEGORY_SCORE_COLUMNS).map(([key, column]) => [

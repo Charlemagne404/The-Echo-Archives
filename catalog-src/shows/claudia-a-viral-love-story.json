@@ -84,9 +84,12 @@
     "funding": ""
   },
   "credits": {
-    "creatorName": []
+    "creatorName": "Profile Theatre",
+    "productionCompany": "Profile Theatre"
   },
-  "creators": [],
+  "creators": [
+    "Profile Theatre"
+  ],
   "cast": [],
   "verification": {
     "status": "automated-source-checked",
@@ -104,6 +107,7 @@
   "content": {},
   "metadata": {
     "objectiveSources": [
+      "https://profiletheatre.org/claudia/",
       "https://profiletheatre.org/about-us/",
       "https://profiletheatre.org/",
       "https://feeds.castos.com/ox85",

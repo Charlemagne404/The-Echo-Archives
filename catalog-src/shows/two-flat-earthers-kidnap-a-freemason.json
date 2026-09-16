@@ -21,7 +21,7 @@
   "completionStatus": "ongoing",
   "listenLinks": {
     "start": "https://goodpointepodcasts.com/",
-    "spotify": "https://open.spotify.com/show/1SD31t3fcAol2CTY8670ea?si=e59fedc07842461f",
+    "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/two-flat-earthers-kidnap-a-freemason/id1582700456",
     "website": "https://goodpointepodcasts.com/",
     "rss": "https://feeds.megaphone.fm/SBP2327511909",
@@ -125,10 +125,14 @@
   },
   "content": {},
   "metadata": {
+    "researchGaps": [
+      "No distinct canonical Spotify show URL was found for Two Flat Earthers Kidnap a Freemason. The previous URL resolves to a shared Good Pointe/STITCHES platform identity and was removed pending a platform-confirmed listing for this Apple/RSS record."
+    ],
     "objectiveSources": [
       "https://goodpointepodcasts.com/episodes",
       "https://goodpointepodcasts.com/2fekaf-transcripts",
       "https://goodpointepodcasts.com/",
+      "https://open.spotify.com/show/1SD31t3fcAol2CTY8670ea",
       "https://feeds.megaphone.fm/SBP2327511909",
       "https://podcasts.apple.com/us/podcast/two-flat-earthers-kidnap-a-freemason/id1582700456"
     ],
@@ -215,6 +219,7 @@
         "sourceUrls": [
           "https://feeds.megaphone.fm/SBP2327511909",
           "https://goodpointepodcasts.com/",
+          "https://open.spotify.com/show/1SD31t3fcAol2CTY8670ea",
           "https://goodpointepodcasts.com/2fekaf-transcripts",
           "https://goodpointepodcasts.com/episodes",
           "https://podcasts.apple.com/us/podcast/two-flat-earthers-kidnap-a-freemason/id1582700456"
@@ -266,8 +271,10 @@
             "https://podcasts.apple.com/us/podcast/two-flat-earthers-kidnap-a-freemason/id1582700456"
           ]
         },
-        "notes": "Maintainer fact check used the publisher feed and listed official source; controlled taxonomy labels were selected for discovery.",
-        "uncertainFields": [],
+        "notes": "Apple and Megaphone provide a distinct Two Flat Earthers identity. The previous Spotify URL is a broader Good Pointe/STITCHES identity whose current page names Two Flat Earthers plus other series; it is not retained as a canonical show link for this record.",
+        "uncertainFields": [
+          "No distinct canonical Spotify show URL was verified for this Apple/RSS record."
+        ],
         "reviewedAt": "2026-08-14T20:15:10.532Z"
       },
       "fields": {

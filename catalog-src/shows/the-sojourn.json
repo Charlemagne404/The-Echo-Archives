@@ -7,8 +7,8 @@
   "coverAlt": "The Sojourn cover art",
   "status": "published",
   "reviewStatus": "indexed-only",
-  "releaseStatus": "completed",
-  "completionStatus": "finished",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
   "listenLinks": {
     "start": "https://www.thesojournaudiodrama.com/",
     "spotify": "https://open.spotify.com/show/2Vl9XJLiIE2zwpjS6N6QfD",
@@ -41,12 +41,22 @@
   "languages": [],
   "transcriptLanguages": [],
   "length": {
-    "label": "2 seasons observed • at least 21 full episodes",
+    "label": "2 seasons observed • at least 18 full episodes • 41 min median",
     "seasons": 2,
-    "episodes": 21,
+    "episodes": 18,
+    "avgEpisodeMinutes": 40,
+    "medianEpisodeMinutes": 41,
+    "minEpisodeMinutes": 25,
+    "maxEpisodeMinutes": 59,
+    "totalObservedHours": 11.9,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1,
+      2
+    ],
     "countQualifier": "at-least",
     "episodeCounts": {
-      "full": 0,
+      "full": 18,
       "bonus": 0,
       "trailer": 0
     }
@@ -101,10 +111,14 @@
   "content": {},
   "metadata": {
     "researchGaps": [
-      "official distribution is through audiobook retailers and no public podcast RSS f"
+      "Official pages describe The Sojourn as an audiobook-retailer and Spotify-collection release rather than a podcast-RSS show; no public podcast RSS feed was found. Season Two Volume Three (episodes 7–9) is announced as coming soon and is not included in the released count."
     ],
     "objectiveSources": [
       "https://www.thesojournaudiodrama.com/s02v02",
+      "https://www.thesojournaudiodrama.com/s01v01",
+      "https://www.thesojournaudiodrama.com/s01v02",
+      "https://www.thesojournaudiodrama.com/s02v01",
+      "https://www.thesojournaudiodrama.com/s02v03",
       "https://www.thesojournaudiodrama.com/s01",
       "https://www.thesojournaudiodrama.com/cast-crew",
       "https://www.thesojournaudiodrama.com/",
@@ -177,7 +191,11 @@
         "sourceUrls": [
           "https://www.thesojournaudiodrama.com/",
           "https://www.thesojournaudiodrama.com/s01",
+          "https://www.thesojournaudiodrama.com/s01v01",
+          "https://www.thesojournaudiodrama.com/s01v02",
+          "https://www.thesojournaudiodrama.com/s02v01",
           "https://www.thesojournaudiodrama.com/s02v02",
+          "https://www.thesojournaudiodrama.com/s02v03",
           "https://open.spotify.com/show/2Vl9XJLiIE2zwpjS6N6QfD",
           "https://open.spotify.com/show/6wyR8rnXQ7RxBodcWoGIH3"
         ],
@@ -204,9 +222,9 @@
             "https://open.spotify.com/show/6wyR8rnXQ7RxBodcWoGIH3"
           ]
         },
-        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "notes": "The official site presents The Sojourn as a two-season audio drama delivered through audiobook retailers and Spotify collections. Runtime uses the 18 released episode runtimes on the official season and volume pages; Season Two Volume Three (episodes 7–9) is announced but not released and is excluded.",
         "uncertainFields": [
-          "official distribution is through audiobook retailers and no public podcast RSS f"
+          "No public podcast RSS feed was found because the official distribution model is retailer/store based. The three announced Season Two Volume Three episodes are not yet part of the released runtime/count total."
         ],
         "reviewedAt": "2026-09-06T18:04:39.430Z"
       },

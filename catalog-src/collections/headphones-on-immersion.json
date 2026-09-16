@@ -17,8 +17,6 @@
     "the-white-vault"
   ],
   "showIds": [
-    "impact-winter",
-    "derelict",
     "solar",
     "vast-horizon",
     "ars-paradoxica",
@@ -30,7 +28,9 @@
     "passenger-list",
     "moonbase-theta-out",
     "the-chronicles-of-astrimos",
-    "red-frontier"
+    "red-frontier",
+    "derelict",
+    "impact-winter"
   ],
   "showReasons": {
     "impact-winter": "Big scenes and layered production make headphones worthwhile.",
@@ -51,5 +51,5 @@
   "featured": false,
   "order": 80,
   "createdAt": "2026-06-23",
-  "updatedAt": "2026-08-29"
+  "updatedAt": "2026-09-16"
 }

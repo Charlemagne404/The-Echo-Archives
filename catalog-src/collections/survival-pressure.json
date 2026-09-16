@@ -18,18 +18,18 @@
   ],
   "showIds": [
     "were-alive",
-    "impact-winter",
     "end-of-all-hope",
     "the-phenomenon",
     "the-white-vault",
-    "derelict",
     "copperheart-a-riggstories-audio-drama",
     "windfall",
     "red-frontier",
     "vast-horizon",
     "solar",
     "marsfall",
-    "janus-descending"
+    "janus-descending",
+    "derelict",
+    "impact-winter"
   ],
   "showReasons": {
     "were-alive": "Long-running ensemble survival gives it endurance.",
@@ -49,5 +49,5 @@
   "featured": false,
   "order": 120,
   "createdAt": "2026-06-23",
-  "updatedAt": "2026-08-29"
+  "updatedAt": "2026-09-16"
 }

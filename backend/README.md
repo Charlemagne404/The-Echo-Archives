@@ -102,6 +102,10 @@ Protected maintainer submission workflow routes:
 - `/api/maintainer/imports`
 - `/api/maintainer/analytics`
 
+The protected `/maintainer/imports.html` workspace also contains the Elevation
+desk. Use **Build a full review** for new editorial reviews and **Edit published
+reviews** to revise published archive copy, ratings, or discovery metadata.
+
 Public analytics collection uses `POST /api/analytics/events`. It records only allow-listed first-party events and fails harmlessly when storage is unavailable. See [`docs/ANALYTICS.md`](../docs/ANALYTICS.md) for collection, counting, noise-filtering, and historical-coverage details.
 
 The maintainer queue is passphrase-gated, reads from the same SQLite submission store as public intake, and lets you update `status`, `priority`, `review_notes`, and `reviewed_by` without opening the database directly.

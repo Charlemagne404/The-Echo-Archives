@@ -113,7 +113,7 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     serviceWorkers: "block",
   });
   const page = await context.newPage();
-  const calls = { evidence: 0, publish: 0, retry: 0, review: 0, seed: 0, rerunAll: 0, lastReviewPayload: null, lastPublishPayload: null };
+  const calls = { evidence: 0, publish: 0, retry: 0, review: 0, reviewDraft: 0, seed: 0, rerunAll: 0, lastReviewPayload: null, lastPublishPayload: null, lastReviewDraftPayload: null };
   const candidates = [
     createCandidate(),
     createCandidate({
@@ -213,12 +213,51 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     await page.route("**/api/maintainer/elevations**", async (route) => {
       const url = new URL(route.request().url());
       const target = url.searchParams.get("target") || "indexed-only";
+      const method = route.request().method();
+      if (method === "GET" && url.pathname.endsWith("/elevations/published-show")) {
+        return route.fulfill({
+          status: 200,
+          contentType: "application/json",
+          body: JSON.stringify({
+            show: { id: "published-show", title: "Published Show", reviewStatus: "full-review", ratings: { archive: 8.5 }, tones: ["Tense"], formats: ["Serialized"], bestFor: ["Night listening"], similarTo: [], similarReasons: {} },
+            review: { archiveTake: "A published verdict.", spoilerFreeReview: ["A published paragraph."], thoughts: [], quote: { text: "", attribution: "" } },
+            factualCurrent: true,
+            editorialMissing: [],
+            collections: [],
+          }),
+        });
+      }
+      if (method === "PUT" && url.pathname.endsWith("/review-draft")) {
+        calls.reviewDraft += 1;
+        calls.lastReviewDraftPayload = JSON.parse(route.request().postData() || "{}");
+        return route.fulfill({
+          status: 200,
+          contentType: "application/json",
+          body: JSON.stringify({
+            show: { id: "published-show", title: "Published Show", reviewStatus: "full-review", ratings: { archive: 9 }, tones: ["Tense"], formats: ["Serialized"], bestFor: ["Night listening"], similarTo: [], similarReasons: {} },
+            review: { archiveTake: "An edited verdict.", spoilerFreeReview: ["An edited paragraph."], thoughts: [], quote: { text: "", attribution: "" } },
+            factualCurrent: true,
+            editorialMissing: [],
+            collections: [],
+          }),
+        });
+      }
       return route.fulfill({
         status: 200,
         contentType: "application/json",
         body: JSON.stringify({
           target,
-          items: [{
+          items: [target === "published" ? {
+            showId: "published-show",
+            title: "Published Show",
+            reviewStatus: "full-review",
+            target,
+            score: 0,
+            factors: ["Last updated 2026-09-16"],
+            blockers: [],
+            eligible: true,
+            updatedAt: "2026-09-16",
+          } : {
             showId: "signal-test",
             title: "Signal Test",
             reviewStatus: "imported",
@@ -237,8 +276,23 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     await page.locator("#maintainerAppShell").waitFor({ state: "visible" });
     await page.waitForFunction(() => document.activeElement?.id === "maintainerWorkspaceTitle" && window.scrollY <= 1);
     await page.getByText("Review and publish", { exact: true }).waitFor();
-    await page.getByRole("heading", { name: "What to flesh out next" }).waitFor();
-    assert.equal(await page.getByText("Clear in-scope identity", { exact: false }).count() > 0, true);
+    await page.getByRole("heading", { name: "Draft or edit archive reviews" }).waitFor();
+    await page.getByRole("tab", { name: /Edit published reviews/ }).waitFor();
+    assert.equal(await page.getByRole("heading", { name: "Build a full review" }).count(), 0);
+    await page.getByRole("tab", { name: /Build a full review/ }).click();
+    await page.getByRole("heading", { name: "Build a full review" }).waitFor();
+    assert.equal(await page.getByRole("heading", { name: "Edit published reviews" }).count(), 0);
+    await page.getByRole("tab", { name: /Edit published reviews/ }).click();
+    await page.getByRole("heading", { name: "Edit published reviews" }).waitFor();
+    await page.getByRole("button", { name: "Edit review" }).click();
+    await page.locator("#maintainerElevationReviewForm").waitFor();
+    assert.equal(await page.locator('textarea[name="archiveTake"]').inputValue(), "A published verdict.");
+    await page.locator('textarea[name="archiveTake"]').fill("An edited verdict.");
+    await page.getByRole("button", { name: "Save changes" }).click();
+    await page.getByText("Review changes saved.").waitFor();
+    assert.equal(calls.reviewDraft, 1);
+    assert.equal(calls.lastReviewDraftPayload.archiveTake, "An edited verdict.");
+    assert.equal(await page.getByText("Published archive review", { exact: false }).count() > 0, true);
     assert.equal(await page.locator(".import-cover-preview img").count(), 1);
     assert.deepEqual(await page.locator(".import-cover-preview img").evaluate((image) => [image.getAttribute("width"), image.getAttribute("height")]), ["112", "112"]);
     assert.match(await page.locator("#maintainerDetail").innerText(), /Field provenance/);
@@ -299,14 +353,14 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     );
     assert.match(await page.locator("[data-import-verification-preview-result]").innerText(), /Catalog enrichment ready:/);
     await applyVerifiedFields.click();
-    assert.equal(await page.locator('input[name="formats"]').inputValue(), "Serialized, Full cast");
-    assert.equal(await page.locator('input[name="cadenceLabel"]').inputValue(), "Weekly");
-    assert.equal(await page.locator('textarea[name="credits"]').inputValue(), "Alex Writer — writer");
+    assert.equal(await page.locator('#maintainerImportReviewForm input[name="formats"]').inputValue(), "Serialized, Full cast");
+    assert.equal(await page.locator('#maintainerImportReviewForm input[name="cadenceLabel"]').inputValue(), "Weekly");
+    assert.equal(await page.locator('#maintainerImportReviewForm textarea[name="credits"]').inputValue(), "Alex Writer — writer");
     await page.getByRole("button", { name: "Save show details" }).click();
     await page.getByText("Import review state saved.").waitFor();
     assert.equal(calls.lastReviewPayload.details.formats, "Serialized, Full cast");
     assert.match(calls.lastReviewPayload.details.externalVerification, /https:\/\/example\.com\/about/);
-    await page.locator('input[name="reviewedBy"]').fill("QA");
+    await page.locator('#maintainerImportReviewForm input[name="reviewedBy"]').fill("QA");
     await page.getByRole("button", { name: "Save review state" }).click();
     await page.getByText("Import review state saved.").waitFor();
     assert.equal(calls.review, 2);

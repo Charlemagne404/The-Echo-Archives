@@ -41,11 +41,21 @@
   "languages": [],
   "transcriptLanguages": [],
   "length": {
-    "label": "1 season observed",
+    "label": "1 season observed • at least 10 full episodes • 29 min median",
     "seasons": 1,
+    "episodes": 10,
+    "avgEpisodeMinutes": 29,
+    "medianEpisodeMinutes": 29,
+    "minEpisodeMinutes": 21,
+    "maxEpisodeMinutes": 42,
+    "totalObservedHours": 4.8,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
     "countQualifier": "at-least",
     "episodeCounts": {
-      "full": 0,
+      "full": 10,
       "bonus": 0,
       "trailer": 0
     }
@@ -78,10 +88,14 @@
     "funding": ""
   },
   "credits": {
-    "creatorName": "Spotify / Warner Bros. / DC"
+    "creatorName": "David S. Goyer",
+    "writer": "David S. Goyer",
+    "executiveProducer": "David S. Goyer",
+    "productionCompany": "Warner Bros.",
+    "distributor": "Spotify"
   },
   "creators": [
-    "Spotify / Warner Bros. / DC"
+    "David S. Goyer"
   ],
   "cast": [],
   "verification": {
@@ -100,11 +114,14 @@
   "content": {},
   "metadata": {
     "researchGaps": [
-      "current Spotify canonical page presents the related Fallen City continuation"
+      "No canonical public RSS feed was found for Batman Unburied. The current Spotify show ID resolves to Batman Unburied: Fallen City and the original season-one episode pages remain under that platform identity; a separate season-one show URL was not verified."
     ],
     "objectiveSources": [
       "https://open.spotify.com/show/3pUWoZ6fC2qA02D3X0CeMb",
-      "https://newsroom.spotify.com/2020-09-29/david-goyer-warner-bros-and-dc-set-to-bring-batman-unburied-to-spotify/"
+      "https://newsroom.spotify.com/2020-09-29/david-goyer-warner-bros-and-dc-set-to-bring-batman-unburied-to-spotify/",
+      "https://newsroom.spotify.com/2022-04-05/the-batman-unburied-audio-series-is-ready-to-take-flight-across-the-world-in-spotifys-largest-simultaneous-launch/",
+      "https://www.dc.com/blog/2020/09/29/david-s-goyer-warner-bros-and-dc-set-to-bring-batman-unburied-to-spotify",
+      "https://www.dc.com/blog/2022/05/26/digging-up-batman-unburied"
     ],
     "sourceCategories": [
       "Drama",
@@ -153,7 +170,10 @@
       "externalResearch": {
         "sourceUrls": [
           "https://open.spotify.com/show/3pUWoZ6fC2qA02D3X0CeMb",
-          "https://newsroom.spotify.com/2020-09-29/david-goyer-warner-bros-and-dc-set-to-bring-batman-unburied-to-spotify/"
+          "https://newsroom.spotify.com/2020-09-29/david-goyer-warner-bros-and-dc-set-to-bring-batman-unburied-to-spotify/",
+          "https://newsroom.spotify.com/2022-04-05/the-batman-unburied-audio-series-is-ready-to-take-flight-across-the-world-in-spotifys-largest-simultaneous-launch/",
+          "https://www.dc.com/blog/2020/09/29/david-s-goyer-warner-bros-and-dc-set-to-bring-batman-unburied-to-spotify",
+          "https://www.dc.com/blog/2022/05/26/digging-up-batman-unburied"
         ],
         "fieldSources": {
           "genres": [
@@ -169,9 +189,9 @@
             "https://newsroom.spotify.com/2020-09-29/david-goyer-warner-bros-and-dc-set-to-bring-batman-unburied-to-spotify/"
           ]
         },
-        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
+        "notes": "David S. Goyer is credited in the launch material as the writer and executive producer/creator. Warner Bros. is the credited developer/producer, Spotify is the distribution platform, and DC is the underlying Batman rights/franchise holder shown in the platform copyright/partnership material. The current Spotify show page is titled Batman Unburied: Fallen City; runtime and the ten-episode count are limited to the ten original-season Spotify episode pages, not the later continuation.",
         "uncertainFields": [
-          "current Spotify canonical page presents the related Fallen City continuation"
+          "No canonical public RSS feed or separate original-season Spotify show URL was verified. The current Spotify show ID combines the original Batman Unburied identity with the Fallen City continuation."
         ],
         "reviewedAt": "2026-09-06T18:04:39.380Z"
       },

@@ -19,11 +19,11 @@
   ],
   "showIds": [
     "solar",
-    "impact-winter",
     "the-program-audio-series",
     "spectre",
     "earth-eclipsed",
-    "the-white-vault"
+    "the-white-vault",
+    "impact-winter"
   ],
   "showReasons": {
     "solar": "Contained space survival gives a similar pressure-first entry.",
@@ -36,5 +36,5 @@
   "featured": false,
   "order": 150,
   "createdAt": "2026-06-23",
-  "updatedAt": "2026-06-30"
+  "updatedAt": "2026-09-16"
 }

@@ -78,7 +78,8 @@
     "the-soft-boiled-detective",
     "the-heroes-helpline",
     "15-second-mysteries",
-    "spiked-eggs-podcast"
+    "spiked-eggs-podcast",
+    "the-thrilling-adventure-hour"
   ],
   "showReasons": {
     "welcome-to-night-vale": "Rule match: Comedy + Episodic.",
@@ -150,7 +151,8 @@
     "the-soft-boiled-detective": "Rule match: Comedy + Episodic.",
     "the-heroes-helpline": "Rule match: Comedy + Episodic.",
     "15-second-mysteries": "Rule match: Comedy + Episodic.",
-    "spiked-eggs-podcast": "Rule match: Comedy + Episodic."
+    "spiked-eggs-podcast": "Rule match: Comedy + Episodic.",
+    "the-thrilling-adventure-hour": "Rule match: Comedy + Episodic."
   },
   "automation": {
     "mode": "rule",
@@ -176,5 +178,5 @@
   "featured": false,
   "order": 280,
   "createdAt": "2026-08-16",
-  "updatedAt": "2026-08-16"
+  "updatedAt": "2026-09-16"
 }

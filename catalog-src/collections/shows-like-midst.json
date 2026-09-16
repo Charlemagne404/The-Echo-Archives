@@ -18,12 +18,12 @@
     "the-waystation"
   ],
   "showIds": [
-    "midnight-burger",
     "ars-paradoxica",
     "the-program-audio-series",
     "the-waystation",
     "case-63",
-    "red-valley"
+    "red-valley",
+    "midnight-burger"
   ],
   "showReasons": {
     "midnight-burger": "A warmer cosmic branch if the big ideas mattered as much as the affection.",
@@ -36,5 +36,5 @@
   "featured": false,
   "order": 250,
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-06-30"
+  "updatedAt": "2026-09-16"
 }

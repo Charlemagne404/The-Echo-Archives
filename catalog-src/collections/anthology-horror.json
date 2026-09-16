@@ -14,7 +14,8 @@
     "knifepoint-horror",
     "the-grey-rooms",
     "the-nosleep-podcast",
-    "the-magnus-archives"
+    "the-magnus-archives",
+    "palimpsest"
   ],
   "showReasons": {
     "the-mistholme-museum-of-mystery-morbidity-and-mortality": "Rule match: Horror + Anthology.",
@@ -22,7 +23,8 @@
     "knifepoint-horror": "Rule match: Horror + Anthology.",
     "the-grey-rooms": "Rule match: Horror + Anthology.",
     "the-nosleep-podcast": "Rule match: Horror + Anthology.",
-    "the-magnus-archives": "Rule match: Horror + Anthology."
+    "the-magnus-archives": "Rule match: Horror + Anthology.",
+    "palimpsest": "Rule match: Horror + Anthology."
   },
   "automation": {
     "mode": "rule",
@@ -48,5 +50,5 @@
   "featured": false,
   "order": 370,
   "createdAt": "2026-08-16",
-  "updatedAt": "2026-08-16"
+  "updatedAt": "2026-09-16"
 }

@@ -54,35 +54,30 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "2 seasons observed • at least 383 full episodes • 24 min median",
+    "label": "2 seasons observed • at least 55 full episodes • 24 min median",
     "seasons": 2,
-    "episodes": 383,
+    "episodes": 55,
     "avgEpisodeMinutes": 24,
     "medianEpisodeMinutes": 24,
-    "minEpisodeMinutes": 1,
-    "maxEpisodeMinutes": 94,
-    "totalObservedHours": 155.9,
+    "minEpisodeMinutes": 17,
+    "maxEpisodeMinutes": 42,
+    "totalObservedHours": 22.3,
     "durationCoverage": 1,
     "observedSeasons": [
-      8,
-      7,
-      5,
-      4,
-      3,
-      2,
-      1
+      1,
+      2
     ],
     "countQualifier": "at-least",
     "episodeCounts": {
-      "full": 383,
+      "full": 55,
       "bonus": 4,
-      "trailer": 11
+      "trailer": 3
     }
   },
   "releaseDates": {
     "first": "2024-01-18",
-    "latest": "2026-07-30",
-    "latestFeedItem": "2026-07-30",
+    "latest": "2026-09-10",
+    "latestFeedItem": "2026-09-10",
     "next": ""
   },
   "ratings": {},
@@ -167,10 +162,12 @@
   "content": {},
   "metadata": {
     "objectiveSources": [
+      "https://rustyquill.com/show/the-magnus-archives/",
       "https://rustyquill.com/transcripts/the-magnus-protocol/",
       "https://rustyquill.com/about/",
       "https://rustyquill.com/show/the-magnus-protocol/",
       "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8",
+      "https://open.spotify.com/show/5pwBAjuJJAOt7cED5Lkjnk",
       "https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637?uo=4"
     ],
     "sourceCategories": [
@@ -264,9 +261,15 @@
         }
       ],
       "externalResearch": {
-        "sourceUrls": [],
+        "sourceUrls": [
+          "https://rustyquill.com/show/the-magnus-archives/",
+          "https://rustyquill.com/show/the-magnus-protocol/",
+          "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8",
+          "https://open.spotify.com/show/5pwBAjuJJAOt7cED5Lkjnk",
+          "https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637?uo=4"
+        ],
         "fieldSources": {},
-        "notes": "The Magnus Protocol intentionally uses the existing Magnus Archives public RSS and Apple listing. The official site states season 2 act 3 returns July 2026.",
+        "notes": "The Magnus Protocol intentionally uses the existing Magnus Archives public RSS, Spotify show ID, and Apple collection. This record's count and runtime use the numbered The Magnus Protocol 1–55 items only; four additional full-tagged items and three trailers are non-core extras. The feed's raw season values are 7 and 8, while the official Protocol site presents the series as seasons 1 and 2.",
         "uncertainFields": [],
         "reviewedAt": "2026-08-03T15:25:31.424Z"
       },

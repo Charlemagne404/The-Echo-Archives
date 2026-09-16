@@ -534,6 +534,78 @@
 button[aria-busy="true"] {
   opacity: 0.72;
 }
+/* Source: shared/styles/home/maintainer/01-review-workspace.css */
+.maintainer-review-lane-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 18px 0 14px;
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background: rgba(8, 10, 12, 0.72);
+}
+
+.maintainer-review-lane-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 42px;
+  padding: 9px 12px;
+  border: 1px solid transparent;
+  border-radius: 13px;
+  background: transparent;
+  color: #aeb7b9;
+  font: inherit;
+  cursor: pointer;
+}
+
+.maintainer-review-lane-tab:hover,
+.maintainer-review-lane-tab:focus-visible,
+.maintainer-review-lane-tab[aria-selected="true"] {
+  border-color: rgba(228, 86, 52, 0.42);
+  background: rgba(228, 86, 52, 0.12);
+  color: #fff7ee;
+}
+
+.maintainer-review-lane-count {
+  display: inline-grid;
+  min-width: 24px;
+  min-height: 22px;
+  place-items: center;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #d5dcdd;
+  font-size: 0.78rem;
+}
+
+.maintainer-review-lane-tools {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) auto;
+  gap: 14px;
+  align-items: end;
+  margin-bottom: 14px;
+}
+
+.maintainer-review-lane-tools .maintainer-field {
+  max-width: 520px;
+}
+
+.maintainer-review-lane-meta {
+  margin: 0 0 12px;
+  text-align: right;
+}
+
+.maintainer-review-lane-panel {
+  display: grid;
+  gap: 14px;
+}
+
+.maintainer-review-lane-panel > #maintainerElevationCards {
+  min-width: 0;
+}
 /* Source: shared/styles/home/maintainer/02-collections.css */
 .import-tier-readiness-grid {
   display: grid;
@@ -676,6 +748,14 @@ button[aria-busy="true"] {
 
   .maintainer-field--search {
     grid-column: auto;
+  }
+
+  .maintainer-review-lane-tools {
+    grid-template-columns: 1fr;
+  }
+
+  .maintainer-review-lane-meta {
+    text-align: left;
   }
 
   .maintainer-hero-panel,

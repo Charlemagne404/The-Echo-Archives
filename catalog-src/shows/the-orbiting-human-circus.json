@@ -2,7 +2,8 @@
   "id": "the-orbiting-human-circus",
   "entityLinks": [
     {"entityId":"wnyc-studios","role":"production-company"},
-    {"entityId":"night-vale-presents","role":"production-company"}
+    {"entityId":"night-vale-presents","role":"production-company"},
+    {"entityId":"julian-koster","role":"creator"}
   ],
   "title": "The Orbiting Human Circus",
   "subtitle": "",
@@ -97,10 +98,18 @@
     "funding": ""
   },
   "credits": {
-    "creatorName": [],
-    "ownerName": "WNYC Studios and Night Vale Presents"
+    "creatorName": "Julian Koster",
+    "ownerName": "WNYC Studios and Night Vale Presents",
+    "writers": [
+      "Julian Koster"
+    ],
+    "directors": [
+      "Julian Koster"
+    ]
   },
-  "creators": [],
+  "creators": [
+    "Julian Koster"
+  ],
   "cast": [],
   "verification": {
     "status": "maintainer-source-reviewed",
@@ -121,6 +130,7 @@
       "https://www.wnycstudios.org/podcasts/orbitinghumancircus/episodes/new-ohc-song-and-live-shows",
       "https://www.wnycstudios.org/podcasts/orbitinghumancircus/episodes/ohc-announcement",
       "https://www.wnycstudios.org/podcasts/orbitinghumancircus/about",
+      "https://www.wnycstudios.org/podcasts/orbitinghumancircus/the-team",
       "https://www.wnycstudios.org/podcasts/orbitinghumancircus/episodes",
       "https://www.wnycstudios.org/podcasts/orbitinghumancircus",
       "https://feeds.simplecast.com/zXrWS5lU",
@@ -226,7 +236,8 @@
           "https://podcasts.apple.com/us/podcast/the-orbiting-human-circus/id1158759190",
           "https://podcasts.apple.com/us/podcast/the-orbiting-human-circus/id1158759190?uo=4",
           "https://feeds.simplecast.com/zXrWS5lU",
-          "https://www.wnycstudios.org/podcasts/orbitinghumancircus"
+          "https://www.wnycstudios.org/podcasts/orbitinghumancircus",
+          "https://www.wnycstudios.org/podcasts/orbitinghumancircus/the-team"
         ],
         "fieldSources": {
           "description": [
@@ -254,7 +265,7 @@
             "https://www.wnycstudios.org/podcasts/orbitinghumancircus"
           ]
         },
-        "notes": "Maintainer fact check used the current Apple/RSS identity and the listed official source; taxonomy labels are controlled discovery selections.",
+        "notes": "The official WNYC Studios team page identifies Julian Koster as author, writer, director, and lead actor. WNYC Studios and Night Vale Presents remain separate co-production entities; the Apple/RSS owner string is not used as the creator.",
         "uncertainFields": [],
         "reviewedAt": "2026-08-14T19:38:38.162Z"
       },

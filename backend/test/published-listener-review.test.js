@@ -89,6 +89,7 @@ test("public listener reviews require acceptance, allow sparse category scores, 
 
     const published = context.service.publishForMaintainer(submission.id, { body: "Edited public copy." });
     assert.equal(published.published, true);
+    assert.match(published.publishedAt, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/);
     const publicReviews = context.service.listPublicForShow("impact-winter");
     assert.deepEqual(publicReviews, [{
       id: published.id, showId: "impact-winter", authorName: "Listener42", title: "Great atmosphere", body: "Edited public copy.",

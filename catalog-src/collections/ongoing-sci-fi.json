@@ -9,11 +9,8 @@
   "commitment": "",
   "coverShowIds": [],
   "showIds": [
-    "impact-winter",
     "oz-9",
     "station-151",
-    "midnight-burger",
-    "derelict",
     "crystal-blue",
     "end-of-all-hope",
     "the-program-audio-series",
@@ -80,14 +77,17 @@
     "in-dying-days",
     "chongqing-punk",
     "shelterwood",
-    "the-chronicles-of-astrimos"
+    "the-chronicles-of-astrimos",
+    "escape-pod",
+    "marsfall",
+    "startripper",
+    "derelict",
+    "impact-winter",
+    "midnight-burger"
   ],
   "showReasons": {
-    "impact-winter": "Rule match: ongoing + Sci-Fi.",
     "oz-9": "Rule match: ongoing + Sci-Fi.",
     "station-151": "Rule match: ongoing + Sci-Fi.",
-    "midnight-burger": "Rule match: ongoing + Sci-Fi.",
-    "derelict": "Rule match: ongoing + Sci-Fi.",
     "crystal-blue": "Rule match: ongoing + Sci-Fi.",
     "end-of-all-hope": "Rule match: ongoing + Sci-Fi.",
     "the-program-audio-series": "Rule match: ongoing + Sci-Fi.",
@@ -154,7 +154,13 @@
     "in-dying-days": "Rule match: ongoing + Sci-Fi.",
     "chongqing-punk": "Rule match: ongoing + Sci-Fi.",
     "shelterwood": "Rule match: ongoing + Sci-Fi.",
-    "the-chronicles-of-astrimos": "Rule match: ongoing + Sci-Fi."
+    "the-chronicles-of-astrimos": "Rule match: ongoing + Sci-Fi.",
+    "escape-pod": "Rule match: ongoing + Sci-Fi.",
+    "marsfall": "Rule match: ongoing + Sci-Fi.",
+    "startripper": "Rule match: ongoing + Sci-Fi.",
+    "derelict": "Rule match: ongoing + Sci-Fi.",
+    "impact-winter": "Rule match: ongoing + Sci-Fi.",
+    "midnight-burger": "Rule match: ongoing + Sci-Fi."
   },
   "automation": {
     "mode": "rule",
@@ -180,5 +186,5 @@
   "featured": false,
   "order": 290,
   "createdAt": "2026-08-16",
-  "updatedAt": "2026-09-04"
+  "updatedAt": "2026-09-16"
 }

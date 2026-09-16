@@ -80,6 +80,14 @@
     grid-column: auto;
   }
 
+  .maintainer-review-lane-tools {
+    grid-template-columns: 1fr;
+  }
+
+  .maintainer-review-lane-meta {
+    text-align: left;
+  }
+
   .maintainer-hero-panel,
   .maintainer-state-panel,
   .maintainer-toolbar-heading,

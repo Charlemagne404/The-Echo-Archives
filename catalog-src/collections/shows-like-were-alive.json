@@ -18,12 +18,12 @@
     "the-white-vault"
   ],
   "showIds": [
-    "impact-winter",
     "end-of-all-hope",
     "the-phenomenon",
     "the-white-vault",
     "borrasca",
-    "malevolent"
+    "malevolent",
+    "impact-winter"
   ],
   "showReasons": {
     "impact-winter": "Keeps the survival pressure high while leaning harder into cinematic genre spectacle.",
@@ -36,5 +36,5 @@
   "featured": false,
   "order": 180,
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-06-30"
+  "updatedAt": "2026-09-16"
 }

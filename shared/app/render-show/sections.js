@@ -91,16 +91,20 @@ export function renderListenerReviewCard(review) {
     Array.isArray(review?.bestFor) && review.bestFor.length ? `<span><b>Best for</b> ${review.bestFor.map(toLabel).join(" • ")}</span>` : "",
     Array.isArray(review?.workedBest) && review.workedBest.length ? `<span><b>Worked best</b> ${review.workedBest.map(toLabel).join(" • ")}</span>` : "",
   ].filter(Boolean).join("");
-  const date = review?.publishedAt ? new Intl.DateTimeFormat("en-US", { year: "numeric", month: "long", day: "numeric" }).format(new Date(review.publishedAt)) : "Recently published";
+  const publishedAt = String(review?.publishedAt || "").trim();
+  const publishedDate = publishedAt && !Number.isNaN(new Date(publishedAt).getTime())
+    ? new Intl.DateTimeFormat("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }).format(new Date(publishedAt))
+    : "";
   const helpfulCount = Number(review?.helpfulCount || 0);
   const markedHelpful = Boolean(review?.viewerMarkedHelpful);
   return `
     <article class="detail-authored-review detail-listener-review" data-listener-review-id="${escapeHtml(review?.id || "")}">
-      <header class="detail-authored-review-header"><div><span class="detail-review-kind">Listener review</span><h3>${escapeHtml(review?.title || "Listener review")}</h3><p class="detail-review-byline">${escapeHtml(review?.authorName || "Anonymous listener")} · ${escapeHtml(date)}</p></div><span class="detail-review-rating">${escapeHtml(String(review?.ratingStars || "--"))}/5</span></header>
+      <header class="detail-authored-review-header"><div><span class="detail-review-kind">Listener review</span><h3>${escapeHtml(review?.title || "Listener review")}</h3><p class="detail-review-byline">${escapeHtml(review?.authorName || "Anonymous listener")}</p></div><span class="detail-review-rating">${escapeHtml(String(review?.ratingStars || "--"))}/5</span></header>
       <span class="detail-spoiler-label${hasSpoilers ? " is-warning" : ""}">${escapeHtml(toLabel(spoilerLevel))}</span>
       ${hasSpoilers ? `<details class="detail-listener-spoilers"><summary>Reveal spoilers</summary>${body}</details>` : body}
       ${context ? `<div class="detail-review-context">${context}</div>` : ""}
       <div class="detail-review-community-actions"><button class="detail-review-helpful${markedHelpful ? " is-active" : ""}" type="button" data-review-helpful="${escapeHtml(review?.id || "")}" aria-pressed="${String(markedHelpful)}">Helpful <span data-review-helpful-count>${helpfulCount}</span></button></div>
+      ${publishedDate ? `<p class="detail-review-published"><time datetime="${escapeHtml(publishedAt)}">Published ${escapeHtml(publishedDate)}</time></p>` : ""}
     </article>
   `;
 }

@@ -41,13 +41,24 @@
   "languages": [],
   "transcriptLanguages": [],
   "length": {
-    "label": "at least 171 full episodes",
-    "episodes": 171,
-    "durationCoverage": 0,
+    "label": "3 seasons observed • at least 70 full episodes • 27 min median",
+    "seasons": 3,
+    "episodes": 70,
+    "avgEpisodeMinutes": 28,
+    "medianEpisodeMinutes": 27,
+    "minEpisodeMinutes": 9,
+    "maxEpisodeMinutes": 51,
+    "totalObservedHours": 32.8,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1,
+      2,
+      3
+    ],
     "countQualifier": "at-least",
     "episodeCounts": {
-      "full": 171,
-      "bonus": 0,
+      "full": 70,
+      "bonus": 24,
       "trailer": 0
     }
   },
@@ -103,6 +114,7 @@
   "metadata": {
     "objectiveSources": [
       "https://wormwoodshow.com/",
+      "https://wormwoodshow.com/episodes/",
       "https://feeds.feedburner.com/WormwoodPodcast",
       "https://podcasts.apple.com/us/podcast/wormwood-a-serialized-mystery/id261086208?uo=4"
     ],
@@ -185,6 +197,7 @@
       "externalResearch": {
         "sourceUrls": [
           "https://wormwoodshow.com/",
+          "https://wormwoodshow.com/episodes/",
           "https://feeds.feedburner.com/WormwoodPodcast",
           "https://podcasts.apple.com/us/podcast/wormwood-a-serialized-mystery/id261086208?uo=4"
         ],
@@ -205,8 +218,10 @@
             "https://podcasts.apple.com/us/podcast/wormwood-a-serialized-mystery/id261086208?uo=4"
           ]
         },
-        "notes": "Factual maintainer review of publisher and directory metadata only. No editorial rating, review, quote, or recommendation was added.",
-        "uncertainFields": [],
+        "notes": "The official episode guide separates the narrative runs into Drowned Woman, Crossroads, Five Fingers of Glory, Portraits, and Revelation. The current FeedBurner feed has 171 posts but only 94 audio enclosures; 70 narrative enclosures were matched to the official guide and their official MP3 durations were used for runtime. The remaining 24 audio enclosures are retained as non-core bonus/auxiliary items rather than full narrative episodes. Neither the RSS feed nor Apple exposes usable episode duration tags.",
+        "uncertainFields": [
+          "RSS and Apple do not expose episode duration tags. Runtime is calculated from 70 official MP3 enclosures matched to the official episode guide; 24 other audio enclosures are excluded from the full-episode total."
+        ],
         "reviewedAt": "2026-09-06T18:04:39.383Z"
       },
       "fields": {

@@ -33,7 +33,8 @@
     "the-liminal-lands",
     "the-elmwood-strain",
     "the-other-stories-sci-fi-horror-thriller-wtf-stories",
-    "shelterwood"
+    "shelterwood",
+    "mage-in-the-machine"
   ],
   "showReasons": {
     "how-i-died": "Rule match: ongoing + Horror.",
@@ -60,7 +61,8 @@
     "the-liminal-lands": "Rule match: ongoing + Horror.",
     "the-elmwood-strain": "Rule match: ongoing + Horror.",
     "the-other-stories-sci-fi-horror-thriller-wtf-stories": "Rule match: ongoing + Horror.",
-    "shelterwood": "Rule match: ongoing + Horror."
+    "shelterwood": "Rule match: ongoing + Horror.",
+    "mage-in-the-machine": "Rule match: ongoing + Horror."
   },
   "automation": {
     "mode": "rule",
@@ -86,5 +88,5 @@
   "featured": false,
   "order": 350,
   "createdAt": "2026-08-16",
-  "updatedAt": "2026-09-04"
+  "updatedAt": "2026-09-16"
 }

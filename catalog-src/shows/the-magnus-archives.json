@@ -51,35 +51,33 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "5 seasons observed • at least 383 full episodes • 24 min median",
+    "label": "5 seasons observed • at least 200 full episodes • 24 min median",
     "seasons": 5,
-    "episodes": 383,
+    "episodes": 200,
     "avgEpisodeMinutes": 24,
     "medianEpisodeMinutes": 24,
-    "minEpisodeMinutes": 1,
-    "maxEpisodeMinutes": 94,
-    "totalObservedHours": 155.9,
+    "minEpisodeMinutes": 16,
+    "maxEpisodeMinutes": 37,
+    "totalObservedHours": 79.3,
     "durationCoverage": 1,
     "observedSeasons": [
-      8,
-      7,
-      5,
-      4,
-      3,
+      1,
       2,
-      1
+      3,
+      4,
+      5
     ],
     "countQualifier": "at-least",
     "episodeCounts": {
-      "full": 383,
-      "bonus": 4,
-      "trailer": 11
+      "full": 200,
+      "bonus": 54,
+      "trailer": 1
     }
   },
   "releaseDates": {
     "first": "2016-03-24",
     "latest": "2021-03-25",
-    "latestFeedItem": "2026-07-30",
+    "latestFeedItem": "2021-03-25",
     "next": ""
   },
   "ratings": {},
@@ -162,12 +160,14 @@
   "content": {},
   "metadata": {
     "objectiveSources": [
+      "https://rustyquill.com/show/the-magnus-archives/",
       "https://rustyquill.com/event/",
       "https://rustyquill.com/show/neon-inkwell/",
       "https://rustyquill.com/show/the-magnus-protocol/",
       "https://rustyquill.com/about/",
       "https://rustyquill.com/",
       "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8",
+      "https://open.spotify.com/show/5pwBAjuJJAOt7cED5Lkjnk",
       "https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637?uo=4"
     ],
     "sourceCategories": [
@@ -274,9 +274,15 @@
         }
       ],
       "externalResearch": {
-        "sourceUrls": [],
+        "sourceUrls": [
+          "https://rustyquill.com/show/the-magnus-archives/",
+          "https://rustyquill.com/show/the-magnus-protocol/",
+          "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8",
+          "https://open.spotify.com/show/5pwBAjuJJAOt7cED5Lkjnk",
+          "https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637?uo=4"
+        ],
         "fieldSources": {},
-        "notes": "The shared public feed now also carries The Magnus Protocol; dates and episode count here apply to The Magnus Archives main series.",
+        "notes": "The Acast feed, Spotify show ID, and Apple collection are shared provider identities for The Magnus Archives and The Magnus Protocol. This record's count, runtime, and date fields use the numbered MAG 1–200 items only; 54 other MAG-tagged full items and one feed-tagged trailer remain non-core extras. The main series ended 2021-03-25; newer items belong to the shared Protocol/franchise feed.",
         "uncertainFields": [],
         "reviewedAt": "2026-08-03T15:25:31.306Z"
       },

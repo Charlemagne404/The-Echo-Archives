@@ -22,7 +22,6 @@
     "wolf-359",
     "the-bright-sessions",
     "wooden-overcoats",
-    "midnight-burger",
     "welcome-to-night-vale",
     "the-strange-case-of-starship-iris",
     "victoriocity",
@@ -31,7 +30,8 @@
     "mission-rejected",
     "homecoming",
     "case-63",
-    "the-amelia-project"
+    "the-amelia-project",
+    "midnight-burger"
   ],
   "showReasons": {
     "story": "Warm, legible, and low-friction if you want a softer first stop.",
@@ -53,5 +53,5 @@
   "featured": true,
   "order": 20,
   "createdAt": "2026-06-01",
-  "updatedAt": "2026-08-29"
+  "updatedAt": "2026-09-16"
 }
