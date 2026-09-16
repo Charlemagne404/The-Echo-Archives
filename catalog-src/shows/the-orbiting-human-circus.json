@@ -34,7 +34,11 @@
     "comedy",
     "fantasy"
   ],
-  "tones": [],
+  "tones": [
+    "warm",
+    "weird",
+    "cinematic"
+  ],
   "formats": [
     "episodic"
   ],
@@ -48,7 +52,11 @@
     "The Orbiting Human Circus: About | WNYC Studios | Podcasts",
     "The Orbiting Human Circus: Episodes | WNYC Studios | Podcasts"
   ],
-  "themes": [],
+  "themes": [
+    "performance and identity",
+    "longing for escape",
+    "radio as a world"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -78,9 +86,16 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "warm-weird"
+  ],
+  "similarTo": [
+    "welcome-to-night-vale"
+  ],
+  "similarReasons": {
+    "welcome-to-night-vale": "Both build surreal worlds through broadcast framing and recurring voices; Orbiting is a musical, character-led stage world, while Night Vale is a deadpan community bulletin."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -124,7 +139,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "A fantastical radio show broadcast from the Eiffel Tower",
+    "pov": "A lonely janitor drawn into a surreal ensemble world",
+    "framingDevice": "An immersive radio-show-within-a-show"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.wnycstudios.org/podcasts/orbitinghumancircus/episodes/new-ohc-song-and-live-shows",
@@ -760,5 +780,11 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14"
+  "updatedAt": "2026-08-14",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "medium"
+  }
 }

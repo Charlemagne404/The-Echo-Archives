@@ -106,9 +106,16 @@
     "structure": "Three-season complete series with 15 numbered story chapters, plus making-of and promotional feed items.",
     "seriesStatus": "The publisher and Apple listings identify the third series as the final series."
   },
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "mockery-manor"
+  ],
+  "similarReasons": {
+    "mockery-manor": "Both are full-cast dark comedies where an investigation drives an ensemble through a stylized setting; Jackie makes it a gender-flipped Whitechapel murder case, while Mockery Manor makes a disappearing theme park the mystery."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -716,5 +723,11 @@
   "featured": false,
   "createdAt": "2026-08-15",
   "updatedAt": "2026-09-04",
-  "creatorId": "stak"
+  "creatorId": "stak",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

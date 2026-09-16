@@ -27785,7 +27785,10 @@
     "genres": [
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "tense"
+    ],
     "formats": [
       "narrated",
       "serialized"
@@ -27845,9 +27848,16 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "late-night",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "i-am-in-eskew"
+    ],
+    "similarReasons": {
+      "i-am-in-eskew": "Both use intimate narration to make identity and the body part of the horror; Not Quite Dead adds a gory queer romance, while I Am in Eskew turns the same inward pressure toward an impossible city."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -27879,7 +27889,11 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "An A&E nurse's hometown as the dead begin to walk",
+      "pov": "Character-led horror-romance centered on Alfie and Casper"
+    },
     "metadata": {
       "objectiveSources": [
         "https://hangingslothstudios.com/remnants-transcripts/",
@@ -28162,6 +28176,12 @@
     "featured": false,
     "createdAt": "2026-07-21",
     "updatedAt": "2026-07-21",
+    "discovery": {
+      "voiceStyle": "primarily-narrated",
+      "narrativeFocus": "character-driven",
+      "intensity": "high",
+      "commitment": "deep-dive"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "officialDescription": {
@@ -28177,14 +28197,17 @@
     "imageAlt": "Not Quite Dead cover art",
     "summary": "Alfie, an A&E nurse, is nearly killed by a walking corpse and saved by Casper, a vampire investigating the dead roaming Alfie’s hometown. This gory horror-romance audio drama explores identity, sexuality, and death.",
     "finalRating": null,
-    "searchText": "not quite dead a show about vampires alfie an a and e nurse is nearly killed by a walking corpse and saved by casper a vampire investigating the dead roaming alfie s hometown this gory horror romance audio drama explores identity sexuality and death horror romance vampires queer drama narrated serialized not quite dead not quite dead transcripts identity sexuality vampires blood sexual content horror eira major hanging sloth studios hanging sloth eira major s hanging sloth eira major english ongoing indexed only eira major eira major unknown unknown 0",
+    "searchText": "not quite dead a show about vampires alfie an a and e nurse is nearly killed by a walking corpse and saved by casper a vampire investigating the dead roaming alfie s hometown this gory horror romance audio drama explores identity sexuality and death horror romance vampires queer drama dark tense narrated serialized primarily narrated character driven high deep dive late night binge listening not quite dead not quite dead transcripts identity sexuality vampires blood sexual content horror eira major hanging sloth studios hanging sloth eira major s hanging sloth eira major english i am in eskew ongoing indexed only eira major eira major unknown unknown 0 original fiction an a and e nurse s hometown as the dead begin to walk character led horror romance centered on alfie and casper",
     "tagTokens": [
       "horror",
       "romance",
       "vampires",
       "queer"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "late-night",
+      "binge-listening"
+    ],
     "resolvedEntities": [
       {
         "id": "hanging-sloth-studios",
@@ -30451,7 +30474,10 @@
       "thriller",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "tense"
+    ],
     "formats": [
       "full-cast",
       "serialized"
@@ -30464,7 +30490,11 @@
     "aliases": [
       "The Secret of St Kilda"
     ],
-    "themes": [],
+    "themes": [
+      "redemption",
+      "island community",
+      "belief and sacrifice"
+    ],
     "contentNotes": [
       "violence",
       "death",
@@ -30511,9 +30541,16 @@
         "Silver Award, Best Fiction Podcast, 2022 New Zealand Podcast Awards"
       ]
     },
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "late-night",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "the-harrowing"
+    ],
+    "similarReasons": {
+      "the-harrowing": "Both turn an isolated Scottish island into supernatural pressure; St Kilda begins with a con man's attempted redemption and a community seeking a saviour, while The Harrowing begins with a storm-bound crime and an ancient evil."
+    },
     "spoilerFreeReview": "",
     "thoughts": "",
     "quote": {
@@ -31141,6 +31178,12 @@
     "updatedAt": "2026-08-29",
     "creatorId": "michael-ireland-naomi-clarke",
     "networkId": "the-secret-of-st-kilda",
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "balanced",
+      "intensity": "high",
+      "commitment": "medium"
+    },
     "archiveTake": "",
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
@@ -31151,13 +31194,16 @@
     "imageAlt": "The Secret of St Kilda cover art",
     "summary": "In this supernatural thriller series, listeners will follow Lockie, a charismatic con man who escapes to St Kilda with the promise that this time he’ll change his ways. Unfortunately, the island and its unusual inhabitants have other ideas. He seeks redemption and they seek a saviour, but you know what they say - no change without sacrifice.",
     "finalRating": null,
-    "searchText": "the secret of st kilda the secret of st kilda follows charismatic spiritualist lockie macgregor trying to escape the ghost of his past only to arrive on the scottish island of st kilda where the supernatural is all too real in this supernatural thriller series listeners will follow lockie a charismatic con man who escapes to st kilda with the promise that this time he ll change his ways unfortunately the island and its unusual inhabitants have other ideas he seeks redemption and they seek a saviour but you know what they say no change without sacrifice supernatural folk horror cults horror thriller drama full cast serialized the secret of st kilda violence death cult indoctrination ritual sacrifice gore gun use chronic illness themes michael ireland and naomi clarke fable and folly fable and folly network alasdair stuart as the narrator alan burgon as lockie m abh de br n as andromeda ben meredith as mathias michelle kelly as niyathi erika sanderson as wee mary shogo miyakita as georgie dean kenneth as robbie sam yeow as angelique danilo battistinia as sacha amina koroma as amy kirsty woolven as young amy sarah golding as elder eli bessie rhys lawton as elder findlay sasha sienna as elder grace andrew gorman as lockie s da sally walker taylor as jillian marie anello as esther axandre oge as preston marguerite kenner as mama laveau english unclear indexed only season 1 released season 2 listed as in pre production on the official site 12 audio verse awards wins silver award best fiction podcast 2022 new zealand podcast awards michael ireland and naomi clarke michael ireland and naomi clarke the secret of st kilda naomi clarke michael ireland michelle kelly will fox chloe hendry shane rutherfoord jones fable and folly available for the main episodes and selected bonus episodes unknown 0 75 google docs english original fiction a fictionalized scottish island community serialized ensemble thriller centered on lauchlan lockie macgregor a supernatural thriller audio drama",
+    "searchText": "the secret of st kilda the secret of st kilda follows charismatic spiritualist lockie macgregor trying to escape the ghost of his past only to arrive on the scottish island of st kilda where the supernatural is all too real in this supernatural thriller series listeners will follow lockie a charismatic con man who escapes to st kilda with the promise that this time he ll change his ways unfortunately the island and its unusual inhabitants have other ideas he seeks redemption and they seek a saviour but you know what they say no change without sacrifice supernatural folk horror cults horror thriller drama dark tense full cast serialized primarily acted balanced high medium late night binge listening the secret of st kilda redemption island community belief and sacrifice violence death cult indoctrination ritual sacrifice gore gun use chronic illness themes michael ireland and naomi clarke fable and folly fable and folly network alasdair stuart as the narrator alan burgon as lockie m abh de br n as andromeda ben meredith as mathias michelle kelly as niyathi erika sanderson as wee mary shogo miyakita as georgie dean kenneth as robbie sam yeow as angelique danilo battistinia as sacha amina koroma as amy kirsty woolven as young amy sarah golding as elder eli bessie rhys lawton as elder findlay sasha sienna as elder grace andrew gorman as lockie s da sally walker taylor as jillian marie anello as esther axandre oge as preston marguerite kenner as mama laveau english the harrowing unclear indexed only season 1 released season 2 listed as in pre production on the official site 12 audio verse awards wins silver award best fiction podcast 2022 new zealand podcast awards michael ireland and naomi clarke michael ireland and naomi clarke the secret of st kilda naomi clarke michael ireland michelle kelly will fox chloe hendry shane rutherfoord jones fable and folly available for the main episodes and selected bonus episodes unknown 0 75 google docs english original fiction a fictionalized scottish island community serialized ensemble thriller centered on lauchlan lockie macgregor a supernatural thriller audio drama",
     "tagTokens": [
       "supernatural",
       "folk-horror",
       "cults"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "late-night",
+      "binge-listening"
+    ],
     "resolvedEntities": [
       {
         "id": "fable-and-folly",
@@ -48374,7 +48420,10 @@
       "thriller",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "tense",
+      "cinematic"
+    ],
     "formats": [
       "serialized"
     ],
@@ -48387,7 +48436,11 @@
     "aliases": [
       "The Walk"
     ],
-    "themes": [],
+    "themes": [
+      "listener agency",
+      "trust and mistaken identity",
+      "survival under lockdown"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
@@ -48420,9 +48473,16 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "headphones-on",
+      "long-walks"
+    ],
+    "similarTo": [
+      "carrier"
+    ],
+    "similarReasons": {
+      "carrier": "Both make a forced journey the survival engine, but The Walk puts the listener inside an electromagnetic-pulse escape from Inverness to Edinburgh while Carrier traps its danger in a loaded trailer on a dark highway."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -48450,7 +48510,12 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "The route from Inverness to Edinburgh after an electromagnetic pulse",
+      "pov": "Listener-perspective survival thriller in which the listener is the walker",
+      "framingDevice": "A courier mission becomes an on-foot escape through a city under lockdown"
+    },
     "metadata": {
       "objectiveSources": [
         "https://podcasts.apple.com/us/podcast/the-walk/id1334736440?uo=4",
@@ -48661,8 +48726,10 @@
     "updatedAt": "2026-09-14",
     "creatorId": "panoply-naomi-alderman-six-to-start",
     "discovery": {
+      "voiceStyle": "mixed",
       "narrativeFocus": "plot-driven",
-      "intensity": "high"
+      "intensity": "high",
+      "commitment": "long"
     },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
@@ -48673,14 +48740,17 @@
     "imageAlt": "The Walk cover art",
     "summary": "A thriller in which you, the listener, are the hero. The Walk begins in Inverness station, Scotland. Through a case of mistaken identity, you, \"the walker,\" are given a vital package that must be couriered to Edinburgh. But as you're about to board the train, terrorists blow it up and set off an electromagnetic pulse! None of the cars or trains are working - you'll have to walk - but now the terrorists are on your trail because they want the device you're carrying, and the police are after you as a suspect in the bombing. To survive, you'll have to join up with other escapees from the city - but how many of them can you trust, and are they really who they say they are?",
     "finalRating": null,
-    "searchText": "the walk a thriller in which you the listener are the hero a thriller in which you the listener are the hero the walk begins in inverness station scotland through a case of mistaken identity you the walker are given a vital package that must be couriered to edinburgh but as you re about to board the train terrorists blow it up and set off an electromagnetic pulse none of the cars or trains are working you ll have to walk but now the terrorists are on your trail because they want the device you re carrying and the police are after you as a suspect in the bombing to survive you ll have to join up with other escapees from the city but how many of them can you trust and are they really who they say they are survival action road trip identity thriller drama serialized plot driven high the walk panoply naomi alderman six to start english unclear indexed only panoply naomi alderman six to start panoply unknown unknown 0",
+    "searchText": "the walk a thriller in which you the listener are the hero a thriller in which you the listener are the hero the walk begins in inverness station scotland through a case of mistaken identity you the walker are given a vital package that must be couriered to edinburgh but as you re about to board the train terrorists blow it up and set off an electromagnetic pulse none of the cars or trains are working you ll have to walk but now the terrorists are on your trail because they want the device you re carrying and the police are after you as a suspect in the bombing to survive you ll have to join up with other escapees from the city but how many of them can you trust and are they really who they say they are survival action road trip identity thriller drama tense cinematic serialized mixed plot driven high long headphones on long walks the walk listener agency trust and mistaken identity survival under lockdown panoply naomi alderman six to start english carrier unclear indexed only panoply naomi alderman six to start panoply unknown unknown 0 original fiction the route from inverness to edinburgh after an electromagnetic pulse listener perspective survival thriller in which the listener is the walker a courier mission becomes an on foot escape through a city under lockdown",
     "tagTokens": [
       "survival",
       "action",
       "road-trip",
       "identity"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "headphones-on",
+      "long-walks"
+    ],
     "coverVariants": [
       {
         "src": "/images/generated/covers/the-walk-0081ecb069-320.webp",
@@ -53812,7 +53882,11 @@
       "comedy",
       "fantasy"
     ],
-    "tones": [],
+    "tones": [
+      "warm",
+      "weird",
+      "cinematic"
+    ],
     "formats": [
       "episodic"
     ],
@@ -53826,7 +53900,11 @@
       "The Orbiting Human Circus: About | WNYC Studios | Podcasts",
       "The Orbiting Human Circus: Episodes | WNYC Studios | Podcasts"
     ],
-    "themes": [],
+    "themes": [
+      "performance and identity",
+      "longing for escape",
+      "radio as a world"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
@@ -53855,9 +53933,16 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "headphones-on",
+      "warm-weird"
+    ],
+    "similarTo": [
+      "welcome-to-night-vale"
+    ],
+    "similarReasons": {
+      "welcome-to-night-vale": "Both build surreal worlds through broadcast framing and recurring voices; Orbiting is a musical, character-led stage world, while Night Vale is a deadpan community bulletin."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -53894,7 +53979,12 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "A fantastical radio show broadcast from the Eiffel Tower",
+      "pov": "A lonely janitor drawn into a surreal ensemble world",
+      "framingDevice": "An immersive radio-show-within-a-show"
+    },
     "metadata": {
       "objectiveSources": [
         "https://www.wnycstudios.org/podcasts/orbitinghumancircus/episodes/new-ohc-song-and-live-shows",
@@ -54412,6 +54502,12 @@
     "featured": false,
     "createdAt": "2026-08-14",
     "updatedAt": "2026-08-14",
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "character-driven",
+      "intensity": "medium",
+      "commitment": "medium"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "popularity": {},
@@ -54421,13 +54517,16 @@
     "imageAlt": "The Orbiting Human Circus cover art",
     "summary": "Discover a wondrously surreal world of magic, music, and mystery. This immersive, cinematic audio spectacle follows the adventures of a lonely, stage-struck janitor who is drawn into the larger-than-life universe of the Orbiting Human Circus, a fantastical, wildly popular radio show broadcast from the top of the Eiffel Tower. WNYC Studios presents a special director’s cut of this joyous, moving break from reality. Starring John Cameron Mitchell, Julian Koster, Tim Robbins, Drew Callander, Susannah Flood, and featuring Mandy Patinkin and Charlie Day. Season one of The Orbiting Human Circus (of the Air) is a co-presentation of WNYC Studios and Night Vale Presents.",
     "finalRating": null,
-    "searchText": "the orbiting human circus discover a wondrously surreal world of magic music and mystery this immersive cinematic audio spectacle follows the adventures of a lonely stage struck janitor who is drawn into the larger than life universe of the orbiting human circus a fantastical wildly popular radio show broadcast from the top of the eiffel tower wnyc studios presents a special director s cut of this joyous moving break from reality starring john cameron mitchell julian koster tim robbins drew callander susannah flood and featuring mandy patinkin and charlie day season one of the orbiting human circus of the air is a co presentation of wnyc studios and night vale presents new weird character driven mystery comedy fantasy episodic the orbiting human circus the orbiting human circus about wnyc studios podcasts the orbiting human circus episodes wnyc studios podcasts julian koster wnyc studios night vale presents julian koster english unclear indexed only julian koster wnyc studios and night vale presents julian koster julian koster unknown unknown 0",
+    "searchText": "the orbiting human circus discover a wondrously surreal world of magic music and mystery this immersive cinematic audio spectacle follows the adventures of a lonely stage struck janitor who is drawn into the larger than life universe of the orbiting human circus a fantastical wildly popular radio show broadcast from the top of the eiffel tower wnyc studios presents a special director s cut of this joyous moving break from reality starring john cameron mitchell julian koster tim robbins drew callander susannah flood and featuring mandy patinkin and charlie day season one of the orbiting human circus of the air is a co presentation of wnyc studios and night vale presents new weird character driven mystery comedy fantasy warm weird cinematic episodic primarily acted character driven medium medium headphones on warm weird the orbiting human circus the orbiting human circus about wnyc studios podcasts the orbiting human circus episodes wnyc studios podcasts performance and identity longing for escape radio as a world julian koster wnyc studios night vale presents julian koster english welcome to night vale unclear indexed only julian koster wnyc studios and night vale presents julian koster julian koster unknown unknown 0 original fiction a fantastical radio show broadcast from the eiffel tower a lonely janitor drawn into a surreal ensemble world an immersive radio show within a show",
     "tagTokens": [
       "new-weird",
       "character-driven",
       "mystery"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "headphones-on",
+      "warm-weird"
+    ],
     "resolvedEntities": [
       {
         "id": "wnyc-studios",
@@ -60707,7 +60806,10 @@
       "sci-fi",
       "horror"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "weird"
+    ],
     "formats": [
       "serialized"
     ],
@@ -60719,7 +60821,11 @@
     "aliases": [
       "The Godfrey Audio Guide"
     ],
-    "themes": [],
+    "themes": [
+      "art and interpretation",
+      "museum mysteries",
+      "hidden histories"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
@@ -60748,9 +60854,16 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "headphones-on",
+      "late-night"
+    ],
+    "similarTo": [
+      "the-mistholme-museum-of-mystery-morbidity-and-mortality"
+    ],
+    "similarReasons": {
+      "the-mistholme-museum-of-mystery-morbidity-and-mortality": "Both use a fictional museum audio guide as the frame, letting exhibits and the institution's voice become the route into strange encounters; Mistholme is the more anthology-shaped branch."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -60781,7 +60894,11 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "The fictional Annabelle H. Godfrey Historic Estate and Museum",
+      "framingDevice": "An in-universe self-guided museum audio tour"
+    },
     "metadata": {
       "objectiveSources": [
         "https://thegodfreyaudioguide.com/",
@@ -61184,6 +61301,12 @@
     "updatedAt": "2026-08-14",
     "creatorId": "nicole-knudsen",
     "networkId": "the-godfrey-audio-guide",
+    "discovery": {
+      "voiceStyle": "mixed",
+      "narrativeFocus": "balanced",
+      "intensity": "medium",
+      "commitment": "long"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "popularity": {},
@@ -61193,13 +61316,16 @@
     "imageAlt": "The Godfrey Audio Guide cover art",
     "summary": "The world-famous audio guide for the Annabelle H. Godfrey Historic Estate and Museum. Please do not touch the art. This is for your own safety. New episodes released monthly. Though this is a self-guided tour, the Estate recommends that you start at the beginning.",
     "finalRating": null,
-    "searchText": "the godfrey audio guide the world famous audio guide for the annabelle h godfrey historic estate and museum please do not touch the art this is for your own safety new episodes released monthly though this is a self guided tour the estate recommends that you start at the beginning horror sci fi haunted house drama sci fi horror serialized the godfrey audio guide nicole knudsen english unclear indexed only nicole knudsen nicole knudsen the godfrey audio guide unknown unknown 0",
+    "searchText": "the godfrey audio guide the world famous audio guide for the annabelle h godfrey historic estate and museum please do not touch the art this is for your own safety new episodes released monthly though this is a self guided tour the estate recommends that you start at the beginning horror sci fi haunted house drama sci fi horror dark weird serialized mixed balanced medium long headphones on late night the godfrey audio guide art and interpretation museum mysteries hidden histories nicole knudsen english the mistholme museum of mystery morbidity and mortality unclear indexed only nicole knudsen nicole knudsen the godfrey audio guide unknown unknown 0 original fiction the fictional annabelle h godfrey historic estate and museum an in universe self guided museum audio tour",
     "tagTokens": [
       "horror",
       "sci-fi",
       "haunted-house"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "headphones-on",
+      "late-night"
+    ],
     "coverVariants": [
       {
         "src": "/images/generated/covers/the-godfrey-audio-guide-88708e8994-320.webp",
@@ -72688,7 +72814,11 @@
     "genres": [
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "tense",
+      "cinematic"
+    ],
     "formats": [
       "serialized"
     ],
@@ -72702,7 +72832,11 @@
       "The Hidden People",
       "The Hidden People - Season 1 Teaser"
     ],
-    "themes": [],
+    "themes": [
+      "folklore and fae",
+      "hidden-world discovery",
+      "belonging across worlds"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
@@ -72738,9 +72872,16 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "worldbuilding",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "the-night-post"
+    ],
+    "similarReasons": {
+      "the-night-post": "Both take supernatural folklore into a populated world rather than a one-off haunting; The Hidden People expands from murder mystery into fae fantasy, while The Night Post opens onto an arcane frontier of conscripted couriers."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -72771,7 +72912,11 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "A modern world alongside a hidden realm of magic and monsters",
+      "framingDevice": "A murder mystery that opens into a dark fantasy adventure"
+    },
     "metadata": {
       "objectiveSources": [
         "https://www.spreaker.com/episode/official-statements--52422742",
@@ -73251,6 +73396,12 @@
     "updatedAt": "2026-08-14",
     "creatorId": "dwm-realm",
     "networkId": "spreaker",
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "balanced",
+      "intensity": "variable",
+      "commitment": "deep-dive"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "popularity": {},
@@ -73260,14 +73411,17 @@
     "imageAlt": "The Hidden People cover art",
     "summary": "A creepy modern fantasy that begins as a murder mystery and becomes a dark fantasy adventure filled with action, Irish and Norse folklore, and fae. At the middle of season one, the world of the Hidden People is revealed, complete with magic and monsters. Come for the creepy mysteries and stay for the fantasy action. Discover the world of the Hidden People.",
     "finalRating": null,
-    "searchText": "the hidden people a creepy modern fantasy that begins as a murder mystery and becomes a dark fantasy adventure filled with action irish and norse folklore and fae at the middle of season one the world of the hidden people is revealed complete with magic a creepy modern fantasy that begins as a murder mystery and becomes a dark fantasy adventure filled with action irish and norse folklore and fae at the middle of season one the world of the hidden people is revealed complete with magic and monsters come for the creepy mysteries and stay for the fantasy action discover the world of the hidden people fantasy mystery folk horror supernatural drama serialized the hidden people the hidden people season 1 teaser dwm realm realm realm media dayton writers movement dwm dayton writers movement ltd english unclear indexed only dwm realm dayton writers movement spreaker unknown unknown 0",
+    "searchText": "the hidden people a creepy modern fantasy that begins as a murder mystery and becomes a dark fantasy adventure filled with action irish and norse folklore and fae at the middle of season one the world of the hidden people is revealed complete with magic a creepy modern fantasy that begins as a murder mystery and becomes a dark fantasy adventure filled with action irish and norse folklore and fae at the middle of season one the world of the hidden people is revealed complete with magic and monsters come for the creepy mysteries and stay for the fantasy action discover the world of the hidden people fantasy mystery folk horror supernatural drama dark tense cinematic serialized primarily acted balanced variable deep dive worldbuilding binge listening the hidden people the hidden people season 1 teaser folklore and fae hidden world discovery belonging across worlds dwm realm realm realm media dayton writers movement dwm dayton writers movement ltd english the night post unclear indexed only dwm realm dayton writers movement spreaker unknown unknown 0 original fiction a modern world alongside a hidden realm of magic and monsters a murder mystery that opens into a dark fantasy adventure",
     "tagTokens": [
       "fantasy",
       "mystery",
       "folk-horror",
       "supernatural"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "worldbuilding",
+      "binge-listening"
+    ],
     "resolvedEntities": [
       {
         "id": "realm",
@@ -204268,9 +204422,16 @@
       "structure": "Three-season complete series with 15 numbered story chapters, plus making-of and promotional feed items.",
       "seriesStatus": "The publisher and Apple listings identify the third series as the final series."
     },
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "easy-entry",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "mockery-manor"
+    ],
+    "similarReasons": {
+      "mockery-manor": "Both are full-cast dark comedies where an investigation drives an ensemble through a stylized setting; Jackie makes it a gender-flipped Whitechapel murder case, while Mockery Manor makes a disappearing theme park the mystery."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -204812,6 +204973,12 @@
     "createdAt": "2026-08-15",
     "updatedAt": "2026-09-04",
     "creatorId": "stak",
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "medium"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "popularity": {},
@@ -204821,14 +204988,17 @@
     "imageAlt": "Jackie the Ripper cover art",
     "summary": "The infamous Whitechapel murders, retold. Everyone knows the story of Jack the Ripper, the chilling serial killer that haunted the streets of 19th century London. Now, 135 years later, there’s a new killer in town. In this darkly comic reimagining, men are the victims of sexually aggressive murders committed by a woman: the mysterious Jackie. The only obstacle standing in her way? The slightly clueless, extremely over-caffeinated Detective Abberline and his not-so-crack team at the City of London Police. This is a laugh-out-loud, gruesome, thrilling comedy drama that will have you in bits – and might take your bits too. Hosted on Acast. See acast.com/privacy for more information.",
     "finalRating": null,
-    "searchText": "jackie the ripper the infamous whitechapel murders retold everyone knows the story of jack the ripper the chilling serial killer that haunted the streets of 19th century london now 135 years later there s a new killer in town in this darkly comic reimagining men are the victims of sexually aggressive murders committed by a woman the mysterious jackie the only obstacle standing in her way the slightly clueless extremely over caffeinated detective abberline and his not so crack team at the city of london police this is a laugh out loud gruesome thrilling comedy drama that will have you in bits and might take your bits too hosted on acast see acast com privacy for more information murder detective dark comedy crime drama comedy mystery thriller funny dark full cast serialized jackie the ripper murder investigation gender explicit language graphic violence sexual violence stak stak paul waggott jennifer tierney acushla tara kupe adam jarrell helena doughty amina koroma karim kronfli nalan burgess ant mcginley fisun burgess george still english finished indexed only three season complete series with 15 numbered story chapters plus making of and promotional feed items the publisher and apple listings identify the third series as the final series stak stakhanov industries ltd stak joel emery adam jarrell joel emery adam jarrell finn ranson luke moore joel emery stak unknown unknown 0 original fiction whitechapel and the city of london police 135 years after the historical jack the ripper murders full cast dark comedy mystery led by detective abberline and the city of london police high publisher and apple sources verify a three season complete series the current feed contains 15 numbered story chapters 18 full tagged entries including a making of and two promotional entries one bonus and three trailers the latest numbered story chapter is the 2022 11 04 final finale",
+    "searchText": "jackie the ripper the infamous whitechapel murders retold everyone knows the story of jack the ripper the chilling serial killer that haunted the streets of 19th century london now 135 years later there s a new killer in town in this darkly comic reimagining men are the victims of sexually aggressive murders committed by a woman the mysterious jackie the only obstacle standing in her way the slightly clueless extremely over caffeinated detective abberline and his not so crack team at the city of london police this is a laugh out loud gruesome thrilling comedy drama that will have you in bits and might take your bits too hosted on acast see acast com privacy for more information murder detective dark comedy crime drama comedy mystery thriller funny dark full cast serialized primarily acted plot driven high medium easy entry binge listening jackie the ripper murder investigation gender explicit language graphic violence sexual violence stak stak paul waggott jennifer tierney acushla tara kupe adam jarrell helena doughty amina koroma karim kronfli nalan burgess ant mcginley fisun burgess george still english mockery manor finished indexed only three season complete series with 15 numbered story chapters plus making of and promotional feed items the publisher and apple listings identify the third series as the final series stak stakhanov industries ltd stak joel emery adam jarrell joel emery adam jarrell finn ranson luke moore joel emery stak unknown unknown 0 original fiction whitechapel and the city of london police 135 years after the historical jack the ripper murders full cast dark comedy mystery led by detective abberline and the city of london police high publisher and apple sources verify a three season complete series the current feed contains 15 numbered story chapters 18 full tagged entries including a making of and two promotional entries one bonus and three trailers the latest numbered story chapter is the 2022 11 04 final finale",
     "tagTokens": [
       "murder",
       "detective",
       "dark-comedy",
       "crime"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "easy-entry",
+      "binge-listening"
+    ],
     "resolvedEntities": [
       {
         "id": "stak",
@@ -428888,7 +429058,11 @@
       "sci-fi",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "bleak",
+      "tense",
+      "cinematic"
+    ],
     "formats": [
       "serialized",
       "full-cast"
@@ -428902,7 +429076,11 @@
     "aliases": [
       "The Cleansed"
     ],
-    "themes": [],
+    "themes": [
+      "post-collapse survival",
+      "community under pressure",
+      "military power"
+    ],
     "contentNotes": [],
     "languages": [],
     "transcriptLanguages": [],
@@ -428934,9 +429112,16 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "serious-sci-fi",
+      "long-walks"
+    ],
+    "similarTo": [
+      "the-orphans"
+    ],
+    "similarReasons": {
+      "the-orphans": "Both make survival an ensemble problem after a systemic collapse; The Cleansed stays in post-crisis Maine as a soldier's warning widens the danger, while The Orphans carries the group-and-threat tension into a hostile galaxy."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -428966,7 +429151,11 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "Rural Maine and the remnants of old New York after an energy crisis",
+      "pov": "Ensemble survival drama centered on off-grid homesteaders and an arriving soldier"
+    },
     "metadata": {
       "objectiveSources": [
         "https://finalrune.com/the-cleansed/",
@@ -429171,6 +429360,12 @@
     "featured": false,
     "createdAt": "2026-09-06",
     "updatedAt": "2026-09-06",
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "long"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "officialDescription": {
@@ -429186,14 +429381,17 @@
     "imageAlt": "The Cleansed cover art",
     "summary": "Fifteen years after the fallout of a massive energy crisis, steadfast homesteaders in rural Maine live off-grid. Their bucolic existence is turned upside down when a soldier arrives with word of a powerful military force rising in the ashes of old New York.",
     "finalRating": null,
-    "searchText": "the cleansed fifteen years after the fallout of a massive energy crisis steadfast homesteaders in rural maine live off grid their bucolic existence is turned upside down when a soldier arrives with word of a powerful military force rising in the ashes of old new york post apocalyptic survival war cults sci fi drama serialized full cast the cleansed fred greenhalgh finalrune productions finalrune fred greenhalgh finished indexed only fred greenhalgh dagaz media unknown unknown 0",
+    "searchText": "the cleansed fifteen years after the fallout of a massive energy crisis steadfast homesteaders in rural maine live off grid their bucolic existence is turned upside down when a soldier arrives with word of a powerful military force rising in the ashes of old new york post apocalyptic survival war cults sci fi drama bleak tense cinematic serialized full cast primarily acted plot driven high long serious sci fi long walks the cleansed post collapse survival community under pressure military power fred greenhalgh finalrune productions finalrune fred greenhalgh the orphans finished indexed only fred greenhalgh dagaz media unknown unknown 0 original fiction rural maine and the remnants of old new york after an energy crisis ensemble survival drama centered on off grid homesteaders and an arriving soldier",
     "tagTokens": [
       "post-apocalyptic",
       "survival",
       "war",
       "cults"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "serious-sci-fi",
+      "long-walks"
+    ],
     "resolvedEntities": [
       {
         "id": "finalrune-productions",
@@ -432012,7 +432210,11 @@
       "drama",
       "thriller"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "tense",
+      "cinematic"
+    ],
     "formats": [
       "full-cast",
       "serialized"
@@ -432026,7 +432228,11 @@
     "aliases": [
       "The Harrowing"
     ],
-    "themes": [],
+    "themes": [
+      "island isolation",
+      "crime and consequence",
+      "ancient evil"
+    ],
     "contentNotes": [],
     "languages": [],
     "transcriptLanguages": [],
@@ -432056,7 +432262,11 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
+    "bestFor": [
+      "late-night",
+      "headphones-on",
+      "short-under-five-hours"
+    ],
     "similarTo": [],
     "similarReasons": {},
     "archiveTake": "",
@@ -432089,7 +432299,11 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "The remote Scottish island of Toll Mòr",
+      "framingDevice": "An island crime during a once-in-a-century storm that gradually becomes supernatural horror"
+    },
     "metadata": {
       "researchGaps": [
         "The current Acast feed and Apple collection are empty or unavailable, so a current canonical episode list was not verified."
@@ -432298,6 +432512,12 @@
     "featured": false,
     "createdAt": "2026-09-06",
     "updatedAt": "2026-09-08",
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "short"
+    },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
     "officialDescription": {
@@ -432313,14 +432533,18 @@
     "imageAlt": "The Harrowing cover art",
     "summary": "A once-in-a-century storm hits the remote Scottish island of Toll Mòr. As the isolated community takes shelter, a barbaric crime sets off a chain of events that heralds the rise of an ancient evil and threatens the course of history.",
     "finalRating": null,
-    "searchText": "the harrowing a once in a century storm hits a remote scottish island as the isolated community take shelter a barbaric crime heralds the rise of an ancient evil threatening the world starring golden globe winner joanne froggatt and bridgerton s rege a once in a century storm hits the remote scottish island of toll m r as the isolated community takes shelter a barbaric crime sets off a chain of events that heralds the rise of an ancient evil and threatens the course of history isolation supernatural survival investigation horror drama thriller full cast serialized the harrowing mark healy storyglass mark healy finished indexed only mark healy storyglass storyglass unknown unknown 0",
+    "searchText": "the harrowing a once in a century storm hits a remote scottish island as the isolated community take shelter a barbaric crime heralds the rise of an ancient evil threatening the world starring golden globe winner joanne froggatt and bridgerton s rege a once in a century storm hits the remote scottish island of toll m r as the isolated community takes shelter a barbaric crime sets off a chain of events that heralds the rise of an ancient evil and threatens the course of history isolation supernatural survival investigation horror drama thriller dark tense cinematic full cast serialized primarily acted plot driven high short late night headphones on short under five hours the harrowing island isolation crime and consequence ancient evil mark healy storyglass mark healy finished indexed only mark healy storyglass storyglass unknown unknown 0 original fiction the remote scottish island of toll m r an island crime during a once in a century storm that gradually becomes supernatural horror",
     "tagTokens": [
       "isolation",
       "supernatural",
       "survival",
       "investigation"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "late-night",
+      "headphones-on",
+      "short-under-five-hours"
+    ],
     "resolvedEntities": [
       {
         "id": "storyglass",
@@ -433441,7 +433665,10 @@
       "thriller",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "tense"
+    ],
     "formats": [
       "serialized",
       "full-cast",
@@ -433456,8 +433683,19 @@
     "aliases": [
       "Afflicted"
     ],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "hoodoo and protection",
+      "small-town catastrophe",
+      "community under pressure"
+    ],
+    "contentNotes": [
+      "grief",
+      "graphic murder",
+      "gore",
+      "medical trauma",
+      "natural disasters",
+      "mental health slurs"
+    ],
     "languages": [],
     "transcriptLanguages": [],
     "length": {
@@ -433486,9 +433724,16 @@
     },
     "ratings": {},
     "facts": {},
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "late-night",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "the-harrowing"
+    ],
+    "similarReasons": {
+      "the-harrowing": "Both turn a local catastrophe into supernatural horror: Afflicted uses an East Texas town, a demonic book, and hoodoo, while The Harrowing uses a remote Scottish island, an unsolved crime, and an ancient evil."
+    },
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -433518,7 +433763,11 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "The small East Texas town of Gunnaway",
+      "framingDevice": "A demonic book bound in human flesh drives a season of supernatural disasters"
+    },
     "metadata": {
       "objectiveSources": [
         "https://art19.com/shows/afflicted",
@@ -433744,14 +433993,17 @@
     "imageAlt": "Afflicted cover art",
     "summary": "Lovecraft Country meets True Blood in this horror thriller from award-winning producers Tonia Ransom and Jen Zink. In season one, a small East Texas town suffers supernatural disasters caused by a demonic book bound in human flesh, and only hoodoo can save it.",
     "finalRating": null,
-    "searchText": "afflicted lovecraft country meets true blood in this horror thriller from award winning producers tonia ransom and jen zink in season one a small east texas town suffers supernatural disasters caused by a demonic book bound in human flesh and only hoodoo can save it supernatural demons small town investigation horror thriller drama serialized full cast episodic primarily acted plot driven high medium afflicted ransom media productions finished indexed only ransom media productions tonia ransom unknown unknown 0",
+    "searchText": "afflicted lovecraft country meets true blood in this horror thriller from award winning producers tonia ransom and jen zink in season one a small east texas town suffers supernatural disasters caused by a demonic book bound in human flesh and only hoodoo can save it supernatural demons small town investigation horror thriller drama dark tense serialized full cast episodic primarily acted plot driven high medium late night binge listening afflicted hoodoo and protection small town catastrophe community under pressure grief graphic murder gore medical trauma natural disasters mental health slurs ransom media productions the harrowing finished indexed only ransom media productions tonia ransom unknown unknown 0 original fiction the small east texas town of gunnaway a demonic book bound in human flesh drives a season of supernatural disasters",
     "tagTokens": [
       "supernatural",
       "demons",
       "small-town",
       "investigation"
     ],
-    "bestForTokens": [],
+    "bestForTokens": [
+      "late-night",
+      "binge-listening"
+    ],
     "coverVariants": [
       {
         "src": "/images/generated/covers/afflicted-b882145bcb-320.webp",

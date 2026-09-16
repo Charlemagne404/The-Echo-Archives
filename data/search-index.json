@@ -10534,11 +10534,20 @@
     "genres": [
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "tense"
+    ],
     "formats": [
       "narrated",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-narrated",
+      "narrativeFocus": "character-driven",
+      "intensity": "high",
+      "commitment": "deep-dive"
+    },
     "tags": [
       "Horror",
       "Romance",
@@ -10563,9 +10572,16 @@
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "late-night",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "i-am-in-eskew"
+    ],
+    "similarReasons": {
+      "i-am-in-eskew": "Both use intimate narration to make identity and the body part of the horror; Not Quite Dead adds a gory queer romance, while I Am in Eskew turns the same inward pressure toward an impossible city."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -10577,7 +10593,11 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "An A&E nurse's hometown as the dead begin to walk",
+      "pov": "Character-led horror-romance centered on Alfie and Casper"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
@@ -10892,11 +10912,20 @@
       "thriller",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "tense"
+    ],
     "formats": [
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "balanced",
+      "intensity": "high",
+      "commitment": "medium"
+    },
     "tags": [
       "Supernatural",
       "Folk horror",
@@ -10905,7 +10934,11 @@
     "aliases": [
       "The Secret of St Kilda"
     ],
-    "themes": [],
+    "themes": [
+      "redemption",
+      "island community",
+      "belief and sacrifice"
+    ],
     "contentNotes": [
       "violence",
       "death",
@@ -10919,9 +10952,16 @@
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "late-night",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "the-harrowing"
+    ],
+    "similarReasons": {
+      "the-harrowing": "Both turn an isolated Scottish island into supernatural pressure; St Kilda begins with a con man's attempted redemption and a community seeking a saviour, while The Harrowing begins with a storm-bound crime and an ancient evil."
+    },
     "archiveTake": "",
     "facts": {
       "officialSeriesStatus": "Season 1 released; Season 2 listed as in pre-production on the official site.",
@@ -13842,13 +13882,18 @@
       "thriller",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "tense",
+      "cinematic"
+    ],
     "formats": [
       "serialized"
     ],
     "discovery": {
+      "voiceStyle": "mixed",
       "narrativeFocus": "plot-driven",
-      "intensity": "high"
+      "intensity": "high",
+      "commitment": "long"
     },
     "tags": [
       "Survival",
@@ -13859,15 +13904,26 @@
     "aliases": [
       "The Walk"
     ],
-    "themes": [],
+    "themes": [
+      "listener agency",
+      "trust and mistaken identity",
+      "survival under lockdown"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "headphones-on",
+      "long-walks"
+    ],
+    "similarTo": [
+      "carrier"
+    ],
+    "similarReasons": {
+      "carrier": "Both make a forced journey the survival engine, but The Walk puts the listener inside an electromagnetic-pulse escape from Inverness to Edinburgh while Carrier traps its danger in a loaded trailer on a dark highway."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -13879,7 +13935,12 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "The route from Inverness to Edinburgh after an electromagnetic pulse",
+      "pov": "Listener-perspective survival thriller in which the listener is the walker",
+      "framingDevice": "A courier mission becomes an on-foot escape through a city under lockdown"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
@@ -14731,10 +14792,20 @@
       "comedy",
       "fantasy"
     ],
-    "tones": [],
+    "tones": [
+      "warm",
+      "weird",
+      "cinematic"
+    ],
     "formats": [
       "episodic"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "character-driven",
+      "intensity": "medium",
+      "commitment": "medium"
+    },
     "tags": [
       "New Weird",
       "Character-driven",
@@ -14745,15 +14816,26 @@
       "The Orbiting Human Circus: About | WNYC Studios | Podcasts",
       "The Orbiting Human Circus: Episodes | WNYC Studios | Podcasts"
     ],
-    "themes": [],
+    "themes": [
+      "performance and identity",
+      "longing for escape",
+      "radio as a world"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "headphones-on",
+      "warm-weird"
+    ],
+    "similarTo": [
+      "welcome-to-night-vale"
+    ],
+    "similarReasons": {
+      "welcome-to-night-vale": "Both build surreal worlds through broadcast framing and recurring voices; Orbiting is a musical, character-led stage world, while Night Vale is a deadpan community bulletin."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -14771,7 +14853,12 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "A fantastical radio show broadcast from the Eiffel Tower",
+      "pov": "A lonely janitor drawn into a surreal ensemble world",
+      "framingDevice": "An immersive radio-show-within-a-show"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
@@ -15870,10 +15957,19 @@
       "sci-fi",
       "horror"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "weird"
+    ],
     "formats": [
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "mixed",
+      "narrativeFocus": "balanced",
+      "intensity": "medium",
+      "commitment": "long"
+    },
     "tags": [
       "Horror",
       "Sci-fi",
@@ -15882,15 +15978,26 @@
     "aliases": [
       "The Godfrey Audio Guide"
     ],
-    "themes": [],
+    "themes": [
+      "art and interpretation",
+      "museum mysteries",
+      "hidden histories"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "headphones-on",
+      "late-night"
+    ],
+    "similarTo": [
+      "the-mistholme-museum-of-mystery-morbidity-and-mortality"
+    ],
+    "similarReasons": {
+      "the-mistholme-museum-of-mystery-morbidity-and-mortality": "Both use a fictional museum audio guide as the frame, letting exhibits and the institution's voice become the route into strange encounters; Mistholme is the more anthology-shaped branch."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -15903,7 +16010,11 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "The fictional Annabelle H. Godfrey Historic Estate and Museum",
+      "framingDevice": "An in-universe self-guided museum audio tour"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
@@ -17486,10 +17597,20 @@
     "genres": [
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "tense",
+      "cinematic"
+    ],
     "formats": [
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "balanced",
+      "intensity": "variable",
+      "commitment": "deep-dive"
+    },
     "tags": [
       "Fantasy",
       "Mystery",
@@ -17500,15 +17621,26 @@
       "The Hidden People",
       "The Hidden People - Season 1 Teaser"
     ],
-    "themes": [],
+    "themes": [
+      "folklore and fae",
+      "hidden-world discovery",
+      "belonging across worlds"
+    ],
     "contentNotes": [],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "worldbuilding",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "the-night-post"
+    ],
+    "similarReasons": {
+      "the-night-post": "Both take supernatural folklore into a populated world rather than a one-off haunting; The Hidden People expands from murder mystery into fae fantasy, while The Night Post opens onto an arcane frontier of conscripted couriers."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -17521,7 +17653,11 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "A modern world alongside a hidden realm of magic and monsters",
+      "framingDevice": "A murder mystery that opens into a dark fantasy adventure"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
@@ -32313,6 +32449,12 @@
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "medium"
+    },
     "tags": [
       "Murder",
       "Detective",
@@ -32336,9 +32478,16 @@
       "English"
     ],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "easy-entry",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "mockery-manor"
+    ],
+    "similarReasons": {
+      "mockery-manor": "Both are full-cast dark comedies where an investigation drives an ensemble through a stylized setting; Jackie makes it a gender-flipped Whitechapel murder case, while Mockery Manor makes a disappearing theme park the mystery."
+    },
     "archiveTake": "",
     "facts": {
       "structure": "Three-season complete series with 15 numbered story chapters, plus making-of and promotional feed items.",
@@ -56195,11 +56344,21 @@
       "sci-fi",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "bleak",
+      "tense",
+      "cinematic"
+    ],
     "formats": [
       "serialized",
       "full-cast"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "long"
+    },
     "tags": [
       "Post-apocalyptic",
       "Survival",
@@ -56209,13 +56368,24 @@
     "aliases": [
       "The Cleansed"
     ],
-    "themes": [],
+    "themes": [
+      "post-collapse survival",
+      "community under pressure",
+      "military power"
+    ],
     "contentNotes": [],
     "languages": [],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "serious-sci-fi",
+      "long-walks"
+    ],
+    "similarTo": [
+      "the-orphans"
+    ],
+    "similarReasons": {
+      "the-orphans": "Both make survival an ensemble problem after a systemic collapse; The Cleansed stays in post-crisis Maine as a soldier's warning widens the danger, while The Orphans carries the group-and-threat tension into a hostile galaxy."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -56227,7 +56397,11 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "Rural Maine and the remnants of old New York after an energy crisis",
+      "pov": "Ensemble survival drama centered on off-grid homesteaders and an arriving soldier"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
@@ -56875,11 +57049,21 @@
       "drama",
       "thriller"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "tense",
+      "cinematic"
+    ],
     "formats": [
       "full-cast",
       "serialized"
     ],
+    "discovery": {
+      "voiceStyle": "primarily-acted",
+      "narrativeFocus": "plot-driven",
+      "intensity": "high",
+      "commitment": "short"
+    },
     "tags": [
       "Isolation",
       "Supernatural",
@@ -56889,11 +57073,19 @@
     "aliases": [
       "The Harrowing"
     ],
-    "themes": [],
+    "themes": [
+      "island isolation",
+      "crime and consequence",
+      "ancient evil"
+    ],
     "contentNotes": [],
     "languages": [],
     "transcriptLanguages": [],
-    "bestFor": [],
+    "bestFor": [
+      "late-night",
+      "headphones-on",
+      "short-under-five-hours"
+    ],
     "similarTo": [],
     "similarReasons": {},
     "archiveTake": "",
@@ -56908,7 +57100,11 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "The remote Scottish island of Toll Mòr",
+      "framingDevice": "An island crime during a once-in-a-century storm that gradually becomes supernatural horror"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
@@ -57172,7 +57368,10 @@
       "thriller",
       "drama"
     ],
-    "tones": [],
+    "tones": [
+      "dark",
+      "tense"
+    ],
     "formats": [
       "serialized",
       "full-cast",
@@ -57193,13 +57392,31 @@
     "aliases": [
       "Afflicted"
     ],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "hoodoo and protection",
+      "small-town catastrophe",
+      "community under pressure"
+    ],
+    "contentNotes": [
+      "grief",
+      "graphic murder",
+      "gore",
+      "medical trauma",
+      "natural disasters",
+      "mental health slurs"
+    ],
     "languages": [],
     "transcriptLanguages": [],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
+    "bestFor": [
+      "late-night",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "the-harrowing"
+    ],
+    "similarReasons": {
+      "the-harrowing": "Both turn a local catastrophe into supernatural horror: Afflicted uses an East Texas town, a demonic book, and hoodoo, while The Harrowing uses a remote Scottish island, an unsolved crime, and an ancient evil."
+    },
     "archiveTake": "",
     "facts": {},
     "credits": {
@@ -57211,7 +57428,11 @@
       "captions": "unknown",
       "transcriptCoverage": 0
     },
-    "content": {},
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "The small East Texas town of Gunnaway",
+      "framingDevice": "A demonic book bound in human flesh drives a season of supernatural disasters"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,

@@ -29,7 +29,10 @@
     "thriller",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -42,7 +45,11 @@
   "aliases": [
     "The Walk"
   ],
-  "themes": [],
+  "themes": [
+    "listener agency",
+    "trust and mistaken identity",
+    "survival under lockdown"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -76,9 +83,16 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "long-walks"
+  ],
+  "similarTo": [
+    "carrier"
+  ],
+  "similarReasons": {
+    "carrier": "Both make a forced journey the survival engine, but The Walk puts the listener inside an electromagnetic-pulse escape from Inverness to Edinburgh while Carrier traps its danger in a loaded trailer on a dark highway."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -116,7 +130,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "The route from Inverness to Edinburgh after an electromagnetic pulse",
+    "pov": "Listener-perspective survival thriller in which the listener is the walker",
+    "framingDevice": "A courier mission becomes an on-foot escape through a city under lockdown"
+  },
   "metadata": {
     "objectiveSources": [
       "https://podcasts.apple.com/us/podcast/the-walk/id1334736440?uo=4",
@@ -436,7 +455,9 @@
   "updatedAt": "2026-09-14",
   "creatorId": "panoply-naomi-alderman-six-to-start",
   "discovery": {
+    "voiceStyle": "mixed",
     "narrativeFocus": "plot-driven",
-    "intensity": "high"
+    "intensity": "high",
+    "commitment": "long"
   }
 }

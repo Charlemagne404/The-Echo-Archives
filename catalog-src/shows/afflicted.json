@@ -24,7 +24,10 @@
     "thriller",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense"
+  ],
   "formats": [
     "serialized",
     "full-cast",
@@ -39,8 +42,19 @@
   "aliases": [
     "Afflicted"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "hoodoo and protection",
+    "small-town catastrophe",
+    "community under pressure"
+  ],
+  "contentNotes": [
+    "grief",
+    "graphic murder",
+    "gore",
+    "medical trauma",
+    "natural disasters",
+    "mental health slurs"
+  ],
   "languages": [],
   "transcriptLanguages": [],
   "length": {
@@ -70,9 +84,16 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-harrowing"
+  ],
+  "similarReasons": {
+    "the-harrowing": "Both turn a local catastrophe into supernatural horror: Afflicted uses an East Texas town, a demonic book, and hoodoo, while The Harrowing uses a remote Scottish island, an unsolved crime, and an ancient evil."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -110,7 +131,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "The small East Texas town of Gunnaway",
+    "framingDevice": "A demonic book bound in human flesh drives a season of supernatural disasters"
+  },
   "metadata": {
     "objectiveSources": [
       "https://art19.com/shows/afflicted",

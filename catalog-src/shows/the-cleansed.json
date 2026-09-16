@@ -27,7 +27,11 @@
     "sci-fi",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "bleak",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "serialized",
     "full-cast"
@@ -41,7 +45,11 @@
   "aliases": [
     "The Cleansed"
   ],
-  "themes": [],
+  "themes": [
+    "post-collapse survival",
+    "community under pressure",
+    "military power"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -74,9 +82,16 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "serious-sci-fi",
+    "long-walks"
+  ],
+  "similarTo": [
+    "the-orphans"
+  ],
+  "similarReasons": {
+    "the-orphans": "Both make survival an ensemble problem after a systemic collapse; The Cleansed stays in post-crisis Maine as a soldier's warning widens the danger, while The Orphans carries the group-and-threat tension into a hostile galaxy."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -115,7 +130,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "Rural Maine and the remnants of old New York after an energy crisis",
+    "pov": "Ensemble survival drama centered on off-grid homesteaders and an arriving soldier"
+  },
   "metadata": {
     "objectiveSources": [
       "https://finalrune.com/the-cleansed/",
@@ -423,5 +442,11 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06"
+  "updatedAt": "2026-09-06",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "long"
+  }
 }

@@ -28,7 +28,11 @@
     "drama",
     "thriller"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "full-cast",
     "serialized"
@@ -42,7 +46,11 @@
   "aliases": [
     "The Harrowing"
   ],
-  "themes": [],
+  "themes": [
+    "island isolation",
+    "crime and consequence",
+    "ancient evil"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -74,7 +82,11 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "short-under-five-hours"
+  ],
   "similarTo": [],
   "similarReasons": {},
   "archiveTake": "",
@@ -115,7 +127,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "The remote Scottish island of Toll Mòr",
+    "framingDevice": "An island crime during a once-in-a-century storm that gradually becomes supernatural horror"
+  },
   "metadata": {
     "researchGaps": [
       "The current Acast feed and Apple collection are empty or unavailable, so a current canonical episode list was not verified."
@@ -432,5 +448,11 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-08"
+  "updatedAt": "2026-09-08",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "short"
+  }
 }

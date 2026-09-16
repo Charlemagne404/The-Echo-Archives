@@ -32,7 +32,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -46,7 +50,11 @@
     "The Hidden People",
     "The Hidden People - Season 1 Teaser"
   ],
-  "themes": [],
+  "themes": [
+    "folklore and fae",
+    "hidden-world discovery",
+    "belonging across worlds"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -83,9 +91,16 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "worldbuilding",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-night-post"
+  ],
+  "similarReasons": {
+    "the-night-post": "Both take supernatural folklore into a populated world rather than a one-off haunting; The Hidden People expands from murder mystery into fae fantasy, while The Night Post opens onto an arcane frontier of conscripted couriers."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -124,7 +139,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "A modern world alongside a hidden realm of magic and monsters",
+    "framingDevice": "A murder mystery that opens into a dark fantasy adventure"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.spreaker.com/episode/official-statements--52422742",
@@ -667,5 +686,11 @@
   "createdAt": "2026-08-14",
   "updatedAt": "2026-08-14",
   "creatorId": "dwm-realm",
-  "networkId": "spreaker"
+  "networkId": "spreaker",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "variable",
+    "commitment": "deep-dive"
+  }
 }

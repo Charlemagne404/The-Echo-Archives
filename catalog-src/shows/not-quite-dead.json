@@ -26,7 +26,10 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense"
+  ],
   "formats": [
     "narrated",
     "serialized"
@@ -87,9 +90,16 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "i-am-in-eskew"
+  ],
+  "similarReasons": {
+    "i-am-in-eskew": "Both use intimate narration to make identity and the body part of the horror; Not Quite Dead adds a gory queer romance, while I Am in Eskew turns the same inward pressure toward an impossible city."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -127,7 +137,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "An A&E nurse's hometown as the dead begin to walk",
+    "pov": "Character-led horror-romance centered on Alfie and Casper"
+  },
   "metadata": {
     "objectiveSources": [
       "https://hangingslothstudios.com/remnants-transcripts/",
@@ -511,5 +525,11 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21"
+  "updatedAt": "2026-07-21",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "character-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

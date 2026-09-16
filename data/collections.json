@@ -31,7 +31,8 @@
       "the-white-vault",
       "the-orphans",
       "within-the-wires",
-      "hi-nay"
+      "hi-nay",
+      "the-walk"
     ],
     "showReasons": {
       "impact-winter": "Cinematic urgency and seasonal momentum make it easy to stay locked in.",
@@ -47,7 +48,8 @@
       "the-penumbra-podcast": "A large back catalogue and several connected story worlds make it an easy long-haul companion.",
       "the-orphans": "A multi-season connected galaxy gives a longer walk an ensemble survival story with room to expand.",
       "within-the-wires": "Ten connected seasons and a slow-build alternate history reward an uninterrupted long listen.",
-      "hi-nay": "A 100-hour-plus ongoing supernatural run offers a deep episodic route for listeners who want a long companion."
+      "hi-nay": "A 100-hour-plus ongoing supernatural run offers a deep episodic route for listeners who want a long companion.",
+      "the-walk": "A continuous courier journey with checkpoints, pursuit, and alliance shifts is explicitly designed to carry a listener while walking."
     },
     "featured": true,
     "order": 10,
@@ -149,7 +151,8 @@
       "impact-winter",
       "the-orphans",
       "the-hyacinth-disaster",
-      "out-of-place"
+      "out-of-place",
+      "the-cleansed"
     ],
     "showReasons": {
       "impact-winter": "A big, cinematic survival story with genre pressure at the front.",
@@ -171,7 +174,8 @@
       "the-deca-tapes": "A controlled, puzzle-box dystopia for listeners who want systems and suspense instead of banter.",
       "the-orphans": "Cinematic survival in a harsh connected universe keeps the pressure on the science-fiction premise.",
       "the-hyacinth-disaster": "A deadline-driven Jovian mission keeps the science-fiction stakes focused on work, systems, and survival.",
-      "out-of-place": "Artifacts from another reality turn scientific curiosity and institutional secrecy into the show's central pressure."
+      "out-of-place": "Artifacts from another reality turn scientific curiosity and institutional secrecy into the show's central pressure.",
+      "the-cleansed": "Post-crisis survival, a rising military force, and an off-grid community keep the science-fiction stakes grounded and consequential."
     },
     "featured": true,
     "order": 30,
@@ -249,7 +253,8 @@
       "red-frontier",
       "impact-winter",
       "the-white-vault",
-      "i-am-in-eskew"
+      "i-am-in-eskew",
+      "the-harrowing"
     ],
     "showReasons": {
       "the-white-vault": "This is the clearest match for the collection's remote-expedition horror.",
@@ -261,7 +266,8 @@
       "the-phenomenon": "Bleak large-scale tension makes the world itself feel hostile.",
       "the-secret-of-st-kilda": "A remote island setting and supernatural thriller premise turn isolation into the pressure point.",
       "red-frontier": "Complete isolation on a Mars mission turns the setting itself into a survival pressure.",
-      "i-am-in-eskew": "A man trapped in an ever-changing city turns isolation, hostile space, and body horror into the core listening pressure."
+      "i-am-in-eskew": "A man trapped in an ever-changing city turns isolation, hostile space, and body horror into the core listening pressure.",
+      "the-harrowing": "A remote Scottish island, a storm-bound crime, and an ancient power make the setting itself the source of pressure."
     },
     "featured": true,
     "order": 50,
@@ -350,7 +356,9 @@
       "red-frontier",
       "the-polybius-conspiracy",
       "octobers-children",
-      "the-dead-letter-office-of-somewhere-ohio"
+      "the-dead-letter-office-of-somewhere-ohio",
+      "not-quite-dead",
+      "afflicted"
     ],
     "showReasons": {
       "solar": "Tight survival tension fits a focused night listen.",
@@ -375,7 +383,9 @@
       "red-frontier": "A mysterious epidemic, a remote Mars base, and a survival mystery make it an easy after-dark tension fit.",
       "the-polybius-conspiracy": "Pacific Northwest arcade lore, conspiracy, and uncertain reality give the investigation a quietly unnerving after-dark route.",
       "octobers-children": "The escalating creature threat and boundary-blurring premise suit a tense after-dark listen.",
-      "the-dead-letter-office-of-somewhere-ohio": "Dead letters, surreal lost mail, and horror-comedy make ordinary nighttime listening feel pleasantly off-kilter."
+      "the-dead-letter-office-of-somewhere-ohio": "Dead letters, surreal lost mail, and horror-comedy make ordinary nighttime listening feel pleasantly off-kilter.",
+      "not-quite-dead": "Gory vampire investigation and intimate horror-romance make this an after-dark route with sharper edges than a comfort listen.",
+      "afflicted": "A demonic book, supernatural disasters, and a town trying to understand the damage keep the horror pressure active after dark."
     },
     "featured": false,
     "order": 70,
@@ -419,7 +429,10 @@
       "i-am-in-eskew",
       "the-hyacinth-disaster",
       "out-of-place",
-      "within-the-wires"
+      "within-the-wires",
+      "the-godfrey-audio-guide",
+      "the-walk",
+      "the-orbiting-human-circus"
     ],
     "showReasons": {
       "impact-winter": "Big scenes and layered production make headphones worthwhile.",
@@ -440,7 +453,10 @@
       "i-am-in-eskew": "Diary-like narration and an ever-changing city reward focused listening to the clues accumulating beneath the horror.",
       "the-hyacinth-disaster": "Full-cast mission pressure and a compact space setting benefit from an uninterrupted listen.",
       "out-of-place": "The brown-paper-bag artifact frame rewards close attention to what each object reveals and withholds.",
-      "within-the-wires": "Found audio, museum guides, relaxation tapes, and original music make form and sound central to the experience."
+      "within-the-wires": "Found audio, museum guides, relaxation tapes, and original music make form and sound central to the experience.",
+      "the-godfrey-audio-guide": "The museum-tour frame, art encounters, and layered audio guide reward close listening to the details around each exhibit.",
+      "the-walk": "A listener-perspective escape with voices, movement, and an electromagnetic-pulse setting is built for focused headphone listening.",
+      "the-orbiting-human-circus": "Music, ensemble performances, and an immersive radio-show frame make the surreal world land best in close listening."
     },
     "featured": false,
     "order": 80,
@@ -597,7 +613,8 @@
       "startripper",
       "greater-boston",
       "caravan",
-      "midnight-burger"
+      "midnight-burger",
+      "the-orbiting-human-circus"
     ],
     "showReasons": {
       "midnight-burger": "The archive's strongest warm-cosmic weirdness lane.",
@@ -611,7 +628,8 @@
       "victoriocity": "Alternate-Victorian absurdity adds comic texture without making the collection harsher.",
       "startripper": "A generous cosmic travelogue that pushes the collection toward overt comfort listening.",
       "greater-boston": "Large-cast weirdness with enough heart to keep the absurdity hospitable.",
-      "caravan": "Fantasy adventure with warmth as a core mode, not an afterthought."
+      "caravan": "Fantasy adventure with warmth as a core mode, not an afterthought.",
+      "the-orbiting-human-circus": "A joyous, moving musical fantasy turns a lonely janitor's escape into a hospitable surreal-world route."
     },
     "featured": false,
     "order": 110,
@@ -651,7 +669,9 @@
       "impact-winter",
       "the-white-vault",
       "the-orphans",
-      "the-hyacinth-disaster"
+      "the-hyacinth-disaster",
+      "the-cleansed",
+      "the-walk"
     ],
     "showReasons": {
       "were-alive": "Long-running ensemble survival gives it endurance.",
@@ -668,7 +688,9 @@
       "marsfall": "A Mars settlement under pressure gives the collection a frontier-survival route with room for consequence.",
       "janus-descending": "A doomed xenoarchaeology mission turns discovery into a fight to stay alive.",
       "the-orphans": "Castaways, hostile worlds, and emotionally entangled AIs make each next decision part of survival.",
-      "the-hyacinth-disaster": "The crew has to reach a sister ship before the window closes; the premise is all next decisions and dwindling time."
+      "the-hyacinth-disaster": "The crew has to reach a sister ship before the window closes; the premise is all next decisions and dwindling time.",
+      "the-cleansed": "Off-grid homesteaders have to decide what to do when a soldier brings word of a military force rising after the energy crisis.",
+      "the-walk": "A courier mission becomes a forced journey through a locked-down city, with pursuit and shifting alliances keeping every next step consequential."
     },
     "featured": false,
     "order": 120,
@@ -712,7 +734,8 @@
       "midnight-burger",
       "the-orphans",
       "within-the-wires",
-      "hi-nay"
+      "hi-nay",
+      "the-hidden-people"
     ],
     "showReasons": {
       "midnight-burger": "Its cosmic premise keeps opening into more places and people.",
@@ -733,7 +756,8 @@
       "the-mistholme-museum-of-mystery-morbidity-and-mortality": "A museum frame turns each strange artifact into another doorway into the archive's wider world.",
       "the-orphans": "Five seasons revisit the same galaxy from new vantage points, rewarding listeners who want scope beyond one mission.",
       "within-the-wires": "Ten standalone-but-connected seasons gradually map an alternate universe and its political history.",
-      "hi-nay": "A long-running family and community story gives listeners room to stay with its supernatural world rather than sample a single case."
+      "hi-nay": "A long-running family and community story gives listeners room to stay with its supernatural world rather than sample a single case.",
+      "the-hidden-people": "Four observed seasons and a world that expands from a local mystery into fae folklore give the archive a sustained fantasy deep dive."
     },
     "featured": false,
     "order": 130,
@@ -851,7 +875,8 @@
       "the-penumbra-podcast",
       "the-mistholme-museum-of-mystery-morbidity-and-mortality",
       "fairies-and-dragons-ponies-and-knights",
-      "the-viridian-wild"
+      "the-viridian-wild",
+      "the-hidden-people"
     ],
     "showReasons": {
       "caravan": "A hidden-road fantasy that keeps rewarding curiosity and movement.",
@@ -862,7 +887,8 @@
       "the-penumbra-podcast": "Connected sci-fi and fantasy worlds offer several different ways into the same larger imaginative project.",
       "the-mistholme-museum-of-mystery-morbidity-and-mortality": "A museum of magical artifacts makes every episode another small detour into a hidden world.",
       "fairies-and-dragons-ponies-and-knights": "An all-ages dragon-egg adventure with live guest-artist performances opens a gentler branch of the hidden-worlds route.",
-      "the-viridian-wild": "A mythozoologist's field journey uses magical creatures to open a hidden-world route one encounter at a time."
+      "the-viridian-wild": "A mythozoologist's field journey uses magical creatures to open a hidden-world route one encounter at a time.",
+      "the-hidden-people": "A murder mystery that opens into Irish and Norse folklore, fae, magic, and monsters is a direct longer-form hidden-world route."
     },
     "featured": false,
     "order": 137,
@@ -893,7 +919,8 @@
       "forest-404",
       "homecoming",
       "video-palace",
-      "passenger-list"
+      "passenger-list",
+      "the-harrowing"
     ],
     "showReasons": {
       "case-63": "Two short seasons turn a time-travel mystery into a focused, finished binge.",
@@ -901,7 +928,8 @@
       "forest-404": "Nine short story episodes make this the quickest finished route here, with the soundscape part of the experience.",
       "homecoming": "Three tightly bounded seasons offer a polished full-cast thriller without a sprawling back catalogue.",
       "video-palace": "Fourteen feed episodes make the media-horror mystery easy to finish in a few concentrated nights.",
-      "passenger-list": "Sixteen story episodes give the conspiracy room to breathe while staying bounded enough for a focused weekend."
+      "passenger-list": "Sixteen story episodes give the conspiracy room to breathe while staying bounded enough for a focused weekend.",
+      "the-harrowing": "An observed eight-episode finished arc keeps the island crime and supernatural turn compact enough for a few focused nights."
     },
     "featured": false,
     "order": 138,

@@ -30,7 +30,10 @@
     "sci-fi",
     "horror"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "weird"
+  ],
   "formats": [
     "serialized"
   ],
@@ -42,7 +45,11 @@
   "aliases": [
     "The Godfrey Audio Guide"
   ],
-  "themes": [],
+  "themes": [
+    "art and interpretation",
+    "museum mysteries",
+    "hidden histories"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -72,9 +79,16 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night"
+  ],
+  "similarTo": [
+    "the-mistholme-museum-of-mystery-morbidity-and-mortality"
+  ],
+  "similarReasons": {
+    "the-mistholme-museum-of-mystery-morbidity-and-mortality": "Both use a fictional museum audio guide as the frame, letting exhibits and the institution's voice become the route into strange encounters; Mistholme is the more anthology-shaped branch."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -113,7 +127,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "The fictional Annabelle H. Godfrey Historic Estate and Museum",
+    "framingDevice": "An in-universe self-guided museum audio tour"
+  },
   "metadata": {
     "objectiveSources": [
       "https://thegodfreyaudioguide.com/",
@@ -624,5 +642,11 @@
   "createdAt": "2026-08-14",
   "updatedAt": "2026-08-14",
   "creatorId": "nicole-knudsen",
-  "networkId": "the-godfrey-audio-guide"
+  "networkId": "the-godfrey-audio-guide",
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "balanced",
+    "intensity": "medium",
+    "commitment": "long"
+  }
 }
