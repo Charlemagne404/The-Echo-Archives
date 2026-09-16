@@ -46,37 +46,37 @@ test("the current source snapshot reports graph coverage without loading generat
   });
   assert.deepEqual(report.summary, {
     showCount: 752,
-    entityCount: 102,
-    relationshipCount: 279,
-    rawRelationshipCount: 279,
-    uniqueShowEntityPairCount: 279,
-    connectedShowCount: 229,
-    connectedShowPercent: 30.45,
-    zeroRelationshipShowCount: 523,
+    entityCount: 122,
+    relationshipCount: 306,
+    rawRelationshipCount: 306,
+    uniqueShowEntityPairCount: 306,
+    connectedShowCount: 256,
+    connectedShowPercent: 34.04,
+    zeroRelationshipShowCount: 496,
     weaklyLinkedShowCount: 708,
-    unlinkedShowWithEvidenceCount: 523,
+    unlinkedShowWithEvidenceCount: 496,
     unlinkedShowWithoutEvidenceCount: 0,
     collectionCount: 46,
     collectionMembershipCount: 620,
     showsWithCollectionMembership: 243,
     showsWithoutCollectionMembership: 509,
     orphanEntityCount: 0,
-    weakEntityCount: 40,
+    weakEntityCount: 53,
     duplicateRelationshipGroupCount: 0,
     sameEntityMultipleRoleCount: 0,
-    roleTypeDivergenceCount: 31,
+    roleTypeDivergenceCount: 41,
     linkedEvidenceConflictCount: 0,
   });
-  assert.equal(report.coverage.creatorRelationship.showCount, 45);
-  assert.equal(report.coverage.creatorEvidenceWithoutRelationship.showCount, 705);
+  assert.equal(report.coverage.creatorRelationship.showCount, 59);
+  assert.equal(report.coverage.creatorEvidenceWithoutRelationship.showCount, 691);
   assert.deepEqual(report.relationshipTypeCounts.map(({ role, relationships, showCount }) => ({ role, relationships, showCount })), [
-    { role: "creator", relationships: 51, showCount: 45 },
-    { role: "production-company", relationships: 155, showCount: 154 },
+    { role: "creator", relationships: 65, showCount: 59 },
+    { role: "production-company", relationships: 157, showCount: 156 },
     { role: "studio", relationships: 9, showCount: 9 },
-    { role: "network", relationships: 64, showCount: 64 },
+    { role: "network", relationships: 75, showCount: 75 },
   ]);
-  assert.equal(report.zeroRelationshipShows.length, 523);
-  assert.equal(report.priorityQueues.researchSourceAndLink.length, 523);
+  assert.equal(report.zeroRelationshipShows.length, 496);
+  assert.equal(report.priorityQueues.researchSourceAndLink.length, 496);
   assert.equal(report.priorityQueues.reviewRegistryMatch.length, 0);
   assert.equal(report.priorityQueues.noKnownEvidence.length, 0);
   assert.equal(report.orphanEntities.length, 0);
@@ -97,7 +97,7 @@ test("the current source snapshot reports graph coverage without loading generat
   });
   assert.equal(report.topConnectedEntities[0].entityId, "realm");
   assert.equal(report.topConnectedEntities[0].showCount, 21);
-  assert.equal(report.suspiciousRelationships.roleTypeDivergences.length, 31);
+  assert.equal(report.suspiciousRelationships.roleTypeDivergences.length, 41);
   assert.ok(report.entityCoverageByType.every((entry) => Object.hasOwn(entry, "linkedEntityPercent")));
   assert.ok(report.evidence.byField.every((entry) => Number.isInteger(entry.uniqueValueCount)));
 });

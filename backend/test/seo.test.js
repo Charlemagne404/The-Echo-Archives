@@ -110,7 +110,7 @@ test("indexable collections meet the editorial quality gate and use canonical sh
 
     assert.equal(metadata.canonicalUrl, `${siteUrl}${buildCollectionPath(collection.id)}`, collection.id);
     assert.match(metadata.title, /Audio Drama Recommendations \| The Echo Archives$/);
-    assert.match(metadata.description, /audio drama and fiction podcast recommendations/i);
+    assert.match(metadata.description, /audio dramas and fiction podcasts/i);
     assert.doesNotMatch(metadata.description, placeholderPattern);
     assert.equal(collectionPage.url, metadata.canonicalUrl);
     assert.equal(collectionPage.mainEntity["@id"], itemList["@id"]);
