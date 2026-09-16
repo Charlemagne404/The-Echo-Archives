@@ -171,7 +171,7 @@ test("public content pages negotiate Markdown without changing HTML defaults", a
     assert.match(markdown, /^---\ntitle:/);
     assert.match(markdown, /^# Impact Winter$/m);
     assert.match(markdown, /^## Archive review$/m);
-    assert.match(markdown, /Season one hits hardest/);
+    assert.match(markdown, /An amazing pick if you want something you can get completely obsessed with/);
     assert.match(markdown, /http:\/\/127\.0\.0\.1:\d+\/shows\/impact-winter/);
     assert.doesNotMatch(markdown, /<(?:html|nav|script|style|button|form|footer)\b/i);
 

@@ -133,7 +133,7 @@ test("full reviews server-render archive first and reserve later listener pages 
     },
     listenerReviewScore: { averageRating: 8.25, reviewCount: 6 },
   });
-  const uniqueSpoilerFreeLine = show.spoilerFreeReviewParagraphs[0];
+  const uniqueSpoilerFreeLine = show.spoilerFreeReviewParagraphs[0].replaceAll("'", "&#39;");
 
   assert.match(markup, /detail-main--full/);
   assert.match(markup, /id="review-notes" tabindex="-1"/);

@@ -15,6 +15,7 @@ test("Archivist Ollama verification uses an unconstrained prompt with catalog ma
 
   assert.equal(query.hasAppliedConstraints, false);
   assert.deepEqual(query.scoreOptions.requiredFields, {});
+  assert.equal(query.scoreOptions.unconstrainedRecommendation, true);
   assert.ok(matches.length > 0);
 });
 

@@ -57,10 +57,17 @@ function analyzeChatQuery({ message = "", history = [], catalog = [] }) {
     !isTitleDetailQuestion;
 
   const hardExcludedIds = collectHardExcludedIds({ catalog, state });
+  const isUnconstrainedRecommendation =
+    hasRecommendationSignal(message) &&
+    currentDelta.titleMentions.length === 0 &&
+    state.exactExcludedIds.size === 0 &&
+    state.relatedExclusionSeedIds.size === 0 &&
+    Object.keys(state.positiveConstraints).length === 0;
   const scoreOptions = {
     excludeIds: Array.from(hardExcludedIds),
     avoidSimilaritySeedIds: Array.from(state.relatedExclusionSeedIds),
     requiredFields: serializePositiveConstraints(state.positiveConstraints),
+    ...(isUnconstrainedRecommendation ? { unconstrainedRecommendation: true } : {}),
     ...(positiveSeedShowId ? { seedShowId: positiveSeedShowId } : {}),
   };
 

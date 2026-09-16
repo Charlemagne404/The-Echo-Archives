@@ -936,6 +936,13 @@
     const isShortPrefixQuery = preparedQuery.normalizedQuery.length < 3;
     const excludeIds = toOptionSet(options.excludeIds);
     const requiredFields = normalizeRequiredFields(options.requiredFields);
+    if (
+      options.unconstrainedRecommendation === true &&
+      !preparedQuery.seedRecord &&
+      Object.keys(requiredFields).length === 0
+    ) {
+      return scoreUnconstrainedRecommendations(catalog, excludeIds);
+    }
     const catalogById = new Map((Array.isArray(catalog) ? catalog : []).map((record) => [record.id, record]));
     const avoidSeedRecords = Array.from(toOptionSet(options.avoidSimilaritySeedIds))
       .map((showId) => catalogById.get(showId))
@@ -1292,6 +1299,48 @@
         };
       })
       .filter((record) => record.score > 0 && record.satisfiesQuery)
+      .sort((left, right) => {
+        if (right.score !== left.score) {
+          return right.score - left.score;
+        }
+
+        if ((right.finalRating || 0) !== (left.finalRating || 0)) {
+          return (right.finalRating || 0) - (left.finalRating || 0);
+        }
+
+        return left.title.localeCompare(right.title);
+      });
+  }
+
+  function scoreUnconstrainedRecommendations(catalog, excludeIds) {
+    const reviewPriority = {
+      "full-review": 3,
+      "indexed-only": 2,
+      imported: 1,
+    };
+
+    return (Array.isArray(catalog) ? catalog : [])
+      .filter((record) =>
+        record &&
+        (record.status === undefined || record.status === "published") &&
+        !excludeIds.has(record.id),
+      )
+      .map((record) => {
+        const rating = typeof record.finalRating === "number" && Number.isFinite(record.finalRating)
+          ? record.finalRating
+          : 0;
+        const score = (reviewPriority[record.reviewStatus] || 0) * 100 + rating * 10 + (record.featured ? 1 : 0);
+        const reasons = record.reviewStatus === "full-review" ? ["has a full review"] : [];
+
+        return {
+          ...record,
+          score,
+          reasons,
+          searchPresentation: selectSearchPresentation({ record, titleTerms: [], metadataMatches: [] }),
+          satisfiesQuery: true,
+        };
+      })
+      .filter((record) => record.score > 0)
       .sort((left, right) => {
         if (right.score !== left.score) {
           return right.score - left.score;
