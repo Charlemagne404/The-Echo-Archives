@@ -87,8 +87,14 @@
     "headphones-on",
     "short-under-five-hours"
   ],
-  "similarTo": [],
-  "similarReasons": {},
+  "similarTo": [
+    "the-white-vault",
+    "the-town-whispers"
+  ],
+  "similarReasons": {
+    "the-white-vault": "Both make remote isolation and accumulating evidence the source of their horror; The Harrowing traps a community on a storm-bound Scottish island while The White Vault follows an expedition facing something older and colder.",
+    "the-town-whispers": "Both turn a threatened community and ancient supernatural forces into a compact investigation, with The Harrowing making island crime and consequence the pressure point."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -448,7 +454,7 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-08",
+  "updatedAt": "2026-09-17",
   "discovery": {
     "voiceStyle": "primarily-acted",
     "narrativeFocus": "plot-driven",

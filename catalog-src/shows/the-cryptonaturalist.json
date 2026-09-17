@@ -24,7 +24,11 @@
     "comedy",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "warm",
+    "weird",
+    "funny"
+  ],
   "formats": [
     "narrated",
     "episodic"
@@ -36,7 +40,11 @@
   "aliases": [
     "The Cryptonaturalist"
   ],
-  "themes": [],
+  "themes": [
+    "imaginary nature",
+    "cryptids",
+    "poetry and field reports"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -66,9 +74,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "warm-weird",
+    "long-walks"
+  ],
+  "similarTo": [
+    "welcome-to-night-vale"
+  ],
+  "similarReasons": {
+    "welcome-to-night-vale": "Both use a distinctive narrated voice to make ordinary surroundings strange; The CryptoNaturalist turns the classic nature documentary into poetry and field reports, while Night Vale turns community radio into deadpan civic surrealism."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -117,7 +133,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "imaginary nature and otherworldly locations",
+    "pov": "nature-documentary narrator and field reports",
+    "sourceMaterial": "scripted fiction, poetry, and guest contributions",
+    "framing": "weird classic nature documentary"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.cryptonaturalist.com/blog/2024/11/15/episode-66-the-counting-pines",
@@ -761,7 +782,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-09-16",
   "creatorId": "jarod-k-anderson",
-  "networkId": "the-cryptonaturalist"
+  "networkId": "the-cryptonaturalist",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "balanced",
+    "intensity": "low",
+    "commitment": "long"
+  }
 }

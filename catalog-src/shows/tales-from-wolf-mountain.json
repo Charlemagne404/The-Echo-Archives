@@ -29,7 +29,11 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "weird",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -41,7 +45,11 @@
   "aliases": [
     "Tales From Wolf Mountain"
   ],
-  "themes": [],
+  "themes": [
+    "surreal short fiction",
+    "apocalyptic worlds",
+    "radio broadcasts and belief"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -82,9 +90,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "long-walks",
+    "worldbuilding",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-other-stories-sci-fi-horror-thriller-wtf-stories"
+  ],
+  "similarReasons": {
+    "the-other-stories-sci-fi-horror-thriller-wtf-stories": "Both offer a deep anthology route through short genre fiction; Tales From Wolf Mountain connects its radio plays, broadcasts, sermons, and surreal seasons into larger worlds, while The Other Stories keeps a more direct weekly short-story format."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -125,7 +142,12 @@
     ],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "Other-Earth, Wolf Mountain, the City Unending, and surreal worlds across short-run seasons",
+    "pov": "changing survivors, pilgrims, believers, and residents across linked stories",
+    "sourceMaterial": "original fiction",
+    "framing": "serialized short-run anthology of radio plays, broadcasts, sermons, and surreal fiction"
+  },
   "metadata": {
     "objectiveSources": [
       "https://talesfromwolfmountain.buzzsprout.com/2292116/episodes/18264277-8-1-summer?t=0",
@@ -828,7 +850,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "wolf-mountain-workshop",
-  "networkId": "buzzsprout"
+  "networkId": "buzzsprout",
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "balanced",
+    "intensity": "variable",
+    "commitment": "deep-dive"
+  }
 }

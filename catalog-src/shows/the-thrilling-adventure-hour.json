@@ -23,7 +23,11 @@
     "comedy",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "warm",
+    "cinematic"
+  ],
   "formats": [
     "episodic",
     "full-cast"
@@ -37,7 +41,11 @@
   "aliases": [
     "The Thrilling Adventure Hour"
   ],
-  "themes": [],
+  "themes": [
+    "old-time radio genre play",
+    "space western",
+    "supernatural mystery"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -64,9 +72,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "long-walks",
+    "binge-listening",
+    "warm-weird"
+  ],
+  "similarTo": [
+    "the-orbiting-human-circus"
+  ],
+  "similarReasons": {
+    "the-orbiting-human-circus": "Both use theatrical audio, music, and recurring performance worlds to make radio feel like an event; The Thrilling Adventure Hour moves through live-style genre segments, while The Orbiting Human Circus builds a more serialized musical fantasy."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -104,7 +120,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "varied genre worlds",
+    "pov": "recurring ensembles including Sparks Nevada and the Doyles",
+    "sourceMaterial": "original fiction",
+    "framing": "staged old-time radio anthology"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.acast.com/public/shows/6414da1f9a87fc0011e7a8ee",
@@ -399,6 +420,12 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "ben-acker-ben-blacker"
+  "updatedAt": "2026-09-16",
+  "creatorId": "ben-acker-ben-blacker",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "medium",
+    "commitment": "deep-dive"
+  }
 }

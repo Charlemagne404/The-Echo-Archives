@@ -28,7 +28,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "episodic"
   ],
@@ -40,7 +44,11 @@
   "aliases": [
     "Dark Woods"
   ],
-  "themes": [],
+  "themes": [
+    "suspicious death in protected wilderness",
+    "estranged partnership",
+    "crime and environmental consequence"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -70,9 +78,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "late-night",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "the-angel-of-vine"
+  ],
+  "similarReasons": {
+    "the-angel-of-vine": "Both build a compact investigation around a killing and a buried threat; Dark Woods follows estranged ex-spouses in a California redwood park, while The Angel of Vine follows a journalist and a 1950s private eye through recovered Hollywood recordings."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -110,7 +126,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a California redwood state park",
+    "pov": "game warden Mark Ellis and a city councilwoman",
+    "sourceMaterial": "original fiction",
+    "framing": "scripted wilderness crime thriller"
+  },
   "metadata": {
     "objectiveSources": [
       "https://dark-woods.simplecast.com/",
@@ -577,11 +598,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-09-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "endeavor-content",
   "discovery": {
     "voiceStyle": "primarily-acted",
     "narrativeFocus": "plot-driven",
-    "intensity": "medium"
+    "intensity": "high",
+    "commitment": "short"
   }
 }

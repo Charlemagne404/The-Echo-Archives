@@ -33,7 +33,11 @@
     "drama",
     "comedy"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "cinematic",
+    "hopeful"
+  ],
   "formats": [
     "full-cast",
     "serialized"
@@ -46,7 +50,11 @@
   "aliases": [
     "The Chronicles of Astrimos"
   ],
-  "themes": [],
+  "themes": [
+    "family legacy and memory",
+    "alternate worlds",
+    "space rescue and survival"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -85,9 +93,20 @@
     "production": "Produced by Best Case Studios for Echoverse.",
     "explicit": "No"
   },
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "short-under-five-hours",
+    "worldbuilding",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "the-strange-case-of-starship-iris",
+    "midnight-burger"
+  ],
+  "similarReasons": {
+    "the-strange-case-of-starship-iris": "Both are full-cast serialized science-fiction adventures with strong ensemble energy; Astrimos adds a parallel 1960s-radio-serial frame and a lawyer pulled between worlds.",
+    "midnight-burger": "Both offer a warmer, funnier route through expansive science fiction; Astrimos pairs its space drama with a contemporary mystery and a vivid classic-radio flavor."
+  },
   "spoilerFreeReview": "",
   "thoughts": "",
   "quote": {
@@ -697,6 +716,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-29",
-  "creatorId": "bloody-fm-echoverse"
+  "updatedAt": "2026-09-17",
+  "creatorId": "bloody-fm-echoverse",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium",
+    "commitment": "short"
+  }
 }

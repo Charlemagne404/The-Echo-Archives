@@ -22,7 +22,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "tense",
+    "cinematic",
+    "dark"
+  ],
   "formats": [
     "serialized"
   ],
@@ -35,7 +39,11 @@
     "The Pasithea Powder",
     "The Pasithea Powder (@pasitheapowder.bsky.social)"
   ],
-  "themes": [],
+  "themes": [
+    "war aftermath and memory",
+    "political prisoners and power",
+    "estranged relationships"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -65,9 +73,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "serious-sci-fi",
+    "worldbuilding",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "ars-paradoxica"
+  ],
+  "similarReasons": {
+    "ars-paradoxica": "Both connect science to political power and the consequences of conflict; The Pasithea Powder follows a war-scarred captain and a memory-altering drug, while Ars Paradoxica turns time-travel research into an alternate-history struggle."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -106,7 +122,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a faraway world recovering from a devastating war",
+    "pov": "Captain Sophie Green and an estranged friend",
+    "sourceMaterial": "original fiction",
+    "framing": "serialized political science-fiction drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://bsky.app/profile/pasitheapowder.bsky.social",
@@ -605,7 +626,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
+  "updatedAt": "2026-09-17",
   "creatorId": "bad-wine-productions",
-  "networkId": "bluesky-social"
+  "networkId": "bluesky-social",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "long"
+  }
 }

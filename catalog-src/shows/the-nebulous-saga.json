@@ -28,7 +28,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "cinematic",
+    "tense",
+    "melancholic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -42,7 +46,11 @@
     "The Nebulous Saga",
     "The Nebulous Saga – The audio fiction adaptation of the thrilling space fantasy!"
   ],
-  "themes": [],
+  "themes": [
+    "vengeance and grief",
+    "identity and humanity",
+    "space piracy and alliance"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -76,9 +84,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "short-under-five-hours",
+    "worldbuilding"
+  ],
+  "similarTo": [
+    "startripper",
+    "the-orphans"
+  ],
+  "similarReasons": {
+    "startripper": "Both make space travel an adventure with a strong personal motive; The Nebulous Saga follows a pirate driven by grief and a cursed ally, while StarTripper!! takes a warmer road-trip route through the cosmos.",
+    "the-orphans": "Both use space opera to put identity and human connection under pressure; The Nebulous Saga is a compact revenge quest around a pirate and an impossible choice, while The Orphans opens into a larger survival galaxy."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -116,7 +134,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "interstellar space and the Nova Alliance",
+    "pov": "revenge-driven pirate and cursed ally",
+    "sourceMaterial": "original fiction",
+    "framing": "episodic space-fantasy saga with narrator"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.thenebuloussaga.com/project/s1e1/",
@@ -628,6 +651,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "jane-maree"
+  "updatedAt": "2026-09-16",
+  "creatorId": "jane-maree",
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium",
+    "commitment": "short"
+  }
 }

@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"realm","role":"network"}
+    {
+      "entityId": "realm",
+      "role": "network"
+    }
   ],
   "id": "the-patron-saint-of-suicides",
   "title": "The Patron Saint of Suicides",
@@ -27,7 +30,11 @@
     "thriller",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "full-cast",
     "serialized"
@@ -40,8 +47,15 @@
   "aliases": [
     "The Patron Saint of Suicides"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "suicide prevention and intervention",
+    "criminal investigation",
+    "power and responsibility",
+    "trust and complicity"
+  ],
+  "contentNotes": [
+    "suicide and suicidal ideation"
+  ],
   "languages": [
     "English"
   ],
@@ -76,9 +90,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "homecoming"
+  ],
+  "similarReasons": {
+    "homecoming": "Both are full-cast serialized investigations that reveal a disturbing psychological and institutional mystery through a central case."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -116,7 +138,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a city where a private suicide hotline and a rash of suicides draw a detective into an investigation",
+    "pov": "Haven Otomo and the detective-led investigation",
+    "framing": "full-cast investigative audio drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.megaphone.fm/SBP7288190433",
@@ -613,6 +639,12 @@
   },
   "featured": false,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-07-31",
-  "creatorId": "alex-dolan-realm"
+  "updatedAt": "2026-09-17",
+  "creatorId": "alex-dolan-realm",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

@@ -22,7 +22,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "weird",
+    "cinematic"
+  ],
   "formats": [
     "full-cast",
     "anthology",
@@ -37,7 +41,8 @@
   ],
   "themes": [
     "horror",
-    "Speculative fiction"
+    "Speculative fiction",
+    "ordinary places under threat"
   ],
   "contentNotes": [
     "Mature themes",
@@ -84,9 +89,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "long-walks",
+    "headphones-on",
+    "late-night"
+  ],
+  "similarTo": [
+    "the-big-loop",
+    "the-thrilling-adventure-hour"
+  ],
+  "similarReasons": {
+    "the-big-loop": "Both use full-cast anthology stories to visit distinct worlds; Wrong Station is the horror-and-weird-fiction route, while The Big Loop stays closer to intimate speculative character stories.",
+    "the-thrilling-adventure-hour": "Both draw on classic-radio tradition and full-cast episodic performance; Wrong Station swaps pulp and variety for original horror and weird fiction."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -124,7 +139,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "varied imagined worlds",
+    "pov": "ensemble anthology",
+    "sourceMaterial": "original fiction",
+    "framing": "a classic-radio-inspired horror anthology"
+  },
   "metadata": {
     "objectiveSources": [
       "https://podcasts.apple.com/us/podcast/wrong-station/id1190625755?uo=4",
@@ -414,5 +434,11 @@
   "featured": false,
   "createdAt": "2026-07-21",
   "updatedAt": "2026-07-21",
-  "creatorId": "the-wrong-station"
+  "creatorId": "the-wrong-station",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

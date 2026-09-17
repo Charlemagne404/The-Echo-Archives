@@ -769,7 +769,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-08-28",
+  "updatedAt": "2026-09-17",
   "creatorId": "mage-in-the-machine-offical",
-  "networkId": "rss-com"
+  "networkId": "rss-com",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "short"
+  }
 }

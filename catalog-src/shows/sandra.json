@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"gimlet","role":"production-company"}
+    {
+      "entityId": "gimlet",
+      "role": "production-company"
+    }
   ],
   "id": "sandra",
   "title": "Sandra",
@@ -32,7 +35,11 @@
     "sci-fi",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "tense",
+    "weird",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -45,7 +52,11 @@
   "aliases": [
     "Sandra"
   ],
-  "themes": [],
+  "themes": [
+    "artificial intelligence and identity",
+    "corporate secrecy and labor",
+    "manufactured intimacy and escape"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -79,9 +90,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "headphones-on",
+    "serious-sci-fi"
+  ],
+  "similarTo": [
+    "lifeafter-the-message"
+  ],
+  "similarReasons": {
+    "lifeafter-the-message": "Both make speculative technology personal through close acted drama; Sandra follows Helen inside the company behind an AI, while LifeAfter/The Message moves from alien cryptography to a digital resurrection that threatens its lead."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -119,7 +138,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the company behind the artificial intelligence Sandra",
+    "pov": "Helen and the people behind the AI",
+    "sourceMaterial": "original fiction",
+    "framing": "scripted science-fiction workplace drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://podcasts.apple.com/us/podcast/sandra/id1369393683?uo=4",
@@ -459,6 +483,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "gimlet"
+  "updatedAt": "2026-09-17",
+  "creatorId": "gimlet",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "short"
+  }
 }

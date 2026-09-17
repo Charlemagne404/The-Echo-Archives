@@ -28,7 +28,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -41,7 +45,11 @@
   "aliases": [
     "Blackwood"
   ],
-  "themes": [],
+  "themes": [
+    "local legend and cryptids",
+    "amateur investigation",
+    "disappearances and secrecy"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -71,9 +79,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "late-night",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "limetown"
+  ],
+  "similarReasons": {
+    "limetown": "Both reconstruct a hidden community mystery through investigation and recorded evidence; Blackwood follows a podcast team tracking the Bugman and disappearances, while Limetown investigates a vanished town."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -112,7 +128,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "Blackwood and its local legend of the Bugman",
+    "pov": "podcast team Molly Weaver, Bryan Anderson, and Nathan Howell",
+    "sourceMaterial": "original fiction",
+    "framing": "found-recording cryptid investigation"
+  },
   "metadata": {
     "objectiveSources": [
       "https://art19.com/shows/blackwood",
@@ -652,11 +673,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-09-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "scary-fun",
   "networkId": "art19",
   "discovery": {
     "narrativeFocus": "plot-driven",
-    "intensity": "medium"
+    "intensity": "high",
+    "voiceStyle": "primarily-acted",
+    "commitment": "short"
   }
 }

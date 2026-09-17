@@ -32,7 +32,11 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "episodic"
   ],
@@ -44,8 +48,15 @@
     "Liminal",
     "Liminal | Acorn Arts and Entertainment"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "dreamscape and altered reality",
+    "brotherhood and rescue",
+    "identity and perception"
+  ],
+  "contentNotes": [
+    "drug references",
+    "sci-fi drug use"
+  ],
   "languages": [
     "English"
   ],
@@ -78,9 +89,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "easy-entry",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-call-of-the-void"
+  ],
+  "similarReasons": {
+    "the-call-of-the-void": "Both are Acorn sci-fi horror dramas with a strong psychological edge; Liminal stays focused on a four-episode dreamscape rescue, while The Call of the Void widens the pressure into a larger ensemble mystery."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -119,7 +139,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "a terrifying dreamscape reached through a science-fiction premise",
+    "pov": "Dominic and Caleb's attempt to pull their brother back",
+    "framing": "four-episode cerebral horror mini-series"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.acornartsandentertainment.com/about-5",
@@ -662,7 +687,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-09-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "acorn-arts-and-entertainment",
-  "networkId": "acorn-a-e"
+  "networkId": "acorn-a-e",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "short"
+  }
 }

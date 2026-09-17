@@ -27,7 +27,11 @@
     "horror",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "full-cast",
     "anthology",
@@ -41,7 +45,11 @@
   "aliases": [
     "Observable Radio"
   ],
-  "themes": [],
+  "themes": [
+    "found footage and analog horror",
+    "alternate universes in crisis",
+    "communication and impossible signals"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -78,9 +86,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "worldbuilding",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-last-movie"
+  ],
+  "similarReasons": {
+    "the-last-movie": "Both make recorded evidence part of an impossible mystery; Observable Radio uses found footage and signals from alternate universes, while The Last Movie follows a host-led investigation into a dangerous film legend."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -136,7 +153,12 @@
       "English"
     ]
   },
-  "content": {},
+  "content": {
+    "setting": "alternate universes in crisis and the static beneath their communication network",
+    "pov": "the unnamed Observer cataloguing impossible signals",
+    "sourceMaterial": "original fiction",
+    "framing": "found-footage anthology of analog horror and retro science fiction"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.observableradio.com/episodes/transmission-a01-a-night-indoors",
@@ -813,5 +835,11 @@
   },
   "featured": false,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-07-31"
+  "updatedAt": "2026-09-17",
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "balanced",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

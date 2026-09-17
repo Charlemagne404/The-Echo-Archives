@@ -22,7 +22,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "serialized",
     "anthology"
@@ -34,8 +38,25 @@
   "aliases": [
     "The Storage Papers"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "recovered documents and case files",
+    "paranormal events",
+    "everyday life hiding horror"
+  ],
+  "contentNotes": [
+    "general horror",
+    "profanity",
+    "gore",
+    "possession",
+    "imprisonment",
+    "adolescent in peril",
+    "implied death of a child",
+    "violence",
+    "demonic themes",
+    "hallucinations",
+    "loud sound effects",
+    "yelling and screaming"
+  ],
   "languages": [
     "English"
   ],
@@ -72,9 +93,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "archive-81"
+  ],
+  "similarReasons": {
+    "archive-81": "Both turn recorded evidence into the engine of an expanding supernatural mystery; The Storage Papers begins with an abandoned unit of documentation, while Archive 81 follows dangerous recordings into occult realities."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -112,7 +141,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "an abandoned storage unit and the documentation of unexplainable events it contains",
+    "pov": "Jeremy Enfinger and the people caught in the papers' cases",
+    "sourceMaterial": "original fiction",
+    "framing": "serialized found-media horror anthology"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.megaphone.fm/DDRMA2819642929"
@@ -587,6 +621,12 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
-  "creatorId": "jeremy-enfinger"
+  "updatedAt": "2026-09-17",
+  "creatorId": "jeremy-enfinger",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

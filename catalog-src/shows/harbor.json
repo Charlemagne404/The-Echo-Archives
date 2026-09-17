@@ -146,10 +146,16 @@
   "featured": false,
   "createdAt": "2026-07-09",
   "networkId": "harbor-an-audio-drama-podcast",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-17",
   "cast": [],
   "creators": [
     "Faraday Roke"
   ],
-  "popularity": {}
+  "popularity": {},
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "long"
+  }
 }

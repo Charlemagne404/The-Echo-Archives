@@ -35,7 +35,11 @@
     "drama",
     "mystery"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "serialized"
   ],
@@ -47,7 +51,11 @@
   "aliases": [
     "Don't Mind"
   ],
-  "themes": [],
+  "themes": [
+    "family displacement",
+    "haunted places",
+    "hidden histories"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -82,9 +90,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-white-vault"
+  ],
+  "similarReasons": {
+    "the-white-vault": "Both are Fool and Scholar supernatural mysteries in which displaced people are drawn into hostile places; Don't Mind moves through Cruxmont and Sealskin Rock, while The White Vault isolates a research team in the Arctic."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -123,7 +139,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "remote places including Cruxmont and Sealskin Rock",
+    "pov": "families and investigators confronting place-bound mysteries",
+    "sourceMaterial": "original fiction",
+    "framing": "anthology supernatural mystery"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.foolandscholar.com/faq",
@@ -780,7 +801,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "fool-and-scholar-productions",
-  "networkId": "fool-scholar-productions-podcasts"
+  "networkId": "fool-scholar-productions-podcasts",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "high",
+    "commitment": "long"
+  }
 }

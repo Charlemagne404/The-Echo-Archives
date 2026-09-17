@@ -134,8 +134,14 @@
   "featured": false,
   "createdAt": "2026-07-01",
   "creatorId": "imploding-fictions",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-17",
   "creators": [
     "Imploding Fictions"
-  ]
+  ],
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "medium",
+    "commitment": "deep-dive"
+  }
 }

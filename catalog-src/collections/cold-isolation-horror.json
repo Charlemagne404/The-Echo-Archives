@@ -27,7 +27,11 @@
     "impact-winter",
     "the-white-vault",
     "i-am-in-eskew",
-    "the-harrowing"
+    "the-harrowing",
+    "station-blue",
+    "uncanny-valley",
+    "wake-of-corrosion",
+    "the-elmwood-strain"
   ],
   "showReasons": {
     "the-white-vault": "This is the clearest match for the collection's remote-expedition horror.",
@@ -40,10 +44,14 @@
     "the-secret-of-st-kilda": "A remote island setting and supernatural thriller premise turn isolation into the pressure point.",
     "red-frontier": "Complete isolation on a Mars mission turns the setting itself into a survival pressure.",
     "i-am-in-eskew": "A man trapped in an ever-changing city turns isolation, hostile space, and body horror into the core listening pressure.",
-    "the-harrowing": "A remote Scottish island, a storm-bound crime, and an ancient power make the setting itself the source of pressure."
+    "the-harrowing": "A remote Scottish island, a storm-bound crime, and an ancient power make the setting itself the source of pressure.",
+    "station-blue": "Remote Antarctica, a lone caretaker, and the suffocating presence of a possibly supernatural research station are a direct fit.",
+    "uncanny-valley": "Alaska, hidden pasts, and a threat that may only look human make isolation the source of the unease.",
+    "wake-of-corrosion": "Shelter in Bunker A:12 and a horror spreading through a nightmare-ridden country make isolation the pressure point.",
+    "the-elmwood-strain": "A dying small town being swallowed by forest and a returning woman facing biological psychosis make the landscape itself the source of the horror."
   },
   "featured": true,
   "order": 50,
   "createdAt": "2026-06-01",
-  "updatedAt": "2026-09-16"
+  "updatedAt": "2026-09-17"
 }

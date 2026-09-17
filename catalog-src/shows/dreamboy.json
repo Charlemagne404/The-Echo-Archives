@@ -34,7 +34,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "weird",
+    "dark",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -46,7 +50,11 @@
   "aliases": [
     "Dreamboy"
   ],
-  "themes": [],
+  "themes": [
+    "queer desire and identity",
+    "dreams and transformation",
+    "unexplained deaths"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -80,9 +88,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-big-loop"
+  ],
+  "similarReasons": {
+    "the-big-loop": "Both use music-forward speculative fiction to make surreal premises expose private identity and change; Dreamboy follows Dane through a shifting Cleveland night, while The Big Loop returns to distinct human lives."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -121,7 +137,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "Pepper Heights, Cleveland and the zoo after dark",
+    "pov": "Dane, a musician working at Pepper Heights Zoo",
+    "sourceMaterial": "original fiction",
+    "framing": "music-forward surreal mystery"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.nightvalepresents.com/dreamboy",
@@ -641,7 +662,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "night-vale-presents",
-  "networkId": "night-vale-presents"
+  "networkId": "night-vale-presents",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "variable",
+    "commitment": "medium"
+  }
 }

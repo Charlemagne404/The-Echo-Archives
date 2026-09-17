@@ -35,7 +35,11 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -47,7 +51,12 @@
   "aliases": [
     "The Liberty Podcast"
   ],
-  "themes": [],
+  "themes": [
+    "colony isolation and civil war",
+    "frontier exploration",
+    "institutional power and citizenship",
+    "lawless borderlands"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -87,9 +96,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "worldbuilding",
+    "serious-sci-fi",
+    "long-walks",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "vast-horizon"
+  ],
+  "similarReasons": {
+    "vast-horizon": "Both Fool and Scholar serialized science-fiction adventures place a small cast under pressure in isolated off-world environments; Liberty expands that route into colony politics and civil war."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -127,7 +145,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the colony of Atrius and the lawless Fringe beyond its walls",
+    "pov": "Dr. Kovski-led expedition into the Fringe",
+    "framing": "serialized science-fiction audio drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.megaphone.fm/SBP7699782353",
@@ -692,6 +714,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "fool-and-scholar-productions"
+  "updatedAt": "2026-09-17",
+  "creatorId": "fool-and-scholar-productions",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

@@ -29,7 +29,11 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "bleak",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -42,7 +46,11 @@
   "aliases": [
     "Coexistence"
   ],
-  "themes": [],
+  "themes": [
+    "resource exhaustion and environmental degradation",
+    "technological determinism",
+    "propaganda and rebellion"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -76,9 +84,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "serious-sci-fi",
+    "short-under-five-hours",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "the-next-5-minutes"
+  ],
+  "similarReasons": {
+    "the-next-5-minutes": "Both use near-future science fiction to make political and environmental collapse personal; Coexistence follows Rachel through Tier City, evacuation, and rebellion, while The Next 5 Minutes turns privatised public life and climate collapse into a short resistance thriller."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -116,7 +132,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "Earth's shattered future across Tier City, the Red Zone, and the Bio Domes",
+    "pov": "drone pilot Rachel Hunter and the ensemble around her",
+    "sourceMaterial": "original fiction",
+    "framing": "full-cast serialized science-fiction drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://coexstudio.com/",
@@ -630,11 +651,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-09-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "coex-studios",
   "discovery": {
     "voiceStyle": "primarily-acted",
     "narrativeFocus": "plot-driven",
-    "intensity": "high"
+    "intensity": "high",
+    "commitment": "short"
   }
 }

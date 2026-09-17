@@ -29,7 +29,11 @@
     "drama",
     "thriller"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -42,7 +46,11 @@
   "aliases": [
     "Blood Ties"
   ],
-  "themes": [],
+  "themes": [
+    "family legacy",
+    "corporate medicine",
+    "power and obsession"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -78,9 +86,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-angel-of-vine"
+  ],
+  "similarReasons": {
+    "the-angel-of-vine": "Both use serialized fictional crime and family pressure as their engine; Blood Ties is a corporate medical-dynasty thriller, while The Angel of Vine reconstructs a Hollywood murder through a journalist and a 1950s private eye."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -118,7 +134,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the Richland family business and corporate medicine",
+    "pov": "siblings Eleonore Richland and Santino Reyes",
+    "sourceMaterial": "original fiction",
+    "framing": "serialized corporate-family thriller"
+  },
   "metadata": {
     "objectiveSources": [
       "https://rss.art19.com/blood-ties",
@@ -667,6 +688,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "audible"
+  "updatedAt": "2026-09-16",
+  "creatorId": "audible",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

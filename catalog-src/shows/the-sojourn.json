@@ -23,7 +23,11 @@
     "sci-fi",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "tense",
+    "cinematic",
+    "hopeful"
+  ],
   "formats": [
     "full-cast",
     "serialized"
@@ -36,7 +40,12 @@
   "aliases": [
     "The Sojourn"
   ],
-  "themes": [],
+  "themes": [
+    "interstellar exploration and survival",
+    "famine and resource scarcity",
+    "military duty and family power",
+    "alien conflict and diplomacy"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -69,9 +78,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "worldbuilding",
+    "serious-sci-fi",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "crystal-blue"
+  ],
+  "similarReasons": {
+    "crystal-blue": "Both are full-cast serialized space dramas about crews facing alien contact and the demands of life in remote outposts; Sojourn expands into a larger interstellar expedition."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -108,7 +125,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the Tantalus Cluster and a distant nebula",
+    "pov": "Captain Cassandra Farren and Dr. Elizabeth Ancelet-led expedition",
+    "framing": "full-cast interstellar adventure"
+  },
   "metadata": {
     "researchGaps": [
       "Official pages describe The Sojourn as an audiobook-retailer and Spotify-collection release rather than a podcast-RSS show; no public podcast RSS feed was found. Season Two Volume Three (episodes 7–9) is announced as coming soon and is not included in the released count."
@@ -456,6 +477,12 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "spacedock"
+  "updatedAt": "2026-09-17",
+  "creatorId": "spacedock",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

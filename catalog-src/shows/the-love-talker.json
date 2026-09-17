@@ -29,7 +29,11 @@
     "drama",
     "horror"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "bleak",
+    "tense"
+  ],
   "formats": [
     "serialized"
   ],
@@ -41,8 +45,14 @@
   "aliases": [
     "The Love Talker"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "missing women",
+    "community secrecy",
+    "folk tradition and place"
+  ],
+  "contentNotes": [
+    "mature themes"
+  ],
   "languages": [
     "English"
   ],
@@ -71,9 +81,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "old-gods-of-appalachia",
+    "the-secret-of-st-kilda"
+  ],
+  "similarReasons": {
+    "old-gods-of-appalachia": "Both root supernatural danger in Appalachian place and inherited folk stories; The Love Talker is a compact missing-women investigation in Kilruane, while Old Gods expands into a broader regional mythology.",
+    "the-secret-of-st-kilda": "Both turn an isolated community into a pressure chamber where belief and secrecy protect something dangerous; The Love Talker uses Appalachian folk horror while St Kilda uses a remote island and a community seeking a saviour."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -112,7 +132,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the Appalachian borderlands and the isolated community of Kilruane",
+    "pov": "ensemble",
+    "sourceMaterial": "original fiction",
+    "framing": "a folk-horror investigation"
+  },
   "metadata": {
     "objectiveSources": [
       "https://art19.com/shows/the-love-talker",
@@ -657,5 +682,11 @@
   "createdAt": "2026-08-14",
   "updatedAt": "2026-08-14",
   "creatorId": "alien-ghost-robot-celebrity-tumour",
-  "networkId": "art19"
+  "networkId": "art19",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

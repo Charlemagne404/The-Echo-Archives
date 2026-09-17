@@ -29,7 +29,11 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "cinematic",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "episodic"
   ],
@@ -43,7 +47,11 @@
     "DUST",
     "DUST - YouTube"
   ],
-  "themes": [],
+  "themes": [
+    "AI and consciousness",
+    "alternate futures",
+    "human survival"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -80,9 +88,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "serious-sci-fi",
+    "worldbuilding"
+  ],
+  "similarTo": [
+    "the-big-loop",
+    "twilight-histories"
+  ],
+  "similarReasons": {
+    "the-big-loop": "Both use self-contained speculative audio stories; DUST ranges across high-concept science-fiction seasons while The Big Loop stays intimate and character-centered.",
+    "twilight-histories": "Both build standalone speculative worlds episode by episode; DUST leans into science-fiction production and Twilight Histories leans into alternate-history soundscapes."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -121,7 +139,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "varied speculative futures",
+    "pov": "anthology",
+    "sourceMaterial": "science-fiction audio stories",
+    "framing": "seasonal science-fiction anthology"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.youtube.com/howyoutubeworks/our-policies/",
@@ -679,5 +702,11 @@
   "createdAt": "2026-08-14",
   "updatedAt": "2026-08-14",
   "creatorId": "gunpowder-sky",
-  "networkId": "sa-fungerar-youtube"
+  "networkId": "sa-fungerar-youtube",
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "balanced",
+    "intensity": "variable",
+    "commitment": "long"
+  }
 }

@@ -27,7 +27,11 @@
     "horror",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "full-cast",
     "serialized"
@@ -39,7 +43,11 @@
   "aliases": [
     "Bridgewater"
   ],
-  "themes": [],
+  "themes": [
+    "folklore and the supernatural",
+    "memory and the past",
+    "rewriting fate"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -76,9 +84,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "worldbuilding",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-left-right-game"
+  ],
+  "similarReasons": {
+    "the-left-right-game": "Both are full-cast supernatural investigations where a familiar world opens onto impossible rules; Bridgewater follows a folklore professor and a rediscovered relic, while The Left Right Game follows a journalist into an uncanny road journey."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -123,7 +140,11 @@
       "English"
     ]
   },
-  "content": {},
+  "content": {
+    "setting": "Bridgewater, Massachusetts and the Bridgewater Triangle",
+    "pov": "folklore professor Jeremy Bradshaw and the people drawn into his past",
+    "framing": "full-cast supernatural mystery thriller about a relic and the possibility of rewriting the past"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.grimandmild.com/bridgewater",
@@ -457,7 +478,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-09-17",
   "creatorId": "iheartpodcasts-and-grim-mild",
-  "networkId": "grim-mild"
+  "networkId": "grim-mild",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

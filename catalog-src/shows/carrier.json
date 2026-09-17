@@ -32,7 +32,11 @@
     "drama",
     "thriller"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -44,7 +48,11 @@
   "aliases": [
     "Carrier"
   ],
-  "themes": [],
+  "themes": [
+    "isolated highway",
+    "unknown cargo",
+    "survival and trust"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -78,9 +86,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "headphones-on",
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-edge-of-sleep"
+  ],
+  "similarReasons": {
+    "the-edge-of-sleep": "Both are compact, immersive survival thrillers that turn an ordinary journey into a widening high-concept threat; Carrier stays on a lonely highway with an unknown trailer, while The Edge of Sleep follows a world that can no longer safely sleep."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -118,7 +135,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "a dark and lonely highway and the truck route beyond it",
+    "pov": "a truck driver's journey with a trailer whose contents are unknown",
+    "framing": "seven-part immersive scripted thriller"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.megaphone.fm/QCD1940458558",
@@ -634,6 +656,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-09-14",
-  "creatorId": "qcode"
+  "updatedAt": "2026-09-17",
+  "creatorId": "qcode",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "short"
+  }
 }

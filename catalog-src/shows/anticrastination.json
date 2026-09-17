@@ -29,7 +29,11 @@
     "drama",
     "comedy"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "warm",
+    "chaotic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -40,7 +44,11 @@
   "aliases": [
     "Anticrastination"
   ],
-  "themes": [],
+  "themes": [
+    "self-esteem and validation",
+    "reinventing yourself",
+    "creative failure"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -70,9 +78,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "short-under-five-hours",
+    "warm-weird"
+  ],
+  "similarTo": [
+    "world-gone-wrong-a-fictional-chat-show-about-friendship-at-the-end-of-the-world"
+  ],
+  "similarReasons": {
+    "world-gone-wrong-a-fictional-chat-show-about-friendship-at-the-end-of-the-world": "Both make the fiction itself part of the comedy; Anticrastination follows a struggling podcast team trying to get organized, while World Gone Wrong uses a chat show to hold a friendship together at the end of the world."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -110,7 +126,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a struggling podcast studio and its chaotic production",
+    "pov": "Kip, DeeDee, and sound engineer Magnus",
+    "sourceMaterial": "original fiction",
+    "framing": "full-cast comedy audio drama about making a podcast"
+  },
   "metadata": {
     "objectiveSources": [
       "https://anticrastination.fyi/",
@@ -684,6 +705,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "w-keith-tims"
+  "updatedAt": "2026-09-17",
+  "creatorId": "w-keith-tims",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "short"
+  }
 }

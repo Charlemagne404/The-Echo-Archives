@@ -23,7 +23,10 @@
     "sci-fi",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "weird",
+    "hopeful"
+  ],
   "formats": [
     "episodic",
     "anthology",
@@ -38,7 +41,11 @@
   "aliases": [
     "Escape Pod"
   ],
-  "themes": [],
+  "themes": [
+    "short-form science fiction",
+    "speculative futures",
+    "science and technology"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -65,9 +72,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "long-walks",
+    "headphones-on",
+    "serious-sci-fi"
+  ],
+  "similarTo": [
+    "the-truth"
+  ],
+  "similarReasons": {
+    "the-truth": "Both provide a large anthology of self-contained audio fiction; Escape Pod emphasizes science-fiction short stories and author and narrator context, while The Truth ranges across more narrative modes."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -115,7 +131,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "varied speculative futures and worlds",
+    "pov": "changing narrators and characters across stories",
+    "framing": "weekly science-fiction podcast magazine"
+  },
   "metadata": {
     "objectiveSources": [
       "https://escapepod.org/about-us/",
@@ -447,9 +467,12 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "escape-artists-inc-escape-artists",
   "discovery": {
-    "voiceStyle": "primarily-narrated"
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "balanced",
+    "intensity": "variable",
+    "commitment": "deep-dive"
   }
 }

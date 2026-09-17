@@ -28,7 +28,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "episodic"
   ],
@@ -41,7 +45,11 @@
   "aliases": [
     "From Within: A Tale of the Macabre"
   ],
-  "themes": [],
+  "themes": [
+    "1930s mountain community",
+    "letters and journals as evidence",
+    "violent uncanny threat"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -75,9 +83,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-love-talker"
+  ],
+  "similarReasons": {
+    "the-love-talker": "Both place an investigation inside an isolated community where the landscape and its secrets carry the horror; From Within uses survivor letters and journals in 1930s Blightwood, while The Love Talker follows missing-women mysteries through an Appalachian borderland town."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -115,7 +131,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the isolated 1930s mountain township of Blightwood",
+    "pov": "Sheriff Flynn, Dr. Cooper, Hattie Ogle, and the residents whose records survive",
+    "sourceMaterial": "original fiction",
+    "framing": "epistolary horror audio drama told through letters and journals"
+  },
   "metadata": {
     "objectiveSources": [
       "https://fromwithinaudiodrama.podbean.com/e/episode-8-what-comes-after/",
@@ -668,10 +689,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-09-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "superhappy-productions",
   "discovery": {
     "narrativeFocus": "plot-driven",
-    "intensity": "high"
+    "intensity": "high",
+    "voiceStyle": "mixed",
+    "commitment": "medium"
   }
 }

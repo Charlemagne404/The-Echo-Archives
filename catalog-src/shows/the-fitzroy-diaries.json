@@ -22,7 +22,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "warm",
+    "hopeful",
+    "melancholic"
+  ],
   "formats": [
     "serialized",
     "narrated"
@@ -35,7 +39,12 @@
   "aliases": [
     "The Fitzroy Diaries"
   ],
-  "themes": [],
+  "themes": [
+    "community and belonging",
+    "family life",
+    "urban change",
+    "reconnection after isolation"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -68,9 +77,16 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "long-walks",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "love-and-luck"
+  ],
+  "similarReasons": {
+    "love-and-luck": "A similarly intimate, character-led community drama for listeners who prefer relationships and everyday stakes over plot machinery."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -107,7 +123,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the Fitzroy and Carlton inner-city suburbs of Melbourne",
+    "pov": "a woman walking through the neighborhood and noticing its people",
+    "framing": "narrated community drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.abc.net.au/listen/programs/the-fitzroy-diaries",
@@ -412,6 +432,12 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "abc-radio-national-abc"
+  "updatedAt": "2026-09-17",
+  "creatorId": "abc-radio-national-abc",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "character-driven",
+    "intensity": "low",
+    "commitment": "medium"
+  }
 }

@@ -1,7 +1,10 @@
 {
   "id": "steal-the-stars",
   "entityLinks": [
-    {"entityId":"gideon-media","role":"production-company"}
+    {
+      "entityId": "gideon-media",
+      "role": "production-company"
+    }
   ],
   "title": "Steal the Stars",
   "subtitle": "The current publisher feed is titled Stories from Among the Stars; Steal the Stars is its first season.",
@@ -26,7 +29,11 @@
     "sci-fi",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "tense",
+    "cinematic",
+    "weird"
+  ],
   "formats": [
     "serialized",
     "anthology"
@@ -40,7 +47,11 @@
   "aliases": [
     "Steal the Stars"
   ],
-  "themes": [],
+  "themes": [
+    "forbidden love and duty",
+    "crashed UFO and alien discovery",
+    "institutional secrecy and heist"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -71,9 +82,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "serious-sci-fi",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-cipher"
+  ],
+  "similarReasons": {
+    "the-cipher": "Both build a high-stakes science-fiction mystery around an extraordinary discovery and the institutions trying to control it; Steal the Stars turns a crashed UFO into an alien heist, while The Cipher follows a cryptic alien trail."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -111,7 +130,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a corporate facility and the crashed UFO at the heart of its secret",
+    "pov": "employees drawn into a forbidden-love and alien-heist conspiracy",
+    "sourceMaterial": "science-fiction audio stories",
+    "framing": "full-cast serialized science-fiction anthology"
+  },
   "metadata": {
     "researchGaps": [
       "current publisher feed uses the title Stories from Among the Stars"
@@ -424,6 +448,12 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "gideon-media"
+  "updatedAt": "2026-09-17",
+  "creatorId": "gideon-media",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

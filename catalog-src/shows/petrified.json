@@ -28,7 +28,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "episodic"
   ],
@@ -41,7 +45,11 @@
     "Petrified",
     "Petrified Official: Instagram | Linktree"
   ],
-  "themes": [],
+  "themes": [
+    "ordinary lives under supernatural threat",
+    "darker Ireland",
+    "folklore and fear"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -79,9 +87,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-truth"
+  ],
+  "similarReasons": {
+    "the-truth": "Both use sound-rich episodic fiction to put a new cast inside each story; Petrified turns ordinary lives in darker Ireland toward supernatural terror, while The Truth ranges across cinematic worlds and emotional registers."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -126,7 +142,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "contemporary Ireland described as a darker Ireland",
+    "pov": "ordinary people in standalone supernatural stories",
+    "sourceMaterial": "original fiction",
+    "framing": "sound-rich Irish horror anthology"
+  },
   "metadata": {
     "objectiveSources": [
       "https://linktr.ee/blog/linktree-podcast-pulse-april-2026",
@@ -702,5 +723,11 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14"
+  "updatedAt": "2026-09-17",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "high",
+    "commitment": "long"
+  }
 }

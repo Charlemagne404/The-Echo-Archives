@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"gimlet","role":"production-company"}
+    {
+      "entityId": "gimlet",
+      "role": "production-company"
+    }
   ],
   "id": "the-horror-of-dolores-roach",
   "title": "The Horror of Dolores Roach",
@@ -32,7 +35,11 @@
     "drama",
     "horror"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "serialized"
   ],
@@ -44,8 +51,15 @@
   "aliases": [
     "The Horror of Dolores Roach"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "survival and reinvention",
+    "incarceration and exclusion",
+    "paranoia and self-preservation",
+    "underground communities"
+  ],
+  "contentNotes": [
+    "violence and gore"
+  ],
   "languages": [
     "English"
   ],
@@ -79,9 +93,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "quiet-part-loud"
+  ],
+  "similarReasons": {
+    "quiet-part-loud": "Both are dark serialized Gimlet dramas that turn an urban investigation into an intimate supernatural threat; Dolores is more body-horror and survival-driven."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -119,7 +141,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "Washington Heights and the abandoned subway tunnels beneath New York",
+    "pov": "Dolores Roach's survival story underground",
+    "framing": "serialized urban horror drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.megaphone.fm/dolores-spot",
@@ -638,6 +664,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "gimlet"
+  "updatedAt": "2026-09-17",
+  "creatorId": "gimlet",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

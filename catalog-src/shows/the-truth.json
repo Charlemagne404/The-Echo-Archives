@@ -23,7 +23,11 @@
     "drama",
     "comedy"
   ],
-  "tones": [],
+  "tones": [
+    "cinematic",
+    "weird",
+    "funny"
+  ],
   "formats": [
     "full-cast",
     "anthology",
@@ -37,7 +41,11 @@
     "The Truth",
     "The Truth Podcast"
   ],
-  "themes": [],
+  "themes": [
+    "human connection",
+    "surreal premises",
+    "unexpected consequences"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -67,9 +75,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "long-walks",
+    "easy-entry"
+  ],
+  "similarTo": [
+    "the-big-loop"
+  ],
+  "similarReasons": {
+    "the-big-loop": "Both deliver self-contained speculative stories with distinct casts and sound-forward production; The Truth ranges from funny to devastating, while The Big Loop keeps returning to finite lives and human connection."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -108,7 +124,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a new world in every story",
+    "pov": "a new cast of characters in each episode",
+    "sourceMaterial": "original fiction",
+    "framing": "cinematic full-cast anthology"
+  },
   "metadata": {
     "objectiveSources": [
       "http://www.thetruthpodcast.com/about",
@@ -450,7 +471,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-09-16",
   "creatorId": "the-truth",
-  "networkId": "the-truth"
+  "networkId": "the-truth",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "variable",
+    "commitment": "deep-dive"
+  }
 }

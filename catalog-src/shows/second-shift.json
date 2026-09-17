@@ -23,7 +23,11 @@
     "fantasy",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "warm",
+    "hopeful",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -35,7 +39,11 @@
   "aliases": [
     "Second Shift"
   ],
-  "themes": [],
+  "themes": [
+    "displacement and belonging",
+    "consequences of action",
+    "meaning of home"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -62,9 +70,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "worldbuilding",
+    "binge-listening",
+    "long-walks"
+  ],
+  "similarTo": [
+    "camlann"
+  ],
+  "similarReasons": {
+    "camlann": "Both use full-cast fantasy journeys to put ordinary people inside a larger mythic conflict; Second Shift follows three students searching for a way home, while Camlann turns Arthurian folklore into a post-apocalyptic road story."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -102,7 +118,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "Boston and a magical other world",
+    "pov": "three college students searching for a way home",
+    "sourceMaterial": "original fiction",
+    "framing": "long-form full-cast portal fantasy"
+  },
   "metadata": {
     "objectiveSources": [
       "https://secondshiftpodcast.com/",
@@ -428,6 +449,12 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "blue-sky-red-design"
+  "updatedAt": "2026-09-16",
+  "creatorId": "blue-sky-red-design",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "long"
+  }
 }

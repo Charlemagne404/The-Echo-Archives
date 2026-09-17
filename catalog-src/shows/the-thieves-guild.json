@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"jake-kerr","role":"creator"}
+    {
+      "entityId": "jake-kerr",
+      "role": "creator"
+    }
   ],
   "id": "the-thieves-guild",
   "title": "The Thieves Guild",
@@ -32,7 +35,11 @@
     "drama",
     "fantasy"
   ],
-  "tones": [],
+  "tones": [
+    "cinematic",
+    "tense",
+    "hopeful"
+  ],
   "formats": [
     "serialized"
   ],
@@ -44,7 +51,11 @@
   "aliases": [
     "The Thieves Guild"
   ],
-  "themes": [],
+  "themes": [
+    "political intrigue",
+    "forgotten magic",
+    "unexpected leadership"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -84,9 +95,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "worldbuilding",
+    "long-walks",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "second-shift"
+  ],
+  "similarReasons": {
+    "second-shift": "Both are long-form full-cast fantasy serials about people pushed into roles larger than expected; The Thieves Guild follows a street rat rising amid political conflict, while Second Shift follows students trying to return home from a magical world."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -124,7 +143,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the world of Ness",
+    "pov": "Ralan's rise from street rat to guildmaster",
+    "sourceMaterial": "serialized fantasy audio novel",
+    "framing": "full-cast epic fantasy serial"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.omnycontent.com/d/playlist/3082f102-29e2-476c-974b-a78d001c3a4c/c089ddae-1de6-4047-bef1-b45a00ce7ad8/a938be82-8a9a-4943-915e-b45a00ce7ae4/podcast.rss",
@@ -640,6 +664,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "jake-kerr"
+  "updatedAt": "2026-09-16",
+  "creatorId": "jake-kerr",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "variable",
+    "commitment": "deep-dive"
+  }
 }

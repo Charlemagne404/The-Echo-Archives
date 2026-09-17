@@ -29,7 +29,11 @@
     "sci-fi",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "melancholic",
+    "hopeful",
+    "weird"
+  ],
   "formats": [
     "serialized"
   ],
@@ -41,7 +45,11 @@
   "aliases": [
     "The Phone Booth"
   ],
-  "themes": [],
+  "themes": [
+    "superpower and identity",
+    "memory and testimony",
+    "life after catastrophe"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -76,9 +84,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "binge-listening",
+    "late-night"
+  ],
+  "similarTo": [
+    "the-bright-sessions",
+    "the-amelia-project"
+  ],
+  "similarReasons": {
+    "the-bright-sessions": "Both use conversations with people whose unusual abilities expose the emotional cost of being different; The Phone Booth uses a post-cataclysmic interview frame while The Bright Sessions uses therapy.",
+    "the-amelia-project": "Both let fictional interviews and calls reveal a larger hidden world one person at a time; The Phone Booth is the more reflective post-superpower drama, while The Amelia Project is more comic and evasive."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -116,7 +134,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the Mojave Desert and a post-cataclysmic world",
+    "pov": "interview-led ensemble",
+    "sourceMaterial": "original fiction",
+    "framing": "a fictional interview podcast built around a phone booth"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.transistor.fm/the-phone-booth",
@@ -718,5 +741,11 @@
   "featured": false,
   "createdAt": "2026-08-14",
   "updatedAt": "2026-08-14",
-  "creatorId": "the-fools-gallery"
+  "creatorId": "the-fools-gallery",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "medium"
+  }
 }

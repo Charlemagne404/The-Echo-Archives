@@ -27,7 +27,11 @@
     "thriller",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "full-cast",
     "serialized",
@@ -40,7 +44,11 @@
   "aliases": [
     "The Leviathan Chronicles"
   ],
-  "themes": [],
+  "themes": [
+    "hidden city and immortals",
+    "deep-ocean society and secret histories",
+    "global conspiracy and survival"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -80,9 +88,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "serious-sci-fi",
+    "worldbuilding",
+    "long-walks",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-strata"
+  ],
+  "similarReasons": {
+    "the-strata": "Both are long-form science-fiction dramas built around layered societies and survival under pressure; The Leviathan Chronicles descends into a hidden city of immortals and secret histories, while The Strata stays in a class-divided metropolis with a courier at its center."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -121,7 +139,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "the hidden city of Leviathan in the deep Pacific trenches and the wider world",
+    "pov": "Macallan Orsel and the factions drawn into Leviathan's immortal conflict",
+    "framing": "long-running full-cast science-fiction audio saga"
+  },
   "metadata": {
     "objectiveSources": [
       "https://leviathanaudioproductions.com/",
@@ -466,7 +489,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-09-17",
   "creatorId": "leviathan-audio-productions",
-  "networkId": "leviathan-audio-productions"
+  "networkId": "leviathan-audio-productions",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

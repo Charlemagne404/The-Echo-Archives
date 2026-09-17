@@ -29,7 +29,11 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "weird",
+    "cinematic",
+    "dark"
+  ],
   "formats": [
     "serialized"
   ],
@@ -42,7 +46,11 @@
   "aliases": [
     "The Great Chameleon War"
   ],
-  "themes": [],
+  "themes": [
+    "transdimensional reptiles and portal worlds",
+    "surreal wilderness expedition",
+    "dreamscape and sanity"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -77,9 +85,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "headphones-on",
+    "worldbuilding"
+  ],
+  "similarTo": [
+    "the-wyrd-side"
+  ],
+  "similarReasons": {
+    "the-wyrd-side": "Both turn investigations into encounters with dangerous New Weird folklore; The Great Chameleon War sends an expedition into a transdimensional jungle dreamscape, while The Wyrd Side follows paranormal investigators through the myths and legends of Britain and Ireland."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -118,7 +134,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the Nesting Zone jungle around Mt. Tahoma",
+    "pov": "the Amanuensis and the explorers whose stories he records",
+    "sourceMaterial": "original fiction",
+    "framing": "surreal serialized expedition audio drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.thegreatchameleonwar.com/",
@@ -608,7 +629,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "justin-hellstrom",
-  "networkId": "the-great-chameleon-war"
+  "networkId": "the-great-chameleon-war",
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "short"
+  }
 }

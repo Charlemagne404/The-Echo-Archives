@@ -148,11 +148,17 @@
   "createdAt": "2026-07-09",
   "creatorId": "john-scott-dryden-and-mike-walker",
   "networkId": "iheartpodcasts",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-17",
   "cast": [],
   "creators": [
     "John Scott Dryden",
     "Mike Walker"
   ],
-  "popularity": {}
+  "popularity": {},
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

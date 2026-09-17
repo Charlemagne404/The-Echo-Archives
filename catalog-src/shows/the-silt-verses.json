@@ -23,7 +23,12 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "bleak",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -36,8 +41,18 @@
   "aliases": [
     "The Silt Verses"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "outlawed faith and pilgrimage",
+    "police manhunt and state power",
+    "ritual and sacrifice",
+    "rural territories and strange gods"
+  ],
+  "contentNotes": [
+    "religious themes",
+    "human sacrifice",
+    "suicide",
+    "body horror"
+  ],
   "languages": [
     "English"
   ],
@@ -72,9 +87,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "worldbuilding",
+    "long-walks",
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "i-am-in-eskew"
+  ],
+  "similarReasons": {
+    "i-am-in-eskew": "Both come from the same production world of impossible environments and close horror; The Silt Verses broadens that atmosphere into a political folk-horror pilgrimage."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -113,7 +138,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a great black river and the rural territories along it",
+    "pov": "Carpenter and Faulkner on pilgrimage under police pursuit",
+    "sourceMaterial": "original fiction",
+    "framing": "full-cast folk-horror serial"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.thesiltverses.com/transcripts",
@@ -751,7 +781,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
+  "updatedAt": "2026-09-17",
   "creatorId": "eskew-productions-ltd",
-  "networkId": "the-silt-verses"
+  "networkId": "the-silt-verses",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

@@ -82,7 +82,7 @@
     "hex": "#497b84",
     "rgb": "73, 123, 132"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-17",
   "releaseDates": {
     "first": "2014-10-15",
     "latest": "2023-03-22"
@@ -169,5 +169,11 @@
     "oz-9": "Turns the dysfunction and comic disaster energy even louder.",
     "wolf-359": "A stronger character-payoff branch if you want the station comedy to deepen over time.",
     "crystal-blue": "Another oddball sci-fi comedy route when you want something smaller and stranger."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "low",
+    "commitment": "long"
   }
 }

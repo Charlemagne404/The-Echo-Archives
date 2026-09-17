@@ -34,7 +34,11 @@
     "sci-fi",
     "mystery"
   ],
-  "tones": [],
+  "tones": [
+    "tense",
+    "weird",
+    "funny"
+  ],
   "formats": [
     "serialized"
   ],
@@ -46,7 +50,11 @@
   "aliases": [
     "The Subjective Truth"
   ],
-  "themes": [],
+  "themes": [
+    "missing-person investigation",
+    "contested reality",
+    "paranormal theories and high strangeness"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -81,9 +89,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "rabbits"
+  ],
+  "similarReasons": {
+    "rabbits": "Both begin with a disappearance and widen into conspiratorial questions about reality; The Subjective Truth takes a paranormal docudrama route through treasure hunting, theories, and high strangeness."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -122,7 +138,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "the Carson National Forest and the wider world of high-strangeness cases",
+    "pov": "Graham Anderson's investigation into Buddha Kline's disappearance",
+    "framing": "serialized paranormal docudrama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://goodpointepodcasts.com/episodes",
@@ -770,7 +791,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "jeremy-ellett",
-  "networkId": "good-pointe"
+  "networkId": "good-pointe",
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "plot-driven",
+    "intensity": "variable",
+    "commitment": "medium"
+  }
 }

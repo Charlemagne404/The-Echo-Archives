@@ -35,7 +35,11 @@
     "drama",
     "comedy"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "dark",
+    "hopeful"
+  ],
   "formats": [
     "serialized"
   ],
@@ -48,7 +52,11 @@
   "aliases": [
     "Hannahpocalypse"
   ],
-  "themes": [],
+  "themes": [
+    "life after the apocalypse",
+    "unlikely friendship",
+    "robots and rebuilding"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -83,9 +91,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "warm-weird",
+    "binge-listening",
+    "long-walks"
+  ],
+  "similarTo": [
+    "world-gone-wrong-a-fictional-chat-show-about-friendship-at-the-end-of-the-world"
+  ],
+  "similarReasons": {
+    "world-gone-wrong-a-fictional-chat-show-about-friendship-at-the-end-of-the-world": "Both use comedy and an unlikely relationship to make life after catastrophe feel personal; Hannahpocalypse follows a last zombie building a new life, while World Gone Wrong holds a friendship together through an end-of-the-world chat show."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -124,7 +140,17 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a post-apocalyptic wasteland more than 150 years after the zombie apocalypse",
+    "pov": "Hannah, the last zombie, and the human survivors she meets",
+    "sourceMaterial": "original fiction",
+    "framing": "serialized comedy-horror audio drama"
+  },
+  "contentNotes": [
+    "mature language",
+    "violence",
+    "horror elements"
+  ],
   "metadata": {
     "objectiveSources": [
       "https://art19.com/shows/hannahpocalypse",
@@ -672,7 +698,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "red-fathom-entertainment",
-  "networkId": "art19"
+  "networkId": "art19",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "variable",
+    "commitment": "medium"
+  }
 }

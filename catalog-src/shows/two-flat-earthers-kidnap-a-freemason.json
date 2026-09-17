@@ -34,7 +34,11 @@
     "comedy",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "dark",
+    "chaotic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -46,7 +50,11 @@
   "aliases": [
     "Two Flat Earthers Kidnap a Freemason"
   ],
-  "themes": [],
+  "themes": [
+    "conspiracy culture and misinformation",
+    "kidnapping and self-aggrandizing certainty",
+    "standalone satirical seasons"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -82,9 +90,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "warm-weird",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-subjective-truth"
+  ],
+  "similarReasons": {
+    "the-subjective-truth": "Both come from Good Pointe and use conspiracy-shaped investigations to examine how people construct certainty; Two Flat Earthers Kidnap a Freemason turns that premise into a satirical dark comedy, while The Subjective Truth follows a paranormal docudrama investigation."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -123,7 +139,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "the contemporary internet-conspiracy world and the routes it sends its believers down",
+    "pov": "Randy Dunning, Gayle Kruger, and the Freemason they kidnap for answers",
+    "framing": "serialized satirical dark comedy with stand-alone seasons"
+  },
   "metadata": {
     "researchGaps": [
       "No distinct canonical Spotify show URL was found for Two Flat Earthers Kidnap a Freemason. The previous URL resolves to a shared Good Pointe/STITCHES platform identity and was removed pending a platform-confirmed listing for this Apple/RSS record."
@@ -773,7 +794,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "jeremy-ellett",
-  "networkId": "good-pointe"
+  "networkId": "good-pointe",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "variable",
+    "commitment": "medium"
+  }
 }

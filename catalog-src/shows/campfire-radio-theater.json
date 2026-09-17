@@ -29,7 +29,11 @@
     "drama",
     "horror"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "episodic"
   ],
@@ -41,8 +45,15 @@
   "aliases": [
     "Campfire Radio Theater"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "paranormal encounters",
+    "anthology storytelling",
+    "classic radio atmosphere"
+  ],
+  "contentNotes": [
+    "graphic horror",
+    "explicit language"
+  ],
   "languages": [
     "English"
   ],
@@ -75,9 +86,16 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night"
+  ],
+  "similarTo": [
+    "the-nosleep-podcast"
+  ],
+  "similarReasons": {
+    "the-nosleep-podcast": "Both are horror anthologies built from self-contained paranormal tales; Campfire Radio leans into fully dramatized, soundscaped radio theater."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -116,7 +134,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "different settings across self-contained paranormal tales",
+    "pov": "an ensemble of characters in each dramatized story",
+    "sourceMaterial": "original fiction",
+    "framing": "fully dramatized, soundscaped horror anthology"
+  },
   "metadata": {
     "objectiveSources": [
       "https://campfireradiotheater.podbean.com/p/about-1605282442/",
@@ -493,7 +516,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "haunted-air-audio",
-  "networkId": "haunted-air-audio"
+  "networkId": "haunted-air-audio",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "short"
+  }
 }

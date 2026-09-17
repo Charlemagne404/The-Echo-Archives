@@ -33,7 +33,11 @@
     "mystery",
     "thriller"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "episodic"
   ],
@@ -45,7 +49,11 @@
   "aliases": [
     "The Dead Letters Podcast"
   ],
-  "themes": [],
+  "themes": [
+    "mysterious letters and coercion",
+    "women across history",
+    "death warnings and family secrets"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -75,9 +83,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-cellar-letters"
+  ],
+  "similarReasons": {
+    "the-cellar-letters": "Both use letters and recovered writing as the engine for a serialized mystery; The Dead Letters Podcast follows five women receiving warnings across history, while The Cellar Letters turns one young woman's inherited correspondence into a darker investigation."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -115,7 +132,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "multiple historical periods connected by the letters",
+    "pov": "five women whose lives are shaped by mysterious warnings",
+    "framing": "serialized mystery audio drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://deadletterspodcast.podbean.com/e/episode-9-the-swarm/",
@@ -731,5 +753,11 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14"
+  "updatedAt": "2026-09-17",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

@@ -104,7 +104,7 @@
   ],
   "cast": [],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-17",
   "similarReasons": {
     "midnight-burger": "A warmer cosmic branch if the big ideas mattered as much as the affection.",
     "ars-paradoxica": "Keeps the conceptual ambition high while making the science spine more explicit.",
@@ -147,5 +147,11 @@
     ],
     "productionCompany": "Third Person",
     "network": "Critical Role Productions"
+  },
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "balanced",
+    "intensity": "medium",
+    "commitment": "deep-dive"
   }
 }

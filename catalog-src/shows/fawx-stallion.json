@@ -23,7 +23,11 @@
     "drama",
     "comedy"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "warm",
+    "cinematic"
+  ],
   "formats": [
     "full-cast",
     "serialized"
@@ -38,7 +42,10 @@
   ],
   "themes": [
     "mystery",
-    "friendship"
+    "friendship",
+    "rivalry and friendship",
+    "queer historical life",
+    "police power and injustice"
   ],
   "contentNotes": [
     "Adult language",
@@ -77,9 +84,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "binge-listening",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "victoriocity",
+    "wooden-overcoats"
+  ],
+  "similarReasons": {
+    "victoriocity": "Both pair a Victorian city with a comedy mystery and an overlooked investigative duo; Fawx and Stallion stays in Holmes and Watson's shadow, while Victoriocity expands into an impossible Greater London conspiracy.",
+    "wooden-overcoats": "Both turn rivalry, friendship, and ensemble comedy into the engine of a mystery-shaped story; Fawx and Stallion adds Victorian detective fiction and queer historical context, while Wooden Overcoats stays with a funeral-parlour community."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -118,7 +135,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "1889 London",
+    "pov": "overlooked detective duo",
+    "sourceMaterial": "original fiction",
+    "framing": "full-cast comedy mystery"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.224bbaker.com/transcripts",
@@ -490,7 +512,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
+  "updatedAt": "2026-09-17",
   "creatorId": "rambling-absurdities",
-  "networkId": "fawx-and-stallion"
+  "networkId": "fawx-and-stallion",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "long"
+  }
 }

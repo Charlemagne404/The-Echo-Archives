@@ -22,7 +22,10 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "warm",
+    "melancholic"
+  ],
   "formats": [
     "episodic"
   ],
@@ -35,7 +38,11 @@
   "aliases": [
     "The Archers"
   ],
-  "themes": [],
+  "themes": [
+    "community and belonging",
+    "family obligation",
+    "rural change"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -66,9 +73,16 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "long-walks",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "love-and-luck"
+  ],
+  "similarReasons": {
+    "love-and-luck": "A more intimate, romance-led community drama for listeners who enjoy the ongoing relationships and everyday social texture of Ambridge."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -116,7 +130,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the rural village of Ambridge",
+    "pov": "ensemble",
+    "sourceMaterial": "original fiction",
+    "framing": "ongoing community serial"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.bbc.co.uk/programmes/b006qpgr",
@@ -421,6 +440,12 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "bbc"
+  "updatedAt": "2026-09-17",
+  "creatorId": "bbc",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "low",
+    "commitment": "deep-dive"
+  }
 }

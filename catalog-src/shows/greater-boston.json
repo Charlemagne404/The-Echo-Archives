@@ -141,11 +141,17 @@
   "featured": false,
   "createdAt": "2026-07-09",
   "networkId": "greater-boston",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-17",
   "cast": [],
   "creators": [
     "Alexander Danner",
     "Jeff Van Dreason"
   ],
-  "popularity": {}
+  "popularity": {},
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "medium",
+    "commitment": "deep-dive"
+  }
 }

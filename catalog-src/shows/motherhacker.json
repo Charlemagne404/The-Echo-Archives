@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"gimlet","role":"production-company"}
+    {
+      "entityId": "gimlet",
+      "role": "production-company"
+    }
   ],
   "id": "motherhacker",
   "title": "Motherhacker",
@@ -32,7 +35,11 @@
     "drama",
     "thriller"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "funny"
+  ],
   "formats": [
     "serialized"
   ],
@@ -45,7 +52,11 @@
   "aliases": [
     "Motherhacker"
   ],
-  "themes": [],
+  "themes": [
+    "family survival",
+    "identity theft",
+    "economic desperation"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -80,9 +91,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "late-night",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "homecoming"
+  ],
+  "similarReasons": {
+    "homecoming": "Both are compact, performance-led Gimlet thrillers built around intimate communication; Motherhacker turns phone vishing into a desperate family livelihood, while Homecoming uses calls and therapy sessions to expose institutional control."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -121,7 +140,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "phone calls, identity-theft schemes, and Bridget's precarious home life",
+    "pov": "Bridget Landry",
+    "sourceMaterial": "original fiction",
+    "framing": "phone-driven cybercrime comedy-drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://open.spotify.com/",
@@ -635,7 +659,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "gimlet",
-  "networkId": "spotify"
+  "networkId": "spotify",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium",
+    "commitment": "short"
+  }
 }

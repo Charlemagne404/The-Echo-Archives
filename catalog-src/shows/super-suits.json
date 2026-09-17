@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"faustian-nonsense","role":"production-company"}
+    {
+      "entityId": "faustian-nonsense",
+      "role": "production-company"
+    }
   ],
   "id": "super-suits",
   "title": "Super Suits",
@@ -27,7 +30,11 @@
     "comedy",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "chaotic",
+    "warm"
+  ],
   "formats": [
     "serialized"
   ],
@@ -39,7 +46,11 @@
     "Super Suits",
     "Super Suits | Faustian Nonsense"
   ],
-  "themes": [],
+  "themes": [
+    "superhero law",
+    "workplace friendship",
+    "powers and responsibility"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -73,9 +84,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "binge-listening",
+    "easy-entry",
+    "warm-weird"
+  ],
+  "similarTo": [
+    "marscorp"
+  ],
+  "similarReasons": {
+    "marscorp": "Both turn speculative systems into workplace ensemble comedy; Super Suits puts superpowers and legal battles in a law firm, while MarsCorp puts terraforming problems and station politics on Mars."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -116,7 +135,12 @@
     ],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "Megalopolis, a world of superheroes and supervillains",
+    "pov": "new legal associate and twin superhero",
+    "sourceMaterial": "original fiction",
+    "framing": "speculative workplace audio comedy"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.faustiannonsense.com/about-us",
@@ -746,7 +770,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
+  "updatedAt": "2026-09-17",
   "creatorId": "faustian-nonsense",
-  "networkId": "faustian-nonsense"
+  "networkId": "faustian-nonsense",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "medium",
+    "commitment": "medium"
+  }
 }

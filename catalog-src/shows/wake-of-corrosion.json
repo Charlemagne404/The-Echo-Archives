@@ -26,7 +26,11 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "bleak",
+    "tense"
+  ],
   "formats": [
     "serialized"
   ],
@@ -38,7 +42,11 @@
   "aliases": [
     "Wake Of Corrosion"
   ],
-  "themes": [],
+  "themes": [
+    "apocalyptic survival",
+    "bunker broadcasts and investigation",
+    "eldritch horror"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -75,9 +83,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "cold-isolation-horror",
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "red-frontier"
+  ],
+  "similarReasons": {
+    "red-frontier": "Both are isolated survival mysteries shaped by an unexplained catastrophe; Wake Of Corrosion uses bunker broadcasts in a nightmare-ridden Britain, while Red Frontier follows a lone Mars colonist and a vanished crew."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -115,7 +132,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a nightmare-ridden post-apocalyptic Britain and Bunker A:12",
+    "pov": "Professor Ryan and the survivors listening to and making bunker broadcasts",
+    "framing": "serialized apocalyptic audio drama built around shelter broadcasts and investigation"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2",
@@ -676,6 +697,12 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
-  "creatorId": "shadow-static-productions"
+  "updatedAt": "2026-09-17",
+  "creatorId": "shadow-static-productions",
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

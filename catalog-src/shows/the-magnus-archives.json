@@ -28,7 +28,11 @@
     "mystery",
     "supernatural"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "anthology",
     "serialized",
@@ -43,7 +47,9 @@
   ],
   "themes": [
     "Paranormal investigation",
-    "Supernatural statements"
+    "Supernatural statements",
+    "archives and institutional secrecy",
+    "esoteric research"
   ],
   "contentNotes": [],
   "languages": [
@@ -82,9 +88,20 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "binge-listening",
+    "worldbuilding"
+  ],
+  "similarTo": [
+    "knifepoint-horror",
+    "scp-archives"
+  ],
+  "similarReasons": {
+    "knifepoint-horror": "Both build supernatural horror through a strong narrated voice and a record of disturbing cases; The Magnus Archives turns institutional statements into a serialized mythology, while Knifepoint Horror stays with Soren Narnia's standalone tales of suspense.",
+    "scp-archives": "Both make an archive of anomalous cases the engine of the horror; The Magnus Archives follows Jonathan Sims and the Magnus Institute's statements as they accumulate into a larger mythology, while SCP Archives adapts Foundation files with additional actors and immersive sound."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -157,7 +174,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "the Magnus Institute and its archive of supernatural statements",
+    "pov": "head archivist Jonathan Sims and the recurring voices around the Institute",
+    "framing": "serialized horror anthology whose statements accumulate into a larger supernatural mythology"
+  },
   "metadata": {
     "objectiveSources": [
       "https://rustyquill.com/show/the-magnus-archives/",
@@ -780,7 +802,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-03",
-  "updatedAt": "2026-08-03",
+  "updatedAt": "2026-09-17",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  },
   "creatorId": "jonathan-sims",
   "networkId": "rusty-quill"
 }

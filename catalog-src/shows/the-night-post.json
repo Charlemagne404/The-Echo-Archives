@@ -25,7 +25,11 @@
     "mystery",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "weird",
+    "cinematic"
+  ],
   "formats": [
     "full-cast",
     "serialized"
@@ -37,7 +41,11 @@
   "aliases": [
     "The Night Post"
   ],
-  "themes": [],
+  "themes": [
+    "survival",
+    "tradition and belief",
+    "belonging across worlds"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -73,9 +81,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "worldbuilding",
+    "headphones-on",
+    "long-walks"
+  ],
+  "similarTo": [
+    "camlann",
+    "the-silt-verses"
+  ],
+  "similarReasons": {
+    "camlann": "Both send a small group through a dangerous, myth-shaped landscape; The Night Post is a courier story at an industrial city's arcane frontier, while Camlann is an Arthurian post-collapse journey.",
+    "the-silt-verses": "Both make an oppressive social order inseparable from a strange landscape; The Night Post follows conscripted couriers at an arcane frontier, while The Silt Verses follows travelers through a river faith system."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -113,7 +131,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "Gilt City and its arcane frontier",
+    "pov": "ensemble",
+    "sourceMaterial": "original fiction",
+    "framing": "a courier story about survival and the unknown"
+  },
   "metadata": {
     "objectiveSources": [
       "https://nightpostpod.com/episodes",
@@ -660,5 +683,11 @@
   "featured": false,
   "createdAt": "2026-07-31",
   "updatedAt": "2026-07-31",
-  "creatorId": "station-103"
+  "creatorId": "station-103",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "high",
+    "commitment": "long"
+  }
 }

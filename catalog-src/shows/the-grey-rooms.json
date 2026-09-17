@@ -23,7 +23,11 @@
     "horror",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "full-cast",
     "anthology",
@@ -37,7 +41,11 @@
   "aliases": [
     "The Grey Rooms"
   ],
-  "themes": [],
+  "themes": [
+    "death and afterlife",
+    "choices and consequences",
+    "anthology worlds"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -76,9 +84,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "worldbuilding",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-nosleep-podcast"
+  ],
+  "similarReasons": {
+    "the-nosleep-podcast": "Both are atmospheric horror anthologies with changing settings and characters; The Grey Rooms threads its stories through Raymond's serial afterlife journey, while The NoSleep Podcast presents a broader collection of nightmare tales."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -123,7 +140,12 @@
       "English"
     ]
   },
-  "content": {},
+  "content": {
+    "setting": "the Grey Rooms and the impossible places behind its doors",
+    "pov": "Raymond and recurring passengers experiencing other people's final moments",
+    "sourceMaterial": "original fiction",
+    "framing": "full-cast horror anthology threaded through a serial afterlife mystery"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.spreaker.com/episode/s4e20-change-in-the-house-of-heretics--50232934",
@@ -688,7 +710,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-09-17",
   "creatorId": "the-grey-rooms-productions",
-  "networkId": "spreaker"
+  "networkId": "spreaker",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

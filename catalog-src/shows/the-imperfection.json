@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"wolf-at-the-door-studios","role":"studio"}
+    {
+      "entityId": "wolf-at-the-door-studios",
+      "role": "studio"
+    }
   ],
   "id": "the-imperfection",
   "title": "The Imperfection",
@@ -27,7 +30,11 @@
     "mystery",
     "comedy"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "weird",
+    "warm"
+  ],
   "formats": [
     "episodic",
     "full-cast"
@@ -40,8 +47,15 @@
   "aliases": [
     "The Imperfection"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "friendship and trust",
+    "mental health and perception",
+    "secret societies and hidden places",
+    "searching for truth"
+  ],
+  "contentNotes": [
+    "hallucinations and mental health themes"
+  ],
   "languages": [
     "English"
   ],
@@ -74,9 +88,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "short-under-five-hours",
+    "warm-weird"
+  ],
+  "similarTo": [
+    "the-amelia-project"
+  ],
+  "similarReasons": {
+    "the-amelia-project": "Both use full-cast, offbeat mystery-comedy to turn strange premises into character-led ensemble stories."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -115,7 +137,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "patients searching through New York and a hidden borough under the East River",
+    "pov": "Charlie and Amber-led patient ensemble",
+    "framing": "full-cast surreal mystery-comedy"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.wlfdr.com/about",
@@ -449,7 +475,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
+  "updatedAt": "2026-09-17",
   "creatorId": "wolf-at-the-door-studios-alexander-kemp",
-  "networkId": "wolf-at-the-door-studios"
+  "networkId": "wolf-at-the-door-studios",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "medium",
+    "commitment": "short"
+  }
 }

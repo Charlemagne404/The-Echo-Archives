@@ -28,7 +28,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "bleak",
+    "tense"
+  ],
   "formats": [
     "serialized"
   ],
@@ -41,7 +45,11 @@
   "aliases": [
     "Station Blue"
   ],
-  "themes": [],
+  "themes": [
+    "Antarctic isolation",
+    "identity and mental illness",
+    "grief and possible supernatural reality"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -75,9 +83,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "cold-isolation-horror",
+    "short-under-five-hours",
+    "headphones-on",
+    "late-night"
+  ],
+  "similarTo": [
+    "the-white-vault"
+  ],
+  "similarReasons": {
+    "the-white-vault": "Both place isolated research work under pressure from an uncanny threat; Station Blue follows Matthew Leads alone in remote Antarctica, while The White Vault assembles records from remote horror sites."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -115,7 +132,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "remote Antarctica and the research facility called Station Blue",
+    "pov": "troubled caretaker Matthew Leads alone with his thoughts and regrets",
+    "sourceMaterial": "original fiction",
+    "framing": "atmospheric serialized isolation horror audio drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://stationblue.libsyn.com/website",
@@ -624,6 +646,12 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
-  "creatorId": "ester-ellis"
+  "updatedAt": "2026-09-17",
+  "creatorId": "ester-ellis",
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "character-driven",
+    "intensity": "high",
+    "commitment": "short"
+  }
 }

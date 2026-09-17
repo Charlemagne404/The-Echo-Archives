@@ -139,10 +139,16 @@
   },
   "featured": false,
   "createdAt": "2026-07-09",
-  "updatedAt": "2026-09-08",
+  "updatedAt": "2026-09-17",
   "cast": [],
   "creators": [
     "Two-Up"
   ],
-  "popularity": {}
+  "popularity": {},
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

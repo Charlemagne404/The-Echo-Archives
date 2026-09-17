@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"gzm-shows","role":"network"}
+    {
+      "entityId": "gzm-shows",
+      "role": "network"
+    }
   ],
   "id": "iowa-chapman-and-the-last-dog",
   "title": "Iowa Chapman and The Last Dog",
@@ -31,7 +34,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "hopeful",
+    "warm",
+    "tense"
+  ],
   "formats": [
     "serialized"
   ],
@@ -44,7 +51,11 @@
   "aliases": [
     "Iowa Chapman and The Last Dog"
   ],
-  "themes": [],
+  "themes": [
+    "climate change and overconsumption",
+    "girl-and-dog bond",
+    "survival and animal loss"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -78,9 +89,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "easy-entry",
+    "long-walks"
+  ],
+  "similarTo": [
+    "the-earth-collective"
+  ],
+  "similarReasons": {
+    "the-earth-collective": "Both make survival in a transformed world an intimate character journey; Iowa Chapman centers a girl protecting the last dog after climate collapse, while The Earth Collective follows humanity surviving on the move."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -119,7 +138,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a post-climate-change future of risen seas and scarce resources",
+    "pov": "12-year-old Iowa Chapman and Doggo on the journey to Haven",
+    "sourceMaterial": "original fiction",
+    "framing": "serialized family audio adventure"
+  },
   "metadata": {
     "objectiveSources": [
       "https://art19.com/shows/iowa-chapman-the-last-dog",
@@ -664,7 +688,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "gzm-shows",
-  "networkId": "art19"
+  "networkId": "art19",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium",
+    "commitment": "short"
+  }
 }

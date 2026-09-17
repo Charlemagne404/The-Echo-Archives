@@ -28,7 +28,11 @@
   "genres": [
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "tense",
+    "cinematic",
+    "melancholic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -40,7 +44,11 @@
   "aliases": [
     "LifeAfter/The Message"
   ],
-  "themes": [],
+  "themes": [
+    "alien transmission and cryptology",
+    "digital resurrection and grief",
+    "technology versus institutional power"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -75,9 +83,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-bright-sessions"
+  ],
+  "similarReasons": {
+    "the-bright-sessions": "Both foreground intimate, acted relationships inside speculative mysteries; LifeAfter/The Message moves from alien cryptology to digital resurrection, while The Bright Sessions grows a recorded-session ensemble around extraordinary abilities."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -116,7 +132,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "an FBI and online communications world shaped by alien transmission and digital resurrection",
+    "pov": "cryptologists in The Message and FBI clerk Ross Barnes in LifeAfter",
+    "sourceMaterial": "original fiction",
+    "framing": "two connected serialized science-fiction audio dramas"
+  },
   "metadata": {
     "objectiveSources": [
       "https://podcasts.apple.com/us/podcast/lifeafter-the-message/id1045990056?uo=4",
@@ -429,7 +450,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "ge-podcast-theater-panoply-the-message",
-  "networkId": "ge-podcast-theater-panoply-the-message"
+  "networkId": "ge-podcast-theater-panoply-the-message",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

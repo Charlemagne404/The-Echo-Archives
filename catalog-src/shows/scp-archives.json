@@ -32,7 +32,11 @@
     "horror",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "episodic"
   ],
@@ -45,7 +49,11 @@
   "aliases": [
     "SCP Archives"
   ],
-  "themes": [],
+  "themes": [
+    "SCP Foundation case files",
+    "containment protocols and anomalies",
+    "institutional horror"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -88,9 +96,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-magnus-archives",
+    "the-other-stories-sci-fi-horror-thriller-wtf-stories"
+  ],
+  "similarReasons": {
+    "the-magnus-archives": "Both turn institutional records of the supernatural into audio horror; SCP Archives adapts Foundation files with narration, actors, and immersive sound, while The Magnus Archives builds its case statements into a serialized mythology.",
+    "the-other-stories-sci-fi-horror-thriller-wtf-stories": "Both use a changing anthology of strange fiction as the entry point; SCP Archives stays with anomalous files and containment language, while The Other Stories moves freely across science fiction, horror, thriller, and WTF premises."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -128,7 +146,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "SCP Foundation collaborative fiction",
+    "setting": "the fictional SCP Foundation and its anomalous case files",
+    "pov": "narration and additional actors bringing reports, logs, and interviews to life",
+    "framing": "episodic audio-drama adaptations with immersive sound design"
+  },
   "metadata": {
     "objectiveSources": [
       "https://podcasts.apple.com/us/podcast/scp-archives/id1453436915?uo=4",
@@ -467,6 +490,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  },
   "creatorId": "bloody-fm"
 }

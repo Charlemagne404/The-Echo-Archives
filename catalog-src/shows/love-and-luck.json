@@ -28,7 +28,10 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "warm",
+    "hopeful"
+  ],
   "formats": [
     "serialized"
   ],
@@ -40,7 +43,11 @@
   "aliases": [
     "Love and Luck"
   ],
-  "themes": [],
+  "themes": [
+    "queer romance",
+    "community care",
+    "healthy relationships"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -75,9 +82,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "binge-listening",
+    "warm-weird"
+  ],
+  "similarTo": [
+    "the-two-princes"
+  ],
+  "similarReasons": {
+    "the-two-princes": "Both center queer romance against a fantastical premise; Love and Luck is a voicemail-led Melbourne slice of life about community care, while The Two Princes turns a wedding into an end-of-world fantasy."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -116,7 +131,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "present-day Melbourne",
+    "pov": "voicemails between two men",
+    "sourceMaterial": "original fiction",
+    "framing": "fictional radio play told via voicemails"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.loveandluckpodcast.com/transcripts",
@@ -783,10 +803,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-09-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "passer-vulpes-productions",
   "networkId": "the-love-and-luck-podcast",
   "discovery": {
-    "narrativeFocus": "character-driven"
+    "narrativeFocus": "character-driven",
+    "voiceStyle": "primarily-acted",
+    "intensity": "low",
+    "commitment": "long"
   }
 }

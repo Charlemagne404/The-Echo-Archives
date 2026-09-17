@@ -82,7 +82,7 @@
     "hex": "#88506a",
     "rgb": "136, 80, 106"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-17",
   "officialLinks": {
     "website": "https://audiohmmedia.com/howidied/",
     "patreon": "https://www.patreon.com/howidied",
@@ -182,5 +182,11 @@
     "paralyzed": "Keeps the supernatural investigation lane active with a more direct horror pulse.",
     "the-white-vault": "A colder isolation-horror branch if you want the dread to spread beyond the investigation.",
     "malevolent": "A darker occult escalation once the voice-driven mystery stops being enough."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "long"
   }
 }

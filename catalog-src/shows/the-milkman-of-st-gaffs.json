@@ -24,7 +24,11 @@
     "fantasy",
     "mystery"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "weird",
+    "tense"
+  ],
   "formats": [
     "serialized",
     "narrated"
@@ -37,7 +41,12 @@
   "aliases": [
     "The Milkman of St. Gaff's"
   ],
-  "themes": [],
+  "themes": [
+    "island social order",
+    "secretive milkmen",
+    "identity and vocation",
+    "alternate-reality horror"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -67,9 +76,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "binge-listening",
+    "worldbuilding",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "the-town-whispers"
+  ],
+  "similarReasons": {
+    "the-town-whispers": "Both build horror around a local community and the hidden rules governing it; Milkman is more absurd and Kafkaesque, while The Town Whispers is more folkloric."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -108,7 +126,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the island of St. Gaff's and its milk stations",
+    "pov": "Howie as he joins the island's milkmen",
+    "sourceMaterial": "original fiction",
+    "framing": "narrator-led serialized fantasy-horror"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.patreon.com/cw/howiemilkman",
@@ -434,7 +457,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
+  "updatedAt": "2026-09-17",
   "creatorId": "christopher-scott-mcclure",
-  "networkId": "patreon"
+  "networkId": "patreon",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

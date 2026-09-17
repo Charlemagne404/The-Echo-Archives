@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"the-whisperforge","role":"production-company"}
+    {
+      "entityId": "the-whisperforge",
+      "role": "production-company"
+    }
   ],
   "id": "the-far-meridian",
   "title": "The Far Meridian",
@@ -27,7 +30,11 @@
     "fantasy",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "melancholic",
+    "hopeful",
+    "weird"
+  ],
   "formats": [
     "full-cast",
     "serialized"
@@ -39,7 +46,11 @@
   "aliases": [
     "The Far Meridian"
   ],
-  "themes": [],
+  "themes": [
+    "agoraphobia and leaving home",
+    "missing brother",
+    "changing places and resurfaced memories"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -74,9 +85,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night",
+    "worldbuilding"
+  ],
+  "similarTo": [
+    "the-bright-sessions"
+  ],
+  "similarReasons": {
+    "the-bright-sessions": "Both make an intimate character-led problem the doorway into speculative fiction; The Far Meridian follows a woman and her moving lighthouse while she searches for her brother, while The Bright Sessions begins with recorded therapy for people with extraordinary abilities."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -115,7 +134,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a lighthouse that relocates to a new place each day",
+    "pov": "Peri, an agoraphobic woman searching for her missing brother",
+    "sourceMaterial": "original fiction",
+    "framing": "short-form full-cast speculative drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.whisperforge.org/caravan/cast",
@@ -531,7 +555,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-09-17",
   "creatorId": "the-whisperforge",
-  "networkId": "the-whisperforge"
+  "networkId": "the-whisperforge",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "medium"
+  }
 }

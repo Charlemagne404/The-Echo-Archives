@@ -1,7 +1,13 @@
 {
   "entityLinks": [
-    {"entityId":"leviathan-audio-productions","role":"network"},
-    {"entityId":"christof-laputka","role":"creator"}
+    {
+      "entityId": "leviathan-audio-productions",
+      "role": "network"
+    },
+    {
+      "entityId": "christof-laputka",
+      "role": "creator"
+    }
   ],
   "id": "the-rapscallion-agency",
   "title": "The Rapscallion Agency",
@@ -28,7 +34,11 @@
     "thriller",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "tense",
+    "cinematic",
+    "warm"
+  ],
   "formats": [
     "serialized",
     "episodic"
@@ -41,8 +51,9 @@
     "The Rapscallion Agency"
   ],
   "themes": [
-    "Cybersecurity",
-    "conspiracy"
+    "found family and young love",
+    "cybersecurity and hacking",
+    "freedom from powerful institutions"
   ],
   "contentNotes": [],
   "languages": [
@@ -71,9 +82,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "binge-listening",
+    "worldbuilding"
+  ],
+  "similarTo": [
+    "the-leviathan-chronicles"
+  ],
+  "similarReasons": {
+    "the-leviathan-chronicles": "Both follow a young pair navigating danger and identity inside the Leviathan universe; The Rapscallion Agency turns Lisette and Cluracan toward cybersecurity work in Paris, while The Leviathan Chronicles supplies the larger science-fiction saga around them."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -121,7 +140,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "Paris and a mobile bakery-van cybersecurity agency",
+    "pov": "Lisette Mainsabiles and Paul Kim (Cluracan)",
+    "sourceMaterial": "original fiction",
+    "framing": "serialized full-cast cybersecurity adventure"
+  },
   "metadata": {
     "objectiveSources": [
       "https://rapscallionagency.com/episodes/",
@@ -636,7 +660,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-03",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "christof-laputka",
-  "networkId": "leviathan-audio-productions"
+  "networkId": "leviathan-audio-productions",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "short"
+  }
 }

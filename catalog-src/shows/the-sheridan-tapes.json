@@ -25,7 +25,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "serialized"
   ],
@@ -37,7 +41,11 @@
   "aliases": [
     "The Sheridan Tapes"
   ],
-  "themes": [],
+  "themes": [
+    "missing writer and recovered media",
+    "investigation and impossible encounters",
+    "love, loss, and legacy"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -74,9 +82,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "worldbuilding",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-storage-papers"
+  ],
+  "similarReasons": {
+    "the-storage-papers": "Both turn recovered recordings into the spine of a serialized paranormal investigation; The Sheridan Tapes follows Detective Sam Bailey through Anna Sheridan's cassettes, while The Storage Papers begins with an abandoned unit and the papers hidden inside it."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -115,7 +132,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "the Pacific Northwest and the impossible encounters captured in Anna Sheridan's tapes",
+    "pov": "Detective Sam Bailey piecing together Anna Sheridan's disappearance",
+    "framing": "serialized horror mystery built from found recordings"
+  },
   "metadata": {
     "objectiveSources": [
       "https://homesteadonthecorner.com/episode-list-4/",
@@ -748,7 +770,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
+  "updatedAt": "2026-09-17",
   "creatorId": "homestead-on-the-corner-realm",
-  "networkId": "homestead-on-the-corner"
+  "networkId": "homestead-on-the-corner",
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

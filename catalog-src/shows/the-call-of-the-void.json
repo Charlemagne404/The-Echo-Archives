@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"acorn-arts-and-entertainment","role":"production-company"}
+    {
+      "entityId": "acorn-arts-and-entertainment",
+      "role": "production-company"
+    }
   ],
   "id": "the-call-of-the-void",
   "title": "The Call of the Void",
@@ -26,7 +29,11 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "episodic"
   ],
@@ -39,7 +46,11 @@
     "The Call of the Void",
     "The Call of the Void | Acorn Arts & Entertainment"
   ],
-  "themes": [],
+  "themes": [
+    "New Orleans and sudden insanity",
+    "occult investigation and palm-reading",
+    "cosmic entity and perfect stillness"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -75,9 +86,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-lovecraft-investigations"
+  ],
+  "similarReasons": {
+    "the-lovecraft-investigations": "Both follow investigators through contemporary mysteries that open onto cosmic horror; The Call of the Void pairs a New Orleans tour guide with a palm-reading outcast, while The Lovecraft Investigations uses podcast journalism to pursue forbidden knowledge."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -116,7 +135,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the bustling streets of New Orleans and the entity behind its sudden insanity",
+    "pov": "a tour guide and a palm-reading outcast investigating together",
+    "sourceMaterial": "original fiction",
+    "framing": "completed three-season science-fiction audio drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.acornartsandentertainment.com/about-5",
@@ -694,7 +718,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
+  "updatedAt": "2026-09-17",
   "creatorId": "acorn-arts-and-entertainment",
-  "networkId": "acorn-a-e"
+  "networkId": "acorn-a-e",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "long"
+  }
 }

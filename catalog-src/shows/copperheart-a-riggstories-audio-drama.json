@@ -427,7 +427,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-18",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-17",
   "creatorId": "michael-j-rigg-riggstories-com",
-  "networkId": "michael-j-rigg"
+  "networkId": "michael-j-rigg",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

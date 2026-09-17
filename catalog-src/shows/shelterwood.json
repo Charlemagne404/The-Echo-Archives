@@ -98,9 +98,19 @@
     "structure": "Season 1 has 16 numbered story episodes; the current feed also carries bonus, trailer, and crossover entries.",
     "seriesStatus": "Season 2 is being written/planned, but its release date has not been announced."
   },
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "limetown",
+    "the-black-tapes"
+  ],
+  "similarReasons": {
+    "limetown": "Both use documentary-style investigation to search for someone missing from an impossible community; Shelterwood shifts the vanished-town premise into a suburban Gothic beyond reality.",
+    "the-black-tapes": "Both make recorded evidence and a supernatural investigation central to the listening experience; Shelterwood pushes that found-footage frame into an impossible neighborhood and a family search."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -171,6 +181,12 @@
     "setting": "An infinite suburban development beyond the veil.",
     "pov": "Docu-horror / found-footage investigation led by Nicholas DeRoso.",
     "intensity": "high"
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
   },
   "metadata": {
     "objectiveSources": [
@@ -724,7 +740,7 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-09-04",
+  "updatedAt": "2026-09-17",
   "creatorId": "bloody-fm",
   "networkId": "shelterwood-a-suburban-gothic"
 }

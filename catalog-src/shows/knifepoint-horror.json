@@ -26,7 +26,11 @@
     "horror",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "bleak"
+  ],
   "formats": [
     "narrated",
     "anthology",
@@ -39,7 +43,11 @@
   "aliases": [
     "Knifepoint Horror"
   ],
-  "themes": [],
+  "themes": [
+    "supernatural suspense",
+    "uncanny encounters",
+    "anthology storytelling"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -69,9 +77,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-magnus-archives",
+    "the-other-stories-sci-fi-horror-thriller-wtf-stories"
+  ],
+  "similarReasons": {
+    "the-magnus-archives": "Both build supernatural horror through narrated case-like stories; Knifepoint Horror stays with Soren Narnia's standalone tales of suspense, while The Magnus Archives turns institutional statements into a larger mythology.",
+    "the-other-stories-sci-fi-horror-thriller-wtf-stories": "Both offer deep anthologies of standalone genre fiction with a strong narrated voice; Knifepoint Horror keeps its focus on supernatural suspense, while The Other Stories ranges across science fiction, horror, thriller, and strange fiction."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -110,7 +128,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "varied settings across supernatural suspense stories",
+    "pov": "Soren Narnia narrates each standalone story",
+    "framing": "single-narrator supernatural suspense anthology with atmospheric audio"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.spectrevision.com/about",
@@ -636,7 +659,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-09-17",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  },
   "creatorId": "spectrevision-radio",
   "networkId": "spectrevision"
 }

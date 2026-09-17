@@ -22,7 +22,14 @@
     "limetown",
     "unwell",
     "the-town-whispers",
-    "where-the-stars-fell"
+    "where-the-stars-fell",
+    "death-by-dying",
+    "blackout",
+    "badlands-cola",
+    "wormwood-a-serialized-mystery",
+    "from-within-a-tale-of-the-macabre",
+    "mayfair-watchers-society",
+    "the-archers"
   ],
   "showReasons": {
     "king-falls-am": "Late-night radio framing turns the town into part of the cast.",
@@ -31,10 +38,17 @@
     "limetown": "A vanished community adds a colder investigative option.",
     "unwell": "A family return to a strange Midwestern town makes the supernatural feel close to home.",
     "the-town-whispers": "Folk horror and small-town scale make the local stories feel impossible to leave behind.",
-    "where-the-stars-fell": "A small-town supernatural mystery keeps the community and its old secrets in the foreground."
+    "where-the-stars-fell": "A small-town supernatural mystery keeps the community and its old secrets in the foreground.",
+    "death-by-dying": "Crestfall's obituary desk, strange deaths, and tightly local cast make the town part of the mystery.",
+    "blackout": "A small-town radio booth becomes the community's lifeline when the nationwide blackout arrives.",
+    "badlands-cola": "A desert town, a local radio DJ, and a cult buried in the landscape make this a strange signal from the edge of town.",
+    "wormwood-a-serialized-mystery": "A hidden town where every resident carries a secret makes the supernatural mystery feel local, intimate, and hard to escape.",
+    "from-within-a-tale-of-the-macabre": "Blightwood's isolated mountain community gives the period horror story a close-knit town scale before the threat widens.",
+    "mayfair-watchers-society": "A town of tidy lawns, bus routes, and creatures moving at the edge of the light makes the local weirdness feel built into the streets.",
+    "the-archers": "A long-running village broadcast turns everyday community life, family, and local change into the signal from a small town."
   },
   "featured": false,
   "order": 135,
   "createdAt": "2026-07-10",
-  "updatedAt": "2026-09-16"
+  "updatedAt": "2026-09-17"
 }

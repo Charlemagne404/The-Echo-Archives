@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"public-radio-alliance","role":"production-company"}
+    {
+      "entityId": "public-radio-alliance",
+      "role": "production-company"
+    }
   ],
   "id": "tanis",
   "title": "TANIS",
@@ -27,7 +30,11 @@
     "horror",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "full-cast",
     "serialized"
@@ -40,7 +47,12 @@
   "aliases": [
     "TANIS"
   ],
-  "themes": [],
+  "themes": [
+    "conspiracy and information",
+    "nature of truth",
+    "myth and investigation",
+    "blurred reality and fiction"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -78,9 +90,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "binge-listening",
+    "late-night",
+    "long-walks",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "rabbits"
+  ],
+  "similarReasons": {
+    "rabbits": "Both are host-led investigations into an elusive mystery that blur research and supernatural possibility; TANIS is more sprawling and conspiracy-driven."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -119,7 +140,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the Pacific Northwest and the elusive myth of Tanis",
+    "pov": "host Nic Silver and his research into a surprising mystery",
+    "framing": "serialized investigative docudrama"
+  },
   "metadata": {
     "objectiveSources": [
       "http://tanispodcast.com/about",
@@ -674,7 +699,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-09-17",
   "creatorId": "public-radio-alliance",
-  "networkId": "tanis"
+  "networkId": "tanis",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium",
+    "commitment": "deep-dive"
+  }
 }

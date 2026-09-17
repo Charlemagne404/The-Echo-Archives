@@ -29,7 +29,11 @@
     "thriller",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "tense",
+    "cinematic",
+    "weird"
+  ],
   "formats": [
     "episodic"
   ],
@@ -42,7 +46,11 @@
   "aliases": [
     "The Cipher"
   ],
-  "themes": [],
+  "themes": [
+    "cryptic puzzles",
+    "serial-killer investigation",
+    "alien contact"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -72,9 +80,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "binge-listening",
+    "late-night",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "the-lovecraft-investigations"
+  ],
+  "similarReasons": {
+    "the-lovecraft-investigations": "Both make a seemingly impossible threat the engine of a serialized investigation; The Cipher sends Sabrina after a killer who may not be from this world, while The Lovecraft Investigations follows an inquiry into occult and cosmic mysteries."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -113,7 +129,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "London and the global trail of the Parallax",
+    "pov": "16-year-old Sabrina and her investigation team",
+    "sourceMaterial": "original fiction",
+    "framing": "BBC-commissioned serialized sci-fi mystery"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.bbc.co.uk/aboutthebbc",
@@ -488,7 +509,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "bbc-sounds",
-  "networkId": "bbc"
+  "networkId": "bbc",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "short"
+  }
 }

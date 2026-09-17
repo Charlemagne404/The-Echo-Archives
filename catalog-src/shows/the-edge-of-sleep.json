@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"qcode","role":"production-company"}
+    {
+      "entityId": "qcode",
+      "role": "production-company"
+    }
   ],
   "id": "the-edge-of-sleep",
   "title": "The Edge of Sleep",
@@ -27,7 +30,11 @@
     "thriller",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "full-cast",
     "serialized",
@@ -40,7 +47,12 @@
   "aliases": [
     "The Edge of Sleep"
   ],
-  "themes": [],
+  "themes": [
+    "sleep and death",
+    "global epidemic",
+    "survivor groups",
+    "uncovering a hidden cause"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -74,9 +86,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "binge-listening",
+    "late-night",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "blackout"
+  ],
+  "similarReasons": {
+    "blackout": "Both are high-production serialized survival thrillers where a communications or infrastructure crisis forces a small group to protect others; The Edge of Sleep makes staying awake itself the immediate rule."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -115,7 +136,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a world where everyone who slept has died",
+    "pov": "night watchman Dave Torres and a band of survivors",
+    "sourceMaterial": "original fiction",
+    "framing": "full-cast survival thriller"
+  },
   "metadata": {
     "objectiveSources": [
       "https://qcodemedia.com/about",
@@ -669,7 +695,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-09-17",
   "creatorId": "qcode-wood-elf",
-  "networkId": "qcode-media"
+  "networkId": "qcode-media",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "short"
+  }
 }

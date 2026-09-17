@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"wolf-at-the-door-studios","role":"studio"}
+    {
+      "entityId": "wolf-at-the-door-studios",
+      "role": "studio"
+    }
   ],
   "id": "modes-of-thought-in-anterran-literature",
   "title": "Modes of Thought in Anterran Literature",
@@ -28,7 +31,11 @@
     "fantasy",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "weird",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "full-cast",
     "serialized"
@@ -41,7 +48,11 @@
   "aliases": [
     "Modes of Thought in Anterran Literature"
   ],
-  "themes": [],
+  "themes": [
+    "ancient civilization and archaeology",
+    "knowledge and institutional secrecy",
+    "language and interpretation"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -81,9 +92,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "worldbuilding",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-deca-tapes"
+  ],
+  "similarReasons": {
+    "the-deca-tapes": "Both use recorded material to make an unknown history and institutional secret unfold; Modes of Thought presents university lectures about the Anterran ruins, while The Deca Tapes assembles a locked-room mystery through segmented recordings."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -122,7 +141,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "Harbridge University lectures about the Anterran ruins beneath the Pacific",
+    "pov": "a professor, students, and the recorded course community",
+    "sourceMaterial": "original fiction",
+    "framing": "full-cast lecture-recording mystery"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.wlfdr.com/mot-103",
@@ -576,7 +600,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-09-17",
   "creatorId": "wolf-at-the-door",
-  "networkId": "wolf-at-the-door-studios"
+  "networkId": "wolf-at-the-door-studios",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "medium",
+    "commitment": "medium"
+  }
 }

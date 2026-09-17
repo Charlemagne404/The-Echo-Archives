@@ -24,7 +24,12 @@
     "sci-fi",
     "comedy"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "cinematic",
+    "weird",
+    "hopeful"
+  ],
   "formats": [
     "serialized"
   ],
@@ -37,8 +42,17 @@
   "aliases": [
     "The Penumbra Podcast"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "queer genre fiction",
+    "private investigation and companionship",
+    "friendship across enemy lines",
+    "climate pressure and entertainment violence"
+  ],
+  "contentNotes": [
+    "death and gore",
+    "body horror",
+    "sudden loud noises"
+  ],
   "languages": [
     "English"
   ],
@@ -76,9 +90,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "worldbuilding",
+    "long-walks",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-strange-case-of-starship-iris"
+  ],
+  "similarReasons": {
+    "the-strange-case-of-starship-iris": "Both are full-cast queer science-fiction dramas with ensemble relationships and political adventure; Penumbra branches into Mars noir, fantasy, and a darker future-America storyline."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -116,7 +139,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "Mars, the Second Citadel, and a near-future America",
+    "pov": "Juno Steel and the ensemble storylines across the Penumbra",
+    "sourceMaterial": "original fiction",
+    "framing": "multi-series queer audio drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.acast.com/public/shows/6831c608381499796b234652"
@@ -640,6 +668,12 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
-  "creatorId": "harley-takagi-kaner-and-kevin-vibert"
+  "updatedAt": "2026-09-17",
+  "creatorId": "harley-takagi-kaner-and-kevin-vibert",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

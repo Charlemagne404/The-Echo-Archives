@@ -23,7 +23,11 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "episodic"
   ],
@@ -35,8 +39,14 @@
   "aliases": [
     "WOE.BEGONE"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "power and technology",
+    "linear time",
+    "alternate reality games"
+  ],
+  "contentNotes": [
+    "violence"
+  ],
   "languages": [
     "English"
   ],
@@ -90,9 +100,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "worldbuilding",
+    "long-walks",
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "rabbits"
+  ],
+  "similarReasons": {
+    "rabbits": "Both turn an apparently impossible game into a long-form investigation of power and reality, with WOE.BEGONE centered on Mike Walters and Rabbits on the search for a missing friend."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -131,7 +151,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "an online game with real-life consequences and the technology behind it",
+    "pov": "Mike Walters and the people drawn into WOE.BEGONE",
+    "framing": "weekly horror-sci-fi mystery series"
+  },
   "metadata": {
     "objectiveSources": [
       "https://woebegonepod.com/episodes/",
@@ -721,7 +745,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
+  "updatedAt": "2026-09-17",
   "creatorId": "woe-begone-industries-llc",
-  "networkId": "woe-begone"
+  "networkId": "woe-begone",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

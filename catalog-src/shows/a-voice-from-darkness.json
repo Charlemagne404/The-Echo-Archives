@@ -23,7 +23,11 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "serialized"
   ],
@@ -35,7 +39,11 @@
   "aliases": [
     "A Voice From Darkness"
   ],
-  "themes": [],
+  "themes": [
+    "American folklore and magical realism",
+    "call-in supernatural cases",
+    "parapsychology and the strange"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -70,9 +78,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-magnus-archives"
+  ],
+  "similarReasons": {
+    "the-magnus-archives": "Both use a voice-led supernatural format to turn individual cases into a larger mythology; A Voice From Darkness uses Dr. Ryder's call-in radio show, while The Magnus Archives grows through recorded statements."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -110,7 +126,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a call-in radio show dealing with supernatural cases",
+    "pov": "parapsychologist and broadcaster Dr. Malcolm Ryder with callers",
+    "sourceMaterial": "original fiction",
+    "framing": "horror audio drama in call-in radio form"
+  },
   "metadata": {
     "objectiveSources": [
       "https://rss.libsyn.com/shows/201380/destinations/1436573.xml"
@@ -575,6 +596,12 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
-  "creatorId": "jac-rhys"
+  "updatedAt": "2026-09-17",
+  "creatorId": "jac-rhys",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "balanced",
+    "intensity": "medium",
+    "commitment": "medium"
+  }
 }

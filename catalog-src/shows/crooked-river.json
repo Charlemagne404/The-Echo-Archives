@@ -28,7 +28,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "bleak",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -41,8 +45,16 @@
   "aliases": [
     "Crooked River"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "post-Prohibition crime",
+    "Great Depression",
+    "real history and fictional leads"
+  ],
+  "contentNotes": [
+    "graphic violence",
+    "murder",
+    "dismemberment"
+  ],
   "languages": [
     "English"
   ],
@@ -75,9 +87,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "late-night",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "the-land-whale-murders"
+  ],
+  "similarReasons": {
+    "the-land-whale-murders": "Both use period America and a murder investigation to turn historical atmosphere into the story engine; Crooked River is a serious 1930s Cleveland crime narrative, while The Land Whale Murders takes a more comic Gilded Age route."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -116,7 +136,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "1934–1939 Cleveland during the Great Depression",
+    "pov": "fictional local cop and federal agent among real figures",
+    "sourceMaterial": "historical crime fiction",
+    "framing": "serialized full-cast podcast narrative"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.dave-beazley.com/about",
@@ -606,12 +631,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-09-14",
+  "updatedAt": "2026-09-16",
   "creatorId": "heywood",
   "networkId": "dave-beazley",
   "discovery": {
     "voiceStyle": "primarily-acted",
     "narrativeFocus": "plot-driven",
-    "intensity": "high"
+    "intensity": "high",
+    "commitment": "short"
   }
 }

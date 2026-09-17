@@ -81,7 +81,7 @@
     "hex": "#4e657c",
     "rgb": "78, 101, 124"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-17",
   "releaseDates": {
     "first": "2021-09-01",
     "latest": "2021-10-20"
@@ -200,5 +200,11 @@
     "windfall": "A grounded dystopian cousin if the political pressure mattered as much as the sci-fi wrapper.",
     "impact-winter": "Keeps the catastrophe scale high and the pacing aggressive.",
     "derelict": "Another dark serious-sci-fi route with strong pressure and a harsher sonic environment."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "short"
   }
 }

@@ -25,7 +25,11 @@
     "mystery",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "full-cast",
     "serialized"
@@ -39,7 +43,11 @@
   "aliases": [
     "Ghost Wax"
   ],
-  "themes": [],
+  "themes": [
+    "death testimony and memory",
+    "necromancy as investigation",
+    "order versus otherworldly threats"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -76,9 +84,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-magnus-archives"
+  ],
+  "similarReasons": {
+    "the-magnus-archives": "Both use an archive-like act of recording to expose supernatural danger; Ghost Wax raises the dead to preserve final testimony, while The Magnus Archives collects statements about the esoteric and weird."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -123,7 +139,12 @@
       "English"
     ]
   },
-  "content": {},
+  "content": {
+    "setting": "a supernatural world where the dead can be recorded on wax cylinders",
+    "pov": "Owen Voncid, the last Reclaimer",
+    "sourceMaterial": "original fiction",
+    "framing": "full-cast fantasy-horror investigation"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.spreaker.com/episode/remembrance-1666--59528553",
@@ -746,7 +767,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-09-17",
   "creatorId": "far-and-tall-tales",
-  "networkId": "spreaker"
+  "networkId": "spreaker",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "long"
+  }
 }

@@ -801,7 +801,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-17",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-17",
   "creatorId": "adam-graham-science-fiction-audio-drama-podcast-host",
-  "networkId": "adam-graham"
+  "networkId": "adam-graham",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium",
+    "commitment": "medium"
+  }
 }

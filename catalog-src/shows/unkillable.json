@@ -28,7 +28,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "funny",
+    "bleak"
+  ],
   "formats": [
     "serialized"
   ],
@@ -40,7 +44,11 @@
   "aliases": [
     "Unkillable"
   ],
-  "themes": [],
+  "themes": [
+    "revenge after death",
+    "undead body",
+    "moral consequences"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -70,9 +78,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "late-night",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "the-amelia-project"
+  ],
+  "similarReasons": {
+    "the-amelia-project": "Both turn impossible death into darkly comic storytelling; Unkillable follows a murdered young man back into an unfinished revenge, while The Amelia Project makes fake deaths the doorway to new lives."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -111,7 +127,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the uneasy space between life and death",
+    "pov": "a murdered young man pursuing revenge",
+    "sourceMaterial": "serialized audio novel",
+    "framing": "dark comic supernatural audiobook"
+  },
   "metadata": {
     "objectiveSources": [
       "https://scribl.com/books/P7D71/how-to-succeed-in-evil-the-original-podcast-episodes",
@@ -593,7 +614,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-16",
   "creatorId": "patrick-mclean-scribl",
-  "networkId": "scribl"
+  "networkId": "scribl",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "character-driven",
+    "intensity": "high",
+    "commitment": "short"
+  }
 }

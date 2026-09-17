@@ -22,7 +22,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "hopeful",
+    "melancholic",
+    "cinematic"
+  ],
   "formats": [
     "serialized",
     "full-cast"
@@ -36,7 +40,11 @@
   "aliases": [
     "Red for Revolution"
   ],
-  "themes": [],
+  "themes": [
+    "queer love",
+    "intergenerational memory",
+    "Black women's liberation"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -67,9 +75,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "headphones-on",
+    "easy-entry"
+  ],
+  "similarTo": [
+    "love-and-luck"
+  ],
+  "similarReasons": {
+    "love-and-luck": "Both place queer love and relationship stakes at the center of an intimate audio drama; Red for Revolution moves between present day and 1971 through intergenerational stories, while Love and Luck uses a magical voicemail romance."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -107,7 +123,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "present day and 1971",
+    "pov": "Jazmine and the two-era love story of Lorraine and Ella",
+    "sourceMaterial": "original fiction",
+    "framing": "intergenerational full-cast audio drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://radiotopiapresents.fm/",
@@ -413,6 +434,12 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "meta-mana-media"
+  "updatedAt": "2026-09-16",
+  "creatorId": "meta-mana-media",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "short"
+  }
 }

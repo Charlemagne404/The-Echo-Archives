@@ -23,7 +23,12 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "bleak",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "serialized",
     "anthology"
@@ -37,7 +42,12 @@
   "aliases": [
     "Old Gods of Appalachia"
   ],
-  "themes": [],
+  "themes": [
+    "alternate Appalachia",
+    "folk horror and eldritch mythology",
+    "mining and extraction",
+    "generational histories"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -76,9 +86,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "worldbuilding",
+    "long-walks",
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-silt-verses"
+  ],
+  "similarReasons": {
+    "the-silt-verses": "Both are long-running folk-horror serials built around invented faiths and regions where myth shapes everyday danger; Old Gods is more anthology-like and Appalachian."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -117,7 +137,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "an alternate Appalachia shaped by old gods and dangerous mines",
+    "pov": "a narrator and shifting characters across linked horror tales",
+    "sourceMaterial": "original fiction",
+    "framing": "serialized folk-horror anthology"
+  },
   "metadata": {
     "objectiveSources": [
       "https://oldgodsofappalachia.com/about/cast",
@@ -858,7 +883,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
+  "updatedAt": "2026-09-17",
   "creatorId": "deepnerd-media",
-  "networkId": "old-gods-of-appalachia"
+  "networkId": "old-gods-of-appalachia",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

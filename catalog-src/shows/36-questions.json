@@ -1,7 +1,10 @@
 {
   "id": "36-questions",
   "entityLinks": [
-    {"entityId":"two-up-productions","role":"production-company"}
+    {
+      "entityId": "two-up-productions",
+      "role": "production-company"
+    }
   ],
   "title": "36 Questions",
   "subtitle": "Hear what The New York Times calls \"the future of musicals\"... 36 Questions, a three-part podcast musical starring Jonathan Groff and Jessie Shelton.",
@@ -25,7 +28,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "melancholic",
+    "hopeful",
+    "cinematic"
+  ],
   "formats": [
     "limited-series",
     "serialized"
@@ -37,7 +44,11 @@
   "aliases": [
     "36 Questions"
   ],
-  "themes": [],
+  "themes": [
+    "marriage and repair",
+    "intimacy and vulnerability",
+    "love and commitment"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -68,9 +79,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "short-under-five-hours",
+    "easy-entry"
+  ],
+  "similarTo": [
+    "love-and-luck",
+    "the-rats-under-eden-an-audio-drama-musical"
+  ],
+  "similarReasons": {
+    "love-and-luck": "Both use a distinctive audio form to keep a relationship at the center; 36 Questions turns marriage repair into a three-part musical, while Love and Luck follows a hopeful queer romance through voicemails.",
+    "the-rats-under-eden-an-audio-drama-musical": "Both are original podcast musicals with music carrying the narrative; 36 Questions stays with a marriage under strain, while The Rats Under Eden uses song in a dystopian religious uprising."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -108,7 +129,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a contemporary marriage in crisis",
+    "pov": "two-person relationship",
+    "sourceMaterial": "original musical fiction",
+    "framing": "three-part podcast musical"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.megaphone.fm/TWU6263225887",
@@ -406,6 +432,12 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "two-up-productions"
+  "updatedAt": "2026-09-16",
+  "creatorId": "two-up-productions",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "short"
+  }
 }

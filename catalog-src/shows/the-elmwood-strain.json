@@ -33,7 +33,11 @@
     "sci-fi",
     "horror"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "serialized"
   ],
@@ -45,7 +49,11 @@
   "aliases": [
     "The Elmwood Strain"
   ],
-  "themes": [],
+  "themes": [
+    "psychedelic biological horror",
+    "small-town psychosis",
+    "trauma and returning home"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -79,9 +87,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "shelterwood",
+    "the-town-whispers"
+  ],
+  "similarReasons": {
+    "shelterwood": "Both turn a return to an impossible small-town or suburban space into a found-at-the-edge horror investigation; Elmwood leans into biological psychosis while Shelterwood follows an impossible neighborhood beyond reality.",
+    "the-town-whispers": "Both build supernatural horror from a threatened local community and a landscape that keeps revealing older, stranger rules; Elmwood makes the dying town and encroaching forest part of Paige's return home."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -119,7 +137,18 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "A dying small American town being swallowed by the forest.",
+    "centralConflict": "Paige returns home and finds her former friends changed by a strange psychosis.",
+    "production": "Serialized audio drama."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.violethourmedia.com/elmwood-strain/",
@@ -623,6 +652,6 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "violet-hour-media"
 }

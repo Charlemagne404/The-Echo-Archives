@@ -29,7 +29,11 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "episodic"
   ],
@@ -42,7 +46,11 @@
   "aliases": [
     "HORROR ETERNAL"
   ],
-  "themes": [],
+  "themes": [
+    "psychological terror",
+    "supernatural dread",
+    "apocalyptic suspense"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -76,9 +84,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-nosleep-podcast"
+  ],
+  "similarReasons": {
+    "the-nosleep-podcast": "Both are original horror anthologies built from standalone scares; HORROR ETERNAL leans into psychological, supernatural, apocalyptic, and alien dread, while The NoSleep Podcast ranges across narrated and full-cast nightmare stories."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -116,7 +132,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "different worlds shaped by psychological, supernatural, apocalyptic, and alien horror",
+    "pov": "Roy Burdine's performed characters across standalone stories",
+    "sourceMaterial": "original fiction",
+    "framing": "episodic horror anthology shifting between psychological terror, supernatural dread, and apocalyptic suspense"
+  },
   "metadata": {
     "objectiveSources": [
       "https://spiralopus.podbean.com/page/1",
@@ -629,6 +650,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "spiral-opus-audio"
+  "updatedAt": "2026-09-17",
+  "creatorId": "spiral-opus-audio",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

@@ -83,7 +83,7 @@
     "hex": "#976f48",
     "rgb": "151, 111, 72"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-17",
   "officialLinks": {
     "website": "https://www.7lamb.com/audiodramas/story",
     "patreon": "",
@@ -175,5 +175,11 @@
     "the-waystation": "A darker limited-run mystery when a self-contained genre story matters more than keeping the tone gentle.",
     "the-bright-sessions": "A character-first branch if the emotional legibility matters more than the adventure frame.",
     "desert-skies": "Another soft-entry weird-fiction pick when you want warmth before lore."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "variable",
+    "commitment": "medium"
   }
 }

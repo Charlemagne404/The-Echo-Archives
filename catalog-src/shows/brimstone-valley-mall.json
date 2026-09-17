@@ -138,10 +138,16 @@
   "featured": false,
   "createdAt": "2026-07-09",
   "networkId": "art19",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-17",
   "cast": [],
   "creators": [
     "Kristen DiMercurio"
   ],
-  "popularity": {}
+  "popularity": {},
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium",
+    "commitment": "medium"
+  }
 }

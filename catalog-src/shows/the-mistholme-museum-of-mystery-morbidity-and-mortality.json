@@ -30,7 +30,11 @@
     "fantasy",
     "horror"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "weird",
+    "funny"
+  ],
   "formats": [
     "serialized",
     "anthology"
@@ -42,7 +46,11 @@
     "The Mistholme Museum of Mystery, Morbidity, and Mortality",
     "The Mistholme Museum of Mystery, Morbidity, and Mortality — That's Not Canon Productions"
   ],
-  "themes": [],
+  "themes": [
+    "museum of strange exhibits",
+    "artifacts and hidden histories",
+    "the guide and the rules of the tour"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -81,9 +89,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "worldbuilding",
+    "headphones-on",
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-magnus-archives"
+  ],
+  "similarReasons": {
+    "the-magnus-archives": "Both frame strange encounters through an institutional archive of unsettling stories; Mistholme uses an audio tour guide and dangerous exhibits, while The Magnus Archives builds its supernatural record through statements from the Magnus Institute."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -122,7 +139,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "the Mistholme Museum and its collection of strange and potentially magical exhibits",
+    "pov": "the Audio Tour Guide introducing visitors to the museum's histories",
+    "framing": "serialized anthology delivered as an in-world audio tour"
+  },
   "metadata": {
     "objectiveSources": [
       "https://thatsnotcanon.com/talk-about-cancer",
@@ -507,7 +529,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
+  "updatedAt": "2026-09-17",
   "creatorId": "dominic-guilfoyle",
-  "networkId": "thats-not-canon-productions"
+  "networkId": "thats-not-canon-productions",
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "balanced",
+    "intensity": "variable",
+    "commitment": "deep-dive"
+  }
 }

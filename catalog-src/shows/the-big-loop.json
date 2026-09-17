@@ -29,7 +29,11 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "weird",
+    "melancholic",
+    "cinematic"
+  ],
   "formats": [
     "episodic"
   ],
@@ -41,7 +45,11 @@
   "aliases": [
     "The Big Loop"
   ],
-  "themes": [],
+  "themes": [
+    "human connection",
+    "finite lives",
+    "infinite universe"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -76,9 +84,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-orbiting-human-circus",
+    "the-dead-letter-office-of-somewhere-ohio"
+  ],
+  "similarReasons": {
+    "the-orbiting-human-circus": "Both use theatrical audio and music to make unusual worlds feel intimate; The Big Loop is self-contained while Orbiting is a serialized radio-show fantasy.",
+    "the-dead-letter-office-of-somewhere-ohio": "Both use intimate performance to explore the uncanny in ordinary lives; The Big Loop anthologizes finite lives while Dead Letter Office makes a strange civic archive personal."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -127,7 +145,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "varied speculative worlds",
+    "pov": "anthology",
+    "sourceMaterial": "original fiction",
+    "framing": "self-contained audio-fiction episodes"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.thebiglooppodcast.com/episodes/2021/2/22/memory-of-a-dress",
@@ -724,5 +747,11 @@
   "createdAt": "2026-08-14",
   "updatedAt": "2026-08-14",
   "creatorId": "paul-bae",
-  "networkId": "the-big-loop"
+  "networkId": "the-big-loop",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "medium"
+  }
 }

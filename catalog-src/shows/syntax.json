@@ -27,7 +27,11 @@
     "horror",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "full-cast",
     "serialized"
@@ -40,8 +44,18 @@
     "Syntax",
     "Syntax Podcast"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "biotech and unearthly artifacts",
+    "expedition beyond the Breach",
+    "identity and survival"
+  ],
+  "contentNotes": [
+    "death and violence",
+    "religious sacrifice",
+    "explicit language",
+    "loud or surprising noises",
+    "panic and anxiety attacks"
+  ],
   "languages": [
     "English"
   ],
@@ -78,9 +92,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "serious-sci-fi",
+    "headphones-on",
+    "late-night",
+    "worldbuilding",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-call-of-the-void"
+  ],
+  "similarReasons": {
+    "the-call-of-the-void": "Both are psychological science-fiction horror dramas that turn an impossible discovery into a widening threat; Syntax follows Silas and a breach team into an alien depth, while The Call of the Void builds its pressure around a world-stilling entity and its human consequences."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -119,7 +143,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "VINCULA's research facilities and the world beyond the Breach",
+    "pov": "Silas Caldwell and a team of scientists and explorers",
+    "framing": "serialized full-cast science-fiction horror audio drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://syntaxpodcast.org/",
@@ -681,7 +710,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-09-17",
   "creatorId": "twin-strangers-productions",
-  "networkId": "syntax-podcast"
+  "networkId": "syntax-podcast",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

@@ -100,7 +100,7 @@
   ],
   "cast": [],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-17",
   "similarReasons": {
     "the-white-vault": "A colder isolation-horror neighbor if you want the setting itself to feel more hostile.",
     "tower-4": "Keeps the remote-post suspicion active in a more grounded mystery shape.",
@@ -143,5 +143,11 @@
       "Dan Powell"
     ],
     "productionCompany": "Dead Signals"
+  },
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "long"
   }
 }

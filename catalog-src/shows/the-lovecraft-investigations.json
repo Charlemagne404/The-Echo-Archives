@@ -143,8 +143,14 @@
   "featured": false,
   "createdAt": "2026-07-01",
   "creatorId": "bbc-radio-4",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-17",
   "creators": [
     "Julian Simpson"
-  ]
+  ],
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "long"
+  }
 }

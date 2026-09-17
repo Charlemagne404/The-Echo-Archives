@@ -23,7 +23,11 @@
     "horror",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "full-cast",
     "serialized"
@@ -37,7 +41,11 @@
   "aliases": [
     "Parkdale Haunt"
   ],
-  "themes": [],
+  "themes": [
+    "friendship under haunting",
+    "family and inherited secrets",
+    "home and real-estate anxiety"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -71,9 +79,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-secret-of-st-kilda"
+  ],
+  "similarReasons": {
+    "the-secret-of-st-kilda": "Both are supernatural investigations where a troubled home or community hides older secrets; Parkdale Haunt centers a missing friend and a haunted Toronto house, while St Kilda puts a con man inside an isolated island community shaped by cult pressure and sacrifice."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -111,7 +127,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a haunted house in Toronto's Parkdale neighbourhood",
+    "pov": "Judith Antoni and Owen as they search for missing friend Claire Sterback",
+    "sourceMaterial": "original fiction",
+    "framing": "full-cast serialized horror mystery"
+  },
   "metadata": {
     "researchGaps": [
       "The Megaphone RSS, Spotify show, and Apple collection are shared provider identities for Parkdale Haunt and Woodbine: A Parkdale Haunts Production. Parkdale-specific counts use feed seasons 1–3; Woodbine begins at season 4. The feed marks 33 Parkdale items as full, 4 bonus, and 7 trailers."
@@ -442,6 +463,12 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "emily-kellogg-alex-nursall"
+  "updatedAt": "2026-09-17",
+  "creatorId": "emily-kellogg-alex-nursall",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "long"
+  }
 }

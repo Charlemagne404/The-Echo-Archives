@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"public-radio-alliance","role":"production-company"}
+    {
+      "entityId": "public-radio-alliance",
+      "role": "production-company"
+    }
   ],
   "id": "rabbits",
   "title": "Rabbits",
@@ -32,7 +35,11 @@
     "mystery",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "tense",
+    "weird",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -42,7 +49,11 @@
   "aliases": [
     "Rabbits"
   ],
-  "themes": [],
+  "themes": [
+    "a missing friend and an ancient game",
+    "conspiracy and reality",
+    "survival of humanity and the universe"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -77,9 +88,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-polybius-conspiracy"
+  ],
+  "similarReasons": {
+    "the-polybius-conspiracy": "Both build a mystery around a supposedly impossible game whose story blurs fact and fiction; Rabbits follows Carly Parker into the search for the ancient game after her friend goes missing, while The Polybius Conspiracy investigates an alleged 1980s arcade game in the Pacific Northwest."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -118,7 +137,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a contemporary investigation into the mysterious game known as Rabbits",
+    "pov": "Carly Parker as she searches for her missing friend Yumiko",
+    "sourceMaterial": "documentary/docudrama",
+    "framing": "serialized documentary/docudrama mystery"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.rabbitspodcast.com/about-1",
@@ -504,7 +528,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "public-radio-alliance",
-  "networkId": "rabbits"
+  "networkId": "rabbits",
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "long"
+  }
 }

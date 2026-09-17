@@ -23,7 +23,11 @@
     "drama",
     "adventure"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "warm",
+    "hopeful"
+  ],
   "formats": [
     "episodic",
     "serialized"
@@ -36,7 +40,11 @@
   "aliases": [
     "The Radio Adventures of Dr. Floyd"
   ],
-  "themes": [],
+  "themes": [
+    "time travel",
+    "learning through adventure",
+    "hero-villain rivalry"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -74,9 +82,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "long-walks",
+    "easy-entry",
+    "warm-weird"
+  ],
+  "similarTo": [
+    "the-thrilling-adventure-hour",
+    "fairies-and-dragons-ponies-and-knights"
+  ],
+  "similarReasons": {
+    "the-thrilling-adventure-hour": "Both revive old-time radio through recurring characters and genre play; Dr. Floyd is a family-friendly educational time-travel adventure, while The Thrilling Adventure Hour ranges across live-style space-western and supernatural segments.",
+    "fairies-and-dragons-ponies-and-knights": "Both offer all-ages audio adventures with an imaginative cast and a strong sense of play; Dr. Floyd adds historical time travel, while FADPAK follows a dragon-egg quest with live-performance roots."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -114,7 +132,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "historical Earth and a time-traveling scientist's adventures",
+    "pov": "ensemble scientist and nemesis",
+    "sourceMaterial": "original fiction with historical settings",
+    "framing": "family-friendly old-time radio adventure"
+  },
   "metadata": {
     "objectiveSources": [
       "https://rss.libsyn.com/shows/88157/destinations/432013.xml",
@@ -414,6 +437,12 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "grant-baciocco-doug-price"
+  "updatedAt": "2026-09-16",
+  "creatorId": "grant-baciocco-doug-price",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "low",
+    "commitment": "long"
+  }
 }

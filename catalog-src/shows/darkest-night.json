@@ -32,7 +32,11 @@
     "drama",
     "horror"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "episodic"
   ],
@@ -44,7 +48,11 @@
   "aliases": [
     "Darkest Night"
   ],
-  "themes": [],
+  "themes": [
+    "recovered memories and death",
+    "conspiracy and hidden science",
+    "immersive supernatural horror"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -80,9 +88,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-magnus-archives",
+    "the-black-tapes"
+  ],
+  "similarReasons": {
+    "the-magnus-archives": "Both build supernatural horror through a curated record of disturbing cases; Darkest Night places the listener inside recovered memories of the dead, while The Magnus Archives unfolds its mystery through institutional statements.",
+    "the-black-tapes": "Both use recovered evidence and a hidden conspiracy to turn a seemingly bounded investigation into escalating supernatural danger; Darkest Night makes the recovered memory binaural, while The Black Tapes follows a skeptical investigation of paranormal cases."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -121,7 +139,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "recovered memories of the recently deceased",
+    "pov": "the listener at the center of each recovered memory",
+    "framing": "binaural horror audio drama with a rotating cast and a hidden master conspiracy"
+  },
   "metadata": {
     "objectiveSources": [
       "https://rss.libsyn.com/shows/88380/destinations/433718.xml"
@@ -586,7 +609,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "the-paragon-collective",
-  "networkId": "the-paragon-collective"
+  "networkId": "the-paragon-collective",
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

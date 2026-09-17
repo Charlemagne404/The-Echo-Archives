@@ -25,7 +25,11 @@
   "genres": [
     "horror"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -37,7 +41,11 @@
   "aliases": [
     "Re: Dracula"
   ],
-  "themes": [],
+  "themes": [
+    "Dracula adaptation",
+    "epistolary storytelling",
+    "gothic horror"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -71,9 +79,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-night-post"
+  ],
+  "similarReasons": {
+    "the-night-post": "Both use a richly atmospheric supernatural setting and an ensemble voice-led story; Re: Dracula is a faithful, chronological classic adaptation, while The Night Post moves through an original arcane frontier."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -112,7 +129,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "Bram Stoker's novel Dracula",
+    "setting": "the locations and documents of the Dracula story",
+    "pov": "a full cast voicing diaries, letters, telegrams, and other documents",
+    "framing": "chronological audio adaptation released in real time"
+  },
   "metadata": {
     "objectiveSources": [
       "https://redracula.live/",
@@ -456,7 +478,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
+  "updatedAt": "2026-09-17",
   "creatorId": "bloody-fm",
-  "networkId": "re-dracula"
+  "networkId": "re-dracula",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "short"
+  }
 }

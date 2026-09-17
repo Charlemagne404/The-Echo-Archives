@@ -29,7 +29,11 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "bleak",
+    "tense",
+    "chaotic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -42,8 +46,16 @@
   "aliases": [
     "The Next 5 Minutes"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "climate collapse",
+    "privatised public life",
+    "political resistance"
+  ],
+  "contentNotes": [
+    "violence",
+    "forced labour",
+    "political violence"
+  ],
   "languages": [
     "English"
   ],
@@ -76,9 +88,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "late-night",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "the-deca-tapes",
+    "the-cleansed"
+  ],
+  "similarReasons": {
+    "the-deca-tapes": "Both imagine people trapped inside systems that turn ordinary life into control; The Next 5 Minutes is a short Australian political satire about climate and corporate pressure, while The Deca Tapes is a contained puzzle-box dystopia.",
+    "the-cleansed": "Both imagine communities under pressure after systemic failure; The Next 5 Minutes is a short Australian near-future satire about privatized life and corporate extraction, while The Cleansed moves through post-crisis Maine and military power."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -116,7 +138,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "Australia in 2035",
+    "pov": "ensemble",
+    "sourceMaterial": "audio fiction",
+    "framing": "near-future political satire"
+  },
   "metadata": {
     "objectiveSources": [
       "https://shows.acast.com/ear-candy-presents-the-next-5-minutes/episodes/pronto",
@@ -677,5 +704,11 @@
   "featured": false,
   "createdAt": "2026-08-14",
   "updatedAt": "2026-08-14",
-  "creatorId": "ear-candy-media-echidna-audio-spineless-wonders"
+  "creatorId": "ear-candy-media-echidna-audio-spineless-wonders",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "short"
+  }
 }

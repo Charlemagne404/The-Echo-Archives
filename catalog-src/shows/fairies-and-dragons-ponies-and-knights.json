@@ -36,7 +36,11 @@
     "fantasy",
     "adventure"
   ],
-  "tones": [],
+  "tones": [
+    "warm",
+    "hopeful",
+    "funny"
+  ],
   "formats": [
     "serialized",
     "episodic"
@@ -53,7 +57,9 @@
   "themes": [
     "family",
     "friendship",
-    "adventure"
+    "adventure",
+    "community performance",
+    "imagination and play"
   ],
   "contentNotes": [],
   "languages": [
@@ -98,9 +104,17 @@
     "structure": "Three seasons observed; 36 numbered story episodes in the current feed, plus a Season 3 teaser.",
     "production": "Episodes are performed live over Zoom with a special guest artist, then released as a podcast."
   },
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "binge-listening",
+    "warm-weird"
+  ],
+  "similarTo": [
+    "the-radio-adventures-of-dr-floyd"
+  ],
+  "similarReasons": {
+    "the-radio-adventures-of-dr-floyd": "Both offer all-ages audio adventures with a strong sense of play; FADPAK brings a dragon-egg quest, original music, and live guest-artist performances, while Dr. Floyd adds historical time travel and old-time radio comedy."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -151,7 +165,8 @@
   "content": {
     "sourceMaterial": "original fiction",
     "setting": "A fantasy world of fairies, ponies, dragons, and knights.",
-    "pov": "Episodic all-ages adventure centered on Beatrice's stolen dragon egg."
+    "pov": "Episodic all-ages adventure centered on Beatrice's stolen dragon egg.",
+    "framing": "episodic all-ages story podcast with live-performance roots"
   },
   "metadata": {
     "objectiveSources": [
@@ -793,7 +808,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-15",
-  "updatedAt": "2026-09-04",
+  "updatedAt": "2026-09-16",
   "creatorId": "dirt-road-theater",
-  "networkId": "dirt-road-theater"
+  "networkId": "dirt-road-theater",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "low",
+    "commitment": "long"
+  }
 }

@@ -23,7 +23,11 @@
     "adventure",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "warm",
+    "hopeful"
+  ],
   "formats": [
     "serialized",
     "full-cast"
@@ -36,7 +40,11 @@
   "aliases": [
     "Eleanor Amplified"
   ],
-  "themes": [],
+  "themes": [
+    "journalism and media literacy",
+    "family adventure",
+    "resourcefulness"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -70,9 +78,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "binge-listening",
+    "long-walks"
+  ],
+  "similarTo": [
+    "the-radio-adventures-of-dr-floyd"
+  ],
+  "similarReasons": {
+    "the-radio-adventures-of-dr-floyd": "Both use family-friendly radio adventure to turn learning and curiosity into plot; Eleanor Amplified follows a reporter chasing the big story, while Dr. Floyd sends a scientist through history by time machine."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -110,7 +126,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "Union City and globe-spanning adventures",
+    "pov": "world-famous radio reporter Eleanor",
+    "sourceMaterial": "original fiction",
+    "framing": "family-friendly radio adventure"
+  },
   "metadata": {
     "objectiveSources": [
       "https://whyy.org/programs/eleanor-amplified",
@@ -415,11 +436,12 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-14",
+  "updatedAt": "2026-09-16",
   "creatorId": "whyy",
   "discovery": {
     "voiceStyle": "primarily-acted",
     "narrativeFocus": "plot-driven",
-    "commitment": "long"
+    "commitment": "long",
+    "intensity": "low"
   }
 }

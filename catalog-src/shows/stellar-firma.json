@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"rusty-quill","role":"production-company"}
+    {
+      "entityId": "rusty-quill",
+      "role": "production-company"
+    }
   ],
   "id": "stellar-firma",
   "title": "Stellar Firma",
@@ -32,7 +35,11 @@
     "comedy",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "chaotic",
+    "weird"
+  ],
   "formats": [
     "serialized",
     "full-cast"
@@ -48,7 +55,11 @@
     "Stellar Firma Transcripts - Rusty Quill",
     "Stellar Firma - Rusty Quill"
   ],
-  "themes": [],
+  "themes": [
+    "corporate absurdity",
+    "improvised worldbuilding",
+    "clones and identity"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -84,9 +95,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "funny-space-disasters",
+    "warm-weird",
+    "worldbuilding"
+  ],
+  "similarTo": [
+    "marscorp"
+  ],
+  "similarReasons": {
+    "marscorp": "Both turn a speculative workplace into a full-cast space comedy; Stellar Firma designs bespoke planets with a clone assistant, while MarsCorp follows a supervisor trying to keep a terraforming colony on track."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -125,7 +144,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a corporate orbital station designing bespoke planets",
+    "pov": "planetary designer Trexel Geistman and clone assistant David 7",
+    "sourceMaterial": "original fiction",
+    "framing": "full-cast semi-improvised science-fiction comedy"
+  },
   "metadata": {
     "objectiveSources": [
       "https://podcasts.apple.com/us/podcast/stellar-firma/id1451762036?uo=4",
@@ -490,7 +514,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "rusty-quill",
-  "networkId": "rusty-quill"
+  "networkId": "rusty-quill",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "long"
+  }
 }

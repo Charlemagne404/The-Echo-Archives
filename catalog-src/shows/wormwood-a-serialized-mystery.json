@@ -23,7 +23,11 @@
     "mystery",
     "horror"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "serialized"
   ],
@@ -36,7 +40,11 @@
   "aliases": [
     "Wormwood: A Serialized Mystery"
   ],
-  "themes": [],
+  "themes": [
+    "occult investigation",
+    "small-town secrets",
+    "tragic visions and dark conspiracy"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -70,9 +78,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-lovecraft-investigations"
+  ],
+  "similarReasons": {
+    "the-lovecraft-investigations": "Both use a podcast-shaped investigation to widen a mystery into occult and cosmic danger; Wormwood follows Dr. Xander Crowe into a secretive town after a vision of murder, while The Lovecraft Investigations builds its horror through recorded inquiry and conspiracy."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -110,7 +126,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the hidden small town of Wormwood",
+    "pov": "Doctor Xander Crowe and the town's ensemble of secretive residents",
+    "sourceMaterial": "original fiction",
+    "framing": "full-cast serialized supernatural mystery"
+  },
   "metadata": {
     "objectiveSources": [
       "https://wormwoodshow.com/",
@@ -435,6 +456,12 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "habit-forming-films"
+  "updatedAt": "2026-09-17",
+  "creatorId": "habit-forming-films",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "long"
+  }
 }

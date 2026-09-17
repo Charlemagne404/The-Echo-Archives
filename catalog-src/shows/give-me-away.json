@@ -26,7 +26,11 @@
     "sci-fi",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "warm",
+    "tense",
+    "hopeful"
+  ],
   "formats": [
     "full-cast",
     "serialized"
@@ -39,7 +43,11 @@
   "aliases": [
     "Give Me Away"
   ],
-  "themes": [],
+  "themes": [
+    "radical hospitality and community",
+    "alien consciousness and consent",
+    "shared identity and belonging"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -75,9 +83,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "serious-sci-fi",
+    "worldbuilding",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "steal-the-stars"
+  ],
+  "similarReasons": {
+    "steal-the-stars": "Both are high-concept full-cast science fiction grounded in a single person's difficult choices; Give Me Away explores radical hospitality and shared consciousness, while Steal the Stars turns a secret alien discovery into a forbidden-love heist."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -116,7 +133,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the Ghosthouse spaceship and the communities asked to share minds with its passengers",
+    "pov": "Graham Shapiro as he volunteers for a second consciousness",
+    "sourceMaterial": "original fiction",
+    "framing": "full-cast serialized science-fiction drama about radical hospitality and alien consciousness"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.gideon-media.com/transcripts",
@@ -505,7 +527,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-09-17",
   "creatorId": "gideon-media",
-  "networkId": "gideon-media"
+  "networkId": "gideon-media",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "deep-dive"
+  }
 }

@@ -29,7 +29,11 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "tense",
+    "cinematic",
+    "weird"
+  ],
   "formats": [],
   "tags": [
     "Sci-fi",
@@ -40,7 +44,11 @@
     "Edict Zero - FIS",
     "Edict Zero FIS episodes"
   ],
-  "themes": [],
+  "themes": [
+    "law-enforcement investigation",
+    "mystery within mysteries",
+    "cyberpunk power and authority"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -65,9 +73,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "serious-sci-fi",
+    "headphones-on",
+    "worldbuilding"
+  ],
+  "similarTo": [
+    "the-cipher"
+  ],
+  "similarReasons": {
+    "the-cipher": "Both use investigation to connect a science-fiction mystery to a larger unknown; Edict Zero follows a special FIS unit against the authority of Edict One, while The Cipher sends Sabrina after a cryptic puzzle and a possible otherworldly serial killer."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -105,7 +121,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "New Earth, its Federation, and the FIS task force headquarters in Capitol City",
+    "pov": "a special unit of Federal Investigative Services agents",
+    "sourceMaterial": "original fiction",
+    "framing": "full-cast serialized cyberpunk investigative audio drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://edictzero.com/fis-episodes-season-2/",
@@ -609,6 +630,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "slipgate-nine-entertainment"
+  "updatedAt": "2026-09-17",
+  "creatorId": "slipgate-nine-entertainment",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

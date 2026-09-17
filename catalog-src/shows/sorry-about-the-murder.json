@@ -29,7 +29,11 @@
     "drama",
     "comedy"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "warm",
+    "chaotic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -42,8 +46,17 @@
   "aliases": [
     "Sorry About The Murder"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "small-town community",
+    "hockey and local identity",
+    "amateur detective work"
+  ],
+  "contentNotes": [
+    "violence",
+    "excessive drinking",
+    "outdated ideas",
+    "murder"
+  ],
   "languages": [
     "English"
   ],
@@ -78,9 +91,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "long-walks",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "death-by-dying"
+  ],
+  "similarReasons": {
+    "death-by-dying": "Both make a small-town murder mystery a route into character comedy and local community; Sorry About The Murder follows a Zamboni driver clearing his name, while Death by Dying follows an obituary writer among Crestfall oddities."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -119,7 +140,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "Beavermount, Ontario and its hockey-centered small-town community",
+    "pov": "Zamboni driver Frenchie as he solves a murder",
+    "sourceMaterial": "original fiction",
+    "framing": "full-cast serialized comedy mystery"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.sorryaboutthemurder.ca/castcrew",
@@ -630,7 +656,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "ta2-productions",
-  "networkId": "sorry-about-the-murder"
+  "networkId": "sorry-about-the-murder",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium",
+    "commitment": "medium"
+  }
 }

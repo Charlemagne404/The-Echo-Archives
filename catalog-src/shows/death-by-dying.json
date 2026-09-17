@@ -23,7 +23,11 @@
     "drama",
     "comedy"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "funny",
+    "weird"
+  ],
   "formats": [
     "serialized"
   ],
@@ -37,8 +41,16 @@
     "Death by Dying",
     "Death By Dying Podcast"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "small-town secrets",
+    "death and grief",
+    "community in crisis"
+  ],
+  "contentNotes": [
+    "gore and violence",
+    "dead bodies",
+    "bodily harm"
+  ],
   "languages": [
     "English"
   ],
@@ -72,9 +84,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-amelia-project"
+  ],
+  "similarReasons": {
+    "the-amelia-project": "Both use dark comedy and impossible death as a doorway into an eccentric fictional community; Death by Dying follows an obituary writer investigating Crestfall, while The Amelia Project turns fake deaths into new lives."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -113,7 +133,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "Crestfall, Idaho and its strange community",
+    "pov": "the Obituary Writer and Crestfall's townspeople",
+    "sourceMaterial": "original fiction",
+    "framing": "dark comedy mystery audio drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://deathbydyingpod.com/transcripts",
@@ -761,7 +786,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
+  "updatedAt": "2026-09-17",
   "creatorId": "evening-post-productions",
-  "networkId": "death-by-dying-podcast"
+  "networkId": "death-by-dying-podcast",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "variable",
+    "commitment": "medium"
+  }
 }

@@ -29,7 +29,11 @@
     "horror",
     "thriller"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -42,8 +46,16 @@
   "aliases": [
     "The Burned Photo"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "multi-generational curse",
+    "family lineages",
+    "women confronting supernatural threat",
+    "18th-century sorcerer"
+  ],
+  "contentNotes": [
+    "graphic violence",
+    "hate speech"
+  ],
   "languages": [
     "English"
   ],
@@ -77,9 +89,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-left-right-game"
+  ],
+  "similarReasons": {
+    "the-left-right-game": "Both are QCODE serials driven by a supernatural threat and a central investigation; The Burned Photo leans into family curse and generational horror."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -118,7 +138,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the lives of two women linked by a multi-generational curse",
+    "pov": "Felicia and Kira as they investigate the curse's origin",
+    "sourceMaterial": "fiction based on a Reddit thread",
+    "framing": "full-cast serialized supernatural thriller"
+  },
   "metadata": {
     "objectiveSources": [
       "https://qcodemedia.com/sightings",
@@ -527,7 +552,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
+  "updatedAt": "2026-09-17",
   "creatorId": "qcode",
-  "networkId": "qcode-media"
+  "networkId": "qcode-media",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

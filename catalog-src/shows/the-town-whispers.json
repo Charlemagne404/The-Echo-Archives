@@ -23,7 +23,11 @@
     "horror",
     "supernatural"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "serialized"
   ],
@@ -35,7 +39,11 @@
   "aliases": [
     "The Town Whispers"
   ],
-  "themes": [],
+  "themes": [
+    "small-town folklore",
+    "eldritch terror and folk horror",
+    "fogbound communities"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -70,9 +78,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "worldbuilding",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "old-gods-of-appalachia"
+  ],
+  "similarReasons": {
+    "old-gods-of-appalachia": "Both use folkloric entities and inherited regional myth to make place feel dangerous; The Town Whispers concentrates its dread in The Fort, while Old Gods of Appalachia spreads it across an alternate Appalachian history."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -111,7 +128,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "The Fort, a fogbound town of underground wells and eldritch folklore",
+    "pov": "Cole Weavers' narrator and the people whose stories surface in The Fort",
+    "sourceMaterial": "original fiction",
+    "framing": "narrative horror serial about folk horrors and eldritch terror"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.patreon.com/pulpaudio/about",
@@ -465,7 +487,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
+  "updatedAt": "2026-09-17",
   "creatorId": "cole-weavers",
-  "networkId": "patreon"
+  "networkId": "patreon",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

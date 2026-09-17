@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"realm","role":"network"}
+    {
+      "entityId": "realm",
+      "role": "network"
+    }
   ],
   "id": "marvels-wolverine-the-long-night",
   "title": "Marvel's Wolverine: The Long Night",
@@ -32,7 +35,11 @@
     "mystery",
     "thriller"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -44,7 +51,11 @@
   "aliases": [
     "Marvel's Wolverine: The Long Night"
   ],
-  "themes": [],
+  "themes": [
+    "Alaska investigation",
+    "serial killings",
+    "outsider identity"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -78,9 +89,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "binge-listening",
+    "late-night",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "limetown"
+  ],
+  "similarReasons": {
+    "limetown": "Both are compact serialized investigations driven by a widening mystery; Wolverine follows agents tracking murders in Burns, Alaska, while Limetown follows an investigation into a vanished town."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -118,7 +137,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "Burns, Alaska and its isolated coastal community",
+    "pov": "agents Sally Pierce and Tad Marshall investigating Logan",
+    "sourceMaterial": "licensed Marvel fiction",
+    "framing": "serialized full-cast murder mystery"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.megaphone.fm/SBP2524645170",
@@ -634,6 +658,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "marvel-realm"
+  "updatedAt": "2026-09-17",
+  "creatorId": "marvel-realm",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "short"
+  }
 }

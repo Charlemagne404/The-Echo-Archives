@@ -29,7 +29,11 @@
     "drama",
     "fantasy"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "dark",
+    "chaotic"
+  ],
   "formats": [
     "episodic"
   ],
@@ -41,8 +45,15 @@
   "aliases": [
     "The Dragoning"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "gender and power",
+    "social upheaval",
+    "myth in modern life"
+  ],
+  "contentNotes": [
+    "violence",
+    "gendered violence"
+  ],
   "languages": [
     "English"
   ],
@@ -77,9 +88,16 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "binge-listening",
+    "late-night"
+  ],
+  "similarTo": [
+    "the-orbiting-human-circus"
+  ],
+  "similarReasons": {
+    "the-orbiting-human-circus": "Both use theatrical speculative worlds to examine identity and escape; The Dragoning is the sharper political satire, while Orbiting is a musical radio-show fantasy."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -118,7 +136,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a near-future world reshaped by dragon transformations",
+    "pov": "ensemble",
+    "sourceMaterial": "original fiction",
+    "framing": "theatrical audio dramedy"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.messengertheatreco.org/about",
@@ -692,7 +715,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "messenger-theatre-company",
-  "networkId": "messenger-theatre-company"
+  "networkId": "messenger-theatre-company",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "medium",
+    "commitment": "long"
+  }
 }

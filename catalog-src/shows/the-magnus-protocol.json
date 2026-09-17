@@ -29,7 +29,11 @@
     "mystery",
     "supernatural"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "serialized",
     "full-cast"
@@ -46,7 +50,9 @@
   ],
   "themes": [
     "Paranormal investigation",
-    "Office of Incident Assessment and Response"
+    "Office of Incident Assessment and Response",
+    "institutional aftermath",
+    "dangerous archives and bureaucratic risk"
   ],
   "contentNotes": [],
   "languages": [
@@ -82,9 +88,20 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "binge-listening",
+    "worldbuilding"
+  ],
+  "similarTo": [
+    "the-magnus-archives",
+    "woe-begone"
+  ],
+  "similarReasons": {
+    "the-magnus-archives": "The official follow-on shares the statement-driven supernatural world and expands the Magnus Institute's legacy through the O.I.A.R. workplace and its dangerous archives.",
+    "woe-begone": "Both use a long-running fictional record to widen a strange institutional mystery into a reality-bending serial, with The Magnus Protocol putting the pressure inside a civil-service office."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -159,7 +176,18 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "The Office of Incident Assessment and Response, built around the legacy of the Magnus Institute.",
+    "centralConflict": "Alice and Sam uncover a dangerous institutional legacy while working inside an underfunded civil-service office.",
+    "production": "Serialized full-cast audio drama."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  },
   "metadata": {
     "objectiveSources": [
       "https://rustyquill.com/show/the-magnus-archives/",
@@ -747,7 +775,7 @@
   },
   "featured": false,
   "createdAt": "2026-08-03",
-  "updatedAt": "2026-08-03",
+  "updatedAt": "2026-09-17",
   "creatorId": "jonathan-sims-and-alexander-j-newall",
   "networkId": "rusty-quill"
 }

@@ -29,7 +29,12 @@
     "drama",
     "horror"
   ],
-  "tones": [],
+  "tones": [
+    "warm",
+    "funny",
+    "hopeful",
+    "weird"
+  ],
   "formats": [
     "serialized"
   ],
@@ -41,7 +46,11 @@
   "aliases": [
     "The Way We Haunt Now"
   ],
-  "themes": [],
+  "themes": [
+    "friendship and found family",
+    "life after death",
+    "identity and self-definition"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -77,9 +86,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "binge-listening",
+    "warm-weird",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "the-orbiting-human-circus"
+  ],
+  "similarReasons": {
+    "the-orbiting-human-circus": "Both are warm, off-kilter character stories about belonging and identity; The Way We Haunt Now grounds that feeling in ghosts and found family, while Orbiting turns it into a surreal radio fantasy."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -117,7 +135,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "life and what comes after, in a world of ghosts",
+    "pov": "Eulalie Reed and Frankie Summerson",
+    "framing": "cozy horror audio drama about friendship and found family"
+  },
   "metadata": {
     "objectiveSources": [
       "https://hauntnowpod.com/",
@@ -649,6 +671,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "courtney-floyd"
+  "updatedAt": "2026-09-17",
+  "creatorId": "courtney-floyd",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "medium"
+  }
 }

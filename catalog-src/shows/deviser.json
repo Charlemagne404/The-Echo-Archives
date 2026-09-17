@@ -27,7 +27,11 @@
     "horror",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "serialized"
   ],
@@ -39,8 +43,16 @@
   "aliases": [
     "Deviser"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "AI and humanity",
+    "recolonization and survival",
+    "identity and self-knowledge"
+  ],
+  "contentNotes": [
+    "graphic descriptions of violence",
+    "self-harm",
+    "mature themes"
+  ],
   "languages": [],
   "transcriptLanguages": [],
   "length": {
@@ -70,9 +82,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "serious-sci-fi",
+    "short-under-five-hours",
+    "late-night",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "malevolent"
+  ],
+  "similarReasons": {
+    "malevolent": "Both come from Harlan Guthrie and turn existential pressure into a dark, mystery-shaped horror route; Deviser is the tighter science-fiction branch built around AI, recolonization, and a single shipboard discovery."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -110,7 +131,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "a spaceship bound for Earth after an attempt to recolonize it",
+    "pov": "Son's awakening and discovery of what has changed about his world and himself",
+    "framing": "one-person acted sci-fi horror miniseries"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.deviser.ca/",
@@ -424,6 +450,12 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "harlan-guthrie"
+  "updatedAt": "2026-09-17",
+  "creatorId": "harlan-guthrie",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "short"
+  }
 }

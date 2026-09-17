@@ -29,7 +29,11 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "warm",
+    "cinematic",
+    "hopeful"
+  ],
   "formats": [
     "episodic"
   ],
@@ -41,7 +45,11 @@
   "aliases": [
     "The Awkward Screw"
   ],
-  "themes": [],
+  "themes": [
+    "multi-species found family",
+    "repair work and responsibility",
+    "spacefaring quest"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -75,9 +83,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "easy-entry",
+    "worldbuilding"
+  ],
+  "similarTo": [
+    "the-invenios-expeditions"
+  ],
+  "similarReasons": {
+    "the-invenios-expeditions": "Both are crew-led speculative adventures that use a vessel as a home base; The Awkward Screw follows a four-person multi-species repair crew through the Bell-Wave Galaxy, while The Invenios Expeditions follows a treasure-hunting crew aboard a purpose-built vessel."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -115,7 +131,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the Heavy-Repair vessel The Awkward Screw and the Bell-Wave Galaxy",
+    "pov": "a four-person multi-species repair crew",
+    "sourceMaterial": "original fiction",
+    "framing": "full-cast episodic science-fiction adventure"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml",
@@ -630,6 +651,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "the-awkward-screw"
+  "updatedAt": "2026-09-17",
+  "creatorId": "the-awkward-screw",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "medium"
+  }
 }

@@ -23,7 +23,11 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "serialized"
   ],
@@ -35,7 +39,11 @@
   "aliases": [
     "The Wyrd Side"
   ],
-  "themes": [],
+  "themes": [
+    "British and Irish folklore",
+    "paranormal investigation",
+    "myths and legends"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -69,9 +77,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "worldbuilding",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-town-whispers"
+  ],
+  "similarReasons": {
+    "the-town-whispers": "Both follow investigators into folk-horror territory shaped by local myth; The Wyrd Side takes the route through Britain and Ireland, while The Town Whispers builds its unease around one fog-bound town."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -109,7 +126,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the islands of Britain and Ireland and their myths and legends",
+    "pov": "paranormal investigators Aiden Summers and Katherine Moore",
+    "framing": "serialized New Weird folk-horror investigation"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.acast.com/public/shows/the-wyrd-side",
@@ -650,6 +671,12 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
-  "creatorId": "alexandra-m-barrow-and-finn-cresswell"
+  "updatedAt": "2026-09-17",
+  "creatorId": "alexandra-m-barrow-and-finn-cresswell",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

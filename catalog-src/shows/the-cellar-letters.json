@@ -22,7 +22,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "episodic"
   ],
@@ -35,7 +39,11 @@
   "aliases": [
     "The Cellar Letters"
   ],
-  "themes": [],
+  "themes": [
+    "new-house isolation",
+    "found letters and ghostly figures",
+    "domestic life gone wrong"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -72,9 +80,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-storage-papers"
+  ],
+  "similarReasons": {
+    "the-storage-papers": "Both make recovered documents the engine of a supernatural investigation; The Cellar Letters follows Nate through a house with a locked cellar full of strange letters, while The Storage Papers begins with an abandoned unit containing documentation of unexplainable events."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -112,7 +128,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "an East Coast house with a locked basement cellar",
+    "pov": "Nate, his dog Bella, and their friend Steve as they search for answers",
+    "sourceMaterial": "original fiction",
+    "framing": "written-and-performed found-footage horror audio drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.acast.com/public/shows/633d459331f65200114bfe1f"
@@ -621,6 +642,12 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
-  "creatorId": "jamie-petronis"
+  "updatedAt": "2026-09-17",
+  "creatorId": "jamie-petronis",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "long"
+  }
 }

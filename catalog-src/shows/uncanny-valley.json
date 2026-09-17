@@ -1,7 +1,13 @@
 {
   "entityLinks": [
-    {"entityId":"realm","role":"network"},
-    {"entityId":"dayton-writers-movement","role":"production-company"}
+    {
+      "entityId": "realm",
+      "role": "network"
+    },
+    {
+      "entityId": "dayton-writers-movement",
+      "role": "production-company"
+    }
   ],
   "id": "uncanny-valley",
   "title": "Uncanny Valley",
@@ -27,7 +33,11 @@
     "horror",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "full-cast",
     "serialized"
@@ -41,7 +51,11 @@
     "Uncanny Valley",
     "Uncanny Valley | DWM Presents"
   ],
-  "themes": [],
+  "themes": [
+    "Alaska and isolation",
+    "starting over and hidden pasts",
+    "fear of the not-quite-human"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -75,9 +89,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "cold-isolation-horror",
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-left-right-game"
+  ],
+  "similarReasons": {
+    "the-left-right-game": "Both put an ordinary lead into a full-cast supernatural investigation, with Uncanny Valley grounding the unease in an isolated Alaskan setting and The Left Right Game in an impossible road journey."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -116,7 +139,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "Alaska and the hidden dangers Audrey finds there",
+    "pov": "Audrey and an ensemble of people hiding from something",
+    "framing": "full-cast supernatural horror audio drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.daytonwritersmovement.com/about",
@@ -679,7 +706,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-09-17",
   "creatorId": "dwm-realm",
-  "networkId": "dwm-presents"
+  "networkId": "dwm-presents",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

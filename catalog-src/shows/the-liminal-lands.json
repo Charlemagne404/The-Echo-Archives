@@ -30,7 +30,11 @@
     "sci-fi",
     "horror"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "episodic"
   ],
@@ -42,7 +46,11 @@
   "aliases": [
     "The Liminal Lands"
   ],
-  "themes": [],
+  "themes": [
+    "survival in a hostile reality",
+    "finding missing family",
+    "understanding the unknown"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -83,9 +91,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "binge-listening",
+    "long-walks",
+    "late-night"
+  ],
+  "similarTo": [
+    "our-fair-city"
+  ],
+  "similarReasons": {
+    "our-fair-city": "Both offer long-running episodic speculative worlds where survival and the rules of a strange environment drive the next story; Liminal Lands is more solitary and horror-forward."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -123,7 +139,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "The Liminal Lands, a hostile new reality",
+    "pov": "a lone traveler searching for his missing family",
+    "framing": "weekly episodic survival-horror journey"
+  },
   "metadata": {
     "objectiveSources": [
       "https://anchor.fm/s/a0cdc6ac/podcast/rss",
@@ -660,6 +680,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "waymon-alexander"
+  "updatedAt": "2026-09-17",
+  "creatorId": "waymon-alexander",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "long"
+  }
 }

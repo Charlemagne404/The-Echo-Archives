@@ -139,10 +139,16 @@
   "createdAt": "2026-07-09",
   "creatorId": "passenger-list-and-radiotopia",
   "networkId": "passenger-list",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-17",
   "cast": [],
   "creators": [
     "John Scott Dryden"
   ],
-  "popularity": {}
+  "popularity": {},
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

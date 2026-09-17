@@ -26,7 +26,11 @@
     "sci-fi",
     "thriller"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -39,7 +43,11 @@
     "The Strata",
     "The Strata Podcast"
   ],
-  "themes": [],
+  "themes": [
+    "dystopian class divide",
+    "courier and criminal underworld",
+    "health and survival under scarcity"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -85,9 +93,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "serious-sci-fi",
+    "long-walks",
+    "worldbuilding",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-program-audio-series"
+  ],
+  "similarReasons": {
+    "the-program-audio-series": "Both explore systems, control, and survival in speculative worlds; The Strata grounds that pressure in an ageing courier and a class-divided city, while The Program takes a more anthology-shaped systemic route."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -126,7 +144,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "the sprawling dystopian metropolis called The Strata",
+    "pov": "an ensemble of connected stories anchored by an ageing courier and an underworld ganglord",
+    "framing": "serialized science-fiction drama with an interconnected story structure"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.thestratapodcast.com/about-3",
@@ -478,7 +501,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
+  "updatedAt": "2026-09-17",
   "creatorId": "mark-r-healy",
-  "networkId": "the-strata-podcast"
+  "networkId": "the-strata-podcast",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

@@ -30,7 +30,11 @@
     "comedy",
     "horror"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "chaotic",
+    "dark"
+  ],
   "formats": [
     "episodic"
   ],
@@ -42,7 +46,11 @@
   "aliases": [
     "Attention HellMart Shoppers!"
   ],
-  "themes": [],
+  "themes": [
+    "workplace exploitation",
+    "retail survival",
+    "bureaucracy versus supernatural chaos"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -77,9 +85,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "warm-weird",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "super-suits"
+  ],
+  "similarReasons": {
+    "super-suits": "Both make workplace rules the pressure valve for supernatural comedy; Attention HellMart Shoppers puts retail staff in a store built over the gates of hell, while Super Suits puts superpowers and legal battles inside a law firm."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -117,7 +133,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "HelloMart, a big-box store built over the gates of hell",
+    "pov": "the HelloMart staff",
+    "sourceMaterial": "original fiction",
+    "framing": "episodic workplace horror-comedy"
+  },
   "metadata": {
     "objectiveSources": [
       "https://rss.libsyn.com/shows/97852/destinations/507996.xml",
@@ -604,6 +625,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "harmless-entertainment"
+  "updatedAt": "2026-09-17",
+  "creatorId": "harmless-entertainment",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "variable",
+    "commitment": "medium"
+  }
 }

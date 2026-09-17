@@ -93,7 +93,7 @@
   ],
   "cast": [],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-17",
   "similarReasons": {
     "derelict": "A louder pressure-cooker branch if you want the serious sci-fi tone to come with more immediate danger.",
     "ars-paradoxica": "Keeps the idea-forward speculative appetite active with more explicit time-science consequences.",
@@ -123,5 +123,11 @@
     "objectiveVerifiedAt": "2026-07-18",
     "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
     "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
+  },
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "long"
   }
 }

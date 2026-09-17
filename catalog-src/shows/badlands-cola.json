@@ -28,7 +28,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "episodic"
   ],
@@ -42,8 +46,20 @@
     "Badlands Cola",
     "Badlands Cola | A Strange Audio Drama"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "eldritch fossils and cults",
+    "private-investigator and radio-DJ partnership",
+    "desert-town nightmares"
+  ],
+  "contentNotes": [
+    "explicit language",
+    "physical violence",
+    "blood/gore/injuries",
+    "emotional abuse",
+    "cults",
+    "death/dying",
+    "consensual sex/sexual themes"
+  ],
   "languages": [
     "English"
   ],
@@ -76,9 +92,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-angel-of-vine"
+  ],
+  "similarReasons": {
+    "the-angel-of-vine": "Both pair an investigation with a strong audio frame and a private-eye mystery; Badlands Cola sends a PI and radio DJ after a desert-town cult, while The Angel of Vine reconstructs a Hollywood murder through a journalist and recovered tapes."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -117,7 +141,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a desert town full of strange fossils and stranger people",
+    "pov": "a hard-hearted private investigator and a broken-down radio DJ",
+    "sourceMaterial": "original fiction",
+    "framing": "cinematic mystery-horror audio drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.badlandscola.com/cast-crew",
@@ -634,11 +663,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-09-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "renee-taylor-klint",
   "networkId": "badlands-cola",
   "discovery": {
     "narrativeFocus": "plot-driven",
-    "intensity": "medium"
+    "intensity": "high",
+    "voiceStyle": "primarily-acted",
+    "commitment": "medium"
   }
 }

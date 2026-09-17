@@ -29,7 +29,11 @@
     "mystery",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -43,7 +47,11 @@
     "The Angel of Vine",
     "The Angel of Vine: A Fictional Podcast"
   ],
-  "themes": [],
+  "themes": [
+    "classic noir",
+    "investigative journalism",
+    "Hollywood murder"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -75,9 +83,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "late-night",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "the-deca-tapes"
+  ],
+  "similarReasons": {
+    "the-deca-tapes": "Both make recorded evidence and gaps in testimony carry a contained mystery; The Angel of Vine leans into 1950s Hollywood noir, while The Deca Tapes turns a controlled audio archive into a puzzle box."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -122,7 +138,12 @@
       "English"
     ]
   },
-  "content": {},
+  "content": {
+    "setting": "present-day and 1950s Hollywood",
+    "pov": "a journalist and a private eye's recovered tapes",
+    "sourceMaterial": "original fiction",
+    "framing": "neo-noir fictional podcast built from recovered recordings"
+  },
   "metadata": {
     "objectiveSources": [
       "https://angelofvine.com/credits",
@@ -478,7 +499,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-16",
   "creatorId": "vox-populi",
-  "networkId": "the-angel-of-vine-a-fictional-podcast"
+  "networkId": "the-angel-of-vine-a-fictional-podcast",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

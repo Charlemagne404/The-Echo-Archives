@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"qcode","role":"production-company"}
+    {
+      "entityId": "qcode",
+      "role": "production-company"
+    }
   ],
   "id": "blackout",
   "title": "Blackout",
@@ -32,7 +35,11 @@
     "drama",
     "thriller"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -45,7 +52,11 @@
   "aliases": [
     "Blackout"
   ],
-  "themes": [],
+  "themes": [
+    "community after collapse",
+    "family survival",
+    "radio communication"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -80,9 +91,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "long-walks",
+    "late-night",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "were-alive"
+  ],
+  "similarReasons": {
+    "were-alive": "Both turn a large-scale catastrophe into close-up survival under pressure; Blackout follows a radio DJ protecting family and community after a grid failure, while We're Alive follows survivors through a zombie outbreak."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -121,7 +140,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "small-town New England and the road after a nationwide grid failure",
+    "pov": "Simon Itani, his family, and Wren",
+    "sourceMaterial": "original fiction",
+    "framing": "apocalyptic radio thriller"
+  },
   "metadata": {
     "objectiveSources": [
       "https://qcodemedia.com/about",
@@ -519,7 +543,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "qcode-endeavor-content",
-  "networkId": "qcode-media"
+  "networkId": "qcode-media",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

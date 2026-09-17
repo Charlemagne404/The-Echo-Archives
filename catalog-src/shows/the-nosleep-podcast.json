@@ -23,7 +23,11 @@
     "horror",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "full-cast",
     "narrated",
@@ -37,7 +41,11 @@
     "The NoSleep Podcast",
     "The NoSleep Podcast - For the dark hours when you dare not close your eyes. Brace yourself…"
   ],
-  "themes": [],
+  "themes": [
+    "original horror anthology",
+    "nightmare and the uncanny",
+    "standalone stories and changing voices"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -80,9 +88,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "long-walks",
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-other-stories-sci-fi-horror-thriller-wtf-stories"
+  ],
+  "similarReasons": {
+    "the-other-stories-sci-fi-horror-thriller-wtf-stories": "Both offer deep anthologies of standalone genre fiction with changing voices and stories; The NoSleep Podcast stays focused on original horror with atmospheric music, while The Other Stories ranges more broadly across science fiction, horror, thriller, and strange fiction."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -120,7 +137,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "varied settings across original horror stories",
+    "pov": "rotating characters and narrators across standalone stories",
+    "framing": "anthology horror podcast with atmospheric music and sound effects"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.thenosleeppodcast.com/about/nosleep-in-the-media",
@@ -545,7 +567,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-09-17",
   "creatorId": "creative-reason-media-inc",
-  "networkId": "the-nosleep-podcast"
+  "networkId": "the-nosleep-podcast",
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
+  }
 }

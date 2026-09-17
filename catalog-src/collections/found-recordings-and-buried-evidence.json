@@ -28,7 +28,13 @@
     "shelterwood",
     "the-white-vault",
     "the-polybius-conspiracy",
-    "within-the-wires"
+    "within-the-wires",
+    "blackwood",
+    "modes-of-thought-in-anterran-literature",
+    "the-cellar-letters",
+    "from-within-a-tale-of-the-macabre",
+    "the-left-right-game",
+    "observable-radio"
   ],
   "showReasons": {
     "archive-81": "Archival recordings and occult history make the act of cataloging part of the danger.",
@@ -42,10 +48,16 @@
     "the-deca-tapes": "Segmented recordings and a locked-room puzzle make the format itself part of the mystery.",
     "shelterwood": "A docu-horror search for a missing sister uses found footage, interviews, and an impossible suburb as its evidence trail.",
     "the-polybius-conspiracy": "A hybrid documentary-fiction investigation makes the recovered-story frame part of the arcade mystery.",
-    "within-the-wires": "Its in-universe recordings and institutional documents are not just presentation; they are the evidence the listener has to interpret."
+    "within-the-wires": "Its in-universe recordings and institutional documents are not just presentation; they are the evidence the listener has to interpret.",
+    "blackwood": "Released recordings of a local Bugman investigation make the recovered-evidence frame part of the mystery.",
+    "modes-of-thought-in-anterran-literature": "Lecture recordings, redacted scholarship, and ancient ruins make the course itself a piece of recovered evidence.",
+    "the-cellar-letters": "A locked cellar full of letters and found-footage recordings makes the recovered evidence inseparable from the haunting.",
+    "from-within-a-tale-of-the-macabre": "Survivor letters and journals turn an isolated community's violent threat into an archive the listener has to piece together.",
+    "the-left-right-game": "A vanished journalist's recordings become the evidence trail for an expedition into the impossible road game.",
+    "observable-radio": "Found footage and an Observer's catalog of impossible signals make the format itself the evidence trail."
   },
   "featured": false,
   "order": 138.5,
   "createdAt": "2026-08-29",
-  "updatedAt": "2026-09-16"
+  "updatedAt": "2026-09-17"
 }

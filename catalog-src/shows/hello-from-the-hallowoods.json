@@ -24,7 +24,12 @@
     "fantasy",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "hopeful",
+    "melancholic",
+    "weird"
+  ],
   "formats": [
     "narrated",
     "serialized"
@@ -36,7 +41,12 @@
   "aliases": [
     "Hello From The Hallowoods"
   ],
-  "themes": [],
+  "themes": [
+    "queer identity and community",
+    "end-of-world hope",
+    "survival and connection",
+    "cosmic horror"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -75,9 +85,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "binge-listening",
+    "long-walks",
+    "late-night",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "welcome-to-night-vale"
+  ],
+  "similarReasons": {
+    "welcome-to-night-vale": "Both use a distinctive narrator and community-scale weirdness to explore a world under cosmic pressure; Hallowoods is more serialized and character-ensemble driven."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -116,7 +135,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "the forest at the end of the world",
+    "pov": "a cosmic narrator following increasingly connected residents",
+    "sourceMaterial": "original fiction",
+    "framing": "serialized queer horror podcast"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.hellofromthehallowoods.com/transcripts",
@@ -492,7 +516,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-31",
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-09-17",
   "creatorId": "william-a-wellman",
-  "networkId": "hfth-podcast"
+  "networkId": "hfth-podcast",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "character-driven",
+    "intensity": "high",
+    "commitment": "long"
+  }
 }

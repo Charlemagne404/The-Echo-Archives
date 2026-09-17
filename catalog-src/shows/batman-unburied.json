@@ -33,7 +33,11 @@
     "drama",
     "thriller"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "full-cast",
     "serialized"
@@ -46,7 +50,11 @@
   "aliases": [
     "Batman Unburied"
   ],
-  "themes": [],
+  "themes": [
+    "crime and investigation",
+    "memory and identity",
+    "psychological horror"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -78,9 +86,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "short-under-five-hours",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "bridgewater"
+  ],
+  "similarReasons": {
+    "bridgewater": "Both are full-cast serialized mysteries centered on a lead investigating a destabilizing past; Batman Unburied uses Bruce Wayne's missing identity and forensic cases, while Bridgewater follows a folklore professor and a rediscovered relic."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -121,7 +138,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "Gotham City and the forensic investigation around the Harvester",
+    "pov": "Bruce Wayne as a forensic pathologist who cannot remember being Batman",
+    "sourceMaterial": "licensed DC/Batman universe",
+    "framing": "full-cast serialized psychological crime thriller"
+  },
   "metadata": {
     "researchGaps": [
       "No canonical public RSS feed was found for Batman Unburied. The current Spotify show ID resolves to Batman Unburied: Fallen City and the original season-one episode pages remain under that platform identity; a separate season-one show URL was not verified."
@@ -407,11 +429,12 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "spotify-warner-bros-dc",
   "discovery": {
     "voiceStyle": "primarily-acted",
     "narrativeFocus": "plot-driven",
-    "intensity": "medium"
+    "intensity": "medium",
+    "commitment": "short"
   }
 }

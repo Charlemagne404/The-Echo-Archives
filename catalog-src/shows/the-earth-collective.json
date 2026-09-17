@@ -23,7 +23,11 @@
     "sci-fi",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "bleak",
+    "cinematic",
+    "hopeful"
+  ],
   "formats": [
     "serialized",
     "narrated",
@@ -38,7 +42,11 @@
   "aliases": [
     "The Earth Collective"
   ],
-  "themes": [],
+  "themes": [
+    "collective memory",
+    "survival on the move",
+    "humanity under pressure"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -70,9 +78,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "long-walks",
+    "worldbuilding",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "the-orphans",
+    "our-fair-city"
+  ],
+  "similarReasons": {
+    "the-orphans": "Both follow people trying to survive under a system-sized threat; The Earth Collective uses a first-person historical record in rolling cities, while The Orphans makes survival an ensemble space saga.",
+    "our-fair-city": "Both make communal survival and the systems around it part of the story; The Earth Collective stays with a historian on the move, while Our Fair City follows a subterranean city's workplace and community ensemble."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -112,7 +130,12 @@
     ],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a planet where humanity survives in rolling cities",
+    "pov": "first-person account",
+    "sourceMaterial": "original fiction",
+    "framing": "a historical audio journal"
+  },
   "metadata": {
     "objectiveSources": [
       "https://tecstory.libsyn.com/website",
@@ -422,5 +445,11 @@
   "featured": false,
   "createdAt": "2026-09-06",
   "updatedAt": "2026-09-06",
-  "creatorId": "michael-troup"
+  "creatorId": "michael-troup",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "long"
+  }
 }

@@ -135,10 +135,16 @@
   "featured": false,
   "createdAt": "2026-07-09",
   "creatorId": "d-j-sylvis",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-17",
   "cast": [],
   "creators": [
     "D.J. Sylvis"
   ],
-  "popularity": {}
+  "popularity": {},
+  "discovery": {
+    "voiceStyle": "mixed",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "deep-dive"
+  }
 }

@@ -28,7 +28,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -41,8 +45,15 @@
   "aliases": [
     "The Hatred | A Supernatural Thriller Miniseries"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "mistaken identity",
+    "grief and revenge",
+    "supernatural curse"
+  ],
+  "contentNotes": [
+    "mental health themes",
+    "violence"
+  ],
   "languages": [
     "English"
   ],
@@ -75,9 +86,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "short-under-five-hours",
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-edge-of-sleep"
+  ],
+  "similarReasons": {
+    "the-edge-of-sleep": "Both are compact, high-pressure supernatural thrillers that keep an ordinary protagonist moving through a widening mystery; The Hatred leans toward mistaken identity and a curse, while The Edge of Sleep builds around a global sleep-and-death premise."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -115,7 +135,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "ordinary life disrupted by a supernatural curse",
+    "pov": "Dave Kelly's investigation through mistaken-identity encounters and a cat-and-mouse threat",
+    "framing": "serialized supernatural thriller miniseries"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.megaphone.fm/thehatred",
@@ -591,9 +616,10 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-09-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "madhouse-radio",
   "discovery": {
+    "voiceStyle": "primarily-acted",
     "narrativeFocus": "plot-driven",
     "intensity": "high",
     "commitment": "short"

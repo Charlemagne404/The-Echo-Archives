@@ -23,7 +23,11 @@
     "sci-fi",
     "comedy"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "warm",
+    "chaotic"
+  ],
   "formats": [
     "full-cast",
     "serialized"
@@ -36,7 +40,11 @@
   "aliases": [
     "MarsCorp"
   ],
-  "themes": [],
+  "themes": [
+    "Mars colony life",
+    "workplace culture",
+    "adaptation and leadership"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -68,9 +76,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "funny-space-disasters",
+    "easy-entry",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "wolf-359"
+  ],
+  "similarReasons": {
+    "wolf-359": "Both are character-first space comedies set in an isolated workplace, with MarsCorp using a terraforming colony and Wolf 359 using a station crew."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -108,7 +124,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a terraforming colony on Mars",
+    "pov": "station supervisor E.L. Hob and the MarsCorp crew",
+    "framing": "scripted full-cast workplace sci-fi comedy"
+  },
   "metadata": {
     "objectiveSources": [
       "https://definitelyhuman.co.uk/portfolio/marscorp/",
@@ -415,10 +435,11 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "definitely-human",
   "discovery": {
     "voiceStyle": "primarily-acted",
-    "commitment": "medium"
+    "commitment": "medium",
+    "narrativeFocus": "character-driven"
   }
 }

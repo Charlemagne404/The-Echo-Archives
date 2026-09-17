@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"audacious-machine-creative","role":"production-company"}
+    {
+      "entityId": "audacious-machine-creative",
+      "role": "production-company"
+    }
   ],
   "id": "world-gone-wrong-a-fictional-chat-show-about-friendship-at-the-end-of-the-world",
   "title": "World Gone Wrong: a fictional chat show about friendship at the end of the world",
@@ -32,7 +35,11 @@
     "comedy",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "warm",
+    "chaotic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -44,7 +51,11 @@
   "aliases": [
     "World Gone Wrong: a fictional chat show about friendship at the end of the world"
   ],
-  "themes": [],
+  "themes": [
+    "friendship under pressure",
+    "apocalypse adaptation",
+    "everyday weirdness"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -86,9 +97,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "binge-listening",
+    "long-walks",
+    "warm-weird"
+  ],
+  "similarTo": [
+    "super-suits"
+  ],
+  "similarReasons": {
+    "super-suits": "Both use comedy to let characters process an impossible world through everyday conversation; World Gone Wrong is a long-distance friendship chat show amid acid rain and monsters, while Super Suits makes workplace relationships the pressure valve for superhero chaos."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -127,7 +146,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "an end-of-the-world landscape divided by distance and acid rain",
+    "pov": "roommates Malik and Jamie through a chat podcast",
+    "sourceMaterial": "original fiction",
+    "framing": "fictional chat show about friendship"
+  },
   "metadata": {
     "objectiveSources": [
       "https://art19.com/shows/world-gone-wrong",
@@ -645,7 +669,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-16",
   "creatorId": "audacious-machine-creative",
-  "networkId": "art19"
+  "networkId": "art19",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "variable",
+    "commitment": "long"
+  }
 }

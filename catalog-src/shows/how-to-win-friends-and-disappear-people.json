@@ -31,7 +31,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "funny",
+    "weird"
+  ],
   "formats": [
     "serialized"
   ],
@@ -44,8 +48,16 @@
   "aliases": [
     "How to Win Friends and Disappear People"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "vampire and familiar bond",
+    "toxic friendship and codependency",
+    "identity and belonging"
+  ],
+  "contentNotes": [
+    "adult language",
+    "adult content",
+    "violence"
+  ],
   "languages": [
     "English"
   ],
@@ -78,9 +90,19 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-horror-of-dolores-roach",
+    "the-amelia-project"
+  ],
+  "similarReasons": {
+    "the-horror-of-dolores-roach": "Both turn an outsider's survival and reinvention into a dark supernatural story with a sharp social edge; How to Win Friends keeps its danger centered on Nancy and El's vampire-familiar relationship.",
+    "the-amelia-project": "Both use a strange, secretive relationship to drive a funny mystery route; How to Win Friends moves that chemistry into a darker vampire thriller set in contemporary New York."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -119,7 +141,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "the social-media-driven world of millennial New York City",
+    "pov": "Nancy's obsession with her mysterious neighbor and their vampire-familiar bond",
+    "framing": "ten-episode full-cast supernatural thriller"
+  },
   "metadata": {
     "objectiveSources": [
       "https://qcodemedia.com/about",
@@ -641,7 +668,13 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-09-14",
+  "updatedAt": "2026-09-17",
   "creatorId": "qcode",
-  "networkId": "qcode-media"
+  "networkId": "qcode-media",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "medium"
+  }
 }

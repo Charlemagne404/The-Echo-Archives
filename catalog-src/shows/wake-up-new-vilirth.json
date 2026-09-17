@@ -29,7 +29,11 @@
     "drama",
     "sci-fi"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "episodic"
   ],
@@ -42,8 +46,16 @@
   "aliases": [
     "Wake up, New Vilirth!"
   ],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "class conflict and debt",
+    "political power",
+    "return and consequence"
+  ],
+  "contentNotes": [
+    "violence",
+    "abuse",
+    "substance abuse"
+  ],
   "languages": [
     "English"
   ],
@@ -76,9 +88,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "serious-sci-fi",
+    "worldbuilding",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "within-the-wires"
+  ],
+  "similarReasons": {
+    "within-the-wires": "Both use speculative societies and political control to turn personal survival into a mystery; Wake up, New Vilirth! puts returning travellers under wealthy and civic power, while Within the Wires explores resistance through found audio from an alternate world."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -118,7 +138,12 @@
     ],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "New Vilirth and its cutthroat political climate",
+    "pov": "Rhea and her returning colleagues",
+    "sourceMaterial": "original fiction",
+    "framing": "dystopian full-cast sci-fi drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://wakeupnewvilirth.com/",
@@ -605,6 +630,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "wake-up-new-vilirth"
+  "updatedAt": "2026-09-17",
+  "creatorId": "wake-up-new-vilirth",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "short"
+  }
 }

@@ -1,6 +1,9 @@
 {
   "entityLinks": [
-    {"entityId":"realm","role":"network"}
+    {
+      "entityId": "realm",
+      "role": "network"
+    }
   ],
   "id": "marvels-wolverine-the-lost-trail",
   "title": "Marvel's Wolverine: The Lost Trail",
@@ -32,7 +35,11 @@
     "adventure",
     "thriller"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
   "formats": [
     "serialized"
   ],
@@ -43,7 +50,11 @@
   "aliases": [
     "Marvel's Wolverine: The Lost Trail"
   ],
-  "themes": [],
+  "themes": [
+    "redemption after trauma",
+    "missing humans and mutants",
+    "New Orleans investigation"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -77,9 +88,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "marvels-wolverine-the-long-night"
+  ],
+  "similarReasons": {
+    "marvels-wolverine-the-long-night": "This is the direct Marvel sequel: both follow Wolverine through a serialized full-cast murder mystery, with The Lost Trail moving the investigation from isolated Alaska to New Orleans and missing humans and mutants."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -117,7 +136,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "New Orleans and a trail of missing humans and mutants",
+    "pov": "Logan/Wolverine and the people drawn into his redemption search",
+    "sourceMaterial": "licensed Marvel fiction",
+    "framing": "serialized full-cast superhero mystery thriller"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.megaphone.fm/SBP8120025945",
@@ -632,6 +656,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "marvel-realm"
+  "updatedAt": "2026-09-17",
+  "creatorId": "marvel-realm",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "medium"
+  }
 }

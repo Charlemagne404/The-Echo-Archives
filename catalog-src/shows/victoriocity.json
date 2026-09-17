@@ -196,7 +196,7 @@
   "featured": false,
   "createdAt": "2026-07-01",
   "creatorId": "victoriocity",
-  "updatedAt": "2026-08-03",
+  "updatedAt": "2026-09-17",
   "creators": [
     "Chris Sugden",
     "Jen Sugden"
@@ -209,5 +209,11 @@
     "Richard Soames — Dr Salik / Sandringham",
     "Chris Sugden — Chief Inspector Keller",
     "Jen Sugden — Mrs Pomligan"
-  ]
+  ],
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "medium",
+    "commitment": "long"
+  }
 }

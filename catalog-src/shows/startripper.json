@@ -132,8 +132,14 @@
   "featured": false,
   "createdAt": "2026-07-01",
   "creatorId": "startripper",
-  "updatedAt": "2026-09-14",
+  "updatedAt": "2026-09-17",
   "creators": [
     "StarTripper!!"
-  ]
+  ],
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "character-driven",
+    "intensity": "low",
+    "commitment": "medium"
+  }
 }

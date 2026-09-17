@@ -101,7 +101,7 @@
     "hex": "#92605d",
     "rgb": "146, 96, 93"
   },
-  "updatedAt": "2026-08-03",
+  "updatedAt": "2026-09-17",
   "releaseDates": {
     "first": "2020-03-22",
     "latest": "2025-12-14",
@@ -232,5 +232,11 @@
     "ars-paradoxica": "The cleanest neighbor if the controlled science-fiction weirdness is the real hook.",
     "the-deca-tapes": "Keeps the enclosed puzzle energy alive while leaning harder into mystery structure.",
     "case-63": "A tighter paradox-thriller branch for listeners who want the time bend to stay front and center."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "balanced",
+    "intensity": "medium",
+    "commitment": "long"
   }
 }

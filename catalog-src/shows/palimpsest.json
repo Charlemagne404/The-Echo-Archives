@@ -23,7 +23,12 @@
     "drama",
     "horror"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "melancholic",
+    "weird",
+    "cinematic"
+  ],
   "formats": [
     "anthology",
     "narrated",
@@ -38,7 +43,12 @@
   "aliases": [
     "Palimpsest"
   ],
-  "themes": [],
+  "themes": [
+    "memory and identity",
+    "ghosts and hauntings",
+    "women at the center of uncanny stories",
+    "self-contained seasonal stories"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -73,9 +83,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "mabel"
+  ],
+  "similarReasons": {
+    "mabel": "Both are mostly single-voiced, intimate ghost stories that turn memory and identity into the mystery; Palimpsest offers more self-contained seasonal routes."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -113,7 +131,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "a recurring house across different times and places",
+    "pov": "a woman at the center of each seasonal story",
+    "sourceMaterial": "original fiction",
+    "framing": "mostly single-voiced gothic audio drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://palimpsestproductions.com/our-shows/",
@@ -422,6 +445,12 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-06",
-  "creatorId": "jamieson-ridenhour-hayley-heninger-palimpsest-productions"
+  "updatedAt": "2026-09-17",
+  "creatorId": "jamieson-ridenhour-hayley-heninger-palimpsest-productions",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium",
+    "commitment": "medium"
+  }
 }

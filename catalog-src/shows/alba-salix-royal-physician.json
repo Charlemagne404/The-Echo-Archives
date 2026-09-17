@@ -24,7 +24,11 @@
     "comedy",
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "warm",
+    "weird"
+  ],
   "formats": [
     "serialized",
     "full-cast"
@@ -38,7 +42,11 @@
   "aliases": [
     "Alba Salix, Royal Physician"
   ],
-  "themes": [],
+  "themes": [
+    "care and healing",
+    "workplace friction",
+    "fantasy bureaucracy"
+  ],
   "contentNotes": [],
   "languages": [],
   "transcriptLanguages": [],
@@ -73,9 +81,17 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "binge-listening",
+    "warm-weird"
+  ],
+  "similarTo": [
+    "super-suits"
+  ],
+  "similarReasons": {
+    "super-suits": "Both turn an unusual workplace into a speculative ensemble comedy; Alba Salix runs a fairy-tale hospital with bickering staff, while Super Suits sends heroes, villains, and an AI through a superhero law firm."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -113,7 +129,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "Farloria's House of Healing and royal court",
+    "pov": "a witch physician and her fairy-tale staff",
+    "sourceMaterial": "original fiction",
+    "framing": "fairy-tale hospital audio comedy"
+  },
   "metadata": {
     "objectiveSources": [
       "https://albasalix.com/",
@@ -433,10 +454,12 @@
   },
   "featured": false,
   "createdAt": "2026-09-06",
-  "updatedAt": "2026-09-14",
+  "updatedAt": "2026-09-16",
   "creatorId": "forgery-league",
   "discovery": {
     "voiceStyle": "primarily-acted",
-    "commitment": "medium"
+    "commitment": "long",
+    "narrativeFocus": "character-driven",
+    "intensity": "medium"
   }
 }

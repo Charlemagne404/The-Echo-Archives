@@ -31,7 +31,11 @@
     "horror",
     "thriller"
   ],
-  "tones": [],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
   "formats": [
     "episodic"
   ],
@@ -43,7 +47,11 @@
   "aliases": [
     "The Other Stories | Sci-Fi, Horror, Thriller, WTF Stories"
   ],
-  "themes": [],
+  "themes": [
+    "short-form genre fiction",
+    "horror and the uncanny",
+    "changing story themes"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -73,9 +81,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "long-walks",
+    "late-night",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "the-truth"
+  ],
+  "similarReasons": {
+    "the-truth": "Both are anthology routes into self-contained audio fiction; The Other Stories leans toward short horror, science fiction, and thriller pieces, while The Truth ranges more widely across genre and mood."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -113,7 +130,11 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "setting": "varied worlds across short genre-fiction stories",
+    "pov": "new characters and narrators in each standalone story",
+    "framing": "weekly horror, sci-fi, and thriller anthology"
+  },
   "metadata": {
     "objectiveSources": [
       "https://theotherstories.net/about/",
@@ -668,6 +689,12 @@
   },
   "featured": false,
   "createdAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
-  "creatorId": "hawk-cleaver"
+  "updatedAt": "2026-09-17",
+  "creatorId": "hawk-cleaver",
+  "discovery": {
+    "voiceStyle": "primarily-narrated",
+    "narrativeFocus": "plot-driven",
+    "intensity": "variable",
+    "commitment": "deep-dive"
+  }
 }

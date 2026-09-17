@@ -85,7 +85,7 @@
     "hex": "#7e5a77",
     "rgb": "126, 90, 119"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-09-17",
   "officialLinks": {
     "website": "https://www.7lamb.com/audiodramas/paralyzed",
     "patreon": "",
@@ -179,5 +179,11 @@
     "how-i-died": "Another supernatural-mystery route with a cleaner investigative spine.",
     "the-white-vault": "Pushes the dread colder and more environmental once the threat needs more space around it.",
     "malevolent": "A darker occult escalation for listeners who want the horror to feel more intimate and possessed."
+  },
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "plot-driven",
+    "intensity": "high",
+    "commitment": "deep-dive"
   }
 }

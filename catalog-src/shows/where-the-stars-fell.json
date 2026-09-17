@@ -25,7 +25,11 @@
   "genres": [
     "drama"
   ],
-  "tones": [],
+  "tones": [
+    "funny",
+    "weird",
+    "hopeful"
+  ],
   "formats": [
     "serialized"
   ],
@@ -37,7 +41,11 @@
   "aliases": [
     "Where the Stars Fell"
   ],
-  "themes": [],
+  "themes": [
+    "immortality and identity",
+    "guardian angel and antichrist",
+    "small-town rapture and housemates"
+  ],
   "contentNotes": [],
   "languages": [
     "English"
@@ -73,9 +81,18 @@
   },
   "ratings": {},
   "facts": {},
-  "bestFor": [],
-  "similarTo": [],
-  "similarReasons": {},
+  "bestFor": [
+    "easy-entry",
+    "warm-weird",
+    "worldbuilding",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "the-way-we-haunt-now"
+  ],
+  "similarReasons": {
+    "the-way-we-haunt-now": "Both are warm, character-led supernatural dramas about finding a way to live with the impossible; Where the Stars Fell puts an immortal and a guardian angel in a town awaiting the rapture, while The Way We Haunt Now builds its connection through ghosts and found family."
+  },
   "archiveTake": "",
   "spoilerFreeReview": "",
   "thoughts": "",
@@ -114,7 +131,12 @@
     "transcriptFormats": [],
     "transcriptLanguages": []
   },
-  "content": {},
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "Jerusalem, Oregon, the strangest small town in America",
+    "pov": "Dr. Edison Tucker and Lucille Kensington as their housemate mystery widens",
+    "framing": "serialized supernatural fantasy audio drama"
+  },
   "metadata": {
     "objectiveSources": [
       "https://wherethestarsfell.com/",
@@ -655,7 +677,13 @@
   },
   "featured": false,
   "createdAt": "2026-07-21",
-  "updatedAt": "2026-07-21",
+  "updatedAt": "2026-09-17",
   "creatorId": "caldera-studios",
-  "networkId": "where-the-stars-fell"
+  "networkId": "where-the-stars-fell",
+  "discovery": {
+    "voiceStyle": "primarily-acted",
+    "narrativeFocus": "character-driven",
+    "intensity": "variable",
+    "commitment": "medium"
+  }
 }
