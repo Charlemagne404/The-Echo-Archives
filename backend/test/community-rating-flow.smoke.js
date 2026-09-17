@@ -558,6 +558,14 @@ test("homepage community badges stay truthful across empty, offline, and stale a
   try {
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
     await page.locator(`#podcast-grid .podcast-card-shell[data-podcast-id="${emptyShowId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${emptyShowId}"]`).waitFor({ state: "attached" });
+    await page.waitForFunction(
+      (showId) => {
+        const badge = document.querySelector(`#podcast-grid .podcast-card-shell[data-podcast-id="${showId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${showId}"]`);
+        return badge?.getAttribute("aria-label") === "No community ratings yet.";
+      },
+      emptyShowId,
+      { timeout: 5_000 },
+    );
 
     let badgeState = await page.evaluate((showId) => {
       const badge = document.querySelector(`#podcast-grid .podcast-card-shell[data-podcast-id="${showId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${showId}"]`);

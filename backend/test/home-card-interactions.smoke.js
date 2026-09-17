@@ -52,6 +52,16 @@ async function clickCollectionArrow(page, selector) {
   }, selector);
 }
 
+async function hoverCollectionCard(page, selector) {
+  const point = await page.locator(selector).evaluate((card) => {
+    const rect = card.getBoundingClientRect();
+    return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+  });
+
+  // Locator hover may scroll an overflow carousel differently across engines.
+  await page.mouse.move(point.x, point.y);
+}
+
 async function waitForCenteredCollection(page, expectedCollectionId, { maxDistance = 16 } = {}) {
   const waitForStableCenter = () =>
     page.waitForFunction(
@@ -150,7 +160,10 @@ test("homepage featured collections carousel applies center-weighted focus and d
       initialVisibleCards.find((card) => !card.clone && card.index !== nearestToCenter.index) ||
       initialVisibleCards.find((card) => !card.clone) ||
       nearestToCenter;
-    await page.locator(`#collectionGrid .collection-card[data-collection-id="${hoverTarget.collectionId}"]:not([data-collection-clone])`).hover();
+    await hoverCollectionCard(
+      page,
+      `#collectionGrid .collection-card[data-collection-id="${hoverTarget.collectionId}"]:not([data-collection-clone])`,
+    );
     await page.waitForFunction(
       (collectionId) =>
         Array.from(document.querySelectorAll("#collectionGrid .collection-card")).some(
@@ -159,7 +172,19 @@ test("homepage featured collections carousel applies center-weighted focus and d
       hoverTarget.collectionId,
       { timeout: 2_000 },
     );
-    await page.waitForTimeout(180);
+    await page.waitForFunction(
+      (collectionId) =>
+        Array.from(document.querySelectorAll("#collectionGrid .collection-card")).some((card) => {
+          if (card.dataset.collectionId !== collectionId || !card.classList.contains("is-interaction-boosted")) {
+            return false;
+          }
+
+          const transform = new DOMMatrixReadOnly(window.getComputedStyle(card).transform);
+          return transform.a > 1.03 && transform.f < -5;
+        }),
+      hoverTarget.collectionId,
+      { timeout: 2_000 },
+    );
 
     const hoveredState = await getCollectionCarouselFocusState(page);
     const hoveredTargetState = hoveredState.cards.find(

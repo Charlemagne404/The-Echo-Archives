@@ -341,6 +341,11 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     assert.notDeepEqual(sortMotionState.visibleIds.slice(0, 8), defaultVisibleIds.slice(0, 8));
     assert.ok([0, 230].includes(sortMotionState.flipDuration));
     await page.locator("#resultsSummary").waitFor();
+    await page.waitForFunction(
+      () => /Recently updated/i.test(document.getElementById("resultsSummary")?.textContent || ""),
+      undefined,
+      { timeout: 5_000 },
+    );
     assert.match((await page.locator("#resultsSummary").textContent()) || "", /Recently updated/i);
 
     await page.locator("#activeBrowseClear").click();
