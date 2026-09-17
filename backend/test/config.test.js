@@ -42,6 +42,22 @@ test("production defaults community rating writes to read-only", () => {
   assert.deepEqual(JSON.parse(result.stdout), { writes: false, host: "127.0.0.1" });
 });
 
+test("public analytics collection flag is available to runtime configuration", () => {
+  const disabled = runConfig(
+    { PUBLIC_ANALYTICS_ENABLED: "false" },
+    "const c=require('./lib/config'); c.validateConfig(c); process.stdout.write(String(c.PUBLIC_ANALYTICS_ENABLED));",
+  );
+  assert.equal(disabled.status, 0, disabled.stderr);
+  assert.equal(disabled.stdout, "false");
+
+  const enabled = runConfig(
+    { PUBLIC_ANALYTICS_ENABLED: "true" },
+    "const c=require('./lib/config'); c.validateConfig(c); process.stdout.write(String(c.PUBLIC_ANALYTICS_ENABLED));",
+  );
+  assert.equal(enabled.status, 0, enabled.stderr);
+  assert.equal(enabled.stdout, "true");
+});
+
 test("Archivist is disabled by default and can be explicitly enabled", () => {
   const disabled = runConfig(
     { ARCHIVIST_ENABLED: undefined },

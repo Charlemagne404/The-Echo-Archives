@@ -80,22 +80,38 @@ async function stopPublicRouteServer({ serverProcess, tempDir }) {
   }
 }
 
-test("runtime page config replaces every versioned public-data attribute", () => {
-  const rendered = injectRuntimeSiteConfig(
-    '<body data-archivist-enabled="stale" data-shows-version="stale" data-collections-version="stale" data-search-index-version="stale"></body>',
-    {
-      archivistEnabled: false,
-      showsVersion: "shows-current",
-      collectionsVersion: "collections-current",
-      searchIndexVersion: "search-current",
-    },
-  );
+test("runtime page config replaces public feature and data attributes", () => {
+  for (const [publicAnalyticsEnabled, expectedAnalyticsValue] of [[false, "false"], [true, "true"]]) {
+    const rendered = injectRuntimeSiteConfig(
+      '<body data-analytics-enabled="stale" data-archivist-enabled="stale" data-shows-version="stale" data-collections-version="stale" data-search-index-version="stale"></body>',
+      {
+        publicAnalyticsEnabled,
+        archivistEnabled: false,
+        showsVersion: "shows-current",
+        collectionsVersion: "collections-current",
+        searchIndexVersion: "search-current",
+      },
+    );
 
-  assert.match(rendered, /data-archivist-enabled="false"/);
-  assert.match(rendered, /data-shows-version="shows-current"/);
-  assert.match(rendered, /data-collections-version="collections-current"/);
-  assert.match(rendered, /data-search-index-version="search-current"/);
-  assert.doesNotMatch(rendered, /stale/);
+    assert.match(rendered, new RegExp(`data-analytics-enabled="${expectedAnalyticsValue}"`));
+    assert.match(rendered, /data-archivist-enabled="false"/);
+    assert.match(rendered, /data-shows-version="shows-current"/);
+    assert.match(rendered, /data-collections-version="collections-current"/);
+    assert.match(rendered, /data-search-index-version="search-current"/);
+    assert.doesNotMatch(rendered, /stale/);
+  }
+});
+
+test("public HTML uses the runtime analytics flag instead of the build artifact flag", async () => {
+  const context = await startPublicRouteServer({ PUBLIC_ANALYTICS_ENABLED: "false" });
+
+  try {
+    const response = await fetch(`${context.baseUrl}/`);
+    assert.equal(response.status, 200);
+    assert.match(await response.text(), /data-analytics-enabled="false"/);
+  } finally {
+    await stopPublicRouteServer(context);
+  }
 });
 
 test("public clean routes resolve and legacy html routes redirect", async () => {

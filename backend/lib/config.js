@@ -52,6 +52,7 @@ const config = {
   SITE_URL: process.env.SITE_URL || "https://echoarchives.net",
   ACCESS_LOG_ENABLED: accessLogEnabled,
   ACCESS_LOG_HMAC_SECRET: process.env.ACCESS_LOG_HMAC_SECRET || "",
+  PUBLIC_ANALYTICS_ENABLED: parseBoolean(process.env.PUBLIC_ANALYTICS_ENABLED, true),
   ANALYTICS_HMAC_SECRET: analyticsHmacSecret,
   ANALYTICS_RETENTION_DAYS: parseInteger(process.env.ANALYTICS_RETENTION_DAYS, 400),
   ANALYTICS_RATE_LIMIT_WINDOW_MS: parseInteger(process.env.ANALYTICS_RATE_LIMIT_WINDOW_MS, 60000),

@@ -56,7 +56,7 @@ The collector never runs on the `/api/health` listeners and does not use access 
 
 The browser uses a keepalive same-origin `fetch` and does not wait for the collector before rendering. Backend write failures and rate-limit responses are swallowed for the visitor and do not change the page response. The analytics store is cleaned by the existing in-process retention job.
 
-`PUBLIC_ANALYTICS_ENABLED=false` disables browser collection for an isolated build such as staging. Production should set it to `true` and provide a stable random `ANALYTICS_HMAC_SECRET` of at least 32 characters.
+`PUBLIC_ANALYTICS_ENABLED=false` disables browser collection for an isolated environment such as staging. The backend injects this setting into public HTML responses at request time, so a staging-built artifact can be promoted to production without carrying staging's disabled flag. Production should set it to `true` and provide a stable random `ANALYTICS_HMAC_SECRET` of at least 32 characters.
 
 ## Historical boundary
 

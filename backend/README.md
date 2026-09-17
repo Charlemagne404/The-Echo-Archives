@@ -76,7 +76,7 @@ want to override defaults. When already in `backend/`, the same files are
 - `MAINTAINER_REVIEW_COOKIE_SECRET`: signs the maintainer session cookie
 - `MAINTAINER_REVIEW_SESSION_TTL_HOURS`: maintainer session lifetime in hours
 - `MAINTAINER_LOGIN_WINDOW_MS`, `MAINTAINER_LOGIN_MAX`: maintainer login throttling policy
-- `PUBLIC_ANALYTICS_ENABLED`: build-time browser collection flag. Defaults to `true`; set to `false` for staging or isolated builds
+- `PUBLIC_ANALYTICS_ENABLED`: runtime public browser collection flag. Defaults to `true`; set to `false` for staging or isolated environments
 
 `ENABLE_TEST_ERROR_ROUTES` and `SMOKE_BROWSER` are test-only variables and must
 not be placed in a deployment environment file. Run `npm run check:config`

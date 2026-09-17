@@ -339,6 +339,14 @@ function injectRuntimeSiteConfig(html, config = {}) {
   let rendered = html;
   const previousSiteUrl = rendered.match(/<body\b[^>]*\bdata-site-url="([^"]*)"/i)?.[1] || "";
 
+  if (Object.hasOwn(config, "publicAnalyticsEnabled")) {
+    rendered = replaceBodyDataAttribute(
+      rendered,
+      "data-analytics-enabled",
+      String(Boolean(config.publicAnalyticsEnabled)),
+    );
+  }
+
   if (Object.hasOwn(config, "homeCardHoverExpandEnabled")) {
     rendered = replaceBodyDataAttribute(
       rendered,

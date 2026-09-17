@@ -523,8 +523,9 @@ async function startServer() {
 
   config.getConfigWarnings(config).forEach((warning) => console.warn(warning));
 
-  const applyRuntimeSiteConfig = (html, nonce = "") => {
+  const applyRuntimeSiteConfig = (html, nonce = "", { publicAnalyticsEnabled = config.PUBLIC_ANALYTICS_ENABLED } = {}) => {
     const configured = injectRuntimeSiteConfig(html, {
+      publicAnalyticsEnabled,
       archivistEnabled: config.ARCHIVIST_ENABLED,
       homeCardHoverExpandEnabled: config.HOME_CARD_HOVER_EXPAND_ENABLED,
       siteUrl: config.SITE_URL,
@@ -1166,7 +1167,9 @@ async function startServer() {
           rendered = injectNoIndex(rendered, { follow: true });
           res.set("X-Robots-Tag", "noindex, follow, noarchive");
         }
-        return res.type("html").send(applyRuntimeSiteConfig(rendered, req.cspNonce));
+        return res.type("html").send(applyRuntimeSiteConfig(rendered, req.cspNonce, {
+          publicAnalyticsEnabled: config.PUBLIC_ANALYTICS_ENABLED && manifestEntry.includeAnalytics !== false,
+        }));
       });
     });
 
@@ -1181,7 +1184,9 @@ async function startServer() {
         imageUrl: `${normalizeSiteUrl(config.SITE_URL)}/echo-wordmark1.png`,
         imageAlt: "The Echo Archives social preview",
       });
-      return res.type("html").send(applyRuntimeSiteConfig(rendered, _req.cspNonce));
+      return res.type("html").send(applyRuntimeSiteConfig(rendered, _req.cspNonce, {
+        publicAnalyticsEnabled: false,
+      }));
     });
     app.get("/404.html", (req, res) => {
       res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
