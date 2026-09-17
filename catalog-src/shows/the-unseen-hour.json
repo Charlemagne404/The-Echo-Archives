@@ -599,16 +599,6 @@
           "confidence": 0,
           "method": "unknown",
           "sources": []
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://anchor.fm/s/10a954c7c/podcast/rss"
-            }
-          ]
         }
       },
       "importedAt": "2026-08-15T20:24:08.883Z",
@@ -640,7 +630,7 @@
         "officialLinks": "1f17658a70bfc75e5800e1b19c53795024db09ef2d7b891b91787b5f6facb685",
         "genres": "e2384b4fab710955e3805c153a3b31e3bc7dfe6baf9abfec6549c444d8f69336",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "63fa0e133181bc8eac64996ec6bba9547aac5abe6a0ad316528b8a724e593e84",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

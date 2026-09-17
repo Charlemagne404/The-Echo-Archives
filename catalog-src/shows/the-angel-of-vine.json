@@ -60,20 +60,10 @@
     "English"
   ],
   "length": {
-    "label": "at least 10 full episodes • 25 min median",
+    "label": "10 full episodes • approximately 4.2 hours",
     "episodes": 10,
-    "avgEpisodeMinutes": 25,
-    "medianEpisodeMinutes": 25,
-    "minEpisodeMinutes": 22,
-    "maxEpisodeMinutes": 30,
-    "totalObservedHours": 4.2,
-    "durationCoverage": 1,
-    "countQualifier": "at-least",
-    "episodeCounts": {
-      "full": 10,
-      "bonus": 0,
-      "trailer": 1
-    }
+    "totalHours": 4.2,
+    "countQualifier": "exact"
   },
   "releaseDates": {
     "first": "2018-11-14",
@@ -474,7 +464,7 @@
         "aliases": "3a574f6e6eceab2f539950a0474c71aa8535e2cd6e290b1cd616cf5e53ca8664",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
-        "length": "65c53698d885c67febc2baa55610d0545aa8f5068430f2c05b71d4183214f5e8",
+        "length": "2661891d461b613ce7dcd536f5c5a0c4a6dbda053668b8aebca2053dd9922cdc",
         "releaseDates": "b2cfe7d6d7b5362fb8775723767a55cdcba0f441573e82e81eb518dd7670dde6",
         "credits": "ca6e2f495ef5b47a6520e49816f2b9a65d279193dbaaf273bee01d7ce615e2fa",
         "creators": "93db9ec55f9d4175b5db5b68052fb694056961a86dcac495084000dc5895825a",
@@ -506,6 +496,6 @@
     "voiceStyle": "primarily-acted",
     "narrativeFocus": "plot-driven",
     "intensity": "high",
-    "commitment": "medium"
+    "commitment": "short"
   }
 }

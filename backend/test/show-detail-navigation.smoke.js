@@ -321,6 +321,64 @@ test("detail hero anchors focus their destination and verified start links are p
   }
 });
 
+test("browse grid keeps loaded results and scroll position when returning from a show", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+
+  try {
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await page.waitForFunction(
+      () =>
+        document.body.dataset.appReady === "true" &&
+        document.querySelectorAll("#podcast-grid .podcast-card-shell").length === 60,
+    );
+
+    await page.locator("#loadMoreResults").click();
+    await page.waitForFunction(() => document.querySelectorAll("#podcast-grid .podcast-card-shell").length === 120);
+    await page.evaluate(() => {
+      window.scrollTo({
+        top: Math.max(0, document.documentElement.scrollHeight - window.innerHeight - 500),
+        behavior: "auto",
+      });
+    });
+    await page.waitForTimeout(180);
+
+    const beforeNavigation = await page.evaluate(() => ({
+      scrollY: window.scrollY,
+      cardCount: document.querySelectorAll("#podcast-grid .podcast-card-shell").length,
+      lastCardId: Array.from(document.querySelectorAll("#podcast-grid .podcast-card-shell")).at(-1)?.dataset.podcastId || "",
+    }));
+    assert.equal(beforeNavigation.cardCount, 120);
+    assert.ok(beforeNavigation.scrollY > 0);
+
+    const targetCard = page.locator("#podcast-grid .podcast-card-shell").last().locator("a.podcast-card");
+    const targetShowId = await targetCard.getAttribute("data-podcast-id");
+    assert.ok(targetShowId);
+    await targetCard.click();
+    await page.waitForURL(`${baseUrl}/shows/${targetShowId}`);
+    await page.waitForFunction(() => document.body.classList.contains("show-page") && document.querySelector(".detail-main"));
+
+    await page.goBack({ waitUntil: "networkidle" });
+    await page.waitForFunction(
+      () =>
+        document.body.dataset.appReady === "true" &&
+        document.querySelectorAll("#podcast-grid .podcast-card-shell").length === 120,
+    );
+
+    const afterNavigation = await page.evaluate(() => ({
+      scrollY: window.scrollY,
+      cardCount: document.querySelectorAll("#podcast-grid .podcast-card-shell").length,
+      lastCardId: Array.from(document.querySelectorAll("#podcast-grid .podcast-card-shell")).at(-1)?.dataset.podcastId || "",
+      loading: document.getElementById("podcast-grid")?.dataset.loading || "",
+    }));
+    assert.equal(afterNavigation.cardCount, beforeNavigation.cardCount);
+    assert.equal(afterNavigation.lastCardId, beforeNavigation.lastCardId);
+    assert.equal(afterNavigation.loading, "");
+    assert.ok(Math.abs(afterNavigation.scrollY - beforeNavigation.scrollY) <= 1);
+  } finally {
+    await page.close();
+  }
+});
+
 test("show-page genre breadcrumb returns to the archive with that genre filter active", async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
   const genre = showFixtures.find((show) => show.id === "were-alive")?.genres?.[0] || "";

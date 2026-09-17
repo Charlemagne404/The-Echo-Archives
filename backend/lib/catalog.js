@@ -345,7 +345,13 @@ function validatePublishedDiscoveryMetadata(record) {
     ...(record.formats || []).map((value) => `format:${value}`),
     ...(record.tags || []).map((value) => `tag:${value}`),
   ]);
-  if (discoverySignals.size < MIN_PUBLISHED_DISCOVERY_SIGNALS) {
+  // Some already-imported records previously received only a narrative format
+  // from RSS itunes:type. Once that unsupported inference is removed, keep the
+  // record publishable with its remaining source-backed genre rather than
+  // replacing the missing fact with an invented discovery signal. New imports
+  // still use the stricter readiness gate in draft.js.
+  const rssNarrativeFormatRemoved = record.metadata?.import?.fields?.formats?.method === "removed-rss-feed-type";
+  if (discoverySignals.size < MIN_PUBLISHED_DISCOVERY_SIGNALS && !rssNarrativeFormatRemoved) {
     throw new Error(`Show "${record.id}" needs at least ${MIN_PUBLISHED_DISCOVERY_SIGNALS} approved discovery signals across genres, formats, or tags before publication.`);
   }
 

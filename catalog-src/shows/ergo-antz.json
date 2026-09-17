@@ -882,16 +882,6 @@
           "confidence": 0,
           "method": "unknown",
           "sources": []
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://feeds.fireside.fm/ergoantz/rss"
-            }
-          ]
         }
       },
       "importedAt": "2026-08-15T19:43:42.490Z",
@@ -923,7 +913,7 @@
         "officialLinks": "ae5f6a74c054104b91e24874a60b2860dd859dad775648c17ed7338d76fd2645",
         "genres": "821180fff3b21544e41b758f314c5a8c5f9ed4f3c3d2e27d1acaf1686d42e588",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "7cf001e206e5d74cfb3c674df250d4f391f7eb916f70793ff2fa0710642693f3",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

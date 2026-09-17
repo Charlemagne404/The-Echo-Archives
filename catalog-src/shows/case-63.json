@@ -54,10 +54,10 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "2 seasons / 22 current feed entries including bonus material.",
+    "label": "2 seasons • 20 primary episodes",
     "seasons": 2,
-    "episodes": 22,
-    "avgEpisodeMinutes": 10
+    "episodes": 20,
+    "countQualifier": "exact"
   },
   "releaseDates": {
     "first": "2022-10-14",
@@ -128,6 +128,9 @@
       "https://gimletmedia.com/"
     ],
     "objectiveVerifiedAt": "2026-07-18",
+    "researchGaps": [
+      "Complete runtime duration is not source-verifiable; the researched short commitment is based on the exact 20-primary-episode inventory."
+    ],
     "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
     "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },

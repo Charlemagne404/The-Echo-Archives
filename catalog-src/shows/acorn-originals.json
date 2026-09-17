@@ -579,16 +579,6 @@
           "confidence": 0,
           "method": "unknown",
           "sources": []
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://feeds.redcircle.com/34bb3573-6571-4910-bc29-be4c1d2ce3e6"
-            }
-          ]
         }
       },
       "importedAt": "2026-08-15T20:42:23.600Z",
@@ -620,7 +610,7 @@
         "officialLinks": "a7e659c1bb7bec6ca41dbbf8a18e98198a90acdf2daffaf5baa6edd236a7fd37",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "0e829e59da595036802b81f174283f907748482da5a8a924fe7123cfc33e6e89",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "48651f08e9a65d85a9908e2ad8dc33a54bf552475542e58568fd42e874e5fba2",

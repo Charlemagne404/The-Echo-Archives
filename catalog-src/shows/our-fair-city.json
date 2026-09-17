@@ -60,30 +60,9 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "7 seasons observed • at least 91 full episodes • 14 min median",
-    "seasons": 7,
-    "episodes": 91,
-    "avgEpisodeMinutes": 15,
-    "medianEpisodeMinutes": 14,
-    "minEpisodeMinutes": 8,
-    "maxEpisodeMinutes": 57,
-    "totalObservedHours": 22.3,
-    "durationCoverage": 1,
-    "observedSeasons": [
-      7,
-      6,
-      4,
-      5,
-      3,
-      2,
-      1
-    ],
-    "countQualifier": "at-least",
-    "episodeCounts": {
-      "full": 91,
-      "bonus": 11,
-      "trailer": 0
-    }
+    "label": "8-season complete run",
+    "seasons": 8,
+    "countQualifier": "exact"
   },
   "releaseDates": {
     "first": "2012-03-28",
@@ -155,6 +134,9 @@
       "https://ourfaircity.libsyn.com/rss",
       "https://podcasts.apple.com/us/podcast/our-fair-city/id514748675?uo=4",
       "https://www.audaciousmachinecreative.com/our-fair-city"
+    ],
+    "researchGaps": [
+      "Aggregate runtime is not source-verifiable; the complete eight-season run is confirmed, but the available sources do not expose a reliable total duration."
     ],
     "sourceCategories": [
       "Fiction",
@@ -658,7 +640,7 @@
         "aliases": "94e2dd4e44195671566f5654cea126c84d084a033f03ddc87fffa12bb984d7b7",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "length": "7a7f930b68262553f2f1d772b971ae21f4d527caf6caa27f702a5bca79cd1a5e",
+        "length": "118065c2a5d3a660e9c014b3a5bd9298742a2c7da6d21832510f7fb66bfa840a",
         "releaseDates": "9851da28ade37230c13246b9b0831e4b0a22e176e90104ac7838b64cf41958ae",
         "credits": "4c05b830da20193f2f326db0c5bdd09cd1a9aac832ecb2de9a8266fd038de123",
         "creators": "70af2f4ea32752f44cea51b1c2e582048dc1ed89aeeeb9cc19c5a51d6fe13bbe",

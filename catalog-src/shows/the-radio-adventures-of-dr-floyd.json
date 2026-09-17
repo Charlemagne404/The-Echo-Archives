@@ -29,8 +29,7 @@
     "hopeful"
   ],
   "formats": [
-    "episodic",
-    "serialized"
+    "episodic"
   ],
   "tags": [
     "Classic radio",
@@ -407,7 +406,7 @@
         "officialLinks": "1f1f381d51c4e42ed5497e9f3887987b868e0383dbc9072dbe8aff4e2b90ba0c",
         "genres": "fc5afaa1ba06d87b85a94214d8f0eb1e98e079d7d835f67f6aebe9945844169a",
         "tags": "b99618f4d5af3dabc5fc1faf3480eb899c56587aff937d8e2512c10a734bd1a3",
-        "formats": "97480e9ef2677d81613e49115065230ead5a8fad5c3003760fc50cd476a356fd",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
         "aliases": "6e7e80f5759ac9df3e5d68a3bbf6e93d9ebee2e9bb7957522b51839012370859",
         "languages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
@@ -443,6 +442,6 @@
     "voiceStyle": "primarily-acted",
     "narrativeFocus": "plot-driven",
     "intensity": "low",
-    "commitment": "long"
+    "commitment": "medium"
   }
 }

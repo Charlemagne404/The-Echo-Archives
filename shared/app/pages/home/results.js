@@ -3,12 +3,12 @@ import { syncCommunityCardBadges } from "../../community.js";
 import { ARCHIVIST_ENABLED } from "../../constants.js";
 import { setShowDiscoveryMarker, syncShowCardPresentation } from "../../render-cards.js";
 import { bucketDiscoveryPosition, getDiscoveryContentProfile } from "../../discovery-analytics.js";
+import { getSavedHomeResultLimit, HOME_RESULTS_PAGE_SIZE, persistHomeResultLimit } from "./state.js";
 import { syncBrowseUrlState } from "./url-state.js";
 import { formatResultsSummaryPrefix, matchesSelectedFilters, renderActiveBrowseState, syncHomeControls } from "./filters.js";
 import { patchArchiveGrid, sortVisibleShows } from "./layout.js";
 import { syncResultsSummary } from "./results-motion.js";
 
-const HOME_RESULTS_PAGE_SIZE = 60;
 const AUTO_LOAD_SCROLL_ATTEMPTS_REQUIRED = 5;
 const AUTO_LOAD_ATTEMPT_DEBOUNCE_MS = 400;
 const AUTO_LOAD_BOTTOM_TOLERANCE_PX = 24;
@@ -33,7 +33,7 @@ export function createHomeResultsController({
   let pendingRenderReason = "";
   let renderFrame = 0;
   let hasRenderedHomeResults = false;
-  let displayedResultLimit = HOME_RESULTS_PAGE_SIZE;
+  let displayedResultLimit = getSavedHomeResultLimit();
   let matchingResultCount = 0;
   let displayedResultCount = 0;
   let autoLoadScrollAttempts = 0;
@@ -113,6 +113,7 @@ export function createHomeResultsController({
     }
 
     displayedResultLimit += HOME_RESULTS_PAGE_SIZE;
+    persistHomeResultLimit(displayedResultLimit);
     resetAutoLoadScrollAttempts();
     scheduleHomeResults(changeReason);
   }
@@ -240,6 +241,7 @@ export function createHomeResultsController({
       onAfterRemove: () => scheduleHomeResults("explicit"),
     });
     syncBrowseUrlState(state);
+    persistHomeResultLimit(displayedResultLimit);
     void syncCommunityCardBadges(elements.archiveGrid, visibleShows);
 
     const fullReviewCount = matchingShows.filter((show) => show.reviewStatus === "full-review").length;
@@ -295,6 +297,7 @@ export function createHomeResultsController({
   function scheduleHomeResults(changeReason = "explicit") {
     if (!LOAD_MORE_CHANGE_REASONS.has(changeReason) && changeReason !== "layout-change") {
       displayedResultLimit = HOME_RESULTS_PAGE_SIZE;
+      persistHomeResultLimit(displayedResultLimit);
       resetAutoLoadScrollAttempts();
     }
     pendingRenderReason = pendingRenderReason === "explicit" || changeReason === "explicit" ? "explicit" : changeReason;

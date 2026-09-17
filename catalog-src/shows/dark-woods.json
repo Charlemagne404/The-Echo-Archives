@@ -34,7 +34,7 @@
     "cinematic"
   ],
   "formats": [
-    "episodic"
+    "serialized"
   ],
   "tags": [
     "Mystery",
@@ -528,13 +528,12 @@
           "sources": []
         },
         "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
+          "confidence": 1,
+          "method": "maintainer-verified-research",
           "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://feeds.megaphone.fm/SBP5209429460"
-            }
+            "https://wolfentertainment.com/podcast/darkwoods/",
+            "https://wolfentertainment.com/news/wolf-entertainment-announces-second-scripted-podcast-dark-woods/",
+            "https://feeds.megaphone.fm/SBP5209429460"
           ]
         }
       },

@@ -34,7 +34,8 @@
     "cinematic"
   ],
   "formats": [
-    "episodic"
+    "episodic",
+    "anthology"
   ],
   "tags": [
     "Horror",
@@ -663,7 +664,10 @@
         "formats": {
           "confidence": 1,
           "method": "maintainer-verified-research",
-          "sources": []
+          "sources": [
+            "https://feeds.acast.com/public/shows/726d58db-735f-4bb3-98f5-01f1894ff284",
+            "https://podcasts.apple.com/us/podcast/petrified/id1446214817"
+          ]
         }
       },
       "importedAt": "2026-08-14T20:55:26.918Z",

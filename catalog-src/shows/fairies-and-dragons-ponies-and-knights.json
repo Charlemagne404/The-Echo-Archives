@@ -42,8 +42,8 @@
     "funny"
   ],
   "formats": [
-    "serialized",
-    "episodic"
+    "episodic",
+    "serialized"
   ],
   "tags": [
     "Fantasy",
@@ -166,7 +166,7 @@
     "sourceMaterial": "original fiction",
     "setting": "A fantasy world of fairies, ponies, dragons, and knights.",
     "pov": "Episodic all-ages adventure centered on Beatrice's stolen dragon egg.",
-    "framing": "episodic all-ages story podcast with live-performance roots"
+    "framing": "episodic, serialized all-ages story podcast with live-performance roots"
   },
   "metadata": {
     "objectiveSources": [
@@ -739,13 +739,13 @@
           "sources": []
         },
         "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
+          "confidence": 1,
+          "method": "maintainer-verified-research",
           "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://rss.buzzsprout.com/1415767.rss"
-            }
+            "https://www.dirtroadtheater.com/blank-1",
+            "https://www.dirtroadtheater.com/fadpak",
+            "https://rss.buzzsprout.com/1415767.rss",
+            "https://podcasts.apple.com/us/podcast/fairies-and-dragons-ponies-and-knights/id1553611894?uo=4"
           ]
         }
       },
@@ -778,7 +778,7 @@
         "officialLinks": "f2d30d2913ce20f1b0f14911b38dc22438af34148fc797959453fa2988cb4db0",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "97480e9ef2677d81613e49115065230ead5a8fad5c3003760fc50cd476a356fd",
         "aliases": "7524cb68793bad33608659265316a206c4040c0657ed4aae62af263ba810f686",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

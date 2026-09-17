@@ -34,7 +34,7 @@
     "cinematic"
   ],
   "formats": [
-    "episodic"
+    "serialized"
   ],
   "tags": [
     "1930s",
@@ -627,7 +627,10 @@
         "formats": {
           "confidence": 1,
           "method": "maintainer-verified-research",
-          "sources": []
+          "sources": [
+            "https://fromwithinaudiodrama.podbean.com/e/episode-10-a-token-for-charon/",
+            "https://fromwithinaudiodrama.podbean.com/e/episode-11-part-2/"
+          ]
         }
       },
       "importedAt": "2026-08-14T20:55:26.978Z",

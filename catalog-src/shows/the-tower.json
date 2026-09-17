@@ -38,7 +38,8 @@
     "melancholic"
   ],
   "formats": [
-    "episodic"
+    "serialized",
+    "limited-series"
   ],
   "tags": [
     "Horror",
@@ -595,13 +596,11 @@
           "sources": []
         },
         "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
+          "confidence": 1,
+          "method": "maintainer-verified-research",
           "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://rss.libsyn.com/shows/185810/destinations/1277864.xml"
-            }
+            "https://www.tincanaudio.co.uk/thetower",
+            "https://rss.libsyn.com/shows/185810/destinations/1277864.xml"
           ]
         }
       },

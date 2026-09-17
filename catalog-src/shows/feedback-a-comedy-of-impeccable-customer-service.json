@@ -527,16 +527,6 @@
           "confidence": 0,
           "method": "unknown",
           "sources": []
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://rabbit-cobalt-7bz2.squarespace.com/feedbacklistennow?format=rss"
-            }
-          ]
         }
       },
       "importedAt": "2026-08-15T20:20:54.088Z",
@@ -568,7 +558,7 @@
         "officialLinks": "803d74e142c7d1a5c37ab8badc8d313a849e3fce3f55d6208fa03a8c08cccc10",
         "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "abb3d1f791916ee6ac86f0140d547c2b64c876c14881241a29bc3891068b59e6",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

@@ -35,7 +35,8 @@
   ],
   "formats": [
     "episodic",
-    "narrated"
+    "narrated",
+    "serialized"
   ],
   "tags": [
     "Supernatural"
@@ -651,13 +652,12 @@
           "sources": []
         },
         "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
+          "confidence": 1,
+          "method": "maintainer-verified-research",
           "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://ghostlythistle.com/feed/podcast/"
-            }
+            "https://ghostlythistle.com/feed/podcast/",
+            "https://ghostlythistle.com/2019/10/25/episode-1-2/",
+            "https://ghostlythistle.com/2019/11/21/episode-2-2/"
           ]
         }
       },

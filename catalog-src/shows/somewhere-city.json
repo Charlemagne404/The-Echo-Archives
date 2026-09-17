@@ -598,16 +598,6 @@
           "confidence": 0.7,
           "method": "recent-full-episode",
           "sources": []
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
-            }
-          ]
         }
       },
       "importedAt": "2026-08-15T20:03:06.034Z",
@@ -639,7 +629,7 @@
         "officialLinks": "ee1251db7d03c453303cef1e3a2d160747ff700bd50b09cc7e6c537099d81d8e",
         "genres": "54b64656959d327c4ed1684ee817dcd15faa2b613a81ba887f8254860650d9c6",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "7dcba35411d3f81db24d390775ab6126ef49ebc8d72079f123006b0c89af47e6",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

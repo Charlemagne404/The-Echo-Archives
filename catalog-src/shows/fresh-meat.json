@@ -582,16 +582,6 @@
           "confidence": 0.7,
           "method": "recent-full-episode",
           "sources": []
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://pinecast.com/feed/fresh-meat"
-            }
-          ]
         }
       },
       "importedAt": "2026-08-15T17:13:33.900Z",
@@ -623,7 +613,7 @@
         "officialLinks": "e7248d11abd26e8019d73534341cc51e97780b93f7cc94b38aa7999dc5408cf6",
         "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "0063bc2b35a92e2369087ccb4b60b885c2466619417d69313f0d100d1ae13802",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

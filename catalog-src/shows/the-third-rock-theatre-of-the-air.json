@@ -717,16 +717,6 @@
           "confidence": 0.7,
           "method": "recent-full-episode",
           "sources": []
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://media.rss.com/thirdrocktheatre/feed.xml"
-            }
-          ]
         }
       },
       "importedAt": "2026-08-15T21:52:52.838Z",
@@ -758,7 +748,7 @@
         "officialLinks": "88fc79940034c69fa587251585681f4f7d46c54b9f9575364c8a4b2f38c1dda6",
         "genres": "821180fff3b21544e41b758f314c5a8c5f9ed4f3c3d2e27d1acaf1686d42e588",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "7723368e36b701a80d61037609145b37093e7d5f57ad4547e9e70fe69915bb55",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

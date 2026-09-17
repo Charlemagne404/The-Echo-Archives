@@ -37,7 +37,8 @@
     "weird"
   ],
   "formats": [
-    "episodic"
+    "episodic",
+    "anthology"
   ],
   "tags": [
     "Horror",
@@ -620,13 +621,12 @@
           "sources": []
         },
         "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
+          "confidence": 1,
+          "method": "maintainer-verified-research",
           "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://feeds.acast.com/public/shows/d4896840-a58c-4ecb-9369-db572d2a4d4d"
-            }
+            "https://theotherstories.net/",
+            "https://theotherstories.net/press-kit/",
+            "https://feeds.acast.com/public/shows/d4896840-a58c-4ecb-9369-db572d2a4d4d"
           ]
         }
       },

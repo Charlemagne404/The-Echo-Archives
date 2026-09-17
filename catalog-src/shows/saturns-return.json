@@ -623,16 +623,6 @@
           "confidence": 0,
           "method": "unknown",
           "sources": []
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://rss.libsyn.com/shows/392711/destinations/3229856.xml"
-            }
-          ]
         }
       },
       "importedAt": "2026-08-15T19:58:58.655Z",
@@ -664,7 +654,7 @@
         "officialLinks": "5c89307ebf56eac4fbe73d2e36173c021e630d251e0cd368b46a53234c8d49a3",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "513aaf4cf2fdf971cb2c4ad14612b36a5aa6c6521200c3d5ea963b5e33057a3b",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

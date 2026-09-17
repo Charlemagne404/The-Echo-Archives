@@ -594,22 +594,16 @@
         "releaseStatus": {
           "confidence": 1,
           "method": "maintainer-edit",
-          "sources": [{
-            "sourceType": "rss",
-            "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
-          }]
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
         },
         "completionStatus": {
           "confidence": 1,
           "method": "maintainer-edit",
-          "sources": [{
-            "sourceType": "rss",
-            "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
-          }]
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
           "sources": [
             {
               "sourceType": "rss",
@@ -647,7 +641,7 @@
         "officialLinks": "3715a7fad30ad60a728047f7d8bd9aae6976abe522328a8da99fa00796ae31bd",
         "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "f250ec9ad78f3dba973c982d65185db1c3e07e0bb67c4e40c3f7bc46ecffa5a3",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

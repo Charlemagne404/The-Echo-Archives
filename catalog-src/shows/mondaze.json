@@ -579,16 +579,6 @@
           "confidence": 0,
           "method": "unknown",
           "sources": []
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://feeds.simplecast.com/RXGjKy2V"
-            }
-          ]
         }
       },
       "importedAt": "2026-08-15T20:59:07.651Z",
@@ -620,7 +610,7 @@
         "officialLinks": "6085e8ab05c4e0e0d94e20afed8a2505e458c30d6e8b37853aa5ca3cd67c857b",
         "genres": "e2384b4fab710955e3805c153a3b31e3bc7dfe6baf9abfec6549c444d8f69336",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "b4cfb55818dc46fed5d5b5ced5be5a314939d2eb1f58842db17ce9e6fbcb5846",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

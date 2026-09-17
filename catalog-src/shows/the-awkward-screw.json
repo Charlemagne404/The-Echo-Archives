@@ -35,7 +35,7 @@
     "hopeful"
   ],
   "formats": [
-    "episodic"
+    "serialized"
   ],
   "tags": [
     "Sci-fi",
@@ -135,7 +135,7 @@
     "setting": "the Heavy-Repair vessel The Awkward Screw and the Bell-Wave Galaxy",
     "pov": "a four-person multi-species repair crew",
     "sourceMaterial": "original fiction",
-    "framing": "full-cast episodic science-fiction adventure"
+    "framing": "full-cast serialized science-fiction adventure"
   },
   "metadata": {
     "objectiveSources": [
@@ -581,13 +581,11 @@
           "sources": []
         },
         "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
+          "confidence": 1,
+          "method": "maintainer-verified-research",
           "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml"
-            }
+            "https://feed.podbean.com/www.theawkwardscrew.com/feed.xml",
+            "https://www.theawkwardscrew.com/"
           ]
         }
       },
@@ -620,7 +618,7 @@
         "officialLinks": "96e16dda91bd79b57f96983c9ecb6b92d74e97d72f83270cc81eecfe577706eb",
         "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
         "tags": "091ecc57b15d66620429b6987a69f0e47aa468d8c127cda69bd9127ca7d3a239",
-        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
         "aliases": "14f3e081cad7e8ef0e562011db5f035ee917861a00936f7d780c6c92513dcd8f",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

@@ -557,16 +557,6 @@
           "confidence": 0,
           "method": "unknown",
           "sources": []
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://rss.amperwave.net/v2/feed/podcorn/9434830cd2e7cc70eeb5cf0c9c188453"
-            }
-          ]
         }
       },
       "importedAt": "2026-08-15T21:17:11.101Z",
@@ -598,7 +588,7 @@
         "officialLinks": "c747b6aa458aa5988e93b9e3699eaadc76f6a50c830d4f3b510524831345bae6",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "923c41ba9562347b8bde669a1b7c508555ce6d9c19fbe59d2391c566676e7eb2",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

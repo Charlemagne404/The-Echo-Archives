@@ -10,17 +10,13 @@
   "coverShowIds": [],
   "showIds": [
     "the-amelia-project",
-    "the-black-tapes",
     "king-falls-am",
-    "the-imperfection",
-    "the-dead-letters-podcast"
+    "the-imperfection"
   ],
   "showReasons": {
     "the-amelia-project": "Rule match: Mystery + Episodic.",
-    "the-black-tapes": "Rule match: Mystery + Episodic.",
     "king-falls-am": "Rule match: Mystery + Episodic.",
-    "the-imperfection": "Rule match: Mystery + Episodic.",
-    "the-dead-letters-podcast": "Rule match: Mystery + Episodic."
+    "the-imperfection": "Rule match: Mystery + Episodic."
   },
   "automation": {
     "mode": "rule",
@@ -46,5 +42,5 @@
   "featured": false,
   "order": 390,
   "createdAt": "2026-08-16",
-  "updatedAt": "2026-08-16"
+  "updatedAt": "2026-09-17"
 }

@@ -15,7 +15,12 @@
     "the-grey-rooms",
     "the-nosleep-podcast",
     "the-magnus-archives",
-    "palimpsest"
+    "palimpsest",
+    "campfire-radio-theater",
+    "darkest-night",
+    "the-other-stories-sci-fi-horror-thriller-wtf-stories",
+    "the-dead-letter-office-of-somewhere-ohio",
+    "afflicted"
   ],
   "showReasons": {
     "the-mistholme-museum-of-mystery-morbidity-and-mortality": "Rule match: Horror + Anthology.",
@@ -24,7 +29,12 @@
     "the-grey-rooms": "Rule match: Horror + Anthology.",
     "the-nosleep-podcast": "Rule match: Horror + Anthology.",
     "the-magnus-archives": "Rule match: Horror + Anthology.",
-    "palimpsest": "Rule match: Horror + Anthology."
+    "palimpsest": "Rule match: Horror + Anthology.",
+    "campfire-radio-theater": "Rule match: Horror + Anthology.",
+    "darkest-night": "Rule match: Horror + Anthology.",
+    "the-other-stories-sci-fi-horror-thriller-wtf-stories": "Rule match: Horror + Anthology.",
+    "the-dead-letter-office-of-somewhere-ohio": "Rule match: Horror + Anthology.",
+    "afflicted": "Rule match: Horror + Anthology."
   },
   "automation": {
     "mode": "rule",
@@ -50,5 +60,5 @@
   "featured": false,
   "order": 370,
   "createdAt": "2026-08-16",
-  "updatedAt": "2026-09-16"
+  "updatedAt": "2026-09-17"
 }

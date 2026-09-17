@@ -239,9 +239,8 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
   const formats = mergeUniqueStrings([
     ...(enrichment.formats || []),
     ...sourceFormats,
-    objective.feedType === "serial" ? "serialized" : "",
-    objective.feedType === "episodic" ? "episodic" : "",
   ].filter(Boolean));
+  const unsupportedRssNarrativeFormat = !formats.length && ["episodic", "serial"].includes(String(objective.feedType || "").toLowerCase());
   const listenLinks = {
     start: normalizeUrl(objective.startUrl || ""),
     spotify: normalizeUrl(objective.spotifyUrl || ""),
@@ -393,9 +392,13 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
           ...(genreProvenance ? { genres: genreProvenance } : {}),
           ...(tagProvenance ? { tags: tagProvenance } : {}),
           ...(formats.length ? { formats: {
-            confidence: enrichment.formats?.length ? 1 : sourceFormatEvidence?.confidence || candidate.provenance?.fields?.feedType?.confidence || 0.7,
-            method: enrichment.formats?.length ? "maintainer-verified-research" : sourceFormatEvidence ? "deterministic-source-format" : "deterministic-feed-type",
-            sources: enrichment.formats?.length ? objective.externalResearch?.fieldSources?.formats || [] : sourceFormatEvidence?.sources || candidate.provenance?.fields?.feedType?.sources || [],
+            confidence: enrichment.formats?.length ? 1 : sourceFormatEvidence?.confidence || 0.7,
+            method: enrichment.formats?.length ? "maintainer-verified-research" : "deterministic-source-format",
+            sources: enrichment.formats?.length ? objective.externalResearch?.fieldSources?.formats || [] : sourceFormatEvidence?.sources || [],
+          } } : unsupportedRssNarrativeFormat ? { formats: {
+            confidence: 0,
+            method: "removed-rss-feed-type",
+            sources: candidate.provenance?.fields?.feedType?.sources || [],
           } } : {}),
         },
         importedAt: new Date().toISOString(),
@@ -444,7 +447,13 @@ function evaluateReadiness({ candidate, preparedRecord }) {
     ...(preparedRecord.formats || []).map((value) => `format:${value}`),
     ...(preparedRecord.tags || []).filter(isApprovedDiscoveryTag).map((value) => `tag:${value}`),
   ]);
-  if (discoverySignals.size < MIN_PUBLISHED_DISCOVERY_SIGNALS) blockers.push({ code: "insufficient-discovery-signals", field: "tags", message: `At least ${MIN_PUBLISHED_DISCOVERY_SIGNALS} approved discovery signals across genres, formats, or tags are required.` });
+  // itunes:type remains objective feed metadata, but it is not a public
+  // discovery signal. A source-complete RSS candidate may therefore proceed
+  // with its remaining source-backed genre while the public format stays
+  // explicitly unclassified.
+  const unsupportedRssNarrativeFormat = !preparedRecord.formats?.length
+    && ["episodic", "serial"].includes(String(objective.feedType || "").toLowerCase());
+  if (discoverySignals.size < MIN_PUBLISHED_DISCOVERY_SIGNALS && !unsupportedRssNarrativeFormat) blockers.push({ code: "insufficient-discovery-signals", field: "tags", message: `At least ${MIN_PUBLISHED_DISCOVERY_SIGNALS} approved discovery signals across genres, formats, or tags are required.` });
   if ((preparedRecord.genres || []).length === 0) blockers.push({ code: "missing-genre", field: "genres", message: "At least one canonical source-supported genre is required." });
   if ([preparedRecord.listenLinks?.website, preparedRecord.officialLinks?.website].filter(Boolean).some(isNonWebsiteUrl)) blockers.push({ code: "invalid-website", field: "websiteUrl", message: "A social or support profile cannot be used as the official website." });
   const expectedAppleId = String(objective.appleCollectionId || "").trim();

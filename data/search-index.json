@@ -1110,7 +1110,7 @@
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "balanced",
       "intensity": "medium",
-      "commitment": "long"
+      "commitment": "medium"
     },
     "tags": [
       "Class conflict",
@@ -2015,7 +2015,7 @@
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "balanced",
       "intensity": "medium",
-      "commitment": "long"
+      "commitment": "medium"
     },
     "tags": [
       "Cryonics",
@@ -5561,8 +5561,7 @@
     "transcriptLanguages": [],
     "bestFor": [
       "easy-entry",
-      "late-night",
-      "short-under-five-hours"
+      "late-night"
     ],
     "similarTo": [
       "case-63",
@@ -6020,7 +6019,8 @@
     ],
     "formats": [
       "full-cast",
-      "episodic"
+      "episodic",
+      "serialized"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
@@ -6126,7 +6126,7 @@
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "plot-driven",
       "intensity": "medium",
-      "commitment": "long"
+      "commitment": "medium"
     },
     "tags": [
       "Detective",
@@ -6241,7 +6241,7 @@
       "voiceStyle": "primarily-narrated",
       "narrativeFocus": "character-driven",
       "intensity": "low",
-      "commitment": "medium"
+      "commitment": "long"
     },
     "tags": [
       "Road trip",
@@ -6494,8 +6494,7 @@
     "transcriptLanguages": [],
     "bestFor": [
       "headphones-on",
-      "late-night",
-      "short-under-five-hours"
+      "late-night"
     ],
     "similarTo": [
       "archive-81",
@@ -6595,7 +6594,7 @@
       "voiceStyle": "mixed",
       "narrativeFocus": "plot-driven",
       "intensity": "high",
-      "commitment": "medium"
+      "commitment": "short"
     },
     "tags": [
       "Conspiracy",
@@ -6688,14 +6687,13 @@
     ],
     "formats": [
       "narrated",
-      "episodic",
       "serialized"
     ],
     "discovery": {
       "voiceStyle": "primarily-narrated",
       "narrativeFocus": "plot-driven",
       "intensity": "high",
-      "commitment": "long"
+      "commitment": "medium"
     },
     "tags": [
       "Horror",
@@ -6794,7 +6792,7 @@
       "voiceStyle": "mixed",
       "narrativeFocus": "character-driven",
       "intensity": "medium",
-      "commitment": "long"
+      "commitment": "medium"
     },
     "tags": [
       "Sci-fi",
@@ -7257,7 +7255,7 @@
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "plot-driven",
       "intensity": "high",
-      "commitment": "deep-dive"
+      "commitment": "long"
     },
     "tags": [
       "Historical",
@@ -7730,7 +7728,7 @@
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "character-driven",
       "intensity": "medium",
-      "commitment": "medium"
+      "commitment": "short"
     },
     "tags": [
       "Sci-fi",
@@ -8530,7 +8528,7 @@
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "character-driven",
       "intensity": "medium",
-      "commitment": "long"
+      "commitment": "medium"
     },
     "tags": [
       "Small town",
@@ -10305,7 +10303,7 @@
       "weird"
     ],
     "formats": [
-      "episodic"
+      "serialized"
     ],
     "discovery": {
       "voiceStyle": "primarily-narrated",
@@ -10400,7 +10398,7 @@
       "weird"
     ],
     "formats": [
-      "episodic"
+      "serialized"
     ],
     "discovery": {
       "voiceStyle": "primarily-narrated",
@@ -10502,7 +10500,7 @@
       "voiceStyle": "primarily-narrated",
       "narrativeFocus": "plot-driven",
       "intensity": "high",
-      "commitment": "medium"
+      "commitment": "long"
     },
     "tags": [
       "Lovecraftian",
@@ -10809,7 +10807,8 @@
     ],
     "formats": [
       "episodic",
-      "narrated"
+      "narrated",
+      "serialized"
     ],
     "discovery": {
       "voiceStyle": "primarily-narrated",
@@ -11549,9 +11548,11 @@
       "tense"
     ],
     "formats": [
+      "serialized",
       "episodic"
     ],
     "discovery": {
+      "voiceStyle": "mixed",
       "narrativeFocus": "character-driven",
       "intensity": "variable",
       "commitment": "deep-dive"
@@ -12984,8 +12985,7 @@
     "formats": [
       "full-cast",
       "anthology",
-      "serialized",
-      "episodic"
+      "serialized"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
@@ -13696,7 +13696,7 @@
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "plot-driven",
       "intensity": "high",
-      "commitment": "short"
+      "commitment": "medium"
     },
     "tags": [
       "Paranormal",
@@ -13790,7 +13790,7 @@
       "voiceStyle": "primarily-narrated",
       "narrativeFocus": "character-driven",
       "intensity": "high",
-      "commitment": "long"
+      "commitment": "deep-dive"
     },
     "tags": [
       "Horror",
@@ -14389,7 +14389,7 @@
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "character-driven",
       "intensity": "medium",
-      "commitment": "deep-dive"
+      "commitment": "long"
     },
     "tags": [
       "Sci-fi",
@@ -15137,7 +15137,7 @@
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "plot-driven",
       "intensity": "high",
-      "commitment": "deep-dive"
+      "commitment": "long"
     },
     "tags": [
       "Horror",
@@ -15296,8 +15296,7 @@
       "warm"
     ],
     "formats": [
-      "serialized",
-      "episodic"
+      "serialized"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
@@ -16369,13 +16368,13 @@
       "weird"
     ],
     "formats": [
-      "episodic"
+      "serialized"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "plot-driven",
       "intensity": "high",
-      "commitment": "short"
+      "commitment": "medium"
     },
     "tags": [
       "Investigation",
@@ -16485,7 +16484,7 @@
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "character-driven",
       "intensity": "medium",
-      "commitment": "long"
+      "commitment": "deep-dive"
     },
     "tags": [
       "AI",
@@ -16577,7 +16576,8 @@
       "cinematic"
     ],
     "formats": [
-      "episodic"
+      "episodic",
+      "anthology"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
@@ -16706,7 +16706,7 @@
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "plot-driven",
       "intensity": "high",
-      "commitment": "short"
+      "commitment": "medium"
     },
     "tags": [
       "Alaska",
@@ -16827,7 +16827,8 @@
       "cinematic"
     ],
     "formats": [
-      "episodic"
+      "episodic",
+      "serialized"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
@@ -16930,7 +16931,7 @@
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "plot-driven",
       "intensity": "high",
-      "commitment": "medium"
+      "commitment": "short"
     },
     "tags": [
       "Detective fiction",
@@ -17155,7 +17156,8 @@
       "cinematic"
     ],
     "formats": [
-      "serialized"
+      "serialized",
+      "anthology"
     ],
     "discovery": {
       "voiceStyle": "primarily-narrated",
@@ -17887,7 +17889,8 @@
       "cinematic"
     ],
     "formats": [
-      "episodic"
+      "anthology",
+      "serialized"
     ],
     "discovery": {
       "voiceStyle": "mixed",
@@ -17984,13 +17987,13 @@
       "cinematic"
     ],
     "formats": [
-      "episodic"
+      "episodic",
+      "anthology"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "plot-driven",
-      "intensity": "high",
-      "commitment": "short"
+      "intensity": "high"
     },
     "tags": [
       "Horror",
@@ -18099,7 +18102,7 @@
       "weird"
     ],
     "formats": [
-      "episodic"
+      "serialized"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
@@ -18195,7 +18198,8 @@
       "funny"
     ],
     "formats": [
-      "serialized"
+      "serialized",
+      "anthology"
     ],
     "discovery": {
       "narrativeFocus": "balanced",
@@ -18399,13 +18403,14 @@
       "weird"
     ],
     "formats": [
-      "serialized"
+      "serialized",
+      "anthology"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "balanced",
       "intensity": "high",
-      "commitment": "long"
+      "commitment": "medium"
     },
     "tags": [
       "Mystery",
@@ -18649,7 +18654,7 @@
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "character-driven",
       "intensity": "variable",
-      "commitment": "medium"
+      "commitment": "long"
     },
     "tags": [
       "Comedy",
@@ -19215,7 +19220,7 @@
       "weird"
     ],
     "formats": [
-      "episodic"
+      "serialized"
     ],
     "discovery": {
       "voiceStyle": "primarily-narrated",
@@ -19250,7 +19255,7 @@
       "our-fair-city"
     ],
     "similarReasons": {
-      "our-fair-city": "Both offer long-running episodic speculative worlds where survival and the rules of a strange environment drive the next story; Liminal Lands is more solitary and horror-forward."
+      "our-fair-city": "Both offer long-running speculative worlds where survival and the rules of a strange environment drive the next story; The Liminal Lands follows a solitary serialized journey, while Our Fair City offers a broader ensemble route."
     },
     "archiveTake": "",
     "facts": {},
@@ -19266,7 +19271,7 @@
     "content": {
       "setting": "The Liminal Lands, a hostile new reality",
       "pov": "a lone traveler searching for his missing family",
-      "framing": "weekly episodic survival-horror journey"
+      "framing": "serialized survival-horror journey"
     },
     "ratings": {},
     "popularity": {},
@@ -19325,7 +19330,8 @@
       "melancholic"
     ],
     "formats": [
-      "episodic"
+      "serialized",
+      "limited-series"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
@@ -19545,7 +19551,7 @@
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "plot-driven",
       "intensity": "medium",
-      "commitment": "deep-dive"
+      "commitment": "long"
     },
     "tags": [
       "Urban fantasy",
@@ -19841,7 +19847,8 @@
       "dark"
     ],
     "formats": [
-      "episodic"
+      "episodic",
+      "serialized"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
@@ -20045,7 +20052,7 @@
       "hopeful"
     ],
     "formats": [
-      "episodic"
+      "serialized"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
@@ -20097,7 +20104,7 @@
       "setting": "the Heavy-Repair vessel The Awkward Screw and the Bell-Wave Galaxy",
       "pov": "a four-person multi-species repair crew",
       "sourceMaterial": "original fiction",
-      "framing": "full-cast episodic science-fiction adventure"
+      "framing": "full-cast serialized science-fiction adventure"
     },
     "ratings": {},
     "popularity": {},
@@ -20235,7 +20242,8 @@
       "weird"
     ],
     "formats": [
-      "episodic"
+      "episodic",
+      "anthology"
     ],
     "discovery": {
       "voiceStyle": "primarily-narrated",
@@ -20549,7 +20557,7 @@
       "cinematic"
     ],
     "formats": [
-      "episodic"
+      "serialized"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
@@ -20643,7 +20651,7 @@
       "cinematic"
     ],
     "formats": [
-      "episodic"
+      "serialized"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
@@ -20957,13 +20965,14 @@
       "cinematic"
     ],
     "formats": [
-      "serialized"
+      "serialized",
+      "anthology"
     ],
     "discovery": {
       "voiceStyle": "mixed",
       "narrativeFocus": "balanced",
       "intensity": "variable",
-      "commitment": "deep-dive"
+      "commitment": "long"
     },
     "tags": [
       "Genre anthology",
@@ -21545,13 +21554,13 @@
       "weird"
     ],
     "formats": [
-      "episodic"
+      "episodic",
+      "anthology"
     ],
     "discovery": {
       "voiceStyle": "primarily-narrated",
       "narrativeFocus": "plot-driven",
-      "intensity": "high",
-      "commitment": "deep-dive"
+      "intensity": "high"
     },
     "tags": [
       "Horror",
@@ -21925,7 +21934,8 @@
       "weird"
     ],
     "formats": [
-      "episodic"
+      "serialized",
+      "limited-series"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
@@ -22020,7 +22030,8 @@
       "cinematic"
     ],
     "formats": [
-      "episodic"
+      "episodic",
+      "anthology"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
@@ -22209,7 +22220,7 @@
       "weird"
     ],
     "formats": [
-      "episodic"
+      "serialized"
     ],
     "discovery": {
       "narrativeFocus": "plot-driven",
@@ -22310,13 +22321,14 @@
       "weird"
     ],
     "formats": [
-      "episodic"
+      "episodic",
+      "anthology"
     ],
     "discovery": {
       "voiceStyle": "mixed",
       "narrativeFocus": "balanced",
       "intensity": "variable",
-      "commitment": "long"
+      "commitment": "medium"
     },
     "tags": [
       "Sci-fi",
@@ -22501,7 +22513,7 @@
       "cinematic"
     ],
     "formats": [
-      "episodic"
+      "serialized"
     ],
     "discovery": {
       "narrativeFocus": "plot-driven",
@@ -55136,8 +55148,8 @@
       "funny"
     ],
     "formats": [
-      "serialized",
-      "episodic"
+      "episodic",
+      "serialized"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
@@ -55204,7 +55216,7 @@
       "sourceMaterial": "original fiction",
       "setting": "A fantasy world of fairies, ponies, dragons, and knights.",
       "pov": "Episodic all-ages adventure centered on Beatrice's stolen dragon egg.",
-      "framing": "episodic all-ages story podcast with live-performance roots"
+      "framing": "episodic, serialized all-ages story podcast with live-performance roots"
     },
     "ratings": {},
     "popularity": {},
@@ -59358,7 +59370,8 @@
     ],
     "formats": [
       "episodic",
-      "full-cast"
+      "full-cast",
+      "anthology"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
@@ -59635,14 +59648,13 @@
       "hopeful"
     ],
     "formats": [
-      "episodic",
-      "serialized"
+      "episodic"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "plot-driven",
       "intensity": "low",
-      "commitment": "long"
+      "commitment": "medium"
     },
     "tags": [
       "Classic radio",
@@ -60060,7 +60072,7 @@
       "voiceStyle": "primarily-acted",
       "narrativeFocus": "plot-driven",
       "intensity": "high",
-      "commitment": "long"
+      "commitment": "deep-dive"
     },
     "tags": [
       "Occult",
@@ -60460,7 +60472,7 @@
       "voiceStyle": "primarily-narrated",
       "narrativeFocus": "character-driven",
       "intensity": "medium",
-      "commitment": "medium"
+      "commitment": "long"
     },
     "tags": [
       "Ghosts",
@@ -60549,8 +60561,7 @@
     ],
     "formats": [
       "serialized",
-      "narrated",
-      "episodic"
+      "narrated"
     ],
     "discovery": {
       "voiceStyle": "primarily-narrated",
@@ -60666,8 +60677,7 @@
     ],
     "formats": [
       "full-cast",
-      "serialized",
-      "episodic"
+      "serialized"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
@@ -60763,8 +60773,7 @@
     ],
     "formats": [
       "serialized",
-      "full-cast",
-      "episodic"
+      "full-cast"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",
@@ -61461,7 +61470,7 @@
     "formats": [
       "serialized",
       "full-cast",
-      "episodic"
+      "anthology"
     ],
     "discovery": {
       "voiceStyle": "primarily-acted",

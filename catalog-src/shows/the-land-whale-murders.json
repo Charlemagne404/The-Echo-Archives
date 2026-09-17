@@ -658,13 +658,14 @@
           "sources": []
         },
         "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
+          "confidence": 1,
+          "method": "maintainer-verified-research",
           "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://feeds.megaphone.fm/landwhalemurders"
-            }
+            "https://www.landwhalepod.com/cast",
+            "https://www.landwhalepod.com/listen",
+            "https://www.landwhalepod.com/about",
+            "https://www.landwhalepod.com/",
+            "https://feeds.megaphone.fm/landwhalemurders"
           ]
         }
       },

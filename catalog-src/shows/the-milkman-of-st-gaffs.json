@@ -387,11 +387,6 @@
           "method": "recent-full-episode",
           "sources": []
         },
-        "formats": {
-          "confidence": 0.7,
-          "method": "deterministic-feed-type",
-          "sources": []
-        },
         "genres": {
           "confidence": 1,
           "method": "maintainer-verified",
@@ -436,7 +431,7 @@
         "officialLinks": "8382d91f4b9b5ff7042a955096317b31ed50b76d9509ba6484391ba6da3ecfaa",
         "genres": "2a203bbc7e588f85700a0bb84c962d49e641651caec1893eccb85d36f78f3cf9",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "1fcb0369e8aa4fb24c5e1228cd012d851c42c5f9d95d28cee35aabf8d4f44c4f",
         "aliases": "7158f47fbd5ea9fac091de4d191a0a3e3f3b1017f8bf02f779a3fa808dc58743",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
@@ -464,6 +459,6 @@
     "voiceStyle": "primarily-narrated",
     "narrativeFocus": "plot-driven",
     "intensity": "high",
-    "commitment": "medium"
+    "commitment": "long"
   }
 }

@@ -750,16 +750,6 @@
           "confidence": 0,
           "method": "unknown",
           "sources": []
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/7b/02/78/7b0278c7-b2e7-4f3f-90d6-246a909c57b6.xml"
-            }
-          ]
         }
       },
       "importedAt": "2026-08-15T19:54:35.168Z",
@@ -791,7 +781,7 @@
         "officialLinks": "5704d61e0539651bc280d47558eede957423b5ef56dad624a1e9c3f542a32521",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "dbc27fd818ab1f79c25b438a259c4cd7bb0f2c8af60b657c419d832cc5e5bd09",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

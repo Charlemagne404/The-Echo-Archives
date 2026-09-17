@@ -23,13 +23,13 @@ user and group are host-specific. The service never runs from this checkout.
 ## Current Release Status
 
 This runbook reflects the current 1.1.0 repository and generated catalog
-snapshot through **2026-09-08**. The repository contains the released
+snapshot through **2026-09-17**. The repository contains the released
 static-first product, creator discovery, and protected submission, import,
 elevation, and collection-maintainer workflows. The generated catalog snapshot
 has 752 published shows, 517 imported records, 228 indexed-only records, 7 full
-reviews, and 46 collections. Its status is `content-pending`: numeric floors
-pass, but the report lists 10 Phase 2 blocking errors, including 2 actionable
-RSS gaps and 5 undocumented runtime gaps.
+reviews, and 46 collections. Gate B is complete with zero catalog blockers; six
+missing RSS links and four runtime gaps are explicitly documented, alongside 25
+research-gap records.
 
 Do not treat the product release marker or local catalog checks as proof that
 every deployment gate has passed. Host, provider, recovery, monitoring, and
@@ -808,8 +808,9 @@ Documentation rules:
 
 The current dated QA records have different scopes:
 
-- `docs/qa/creator-data-audit-2026-09-08.md` records the latest creator/entity source audit and its local validation boundaries.
-- `docs/qa/internal-linking-audit-2026-09-08.md` records the latest generated-route and relationship audit.
+- `docs/qa/2026-09-17-post-campaign-cleanup-review.md` records the current catalog, graph, generated-output, and validation closeout.
+- `docs/qa/creator-data-audit-2026-09-08.md` records an earlier creator/entity source audit and its local validation boundaries.
+- `docs/qa/internal-linking-audit-2026-09-08.md` records an earlier generated-route and relationship audit.
 - `docs/qa/2026-09-07-legal-review.md` records the latest legal-readiness and deployment-parity review.
 - `docs/qa/2026-09-05-release-1.1-creators.md` records the Creators release validation snapshot.
 - `docs/qa/2026-08-20-1.0-todo-evidence.md` is a historical 1.0 TODO/evidence record; it does not replace the current generated catalog status.

@@ -28,7 +28,7 @@
     "weird"
   ],
   "formats": [
-    "episodic"
+    "serialized"
   ],
   "tags": [
     "Horror",
@@ -581,13 +581,10 @@
           ]
         },
         "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
+          "confidence": 1,
+          "method": "maintainer-verified-research",
           "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://feeds.acast.com/public/shows/633d459331f65200114bfe1f"
-            }
+            "https://feeds.acast.com/public/shows/633d459331f65200114bfe1f"
           ]
         }
       },
@@ -620,7 +617,7 @@
         "officialLinks": "821ef6af2227a8d3c7071138263900e0c35e185e88532e7bdec9b4f75d81fa09",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
         "tags": "d999df8a91983fb11d778f2121134d278c7925d2d33211d73862005c08686d92",
-        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
         "aliases": "ab2ca539019c2b02ecda0e3a7de00d487906aabd72c0305e231aa0b3746dd2d4",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

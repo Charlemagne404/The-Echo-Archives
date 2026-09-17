@@ -35,7 +35,7 @@
     "cinematic"
   ],
   "formats": [
-    "episodic"
+    "serialized"
   ],
   "tags": [
     "Sci-fi",
@@ -562,13 +562,11 @@
           "sources": []
         },
         "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
+          "confidence": 1,
+          "method": "maintainer-verified-research",
           "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://anchor.fm/s/1025f4364/podcast/rss"
-            }
+            "https://wakeupnewvilirth.com/",
+            "https://anchor.fm/s/1025f4364/podcast/rss"
           ]
         }
       },

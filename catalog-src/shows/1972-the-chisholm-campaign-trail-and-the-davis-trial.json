@@ -528,22 +528,16 @@
         "releaseStatus": {
           "confidence": 1,
           "method": "maintainer-edit",
-          "sources": [{
-            "sourceType": "rss",
-            "sourceUrl": "https://feeds.megaphone.fm/1972"
-          }]
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/1972"
+            }
+          ]
         },
         "completionStatus": {
           "confidence": 1,
           "method": "maintainer-edit",
-          "sources": [{
-            "sourceType": "rss",
-            "sourceUrl": "https://feeds.megaphone.fm/1972"
-          }]
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
           "sources": [
             {
               "sourceType": "rss",
@@ -581,7 +575,7 @@
         "officialLinks": "7674c8ec2409b59d2de18f38927dbde61dd5f55a111f0f03bc8d1d8ea06c5ec9",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "87f4f2cb11660249e3ae1d3a9c5c2bd035f2b71c984bb360252a2ac993f555a1",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
@@ -596,7 +590,6 @@
       "optionalGaps": [
         "Structured creator/cast/production credits were not exposed by the sources.",
         "No structured transcript links were exposed by the feed.",
-        
         "No exact Spotify show URL was found on the official site."
       ],
       "publication": {

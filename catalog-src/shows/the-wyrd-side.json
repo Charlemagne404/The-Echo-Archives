@@ -608,16 +608,6 @@
               "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
             }
           ]
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
-            }
-          ]
         }
       },
       "importedAt": "2026-07-21T13:58:03.845Z",
@@ -649,7 +639,7 @@
         "officialLinks": "287db5bfb0d5a556b35fa68e384517d1efc6dd9b4b0cd36fdb5f217d3c2c7bc1",
         "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
         "tags": "40b4c86f4db00df7b46b107ccd220e3b6d5df7ab67006f781b9d237c179fd3ba",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "fee9e8a99dc2f12515e722a63acebcab30be0cd94d36bbcf947c9d38b3278b67",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

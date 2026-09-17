@@ -689,22 +689,16 @@
         "releaseStatus": {
           "confidence": 1,
           "method": "maintainer-edit",
-          "sources": [{
-            "sourceType": "rss",
-            "sourceUrl": "https://feeds.captivate.fm/jesus-pancake/"
-          }]
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/jesus-pancake/"
+            }
+          ]
         },
         "completionStatus": {
           "confidence": 1,
           "method": "maintainer-edit",
-          "sources": [{
-            "sourceType": "rss",
-            "sourceUrl": "https://feeds.captivate.fm/jesus-pancake/"
-          }]
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
           "sources": [
             {
               "sourceType": "rss",
@@ -742,7 +736,7 @@
         "officialLinks": "7c763eb30965e14c3e1b5602d8f1874919edf373601f7300328db51cf451584a",
         "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "be112d1ac2218eb9f4ea0b196020149fc79010e274bd915e89ff4e391d3e7d01",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

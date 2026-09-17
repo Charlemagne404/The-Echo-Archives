@@ -537,22 +537,16 @@
         "releaseStatus": {
           "confidence": 1,
           "method": "maintainer-edit",
-          "sources": [{
-            "sourceType": "rss",
-            "sourceUrl": "https://anchor.fm/s/5fee0264/podcast/rss"
-          }]
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5fee0264/podcast/rss"
+            }
+          ]
         },
         "completionStatus": {
           "confidence": 1,
           "method": "maintainer-edit",
-          "sources": [{
-            "sourceType": "rss",
-            "sourceUrl": "https://anchor.fm/s/5fee0264/podcast/rss"
-          }]
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
           "sources": [
             {
               "sourceType": "rss",
@@ -590,7 +584,7 @@
         "officialLinks": "ecafea739567d523a791c0e430d1f46a589233f6970e5e1f5decc39a01173dd8",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "05756278c69755864349e4bcfb95e00c849822c2e1c9f825ea6a02797ff5c75a",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

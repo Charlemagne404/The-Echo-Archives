@@ -480,11 +480,5 @@ export async function initializeHomePage() {
     stickyBrowseVisibilityController.sync();
   });
 
-  window.addEventListener("beforeunload", () => {
-    scrollRestoration.save();
-    scrollRestoration.destroy();
-    stickyBrowseVisibilityController.destroy();
-  });
-
   setBrowseControlsDisabled(elements, false);
 }

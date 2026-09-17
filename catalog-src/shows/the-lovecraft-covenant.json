@@ -638,22 +638,16 @@
         "releaseStatus": {
           "confidence": 1,
           "method": "maintainer-edit",
-          "sources": [{
-            "sourceType": "rss",
-            "sourceUrl": "https://audiofiction.co.uk/archive/20170820-02/20170820-02.xml"
-          }]
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://audiofiction.co.uk/archive/20170820-02/20170820-02.xml"
+            }
+          ]
         },
         "completionStatus": {
           "confidence": 1,
           "method": "maintainer-edit",
-          "sources": [{
-            "sourceType": "rss",
-            "sourceUrl": "https://audiofiction.co.uk/archive/20170820-02/20170820-02.xml"
-          }]
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
           "sources": [
             {
               "sourceType": "rss",
@@ -691,7 +685,7 @@
         "officialLinks": "153f8bde42cbc231aa852e052019624fed2e76cf129cc96b947466c2a2c20444",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "cfd9b29ae82ed5983ac5b68ff3715c7c7f9f5bff5fb35357ebf198c27efaea5b",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

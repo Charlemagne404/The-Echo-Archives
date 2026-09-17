@@ -34,7 +34,7 @@
     "weird"
   ],
   "formats": [
-    "episodic"
+    "serialized"
   ],
   "tags": [
     "Mystery",
@@ -600,7 +600,9 @@
         "formats": {
           "confidence": 1,
           "method": "maintainer-verified-research",
-          "sources": []
+          "sources": [
+            "https://anchor.fm/s/9b66e068/podcast/rss"
+          ]
         }
       },
       "importedAt": "2026-08-14T20:55:26.940Z",

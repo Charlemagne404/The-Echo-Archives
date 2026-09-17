@@ -47,15 +47,13 @@ The current generated catalog snapshot contains:
 | Creator-verified shows | 0 |
 
 Exact counts and gap detail remain generated evidence, not hand-maintained
-product copy. The latest catalog-authored update is 2026-09-08.
+product copy. The latest catalog-authored update is 2026-09-17.
 
-The current generated report is `content-pending`: numeric floors pass, but it
-lists 10 Phase 2 blocking errors, including two core metadata gaps, two
-actionable RSS gaps, five undocumented runtime gaps, and one out-of-scope
-published record. Four missing RSS links, four documented runtime unknowns, and
-22 other research-gap records remain explicit in the generated report. This is
-separate from host, provider, recovery, browser, and deployment checks, which
-are recorded in the relevant dated QA reports.
+The current generated report marks Gate B complete with zero blockers. Six
+missing RSS links, four documented runtime gaps, and 29 research-gap records
+remain explicit in the generated report. This is separate from host, provider,
+recovery, browser, and deployment checks, which are recorded in the relevant
+dated QA reports.
 
 ## Roadmap Rules
 
@@ -83,7 +81,7 @@ Keep these out of scope unless a demonstrated bottleneck changes the decision:
 
 ## Current Priorities
 
-1. Resolve or explicitly document the current factual, runtime, and scope blockers listed in the generated catalog report.
+1. Review the six documented RSS gaps, four documented runtime gaps, and 29 research-gap records when new evidence appears; Gate B has no remaining catalog blockers.
 2. Complete the repository, host, external-provider, backup/restore, monitoring, and browser gates recorded in the relevant dated QA reports.
 3. Increase editorial depth beyond 7 full reviews without weakening the factual Imported/indexed-only lanes.
 4. Improve weak collection and similarity coverage where it creates a real listener route.
@@ -121,7 +119,7 @@ Next work:
 Exit evidence:
 
 - `npm run report:catalog` reproduces the generated status; it currently reports
-  `content-pending` and exits non-zero while the 10 Phase 2 blockers remain
+  Gate B complete with zero blockers and exits successfully
 - `npm --prefix backend run validate:data` passes
 - review, taxonomy, scope, and link checks pass
 - generated catalog output matches its authored source
@@ -133,8 +131,8 @@ the next advantage must come from better data and reasoning.
 
 Next work:
 
-- improve the 637 records with fewer than two collection memberships where a real route exists
-- review the 681 records outside the preferred similarity-link range without fabricating relationships
+- review the 502 records with fewer than two collection memberships where a real route exists
+- review the 671 authored similarity links outside the preferred range without fabricating relationships
 - keep collection reasons specific, listener-facing, and source-backed by the archive’s editorial policy
 - expose new filters only when the supporting metadata is consistent enough to be trustworthy
 - preserve fast short-query search and identity-field relevance
@@ -224,8 +222,8 @@ not mark these gates complete from local unit tests alone.
 | Gate | Status | Meaning |
 | --- | --- | --- |
 | 1.1.0 product baseline | Current | The shipped static-first product, creator discovery, and protected workflows are represented in the repository. |
-| Catalog quality | `content-pending` | Numeric floors are exceeded, but the generated report still lists 10 Phase 2 blocking errors. |
-| Repository verification | `partial` | Backend validation and tests pass, and the structure check completes with soft-limit warnings; the full root gate and complete browser batch have not passed in this closeout. |
+| Catalog quality | `Gate B complete` | Numeric floors pass; factual, editorial, collection, taxonomy, and scope blockers are at zero. |
+| Repository verification | `partial` | Backend serial tests and browser smoke pass, and the structure check completes with soft-limit warnings; the root gate remains partial because two host-specific tool tests fail on this macOS environment. |
 | Production operations | `unverified` | Host, external provider, recovery, monitoring, and live browser evidence are not established by this local docs pass. |
 | Post-1.1 discovery | `next` | Improve data-backed search, filters, collection routes, and recommendation context. |
 | Mature archive | `future` | Broader editorial depth, creator context, and sustained quality follow-through. |
@@ -233,7 +231,7 @@ not mark these gates complete from local unit tests alone.
 Status labels:
 
 - `Current`: the release baseline is the active product state
-- `content-pending`: implementation exists but catalog/editorial evidence still has an open blocker
+- `Gate B complete`: the repository catalog gates pass; production and external evidence remain separate
 - `blocked`: a required repository gate currently fails
 - `partial`: focused repository gates pass, but the complete verification gate remains unfinished
 - `unverified`: evidence requires the target host, provider, or physical device

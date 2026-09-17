@@ -35,7 +35,8 @@
     "cinematic"
   ],
   "formats": [
-    "episodic"
+    "episodic",
+    "anthology"
   ],
   "tags": [
     "Horror",
@@ -522,7 +523,6 @@
   "discovery": {
     "voiceStyle": "primarily-acted",
     "narrativeFocus": "plot-driven",
-    "intensity": "high",
-    "commitment": "short"
+    "intensity": "high"
   }
 }

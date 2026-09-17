@@ -53,27 +53,10 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "4 seasons observed • at least 56 full episodes • 26 min median",
+    "label": "4 seasons • 73 primary episodes",
     "seasons": 4,
-    "episodes": 56,
-    "avgEpisodeMinutes": 26,
-    "medianEpisodeMinutes": 26,
-    "minEpisodeMinutes": 2,
-    "maxEpisodeMinutes": 95,
-    "totalObservedHours": 23.9,
-    "durationCoverage": 1,
-    "observedSeasons": [
-      4,
-      3,
-      2,
-      1
-    ],
-    "countQualifier": "at-least",
-    "episodeCounts": {
-      "full": 56,
-      "bonus": 17,
-      "trailer": 3
-    }
+    "episodes": 73,
+    "countQualifier": "exact"
   },
   "releaseDates": {
     "first": "2021-05-20",
@@ -141,6 +124,9 @@
     "objectiveSources": [
       "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2",
       "https://podcasts.apple.com/us/podcast/wake-of-corrosion/id1566786218?uo=4"
+    ],
+    "researchGaps": [
+      "Aggregate runtime is not source-verifiable; the canonical 73-episode, four-season concluding run is confirmed, while the stale partial duration is not used."
     ],
     "sourceCategories": [
       "Fiction",
@@ -634,16 +620,6 @@
               "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
             }
           ]
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
-            }
-          ]
         }
       },
       "importedAt": "2026-07-21T13:53:09.147Z",
@@ -675,11 +651,11 @@
         "officialLinks": "8496ad0ec463b7d7c461040c355c41a540da2f5904a73d7101e26dc82321e105",
         "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
         "tags": "14217617b5d305ff509c671740ba89c6e472c3a6723cbf14c5a317e67801ab40",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "41f02f72f8a64f8fba2cabc366060133219970004798d66b0630039cb5a6d6cf",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "length": "d56b89b10656979b6384542e1ea38d6b735539822500307ee76a96a564870bdc",
+        "length": "2f9cd90d2f78a3d82f4bf7f14900e4a7dca75d635be2a61e73592a9f3cf1cd16",
         "releaseDates": "d1c551e736345b263ed1a82658d32d176c2f75959c4b3b7593f7476820b4c2ab",
         "credits": "bbfb96608a1593f06075bbcbdc6655af4f801160c084e4ae53f4b3ab1cbe3ab1",
         "creators": "065c25c6dddfca435e757fd40aa6e502414bf442d43d8f3908eae3f0a8568db4",

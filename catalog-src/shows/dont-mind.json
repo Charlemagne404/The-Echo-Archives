@@ -41,7 +41,8 @@
     "weird"
   ],
   "formats": [
-    "serialized"
+    "serialized",
+    "anthology"
   ],
   "tags": [
     "Mystery",
@@ -808,6 +809,6 @@
     "voiceStyle": "primarily-acted",
     "narrativeFocus": "balanced",
     "intensity": "high",
-    "commitment": "long"
+    "commitment": "medium"
   }
 }

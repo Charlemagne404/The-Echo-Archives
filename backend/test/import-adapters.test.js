@@ -84,6 +84,7 @@ test("parseRssText handles Podcasting 2.0 people, transcripts, funding, episode 
   assert.equal(normalized.complete, true);
   assert.deepEqual(normalized.episodeCounts, { full: 1, bonus: 1, trailer: 1, totalObserved: 3, exact: true });
   assert.equal(normalized.avgEpisodeMinutes, 30);
+  assert.equal(normalized.totalObservedHours, 0.5);
   assert.equal(normalized.transcripts.coverage, 0.333);
   assert.deepEqual(normalized.transcripts.languages, ["en"]);
   assert.equal(normalized.transcripts.captions, true);

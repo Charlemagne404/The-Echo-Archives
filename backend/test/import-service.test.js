@@ -64,7 +64,7 @@ function appleEmptyResponse() {
   });
 }
 
-function rssDocument({ title = "Signal Lost", website = "https://example.com/", feedUrl = "https://example.com/feed.xml", complete = false, fullCastKeyword = "" } = {}) {
+function rssDocument({ title = "Signal Lost", website = "https://example.com/", feedUrl = "https://example.com/feed.xml", complete = false, feedType = "serial", fullCastKeyword = "" } = {}) {
   return `<?xml version="1.0" encoding="UTF-8"?>
     <rss version="2.0"
       xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
@@ -79,7 +79,7 @@ function rssDocument({ title = "Signal Lost", website = "https://example.com/", 
         <language>en</language>
         <itunes:category text="Fiction"><itunes:category text="Drama" /></itunes:category>
         <itunes:keywords>${fullCastKeyword ? `${fullCastKeyword}, ` : ""}mystery, deep space, abandoned station, Science Fiction</itunes:keywords>
-        <itunes:type>serial</itunes:type>
+        <itunes:type>${feedType}</itunes:type>
         ${complete ? "<podcast:complete>true</podcast:complete>" : ""}
         <podcast:guid>4c4d1ac2-1ab3-42ad-8898-123456789abc</podcast:guid>
         <podcast:person role="writer" group="creative">Alex Writer</podcast:person>
@@ -293,13 +293,15 @@ test("a source-rich RSS import becomes review-and-publish ready and publishes wi
     assert.equal(candidate.readiness.publicationEligibility.indexedOnly.eligible, false);
     assert.deepEqual(candidate.preparedRecord.tones, []);
     assert.deepEqual(candidate.preparedRecord.similarTo, []);
-    assert.deepEqual(candidate.preparedRecord.formats, ["serialized"]);
+    assert.deepEqual(candidate.preparedRecord.formats, []);
+    assert.equal(candidate.preparedRecord.metadata.import.fields.formats.method, "removed-rss-feed-type");
     assert.deepEqual(candidate.preparedRecord.genres, ["drama"]);
     assert.equal(candidate.preparedRecord.metadata.import.fields.genres.method, "deterministic-category-mapping");
     assert.deepEqual(candidate.preparedRecord.tags, []);
     assert.equal(candidate.preparedRecord.metadata.import.fields.tags, undefined);
     assert.equal(candidate.preparedRecord.length.episodes, 1);
     assert.equal(candidate.preparedRecord.length.episodeCounts.bonus, 1);
+    assert.equal(candidate.preparedRecord.length.totalObservedHours, 0.5);
     assert.equal(candidate.preparedRecord.length.durationCoverage, 1);
     assert.deepEqual(candidate.preparedRecord.length.observedSeasons, [1]);
     assert.equal(candidate.preparedRecord.availability.transcripts, "1 observed episodes");
@@ -330,11 +332,37 @@ test("an explicit source full-cast label becomes a deterministic imported format
   try {
     const seeded = await context.service.seedCandidates({ entries: ["https://example.com/feed.xml"], autoHydrate: true });
     const candidate = context.service.getForMaintainer(seeded.candidateIds[0]);
-    assert.deepEqual(candidate.preparedRecord.formats, ["full-cast", "serialized"]);
+    assert.deepEqual(candidate.preparedRecord.formats, ["full-cast"]);
     assert.equal(candidate.preparedRecord.metadata.import.fields.formats.method, "deterministic-source-format");
     assert.ok(candidate.preparedRecord.metadata.import.fields.formats.sources.some((source) => source.sourceType === "rss"));
   } finally {
     cleanup(context);
+  }
+});
+
+test("RSS itunes:type is retained as objective feed metadata but never classifies narrative format", async () => {
+  for (const feedType of ["episodic", "serial"]) {
+    const baseFetch = sourceRichFetch();
+    const context = createTempImportContext({
+      fetchImpl: async (url, init) => {
+        if (String(url) === "https://example.com/feed.xml") {
+          return new Response(rssDocument({ feedType }), {
+            status: 200,
+            headers: { "content-type": "application/rss+xml" },
+          });
+        }
+        return baseFetch(url, init);
+      },
+    });
+    try {
+      const seeded = await context.service.seedCandidates({ entries: ["https://example.com/feed.xml"], autoHydrate: true });
+      const candidate = context.service.getForMaintainer(seeded.candidateIds[0]);
+      assert.deepEqual(candidate.preparedRecord.formats, []);
+      assert.equal(candidate.preparedRecord.metadata.import.fields.feedType.method, "direct");
+      assert.equal(candidate.preparedRecord.metadata.import.fields.formats.method, "removed-rss-feed-type");
+    } finally {
+      cleanup(context);
+    }
   }
 });
 

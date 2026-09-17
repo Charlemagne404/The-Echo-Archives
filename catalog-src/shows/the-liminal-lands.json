@@ -36,7 +36,7 @@
     "weird"
   ],
   "formats": [
-    "episodic"
+    "serialized"
   ],
   "tags": [
     "Horror",
@@ -100,7 +100,7 @@
     "our-fair-city"
   ],
   "similarReasons": {
-    "our-fair-city": "Both offer long-running episodic speculative worlds where survival and the rules of a strange environment drive the next story; Liminal Lands is more solitary and horror-forward."
+    "our-fair-city": "Both offer long-running speculative worlds where survival and the rules of a strange environment drive the next story; The Liminal Lands follows a solitary serialized journey, while Our Fair City offers a broader ensemble route."
   },
   "archiveTake": "",
   "spoilerFreeReview": "",
@@ -142,7 +142,7 @@
   "content": {
     "setting": "The Liminal Lands, a hostile new reality",
     "pov": "a lone traveler searching for his missing family",
-    "framing": "weekly episodic survival-horror journey"
+    "framing": "serialized survival-horror journey"
   },
   "metadata": {
     "objectiveSources": [
@@ -611,13 +611,11 @@
           "sources": []
         },
         "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
+          "confidence": 1,
+          "method": "maintainer-verified-research",
           "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://anchor.fm/s/a0cdc6ac/podcast/rss"
-            }
+            "https://anchor.fm/s/a0cdc6ac/podcast/rss",
+            "https://podcasts.apple.com/us/podcast/the-liminal-lands/id1631178384"
           ]
         }
       },
@@ -650,7 +648,7 @@
         "officialLinks": "8300c6dc311a4feb9da768698e34cdf2a078d59bf34a3445de98a7161c7b6f72",
         "genres": "1f2d851f207803ae54c955df931f29e546a539c6cb2f52374b5af5ce920ed0bf",
         "tags": "3440be4c7cec96c47f677e36b6f3f7fd8d3f808c3c43c71190b3138dbfb57add",
-        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
         "aliases": "3eefb3bf775af1b777386c3f617167b9c8cc08f00181b67d47e6d5b2f00fe489",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

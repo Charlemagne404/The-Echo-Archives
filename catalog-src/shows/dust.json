@@ -35,7 +35,8 @@
     "weird"
   ],
   "formats": [
-    "episodic"
+    "episodic",
+    "anthology"
   ],
   "tags": [
     "Sci-fi",
@@ -637,7 +638,10 @@
         "formats": {
           "confidence": 1,
           "method": "maintainer-verified-research",
-          "sources": []
+          "sources": [
+            "https://feeds.acast.com/public/shows/32a7db3f-bb92-510a-ad6a-94d579b7d794",
+            "https://podcasts.apple.com/us/podcast/dust/id1482669176"
+          ]
         }
       },
       "importedAt": "2026-08-14T20:55:26.960Z",
@@ -707,6 +711,6 @@
     "voiceStyle": "mixed",
     "narrativeFocus": "balanced",
     "intensity": "variable",
-    "commitment": "long"
+    "commitment": "medium"
   }
 }

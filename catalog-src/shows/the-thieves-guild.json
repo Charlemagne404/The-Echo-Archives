@@ -593,16 +593,6 @@
           "confidence": 0.7,
           "method": "recent-full-episode",
           "sources": []
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://www.omnycontent.com/d/playlist/3082f102-29e2-476c-974b-a78d001c3a4c/c089ddae-1de6-4047-bef1-b45a00ce7ad8/a938be82-8a9a-4943-915e-b45a00ce7ae4/podcast.rss"
-            }
-          ]
         }
       },
       "importedAt": "2026-08-14T20:21:47.041Z",
@@ -634,7 +624,7 @@
         "officialLinks": "4b124217cd8207663c5243f7294432e5e0ae5745f3fd905d46c9674df899a942",
         "genres": "edaa34e03b15d1e89ffac79eff143caadd3ae3a9c141575ec765a56ab87946c4",
         "tags": "7e715c8b06a412538985a9fd115c7bf5775152bd795f17fec1c74571a5e8a8d3",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "cba5644f61942e74dc084bde2ed74855e31e54ab58103701de82e5861d6a15d8",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

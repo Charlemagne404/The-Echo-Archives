@@ -36,7 +36,8 @@
     "dark"
   ],
   "formats": [
-    "episodic"
+    "episodic",
+    "serialized"
   ],
   "tags": [
     "Horror",
@@ -555,13 +556,11 @@
           "sources": []
         },
         "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
+          "confidence": 1,
+          "method": "maintainer-verified-research",
           "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://rss.libsyn.com/shows/97852/destinations/507996.xml"
-            }
+            "https://rss.libsyn.com/shows/97852/destinations/507996.xml",
+            "https://podcasts.apple.com/us/podcast/attention-hellmart-shoppers/id1231095568"
           ]
         }
       },
@@ -594,7 +593,7 @@
         "officialLinks": "3e90311e92e6a807f26afc63f0f877db98c2816987c9089b5efb84a615aa3b2e",
         "genres": "15089ac7d96a685956fe0564b76022072a581f54fe73c00e11e9d8174ec25e89",
         "tags": "11cfb46e0234b4df0e157cd6f354166939bb2648953606a1d42824900484ff58",
-        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "formats": "97480e9ef2677d81613e49115065230ead5a8fad5c3003760fc50cd476a356fd",
         "aliases": "eae939cf2a378d9f3fe26420b52828130d7a4b2dcd8ba11818696ced00040b66",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

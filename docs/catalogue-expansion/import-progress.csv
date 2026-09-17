@@ -355,7 +355,7 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 355,P2,12 Ghosts,,40238f91-ef09-407c-a5ca-e676efdc548e,needs-review,needs-review,source-conflict,2026-08-15 19:38:01
 356,P2,[REDACTED],,b0e80270-b776-4c1d-a2fe-b905ae93ce41,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 19:39:29
 357,P2,A Darker Tale,Jelle Havermans,6ecc9800-c33e-4ea6-994c-745467b4c3fd,published,published,,2026-08-15 19:39:33
-358,P2,Aberrations,,f3eb2073-0069-4640-96e2-c52282fd364e,published,published,,2026-08-15 19:39:33
+358,P2,Aberrations,,db5d3420-bb21-4d8f-88bf-4e09dabb288b,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review,2026-08-16 20:04:35
 359,P2,Abnormal Advice,,4de15d3f-fd82-492e-9363-9df422ae81bf,published,published,,2026-08-15 19:39:33
 360,P2,After Dark,,0e416be3-afdf-41fa-8432-ebe6f448acb2,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:37:43
 361,P2,Aftershocks,,b5d9e75f-2bfc-4ee4-977a-8a4c0b98965b,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:39:31
@@ -533,7 +533,7 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 533,P3,Leo Brawn,,f7efa58a-2700-44af-85b3-81966b745205,needs-review,needs-review,invalid-website; source-conflict,2026-08-15 20:49:38
 534,P3,Limbo Calling,,1caf75ea-5ad9-4997-8e7a-28c0eb31f077,needs-review,needs-review,source-conflict,2026-08-15 20:49:36
 535,P3,Long Night in Egypt,,8c11a7ff-1925-4942-b9ee-87fbb8e3fddc,published,published,,2026-08-15 20:52:42
-536,P3,Mage In The Machine,,a3603768-36c0-47fa-bd13-0f571fd1b564,published,published,,2026-08-15 20:52:42
+536,P3,Mage In The Machine,,a3603768-36c0-47fa-bd13-0f571fd1b564,published,published,,2026-08-27 19:18:31
 537,P3,Mantelreef,,4feb0dcb-c23e-47cf-bb37-e3b1dff4eaf7,needs-review,needs-review,source-conflict,2026-08-15 20:51:44
 538,P3,Mil-Liminal,,2ca4d210-35f1-48b3-9f41-ffdccc93287d,needs-review,needs-review,source-conflict,2026-08-15 20:49:37
 539,P3,Murder Mansion,,1bd22cc9-8b9f-47f1-8647-0889ff2a1852,needs-review,needs-review,scope-review; source-conflict,2026-08-15 20:49:41
@@ -629,7 +629,7 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 629,P2,HAPPY & WE KNOW IT,,e5fe984b-e1de-4696-9d12-ac7827235765,published,published,,2026-08-15 19:56:17
 630,P2,Hearthbound: An Untelling of the Odyssey,,3e7ee6f9-857c-4aea-becf-c63b75431a31,published,published,,2026-08-15 19:56:17
 631,P2,Hearthfall: A Dark Fantasy Audio Drama,,2072fc65-7130-4586-84dd-5e1afd3ac8f6,published,published,,2026-08-15 19:56:17
-632,P2,Homicide at Heavensgate,,723e856b-6785-41b1-89ee-53c93bfa269b,published,published,,2026-08-15 19:56:17
+632,P2,Homicide at Heavensgate,,e3644420-bb1b-4191-9a9a-debaba97c707,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review,2026-08-16 20:04:36
 633,P2,Hovering,,bfe76c9c-0ad1-4991-83c6-155eaa37d3d6,needs-review,needs-review,source-conflict,2026-08-15 19:57:27
 634,P2,Howl,,b2b6f80e-1752-44bf-abe0-75116e00f0a4,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 19:57:38
 635,P2,Human-B-Gon,,7ff66ca3-576c-4e38-a4e0-0d1d4f8a7c88,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 19:59:04

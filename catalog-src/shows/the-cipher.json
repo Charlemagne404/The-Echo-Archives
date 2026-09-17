@@ -35,7 +35,7 @@
     "weird"
   ],
   "formats": [
-    "episodic"
+    "serialized"
   ],
   "tags": [
     "Investigation",
@@ -516,6 +516,6 @@
     "voiceStyle": "primarily-acted",
     "narrativeFocus": "plot-driven",
     "intensity": "high",
-    "commitment": "short"
+    "commitment": "medium"
   }
 }

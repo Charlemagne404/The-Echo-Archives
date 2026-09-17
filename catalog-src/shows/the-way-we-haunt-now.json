@@ -600,16 +600,6 @@
           "confidence": 1,
           "method": "maintainer-edit",
           "sources": []
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://pinecast.com/feed/the-way-we-haunt-now"
-            }
-          ]
         }
       },
       "importedAt": "2026-08-14T20:21:46.999Z",
@@ -641,7 +631,7 @@
         "officialLinks": "ef9ec65b866b604bf81e8f2d0781a0634012d36eb2305fdb4ce9d7ad87376cc7",
         "genres": "42ce78018358431df5bfd98a332b161fc285da2aa0bb85be23f3466df29631c4",
         "tags": "ccbda67406b28562a7cfd03bc3030e1213b3f36b549d027dbc1a193e28aed98e",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "b9037a2ac49af65bbdba9713452e8c8fda82d0a7416c324db3b126532f359555",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

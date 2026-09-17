@@ -708,16 +708,6 @@
               "sourceUrl": "https://feeds.captivate.fm/super-suits/"
             }
           ]
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://feeds.captivate.fm/super-suits/"
-            }
-          ]
         }
       },
       "importedAt": "2026-07-21T13:55:15.796Z",
@@ -749,7 +739,7 @@
         "officialLinks": "b5440c9a9439615113d5d88d614519c74c995dbadfc0aba6d36495bae01e4912",
         "genres": "54b64656959d327c4ed1684ee817dcd15faa2b613a81ba887f8254860650d9c6",
         "tags": "9940c5873e2a26c6c70e05ab713ea92e4b669f7942028e62ff025f487bdeaefd",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "3fe57ef3d1a4192389f80be8e07ad38b2a8d6e3b32e8e1e3e2027112c3c7aa88",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

@@ -822,16 +822,6 @@
               "sourceUrl": "https://feeds.acast.com/public/shows/61ba0a431a8cbeb6ea3cf11a"
             }
           ]
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://feeds.acast.com/public/shows/61ba0a431a8cbeb6ea3cf11a"
-            }
-          ]
         }
       },
       "importedAt": "2026-07-21T12:19:42.368Z",
@@ -863,7 +853,7 @@
         "officialLinks": "2debe70acbea18923a4f01bf28d570175e62b1ee2fcf218a29bf353ea3b73838",
         "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
         "tags": "ae8c80e6a38e6610b2874407f21c46e5b44a2b7e3d9eaf2a8f4ede9bca244feb",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "5f74092c596af15001e5b4e735e8df7a0a8d10e7d5591bc4de93faef25a7fda2",
         "aliases": "e16e1ebf8312797797c084816771132961a061319fdc15d2366a450353f7040f",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

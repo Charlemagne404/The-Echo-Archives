@@ -57,26 +57,10 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "3 seasons observed • at least 3 full episodes • 25 min median",
+    "label": "3 seasons • 26 primary episodes",
     "seasons": 3,
-    "episodes": 3,
-    "avgEpisodeMinutes": 24,
-    "medianEpisodeMinutes": 25,
-    "minEpisodeMinutes": 21,
-    "maxEpisodeMinutes": 27,
-    "totalObservedHours": 1.2,
-    "durationCoverage": 1,
-    "observedSeasons": [
-      3,
-      2,
-      1
-    ],
-    "countQualifier": "at-least",
-    "episodeCounts": {
-      "full": 3,
-      "bonus": 1,
-      "trailer": 4
-    }
+    "episodes": 26,
+    "countQualifier": "exact"
   },
   "releaseDates": {
     "first": "2019-12-17",
@@ -146,6 +130,9 @@
       "https://podcasts.apple.com/us/podcast/blood-ties/id1484142154?uo=4",
       "https://podcasts.apple.com/us/podcast/blood-ties/id1484142154",
       "https://wondery.com/shows/Blood-Ties/"
+    ],
+    "researchGaps": [
+      "Complete runtime duration is not source-verifiable because the observed provider feed exposed only a partial duration set; the researched medium commitment uses the exact three-season, 26-primary-episode inventory."
     ],
     "sourceCategories": [
       "Drama",
@@ -661,7 +648,7 @@
         "aliases": "6df7723ab9defa57dad86b2491fb5558e9077220a25e5794463853e17b582743",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "length": "4cce5b2f2fcac41d5e5d1cc026a14c09121d864ac518c5dc17f21bbb0e01d6bd",
+        "length": "2ceb02820672ab3efce91a6013f98ab0707f9f757bd1bbb038ed84216364b4f4",
         "releaseDates": "9f9825d1ab1e14372c26b47de448c177308d60999b716931c91e67e972229174",
         "credits": "5f1624f19a49521242510206107c24142425e7e20a6d96f9c27e1ed26c95c717",
         "creators": "196b50e45c8a525edb06daab7d2817ac1d813865b0f9058ad0d69237e71a5802",

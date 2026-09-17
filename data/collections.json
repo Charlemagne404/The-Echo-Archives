@@ -2757,7 +2757,7 @@
     "featured": false,
     "order": 280,
     "createdAt": "2026-08-16",
-    "updatedAt": "2026-09-16"
+    "updatedAt": "2026-09-17"
   },
   {
     "id": "ongoing-sci-fi",
@@ -3366,7 +3366,12 @@
       "the-grey-rooms",
       "the-nosleep-podcast",
       "the-magnus-archives",
-      "palimpsest"
+      "palimpsest",
+      "campfire-radio-theater",
+      "darkest-night",
+      "the-other-stories-sci-fi-horror-thriller-wtf-stories",
+      "the-dead-letter-office-of-somewhere-ohio",
+      "afflicted"
     ],
     "showReasons": {
       "the-mistholme-museum-of-mystery-morbidity-and-mortality": "Rule match: Horror + Anthology.",
@@ -3375,7 +3380,12 @@
       "the-grey-rooms": "Rule match: Horror + Anthology.",
       "the-nosleep-podcast": "Rule match: Horror + Anthology.",
       "the-magnus-archives": "Rule match: Horror + Anthology.",
-      "palimpsest": "Rule match: Horror + Anthology."
+      "palimpsest": "Rule match: Horror + Anthology.",
+      "campfire-radio-theater": "Rule match: Horror + Anthology.",
+      "darkest-night": "Rule match: Horror + Anthology.",
+      "the-other-stories-sci-fi-horror-thriller-wtf-stories": "Rule match: Horror + Anthology.",
+      "the-dead-letter-office-of-somewhere-ohio": "Rule match: Horror + Anthology.",
+      "afflicted": "Rule match: Horror + Anthology."
     },
     "automation": {
       "mode": "rule",
@@ -3400,7 +3410,7 @@
     "featured": false,
     "order": 370,
     "createdAt": "2026-08-16",
-    "updatedAt": "2026-09-16"
+    "updatedAt": "2026-09-17"
   },
   {
     "id": "episodic-horror",
@@ -3414,35 +3424,23 @@
     "coverShowIds": [],
     "showIds": [
       "welcome-to-night-vale",
-      "the-black-tapes",
       "knifepoint-horror",
-      "the-grey-rooms",
       "the-nosleep-podcast",
       "scp-archives",
-      "darkest-night",
       "campfire-radio-theater",
-      "the-liminal-lands",
-      "the-tower",
       "attention-hellmart-shoppers",
       "the-other-stories-sci-fi-horror-thriller-wtf-stories",
-      "mage-in-the-machine",
-      "afflicted"
+      "mage-in-the-machine"
     ],
     "showReasons": {
       "welcome-to-night-vale": "Rule match: Horror + Episodic.",
-      "the-black-tapes": "Rule match: Horror + Episodic.",
       "knifepoint-horror": "Rule match: Horror + Episodic.",
-      "the-grey-rooms": "Rule match: Horror + Episodic.",
       "the-nosleep-podcast": "Rule match: Horror + Episodic.",
       "scp-archives": "Rule match: Horror + Episodic.",
-      "darkest-night": "Rule match: Horror + Episodic.",
       "campfire-radio-theater": "Rule match: Horror + Episodic.",
-      "the-liminal-lands": "Rule match: Horror + Episodic.",
-      "the-tower": "Rule match: Horror + Episodic.",
       "attention-hellmart-shoppers": "Rule match: Horror + Episodic.",
       "the-other-stories-sci-fi-horror-thriller-wtf-stories": "Rule match: Horror + Episodic.",
-      "mage-in-the-machine": "Rule match: Horror + Episodic.",
-      "afflicted": "Rule match: Horror + Episodic."
+      "mage-in-the-machine": "Rule match: Horror + Episodic."
     },
     "automation": {
       "mode": "rule",
@@ -3467,7 +3465,7 @@
     "featured": false,
     "order": 380,
     "createdAt": "2026-08-16",
-    "updatedAt": "2026-09-16"
+    "updatedAt": "2026-09-17"
   },
   {
     "id": "episodic-mystery",
@@ -3481,17 +3479,13 @@
     "coverShowIds": [],
     "showIds": [
       "the-amelia-project",
-      "the-black-tapes",
       "king-falls-am",
-      "the-imperfection",
-      "the-dead-letters-podcast"
+      "the-imperfection"
     ],
     "showReasons": {
       "the-amelia-project": "Rule match: Mystery + Episodic.",
-      "the-black-tapes": "Rule match: Mystery + Episodic.",
       "king-falls-am": "Rule match: Mystery + Episodic.",
-      "the-imperfection": "Rule match: Mystery + Episodic.",
-      "the-dead-letters-podcast": "Rule match: Mystery + Episodic."
+      "the-imperfection": "Rule match: Mystery + Episodic."
     },
     "automation": {
       "mode": "rule",
@@ -3516,7 +3510,7 @@
     "featured": false,
     "order": 390,
     "createdAt": "2026-08-16",
-    "updatedAt": "2026-08-16"
+    "updatedAt": "2026-09-17"
   },
   {
     "id": "shows-like-the-bright-sessions",

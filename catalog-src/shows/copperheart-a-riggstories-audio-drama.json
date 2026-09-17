@@ -369,11 +369,6 @@
           "confidence": 1,
           "method": "source-categories-and-keywords",
           "sources": []
-        },
-        "formats": {
-          "confidence": 0.7,
-          "method": "deterministic-feed-type",
-          "sources": []
         }
       },
       "importedAt": "2026-07-18T12:02:09.747Z",
@@ -405,7 +400,7 @@
         "officialLinks": "4c114fb89256c452ab310668d0b693aa7f4e3935b0295068da04baf747fcc993",
         "genres": "4c38f0e2aa28b32e01031dc02e5822a15ae8b82d1750f078c9970aa0c6602ee5",
         "tags": "89f6b21e153a289f454839f1bcc32acfb2d85989aeff9c8b1c5c4a4c9a67bf18",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "8c16b0ea11ff9275c17b2650348886a48e1dd3736bfd836b64fd7ef615f11844",
         "aliases": "c8ab151fae5fb49f9c467788d3d9aa993a60565bcaacde92faff318fcc2e87b1",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

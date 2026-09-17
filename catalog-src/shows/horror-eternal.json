@@ -35,7 +35,8 @@
     "weird"
   ],
   "formats": [
-    "episodic"
+    "episodic",
+    "anthology"
   ],
   "tags": [
     "Horror",
@@ -588,7 +589,10 @@
         "formats": {
           "confidence": 1,
           "method": "maintainer-verified-research",
-          "sources": []
+          "sources": [
+            "https://feed.podbean.com/spiralopus/feed.xml",
+            "https://spiralopus.podbean.com/"
+          ]
         }
       },
       "importedAt": "2026-08-14T20:55:26.862Z",
@@ -655,7 +659,6 @@
   "discovery": {
     "voiceStyle": "primarily-narrated",
     "narrativeFocus": "plot-driven",
-    "intensity": "high",
-    "commitment": "deep-dive"
+    "intensity": "high"
   }
 }

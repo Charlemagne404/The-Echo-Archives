@@ -568,22 +568,16 @@
         "releaseStatus": {
           "confidence": 0.95,
           "method": "explicit-completion",
-          "sources": [{
-            "sourceType": "rss",
-            "sourceUrl": "https://feeds.redcircle.com/37fc8096-ef53-4594-9078-6f320264997f"
-          }]
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/37fc8096-ef53-4594-9078-6f320264997f"
+            }
+          ]
         },
         "completionStatus": {
           "confidence": 0.95,
           "method": "explicit-completion",
-          "sources": [{
-            "sourceType": "rss",
-            "sourceUrl": "https://feeds.redcircle.com/37fc8096-ef53-4594-9078-6f320264997f"
-          }]
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
           "sources": [
             {
               "sourceType": "rss",
@@ -621,7 +615,7 @@
         "officialLinks": "e43f261a5536e8f4878fbc4cb0f9ab3f957ffe8a89ee5052d0531755f4a292ff",
         "genres": "821180fff3b21544e41b758f314c5a8c5f9ed4f3c3d2e27d1acaf1686d42e588",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "0d05ba80cfce40d3f489e2e878c69d97b44b2e02b6113b66f5b88df3173771c6",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

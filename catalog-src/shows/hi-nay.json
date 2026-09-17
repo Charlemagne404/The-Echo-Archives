@@ -27,6 +27,7 @@
     "tense"
   ],
   "formats": [
+    "serialized",
     "episodic"
   ],
   "tags": [
@@ -781,13 +782,12 @@
           ]
         },
         "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
+          "confidence": 1,
+          "method": "maintainer-verified-research",
           "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
-            }
+            "https://feeds.acast.com/public/shows/hi-nay",
+            "https://shows.acast.com/hi-nay/episodes",
+            "https://shows.acast.com/hi-nay/episodes/episode-88-nasagip-saved"
           ]
         }
       },
@@ -843,6 +843,7 @@
   "updatedAt": "2026-07-21",
   "creatorId": "motzie-dapul",
   "discovery": {
+    "voiceStyle": "mixed",
     "narrativeFocus": "character-driven",
     "intensity": "variable",
     "commitment": "deep-dive"

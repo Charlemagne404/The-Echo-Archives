@@ -413,11 +413,6 @@
           "method": "recent-full-episode",
           "sources": []
         },
-        "formats": {
-          "confidence": 0.7,
-          "method": "deterministic-feed-type",
-          "sources": []
-        },
         "genres": {
           "confidence": 1,
           "method": "maintainer-verified",
@@ -458,7 +453,7 @@
         "officialLinks": "2fd7ec55441beb4f11c0aafa69cc9272f92b1543481224fe0302477a1fd535ed",
         "genres": "2c275825a9a917fed1d156338d3cb13a8fa1799f71d028af94d65070c4eba144",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "e9fe3b5892b8da35887fcf29fd9074e2c8bfd37300231318407fe24f3a2e254e",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

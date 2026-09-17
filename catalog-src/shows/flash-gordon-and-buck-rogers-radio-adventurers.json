@@ -738,16 +738,6 @@
           "confidence": 0,
           "method": "unknown",
           "sources": []
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://www.spreaker.com/show/6672197/episodes/feed"
-            }
-          ]
         }
       },
       "importedAt": "2026-07-17T15:10:42.286Z",
@@ -778,7 +768,7 @@
         "listenLinks": "38f92df98f4f6122b06d37d05a6851e9b1dd72638aa026b11893014e1d84412a",
         "officialLinks": "c0d0d7e13a63ac47222455335040aff1c007191de67ef75a461c52ae454422cd",
         "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
-        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "formats": "a5ca4fc69c2db9682c0ee899f9dacf6adac73921a0af0059e68946bc821b8b1f",
         "aliases": "546c2788b377378bd171240818475eb710e0e3005cf0e714803ac46cc753aded",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",

@@ -558,16 +558,6 @@
               "sourceUrl": "https://feeds.megaphone.fm/DDRMA2819642929"
             }
           ]
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://feeds.megaphone.fm/DDRMA2819642929"
-            }
-          ]
         }
       },
       "importedAt": "2026-07-21T12:19:39.190Z",
@@ -599,7 +589,7 @@
         "officialLinks": "9d45e40c8d3f9b94e402defc5b259eb46de60cfbed76ff6aa26b6a5bda87503a",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
         "tags": "795d5e223a3ca23aca4e4218e0eb089c83108eeea9d12eaed76c03665ac4dd8a",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "5f74092c596af15001e5b4e735e8df7a0a8d10e7d5591bc4de93faef25a7fda2",
         "aliases": "e90f0016ee533a4c96194c2274b21084c2b7cc3329c33b7184d316ccb38d4e7a",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

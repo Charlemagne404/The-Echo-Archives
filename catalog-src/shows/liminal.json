@@ -38,7 +38,8 @@
     "weird"
   ],
   "formats": [
-    "episodic"
+    "serialized",
+    "limited-series"
   ],
   "tags": [
     "Sci-fi",
@@ -625,7 +626,11 @@
         "formats": {
           "confidence": 1,
           "method": "maintainer-verified-research",
-          "sources": []
+          "sources": [
+            "https://www.acornartsandentertainment.com/about-5",
+            "https://www.acornartsandentertainment.com/liminal",
+            "https://anchor.fm/s/109146680/podcast/rss"
+          ]
         }
       },
       "importedAt": "2026-08-14T20:55:26.905Z",

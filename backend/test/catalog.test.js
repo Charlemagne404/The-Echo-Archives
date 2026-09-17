@@ -294,6 +294,34 @@ test("published catalog records require approved discovery signals instead of fi
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
 
+test("published imported records may retain one genre after unsupported RSS narrative inference is removed", async () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+  writeJson(path.join(dataRoot, "collections.json"), []);
+
+  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({
+    reviewStatus: "imported",
+    formats: [],
+    tags: [],
+    ratings: undefined,
+    archiveTake: "",
+    spoilerFreeReview: "",
+    thoughts: "",
+    quote: { text: "", attribution: "" },
+    tones: [],
+    themes: [],
+    contentNotes: [],
+    bestFor: [],
+    similarTo: [],
+    similarReasons: {},
+    metadata: { import: { fields: { formats: { method: "removed-rss-feed-type", confidence: 0, sources: [] } } } },
+    verification: { status: "automated-source-checked" },
+  })]);
+  await assert.doesNotReject(loadCatalog(tempRoot));
+
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
 test("published catalog records reject noisy or noncanonical discovery tags", async () => {
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");

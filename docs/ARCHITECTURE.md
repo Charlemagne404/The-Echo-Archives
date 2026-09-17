@@ -226,14 +226,13 @@ Automated collection definitions remain in `catalog-src/collections/` alongside 
 
 The generated snapshot for current counts and metadata coverage lives in
 [`docs/generated/catalog-status.md`](generated/catalog-status.md). The current
-1.1.0 snapshot contains 102 public entities, 229 shows with explicit public
+1.1.0 snapshot contains 132 public entities, 266 shows with explicit public
 entity links, 752 published shows, 517 automation-checked `imported` records,
 228 maintainer fact-checked `indexed-only` records, 7 `full-review` records,
-and 46 collections. The generated report is `content-pending`: numeric targets
-pass, but it records 10 Phase 2 blocking errors, 2 actionable RSS gaps, 4
-documented missing RSS links, 4 documented runtime unknowns, and 22 explicit
-research-gap records. Deployment, provider, recovery, and live-browser evidence
-remain separate gates.
+and 46 collections. The generated report marks Gate B complete with zero
+blockers, six documented missing RSS links, four documented runtime unknowns,
+and 25 explicit research-gap records. Deployment, provider, recovery, and
+live-browser evidence remain separate gates.
 
 The archive supports three public catalogue confidence levels:
 automation-checked `imported`, maintainer fact-checked `indexed-only`, and
@@ -441,9 +440,9 @@ related:
 
 - the 752-show catalog is broad but uneven in depth
 - full-review coverage is still sparse at 7 shows
-- the generated catalog report is `content-pending` with 10 Phase 2 blocking errors; see `docs/generated/catalog-status.md` for the exact list
-- 637 shows have weak collection coverage and 681 are outside the preferred similarity-link range; these are tracked as quality follow-up rather than invented away
-- curated creator discovery currently covers 102 public entities and 229 linked published shows; most legacy credits remain unmigrated
+- the generated catalog report marks Gate B complete with zero blockers; see `docs/generated/catalog-status.md` for the exact current status
+- 502 shows have weak collection coverage and 671 authored similarity links are outside the preferred range; these are tracked as quality follow-up rather than invented away
+- curated creator discovery currently covers 132 public entities and 266 linked published shows; most legacy credits remain unmigrated
 - legacy optional creator/network datasets and the changelog dataset remain unpopulated
 - moderation remains intentionally manual
 - some richer filter ideas still depend on more complete metadata

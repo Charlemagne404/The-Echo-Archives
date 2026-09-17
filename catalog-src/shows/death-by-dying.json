@@ -725,16 +725,6 @@
               "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
             }
           ]
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
-            }
-          ]
         }
       },
       "importedAt": "2026-07-21T13:57:08.565Z",
@@ -766,7 +756,7 @@
         "officialLinks": "895b094c9e1fef3f82297214ccbff3f829de36f38d6773d1cd30f3312b49ea3c",
         "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
         "tags": "53c54bbc9690520b0fc9dde40a9c5a62cc73c2df200fa36cd2386a09c9835c61",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "f951e582afae7abb3758d48a7187a3d104d4271f3ae4600593b3a25cc4d12dbd",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

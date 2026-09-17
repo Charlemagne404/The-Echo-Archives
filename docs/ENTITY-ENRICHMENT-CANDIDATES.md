@@ -80,7 +80,7 @@ compound, legacy-component, or credit-only evidence.
 
 ## Compound evidence
 
-The graph report currently identifies 91 unlinked published shows with
+The graph report currently identifies 84 unlinked published shows with
 compound core evidence. The candidate report keeps those records in a separate
 queue. It preserves every raw field/value pair, reports any existing registry
 component matches, groups repeated compound values, and shows conservative

@@ -21,13 +21,13 @@ Latest catalog update: `2026-09-17`
 | Creator-verified shows | 0 |
 | Shows with RSS | 746 |
 | Shows missing metadata.objectiveSources | 0 |
-| Shows with metadata.researchGaps | 25 |
+| Shows with metadata.researchGaps | 29 |
 
 ## Discovery Gaps
 
 - Shows missing similarReasons: 0
 - Shows with out-of-range similar links: 671
-- Shows with fewer than 2 collection memberships: 502
+- Shows with fewer than 2 collection memberships: 503
 - Anchor shows with fewer than 3 collection memberships: 0
 - Route collections missing showReasons: 0
 
@@ -42,7 +42,7 @@ Latest catalog update: `2026-09-17`
 - Status: `complete`
 - Numeric targets: 752 published shows (floor 129), 7 full reviews (floor 7), 46 collections (floor 29)
 - Factual metadata gaps: 0 core, 0 missing provenance, 0 actionable RSS, 0 missing detailed runtime
-- Explicit unknowns/research gaps: 25 records; 6 missing RSS and 4 runtime gaps are documented rather than hidden
+- Explicit unknowns/research gaps: 29 records; 6 missing RSS and 8 runtime gaps are documented rather than hidden
 - Editorial/recommendation gaps: 0; collection blockers: 0
 - Taxonomy: 165 controlled labels; unknown/non-approved public tags: 0
 - Sparse indexed-only discovery gaps are informational: 0 sparse records; 0 have fewer than two collections, 0 have no editorial similarity set, and 0 contain unsupported editorial claims

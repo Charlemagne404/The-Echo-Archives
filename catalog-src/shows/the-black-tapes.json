@@ -32,7 +32,6 @@
   ],
   "formats": [
     "narrated",
-    "episodic",
     "serialized"
   ],
   "tags": [
@@ -152,6 +151,6 @@
     "voiceStyle": "primarily-narrated",
     "narrativeFocus": "plot-driven",
     "intensity": "high",
-    "commitment": "long"
+    "commitment": "medium"
   }
 }

@@ -806,16 +806,6 @@
           "confidence": 0.7,
           "method": "recent-full-episode",
           "sources": []
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://rss.buzzsprout.com/1725609.rss"
-            }
-          ]
         }
       },
       "importedAt": "2026-08-15T21:47:29.199Z",
@@ -847,7 +837,7 @@
         "officialLinks": "48a3e08b1c237db2875f85ab94713a0d423b57601f2619f360f11b577ab6f70a",
         "genres": "7c9154ebfbee9739f2624b82934fb00dd7b2b06051d78161b1311194ff2c839d",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "bd6a50962fcca02c584baed4779f250391b40a4973ff45257c9143a66e598f0c",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

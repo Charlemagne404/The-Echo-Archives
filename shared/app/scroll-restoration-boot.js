@@ -98,6 +98,8 @@
 
   let finished = false;
   let pageLoaded = document.readyState === "complete";
+  let loadFallbackAt = pageLoaded ? Date.now() + 5_000 : 0;
+  const isHomeHydrated = () => !isHomePage || document.body?.dataset.appReady === "true";
   const cancel = () => {
     if (finished) {
       return;
@@ -134,8 +136,8 @@
       return;
     }
 
-    const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-    if (homeRailsPlaced && (maxScrollY >= saved.y || pageLoaded)) {
+    const loadFallbackExpired = isHomePage && pageLoaded && loadFallbackAt > 0 && Date.now() >= loadFallbackAt;
+    if (homeRailsPlaced && (isHomeHydrated() || loadFallbackExpired)) {
       finish();
       return;
     }
@@ -148,6 +150,7 @@
   });
   const handleLoad = () => {
     pageLoaded = true;
+    loadFallbackAt = Date.now() + 5_000;
     placePrerenderedHomeRails();
     tryRestore();
   };

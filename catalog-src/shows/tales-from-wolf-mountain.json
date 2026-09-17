@@ -35,7 +35,8 @@
     "cinematic"
   ],
   "formats": [
-    "serialized"
+    "serialized",
+    "anthology"
   ],
   "tags": [
     "Genre anthology",
@@ -783,13 +784,11 @@
           "sources": []
         },
         "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
+          "confidence": 1,
+          "method": "maintainer-verified-research",
           "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://rss.buzzsprout.com/2292116.rss"
-            }
+            "https://rss.buzzsprout.com/2292116.rss",
+            "https://talesfromwolfmountain.buzzsprout.com/2292116/about"
           ]
         }
       },
@@ -857,6 +856,6 @@
     "voiceStyle": "mixed",
     "narrativeFocus": "balanced",
     "intensity": "variable",
-    "commitment": "deep-dive"
+    "commitment": "long"
   }
 }

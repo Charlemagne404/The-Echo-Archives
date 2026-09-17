@@ -29,7 +29,7 @@
     "weird"
   ],
   "formats": [
-    "episodic"
+    "serialized"
   ],
   "tags": [
     "Sci-fi",
@@ -685,13 +685,11 @@
           ]
         },
         "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
+          "confidence": 1,
+          "method": "maintainer-verified-research",
           "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
-            }
+            "https://woebegonepod.com/",
+            "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
           ]
         }
       },
@@ -724,7 +722,7 @@
         "officialLinks": "c9f0e4bb9d7d39e4090447ac669d8773806687b137d55c99b36044b0313f60e0",
         "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
         "tags": "89f6b21e153a289f454839f1bcc32acfb2d85989aeff9c8b1c5c4a4c9a67bf18",
-        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
         "aliases": "7eff6489592ce7dc71f85e295331fa7ede51699b61abcfc310c42e41818c2a72",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

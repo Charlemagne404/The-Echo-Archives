@@ -14,7 +14,7 @@
   "creatorVerified": 0,
   "withRss": 746,
   "missingObjectiveSources": 0,
-  "withResearchGaps": 25,
+  "withResearchGaps": 29,
   "phase2": {
     "policy": {
       "fullReviewFloor": 7,
@@ -61,8 +61,12 @@
       "actionableMissingRss": [],
       "missingRuntime": [],
       "documentedRuntimeUnknowns": [
+        "case-63",
+        "wake-of-corrosion",
         "the-rapscallion-agency",
         "the-invenios-expeditions",
+        "blood-ties",
+        "our-fair-city",
         "edict-zero-fis",
         "machina"
       ],
@@ -141,10 +145,24 @@
           ]
         },
         {
+          "id": "case-63",
+          "title": "Case 63",
+          "gaps": [
+            "Complete runtime duration is not source-verifiable; the researched short commitment is based on the exact 20-primary-episode inventory."
+          ]
+        },
+        {
           "id": "victoriocity",
           "title": "Victoriocity",
           "gaps": [
             "No official completion or next-release statement was located."
+          ]
+        },
+        {
+          "id": "wake-of-corrosion",
+          "title": "Wake Of Corrosion",
+          "gaps": [
+            "Aggregate runtime is not source-verifiable; the canonical 73-episode, four-season concluding run is confirmed, while the stale partial duration is not used."
           ]
         },
         {
@@ -159,6 +177,20 @@
           "title": "The Invenios Expeditions",
           "gaps": [
             "No dedicated verified RSS or Apple listing was found; the previously attached identifiers resolve to other Leviathan shows, so runtime duration remains unknown."
+          ]
+        },
+        {
+          "id": "blood-ties",
+          "title": "Blood Ties",
+          "gaps": [
+            "Complete runtime duration is not source-verifiable because the observed provider feed exposed only a partial duration set; the researched medium commitment uses the exact three-season, 26-primary-episode inventory."
+          ]
+        },
+        {
+          "id": "our-fair-city",
+          "title": "Our Fair City",
+          "gaps": [
+            "Aggregate runtime is not source-verifiable; the complete eight-season run is confirmed, but the available sources do not expose a reliable total duration."
           ]
         },
         {

@@ -796,16 +796,6 @@
           "confidence": 0,
           "method": "unknown",
           "sources": []
-        },
-        "formats": {
-          "confidence": 0.95,
-          "method": "deterministic-feed-type",
-          "sources": [
-            {
-              "sourceType": "rss",
-              "sourceUrl": "https://dispatches.fm/feed/podcast/"
-            }
-          ]
         }
       },
       "importedAt": "2026-08-15T20:01:46.685Z",
@@ -837,7 +827,7 @@
         "officialLinks": "ec75a58fb2e9d62cafad60b7ca2c2de37c38cec2617936c8b42f986f7d63a3fb",
         "genres": "7c9154ebfbee9739f2624b82934fb00dd7b2b06051d78161b1311194ff2c839d",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "aliases": "11634c88d8b60c3cd55f609b509aff1b6757af97afd0974eec91bcf768fe2849",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
