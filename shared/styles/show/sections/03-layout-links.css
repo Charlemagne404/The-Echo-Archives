@@ -351,6 +351,18 @@
   font-weight: 400;
 }
 
+.detail-similar-confidence {
+  justify-self: start;
+  padding: 3px 8px;
+  border: 1px solid rgba(var(--community-accent-rgb), 0.28);
+  border-radius: 999px;
+  color: rgb(var(--community-accent-rgb));
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .detail-card-copy p:last-of-type {
   display: -webkit-box;
   overflow: hidden;

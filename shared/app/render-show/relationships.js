@@ -29,28 +29,13 @@ export function renderCollectionsSection(show, collections = [], showMap = new M
 }
 
 export function renderSimilarSection(show, showMap, collections = [], providedSimilarityIndex = null) {
-  const authoredNeighbors = (show.similarTo || [])
-    .map((id) => {
-      const neighbor = showMap.get(id);
-      const reason = getSimilarReason(show, id);
-      if (!neighbor || !reason) {
-        return null;
-      }
-
-      return {
-        neighbor,
-        reason,
-      };
-    })
-    .filter(Boolean)
-    .slice(0, 3);
-
-  const authoredIds = new Set((Array.isArray(show.similarTo) ? show.similarTo : []).map((id) => String(id || "").trim()).filter(Boolean));
   const similarityIndex = resolveSimilarityIndex(showMap, collections, providedSimilarityIndex);
+  const authoredNeighbors = getEditorialNeighbors(show, showMap, similarityIndex);
+  const authoredIds = new Set(authoredNeighbors.map(({ neighbor }) => neighbor.id));
   const computedNeighbors = similarityIndex
     ? similarityIndex.getPublicSimilarityMatches(show.id)
       .filter(({ show: neighbor }) => neighbor && !authoredIds.has(neighbor.id))
-      .map(({ show: neighbor, explanation }) => ({ neighbor, reason: explanation }))
+      .map(({ show: neighbor, explanation, confidence }) => ({ neighbor, reason: explanation, confidence }))
     : [];
 
   if (authoredNeighbors.length === 0 && computedNeighbors.length === 0) {
@@ -62,16 +47,44 @@ export function renderSimilarSection(show, showMap, collections = [], providedSi
       <div class="detail-section-header">
         <div>
           <h2 id="detail-similar-title">Try next</h2>
-          <p>Curated picks lead; high-confidence archive matches appear separately when the metadata supports them.</p>
+          <p>Written routes lead; deterministic archive matches add a varied second path when the catalogue evidence is strong enough.</p>
         </div>
       </div>
 
       <div class="detail-similar-groups">
-        ${authoredNeighbors.length ? renderSimilarGroup("curated", "Curated by the archive", "Editorial picks", "Written relationship notes from the archive.", authoredNeighbors) : ""}
+        ${authoredNeighbors.length ? renderSimilarGroup("curated", "Curated by the archive", "Editorial picks", "Written relationship notes and curated similarity routes from the archive.", authoredNeighbors) : ""}
         ${computedNeighbors.length ? renderSimilarGroup("computed", "Computed archive matches", "A second signal", "Matches across multiple archive dimensions. These are not authored links.", computedNeighbors) : ""}
       </div>
     </section>
   `;
+}
+
+function getEditorialNeighbors(show, showMap, similarityIndex) {
+  if (similarityIndex?.getEditorialSimilarityMatches) {
+    return similarityIndex
+      .getEditorialSimilarityMatches(show.id, { limit: 24 })
+      .map(({ show: neighbor, reason }) => ({ neighbor, reason }))
+      .filter(({ neighbor, reason }) => neighbor && reason);
+  }
+
+  const matches = [];
+  const seen = new Set();
+  const addMatch = (neighbor, reason) => {
+    if (!neighbor || seen.has(neighbor.id) || !String(reason || "").trim()) return;
+    seen.add(neighbor.id);
+    matches.push({ neighbor, reason: String(reason).trim() });
+  };
+
+  (Array.isArray(show.similarTo) ? show.similarTo : []).forEach((id) => {
+    const neighbor = showMap.get(id);
+    addMatch(neighbor, getSimilarReason(show, id));
+  });
+  [...showMap.values()]
+    .filter((candidate) => candidate.id !== show.id && Array.isArray(candidate.similarTo) && candidate.similarTo.includes(show.id))
+    .sort((left, right) => String(left.title || left.id).localeCompare(String(right.title || right.id), "en") || left.id.localeCompare(right.id, "en"))
+    .forEach((neighbor) => addMatch(neighbor, getSimilarReason(neighbor, show.id)));
+
+  return matches;
 }
 
 function resolveSimilarityIndex(showMap, collections, providedIndex = null) {
@@ -90,6 +103,9 @@ function resolveSimilarityIndex(showMap, collections, providedIndex = null) {
 
 function renderSimilarGroup(source, kicker, title, description, neighbors) {
   const recommendationSource = source === "curated" ? "authored_similarity" : "computed_similarity";
+  const visibleLimit = source === "curated" ? 3 : 2;
+  const visibleNeighbors = neighbors.slice(0, visibleLimit);
+  const hiddenNeighbors = neighbors.slice(visibleLimit);
   return `
     <section class="detail-similar-group detail-similar-group--${source}" data-recommendation-source="${source}" aria-labelledby="detail-similar-${source}-title">
       <div class="detail-similar-group-heading">
@@ -98,22 +114,31 @@ function renderSimilarGroup(source, kicker, title, description, neighbors) {
         <p>${escapeHtml(description)}</p>
       </div>
       <div class="detail-similar-grid">
-        ${neighbors.map(({ neighbor, reason }, index) => {
-          const coverSource = getResponsiveImageSource(neighbor, "(max-width: 959px) 84vw, (max-width: 1120px) 42vw, 320px");
-          return `
-          <article class="detail-similar-card" data-recommendation-source="${source}">
-            <img src="${escapeHtml(coverSource.src)}"${coverSource.srcset ? ` srcset="${escapeHtml(coverSource.srcset)}" sizes="${escapeHtml(coverSource.sizes)}"` : ""} alt="${escapeHtml(neighbor.imageAlt || neighbor.coverAlt || `${neighbor.title || "Untitled show"} cover art`)}" width="320" height="320" loading="lazy" decoding="async" />
-            <div class="detail-card-copy">
-              <h4>${escapeHtml(neighbor.title || "Untitled show")}</h4>
-              <p class="detail-similar-reason">${escapeHtml(reason)}</p>
-              <a class="detail-archive-link" href="${escapeHtml(neighbor.href || "/")}" data-discovery-show-id="${escapeHtml(neighbor.id || "")}" data-discovery-surface="show_similar" data-discovery-browse-state="default" data-discovery-result-type="similar_show" data-discovery-recommendation-source="${recommendationSource}" data-discovery-result-position-bucket="${bucketDiscoveryPosition(index + 1)}" data-discovery-content-profile="${getDiscoveryContentProfile(neighbor.reviewStatus)}">Open show</a>
-            </div>
-          </article>
-        `;
-        }).join("")}
+        ${renderSimilarCards(source, recommendationSource, visibleNeighbors, 0)}
       </div>
+      ${hiddenNeighbors.length ? `<details class="detail-route-overflow detail-similar-overflow"><summary>${formatRouteExpansion(hiddenNeighbors.length)}</summary><div class="detail-route-overflow-grid detail-similar-overflow-grid">${renderSimilarCards(source, recommendationSource, hiddenNeighbors, visibleNeighbors.length)}</div></details>` : ""}
     </section>
   `;
+}
+
+function renderSimilarCards(source, recommendationSource, neighbors, offset = 0) {
+  return neighbors.map(({ neighbor, reason, confidence }, index) => {
+    const coverSource = getResponsiveImageSource(neighbor, "(max-width: 959px) 84vw, (max-width: 1120px) 42vw, 320px");
+    const confidenceLabel = confidence === "limited-metadata"
+      ? '<span class="detail-similar-confidence">Limited metadata</span>'
+      : "";
+    return `
+      <article class="detail-similar-card" data-recommendation-source="${source}"${confidence ? ` data-recommendation-confidence="${confidence}"` : ""}>
+        <img src="${escapeHtml(coverSource.src)}"${coverSource.srcset ? ` srcset="${escapeHtml(coverSource.srcset)}" sizes="${escapeHtml(coverSource.sizes)}"` : ""} alt="${escapeHtml(neighbor.imageAlt || neighbor.coverAlt || `${neighbor.title || "Untitled show"} cover art`)}" width="320" height="320" loading="lazy" decoding="async" />
+        <div class="detail-card-copy">
+          <h4>${escapeHtml(neighbor.title || "Untitled show")}</h4>
+          ${confidenceLabel}
+          <p class="detail-similar-reason">${escapeHtml(reason)}</p>
+          <a class="detail-archive-link" href="${escapeHtml(neighbor.href || "/")}" data-discovery-show-id="${escapeHtml(neighbor.id || "")}" data-discovery-surface="show_similar" data-discovery-browse-state="default" data-discovery-result-type="similar_show" data-discovery-recommendation-source="${recommendationSource}" data-discovery-result-position-bucket="${bucketDiscoveryPosition(offset + index + 1)}" data-discovery-content-profile="${getDiscoveryContentProfile(neighbor.reviewStatus)}">Open show</a>
+        </div>
+      </article>
+    `;
+  }).join("");
 }
 
 function renderCollectionRoute(collection, showMap) {

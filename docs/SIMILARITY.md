@@ -1,8 +1,8 @@
 # Similarity foundation
 
 The reusable comparison layer lives in `shared/archive-similarity.js`. It is
-deterministic, catalog-grounded, and safe to use from a future browser view or
-server-rendered route:
+deterministic, catalogue-grounded, and shared by the browser and
+server-rendered show routes:
 
 ```js
 const index = EchoArchiveSimilarity.createSimilarityIndex({ shows, collections });
@@ -10,8 +10,8 @@ const candidates = index.getSimilarShows("derelict", { limit: 8 });
 ```
 
 Each candidate includes a score out of 100, pairwise metadata coverage, the
-coverage available on each record, scored dimensions, and factual `reasons`. A
-future UI can render the reasons directly without asking an AI service to
+coverage available on each record, scored dimensions, and factual `reasons`.
+The show-page UI renders those reasons directly without asking an AI service to
 explain a recommendation. `metadataCoverage` is the weighted fraction of
 currently supported factual dimensions available on both records; callers can
 use `sourceMetadataCoverage`, `targetMetadataCoverage`,
@@ -31,6 +31,44 @@ Common metadata values still count, but they contribute less than rarer values
 using a catalog-frequency calculation. Missing metadata is not treated as a
 negative match; `metadataCoverage` tells the caller how much comparable data
 was actually available.
+
+The public recommendation adapter keeps this scoring model intact while adding
+discovery guardrails. It gives tone/theme/tag/listening-context combinations
+more influence than broad genre/format overlap, adds a small cohesion lift when
+multiple discovery dimensions agree, and requires multiple specific signals
+plus factual anchors before a computed match is surfaced. The catalogue-wide
+frequency calculation means a shared value such as a common tone or format
+cannot carry a recommendation by itself.
+
+`getEditorialSimilarityMatches()` is the display-facing view of explicit
+catalogue relationships. It merges outgoing and incoming `similarTo` links and
+anchored `similarity` collection members once, preserving written reasons and
+deterministic catalogue order. `getPublicSimilarityMatches()` excludes those
+editorial relationships, returns up to four computed matches, and uses a
+deterministic greedy diversity pass so the visible set does not repeat the same
+metadata profile. Exact RSS/Apple/Spotify identity matches receive a soft
+near-duplicate penalty rather than being deleted: a genuine follow-on can still
+appear when the evidence warrants it.
+
+Computed explanations are grouped to at most two meaningful dimensions (for
+example, a shared production company plus tone, or shared tone plus theme).
+Sparse records can use a lower evidence floor only when they still have several
+specific signals and enough catalogue coverage; those results are marked
+`limited-metadata` by the public adapter. Records with only broad genre/format
+facts remain without computed recommendations rather than receiving fabricated
+certainty.
+
+Shows Like collection pages use `getShowsLikeCollectionView()` as a stricter
+public adapter around the same index. Authored collection members and their
+written `showReasons` stay first; only when a route is short can high-confidence
+computed matches fill the remaining slots. Computed picks are kept in a
+separate `Less obvious picks` section with pair-specific, score-free reasons.
+Sections such as closest overall, atmosphere, premise, characters, or
+storytelling are only emitted when at least two authored recommendations have
+the relevant evidence. Additional generated routes are created only for public
+anchors with a rich discovery profile and at least four explained authored
+`similarTo` targets, so the catalogue does not become a directory of thin SEO
+pages.
 
 Archive ratings are returned as an evidence-only `ratingProfile` dimension.
 They are not part of the score: only a small reviewed subset has ratings, and a

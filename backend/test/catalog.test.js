@@ -379,11 +379,14 @@ test("loadCollections reads curated collections against the catalog ids", async 
   const collections = loadCollections(siteRoot, new Set(catalog.map((entry) => entry.id)));
   const similarityCollections = collections.filter((collection) => collection.kind === "similarity");
 
-  assert.equal(collections.length, 46);
+  assert.equal(collections.length, 53);
   assert.ok(collections.every((collection) => collection.showIds.length > 0));
   assert.ok(collections.every((collection) => !Object.hasOwn(collection.automation || {}, "approvedCandidateId")));
   assert.ok(similarityCollections.length > 0);
   assert.ok(similarityCollections.every((collection) => typeof collection.anchorShowId === "string" && collection.anchorShowId));
+  const generatedSimilarityCollections = similarityCollections.filter((collection) => collection.generatedFrom === "authored-similarTo");
+  assert.equal(generatedSimilarityCollections.length, 7);
+  assert.ok(generatedSimilarityCollections.every((collection) => collection.showIds.length >= 4));
 });
 
 test("resolveCollectionView returns published shows for a known collection", () => {

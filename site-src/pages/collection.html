@@ -33,14 +33,18 @@
     </section>
 
     <section id="collectionArchiveSection" class="archive-section collection-show-section" aria-labelledby="collection-shows-title">
-      <div class="section-heading collections-section-heading">
-        <div>
-          <h2 id="collection-shows-title">Shows in this collection</h2>
-          <p id="collectionShowsSummary">Loading show list…</p>
-        </div>
-      </div>
+      <div id="collectionRecommendationSections" class="collection-recommendation-sections">
+        <section class="collection-recommendation-section" aria-labelledby="collection-shows-title">
+          <div class="section-heading collections-section-heading">
+            <div>
+              <h2 id="collection-shows-title">Shows in this collection</h2>
+              <p id="collectionShowsSummary">Loading show list…</p>
+            </div>
+          </div>
 
-      <div id="collectionShowGrid" class="podcast-card-grid"></div>
+          <div id="collectionShowGrid" class="podcast-card-grid collection-recommendation-grid"></div>
+        </section>
+      </div>
     </section>
 
     <section id="collectionRelatedSection" class="page-card collection-detail-related-section" aria-labelledby="collection-related-title" hidden>

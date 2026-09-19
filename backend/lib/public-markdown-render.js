@@ -627,7 +627,7 @@ function renderMissingMarkdown({ title, description, siteUrl, routePath }) {
   ]);
 }
 
-function renderCollectionMarkdown({ collection, collectionShows = [], anchorShow = null, collections = [], siteUrl }) {
+function renderCollectionMarkdown({ collection, collectionShows = [], anchorShow = null, collections = [], siteUrl, recommendationView = null }) {
   const metadata = buildCollectionPageMetadata({ siteUrl, collection, collectionShows, anchorShow });
   const sections = [`# ${escapeMarkdownText(collection.title)}`, escapeMarkdownText(collection.description)];
   const detail = [
@@ -642,15 +642,21 @@ function renderCollectionMarkdown({ collection, collectionShows = [], anchorShow
   if (displayList(collection.intentTags).length) sections.push(renderLabeledSection("Intent and mood", displayList(collection.intentTags).map(escapeMarkdownText)));
 
   const showReasons = collection.showReasons || {};
-  const showItems = collectionShows.map((show) => {
-    const detailParts = [
-      markdownLink(show.title, buildShowPath(show.id), siteUrl),
-      usefulValue(showReasons[show.id]) ? escapeMarkdownText(showReasons[show.id]) : "",
-      Number.isFinite(Number(show.finalRating)) ? `Archive Rating ${formatRating(show.finalRating)}` : "",
-    ].filter(Boolean);
-    return detailParts.length > 1 ? `${detailParts[0]} — ${detailParts.slice(1).join(" · ")}` : detailParts[0];
+  const recommendationSections = Array.isArray(recommendationView?.sections) && recommendationView.sections.length
+    ? recommendationView.sections
+    : [{ id: "all", label: "Shows in this collection", recommendations: collectionShows.map((show) => ({ show, reason: showReasons[show.id], source: "authored" })) }];
+  recommendationSections.forEach((recommendationSection) => {
+    const showItems = recommendationSection.recommendations.map((recommendation) => {
+      const show = recommendation.show;
+      const detailParts = [
+        markdownLink(show.title, buildShowPath(show.id), siteUrl),
+        usefulValue(recommendation.reason) ? escapeMarkdownText(recommendation.reason) : "",
+        Number.isFinite(Number(show.finalRating)) ? `Archive Rating ${formatRating(show.finalRating)}` : "",
+      ].filter(Boolean);
+      return detailParts.length > 1 ? `${detailParts[0]} — ${detailParts.slice(1).join(" · ")}` : detailParts[0];
+    });
+    if (showItems.length) sections.push(renderLabeledSection(recommendationSection.label, showItems));
   });
-  if (showItems.length) sections.push(renderLabeledSection("Shows in this collection", showItems));
 
   const related = getRelatedCollections(collection, collections).map((candidate) => markdownLink(candidate.title, buildCollectionPath(candidate.id), siteUrl));
   if (related.length) sections.push(renderLabeledSection("Related collections", related));

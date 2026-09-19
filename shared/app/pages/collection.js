@@ -1,4 +1,4 @@
-import { DEFAULT_SOCIAL_IMAGE } from "../constants.js";
+import { DEFAULT_SOCIAL_IMAGE, archiveSimilarity } from "../constants.js";
 import {
   buildCollectionMap,
   buildShowMap,
@@ -71,13 +71,85 @@ function shouldShowCommitment(collection, routeTypeLabel) {
   return true;
 }
 
-function getCollectionShowsSummary(collection, collectionShows, anchorShow) {
+function getCollectionShowsSummary(collection, collectionShows, anchorShow, recommendationView = null) {
   const showCount = collectionShows.length;
   if (collection?.kind === "similarity" && anchorShow?.title) {
-    return `${showCount} similar ${showCount === 1 ? "show" : "shows"}, starting with ${anchorShow.title}.`;
+    const supporting = recommendationView?.computedCount
+      ? ` ${recommendationView.authoredCount} curated ${recommendationView.authoredCount === 1 ? "pick" : "picks"} and ${recommendationView.computedCount} metadata-supported archive ${recommendationView.computedCount === 1 ? "match" : "matches"} are shown.`
+      : "";
+    return `${showCount} similar ${showCount === 1 ? "show" : "shows"}, starting with ${anchorShow.title}.${supporting}`;
   }
 
   return `${formatCount(showCount, "show")} in this collection.`;
+}
+
+function renderCollectionRecommendationSections(container, collection, recommendationView) {
+  if (!(container instanceof HTMLElement)) {
+    return null;
+  }
+
+  container.textContent = "";
+  const sections = Array.isArray(recommendationView?.sections) ? recommendationView.sections : [];
+  sections.forEach((section, sectionIndex) => {
+    const recommendations = Array.isArray(section.recommendations) ? section.recommendations : [];
+    const visibleRecommendations = recommendations.slice(0, 4);
+    const hiddenRecommendations = recommendations.slice(4);
+    const titleId = sectionIndex === 0 ? "collection-shows-title" : `collection-${section.id}-title`;
+    const sectionNode = document.createElement("section");
+    sectionNode.className = `collection-recommendation-section collection-recommendation-section--${section.id}`;
+    sectionNode.setAttribute("aria-labelledby", titleId);
+
+    const heading = document.createElement("div");
+    heading.className = "section-heading collections-section-heading";
+    const headingCopy = document.createElement("div");
+    if (sectionIndex > 0) {
+      const kicker = document.createElement("span");
+      kicker.className = "page-card-kicker";
+      kicker.textContent = "Keep exploring";
+      headingCopy.appendChild(kicker);
+    }
+    const title = document.createElement("h2");
+    title.id = titleId;
+    title.textContent = section.label;
+    const description = document.createElement("p");
+    if (sectionIndex === 0) description.id = "collectionShowsSummary";
+    description.textContent = sectionIndex === 0 ? "" : section.description;
+    headingCopy.append(title, description);
+    heading.appendChild(headingCopy);
+    sectionNode.appendChild(heading);
+
+    const createGrid = (items, offset = 0, extraClass = "") => {
+      const grid = document.createElement("div");
+      grid.className = `podcast-card-grid collection-recommendation-grid${extraClass ? ` ${extraClass}` : ""}`;
+      items.forEach((recommendation, index) => {
+        grid.appendChild(createCollectionShowCard(recommendation.show, recommendation.reason, {
+          surface: "collection_page_grid",
+          resultType: "collection_member",
+          recommendationSource: recommendation.source === "computed" ? "computed_similarity" : collection.kind === "similarity" ? "similarity_collection" : "collection_membership",
+          resultPositionBucket: offset + index + 1 <= 3 ? String(offset + index + 1) : "4+",
+          collectionId: collection.id,
+        }));
+      });
+      return grid;
+    };
+
+    const visibleGrid = createGrid(visibleRecommendations);
+    if (sectionIndex === 0) visibleGrid.id = "collectionShowGrid";
+    sectionNode.appendChild(visibleGrid);
+
+    if (hiddenRecommendations.length > 0) {
+      const overflow = document.createElement("details");
+      overflow.className = "collection-recommendation-overflow";
+      const summary = document.createElement("summary");
+      summary.textContent = `Show ${hiddenRecommendations.length} more ${hiddenRecommendations.length === 1 ? "pick" : "picks"}`;
+      overflow.append(summary, createGrid(hiddenRecommendations, visibleRecommendations.length, "collection-recommendation-overflow-grid"));
+      sectionNode.appendChild(overflow);
+    }
+
+    container.appendChild(sectionNode);
+  });
+
+  return container.querySelector("#collectionShowGrid");
 }
 
 function createSignalChip(label, className = "") {
@@ -161,7 +233,7 @@ function appendOverviewMetaSeparator(container) {
   container.appendChild(separator);
 }
 
-function populateOverviewMetaLine(container, { showCount, routeTypeLabel, updatedAt, anchorShow }) {
+function populateOverviewMetaLine(container, { showCount, routeTypeLabel, updatedAt, anchorShow, recommendationView }) {
   if (!(container instanceof HTMLElement)) {
     return;
   }
@@ -193,6 +265,15 @@ function populateOverviewMetaLine(container, { showCount, routeTypeLabel, update
     link.textContent = anchorShow.title;
     anchor.append(prefix, link);
     container.appendChild(anchor);
+  }
+
+  if (recommendationView?.computedCount) {
+    appendOverviewMetaSeparator(container);
+    appendOverviewMetaText(
+      container,
+      `${recommendationView.computedCount} archive ${recommendationView.computedCount === 1 ? "match" : "matches"}`,
+      "collection-detail-meta-text-computed",
+    );
   }
 
   if (updatedAt) {
@@ -316,26 +397,45 @@ export async function initializeCollectionPage() {
 
   const collectionShows = getCollectionShows(collection, showMap);
   const anchorShow = getCollectionAnchorShow(collection, showMap);
+  const similarityIndex = collection.kind === "similarity"
+    ? archiveSimilarity?.createSimilarityIndex?.({ shows: publishedShows, collections }) || null
+    : null;
+  const recommendationView = collection.kind === "similarity"
+    ? similarityIndex?.getShowsLikeCollectionView?.(collection.anchorShowId, collection) || null
+    : {
+      authoredCount: collectionShows.length,
+      computedCount: 0,
+      recommendations: collectionShows.map((show) => ({ show, reason: getCollectionShowReason(collection, show.id), source: "authored" })),
+      sections: collectionShows.length
+        ? [{
+          id: "closest",
+          label: "Shows in this collection",
+          description: "A focused listening path selected for this route.",
+          recommendations: collectionShows.map((show) => ({ show, reason: getCollectionShowReason(collection, show.id), source: "authored" })),
+        }]
+        : [],
+    };
+  const recommendationShows = recommendationView?.recommendations?.map(({ show }) => show).filter(Boolean) || collectionShows;
   const collectionTitle = collection.title || "Untitled collection";
   const collectionDescription = collection.description || "No collection description yet.";
-  const showCount = collectionShows.length;
-  const leadCoverShow = anchorShow || collectionShows[0] || null;
+  const showCount = recommendationShows.length;
+  const leadCoverShow = anchorShow || recommendationShows[0] || null;
   const firstCover = leadCoverShow?.imageSrc || (leadCoverShow?.cover ? resolveImageSrc(leadCoverShow.cover) : DEFAULT_SOCIAL_IMAGE);
   updateDocumentMetadata({
     title: buildCollectionSeoTitle(collection),
-    description: buildCollectionSeoDescription(collection, collectionShows),
+    description: buildCollectionSeoDescription(collection, recommendationShows),
     path: createCollectionHref(collection.id),
     image: firstCover,
     imageAlt: leadCoverShow
       ? leadCoverShow.imageAlt || leadCoverShow.coverAlt || `${collectionTitle} collection cover art`
       : "The Echo Archives social preview",
-    structuredData: buildCollectionStructuredData(collection, collectionShows),
+    structuredData: buildCollectionStructuredData(collection, recommendationShows, recommendationView),
   });
 
   setTextContent("collectionTitle", collectionTitle);
   setTextContent("collectionDescription", collectionDescription);
   const routeTypeLabel = getCollectionRouteTypeLabel(collection);
-  setTextContent("collectionShowsSummary", getCollectionShowsSummary(collection, collectionShows, anchorShow));
+  setTextContent("collectionShowsSummary", getCollectionShowsSummary(collection, recommendationShows, anchorShow, recommendationView));
 
   const heroTags = document.getElementById("collectionHeroTags");
   if (heroTags) {
@@ -345,14 +445,14 @@ export async function initializeCollectionPage() {
 
   if (heroArt) {
     heroArt.textContent = "";
-    heroArt.appendChild(createCollectionCoverCollage(collection, collectionShows, {
+    heroArt.appendChild(createCollectionCoverCollage(collection, recommendationShows, {
       className: "collection-cover-collage collection-detail-collage",
       loading: "eager",
       anchorShow,
     }));
   }
 
-  const accent = (anchorShow || collectionShows.find((show) => show?.accent?.hex))?.accent?.hex;
+  const accent = (anchorShow || recommendationShows.find((show) => show?.accent?.hex))?.accent?.hex;
   const heroPanel = document.getElementById("collectionHeroPanel");
   if (accent && heroPanel) {
     heroPanel.style.setProperty("--collection-accent", accent);
@@ -365,7 +465,7 @@ export async function initializeCollectionPage() {
   if (shareButton instanceof HTMLButtonElement) {
     bindShareButton(shareButton, {
       title: buildCollectionSeoTitle(collection),
-      text: buildCollectionSeoDescription(collection, collectionShows),
+      text: buildCollectionSeoDescription(collection, recommendationShows),
       url: document.querySelector('link[rel="canonical"]')?.href || window.location.href,
     });
   }
@@ -376,27 +476,21 @@ export async function initializeCollectionPage() {
     routeTypeLabel,
     updatedAt: collection.updatedAt || "",
     anchorShow: collection.kind === "similarity" ? anchorShow : null,
+    recommendationView,
   });
 
   const overviewChips = document.getElementById("collectionOverviewChips");
   if (overviewChips instanceof HTMLElement) {
     overviewChips.textContent = "";
-    getCollectionOverviewChipValues(collection, collectionShows, routeTypeLabel).forEach(({ text, className }) => {
+    getCollectionOverviewChipValues(collection, recommendationShows, routeTypeLabel).forEach(({ text, className }) => {
       overviewChips.appendChild(createSignalChip(text, className));
     });
   }
   root.hidden = false;
 
-  grid.textContent = "";
-  collectionShows.forEach((show) => {
-    grid.appendChild(createCollectionShowCard(show, getCollectionShowReason(collection, show.id), {
-      surface: "collection_page_grid",
-      resultType: "collection_member",
-      recommendationSource: collection.kind === "similarity" ? "similarity_collection" : "collection_membership",
-      collectionId: collection.id,
-    }));
-  });
-  void syncCommunityCardBadges(grid, collectionShows);
+  const recommendationMount = document.getElementById("collectionRecommendationSections");
+  const renderedGrid = renderCollectionRecommendationSections(recommendationMount, collection, recommendationView);
+  if (renderedGrid) void syncCommunityCardBadges(recommendationMount, recommendationShows);
 
   const relatedCollections = getRelatedCollections(collection, collections);
   const relatedGrid = document.getElementById("collectionRelatedGrid");

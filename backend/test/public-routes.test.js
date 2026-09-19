@@ -8,6 +8,7 @@ const { loadCatalog, loadCollections } = require("../lib/catalog");
 const { buildCollectionPath, isIndexableCollection } = require("../lib/seo");
 const { loadEntities } = require("../lib/entities");
 const { injectRuntimeSiteConfig } = require("../lib/public-page-render");
+const { createSimilarityIndex } = require("../../shared/archive-similarity");
 const { findFreePort } = require("./helpers/free-port");
 const { entityPath, getEntityShows, isIndexableEntity } = require("../../shared/archive-entities");
 
@@ -294,6 +295,7 @@ test("all indexable creator and collection routes serve canonical structured pag
     const publishedShows = catalog.filter((show) => show.status === "published");
     const showMap = new Map(publishedShows.map((show) => [show.id, show]));
     const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)));
+    const similarityIndex = createSimilarityIndex({ shows: publishedShows, collections });
     const entities = loadEntities(siteRoot, catalog);
     const routes = [
       ...entities.filter((entity) => isIndexableEntity(entity, publishedShows)).map((entity) => ({
@@ -307,11 +309,16 @@ test("all indexable creator and collection routes serve canonical structured pag
           shows: collection.showIds.map((showId) => showMap.get(showId)).filter(Boolean),
         }))
         .filter(({ collection, shows }) => isIndexableCollection(collection, shows))
-        .map(({ collection, shows }) => ({
-          path: buildCollectionPath(collection.id),
-          count: shows.length,
-          type: "CollectionPage",
-        })),
+        .map(({ collection, shows }) => {
+          const recommendationView = collection.kind === "similarity"
+            ? similarityIndex.getShowsLikeCollectionView(collection.anchorShowId, collection)
+            : null;
+          return {
+            path: buildCollectionPath(collection.id),
+            count: recommendationView?.recommendations?.length || shows.length,
+            type: "CollectionPage",
+          };
+        }),
     ];
 
     assert.ok(routes.length > 0);
@@ -458,6 +465,7 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
     assert.match(collectionHtml, /46 shows in this collection/);
     assert.match(collectionHtml, /href="\/shows\/impact-winter"/);
     assert.match(collectionHtml, /class="collection-show-card-note"/);
+    assert.match(collectionHtml, /data-discovery-recommendation-source="collection_membership"/);
     const collectionStructuredDataMatch = collectionHtml.match(
       /<script id="pageStructuredData" type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/,
     );
@@ -482,6 +490,38 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
         `<meta property="og:image" content="${new URL(`/${similarityAnchor.cover}`, context.baseUrl).toString().replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`,
       ),
     );
+    assert.match(similarityCollectionHtml, /data-collection-prerendered="true"/);
+    assert.match(similarityCollectionHtml, /<h2 id="collection-shows-title">Closest overall<\/h2>/);
+    assert.match(similarityCollectionHtml, /collection-recommendation-section--atmosphere|collection-recommendation-section--premise|collection-recommendation-section--storytelling/);
+    assert.match(similarityCollectionHtml, new RegExp(`href="\/?\\?collection=${encodeURIComponent(similarityCollection.id)}#archive"`));
+
+    const overflowCollection = collections.find((collection) => collection.id === "shows-like-the-magnus-archives");
+    assert.ok(overflowCollection?.id);
+    const overflowCollectionResponse = await fetch(
+      `${context.baseUrl}/collections/${encodeURIComponent(overflowCollection.id)}`,
+    );
+    assert.equal(overflowCollectionResponse.status, 200);
+    assert.match(await overflowCollectionResponse.text(), /<details class="collection-recommendation-overflow">/);
+
+    const generatedSimilarityCollection = collections.find((collection) => collection.generatedFrom === "authored-similarTo");
+    assert.ok(generatedSimilarityCollection?.id);
+    const generatedCollectionResponse = await fetch(
+      `${context.baseUrl}/collections/${encodeURIComponent(generatedSimilarityCollection.id)}`,
+    );
+    assert.equal(generatedCollectionResponse.status, 200);
+    assert.doesNotMatch(generatedCollectionResponse.headers.get("x-robots-tag") || "", /noindex/i);
+    const generatedCollectionHtml = await generatedCollectionResponse.text();
+    assert.match(generatedCollectionHtml, /Authored similarity route/);
+    assert.match(generatedCollectionHtml, /collection-recommendation-section--hidden-gems/);
+    assert.match(generatedCollectionHtml, /data-discovery-recommendation-source="computed_similarity"/);
+    const generatedStructuredDataMatch = generatedCollectionHtml.match(
+      /<script id="pageStructuredData" type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/,
+    );
+    assert.ok(generatedStructuredDataMatch);
+    const generatedStructuredData = JSON.parse(generatedStructuredDataMatch[1]);
+    const generatedItemList = graphNode(generatedStructuredData, "ItemList");
+    assert.ok(generatedItemList.itemListElement.every((item) => item.description?.length >= 20));
+    assert.match(generatedCollectionHtml, new RegExp(`href="\/?\\?collection=${encodeURIComponent(generatedSimilarityCollection.id)}#archive"`));
 
     const missingShowResponse = await fetch(`${context.baseUrl}/shows/missing-show`);
     assert.equal(missingShowResponse.status, 404);

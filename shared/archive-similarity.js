@@ -40,14 +40,22 @@
   // recommendation. Keep this as a policy adapter around getSimilarShows;
   // the scoring model remains the single source of similarity evidence.
   const PUBLIC_MATCH_POLICY = Object.freeze({
-    minimumScore: 20,
+    minimumScore: 18,
+    sparseMinimumScore: 12,
+    sparseCoverageThreshold: 0.7,
     minimumMetadataCoverage: 0.65,
+    sparseMinimumMetadataCoverage: 0.6,
     minimumRecordMetadataCoverage: 0.65,
+    sparseMinimumRecordMetadataCoverage: 0.6,
     minimumMetadataDimensions: 3,
     minimumAnchorDimensions: 2,
     minimumSpecificDimensions: 2,
-    maximumResults: 2,
+    minimumDistinctiveSpecificDimensions: 1,
+    minimumSpecificDistinctiveness: 0.25,
+    maximumResults: 4,
     explanationReasons: 2,
+    diversityPenalty: 7,
+    nearDuplicatePenalty: 14,
   });
 
   const PUBLIC_SPECIFIC_DIMENSION_IDS = Object.freeze([
@@ -80,26 +88,87 @@
     catalogLength: 14,
   });
 
+  const DISCOVERY_DIMENSION_IDS = Object.freeze([
+    "tone",
+    "theme",
+    "tag",
+    "bestFor",
+    "voiceStyle",
+    "narrativeFocus",
+    "intensity",
+    "commitment",
+  ]);
+  const DISCOVERY_DIMENSION_SET = new Set(DISCOVERY_DIMENSION_IDS);
+  const DIVERSITY_DIMENSION_FACTORS = Object.freeze({
+    entity: 1.15,
+    tone: 1.2,
+    theme: 1.2,
+    tag: 1.2,
+    bestFor: 1.1,
+    voiceStyle: 1,
+    narrativeFocus: 1.1,
+    intensity: 1,
+    commitment: 1,
+    genre: 0.45,
+    format: 0.45,
+    releaseProfile: 0.35,
+    sharedCollection: 0.35,
+    episodeLength: 0.25,
+    catalogLength: 0.25,
+  });
+
+  const SHOWS_LIKE_TARGET_COUNT = 8;
+  const SHOWS_LIKE_VISIBLE_LIMIT = 4;
+  const SHOWS_LIKE_GENERIC_REASON_PATTERNS = Object.freeze([
+    /^editorial inclusion\.?$/i,
+    /^explicit catalog similarity link\.?$/i,
+    /^similar show\.?$/i,
+    /^included in .+\.?$/i,
+  ]);
+  const SHOWS_LIKE_SECTION_DEFINITIONS = Object.freeze([
+    {
+      id: "characters",
+      label: "Similar characters & relationships",
+      description: "For the chemistry, ensemble, or personal stakes you want to carry forward.",
+    },
+    {
+      id: "atmosphere",
+      label: "Similar atmosphere & tone",
+      description: "For the same emotional weather, even when the setting changes.",
+    },
+    {
+      id: "premise",
+      label: "Similar premise & world",
+      description: "For a familiar story engine, setting, or genre appetite from another angle.",
+    },
+    {
+      id: "storytelling",
+      label: "Similar storytelling & format",
+      description: "For listeners drawn to how the show is made, voiced, or structured.",
+    },
+  ]);
+  const SHOWS_LIKE_SECTION_BY_ID = new Map(SHOWS_LIKE_SECTION_DEFINITIONS.map((section) => [section.id, section]));
+
   // These weights are deliberately conservative. The score is a ranking aid,
   // not a claim that two shows are interchangeable. Editorial links are kept
   // separate from metadata overlap and ratings are evidence-only.
   const DIMENSION_DEFINITIONS = Object.freeze([
     { id: "editorial", label: "Curated relationship", weight: 30, coverageEligible: false },
     { id: "entity", label: "Shared creator or entity", weight: 14, coverageEligible: true, anchor: true },
-    { id: "genre", field: "genres", label: "Shared genre", weight: 10, coverageEligible: true },
-    { id: "format", field: "formats", label: "Shared format", weight: 10, coverageEligible: true, anchor: true },
-    { id: "tone", field: "tones", label: "Shared tone", weight: 5, coverageEligible: true, coverageGroup: "discovery" },
-    { id: "theme", field: "themes", label: "Shared theme", weight: 5, coverageEligible: true, coverageGroup: "discovery" },
-    { id: "tag", field: "tags", label: "Shared discovery tag", weight: 3, coverageEligible: true, coverageGroup: "discovery" },
-    { id: "bestFor", field: "bestFor", label: "Shared listening context", weight: 3, coverageEligible: true, coverageGroup: "discovery" },
-    { id: "voiceStyle", path: "discovery.voiceStyle", label: "Shared voice style", weight: 2, coverageEligible: true, coverageGroup: "discovery" },
-    { id: "narrativeFocus", path: "discovery.narrativeFocus", label: "Shared narrative focus", weight: 3, coverageEligible: true, coverageGroup: "discovery" },
+    { id: "genre", field: "genres", label: "Shared genre", weight: 8, coverageEligible: true },
+    { id: "format", field: "formats", label: "Shared format", weight: 8, coverageEligible: true, anchor: true },
+    { id: "tone", field: "tones", label: "Shared tone", weight: 7, coverageEligible: true, coverageGroup: "discovery" },
+    { id: "theme", field: "themes", label: "Shared theme", weight: 7, coverageEligible: true, coverageGroup: "discovery" },
+    { id: "tag", field: "tags", label: "Shared discovery tag", weight: 4, coverageEligible: true, coverageGroup: "discovery" },
+    { id: "bestFor", field: "bestFor", label: "Shared listening context", weight: 4, coverageEligible: true, coverageGroup: "discovery" },
+    { id: "voiceStyle", path: "discovery.voiceStyle", label: "Shared voice style", weight: 3, coverageEligible: true, coverageGroup: "discovery" },
+    { id: "narrativeFocus", path: "discovery.narrativeFocus", label: "Shared narrative focus", weight: 4, coverageEligible: true, coverageGroup: "discovery" },
     { id: "intensity", path: "discovery.intensity", fallbackPath: "content.intensity", label: "Shared intensity", weight: 2, coverageEligible: true, coverageGroup: "discovery" },
     { id: "commitment", path: "discovery.commitment", label: "Shared listening commitment", weight: 2, coverageEligible: true, coverageGroup: "discovery" },
     { id: "releaseProfile", label: "Shared release or completion state", weight: 3, coverageEligible: true, anchor: true },
-    { id: "sharedCollection", label: "Shared curated collection", weight: 2, coverageEligible: true, anchor: true },
-    { id: "episodeLength", label: "Similar episode length", weight: 4, coverageEligible: true, anchor: true },
-    { id: "catalogLength", label: "Similar catalogue size", weight: 2, coverageEligible: true, anchor: true },
+    { id: "sharedCollection", label: "Shared curated collection", weight: 1, coverageEligible: true, anchor: true },
+    { id: "episodeLength", label: "Similar episode length", weight: 2, coverageEligible: true, anchor: true },
+    { id: "catalogLength", label: "Similar catalogue size", weight: 1, coverageEligible: true, anchor: true },
     {
       id: "ratingProfile",
       label: "Comparable archive rating profile",
@@ -129,6 +198,23 @@
 
   function normalizeText(value) {
     return String(value || "").trim();
+  }
+
+  function normalizeIdentityUrl(value) {
+    return String(value || "")
+      .trim()
+      .toLowerCase()
+      .replace(/[?#].*$/, "")
+      .replace(/\/+$/, "");
+  }
+
+  function getIdentityKeys(show) {
+    return ["rss", "apple", "spotify"]
+      .map((key) => {
+        const value = normalizeIdentityUrl(show?.listenLinks?.[key]);
+        return value ? `${key}:${value}` : "";
+      })
+      .filter(Boolean);
   }
 
   function normalizeSetValues(value) {
@@ -278,11 +364,61 @@
     return frequencies;
   }
 
+  function createIdentityIndex(shows) {
+    const identityKeysByShow = new Map();
+    const showsByIdentityKey = new Map();
+
+    shows.forEach((show) => {
+      const keys = new Set(getIdentityKeys(show));
+      identityKeysByShow.set(show.id, keys);
+      keys.forEach((key) => {
+        const ids = showsByIdentityKey.get(key) || new Set();
+        ids.add(show.id);
+        showsByIdentityKey.set(key, ids);
+      });
+    });
+
+    return { identityKeysByShow, showsByIdentityKey };
+  }
+
+  function areNearDuplicates(source, target, context) {
+    if (!source || !target || !context?.identityKeysByShow) return false;
+    const sourceKeys = context.identityKeysByShow.get(source.id) || new Set();
+    const targetKeys = context.identityKeysByShow.get(target.id) || new Set();
+    return [...sourceKeys].some((key) => targetKeys.has(key));
+  }
+
   function signalDistinctiveness(frequency, showCount) {
     const total = Math.max(1, Number(showCount) || 1);
     const count = Math.max(0, Number(frequency) || 0);
+    // Tiny fixture indexes do not contain enough catalogue context to tell a
+    // genuinely common value from a value that simply appears in every test
+    // record. Keep those comparisons neutral; the production catalogue uses
+    // the full frequency-aware calculation below.
+    if (total < 10) return 0.5;
     if (count <= 0) return 1;
     return clamp(Math.log((total + 1) / (count + 1)) / Math.log(total + 1));
+  }
+
+  function getDiscoveryCohesion(source, target, context) {
+    const discoveryDefinitions = DIMENSION_DEFINITIONS.filter((definition) => DISCOVERY_DIMENSION_SET.has(definition.id));
+    const matchedSignals = discoveryDefinitions.map((definition) => {
+      const leftValues = normalizeSetValues(getDefinitionValues(source, definition));
+      const rightValues = normalizeSetValues(getDefinitionValues(target, definition));
+      const sharedKeys = [...leftValues.keys()].filter((key) => rightValues.has(key));
+      if (sharedKeys.length === 0) return null;
+
+      const overlap = sharedKeys.length / Math.max(leftValues.size, rightValues.size, 1);
+      const distinctiveness = sharedKeys.reduce((total, key) => {
+        const frequency = context.frequencies[definition.id]?.get(key) || 0;
+        return total + signalDistinctiveness(frequency, context.showCount);
+      }, 0) / sharedKeys.length;
+      return overlap * distinctiveness;
+    }).filter((value) => Number.isFinite(value));
+
+    if (matchedSignals.length < 2) return 0;
+    const averageStrength = matchedSignals.reduce((total, value) => total + value, 0) / matchedSignals.length;
+    return round(clamp(((matchedSignals.length - 1) / 4) * averageStrength));
   }
 
   function createDimensionBase(definition, overrides = {}) {
@@ -296,6 +432,7 @@
       evidenceOnly: definition.evidenceOnly === true,
       available: false,
       matched: false,
+      distinctiveness: 0,
       contribution: 0,
       reasons: [],
       ...overrides,
@@ -320,13 +457,20 @@
     }, 0) / sharedKeys.length;
     // Common values such as "drama" or "serialized" still count, but less
     // than a rarer catalog value. The reason remains the actual shared value.
-    const distinctivenessFactor = 0.35 + (0.65 * distinctiveness);
-    const contribution = definition.weight * overlapRatio * distinctivenessFactor;
+    const distinctivenessFactor = 0.3 + (0.7 * distinctiveness);
+    const cohesionBoost = definition.coverageGroup === "discovery"
+      ? 1 + (0.16 * Number(context.discoveryCohesion || 0))
+      : 1;
+    const contribution = Math.min(
+      definition.weight,
+      definition.weight * overlapRatio * distinctivenessFactor * cohesionBoost,
+    );
     const values = sharedKeys.map((key) => displayValue(leftValues.get(key) || rightValues.get(key))).filter(Boolean);
 
     return createDimensionBase(definition, {
       available: true,
       matched: contribution > 0,
+      distinctiveness: round(distinctiveness),
       contribution: round(contribution),
       reasons: [{
         code: definition.id,
@@ -418,12 +562,13 @@
     const strongestMatch = matches.find((match) => match.role === strongestRole.role);
     const frequency = context.frequencies.entity?.get(`${strongestMatch.role}:${strongestMatch.id}`) || 0;
     const distinctiveness = signalDistinctiveness(frequency, context.showCount);
-    const distinctivenessFactor = 0.45 + (0.55 * distinctiveness);
+    const distinctivenessFactor = 0.4 + (0.6 * distinctiveness);
     const contribution = definition.weight * strongestRole.factor * distinctivenessFactor;
 
     return createDimensionBase(definition, {
       available: true,
       matched: true,
+      distinctiveness: round(distinctiveness),
       contribution: round(contribution),
       reasons: matches.map((match) => {
         const roleLabel = ENTITY_ROLE_LABELS[match.role] || "entity";
@@ -456,7 +601,7 @@
       const frequency = context.collectionFrequencies?.get(collection.id) || 0;
       return total + signalDistinctiveness(frequency, context.showCount);
     }, 0) / shared.length;
-    const distinctivenessFactor = 0.4 + (0.6 * distinctiveness);
+    const distinctivenessFactor = 0.35 + (0.65 * distinctiveness);
     const overlapFactor = 0.65 + (0.35 * clamp(shared.length / 2));
     const contribution = definition.weight * overlapFactor * distinctivenessFactor;
     const sortedShared = [...shared].sort((leftCollection, rightCollection) => leftCollection.id.localeCompare(rightCollection.id, "en"));
@@ -464,6 +609,7 @@
     return createDimensionBase(definition, {
       available: true,
       matched: true,
+      distinctiveness: round(distinctiveness),
       contribution: round(contribution),
       reasons: sortedShared.slice(0, 3).map((collection) => ({
         code: "sharedCollection",
@@ -489,13 +635,14 @@
 
     const frequency = context.frequencies.releaseProfile?.get(left) || 0;
     const distinctiveness = signalDistinctiveness(frequency, context.showCount);
-    const distinctivenessFactor = 0.35 + (0.65 * distinctiveness);
+    const distinctivenessFactor = 0.3 + (0.7 * distinctiveness);
     const contribution = definition.weight * distinctivenessFactor;
     const label = RELEASE_STATE_LABELS[left] || displayValue(left);
 
     return createDimensionBase(definition, {
       available: true,
       matched: contribution > 0,
+      distinctiveness: round(distinctiveness),
       contribution: round(contribution),
       reasons: contribution > 0 ? [{
         code: "releaseProfile",
@@ -669,13 +816,16 @@
     if (!source || !target || source.id === target.id) return null;
 
     const comparisonContext = context && context.frequencies
-      ? context
+      ? { ...context }
       : {
         showCount: 2,
         frequencies: createFrequencyIndex([source, target]),
         similarityCollections: [],
         collectionsByShow: new Map([[source.id, []], [target.id, []]]),
+        identityKeysByShow: new Map(),
       };
+
+    comparisonContext.discoveryCohesion = getDiscoveryCohesion(source, target, comparisonContext);
 
     if (!comparisonContext.coverageDefinitions) {
       comparisonContext.coverageDefinitions = DIMENSION_DEFINITIONS.filter((definition) => definition.coverageEligible);
@@ -707,6 +857,7 @@
     return {
       sourceId: source.id,
       targetId: target.id,
+      catalogShowCount: comparisonContext.showCount,
       score,
       maxScore: SCORE_MAX,
       metadataCoverage: metadataCoverage.metadataCoverage,
@@ -716,6 +867,8 @@
       targetMetadataCoverage: metadataCoverage.targetMetadataCoverage,
       sourceMetadataAvailableWeight: metadataCoverage.sourceMetadataAvailableWeight,
       targetMetadataAvailableWeight: metadataCoverage.targetMetadataAvailableWeight,
+      discoveryCohesion: comparisonContext.discoveryCohesion,
+      nearDuplicate: areNearDuplicates(source, target, comparisonContext),
       metadataAvailableDimensions: metadataCoverage.metadataAvailableDimensions,
       metadataMissingDimensions: metadataCoverage.metadataMissingDimensions,
       metadataCoverageByDimension: metadataCoverage.metadataCoverageByDimension,
@@ -726,27 +879,99 @@
     };
   }
 
+  function joinHumanValues(values) {
+    const unique = [];
+    const seen = new Set();
+    asArray(values).map(normalizeText).filter(Boolean).forEach((value) => {
+      const key = normalizeValue(value);
+      if (seen.has(key)) return;
+      seen.add(key);
+      unique.push(value);
+    });
+
+    if (unique.length <= 1) return unique[0] || "";
+    if (unique.length === 2) return `${unique[0]} and ${unique[1]}`;
+    return `${unique.slice(0, -1).join(", ")}, and ${unique.at(-1)}`;
+  }
+
+  function formatPublicReasonGroup(dimension, reasons) {
+    const values = reasons.flatMap((reason) => asArray(reason.values)).filter(Boolean);
+    const joinedValues = joinHumanValues(values);
+    if (!joinedValues) return normalizeText(reasons[0]?.text);
+
+    if (dimension === "entity") {
+      const roleGroups = new Map();
+      reasons.forEach((reason) => {
+        const role = normalizeText(reason.role) || "entity";
+        const group = roleGroups.get(role) || [];
+        group.push(...asArray(reason.values));
+        roleGroups.set(role, group);
+      });
+      return [...roleGroups.entries()]
+        .map(([role, roleValues]) => {
+          const roleLabel = ENTITY_ROLE_LABELS[role] || "entity";
+          const plural = roleValues.length === 1
+            ? roleLabel
+            : roleLabel === "production company" ? "production companies" : `${roleLabel}s`;
+          return `Shared ${plural}: ${joinHumanValues(roleValues)}`;
+        })
+        .join("; ");
+    }
+
+    switch (dimension) {
+      case "bestFor":
+        return `Both work well for: ${joinedValues}.`;
+      case "voiceStyle":
+        return `Both use a ${joinedValues.toLowerCase()} voice style.`;
+      case "narrativeFocus":
+        return `Both use a ${joinedValues.toLowerCase()} narrative focus.`;
+      case "intensity":
+        return `Both have ${joinedValues.toLowerCase()} intensity.`;
+      case "commitment":
+        return `Both share a ${joinedValues.toLowerCase()} listening commitment.`;
+      case "releaseProfile":
+        return `Both are ${joinedValues.toLowerCase()}.`;
+      case "sharedCollection":
+        return `Both appear in ${joinedValues}.`;
+      case "episodeLength":
+        return `Episodes are a similar length: ${joinedValues.replace(/\s+and\s+/, " vs ")}.`;
+      case "catalogLength":
+        return `Similar catalogue size: ${joinedValues.replace(/\s+and\s+/, " vs ")}.`;
+      default:
+        return `${reasons[0]?.label || "Shared archive signal"}: ${joinedValues}`;
+    }
+  }
+
   function getPublicSimilarityReasons(similarity, options = {}) {
     const requestedLimit = Number(options.limit);
     const limit = Math.max(
       1,
       Number.isFinite(requestedLimit) ? requestedLimit : PUBLIC_MATCH_POLICY.explanationReasons,
     );
-    const seen = new Set();
+    const groups = new Map();
 
-    return asArray(similarity?.reasons)
+    asArray(similarity?.reasons)
       .filter((reason) => reason && reason.dimension !== "editorial")
       .filter((reason) => reason.includedInScore !== false && Number(reason.contribution) > 0)
+      .filter((reason) => normalizeText(reason.text))
+      .forEach((reason) => {
+        const group = groups.get(reason.dimension) || [];
+        group.push(reason);
+        groups.set(reason.dimension, group);
+      });
+
+    return [...groups.entries()]
+      .map(([dimension, reasons]) => ({
+        ...reasons[0],
+        dimension,
+        contribution: Math.max(...reasons.map((reason) => Number(reason.contribution) || 0)),
+        values: reasons.flatMap((reason) => asArray(reason.values)),
+        text: formatPublicReasonGroup(dimension, reasons),
+      }))
       .filter((reason) => normalizeText(reason.text))
       .sort((left, right) => {
         const priorityDifference = (PUBLIC_REASON_PRIORITY[left.dimension] ?? 99) - (PUBLIC_REASON_PRIORITY[right.dimension] ?? 99);
         return priorityDifference || Number(right.contribution || 0) - Number(left.contribution || 0) || String(left.text).localeCompare(String(right.text), "en");
-      })
-      .filter((reason) => {
-        const key = normalizeText(reason.text);
-        if (seen.has(key)) return false;
-        seen.add(key);
-        return true;
       })
       .slice(0, limit);
   }
@@ -756,6 +981,236 @@
       .map((reason) => normalizeText(reason.text))
       .filter(Boolean)
       .join(" · ");
+  }
+
+  function getSimilarityFeatureProfile(similarity) {
+    const profile = new Map();
+    asArray(similarity?.dimensions)
+      .filter((dimension) => dimension.matched && dimension.id !== "editorial")
+      .forEach((dimension) => {
+        const factor = DIVERSITY_DIMENSION_FACTORS[dimension.id] || 0.5;
+        const values = dimension.reasons
+          .flatMap((reason) => asArray(reason.values))
+          .map(normalizeValue)
+          .filter(Boolean);
+        const keys = values.length > 0 ? values.map((value) => `${dimension.id}:${value}`) : [`${dimension.id}:matched`];
+        const tokenWeight = factor / keys.length;
+        keys.forEach((key) => profile.set(key, Math.max(profile.get(key) || 0, tokenWeight)));
+      });
+    return profile;
+  }
+
+  function getFeatureOverlap(left, right) {
+    const keys = new Set([...left.keys(), ...right.keys()]);
+    let intersection = 0;
+    let union = 0;
+    keys.forEach((key) => {
+      const leftWeight = left.get(key) || 0;
+      const rightWeight = right.get(key) || 0;
+      intersection += Math.min(leftWeight, rightWeight);
+      union += Math.max(leftWeight, rightWeight);
+    });
+    return union > 0 ? clamp(intersection / union) : 0;
+  }
+
+  function compareCandidateOrder(left, right) {
+    const scoreDifference = Number(right.similarity?.score || 0) - Number(left.similarity?.score || 0);
+    if (scoreDifference !== 0) return scoreDifference;
+    const coverageDifference = Number(right.similarity?.metadataCoverage || 0) - Number(left.similarity?.metadataCoverage || 0);
+    if (coverageDifference !== 0) return coverageDifference;
+    return String(left.show?.title || left.show?.id || "").localeCompare(String(right.show?.title || right.show?.id || ""), "en")
+      || String(left.show?.id || "").localeCompare(String(right.show?.id || ""), "en");
+  }
+
+  function selectDiverseCandidates(candidates, limit) {
+    const remaining = [...candidates].sort(compareCandidateOrder);
+    const selected = [];
+    const profiles = new Map(remaining.map((candidate) => [candidate.show.id, getSimilarityFeatureProfile(candidate.similarity)]));
+
+    while (remaining.length > 0 && selected.length < limit) {
+      let bestIndex = 0;
+      let bestEffectiveScore = Number.NEGATIVE_INFINITY;
+
+      remaining.forEach((candidate, index) => {
+        const profile = profiles.get(candidate.show.id) || new Map();
+        const overlap = selected.reduce((maximum, selectedCandidate) => Math.max(
+          maximum,
+          getFeatureOverlap(profile, profiles.get(selectedCandidate.show.id) || new Map()),
+        ), 0);
+        const duplicatePenalty = candidate.similarity?.nearDuplicate
+          ? PUBLIC_MATCH_POLICY.nearDuplicatePenalty
+          : 0;
+        const effectiveScore = Number(candidate.similarity?.score || 0)
+          - (overlap * PUBLIC_MATCH_POLICY.diversityPenalty)
+          - duplicatePenalty;
+
+        if (
+          effectiveScore > bestEffectiveScore
+          || (effectiveScore === bestEffectiveScore && compareCandidateOrder(candidate, remaining[bestIndex]) < 0)
+        ) {
+          bestIndex = index;
+          bestEffectiveScore = effectiveScore;
+        }
+      });
+
+      selected.push(remaining.splice(bestIndex, 1)[0]);
+    }
+
+    return selected;
+  }
+
+  function isUsefulShowsLikeReason(value) {
+    const reason = normalizeText(value).replace(/\s+/g, " ");
+    if (reason.length < 24) return false;
+    return !SHOWS_LIKE_GENERIC_REASON_PATTERNS.some((pattern) => pattern.test(reason));
+  }
+
+  function getShowsLikeReasonFocus(reason = {}) {
+    const values = [...new Set(asArray(reason.values).map(normalizeText).filter(Boolean))];
+    const joinedValues = joinHumanValues(values).toLowerCase();
+    if (reason.dimension === "entity") {
+      return joinedValues ? `the shared creative connection to ${joinedValues}` : "the shared creative connection";
+    }
+
+    switch (reason.dimension) {
+      case "tone":
+        return joinedValues ? `the ${joinedValues} atmosphere` : "the atmosphere";
+      case "theme":
+        return joinedValues ? `${joinedValues} subject matter` : "the same thematic territory";
+      case "tag":
+        return joinedValues ? `the ${joinedValues} thread` : "the same discovery thread";
+      case "bestFor":
+        return joinedValues ? `the ${joinedValues} listening context` : "a similar listening context";
+      case "voiceStyle":
+        return joinedValues ? `a ${joinedValues} voice style` : "a similar voice style";
+      case "narrativeFocus":
+        return joinedValues ? `a ${joinedValues} narrative focus` : "a similar narrative focus";
+      case "intensity":
+        return joinedValues ? `${joinedValues} intensity` : "a similar intensity";
+      case "commitment":
+        return joinedValues ? `a ${joinedValues} listening commitment` : "a similar listening commitment";
+      case "format":
+        return joinedValues ? `the ${joinedValues} format` : "a similar format";
+      case "genre":
+        return joinedValues ? `the ${joinedValues} genre territory` : "the same genre territory";
+      default:
+        return normalizeText(reason.text).replace(/^[^:]+:\s*/, "").replace(/[.]+$/, "").toLowerCase();
+    }
+  }
+
+  function buildShowsLikeComputedReason(anchor, target, match) {
+    const anchorTitle = normalizeText(anchor?.title) || "the source show";
+    const targetTitle = normalizeText(target?.title) || "This show";
+    const reasons = asArray(match?.reasons)
+      .filter((reason) => reason && reason.dimension !== "editorial" && normalizeText(reason.text))
+      .slice(0, 2);
+    const focuses = reasons.map(getShowsLikeReasonFocus).filter(Boolean);
+    if (focuses.length === 0) return "A metadata-supported archive match with more than one specific discovery signal.";
+    if (focuses.length === 1) {
+      return `If you liked ${anchorTitle} for ${focuses[0]}, ${targetTitle} follows that thread through a different story.`;
+    }
+    return `If you liked ${anchorTitle} for ${focuses[0]}, ${targetTitle} also offers ${focuses[1]}—a distinct route through the same listening appetite.`;
+  }
+
+  function getShowsLikeRecommendationSectionScore(recommendation) {
+    const dimensions = asArray(recommendation?.similarity?.dimensions).filter((dimension) => (
+      dimension?.matched && !["editorial", "ratingProfile"].includes(dimension.id)
+    ));
+    const dimensionIds = new Set(dimensions.map((dimension) => dimension.id));
+    const evidenceText = [
+      recommendation?.reason,
+      ...dimensions.flatMap((dimension) => dimension.reasons?.flatMap((reason) => [reason.text, ...asArray(reason.values)]) || []),
+    ]
+      .map(normalizeText)
+      .join(" ")
+      .toLowerCase();
+    const scores = {
+      characters: 0,
+      atmosphere: 0,
+      premise: 0,
+      storytelling: 0,
+    };
+
+    if (dimensionIds.has("narrativeFocus") && /character-driven|character|relationship|family|ensemble|people|attachment/.test(evidenceText)) scores.characters += 4;
+    if (dimensionIds.has("theme") && /character|relationship|family|identity|ensemble|people|attachment/.test(evidenceText)) scores.characters += 3;
+    if (/character|relationship|family|ensemble|chemistry|personal stakes|people|attachment/.test(evidenceText)) scores.characters += 4;
+
+    if (dimensionIds.has("tone")) scores.atmosphere += 4;
+    if (dimensionIds.has("intensity")) scores.atmosphere += 2;
+    if (/atmosphere|tone|dread|warm|dark|eerie|funny|weird|bleak|hopeful|menace|comfort/.test(evidenceText)) scores.atmosphere += 2;
+
+    if (dimensionIds.has("theme")) scores.premise += 4;
+    if (dimensionIds.has("tag")) scores.premise += 2;
+    if (dimensionIds.has("genre")) scores.premise += 1;
+    if (/premise|world|setting|cosmic|mystery|horror|science fiction|sci-fi|station|colony|mythology|investigation|conspiracy|journey/.test(evidenceText)) scores.premise += 2;
+
+    if (dimensionIds.has("format")) scores.storytelling += 1;
+    if (dimensionIds.has("voiceStyle")) scores.storytelling += 3;
+    if (dimensionIds.has("commitment")) scores.storytelling += 2;
+    if (dimensionIds.has("episodeLength")) scores.storytelling += 1;
+    if (/format|full-cast|narrat|record|case-file|anthology|documentary|radio|voice-led|episod|tape|dossier|call-in|voice|timing/.test(evidenceText)) scores.storytelling += 2;
+
+    return scores;
+  }
+
+  function classifyShowsLikeRecommendation(recommendation) {
+    if (recommendation?.source === "computed") return "hidden";
+    const scores = getShowsLikeRecommendationSectionScore(recommendation);
+    return SHOWS_LIKE_SECTION_DEFINITIONS
+      .map((section, index) => ({ section, score: scores[section.id] || 0, index }))
+      .filter((entry) => entry.score >= 3)
+      .sort((left, right) => right.score - left.score || left.index - right.index)
+      .map((entry) => entry.section.id)[0] || "";
+  }
+
+  function createShowsLikeSections(authoredRecommendations, computedRecommendations) {
+    const sectionsById = new Map();
+    const closest = authoredRecommendations.slice(0, 3);
+    const remainingAuthored = authoredRecommendations.slice(3);
+    const buckets = new Map(SHOWS_LIKE_SECTION_DEFINITIONS.map((section) => [section.id, []]));
+
+    remainingAuthored.forEach((recommendation) => {
+      const sectionId = classifyShowsLikeRecommendation(recommendation);
+      if (sectionId && buckets.has(sectionId)) buckets.get(sectionId).push(recommendation);
+      else closest.push(recommendation);
+    });
+
+    const closeIds = new Set(closest.map((recommendation) => recommendation.show.id));
+    buckets.forEach((recommendations, sectionId) => {
+      if (recommendations.length < 2) {
+        recommendations.forEach((recommendation) => {
+          if (!closeIds.has(recommendation.show.id)) {
+            closest.push(recommendation);
+            closeIds.add(recommendation.show.id);
+          }
+        });
+        return;
+      }
+      sectionsById.set(sectionId, recommendations);
+    });
+
+    const sections = [];
+    if (closest.length > 0) {
+      sections.push({
+        id: "closest",
+        label: "Closest overall",
+        description: "The clearest next steps from this anchor, with the archive's written route leading.",
+        recommendations: closest,
+      });
+    }
+    SHOWS_LIKE_SECTION_DEFINITIONS.forEach((section) => {
+      const recommendations = sectionsById.get(section.id);
+      if (recommendations?.length) sections.push({ ...section, recommendations });
+    });
+    if (computedRecommendations.length > 0) {
+      sections.push({
+        id: "hidden-gems",
+        label: "Less obvious picks",
+        description: "Strong archive matches that open a different door into the same listening appetite.",
+        recommendations: computedRecommendations,
+      });
+    }
+    return sections;
   }
 
   function createSimilarityIndex({ shows = [], collections = [] } = {}) {
@@ -773,6 +1228,7 @@
     const similarityCollections = publicCollections.filter((collection) => collection.kind === "similarity");
     const collectionsByShow = new Map(publicShows.map((show) => [show.id, []]));
     const collectionFrequencies = new Map();
+    const identityIndex = createIdentityIndex(publicShows);
 
     publicCollections.forEach((collection) => {
       const memberIds = new Set(collection.showIds);
@@ -792,6 +1248,8 @@
       })),
       collectionsByShow,
       collectionFrequencies,
+      identityKeysByShow: identityIndex.identityKeysByShow,
+      showsByIdentityKey: identityIndex.showsByIdentityKey,
     };
     context.coverageDefinitions = DIMENSION_DEFINITIONS.filter((definition) => definition.coverageEligible);
     context.coverageDefinitionIds = new Set(
@@ -806,6 +1264,57 @@
       const source = typeof sourceOrId === "string" ? showById.get(sourceOrId) : sourceOrId;
       const target = typeof targetOrId === "string" ? showById.get(targetOrId) : targetOrId;
       return compareShows(source, target, context);
+    }
+
+    function getEditorialSimilarityMatches(sourceOrId, options = {}) {
+      const source = typeof sourceOrId === "string" ? showById.get(sourceOrId) : sourceOrId;
+      if (!source || !normalizeText(source.id)) return [];
+
+      const requestedLimit = Number(options.limit);
+      const limit = Math.max(1, Number.isFinite(requestedLimit) ? requestedLimit : 24);
+      const matches = [];
+      const seen = new Set();
+
+      const addMatch = (neighbor, reason, direction) => {
+        if (!neighbor || neighbor.id === source.id || seen.has(neighbor.id)) return;
+        const text = normalizeText(reason) || "Explicit catalog similarity link.";
+        seen.add(neighbor.id);
+        matches.push({ show: neighbor, reason: text, direction });
+      };
+
+      asArray(source.similarTo).forEach((id) => {
+        const neighbor = showById.get(normalizeText(id));
+        addMatch(neighbor, source.similarReasons?.[neighbor?.id], "source-to-target");
+      });
+
+      similarityCollections.forEach((collection) => {
+        const anchorId = normalizeText(collection.anchorShowId);
+        const memberIds = asArray(collection.showIds).map(normalizeText).filter(Boolean);
+        if (anchorId === source.id) {
+          memberIds.forEach((memberId) => {
+            const neighbor = showById.get(memberId);
+            addMatch(
+              neighbor,
+              collection.showReasons?.[memberId] || `Included in ${collection.title}.`,
+              "similarity-collection",
+            );
+          });
+        } else if (memberIds.includes(source.id)) {
+          const neighbor = showById.get(anchorId);
+          addMatch(
+            neighbor,
+            collection.showReasons?.[source.id] || `Included in ${collection.title}.`,
+            "similarity-collection",
+          );
+        }
+      });
+
+      publicShows
+        .filter((candidate) => candidate.id !== source.id && asArray(candidate.similarTo).map(normalizeText).includes(source.id))
+        .sort((left, right) => String(left.title || left.id).localeCompare(String(right.title || right.id), "en") || left.id.localeCompare(right.id, "en"))
+        .forEach((neighbor) => addMatch(neighbor, neighbor.similarReasons?.[source.id], "target-to-source"));
+
+      return matches.slice(0, limit);
     }
 
     function getSimilarShows(sourceOrId, options = {}) {
@@ -870,34 +1379,127 @@
       );
       const cacheKey = `${source.id}:${limit}`;
       if (publicMatchCache.has(cacheKey)) return publicMatchCache.get(cacheKey);
-      const authoredIds = new Set(asArray(source.similarTo).map(normalizeText).filter(Boolean));
+      const sourceCoverage = createRecordMetadataCoverage(source, context).metadataCoverage;
+      const sparseSource = sourceCoverage < PUBLIC_MATCH_POLICY.sparseCoverageThreshold;
+      const minimumScore = sparseSource ? PUBLIC_MATCH_POLICY.sparseMinimumScore : PUBLIC_MATCH_POLICY.minimumScore;
+      const minimumMetadataCoverage = sparseSource
+        ? PUBLIC_MATCH_POLICY.sparseMinimumMetadataCoverage
+        : PUBLIC_MATCH_POLICY.minimumMetadataCoverage;
+      const minimumRecordMetadataCoverage = sparseSource
+        ? PUBLIC_MATCH_POLICY.sparseMinimumRecordMetadataCoverage
+        : PUBLIC_MATCH_POLICY.minimumRecordMetadataCoverage;
       const candidates = getSimilarShows(source.id, {
         limit: publicShows.length,
-        minimumScore: PUBLIC_MATCH_POLICY.minimumScore,
+        minimumScore,
         minimumMetadataDimensions: PUBLIC_MATCH_POLICY.minimumMetadataDimensions,
         minimumAnchorDimensions: PUBLIC_MATCH_POLICY.minimumAnchorDimensions,
       });
 
       const matches = candidates
         .filter(({ show, similarity }) => {
-          if (authoredIds.has(show.id) || similarity.curatedEvidence) return false;
-          if (similarity.metadataCoverage < PUBLIC_MATCH_POLICY.minimumMetadataCoverage) return false;
-          if (similarity.sourceMetadataCoverage < PUBLIC_MATCH_POLICY.minimumRecordMetadataCoverage) return false;
-          if (similarity.targetMetadataCoverage < PUBLIC_MATCH_POLICY.minimumRecordMetadataCoverage) return false;
+          if (similarity.curatedEvidence) return false;
+          if (similarity.metadataCoverage < minimumMetadataCoverage) return false;
+          if (similarity.sourceMetadataCoverage < minimumRecordMetadataCoverage) return false;
+          if (similarity.targetMetadataCoverage < minimumRecordMetadataCoverage) return false;
 
           const specificMatches = similarity.metadataMatches.filter((id) => PUBLIC_SPECIFIC_DIMENSION_SET.has(id));
-          return specificMatches.length >= PUBLIC_MATCH_POLICY.minimumSpecificDimensions;
-        })
+          if (specificMatches.length < PUBLIC_MATCH_POLICY.minimumSpecificDimensions) return false;
+
+          if (Number(similarity.catalogShowCount || 0) < 10) return true;
+
+          const distinctiveSpecificMatches = similarity.dimensions.filter((dimension) => (
+            PUBLIC_SPECIFIC_DIMENSION_SET.has(dimension.id)
+            && dimension.matched
+            && Number(dimension.distinctiveness || 0) >= PUBLIC_MATCH_POLICY.minimumSpecificDistinctiveness
+          ));
+          return distinctiveSpecificMatches.length >= PUBLIC_MATCH_POLICY.minimumDistinctiveSpecificDimensions;
+        });
+      const diverseMatches = selectDiverseCandidates(matches, limit);
+
+      const publicMatches = diverseMatches
         .map(({ show, similarity }) => ({
           show,
           similarity,
           reasons: getPublicSimilarityReasons(similarity),
           explanation: buildPublicSimilarityExplanation(similarity),
+          confidence: similarity.sourceMetadataCoverage < PUBLIC_MATCH_POLICY.sparseCoverageThreshold
+            || similarity.targetMetadataCoverage < PUBLIC_MATCH_POLICY.sparseCoverageThreshold
+            ? "limited-metadata"
+            : "strong-metadata",
         }))
         .filter((entry) => entry.explanation)
         .slice(0, limit);
-      publicMatchCache.set(cacheKey, matches);
-      return matches;
+      publicMatchCache.set(cacheKey, publicMatches);
+      return publicMatches;
+    }
+
+    function getShowsLikeCollectionView(sourceOrId, collection = {}, options = {}) {
+      const anchorId = normalizeText(collection.anchorShowId) || (typeof sourceOrId === "string" ? normalizeText(sourceOrId) : normalizeText(sourceOrId?.id));
+      const anchor = showById.get(anchorId);
+      if (!anchor || collection.kind !== "similarity") return null;
+
+      const authoredIds = new Set(asArray(collection.showIds).map(normalizeText).filter(Boolean));
+      const seen = new Set();
+      const authoredRecommendations = [];
+      const addAuthoredRecommendation = (show, reason) => {
+        if (!show || show.id === anchor.id || seen.has(show.id) || !isUsefulShowsLikeReason(reason)) return;
+        const similarity = compareShows(anchor, show, context);
+        if (!similarity || similarity.nearDuplicate) return;
+        seen.add(show.id);
+        authoredRecommendations.push({
+          show,
+          reason: normalizeText(reason),
+          source: "authored",
+          similarity,
+          confidence: "authored",
+        });
+      };
+
+      asArray(collection.showIds).forEach((showId) => {
+        const id = normalizeText(showId);
+        const show = showById.get(id);
+        const reason = normalizeText(collection.showReasons?.[id]) || normalizeText(anchor.similarReasons?.[id]);
+        addAuthoredRecommendation(show, reason);
+      });
+
+      if (options.includeDirectRelationships === true && authoredRecommendations.length < 4) {
+        asArray(anchor.similarTo).forEach((showId) => {
+          const id = normalizeText(showId);
+          const show = showById.get(id);
+          if (!authoredIds.has(id)) addAuthoredRecommendation(show, anchor.similarReasons?.[id]);
+        });
+      }
+
+      const fallbackSlots = Math.max(0, SHOWS_LIKE_TARGET_COUNT - authoredRecommendations.length);
+      const computedRecommendations = fallbackSlots > 0
+        ? getPublicSimilarityMatches(anchor.id, { limit: PUBLIC_MATCH_POLICY.maximumResults })
+          .filter((match) => {
+            if (!match?.show || authoredIds.has(match.show.id) || seen.has(match.show.id) || match.similarity?.nearDuplicate) return false;
+            const discoveryReasons = asArray(match.reasons).filter((reason) => DISCOVERY_DIMENSION_SET.has(reason.dimension));
+            return discoveryReasons.length >= 2 && normalizeText(match.explanation);
+          })
+          .slice(0, fallbackSlots)
+          .map((match) => {
+            seen.add(match.show.id);
+            return {
+              show: match.show,
+              reason: buildShowsLikeComputedReason(anchor, match.show, match),
+              source: "computed",
+              similarity: match.similarity,
+              confidence: match.confidence,
+              evidence: match.reasons,
+            };
+          })
+        : [];
+
+      const sections = createShowsLikeSections(authoredRecommendations, computedRecommendations);
+      return {
+        anchor,
+        authoredCount: authoredRecommendations.length,
+        computedCount: computedRecommendations.length,
+        recommendations: sections.flatMap((section) => section.recommendations),
+        sections,
+      };
     }
 
     function getMetadataProfile(sourceOrId) {
@@ -910,8 +1512,10 @@
       shows: publicShows,
       collections: publicCollections,
       compare,
+      getEditorialSimilarityMatches,
       getSimilarShows,
       getPublicSimilarityMatches,
+      getShowsLikeCollectionView,
       getMetadataProfile,
       fieldFrequencies: context.frequencies,
       dimensions: DIMENSION_DEFINITIONS,

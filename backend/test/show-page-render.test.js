@@ -34,6 +34,101 @@ test("show relationships keep authored recommendations distinct from computed ar
   assert.ok(markup.indexOf("data-recommendation-source=\"curated\"") < markup.indexOf("data-recommendation-source=\"computed\""));
 });
 
+test("show relationships expose incoming and similarity-route picks through a compact overflow", () => {
+  const base = showMap.get("solar");
+  const source = {
+    ...base,
+    id: "relationship-overflow-source",
+    title: "Overflow Source",
+    similarTo: ["route-one", "route-two", "route-three", "route-four"],
+    similarReasons: {
+      "route-one": "Route one.",
+      "route-two": "Route two.",
+      "route-three": "Route three.",
+      "route-four": "Route four.",
+    },
+  };
+  const routeShows = ["route-one", "route-two", "route-three", "route-four"].map((id) => ({
+    ...base,
+    id,
+    title: id,
+    similarTo: [],
+    similarReasons: {},
+  }));
+  const incoming = {
+    ...base,
+    id: "incoming-route",
+    title: "Incoming Route",
+    similarTo: [source.id],
+    similarReasons: { [source.id]: "An incoming route." },
+  };
+  const collectionMember = { ...base, id: "collection-route", title: "Collection Route", similarTo: [], similarReasons: {} };
+  const relationshipMap = new Map([source, ...routeShows, incoming, collectionMember].map((entry) => [entry.id, entry]));
+  const collectionsForTest = [{
+    id: "shows-like-overflow-source",
+    title: "Shows like Overflow Source",
+    kind: "similarity",
+    anchorShowId: source.id,
+    showIds: ["collection-route"],
+    showReasons: { "collection-route": "A route-specific relationship." },
+  }];
+  const similarityIndex = createSimilarityIndex({ shows: [...relationshipMap.values()], collections: collectionsForTest });
+  const markup = createShowPageMarkup(source, relationshipMap, collectionsForTest, {}, similarityIndex);
+
+  assert.match(markup, /detail-similar-overflow/);
+  assert.match(markup, /Show 3 more/);
+  assert.match(markup, /Incoming Route/);
+  assert.match(markup, /A route-specific relationship\./);
+  assert.equal((markup.match(/data-recommendation-source="curated"/g) || []).length, 7);
+});
+
+test("client-rendered show relationships keep the same curated overflow behavior", async () => {
+  const base = showMap.get("solar");
+  const source = {
+    ...base,
+    id: "client-relationship-source",
+    title: "Client Relationship Source",
+    resolvedEntities: [],
+    entityLinks: [],
+    creators: [],
+    similarTo: ["client-one", "client-two", "client-three"],
+    similarReasons: {
+      "client-one": "Client route one.",
+      "client-two": "Client route two.",
+      "client-three": "Client route three.",
+    },
+  };
+  const routeShows = ["client-one", "client-two", "client-three", "client-four"].map((id) => ({
+    ...base, id, title: id, similarTo: [], similarReasons: {},
+  }));
+  const relationshipMap = new Map([source, ...routeShows].map((entry) => [entry.id, entry]));
+  const collectionsForTest = [{
+    id: "client-similarity-route",
+    title: "Client similarity route",
+    kind: "similarity",
+    anchorShowId: source.id,
+    showIds: ["client-four"],
+    showReasons: { "client-four": "Client route-specific reason." },
+  }];
+
+  global.document = { body: { dataset: {} }, getElementById: () => null, querySelector: () => null };
+  global.EchoArchiveSearch = {};
+  global.EchoArchiveEntities = require("../../shared/archive-entities");
+  global.EchoArchiveRecord = require("../../shared/archive-record.js");
+  global.EchoArchiveSimilarity = require("../../shared/archive-similarity");
+  try {
+    const { createShowPageMarkup: createClientShowPageMarkup } = await import("../../shared/app/render-show.js");
+    const markup = createClientShowPageMarkup(source, relationshipMap, collectionsForTest, {});
+    assert.match(markup, /detail-similar-overflow/);
+    assert.match(markup, /Client route-specific reason\./);
+    assert.match(markup, /Show 1 more/);
+  } finally {
+    delete global.document;
+    delete global.EchoArchiveSearch;
+    delete global.EchoArchiveRecord;
+  }
+});
+
 test("empty indexed entries move editorial context out of Reviews and invite the first listener review", () => {
   const markup = createShowPageMarkup(showMap.get("were-alive"), showMap, collections);
 

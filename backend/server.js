@@ -56,6 +56,7 @@ const {
 } = require("./lib/public-markdown-render");
 const {
   buildCollectionPageMetadata,
+  buildCollectionRecommendationView,
   buildCollectionStructuredData,
   buildShowPageMetadata,
   buildShowStructuredData,
@@ -929,6 +930,15 @@ async function startServer() {
         .filter(Boolean);
       const anchorShow =
         collection.anchorShowId && showMap.has(collection.anchorShowId) ? showMap.get(collection.anchorShowId) : null;
+      const recommendationView = buildCollectionRecommendationView({
+        collection,
+        collectionShows,
+        anchorShow,
+        allShows: state.publicCatalog,
+        collections: state.collections,
+        similarityIndex: state.similarityIndex,
+      });
+      const renderedCollectionShows = recommendationView?.recommendations?.map(({ show }) => show).filter(Boolean) || collectionShows;
       if (prefersMarkdown(req.get("accept"))) {
         if (!isIndexableCollection(collection, collectionShows)) {
           res.set("X-Robots-Tag", "noindex, follow, noarchive");
@@ -938,29 +948,31 @@ async function startServer() {
           res,
           renderCollectionMarkdown({
             collection,
-            collectionShows,
+            collectionShows: renderedCollectionShows,
             anchorShow,
             collections: state.collections,
             siteUrl: config.SITE_URL,
+            recommendationView,
           }),
         );
       }
       const template = readPublicPageTemplate("collection.html");
       let rendered = injectPageMetadata(
-        injectCollectionShowCards(
-          injectCollectionSummary(template, {
+        injectCollectionSummary(
+          injectCollectionShowCards(template, { collection, collectionShows: renderedCollectionShows, recommendationView }),
+          {
             collection,
-            collectionShows,
+            collectionShows: renderedCollectionShows,
             anchorShow,
             collections: state.collections,
             allShows: state.publicCatalog,
-          }),
-          { collection, collectionShows },
+            recommendationView,
+          },
         ),
         buildCollectionPageMetadata({
           siteUrl: config.SITE_URL,
           collection,
-          collectionShows,
+          collectionShows: renderedCollectionShows,
           anchorShow,
         }),
       );
@@ -969,8 +981,9 @@ async function startServer() {
         buildCollectionStructuredData({
           siteUrl: config.SITE_URL,
           collection,
-          collectionShows,
+          collectionShows: renderedCollectionShows,
           anchorShow,
+          recommendationView,
         }),
       );
 

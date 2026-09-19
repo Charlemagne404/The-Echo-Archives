@@ -39,12 +39,19 @@ function compactObject(record) {
   }));
 }
 
-function buildShowListItems(shows = [], showReasons = {}) {
+function buildShowListItems(shows = [], showReasons = {}, recommendationView = null) {
+  const recommendationReasons = new Map(
+    (Array.isArray(recommendationView?.recommendations) ? recommendationView.recommendations : [])
+      .filter((recommendation) => recommendation?.show?.id)
+      .map((recommendation) => [recommendation.show.id, cleanText(recommendation.reason)]),
+  );
   return (Array.isArray(shows) ? shows : []).map((show, index) => ({
     "@type": "ListItem",
     position: index + 1,
     name: cleanText(show?.title) || "Untitled archive entry",
-    ...(cleanText(showReasons?.[show?.id]) ? { description: cleanText(showReasons[show.id]) } : {}),
+    ...(recommendationReasons.get(show?.id) || cleanText(showReasons?.[show?.id])
+      ? { description: recommendationReasons.get(show?.id) || cleanText(showReasons[show.id]) }
+      : {}),
     url: buildSiteAbsoluteUrl(createShowHref(show?.id || "")),
   }));
 }
@@ -142,8 +149,8 @@ export function buildShowStructuredData(show) {
   };
 }
 
-export function buildCollectionStructuredData(collection, shows = []) {
-  const itemListElement = buildShowListItems(shows, collection?.showReasons);
+export function buildCollectionStructuredData(collection, shows = [], recommendationView = null) {
+  const itemListElement = buildShowListItems(shows, collection?.showReasons, recommendationView);
   const pageUrl = buildSiteAbsoluteUrl(createCollectionHref(collection?.id || ""));
   const homeUrl = buildSiteAbsoluteUrl("/");
   return {

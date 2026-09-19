@@ -9,7 +9,7 @@
   "indexedOnly": 228,
   "imported": 517,
   "plannedReviews": 0,
-  "collections": 46,
+  "collections": 53,
   "reviewCompanions": 7,
   "creatorVerified": 0,
   "withRss": 746,
@@ -34,7 +34,7 @@
         "pass": true
       },
       "collections": {
-        "actual": 46,
+        "actual": 53,
         "target": 29,
         "pass": true
       }
@@ -295,7 +295,7 @@
       "blockingErrors": []
     },
     "collections": {
-      "routeCollectionCount": 17,
+      "routeCollectionCount": 24,
       "routeCollectionsMissingShowReasons": [],
       "anchorShowsWithTooFewCollectionMemberships": [],
       "sparseIndexedOnlyShows": [],

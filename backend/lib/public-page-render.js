@@ -28,6 +28,7 @@ const {
   buildShowSeoTitle,
 } = require("./seo");
 const { entityStructuredData, showEntityStructuredData } = require("../../shared/archive-entities");
+const { createSimilarityIndex } = require("../../shared/archive-similarity");
 const { renderCollectionDirectoryCard, renderCollectionShowCard } = require("../../tools/lib/home-page-prerender");
 const { formatCount, getWebPageDates, toPublicLabel } = require("../../shared/archive-record");
 
@@ -258,7 +259,7 @@ function buildShowStructuredData({ siteUrl, show }) {
   };
 }
 
-function buildCollectionStructuredData({ siteUrl, collection, collectionShows = [], anchorShow = null }) {
+function buildCollectionStructuredData({ siteUrl, collection, collectionShows = [], anchorShow = null, recommendationView = null }) {
   const metadata = buildCollectionPageMetadata({ siteUrl, collection, collectionShows, anchorShow });
   const canonicalUrl = metadata.canonicalUrl;
   const homeUrl = buildAbsoluteUrl(siteUrl, "/");
@@ -267,6 +268,11 @@ function buildCollectionStructuredData({ siteUrl, collection, collectionShows = 
   const listId = `${canonicalUrl}#itemlist`;
   const breadcrumbId = `${canonicalUrl}#breadcrumb`;
   const showReasons = collection.showReasons && typeof collection.showReasons === "object" ? collection.showReasons : {};
+  const recommendationReasons = new Map(
+    (Array.isArray(recommendationView?.recommendations) ? recommendationView.recommendations : [])
+      .filter((recommendation) => recommendation?.show?.id)
+      .map((recommendation) => [recommendation.show.id, String(recommendation.reason || "").trim()]),
+  );
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -299,7 +305,7 @@ function buildCollectionStructuredData({ siteUrl, collection, collectionShows = 
           "@type": "ListItem",
           position: index + 1,
           name: show.title,
-          description: String(showReasons[show.id] || "").trim(),
+          description: recommendationReasons.get(show.id) || String(showReasons[show.id] || "").trim(),
           url: buildAbsoluteUrl(siteUrl, buildShowPath(show.id)),
         })),
       },
@@ -426,6 +432,11 @@ function replaceElementContents(html, id, value) {
   return html.replace(pattern, (_match, opening, _tagName, closing) => `${opening}${value}${closing}`);
 }
 
+function replaceElementAttribute(html, id, attributeName, value) {
+  const pattern = new RegExp(`(<[^>]+\\bid="${escapeRegExp(id)}"[^>]*\\s${escapeRegExp(attributeName)}=")[^"]*(")`, "i");
+  return html.replace(pattern, (_match, opening, closing) => `${opening}${escapeAttribute(value)}${closing}`);
+}
+
 function getRouteTypeLabel(collection) {
   return collection?.kind === "similarity" ? "Similar shows" : "Collection";
 }
@@ -470,13 +481,85 @@ function formatCollectionDate(value) {
   return Number.isNaN(date.getTime()) ? "" : new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric", year: "numeric" }).format(date);
 }
 
-function renderCollectionOverview(collection, collectionShows, anchorShow) {
+function buildFlatCollectionRecommendationView(collection, collectionShows = []) {
+  const recommendations = collectionShows.map((show) => ({
+    show,
+    reason: String(collection.showReasons?.[show.id] || "").trim(),
+    source: "authored",
+    confidence: "authored",
+  }));
+  return {
+    anchor: null,
+    authoredCount: recommendations.length,
+    computedCount: 0,
+    recommendations,
+    sections: recommendations.length
+      ? [{
+        id: "closest",
+        label: "Shows in this collection",
+        description: "A focused listening path selected for this route.",
+        recommendations,
+      }]
+      : [],
+  };
+}
+
+function buildCollectionRecommendationView({ collection, collectionShows = [], anchorShow = null, allShows = [], collections = [], similarityIndex = null }) {
+  if (collection?.kind !== "similarity") {
+    return buildFlatCollectionRecommendationView(collection, collectionShows);
+  }
+
+  const index = similarityIndex || createSimilarityIndex({ shows: allShows, collections });
+  const view = index?.getShowsLikeCollectionView?.(anchorShow?.id || collection.anchorShowId, collection);
+  return view || buildFlatCollectionRecommendationView(collection, collectionShows);
+}
+
+function renderCollectionRecommendationSections(collection, recommendationView) {
+  const sections = Array.isArray(recommendationView?.sections) ? recommendationView.sections : [];
+  return sections.map((section, sectionIndex) => {
+    const recommendations = Array.isArray(section.recommendations) ? section.recommendations : [];
+    const visibleRecommendations = recommendations.slice(0, 4);
+    const hiddenRecommendations = recommendations.slice(4);
+    const titleId = sectionIndex === 0 ? "collection-shows-title" : `collection-${section.id}-title`;
+    const cards = (items, offset = 0) => items.map((recommendation, index) => renderCollectionShowCard(recommendation.show, recommendation.reason, {
+      surface: "collection_page_grid",
+      resultType: "collection_member",
+      recommendationSource: recommendation.source === "computed"
+        ? "computed_similarity"
+        : collection.kind === "similarity"
+          ? "similarity_collection"
+          : "collection_membership",
+      resultPositionBucket: offset + index + 1 <= 3 ? String(offset + index + 1) : "4+",
+      collectionId: collection.id,
+    })).join("");
+    const firstGridId = sectionIndex === 0 ? ' id="collectionShowGrid"' : "";
+    return `
+      <section class="collection-recommendation-section collection-recommendation-section--${escapeAttribute(section.id)}" aria-labelledby="${escapeAttribute(titleId)}">
+        <div class="section-heading collections-section-heading">
+          <div>
+            ${sectionIndex === 0 ? "" : '<span class="page-card-kicker">Keep exploring</span>'}
+            <h2 id="${escapeAttribute(titleId)}">${escapeHtml(section.label)}</h2>
+            <p${sectionIndex === 0 ? ' id="collectionShowsSummary"' : ""}>${escapeHtml(section.description)}</p>
+          </div>
+        </div>
+        <div${firstGridId} class="podcast-card-grid collection-recommendation-grid">${cards(visibleRecommendations)}</div>
+        ${hiddenRecommendations.length ? `<details class="collection-recommendation-overflow"><summary>Show ${hiddenRecommendations.length} more ${hiddenRecommendations.length === 1 ? "pick" : "picks"}</summary><div class="podcast-card-grid collection-recommendation-grid collection-recommendation-overflow-grid">${cards(hiddenRecommendations, visibleRecommendations.length)}</div></details>` : ""}
+      </section>
+    `;
+  }).join("");
+}
+
+function renderCollectionOverview(collection, collectionShows, anchorShow, recommendationView = null) {
   const routeTypeLabel = getRouteTypeLabel(collection);
+  const computedSummary = recommendationView?.computedCount
+    ? `<span class="collection-detail-meta-separator" aria-hidden="true"> · </span><span class="collection-detail-meta-text collection-detail-meta-text-computed">${escapeHtml(`${recommendationView.computedCount} archive ${recommendationView.computedCount === 1 ? "match" : "matches"}`)}</span>`
+    : "";
   const meta = [
     `<span class="collection-detail-meta-text">${escapeHtml(formatCount(collectionShows.length, "show"))}</span>`,
     `<span class="collection-detail-meta-separator" aria-hidden="true"> · </span>`,
     `<span class="collection-detail-meta-text">${escapeHtml(routeTypeLabel)}</span>`,
     collection.kind === "similarity" && anchorShow ? `<span class="collection-detail-meta-separator" aria-hidden="true"> · </span><span class="collection-detail-meta-text collection-detail-meta-text-anchor"><span class="collection-detail-anchor-prefix">Starts with </span><a class="collection-detail-anchor-link" href="${escapeAttribute(buildShowPath(anchorShow.id))}" data-discovery-show-id="${escapeAttribute(anchorShow.id)}" data-discovery-surface="collection_membership" data-discovery-browse-state="default" data-discovery-result-type="collection_member" data-discovery-recommendation-source="collection_membership" data-discovery-result-position-bucket="unknown" data-discovery-content-profile="${anchorShow.reviewStatus === "full-review" ? "full_review" : anchorShow.reviewStatus === "imported" ? "imported" : anchorShow.reviewStatus === "indexed-only" ? "indexed_only" : "unknown"}" data-discovery-collection-id="${escapeAttribute(collection.id)}">${escapeHtml(anchorShow.title)}</a></span>` : "",
+    computedSummary,
     collection.updatedAt ? `<span class="collection-detail-meta-separator" aria-hidden="true"> · </span><span class="collection-detail-meta-text">Updated ${escapeHtml(formatCollectionDate(collection.updatedAt))}</span>` : "",
   ].join("");
   const chips = [collection.label, ...(collection.intentTags || []).slice(0, 2)]
@@ -486,7 +569,7 @@ function renderCollectionOverview(collection, collectionShows, anchorShow) {
   return { meta, chips };
 }
 
-function injectCollectionSummary(html, { collection, collectionShows = [], anchorShow = null, collections = [], allShows = [] }) {
+function injectCollectionSummary(html, { collection, collectionShows = [], anchorShow = null, collections = [], allShows = [], recommendationView = null }) {
   let rendered = replaceElementText(html, "collectionTitle", collection.title);
   rendered = replaceElementText(rendered, "collectionBreadcrumbTitle", collection.title);
   rendered = replaceElementText(rendered, "collectionDescription", fallbackDescription(collection.description));
@@ -498,12 +581,13 @@ function injectCollectionSummary(html, { collection, collectionShows = [], ancho
     "collectionShowsSummary",
     `${count} ${count === 1 ? "show" : "shows"} in this collection.${titleSummary}`,
   );
-  const overview = renderCollectionOverview(collection, collectionShows, anchorShow);
+  const overview = renderCollectionOverview(collection, collectionShows, anchorShow, recommendationView);
   rendered = replaceElementContents(rendered, "collectionHeroTags", renderCollectionHeroTags(collection));
   rendered = replaceElementContents(rendered, "collectionHeroArt", renderCollectionHeroArt(collection, collectionShows, anchorShow));
   rendered = replaceElementContents(rendered, "collectionOverviewMetaLine", overview.meta);
   rendered = replaceElementContents(rendered, "collectionOverviewChips", overview.chips);
   rendered = rendered.replace('id="collectionRoot" class="page-card collection-detail-overview" aria-label="Collection at a glance" hidden', 'id="collectionRoot" class="page-card collection-detail-overview" aria-label="Collection at a glance" data-collection-prerendered="true"');
+  rendered = replaceElementAttribute(rendered, "collectionArchiveHeroLink", "href", `/?collection=${encodeURIComponent(collection.id)}#archive`);
   const showMap = new Map(allShows.map((show) => [show.id, show]));
   const relatedMarkup = getRelatedCollections(collection, collections)
     .map((relatedCollection) => renderCollectionDirectoryCard(relatedCollection, showMap, { compact: true, discoverySurface: "collection_page_related" }))
@@ -515,25 +599,16 @@ function injectCollectionSummary(html, { collection, collectionShows = [], ancho
   return rendered;
 }
 
-function injectCollectionShowCards(html, { collection, collectionShows = [] }) {
-  const showReasons = collection.showReasons && typeof collection.showReasons === "object" ? collection.showReasons : {};
-  const markup = collectionShows
-    .map((show) => renderCollectionShowCard(show, showReasons[show.id], {
-      surface: "collection_page_grid",
-      resultType: "collection_member",
-      recommendationSource: collection.kind === "similarity" ? "similarity_collection" : "collection_membership",
-      collectionId: collection.id,
-    }))
-    .join("");
-  return html.replace(
-    /(<div\s+id="collectionShowGrid"\s+class="podcast-card-grid">)[\s\S]*?(<\/div>)/i,
-    `$1${markup}$2`,
-  );
+function injectCollectionShowCards(html, { collection, collectionShows = [], recommendationView = null }) {
+  const view = recommendationView || buildFlatCollectionRecommendationView(collection, collectionShows);
+  const markup = renderCollectionRecommendationSections(collection, view);
+  return replaceElementContents(html, "collectionRecommendationSections", markup);
 }
 
 module.exports = {
   buildCollectionPageMetadata,
   buildCollectionStructuredData,
+  buildCollectionRecommendationView,
   buildShowPageMetadata,
   buildShowStructuredData,
   getRelatedCollections,

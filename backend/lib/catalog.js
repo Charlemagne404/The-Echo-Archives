@@ -48,6 +48,7 @@ const {
   writeCatalogSource,
 } = require("../../tools/lib/catalog-source");
 const { validateProvenance } = require("../../tools/lib/catalog-provenance");
+const { buildGeneratedSimilarityCollections } = require("./shows-like-routes");
 
 const VALID_REVIEW_STATUSES = new Set(REVIEW_STATUSES);
 const VALID_STATUS_VALUES = new Set(SHOW_STATUSES);
@@ -726,7 +727,14 @@ function loadCollections(siteRoot, knownShowIds = null, options = {}) {
     new Set(sourceData.shows.filter((record) => record && typeof record === "object" && typeof record.id === "string").map((record) => record.id));
 
   records.forEach((record) => validateCollectionRecord(record, seenIds, showIdSet));
-  return records.map((record) => normalizeCollectionRecord(record));
+  const normalizedRecords = records.map((record) => normalizeCollectionRecord(record));
+  const generatedRecords = buildGeneratedSimilarityCollections({
+    shows: Array.isArray(options.sourceData?.shows) ? options.sourceData.shows : sourceData.shows,
+    collections: normalizedRecords,
+  });
+
+  generatedRecords.forEach((record) => validateCollectionRecord(record, seenIds, showIdSet));
+  return [...normalizedRecords, ...generatedRecords.map((record) => normalizeCollectionRecord(record))];
 }
 
 function resolveCollectionView({ catalog, collections, collectionId }) {

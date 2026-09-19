@@ -335,6 +335,235 @@ test("public computed matches return nothing when the confidence floor is not me
   assert.deepEqual(index.getPublicSimilarityMatches("source"), []);
 });
 
+test("editorial recommendations merge outgoing, incoming, and similarity-route evidence once", () => {
+  const source = show("source", {
+    title: "Source",
+    similarTo: ["outgoing"],
+    similarReasons: { outgoing: "Written outgoing route." },
+  });
+  const outgoing = show("outgoing", { title: "Outgoing" });
+  const incoming = show("incoming", {
+    title: "Incoming",
+    similarTo: ["source"],
+    similarReasons: { source: "Written incoming route." },
+  });
+  const route = show("route-member", { title: "Route Member" });
+  const index = createSimilarityIndex({
+    shows: [source, outgoing, incoming, route],
+    collections: [{
+      id: "shows-like-source",
+      title: "Shows like Source",
+      kind: "similarity",
+      anchorShowId: "source",
+      showIds: ["outgoing", "route-member"],
+      showReasons: { "route-member": "A route-specific reason." },
+    }],
+  });
+
+  const matches = index.getEditorialSimilarityMatches("source", { limit: 10 });
+  assert.deepEqual(matches.map((entry) => entry.show.id), ["outgoing", "route-member", "incoming"]);
+  assert.equal(matches[0].reason, "Written outgoing route.");
+  assert.equal(matches[1].reason, "A route-specific reason.");
+  assert.equal(matches[2].reason, "Written incoming route.");
+  assert.deepEqual(index.getEditorialSimilarityMatches("source", { limit: 10 }), matches);
+});
+
+test("frequency-aware discovery weighting prefers distinctive combinations over common tags", () => {
+  const source = show("source", {
+    themes: ["isolation", "unknown-signal"],
+    tags: ["common-tag", "signal-in-the-ice"],
+    bestFor: ["headphones-on", "remote-station"],
+    releaseStatus: "active",
+    completionStatus: "ongoing",
+  });
+  const generic = show("generic", {
+    tags: ["common-tag"],
+    releaseStatus: "active",
+    completionStatus: "ongoing",
+  });
+  const distinctive = show("distinctive", {
+    themes: ["unknown-signal"],
+    tags: ["signal-in-the-ice"],
+    bestFor: ["remote-station"],
+    releaseStatus: "active",
+    completionStatus: "ongoing",
+  });
+  const commonRecords = Array.from({ length: 10 }, (_, index) => show(`common-${index}`, {
+    tags: ["common-tag"],
+    releaseStatus: "active",
+    completionStatus: "ongoing",
+  }));
+  const index = createSimilarityIndex({ shows: [source, generic, distinctive, ...commonRecords] });
+  const genericSimilarity = index.compare("source", "generic");
+  const distinctiveSimilarity = index.compare("source", "distinctive");
+  const genericTag = genericSimilarity.dimensions.find((dimension) => dimension.id === "tag");
+  const distinctiveTag = distinctiveSimilarity.dimensions.find((dimension) => dimension.id === "tag");
+
+  assert.ok(distinctiveSimilarity.score > genericSimilarity.score);
+  assert.ok(distinctiveSimilarity.discoveryCohesion > genericSimilarity.discoveryCohesion);
+  assert.ok(distinctiveTag.distinctiveness > genericTag.distinctiveness);
+  assert.deepEqual(index.getPublicSimilarityMatches("source").map((entry) => entry.show.id), ["distinctive"]);
+});
+
+test("public ranking soft-penalizes feed duplicates and keeps a varied second route", () => {
+  const source = show("source", {
+    listenLinks: {
+      rss: "https://feeds.example.test/source.xml",
+      apple: "https://podcasts.example.test/source",
+      spotify: "https://open.spotify.com/show/source",
+    },
+  });
+  const duplicate = show("duplicate", {
+    listenLinks: {
+      rss: "https://feeds.example.test/source.xml",
+      apple: "https://podcasts.example.test/source",
+      spotify: "https://open.spotify.com/show/source",
+    },
+  });
+  const focused = show("focused", { title: "Focused Route" });
+  const alternate = show("alternate", {
+    title: "Alternate Route",
+    tones: ["dark"],
+    themes: ["conspiracy"],
+    tags: ["found-media"],
+    bestFor: ["late-night"],
+    discovery: { voiceStyle: "primarily-acted", narrativeFocus: "mystery", intensity: "high", commitment: "medium" },
+  });
+  const index = createSimilarityIndex({ shows: [source, duplicate, focused, alternate] });
+
+  assert.equal(index.compare("source", "duplicate").nearDuplicate, true);
+  const matches = index.getPublicSimilarityMatches("source", { limit: 4 });
+  assert.deepEqual(matches.map((entry) => entry.show.id), ["focused", "alternate", "duplicate"]);
+  assert.equal(matches[0].show.id === "duplicate", false);
+  assert.notEqual(matches[0].explanation, matches[1].explanation);
+  assert.deepEqual(matches, index.getPublicSimilarityMatches("source", { limit: 4 }));
+});
+
+test("sparse but meaningful records receive limited-metadata matches without pretending to be fully enriched", () => {
+  const source = sparseShow("source", {
+    tones: ["tense"],
+    tags: ["sci-fi"],
+    bestFor: ["headphones-on"],
+    discovery: { voiceStyle: "primarily-acted", narrativeFocus: "balanced", intensity: "high" },
+  });
+  const target = sparseShow("target", {
+    tones: ["tense"],
+    tags: ["sci-fi"],
+    bestFor: ["headphones-on"],
+    discovery: { voiceStyle: "primarily-acted", narrativeFocus: "balanced", intensity: "high" },
+  });
+  const enriched = show("enriched", {
+    themes: ["isolation"],
+    discovery: { voiceStyle: "primarily-acted", narrativeFocus: "balanced", intensity: "high", commitment: "medium" },
+    entityLinks: [{ entityId: "archive-studio", role: "studio" }],
+    resolvedEntities: [{ id: "archive-studio", name: "Archive Studio", role: "studio" }],
+  });
+  const index = createSimilarityIndex({
+    shows: [source, target, enriched],
+    collections: [{ id: "enriched-route", title: "Enriched route", kind: "curated", showIds: ["enriched"] }],
+  });
+
+  assert.ok(index.getMetadataProfile("source").metadataCoverage < PUBLIC_MATCH_POLICY.sparseCoverageThreshold);
+  const match = index.getPublicSimilarityMatches("source").find((entry) => entry.show.id === "target");
+  assert.ok(match);
+  assert.equal(match.confidence, "limited-metadata");
+  assert.match(match.explanation, /Shared tone|Shared discovery tag/);
+});
+
+test("public reasons group entity roles and keep explanations compact", () => {
+  const sharedEntities = [
+    { entityId: "creator", role: "creator" },
+    { entityId: "studio", role: "production-company" },
+  ];
+  const resolvedEntities = [
+    { id: "creator", name: "A. Creator", role: "creator" },
+    { id: "studio", name: "A Studio", role: "production-company" },
+  ];
+  const left = show("left", { entityLinks: sharedEntities, resolvedEntities });
+  const right = show("right", { entityLinks: sharedEntities, resolvedEntities });
+  const index = createSimilarityIndex({ shows: [left, right] });
+  const [match] = index.getPublicSimilarityMatches("left");
+
+  assert.match(match.explanation, /Shared creator: A\. Creator/);
+  assert.match(match.explanation, /Shared production company: A Studio/);
+  assert.doesNotMatch(match.explanation, /Shared archive entities/);
+  assert.ok(match.reasons.length <= PUBLIC_MATCH_POLICY.explanationReasons);
+});
+
+test("Shows Like collection views preserve authored picks and build useful sections", () => {
+  const source = show("source", {
+    title: "Source Show",
+    tones: ["warm"],
+    listenLinks: { rss: "https://feeds.example.test/source.xml" },
+  });
+  const authoredOne = show("authored-one", { title: "Authored One" });
+  const authoredTwo = show("authored-two", { title: "Authored Two" });
+  const authoredThree = show("authored-three", { title: "Authored Three" });
+  const atmosphereOne = show("atmosphere-one", {
+    title: "Atmosphere One",
+    tones: ["warm"],
+    discovery: { voiceStyle: "primarily-acted", narrativeFocus: "mystery", commitment: "medium", intensity: "high" },
+  });
+  const atmosphereTwo = show("atmosphere-two", {
+    title: "Atmosphere Two",
+    tones: ["warm"],
+    discovery: { voiceStyle: "primarily-acted", narrativeFocus: "mystery", commitment: "medium", intensity: "high" },
+  });
+  const draft = show("draft", { status: "draft" });
+  const nearDuplicate = show("near-duplicate", {
+    listenLinks: { rss: "https://feeds.example.test/source.xml" },
+    title: "Source Show feed mirror",
+  });
+  const collection = {
+    id: "shows-like-source",
+    title: "Shows like Source Show",
+    kind: "similarity",
+    anchorShowId: "source",
+    showIds: [
+      "authored-one",
+      "authored-two",
+      "authored-three",
+      "atmosphere-one",
+      "atmosphere-two",
+      "draft",
+      "near-duplicate",
+      "source",
+    ],
+    showReasons: {
+      "authored-one": "A specific authored route through the same intimate mystery appetite.",
+      "authored-two": "A second authored route with a strong ensemble and relationship focus.",
+      "authored-three": "A third authored route that keeps the source's measured narrative pace.",
+      "atmosphere-one": "A warm route for the source's emotional atmosphere.",
+      "atmosphere-two": "Another warm route with the same emotional atmosphere.",
+      draft: "This should not be visible because the record is unpublished.",
+      "near-duplicate": "This should not be visible because it is the source feed mirror.",
+      source: "This should not be visible because a collection cannot recommend itself.",
+    },
+  };
+  const index = createSimilarityIndex({
+    shows: [source, authoredOne, authoredTwo, authoredThree, atmosphereOne, atmosphereTwo, draft, nearDuplicate],
+    collections: [collection],
+  });
+
+  const view = index.getShowsLikeCollectionView("source", collection);
+
+  assert.equal(view.authoredCount, 5);
+  assert.equal(view.computedCount, 0);
+  assert.deepEqual(view.recommendations.map((entry) => entry.show.id), [
+    "authored-one",
+    "authored-two",
+    "authored-three",
+    "atmosphere-one",
+    "atmosphere-two",
+  ]);
+  assert.equal(view.recommendations.every((entry) => entry.source === "authored"), true);
+  assert.ok(view.sections.some((section) => section.id === "closest"));
+  assert.ok(view.sections.some((section) => section.id === "premise" && section.recommendations.length === 2));
+  assert.equal(view.recommendations.some((entry) => entry.show.id === "source"), false);
+  assert.equal(view.recommendations.some((entry) => entry.show.id === "draft"), false);
+  assert.equal(view.recommendations.some((entry) => entry.show.id === "near-duplicate"), false);
+});
+
 test("similarity weights remain explicit and sum to the public score budget", () => {
   assert.equal(DIMENSION_DEFINITIONS.reduce((total, definition) => total + definition.weight, 0), SCORE_MAX);
   assert.ok(DIMENSION_DEFINITIONS.some((definition) => definition.id === "releaseProfile" && definition.weight > 0));
