@@ -18,7 +18,10 @@ export function createHomeSearchPerformanceCache({ shows, archiveSearch, similar
     },
 
     getScoredSearchResults(query) {
-      const cacheKey = query.trim();
+      // Keep punctuation/case variants on the same bounded cache entry. The
+      // scorer applies the same canonicalization, so recomputing these forms
+      // only wastes work as the catalogue grows.
+      const cacheKey = archiveSearch.normalizeText(query);
       if (!cacheKey) {
         return [];
       }

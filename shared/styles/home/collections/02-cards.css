@@ -501,6 +501,17 @@
   -webkit-line-clamp: 3;
 }
 
+.collection-show-card-confidence {
+  display: block;
+  margin: 10px 16px 0;
+  padding: 4px 12px 0;
+  color: rgba(180, 224, 187, 0.78);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .collection-show-card .rating {
   padding-top: 16px;
 }

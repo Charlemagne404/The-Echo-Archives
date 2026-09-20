@@ -169,6 +169,7 @@ Active docs:
 - [`docs/OPERATIONS.md`](docs/OPERATIONS.md)
 - [`docs/IMPORTER.md`](docs/IMPORTER.md)
 - [`docs/SEO.md`](docs/SEO.md)
+- [`docs/PUBLIC-REFERENCE.md`](docs/PUBLIC-REFERENCE.md) — public machine-readable reference contract
 - [`docs/CREATORS.md`](docs/CREATORS.md)
 - [`docs/TAG_TAXONOMY.md`](docs/TAG_TAXONOMY.md)
 - [`data/schema.md`](data/schema.md)

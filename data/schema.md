@@ -11,6 +11,8 @@ Generated runtime/public output is written into:
 - `data/shows.json`
 - `data/collections.json`
 - `data/reviews/*.json`
+- `data/entities.json`
+- `data/entity-graph.json`
 - `data/search-index.json`
 
 The frontend, optional Archivist integration, and community features should all
@@ -56,6 +58,12 @@ Allowed source types are `official-website`, `rss-feed`, `official-platform`, `c
 source-review requirements and runtime-only `resolvedEntities` are documented
 in [Creators authoring](../docs/CREATORS.md). Existing creator/network fields
 remain backward compatible and do not automatically create entity pages.
+
+`data/entity-graph.json` is a generated machine-readable projection of the
+published graph. Its typed `edges` are the authored source-backed links;
+`entities[].showIds` is a derived reverse index, and `entityConnections` is
+derived shared-show co-occurrence only. Consumers must not interpret a shared
+show as a direct affiliation, and must not edit this file.
 
 ## Show Shape
 

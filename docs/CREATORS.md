@@ -117,7 +117,9 @@ The catalog loader resolves public entities onto runtime show records as
 
 The directory and detail catalogues render before JavaScript runs. Directory
 search works as a GET form and is enhanced with local filtering. Detail pages
-reuse existing show and collection cards. Structured show data maps creators to `creator` and production companies to
+reuse existing show and collection cards. Entity detail catalogues expose a
+local filter for larger connected-show sets, source trails, and a clearly
+labelled shared-show connection section. Structured show data maps creators to `creator` and production companies to
 `producer`; the WebPage mentions all linked entities. A network affiliation or
 studio credit does not automatically assert publishing or production ownership.
 The Node server uses the same entity
@@ -145,6 +147,12 @@ published shows, and renders at most four cards. It selects one entity by
 production company, studio, creator, then network; ties use catalogue size and
 stable ID. Alternatives sort by title and stable ID and exclude the current
 show. Collection connections rank by actual shared show count, then title.
+
+There are no authored entity-to-entity edges. The graph report and entity pages
+may show entities that co-occur on the same show, but label those connections
+as shared-show context rather than affiliation. `data/entity-graph.json` is the
+generated machine-readable projection for consumers that need stable IDs and
+typed edges without scraping HTML.
 
 ## Pilot and curation evidence
 
@@ -186,8 +194,11 @@ show/entity lists or `--all` to include draft source records.
 Legacy `creatorId`, `networkId`, `creators`, and selected `credits` fields are
 reported as evidence only. The report can expose exact registry-name matches,
 unresolved values, and non-public links for review, but it never creates or
-recommends an automatic relationship. It performs no external requests and
-does not replace source-backed review.
+recommends an automatic relationship. It also reports malformed or duplicate
+show/entity/role records, reverse-index mismatches, conservative duplicate-name
+candidates, infrastructure-only evidence, attribution gaps, and connected
+entities whose pages lack basic factual fields. It performs no external
+requests and does not replace source-backed review.
 
 For a batched, report-only review queue, run `npm run report:entity-candidates`.
 It reads the same authored sources plus explicit credit fields such as
@@ -203,6 +214,7 @@ for the evidence and confidence policy.
 
 Run `npm run build:catalog`, then `npm run build:pages`. Relevant checks are
 `npm --prefix backend run validate:data`, `npm --prefix backend run check:links`,
+`npm --prefix backend run test:entity-pages`, `npm --prefix backend run test:entity-graph`,
 `npm --prefix backend run test:entities`, `npm run test:tools`, and
 `npm run check:structure`. `npm --prefix backend run test:serial` runs the full
 backend unit/integration suite without the catalog-load contention of a parallel

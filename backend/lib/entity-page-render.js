@@ -2,7 +2,7 @@ const { renderCollectionShowCard, renderCollectionDirectoryCard } = require("../
 const { BRAND_DESCRIPTOR, buildAbsoluteUrl, truncateDescription } = require("./seo");
 const { injectPageMetadata, injectStructuredData, injectNoIndex } = require("./public-page-render");
 const { derivePublicStatus, toPublicLabel } = require("../../shared/archive-record");
-const { ROLE_LABELS, TYPE_LABELS, entityPath, escapeHtml, getEntityShows, getPublicDirectoryEntities, isIndexableEntity, matchesEntityQuery, entityStructuredData, showEntityStructuredData } = require("../../shared/archive-entities");
+const { ROLE_LABELS, TYPE_LABELS, entityPath, escapeHtml, getEntityConnections, getEntityShows, getPublicDirectoryEntities, isIndexableEntity, matchesEntityQuery, entityStructuredData, showEntityStructuredData } = require("../../shared/archive-entities");
 
 const DIRECTORY_FILTERS = [
   { value: "all", label: "All organizations" },
@@ -121,12 +121,48 @@ function renderEntityShowCard(entity, show) {
   const roleMarkup = roles.length
     ? `<p class="entity-show-role" aria-label="Archive relationship: ${escapeHtml(roles.join(", "))}">${roles.map(escapeHtml).join(" · ")}</p>`
     : "";
+  const searchableText = [
+    show.title,
+    show.subtitle,
+    ...(Array.isArray(show.aliases) ? show.aliases : []),
+    ...(Array.isArray(show.genres) ? show.genres : []),
+    ...(Array.isArray(show.tags) ? show.tags : []),
+    ...roles,
+  ].filter(Boolean).join(" ");
   return renderCollectionShowCard(show, "", {
     surface: "entity_page_grid",
     resultType: "entity_member",
     recommendationSource: "none",
     entityId: entity.id,
-  }).replace("</h2>", `</h2>${roleMarkup}`);
+  })
+    .replace('class="podcast-card-shell collection-show-card-shell"', `class="podcast-card-shell collection-show-card-shell" data-entity-show-search="${escapeHtml(searchableText)}"`)
+    .replace("</h2>", `</h2>${roleMarkup}`);
+}
+
+function renderEntityCatalogueControls(catalogue) {
+  if (catalogue.length < 5) return "";
+  return `<div class="entity-catalogue-controls" data-entity-catalogue-controls><label class="entity-catalogue-search-label" for="entityShowSearch">Filter connected shows</label><div class="entity-catalogue-search-control"><input id="entityShowSearch" type="search" placeholder="Search titles, genres, or tags" autocomplete="off" aria-controls="entityShowGrid" /><button class="entity-search-clear" type="button" data-entity-show-clear aria-label="Clear connected show search" hidden>Clear</button></div><p id="entityShowResults" class="entity-catalogue-results" role="status" aria-live="polite">${catalogue.length} connected shows</p></div>`;
+}
+
+function renderEntitySourceTrail(entity) {
+  const sources = Array.isArray(entity.sources) ? entity.sources.filter(Boolean) : [];
+  if (!sources.length) return "";
+  const links = sources.map((source, index) => {
+    let label = `Source ${index + 1}`;
+    try {
+      label = new URL(source).hostname.replace(/^www\./i, "") || label;
+    } catch (_error) {
+      // Public entity validation already rejects malformed source URLs.
+    }
+    return `<li><a href="${escapeHtml(source)}" target="_blank" rel="external noopener noreferrer" title="${escapeHtml(source)}">${escapeHtml(label)}</a></li>`;
+  }).join("");
+  return `<details class="entity-detail-source-trail"><summary>Source trail <span>${sources.length}</span></summary><p>Public sources used to review this entity record. They support the connection; they do not imply endorsement of archive ratings or reviews.</p><ul>${links}</ul></details>`;
+}
+
+function renderEntityConnections(entity, entities, shows) {
+  const connections = getEntityConnections(entity.id, entities, shows);
+  if (!connections.length) return "";
+  return `<section class="page-card entity-detail-connections" aria-labelledby="entityConnectionsTitle"><div class="section-heading entity-detail-related-heading"><div><span class="page-card-kicker">Shared catalogues</span><h2 id="entityConnectionsTitle">Other entities on these shows</h2><p>These are co-credited on one or more shows in this archive. A shared show is not a claim of direct affiliation.</p></div></div><div class="entity-connection-grid">${connections.map(({ entity: relatedEntity, showCount, roles }) => `<a class="entity-connection-card" href="${entityPath(relatedEntity.id)}" data-discovery-entity-id="${escapeHtml(relatedEntity.id)}" data-discovery-entity-type="${escapeHtml(relatedEntity.type || "unknown")}" data-discovery-surface="entity_page_related"><span class="entity-connection-type">${escapeHtml(TYPE_LABELS[relatedEntity.type] || "Entity")}</span><strong>${escapeHtml(relatedEntity.name)}</strong><span>${showCount} shared ${showCount === 1 ? "show" : "shows"}${roles.length ? ` · ${escapeHtml(roles.map((role) => ROLE_LABELS[role] || role).join(" · "))}` : ""}</span></a>`).join("")}</div></section>`;
 }
 
 function renderEntityArt(shows) {
@@ -300,7 +336,7 @@ function enhancedDirectoryContent(entities, shows, query, options = {}) {
   return stripDirectoryKicker(`${editorialHero}${editorialBrowse}${renderDirectoryFaq()}`);
 }
 
-function enhancedDetailContent(entity, shows, collections) {
+function enhancedDetailContent(entity, shows, collections, entities) {
   const profile = getEntityPageProfile(entity, shows, collections);
   const { catalogue, linkedCollections } = profile;
   const related = linkedCollections.slice(0, 3);
@@ -322,14 +358,16 @@ function enhancedDetailContent(entity, shows, collections) {
   const relatedSummary = linkedCollections.length > related.length
     ? `Showing ${related.length} of ${linkedCollections.length} collections that include these shows.`
     : "Collections that include these shows.";
+  const sourceTrailMarkup = renderEntitySourceTrail(entity);
   const isSparseEntity = catalogue.length <= 1;
   const overview = isSparseEntity
-    ? `<section class="page-card entity-detail-overview entity-detail-overview--compact" aria-label="Entity at a glance"><div class="entity-detail-overview-head"><div class="entity-detail-overview-meta"><span class="page-card-kicker">At a glance</span><span class="entity-detail-reviewed">${reviewMarkup}</span></div><a class="collection-action entity-detail-overview-action" href="#entityShows">View ${escapeHtml(countLabel)} ${renderArrowIcon()}</a></div><p class="entity-detail-overview-summary">${escapeHtml(`${countLabel} connected to this ${typeLabel.toLowerCase()}.`)}</p>${entity.aliases?.length ? `<div class="entity-detail-aliases"><span>Also indexed as</span>${entity.aliases.map((alias) => `<span>${escapeHtml(alias)}</span>`).join("")}</div>` : ""}</section>`
-    : `<section class="page-card entity-detail-overview" aria-label="Entity at a glance"><div class="entity-detail-overview-head"><div class="entity-detail-overview-meta"><span class="page-card-kicker">At a glance</span><span class="entity-detail-reviewed">${reviewMarkup}</span></div><a class="collection-action entity-detail-overview-action" href="#entityShows">View ${escapeHtml(countLabel)} ${renderArrowIcon()}</a></div><dl class="entity-detail-stat-grid"><div class="entity-detail-stat"><dt>Shows in archive</dt><dd>${catalogue.length}</dd></div><div class="entity-detail-stat"><dt>Listening routes</dt><dd>${linkedCollections.length}</dd></div><div class="entity-detail-stat"><dt>Entity type</dt><dd>${escapeHtml(typeLabel)}</dd></div><div class="entity-detail-stat"><dt>Genres represented</dt><dd>${genreLabels.length || "—"}</dd></div></dl><details class="entity-detail-overview-extra"><summary>Archive details</summary><div class="entity-detail-context"><p>Curated archive selection; not a complete discography.</p>${signalMarkup}</div>${entity.aliases?.length ? `<div class="entity-detail-aliases"><span>Also indexed as</span>${entity.aliases.map((alias) => `<span>${escapeHtml(alias)}</span>`).join("")}</div>` : ""}</details></section>`;
+    ? `<section class="page-card entity-detail-overview entity-detail-overview--compact" aria-label="Entity at a glance"><div class="entity-detail-overview-head"><div class="entity-detail-overview-meta"><span class="page-card-kicker">At a glance</span><span class="entity-detail-reviewed">${reviewMarkup}</span></div><a class="collection-action entity-detail-overview-action" href="#entityShows">View ${escapeHtml(countLabel)} ${renderArrowIcon()}</a></div><p class="entity-detail-overview-summary">${escapeHtml(`${countLabel} connected to this ${typeLabel.toLowerCase()}.`)}</p>${entity.aliases?.length ? `<div class="entity-detail-aliases"><span>Also indexed as</span>${entity.aliases.map((alias) => `<span>${escapeHtml(alias)}</span>`).join("")}</div>` : ""}${sourceTrailMarkup}</section>`
+    : `<section class="page-card entity-detail-overview" aria-label="Entity at a glance"><div class="entity-detail-overview-head"><div class="entity-detail-overview-meta"><span class="page-card-kicker">At a glance</span><span class="entity-detail-reviewed">${reviewMarkup}</span></div><a class="collection-action entity-detail-overview-action" href="#entityShows">View ${escapeHtml(countLabel)} ${renderArrowIcon()}</a></div><dl class="entity-detail-stat-grid"><div class="entity-detail-stat"><dt>Shows in archive</dt><dd>${catalogue.length}</dd></div><div class="entity-detail-stat"><dt>Listening routes</dt><dd>${linkedCollections.length}</dd></div><div class="entity-detail-stat"><dt>Entity type</dt><dd>${escapeHtml(typeLabel)}</dd></div><div class="entity-detail-stat"><dt>Genres represented</dt><dd>${genreLabels.length || "—"}</dd></div></dl><details class="entity-detail-overview-extra"><summary>Archive details</summary><div class="entity-detail-context"><p>Curated archive selection; not a complete discography.</p>${signalMarkup}</div>${entity.aliases?.length ? `<div class="entity-detail-aliases"><span>Also indexed as</span>${entity.aliases.map((alias) => `<span>${escapeHtml(alias)}</span>`).join("")}</div>` : ""}${sourceTrailMarkup}</details></section>`;
   return `<section class="hero-shell entity-detail-hero" aria-labelledby="entityTitle"><div class="hero-panel page-panel entity-detail-hero-panel"><div class="hero-copy entity-detail-hero-copy">${breadcrumb(entity)}<div class="entity-detail-status-row"><span class="entity-detail-kicker">${escapeHtml(typeLabel)}</span><span class="entity-detail-status"><span class="entity-detail-status-dot" aria-hidden="true"></span>Source-backed connection</span></div><h1 id="entityTitle">${escapeHtml(entity.name)}</h1><p class="entity-detail-lede">${escapeHtml(lede)}</p><div class="entity-detail-actions"><a class="collection-action entity-detail-primary" href="#entityShows">View ${escapeHtml(countLabel)} ${renderArrowIcon()}</a>${entity.website ? `<a class="collection-secondary-link entity-detail-secondary" href="${escapeHtml(entity.website)}" rel="external">Official website ${renderArrowIcon({ external: true })}</a>` : ""}<a class="collection-secondary-link entity-detail-secondary" href="/creators">${directoryLinkLabel} ${renderArrowIcon()}</a></div><p class="entity-detail-trust"><span class="entity-detail-trust-label">Source note</span><span>Links reflect factual credits; they are not creator verification or endorsement. Archive ratings and reviews remain separate.</span></p></div><div class="entity-detail-art" aria-hidden="true">${renderEntityHeroArt(catalogue)}</div></div></section>
     ${overview}
-   <section id="entityShows" class="archive-section entity-catalogue entity-detail-catalogue" aria-labelledby="entityShowsTitle"><div class="section-heading entity-detail-section-heading"><div><span class="page-card-kicker">Complete catalogue</span><h2 id="entityShowsTitle">Audio dramas and fiction podcasts connected to ${escapeHtml(entity.name)}</h2><p>${escapeHtml(countLabel)} with a source-backed connection to ${escapeHtml(entity.name)}.${genreSummary}</p></div><a class="entity-detail-section-link" href="/creators">${directoryLinkLabel} ${renderArrowIcon()}</a></div><div class="podcast-card-grid">${catalogue.map((show) => renderEntityShowCard(entity, show)).join("")}</div></section>
+   <section id="entityShows" class="archive-section entity-catalogue entity-detail-catalogue" aria-labelledby="entityShowsTitle"><div class="section-heading entity-detail-section-heading"><div><span class="page-card-kicker">Complete catalogue</span><h2 id="entityShowsTitle">Audio dramas and fiction podcasts connected to ${escapeHtml(entity.name)}</h2><p>${escapeHtml(countLabel)} with a source-backed connection to ${escapeHtml(entity.name)}.${genreSummary}</p></div><a class="entity-detail-section-link" href="/creators">${directoryLinkLabel} ${renderArrowIcon()}</a></div>${renderEntityCatalogueControls(catalogue)}<div id="entityShowGrid" class="podcast-card-grid">${catalogue.map((show) => renderEntityShowCard(entity, show)).join("")}</div><div id="entityShowEmpty" class="empty-state-card" hidden><h3>No connected shows matched</h3><p>Try a shorter title, genre, tag, or clear the filter.</p></div></section>
    ${related.length ? `<section class="page-card entity-collections entity-detail-related-section" aria-labelledby="entityCollectionsTitle"><div class="section-heading entity-detail-related-heading"><div><span class="page-card-kicker">Keep browsing</span><h2 id="entityCollectionsTitle">Collections with these shows</h2><p>${relatedSummary}</p></div>${linkedCollections.length > related.length ? `<a class="entity-detail-section-link" href="/collections">Browse all collections ${renderArrowIcon()}</a>` : ""}</div><div class="entity-collection-grid">${related.map(({ collection }) => renderCollectionDirectoryCard(collection, showMap, { compact: true, discoverySurface: "entity_page_related" })).join("")}</div></section>` : ""}
+    ${renderEntityConnections(entity, entities, shows)}
     <section class="page-card entity-detail-correction" aria-labelledby="entityCorrectionTitle"><div><span class="page-card-kicker">Archive maintenance</span><h2 id="entityCorrectionTitle">See a missing or incorrect credit?</h2><p>Help keep this creator record useful by sending a factual correction to the archive.</p></div><a class="collection-action" href="${escapeHtml(createEntityCorrectionHref(entity))}">Correct this creator page ${renderArrowIcon()}</a></section>`;
 }
 
@@ -436,7 +474,7 @@ function buildEntityPageData({ entity, entities, shows, collections = [], siteUr
 function renderEntityPage(template, { entity = null, entities = [], shows = [], collections = [], siteUrl, query = "", entityType = "all", sort = "name" }) {
   const activeEntityType = normalizeDirectoryFilter(entityType);
   const activeSort = normalizeDirectorySort(sort);
-  const content = entity ? enhancedDetailContent(entity, shows, collections) : enhancedDirectoryContent(entities, shows, query, { entityType: activeEntityType, sort: activeSort });
+  const content = entity ? enhancedDetailContent(entity, shows, collections, entities) : enhancedDirectoryContent(entities, shows, query, { entityType: activeEntityType, sort: activeSort });
   const { metadata, structuredData } = buildEntityPageData({ entity, entities, shows, collections, siteUrl });
   let html = template.replace(/<!-- ENTITY_CONTENT -->[\s\S]*?<!-- \/ENTITY_CONTENT -->/, () => `<!-- ENTITY_CONTENT -->${content}<!-- /ENTITY_CONTENT -->`);
   html = injectStructuredData(injectPageMetadata(html, metadata), structuredData);

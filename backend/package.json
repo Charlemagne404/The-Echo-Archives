@@ -35,6 +35,10 @@
     "import:live-smoke": "node scripts/import-live-smoke.js",
     "verify": "npm run validate:data && npm run check:links && npm test && npm run test:smoke",
     "test:entities": "node --test test/entities.test.js test/entity-directory.smoke.js",
+    "test:entity-pages": "node --test test/entities.test.js",
+    "test:entity-graph": "node --test test/entity-graph.test.js test/entity-graph-report.test.js",
+    "test:entity-tooling": "node --test test/catalog-tooling.test.js",
+    "test:entity-routes": "node --test test/public-routes.test.js",
     "test:entity-candidates": "node --test test/entity-enrichment-candidates.test.js",
     "test:serial": "node --test --test-concurrency=1 test/*.test.js"
   },

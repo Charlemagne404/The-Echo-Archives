@@ -550,18 +550,126 @@ test("Shows Like collection views preserve authored picks and build useful secti
   assert.equal(view.authoredCount, 5);
   assert.equal(view.computedCount, 0);
   assert.deepEqual(view.recommendations.map((entry) => entry.show.id), [
+    "atmosphere-one",
+    "atmosphere-two",
     "authored-one",
     "authored-two",
     "authored-three",
-    "atmosphere-one",
-    "atmosphere-two",
   ]);
   assert.equal(view.recommendations.every((entry) => entry.source === "authored"), true);
+  assert.ok(view.recommendations[0].rankingScore > view.recommendations.at(-1).rankingScore);
+  assert.deepEqual(
+    view.recommendations.map((entry) => entry.show.id),
+    index.getShowsLikeCollectionView("source", collection).recommendations.map((entry) => entry.show.id),
+  );
   assert.ok(view.sections.some((section) => section.id === "closest"));
-  assert.ok(view.sections.some((section) => section.id === "premise" && section.recommendations.length === 2));
+  assert.ok(view.sections.find((section) => section.id === "closest").recommendations.length >= 3);
   assert.equal(view.recommendations.some((entry) => entry.show.id === "source"), false);
   assert.equal(view.recommendations.some((entry) => entry.show.id === "draft"), false);
   assert.equal(view.recommendations.some((entry) => entry.show.id === "near-duplicate"), false);
+});
+
+test("Shows Like ranking favors multi-signal listening matches and discloses sparse authored routes", () => {
+  const source = sparseShow("source", {
+    title: "Remote Source",
+    genres: ["horror", "mystery"],
+    tones: ["tense"],
+    themes: ["survival"],
+    tags: ["Arctic horror"],
+    bestFor: ["headphones-on"],
+    discovery: { voiceStyle: "primarily-acted", narrativeFocus: "plot-driven", intensity: "high" },
+    content: { setting: "remote arctic outpost", pov: "found footage / collected records" },
+  });
+  const metadataThin = sparseShow("metadata-thin", {
+    title: "Metadata Thin",
+    tones: [],
+    themes: [],
+    tags: [],
+    bestFor: [],
+    discovery: {},
+    content: {},
+  });
+  const experienceMatch = sparseShow("experience-match", {
+    title: "Experience Match",
+    genres: ["horror", "mystery"],
+    tones: ["tense"],
+    themes: ["survival"],
+    tags: ["Arctic horror"],
+    bestFor: ["headphones-on"],
+    discovery: { voiceStyle: "primarily-acted", narrativeFocus: "plot-driven", intensity: "high" },
+    content: { setting: "remote arctic outpost / global horror sites", pov: "found footage / collected records" },
+  });
+  const alternateMatch = sparseShow("alternate-match", {
+    title: "Alternate Match",
+    genres: ["horror", "mystery"],
+    tones: ["dark"],
+    themes: ["survival"],
+    tags: ["Isolation"],
+    bestFor: ["late-night"],
+    discovery: { voiceStyle: "primarily-acted", narrativeFocus: "plot-driven", intensity: "high" },
+    content: { setting: "remote research facility", pov: "found recordings" },
+  });
+  const collection = {
+    id: "shows-like-source",
+    title: "Shows like Remote Source",
+    kind: "similarity",
+    anchorShowId: source.id,
+    showIds: [metadataThin.id, experienceMatch.id, alternateMatch.id],
+    showReasons: {
+      [metadataThin.id]: "A route retained for the premise, although this entry has limited archive metadata.",
+      [experienceMatch.id]: "A strong route for the source's cold setting, survival pressure, and found-recording structure.",
+      [alternateMatch.id]: "A darker route that keeps the investigation shape while changing the facility setting.",
+    },
+  };
+  const index = createSimilarityIndex({ shows: [source, metadataThin, experienceMatch, alternateMatch], collections: [collection] });
+  const view = index.getShowsLikeCollectionView(source.id, collection);
+
+  assert.deepEqual(view.recommendations.map((entry) => entry.show.id), ["experience-match", "alternate-match", "metadata-thin"]);
+  assert.ok(view.recommendations[0].rankingScore > view.recommendations.at(-1).rankingScore);
+  assert.equal(view.recommendations.at(-1).metadataConfidence, "limited-metadata");
+  assert.ok(view.recommendations[0].similarity.collectionSignals.some((signal) => signal.id === "setting"));
+  assert.equal(view.recommendations.every((entry) => entry.source === "authored"), true);
+});
+
+test("computed Shows Like fallbacks use collection-specific experience reasons without scores", () => {
+  const source = show("source", {
+    title: "Remote Source",
+    tones: [],
+    themes: [],
+    tags: ["Remote outpost"],
+    bestFor: ["headphones-on"],
+    discovery: {},
+    releaseStatus: "active",
+    completionStatus: "ongoing",
+    content: { setting: "remote arctic outpost", pov: "found footage / collected records" },
+  });
+  const target = show("target", {
+    title: "Remote Target",
+    tones: [],
+    themes: [],
+    tags: ["Remote outpost"],
+    bestFor: ["headphones-on"],
+    discovery: {},
+    releaseStatus: "active",
+    completionStatus: "ongoing",
+    content: { setting: "remote arctic outpost / global horror sites", pov: "found footage / collected records" },
+  });
+  const collection = {
+    id: "shows-like-source",
+    title: "Shows like Remote Source",
+    kind: "similarity",
+    anchorShowId: source.id,
+    showIds: [],
+    showReasons: {},
+  };
+  const index = createSimilarityIndex({ shows: [source, target], collections: [collection] });
+  const view = index.getShowsLikeCollectionView(source.id, collection);
+
+  assert.equal(view.authoredCount, 0);
+  assert.equal(view.computedCount, 1);
+  assert.equal(view.recommendations[0].source, "computed");
+  assert.match(view.recommendations[0].reason, /similar setting involving/i);
+  assert.doesNotMatch(view.recommendations[0].reason, /score|\/100/i);
 });
 
 test("similarity weights remain explicit and sum to the public score budget", () => {

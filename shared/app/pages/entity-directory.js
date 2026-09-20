@@ -10,6 +10,44 @@ const { matchesEntityQuery } = globalThis.EchoArchiveEntities;
 const DIRECTORY_FILTER_VALUES = new Set(["all", "production-company", "studio", "network"]);
 const DIRECTORY_SORT_VALUES = new Set(["name", "shows"]);
 
+function initializeEntityCatalogueSearch() {
+  const grid = document.querySelector(".entity-detail-catalogue #entityShowGrid");
+  const input = document.getElementById("entityShowSearch");
+  if (!grid || !input) return;
+
+  const entries = Array.from(grid.querySelectorAll("[data-entity-show-search]"));
+  const results = document.getElementById("entityShowResults");
+  const emptyState = document.getElementById("entityShowEmpty");
+  const clearButton = document.querySelector("[data-entity-show-clear]");
+  const normalize = (value) => String(value || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+  const update = () => {
+    const query = normalize(input.value.trim());
+    const visibleCount = entries.reduce((count, entry) => {
+      const visible = !query || normalize(entry.dataset.entityShowSearch).includes(query);
+      entry.hidden = !visible;
+      return count + Number(visible);
+    }, 0);
+    if (results) results.textContent = `${visibleCount} connected ${visibleCount === 1 ? "show" : "shows"}${query ? " found" : ""}.`;
+    if (emptyState) emptyState.hidden = visibleCount > 0;
+    if (clearButton) clearButton.hidden = !query;
+  };
+
+  input.addEventListener("input", update);
+  input.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || !input.value) return;
+    event.preventDefault();
+    input.value = "";
+    update();
+  });
+  clearButton?.addEventListener("click", () => {
+    input.value = "";
+    update();
+    input.focus();
+  });
+  update();
+}
+
 function normalizeFilter(value) {
   return DIRECTORY_FILTER_VALUES.has(value) ? value : "all";
 }
@@ -25,6 +63,8 @@ export async function initializeEntityDirectory() {
     const { syncCommunityCardBadges } = await import("../community.js");
     void syncCommunityCardBadges(catalogueGrid, shows);
   }
+
+  initializeEntityCatalogueSearch();
 
   const input = document.getElementById("entitySearch");
   if (!input) return;

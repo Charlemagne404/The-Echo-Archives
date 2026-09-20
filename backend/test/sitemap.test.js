@@ -3,6 +3,7 @@ const assert = require("node:assert/strict");
 const path = require("node:path");
 
 const { loadCatalog, loadCollections } = require("../lib/catalog");
+const { loadEntities } = require("../lib/entities");
 const { buildSitemapEntries, buildSitemapXml } = require("../lib/sitemap");
 
 const siteRoot = path.resolve(__dirname, "../..");
@@ -10,10 +11,12 @@ const siteRoot = path.resolve(__dirname, "../..");
 test("buildSitemapEntries includes public pages, shows, and collections", async () => {
   const catalog = await loadCatalog(siteRoot);
   const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)));
+  const entities = loadEntities(siteRoot, catalog);
   const entries = buildSitemapEntries({
     siteUrl: "https://echoarchives.net",
     catalog,
     collections,
+    entities,
   });
   const urls = entries.map((entry) => entry.loc);
 
@@ -29,6 +32,22 @@ test("buildSitemapEntries includes public pages, shows, and collections", async 
   assert.ok(urls.includes("https://echoarchives.net/copyright"));
   assert.ok(urls.includes("https://echoarchives.net/shows/impact-winter"));
   assert.ok(urls.includes("https://echoarchives.net/collections/best-for-long-walks"));
+  const latest = (values) => values.filter(Boolean).sort().at(-1);
+  assert.equal(
+    entries.find((entry) => entry.loc === "https://echoarchives.net/").lastmod,
+    latest([
+      ...catalog.filter((show) => show.status === "published").map((show) => show.updatedAt),
+      ...collections.map((collection) => collection.updatedAt),
+    ]),
+  );
+  assert.equal(
+    entries.find((entry) => entry.loc === "https://echoarchives.net/collections").lastmod,
+    latest(collections.map((collection) => collection.updatedAt)),
+  );
+  assert.equal(
+    entries.find((entry) => entry.loc === "https://echoarchives.net/creators").lastmod,
+    latest(entities.map((entity) => entity.reviewedAt)),
+  );
   assert.equal(urls.some((url) => url.includes("?id=")), false);
   assert.equal(new Set(urls).size, urls.length);
 });

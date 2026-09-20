@@ -195,6 +195,32 @@ test("entity graph validation surfaces role/type divergence and multi-role links
   assert.match(report.warnings.join("\n"), /under multiple roles: network, production-company/);
 });
 
+test("entity records require canonical text fields and date-only public review dates", () => {
+  const report = collectCatalogIntegrityIssues({
+    sourceData: { mode: "runtime", shows: [], collections: [], reviewsById: {} },
+    entities: [{
+      id: "malformed-entity",
+      name: " Malformed Entity ",
+      type: "studio",
+      aliases: [" Alternate Name "],
+      description: "",
+      publication: "public",
+      indexable: true,
+      reviewedAt: "2026-09-01T00:00:00Z",
+      sources: ["https://example.com/malformed-entity"],
+    }],
+    creators: [],
+    networks: [],
+    changelog: [],
+  });
+
+  assert.equal(report.ok, false);
+  assert.match(report.errors.join("\n"), /trimmed name/);
+  assert.match(report.errors.join("\n"), /aliases\[0\] must be a trimmed string/);
+  assert.match(report.errors.join("\n"), /description must be a trimmed string/);
+  assert.match(report.errors.join("\n"), /reviewedAt must be a valid YYYY-MM-DD date/);
+});
+
 test("optional creator and network registries resolve show references", () => {
   const report = collectCatalogIntegrityIssues({
     sourceData: {

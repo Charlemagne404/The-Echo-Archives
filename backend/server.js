@@ -7,10 +7,12 @@ const config = require("./lib/config");
 const { createAccessObservability } = require("./lib/access-observability");
 const { loadArchiveContext } = require("./lib/ai/archive-context");
 const { loadCatalog, loadCollections } = require("./lib/catalog");
+const { buildEntityGraphData } = require("./lib/entity-graph");
 const { createMaintainerAuth } = require("./lib/maintainer-auth");
 const { renderEntityPage } = require("./lib/entity-page-render");
 const { entityPath, isIndexableEntity } = require("../shared/archive-entities");
 const { buildSitemapXml } = require("./lib/sitemap");
+const { buildPublicReferenceManifest } = require("./lib/public-reference");
 const { openDatabase } = require("./lib/store/database");
 const { createCommunityStore } = require("./lib/store/community-store");
 const { createImportStore } = require("./lib/store/import-store");
@@ -157,7 +159,7 @@ function hashPublicFile(staticRoot, relativePath) {
 }
 
 function getPublicDataRevision(staticRoot) {
-  return ["data/shows.json", "data/collections.json", "data/search-index.json", "data/entities.json"]
+  return ["data/shows.json", "data/collections.json", "data/search-index.json", "data/entities.json", "data/entity-graph.json"]
     .map((relativePath) => {
       try {
         const file = fs.statSync(path.join(staticRoot, relativePath));
@@ -253,6 +255,7 @@ async function startServer() {
     publicRuntimeCatalog: [],
     publicSearchIndex: [],
     entities: [],
+    entityGraph: { schema: "echo-archives/entity-graph/v1", entities: [], shows: [], edges: [], entityConnections: [] },
     collections: [],
     archiveContext: null,
     siteHelpContext: null,
@@ -282,6 +285,7 @@ async function startServer() {
     const siteHelpContext = loadSiteHelpContext({ catalog: publicCatalog, collections, archiveContext });
 
     state.entities = archiveContext.entities;
+    state.entityGraph = buildEntityGraphData({ shows: publicCatalog, entities: state.entities });
     state.catalog = catalog;
     state.publicCatalog = publicCatalog;
     state.publicRuntimeCatalog = publicRuntimeCatalog;
@@ -665,6 +669,17 @@ async function startServer() {
     res.json(state.publicRuntimeCatalog);
   });
 
+  app.get("/data/archive.json", (req, res) => {
+    res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+    setPublicCacheHeaders(req, res);
+    res.json(buildPublicReferenceManifest({
+      siteUrl: config.SITE_URL,
+      catalog: state.publicCatalog,
+      collections: state.collections,
+      entities: state.entities,
+    }));
+  });
+
   app.get("/data/collections.json", (req, res) => {
     res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
     setPublicCacheHeaders(req, res);
@@ -675,6 +690,12 @@ async function startServer() {
     res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
     setPublicCacheHeaders(req, res);
     res.json(state.entities);
+  });
+
+  app.get("/data/entity-graph.json", (req, res) => {
+    res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+    setPublicCacheHeaders(req, res);
+    res.json(state.entityGraph);
   });
 
   app.get("/data/search-index.json", (req, res) => {
@@ -1090,7 +1111,11 @@ async function startServer() {
           show,
         }),
       );
-      rendered = injectStructuredData(rendered, buildShowStructuredData({ siteUrl: config.SITE_URL, show }));
+      rendered = injectStructuredData(rendered, buildShowStructuredData({
+        siteUrl: config.SITE_URL,
+        show,
+        collections: state.collections,
+      }));
       rendered = injectJsonBootstrap(rendered, "showBootstrap", serializeRuntimeShow(show));
 
       res.set("Cache-Control", "no-cache");

@@ -116,6 +116,8 @@ Operational routes:
 
 - `/sitemap.xml`
 - `/robots.txt`
+- `/data/archive.json`
+- `/data/entity-graph.json`
 - `/404.html`
 
 Maintainer-only routes when configured:
@@ -185,6 +187,15 @@ produce public pages; indexing additionally requires explicit opt-in and at
 least two published shows. See [Creators authoring](CREATORS.md) for roles,
 publication rules, migration evidence, fallback behavior and checks.
 
+`backend/lib/entity-graph.js` derives `data/entity-graph.json` and the
+`/data/entity-graph.json` route from the same authored show-to-entity edges.
+The graph includes typed forward edges, reverse entity-to-show membership and
+shared-show co-occurrence connections; the latter are explicitly not direct
+entity affiliations. `backend/lib/entity-graph-report.js` checks reciprocal
+projection consistency and emits review-only queues for malformed edges,
+possible duplicate identities, missing attribution and thin high-connection
+entity pages. It never creates a relationship from legacy strings.
+
 ## Canonical Editorial Data
 
 The editorial source of truth lives in:
@@ -206,6 +217,12 @@ Generated runtime/public output lives in:
 `npm run build:pages` creates 480px and 960px AVIF/WebP variants for the large About/Supporters illustrations under `images/generated/info/`, then emits the route CSS bundles. Do not hand-edit either generated image directory.
 
 The frontend, Ask the Archivist, sitemap generation, and related public surfaces should read from these structured datasets instead of scraping or inferring from HTML.
+
+The documented `/data/archive.json` reference index points automated tools to
+the public JSON resources, stable IDs, canonical route templates, and typed
+relationship fields. See [`PUBLIC-REFERENCE.md`](PUBLIC-REFERENCE.md). It is a
+discovery contract for existing public data, not a second editorial or
+recommendation source.
 
 Key editorial principles:
 
@@ -250,6 +267,7 @@ existing review workflow).
 - `GET /data/shows.json`
 - `GET /data/collections.json`
 - `GET /data/entities.json`
+- `GET /data/entity-graph.json`
 - `GET /data/search-index.json`
 - `POST /api/chat`
 - `GET /api/chat/health`

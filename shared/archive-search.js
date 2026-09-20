@@ -12,6 +12,22 @@
     "science-fiction": "Sci-fi",
   };
 
+  const COMMON_TITLE_PREFIXES = new Set(["a", "an", "the"]);
+  const IDENTITY_CREDIT_FIELDS = [
+    ["creatorName", "Creator"],
+    ["productionCompany", "Production company"],
+    ["network", "Network"],
+    ["studio", "Studio"],
+    ["publisher", "Publisher"],
+    ["distributor", "Distributor"],
+  ];
+  const IDENTITY_TYPE_LABELS = {
+    person: "Creator",
+    "production-company": "Production company",
+    network: "Network",
+    studio: "Studio",
+  };
+
   const ALIAS_GROUPS = [
     ["sci fi", ["sci fi", "sci-fi", "science fiction", "scifi"]],
     ["full cast", ["full cast", "full-cast", "fullcast"]],
@@ -130,13 +146,119 @@
 
   function normalizeText(value) {
     return String(value || "")
+      .normalize("NFKD")
+      .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
+      // Apostrophes are identity punctuation: Rosanna's, Rosanna’s, and
+      // Rosannas should resolve to the same title/query form.
+      .replace(/[\u0027\u2018\u2019\u02BC\uFF07]/g, "")
       .replace(/&/g, " and ")
-      .replace(/[_./]+/g, " ")
+      // Periods are often inserted between initials or stylized title
+      // letters; removing them lets C.O.P.P.E.R.H.E.A.R.T match Copperheart.
+      .replace(/[._]+/g, "")
+      .replace(/\/+/g, " ")
       .replace(/-/g, " ")
-      .replace(/[^a-z0-9\s]+/g, " ")
+      .replace(/[^\p{L}\p{N}\s]+/gu, " ")
       .replace(/\s+/g, " ")
       .trim();
+  }
+
+  function compactNormalizeText(value) {
+    return normalizeText(value).replace(/[^\p{L}\p{N}]+/gu, "");
+  }
+
+  function stripCommonTitlePrefix(value) {
+    const normalized = normalizeText(value);
+    const match = normalized.match(/^(a|an|the)\s+(.+)$/);
+    return match && COMMON_TITLE_PREFIXES.has(match[1]) ? match[2] : normalized;
+  }
+
+  function getIdentityTypeLabel(entity = {}) {
+    return IDENTITY_TYPE_LABELS[entity.type] || IDENTITY_TYPE_LABELS[entity.role] || "Creator";
+  }
+
+  function isUnknownIdentityValue(value) {
+    return /^(?:unknown|not verified|unverified|n\/a|none)$/i.test(String(value || "").trim());
+  }
+
+  function splitIdentityValue(value) {
+    if (Array.isArray(value)) {
+      return Array.from(new Set(value.flatMap(splitIdentityValue)));
+    }
+
+    return Array.from(
+      new Set(
+        [value, ...String(value || "").split(/[|/]/)]
+          .map((entry) => String(entry || "").trim())
+          .filter((entry) => entry && !isUnknownIdentityValue(entry)),
+      ),
+    );
+  }
+
+  function buildIdentitySearchEntries(record) {
+    const entries = [];
+    const seenValues = new Set();
+
+    function add(value, label, aliases = []) {
+      splitIdentityValue(value).forEach((candidate) => {
+        const normalized = normalizeText(candidate);
+        if (!normalized || seenValues.has(normalized)) {
+          return;
+        }
+
+        seenValues.add(normalized);
+        entries.push({
+          label,
+          value: candidate,
+          aliases: Array.from(
+            new Set(
+              (Array.isArray(aliases) ? aliases : [aliases])
+                .flatMap(splitIdentityValue)
+                .filter((alias) => normalizeText(alias) !== normalized),
+            ),
+          ),
+        });
+      });
+    }
+
+    // Typed entities are the strongest identity source and should win over
+    // legacy display strings when both contain the same name.
+    (Array.isArray(record.resolvedEntities) ? record.resolvedEntities : []).forEach((entity) => {
+      add(entity?.name, getIdentityTypeLabel(entity), entity?.aliases || []);
+    });
+    (Array.isArray(record.creators) ? record.creators : []).forEach((creator) => add(creator, "Creator"));
+
+    IDENTITY_CREDIT_FIELDS.forEach(([fieldName, label]) => {
+      const value = record.credits?.[fieldName];
+      splitIdentityValue(value).forEach((candidate) => add(candidate, label));
+    });
+
+    return entries;
+  }
+
+  function getIdentitySearchTerms(entries) {
+    return entries.flatMap((entry) => [entry.value, ...(entry.aliases || [])]);
+  }
+
+  function resolveIdentityMatch(record, matchedTerm, matchedTokens = []) {
+    const entries = record.searchIndex?.identityEntries || buildIdentitySearchEntries(record);
+    const normalizedMatchedTerm = normalizeText(matchedTerm);
+    const direct = entries.find((entry) =>
+      [entry.value, ...(entry.aliases || [])].some((value) => {
+        const normalizedValue = normalizeText(value);
+        return normalizedValue === normalizedMatchedTerm || normalizedValue.includes(normalizedMatchedTerm) || normalizedMatchedTerm.includes(normalizedValue);
+      }),
+    );
+    if (direct) {
+      return direct;
+    }
+
+    const fuzzy = entries.find((entry) =>
+      tokenizeQuery(entry.value).some((token) =>
+        matchedTokens.some((matchedToken) => token === matchedToken || isFuzzyTokenMatch(matchedToken, token)),
+      ),
+    );
+    return fuzzy || null;
   }
 
   function toDisplayTag(value) {
@@ -271,7 +393,8 @@
   }
 
   function buildSearchIndex(record, catalogById) {
-    const creatorTerms = [...(record.creators || []), ...(record.resolvedEntities || []).flatMap((entity) => [entity.name, ...(entity.aliases || [])])];
+    const identityEntries = buildIdentitySearchEntries(record);
+    const creatorTerms = getIdentitySearchTerms(identityEntries);
     const similarTitles = (Array.isArray(record.similarTo) ? record.similarTo : [])
       .map((showId) => catalogById.get(showId)?.title || "")
       .filter(Boolean);
@@ -365,7 +488,11 @@
 
     return {
       title: normalizeText(record.title),
+      titleWithoutCommonPrefix: stripCommonTitlePrefix(record.title),
       titleTokens: tokenizeQuery(record.title),
+      titleTokensWithoutCommonPrefix: tokenizeQuery(stripCommonTitlePrefix(record.title)),
+      titleCompact: compactNormalizeText(record.title),
+      titleWithoutCommonPrefixCompact: compactNormalizeText(stripCommonTitlePrefix(record.title)),
       subtitleText,
       descriptionText,
       archiveText,
@@ -374,6 +501,7 @@
       tokenSet: new Set(tokenizeQuery(tokenSource, { minLength: 1 }).filter((token) => token.length > 1 || /^\d$/.test(token))),
       fields,
       fieldTokens,
+      identityEntries,
     };
   }
 
@@ -414,9 +542,27 @@
       .map((record) => ({
         record,
         title: record.searchIndex?.title || normalizeText(record.title),
+        titleWithoutCommonPrefix: record.searchIndex?.titleWithoutCommonPrefix || stripCommonTitlePrefix(record.title),
+        titleCompact: record.searchIndex?.titleCompact || compactNormalizeText(record.title),
+        titleWithoutCommonPrefixCompact:
+          record.searchIndex?.titleWithoutCommonPrefixCompact || compactNormalizeText(stripCommonTitlePrefix(record.title)),
       }))
-      .filter(({ title }) => title === titleCandidate || title.includes(titleCandidate) || titleCandidate.includes(title))
-      .sort((left, right) => right.title.length - left.title.length);
+      .filter(({ title, titleWithoutCommonPrefix, titleCompact, titleWithoutCommonPrefixCompact }) => {
+        const compactCandidate = compactNormalizeText(titleCandidate);
+        return (
+          title === titleCandidate ||
+          titleWithoutCommonPrefix === titleCandidate ||
+          (compactCandidate.length >= 4 &&
+            (titleCompact === compactCandidate || titleWithoutCommonPrefixCompact === compactCandidate)) ||
+          title.includes(titleCandidate) ||
+          titleCandidate.includes(title)
+        );
+      })
+      .sort((left, right) => {
+        const leftExact = Number(left.title === titleCandidate || left.titleWithoutCommonPrefix === titleCandidate);
+        const rightExact = Number(right.title === titleCandidate || right.titleWithoutCommonPrefix === titleCandidate);
+        return rightExact - leftExact || right.title.length - left.title.length;
+      });
 
     if (matches.length === 0) {
       return null;
@@ -442,6 +588,7 @@
       ? { titleQuery: normalizeText(explicitSeed.title), record: explicitSeed }
       : resolveSeedShow(catalog, normalizedQuery);
     const effectiveQuery = similaritySeed ? similaritySeed.titleQuery : normalizedQuery;
+    const rawTokens = tokenizeQuery(effectiveQuery, { minLength: 1 });
     const tokens = tokenizeQuery(effectiveQuery, { minLength: 1 }).filter(
       (token) => token.length > 1 || !QUERY_STOP_WORDS.has(token),
     );
@@ -450,9 +597,11 @@
 
     return {
       normalizedQuery: effectiveQuery,
+      compactNormalizedQuery: compactNormalizeText(effectiveQuery),
       phrases,
       tokens,
       significantTokens: significantTokens.length > 0 ? significantTokens : tokens,
+      isStopWordOnly: rawTokens.length > 0 && rawTokens.every((token) => QUERY_STOP_WORDS.has(token)),
       seedRecord: similaritySeed?.record || null,
     };
   }
@@ -482,6 +631,7 @@
   function scoreFieldTerms(terms, queryPhrases, exactWeight, partialWeight) {
     let score = 0;
     let matchedTerm = "";
+    let matchKind = "";
 
     terms.forEach((term) => {
       if (!term) {
@@ -492,6 +642,7 @@
         if (exactWeight > score) {
           score = exactWeight;
           matchedTerm = term;
+          matchKind = "exact";
         }
         return;
       }
@@ -500,11 +651,148 @@
         if (partialWeight > score) {
           score = partialWeight;
           matchedTerm = term;
+          matchKind = "partial";
         }
       }
     });
 
-    return { score, matchedTerm };
+    return { score, matchedTerm, matchKind };
+  }
+
+  function scoreCompactTitleMatch(searchIndex, preparedQuery) {
+    const compactQuery = preparedQuery.compactNormalizedQuery;
+    if (!compactQuery || compactQuery.length < 4) {
+      return null;
+    }
+
+    if (searchIndex.titleCompact === compactQuery) {
+      return {
+        score: 116,
+        tier: 5,
+        reason: `direct title match for ${preparedQuery.normalizedQuery}`,
+        titleTerms: searchIndex.titleTokens,
+      };
+    }
+
+    if (!COMMON_TITLE_PREFIXES.has(preparedQuery.normalizedQuery) && searchIndex.titleWithoutCommonPrefixCompact === compactQuery) {
+      return {
+        score: 112,
+        tier: 5,
+        reason: `direct title match ignoring a common prefix for ${preparedQuery.normalizedQuery}`,
+        titleTerms: searchIndex.titleTokensWithoutCommonPrefix,
+      };
+    }
+
+    if (searchIndex.titleCompact.startsWith(compactQuery)) {
+      return {
+        score: 84,
+        tier: 3,
+        reason: `title starts with ${preparedQuery.normalizedQuery}`,
+        titleTerms: tokenizeQuery(preparedQuery.normalizedQuery, { minLength: 1 }),
+      };
+    }
+
+    if (!COMMON_TITLE_PREFIXES.has(preparedQuery.normalizedQuery) && searchIndex.titleWithoutCommonPrefixCompact.startsWith(compactQuery)) {
+      return {
+        score: 80,
+        tier: 3,
+        reason: `title starts with ${preparedQuery.normalizedQuery} after a common prefix`,
+        titleTerms: tokenizeQuery(preparedQuery.normalizedQuery, { minLength: 1 }),
+      };
+    }
+
+    return null;
+  }
+
+  function scoreTitleMatch(searchIndex, preparedQuery) {
+    if (searchIndex.title === preparedQuery.normalizedQuery) {
+      return {
+        score: 120,
+        tier: 5,
+        reason: `direct title match for ${preparedQuery.normalizedQuery}`,
+        titleTerms: searchIndex.titleTokens,
+      };
+    }
+
+    if (!COMMON_TITLE_PREFIXES.has(preparedQuery.normalizedQuery) && searchIndex.titleWithoutCommonPrefix === preparedQuery.normalizedQuery) {
+      return {
+        score: 112,
+        tier: 5,
+        reason: `direct title match ignoring a common prefix for ${preparedQuery.normalizedQuery}`,
+        titleTerms: searchIndex.titleTokensWithoutCommonPrefix,
+      };
+    }
+
+    const compactMatch = scoreCompactTitleMatch(searchIndex, preparedQuery);
+    if (compactMatch) {
+      return compactMatch;
+    }
+
+    if (searchIndex.title.startsWith(preparedQuery.normalizedQuery)) {
+      return {
+        score: 90,
+        tier: 3,
+        reason: `title starts with ${preparedQuery.normalizedQuery}`,
+        titleTerms: tokenizeQuery(preparedQuery.normalizedQuery, { minLength: 1 }),
+      };
+    }
+
+    if (!COMMON_TITLE_PREFIXES.has(preparedQuery.normalizedQuery) && searchIndex.titleWithoutCommonPrefix.startsWith(preparedQuery.normalizedQuery)) {
+      return {
+        score: 84,
+        tier: 3,
+        reason: `title starts with ${preparedQuery.normalizedQuery} after a common prefix`,
+        titleTerms: tokenizeQuery(preparedQuery.normalizedQuery, { minLength: 1 }),
+      };
+    }
+
+    if (
+      preparedQuery.tokens.length > 0 &&
+      preparedQuery.tokens.every((token) => searchIndex.titleTokens.includes(token))
+    ) {
+      return {
+        score: 72,
+        tier: 3,
+        reason: `title lines up with ${preparedQuery.normalizedQuery}`,
+        titleTerms: preparedQuery.tokens,
+      };
+    }
+
+    if (preparedQuery.isStopWordOnly) {
+      return null;
+    }
+
+    const titlePrefixMatch = scorePrefixFieldTokens(
+      searchIndex.fieldTokens?.title || [],
+      preparedQuery.significantTokens,
+      66,
+      preparedQuery.significantTokens.length > 1 ? 1 : 0.5,
+    );
+    if (titlePrefixMatch.score) {
+      return {
+        score: titlePrefixMatch.score,
+        tier: 2,
+        reason: `title matches a prefix of ${preparedQuery.normalizedQuery}`,
+        titleTerms: titlePrefixMatch.matchedTokens,
+      };
+    }
+
+    const titleFuzzyMatch = scoreFuzzyFieldTokens(
+      searchIndex.fieldTokens?.title || [],
+      preparedQuery.significantTokens,
+      66,
+      preparedQuery.significantTokens.length > 1 ? 1 : 0.5,
+    );
+    if (titleFuzzyMatch.score) {
+      return {
+        score: titleFuzzyMatch.score,
+        tier: 2,
+        reason: `title survives a close spelling for ${preparedQuery.normalizedQuery}`,
+        titleTerms: titleFuzzyMatch.matchedTokens,
+      };
+    }
+
+    return null;
   }
 
   function getFuzzyDistanceLimit(token) {
@@ -592,7 +880,7 @@
     return false;
   }
 
-  function scorePrefixFieldTokens(fieldTokens, queryTokens, prefixWeight) {
+  function scorePrefixFieldTokens(fieldTokens, queryTokens, prefixWeight, minimumCoverage = 0.5) {
     if (!Array.isArray(fieldTokens) || fieldTokens.length === 0 || !Array.isArray(queryTokens) || queryTokens.length === 0) {
       return { score: 0, matchedTokens: [] };
     }
@@ -605,7 +893,7 @@
     }
 
     const coverage = matchedTokens.length / Math.max(queryTokens.length, 1);
-    if (coverage < 0.5) {
+    if (coverage < minimumCoverage) {
       return { score: 0, matchedTokens: [] };
     }
 
@@ -615,7 +903,7 @@
     };
   }
 
-  function scoreFuzzyFieldTokens(fieldTokens, queryTokens, fuzzyWeight) {
+  function scoreFuzzyFieldTokens(fieldTokens, queryTokens, fuzzyWeight, minimumCoverage = 0.5) {
     if (!Array.isArray(fieldTokens) || fieldTokens.length === 0 || !Array.isArray(queryTokens) || queryTokens.length === 0) {
       return { score: 0, matchedTokens: [] };
     }
@@ -633,7 +921,7 @@
     }
 
     const coverage = matchedTokens.length / Math.max(queryTokens.length, 1);
-    if (coverage < 0.5) {
+    if (coverage < minimumCoverage) {
       return { score: 0, matchedTokens: [] };
     }
 
@@ -686,7 +974,7 @@
     return fuzzyMatch || values[0];
   }
 
-  function createMetadataLine(fieldName, displayValue) {
+  function createMetadataLine(fieldName, displayValue, options = {}) {
     const value = String(displayValue || "").trim();
     if (!value) {
       return "";
@@ -697,7 +985,7 @@
       case "aliases":
         return `Also listed as ${displayValue}`;
       case "creators":
-        return `Creator: ${displayValue}`;
+        return `${options.label || "Creator"}: ${displayValue}`;
       case "tags":
         return `Tag: ${prettyValue}`;
       case "bestFor":
@@ -933,7 +1221,8 @@
     }
 
     const requiredClauses = buildRequiredClauses(preparedQuery.normalizedQuery, preparedQuery.tokens);
-    const isShortPrefixQuery = preparedQuery.normalizedQuery.length < 3;
+    const isShortPrefixQuery = preparedQuery.normalizedQuery.length < 3 || preparedQuery.isStopWordOnly;
+    const isIdentityOnlyQuery = preparedQuery.isStopWordOnly;
     const excludeIds = toOptionSet(options.excludeIds);
     const requiredFields = normalizeRequiredFields(options.requiredFields);
     if (
@@ -969,6 +1258,9 @@
         const metadataMatches = [];
         const titleTerms = [];
         let score = 0;
+        let searchMatchTier = 0;
+        let hasTitleIdentityMatch = false;
+        let hasExactTitleIdentityMatch = false;
         let relatedToSeed = false;
         const computedSimilarity = computedSimilarityById.get(record.id) || null;
 
@@ -1002,45 +1294,21 @@
         }
 
         if (record.id !== preparedQuery.seedRecord?.id) {
-          if (searchIndex.title === preparedQuery.normalizedQuery) {
-            score += 120;
-            pushReason(reasons, `direct title match for ${record.title}`);
-            titleTerms.push(...searchIndex.titleTokens);
-          } else if (searchIndex.title.startsWith(preparedQuery.normalizedQuery)) {
-            score += 90;
-            pushReason(reasons, `title starts with ${preparedQuery.normalizedQuery}`);
-            titleTerms.push(...tokenizeQuery(preparedQuery.normalizedQuery, { minLength: 1 }));
-          } else if (
-            preparedQuery.tokens.length > 0 &&
-            preparedQuery.tokens.every((token) => searchIndex.titleTokens.includes(token))
-          ) {
-            score += 72;
-            pushReason(reasons, `title lines up with ${preparedQuery.normalizedQuery}`);
-            titleTerms.push(...preparedQuery.tokens);
-          } else {
-            const titlePrefixMatch = scorePrefixFieldTokens(
-              searchIndex.fieldTokens?.title || [],
-              preparedQuery.significantTokens,
-              66,
-            );
-            if (titlePrefixMatch.score) {
-              score += titlePrefixMatch.score;
-              pushReason(reasons, `title matches a prefix of ${preparedQuery.normalizedQuery}`);
-              titleTerms.push(...titlePrefixMatch.matchedTokens);
-            } else {
-              const titleFuzzyMatch = scoreFuzzyFieldTokens(searchIndex.fieldTokens?.title || [], preparedQuery.significantTokens, 66);
-              if (titleFuzzyMatch.score) {
-                score += titleFuzzyMatch.score;
-                pushReason(reasons, `title survives a close spelling for ${preparedQuery.normalizedQuery}`);
-                titleTerms.push(...titleFuzzyMatch.matchedTokens);
-              }
-            }
+          const titleMatch = scoreTitleMatch(searchIndex, preparedQuery);
+          if (titleMatch) {
+            hasTitleIdentityMatch = true;
+            hasExactTitleIdentityMatch = titleMatch.tier === 5;
+            score += titleMatch.score;
+            searchMatchTier = Math.max(searchMatchTier, preparedQuery.seedRecord ? 0 : titleMatch.tier);
+            pushReason(reasons, titleMatch.reason);
+            titleTerms.push(...titleMatch.titleTerms);
           }
         }
 
         const aliasMatch = scoreFieldTerms(searchIndex.fields.aliases, preparedQuery.phrases, 76, 36);
         if (aliasMatch.score) {
           score += aliasMatch.score;
+          searchMatchTier = Math.max(searchMatchTier, preparedQuery.seedRecord ? 0 : aliasMatch.matchKind === "exact" ? 4 : 2);
           pushReason(reasons, `alias match for ${aliasMatch.matchedTerm}`);
           metadataMatches.push({
             score: aliasMatch.score,
@@ -1052,9 +1320,13 @@
             terms: tokenizeQuery(aliasMatch.matchedTerm),
           });
         } else {
-          const aliasFuzzyMatch = scoreFuzzyFieldTokens(searchIndex.fieldTokens?.aliases || [], preparedQuery.significantTokens, 34);
+          const aliasFuzzyMatch =
+            (preparedQuery.significantTokens.length > 1 || hasTitleIdentityMatch)
+              ? scoreFuzzyFieldTokens(searchIndex.fieldTokens?.aliases || [], preparedQuery.significantTokens, 34)
+              : { score: 0, matchedTokens: [] };
           if (aliasFuzzyMatch.score) {
             score += aliasFuzzyMatch.score;
+            searchMatchTier = Math.max(searchMatchTier, preparedQuery.seedRecord ? 0 : 2);
             pushReason(reasons, `alias survives a close spelling for ${preparedQuery.normalizedQuery}`);
             metadataMatches.push({
               score: aliasFuzzyMatch.score,
@@ -1068,7 +1340,10 @@
           }
         }
 
-        const tagMatch = scoreFieldTerms(searchIndex.fields.tags, preparedQuery.phrases, 30, 16);
+        const metadataSearchEnabled = !isIdentityOnlyQuery;
+        const tagMatch = metadataSearchEnabled
+          ? scoreFieldTerms(searchIndex.fields.tags, preparedQuery.phrases, 30, 16)
+          : { score: 0, matchedTerm: "", matchKind: "" };
         if (tagMatch.score) {
           score += tagMatch.score;
           pushReason(reasons, `matches ${tagMatch.matchedTerm}`);
@@ -1078,7 +1353,7 @@
             text: createMetadataLine("tags", resolveDisplayValue(record, "tags", tagMatch.matchedTerm, tokenizeQuery(tagMatch.matchedTerm))),
             terms: tokenizeQuery(tagMatch.matchedTerm),
           });
-        } else {
+        } else if (metadataSearchEnabled) {
           const tagFuzzyMatch = scoreFuzzyFieldTokens(searchIndex.fieldTokens?.tags || [], preparedQuery.significantTokens, 18);
           if (tagFuzzyMatch.score) {
             score += tagFuzzyMatch.score;
@@ -1092,7 +1367,9 @@
           }
         }
 
-        const bestForMatch = scoreFieldTerms(searchIndex.fields.bestFor, preparedQuery.phrases, 28, 15);
+        const bestForMatch = metadataSearchEnabled
+          ? scoreFieldTerms(searchIndex.fields.bestFor, preparedQuery.phrases, 28, 15)
+          : { score: 0, matchedTerm: "", matchKind: "" };
         if (bestForMatch.score) {
           score += bestForMatch.score;
           pushReason(reasons, `good for ${bestForMatch.matchedTerm}`);
@@ -1107,13 +1384,17 @@
           });
         }
 
-        const themeMatch = scoreFieldTerms(searchIndex.fields.themes, preparedQuery.phrases, 24, 12);
+        const themeMatch = metadataSearchEnabled
+          ? scoreFieldTerms(searchIndex.fields.themes, preparedQuery.phrases, 24, 12)
+          : { score: 0, matchedTerm: "", matchKind: "" };
         if (themeMatch.score) {
           score += themeMatch.score;
           pushReason(reasons, `tracks ${themeMatch.matchedTerm}`);
         }
 
-        const genreMatch = scoreFieldTerms(searchIndex.fields.genres, preparedQuery.phrases, 26, 14);
+        const genreMatch = metadataSearchEnabled
+          ? scoreFieldTerms(searchIndex.fields.genres, preparedQuery.phrases, 26, 14)
+          : { score: 0, matchedTerm: "", matchKind: "" };
         if (genreMatch.score) {
           score += genreMatch.score;
           pushReason(reasons, `fits ${genreMatch.matchedTerm}`);
@@ -1125,7 +1406,9 @@
           });
         }
 
-        const toneMatch = scoreFieldTerms(searchIndex.fields.tones, preparedQuery.phrases, 24, 12);
+        const toneMatch = metadataSearchEnabled
+          ? scoreFieldTerms(searchIndex.fields.tones, preparedQuery.phrases, 24, 12)
+          : { score: 0, matchedTerm: "", matchKind: "" };
         if (toneMatch.score) {
           score += toneMatch.score;
           pushReason(reasons, `leans ${toneMatch.matchedTerm}`);
@@ -1137,7 +1420,9 @@
           });
         }
 
-        const formatMatch = scoreFieldTerms(searchIndex.fields.formats, preparedQuery.phrases, 24, 12);
+        const formatMatch = metadataSearchEnabled
+          ? scoreFieldTerms(searchIndex.fields.formats, preparedQuery.phrases, 24, 12)
+          : { score: 0, matchedTerm: "", matchKind: "" };
         if (formatMatch.score) {
           score += formatMatch.score;
           pushReason(reasons, `${formatMatch.matchedTerm} format`);
@@ -1152,16 +1437,19 @@
           });
         }
 
-        const creatorMatch = scoreFieldTerms(searchIndex.fields.creators, preparedQuery.phrases, 24, 12);
+        const creatorMatch = scoreFieldTerms(searchIndex.fields.creators, preparedQuery.phrases, 52, 24);
         if (creatorMatch.score) {
           score += creatorMatch.score;
+          searchMatchTier = Math.max(searchMatchTier, preparedQuery.seedRecord ? 0 : creatorMatch.matchKind === "exact" ? 4 : 2);
           pushReason(reasons, `created by ${creatorMatch.matchedTerm}`);
+          const identityMatch = resolveIdentityMatch(record, creatorMatch.matchedTerm, tokenizeQuery(creatorMatch.matchedTerm));
           metadataMatches.push({
             score: creatorMatch.score,
             priority: 0,
             text: createMetadataLine(
               "creators",
-              resolveDisplayValue(record, "creators", creatorMatch.matchedTerm, tokenizeQuery(creatorMatch.matchedTerm)),
+              identityMatch?.value || resolveDisplayValue(record, "creators", creatorMatch.matchedTerm, tokenizeQuery(creatorMatch.matchedTerm)),
+              { label: identityMatch?.label || "Creator" },
             ),
             terms: tokenizeQuery(creatorMatch.matchedTerm),
           });
@@ -1169,56 +1457,73 @@
           const creatorFuzzyMatch = scoreFuzzyFieldTokens(searchIndex.fieldTokens?.creators || [], preparedQuery.significantTokens, 16);
           if (creatorFuzzyMatch.score) {
             score += creatorFuzzyMatch.score;
+            searchMatchTier = Math.max(searchMatchTier, preparedQuery.seedRecord ? 0 : 2);
             pushReason(reasons, `creator survives a close spelling for ${preparedQuery.normalizedQuery}`);
+            const identityMatch = resolveIdentityMatch(record, creatorFuzzyMatch.matchedTokens.join(" "), creatorFuzzyMatch.matchedTokens);
             metadataMatches.push({
               score: creatorFuzzyMatch.score,
               priority: 0,
               text: createMetadataLine(
                 "creators",
-                resolveDisplayValue(record, "creators", creatorFuzzyMatch.matchedTokens.join(" "), creatorFuzzyMatch.matchedTokens),
+                identityMatch?.value || resolveDisplayValue(record, "creators", creatorFuzzyMatch.matchedTokens.join(" "), creatorFuzzyMatch.matchedTokens),
+                { label: identityMatch?.label || "Creator" },
               ),
               terms: creatorFuzzyMatch.matchedTokens,
             });
           }
         }
 
-        const castMatch = scoreFieldTerms(searchIndex.fields.cast, preparedQuery.phrases, 18, 10);
+        const castMatch = metadataSearchEnabled
+          ? scoreFieldTerms(searchIndex.fields.cast, preparedQuery.phrases, 18, 10)
+          : { score: 0, matchedTerm: "", matchKind: "" };
         if (castMatch.score) {
           score += castMatch.score;
           pushReason(reasons, `cast includes ${castMatch.matchedTerm}`);
         }
 
-        const narratorMatch = scoreFieldTerms(searchIndex.fields.narrator, preparedQuery.phrases, 18, 10);
+        const narratorMatch = metadataSearchEnabled
+          ? scoreFieldTerms(searchIndex.fields.narrator, preparedQuery.phrases, 18, 10)
+          : { score: 0, matchedTerm: "", matchKind: "" };
         if (narratorMatch.score) {
           score += narratorMatch.score;
           pushReason(reasons, `narration fits ${narratorMatch.matchedTerm}`);
         }
 
-        const transcriptMatch = scoreFieldTerms(searchIndex.fields.transcriptAvailability, preparedQuery.phrases, 18, 10);
+        const transcriptMatch = metadataSearchEnabled
+          ? scoreFieldTerms(searchIndex.fields.transcriptAvailability, preparedQuery.phrases, 18, 10)
+          : { score: 0, matchedTerm: "", matchKind: "" };
         if (transcriptMatch.score) {
           score += transcriptMatch.score;
           pushReason(reasons, `transcript notes match ${transcriptMatch.matchedTerm}`);
         }
 
-        const contentNoteMatch = scoreFieldTerms(searchIndex.fields.contentNotes, preparedQuery.phrases, 18, 10);
+        const contentNoteMatch = metadataSearchEnabled
+          ? scoreFieldTerms(searchIndex.fields.contentNotes, preparedQuery.phrases, 18, 10)
+          : { score: 0, matchedTerm: "", matchKind: "" };
         if (contentNoteMatch.score) {
           score += contentNoteMatch.score;
           pushReason(reasons, `content notes match ${contentNoteMatch.matchedTerm}`);
         }
 
-        const completionMatch = scoreFieldTerms(searchIndex.fields.completionStatus, preparedQuery.phrases, 24, 12);
+        const completionMatch = metadataSearchEnabled
+          ? scoreFieldTerms(searchIndex.fields.completionStatus, preparedQuery.phrases, 24, 12)
+          : { score: 0, matchedTerm: "", matchKind: "" };
         if (completionMatch.score) {
           score += completionMatch.score;
           pushReason(reasons, `${completionMatch.matchedTerm} listen`);
         }
 
-        const reviewMatch = scoreFieldTerms(searchIndex.fields.reviewStatus, preparedQuery.phrases, 22, 10);
+        const reviewMatch = metadataSearchEnabled
+          ? scoreFieldTerms(searchIndex.fields.reviewStatus, preparedQuery.phrases, 22, 10)
+          : { score: 0, matchedTerm: "", matchKind: "" };
         if (reviewMatch.score) {
           score += reviewMatch.score;
           pushReason(reasons, "has a full review");
         }
 
-        const similarTitleMatch = scoreFieldTerms(searchIndex.fields.similarTitles, preparedQuery.phrases, 24, 12);
+        const similarTitleMatch = metadataSearchEnabled
+          ? scoreFieldTerms(searchIndex.fields.similarTitles, preparedQuery.phrases, 24, 12)
+          : { score: 0, matchedTerm: "", matchKind: "" };
         if (similarTitleMatch.score) {
           score += similarTitleMatch.score;
           pushReason(reasons, `linked to ${similarTitleMatch.matchedTerm}`);
@@ -1263,7 +1568,12 @@
           score -= avoidancePenalty;
         }
 
-        const hasExactIdentityMatch = searchIndex.title === preparedQuery.normalizedQuery ||
+        const hasExactIdentityMatch =
+          searchIndex.title === preparedQuery.normalizedQuery ||
+          searchIndex.titleWithoutCommonPrefix === preparedQuery.normalizedQuery ||
+          (preparedQuery.compactNormalizedQuery.length >= 4 &&
+            (searchIndex.titleCompact === preparedQuery.compactNormalizedQuery ||
+              searchIndex.titleWithoutCommonPrefixCompact === preparedQuery.compactNormalizedQuery)) ||
           (Array.isArray(record.aliases) ? record.aliases : []).some((alias) => normalizeText(alias) === preparedQuery.normalizedQuery);
         if (record.reviewStatus === "imported" && !hasExactIdentityMatch) {
           score -= 6;
@@ -1276,9 +1586,14 @@
           preparedQuery.significantTokens.length > 0 && fuzzyMatchedTokenCount === preparedQuery.significantTokens.length;
         const hasStructuredClause = requiredClauses.some((clause) => clause.fieldName);
         const hasRequiredFieldCoverage = satisfiesRequiredFields(record, requiredFields);
+        const hasDirectIdentityMatch =
+          !preparedQuery.seedRecord &&
+          !hasStructuredClause &&
+          searchMatchTier >= 4 &&
+          (hasTitleIdentityMatch || hasIdentityTokenCoverage(searchIndex, preparedQuery.tokens));
         const hasRelevantClauseCoverage = isShortPrefixQuery
           ? hasIdentityTokenCoverage(searchIndex, preparedQuery.tokens)
-          : hasFullClauseCoverage;
+          : hasFullClauseCoverage || hasExactTitleIdentityMatch || hasDirectIdentityMatch;
         const satisfiesQuery = preparedQuery.seedRecord
           ? record.id !== preparedQuery.seedRecord.id && relatedToSeed && hasRequiredFieldCoverage
           : (hasRelevantClauseCoverage || (!hasStructuredClause && hasFuzzyClauseCoverage)) && hasRequiredFieldCoverage;
@@ -1287,6 +1602,7 @@
         return {
           ...record,
           score: publicSimilarityScore,
+          searchMatchTier,
           reasons,
           searchPresentation: computedSimilarity
             ? {
@@ -1300,6 +1616,10 @@
       })
       .filter((record) => record.score > 0 && record.satisfiesQuery)
       .sort((left, right) => {
+        if (right.searchMatchTier !== left.searchMatchTier) {
+          return right.searchMatchTier - left.searchMatchTier;
+        }
+
         if (right.score !== left.score) {
           return right.score - left.score;
         }

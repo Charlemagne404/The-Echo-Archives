@@ -106,6 +106,11 @@ test("Imported cards, collection cards, and popular cards keep visible unrated r
   assert.match(renderMostPopularCard(show), /Genre: Sci-fi/);
   assert.match(renderMostPopularCard(show), /popular-card-chip is-imported">Imported/);
 
+  const limitedMetadataMarkup = renderCollectionShowCard(show, "A route with a conservative metadata note.", {
+    recommendationConfidence: "limited-metadata",
+  });
+  assert.match(limitedMetadataMarkup, /class="collection-show-card-confidence">Limited metadata<\/span>/);
+
   const ratedMarkup = renderArchiveCard({ ...show, id: "rated-show", finalRating: 8.5 });
   assert.match(ratedMarkup, /inline-score-value">8\.5\/10<\/span>/);
   assert.match(ratedMarkup, /community-inline-score-value">--\/10<\/span>/);

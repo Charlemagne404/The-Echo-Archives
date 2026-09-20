@@ -190,15 +190,26 @@ function collectHttpUrls(...sources) {
   return [...new Set(urls)];
 }
 
-function buildShowStructuredData({ siteUrl, show }) {
+function uniqueText(values = []) {
+  const seen = new Set();
+  return (Array.isArray(values) ? values : [])
+    .map((value) => String(value || "").trim())
+    .filter((value) => {
+      if (!value) return false;
+      const key = value.toLocaleLowerCase();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+}
+
+function buildPodcastSeriesReference({ siteUrl, show }) {
   const metadata = buildShowPageMetadata({ siteUrl, show });
-  const homeUrl = buildAbsoluteUrl(siteUrl, "/");
-  const pageId = `${metadata.canonicalUrl}#webpage`;
   const podcastId = `${metadata.canonicalUrl}#podcast`;
-  const breadcrumbId = `${metadata.canonicalUrl}#breadcrumb`;
   const podcast = {
     "@type": "PodcastSeries",
     "@id": podcastId,
+    identifier: String(show.id || "").trim(),
     name: show.title,
     description: fallbackDescription(show.description),
     url: metadata.canonicalUrl,
@@ -213,8 +224,13 @@ function buildShowStructuredData({ siteUrl, show }) {
   const languages = (Array.isArray(show.languages) ? show.languages : [])
     .map((entry) => String(entry || "").trim())
     .filter(Boolean);
+  const aliases = uniqueText(show.aliases);
+  const keywords = uniqueText([
+    ...(Array.isArray(show.tags) ? show.tags : []),
+    ...(Array.isArray(show.themes) ? show.themes : []),
+    ...(Array.isArray(show.bestFor) ? show.bestFor : []),
+  ]);
   const sameAs = collectHttpUrls(show.officialLinks, show.listenLinks);
-  const pageDates = getWebPageDates(show);
 
   if (genres.length > 0) {
     const seenGenres = new Set();
@@ -225,10 +241,33 @@ function buildShowStructuredData({ siteUrl, show }) {
       return true;
     });
   }
+  if (aliases.length > 0) podcast.alternateName = aliases;
   if (creators.length > 0) podcast.creator = creators;
   Object.assign(podcast, showEntityStructuredData(show, siteUrl));
   if (languages.length > 0) podcast.inLanguage = languages;
+  if (keywords.length > 0) podcast.keywords = keywords;
   if (sameAs.length > 0) podcast.sameAs = sameAs;
+  if (Number.isInteger(show.length?.seasons) && show.length.seasons > 0) {
+    podcast.numberOfSeasons = show.length.seasons;
+  }
+  if (Number.isInteger(show.length?.episodes) && show.length.episodes > 0) {
+    podcast.numberOfEpisodes = show.length.episodes;
+  }
+  return podcast;
+}
+
+function buildShowStructuredData({ siteUrl, show, collections = [] }) {
+  const metadata = buildShowPageMetadata({ siteUrl, show });
+  const homeUrl = buildAbsoluteUrl(siteUrl, "/");
+  const pageId = `${metadata.canonicalUrl}#webpage`;
+  const podcastId = `${metadata.canonicalUrl}#podcast`;
+  const breadcrumbId = `${metadata.canonicalUrl}#breadcrumb`;
+  const podcast = buildPodcastSeriesReference({ siteUrl, show });
+  podcast.mainEntityOfPage = { "@id": pageId };
+  const collectionLinks = (Array.isArray(collections) ? collections : [])
+    .filter((collection) => Array.isArray(collection?.showIds) && collection.showIds.includes(show.id))
+    .map((collection) => buildAbsoluteUrl(siteUrl, buildCollectionPath(collection.id)));
+  const pageDates = getWebPageDates(show);
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -242,6 +281,7 @@ function buildShowStructuredData({ siteUrl, show }) {
         breadcrumb: { "@id": breadcrumbId },
         mainEntity: { "@id": podcastId },
         ...(show.resolvedEntities?.length ? { mentions: show.resolvedEntities.map((entity) => entityStructuredData(entity, siteUrl)) } : {}),
+        ...(collectionLinks.length ? { relatedLink: collectionLinks } : {}),
         primaryImageOfPage: { "@type": "ImageObject", url: metadata.imageUrl },
         ...(pageDates.datePublished ? { datePublished: pageDates.datePublished } : {}),
         ...(pageDates.dateModified ? { dateModified: pageDates.dateModified } : {}),
@@ -288,18 +328,13 @@ function buildCollectionStructuredData({ siteUrl, collection, collectionShows = 
         primaryImageOfPage: { "@type": "ImageObject", url: metadata.imageUrl },
         ...(collection.updatedAt ? { dateModified: collection.updatedAt } : {}),
         ...(anchorShow
-          ? {
-              about: {
-                "@type": "PodcastSeries",
-                name: anchorShow.title,
-                url: buildAbsoluteUrl(siteUrl, buildShowPath(anchorShow.id)),
-              },
-            }
+          ? { about: buildPodcastSeriesReference({ siteUrl, show: anchorShow }) }
           : {}),
       },
       {
         "@type": "ItemList",
         "@id": listId,
+        itemListOrder: "https://schema.org/ItemListOrderAscending",
         numberOfItems: collectionShows.length,
         itemListElement: collectionShows.map((show, index) => ({
           "@type": "ListItem",
@@ -307,6 +342,7 @@ function buildCollectionStructuredData({ siteUrl, collection, collectionShows = 
           name: show.title,
           description: recommendationReasons.get(show.id) || String(showReasons[show.id] || "").trim(),
           url: buildAbsoluteUrl(siteUrl, buildShowPath(show.id)),
+          item: buildPodcastSeriesReference({ siteUrl, show }),
         })),
       },
       {
@@ -531,6 +567,7 @@ function renderCollectionRecommendationSections(collection, recommendationView) 
           : "collection_membership",
       resultPositionBucket: offset + index + 1 <= 3 ? String(offset + index + 1) : "4+",
       collectionId: collection.id,
+      recommendationConfidence: recommendation.metadataConfidence || recommendation.confidence || "",
     })).join("");
     const firstGridId = sectionIndex === 0 ? ' id="collectionShowGrid"' : "";
     return `

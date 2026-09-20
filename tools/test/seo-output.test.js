@@ -121,7 +121,13 @@ test("generated structured data describes only supported discovery entities", ()
   assert.equal(directory.mainEntity["@id"], itemList["@id"]);
   assert.equal(itemList.numberOfItems, collections.length);
   assert.equal(itemList.itemListElement.length, collections.length);
+  assert.equal(itemList.itemListOrder, "https://schema.org/ItemListOrderAscending");
   assert.ok(itemList.itemListElement.every((entry) => /\/collections\/[a-z0-9-]+$/.test(entry.url)));
+  assert.ok(itemList.itemListElement.every((entry) =>
+    entry.item?.["@type"] === "CollectionPage" &&
+    entry.item["@id"] === `${entry.url}#webpage` &&
+    entry.item.url === entry.url,
+  ));
   assert.match(read("collections.html"), /data-collections-prerendered="true"/);
   assert.match(read("collections.html"), /href="\/collections\/shows-like-midnight-burger"/);
 });

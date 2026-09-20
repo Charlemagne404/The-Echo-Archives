@@ -43,9 +43,12 @@ function printHumanReport(report, limit, includeAll) {
   console.log(`Connected shows: ${summary.connectedShowCount}/${summary.showCount} (${summary.connectedShowPercent}%)`);
   console.log(`Zero-relationship shows: ${summary.zeroRelationshipShowCount}`);
   console.log(`Weakly linked shows (<= ${report.scope.weakShowMaxRelationshipCount} relationship): ${summary.weaklyLinkedShowCount}`);
+  console.log(`Creator/entity attribution gaps with non-infrastructure evidence: ${summary.creatorAttributionGapCount}`);
   console.log(`Bipartite density: ${relationshipDensity.bipartitePercent}% (${relationshipDensity.uniqueShowEntityPairCount} unique show/entity pairs of ${relationshipDensity.possibleShowEntityPairs} possible)`);
   console.log(`Average relationships per connected show: ${relationshipDensity.averageRelationshipsPerConnectedShow}`);
   console.log(`Relationship multiplicity: ${relationshipDensity.relationshipMultiplicityPercent}% of records reuse a show/entity pair through another role or duplicate record.`);
+  console.log(`Derived shared-show entity connections: ${summary.derivedEntityConnectionCount}; authored entity/entity edges: no`);
+  console.log(`Reverse show/entity projection mismatches: ${summary.missingReverseEdgeCount + summary.unexpectedReverseEdgeCount}`);
   console.log("");
 
   console.log("Coverage:");
@@ -57,6 +60,7 @@ function printHumanReport(report, limit, includeAll) {
     ["Network role", coverage.networkRelationship],
     ["Creator evidence in legacy fields", coverage.creatorEvidence],
     ["Creator evidence without a creator relationship", coverage.creatorEvidenceWithoutRelationship],
+    ["Attribution evidence without a creator relationship", coverage.creatorAttributionEvidenceWithoutRelationship],
     ["Only organization relationships", coverage.onlyOrganizationRelationships],
   ].forEach(([label, metric]) => console.log(`- ${label}: ${formatMetric(metric, summary.showCount)}`));
   console.log("");
@@ -76,6 +80,9 @@ function printHumanReport(report, limit, includeAll) {
   console.log(`Weakly connected entities (<= ${report.scope.weakEntityMaxShowCount} show): ${summary.weakEntityCount}`);
   report.weaklyConnectedEntities.slice(0, limit).forEach((entity) => console.log(`- ${entity.name} [${entity.entityId}] — ${entity.showCount} shows (${entity.type})`));
   if (summary.weakEntityCount > limit) console.log(`  ... ${summary.weakEntityCount - limit} more; use --json for the complete list.`);
+  console.log(`Thin high-value entity pages (>= ${report.scope.thinEntityMinShowCount} shows, missing description and website): ${summary.thinHighValueEntityCount}`);
+  report.thinHighValueEntities.slice(0, limit).forEach((entity) => console.log(`- ${entity.name} [${entity.entityId}] — ${entity.showCount} shows; missing ${entity.missingPageFields.join(", ")}`));
+  if (summary.thinHighValueEntityCount > limit) console.log(`  ... ${summary.thinHighValueEntityCount - limit} more; use --json for the complete list.`);
   console.log(`Orphan entities: ${summary.orphanEntityCount}`);
   console.log(`Orphan collections: ${report.collectionCoverage.summary.orphanCollectionCount}`);
   console.log(`Shows without collection membership: ${report.collectionCoverage.summary.showsWithoutMembership}`);
@@ -88,6 +95,9 @@ function printHumanReport(report, limit, includeAll) {
   printQueue("Review non-public entity links", report.priorityQueues.reviewNonPublicLink, report, limit);
   printQueue("Research source and add a deliberate link", report.priorityQueues.researchSourceAndLink, report, limit);
   printQueue("Compound legacy evidence", report.priorityQueues.compoundEvidence, report, limit);
+  printQueue("Research creator attribution", report.priorityQueues.researchCreatorAttribution, report, limit);
+  printQueue("Research organization attribution", report.priorityQueues.researchOrganizationAttribution, report, limit);
+  printQueue("Infrastructure-only evidence (do not create entity)", report.priorityQueues.infrastructureOnly, report, limit);
   printQueue("No known creator/entity evidence", report.priorityQueues.noKnownEvidence, report, limit);
   console.log("");
 
@@ -108,6 +118,8 @@ function printHumanReport(report, limit, includeAll) {
   console.log(`- Unknown entity references: ${suspiciousRelationships.unknownEntityReferences.length}`);
   console.log(`- Non-public entity references: ${suspiciousRelationships.nonPublicEntityReferences.length}`);
   console.log(`- Invalid relationship records: ${suspiciousRelationships.invalidRelationshipRecords.length}`);
+  console.log(`- Potential duplicate entity identities: ${suspiciousRelationships.potentialDuplicateEntities.length}`);
+  console.log(`- Reverse projection mismatches: ${report.navigationReciprocity.missingReverseEdges.length + report.navigationReciprocity.unexpectedReverseEdges.length}`);
   console.log("");
   console.log(`Unresolved legacy evidence values: ${report.evidence.unresolvedLegacyValueCount} unique field/value combinations across unlinked shows.`);
   console.log("Legacy evidence is a review queue only; this report never creates or recommends an automatic relationship.");

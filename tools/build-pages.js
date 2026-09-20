@@ -650,12 +650,20 @@ function buildCollectionsStructuredData({ siteUrl, entry, collections }) {
       {
         "@type": "ItemList",
         "@id": `${pageUrl}#itemlist`,
+        itemListOrder: "https://schema.org/ItemListOrderAscending",
         numberOfItems: collections.length,
         itemListElement: collections.map((collection, index) => ({
           "@type": "ListItem",
           position: index + 1,
           name: collection.title,
           url: new URL(`/collections/${encodeURIComponent(collection.id)}`, `${siteUrl}/`).toString(),
+          item: {
+            "@type": "CollectionPage",
+            "@id": `${new URL(`/collections/${encodeURIComponent(collection.id)}`, `${siteUrl}/`).toString()}#webpage`,
+            name: collection.title,
+            description: collection.description,
+            url: new URL(`/collections/${encodeURIComponent(collection.id)}`, `${siteUrl}/`).toString(),
+          },
         })),
       },
       {

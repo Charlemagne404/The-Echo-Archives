@@ -11,7 +11,12 @@ const {
   REVIEW_STATUSES,
   SHOW_STATUSES,
 } = require("../../tools/lib/catalog-schema");
-const { ROLES, TYPES, normalizeEntityName } = require("../../shared/archive-entities");
+const {
+  ROLES,
+  TYPES,
+  isEntityRoleCompatible,
+  normalizeEntityName,
+} = require("../../shared/archive-entities");
 
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const COLLECTION_KINDS = new Set(["curated", "editorial", "similarity", "rule-based", "semantic"]);
@@ -401,10 +406,15 @@ function checkEntityRecords(entities, shows, errors, warnings) {
   entities.forEach((entity, index) => {
     if (!isRecord(entity)) return;
     const label = `Entity "${entity.id || `index ${index}`}"`;
-    if (!isSlug(entity.id)) return;
+    if (!isSlug(entity.id) || entity.id.length > 80) {
+      if (isSlug(entity.id) && entity.id.length > 80) addIssue(errors, `${label} id exceeds the 80-character limit.`);
+      return;
+    }
     entityIds.add(entity.id);
     entityById.set(entity.id, entity);
-    if (typeof entity.name !== "string" || !entity.name.trim()) addIssue(errors, `${label} needs a non-empty name.`);
+    if (typeof entity.name !== "string" || !entity.name.trim() || entity.name !== entity.name.trim() || entity.name.length > 120) {
+      addIssue(errors, `${label} needs a trimmed name of 1-120 characters.`);
+    }
     if (!TYPES.includes(entity.type)) addIssue(errors, `${label} has invalid type "${entity.type}".`);
     if (!["public", "draft"].includes(entity.publication)) addIssue(errors, `${label} has invalid publication "${entity.publication}".`);
     if (typeof entity.indexable !== "boolean") addIssue(errors, `${label}.indexable must be boolean.`);
@@ -412,9 +422,12 @@ function checkEntityRecords(entities, shows, errors, warnings) {
     if (hasOwn(entity, "directory") && typeof entity.directory !== "boolean") addIssue(errors, `${label}.directory must be boolean.`);
     if (!Array.isArray(entity.aliases)) addIssue(errors, `${label}.aliases must be an array.`);
     else entity.aliases.forEach((alias, aliasIndex) => {
-      if (typeof alias !== "string" || !alias.trim()) addIssue(errors, `${label}.aliases[${aliasIndex}] must be a non-empty string.`);
+      if (typeof alias !== "string" || !alias.trim() || alias !== alias.trim() || alias.length > 160) addIssue(errors, `${label}.aliases[${aliasIndex}] must be a trimmed string of 1-160 characters.`);
     });
     checkUrlValue(entity.website, `${label}.website`, errors);
+    if (hasOwn(entity, "description") && (typeof entity.description !== "string" || !entity.description.trim() || entity.description !== entity.description.trim() || entity.description.length > 500)) {
+      addIssue(errors, `${label}.description must be a trimmed string of 1-500 characters.`);
+    }
     if (hasOwn(entity, "sources")) {
       if (!Array.isArray(entity.sources) || entity.sources.length === 0) addIssue(errors, `${label}.sources must be a non-empty array.`);
       else {
@@ -430,7 +443,7 @@ function checkEntityRecords(entities, shows, errors, warnings) {
       }
     }
     if (entity.publication === "public") {
-      if (Number.isNaN(parseDate(entity.reviewedAt))) addIssue(errors, `${label}.reviewedAt must be a valid date for a public entity.`);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(entity.reviewedAt || "") || Number.isNaN(parseDate(entity.reviewedAt))) addIssue(errors, `${label}.reviewedAt must be a valid YYYY-MM-DD date for a public entity.`);
       if (!Array.isArray(entity.sources) || entity.sources.length === 0) addIssue(errors, `${label} needs source URLs for public publication.`);
     } else if (entity.reviewedAt !== undefined && Number.isNaN(parseDate(entity.reviewedAt))) {
       addIssue(errors, `${label}.reviewedAt is not a valid date.`);
@@ -467,12 +480,17 @@ function checkEntityRecords(entities, shows, errors, warnings) {
       if (entity?.type === "person" && link.role !== "creator") {
         addIssue(errors, `Person "${link.entityId}" must use the creator role on "${show.id}".`);
       }
-      if (entity && entity.type !== "person" && ROLES.includes(link.role) && entity.type !== link.role) {
+      if (entity && !isEntityRoleCompatible(entity.type, link.role)) {
+        addIssue(errors, `Entity "${link.entityId}" of type "${entity.type}" cannot use the "${link.role}" relationship role on "${show.id}".`);
+      } else if (entity && entity.type !== "person" && ROLES.includes(link.role) && entity.type !== link.role) {
         const divergenceKey = `${link.entityId}:${link.role}`;
         if (!roleDivergenceKeys.has(divergenceKey)) {
           warnings.push(`Entity "${link.entityId}" has type "${entity.type}" but is linked with role "${link.role}" on show "${show.id}"; review the source-backed relationship.`);
           roleDivergenceKeys.add(divergenceKey);
         }
+      }
+      if (entity?.publication === "draft" && show.status === "published") {
+        addIssue(errors, `Published show "${show.id}" cannot reference draft entity "${entity.id}".`);
       }
     });
     rolesByEntity.forEach((roles, entityId) => {
@@ -502,8 +520,8 @@ function checkKnownIdsAndAliases(records, label, errors) {
     names.forEach((name, index) => {
       const key = normalizeEntityName(name);
       if (!key) return;
-      if (index > 0 && aliasNames.has(key)) addIssue(errors, `${label} "${record.id}" contains duplicate alias "${name}".`);
-      if (index > 0) aliasNames.add(key);
+      if (index > 0 && aliasNames.has(key)) addIssue(errors, `${label} "${record.id}" contains duplicate alias or canonical name "${name}".`);
+      aliasNames.add(key);
       if (seenNames.has(key) && seenNames.get(key) !== record.id) {
         addIssue(errors, `Ambiguous ${label} name or alias "${name}" in "${record.id}" and "${seenNames.get(key)}".`);
       }

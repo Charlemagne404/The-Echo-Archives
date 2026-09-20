@@ -12,6 +12,7 @@
     "report:catalog": "node tools/report-catalog.js",
     "report:similarity": "node tools/report-similarity.js",
     "report:discovery-quality": "node tools/report-discovery-quality.js",
+    "report:metadata-quality": "node tools/report-metadata-quality.js",
     "report:collection-candidates": "node tools/report-collection-candidates.js",
     "report:entity-graph": "node backend/scripts/entity-graph-report.js",
     "report:entity-candidates": "node backend/scripts/entity-enrichment-candidates.js",

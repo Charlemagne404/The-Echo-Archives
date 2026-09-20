@@ -61,6 +61,36 @@ test("Imported show SEO stays factual and structured data omits editorial rating
   assert.equal(podcast.review, undefined);
 });
 
+test("show structured data exposes factual fields and typed entity relationships", async () => {
+  const catalog = await loadCatalog(siteRoot);
+  const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)));
+  const show = catalog.find((candidate) =>
+    candidate.id === "story" &&
+    candidate.resolvedEntities?.some((entity) => entity.role === "network") &&
+    Number.isInteger(candidate.length?.episodes) &&
+    collections.some((collection) => collection.showIds?.includes(candidate.id)),
+  );
+  assert.ok(show, "Expected a published show with a typed network relationship and episode count.");
+
+  const structuredData = buildShowStructuredData({ siteUrl, show, collections });
+  const podcast = graphNode(structuredData, "PodcastSeries");
+  const webPage = graphNode(structuredData, "WebPage");
+
+  assert.equal(podcast.identifier, show.id);
+  assert.equal(podcast.numberOfEpisodes, show.length.episodes);
+  if (Number.isInteger(show.length.seasons) && show.length.seasons > 0) {
+    assert.equal(podcast.numberOfSeasons, show.length.seasons);
+  }
+  assert.ok(Array.isArray(podcast.alternateName));
+  assert.ok(Array.isArray(podcast.keywords));
+  assert.ok(podcast.sameAs.length > 0);
+  assert.equal(podcast.mainEntityOfPage["@id"], webPage["@id"]);
+  assert.ok(podcast.producer?.every((entity) => entity["@id"].includes("/creators/")));
+  assert.ok(podcast.provider?.some((entity) => entity["@id"].includes("/creators/")));
+  assert.equal(podcast.publisher, undefined, "A network relationship must not imply publisher ownership.");
+  assert.ok(webPage.relatedLink.some((url) => url.includes("/collections/")));
+});
+
 test("every published show has unique canonical metadata and connected JSON-LD", async () => {
   const catalog = (await loadCatalog(siteRoot)).filter((show) => show.status === "published");
   const canonicals = [];
@@ -80,6 +110,8 @@ test("every published show has unique canonical metadata and connected JSON-LD",
     assert.equal(webPage.url, metadata.canonicalUrl);
     assert.equal(webPage.mainEntity["@id"], podcastSeries["@id"]);
     assert.equal(podcastSeries.url, metadata.canonicalUrl);
+    assert.equal(podcastSeries["@id"], `${metadata.canonicalUrl}#podcast`);
+    assert.equal(podcastSeries.identifier, show.id);
     assert.equal(breadcrumbs.itemListElement.at(-1).item, metadata.canonicalUrl);
     assert.equal(webPage.primaryImageOfPage.url, metadata.imageUrl);
     assert.equal(webPage.datePublished, show.createdAt, show.id);
@@ -114,8 +146,10 @@ test("indexable collections meet the editorial quality gate and use canonical sh
     assert.doesNotMatch(metadata.description, placeholderPattern);
     assert.equal(collectionPage.url, metadata.canonicalUrl);
     assert.equal(collectionPage.mainEntity["@id"], itemList["@id"]);
+    assert.equal(itemList.itemListOrder, "https://schema.org/ItemListOrderAscending");
     assert.equal(itemList.numberOfItems, collectionShows.length);
     assert.ok(itemList.itemListElement.every((item) => item.url.startsWith(`${siteUrl}/shows/`)));
+    assert.ok(itemList.itemListElement.every((item) => item.item?.["@id"] === `${item.url}#podcast`));
     assert.ok(itemList.itemListElement.every((item) => item.description.length >= 20));
     assert.equal(breadcrumbs.itemListElement.at(-1).item, metadata.canonicalUrl);
     canonicals.push(metadata.canonicalUrl);

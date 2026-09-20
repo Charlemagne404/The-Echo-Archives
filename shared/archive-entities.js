@@ -5,11 +5,47 @@
 })(typeof globalThis !== "undefined" ? globalThis : this, function () {
   const TYPES = ["person", "production-company", "studio", "network"];
   const ROLES = ["creator", "production-company", "studio", "network"];
+  const ORGANIZATION_ROLES = Object.freeze([...ROLES]);
+  const ROLE_COMPATIBILITY = Object.freeze({
+    person: Object.freeze(["creator"]),
+    "production-company": ORGANIZATION_ROLES,
+    studio: ORGANIZATION_ROLES,
+    network: ORGANIZATION_ROLES,
+  });
+  const ENTITY_IDENTITY_SUFFIXES = new Set([
+    "audio",
+    "company",
+    "companies",
+    "corporation",
+    "corp",
+    "co",
+    "entertainment",
+    "inc",
+    "limited",
+    "llc",
+    "ltd",
+    "media",
+    "network",
+    "networks",
+    "podcast",
+    "podcasts",
+    "production",
+    "productions",
+    "show",
+    "shows",
+    "studio",
+    "studios",
+  ]);
   const TYPE_LABELS = { person: "Creator", "production-company": "Production company", studio: "Studio", network: "Network" };
   const ROLE_LABELS = { creator: "Created by", "production-company": "Produced by", studio: "Studio", network: "Network" };
   const ROLE_PRIORITY = ["production-company", "studio", "creator", "network"];
   const entityPath = (id) => `/creators/${encodeURIComponent(id)}`;
   const normalizeEntityName = (value) => String(value || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/&/g, " and ").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  const normalizeEntityIdentityKey = (value) => normalizeEntityName(value)
+    .split(" ")
+    .filter((token) => token && !ENTITY_IDENTITY_SUFFIXES.has(token))
+    .join(" ");
+  const isEntityRoleCompatible = (type, role) => ROLE_COMPATIBILITY[type]?.includes(role) === true;
   const escapeHtml = (value) => String(value || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 
   function getEntityShows(entityId, shows = []) {
@@ -30,6 +66,37 @@
 
   function getPublicDirectoryEntities(entities = [], shows = []) {
     return getPublicEntities(entities, shows).filter(isPublicDirectoryEntity);
+  }
+
+  function getEntityConnections(entityId, entities = [], shows = [], { limit = 12 } = {}) {
+    const publicEntities = new Map(entities
+      .filter((entity) => entity?.publication === "public")
+      .map((entity) => [entity.id, entity]));
+    const connections = new Map();
+
+    getEntityShows(entityId, shows).forEach((show) => {
+      (Array.isArray(show.entityLinks) ? show.entityLinks : []).forEach((link) => {
+        if (!link || link.entityId === entityId) return;
+        const entity = publicEntities.get(link.entityId);
+        if (!entity) return;
+        if (!connections.has(entity.id)) {
+          connections.set(entity.id, { entity, showIds: new Set(), roles: new Set() });
+        }
+        const connection = connections.get(entity.id);
+        connection.showIds.add(show.id);
+        if (link.role) connection.roles.add(link.role);
+      });
+    });
+
+    return [...connections.values()]
+      .map(({ entity, showIds, roles }) => ({
+        entity,
+        showIds: [...showIds].sort(),
+        showCount: showIds.size,
+        roles: [...roles].sort(),
+      }))
+      .sort((left, right) => right.showCount - left.showCount || left.entity.name.localeCompare(right.entity.name, "en") || left.entity.id.localeCompare(right.entity.id, "en"))
+      .slice(0, Math.max(0, limit));
   }
 
   function isIndexableEntity(entity, shows = []) {
@@ -91,20 +158,32 @@
 
   function entityStructuredData(entity, siteUrl) {
     const url = new URL(entityPath(entity.id), siteUrl).toString();
-    return { "@type": entity.type === "person" ? "Person" : "Organization", "@id": `${url}#entity`, name: entity.name, url };
+    const aliases = Array.isArray(entity.aliases) ? entity.aliases.filter(Boolean) : [];
+    return {
+      "@type": entity.type === "person" ? "Person" : "Organization",
+      "@id": `${url}#entity`,
+      identifier: entity.id,
+      name: entity.name,
+      url,
+      ...(aliases.length ? { alternateName: aliases } : {}),
+      ...(entity.description ? { description: entity.description } : {}),
+      ...(entity.website ? { sameAs: [entity.website] } : {}),
+    };
   }
 
   function showEntityStructuredData(show, siteUrl) {
     const entities = show.resolvedEntities || [];
     if (!entities.length) return {};
     const creators = entities.filter((entity) => entity.role === "creator");
-    const producers = entities.filter((entity) => entity.role === "production-company");
+    const producers = entities.filter((entity) => ["production-company", "studio"].includes(entity.role));
+    const providers = entities.filter((entity) => entity.role === "network");
     const legacyCreators = getUnlinkedCreatorNames(show, entities);
     return {
       creator: creators.length ? creators.map((entity) => entityStructuredData(entity, siteUrl)) : legacyCreators.length ? legacyCreators : undefined,
       ...(producers.length ? { producer: producers.map((entity) => entityStructuredData(entity, siteUrl)) } : {}),
+      ...(providers.length ? { provider: providers.map((entity) => entityStructuredData(entity, siteUrl)) } : {}),
     };
   }
 
-  return { TYPES, ROLES, TYPE_LABELS, ROLE_LABELS, entityPath, normalizeEntityName, escapeHtml, getEntityShows, getPublicEntities, isPublicDirectoryEntity, getPublicDirectoryEntities, isIndexableEntity, resolveShowEntities, matchesEntityQuery, selectMoreFrom, renderEntityFacts, renderMoreFrom, entityStructuredData, showEntityStructuredData };
+  return { TYPES, ROLES, ROLE_COMPATIBILITY, TYPE_LABELS, ROLE_LABELS, entityPath, normalizeEntityName, normalizeEntityIdentityKey, isEntityRoleCompatible, escapeHtml, getEntityShows, getPublicEntities, isPublicDirectoryEntity, getPublicDirectoryEntities, getEntityConnections, isIndexableEntity, resolveShowEntities, matchesEntityQuery, selectMoreFrom, renderEntityFacts, renderMoreFrom, entityStructuredData, showEntityStructuredData };
 });

@@ -1,6 +1,12 @@
 const fs = require("node:fs");
 const path = require("node:path");
-const { TYPES, ROLES, normalizeEntityName, getPublicEntities } = require("../../shared/archive-entities");
+const {
+  TYPES,
+  ROLES,
+  getPublicEntities,
+  isEntityRoleCompatible,
+  normalizeEntityName,
+} = require("../../shared/archive-entities");
 
 const STABLE_ID = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const isText = (value) => typeof value === "string" && value.trim() === value && value.length > 0;
@@ -26,7 +32,8 @@ function validateEntities(entities, shows = []) {
     }
     if (!Array.isArray(entity.aliases) || entity.aliases.some((alias) => !isText(alias) || alias.length > 160)) throw new Error(`Entity "${id}" has invalid aliases.`);
     if (entity.directory !== undefined && typeof entity.directory !== "boolean") throw new Error(`Entity "${id}" has invalid directory visibility.`);
-    const aliases = new Set();
+    const canonicalKey = normalizeEntityName(entity.name);
+    const aliases = new Set([canonicalKey]);
     for (const name of [entity.name, ...entity.aliases]) {
       const key = normalizeEntityName(name);
       if (!key) throw new Error(`Entity "${id}" has an empty normalized name or alias.`);
@@ -35,7 +42,7 @@ function validateEntities(entities, shows = []) {
     }
     for (const alias of entity.aliases) {
       const key = normalizeEntityName(alias);
-      if (aliases.has(key)) throw new Error(`Duplicate entity alias "${alias}" in "${id}".`);
+      if (aliases.has(key)) throw new Error(`Duplicate entity alias or canonical name "${alias}" in "${id}".`);
       aliases.add(key);
     }
     if (entity.website !== undefined && !isHttpUrl(entity.website)) throw new Error(`Entity "${id}" has an invalid website.`);
@@ -51,13 +58,22 @@ function validateEntities(entities, shows = []) {
     if (!Array.isArray(show.entityLinks)) throw new Error(`Show "${show.id}" entityLinks must be an array.`);
     const relationships = new Set();
     for (const link of show.entityLinks) {
-      if (!link || !ids.has(link.entityId)) throw new Error(`Show "${show.id}" references unknown entity id "${link?.entityId}".`);
-      if (!ROLES.includes(link.role)) throw new Error(`Show "${show.id}" has invalid entity relationship role "${link.role}".`);
+      if (!link || typeof link !== "object" || Array.isArray(link)) {
+        throw new Error(`Show "${show.id}" has a malformed entity relationship record.`);
+      }
+      if (typeof link.entityId !== "string" || !STABLE_ID.test(link.entityId) || !ids.has(link.entityId)) {
+        throw new Error(`Show "${show.id}" references unknown entity id "${link.entityId}".`);
+      }
+      if (typeof link.role !== "string" || !ROLES.includes(link.role)) {
+        throw new Error(`Show "${show.id}" has invalid entity relationship role "${link.role}".`);
+      }
       const entity = entities.find((entry) => entry.id === link.entityId);
       if (show.status === "published" && entity.publication !== "public") {
         throw new Error(`Published show "${show.id}" cannot reference draft entity "${entity.id}".`);
       }
-      if (entity.type === "person" && link.role !== "creator") throw new Error(`Person "${entity.id}" must use the creator role on "${show.id}".`);
+      if (!isEntityRoleCompatible(entity.type, link.role)) {
+        throw new Error(`Entity "${entity.id}" of type "${entity.type}" cannot use the "${link.role}" relationship role on "${show.id}".`);
+      }
       const key = `${link.entityId}:${link.role}`;
       if (relationships.has(key)) throw new Error(`Show "${show.id}" has duplicate entity relationship "${key}".`);
       relationships.add(key);

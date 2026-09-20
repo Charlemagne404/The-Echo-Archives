@@ -88,6 +88,7 @@ test("invalid entities and relationships fail instead of being repaired", () => 
     [{ ...fixture(), sources: [] }, /source URLs/],
     [{ ...fixture(), reviewedAt: "2026-02-31" }, /reviewedAt/],
     [{ ...fixture(), aliases: ["Audio", "audio"] }, /Duplicate entity alias/],
+    [{ ...fixture(), aliases: ["Sample Studio"] }, /Duplicate entity alias or canonical name/],
     [{ ...fixture(), publication: "draft" }, /Draft entity/],
   ];
   for (const [entity, error] of badEntities) assert.throws(() => validateEntities([entity]), error);
@@ -101,6 +102,12 @@ test("invalid entities and relationships fail instead of being repaired", () => 
     [[{ entityId: "sample-studio", role: "studio" }, { entityId: "sample-studio", role: "studio" }], /duplicate entity relationship/],
     ["sample-studio", /must be an array/],
   ]) assert.throws(() => validateEntities([fixture()], [{ id: "show", entityLinks }]), error);
+
+  const person = { ...fixture(), id: "sample-person", name: "Sample Person", type: "person" };
+  assert.throws(
+    () => validateEntities([person], [{ id: "show", entityLinks: [{ entityId: person.id, role: "studio" }] }]),
+    /cannot use the "studio" relationship role/,
+  );
 
   const draftEntity = { ...fixture(), id: "draft-studio", publication: "draft", indexable: false };
   assert.throws(
@@ -182,6 +189,7 @@ test("server renderer escapes data, uses Person or Organization and canonical en
   assert.equal(atlasData.creator, undefined);
   assert.equal(atlasData.publisher, undefined, "Network affiliation must not imply publishing ownership");
   assert.equal(data.creator[0]["@type"], "Person");
+  assert.equal(data.creator[0].identifier, "k-a-statz");
   assert.equal(data.producer[0]["@type"], "Organization");
   assert.ok(data.producer[0]["@id"].endsWith("/creators/fool-and-scholar-productions#entity"));
 });
@@ -201,6 +209,10 @@ test("sparse creator pages keep the record useful without dashboard statistics",
   assert.doesNotMatch(richHtml, /entity-detail-overview--compact/);
   assert.match(richHtml, /Listening routes/);
   assert.match(richHtml, /Genres represented/);
+  assert.match(richHtml, /Filter connected shows/);
+  assert.match(richHtml, /data-entity-show-search=/);
+  assert.match(richHtml, /Source trail/);
+  assert.match(richHtml, /Other entities on these shows/);
 });
 
 test("creator SEO exposes unique intent, rich catalogue lists, social images, and review dates", () => {

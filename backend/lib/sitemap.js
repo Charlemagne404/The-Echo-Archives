@@ -16,6 +16,14 @@ function escapeXml(value = "") {
     .replace(/'/g, "&apos;");
 }
 
+function latestDate(values = []) {
+  return values
+    .map((value) => String(value || "").trim())
+    .filter((value) => /^\d{4}-\d{2}-\d{2}(?:T|$)/.test(value))
+    .sort()
+    .at(-1) || "";
+}
+
 function buildSitemapEntries({ siteUrl, catalog, collections, entities = [] }) {
   const baseUrl = normalizeSiteUrl(siteUrl);
   const publishedShows = (Array.isArray(catalog) ? catalog : []).filter((show) => show.status === "published");
@@ -26,17 +34,20 @@ function buildSitemapEntries({ siteUrl, catalog, collections, entities = [] }) {
       .filter(Boolean);
     return isIndexableCollection(collection, collectionShows);
   });
+  const latestShowsDate = latestDate(publishedShows.map((show) => show.updatedAt));
+  const latestCollectionsDate = latestDate((Array.isArray(collections) ? collections : []).map((collection) => collection.updatedAt));
+  const latestEntitiesDate = latestDate((Array.isArray(entities) ? entities : []).map((entity) => entity.reviewedAt));
 
   return [
-    { loc: `${baseUrl}/` },
+    { loc: `${baseUrl}/`, lastmod: latestDate([latestShowsDate, latestCollectionsDate]) },
     { loc: `${baseUrl}/about` },
     { loc: `${baseUrl}/for-creators` },
     { loc: `${baseUrl}/creator-standards` },
     { loc: `${baseUrl}/supporters` },
     { loc: `${baseUrl}/help-center` },
     { loc: `${baseUrl}/submit` },
-    { loc: `${baseUrl}/collections` },
-    { loc: `${baseUrl}/creators` },
+    { loc: `${baseUrl}/collections`, lastmod: latestCollectionsDate },
+    { loc: `${baseUrl}/creators`, lastmod: latestEntitiesDate },
     ...entities.filter((entity) => isIndexableEntity(entity, publishedShows)).map((entity) => ({
       loc: `${baseUrl}${entityPath(entity.id)}`,
       lastmod: entity.reviewedAt || "",

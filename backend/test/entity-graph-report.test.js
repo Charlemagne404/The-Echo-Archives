@@ -3,7 +3,7 @@ const path = require("node:path");
 const test = require("node:test");
 
 const { loadEntities } = require("../lib/entities");
-const { buildEntityGraphReport, extractEntityEvidence } = require("../lib/entity-graph-report");
+const { buildEntityGraphReport, extractEntityEvidence, findPotentialDuplicateEntities } = require("../lib/entity-graph-report");
 const { readCatalogSource } = require("../../tools/lib/catalog-source");
 
 const ROOT = path.resolve(__dirname, "../..");
@@ -42,6 +42,7 @@ test("the current source snapshot reports graph coverage without loading generat
     entityPublications: ["public"],
     weakEntityMaxShowCount: 1,
     weakShowMaxRelationshipCount: 1,
+    thinEntityMinShowCount: 3,
     sourceOnly: true,
   });
   assert.deepEqual(report.summary, {
@@ -66,9 +67,17 @@ test("the current source snapshot reports graph coverage without loading generat
     sameEntityMultipleRoleCount: 0,
     roleTypeDivergenceCount: 43,
     linkedEvidenceConflictCount: 0,
+    creatorAttributionGapCount: 484,
+    infrastructureOnlyUnlinkedShowCount: 2,
+    potentialDuplicateEntityCount: 0,
+    thinHighValueEntityCount: 6,
+    derivedEntityConnectionCount: 40,
+    missingReverseEdgeCount: 0,
+    unexpectedReverseEdgeCount: 0,
   });
   assert.equal(report.coverage.creatorRelationship.showCount, 61);
   assert.equal(report.coverage.creatorEvidenceWithoutRelationship.showCount, 691);
+  assert.equal(report.coverage.creatorAttributionEvidenceWithoutRelationship.showCount, 689);
   assert.deepEqual(report.relationshipTypeCounts.map(({ role, relationships, showCount }) => ({ role, relationships, showCount })), [
     { role: "creator", relationships: 67, showCount: 61 },
     { role: "production-company", relationships: 166, showCount: 165 },
@@ -76,7 +85,8 @@ test("the current source snapshot reports graph coverage without loading generat
     { role: "network", relationships: 75, showCount: 75 },
   ]);
   assert.equal(report.zeroRelationshipShows.length, 486);
-  assert.equal(report.priorityQueues.researchSourceAndLink.length, 486);
+  assert.equal(report.priorityQueues.researchSourceAndLink.length, 484);
+  assert.equal(report.priorityQueues.infrastructureOnly.length, 2);
   assert.equal(report.priorityQueues.reviewRegistryMatch.length, 0);
   assert.equal(report.priorityQueues.noKnownEvidence.length, 0);
   assert.equal(report.orphanEntities.length, 0);
@@ -98,6 +108,11 @@ test("the current source snapshot reports graph coverage without loading generat
   assert.equal(report.topConnectedEntities[0].entityId, "realm");
   assert.equal(report.topConnectedEntities[0].showCount, 21);
   assert.equal(report.suspiciousRelationships.roleTypeDivergences.length, 43);
+  assert.equal(report.suspiciousRelationships.potentialDuplicateEntities.length, 0);
+  assert.equal(report.navigationReciprocity.ok, true);
+  assert.equal(report.entityEntityRelationships.authored, false);
+  assert.equal(report.entityEntityRelationships.derivedSharedShowConnections.length, 40);
+  assert.equal(report.thinHighValueEntities.length, 6);
   assert.ok(report.entityCoverageByType.every((entry) => Object.hasOwn(entry, "linkedEntityPercent")));
   assert.ok(report.evidence.byField.every((entry) => Number.isInteger(entry.uniqueValueCount)));
 });
@@ -175,4 +190,49 @@ test("entity evidence extraction ignores placeholder values but preserves compou
     { field: "creators", category: "creator", value: "Sam Person", compound: false },
     { field: "credits.creatorName", category: "creator", value: "Sam Person & Alex Example", compound: true },
   ]);
+});
+
+test("graph review queues distinguish attribution gaps, infrastructure-only evidence, and thin high-value pages", () => {
+  const entities = [
+    entity({ id: "thin-company", name: "Thin Company", type: "production-company" }),
+  ];
+  const shows = [
+    show({
+      id: "creator-gap",
+      creators: ["Unresolved Creator"],
+      credits: { network: "Buzzsprout" },
+    }),
+    show({
+      id: "infrastructure-only",
+      credits: { network: "Buzzsprout" },
+    }),
+    ...["thin-one", "thin-two", "thin-three"].map((id) => show({
+      id,
+      entityLinks: [{ entityId: "thin-company", role: "production-company" }],
+    })),
+  ];
+
+  const report = buildEntityGraphReport(shows, entities);
+
+  assert.deepEqual(report.priorityQueues.researchCreatorAttribution, ["creator-gap"]);
+  assert.deepEqual(report.priorityQueues.infrastructureOnly, ["infrastructure-only"]);
+  assert.deepEqual(report.priorityQueues.researchSourceAndLink, ["creator-gap"]);
+  assert.equal(report.evidence.attributionGaps.length, 1);
+  assert.equal(report.evidence.attributionGaps[0].id, "creator-gap");
+  assert.equal(report.evidence.infrastructureOnlyShows.length, 1);
+  assert.equal(report.evidence.infrastructureOnlyShows[0].id, "infrastructure-only");
+  assert.deepEqual(report.thinHighValueEntities.map((entry) => entry.entityId), ["thin-company"]);
+  assert.deepEqual(report.thinHighValueEntities[0].missingPageFields, ["description", "website", "aliases"]);
+});
+
+test("duplicate entity review uses conservative identity variants without auto-merging records", () => {
+  const candidates = findPotentialDuplicateEntities([
+    entity({ id: "north-star-productions", name: "North Star Productions", type: "production-company" }),
+    entity({ id: "north-star-studio", name: "North Star Studio", type: "studio" }),
+    entity({ id: "north-star-legacy", name: "Legacy Record", aliases: ["North Star Productions"], type: "production-company" }),
+  ]);
+
+  assert.ok(candidates.some((candidate) => candidate.entityIds.join(",") === "north-star-legacy,north-star-productions" && candidate.confidence === "high"));
+  assert.ok(candidates.some((candidate) => candidate.entityIds.join(",") === "north-star-productions,north-star-studio" && candidate.matchType === "identity-variant"));
+  assert.equal(candidates.length, 3);
 });

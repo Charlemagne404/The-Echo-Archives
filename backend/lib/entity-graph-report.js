@@ -1,9 +1,16 @@
-const { ROLES, TYPES, normalizeEntityName } = require("../../shared/archive-entities");
+const {
+  ROLES,
+  TYPES,
+  normalizeEntityIdentityKey,
+  normalizeEntityName,
+} = require("../../shared/archive-entities");
+const { buildEntityGraphData } = require("./entity-graph");
 
 const DEFAULT_SHOW_STATUSES = ["published"];
 const DEFAULT_ENTITY_PUBLICATIONS = ["public"];
 const DEFAULT_WEAK_ENTITY_MAX_SHOW_COUNT = 1;
 const DEFAULT_WEAK_SHOW_MAX_RELATIONSHIP_COUNT = 1;
+const DEFAULT_THIN_ENTITY_MIN_SHOW_COUNT = 3;
 
 const EVIDENCE_FIELDS = [
   { path: "creatorId", category: "creator" },
@@ -17,6 +24,15 @@ const EVIDENCE_FIELDS = [
 
 const PLACEHOLDER_EVIDENCE = /^(?:-|n\/a|na|none|not available|not verified|unknown|tbd)$/i;
 const COMPOUND_EVIDENCE = /(?:[|/&,]|\band\b)/i;
+const INFRASTRUCTURE_EVIDENCE = new Set([
+  "art19",
+  "audible",
+  "buzzsprout",
+  "patreon",
+  "rss com",
+  "spreaker",
+  "spotify",
+].map(normalizeEntityName));
 
 function isRecord(value) {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
@@ -43,6 +59,57 @@ function extractEntityEvidence(show) {
       compound: COMPOUND_EVIDENCE.test(value),
     })),
   );
+}
+
+function isInfrastructureEvidence(entry) {
+  return INFRASTRUCTURE_EVIDENCE.has(normalizeEntityName(entry?.value));
+}
+
+function findPotentialDuplicateEntities(entities) {
+  const byIdentityKey = new Map();
+  (Array.isArray(entities) ? entities : []).forEach((entity) => {
+    if (!isRecord(entity) || typeof entity.id !== "string") return;
+    [entity.name, ...(Array.isArray(entity.aliases) ? entity.aliases : [])].forEach((label) => {
+      const identityKey = normalizeEntityIdentityKey(label);
+      if (!identityKey || identityKey.length < 3) return;
+      if (!byIdentityKey.has(identityKey)) byIdentityKey.set(identityKey, []);
+      byIdentityKey.get(identityKey).push({
+        entityId: entity.id,
+        name: entity.name,
+        label,
+        type: entity.type,
+        normalizedName: normalizeEntityName(label),
+      });
+    });
+  });
+
+  const candidates = new Map();
+  byIdentityKey.forEach((entries, identityKey) => {
+    const byEntity = new Map();
+    entries.forEach((entry) => {
+      if (!byEntity.has(entry.entityId)) byEntity.set(entry.entityId, []);
+      byEntity.get(entry.entityId).push(entry);
+    });
+    const entityIds = [...byEntity.keys()].sort();
+    entityIds.forEach((leftId, index) => {
+      entityIds.slice(index + 1).forEach((rightId) => {
+        const left = byEntity.get(leftId);
+        const right = byEntity.get(rightId);
+        const exact = left.some((leftEntry) => right.some((rightEntry) => leftEntry.normalizedName === rightEntry.normalizedName));
+        const key = `${leftId}\u0000${rightId}`;
+        candidates.set(key, {
+          entityIds: [leftId, rightId],
+          names: [...new Set([...left, ...right].map((entry) => entry.label))].sort((a, b) => a.localeCompare(b, "en")),
+          types: [...new Set([...left, ...right].map((entry) => entry.type).filter(Boolean))].sort(),
+          identityKey,
+          matchType: exact ? "exact-normalized-name" : "identity-variant",
+          confidence: exact ? "high" : "review",
+        });
+      });
+    });
+  });
+
+  return [...candidates.values()].sort((left, right) => left.matchType.localeCompare(right.matchType) || left.identityKey.localeCompare(right.identityKey, "en") || left.entityIds.join("\u0000").localeCompare(right.entityIds.join("\u0000"), "en"));
 }
 
 function unique(values) {
@@ -120,6 +187,14 @@ function formatEntity(entity) {
 
 function compareCountThenId(left, right, countKey = "showCount") {
   return right[countKey] - left[countKey] || String(left.entityId || left.id).localeCompare(String(right.entityId || right.id), "en");
+}
+
+function getEntityPageMissingFields(entity) {
+  const missing = [];
+  if (typeof entity?.description !== "string" || !entity.description.trim()) missing.push("description");
+  if (typeof entity?.website !== "string" || !entity.website.trim()) missing.push("website");
+  if (!Array.isArray(entity?.aliases) || entity.aliases.length === 0) missing.push("aliases");
+  return missing;
 }
 
 function aggregateEvidenceValues(showEntries) {
@@ -255,12 +330,16 @@ function buildEntityGraphReport(shows = [], entities = [], options = {}) {
   const weakShowMaxRelationshipCount = Number.isInteger(options.weakShowMaxRelationshipCount)
     ? Math.max(0, options.weakShowMaxRelationshipCount)
     : DEFAULT_WEAK_SHOW_MAX_RELATIONSHIP_COUNT;
+  const thinEntityMinShowCount = Number.isInteger(options.thinEntityMinShowCount)
+    ? Math.max(1, options.thinEntityMinShowCount)
+    : DEFAULT_THIN_ENTITY_MIN_SHOW_COUNT;
   const scopedShows = selectShows(shows, showStatuses);
   const allEntities = Array.isArray(entities) ? entities.filter(isRecord) : [];
   const scopedEntities = selectEntities(allEntities, entityPublications);
   const collectionCoverage = buildCollectionCoverage(options.collections || [], scopedShows, Array.isArray(shows) ? shows.filter(isRecord) : []);
   const scopedEntityIds = new Set(scopedEntities.map((entity) => entity.id));
   const indexes = buildEntityIndexes(allEntities);
+  const potentialDuplicateEntities = findPotentialDuplicateEntities(allEntities);
 
   const showCoverage = [];
   const zeroRelationshipShows = [];
@@ -273,6 +352,7 @@ function buildEntityGraphReport(shows = [], entities = [], options = {}) {
   const nonPublicEntityReferences = [];
   const invalidRelationshipRecords = [];
   const linkedEvidenceConflicts = [];
+  const attributionGapEntries = [];
   const entityState = new Map(scopedEntities.map((entity) => [entity.id, {
     entity,
     relationshipCount: 0,
@@ -285,6 +365,8 @@ function buildEntityGraphReport(shows = [], entities = [], options = {}) {
     const hasEntityLinksField = Object.hasOwn(show, "entityLinks");
     const rawLinks = Array.isArray(show.entityLinks) ? show.entityLinks : [];
     const evidence = extractEntityEvidence(show);
+    const attributionEvidence = evidence.filter((entry) => !isInfrastructureEvidence(entry));
+    const infrastructureEvidence = evidence.filter(isInfrastructureEvidence);
     const duplicateGroups = new Map();
     const rolesByEntity = new Map();
     const linkedIds = new Set();
@@ -378,7 +460,11 @@ function buildEntityGraphReport(shows = [], entities = [], options = {}) {
       evidenceFields: unique(evidence.map((entry) => entry.field)),
       evidenceValueCount: evidence.length,
       hasCreatorEvidence: evidence.some((entry) => entry.category === "creator"),
+      hasCreatorAttributionEvidence: attributionEvidence.some((entry) => entry.category === "creator"),
       hasOrganizationEvidence: evidence.some((entry) => entry.category !== "creator"),
+      hasInfrastructureOnlyEvidence: evidence.length > 0 && attributionEvidence.length === 0,
+      attributionEvidenceCount: attributionEvidence.length,
+      infrastructureEvidenceCount: infrastructureEvidence.length,
     };
 
     if (validScopedLinks.length > 0) {
@@ -425,9 +511,11 @@ function buildEntityGraphReport(shows = [], entities = [], options = {}) {
           ? "review-unknown-link"
           : nonPublicLinks.length > 0
             ? "review-non-public-link"
-            : evidence.length > 0
-              ? "research-source-and-link"
-              : "no-known-evidence";
+            : evidence.length > 0 && attributionEvidence.length === 0
+              ? "infrastructure-only"
+              : evidence.length > 0
+                ? "research-source-and-link"
+                : "no-known-evidence";
       const unlinkedEntry = {
         id: show.id,
         title: show.title || show.id,
@@ -435,7 +523,11 @@ function buildEntityGraphReport(shows = [], entities = [], options = {}) {
         evidence,
         evidenceFields: unique(evidence.map((entry) => entry.field)),
         hasCreatorEvidence: evidence.some((entry) => entry.category === "creator"),
+        hasCreatorAttributionEvidence: attributionEvidence.some((entry) => entry.category === "creator"),
         hasOrganizationEvidence: evidence.some((entry) => entry.category !== "creator"),
+        attributionEvidence,
+        infrastructureEvidence,
+        hasInfrastructureOnlyEvidence: evidence.length > 0 && attributionEvidence.length === 0,
         registryMatchCandidates: [...candidates.values()].sort((left, right) => left.name.localeCompare(right.name, "en")),
         unresolvedEvidence,
         compoundEvidence: evidence.filter((entry) => entry.compound),
@@ -445,24 +537,48 @@ function buildEntityGraphReport(shows = [], entities = [], options = {}) {
       };
       unlinkedShowEntries.push(unlinkedEntry);
       zeroRelationshipShows.push(unlinkedEntry);
+      if (attributionEvidence.length > 0) {
+        attributionGapEntries.push({
+          ...unlinkedEntry,
+          evidence: attributionEvidence,
+          evidenceFields: unique(attributionEvidence.map((entry) => entry.field)),
+          compoundEvidence: attributionEvidence.filter((entry) => entry.compound),
+          priority: candidates.size > 0
+            ? "review-registry-match"
+            : attributionEvidence.some((entry) => entry.category === "creator")
+              ? "research-creator-attribution"
+              : "research-organization-attribution",
+        });
+      }
     }
 
     showCoverage.push(coverageEntry);
   });
 
-  const entityCoverage = [...entityState.values()].map(({ entity, relationshipCount, showIds, roleCounts }) => ({
-    ...formatEntity(entity),
-    indexable: entity.indexable,
-    relationshipCount,
-    showCount: showIds.size,
-    showCoveragePercent: percent(showIds.size, scopedShows.length),
-    showIds: [...showIds].sort(),
-    roleCounts: Object.fromEntries(ROLES.map((role) => [role, roleCounts.get(role) || 0])),
-  })).sort(compareCountThenId);
+  const entityCoverage = [...entityState.values()].map(({ entity, relationshipCount, showIds, roleCounts }) => {
+    const missingPageFields = getEntityPageMissingFields(entity);
+    return {
+      ...formatEntity(entity),
+      indexable: entity.indexable,
+      relationshipCount,
+      showCount: showIds.size,
+      showCoveragePercent: percent(showIds.size, scopedShows.length),
+      showIds: [...showIds].sort(),
+      roleCounts: Object.fromEntries(ROLES.map((role) => [role, roleCounts.get(role) || 0])),
+      hasDescription: missingPageFields.includes("description") === false,
+      hasWebsite: missingPageFields.includes("website") === false,
+      aliasCount: Array.isArray(entity.aliases) ? entity.aliases.length : 0,
+      sourceCount: Array.isArray(entity.sources) ? entity.sources.length : 0,
+      missingPageFields,
+    };
+  }).sort(compareCountThenId);
 
   const topConnectedEntities = entityCoverage.slice(0, 20);
   const weaklyConnectedEntities = entityCoverage.filter((entity) => entity.showCount <= weakEntityMaxShowCount);
   const orphanEntities = entityCoverage.filter((entity) => entity.showCount === 0);
+  const thinHighValueEntities = entityCoverage
+    .filter((entity) => entity.showCount >= thinEntityMinShowCount && entity.missingPageFields.includes("description") && entity.missingPageFields.includes("website"))
+    .sort(compareCountThenId);
   const roleCounts = ROLES.map((role) => {
     const state = roleState.get(role);
     return {
@@ -476,6 +592,11 @@ function buildEntityGraphReport(shows = [], entities = [], options = {}) {
 
   const showIdsByRole = new Map(ROLES.map((role) => [role, new Set()]));
   showCoverage.forEach((show) => show.roles.forEach((role) => showIdsByRole.get(role).add(show.id)));
+  const graphData = buildEntityGraphData({ shows: scopedShows, entities: scopedEntities });
+  const forwardPublicPairs = new Set(graphData.edges.map((edge) => `${edge.showId}\u0000${edge.entityId}`));
+  const reversePublicPairs = new Set(graphData.entities.flatMap((entity) => entity.showIds.map((showId) => `${showId}\u0000${entity.id}`)));
+  const missingReverseEdges = [...forwardPublicPairs].filter((pair) => !reversePublicPairs.has(pair)).sort();
+  const unexpectedReverseEdges = [...reversePublicPairs].filter((pair) => !forwardPublicPairs.has(pair)).sort();
   const evidenceShowEntries = scopedShows.map((show) => ({ show, evidence: extractEntityEvidence(show) }));
   const unlinkedShowIds = new Set(unlinkedShowEntries.map((entry) => entry.id));
   const unlinkedEvidenceEntries = evidenceShowEntries.filter(({ show }) => unlinkedShowIds.has(show.id));
@@ -524,6 +645,8 @@ function buildEntityGraphReport(shows = [], entities = [], options = {}) {
 
   const showsWithoutCreator = new Set(showCoverage.filter((show) => !show.hasCreatorRelationship).map((show) => show.id));
   const creatorEvidenceWithoutRelationship = new Set(showCoverage.filter((show) => show.hasCreatorEvidence && !show.hasCreatorRelationship).map((show) => show.id));
+  const creatorAttributionEvidenceWithoutRelationship = new Set(showCoverage.filter((show) => show.hasCreatorAttributionEvidence && !show.hasCreatorRelationship).map((show) => show.id));
+  const infrastructureOnlyUnlinkedShowIds = new Set(showCoverage.filter((show) => show.hasInfrastructureOnlyEvidence && show.relationshipCount === 0).map((show) => show.id));
   const onlyOrganizationRelationships = new Set(showCoverage.filter((show) => show.relationshipCount > 0 && !show.hasCreatorRelationship && show.roles.some((role) => role !== "creator")).map((show) => show.id));
 
   return {
@@ -549,12 +672,20 @@ function buildEntityGraphReport(shows = [], entities = [], options = {}) {
       sameEntityMultipleRoleCount: sameEntityMultipleRoleGroups.length,
       roleTypeDivergenceCount: roleTypeDivergences.length,
       linkedEvidenceConflictCount: linkedEvidenceConflicts.length,
+      creatorAttributionGapCount: attributionGapEntries.length,
+      infrastructureOnlyUnlinkedShowCount: infrastructureOnlyUnlinkedShowIds.size,
+      potentialDuplicateEntityCount: potentialDuplicateEntities.length,
+      thinHighValueEntityCount: thinHighValueEntities.length,
+      derivedEntityConnectionCount: graphData.entityConnections.length,
+      missingReverseEdgeCount: missingReverseEdges.length,
+      unexpectedReverseEdgeCount: unexpectedReverseEdges.length,
     },
     scope: {
       showStatuses,
       entityPublications,
       weakEntityMaxShowCount,
       weakShowMaxRelationshipCount,
+      thinEntityMinShowCount,
       sourceOnly: true,
     },
     coverage: {
@@ -565,6 +696,7 @@ function buildEntityGraphReport(shows = [], entities = [], options = {}) {
       networkRelationship: buildMetric(showIdsByRole.get("network"), scopedShows.length),
       creatorEvidence: buildMetric(new Set(showCoverage.filter((show) => show.hasCreatorEvidence).map((show) => show.id)), scopedShows.length),
       creatorEvidenceWithoutRelationship: buildMetric(creatorEvidenceWithoutRelationship, scopedShows.length),
+      creatorAttributionEvidenceWithoutRelationship: buildMetric(creatorAttributionEvidenceWithoutRelationship, scopedShows.length),
       withoutCreatorRelationship: buildMetric(showsWithoutCreator, scopedShows.length),
       onlyOrganizationRelationships: buildMetric(onlyOrganizationRelationships, scopedShows.length),
     },
@@ -598,17 +730,34 @@ function buildEntityGraphReport(shows = [], entities = [], options = {}) {
       researchSourceAndLink: unlinkedShowEntries.filter((show) => show.queue === "research-source-and-link").map((show) => show.id),
       noKnownEvidence: unlinkedShowEntries.filter((show) => show.queue === "no-known-evidence").map((show) => show.id),
       compoundEvidence: unlinkedShowEntries.filter((show) => show.compoundEvidence.length > 0).map((show) => show.id),
+      researchCreatorAttribution: attributionGapEntries.filter((show) => show.priority === "research-creator-attribution").map((show) => show.id),
+      researchOrganizationAttribution: attributionGapEntries.filter((show) => show.priority === "research-organization-attribution").map((show) => show.id),
+      infrastructureOnly: [...infrastructureOnlyUnlinkedShowIds].sort(),
     },
     evidence: {
       byField: evidenceByField,
       unlinkedRegistryMatchCandidates,
       unresolvedLegacyValues,
       unresolvedLegacyValueCount: unresolvedLegacyValues.length,
+      attributionGaps: attributionGapEntries,
+      infrastructureOnlyShows: unlinkedShowEntries.filter((show) => show.hasInfrastructureOnlyEvidence),
     },
     entityCoverage,
     topConnectedEntities,
     weaklyConnectedEntities,
     orphanEntities,
+    thinHighValueEntities,
+    navigationReciprocity: {
+      authoredPublicEdgeCount: graphData.edges.length,
+      reverseEntityShowPairCount: reversePublicPairs.size,
+      missingReverseEdges,
+      unexpectedReverseEdges,
+      ok: missingReverseEdges.length === 0 && unexpectedReverseEdges.length === 0,
+    },
+    entityEntityRelationships: {
+      authored: false,
+      derivedSharedShowConnections: graphData.entityConnections,
+    },
     entityCoverageByType: TYPES.map((type) => {
       const typed = entityCoverage.filter((entity) => entity.type === type);
       const linked = typed.filter((entity) => entity.showCount > 0);
@@ -630,6 +779,7 @@ function buildEntityGraphReport(shows = [], entities = [], options = {}) {
       nonPublicEntityReferences,
       invalidRelationshipRecords,
       linkedEvidenceConflicts,
+      potentialDuplicateEntities,
     },
   };
 }
@@ -637,8 +787,10 @@ function buildEntityGraphReport(shows = [], entities = [], options = {}) {
 module.exports = {
   DEFAULT_ENTITY_PUBLICATIONS,
   DEFAULT_SHOW_STATUSES,
+  DEFAULT_THIN_ENTITY_MIN_SHOW_COUNT,
   DEFAULT_WEAK_SHOW_MAX_RELATIONSHIP_COUNT,
   EVIDENCE_FIELDS,
   buildEntityGraphReport,
   extractEntityEvidence,
+  findPotentialDuplicateEntities,
 };

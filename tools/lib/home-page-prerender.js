@@ -390,6 +390,9 @@ function renderArchiveCard(show, discovery = {}) {
 
 function renderCollectionShowCard(show, reason = "", discovery = {}) {
   const note = String(reason || "").trim();
+  const confidenceLabel = discovery.recommendationConfidence === "limited-metadata"
+    ? '<span class="collection-show-card-confidence">Limited metadata</span>'
+    : "";
   let card = renderArchiveCard(show, {
     surface: "collection_page_grid",
     resultType: "collection_member",
@@ -398,10 +401,10 @@ function renderCollectionShowCard(show, reason = "", discovery = {}) {
   })
     .replace('class="podcast-card-shell"', 'class="podcast-card-shell collection-show-card-shell"')
     .replace('class="podcast-card"', 'class="podcast-card collection-show-card"');
-  if (note) {
+  if (note || confidenceLabel) {
     card = card.replace(
       '<div class="rating">',
-      `<p class="collection-show-card-note">${escapeHtml(note)}</p><div class="rating">`,
+      `${confidenceLabel}${note ? `<p class="collection-show-card-note">${escapeHtml(note)}</p>` : ""}<div class="rating">`,
     );
   }
   return card;

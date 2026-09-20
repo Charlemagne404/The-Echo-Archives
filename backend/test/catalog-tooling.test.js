@@ -174,6 +174,8 @@ test("buildCatalog bootstraps split catalog source and writes generated artifact
   assert.equal(ensureSplitCatalogSource(tempRoot), false);
   assert.ok(fs.existsSync(path.join(tempRoot, "catalog-src", "shows", "_order.json")));
   assert.ok(fs.existsSync(path.join(tempRoot, "data", "search-index.json")));
+  assert.ok(fs.existsSync(path.join(tempRoot, "data", "entity-graph.json")));
+  assert.equal(JSON.parse(fs.readFileSync(path.join(tempRoot, "data", "entity-graph.json"), "utf8")).schema, "echo-archives/entity-graph/v1");
   assert.ok(fs.existsSync(path.join(tempRoot, "docs", "generated", "catalog-status.md")));
 });
 

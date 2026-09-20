@@ -1,0 +1,7735 @@
+{
+  "schema": "echo-archives/entity-graph/v1",
+  "semantics": {
+    "edges": "Authored, source-backed show-to-entity relationships with a role.",
+    "reverseIndex": "Derived entity-to-show membership from the same authored edges; it is not a second source of truth.",
+    "entityConnections": "Derived shared-show co-occurrence. It does not assert a direct affiliation between entities."
+  },
+  "entities": [
+    {
+      "id": "2e-production",
+      "name": "2E Production",
+      "type": "network",
+      "aliases": [],
+      "website": "https://2eproduction.com/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-14",
+      "sources": [
+        "https://2eproduction.com/"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-override-protocol"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "7-lamb-productions",
+      "name": "7 Lamb Productions",
+      "type": "production-company",
+      "aliases": [
+        "7 Lamb",
+        "7 Lamb Productions LLC"
+      ],
+      "website": "https://www.7lamb.com/audiodramas",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.7lamb.com/audiodramas/tower-4",
+        "https://www.7lamb.com/audiodramas/paralyzed",
+        "https://www.7lamb.com/audiodramas",
+        "https://www.7lamb.com/audiodramas/end-of-all-hope",
+        "https://www.7lamb.com/audiodramas/story",
+        "https://www.spreaker.com/podcast/atlas-avenue-beat--3369253"
+      ],
+      "showIds": [
+        "atlas-avenue-beat",
+        "crystal-blue",
+        "end-of-all-hope",
+        "paralyzed",
+        "story",
+        "tower-4"
+      ],
+      "showCount": 6
+    },
+    {
+      "id": "acorn-arts-and-entertainment",
+      "name": "Acorn Arts and Entertainment",
+      "type": "production-company",
+      "aliases": [
+        "Acorn A&E"
+      ],
+      "website": "https://www.acornartsandentertainment.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.acornartsandentertainment.com/",
+        "https://www.acornartsandentertainment.com/thevoid",
+        "https://www.acornartsandentertainment.com/liminal",
+        "https://www.acornartsandentertainment.com/theinn"
+      ],
+      "showIds": [
+        "liminal",
+        "the-call-of-the-void",
+        "the-inn-at-the-end-of-things"
+      ],
+      "showCount": 3
+    },
+    {
+      "id": "alexander-j-newall",
+      "name": "Alexander J Newall",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://rustyquill.com/show/the-magnus-protocol/",
+        "https://rustyquill.com/about/"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-magnus-protocol"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "alternative-stories",
+      "name": "Alternative Stories",
+      "type": "production-company",
+      "aliases": [],
+      "website": "https://alternativestories.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://alternativestories.com/",
+        "https://www.thedexlegacy.com/",
+        "https://feeds.megaphone.fm/FAFO6309285334"
+      ],
+      "showIds": [
+        "burnout-a-cyberpunk-thriller",
+        "the-dex-legacy"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "apollo-podcasts",
+      "name": "Apollo Podcasts",
+      "type": "network",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://eartheclipsed.com/",
+        "https://podcasts.apple.com/us/podcast/earth-eclipsed/id1544552983"
+      ],
+      "directory": false,
+      "showIds": [
+        "earth-eclipsed"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "atypical-artists",
+      "name": "Atypical Artists",
+      "type": "production-company",
+      "aliases": [
+        "Atypical"
+      ],
+      "website": "https://www.atypicalartists.co/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.atypicalartists.co/about",
+        "https://www.atypicalartists.co/thebrightsessions",
+        "https://www.atypicalartists.co/greenhouse-1",
+        "https://www.atypicalartists.co/look-up"
+      ],
+      "showIds": [
+        "breaker-whiskey",
+        "greenhouse",
+        "life-with-leo-h",
+        "look-up",
+        "the-bright-sessions",
+        "two-thousand-and-late"
+      ],
+      "showCount": 6
+    },
+    {
+      "id": "audacious-machine-creative",
+      "name": "Audacious Machine Creative",
+      "type": "production-company",
+      "aliases": [
+        "Audacious Machine"
+      ],
+      "website": "https://www.audaciousmachinecreative.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.audaciousmachinecreative.com/our-fair-city",
+        "https://www.audaciousmachinecreative.com/world-gone-wrong",
+        "https://www.audaciousmachinecreative.com/unwell",
+        "https://www.audaciousmachinecreative.com/the-harbingers"
+      ],
+      "showIds": [
+        "our-fair-city",
+        "the-harbingers",
+        "unwell",
+        "world-gone-wrong-a-fictional-chat-show-about-friendship-at-the-end-of-the-world"
+      ],
+      "showCount": 4
+    },
+    {
+      "id": "audible-originals",
+      "name": "Audible Originals",
+      "type": "production-company",
+      "aliases": [
+        "Audible Original"
+      ],
+      "website": "https://www.audible.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://art19.com/shows/heads-will-roll",
+        "https://art19.com/shows/hit-job",
+        "https://art19.com/shows/hot-white-heist",
+        "https://www.audible.com/about/newsroom/announcing-the-premiere-date-and-cast-of-audible-original-impact-winter/1000"
+      ],
+      "showIds": [
+        "heads-will-roll",
+        "hit-job",
+        "hot-white-heist",
+        "impact-winter"
+      ],
+      "showCount": 4
+    },
+    {
+      "id": "battle-bird-productions",
+      "name": "Battle Bird Productions",
+      "type": "production-company",
+      "aliases": [
+        "Battle Bird"
+      ],
+      "website": "https://battlebird.productions/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://battlebird.productions/",
+        "https://feeds.megaphone.fm/wefixspacejunk"
+      ],
+      "directory": false,
+      "showIds": [
+        "we-fix-space-junk"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "bbc-radio-4",
+      "name": "BBC Radio 4",
+      "type": "production-company",
+      "aliases": [],
+      "website": "https://www.bbc.co.uk/programmes/m002xnkw",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-14",
+      "sources": [
+        "https://www.bbc.co.uk/programmes/m002xnkw",
+        "https://podcasts.files.bbci.co.uk/m002xnkw.rss"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-lovecraft-investigations"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "bloody-fm",
+      "name": "Bloody FM",
+      "type": "network",
+      "aliases": [],
+      "website": "https://podcasts.bloody-disgusting.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://podcasts.bloody-disgusting.com/podcasts/scp-archives/",
+        "https://www.7lamb.com/audiodramas/tower-4",
+        "https://www.spreaker.com/podcast/atlas-avenue-beat--3369253"
+      ],
+      "showIds": [
+        "atlas-avenue-beat",
+        "crystal-blue",
+        "dead-space-deep-cover",
+        "end-of-all-hope",
+        "grim-death-and-bill-the-electrocuted-criminal",
+        "mayfair-watchers-society",
+        "paralyzed",
+        "poe-evermore",
+        "re-dracula",
+        "scp-archives",
+        "shelterwood",
+        "story",
+        "the-antiquarium-of-sinister-happenings",
+        "the-chronicles-of-astrimos",
+        "the-gospel-of-haven",
+        "the-hotel",
+        "tower-4"
+      ],
+      "showCount": 17
+    },
+    {
+      "id": "blue-parrot-audio",
+      "name": "Blue Parrot Audio",
+      "type": "production-company",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://podcasts.apple.com/us/podcast/invaded/id1802472507?uo=4",
+        "https://podcasts.apple.com/us/podcast/paradise-cab/id1622848657?uo=4"
+      ],
+      "showIds": [
+        "invaded",
+        "paradise-cab"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "bobbie-parker",
+      "name": "Bobbie Parker",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://podcasts.apple.com/us/podcast/midnight-radio/id1393315066",
+        "https://www.martletradio.com/"
+      ],
+      "directory": false,
+      "showIds": [
+        "midnight-radio"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "business-goose-media",
+      "name": "Business Goose Media",
+      "type": "production-company",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.weopenatsix.com/",
+        "https://podcasts.apple.com/us/podcast/midnight-burger/id1537653218"
+      ],
+      "directory": false,
+      "showIds": [
+        "midnight-burger"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "caldera-studios",
+      "name": "Caldera Studios",
+      "type": "studio",
+      "aliases": [],
+      "website": "https://calderastudios.me/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://calderastudios.me/",
+        "https://podcasts.apple.com/gb/podcast/inkwyrm/id1204629419",
+        "https://wherethestarsfell.com/"
+      ],
+      "showIds": [
+        "inkwyrm",
+        "where-the-stars-fell"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "chris-porter",
+      "name": "Chris Porter",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.solarthepodcast.com/meet-the-crew",
+        "https://www.solarthepodcast.com/crew"
+      ],
+      "directory": false,
+      "showIds": [
+        "solar"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "christof-laputka",
+      "name": "Christof Laputka",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.invenios.com/",
+        "https://www.rapscallionpod.com/"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-invenios-expeditions",
+        "the-rapscallion-agency"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "curtco-media",
+      "name": "CurtCo Media",
+      "type": "production-company",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.solarthepodcast.com/",
+        "https://www.solarthepodcast.com/crew",
+        "https://podcasts.apple.com/us/podcast/solar/id1611848190"
+      ],
+      "directory": false,
+      "showIds": [
+        "solar"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "cytochrome-hear",
+      "name": "CYTOCHROME HEAR",
+      "type": "network",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-14",
+      "sources": [
+        "https://cytochromehear.wordpress.com/home/eelers-choice/",
+        "https://cytochromehear.wordpress.com/home/about/",
+        "https://cytochromehear.wordpress.com/home/eelers-choice/eelers-choice-season-1-2-cast-and-crew/"
+      ],
+      "directory": false,
+      "showIds": [
+        "eelers-choice"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "david-s-goyer",
+      "name": "David S. Goyer",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-16",
+      "sources": [
+        "https://www.dc.com/blog/2020/09/29/david-s-goyer-warner-bros-and-dc-set-to-bring-batman-unburied-to-spotify",
+        "https://newsroom.spotify.com/2021-02-22/audio-brings-new-dimension-to-the-dc-comics-universe/"
+      ],
+      "directory": false,
+      "showIds": [
+        "batman-unburied"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "dayton-writers-movement",
+      "name": "Dayton Writers Movement",
+      "type": "production-company",
+      "aliases": [
+        "DWM",
+        "Dayton Writers Movement, ltd"
+      ],
+      "website": "https://www.daytonwritersmovement.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.daytonwritersmovement.com/about",
+        "https://www.daytonwritersmovement.com/uncannyvalley",
+        "https://www.daytonwritersmovement.com/"
+      ],
+      "showIds": [
+        "the-hidden-people",
+        "uncanny-valley"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "dead-signals",
+      "name": "Dead Signals",
+      "type": "production-company",
+      "aliases": [],
+      "website": "https://www.archive81.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.archive81.com/",
+        "https://www.archive81.com/cast/",
+        "https://sites.libsyn.com/594375"
+      ],
+      "showIds": [
+        "archive-81",
+        "conversations-with-ghosts"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "dirt-road-theater",
+      "name": "Dirt Road Theater",
+      "type": "production-company",
+      "aliases": [],
+      "website": "https://www.dirtroadtheater.com/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-16",
+      "sources": [
+        "https://www.dirtroadtheater.com/fadpak",
+        "https://www.dirtroadtheater.com/customer-service"
+      ],
+      "directory": false,
+      "showIds": [
+        "fairies-and-dragons-ponies-and-knights"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "eira-major",
+      "name": "Eira Major",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://hangingslothstudios.com/about/",
+        "https://hangingslothstudios.com/twelvelms/"
+      ],
+      "directory": false,
+      "showIds": [
+        "not-quite-dead",
+        "spirit-box-radio",
+        "the-twelvelms-conspiracy"
+      ],
+      "showCount": 3
+    },
+    {
+      "id": "ester-ellis",
+      "name": "Ester Ellis",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-14",
+      "sources": [
+        "https://rss.libsyn.com/shows/111344/destinations/617247.xml",
+        "https://podcasts.apple.com/us/podcast/the-goblet-wire/id1626460425?uo=4",
+        "https://rss.libsyn.com/shows/417521/destinations/3467807.xml"
+      ],
+      "directory": false,
+      "showIds": [
+        "station-blue",
+        "the-goblet-wire"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "fable-and-folly",
+      "name": "Fable & Folly",
+      "type": "network",
+      "aliases": [
+        "Fable & Folly Network"
+      ],
+      "website": "https://fableandfolly.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.redvalleypod.com/",
+        "https://oz-9.com/",
+        "https://thesecretofstkilda.carrd.co/"
+      ],
+      "showIds": [
+        "oz-9",
+        "red-valley",
+        "the-secret-of-st-kilda"
+      ],
+      "showCount": 3
+    },
+    {
+      "id": "faraday-roke",
+      "name": "Faraday Roke",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://harborpodcast.com/castandcrew",
+        "https://podcasts.apple.com/us/podcast/harbor/id1479639548"
+      ],
+      "directory": false,
+      "showIds": [
+        "harbor"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "faustian-nonsense",
+      "name": "Faustian Nonsense",
+      "type": "network",
+      "aliases": [
+        "Faustian Nonsense Productions"
+      ],
+      "website": "https://www.faustiannonsense.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.faustiannonsense.com/",
+        "https://www.faustiannonsense.com/podcasts",
+        "https://www.faustiannonsense.com/super-suits",
+        "https://www.faustiannonsense.com/the-green-horizon"
+      ],
+      "showIds": [
+        "a-midsummers-quarantine",
+        "jack-of-all-trades",
+        "super-suits",
+        "the-green-horizon",
+        "the-lavender-tavern",
+        "the-sound-museum"
+      ],
+      "showCount": 6
+    },
+    {
+      "id": "finalrune-productions",
+      "name": "FinalRune Productions",
+      "type": "production-company",
+      "aliases": [
+        "FinalRune"
+      ],
+      "website": "https://finalrune.com/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://finalrune.com/the-cleansed/"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-cleansed"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "fool-and-scholar-productions",
+      "name": "Fool & Scholar Productions",
+      "type": "production-company",
+      "aliases": [
+        "Fool & Scholar",
+        "Fool & Scholar Productions : Podcasts"
+      ],
+      "website": "https://www.foolandscholar.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.foolandscholar.com/sealskin-rock",
+        "https://www.foolandscholar.com/critical-research",
+        "https://www.foolandscholar.com/the-white-vault-goshawk",
+        "https://www.foolandscholar.com/about-vast-horizon"
+      ],
+      "showIds": [
+        "dont-mind",
+        "the-liberty-podcast",
+        "the-white-vault",
+        "vast-horizon"
+      ],
+      "showCount": 4
+    },
+    {
+      "id": "fred-greenhalgh",
+      "name": "Fred Greenhalgh",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://finalrune.com/",
+        "https://podcasts.apple.com/us/podcast/the-cleansed-a-post-apocalyptic-saga/id513611341"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-cleansed"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "gabriel-urbina",
+      "name": "Gabriel Urbina",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.wolf359.fm/",
+        "https://www.draculathedansemacabre.com/"
+      ],
+      "directory": false,
+      "showIds": [
+        "dracula-the-danse-macabre",
+        "wolf-359"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "ghostly-thistle",
+      "name": "Ghostly Thistle",
+      "type": "network",
+      "aliases": [],
+      "website": "https://ghostlythistle.com/about/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-14",
+      "sources": [
+        "https://ghostlythistle.com/blog/",
+        "https://ghostlythistle.com/about/"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-antique-shop"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "gideon-media",
+      "name": "Gideon Media",
+      "type": "production-company",
+      "aliases": [],
+      "website": "https://www.gideon-media.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.gideon-media.com/about",
+        "https://www.gideon-media.com/give-me-away",
+        "https://www.gideon-media.com/steal-the-stars"
+      ],
+      "showIds": [
+        "give-me-away",
+        "steal-the-stars"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "gimlet",
+      "name": "Gimlet",
+      "type": "production-company",
+      "aliases": [
+        "Gimlet Media"
+      ],
+      "website": "https://gimletmedia.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://gimletmedia.com/",
+        "https://podcasts.apple.com/us/podcast/sandra/id1369393683?uo=4",
+        "https://podcasts.apple.com/us/podcast/the-horror-of-dolores-roach/id1437288075?uo=4"
+      ],
+      "showIds": [
+        "homecoming",
+        "motherhacker",
+        "quiet-part-loud",
+        "red-frontier",
+        "sandra",
+        "the-horror-of-dolores-roach"
+      ],
+      "showCount": 6
+    },
+    {
+      "id": "goatshead-castle-productions",
+      "name": "Goatshead Castle Productions",
+      "type": "production-company",
+      "aliases": [
+        "Goatshead Castle Creations"
+      ],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-16",
+      "sources": [
+        "https://samanthavhutton.com/podcast/rosannas-secret-2/",
+        "https://www.youtube.com/playlist?list=PLQHiDb_oo19OUDZ83ovUHm36acdM2degU",
+        "https://open.spotify.com/episode/5yzy8xOszgpVCKRKM6Okr4"
+      ],
+      "directory": false,
+      "showIds": [
+        "rosannas-secret"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "goblin-booth-productions",
+      "name": "Goblin Booth Productions",
+      "type": "production-company",
+      "aliases": [
+        "Goblin Booth Productions, LLC"
+      ],
+      "website": "https://www.goblinboothproductions.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-16",
+      "sources": [
+        "https://www.goblinboothproductions.com/",
+        "https://shows.acast.com/route6point6",
+        "https://shows.acast.com/the-harrowing-of-minerva-damson"
+      ],
+      "showIds": [
+        "route-6-6",
+        "the-harrowing-of-minerva-damson"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "good-pointe",
+      "name": "Good Pointe",
+      "type": "production-company",
+      "aliases": [],
+      "website": "https://goodpointepodcasts.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://goodpointepodcasts.com/",
+        "https://goodpointepodcasts.com/good-people-tst",
+        "https://goodpointepodcasts.com/tstep2"
+      ],
+      "showIds": [
+        "the-subjective-truth",
+        "two-flat-earthers-kidnap-a-freemason"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "good-story-guild",
+      "name": "Good Story Guild",
+      "type": "production-company",
+      "aliases": [],
+      "website": "https://goodstoryguild.co/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://goodstoryguild.co/listen",
+        "https://goodstoryguild.co/listen/in-media-res",
+        "https://goodstoryguild.co/listen/divorce-ranch"
+      ],
+      "showIds": [
+        "divorce-ranch",
+        "in-media-res",
+        "josies-lonely-hearts-club",
+        "leylines"
+      ],
+      "showCount": 4
+    },
+    {
+      "id": "gzm-shows",
+      "name": "GZM Shows",
+      "type": "network",
+      "aliases": [
+        "GZM",
+        "Gen-Z Media"
+      ],
+      "website": "https://gzmshows.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://gzmshows.com/",
+        "https://gzmshows.com/shows/"
+      ],
+      "showIds": [
+        "iowa-chapman-and-the-last-dog",
+        "mina-and-lucys-guide-to-slaying-dracula",
+        "six-minutes",
+        "the-hollow",
+        "the-rez",
+        "the-unexplainable-disappearance-of-mars-patel"
+      ],
+      "showCount": 6
+    },
+    {
+      "id": "hanging-sloth-studios",
+      "name": "Hanging Sloth Studios",
+      "type": "production-company",
+      "aliases": [
+        "Hanging Sloth",
+        "Eira Major's Hanging Sloth"
+      ],
+      "website": "https://hangingslothstudios.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://hangingslothstudios.com/about/",
+        "https://hangingslothstudios.com/shows/",
+        "https://hangingslothstudios.com/not-quite-dead/",
+        "https://hangingslothstudios.com/twelvelms/"
+      ],
+      "showIds": [
+        "not-quite-dead",
+        "spirit-box-radio",
+        "the-twelvelms-conspiracy"
+      ],
+      "showCount": 3
+    },
+    {
+      "id": "harlan-guthrie",
+      "name": "Harlan Guthrie",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.malevolent.ca/",
+        "https://www.deviser.ca/"
+      ],
+      "directory": false,
+      "showIds": [
+        "deviser",
+        "malevolent"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "hug-house-productions",
+      "name": "Hug House Productions",
+      "type": "network",
+      "aliases": [],
+      "website": "https://hughouse.productions/about-us/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-14",
+      "sources": [
+        "https://hughouse.productions/podcasts/valence/",
+        "https://hughouse.productions/about-us/",
+        "https://hughouse.productions/tag/valence-episodes/"
+      ],
+      "directory": false,
+      "showIds": [
+        "valence"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "iheartpodcasts",
+      "name": "iHeartPodcasts",
+      "type": "network",
+      "aliases": [
+        "iHeart",
+        "iHeartRadio"
+      ],
+      "website": "https://www.iheartpodcasts.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.iheartmedia.com/podcasts",
+        "https://www.iheartpodcasts.com/",
+        "https://www.iheart.com/podcast/1119-the-mantawauk-caves-110170167/"
+      ],
+      "showIds": [
+        "bridgewater",
+        "buzz-the-man-the-moon",
+        "havoc-town",
+        "light-house",
+        "magmell",
+        "mordeo",
+        "saigon",
+        "strawberry-spring",
+        "supreme-the-battle-for-roe",
+        "the-mantawauk-caves",
+        "the-second-oil-age",
+        "tumanbay",
+        "you-feeling-this"
+      ],
+      "showCount": 13
+    },
+    {
+      "id": "iridescent-acorn-productions",
+      "name": "Iridescent Acorn Productions",
+      "type": "production-company",
+      "aliases": [
+        "Iridescent Acorn"
+      ],
+      "website": "https://iridescentacorn.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://iridescentacorn.com/",
+        "https://iridescentacorn.com/set-sail/"
+      ],
+      "showIds": [
+        "acorn-originals",
+        "crossroads-a-48-hour-audio-drama-festival",
+        "set-sail"
+      ],
+      "showCount": 3
+    },
+    {
+      "id": "ivan-gonzalez",
+      "name": "Ivan Gonzalez",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.maxandivan.com/",
+        "https://shows.acast.com/maxandivanfugitives"
+      ],
+      "directory": false,
+      "showIds": [
+        "max-ivan-fugitives"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "j-barton-mitchell",
+      "name": "J. Barton Mitchell",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.derelictpodcast.com/",
+        "https://www.kickstarter.com/projects/nightrocket/derelict-war"
+      ],
+      "directory": false,
+      "showIds": [
+        "derelict"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "jake-kerr",
+      "name": "Jake Kerr",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://artifactsofthearcane.com/",
+        "https://www.thethievesguildpodcast.com/"
+      ],
+      "directory": false,
+      "showIds": [
+        "artifacts-of-the-arcane",
+        "the-thieves-guild"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "jamie-killen",
+      "name": "Jamie Killen",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.mirrorspodcast.com/about",
+        "https://www.sixdisappearancespodcast.com/about"
+      ],
+      "directory": false,
+      "showIds": [
+        "mirrors",
+        "the-six-disappearances-of-ella-mccray"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "jared-carter",
+      "name": "Jared Carter",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://desertskiespodcast.com/about-the-podcast/",
+        "https://podcasts.apple.com/us/podcast/desert-skies/id1634726836"
+      ],
+      "directory": false,
+      "showIds": [
+        "desert-skies"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "jared-j-smith",
+      "name": "Jared J. Smith",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.phenomenonpod.com/about",
+        "https://www.phenomenonpod.com/"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-phenomenon"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "jeffrey-cranor",
+      "name": "Jeffrey Cranor",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.nightvalepresents.com/",
+        "https://welcometonightvale.com/"
+      ],
+      "directory": false,
+      "showIds": [
+        "welcome-to-night-vale",
+        "within-the-wires"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "jeremy-ellett",
+      "name": "Jeremy Ellett",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://goodpointepodcasts.com/",
+        "https://goodpointepodcasts.com/good-people-tst"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-subjective-truth",
+        "two-flat-earthers-kidnap-a-freemason"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "joe-fisher",
+      "name": "Joe Fisher",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.weopenatsix.com/",
+        "https://podcasts.apple.com/us/podcast/midnight-burger/id1537653218"
+      ],
+      "directory": false,
+      "showIds": [
+        "midnight-burger"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "jonathan-sims",
+      "name": "Jonathan Sims",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://rustyquill.com/show/the-magnus-archives/",
+        "https://rustyquill.com/show/the-magnus-protocol/"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-magnus-archives",
+        "the-magnus-protocol"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "jordan-cobb",
+      "name": "Jordan Cobb",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.nosuchthingradio.com/janus-descending-press-kit",
+        "https://jordanvcobb.com/"
+      ],
+      "directory": false,
+      "showIds": [
+        "janus-descending"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "joseph-fink",
+      "name": "Joseph Fink",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.nightvalepresents.com/",
+        "https://www.aliceisntdead.com/"
+      ],
+      "directory": false,
+      "showIds": [
+        "alice-isnt-dead",
+        "welcome-to-night-vale",
+        "within-the-wires"
+      ],
+      "showCount": 3
+    },
+    {
+      "id": "julian-koster",
+      "name": "Julian Koster",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-16",
+      "sources": [
+        "https://www.wnycstudios.org/podcasts/orbitinghumancircus/the-team"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-orbiting-human-circus"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "justin-mclachlan",
+      "name": "Justin McLachlan",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.planetm.io/eos10/",
+        "https://podcasts.apple.com/us/podcast/eos-10/id928069318"
+      ],
+      "showIds": [
+        "eos-10"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "k-a-statz",
+      "name": "K.A. Statz",
+      "type": "person",
+      "aliases": [
+        "KA Statz"
+      ],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.foolandscholar.com/the-white-vault-goshawk",
+        "https://www.foolandscholar.com/about-vast-horizon"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-white-vault",
+        "vast-horizon"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "kc-wayland",
+      "name": "Kc Wayland",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.werealive.com/",
+        "https://podcasts.apple.com/us/podcast/were-alive/id313300476"
+      ],
+      "directory": false,
+      "showIds": [
+        "were-alive"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "leviathan-audio-productions",
+      "name": "Leviathan Audio Productions",
+      "type": "production-company",
+      "aliases": [
+        "Leviathan Audio"
+      ],
+      "website": "https://leviathanaudioproductions.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://leviathanaudioproductions.com/",
+        "https://rapscallionagency.com/",
+        "https://theinveniosexpeditions.com/"
+      ],
+      "showIds": [
+        "the-invenios-expeditions",
+        "the-leviathan-chronicles",
+        "the-rapscallion-agency"
+      ],
+      "showCount": 3
+    },
+    {
+      "id": "long-cat-media",
+      "name": "Long Cat Media",
+      "type": "production-company",
+      "aliases": [
+        "Long Cat"
+      ],
+      "website": "https://www.longcatmedia.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.longcatmedia.com/",
+        "https://www.longcatmedia.com/about",
+        "https://www.longcatmedia.com/mockery-manor"
+      ],
+      "showIds": [
+        "madame-magenta-sonos-mystica",
+        "magenta-presents",
+        "mockery-manor",
+        "the-ballad-of-anne-mary"
+      ],
+      "showCount": 4
+    },
+    {
+      "id": "long-story-short-productions",
+      "name": "Long Story Short Productions",
+      "type": "production-company",
+      "aliases": [
+        "Long Story Short Production"
+      ],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.unseen.show/",
+        "https://www.draculathedansemacabre.com/episodes",
+        "https://podcasts.apple.com/us/podcast/time-bombs/id1438675837?uo=4"
+      ],
+      "showIds": [
+        "dracula-the-danse-macabre",
+        "time-bombs",
+        "unseen"
+      ],
+      "showCount": 3
+    },
+    {
+      "id": "luciola-creative",
+      "name": "Luciola Creative",
+      "type": "production-company",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.phenomenonpod.com/about",
+        "https://www.phenomenonpod.com/"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-phenomenon"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "mark-healy",
+      "name": "Mark Healy",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://robertdelamere.co.uk/productions/?i=52",
+        "https://www.imdb.com/title/tt14928712/"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-harrowing"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "mark-r-healy",
+      "name": "Mark R. Healy",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://bloodrocksprings.com/",
+        "https://www.theroadofshadows.com/",
+        "https://www.thestratapodcast.com/about-3"
+      ],
+      "directory": false,
+      "showIds": [
+        "bloodrock-springs",
+        "the-road-of-shadows",
+        "the-strata"
+      ],
+      "showCount": 3
+    },
+    {
+      "id": "martlet-radio",
+      "name": "Martlet Radio",
+      "type": "network",
+      "aliases": [],
+      "website": "https://martletradio.com/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://podcasts.apple.com/us/podcast/midnight-radio/id1393315066"
+      ],
+      "directory": false,
+      "showIds": [
+        "midnight-radio"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "max-olesker",
+      "name": "Max Olesker",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.maxandivan.com/",
+        "https://shows.acast.com/maxandivanfugitives"
+      ],
+      "directory": false,
+      "showIds": [
+        "max-ivan-fugitives"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "meet-cute",
+      "name": "Meet Cute",
+      "type": "production-company",
+      "aliases": [],
+      "website": "https://www.meetcute.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-14",
+      "sources": [
+        "https://podcasts.apple.com/us/podcast/meet-cute-originals/id1491088065?uo=4",
+        "https://feeds.megaphone.fm/FOXM4411427017",
+        "https://podcasts.apple.com/us/podcast/my-date-with-lainey-lee/id1746402630?uo=4",
+        "https://feeds.megaphone.fm/FOXM2290599318"
+      ],
+      "showIds": [
+        "meet-cute-originals",
+        "my-date-with-lainey-lee"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "metal-steve-productions",
+      "name": "Metal Steve Productions",
+      "type": "production-company",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-16",
+      "sources": [
+        "https://stationarcadia.wixsite.com/podcast/listen-now",
+        "https://podcasts.apple.com/us/podcast/station-arcadia/id1523613569"
+      ],
+      "directory": false,
+      "showIds": [
+        "station-arcadia"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "nathan-comstock",
+      "name": "Nathan Comstock",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-14",
+      "sources": [
+        "https://podcasts.apple.com/us/podcast/electromancy/id1573591656?uo=4",
+        "https://rss.libsyn.com/shows/351989/destinations/2876159.xml",
+        "https://podcasts.apple.com/us/podcast/shelar-and-the-scavengers/id1836946809?uo=4",
+        "https://anchor.fm/s/108e71234/podcast/rss"
+      ],
+      "directory": false,
+      "showIds": [
+        "electromancy",
+        "shelar-and-the-scavengers"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "night-rocket-productions",
+      "name": "Night Rocket Productions",
+      "type": "production-company",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.derelictpodcast.com/",
+        "https://www.kickstarter.com/projects/nightrocket/derelict-war"
+      ],
+      "directory": false,
+      "showIds": [
+        "derelict"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "night-vale-presents",
+      "name": "Night Vale Presents",
+      "type": "network",
+      "aliases": [],
+      "website": "https://www.nightvalepresents.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "http://www.nightvalepresents.com/withinthewires",
+        "https://www.nightvalepresents.com/dreamboy",
+        "https://www.nightvalepresents.com/about",
+        "https://adventuresinnewamerica.com/"
+      ],
+      "showIds": [
+        "adventures-in-new-america",
+        "dreamboy",
+        "the-orbiting-human-circus",
+        "welcome-to-night-vale",
+        "within-the-wires"
+      ],
+      "showCount": 5
+    },
+    {
+      "id": "no-such-thing-productions",
+      "name": "No Such Thing Productions",
+      "type": "production-company",
+      "aliases": [
+        "No Such Thing",
+        "No Such Thing Audio Drama Productions"
+      ],
+      "website": "https://www.nosuchthingradio.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.nosuchthingradio.com/",
+        "https://www.nosuchthingradio.com/janus-descending",
+        "https://www.nosuchthingradio.com/primordial-deep-press-kit"
+      ],
+      "showIds": [
+        "janus-descending",
+        "primordial-deep"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "nocturn-productions",
+      "name": "Nocturn Productions",
+      "type": "production-company",
+      "aliases": [
+        "Nocturn"
+      ],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://podcasts.apple.com/us/podcast/the-lost-son/id1643208283",
+        "https://podcasts.apple.com/us/podcast/from-the-depths/id1775064189?uo=4"
+      ],
+      "showIds": [
+        "from-the-depths",
+        "the-lost-son"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "observable-radio-studio",
+      "name": "Observable Radio",
+      "type": "studio",
+      "aliases": [],
+      "website": "https://www.observableradio.com/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.observableradio.com/about-the-show",
+        "https://podcasts.apple.com/us/podcast/observable-radio/id1707920301"
+      ],
+      "directory": false,
+      "showIds": [
+        "observable-radio"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "observer-pictures",
+      "name": "Observer Pictures",
+      "type": "production-company",
+      "aliases": [],
+      "website": "https://observerpictures.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://observerpictures.com/",
+        "https://apollyon.observerpictures.com/",
+        "https://podcasts.apple.com/us/podcast/margaritas-donuts/id1482406262?uo=4"
+      ],
+      "showIds": [
+        "apollyon",
+        "margaritas-donuts"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "pale-matter-productions",
+      "name": "Pale Matter Productions",
+      "type": "production-company",
+      "aliases": [
+        "Pale Matter"
+      ],
+      "website": "https://www.station151.com/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.station151.com/about/",
+        "https://www.station151.com/s1e2-orientation/"
+      ],
+      "directory": false,
+      "showIds": [
+        "station-151"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "passer-vulpes-productions",
+      "name": "Passer Vulpes Productions",
+      "type": "production-company",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-14",
+      "sources": [
+        "https://podcasts.apple.com/us/podcast/love-and-luck/id1271073009?uo=4",
+        "https://pinecast.com/feed/loveandluckpodcast",
+        "https://podcasts.apple.com/us/podcast/supernatural-sexuality-with-dr-seabrooke/id1480362942?uo=4",
+        "https://pinecast.com/feed/supersexradio"
+      ],
+      "showIds": [
+        "love-and-luck",
+        "supernatural-sexuality-with-dr-seabrooke"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "planetm",
+      "name": "PlanetM",
+      "type": "production-company",
+      "aliases": [],
+      "website": "https://www.planetm.io/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.planetm.io/eos10/",
+        "https://www.planetm.io/heroics",
+        "https://podcasts.apple.com/us/podcast/eos-10/id928069318"
+      ],
+      "showIds": [
+        "eos-10",
+        "heroics"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "poc-podcast-network",
+      "name": "POC Podcast Network",
+      "type": "network",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-14",
+      "sources": [
+        "https://pocpodcasting.wixsite.com/pocpn/nullvoid"
+      ],
+      "directory": false,
+      "showIds": [
+        "null-void"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "ponders-productions",
+      "name": "Ponders Productions",
+      "type": "production-company",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-14",
+      "sources": [
+        "https://podcasts.apple.com/us/podcast/mars-best-brisket/id1531640765?uo=4",
+        "https://pinecast.com/feed/mars-best-brisket",
+        "https://podcasts.apple.com/us/podcast/the-wanderer/id1543718673?uo=4",
+        "https://feeds.megaphone.fm/wanderer"
+      ],
+      "showIds": [
+        "mars-best-brisket",
+        "the-wanderer"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "procyon-podcast-network",
+      "name": "Procyon Podcast Network",
+      "type": "network",
+      "aliases": [
+        "Procyon Podcasts"
+      ],
+      "website": "https://www.procyonpodcastnetwork.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.procyonpodcastnetwork.com/",
+        "https://www.procyonpodcastnetwork.com/productions"
+      ],
+      "showIds": [
+        "keep-it-steady",
+        "station-to-station",
+        "the-strange-case-of-starship-iris"
+      ],
+      "showCount": 3
+    },
+    {
+      "id": "profile-theatre",
+      "name": "Profile Theatre",
+      "type": "production-company",
+      "aliases": [],
+      "website": "https://profiletheatre.org/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-10",
+      "sources": [
+        "https://profiletheatre.org/about-us/",
+        "https://profiletheatre.org/",
+        "https://feeds.castos.com/ox85",
+        "https://podcasts.apple.com/us/podcast/claudia-a-viral-love-story/id1518857050?uo=4"
+      ],
+      "directory": false,
+      "showIds": [
+        "claudia-a-viral-love-story"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "public-radio-alliance",
+      "name": "Public Radio Alliance",
+      "type": "production-company",
+      "aliases": [
+        "PRA"
+      ],
+      "website": "https://www.publicradioalliance.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.publicradioalliance.com/shows",
+        "https://www.publicradioalliance.com/listen",
+        "https://www.publicradioalliance.com/about"
+      ],
+      "showIds": [
+        "rabbits",
+        "tanis",
+        "the-last-movie"
+      ],
+      "showCount": 3
+    },
+    {
+      "id": "qcode",
+      "name": "QCODE",
+      "type": "production-company",
+      "aliases": [
+        "QCODE Media"
+      ],
+      "website": "https://qcodemedia.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://qcodemedia.com/borrasca",
+        "https://qcodemedia.com/from-now",
+        "https://qcodemedia.com/theleftrightgame",
+        "https://qcodemedia.com/"
+      ],
+      "showIds": [
+        "blackout",
+        "borrasca",
+        "carrier",
+        "from-now",
+        "how-to-win-friends-and-disappear-people",
+        "ronstadt",
+        "the-burned-photo",
+        "the-edge-of-sleep",
+        "the-foxes-of-hydesville",
+        "the-left-right-game"
+      ],
+      "showCount": 10
+    },
+    {
+      "id": "realm",
+      "name": "Realm",
+      "type": "network",
+      "aliases": [
+        "Realm Media"
+      ],
+      "website": "https://www.realm.fm/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.realm.fm/services",
+        "https://www.realm.fm/shows",
+        "https://www.realm.fm/shows/orphan-black",
+        "https://www.realm.fm/advertise"
+      ],
+      "showIds": [
+        "apollyon",
+        "blood-gold",
+        "calling-darkness-podcast",
+        "dc-high-volume-batman",
+        "hollow",
+        "how-i-died",
+        "machina",
+        "margaritas-donuts",
+        "marsfall",
+        "marvels-squirrel-girl-the-unbeatable-radio-show",
+        "marvels-wastelanders",
+        "marvels-wolverine-the-long-night",
+        "marvels-wolverine-the-lost-trail",
+        "orphan-black-the-next-chapter",
+        "sonic-the-hedgehog-presents-the-chaotix-casefiles",
+        "station-151",
+        "the-deca-tapes",
+        "the-hidden-people",
+        "the-patron-saint-of-suicides",
+        "the-sheridan-tapes",
+        "uncanny-valley"
+      ],
+      "showCount": 21
+    },
+    {
+      "id": "red-fathom-entertainment",
+      "name": "Red Fathom Entertainment",
+      "type": "production-company",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-14",
+      "sources": [
+        "https://podcasts.apple.com/us/podcast/cybernautica/id1448453998?uo=4",
+        "https://rss.art19.com/cybernautica",
+        "https://podcasts.apple.com/us/podcast/hannahpocalypse/id1536198867?uo=4",
+        "https://rss.art19.com/hannahpocalypse"
+      ],
+      "showIds": [
+        "cybernautica",
+        "hannahpocalypse"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "rogue-dialogue-productions",
+      "name": "Rogue Dialogue Productions",
+      "type": "production-company",
+      "aliases": [
+        "Rogue Dialogue"
+      ],
+      "website": "https://roguedialogue.com/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://roguedialogue.com/",
+        "https://roguedialogue.com/press",
+        "https://roguedialogue.com/listen",
+        "https://roguedialogue.com/windfall"
+      ],
+      "directory": false,
+      "showIds": [
+        "windfall"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "rust-belt-studio",
+      "name": "Rust Belt Studio",
+      "type": "studio",
+      "aliases": [
+        "Rust Belt Studios"
+      ],
+      "website": "https://rustbeltstudio.wordpress.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://rustbeltstudio.wordpress.com/",
+        "https://www.patreon.com/cw/RustBeltStudio",
+        "https://podcasts.apple.com/us/podcast/into-the-dark-of-the-woods/id1847953283"
+      ],
+      "showIds": [
+        "engine-of-war",
+        "into-the-dark-of-the-woods",
+        "mikey-and-the-garden-arch"
+      ],
+      "showCount": 3
+    },
+    {
+      "id": "rusty-quill",
+      "name": "Rusty Quill",
+      "type": "production-company",
+      "aliases": [
+        "Rusty Quill Ltd."
+      ],
+      "website": "https://rustyquill.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://rustyquill.com/about/",
+        "https://rustyquill.com/show/the-magnus-archives/",
+        "https://rustyquill.com/show/the-magnus-protocol/",
+        "https://members.rustyquill.com/"
+      ],
+      "showIds": [
+        "cry-havoc-ask-questions-later",
+        "last-dance",
+        "malevolent",
+        "neon-inkwell",
+        "stellar-firma",
+        "the-magnus-archives",
+        "the-magnus-protocol",
+        "trice-forgotten"
+      ],
+      "showCount": 8
+    },
+    {
+      "id": "shadow-static-productions",
+      "name": "Shadow & Static Productions",
+      "type": "production-company",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://shows.acast.com/hollow-disciple",
+        "https://podcasts.apple.com/us/podcast/wake-of-corrosion/id1566786218?uo=4"
+      ],
+      "showIds": [
+        "hollow-disciple",
+        "wake-of-corrosion"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "shudder",
+      "name": "Shudder",
+      "type": "production-company",
+      "aliases": [],
+      "website": "https://www.shudder.com/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-14",
+      "sources": [
+        "https://www.shudder.com/"
+      ],
+      "directory": false,
+      "showIds": [
+        "video-palace"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "spectrevision-radio",
+      "name": "SpectreVision Radio",
+      "type": "network",
+      "aliases": [],
+      "website": "https://www.spectrevision.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.spectrevision.com/podcasts/knifepoint-horror",
+        "https://www.thirteenpodcast.com/"
+      ],
+      "showIds": [
+        "knifepoint-horror",
+        "thirteen"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "stak",
+      "name": "Stak",
+      "type": "production-company",
+      "aliases": [],
+      "website": "https://www.stak.london/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-16",
+      "sources": [
+        "https://www.stak.london/",
+        "https://stak.london/shows/jackie-the-ripper/"
+      ],
+      "directory": false,
+      "showIds": [
+        "jackie-the-ripper"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "station-blue-productions",
+      "name": "Station Blue",
+      "type": "production-company",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://spectrepod.com/"
+      ],
+      "directory": false,
+      "showIds": [
+        "spectre"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "storyglass",
+      "name": "Storyglass",
+      "type": "production-company",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://fremantle.com/news/bertelsmann-starts-new-content-alliance-in-uk",
+        "https://www.maxandivan.com/",
+        "https://robertdelamere.co.uk/productions/?i=52",
+        "https://shows.acast.com/the-harrowing"
+      ],
+      "showIds": [
+        "max-ivan-fugitives",
+        "the-harrowing"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "strangekind-studio",
+      "name": "Strangekind Studio",
+      "type": "studio",
+      "aliases": [],
+      "website": "https://strangekindstudio.weebly.com/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-16",
+      "sources": [
+        "https://strangekindstudio.weebly.com/",
+        "https://strangekindstudio.weebly.com/mercycastcrew.html",
+        "https://podcasts.apple.com/us/podcast/mercy-a-queer-eldritch-western/id1762529135?uo=4"
+      ],
+      "directory": false,
+      "showIds": [
+        "mercy-a-queer-eldritch-western"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "strong-branch-productions",
+      "name": "Strong Branch Productions",
+      "type": "network",
+      "aliases": [],
+      "website": "https://strongbranchproductions.wordpress.com/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-14",
+      "sources": [
+        "https://strongbranchproductions.wordpress.com/",
+        "https://strongbranchproductions.wordpress.com/podcasts/scripts-and-transcripts/",
+        "https://strongbranchproductions.wordpress.com/strong-branch-press/"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-stench-of-adventure"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "superhuman-public-radio-studio",
+      "name": "Superhuman Public Radio",
+      "type": "studio",
+      "aliases": [
+        "SPR"
+      ],
+      "website": "https://www.superhumanpublicradio.com/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.superhumanpublicradio.com/",
+        "https://www.superhumanpublicradio.com/producers"
+      ],
+      "directory": false,
+      "showIds": [
+        "superhuman-public-radio"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "tal-minear",
+      "name": "Tal Minear",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://sidequestingpod.com/",
+        "https://sditepod.com/",
+        "https://wwbh.space/",
+        "https://ofthesword.crd.co/"
+      ],
+      "directory": false,
+      "showIds": [
+        "of-the-sword",
+        "sidequesting",
+        "someone-dies-in-this-elevator",
+        "what-will-be-here"
+      ],
+      "showCount": 4
+    },
+    {
+      "id": "tandon-productions",
+      "name": "Tandon Productions",
+      "type": "network",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-14",
+      "sources": [
+        "https://tandonproductions.com/all-in-my-head/"
+      ],
+      "directory": false,
+      "showIds": [
+        "all-in-my-head"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "tartarus-jenny-studios",
+      "name": "Tartarus Jenny Studios",
+      "type": "production-company",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://harborpodcast.com/castandcrew",
+        "https://podcasts.apple.com/us/podcast/harbor/id1479639548"
+      ],
+      "directory": false,
+      "showIds": [
+        "harbor"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "tau-zaman",
+      "name": "Tau Zaman",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.whisperforge.org/caravan/cast",
+        "https://www.whisperforge.org/caravan/1-8/transcript"
+      ],
+      "directory": false,
+      "showIds": [
+        "caravan"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "thats-not-canon-productions",
+      "name": "That's Not Canon Productions",
+      "type": "network",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-14",
+      "sources": [
+        "https://thatsnotcanon.com/themistholmemuseum/",
+        "https://thatsnotcanon.com/the-jomocast"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-mistholme-museum-of-mystery-morbidity-and-mortality"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "the-ambit-group",
+      "name": "The Ambit Group",
+      "type": "network",
+      "aliases": [],
+      "website": "https://ambitgroup.com/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-14",
+      "sources": [
+        "https://ambitgroup.com/",
+        "https://ambitgroup.com/podcast/"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-fourth-ambit"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "the-lunar-company",
+      "name": "The Lunar Company",
+      "type": "production-company",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://eartheclipsed.com/",
+        "https://www.eartheclipsed.com/app/uploads/2021/05/press-release-5-6-21.pdf"
+      ],
+      "directory": false,
+      "showIds": [
+        "earth-eclipsed"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "the-paragon-collective",
+      "name": "The Paragon Collective",
+      "type": "production-company",
+      "aliases": [
+        "Paragon Collective"
+      ],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://podcasts.apple.com/us/podcast/darkest-night/id1163871694",
+        "https://deadlymanners.libsyn.com/website"
+      ],
+      "showIds": [
+        "darkest-night",
+        "deadly-manners"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "the-porch-room",
+      "name": "The Porch Room",
+      "type": "production-company",
+      "aliases": [],
+      "website": "https://www.porchroom.com/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.porchroom.com/blog/posts-news/the-porch-room-nabs-15-audioverse-award-nominations-for-mission-rejected",
+        "https://www.patreon.com/missionrejected/about",
+        "https://podcasts.apple.com/us/podcast/mission-rejected/id1454748884"
+      ],
+      "directory": false,
+      "showIds": [
+        "mission-rejected"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "the-sonar-network",
+      "name": "The Sonar Network",
+      "type": "network",
+      "aliases": [
+        "The Sonar Podcast Network"
+      ],
+      "website": "https://www.thesonarnetwork.com/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.stanlandseries.com/",
+        "https://www.stanlandseries.com/post/welcome-to-stanland"
+      ],
+      "directory": false,
+      "showIds": [
+        "stanland"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "the-whisperforge",
+      "name": "The Whisperforge",
+      "type": "production-company",
+      "aliases": [
+        "Whisperforge"
+      ],
+      "website": "https://www.whisperforge.org/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.whisperforge.org/caravan",
+        "https://www.whisperforge.org/thefarmeridian"
+      ],
+      "showIds": [
+        "ars-paradoxica",
+        "caravan",
+        "the-far-meridian"
+      ],
+      "showCount": 3
+    },
+    {
+      "id": "third-person",
+      "name": "Third Person",
+      "type": "studio",
+      "aliases": [],
+      "website": "https://www.thirdperson.media/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-16",
+      "sources": [
+        "https://www.thirdperson.media/",
+        "https://www.blueberrieshill.com/"
+      ],
+      "showIds": [
+        "blueberries-hill",
+        "midst"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "timothy-x-atack",
+      "name": "Timothy X Atack",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.bbc.co.uk/programmes/p06tqsg3",
+        "https://podcasts.apple.com/us/podcast/forest-404/id1458519430"
+      ],
+      "directory": false,
+      "showIds": [
+        "forest-404"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "tin-can-audio",
+      "name": "Tin Can Audio",
+      "type": "production-company",
+      "aliases": [
+        "Tin Can"
+      ],
+      "website": "https://www.tincanaudio.co.uk/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.tincanaudio.co.uk/podcasts",
+        "https://www.tincanaudio.co.uk/about",
+        "https://www.tincanaudio.co.uk/thetower"
+      ],
+      "showIds": [
+        "camlann",
+        "folxlore",
+        "lands-end-a-shepherds-tale",
+        "middle-below",
+        "the-tower"
+      ],
+      "showCount": 5
+    },
+    {
+      "id": "travis-vengroff",
+      "name": "Travis Vengroff",
+      "type": "person",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.foolandscholar.com/the-white-vault-goshawk",
+        "https://www.foolandscholar.com/about-vast-horizon"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-white-vault",
+        "vast-horizon"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "twin-strangers-productions",
+      "name": "Twin Strangers Productions",
+      "type": "production-company",
+      "aliases": [
+        "Twin Strangers"
+      ],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://syntaxpodcast.org/",
+        "https://open.spotify.com/show/1h9W3ZNU3zIePWwskJ2v2T"
+      ],
+      "showIds": [
+        "cryptid-counselor",
+        "syntax"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "two-up-productions",
+      "name": "Two-Up Productions",
+      "type": "production-company",
+      "aliases": [
+        "Two-Up"
+      ],
+      "website": "https://twoupproductions.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://twoupproductions.com/about",
+        "https://twoupproductions.com/limetown/podcast",
+        "https://twoupproductions.com/shipworm/podcast"
+      ],
+      "showIds": [
+        "36-questions",
+        "limetown",
+        "shipworm"
+      ],
+      "showCount": 3
+    },
+    {
+      "id": "underwood-press",
+      "name": "Underwood Press",
+      "type": "network",
+      "aliases": [],
+      "website": "https://underwoodpress.com/about/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-14",
+      "sources": [
+        "https://underwoodpress.com/podcasts/",
+        "https://underwoodpress.com/about/"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-nephilim-hunter"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "violet-hour-media",
+      "name": "Violet Hour Media",
+      "type": "production-company",
+      "aliases": [
+        "The Violet Hour"
+      ],
+      "website": "https://www.violethourmedia.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.violethourmedia.com/podcasts/",
+        "https://www.violethourmedia.com/in-another-room/",
+        "https://www.violethourmedia.com/hollow/",
+        "https://www.violethourmedia.com/elmwood-strain/"
+      ],
+      "showIds": [
+        "hollow",
+        "in-another-room",
+        "long-night-in-egypt",
+        "red-riding-hoods",
+        "the-elmwood-strain"
+      ],
+      "showCount": 5
+    },
+    {
+      "id": "voyage-media",
+      "name": "Voyage Media",
+      "type": "production-company",
+      "aliases": [
+        "Voyage Media, Inc."
+      ],
+      "website": "https://www.voyagemedia.fm/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.voyagemedia.fm/",
+        "https://podcasts.apple.com/us/channel/voyage-media/id6442691206"
+      ],
+      "showIds": [
+        "elias-the-caretaker",
+        "let-me-tell-you-about-my-murder"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "vp-morris",
+      "name": "V.P. Morris",
+      "type": "person",
+      "aliases": [
+        "VP Morris"
+      ],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://vpmorris.com/the-dead-letters-podcast",
+        "https://vpmorris.com/about"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-dead-letters-podcast"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "warner-bros",
+      "name": "Warner Bros.",
+      "type": "production-company",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-16",
+      "sources": [
+        "https://www.dc.com/blog/2020/09/29/david-s-goyer-warner-bros-and-dc-set-to-bring-batman-unburied-to-spotify",
+        "https://newsroom.spotify.com/2021-02-22/audio-brings-new-dimension-to-the-dc-comics-universe/"
+      ],
+      "directory": false,
+      "showIds": [
+        "batman-unburied"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "wayland-productions",
+      "name": "Wayland Productions",
+      "type": "production-company",
+      "aliases": [],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.werealive.com/",
+        "https://podcasts.apple.com/us/podcast/were-alive/id313300476"
+      ],
+      "directory": false,
+      "showIds": [
+        "were-alive"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "wgc-productions",
+      "name": "WGC Productions",
+      "type": "network",
+      "aliases": [
+        "WGCProductions"
+      ],
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-14",
+      "sources": [
+        "https://www.wgcproductions.com/shows/small-victories",
+        "https://www.wgcproductions.com/about"
+      ],
+      "directory": false,
+      "showIds": [
+        "small-victories"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "wired-cowslip",
+      "name": "Wired Cowslip",
+      "type": "production-company",
+      "aliases": [],
+      "website": "https://thewaystation.carrd.co/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://thewaystation.carrd.co/",
+        "https://rss.com/podcasts/thewaystation/"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-waystation"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "wizzard-wizzard-productions",
+      "name": "Wizzard Wizzard Productions",
+      "type": "production-company",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-14",
+      "sources": [
+        "https://podcasts.apple.com/us/podcast/starfall/id1574102152?uo=4",
+        "https://pinecast.com/feed/starfall",
+        "https://podcasts.apple.com/us/podcast/the-beacon/id1412439234?uo=4",
+        "https://pinecast.com/feed/the-beacon"
+      ],
+      "showIds": [
+        "starfall",
+        "the-beacon"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "wnyc-studios",
+      "name": "WNYC Studios",
+      "type": "production-company",
+      "aliases": [],
+      "website": "https://www.wnycstudios.org/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.wnycstudios.org/podcasts/orbitinghumancircus/about"
+      ],
+      "directory": false,
+      "showIds": [
+        "the-orbiting-human-circus"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "wolf-at-the-door-studios",
+      "name": "Wolf at the Door Studios",
+      "type": "studio",
+      "aliases": [
+        "Wolf at the Door",
+        "WATD Studios"
+      ],
+      "website": "https://www.wlfdr.com/",
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-05",
+      "sources": [
+        "https://www.wlfdr.com/",
+        "https://www.wlfdr.com/about",
+        "https://www.wlfdr.com/mot"
+      ],
+      "showIds": [
+        "modes-of-thought-in-anterran-literature",
+        "the-imperfection"
+      ],
+      "showCount": 2
+    },
+    {
+      "id": "wooden-overcoats-ltd",
+      "name": "Wooden Overcoats Ltd",
+      "type": "production-company",
+      "aliases": [],
+      "website": "https://www.woodenovercoats.com/",
+      "publication": "public",
+      "indexable": false,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.woodenovercoats.com/",
+        "https://www.woodenovercoats.com/press"
+      ],
+      "directory": false,
+      "showIds": [
+        "wooden-overcoats"
+      ],
+      "showCount": 1
+    },
+    {
+      "id": "zoomdoom-stories",
+      "name": "ZoomDoom Stories",
+      "type": "production-company",
+      "aliases": [],
+      "publication": "public",
+      "indexable": true,
+      "reviewedAt": "2026-09-08",
+      "sources": [
+        "https://www.mirrorspodcast.com/",
+        "https://www.mirrorspodcast.com/about",
+        "https://www.sixdisappearancespodcast.com/",
+        "https://www.sixdisappearancespodcast.com/about"
+      ],
+      "showIds": [
+        "mirrors",
+        "spines-podcast",
+        "the-six-disappearances-of-ella-mccray"
+      ],
+      "showCount": 3
+    }
+  ],
+  "shows": [
+    {
+      "id": "13-minutes-or-less",
+      "title": "13 Minutes Or Less"
+    },
+    {
+      "id": "15-second-mysteries",
+      "title": "15 Second Mysteries"
+    },
+    {
+      "id": "1865",
+      "title": "1865"
+    },
+    {
+      "id": "1968-blackflower-drive",
+      "title": "1968 Blackflower Drive"
+    },
+    {
+      "id": "1972-the-chisholm-campaign-trail-and-the-davis-trial",
+      "title": "1972 - The Chisholm Campaign Trail and the Davis Trial"
+    },
+    {
+      "id": "36-questions",
+      "title": "36 Questions"
+    },
+    {
+      "id": "90-degrees-south",
+      "title": "90 Degrees South"
+    },
+    {
+      "id": "a-darker-tale",
+      "title": "A Darker Tale"
+    },
+    {
+      "id": "a-dream-too-heroic-the-hero-of-korvalin",
+      "title": "A Dream too Heroic (The Hero of Korvalin)"
+    },
+    {
+      "id": "a-fairy-tale-for-adults",
+      "title": "A Fairy Tale for Adults"
+    },
+    {
+      "id": "a-midsummers-quarantine",
+      "title": "A Midsummer's Quarantine"
+    },
+    {
+      "id": "a-murder-in-montecito",
+      "title": "A MURDER IN MONTECITO"
+    },
+    {
+      "id": "a-practical-guide-to-death",
+      "title": "A Practical Guide to Death"
+    },
+    {
+      "id": "a-store-for-witches-and-wizards",
+      "title": "A Store for Witches and Wizards"
+    },
+    {
+      "id": "a-voice-from-darkness",
+      "title": "A Voice From Darkness"
+    },
+    {
+      "id": "aaveloura-studios",
+      "title": "AAVELOURA Studios"
+    },
+    {
+      "id": "aberrations",
+      "title": "Aberrations"
+    },
+    {
+      "id": "abnormal-advice",
+      "title": "Abnormal Advice"
+    },
+    {
+      "id": "absent-always-theatreworks",
+      "title": "Absent, Always Theatreworks"
+    },
+    {
+      "id": "academy",
+      "title": "Academy"
+    },
+    {
+      "id": "acephale-horror-fiction",
+      "title": "Acephale: Horror Fiction"
+    },
+    {
+      "id": "achewillow",
+      "title": "Achewillow"
+    },
+    {
+      "id": "acorn-originals",
+      "title": "Acorn Originals"
+    },
+    {
+      "id": "adventures-in-new-america",
+      "title": "Adventures in New America"
+    },
+    {
+      "id": "afflicted",
+      "title": "Afflicted"
+    },
+    {
+      "id": "after-impact",
+      "title": "After Impact"
+    },
+    {
+      "id": "aftershock",
+      "title": "Aftershock"
+    },
+    {
+      "id": "agent-stoker",
+      "title": "Agent Stoker"
+    },
+    {
+      "id": "alba-salix-royal-physician",
+      "title": "Alba Salix, Royal Physician"
+    },
+    {
+      "id": "alice-isnt-dead",
+      "title": "Alice Isn't Dead"
+    },
+    {
+      "id": "all-in-my-head",
+      "title": "All In My Head"
+    },
+    {
+      "id": "almelem",
+      "title": "Almelem"
+    },
+    {
+      "id": "amahdalia",
+      "title": "AMAHDALIA"
+    },
+    {
+      "id": "american-afterlife",
+      "title": "American Afterlife"
+    },
+    {
+      "id": "american-comedy-horror-story",
+      "title": "American Comedy Horror Story"
+    },
+    {
+      "id": "anime-audio-drama-surge-saga",
+      "title": "Anime Audio Drama Surge Saga"
+    },
+    {
+      "id": "anoraks",
+      "title": "Anoraks"
+    },
+    {
+      "id": "anticrastination",
+      "title": "Anticrastination"
+    },
+    {
+      "id": "apex-magazine-podcast",
+      "title": "Apex Magazine Podcast"
+    },
+    {
+      "id": "apollyon",
+      "title": "Apollyon"
+    },
+    {
+      "id": "archive-81",
+      "title": "Archive 81"
+    },
+    {
+      "id": "arden",
+      "title": "Arden"
+    },
+    {
+      "id": "argon-a-tech-noir-thriller",
+      "title": "Argon | A Tech Noir Thriller"
+    },
+    {
+      "id": "ars-paradoxica",
+      "title": "Ars Paradoxica"
+    },
+    {
+      "id": "artifacts-of-the-arcane",
+      "title": "Artifacts of the Arcane"
+    },
+    {
+      "id": "atlas-avenue-beat",
+      "title": "Atlas Avenue Beat"
+    },
+    {
+      "id": "atrophys-eden",
+      "title": "Atrophy’s Eden"
+    },
+    {
+      "id": "attention-hellmart-shoppers",
+      "title": "Attention HellMart Shoppers!"
+    },
+    {
+      "id": "attention-the-captain-is-fine",
+      "title": "Attention: The Captain Is Fine"
+    },
+    {
+      "id": "autumn-an-audio-drama",
+      "title": "Autumn - An Audio Drama"
+    },
+    {
+      "id": "back-again-back-again",
+      "title": "Back Again, Back Again"
+    },
+    {
+      "id": "badlands-cola",
+      "title": "Badlands Cola"
+    },
+    {
+      "id": "baked-off",
+      "title": "Baked Off!"
+    },
+    {
+      "id": "batman-unburied",
+      "title": "Batman Unburied"
+    },
+    {
+      "id": "bee-dubs-ai-labs",
+      "title": "Bee Dubs AI Labs"
+    },
+    {
+      "id": "behind-closed-doors-a-48-hour-audio-drama-festival",
+      "title": "Behind Closed Doors: A 48 Hour Audio Drama Festival"
+    },
+    {
+      "id": "beneath",
+      "title": "Beneath"
+    },
+    {
+      "id": "beyond-awakening",
+      "title": "Beyond Awakening"
+    },
+    {
+      "id": "beyond-repair",
+      "title": "Beyond Repair"
+    },
+    {
+      "id": "big-grande-teachers-lounge",
+      "title": "Big Grande Teachers' Lounge"
+    },
+    {
+      "id": "black-friday",
+      "title": "BLACK FRIDAY"
+    },
+    {
+      "id": "black-pulse",
+      "title": "Black Pulse"
+    },
+    {
+      "id": "blackout",
+      "title": "Blackout"
+    },
+    {
+      "id": "blackwood",
+      "title": "Blackwood"
+    },
+    {
+      "id": "blood-bunnies",
+      "title": "Blood Bunnies"
+    },
+    {
+      "id": "blood-gold",
+      "title": "Blood & Gold"
+    },
+    {
+      "id": "blood-ties",
+      "title": "Blood Ties"
+    },
+    {
+      "id": "bloodrock-springs",
+      "title": "Bloodrock Springs"
+    },
+    {
+      "id": "blueberries-hill",
+      "title": "Blueberries Hill"
+    },
+    {
+      "id": "bone-marry-bury",
+      "title": "Bone Marry Bury"
+    },
+    {
+      "id": "bones-of-the-land",
+      "title": "Bones of the Land"
+    },
+    {
+      "id": "borrasca",
+      "title": "Borrasca"
+    },
+    {
+      "id": "brave-new-frontiersman",
+      "title": "Brave New Frontiersman"
+    },
+    {
+      "id": "breaker-whiskey",
+      "title": "Breaker Whiskey"
+    },
+    {
+      "id": "brevity",
+      "title": "Brevity"
+    },
+    {
+      "id": "bridgewater",
+      "title": "Bridgewater"
+    },
+    {
+      "id": "brimstone-valley-mall",
+      "title": "Brimstone Valley Mall"
+    },
+    {
+      "id": "broken-veil",
+      "title": "Broken Veil"
+    },
+    {
+      "id": "bronzeville",
+      "title": "Bronzeville"
+    },
+    {
+      "id": "burn-pattern",
+      "title": "Burn Pattern"
+    },
+    {
+      "id": "burnout-a-cyberpunk-thriller",
+      "title": "Burnout: A Cyberpunk Thriller"
+    },
+    {
+      "id": "buzz-the-man-the-moon",
+      "title": "Buzz: The Man & The Moon"
+    },
+    {
+      "id": "calais-2037",
+      "title": "Calais 2037"
+    },
+    {
+      "id": "calling-darkness-podcast",
+      "title": "Calling Darkness Podcast"
+    },
+    {
+      "id": "camlann",
+      "title": "Camlann"
+    },
+    {
+      "id": "campers-pike-on-the-forgotten-road",
+      "title": "Campers' Pike on the Forgotten Road"
+    },
+    {
+      "id": "campfire-radio-theater",
+      "title": "Campfire Radio Theater"
+    },
+    {
+      "id": "candy-claus-private-eye",
+      "title": "Candy Claus, Private Eye"
+    },
+    {
+      "id": "captain-kayato-and-the-catsairs",
+      "title": "Captain Kayato and the Catsairs"
+    },
+    {
+      "id": "caravan",
+      "title": "Caravan"
+    },
+    {
+      "id": "carcerem",
+      "title": "Carcerem"
+    },
+    {
+      "id": "carrier",
+      "title": "Carrier"
+    },
+    {
+      "id": "case-63",
+      "title": "Case 63"
+    },
+    {
+      "id": "cat-person",
+      "title": "Cat/Person"
+    },
+    {
+      "id": "cede-malis",
+      "title": "Cede Malis"
+    },
+    {
+      "id": "celeritas",
+      "title": "Celeritas"
+    },
+    {
+      "id": "chaika",
+      "title": "Chaika"
+    },
+    {
+      "id": "chain-of-being",
+      "title": "Chain of Being"
+    },
+    {
+      "id": "chongqing-punk",
+      "title": "Chongqing Punk"
+    },
+    {
+      "id": "choose-the-bear",
+      "title": "Choose The Bear"
+    },
+    {
+      "id": "cicatrix",
+      "title": "Cicatrix"
+    },
+    {
+      "id": "claudia-a-viral-love-story",
+      "title": "Claudia, A Viral Love Story"
+    },
+    {
+      "id": "clean-green-music-machine-turn-it-up",
+      "title": "Clean Green Music Machine: Turn It Up!"
+    },
+    {
+      "id": "coexistence",
+      "title": "Coexistence"
+    },
+    {
+      "id": "cold-tapes",
+      "title": "COLD TAPES"
+    },
+    {
+      "id": "conference-call",
+      "title": "Conference Call"
+    },
+    {
+      "id": "confessions-cryptids",
+      "title": "Confessions & Cryptids"
+    },
+    {
+      "id": "constants",
+      "title": "Constants"
+    },
+    {
+      "id": "conversations-with-ghosts",
+      "title": "Conversations with Ghosts"
+    },
+    {
+      "id": "copperheart-a-riggstories-audio-drama",
+      "title": "COPPERHEART: A RiggStories Audio Drama"
+    },
+    {
+      "id": "cosmic-riff",
+      "title": "Cosmic Riff"
+    },
+    {
+      "id": "counterbalance",
+      "title": "Counterbalance"
+    },
+    {
+      "id": "crap-noir",
+      "title": "CRAP NOIR"
+    },
+    {
+      "id": "creation-a-whole-new-reality",
+      "title": "Creation: A Whole New Reality"
+    },
+    {
+      "id": "crestfall-a-fantasy-audio-drama",
+      "title": "Crestfall: A Fantasy Audio Drama"
+    },
+    {
+      "id": "crooked-river",
+      "title": "Crooked River"
+    },
+    {
+      "id": "crossroads-a-48-hour-audio-drama-festival",
+      "title": "Crossroads: A 48 Hour Audio Drama Festival"
+    },
+    {
+      "id": "cry-havoc-ask-questions-later",
+      "title": "Cry Havoc! Ask Questions Later"
+    },
+    {
+      "id": "cryptid-counselor",
+      "title": "Cryptid Counselor"
+    },
+    {
+      "id": "crystal-blue",
+      "title": "Crystal Blue"
+    },
+    {
+      "id": "cybernautica",
+      "title": "Cybernautica"
+    },
+    {
+      "id": "cyphers-edge",
+      "title": "Cyphers Edge"
+    },
+    {
+      "id": "dakota-gold-mysteries",
+      "title": "Dakota Gold Mysteries"
+    },
+    {
+      "id": "dark-days-in-brighton",
+      "title": "Dark Days In Brighton"
+    },
+    {
+      "id": "dark-northwest",
+      "title": "Dark Northwest"
+    },
+    {
+      "id": "dark-woods",
+      "title": "Dark Woods"
+    },
+    {
+      "id": "darkest-night",
+      "title": "Darkest Night"
+    },
+    {
+      "id": "dash",
+      "title": "DASH"
+    },
+    {
+      "id": "dashing-onions-audio",
+      "title": "Dashing Onions Audio"
+    },
+    {
+      "id": "dawn-of-tomorrow",
+      "title": "Dawn of Tomorrow"
+    },
+    {
+      "id": "dc-high-volume-batman",
+      "title": "DC High Volume: Batman"
+    },
+    {
+      "id": "dead-evil-tales",
+      "title": "Dead Evil Tales"
+    },
+    {
+      "id": "dead-space-deep-cover",
+      "title": "Dead Space: Deep Cover"
+    },
+    {
+      "id": "dead-west",
+      "title": "Dead West"
+    },
+    {
+      "id": "deadly-manners",
+      "title": "Deadly Manners"
+    },
+    {
+      "id": "deans-killer-joke",
+      "title": "Dean's Killer Joke"
+    },
+    {
+      "id": "dear-earth-im-really-sorry",
+      "title": "Dear Earth, I'm Really Sorry"
+    },
+    {
+      "id": "death-by-dying",
+      "title": "Death by Dying"
+    },
+    {
+      "id": "death-by-inches",
+      "title": "Death by Inches"
+    },
+    {
+      "id": "deathless",
+      "title": "Deathless"
+    },
+    {
+      "id": "deconstructive-criticism",
+      "title": "Deconstructive Criticism"
+    },
+    {
+      "id": "deep-space-radio",
+      "title": "Deep Space Radio"
+    },
+    {
+      "id": "degrave-brothers",
+      "title": "DeGrave Brothers"
+    },
+    {
+      "id": "derelict",
+      "title": "Derelict"
+    },
+    {
+      "id": "desert-skies",
+      "title": "Desert Skies"
+    },
+    {
+      "id": "deviser",
+      "title": "Deviser"
+    },
+    {
+      "id": "diary-of-a-space-archivist",
+      "title": "Diary of a Space Archivist"
+    },
+    {
+      "id": "directive",
+      "title": "Directive"
+    },
+    {
+      "id": "dirt-an-audio-drama",
+      "title": "Dirt - An Audio Drama"
+    },
+    {
+      "id": "dispatch-from-the-desert-planet",
+      "title": "Dispatch from the Desert Planet"
+    },
+    {
+      "id": "dispatches-from-the-multiverse",
+      "title": "Dispatches from the Multiverse"
+    },
+    {
+      "id": "divorce-ranch",
+      "title": "Divorce Ranch"
+    },
+    {
+      "id": "doctor-who-redacted",
+      "title": "Doctor Who: Redacted"
+    },
+    {
+      "id": "dont-mind",
+      "title": "Don't Mind"
+    },
+    {
+      "id": "dr-goodvibes",
+      "title": "Dr Goodvibes"
+    },
+    {
+      "id": "dracula-2004",
+      "title": "Dracula: 2004"
+    },
+    {
+      "id": "dracula-the-danse-macabre",
+      "title": "Dracula: The Danse Macabre"
+    },
+    {
+      "id": "dragon-age-vows-vengeance",
+      "title": "Dragon Age: Vows & Vengeance"
+    },
+    {
+      "id": "dreamboy",
+      "title": "Dreamboy"
+    },
+    {
+      "id": "dreamstar-chasers",
+      "title": "Dreamstar Chasers"
+    },
+    {
+      "id": "dust",
+      "title": "DUST"
+    },
+    {
+      "id": "dying-breeds",
+      "title": "Dying Breeds"
+    },
+    {
+      "id": "e-a-t-i",
+      "title": "E.A.T.I."
+    },
+    {
+      "id": "earth-eclipsed",
+      "title": "Earth Eclipsed"
+    },
+    {
+      "id": "echoes-of-shadows",
+      "title": "Echoes of Shadows"
+    },
+    {
+      "id": "edict-zero-fis",
+      "title": "Edict Zero - FIS"
+    },
+    {
+      "id": "eelers-choice",
+      "title": "Eeler's Choice"
+    },
+    {
+      "id": "eleanor-amplified",
+      "title": "Eleanor Amplified"
+    },
+    {
+      "id": "electromancy",
+      "title": "Electromancy"
+    },
+    {
+      "id": "elias-the-caretaker",
+      "title": "Elias The Caretaker"
+    },
+    {
+      "id": "eliza-a-robot-story",
+      "title": "Eliza: A Robot Story"
+    },
+    {
+      "id": "end-of-all-hope",
+      "title": "End of All Hope"
+    },
+    {
+      "id": "engine-of-war",
+      "title": "Engine of War"
+    },
+    {
+      "id": "enter-the-house-between",
+      "title": "Enter The House Between"
+    },
+    {
+      "id": "eos-10",
+      "title": "EOS 10"
+    },
+    {
+      "id": "ergo-antz",
+      "title": "ergo antz"
+    },
+    {
+      "id": "escape-pod",
+      "title": "Escape Pod"
+    },
+    {
+      "id": "eve-of-independence",
+      "title": "Eve of Independence"
+    },
+    {
+      "id": "experiment-31e",
+      "title": "Experiment 31E"
+    },
+    {
+      "id": "fabric",
+      "title": "Fabric"
+    },
+    {
+      "id": "fairies-and-dragons-ponies-and-knights",
+      "title": "Fairies and Dragons, Ponies and Knights"
+    },
+    {
+      "id": "faithfully-yours-mozart-the-courtship",
+      "title": "Faithfully Yours Mozart: The Courtship"
+    },
+    {
+      "id": "fate-of-korr",
+      "title": "Fate of Korr"
+    },
+    {
+      "id": "fawx-stallion",
+      "title": "Fawx & Stallion"
+    },
+    {
+      "id": "feedback-a-comedy-of-impeccable-customer-service",
+      "title": "Feedback: a comedy of impeccable customer service"
+    },
+    {
+      "id": "feminist-fairytales",
+      "title": "Feminist Fairytales"
+    },
+    {
+      "id": "fight-jack",
+      "title": "Fight Jack"
+    },
+    {
+      "id": "fireside-canada",
+      "title": "Fireside Canada"
+    },
+    {
+      "id": "flash-gordon-and-buck-rogers-radio-adventurers",
+      "title": "Flash Gordon and Buck Rogers Radio Adventurers"
+    },
+    {
+      "id": "flashover",
+      "title": "Flashover"
+    },
+    {
+      "id": "flula-makes-five",
+      "title": "Flula Makes Five"
+    },
+    {
+      "id": "folxlore",
+      "title": "Folxlore"
+    },
+    {
+      "id": "for-king-and-country",
+      "title": "For King and Country"
+    },
+    {
+      "id": "forbidden-cassettes-consummation",
+      "title": "FORBIDDEN CASSETTES: CONSUMMATION"
+    },
+    {
+      "id": "forest-404",
+      "title": "Forest 404"
+    },
+    {
+      "id": "forged-bonds",
+      "title": "Forged Bonds"
+    },
+    {
+      "id": "frequency-a-sci-fi-horror-audio-drama",
+      "title": "Frequency - A Sci-Fi Horror Audio Drama"
+    },
+    {
+      "id": "fresh-meat",
+      "title": "Fresh Meat"
+    },
+    {
+      "id": "friday-knight-fights",
+      "title": "Friday Knight Fights"
+    },
+    {
+      "id": "from-an-island",
+      "title": "From An Island"
+    },
+    {
+      "id": "from-now",
+      "title": "From Now"
+    },
+    {
+      "id": "from-the-depths",
+      "title": "From the Depths"
+    },
+    {
+      "id": "from-within-a-tale-of-the-macabre",
+      "title": "From Within: A Tale of the Macabre"
+    },
+    {
+      "id": "futurepast",
+      "title": "FuturePast"
+    },
+    {
+      "id": "gabriela-the-inn-between",
+      "title": "Gabriela & The Inn Between"
+    },
+    {
+      "id": "garden-plots-with-skeletor",
+      "title": "Garden Plots with Skeletor"
+    },
+    {
+      "id": "gather-the-suspects",
+      "title": "Gather The Suspects"
+    },
+    {
+      "id": "gertrude-stunt-girl-zombie-killer",
+      "title": "Gertrude Stunt Girl Zombie Killer"
+    },
+    {
+      "id": "ghost-hunt-pacific",
+      "title": "Ghost Hunt Pacific"
+    },
+    {
+      "id": "ghost-wax",
+      "title": "Ghost Wax"
+    },
+    {
+      "id": "ghostwriter",
+      "title": "Ghostwriter"
+    },
+    {
+      "id": "girl-in-space",
+      "title": "Girl in Space"
+    },
+    {
+      "id": "girl-tales",
+      "title": "Girl Tales"
+    },
+    {
+      "id": "give-me-away",
+      "title": "Give Me Away"
+    },
+    {
+      "id": "glasgow-ghost-stories",
+      "title": "Glasgow Ghost Stories"
+    },
+    {
+      "id": "glitch-twisted-tech-tales",
+      "title": "GLITCH: Twisted Tech Tales"
+    },
+    {
+      "id": "gonsanto-industries-the-insomnia-project",
+      "title": "Gonsanto Industries: The Insomnia Project"
+    },
+    {
+      "id": "gothic-fm",
+      "title": "Gothic FM"
+    },
+    {
+      "id": "greater-boston",
+      "title": "Greater Boston"
+    },
+    {
+      "id": "greenhouse",
+      "title": "Greenhouse"
+    },
+    {
+      "id": "grim-death-and-bill-the-electrocuted-criminal",
+      "title": "Grim Death and Bill the Electrocuted Criminal"
+    },
+    {
+      "id": "grounds-a-blackcast",
+      "title": "Grounds: A Blackcast"
+    },
+    {
+      "id": "halcyon-the-book-of-paimon",
+      "title": "Halcyon: The Book Of Paimon"
+    },
+    {
+      "id": "hallway-to-nowhere",
+      "title": "Hallway To Nowhere"
+    },
+    {
+      "id": "hannahpocalypse",
+      "title": "Hannahpocalypse"
+    },
+    {
+      "id": "happy-we-know-it",
+      "title": "HAPPY & WE KNOW IT"
+    },
+    {
+      "id": "harbor",
+      "title": "Harbor"
+    },
+    {
+      "id": "haunted-house-flippers",
+      "title": "Haunted House Flippers"
+    },
+    {
+      "id": "haunted-the-audio-drama",
+      "title": "HAUNTED: The Audio Drama"
+    },
+    {
+      "id": "havoc-town",
+      "title": "Havoc Town"
+    },
+    {
+      "id": "heads-will-roll",
+      "title": "Heads Will Roll"
+    },
+    {
+      "id": "heartglass",
+      "title": "Heartglass"
+    },
+    {
+      "id": "hearthbound-an-untelling-of-the-odyssey",
+      "title": "Hearthbound: An Untelling of the Odyssey"
+    },
+    {
+      "id": "hearthfall-a-dark-fantasy-audio-drama",
+      "title": "Hearthfall: A Dark Fantasy Audio Drama"
+    },
+    {
+      "id": "hellhound-country",
+      "title": "Hellhound Country"
+    },
+    {
+      "id": "hello-from-the-hallowoods",
+      "title": "Hello From The Hallowoods"
+    },
+    {
+      "id": "hello-from-the-magic-tavern",
+      "title": "Hello From The Magic Tavern"
+    },
+    {
+      "id": "hemophobia",
+      "title": "HEMOPHOBIA"
+    },
+    {
+      "id": "heroics",
+      "title": "Heroics"
+    },
+    {
+      "id": "hi-nay",
+      "title": "Hi Nay"
+    },
+    {
+      "id": "hiker-gothic",
+      "title": "Hiker Gothic"
+    },
+    {
+      "id": "hindsight-the-fracture",
+      "title": "Hindsight- The Fracture"
+    },
+    {
+      "id": "hit-job",
+      "title": "Hit Job"
+    },
+    {
+      "id": "hit-the-bricks",
+      "title": "Hit the Bricks"
+    },
+    {
+      "id": "hollow",
+      "title": "Hollow"
+    },
+    {
+      "id": "hollow-disciple",
+      "title": "Hollow Disciple"
+    },
+    {
+      "id": "homecoming",
+      "title": "Homecoming"
+    },
+    {
+      "id": "homicide-at-heavensgate",
+      "title": "Homicide at Heavensgate"
+    },
+    {
+      "id": "horror-eternal",
+      "title": "HORROR ETERNAL"
+    },
+    {
+      "id": "hot-white-heist",
+      "title": "Hot White Heist"
+    },
+    {
+      "id": "how-i-died",
+      "title": "How I Died"
+    },
+    {
+      "id": "how-it-falls-apart",
+      "title": "How It Falls Apart"
+    },
+    {
+      "id": "how-to-start-a-cult",
+      "title": "How to Start a Cult"
+    },
+    {
+      "id": "how-to-win-friends-and-disappear-people",
+      "title": "How to Win Friends and Disappear People"
+    },
+    {
+      "id": "hubris-a-24-hour-podcast-project",
+      "title": "Hubris: A 24-Hour Podcast Project"
+    },
+    {
+      "id": "hunted",
+      "title": "Hunted"
+    },
+    {
+      "id": "i-am-in-eskew",
+      "title": "I Am in Eskew"
+    },
+    {
+      "id": "impact-winter",
+      "title": "Impact Winter"
+    },
+    {
+      "id": "in-another-room",
+      "title": "In Another Room"
+    },
+    {
+      "id": "in-dying-days",
+      "title": "In Dying Days"
+    },
+    {
+      "id": "in-media-res",
+      "title": "In Media Res"
+    },
+    {
+      "id": "in-the-gloaming",
+      "title": "In The Gloaming"
+    },
+    {
+      "id": "infinitas",
+      "title": "INFINITAS"
+    },
+    {
+      "id": "infinity-frontiers",
+      "title": "Infinity Frontiers"
+    },
+    {
+      "id": "inkandneon",
+      "title": "InkandNeon"
+    },
+    {
+      "id": "inkwyrm",
+      "title": "Inkwyrm"
+    },
+    {
+      "id": "inn-between",
+      "title": "Inn Between"
+    },
+    {
+      "id": "into-the-dark-of-the-woods",
+      "title": "Into the Dark of the Woods"
+    },
+    {
+      "id": "invaded",
+      "title": "Invaded"
+    },
+    {
+      "id": "iowa-chapman-and-the-last-dog",
+      "title": "Iowa Chapman and The Last Dog"
+    },
+    {
+      "id": "its-all-in-the-cards-podcast",
+      "title": "It's All in the Cards Podcast"
+    },
+    {
+      "id": "its-grimm",
+      "title": "It's Grimm!"
+    },
+    {
+      "id": "jack-and-lou-a-gangster-love-story",
+      "title": "Jack and Lou: A Gangster Love Story"
+    },
+    {
+      "id": "jack-of-all-trades",
+      "title": "Jack of All Trades"
+    },
+    {
+      "id": "jack-valentine-vampire-detective",
+      "title": "Jack Valentine, Vampire Detective"
+    },
+    {
+      "id": "jackie-the-ripper",
+      "title": "Jackie the Ripper"
+    },
+    {
+      "id": "janus-descending",
+      "title": "Janus Descending"
+    },
+    {
+      "id": "jesus-pancake",
+      "title": "Jesus Pancake"
+    },
+    {
+      "id": "john-from-back-home",
+      "title": "John From Back Home"
+    },
+    {
+      "id": "jollyland",
+      "title": "JOLLYLAND"
+    },
+    {
+      "id": "josies-lonely-hearts-club",
+      "title": "Josie's Lonely Hearts Club"
+    },
+    {
+      "id": "kakos-industries",
+      "title": "Kakos Industries"
+    },
+    {
+      "id": "kalila-stormfires-economical-magick-services",
+      "title": "Kalila Stormfire's Economical Magick Services"
+    },
+    {
+      "id": "keep-it-steady",
+      "title": "Keep It Steady"
+    },
+    {
+      "id": "kicking-the-bucket",
+      "title": "Kicking the Bucket"
+    },
+    {
+      "id": "king-falls-am",
+      "title": "King Falls AM"
+    },
+    {
+      "id": "knifepoint-horror",
+      "title": "Knifepoint Horror"
+    },
+    {
+      "id": "kovacs-breaking-conventions",
+      "title": "Kovacs: Breaking Conventions"
+    },
+    {
+      "id": "lake-clarity",
+      "title": "Lake Clarity"
+    },
+    {
+      "id": "lands-end-a-shepherds-tale",
+      "title": "Land's End: A Shepherd's Tale"
+    },
+    {
+      "id": "last-dance",
+      "title": "Last Dance"
+    },
+    {
+      "id": "left-alone-once-more",
+      "title": "Left Alone Once More"
+    },
+    {
+      "id": "leftovers-at-the-end-of-the-world",
+      "title": "Leftovers at the End of the World"
+    },
+    {
+      "id": "legends-of-khampiohn",
+      "title": "Legends of Khampiohn"
+    },
+    {
+      "id": "less-is-morgue",
+      "title": "Less Is Morgue"
+    },
+    {
+      "id": "let-me-tell-you-about-my-murder",
+      "title": "Let Me Tell You About My Murder"
+    },
+    {
+      "id": "leylines",
+      "title": "Leylines"
+    },
+    {
+      "id": "liars-leeches",
+      "title": "Liars & Leeches"
+    },
+    {
+      "id": "life-happens-an-audio-series",
+      "title": "Life Happens - An Audio Series"
+    },
+    {
+      "id": "life-with-leo-h",
+      "title": "Life With LEO(h)"
+    },
+    {
+      "id": "lifeafter-the-message",
+      "title": "LifeAfter/The Message"
+    },
+    {
+      "id": "light-house",
+      "title": "Light House"
+    },
+    {
+      "id": "limetown",
+      "title": "Limetown"
+    },
+    {
+      "id": "liminal",
+      "title": "Liminal"
+    },
+    {
+      "id": "lisa-upside-down",
+      "title": "Lisa Upside Down"
+    },
+    {
+      "id": "listen-with-other",
+      "title": "Listen with Other"
+    },
+    {
+      "id": "little-did-i-know",
+      "title": "Little Did I Know"
+    },
+    {
+      "id": "long-night-in-egypt",
+      "title": "Long Night in Egypt"
+    },
+    {
+      "id": "long-winter-nights",
+      "title": "Long Winter Nights"
+    },
+    {
+      "id": "longtime-first-time",
+      "title": "Longtime, First Time"
+    },
+    {
+      "id": "look-up",
+      "title": "Look Up"
+    },
+    {
+      "id": "love-and-luck",
+      "title": "Love and Luck"
+    },
+    {
+      "id": "mabel",
+      "title": "Mabel"
+    },
+    {
+      "id": "machina",
+      "title": "Machina"
+    },
+    {
+      "id": "madame-magenta-sonos-mystica",
+      "title": "Madame Magenta: Sonos Mystica"
+    },
+    {
+      "id": "mage-in-the-machine",
+      "title": "Mage In The Machine"
+    },
+    {
+      "id": "magenta-presents",
+      "title": "Magenta Presents"
+    },
+    {
+      "id": "magmell",
+      "title": "Magmell"
+    },
+    {
+      "id": "malevolent",
+      "title": "Malevolent"
+    },
+    {
+      "id": "mansfield-mysteries",
+      "title": "Mansfield Mysteries"
+    },
+    {
+      "id": "margaritas-donuts",
+      "title": "Margaritas & Donuts"
+    },
+    {
+      "id": "mars-best-brisket",
+      "title": "Mars' Best Brisket"
+    },
+    {
+      "id": "marscorp",
+      "title": "MarsCorp"
+    },
+    {
+      "id": "marsfall",
+      "title": "Marsfall"
+    },
+    {
+      "id": "marvels-squirrel-girl-the-unbeatable-radio-show",
+      "title": "Marvel’s Squirrel Girl: The Unbeatable Radio Show!"
+    },
+    {
+      "id": "marvels-wastelanders",
+      "title": "Marvel's Wastelanders"
+    },
+    {
+      "id": "marvels-wolverine-the-long-night",
+      "title": "Marvel's Wolverine: The Long Night"
+    },
+    {
+      "id": "marvels-wolverine-the-lost-trail",
+      "title": "Marvel's Wolverine: The Lost Trail"
+    },
+    {
+      "id": "max-ivan-fugitives",
+      "title": "Max & Ivan: Fugitives"
+    },
+    {
+      "id": "mayfair-watchers-society",
+      "title": "Mayfair Watchers Society"
+    },
+    {
+      "id": "meet-cute-originals",
+      "title": "Meet Cute Originals"
+    },
+    {
+      "id": "mercy-a-queer-eldritch-western",
+      "title": "MERCY: A Queer Eldritch Western"
+    },
+    {
+      "id": "metra-a-climate-revolution-with-songs",
+      "title": "Metra: A Climate Revolution with Songs"
+    },
+    {
+      "id": "middle-below",
+      "title": "Middle:Below"
+    },
+    {
+      "id": "midnight-burger",
+      "title": "Midnight Burger"
+    },
+    {
+      "id": "midnight-radio",
+      "title": "Midnight Radio"
+    },
+    {
+      "id": "midst",
+      "title": "Midst"
+    },
+    {
+      "id": "mikey-and-the-garden-arch",
+      "title": "Mikey and the Garden Arch"
+    },
+    {
+      "id": "milkfish",
+      "title": "MilkFish"
+    },
+    {
+      "id": "mina-and-lucys-guide-to-slaying-dracula",
+      "title": "Mina and Lucy's Guide to Slaying Dracula"
+    },
+    {
+      "id": "mirrors",
+      "title": "Mirrors"
+    },
+    {
+      "id": "mission-rejected",
+      "title": "Mission Rejected"
+    },
+    {
+      "id": "mission-to-zyxx",
+      "title": "Mission To Zyxx"
+    },
+    {
+      "id": "mockery-manor",
+      "title": "Mockery Manor"
+    },
+    {
+      "id": "modes-of-thought-in-anterran-literature",
+      "title": "Modes of Thought in Anterran Literature"
+    },
+    {
+      "id": "mondaze",
+      "title": "MONDAZE"
+    },
+    {
+      "id": "moonbase-theta-out",
+      "title": "Moonbase Theta, Out"
+    },
+    {
+      "id": "moonface",
+      "title": "MOONFACE"
+    },
+    {
+      "id": "moose-on-a-highway",
+      "title": "Moose on a Highway"
+    },
+    {
+      "id": "mordeo",
+      "title": "Mordeo"
+    },
+    {
+      "id": "moriarty-the-devils-game",
+      "title": "Moriarty: The Devil's Game"
+    },
+    {
+      "id": "mortuus-est-legacy",
+      "title": "Mortuus Est: Legacy"
+    },
+    {
+      "id": "motherhacker",
+      "title": "Motherhacker"
+    },
+    {
+      "id": "murder-we-spoke",
+      "title": "Murder, We Spoke"
+    },
+    {
+      "id": "my-date-with-lainey-lee",
+      "title": "My Date With Lainey Lee"
+    },
+    {
+      "id": "mysteries-of-sparrow-crest",
+      "title": "Mysteries of Sparrow Crest"
+    },
+    {
+      "id": "neighbourly",
+      "title": "Neighbourly"
+    },
+    {
+      "id": "neon-inkwell",
+      "title": "Neon Inkwell"
+    },
+    {
+      "id": "neon-nights-the-arcane-files-of-jack-tracer",
+      "title": "Neon Nights: The Arcane Files of Jack Tracer"
+    },
+    {
+      "id": "never-enough",
+      "title": "Never Enough"
+    },
+    {
+      "id": "newts",
+      "title": "Newts!"
+    },
+    {
+      "id": "next-stop",
+      "title": "NEXT STOP"
+    },
+    {
+      "id": "nicked",
+      "title": "Nicked"
+    },
+    {
+      "id": "nocturne-cipher",
+      "title": "Nocturne Cipher"
+    },
+    {
+      "id": "not-quite-dead",
+      "title": "Not Quite Dead"
+    },
+    {
+      "id": "null-void",
+      "title": "Null/Void"
+    },
+    {
+      "id": "oblivity",
+      "title": "Oblivity"
+    },
+    {
+      "id": "observable-radio",
+      "title": "Observable Radio"
+    },
+    {
+      "id": "octobers-children",
+      "title": "October's Children"
+    },
+    {
+      "id": "of-the-sword",
+      "title": "Of The Sword"
+    },
+    {
+      "id": "old-gods-of-appalachia",
+      "title": "Old Gods of Appalachia"
+    },
+    {
+      "id": "on-asphalt-bones",
+      "title": "On Asphalt Bones"
+    },
+    {
+      "id": "on-the-roman-nose",
+      "title": "On the Roman Nose"
+    },
+    {
+      "id": "once-upon-a-wasteland-a-fallout-story",
+      "title": "Once Upon A Wasteland: A Fallout Story"
+    },
+    {
+      "id": "only-human-bound",
+      "title": "Only Human: BOUND"
+    },
+    {
+      "id": "orphan-black-the-next-chapter",
+      "title": "Orphan Black: The Next Chapter"
+    },
+    {
+      "id": "osciluna-lounge-stories",
+      "title": "Osciluna Lounge Stories"
+    },
+    {
+      "id": "ostium-podcast",
+      "title": "Ostium Podcast"
+    },
+    {
+      "id": "our-fair-city",
+      "title": "Our Fair City"
+    },
+    {
+      "id": "out-of-place",
+      "title": "Out of Place"
+    },
+    {
+      "id": "overbrook",
+      "title": "Overbrook"
+    },
+    {
+      "id": "oz-9",
+      "title": "Oz 9"
+    },
+    {
+      "id": "paired",
+      "title": "Paired"
+    },
+    {
+      "id": "palimpsest",
+      "title": "Palimpsest"
+    },
+    {
+      "id": "paradise-cab",
+      "title": "Paradise Cab"
+    },
+    {
+      "id": "paralyzed",
+      "title": "Paralyzed"
+    },
+    {
+      "id": "paranormal-passion",
+      "title": "Paranormal Passion"
+    },
+    {
+      "id": "parkdale-haunt",
+      "title": "Parkdale Haunt"
+    },
+    {
+      "id": "passenger-list",
+      "title": "Passenger List"
+    },
+    {
+      "id": "perswayssick-radio-unearthly-comedy",
+      "title": "Perswayssick Radio: Unearthly Comedy"
+    },
+    {
+      "id": "petrified",
+      "title": "Petrified"
+    },
+    {
+      "id": "poe-evermore",
+      "title": "Poe Evermore"
+    },
+    {
+      "id": "point-mystic",
+      "title": "Point Mystic"
+    },
+    {
+      "id": "polybius-protocol",
+      "title": "Polybius Protocol"
+    },
+    {
+      "id": "pret-101",
+      "title": "Pret 101"
+    },
+    {
+      "id": "priced-to-sell",
+      "title": "Priced to Sell"
+    },
+    {
+      "id": "primordial-deep",
+      "title": "Primordial Deep"
+    },
+    {
+      "id": "professionally-possessed",
+      "title": "Professionally Possessed"
+    },
+    {
+      "id": "project-bla-ckfisk",
+      "title": "Project Bläckfisk"
+    },
+    {
+      "id": "project-daydream",
+      "title": "Project: Daydream"
+    },
+    {
+      "id": "project-foxtrot",
+      "title": "Project Foxtrot"
+    },
+    {
+      "id": "proxy-zone-reboot",
+      "title": "Proxy Zone Reboot"
+    },
+    {
+      "id": "purgatory-missouri",
+      "title": "Purgatory, Missouri"
+    },
+    {
+      "id": "quaranteend",
+      "title": "Quaranteen'd"
+    },
+    {
+      "id": "quiet-part-loud",
+      "title": "Quiet Part Loud"
+    },
+    {
+      "id": "rabbits",
+      "title": "Rabbits"
+    },
+    {
+      "id": "radio-outcast",
+      "title": "RADIO: Outcast"
+    },
+    {
+      "id": "ramon-fears-terror-tapes",
+      "title": "Ramon Fear's Terror Tapes"
+    },
+    {
+      "id": "rapture-518",
+      "title": "Rapture 518"
+    },
+    {
+      "id": "re-dracula",
+      "title": "Re: Dracula"
+    },
+    {
+      "id": "red-for-revolution",
+      "title": "Red for Revolution"
+    },
+    {
+      "id": "red-frontier",
+      "title": "Red Frontier"
+    },
+    {
+      "id": "red-rhino",
+      "title": "Red Rhino"
+    },
+    {
+      "id": "red-riding-hoods",
+      "title": "Red Riding Hoods"
+    },
+    {
+      "id": "red-valley",
+      "title": "Red Valley"
+    },
+    {
+      "id": "regina-prime",
+      "title": "Regina Prime"
+    },
+    {
+      "id": "relativity",
+      "title": "RELATIVITY"
+    },
+    {
+      "id": "relying-on-benjamins",
+      "title": "Relying On Benjamins"
+    },
+    {
+      "id": "retreat-comedy",
+      "title": "RETREAT COMEDY"
+    },
+    {
+      "id": "rex-rivetter-private-eye",
+      "title": "Rex Rivetter: Private Eye"
+    },
+    {
+      "id": "rock-scree-drownt",
+      "title": "Rock Scree Drownt"
+    },
+    {
+      "id": "ronstadt",
+      "title": "Ronstadt"
+    },
+    {
+      "id": "roommate-from-hell",
+      "title": "Roommate From Hell"
+    },
+    {
+      "id": "roommates",
+      "title": "Roommates"
+    },
+    {
+      "id": "rosannas-secret",
+      "title": "Rosanna's Secret"
+    },
+    {
+      "id": "route-6-6",
+      "title": "Route 6.6"
+    },
+    {
+      "id": "sacred-hearts",
+      "title": "Sacred Hearts"
+    },
+    {
+      "id": "saigon",
+      "title": "Saigon"
+    },
+    {
+      "id": "salmons-run",
+      "title": "Salmon's Run"
+    },
+    {
+      "id": "sandra",
+      "title": "Sandra"
+    },
+    {
+      "id": "sascha-martins-ripping-news",
+      "title": "Sascha Martin's Ripping News"
+    },
+    {
+      "id": "saturns-return",
+      "title": "Saturn's Return"
+    },
+    {
+      "id": "sayer",
+      "title": "SAYER"
+    },
+    {
+      "id": "scp-archives",
+      "title": "SCP Archives"
+    },
+    {
+      "id": "second-shift",
+      "title": "Second Shift"
+    },
+    {
+      "id": "secrets-of-harridge-house",
+      "title": "Secrets of Harridge House"
+    },
+    {
+      "id": "sequestered-an-audio-drama",
+      "title": "Sequestered: An Audio Drama"
+    },
+    {
+      "id": "set-sail",
+      "title": "Set Sail!"
+    },
+    {
+      "id": "shadows-of-a-dark-past",
+      "title": "Shadows of a Dark Past"
+    },
+    {
+      "id": "shelar-and-the-scavengers",
+      "title": "Shelar and the Scavengers"
+    },
+    {
+      "id": "shelterwood",
+      "title": "Shelterwood"
+    },
+    {
+      "id": "sherlock-co",
+      "title": "Sherlock & Co."
+    },
+    {
+      "id": "shipworm",
+      "title": "Shipworm"
+    },
+    {
+      "id": "sidequesting",
+      "title": "Sidequesting"
+    },
+    {
+      "id": "signed-in-blood",
+      "title": "Signed in Blood"
+    },
+    {
+      "id": "silkhaven-pulp",
+      "title": "Silkhaven Pulp"
+    },
+    {
+      "id": "six-minutes",
+      "title": "Six Minutes"
+    },
+    {
+      "id": "small-victories",
+      "title": "Small Victories"
+    },
+    {
+      "id": "sojourns-in-slumberland",
+      "title": "Sojourns in Slumberland"
+    },
+    {
+      "id": "solar",
+      "title": "Solar"
+    },
+    {
+      "id": "someone-dies-in-this-elevator",
+      "title": "Someone Dies In This Elevator"
+    },
+    {
+      "id": "somewhere-city",
+      "title": "Somewhere City"
+    },
+    {
+      "id": "sonic-cinema-productions",
+      "title": "Sonic Cinema Productions"
+    },
+    {
+      "id": "sonic-the-hedgehog-presents-the-chaotix-casefiles",
+      "title": "Sonic the Hedgehog Presents: The Chaotix Casefiles"
+    },
+    {
+      "id": "sorry-about-the-murder",
+      "title": "Sorry About The Murder"
+    },
+    {
+      "id": "sos-humanity-earths-last-distress-signal",
+      "title": "SOS Humanity: Earth's Last Distress Signal"
+    },
+    {
+      "id": "spectre",
+      "title": "Spectre"
+    },
+    {
+      "id": "spiked-eggs-podcast",
+      "title": "Spiked Eggs Podcast"
+    },
+    {
+      "id": "spines-podcast",
+      "title": "Spines"
+    },
+    {
+      "id": "spirit-box-radio",
+      "title": "Spirit Box Radio"
+    },
+    {
+      "id": "splintered-caravan",
+      "title": "Splintered Caravan"
+    },
+    {
+      "id": "stanland",
+      "title": "StanLand"
+    },
+    {
+      "id": "starcalled",
+      "title": "Starcalled"
+    },
+    {
+      "id": "starfall",
+      "title": "Starfall"
+    },
+    {
+      "id": "startripper",
+      "title": "StarTripper!!"
+    },
+    {
+      "id": "station-13",
+      "title": "Station 13"
+    },
+    {
+      "id": "station-151",
+      "title": "Station 151"
+    },
+    {
+      "id": "station-arcadia",
+      "title": "Station Arcadia"
+    },
+    {
+      "id": "station-blue",
+      "title": "Station Blue"
+    },
+    {
+      "id": "station-to-station",
+      "title": "Station to Station"
+    },
+    {
+      "id": "steal-the-stars",
+      "title": "Steal the Stars"
+    },
+    {
+      "id": "stellar-firma",
+      "title": "Stellar Firma"
+    },
+    {
+      "id": "storm-runner-the-ezz-bennil-files",
+      "title": "Storm Runner - The Ezz Bennil Files"
+    },
+    {
+      "id": "story",
+      "title": "Story"
+    },
+    {
+      "id": "strange-new-worlds-and-spaced-out-tales",
+      "title": "Strange New Worlds And Spaced Out Tales"
+    },
+    {
+      "id": "strawberry-spring",
+      "title": "Strawberry Spring"
+    },
+    {
+      "id": "submitted-for-the-approval-of-the-midnight-pals",
+      "title": "Submitted for the Approval of the Midnight Pals"
+    },
+    {
+      "id": "sumeria",
+      "title": "Sumeria"
+    },
+    {
+      "id": "super-suits",
+      "title": "Super Suits"
+    },
+    {
+      "id": "superhuman-public-radio",
+      "title": "Superhuman Public Radio"
+    },
+    {
+      "id": "supernatural-sexuality-with-dr-seabrooke",
+      "title": "Supernatural Sexuality with Dr Seabrooke"
+    },
+    {
+      "id": "supreme-the-battle-for-roe",
+      "title": "Supreme: The Battle for Roe"
+    },
+    {
+      "id": "syntax",
+      "title": "Syntax"
+    },
+    {
+      "id": "tagged",
+      "title": "TAGGED"
+    },
+    {
+      "id": "tales-from-the-aletheian-society",
+      "title": "Tales from the Aletheian Society"
+    },
+    {
+      "id": "tales-from-wolf-mountain",
+      "title": "Tales From Wolf Mountain"
+    },
+    {
+      "id": "tales-to-terrify",
+      "title": "Tales to Terrify"
+    },
+    {
+      "id": "tanis",
+      "title": "TANIS"
+    },
+    {
+      "id": "tapes-from-beyond",
+      "title": "Tapes From Beyond"
+    },
+    {
+      "id": "tell-no-tales",
+      "title": "Tell No Tales"
+    },
+    {
+      "id": "temujin",
+      "title": "Temujin"
+    },
+    {
+      "id": "the-aberrant-report",
+      "title": "The Aberrant Report"
+    },
+    {
+      "id": "the-accursed",
+      "title": "The Accursed"
+    },
+    {
+      "id": "the-adventures-of-sir-rodney-the-root",
+      "title": "The Adventures of Sir Rodney the Root"
+    },
+    {
+      "id": "the-amelia-project",
+      "title": "The Amelia Project"
+    },
+    {
+      "id": "the-angel-of-vine",
+      "title": "The Angel of Vine"
+    },
+    {
+      "id": "the-antiquarium-of-sinister-happenings",
+      "title": "The Antiquarium of Sinister Happenings"
+    },
+    {
+      "id": "the-antique-shop",
+      "title": "The McIlwraith Statements"
+    },
+    {
+      "id": "the-archers",
+      "title": "The Archers"
+    },
+    {
+      "id": "the-attic-monologues",
+      "title": "The Attic Monologues"
+    },
+    {
+      "id": "the-awkward-screw",
+      "title": "The Awkward Screw"
+    },
+    {
+      "id": "the-ballad-of-anne-mary",
+      "title": "The Ballad Of Anne & Mary"
+    },
+    {
+      "id": "the-beacon",
+      "title": "The Beacon"
+    },
+    {
+      "id": "the-bekkoning-noizemaker",
+      "title": "The Bekkoning Noizemaker"
+    },
+    {
+      "id": "the-big-loop",
+      "title": "The Big Loop"
+    },
+    {
+      "id": "the-black-tapes",
+      "title": "The Black Tapes"
+    },
+    {
+      "id": "the-blood-moone-files",
+      "title": "The Blood & Moone files"
+    },
+    {
+      "id": "the-bonneville-game",
+      "title": "The Bonneville Game"
+    },
+    {
+      "id": "the-bridge",
+      "title": "The Bridge"
+    },
+    {
+      "id": "the-bright-sessions",
+      "title": "The Bright Sessions"
+    },
+    {
+      "id": "the-burned-photo",
+      "title": "The Burned Photo"
+    },
+    {
+      "id": "the-bystanders",
+      "title": "The Bystanders"
+    },
+    {
+      "id": "the-cal-rowe-casefiles",
+      "title": "The Cal Rowe Casefiles"
+    },
+    {
+      "id": "the-call-of-the-flame",
+      "title": "The Call of the Flame"
+    },
+    {
+      "id": "the-call-of-the-void",
+      "title": "The Call of the Void"
+    },
+    {
+      "id": "the-callisto-protocol-helix-station",
+      "title": "The Callisto Protocol: Helix Station"
+    },
+    {
+      "id": "the-carrington-doctrine",
+      "title": "The Carrington Doctrine"
+    },
+    {
+      "id": "the-case-within",
+      "title": "The Case Within"
+    },
+    {
+      "id": "the-cellar-letters",
+      "title": "The Cellar Letters"
+    },
+    {
+      "id": "the-chronicles-of-astrimos",
+      "title": "The Chronicles of Astrimos"
+    },
+    {
+      "id": "the-cipher",
+      "title": "The Cipher"
+    },
+    {
+      "id": "the-cleansed",
+      "title": "The Cleansed"
+    },
+    {
+      "id": "the-cold-plunge",
+      "title": "The Cold Plunge"
+    },
+    {
+      "id": "the-crime-at-camp-ashwood",
+      "title": "The Crime at Camp Ashwood"
+    },
+    {
+      "id": "the-cryptonaturalist",
+      "title": "The Cryptonaturalist"
+    },
+    {
+      "id": "the-curse-of-the-lake-house",
+      "title": "The Curse of The Lake House"
+    },
+    {
+      "id": "the-custodians",
+      "title": "The Custodians"
+    },
+    {
+      "id": "the-dead-letter-office-of-somewhere-ohio",
+      "title": "the Dead Letter Office of Somewhere, Ohio"
+    },
+    {
+      "id": "the-dead-letters-podcast",
+      "title": "The Dead Letters Podcast"
+    },
+    {
+      "id": "the-deca-tapes",
+      "title": "The Deca Tapes"
+    },
+    {
+      "id": "the-devils-plaything",
+      "title": "The Devil's Plaything"
+    },
+    {
+      "id": "the-dex-legacy",
+      "title": "The Dex Legacy"
+    },
+    {
+      "id": "the-dispossessed",
+      "title": "The Dispossessed"
+    },
+    {
+      "id": "the-dolos-project",
+      "title": "The Dolos Project"
+    },
+    {
+      "id": "the-doorstep-project",
+      "title": "The Doorstep Project"
+    },
+    {
+      "id": "the-dragoning",
+      "title": "The Dragoning"
+    },
+    {
+      "id": "the-earth-collective",
+      "title": "The Earth Collective"
+    },
+    {
+      "id": "the-edge-of-sleep",
+      "title": "The Edge of Sleep"
+    },
+    {
+      "id": "the-elmwood-strain",
+      "title": "The Elmwood Strain"
+    },
+    {
+      "id": "the-far-meridian",
+      "title": "The Far Meridian"
+    },
+    {
+      "id": "the-fitzroy-diaries",
+      "title": "The Fitzroy Diaries"
+    },
+    {
+      "id": "the-fog-city-mysteries-in-color",
+      "title": "The Fog City Mysteries: IN COLOR!"
+    },
+    {
+      "id": "the-foundation-dossier",
+      "title": "The Foundation Dossier"
+    },
+    {
+      "id": "the-fourth-ambit",
+      "title": "The Fourth Ambit"
+    },
+    {
+      "id": "the-foxes-of-hydesville",
+      "title": "The Foxes of Hydesville"
+    },
+    {
+      "id": "the-goblet-wire",
+      "title": "The Goblet Wire"
+    },
+    {
+      "id": "the-godfrey-audio-guide",
+      "title": "The Godfrey Audio Guide"
+    },
+    {
+      "id": "the-gospel-of-haven",
+      "title": "The Gospel of Haven"
+    },
+    {
+      "id": "the-great-chameleon-war",
+      "title": "The Great Chameleon War"
+    },
+    {
+      "id": "the-green-horizon",
+      "title": "The Green Horizon"
+    },
+    {
+      "id": "the-grey-rooms",
+      "title": "The Grey Rooms"
+    },
+    {
+      "id": "the-grimoire-diaries",
+      "title": "The Grimoire Diaries"
+    },
+    {
+      "id": "the-hand-of-brass",
+      "title": "The Hand of Brass"
+    },
+    {
+      "id": "the-harbingers",
+      "title": "The Harbingers"
+    },
+    {
+      "id": "the-harrowing",
+      "title": "The Harrowing"
+    },
+    {
+      "id": "the-harrowing-of-minerva-damson",
+      "title": "The Harrowing of Minerva Damson"
+    },
+    {
+      "id": "the-hatred-a-supernatural-thriller-miniseries",
+      "title": "The Hatred | A Supernatural Thriller Miniseries"
+    },
+    {
+      "id": "the-heart-bleeds-lavender",
+      "title": "The Heart Bleeds Lavender"
+    },
+    {
+      "id": "the-heart-pyre",
+      "title": "The Heart Pyre"
+    },
+    {
+      "id": "the-henchmans-journal",
+      "title": "The Henchman's Journal"
+    },
+    {
+      "id": "the-heresies-of-radulf-burntwine",
+      "title": "The Heresies Of Radulf Burntwine"
+    },
+    {
+      "id": "the-heroes-helpline",
+      "title": "The Heroes Helpline"
+    },
+    {
+      "id": "the-heron",
+      "title": "The Heron"
+    },
+    {
+      "id": "the-hidden-heart",
+      "title": "The Hidden Heart"
+    },
+    {
+      "id": "the-hidden-people",
+      "title": "The Hidden People"
+    },
+    {
+      "id": "the-hollow",
+      "title": "The Hollow"
+    },
+    {
+      "id": "the-horror-of-dolores-roach",
+      "title": "The Horror of Dolores Roach"
+    },
+    {
+      "id": "the-hotel",
+      "title": "The Hotel"
+    },
+    {
+      "id": "the-hyacinth-disaster",
+      "title": "The Hyacinth Disaster"
+    },
+    {
+      "id": "the-imperfection",
+      "title": "The Imperfection"
+    },
+    {
+      "id": "the-inn-at-the-end-of-things",
+      "title": "The Inn at the End of Things"
+    },
+    {
+      "id": "the-invenios-expeditions",
+      "title": "The Invenios Expeditions"
+    },
+    {
+      "id": "the-kringles",
+      "title": "The Kringles"
+    },
+    {
+      "id": "the-ladies-of-burdoo-springs",
+      "title": "The Ladies of Burdoo Springs"
+    },
+    {
+      "id": "the-land-whale-murders",
+      "title": "The Land Whale Murders"
+    },
+    {
+      "id": "the-last-city",
+      "title": "The Last City"
+    },
+    {
+      "id": "the-last-movie",
+      "title": "The Last Movie"
+    },
+    {
+      "id": "the-lavender-tavern",
+      "title": "The Lavender Tavern"
+    },
+    {
+      "id": "the-left-right-game",
+      "title": "The Left Right Game"
+    },
+    {
+      "id": "the-leviathan-chronicles",
+      "title": "The Leviathan Chronicles"
+    },
+    {
+      "id": "the-liberty-podcast",
+      "title": "The Liberty Podcast"
+    },
+    {
+      "id": "the-liminal-lands",
+      "title": "The Liminal Lands"
+    },
+    {
+      "id": "the-lost-cat-podcast",
+      "title": "The Lost Cat Podcast"
+    },
+    {
+      "id": "the-lost-channel",
+      "title": "The Lost Channel"
+    },
+    {
+      "id": "the-lost-son",
+      "title": "The Lost Son"
+    },
+    {
+      "id": "the-love-talker",
+      "title": "The Love Talker"
+    },
+    {
+      "id": "the-lovecraft-covenant",
+      "title": "The Lovecraft Covenant"
+    },
+    {
+      "id": "the-lovecraft-investigations",
+      "title": "The Lovecraft Investigations"
+    },
+    {
+      "id": "the-madness-of-chartrulean",
+      "title": "The Madness of Chartrulean"
+    },
+    {
+      "id": "the-magnus-archives",
+      "title": "The Magnus Archives"
+    },
+    {
+      "id": "the-magnus-protocol",
+      "title": "The Magnus Protocol"
+    },
+    {
+      "id": "the-maiden-and-the-dragon",
+      "title": "The Maiden and The Dragon"
+    },
+    {
+      "id": "the-mantawauk-caves",
+      "title": "The Mantawauk Caves"
+    },
+    {
+      "id": "the-marksbury-incident",
+      "title": "The Marksbury Incident"
+    },
+    {
+      "id": "the-marriage-show",
+      "title": "The Marriage Show"
+    },
+    {
+      "id": "the-mechadova-engine",
+      "title": "The Mechadova Engine"
+    },
+    {
+      "id": "the-midnight-hour",
+      "title": "The Midnight Hour"
+    },
+    {
+      "id": "the-milkman-of-st-gaffs",
+      "title": "The Milkman of St. Gaff's"
+    },
+    {
+      "id": "the-mistholme-museum-of-mystery-morbidity-and-mortality",
+      "title": "The Mistholme Museum of Mystery, Morbidity, and Mortality"
+    },
+    {
+      "id": "the-montana-incident",
+      "title": "The Montana Incident"
+    },
+    {
+      "id": "the-nebulous-saga",
+      "title": "The Nebulous Saga"
+    },
+    {
+      "id": "the-nephilim-hunter",
+      "title": "The Nephilim Hunter"
+    },
+    {
+      "id": "the-next-5-minutes",
+      "title": "The Next 5 Minutes"
+    },
+    {
+      "id": "the-night-post",
+      "title": "The Night Post"
+    },
+    {
+      "id": "the-night-visitor",
+      "title": "The Night Visitor"
+    },
+    {
+      "id": "the-nightstar-specters",
+      "title": "The Nightstar Specters"
+    },
+    {
+      "id": "the-northwood-project",
+      "title": "The Northwood Project"
+    },
+    {
+      "id": "the-nosleep-podcast",
+      "title": "The NoSleep Podcast"
+    },
+    {
+      "id": "the-once-and-future-nerd",
+      "title": "The Once and Future Nerd"
+    },
+    {
+      "id": "the-orbiting-human-circus",
+      "title": "The Orbiting Human Circus"
+    },
+    {
+      "id": "the-orphans",
+      "title": "The Orphans"
+    },
+    {
+      "id": "the-other-stories-sci-fi-horror-thriller-wtf-stories",
+      "title": "The Other Stories | Sci-Fi, Horror, Thriller, WTF Stories"
+    },
+    {
+      "id": "the-override-protocol",
+      "title": "The Override Protocol"
+    },
+    {
+      "id": "the-pancake-eating-robots",
+      "title": "The Pancake Eating Robots"
+    },
+    {
+      "id": "the-pasithea-powder",
+      "title": "The Pasithea Powder"
+    },
+    {
+      "id": "the-patron-saint-of-suicides",
+      "title": "The Patron Saint of Suicides"
+    },
+    {
+      "id": "the-peek-with-samuel-pepys",
+      "title": "The Peek with Samuel Pepys"
+    },
+    {
+      "id": "the-pensive-tower",
+      "title": "The Pensive Tower"
+    },
+    {
+      "id": "the-penumbra-podcast",
+      "title": "The Penumbra Podcast"
+    },
+    {
+      "id": "the-phantom-of-ocean-park",
+      "title": "The Phantom of Ocean Park"
+    },
+    {
+      "id": "the-phenomenon",
+      "title": "The Phenomenon"
+    },
+    {
+      "id": "the-phone-booth",
+      "title": "The Phone Booth"
+    },
+    {
+      "id": "the-polybius-conspiracy",
+      "title": "The Polybius Conspiracy"
+    },
+    {
+      "id": "the-prickwillow-papers",
+      "title": "The Prickwillow Papers"
+    },
+    {
+      "id": "the-program-audio-series",
+      "title": "The Program audio series"
+    },
+    {
+      "id": "the-radio-adventures-of-dr-floyd",
+      "title": "The Radio Adventures of Dr. Floyd"
+    },
+    {
+      "id": "the-rapscallion-agency",
+      "title": "The Rapscallion Agency"
+    },
+    {
+      "id": "the-rats-under-eden-an-audio-drama-musical",
+      "title": "The Rats Under Eden: An Audio Drama Musical"
+    },
+    {
+      "id": "the-realm-tree",
+      "title": "The Realm Tree"
+    },
+    {
+      "id": "the-red-panda-adventures",
+      "title": "The Red Panda Adventures"
+    },
+    {
+      "id": "the-rez",
+      "title": "The Rez"
+    },
+    {
+      "id": "the-richard-osman-fan-club",
+      "title": "The Richard Osman Fan Club"
+    },
+    {
+      "id": "the-road-of-shadows",
+      "title": "The Road of Shadows"
+    },
+    {
+      "id": "the-romcom-formula",
+      "title": "The Romcom Formula"
+    },
+    {
+      "id": "the-scent-of-gravity",
+      "title": "The Scent of Gravity"
+    },
+    {
+      "id": "the-second-oil-age",
+      "title": "The Second Oil Age"
+    },
+    {
+      "id": "the-secret-of-st-kilda",
+      "title": "The Secret of St Kilda"
+    },
+    {
+      "id": "the-seven-planes",
+      "title": "The Seven Planes"
+    },
+    {
+      "id": "the-shadowbrook-files",
+      "title": "The Shadowbrook Files"
+    },
+    {
+      "id": "the-shelf-life-a-podcast-sitcom",
+      "title": "The Shelf Life: A Podcast Sitcom"
+    },
+    {
+      "id": "the-sheridan-tapes",
+      "title": "The Sheridan Tapes"
+    },
+    {
+      "id": "the-sherwood-society",
+      "title": "The Sherwood Society"
+    },
+    {
+      "id": "the-silt-verses",
+      "title": "The Silt Verses"
+    },
+    {
+      "id": "the-single-squad",
+      "title": "The Single Squad"
+    },
+    {
+      "id": "the-six-disappearances-of-ella-mccray",
+      "title": "The Six Disappearances of Ella McCray"
+    },
+    {
+      "id": "the-soft-boiled-detective",
+      "title": "The Soft-Boiled Detective"
+    },
+    {
+      "id": "the-sojourn",
+      "title": "The Sojourn"
+    },
+    {
+      "id": "the-sound-museum",
+      "title": "The Sound Museum"
+    },
+    {
+      "id": "the-stench-of-adventure",
+      "title": "The Stench of Adventure"
+    },
+    {
+      "id": "the-storage-papers",
+      "title": "The Storage Papers"
+    },
+    {
+      "id": "the-strange-case-of-starship-iris",
+      "title": "The Strange Case of Starship Iris"
+    },
+    {
+      "id": "the-strata",
+      "title": "The Strata"
+    },
+    {
+      "id": "the-subjective-truth",
+      "title": "The Subjective Truth"
+    },
+    {
+      "id": "the-sulphuric-secrets",
+      "title": "The Sulphuric Secrets"
+    },
+    {
+      "id": "the-supernatural-protection-company",
+      "title": "The Supernatural Protection Company"
+    },
+    {
+      "id": "the-susie-house",
+      "title": "The Susie House"
+    },
+    {
+      "id": "the-technomancy-project",
+      "title": "The Technomancy Project"
+    },
+    {
+      "id": "the-thieves-guild",
+      "title": "The Thieves Guild"
+    },
+    {
+      "id": "the-third-rock-theatre-of-the-air",
+      "title": "The Third-Rock Theatre of the Air"
+    },
+    {
+      "id": "the-thrilling-adventure-hour",
+      "title": "The Thrilling Adventure Hour"
+    },
+    {
+      "id": "the-tower",
+      "title": "The Tower"
+    },
+    {
+      "id": "the-town-whispers",
+      "title": "The Town Whispers"
+    },
+    {
+      "id": "the-truth",
+      "title": "The Truth"
+    },
+    {
+      "id": "the-twelvelms-conspiracy",
+      "title": "The Twelvelms Conspiracy"
+    },
+    {
+      "id": "the-two-princes",
+      "title": "The Two Princes"
+    },
+    {
+      "id": "the-unexplainable-disappearance-of-mars-patel",
+      "title": "The Unexplainable Disappearance of Mars Patel"
+    },
+    {
+      "id": "the-unlikely-show",
+      "title": "The Unlikely Show"
+    },
+    {
+      "id": "the-unmasked-podcast",
+      "title": "The Unmasked Podcast"
+    },
+    {
+      "id": "the-unseen-hour",
+      "title": "The Unseen Hour"
+    },
+    {
+      "id": "the-veins-below",
+      "title": "The Veins Below"
+    },
+    {
+      "id": "the-viridian-wild",
+      "title": "The Viridian Wild"
+    },
+    {
+      "id": "the-voicemail-box-is-full",
+      "title": "The Voicemail Box Is Full"
+    },
+    {
+      "id": "the-void",
+      "title": "The Void"
+    },
+    {
+      "id": "the-walk",
+      "title": "The Walk"
+    },
+    {
+      "id": "the-wanderer",
+      "title": "The Wanderer"
+    },
+    {
+      "id": "the-way-we-haunt-now",
+      "title": "The Way We Haunt Now"
+    },
+    {
+      "id": "the-waystation",
+      "title": "The Waystation"
+    },
+    {
+      "id": "the-white-vault",
+      "title": "The White Vault"
+    },
+    {
+      "id": "the-wicked-library",
+      "title": "The Wicked Library"
+    },
+    {
+      "id": "the-world-to-come",
+      "title": "The World to Come"
+    },
+    {
+      "id": "the-wyrd-side",
+      "title": "The Wyrd Side"
+    },
+    {
+      "id": "the-zibs-misadventures-in-spaaaace",
+      "title": "The Zib's Misadventures in Spaaaace"
+    },
+    {
+      "id": "thirteen",
+      "title": "Thirteen"
+    },
+    {
+      "id": "this-planet-needs-a-name",
+      "title": "This Planet Needs a Name"
+    },
+    {
+      "id": "this-sounds-serious",
+      "title": "This Sounds Serious"
+    },
+    {
+      "id": "tides",
+      "title": "Tides"
+    },
+    {
+      "id": "time-bombs",
+      "title": "Time:Bombs"
+    },
+    {
+      "id": "to-chart-a-well-trod-course",
+      "title": "To Chart a Well-Trod Course"
+    },
+    {
+      "id": "to-court-death",
+      "title": "To Court Death"
+    },
+    {
+      "id": "tower-4",
+      "title": "Tower 4"
+    },
+    {
+      "id": "tranthologies",
+      "title": "Tranthologies"
+    },
+    {
+      "id": "trice-forgotten",
+      "title": "Trice Forgotten"
+    },
+    {
+      "id": "true-urban-legends",
+      "title": "True Urban Legends"
+    },
+    {
+      "id": "tumanbay",
+      "title": "Tumanbay"
+    },
+    {
+      "id": "twilight-histories",
+      "title": "Twilight Histories"
+    },
+    {
+      "id": "twilight-meridian",
+      "title": "Twilight Meridian"
+    },
+    {
+      "id": "twisted-curiosities",
+      "title": "Twisted Curiosities"
+    },
+    {
+      "id": "two-flat-earthers-kidnap-a-freemason",
+      "title": "Two Flat Earthers Kidnap a Freemason"
+    },
+    {
+      "id": "two-thousand-and-late",
+      "title": "TWO THOUSAND AND LATE"
+    },
+    {
+      "id": "uncanny-county",
+      "title": "Uncanny County"
+    },
+    {
+      "id": "uncanny-valley",
+      "title": "Uncanny Valley"
+    },
+    {
+      "id": "under-the-electric-stars",
+      "title": "Under the Electric Stars"
+    },
+    {
+      "id": "unkillable",
+      "title": "Unkillable"
+    },
+    {
+      "id": "unseen",
+      "title": "Unseen"
+    },
+    {
+      "id": "unusual-happenings-at-paradise",
+      "title": "Unusual Happenings At Paradise"
+    },
+    {
+      "id": "unwell",
+      "title": "Unwell"
+    },
+    {
+      "id": "urban-soul-cafe",
+      "title": "Urban Soul Cafe"
+    },
+    {
+      "id": "valence",
+      "title": "VALENCE"
+    },
+    {
+      "id": "vast-horizon",
+      "title": "Vast Horizon"
+    },
+    {
+      "id": "vega-a-sci-fi-adventure-podcast",
+      "title": "Vega: A Sci-Fi Adventure Podcast!"
+    },
+    {
+      "id": "victoriocity",
+      "title": "Victoriocity"
+    },
+    {
+      "id": "video-palace",
+      "title": "Video Palace"
+    },
+    {
+      "id": "vigil",
+      "title": "Vigil"
+    },
+    {
+      "id": "wake-of-corrosion",
+      "title": "Wake Of Corrosion"
+    },
+    {
+      "id": "wake-up-new-vilirth",
+      "title": "Wake up, New Vilirth!"
+    },
+    {
+      "id": "wandering-with-the-dead",
+      "title": "Wandering with the Dead"
+    },
+    {
+      "id": "we-fix-space-junk",
+      "title": "We Fix Space Junk"
+    },
+    {
+      "id": "we-stay-looking",
+      "title": "We Stay Looking"
+    },
+    {
+      "id": "welcome-to-hope-springs",
+      "title": "Welcome to Hope Springs"
+    },
+    {
+      "id": "welcome-to-night-vale",
+      "title": "Welcome to Night Vale"
+    },
+    {
+      "id": "were-alive",
+      "title": "We're Alive"
+    },
+    {
+      "id": "werewolf-the-podcast-a-serial-killer-drama",
+      "title": "Werewolf the Podcast: A Serial (Killer) Drama"
+    },
+    {
+      "id": "what-happened-in-skinner",
+      "title": "What Happened in Skinner"
+    },
+    {
+      "id": "what-lies-in-wait",
+      "title": "What Lies in Wait"
+    },
+    {
+      "id": "what-will-be-here",
+      "title": "What Will Be Here?"
+    },
+    {
+      "id": "whats-the-frequency",
+      "title": "What's The Frequency?"
+    },
+    {
+      "id": "when-tower-angels-fall",
+      "title": "When Tower Angels Fall"
+    },
+    {
+      "id": "where-the-leaves-fall-purple",
+      "title": "Where the Leaves Fall Purple"
+    },
+    {
+      "id": "where-the-stars-fell",
+      "title": "Where the Stars Fell"
+    },
+    {
+      "id": "whispers-of-delirium",
+      "title": "Whispers of Delirium"
+    },
+    {
+      "id": "who-killed-avril-lavigne",
+      "title": "Who Killed Avril Lavigne?"
+    },
+    {
+      "id": "wilder-dreams",
+      "title": "Wilder Dreams"
+    },
+    {
+      "id": "wildtrials",
+      "title": "WildTrials"
+    },
+    {
+      "id": "wilzerlott",
+      "title": "Wilzerlott"
+    },
+    {
+      "id": "windfall",
+      "title": "Windfall"
+    },
+    {
+      "id": "witchever-path",
+      "title": "Witchever Path"
+    },
+    {
+      "id": "within-the-wires",
+      "title": "Within the Wires"
+    },
+    {
+      "id": "wizard-seeking-wizard",
+      "title": "Wizard Seeking Wizard"
+    },
+    {
+      "id": "woe-begone",
+      "title": "WOE.BEGONE"
+    },
+    {
+      "id": "wolf-359",
+      "title": "Wolf 359"
+    },
+    {
+      "id": "wooden-overcoats",
+      "title": "Wooden Overcoats"
+    },
+    {
+      "id": "world-devotion-project",
+      "title": "World Devotion Project"
+    },
+    {
+      "id": "world-gone-wrong-a-fictional-chat-show-about-friendship-at-the-end-of-the-world",
+      "title": "World Gone Wrong: a fictional chat show about friendship at the end of the world"
+    },
+    {
+      "id": "wormwood-a-serialized-mystery",
+      "title": "Wormwood: A Serialized Mystery"
+    },
+    {
+      "id": "wrong-station",
+      "title": "Wrong Station"
+    },
+    {
+      "id": "wrong-turn-at-alpine",
+      "title": "Wrong Turn At Alpine"
+    },
+    {
+      "id": "yokai-detective-agency",
+      "title": "Yokai Detective Agency"
+    },
+    {
+      "id": "you-feeling-this",
+      "title": "You Feeling This"
+    },
+    {
+      "id": "your-local-time-travelers",
+      "title": "Your Local Time Travelers"
+    },
+    {
+      "id": "zenith",
+      "title": "Zenith"
+    },
+    {
+      "id": "zoic",
+      "title": "Zoic"
+    },
+    {
+      "id": "zoo",
+      "title": "Zoo"
+    }
+  ],
+  "edges": [
+    {
+      "showId": "36-questions",
+      "entityId": "two-up-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "a-midsummers-quarantine",
+      "entityId": "faustian-nonsense",
+      "role": "production-company"
+    },
+    {
+      "showId": "acorn-originals",
+      "entityId": "iridescent-acorn-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "adventures-in-new-america",
+      "entityId": "night-vale-presents",
+      "role": "production-company"
+    },
+    {
+      "showId": "alice-isnt-dead",
+      "entityId": "joseph-fink",
+      "role": "creator"
+    },
+    {
+      "showId": "all-in-my-head",
+      "entityId": "tandon-productions",
+      "role": "network"
+    },
+    {
+      "showId": "apollyon",
+      "entityId": "observer-pictures",
+      "role": "production-company"
+    },
+    {
+      "showId": "apollyon",
+      "entityId": "realm",
+      "role": "network"
+    },
+    {
+      "showId": "archive-81",
+      "entityId": "dead-signals",
+      "role": "production-company"
+    },
+    {
+      "showId": "ars-paradoxica",
+      "entityId": "the-whisperforge",
+      "role": "production-company"
+    },
+    {
+      "showId": "artifacts-of-the-arcane",
+      "entityId": "jake-kerr",
+      "role": "creator"
+    },
+    {
+      "showId": "atlas-avenue-beat",
+      "entityId": "7-lamb-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "atlas-avenue-beat",
+      "entityId": "bloody-fm",
+      "role": "network"
+    },
+    {
+      "showId": "batman-unburied",
+      "entityId": "david-s-goyer",
+      "role": "creator"
+    },
+    {
+      "showId": "batman-unburied",
+      "entityId": "warner-bros",
+      "role": "production-company"
+    },
+    {
+      "showId": "blackout",
+      "entityId": "qcode",
+      "role": "production-company"
+    },
+    {
+      "showId": "blood-gold",
+      "entityId": "realm",
+      "role": "production-company"
+    },
+    {
+      "showId": "bloodrock-springs",
+      "entityId": "mark-r-healy",
+      "role": "creator"
+    },
+    {
+      "showId": "blueberries-hill",
+      "entityId": "third-person",
+      "role": "production-company"
+    },
+    {
+      "showId": "borrasca",
+      "entityId": "qcode",
+      "role": "production-company"
+    },
+    {
+      "showId": "breaker-whiskey",
+      "entityId": "atypical-artists",
+      "role": "production-company"
+    },
+    {
+      "showId": "bridgewater",
+      "entityId": "iheartpodcasts",
+      "role": "production-company"
+    },
+    {
+      "showId": "burnout-a-cyberpunk-thriller",
+      "entityId": "alternative-stories",
+      "role": "production-company"
+    },
+    {
+      "showId": "buzz-the-man-the-moon",
+      "entityId": "iheartpodcasts",
+      "role": "production-company"
+    },
+    {
+      "showId": "calling-darkness-podcast",
+      "entityId": "realm",
+      "role": "network"
+    },
+    {
+      "showId": "camlann",
+      "entityId": "tin-can-audio",
+      "role": "production-company"
+    },
+    {
+      "showId": "caravan",
+      "entityId": "tau-zaman",
+      "role": "creator"
+    },
+    {
+      "showId": "caravan",
+      "entityId": "the-whisperforge",
+      "role": "production-company"
+    },
+    {
+      "showId": "carrier",
+      "entityId": "qcode",
+      "role": "production-company"
+    },
+    {
+      "showId": "claudia-a-viral-love-story",
+      "entityId": "profile-theatre",
+      "role": "production-company"
+    },
+    {
+      "showId": "conversations-with-ghosts",
+      "entityId": "dead-signals",
+      "role": "production-company"
+    },
+    {
+      "showId": "crossroads-a-48-hour-audio-drama-festival",
+      "entityId": "iridescent-acorn-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "cry-havoc-ask-questions-later",
+      "entityId": "rusty-quill",
+      "role": "production-company"
+    },
+    {
+      "showId": "cryptid-counselor",
+      "entityId": "twin-strangers-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "crystal-blue",
+      "entityId": "7-lamb-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "crystal-blue",
+      "entityId": "bloody-fm",
+      "role": "network"
+    },
+    {
+      "showId": "cybernautica",
+      "entityId": "red-fathom-entertainment",
+      "role": "creator"
+    },
+    {
+      "showId": "darkest-night",
+      "entityId": "the-paragon-collective",
+      "role": "production-company"
+    },
+    {
+      "showId": "dc-high-volume-batman",
+      "entityId": "realm",
+      "role": "network"
+    },
+    {
+      "showId": "dead-space-deep-cover",
+      "entityId": "bloody-fm",
+      "role": "network"
+    },
+    {
+      "showId": "deadly-manners",
+      "entityId": "the-paragon-collective",
+      "role": "production-company"
+    },
+    {
+      "showId": "derelict",
+      "entityId": "j-barton-mitchell",
+      "role": "creator"
+    },
+    {
+      "showId": "derelict",
+      "entityId": "night-rocket-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "desert-skies",
+      "entityId": "jared-carter",
+      "role": "creator"
+    },
+    {
+      "showId": "deviser",
+      "entityId": "harlan-guthrie",
+      "role": "creator"
+    },
+    {
+      "showId": "divorce-ranch",
+      "entityId": "good-story-guild",
+      "role": "production-company"
+    },
+    {
+      "showId": "dont-mind",
+      "entityId": "fool-and-scholar-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "dracula-the-danse-macabre",
+      "entityId": "gabriel-urbina",
+      "role": "creator"
+    },
+    {
+      "showId": "dracula-the-danse-macabre",
+      "entityId": "long-story-short-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "dreamboy",
+      "entityId": "night-vale-presents",
+      "role": "network"
+    },
+    {
+      "showId": "earth-eclipsed",
+      "entityId": "apollo-podcasts",
+      "role": "network"
+    },
+    {
+      "showId": "earth-eclipsed",
+      "entityId": "the-lunar-company",
+      "role": "production-company"
+    },
+    {
+      "showId": "eelers-choice",
+      "entityId": "cytochrome-hear",
+      "role": "network"
+    },
+    {
+      "showId": "electromancy",
+      "entityId": "nathan-comstock",
+      "role": "creator"
+    },
+    {
+      "showId": "elias-the-caretaker",
+      "entityId": "voyage-media",
+      "role": "production-company"
+    },
+    {
+      "showId": "end-of-all-hope",
+      "entityId": "7-lamb-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "end-of-all-hope",
+      "entityId": "bloody-fm",
+      "role": "network"
+    },
+    {
+      "showId": "engine-of-war",
+      "entityId": "rust-belt-studio",
+      "role": "studio"
+    },
+    {
+      "showId": "eos-10",
+      "entityId": "justin-mclachlan",
+      "role": "creator"
+    },
+    {
+      "showId": "eos-10",
+      "entityId": "planetm",
+      "role": "production-company"
+    },
+    {
+      "showId": "fairies-and-dragons-ponies-and-knights",
+      "entityId": "dirt-road-theater",
+      "role": "production-company"
+    },
+    {
+      "showId": "folxlore",
+      "entityId": "tin-can-audio",
+      "role": "production-company"
+    },
+    {
+      "showId": "forest-404",
+      "entityId": "timothy-x-atack",
+      "role": "creator"
+    },
+    {
+      "showId": "from-now",
+      "entityId": "qcode",
+      "role": "production-company"
+    },
+    {
+      "showId": "from-the-depths",
+      "entityId": "nocturn-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "give-me-away",
+      "entityId": "gideon-media",
+      "role": "production-company"
+    },
+    {
+      "showId": "greenhouse",
+      "entityId": "atypical-artists",
+      "role": "production-company"
+    },
+    {
+      "showId": "grim-death-and-bill-the-electrocuted-criminal",
+      "entityId": "bloody-fm",
+      "role": "network"
+    },
+    {
+      "showId": "hannahpocalypse",
+      "entityId": "red-fathom-entertainment",
+      "role": "creator"
+    },
+    {
+      "showId": "harbor",
+      "entityId": "faraday-roke",
+      "role": "creator"
+    },
+    {
+      "showId": "harbor",
+      "entityId": "tartarus-jenny-studios",
+      "role": "production-company"
+    },
+    {
+      "showId": "havoc-town",
+      "entityId": "iheartpodcasts",
+      "role": "production-company"
+    },
+    {
+      "showId": "heads-will-roll",
+      "entityId": "audible-originals",
+      "role": "production-company"
+    },
+    {
+      "showId": "heroics",
+      "entityId": "planetm",
+      "role": "production-company"
+    },
+    {
+      "showId": "hit-job",
+      "entityId": "audible-originals",
+      "role": "production-company"
+    },
+    {
+      "showId": "hollow",
+      "entityId": "realm",
+      "role": "network"
+    },
+    {
+      "showId": "hollow",
+      "entityId": "violet-hour-media",
+      "role": "production-company"
+    },
+    {
+      "showId": "hollow-disciple",
+      "entityId": "shadow-static-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "homecoming",
+      "entityId": "gimlet",
+      "role": "production-company"
+    },
+    {
+      "showId": "hot-white-heist",
+      "entityId": "audible-originals",
+      "role": "production-company"
+    },
+    {
+      "showId": "how-i-died",
+      "entityId": "realm",
+      "role": "network"
+    },
+    {
+      "showId": "how-to-win-friends-and-disappear-people",
+      "entityId": "qcode",
+      "role": "production-company"
+    },
+    {
+      "showId": "impact-winter",
+      "entityId": "audible-originals",
+      "role": "production-company"
+    },
+    {
+      "showId": "in-another-room",
+      "entityId": "violet-hour-media",
+      "role": "production-company"
+    },
+    {
+      "showId": "in-media-res",
+      "entityId": "good-story-guild",
+      "role": "production-company"
+    },
+    {
+      "showId": "inkwyrm",
+      "entityId": "caldera-studios",
+      "role": "studio"
+    },
+    {
+      "showId": "into-the-dark-of-the-woods",
+      "entityId": "rust-belt-studio",
+      "role": "studio"
+    },
+    {
+      "showId": "invaded",
+      "entityId": "blue-parrot-audio",
+      "role": "production-company"
+    },
+    {
+      "showId": "iowa-chapman-and-the-last-dog",
+      "entityId": "gzm-shows",
+      "role": "network"
+    },
+    {
+      "showId": "jack-of-all-trades",
+      "entityId": "faustian-nonsense",
+      "role": "production-company"
+    },
+    {
+      "showId": "jackie-the-ripper",
+      "entityId": "stak",
+      "role": "production-company"
+    },
+    {
+      "showId": "janus-descending",
+      "entityId": "jordan-cobb",
+      "role": "creator"
+    },
+    {
+      "showId": "janus-descending",
+      "entityId": "no-such-thing-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "josies-lonely-hearts-club",
+      "entityId": "good-story-guild",
+      "role": "production-company"
+    },
+    {
+      "showId": "keep-it-steady",
+      "entityId": "procyon-podcast-network",
+      "role": "network"
+    },
+    {
+      "showId": "knifepoint-horror",
+      "entityId": "spectrevision-radio",
+      "role": "network"
+    },
+    {
+      "showId": "lands-end-a-shepherds-tale",
+      "entityId": "tin-can-audio",
+      "role": "production-company"
+    },
+    {
+      "showId": "last-dance",
+      "entityId": "rusty-quill",
+      "role": "network"
+    },
+    {
+      "showId": "let-me-tell-you-about-my-murder",
+      "entityId": "voyage-media",
+      "role": "production-company"
+    },
+    {
+      "showId": "leylines",
+      "entityId": "good-story-guild",
+      "role": "production-company"
+    },
+    {
+      "showId": "life-with-leo-h",
+      "entityId": "atypical-artists",
+      "role": "production-company"
+    },
+    {
+      "showId": "light-house",
+      "entityId": "iheartpodcasts",
+      "role": "production-company"
+    },
+    {
+      "showId": "limetown",
+      "entityId": "two-up-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "liminal",
+      "entityId": "acorn-arts-and-entertainment",
+      "role": "production-company"
+    },
+    {
+      "showId": "long-night-in-egypt",
+      "entityId": "violet-hour-media",
+      "role": "production-company"
+    },
+    {
+      "showId": "look-up",
+      "entityId": "atypical-artists",
+      "role": "production-company"
+    },
+    {
+      "showId": "love-and-luck",
+      "entityId": "passer-vulpes-productions",
+      "role": "creator"
+    },
+    {
+      "showId": "machina",
+      "entityId": "realm",
+      "role": "production-company"
+    },
+    {
+      "showId": "madame-magenta-sonos-mystica",
+      "entityId": "long-cat-media",
+      "role": "production-company"
+    },
+    {
+      "showId": "magenta-presents",
+      "entityId": "long-cat-media",
+      "role": "production-company"
+    },
+    {
+      "showId": "magmell",
+      "entityId": "iheartpodcasts",
+      "role": "production-company"
+    },
+    {
+      "showId": "malevolent",
+      "entityId": "harlan-guthrie",
+      "role": "creator"
+    },
+    {
+      "showId": "malevolent",
+      "entityId": "rusty-quill",
+      "role": "network"
+    },
+    {
+      "showId": "margaritas-donuts",
+      "entityId": "observer-pictures",
+      "role": "production-company"
+    },
+    {
+      "showId": "margaritas-donuts",
+      "entityId": "realm",
+      "role": "network"
+    },
+    {
+      "showId": "mars-best-brisket",
+      "entityId": "ponders-productions",
+      "role": "creator"
+    },
+    {
+      "showId": "marsfall",
+      "entityId": "realm",
+      "role": "network"
+    },
+    {
+      "showId": "marvels-squirrel-girl-the-unbeatable-radio-show",
+      "entityId": "realm",
+      "role": "network"
+    },
+    {
+      "showId": "marvels-wastelanders",
+      "entityId": "realm",
+      "role": "network"
+    },
+    {
+      "showId": "marvels-wolverine-the-long-night",
+      "entityId": "realm",
+      "role": "network"
+    },
+    {
+      "showId": "marvels-wolverine-the-lost-trail",
+      "entityId": "realm",
+      "role": "network"
+    },
+    {
+      "showId": "max-ivan-fugitives",
+      "entityId": "ivan-gonzalez",
+      "role": "creator"
+    },
+    {
+      "showId": "max-ivan-fugitives",
+      "entityId": "max-olesker",
+      "role": "creator"
+    },
+    {
+      "showId": "max-ivan-fugitives",
+      "entityId": "storyglass",
+      "role": "production-company"
+    },
+    {
+      "showId": "mayfair-watchers-society",
+      "entityId": "bloody-fm",
+      "role": "network"
+    },
+    {
+      "showId": "meet-cute-originals",
+      "entityId": "meet-cute",
+      "role": "creator"
+    },
+    {
+      "showId": "mercy-a-queer-eldritch-western",
+      "entityId": "strangekind-studio",
+      "role": "studio"
+    },
+    {
+      "showId": "middle-below",
+      "entityId": "tin-can-audio",
+      "role": "production-company"
+    },
+    {
+      "showId": "midnight-burger",
+      "entityId": "business-goose-media",
+      "role": "production-company"
+    },
+    {
+      "showId": "midnight-burger",
+      "entityId": "joe-fisher",
+      "role": "creator"
+    },
+    {
+      "showId": "midnight-radio",
+      "entityId": "bobbie-parker",
+      "role": "creator"
+    },
+    {
+      "showId": "midnight-radio",
+      "entityId": "martlet-radio",
+      "role": "network"
+    },
+    {
+      "showId": "midst",
+      "entityId": "third-person",
+      "role": "production-company"
+    },
+    {
+      "showId": "mikey-and-the-garden-arch",
+      "entityId": "rust-belt-studio",
+      "role": "studio"
+    },
+    {
+      "showId": "mina-and-lucys-guide-to-slaying-dracula",
+      "entityId": "gzm-shows",
+      "role": "network"
+    },
+    {
+      "showId": "mirrors",
+      "entityId": "jamie-killen",
+      "role": "creator"
+    },
+    {
+      "showId": "mirrors",
+      "entityId": "zoomdoom-stories",
+      "role": "production-company"
+    },
+    {
+      "showId": "mission-rejected",
+      "entityId": "the-porch-room",
+      "role": "production-company"
+    },
+    {
+      "showId": "mockery-manor",
+      "entityId": "long-cat-media",
+      "role": "production-company"
+    },
+    {
+      "showId": "modes-of-thought-in-anterran-literature",
+      "entityId": "wolf-at-the-door-studios",
+      "role": "studio"
+    },
+    {
+      "showId": "mordeo",
+      "entityId": "iheartpodcasts",
+      "role": "production-company"
+    },
+    {
+      "showId": "motherhacker",
+      "entityId": "gimlet",
+      "role": "production-company"
+    },
+    {
+      "showId": "my-date-with-lainey-lee",
+      "entityId": "meet-cute",
+      "role": "creator"
+    },
+    {
+      "showId": "neon-inkwell",
+      "entityId": "rusty-quill",
+      "role": "production-company"
+    },
+    {
+      "showId": "not-quite-dead",
+      "entityId": "eira-major",
+      "role": "creator"
+    },
+    {
+      "showId": "not-quite-dead",
+      "entityId": "hanging-sloth-studios",
+      "role": "production-company"
+    },
+    {
+      "showId": "null-void",
+      "entityId": "poc-podcast-network",
+      "role": "network"
+    },
+    {
+      "showId": "observable-radio",
+      "entityId": "observable-radio-studio",
+      "role": "studio"
+    },
+    {
+      "showId": "of-the-sword",
+      "entityId": "tal-minear",
+      "role": "creator"
+    },
+    {
+      "showId": "orphan-black-the-next-chapter",
+      "entityId": "realm",
+      "role": "production-company"
+    },
+    {
+      "showId": "our-fair-city",
+      "entityId": "audacious-machine-creative",
+      "role": "production-company"
+    },
+    {
+      "showId": "oz-9",
+      "entityId": "fable-and-folly",
+      "role": "network"
+    },
+    {
+      "showId": "paradise-cab",
+      "entityId": "blue-parrot-audio",
+      "role": "production-company"
+    },
+    {
+      "showId": "paralyzed",
+      "entityId": "7-lamb-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "paralyzed",
+      "entityId": "bloody-fm",
+      "role": "network"
+    },
+    {
+      "showId": "poe-evermore",
+      "entityId": "bloody-fm",
+      "role": "network"
+    },
+    {
+      "showId": "primordial-deep",
+      "entityId": "no-such-thing-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "quiet-part-loud",
+      "entityId": "gimlet",
+      "role": "production-company"
+    },
+    {
+      "showId": "rabbits",
+      "entityId": "public-radio-alliance",
+      "role": "production-company"
+    },
+    {
+      "showId": "re-dracula",
+      "entityId": "bloody-fm",
+      "role": "network"
+    },
+    {
+      "showId": "red-frontier",
+      "entityId": "gimlet",
+      "role": "production-company"
+    },
+    {
+      "showId": "red-riding-hoods",
+      "entityId": "violet-hour-media",
+      "role": "production-company"
+    },
+    {
+      "showId": "red-valley",
+      "entityId": "fable-and-folly",
+      "role": "network"
+    },
+    {
+      "showId": "ronstadt",
+      "entityId": "qcode",
+      "role": "production-company"
+    },
+    {
+      "showId": "rosannas-secret",
+      "entityId": "goatshead-castle-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "route-6-6",
+      "entityId": "goblin-booth-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "saigon",
+      "entityId": "iheartpodcasts",
+      "role": "production-company"
+    },
+    {
+      "showId": "sandra",
+      "entityId": "gimlet",
+      "role": "production-company"
+    },
+    {
+      "showId": "scp-archives",
+      "entityId": "bloody-fm",
+      "role": "network"
+    },
+    {
+      "showId": "set-sail",
+      "entityId": "iridescent-acorn-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "shelar-and-the-scavengers",
+      "entityId": "nathan-comstock",
+      "role": "creator"
+    },
+    {
+      "showId": "shelterwood",
+      "entityId": "bloody-fm",
+      "role": "network"
+    },
+    {
+      "showId": "shipworm",
+      "entityId": "two-up-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "sidequesting",
+      "entityId": "tal-minear",
+      "role": "creator"
+    },
+    {
+      "showId": "six-minutes",
+      "entityId": "gzm-shows",
+      "role": "network"
+    },
+    {
+      "showId": "small-victories",
+      "entityId": "wgc-productions",
+      "role": "network"
+    },
+    {
+      "showId": "solar",
+      "entityId": "chris-porter",
+      "role": "creator"
+    },
+    {
+      "showId": "solar",
+      "entityId": "curtco-media",
+      "role": "production-company"
+    },
+    {
+      "showId": "someone-dies-in-this-elevator",
+      "entityId": "tal-minear",
+      "role": "creator"
+    },
+    {
+      "showId": "sonic-the-hedgehog-presents-the-chaotix-casefiles",
+      "entityId": "realm",
+      "role": "production-company"
+    },
+    {
+      "showId": "spectre",
+      "entityId": "station-blue-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "spines-podcast",
+      "entityId": "zoomdoom-stories",
+      "role": "production-company"
+    },
+    {
+      "showId": "spirit-box-radio",
+      "entityId": "eira-major",
+      "role": "creator"
+    },
+    {
+      "showId": "spirit-box-radio",
+      "entityId": "hanging-sloth-studios",
+      "role": "production-company"
+    },
+    {
+      "showId": "stanland",
+      "entityId": "the-sonar-network",
+      "role": "network"
+    },
+    {
+      "showId": "starfall",
+      "entityId": "wizzard-wizzard-productions",
+      "role": "creator"
+    },
+    {
+      "showId": "station-151",
+      "entityId": "pale-matter-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "station-151",
+      "entityId": "realm",
+      "role": "network"
+    },
+    {
+      "showId": "station-arcadia",
+      "entityId": "metal-steve-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "station-blue",
+      "entityId": "ester-ellis",
+      "role": "creator"
+    },
+    {
+      "showId": "station-to-station",
+      "entityId": "procyon-podcast-network",
+      "role": "network"
+    },
+    {
+      "showId": "steal-the-stars",
+      "entityId": "gideon-media",
+      "role": "production-company"
+    },
+    {
+      "showId": "stellar-firma",
+      "entityId": "rusty-quill",
+      "role": "production-company"
+    },
+    {
+      "showId": "story",
+      "entityId": "7-lamb-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "story",
+      "entityId": "bloody-fm",
+      "role": "network"
+    },
+    {
+      "showId": "strawberry-spring",
+      "entityId": "iheartpodcasts",
+      "role": "production-company"
+    },
+    {
+      "showId": "super-suits",
+      "entityId": "faustian-nonsense",
+      "role": "production-company"
+    },
+    {
+      "showId": "superhuman-public-radio",
+      "entityId": "superhuman-public-radio-studio",
+      "role": "studio"
+    },
+    {
+      "showId": "supernatural-sexuality-with-dr-seabrooke",
+      "entityId": "passer-vulpes-productions",
+      "role": "creator"
+    },
+    {
+      "showId": "supreme-the-battle-for-roe",
+      "entityId": "iheartpodcasts",
+      "role": "production-company"
+    },
+    {
+      "showId": "syntax",
+      "entityId": "twin-strangers-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "tanis",
+      "entityId": "public-radio-alliance",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-antiquarium-of-sinister-happenings",
+      "entityId": "bloody-fm",
+      "role": "network"
+    },
+    {
+      "showId": "the-antique-shop",
+      "entityId": "ghostly-thistle",
+      "role": "network"
+    },
+    {
+      "showId": "the-ballad-of-anne-mary",
+      "entityId": "long-cat-media",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-beacon",
+      "entityId": "wizzard-wizzard-productions",
+      "role": "creator"
+    },
+    {
+      "showId": "the-bright-sessions",
+      "entityId": "atypical-artists",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-burned-photo",
+      "entityId": "qcode",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-call-of-the-void",
+      "entityId": "acorn-arts-and-entertainment",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-chronicles-of-astrimos",
+      "entityId": "bloody-fm",
+      "role": "network"
+    },
+    {
+      "showId": "the-cleansed",
+      "entityId": "finalrune-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-cleansed",
+      "entityId": "fred-greenhalgh",
+      "role": "creator"
+    },
+    {
+      "showId": "the-dead-letters-podcast",
+      "entityId": "vp-morris",
+      "role": "creator"
+    },
+    {
+      "showId": "the-deca-tapes",
+      "entityId": "realm",
+      "role": "network"
+    },
+    {
+      "showId": "the-dex-legacy",
+      "entityId": "alternative-stories",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-edge-of-sleep",
+      "entityId": "qcode",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-elmwood-strain",
+      "entityId": "violet-hour-media",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-far-meridian",
+      "entityId": "the-whisperforge",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-fourth-ambit",
+      "entityId": "the-ambit-group",
+      "role": "network"
+    },
+    {
+      "showId": "the-foxes-of-hydesville",
+      "entityId": "qcode",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-goblet-wire",
+      "entityId": "ester-ellis",
+      "role": "creator"
+    },
+    {
+      "showId": "the-gospel-of-haven",
+      "entityId": "bloody-fm",
+      "role": "network"
+    },
+    {
+      "showId": "the-green-horizon",
+      "entityId": "faustian-nonsense",
+      "role": "network"
+    },
+    {
+      "showId": "the-harbingers",
+      "entityId": "audacious-machine-creative",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-harrowing",
+      "entityId": "mark-healy",
+      "role": "creator"
+    },
+    {
+      "showId": "the-harrowing",
+      "entityId": "storyglass",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-harrowing-of-minerva-damson",
+      "entityId": "goblin-booth-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-hidden-people",
+      "entityId": "dayton-writers-movement",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-hidden-people",
+      "entityId": "realm",
+      "role": "network"
+    },
+    {
+      "showId": "the-hollow",
+      "entityId": "gzm-shows",
+      "role": "network"
+    },
+    {
+      "showId": "the-horror-of-dolores-roach",
+      "entityId": "gimlet",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-hotel",
+      "entityId": "bloody-fm",
+      "role": "network"
+    },
+    {
+      "showId": "the-imperfection",
+      "entityId": "wolf-at-the-door-studios",
+      "role": "studio"
+    },
+    {
+      "showId": "the-inn-at-the-end-of-things",
+      "entityId": "acorn-arts-and-entertainment",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-invenios-expeditions",
+      "entityId": "christof-laputka",
+      "role": "creator"
+    },
+    {
+      "showId": "the-invenios-expeditions",
+      "entityId": "leviathan-audio-productions",
+      "role": "network"
+    },
+    {
+      "showId": "the-last-movie",
+      "entityId": "public-radio-alliance",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-lavender-tavern",
+      "entityId": "faustian-nonsense",
+      "role": "network"
+    },
+    {
+      "showId": "the-left-right-game",
+      "entityId": "qcode",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-leviathan-chronicles",
+      "entityId": "leviathan-audio-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-liberty-podcast",
+      "entityId": "fool-and-scholar-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-lost-son",
+      "entityId": "nocturn-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-lovecraft-investigations",
+      "entityId": "bbc-radio-4",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-magnus-archives",
+      "entityId": "jonathan-sims",
+      "role": "creator"
+    },
+    {
+      "showId": "the-magnus-archives",
+      "entityId": "rusty-quill",
+      "role": "network"
+    },
+    {
+      "showId": "the-magnus-protocol",
+      "entityId": "alexander-j-newall",
+      "role": "creator"
+    },
+    {
+      "showId": "the-magnus-protocol",
+      "entityId": "jonathan-sims",
+      "role": "creator"
+    },
+    {
+      "showId": "the-magnus-protocol",
+      "entityId": "rusty-quill",
+      "role": "network"
+    },
+    {
+      "showId": "the-mantawauk-caves",
+      "entityId": "iheartpodcasts",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-mistholme-museum-of-mystery-morbidity-and-mortality",
+      "entityId": "thats-not-canon-productions",
+      "role": "network"
+    },
+    {
+      "showId": "the-nephilim-hunter",
+      "entityId": "underwood-press",
+      "role": "network"
+    },
+    {
+      "showId": "the-orbiting-human-circus",
+      "entityId": "julian-koster",
+      "role": "creator"
+    },
+    {
+      "showId": "the-orbiting-human-circus",
+      "entityId": "night-vale-presents",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-orbiting-human-circus",
+      "entityId": "wnyc-studios",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-override-protocol",
+      "entityId": "2e-production",
+      "role": "network"
+    },
+    {
+      "showId": "the-patron-saint-of-suicides",
+      "entityId": "realm",
+      "role": "network"
+    },
+    {
+      "showId": "the-phenomenon",
+      "entityId": "jared-j-smith",
+      "role": "creator"
+    },
+    {
+      "showId": "the-phenomenon",
+      "entityId": "luciola-creative",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-rapscallion-agency",
+      "entityId": "christof-laputka",
+      "role": "creator"
+    },
+    {
+      "showId": "the-rapscallion-agency",
+      "entityId": "leviathan-audio-productions",
+      "role": "network"
+    },
+    {
+      "showId": "the-rez",
+      "entityId": "gzm-shows",
+      "role": "network"
+    },
+    {
+      "showId": "the-road-of-shadows",
+      "entityId": "mark-r-healy",
+      "role": "creator"
+    },
+    {
+      "showId": "the-second-oil-age",
+      "entityId": "iheartpodcasts",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-secret-of-st-kilda",
+      "entityId": "fable-and-folly",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-sheridan-tapes",
+      "entityId": "realm",
+      "role": "network"
+    },
+    {
+      "showId": "the-six-disappearances-of-ella-mccray",
+      "entityId": "jamie-killen",
+      "role": "creator"
+    },
+    {
+      "showId": "the-six-disappearances-of-ella-mccray",
+      "entityId": "zoomdoom-stories",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-sound-museum",
+      "entityId": "faustian-nonsense",
+      "role": "network"
+    },
+    {
+      "showId": "the-stench-of-adventure",
+      "entityId": "strong-branch-productions",
+      "role": "network"
+    },
+    {
+      "showId": "the-strange-case-of-starship-iris",
+      "entityId": "procyon-podcast-network",
+      "role": "network"
+    },
+    {
+      "showId": "the-strata",
+      "entityId": "mark-r-healy",
+      "role": "creator"
+    },
+    {
+      "showId": "the-subjective-truth",
+      "entityId": "good-pointe",
+      "role": "network"
+    },
+    {
+      "showId": "the-subjective-truth",
+      "entityId": "jeremy-ellett",
+      "role": "creator"
+    },
+    {
+      "showId": "the-thieves-guild",
+      "entityId": "jake-kerr",
+      "role": "creator"
+    },
+    {
+      "showId": "the-tower",
+      "entityId": "tin-can-audio",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-twelvelms-conspiracy",
+      "entityId": "eira-major",
+      "role": "creator"
+    },
+    {
+      "showId": "the-twelvelms-conspiracy",
+      "entityId": "hanging-sloth-studios",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-unexplainable-disappearance-of-mars-patel",
+      "entityId": "gzm-shows",
+      "role": "network"
+    },
+    {
+      "showId": "the-wanderer",
+      "entityId": "ponders-productions",
+      "role": "creator"
+    },
+    {
+      "showId": "the-waystation",
+      "entityId": "wired-cowslip",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-white-vault",
+      "entityId": "fool-and-scholar-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "the-white-vault",
+      "entityId": "k-a-statz",
+      "role": "creator"
+    },
+    {
+      "showId": "the-white-vault",
+      "entityId": "travis-vengroff",
+      "role": "creator"
+    },
+    {
+      "showId": "thirteen",
+      "entityId": "spectrevision-radio",
+      "role": "network"
+    },
+    {
+      "showId": "time-bombs",
+      "entityId": "long-story-short-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "tower-4",
+      "entityId": "7-lamb-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "tower-4",
+      "entityId": "bloody-fm",
+      "role": "network"
+    },
+    {
+      "showId": "trice-forgotten",
+      "entityId": "rusty-quill",
+      "role": "production-company"
+    },
+    {
+      "showId": "tumanbay",
+      "entityId": "iheartpodcasts",
+      "role": "network"
+    },
+    {
+      "showId": "two-flat-earthers-kidnap-a-freemason",
+      "entityId": "good-pointe",
+      "role": "network"
+    },
+    {
+      "showId": "two-flat-earthers-kidnap-a-freemason",
+      "entityId": "jeremy-ellett",
+      "role": "creator"
+    },
+    {
+      "showId": "two-thousand-and-late",
+      "entityId": "atypical-artists",
+      "role": "production-company"
+    },
+    {
+      "showId": "uncanny-valley",
+      "entityId": "dayton-writers-movement",
+      "role": "production-company"
+    },
+    {
+      "showId": "uncanny-valley",
+      "entityId": "realm",
+      "role": "network"
+    },
+    {
+      "showId": "unseen",
+      "entityId": "long-story-short-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "unwell",
+      "entityId": "audacious-machine-creative",
+      "role": "production-company"
+    },
+    {
+      "showId": "valence",
+      "entityId": "hug-house-productions",
+      "role": "network"
+    },
+    {
+      "showId": "vast-horizon",
+      "entityId": "fool-and-scholar-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "vast-horizon",
+      "entityId": "k-a-statz",
+      "role": "creator"
+    },
+    {
+      "showId": "vast-horizon",
+      "entityId": "travis-vengroff",
+      "role": "creator"
+    },
+    {
+      "showId": "video-palace",
+      "entityId": "shudder",
+      "role": "production-company"
+    },
+    {
+      "showId": "wake-of-corrosion",
+      "entityId": "shadow-static-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "we-fix-space-junk",
+      "entityId": "battle-bird-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "welcome-to-night-vale",
+      "entityId": "jeffrey-cranor",
+      "role": "creator"
+    },
+    {
+      "showId": "welcome-to-night-vale",
+      "entityId": "joseph-fink",
+      "role": "creator"
+    },
+    {
+      "showId": "welcome-to-night-vale",
+      "entityId": "night-vale-presents",
+      "role": "production-company"
+    },
+    {
+      "showId": "were-alive",
+      "entityId": "kc-wayland",
+      "role": "creator"
+    },
+    {
+      "showId": "were-alive",
+      "entityId": "wayland-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "what-will-be-here",
+      "entityId": "tal-minear",
+      "role": "creator"
+    },
+    {
+      "showId": "where-the-stars-fell",
+      "entityId": "caldera-studios",
+      "role": "studio"
+    },
+    {
+      "showId": "windfall",
+      "entityId": "rogue-dialogue-productions",
+      "role": "production-company"
+    },
+    {
+      "showId": "within-the-wires",
+      "entityId": "jeffrey-cranor",
+      "role": "creator"
+    },
+    {
+      "showId": "within-the-wires",
+      "entityId": "joseph-fink",
+      "role": "creator"
+    },
+    {
+      "showId": "within-the-wires",
+      "entityId": "night-vale-presents",
+      "role": "network"
+    },
+    {
+      "showId": "wolf-359",
+      "entityId": "gabriel-urbina",
+      "role": "creator"
+    },
+    {
+      "showId": "wooden-overcoats",
+      "entityId": "wooden-overcoats-ltd",
+      "role": "production-company"
+    },
+    {
+      "showId": "world-gone-wrong-a-fictional-chat-show-about-friendship-at-the-end-of-the-world",
+      "entityId": "audacious-machine-creative",
+      "role": "production-company"
+    },
+    {
+      "showId": "you-feeling-this",
+      "entityId": "iheartpodcasts",
+      "role": "production-company"
+    }
+  ],
+  "entityConnections": [
+    {
+      "fromEntityId": "7-lamb-productions",
+      "toEntityId": "bloody-fm",
+      "relation": "shared-show",
+      "showIds": [
+        "atlas-avenue-beat",
+        "crystal-blue",
+        "end-of-all-hope",
+        "paralyzed",
+        "story",
+        "tower-4"
+      ],
+      "showCount": 6
+    },
+    {
+      "fromEntityId": "alexander-j-newall",
+      "toEntityId": "jonathan-sims",
+      "relation": "shared-show",
+      "showIds": [
+        "the-magnus-protocol"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "alexander-j-newall",
+      "toEntityId": "rusty-quill",
+      "relation": "shared-show",
+      "showIds": [
+        "the-magnus-protocol"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "apollo-podcasts",
+      "toEntityId": "the-lunar-company",
+      "relation": "shared-show",
+      "showIds": [
+        "earth-eclipsed"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "bobbie-parker",
+      "toEntityId": "martlet-radio",
+      "relation": "shared-show",
+      "showIds": [
+        "midnight-radio"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "business-goose-media",
+      "toEntityId": "joe-fisher",
+      "relation": "shared-show",
+      "showIds": [
+        "midnight-burger"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "chris-porter",
+      "toEntityId": "curtco-media",
+      "relation": "shared-show",
+      "showIds": [
+        "solar"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "christof-laputka",
+      "toEntityId": "leviathan-audio-productions",
+      "relation": "shared-show",
+      "showIds": [
+        "the-invenios-expeditions",
+        "the-rapscallion-agency"
+      ],
+      "showCount": 2
+    },
+    {
+      "fromEntityId": "david-s-goyer",
+      "toEntityId": "warner-bros",
+      "relation": "shared-show",
+      "showIds": [
+        "batman-unburied"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "dayton-writers-movement",
+      "toEntityId": "realm",
+      "relation": "shared-show",
+      "showIds": [
+        "the-hidden-people",
+        "uncanny-valley"
+      ],
+      "showCount": 2
+    },
+    {
+      "fromEntityId": "eira-major",
+      "toEntityId": "hanging-sloth-studios",
+      "relation": "shared-show",
+      "showIds": [
+        "not-quite-dead",
+        "spirit-box-radio",
+        "the-twelvelms-conspiracy"
+      ],
+      "showCount": 3
+    },
+    {
+      "fromEntityId": "faraday-roke",
+      "toEntityId": "tartarus-jenny-studios",
+      "relation": "shared-show",
+      "showIds": [
+        "harbor"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "finalrune-productions",
+      "toEntityId": "fred-greenhalgh",
+      "relation": "shared-show",
+      "showIds": [
+        "the-cleansed"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "fool-and-scholar-productions",
+      "toEntityId": "k-a-statz",
+      "relation": "shared-show",
+      "showIds": [
+        "the-white-vault",
+        "vast-horizon"
+      ],
+      "showCount": 2
+    },
+    {
+      "fromEntityId": "fool-and-scholar-productions",
+      "toEntityId": "travis-vengroff",
+      "relation": "shared-show",
+      "showIds": [
+        "the-white-vault",
+        "vast-horizon"
+      ],
+      "showCount": 2
+    },
+    {
+      "fromEntityId": "gabriel-urbina",
+      "toEntityId": "long-story-short-productions",
+      "relation": "shared-show",
+      "showIds": [
+        "dracula-the-danse-macabre"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "good-pointe",
+      "toEntityId": "jeremy-ellett",
+      "relation": "shared-show",
+      "showIds": [
+        "the-subjective-truth",
+        "two-flat-earthers-kidnap-a-freemason"
+      ],
+      "showCount": 2
+    },
+    {
+      "fromEntityId": "harlan-guthrie",
+      "toEntityId": "rusty-quill",
+      "relation": "shared-show",
+      "showIds": [
+        "malevolent"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "ivan-gonzalez",
+      "toEntityId": "max-olesker",
+      "relation": "shared-show",
+      "showIds": [
+        "max-ivan-fugitives"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "ivan-gonzalez",
+      "toEntityId": "storyglass",
+      "relation": "shared-show",
+      "showIds": [
+        "max-ivan-fugitives"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "j-barton-mitchell",
+      "toEntityId": "night-rocket-productions",
+      "relation": "shared-show",
+      "showIds": [
+        "derelict"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "jamie-killen",
+      "toEntityId": "zoomdoom-stories",
+      "relation": "shared-show",
+      "showIds": [
+        "mirrors",
+        "the-six-disappearances-of-ella-mccray"
+      ],
+      "showCount": 2
+    },
+    {
+      "fromEntityId": "jared-j-smith",
+      "toEntityId": "luciola-creative",
+      "relation": "shared-show",
+      "showIds": [
+        "the-phenomenon"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "jeffrey-cranor",
+      "toEntityId": "joseph-fink",
+      "relation": "shared-show",
+      "showIds": [
+        "welcome-to-night-vale",
+        "within-the-wires"
+      ],
+      "showCount": 2
+    },
+    {
+      "fromEntityId": "jeffrey-cranor",
+      "toEntityId": "night-vale-presents",
+      "relation": "shared-show",
+      "showIds": [
+        "welcome-to-night-vale",
+        "within-the-wires"
+      ],
+      "showCount": 2
+    },
+    {
+      "fromEntityId": "jonathan-sims",
+      "toEntityId": "rusty-quill",
+      "relation": "shared-show",
+      "showIds": [
+        "the-magnus-archives",
+        "the-magnus-protocol"
+      ],
+      "showCount": 2
+    },
+    {
+      "fromEntityId": "jordan-cobb",
+      "toEntityId": "no-such-thing-productions",
+      "relation": "shared-show",
+      "showIds": [
+        "janus-descending"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "joseph-fink",
+      "toEntityId": "night-vale-presents",
+      "relation": "shared-show",
+      "showIds": [
+        "welcome-to-night-vale",
+        "within-the-wires"
+      ],
+      "showCount": 2
+    },
+    {
+      "fromEntityId": "julian-koster",
+      "toEntityId": "night-vale-presents",
+      "relation": "shared-show",
+      "showIds": [
+        "the-orbiting-human-circus"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "julian-koster",
+      "toEntityId": "wnyc-studios",
+      "relation": "shared-show",
+      "showIds": [
+        "the-orbiting-human-circus"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "justin-mclachlan",
+      "toEntityId": "planetm",
+      "relation": "shared-show",
+      "showIds": [
+        "eos-10"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "k-a-statz",
+      "toEntityId": "travis-vengroff",
+      "relation": "shared-show",
+      "showIds": [
+        "the-white-vault",
+        "vast-horizon"
+      ],
+      "showCount": 2
+    },
+    {
+      "fromEntityId": "kc-wayland",
+      "toEntityId": "wayland-productions",
+      "relation": "shared-show",
+      "showIds": [
+        "were-alive"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "mark-healy",
+      "toEntityId": "storyglass",
+      "relation": "shared-show",
+      "showIds": [
+        "the-harrowing"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "max-olesker",
+      "toEntityId": "storyglass",
+      "relation": "shared-show",
+      "showIds": [
+        "max-ivan-fugitives"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "night-vale-presents",
+      "toEntityId": "wnyc-studios",
+      "relation": "shared-show",
+      "showIds": [
+        "the-orbiting-human-circus"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "observer-pictures",
+      "toEntityId": "realm",
+      "relation": "shared-show",
+      "showIds": [
+        "apollyon",
+        "margaritas-donuts"
+      ],
+      "showCount": 2
+    },
+    {
+      "fromEntityId": "pale-matter-productions",
+      "toEntityId": "realm",
+      "relation": "shared-show",
+      "showIds": [
+        "station-151"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "realm",
+      "toEntityId": "violet-hour-media",
+      "relation": "shared-show",
+      "showIds": [
+        "hollow"
+      ],
+      "showCount": 1
+    },
+    {
+      "fromEntityId": "tau-zaman",
+      "toEntityId": "the-whisperforge",
+      "relation": "shared-show",
+      "showIds": [
+        "caravan"
+      ],
+      "showCount": 1
+    }
+  ]
+}

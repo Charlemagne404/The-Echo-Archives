@@ -8,6 +8,7 @@ const {
   writeJsonFile,
 } = require("./catalog-source");
 const { loadEntities, publicEntityRecords } = require("../../backend/lib/entities");
+const { buildEntityGraphData } = require("../../backend/lib/entity-graph");
 const { buildPhase2Readiness } = require("../../backend/lib/discovery-gaps");
 
 function serializeRuntimeShow(record) {
@@ -244,8 +245,11 @@ function buildCatalogStatusMarkdown(snapshot) {
 }
 
 function writeCatalogArtifacts(siteRoot, { catalog, collections, reviewsById, gapReport, archiveContext, tagTaxonomy }) {
-  const entities = publicEntityRecords(loadEntities(siteRoot, catalog), catalog);
+  const authoredEntities = loadEntities(siteRoot, catalog);
+  const entities = publicEntityRecords(authoredEntities, catalog);
+  const entityGraph = buildEntityGraphData({ shows: catalog, entities: authoredEntities });
   writeJsonFile(path.join(siteRoot, RUNTIME_DATA_DIR, "entities.json"), entities);
+  writeJsonFile(path.join(siteRoot, RUNTIME_DATA_DIR, "entity-graph.json"), entityGraph);
   const runtimeCatalog = catalog.filter((show) => show.status === "published").map(serializeRuntimeShow);
   const runtimeSearchIndex = catalog
     .filter((show) => show.status === "published")
@@ -279,6 +283,7 @@ function writeCatalogArtifacts(siteRoot, { catalog, collections, reviewsById, ga
   return {
     runtimeCatalog,
     runtimeSearchIndex,
+    entityGraph,
     statusMarkdown,
     snapshot,
   };

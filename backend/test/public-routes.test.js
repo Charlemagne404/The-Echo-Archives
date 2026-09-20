@@ -554,6 +554,28 @@ test("search index responses use cache-friendly headers for versioned and unvers
   const context = await startPublicRouteServer();
 
   try {
+    const referenceResponse = await fetch(`${context.baseUrl}/data/archive.json`);
+    assert.equal(referenceResponse.status, 200);
+    assert.match(referenceResponse.headers.get("content-type") || "", /application\/json/);
+    assert.match(referenceResponse.headers.get("x-robots-tag") || "", /noindex/);
+    assert.equal(referenceResponse.headers.get("cache-control"), "public, max-age=0, must-revalidate, stale-while-revalidate=60");
+    const reference = await referenceResponse.json();
+    assert.equal(reference.canonical, `${context.baseUrl}/data/archive.json`);
+    assert.equal(reference.resources.find((resource) => resource.id === "shows").href, `${context.baseUrl}/data/shows.json`);
+    assert.ok(reference.relationships.some((relationship) => relationship.relation === "curated-membership"));
+
+    const graphResponse = await fetch(`${context.baseUrl}/data/entity-graph.json`);
+    assert.equal(graphResponse.status, 200);
+    assert.match(graphResponse.headers.get("content-type") || "", /application\/json/);
+    assert.match(graphResponse.headers.get("x-robots-tag") || "", /noindex/);
+    assert.equal(graphResponse.headers.get("cache-control"), "public, max-age=0, must-revalidate, stale-while-revalidate=60");
+    const graph = await graphResponse.json();
+    assert.equal(graph.schema, "echo-archives/entity-graph/v1");
+    assert.ok(Array.isArray(graph.edges) && graph.edges.length > 0);
+    assert.ok(graph.entities.some((entity) => entity.id === "7-lamb-productions"));
+    assert.ok(Array.isArray(graph.entityConnections));
+    assert.match(graph.semantics.entityConnections, /does not assert a direct affiliation/);
+
     const versionedResponse = await fetch(`${context.baseUrl}/data/search-index.json?v=test-build`);
     assert.equal(versionedResponse.status, 200);
     assert.equal(versionedResponse.headers.get("cache-control"), "public, max-age=31536000, immutable");
