@@ -1,6 +1,13 @@
 {
   "entityLinks": [
-    {"entityId":"iheartpodcasts","role":"production-company"}
+    {
+      "entityId": "iheartpodcasts",
+      "role": "production-company"
+    },
+    {
+      "entityId": "iheartpodcasts",
+      "role": "network"
+    }
   ],
   "id": "saigon",
   "title": "Saigon",

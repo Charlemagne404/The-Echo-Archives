@@ -5878,6 +5878,11 @@
     {
       "showId": "buzz-the-man-the-moon",
       "entityId": "iheartpodcasts",
+      "role": "network"
+    },
+    {
+      "showId": "buzz-the-man-the-moon",
+      "entityId": "iheartpodcasts",
       "role": "production-company"
     },
     {
@@ -6118,6 +6123,11 @@
     {
       "showId": "havoc-town",
       "entityId": "iheartpodcasts",
+      "role": "network"
+    },
+    {
+      "showId": "havoc-town",
+      "entityId": "iheartpodcasts",
       "role": "production-company"
     },
     {
@@ -6268,6 +6278,11 @@
     {
       "showId": "light-house",
       "entityId": "iheartpodcasts",
+      "role": "network"
+    },
+    {
+      "showId": "light-house",
+      "entityId": "iheartpodcasts",
       "role": "production-company"
     },
     {
@@ -6309,6 +6324,11 @@
       "showId": "magenta-presents",
       "entityId": "long-cat-media",
       "role": "production-company"
+    },
+    {
+      "showId": "magmell",
+      "entityId": "iheartpodcasts",
+      "role": "network"
     },
     {
       "showId": "magmell",
@@ -6463,6 +6483,11 @@
     {
       "showId": "mordeo",
       "entityId": "iheartpodcasts",
+      "role": "network"
+    },
+    {
+      "showId": "mordeo",
+      "entityId": "iheartpodcasts",
       "role": "production-company"
     },
     {
@@ -6589,6 +6614,11 @@
       "showId": "route-6-6",
       "entityId": "goblin-booth-productions",
       "role": "production-company"
+    },
+    {
+      "showId": "saigon",
+      "entityId": "iheartpodcasts",
+      "role": "network"
     },
     {
       "showId": "saigon",
@@ -6738,7 +6768,17 @@
     {
       "showId": "strawberry-spring",
       "entityId": "iheartpodcasts",
+      "role": "network"
+    },
+    {
+      "showId": "strawberry-spring",
+      "entityId": "iheartpodcasts",
       "role": "production-company"
+    },
+    {
+      "showId": "super-suits",
+      "entityId": "faustian-nonsense",
+      "role": "network"
     },
     {
       "showId": "super-suits",
@@ -6754,6 +6794,11 @@
       "showId": "supernatural-sexuality-with-dr-seabrooke",
       "entityId": "passer-vulpes-productions",
       "role": "creator"
+    },
+    {
+      "showId": "supreme-the-battle-for-roe",
+      "entityId": "iheartpodcasts",
+      "role": "network"
     },
     {
       "showId": "supreme-the-battle-for-roe",
@@ -7003,6 +7048,11 @@
     {
       "showId": "the-mantawauk-caves",
       "entityId": "iheartpodcasts",
+      "role": "network"
+    },
+    {
+      "showId": "the-mantawauk-caves",
+      "entityId": "iheartpodcasts",
       "role": "production-company"
     },
     {
@@ -7069,6 +7119,11 @@
       "showId": "the-road-of-shadows",
       "entityId": "mark-r-healy",
       "role": "creator"
+    },
+    {
+      "showId": "the-second-oil-age",
+      "entityId": "iheartpodcasts",
+      "role": "network"
     },
     {
       "showId": "the-second-oil-age",
@@ -7344,6 +7399,11 @@
       "showId": "world-gone-wrong-a-fictional-chat-show-about-friendship-at-the-end-of-the-world",
       "entityId": "audacious-machine-creative",
       "role": "production-company"
+    },
+    {
+      "showId": "you-feeling-this",
+      "entityId": "iheartpodcasts",
+      "role": "network"
     },
     {
       "showId": "you-feeling-this",

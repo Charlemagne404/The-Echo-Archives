@@ -1690,6 +1690,28 @@
       return publicMatches;
     }
 
+    function getRecommendationCoverage(sourceOrId) {
+      const source = typeof sourceOrId === "string" ? showById.get(sourceOrId) : sourceOrId;
+      if (!source || !normalizeText(source.id)) return null;
+
+      const authored = getEditorialSimilarityMatches(source.id, { limit: publicShows.length });
+      const computed = getPublicSimilarityMatches(source.id, { limit: PUBLIC_MATCH_POLICY.maximumResults });
+      const collectionMemberships = collectionsByShow.get(source.id) || [];
+      const similarityRoutes = similarityCollections.filter((collection) => normalizeText(collection.anchorShowId) === source.id);
+
+      return {
+        showId: source.id,
+        authored,
+        authoredCount: authored.length,
+        computed,
+        computedCount: computed.length,
+        collectionMemberships,
+        collectionMembershipCount: collectionMemberships.length,
+        similarityRoutes,
+        similarityRouteCount: similarityRoutes.length,
+      };
+    }
+
     function getShowsLikeCollectionView(sourceOrId, collection = {}, options = {}) {
       const anchorId = normalizeText(collection.anchorShowId) || (typeof sourceOrId === "string" ? normalizeText(sourceOrId) : normalizeText(sourceOrId?.id));
       const anchor = showById.get(anchorId);
@@ -1790,6 +1812,7 @@
       getEditorialSimilarityMatches,
       getSimilarShows,
       getPublicSimilarityMatches,
+      getRecommendationCoverage,
       getShowsLikeCollectionView,
       getMetadataProfile,
       fieldFrequencies: context.frequencies,

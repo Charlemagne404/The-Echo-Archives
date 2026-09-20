@@ -3185,6 +3185,81 @@
     "updatedAt": "2026-09-16"
   },
   {
+    "id": "ongoing-mystery",
+    "title": "Ongoing Mystery",
+    "description": "Ongoing mystery shows for listeners who want a story to follow.",
+    "descriptionProvenance": "generated",
+    "label": "Ongoing mystery",
+    "kind": "rule-based",
+    "intentTags": [],
+    "commitment": "",
+    "coverShowIds": [],
+    "showIds": [
+      "how-i-died",
+      "the-white-vault",
+      "station-151",
+      "paralyzed",
+      "derelict",
+      "crystal-blue",
+      "tower-4",
+      "alice-isnt-dead",
+      "malevolent",
+      "archive-81",
+      "the-amelia-project",
+      "the-lovecraft-investigations",
+      "mockery-manor",
+      "the-milkman-of-st-gaffs",
+      "ghost-wax",
+      "modes-of-thought-in-anterran-literature",
+      "the-magnus-protocol",
+      "the-subjective-truth"
+    ],
+    "showReasons": {
+      "how-i-died": "Rule match: ongoing + Mystery.",
+      "the-white-vault": "Rule match: ongoing + Mystery.",
+      "station-151": "Rule match: ongoing + Mystery.",
+      "paralyzed": "Rule match: ongoing + Mystery.",
+      "derelict": "Rule match: ongoing + Mystery.",
+      "crystal-blue": "Rule match: ongoing + Mystery.",
+      "tower-4": "Rule match: ongoing + Mystery.",
+      "alice-isnt-dead": "Rule match: ongoing + Mystery.",
+      "malevolent": "Rule match: ongoing + Mystery.",
+      "archive-81": "Rule match: ongoing + Mystery.",
+      "the-amelia-project": "Rule match: ongoing + Mystery.",
+      "the-lovecraft-investigations": "Rule match: ongoing + Mystery.",
+      "mockery-manor": "Rule match: ongoing + Mystery.",
+      "the-milkman-of-st-gaffs": "Rule match: ongoing + Mystery.",
+      "ghost-wax": "Rule match: ongoing + Mystery.",
+      "modes-of-thought-in-anterran-literature": "Rule match: ongoing + Mystery.",
+      "the-magnus-protocol": "Rule match: ongoing + Mystery.",
+      "the-subjective-truth": "Rule match: ongoing + Mystery."
+    },
+    "automation": {
+      "mode": "rule",
+      "criteria": {
+        "all": [
+          {
+            "field": "completionStatus",
+            "operator": "equals",
+            "value": "ongoing"
+          },
+          {
+            "field": "genres",
+            "operator": "includes",
+            "value": "mystery"
+          }
+        ],
+        "any": [],
+        "not": []
+      },
+      "minMatches": 4
+    },
+    "featured": false,
+    "order": 405,
+    "createdAt": "2026-09-20",
+    "updatedAt": "2026-09-20"
+  },
+  {
     "id": "completed-drama",
     "title": "Completed Drama",
     "description": "Completed drama shows with a clear ending.",

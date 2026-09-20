@@ -18,6 +18,7 @@
     "report:discovery-gaps": "node scripts/discovery-gap-report.js",
     "report:entity-graph": "node scripts/entity-graph-report.js",
     "report:entity-candidates": "node scripts/entity-enrichment-candidates.js",
+    "report:entity-attribution": "node scripts/entity-attribution.js",
     "check:links": "node scripts/check-links.js",
     "check:external-links": "node scripts/check-external-links.js",
     "review:new": "node scripts/review-new.js",
@@ -40,6 +41,7 @@
     "test:entity-tooling": "node --test test/catalog-tooling.test.js",
     "test:entity-routes": "node --test test/public-routes.test.js",
     "test:entity-candidates": "node --test test/entity-enrichment-candidates.test.js",
+    "test:entity-attribution": "node --test test/entity-attribution.test.js",
     "test:serial": "node --test --test-concurrency=1 test/*.test.js"
   },
   "engines": {

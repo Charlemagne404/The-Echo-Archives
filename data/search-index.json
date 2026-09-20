@@ -11637,6 +11637,10 @@
       {
         "entityId": "faustian-nonsense",
         "role": "production-company"
+      },
+      {
+        "entityId": "faustian-nonsense",
+        "role": "network"
       }
     ],
     "resolvedEntities": [
@@ -11648,6 +11652,15 @@
           "Faustian Nonsense Productions"
         ],
         "role": "production-company"
+      },
+      {
+        "id": "faustian-nonsense",
+        "name": "Faustian Nonsense",
+        "type": "network",
+        "aliases": [
+          "Faustian Nonsense Productions"
+        ],
+        "role": "network"
       }
     ],
     "status": "published",
@@ -23429,6 +23442,10 @@
       {
         "entityId": "iheartpodcasts",
         "role": "production-company"
+      },
+      {
+        "entityId": "iheartpodcasts",
+        "role": "network"
       }
     ],
     "resolvedEntities": [
@@ -23441,6 +23458,16 @@
           "iHeartRadio"
         ],
         "role": "production-company"
+      },
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "network"
       }
     ],
     "status": "published",
@@ -26264,6 +26291,10 @@
       {
         "entityId": "iheartpodcasts",
         "role": "production-company"
+      },
+      {
+        "entityId": "iheartpodcasts",
+        "role": "network"
       }
     ],
     "resolvedEntities": [
@@ -26276,6 +26307,16 @@
           "iHeartRadio"
         ],
         "role": "production-company"
+      },
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "network"
       }
     ],
     "status": "published",
@@ -26355,6 +26396,10 @@
       {
         "entityId": "iheartpodcasts",
         "role": "production-company"
+      },
+      {
+        "entityId": "iheartpodcasts",
+        "role": "network"
       }
     ],
     "resolvedEntities": [
@@ -26367,6 +26412,16 @@
           "iHeartRadio"
         ],
         "role": "production-company"
+      },
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "network"
       }
     ],
     "status": "published",
@@ -26910,6 +26965,10 @@
       {
         "entityId": "iheartpodcasts",
         "role": "production-company"
+      },
+      {
+        "entityId": "iheartpodcasts",
+        "role": "network"
       }
     ],
     "resolvedEntities": [
@@ -26922,6 +26981,16 @@
           "iHeartRadio"
         ],
         "role": "production-company"
+      },
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "network"
       }
     ],
     "status": "published",
@@ -32111,6 +32180,10 @@
       {
         "entityId": "iheartpodcasts",
         "role": "production-company"
+      },
+      {
+        "entityId": "iheartpodcasts",
+        "role": "network"
       }
     ],
     "resolvedEntities": [
@@ -32123,6 +32196,16 @@
           "iHeartRadio"
         ],
         "role": "production-company"
+      },
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "network"
       }
     ],
     "status": "published",
@@ -33088,6 +33171,10 @@
       {
         "entityId": "iheartpodcasts",
         "role": "production-company"
+      },
+      {
+        "entityId": "iheartpodcasts",
+        "role": "network"
       }
     ],
     "resolvedEntities": [
@@ -33100,6 +33187,16 @@
           "iHeartRadio"
         ],
         "role": "production-company"
+      },
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "network"
       }
     ],
     "status": "published",
@@ -33646,6 +33743,10 @@
       {
         "entityId": "iheartpodcasts",
         "role": "production-company"
+      },
+      {
+        "entityId": "iheartpodcasts",
+        "role": "network"
       }
     ],
     "resolvedEntities": [
@@ -33658,6 +33759,16 @@
           "iHeartRadio"
         ],
         "role": "production-company"
+      },
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "network"
       }
     ],
     "status": "published",
@@ -34210,6 +34321,10 @@
       {
         "entityId": "iheartpodcasts",
         "role": "production-company"
+      },
+      {
+        "entityId": "iheartpodcasts",
+        "role": "network"
       }
     ],
     "resolvedEntities": [
@@ -34222,6 +34337,16 @@
           "iHeartRadio"
         ],
         "role": "production-company"
+      },
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "network"
       }
     ],
     "status": "published",
@@ -35053,6 +35178,10 @@
       {
         "entityId": "iheartpodcasts",
         "role": "production-company"
+      },
+      {
+        "entityId": "iheartpodcasts",
+        "role": "network"
       }
     ],
     "resolvedEntities": [
@@ -35065,6 +35194,16 @@
           "iHeartRadio"
         ],
         "role": "production-company"
+      },
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "network"
       }
     ],
     "status": "published",
@@ -37635,6 +37774,10 @@
       {
         "entityId": "iheartpodcasts",
         "role": "production-company"
+      },
+      {
+        "entityId": "iheartpodcasts",
+        "role": "network"
       }
     ],
     "resolvedEntities": [
@@ -37647,6 +37790,16 @@
           "iHeartRadio"
         ],
         "role": "production-company"
+      },
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "network"
       }
     ],
     "status": "published",
@@ -38389,6 +38542,10 @@
       {
         "entityId": "iheartpodcasts",
         "role": "production-company"
+      },
+      {
+        "entityId": "iheartpodcasts",
+        "role": "network"
       }
     ],
     "resolvedEntities": [
@@ -38401,6 +38558,16 @@
           "iHeartRadio"
         ],
         "role": "production-company"
+      },
+      {
+        "id": "iheartpodcasts",
+        "name": "iHeartPodcasts",
+        "type": "network",
+        "aliases": [
+          "iHeart",
+          "iHeartRadio"
+        ],
+        "role": "network"
       }
     ],
     "status": "published",

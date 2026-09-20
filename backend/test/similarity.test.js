@@ -368,6 +368,22 @@ test("editorial recommendations merge outgoing, incoming, and similarity-route e
   assert.deepEqual(index.getEditorialSimilarityMatches("source", { limit: 10 }), matches);
 });
 
+test("recommendation coverage keeps authored and computed surfaces separate", () => {
+  const source = show("source", { title: "Source" });
+  const incoming = show("incoming", {
+    title: "Incoming",
+    similarTo: ["source"],
+    similarReasons: { source: "An authored incoming route for the coverage surface." },
+  });
+  const index = createSimilarityIndex({ shows: [source, incoming] });
+  const coverage = index.getRecommendationCoverage("source");
+
+  assert.equal(coverage.authoredCount, 1);
+  assert.equal(coverage.authored[0].direction, "target-to-source");
+  assert.equal(coverage.computedCount, 0);
+  assert.equal(coverage.similarityRouteCount, 0);
+});
+
 test("frequency-aware discovery weighting prefers distinctive combinations over common tags", () => {
   const source = show("source", {
     themes: ["isolation", "unknown-signal"],

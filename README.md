@@ -133,6 +133,7 @@ Root commands:
 | `npm run build:catalog` | Regenerates runtime catalog data, the search index, responsive cover variants, and the generated catalog snapshot |
 | `npm run report:catalog` | Prints solo-dev catalog gaps and generated-output drift |
 | `npm run report:entity-graph` | Reports creator/entity coverage, density, orphan/weak entities, and enrichment queues |
+| `npm run report:entity-attribution` | Resolves only exact type-compatible typed credits and emits a ranked source-backed review queue |
 | `npm run catalog:new:show -- --id <show-id> [--title "Title"]` | Scaffolds a new show source record |
 | `npm run catalog:new:collection -- --id <collection-id> --show-id <show-id> [--title "Title"]` | Scaffolds a new collection source record |
 | `npm run build:pages` | Generates the ignored public HTML, route bundles, service worker, sitemap, and robots output from `site-src/` |
