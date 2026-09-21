@@ -13,8 +13,8 @@ Use it as the current-release reality check alongside:
 
 ## Snapshot Date
 
-This narrative snapshot reflects the repository as of **2026-09-17**. The latest
-catalog-authored update in the generated snapshot is **2026-09-17**; for exact
+This narrative snapshot reflects the repository as of **2026-09-20**. The latest
+catalog-authored update in the generated snapshot is **2026-09-20**; for exact
 counts and coverage gaps, use [`docs/generated/catalog-status.md`](generated/catalog-status.md).
 
 ## Current Release Posture
@@ -22,15 +22,15 @@ counts and coverage gaps, use [`docs/generated/catalog-status.md`](generated/cat
 The 1.0 product baseline and 1.1.0 Creators release are represented in the
 repository. It is a static-first, listener-facing archive with protected
 maintainer workflows and a current catalog of 752 published shows, 7 full
-reviews, and 46 collections. Current authored collection materialization is
-1,112 valid memberships across 371 shows. The Archivist remains preserved but
-disabled by default, and production community rating writes remain
-configuration-gated.
+reviews, and 54 runtime collections (47 authored plus 7 generated similarity
+companions). Current authored collection materialization is 1,130 valid
+memberships across 371 shows. The Archivist remains preserved but disabled by
+default, and production community rating writes remain configuration-gated.
 
 Release status is separate from catalog-quality and production-operations
-  gates. The current generated catalog report marks Gate B complete with zero
-  blockers. It records six documented missing RSS links, four documented runtime
-  gaps, and 29 explicit research gaps; production, host, provider, recovery, and
+gates. The current generated catalog report marks Gate B complete with zero
+blockers. It records six documented missing RSS links, eight documented runtime
+gaps, and 29 explicit research gaps; production, host, provider, recovery, and
 browser checks remain separate evidence requirements.
 
 ## Summary
@@ -88,7 +88,9 @@ Legacy show pages and query-string detail aliases remain as permanent compatibil
 
 ## Catalog Baseline
 
-Current counts and metadata coverage now live in `docs/generated/catalog-status.md`.
+Current runtime counts and metadata coverage now live in
+`docs/generated/catalog-status.md`. The source-backed collection inventory is 47
+authored records; runtime generation adds 7 similarity companions.
 
 Canonical authoring now lives under:
 
@@ -113,7 +115,7 @@ What that means in practice:
 - 228 live records are `indexed-only` and 7 have full editorial reviews
 
 The generated report records zero core metadata gaps, zero actionable RSS gaps,
-six documented missing RSS links, four documented runtime unknowns, 29 explicit
+six documented missing RSS links, eight documented runtime unknowns, 29 explicit
 research-gap records, and no editorial, collection, taxonomy, or scope blockers.
 Sparse indexed-only discovery gaps remain informational when they contain no
 unsupported editorial claims.
@@ -248,7 +250,7 @@ Most important gaps today, from the current generated catalog report:
 - 502 published shows have fewer than two collection memberships; this is informational under the tier-aware policy when records remain factual-only
 - 671 authored similarity links fall outside the preferred range; current report policy keeps this separate from the editorial blocker count
 - 6 published shows lack RSS links, all explicitly documented
-- 4 runtime gaps remain explicitly documented
+- 8 runtime gaps remain explicitly documented
 - 29 records retain explicit research-gap notes for facts that are not currently verifiable
 - editorial depth still lags metadata breadth
 - creator verification exists as a workflow but has no live verified records yet

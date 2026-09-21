@@ -63,6 +63,11 @@ function assertIntegrity(database, label) {
   if (messages.length !== 1 || messages[0].toLowerCase() !== "ok") {
     throw new Error(`${label} failed SQLite integrity_check: ${messages.join("; ") || "no result"}`);
   }
+
+  const violations = database.pragma("foreign_key_check");
+  if (violations.length > 0) {
+    throw new Error(`${label} failed SQLite foreign_key_check: ${violations.length} violation(s).`);
+  }
 }
 
 async function main() {

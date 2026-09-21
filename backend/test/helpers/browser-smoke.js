@@ -20,6 +20,8 @@ const smokeBrowserType = { chromium, firefox, webkit }[smokeBrowserName];
 if (!smokeBrowserType) {
   throw new Error(`Unsupported SMOKE_BROWSER "${smokeBrowserName}". Use chromium, firefox, or webkit.`);
 }
+const smokeBrowserExecutable = smokeBrowserType.executablePath();
+const smokeBrowserAvailable = fs.existsSync(smokeBrowserExecutable);
 
 let browser;
 let serverProcess;
@@ -423,20 +425,25 @@ async function waitForMostPopularBandIds(page, expectedIds) {
 }
 
 async function setupSmoke() {
-  tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-smoke-"));
-  smokeDbPath = path.join(tempDir, "community.sqlite");
-  const basePort = await findFreePort();
-  baseUrl = `http://127.0.0.1:${basePort}`;
-  showFixtures = applyGeneratedCoverVariants(siteRoot, await loadCatalog(siteRoot));
-  collectionFixtures = loadCollections(siteRoot, new Set(showFixtures.map((show) => show.id)));
-  firstCollectionId = collectionFixtures[0].id;
-  firstShowId = showFixtures[0].id;
-  homeMostPopularTitles = homeMostPopularIds.map(
-    (id) => showFixtures.find((show) => show.id === id)?.title || id,
-  );
+  try {
+    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-smoke-"));
+    smokeDbPath = path.join(tempDir, "community.sqlite");
+    const basePort = await findFreePort();
+    baseUrl = `http://127.0.0.1:${basePort}`;
+    showFixtures = applyGeneratedCoverVariants(siteRoot, await loadCatalog(siteRoot));
+    collectionFixtures = loadCollections(siteRoot, new Set(showFixtures.map((show) => show.id)));
+    firstCollectionId = collectionFixtures[0].id;
+    firstShowId = showFixtures[0].id;
+    homeMostPopularTitles = homeMostPopularIds.map(
+      (id) => showFixtures.find((show) => show.id === id)?.title || id,
+    );
 
-  await startSmokeServer();
-  browser = await smokeBrowserType.launch();
+    await startSmokeServer();
+    browser = await smokeBrowserType.launch();
+  } catch (error) {
+    await teardownSmoke().catch(() => {});
+    throw error;
+  }
 }
 
 async function startSmokeServer() {
@@ -521,8 +528,10 @@ module.exports = {
   legacyRedirectManifest,
   scoreCatalog,
   setupSmoke,
+  smokeBrowserAvailable,
   smokeBrowserName,
   startSmokeServer,
+  smokeBrowserExecutable,
   stopSmokeServer,
   teardownSmoke,
   waitForAppReady,

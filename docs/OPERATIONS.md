@@ -23,12 +23,13 @@ user and group are host-specific. The service never runs from this checkout.
 ## Current Release Status
 
 This runbook reflects the current 1.1.0 repository and generated catalog
-snapshot through **2026-09-17**. The repository contains the released
+snapshot through **2026-09-20**. The repository contains the released
 static-first product, creator discovery, and protected submission, import,
 elevation, and collection-maintainer workflows. The generated catalog snapshot
 has 752 published shows, 517 imported records, 228 indexed-only records, 7 full
-reviews, and 46 collections. Gate B is complete with zero catalog blockers; six
-missing RSS links and four runtime gaps are explicitly documented, alongside 25
+reviews, and 54 runtime collections (47 authored plus 7 generated similarity
+companions). Gate B is complete with zero catalog blockers; six missing RSS
+links and eight runtime gaps are explicitly documented, alongside 29
 research-gap records.
 
 Do not treat the product release marker or local catalog checks as proof that
@@ -194,6 +195,21 @@ If `npm run verify` fails, do not publish.
 - runs backend tests
 - runs Playwright smoke coverage
 
+The root verify pipeline begins with explicit catalog and page builds, so it is
+not a read-only catalog check. Those write-capable build steps may recover
+covers. Standalone catalog reads, reports, server startup, `validate:data`, and
+default validation helpers keep cover recovery disabled: they do not fetch cover
+providers or rewrite authored catalog sources, although a validation/build
+contract may still refresh derived artifacts.
+
+Verification has explicit environment boundaries. Portable developer checks can
+run on macOS, while Linux production-host checks intentionally require GNU
+tooling such as `stat -c`, `systemd`, `flock`, and `/usr/bin/node`. A host/tool
+check that is unavailable locally may be reported as `SKIP`; that is neither an
+application failure nor a passing release gate. Genuine test failures remain
+failures. Install optional Playwright browser binaries and Restic before using
+those checks as release evidence on the appropriate host.
+
 The default smoke browser is Chromium. Before a public release, install the additional Playwright engines and repeat the serial browser suite in Firefox and WebKit:
 
 ```bash
@@ -201,6 +217,14 @@ npm --prefix backend run test:setup:browser -- firefox webkit
 SMOKE_BROWSER=firefox npm --prefix backend run test:smoke:serial
 SMOKE_BROWSER=webkit npm --prefix backend run test:smoke:serial
 ```
+
+If the selected Playwright browser executable is not installed locally, the
+smoke runner reports an explicit `SKIP` with the setup command instead of
+representing missing browser tooling as an application failure or a passing
+browser suite. Restic recovery tests use the same deliberate skipped-check
+model when Restic is unavailable. CI and release hosts should install and run
+the required browser/Restic prerequisites before treating those checks as
+release evidence.
 
 The service-worker smoke test stops the local test server after the public shell
 is cached, verifies cached navigation and the uncached offline fallback, and then
@@ -496,7 +520,12 @@ Catalog/page builds also own `images/generated/covers/`, `images/generated/info/
 
 ## Catalog And Asset Checks
 
-Validation and normal startup can auto-download missing show cover art into `images/covers/` and rewrite the authored show source with the resolved local cover path.
+Normal validation and startup do not download covers or rewrite authored
+sources. They may still refresh derived artifacts as part of validation. The
+explicit catalog build/import-publication workflow may recover a
+missing cover into `images/covers/` and rewrite the authored source with the
+resolved local path. Validation helpers default to recovery-off; publication
+callers must opt in explicitly when recovery is part of the write workflow.
 
 Review and commit those changes when they are legitimate.
 
@@ -808,7 +837,7 @@ Documentation rules:
 
 The current dated QA records have different scopes:
 
-- `docs/qa/2026-09-17-post-campaign-cleanup-review.md` records the current catalog, graph, generated-output, and validation closeout.
+- `docs/qa/2026-09-17-post-campaign-cleanup-review.md` records the 2026-09-17 catalog, graph, generated-output, and validation closeout as a dated snapshot.
 - `docs/qa/creator-data-audit-2026-09-08.md` records an earlier creator/entity source audit and its local validation boundaries.
 - `docs/qa/internal-linking-audit-2026-09-08.md` records an earlier generated-route and relationship audit.
 - `docs/qa/2026-09-07-legal-review.md` records the latest legal-readiness and deployment-parity review.

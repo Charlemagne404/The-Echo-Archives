@@ -33,7 +33,7 @@ async function main() {
   writeShowsFile(siteRoot, shows);
 
   try {
-    await validateSiteData(siteRoot);
+    await validateSiteData(siteRoot, { recoverCovers: true });
   } catch (error) {
     show.reviewStatus = previousReviewStatus;
     show.updatedAt = previousUpdatedAt;

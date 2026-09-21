@@ -138,8 +138,8 @@ async function fetchBufferWithLimits(fetchImpl, url, init = {}, options = {}) {
   const resolveDns = options.resolveDns ?? fetchImpl.isNetworkFetch ?? fetchImpl === globalThis.fetch;
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
-  let currentUrl = (await assertSafeRemoteUrl(url, { resolveDns, label })).href;
   try {
+    let currentUrl = (await assertSafeRemoteUrl(url, { resolveDns, label })).href;
     for (let redirectCount = 0; redirectCount <= maxRedirects; redirectCount += 1) {
       const response = await fetchImpl(currentUrl, { ...init, redirect: "manual", signal: controller.signal });
       if (response.status >= 300 && response.status < 400) {

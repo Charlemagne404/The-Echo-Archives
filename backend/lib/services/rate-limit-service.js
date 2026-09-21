@@ -13,6 +13,7 @@ function createRateLimitError(scope, retryAfterSeconds) {
 function createRateLimitService({
   store,
   policies = {},
+  now = () => Date.now(),
 }) {
   function check(scope, clientIp) {
     const policy = policies[scope];
@@ -25,7 +26,7 @@ function createRateLimitService({
       clientIp: normalizeClientIp(clientIp),
       windowMs: policy.windowMs,
       maxEvents: policy.max,
-      createdAtMs: Date.now(),
+      createdAtMs: now(),
     });
 
     if (!result.allowed) {

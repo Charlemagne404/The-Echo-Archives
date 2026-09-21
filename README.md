@@ -10,16 +10,20 @@ This repo is not a generic podcast directory or a playback app. It is a dark, ed
 
 The repository now implements curated creator, studio, production-company and
 network discovery, with explicit show relationships and stable creator pages.
-The current catalog snapshot contains 102 public entities and 229 published
-shows with explicit public entity links. See
-[Creators authoring](docs/CREATORS.md) for the data model and maintenance workflow,
-and [1.1.0 release notes](docs/qa/2026-09-05-release-1.1-creators.md) for validation
-and remaining limitations. Local implementation is separate from deployment.
+Current repository counts and coverage evidence are maintained in the generated
+[catalog status](docs/generated/catalog-status.md). See [Creators
+authoring](docs/CREATORS.md) for the data model and maintenance workflow, and
+[1.1.0 release notes](docs/qa/2026-09-05-release-1.1-creators.md) for the dated
+validation snapshot and remaining limitations. Local implementation is separate
+from deployment.
 
 ## Current State
 
 The repo contains a working static-first site plus a small Node backend.
-The live catalog snapshot now lives in [`docs/generated/catalog-status.md`](docs/generated/catalog-status.md) so counts do not have to be hand-maintained across multiple docs.
+The generated repository catalog snapshot now lives in
+[`docs/generated/catalog-status.md`](docs/generated/catalog-status.md) so counts
+do not have to be hand-maintained across multiple docs. It is repository/source
+evidence, not proof of the state of a deployed production site.
 
 | Area | Current state |
 | --- | --- |
@@ -95,6 +99,12 @@ npm run check:structure
 npm run check:generated
 ```
 
+`npm run build:catalog` is the explicit write-capable catalog build and may
+recover missing covers. Normal server startup, reports, and validation reads do
+not fetch covers or rewrite authored catalog sources; see
+[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) and
+[`docs/OPERATIONS.md`](docs/OPERATIONS.md) for the boundary.
+
 Optionally copy `backend/.env.example` to `backend/.env` for local overrides. The root start/dev/config/backup commands load that file without replacing variables already exported by the shell.
 
 The Archivist feature is disabled by default for the current release. Set
@@ -130,7 +140,7 @@ Root commands:
 | `npm run dev` | Starts the local backend and static site through `backend/` |
 | `npm run check:config` | Loads `backend/.env` when present and validates the effective configuration |
 | `npm run backup:database` | Creates and integrity-checks a timestamped SQLite backup |
-| `npm run build:catalog` | Regenerates runtime catalog data, the search index, responsive cover variants, and the generated catalog snapshot |
+| `npm run build:catalog` | Explicitly regenerates runtime catalog data, the search index, responsive cover variants, and the generated catalog snapshot; this write-capable workflow may recover covers |
 | `npm run report:catalog` | Prints solo-dev catalog gaps and generated-output drift |
 | `npm run report:entity-graph` | Reports creator/entity coverage, density, orphan/weak entities, and enrichment queues |
 | `npm run report:entity-attribution` | Resolves only exact type-compatible typed credits and emits a ranked source-backed review queue |

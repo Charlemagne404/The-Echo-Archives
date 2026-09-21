@@ -221,13 +221,13 @@ function buildRecommendationCoverageReport({ shows = [], collections = [], legac
   });
 
   const records = publishedShows.map((show) => {
-    const coverage = index.getRecommendationCoverage(show.id);
     const metadataProfile = index.getMetadataProfile(show.id);
     const runtimeMemberships = runtimeMembershipsByShow.get(show.id) || [];
     const similarityMemberships = runtimeMemberships.filter((collection) => collection.kind === "similarity");
     const genericMemberships = runtimeMemberships.filter((collection) => collection.kind !== "similarity");
     const diagnosticCandidates = index.getSimilarShows(show.id, { limit: publishedShows.length })
       .filter((entry) => entry.similarity?.curatedEvidence !== true);
+    const coverage = index.getRecommendationCoverage(show.id, { precomputedCandidates: diagnosticCandidates });
     const availableSpecificDimensions = (metadataProfile.metadataAvailableDimensions || [])
       .filter((id) => PUBLIC_SPECIFIC_DIMENSION_SET.has(id));
     const structuralIssues = structural.issuesByShow.get(show.id) || [];

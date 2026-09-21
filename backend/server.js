@@ -268,13 +268,7 @@ async function startServer() {
   let publicStateRefreshPromise = null;
 
   async function reloadState() {
-    const catalog = await loadCatalog(config.STATIC_ROOT, {
-      coverSync: {
-        timeoutMs: config.IMPORT_FETCH_TIMEOUT_MS,
-        documentMaxBytes: config.IMPORT_DOCUMENT_MAX_BYTES,
-        coverMaxBytes: config.IMPORT_COVER_MAX_BYTES,
-      },
-    });
+    const catalog = await loadCatalog(config.STATIC_ROOT);
     applyGeneratedCoverVariants(config.STATIC_ROOT, catalog);
     const publicCatalog = catalog.filter((show) => show.status === "published");
     const publicRuntimeCatalog = publicCatalog.map(serializeRuntimeShow);

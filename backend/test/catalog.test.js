@@ -9,6 +9,7 @@ const { assertDiscoveryTaxonomyIntegrity, isApprovedDiscoveryTag } = require("..
 const { buildFallbackAnswer, sanitizeAnswerText } = require("../lib/ai/chat");
 const { validateSiteData } = require("../scripts/review-helpers");
 const { createSimilarityIndex } = require("../../shared/archive-similarity");
+const { readCatalogSource } = require("../../tools/lib/catalog-source");
 
 const siteRoot = path.resolve(__dirname, "../..");
 
@@ -376,16 +377,21 @@ test("published catalog records require complete objective discovery metadata", 
 
 test("loadCollections reads curated collections against the catalog ids", async () => {
   const catalog = await loadCatalog(siteRoot);
+  const source = readCatalogSource(siteRoot);
   const collections = loadCollections(siteRoot, new Set(catalog.map((entry) => entry.id)));
   const similarityCollections = collections.filter((collection) => collection.kind === "similarity");
+  const generatedSimilarityCollections = collections.filter((collection) => collection.generatedFrom === "authored-similarTo");
+  const authoredCollectionIds = new Set(source.collections.map((collection) => collection.id));
+  const loadedCollectionIds = new Set(collections.map((collection) => collection.id));
 
-  assert.equal(collections.length, 53);
+  assert.equal(loadedCollectionIds.size, collections.length);
+  assert.equal(collections.length, source.collections.length + generatedSimilarityCollections.length);
+  assert.ok([...authoredCollectionIds].every((collectionId) => loadedCollectionIds.has(collectionId)));
   assert.ok(collections.every((collection) => collection.showIds.length > 0));
   assert.ok(collections.every((collection) => !Object.hasOwn(collection.automation || {}, "approvedCandidateId")));
   assert.ok(similarityCollections.length > 0);
   assert.ok(similarityCollections.every((collection) => typeof collection.anchorShowId === "string" && collection.anchorShowId));
-  const generatedSimilarityCollections = similarityCollections.filter((collection) => collection.generatedFrom === "authored-similarTo");
-  assert.equal(generatedSimilarityCollections.length, 7);
+  assert.ok(generatedSimilarityCollections.every((collection) => collection.kind === "similarity"));
   assert.ok(generatedSimilarityCollections.every((collection) => collection.showIds.length >= 4));
 });
 

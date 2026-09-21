@@ -187,7 +187,7 @@ esac
   }
 });
 
-test("deployment shell scripts parse and preserve the required safety order", () => {
+test("deployment shell scripts parse and preserve the required safety order", (context) => {
   for (const relativePath of [
     "deploy/check-echo-archives-production.sh",
     "deploy/check-cloudflare-proxy-ranges.sh",
@@ -359,6 +359,10 @@ test("deployment shell scripts parse and preserve the required safety order", ()
 
   const realValidationRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-real-release-validation-"));
   const releaseCommit = "0".repeat(40);
+  // The deployed Linux contract deliberately uses /usr/bin/node. This local
+  // release fixture exercises portable isolation with the developer's Node
+  // executable and keeps that production-host assumption under static checks.
+  const developerNode = process.execPath;
   try {
     const validation = spawnSync(
       "bash",
@@ -373,14 +377,15 @@ test("deployment shell scripts parse and preserve the required safety order", ()
           release_root="$(create_temporary_release_path "$4")"
           tar -C "$3" --exclude='./.git' --exclude='./node_modules' --exclude='./backend/node_modules' -cf - . | tar -x -C "$release_root"
           printf 'RELEASE_ROOT=%s\n' "$release_root"
-          test_port="$(/usr/bin/node -e 'const net = require("node:net"); const server = net.createServer(); server.listen(0, "127.0.0.1", () => { console.log(server.address().port); server.close(); });')"
+          test_port="$("$6" -e 'const net = require("node:net"); const server = net.createServer(); server.listen(0, "127.0.0.1", () => { console.log(server.address().port); server.close(); });')"
           server_log="$2/server.log"
           run_in_test_environment "$release_root" bash -c '
             set -Eeuo pipefail
             server_log="$1"
             test_port="$2"
             server_script="$3"
-            env PORT="$test_port" MAINTAINER_REVIEW_PASSPHRASE=archive-test-passphrase MAINTAINER_REVIEW_COOKIE_SECRET=archive-test-cookie-secret-0123456789 OLLAMA_URL=http://127.0.0.1:9/api/generate /usr/bin/node "$server_script" >"$server_log" 2>&1 &
+            node_binary="$4"
+            env PORT="$test_port" MAINTAINER_REVIEW_PASSPHRASE=archive-test-passphrase MAINTAINER_REVIEW_COOKIE_SECRET=archive-test-cookie-secret-0123456789 OLLAMA_URL=http://127.0.0.1:9/api/generate "$node_binary" "$server_script" >"$server_log" 2>&1 &
             server_pid=$!
             cleanup() {
               if kill -0 "$server_pid" 2>/dev/null; then
@@ -402,7 +407,7 @@ test("deployment shell scripts parse and preserve the required safety order", ()
               status="$(curl --silent --show-error --output /dev/null --write-out "%{http_code}" --max-time 5 "http://127.0.0.1:$test_port$route")"
               [[ "$status" == 200 ]] || { echo "$route returned $status" >&2; sed -n "1,120p" "$server_log" >&2; exit 1; }
             done
-          ' _ "$server_log" "$test_port" "$5"
+          ' _ "$server_log" "$test_port" "$5" "$6"
           printf 'TEST_ENV=isolated\n'
           printf 'STATIC_ROOT=%s\n' "$release_root"
           printf 'ROUTES=style.css,maintainer/submissions.html,maintainer/imports.html\n'
@@ -413,6 +418,7 @@ test("deployment shell scripts parse and preserve the required safety order", ()
         ROOT,
         releaseCommit,
         path.join(ROOT, "backend", "server.js"),
+        developerNode,
       ],
       { cwd: ROOT, env: stagingEnvironment, encoding: "utf8" },
     );
@@ -432,6 +438,13 @@ test("deployment shell scripts parse and preserve the required safety order", ()
     assert.match(validation.stdout, /ROUTES=style\.css,maintainer\/submissions\.html,maintainer\/imports\.html/);
   } finally {
     fs.rmSync(realValidationRoot, { recursive: true, force: true });
+  }
+
+  if (process.platform !== "linux") {
+    context.skip(
+      "Linux production-host readiness fixture requires GNU coreutils, flock, and /usr/bin/node; run it in Linux CI or on the production-like host.",
+    );
+    return;
   }
 
   const readinessFixtureScript = String.raw`

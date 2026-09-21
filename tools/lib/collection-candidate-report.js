@@ -341,14 +341,103 @@ function limitDisplayedEvidence(evidence) {
 function similarityPasses(comparison) {
   if (!comparison) return false;
   if (comparison.curatedEvidence) return true;
-  const anchorMatches = comparison.dimensions.filter((dimension) => dimension.anchor && dimension.matched).length;
-  const relevantMatches = comparison.metadataMatches.filter((dimension) => COLLECTION_RELEVANT_SIMILARITY_DIMENSIONS.has(dimension));
-  const specificMatches = relevantMatches.filter((dimension) => COLLECTION_SPECIFIC_SIMILARITY_DIMENSIONS.has(dimension));
+  const anchorMatches = Number.isInteger(comparison.reportAnchorMatches)
+    ? comparison.reportAnchorMatches
+    : comparison.dimensions.filter((dimension) => dimension.anchor && dimension.matched).length;
+  const relevantMatchCount = Number.isInteger(comparison.reportRelevantMatches)
+    ? comparison.reportRelevantMatches
+    : comparison.metadataMatches.filter((dimension) => COLLECTION_RELEVANT_SIMILARITY_DIMENSIONS.has(dimension)).length;
+  const specificMatchCount = Number.isInteger(comparison.reportSpecificMatches)
+    ? comparison.reportSpecificMatches
+    : comparison.metadataMatches.filter((dimension) => COLLECTION_SPECIFIC_SIMILARITY_DIMENSIONS.has(dimension)).length;
+  const metadataMatchCount = Number.isInteger(comparison.reportMetadataMatchCount)
+    ? comparison.reportMetadataMatchCount
+    : comparison.metadataMatches.length;
   return comparison.score >= SIMILARITY_MINIMUM_SCORE
-    && comparison.metadataMatches.length >= SIMILARITY_MINIMUM_DIMENSIONS
-    && relevantMatches.length >= 2
-    && specificMatches.length >= 1
+    && metadataMatchCount >= SIMILARITY_MINIMUM_DIMENSIONS
+    && relevantMatchCount >= 2
+    && specificMatchCount >= 1
     && anchorMatches >= SIMILARITY_MINIMUM_ANCHOR_DIMENSIONS;
+}
+
+function createReportSimilarityIndex(similarityIndex) {
+  const shows = Array.isArray(similarityIndex?.shows) ? similarityIndex.shows : [];
+  const showPositions = new Map(shows.map((show, index) => [show.id, index]));
+  const showCount = shows.length;
+  const pairCount = showCount * showCount;
+  const compared = new Uint8Array(pairCount);
+  const scores = new Float64Array(pairCount);
+  const maxScores = new Float64Array(pairCount);
+  const metadataCoverages = new Float64Array(pairCount);
+  const metadataMatchCounts = new Int16Array(pairCount);
+  const anchorMatchCounts = new Int8Array(pairCount);
+  const relevantMatchCounts = new Int8Array(pairCount);
+  const specificMatchCounts = new Int8Array(pairCount);
+  const curatedEvidence = new Uint8Array(pairCount);
+  const compare = typeof similarityIndex?.compare === "function" ? similarityIndex.compare.bind(similarityIndex) : null;
+
+  if (!compare || showCount === 0) return similarityIndex;
+
+  const getShowId = (show) => typeof show === "string" ? show : show?.id;
+  const createView = (position, source, target, initialComparison = null) => {
+    let fullComparison = initialComparison;
+    const ensureFullComparison = () => {
+      if (!fullComparison) fullComparison = compare(source, target);
+      return fullComparison;
+    };
+    const view = {
+      score: scores[position],
+      maxScore: maxScores[position],
+      metadataCoverage: metadataCoverages[position],
+      curatedEvidence: curatedEvidence[position] === 1,
+      reportMetadataMatchCount: metadataMatchCounts[position],
+      reportAnchorMatches: anchorMatchCounts[position],
+      reportRelevantMatches: relevantMatchCounts[position],
+      reportSpecificMatches: specificMatchCounts[position],
+    };
+    Object.defineProperties(view, {
+      metadataMatches: {
+        enumerable: true,
+        get: () => ensureFullComparison().metadataMatches,
+      },
+      reasons: {
+        enumerable: true,
+        get: () => ensureFullComparison().reasons,
+      },
+      dimensions: {
+        enumerable: true,
+        get: () => ensureFullComparison().dimensions,
+      },
+    });
+    return view;
+  };
+
+  return {
+    ...similarityIndex,
+    compare(source, target) {
+      const sourcePosition = showPositions.get(getShowId(source));
+      const targetPosition = showPositions.get(getShowId(target));
+      if (!Number.isInteger(sourcePosition) || !Number.isInteger(targetPosition)) return compare(source, target);
+
+      const position = (sourcePosition * showCount) + targetPosition;
+      if (compared[position]) return createView(position, source, target);
+
+      const comparison = compare(source, target);
+      if (!comparison) return comparison;
+      const relevantMatches = comparison.metadataMatches.filter((dimension) => COLLECTION_RELEVANT_SIMILARITY_DIMENSIONS.has(dimension));
+      const specificMatches = relevantMatches.filter((dimension) => COLLECTION_SPECIFIC_SIMILARITY_DIMENSIONS.has(dimension));
+      scores[position] = comparison.score;
+      maxScores[position] = comparison.maxScore;
+      metadataCoverages[position] = comparison.metadataCoverage;
+      metadataMatchCounts[position] = comparison.metadataMatches.length;
+      anchorMatchCounts[position] = comparison.dimensions.filter((dimension) => dimension.anchor && dimension.matched).length;
+      relevantMatchCounts[position] = relevantMatches.length;
+      specificMatchCounts[position] = specificMatches.length;
+      curatedEvidence[position] = comparison.curatedEvidence ? 1 : 0;
+      compared[position] = 1;
+      return createView(position, source, target, comparison);
+    },
+  };
 }
 
 function compareReferences(candidate, referenceIds, showById, similarityIndex) {
@@ -879,7 +968,7 @@ function buildCollectionCandidateReport(inputs = {}, options = {}) {
   const showById = new Map(publishedShows.map((show) => [show.id, show]));
   const context = buildMetricContext({ shows, collections, entities: asArray(inputs.entities), taxonomy: inputs.taxonomy });
   const membershipIndex = buildMembershipIndex(collections, publishedShows);
-  const similarityIndex = createSimilarityIndex({ shows: publishedShows, collections });
+  const similarityIndex = createReportSimilarityIndex(createSimilarityIndex({ shows: publishedShows, collections }));
   const candidateLimit = Number.isInteger(options.candidateLimit) && options.candidateLimit > 0
     ? options.candidateLimit
     : DEFAULT_CANDIDATE_LIMIT;

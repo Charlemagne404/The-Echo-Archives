@@ -247,7 +247,12 @@ test("disabled offsite freshness is skipped even when its marker is stale or mis
   }
 });
 
-test("enabled offsite freshness accepts a fresh marker and rejects stale or missing markers", () => {
+test("enabled offsite freshness accepts a fresh marker and rejects stale or missing markers", (context) => {
+  if (process.platform !== "linux") {
+    context.skip("Linux production-host check: the monitor intentionally requires GNU stat");
+    return;
+  }
+
   const fresh = runOffsiteFreshnessFixture({ timerEnabled: true, marker: "fresh" });
   assert.equal(fresh.status, 0, fresh.stderr);
   assert.match(fresh.stdout, /PASS/);

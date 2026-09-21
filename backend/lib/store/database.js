@@ -38,7 +38,9 @@ function applyMigrationOnce(db, id, callback) {
 }
 
 function migrate(db) {
-  db.exec(`
+  // Schema creation, legacy column backfills, and marker-backed migrations must commit together.
+  const runMigrations = db.transaction(() => {
+    db.exec(`
     CREATE TABLE IF NOT EXISTS app_migrations (
       id TEXT PRIMARY KEY,
       applied_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -540,7 +542,7 @@ function migrate(db) {
 
     CREATE INDEX IF NOT EXISTS idx_rate_limit_scope_ip_created
       ON rate_limit_events (scope, client_ip, created_at_ms);
-  `);
+    `);
 
   ensureColumn(db, "show_submissions", "submission_type", "submission_type TEXT NOT NULL DEFAULT 'show'");
   ensureColumn(db, "show_submissions", "priority", "priority TEXT NOT NULL DEFAULT 'normal'");
@@ -746,9 +748,12 @@ function migrate(db) {
     END;
   `);
 
-  applyMigrationOnce(db, "catalog-import-v2-fts-backfill-2026-07-14", () => {
-    db.prepare("INSERT INTO catalog_import_candidates_fts(catalog_import_candidates_fts) VALUES ('rebuild')").run();
+    applyMigrationOnce(db, "catalog-import-v2-fts-backfill-2026-07-14", () => {
+      db.prepare("INSERT INTO catalog_import_candidates_fts(catalog_import_candidates_fts) VALUES ('rebuild')").run();
+    });
   });
+
+  runMigrations();
 }
 
 function openDatabase(dbPath, { synchronous = process.env.SQLITE_SYNCHRONOUS } = {}) {
@@ -759,8 +764,13 @@ function openDatabase(dbPath, { synchronous = process.env.SQLITE_SYNCHRONOUS } =
   db.pragma("foreign_keys = ON");
   db.pragma(`synchronous = ${synchronousMode}`);
   db.pragma("busy_timeout = 5000");
-  migrate(db);
-  return db;
+  try {
+    migrate(db);
+    return db;
+  } catch (error) {
+    db.close();
+    throw error;
+  }
 }
 
 module.exports = {

@@ -2,7 +2,7 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const path = require("node:path");
 
-const { analyzeChatQuery } = require("../lib/ai/chat-query");
+const { analyzeChatQuery, looksLikeShowDetailQuestion } = require("../lib/ai/chat-query");
 const { scoreCatalog, loadCatalog } = require("../lib/catalog");
 
 const siteRoot = path.resolve(__dirname, "../..");
@@ -30,4 +30,16 @@ test("the retired Archivist probe is constrained and therefore intentionally fal
   assert.equal(query.hasAppliedConstraints, true);
   assert.deepEqual(query.scoreOptions.requiredFields.completionStatus, ["finished"]);
   assert.ok(query.scoreOptions.requiredFields.genres.length > 0);
+});
+
+test("chat detail matching keeps title-specific about questions after apostrophe normalization", () => {
+  const catalog = [{ id: "midnight-burger", title: "Midnight Burger" }];
+
+  for (const message of ["What's Midnight Burger about?", "What’s Midnight Burger about?"]) {
+    assert.equal(looksLikeShowDetailQuestion(message), true);
+    assert.equal(
+      analyzeChatQuery({ message, history: [], catalog }).targetShowId,
+      "midnight-burger",
+    );
+  }
 });

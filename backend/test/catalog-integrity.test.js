@@ -8,6 +8,7 @@ const {
   assertCatalogIntegrity,
   collectCatalogIntegrityIssues,
 } = require("../lib/catalog-integrity");
+const { readCatalogSource } = require("../../tools/lib/catalog-source");
 
 const ROOT = path.resolve(__dirname, "../..");
 
@@ -72,13 +73,15 @@ function collection(overrides = {}) {
 
 test("the current split catalog passes the raw integrity checks", () => {
   const report = collectCatalogIntegrityIssues({ siteRoot: ROOT });
+  const source = readCatalogSource(ROOT);
+  const entities = JSON.parse(fs.readFileSync(path.join(ROOT, "catalog-src/entities.json"), "utf8"));
 
   assert.equal(report.ok, true);
   assert.deepEqual(report.errors, []);
-  assert.equal(report.stats.shows, 752);
-  assert.equal(report.stats.collections, 46);
-  assert.equal(report.stats.entities, JSON.parse(fs.readFileSync(path.join(ROOT, "catalog-src/entities.json"), "utf8")).length);
-  assert.equal(report.stats.reviews, 7);
+  assert.equal(report.stats.shows, source.shows.length);
+  assert.equal(report.stats.collections, source.collections.length);
+  assert.equal(report.stats.entities, entities.length);
+  assert.equal(report.stats.reviews, Object.keys(source.reviewsById).length);
 });
 
 test("integrity validation aggregates duplicate, reference, URL, date, and numeric failures", () => {

@@ -6,10 +6,12 @@ const path = require("node:path");
 const { spawn } = require("node:child_process");
 const { openDatabase } = require("../lib/store/database");
 const { createRateLimitStore } = require("../lib/store/rate-limit-store");
+const { createRateLimitService } = require("../lib/services/rate-limit-service");
 const { findFreePort } = require("./helpers/free-port");
 
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
+const INTEGRATION_RATE_LIMIT_WINDOW_MS = 60_000;
 
 async function createTurnstileMock() {
   const server = require("node:http").createServer((req, res) => {
@@ -73,16 +75,19 @@ async function startRateLimitServer() {
       OLLAMA_URL: "http://127.0.0.1:9/api/generate",
       STATIC_ROOT: siteRoot,
       CHAT_RATE_LIMIT_MAX: "2",
-      CHAT_RATE_LIMIT_WINDOW_MS: "1000",
+      // This HTTP test checks route-level throttling. Expiration is tested
+      // below with a controlled clock so worker contention cannot expire the
+      // window between requests.
+      CHAT_RATE_LIMIT_WINDOW_MS: String(INTEGRATION_RATE_LIMIT_WINDOW_MS),
       COMMUNITY_WRITE_MAX: "2",
-      COMMUNITY_WRITE_WINDOW_MS: "3000",
+      COMMUNITY_WRITE_WINDOW_MS: String(INTEGRATION_RATE_LIMIT_WINDOW_MS),
       COMMUNITY_TURNSTILE_ENABLED: "true",
       COMMUNITY_TURNSTILE_SITE_KEY: "test-site-key",
       COMMUNITY_TURNSTILE_SECRET_KEY: "test-secret-key",
       COMMUNITY_TURNSTILE_VERIFY_URL: turnstile.url,
       COMMUNITY_VOTER_HASH_SECRET: "test-community-voter-hash-secret-123456",
       SUBMISSION_RATE_LIMIT_MAX: "1",
-      SUBMISSION_RATE_LIMIT_WINDOW_MS: "1000",
+      SUBMISSION_RATE_LIMIT_WINDOW_MS: String(INTEGRATION_RATE_LIMIT_WINDOW_MS),
     },
     stdio: ["ignore", "pipe", "pipe"],
   });
@@ -109,10 +114,6 @@ async function stopRateLimitServer({ serverProcess, tempDir, turnstile }) {
   await turnstile.close();
 }
 
-async function waitForWindowReset(delayMs = 1200) {
-  await new Promise((resolve) => setTimeout(resolve, delayMs));
-}
-
 async function postJson(url, body, init = {}) {
   return fetch(url, {
     method: "POST",
@@ -135,7 +136,7 @@ async function putJson(url, body, init = {}) {
   });
 }
 
-test("chat, community, and submission writes return 429 with Retry-After and recover after the window", async () => {
+test("chat, community, and submission writes return 429 with Retry-After", async () => {
   const context = await startRateLimitServer();
 
   try {
@@ -161,10 +162,7 @@ test("chat, community, and submission writes return 429 with Retry-After and rec
     assert.match(throttledChat.headers.get("retry-after") || "", /^[1-9]\d*$/);
     const throttledChatBody = await throttledChat.json();
     assert.match(throttledChatBody.error || "", /too many chat requests/i);
-    assert.equal(throttledChatBody.retryAfterSeconds, 1);
-
-    await waitForWindowReset();
-    assert.equal((await postJson(`${context.baseUrl}/api/chat`, chatBody)).status, 200);
+    assert.ok(throttledChatBody.retryAfterSeconds >= 1);
 
     const profileResponse = await postJson(`${context.baseUrl}/api/community/profiles/anonymous`, {
       existingProfileId: null,
@@ -199,19 +197,6 @@ test("chat, community, and submission writes return 429 with Retry-After and rec
     assert.match(throttledCommunityBody.error || "", /too many community requests/i);
     assert.ok(throttledCommunityBody.retryAfterSeconds >= 1);
 
-    await waitForWindowReset(3200);
-    assert.equal(
-      (await fetch(`${context.baseUrl}/api/community/podcasts/impact-winter/rating`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          ...communityHeaders,
-        },
-        body: JSON.stringify({ turnstileToken: "valid-token" }),
-      })).status,
-      200,
-    );
-
     const submissionBody = {
       submissionType: "show",
       showTitle: "Rate Limited Show",
@@ -239,15 +224,38 @@ test("chat, community, and submission writes return 429 with Retry-After and rec
     assert.match(throttledSubmission.headers.get("retry-after") || "", /^[1-9]\d*$/);
     const throttledSubmissionBody = await throttledSubmission.json();
     assert.match(throttledSubmissionBody.error || "", /too many submissions requests/i);
-    assert.equal(throttledSubmissionBody.retryAfterSeconds, 1);
-
-    await waitForWindowReset();
-    assert.equal((await postJson(`${context.baseUrl}/api/submissions/shows`, {
-      ...submissionBody,
-      showTitle: "Rate Limited Show Again",
-    })).status, 201);
+    assert.ok(throttledSubmissionBody.retryAfterSeconds >= 1);
   } finally {
     await stopRateLimitServer(context);
+  }
+});
+
+test("rate-limit service expires events at a controlled window boundary", () => {
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-rate-clock-"));
+  const db = openDatabase(path.join(tempDir, "community.sqlite"));
+  let nowMs = 10_000;
+
+  try {
+    const rateLimiter = createRateLimitService({
+      store: createRateLimitStore({ db }),
+      policies: {
+        chat: { windowMs: 1_000, max: 2 },
+      },
+      now: () => nowMs,
+    });
+
+    rateLimiter.check("chat", "203.0.113.10");
+    rateLimiter.check("chat", "203.0.113.10");
+    assert.throws(
+      () => rateLimiter.check("chat", "203.0.113.10"),
+      (error) => error.statusCode === 429 && error.retryAfterSeconds === 1,
+    );
+
+    nowMs += 1_000;
+    assert.doesNotThrow(() => rateLimiter.check("chat", "203.0.113.10"));
+  } finally {
+    db.close();
+    fs.rmSync(tempDir, { recursive: true, force: true });
   }
 });
 

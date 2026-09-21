@@ -243,13 +243,15 @@ Automated collection definitions remain in `catalog-src/collections/` alongside 
 
 The generated snapshot for current counts and metadata coverage lives in
 [`docs/generated/catalog-status.md`](generated/catalog-status.md). The current
-1.1.0 snapshot contains 132 public entities, 266 shows with explicit public
+repository snapshot contains 132 public entities, 266 shows with explicit public
 entity links, 752 published shows, 517 automation-checked `imported` records,
 228 maintainer fact-checked `indexed-only` records, 7 `full-review` records,
-and 46 collections. The generated report marks Gate B complete with zero
-blockers, six documented missing RSS links, four documented runtime unknowns,
-and 25 explicit research-gap records. Deployment, provider, recovery, and
-live-browser evidence remain separate gates.
+and 54 runtime collections (47 authored plus 7 generated similarity
+companions), with 7 review companions. The generated report marks Gate B
+complete with zero blockers, six documented missing RSS links, eight documented
+runtime unknowns, and 29 explicit research-gap records. These are repository
+and generated-local facts; deployment, provider, recovery, and live-browser
+evidence remain separate gates.
 
 The archive supports three public catalogue confidence levels:
 automation-checked `imported`, maintainer fact-checked `indexed-only`, and
@@ -322,7 +324,17 @@ The system should fail fast on malformed structured data rather than silently de
 
 ## Automatic Cover Sync
 
-Catalog load and validation can auto-sync missing show cover art.
+Normal catalog loading is side-effect-free. Server startup and reloads, reports,
+validation, link checks, tests, and smoke setup do not contact cover providers or
+write authored catalog sources or cover assets. Validation may still rebuild
+derived artifacts where its existing contract requires them.
+
+The explicit `npm run build:catalog` workflow runs cover recovery before loading
+the catalog for artifact generation. Import/publication and other write-capable
+workflows reach this same build path after changing authored records.
+Validation rebuilds opt out of cover recovery by default; review/import
+publication callers opt in only when the surrounding operation is already
+write-capable.
 
 Source order:
 
@@ -331,9 +343,14 @@ Source order:
 - `officialLinks.website`
 - `listenLinks.website`
 
-Successful fetches are stored as managed local files in `images/covers/` and written back into the authored show source record, then exposed through the generated runtime catalog.
+Successful fetches are stored as managed local files in `images/covers/` and
+written back into the authored show source record, then exposed through the
+generated runtime catalog. A normal `loadCatalog()` call never performs this
+step; the explicit `syncCatalogCovers()` boundary is used by the build workflow.
 
-If no cover can be resolved, the process logs a warning and falls back to a shared local placeholder for that run instead of aborting startup.
+If no cover can be resolved during an explicit sync, the process logs a warning
+and falls back to a shared local placeholder for that build instead of aborting
+the build.
 
 ## Archive Assistant And Site Help
 
@@ -438,6 +455,14 @@ Key verification commands:
 - `npm --prefix backend test`
 - `npm --prefix backend run test:smoke`
 - `npm run verify`
+
+Portable repository checks are distinct from Linux production-host checks.
+GNU coreutils such as `stat -c`, `systemd`, `flock`, and `/usr/bin/node` remain
+intentional host contracts and may be unavailable or explicitly skipped on
+macOS. Optional Playwright browser binaries and Restic tooling can also produce
+explicit skips; a skip is not a passing validation result, and genuine
+application or test failures remain failures. See `docs/OPERATIONS.md` for the
+release verification boundary.
 
 ## Deployment Assumptions
 

@@ -1,7 +1,7 @@
 const path = require("node:path");
 
 const { loadArchiveContext } = require("../backend/lib/ai/archive-context");
-const { loadCatalog, loadCollections } = require("../backend/lib/catalog");
+const { loadCatalog, loadCollections, syncCatalogCovers } = require("../backend/lib/catalog");
 const { buildDiscoveryGapReport, getGateBCriticalValidationErrors } = require("../backend/lib/discovery-gaps");
 const { generateCoverVariants } = require("../backend/lib/responsive-images");
 const { writeCatalogArtifacts } = require("./lib/catalog-artifacts");
@@ -12,9 +12,16 @@ function resolveSiteRoot() {
   return path.resolve(__dirname, "..");
 }
 
-async function buildCatalog(siteRoot = resolveSiteRoot()) {
+async function buildCatalog(siteRoot = resolveSiteRoot(), options = {}) {
   ensureSplitCatalogSource(siteRoot);
 
+  // Cover recovery is deliberately part of this write-capable build workflow,
+  // not of normal catalog reads used by the server, reports, or tests.
+  // Validation callers opt out while still reusing the generated-artifact
+  // checks below.
+  if (options.recoverCovers !== false) {
+    await syncCatalogCovers(siteRoot);
+  }
   const catalog = await loadCatalog(siteRoot);
   const sourceData = readCatalogSource(siteRoot);
   const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)), { sourceData });

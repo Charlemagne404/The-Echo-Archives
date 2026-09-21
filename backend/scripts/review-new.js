@@ -33,7 +33,7 @@ async function main() {
   show.updatedAt = todayStamp();
 
   writeShowsFile(siteRoot, shows);
-  await validateSiteData(siteRoot);
+  await validateSiteData(siteRoot, { recoverCovers: true });
   console.log(`Created ${reviewFile.path} and updated ${showId} for review drafting.`);
 }
 

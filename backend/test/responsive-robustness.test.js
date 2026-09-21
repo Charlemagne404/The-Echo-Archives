@@ -4,6 +4,9 @@ const assert = require("node:assert/strict");
 const {
   getSmokeContext,
   gotoSmokePage,
+  smokeBrowserAvailable,
+  smokeBrowserExecutable,
+  smokeBrowserName,
   setupSmoke,
   teardownSmoke,
 } = require("./helpers/browser-smoke");
@@ -111,10 +114,18 @@ async function assertFixedElementContained(page, selector, context) {
   );
 }
 
-test("responsive robustness keeps major page families usable across awkward viewports and content", { timeout: 120_000 }, async () => {
-  await setupSmoke();
-  const { browser, baseUrl, firstCollectionId, firstShowId } = getSmokeContext();
-  const page = await browser.newPage({ hasTouch: true });
+test(
+  "responsive robustness keeps major page families usable across awkward viewports and content",
+  {
+    timeout: 120_000,
+    skip: smokeBrowserAvailable
+      ? undefined
+      : `Playwright ${smokeBrowserName} is not installed at ${smokeBrowserExecutable}.`,
+  },
+  async () => {
+    await setupSmoke();
+    const { browser, baseUrl, firstCollectionId, firstShowId } = getSmokeContext();
+    const page = await browser.newPage({ hasTouch: true });
 
   const allMajorRoutes = [
     "/",
@@ -230,8 +241,9 @@ test("responsive robustness keeps major page families usable across awkward view
     });
     await assertFixedElementContained(page, ".site-nav-drawer", "short mobile navigation drawer");
     await page.keyboard.press("Escape");
-  } finally {
-    await page.close();
-    await teardownSmoke();
-  }
-});
+    } finally {
+      await page.close();
+      await teardownSmoke();
+    }
+  },
+);

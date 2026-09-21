@@ -52,6 +52,34 @@ test("bounded import fetches reject oversized and timed-out responses", async ()
   );
 });
 
+test("bounded import fetches clear their timer when URL safety rejects before the request", async () => {
+  const originalSetTimeout = globalThis.setTimeout;
+  const originalClearTimeout = globalThis.clearTimeout;
+  let timerCount = 0;
+  let clearedTimerCount = 0;
+
+  globalThis.setTimeout = (...args) => {
+    timerCount += 1;
+    return originalSetTimeout(...args);
+  };
+  globalThis.clearTimeout = (handle) => {
+    clearedTimerCount += 1;
+    return originalClearTimeout(handle);
+  };
+
+  try {
+    await assert.rejects(
+      () => fetchTextWithLimits(globalThis.fetch, "not-a-valid-url", {}, { timeoutMs: 100, label: "RSS request" }),
+      /valid HTTP URL/i,
+    );
+    assert.equal(timerCount, 1);
+    assert.equal(clearedTimerCount, 1);
+  } finally {
+    globalThis.setTimeout = originalSetTimeout;
+    globalThis.clearTimeout = originalClearTimeout;
+  }
+});
+
 test("import fetch safety rejects private-network and credentialed URLs before fetching", async () => {
   for (const url of [
     "http://127.0.0.1/feed",

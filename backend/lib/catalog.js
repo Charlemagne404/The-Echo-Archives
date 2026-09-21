@@ -3,7 +3,7 @@ const { resolveShowEntities } = require("../../shared/archive-entities");
 const fs = require("node:fs");
 const path = require("node:path");
 
-const { syncShowCovers } = require("./cover-sync");
+const { PLACEHOLDER_COVER, syncShowCovers } = require("./cover-sync");
 const { hasRichReviewContent, mergeReviewContent, readReviewRecord } = require("./reviews");
 const {
   hydrateCatalogSearch,
@@ -665,24 +665,22 @@ function validateCollectionRecord(record, seenIds, knownShowIds) {
 
 async function loadShows(siteRoot, options = {}) {
   const sourceData = readCatalogSource(siteRoot);
-  const records = Array.isArray(options.sourceData?.shows) ? options.sourceData.shows : sourceData.shows;
+  const sourceRecords = Array.isArray(options.sourceData?.shows) ? options.sourceData.shows : sourceData.shows;
+  // Keep the read path usable for incomplete records without mutating source
+  // data. Cover recovery belongs to syncCatalogCovers(), not this fallback.
+  const records = sourceRecords.map((record) => {
+    if (record && typeof record.cover === "string" && record.cover.trim()) {
+      return record;
+    }
+
+    return {
+      ...(record && typeof record === "object" ? record : {}),
+      cover: PLACEHOLDER_COVER,
+    };
+  });
   const reviewsById = options.sourceData?.reviewsById || sourceData.reviewsById;
 
   const entities = loadEntities(siteRoot, records);
-
-  await syncShowCovers(siteRoot, records, {
-    ...(options.coverSync || {}),
-    persistRecords: async (nextRecords) => {
-      writeCatalogSource(
-        siteRoot,
-        {
-          ...sourceData,
-          shows: nextRecords,
-        },
-        { mode: sourceData.mode },
-      );
-    },
-  });
 
   const seenIds = new Set();
   const mergedRecords = records.map((record) => mergeReviewContent(record, reviewsById[record.id] || readReviewRecord(siteRoot, record.id)));
@@ -716,6 +714,23 @@ async function loadShows(siteRoot, options = {}) {
     else delete show.resolvedEntities;
   });
   return hydrateCatalogSearch(normalized);
+}
+
+async function syncCatalogCovers(siteRoot, options = {}) {
+  const sourceData = readCatalogSource(siteRoot);
+  return syncShowCovers(siteRoot, sourceData.shows, {
+    ...options,
+    persistRecords: async (nextRecords) => {
+      writeCatalogSource(
+        siteRoot,
+        {
+          ...sourceData,
+          shows: nextRecords,
+        },
+        { mode: sourceData.mode },
+      );
+    },
+  });
 }
 
 function loadCollections(siteRoot, knownShowIds = null, options = {}) {
@@ -769,5 +784,6 @@ module.exports = {
   loadShows,
   resolveCollectionView,
   scoreCatalog,
+  syncCatalogCovers,
   tokenizeQuery,
 };

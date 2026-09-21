@@ -8,10 +8,13 @@ const NEGATIVE_CONTEXT_PATTERN = /\b(don t|dont|do not|not|no|avoid|exclude|with
 const ALLOW_CONTEXT_PATTERN = /\b(can include|include|allow|allowed|ok|okay|fine|stop avoiding|don t avoid|dont avoid)\b/;
 const NOT_LIKE_CONTEXT_PATTERN =
   /\b(don t give me something like|dont give me something like|do not give me something like|not something like|nothing like|not like|avoid something like|exclude something like|without something like|avoid shows like|exclude shows like)\b/;
-const TITLE_ABOUT_PATTERN = /^(?:what s|what is)\s+.+\s+about$/;
+// archive-search normalization removes apostrophes so "what's" becomes
+// "whats". Accept both the normalized form and the spaced form used by older
+// chat matcher assumptions.
+const TITLE_ABOUT_PATTERN = /^(?:what(?:s| s)|what is)\s+.+\s+about$/;
 const SITE_ABOUT_PATTERN = /\b(echo archives|the echo archives|this site|the site|archive)\b/;
 const DETAIL_SIGNAL_PATTERN =
-  /\b(what s|what is|tell me about|summary|description|who made|who created|who wrote|how long|runtime|episodes?|seasons?|where can i listen|listen links?|official links?|transcripts?|captions?|content notes?|content warnings?|trigger warnings?|similar to|what else is like|collections?)\b/;
+  /\b(what(?:s| s)|what is|tell me about|summary|description|who made|who created|who wrote|how long|runtime|episodes?|seasons?|where can i listen|listen links?|official links?|transcripts?|captions?|content notes?|content warnings?|trigger warnings?|similar to|what else is like|collections?)\b/;
 
 const COMPLETION_ALIASES = [
   { value: "finished", aliases: ["finished", "completed", "complete"] },

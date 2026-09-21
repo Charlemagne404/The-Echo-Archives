@@ -6,7 +6,7 @@ Archivist is a preserved optional integration and is disabled by default.
 ## What it does
 
 - Loads the authored archive catalog from `../catalog-src/` and serves generated runtime data at `/data/*`
-- Auto-fetches missing show cover art from RSS, Apple, or website metadata and stores managed files under `../images/covers/`
+- Recovers missing show cover art only during the explicit catalog build workflow; normal reads preserve authored data, using an in-memory placeholder for an incomplete cover without network or file side effects
 - Exposes a same-origin chat API at `/api/chat`
 - Keeps the archive assistant implementation isolated under `lib/ai/`
 - Persists device-scoped, publicly anonymous community ratings with pseudonymous backend state in SQLite
@@ -87,7 +87,7 @@ live in [`docs/OPERATIONS.md`](../docs/OPERATIONS.md).
 ## Maintainer review workflow
 
 The service exposes the merged catalog at `/data/shows.json` and the generated browse/search payload at `/data/search-index.json`, so the frontend keeps working while long-form review copy lives in `catalog-src/reviews/<show-id>.json`.
-If a show record is missing a usable local `cover`, catalog load will try `listenLinks.rss`, `listenLinks.apple`, `officialLinks.website`, then `listenLinks.website`, download the discovered image into `images/covers/`, and rewrite the authored show source with the new local path. Failed cover fetches fall back to a local placeholder for that process and log a warning instead of aborting startup.
+Normal catalog loading is read-only with respect to external providers and the filesystem. It does not fetch missing covers, write `images/covers/`, or rewrite authored show sources. The explicit `npm run build:catalog` workflow runs cover recovery in source order (`listenLinks.rss`, `listenLinks.apple`, `officialLinks.website`, then `listenLinks.website`), persists successful managed covers, and falls back to the local placeholder for that build when recovery fails.
 
 Protected maintainer submission workflow routes:
 

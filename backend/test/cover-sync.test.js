@@ -4,10 +4,16 @@ const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
 
-const { loadCatalog } = require("../lib/catalog");
+const { loadCatalog, syncCatalogCovers } = require("../lib/catalog");
 const { PLACEHOLDER_COVER } = require("../lib/cover-sync");
+const { validateSiteData } = require("../scripts/review-helpers");
 
 const siteRoot = path.resolve(__dirname, "../..");
+
+async function loadCatalogAfterCoverSync(siteRoot, options = {}) {
+  await syncCatalogCovers(siteRoot, options);
+  return loadCatalog(siteRoot);
+}
 
 function bufferToArrayBuffer(buffer) {
   return buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
@@ -156,7 +162,7 @@ test("blank cover with RSS source downloads a managed local cover and persists i
     ]),
   );
 
-  const [show] = await loadCatalog(tempRoot, { coverSync: { fetchImpl: fetchStub, logger: createLogger() } });
+  const [show] = await loadCatalogAfterCoverSync(tempRoot, { fetchImpl: fetchStub, logger: createLogger() });
   const persistedShows = readJson(path.join(dataRoot, "shows.json"));
 
   assert.equal(show.cover, "images/covers/demo-show.jpg");
@@ -203,7 +209,7 @@ test("blank cover with Apple source downloads a managed local cover and persists
     ]),
   );
 
-  const [show] = await loadCatalog(tempRoot, { coverSync: { fetchImpl: fetchStub, logger: createLogger() } });
+  const [show] = await loadCatalogAfterCoverSync(tempRoot, { fetchImpl: fetchStub, logger: createLogger() });
   const persistedShows = readJson(path.join(dataRoot, "shows.json"));
 
   assert.equal(show.cover, "images/covers/demo-show.png");
@@ -246,7 +252,7 @@ test("blank cover with website-only source downloads a managed local cover and p
     ]),
   );
 
-  const [show] = await loadCatalog(tempRoot, { coverSync: { fetchImpl: fetchStub, logger: createLogger() } });
+  const [show] = await loadCatalogAfterCoverSync(tempRoot, { fetchImpl: fetchStub, logger: createLogger() });
   const persistedShows = readJson(path.join(dataRoot, "shows.json"));
 
   assert.equal(show.cover, "images/covers/demo-show.webp");
@@ -268,7 +274,7 @@ test("existing valid local cover remains untouched and does not fetch", async ()
   ]);
 
   const fetchStub = createFetchStub(new Map());
-  const [show] = await loadCatalog(tempRoot, { coverSync: { fetchImpl: fetchStub, logger: createLogger() } });
+  const [show] = await loadCatalogAfterCoverSync(tempRoot, { fetchImpl: fetchStub, logger: createLogger() });
   const persistedShows = readJson(path.join(dataRoot, "shows.json"));
 
   assert.equal(show.cover, "images/Circle-S-Logo.png");
@@ -315,7 +321,7 @@ test("missing local cover files are re-fetched and corrected to the managed cove
     ]),
   );
 
-  const [show] = await loadCatalog(tempRoot, { coverSync: { fetchImpl: fetchStub, logger: createLogger() } });
+  const [show] = await loadCatalogAfterCoverSync(tempRoot, { fetchImpl: fetchStub, logger: createLogger() });
   const persistedShows = readJson(path.join(dataRoot, "shows.json"));
 
   assert.equal(show.cover, "images/covers/demo-show.png");
@@ -354,7 +360,7 @@ test("fetch failures keep catalog load alive and inject the placeholder cover in
   );
   const logger = createLogger();
 
-  const [show] = await loadCatalog(tempRoot, { coverSync: { fetchImpl: fetchStub, logger } });
+  const [show] = await loadCatalogAfterCoverSync(tempRoot, { fetchImpl: fetchStub, logger });
   const persistedShows = readJson(path.join(dataRoot, "shows.json"));
 
   assert.equal(show.cover, PLACEHOLDER_COVER);
@@ -400,7 +406,7 @@ test("active SVG cover content is rejected instead of being written into the pub
   );
   const logger = createLogger();
 
-  const [show] = await loadCatalog(tempRoot, { coverSync: { fetchImpl: fetchStub, logger } });
+  const [show] = await loadCatalogAfterCoverSync(tempRoot, { fetchImpl: fetchStub, logger });
   const persistedShows = readJson(path.join(dataRoot, "shows.json"));
 
   assert.equal(show.cover, PLACEHOLDER_COVER);
@@ -419,7 +425,7 @@ test("missing source links warn once and use the placeholder cover in memory", a
   writeJson(path.join(dataRoot, "shows.json"), [createShowRecord()]);
   const logger = createLogger();
 
-  const [show] = await loadCatalog(tempRoot, { coverSync: { fetchImpl: createFetchStub(new Map()), logger } });
+  const [show] = await loadCatalogAfterCoverSync(tempRoot, { fetchImpl: createFetchStub(new Map()), logger });
   const persistedShows = readJson(path.join(dataRoot, "shows.json"));
 
   assert.equal(show.cover, PLACEHOLDER_COVER);
@@ -430,9 +436,92 @@ test("missing source links warn once and use the placeholder cover in memory", a
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
 
+test("normal catalog loading is side-effect-free when a local cover is missing", async () => {
+  const tempRoot = createTempSiteRoot();
+  seedAssets(tempRoot);
+  writeJson(path.join(tempRoot, "catalog-src", "entities.json"), []);
+  writeJson(path.join(tempRoot, "catalog-src", "shows", "_order.json"), ["demo-show"]);
+  writeJson(
+    path.join(tempRoot, "catalog-src", "shows", "demo-show.json"),
+    createShowRecord({
+      cover: "images/covers/missing-demo-show.jpg",
+      listenLinks: {
+        rss: "https://example.com/feed.xml",
+        apple: "",
+        website: "",
+      },
+    }),
+  );
+
+  const sourcePath = path.join(tempRoot, "catalog-src", "shows", "demo-show.json");
+  const sourceBefore = fs.readFileSync(sourcePath);
+  const sourceStatBefore = fs.statSync(sourcePath);
+  const fetchStub = createFetchStub(new Map());
+
+  const firstLoad = await loadCatalog(tempRoot, {
+    coverSync: {
+      fetchImpl: fetchStub,
+      logger: createLogger(),
+    },
+  });
+  const secondLoad = await loadCatalog(tempRoot);
+
+  assert.equal(fetchStub.calls.length, 0);
+  assert.equal(firstLoad[0].cover, "images/covers/missing-demo-show.jpg");
+  assert.deepEqual(firstLoad, secondLoad);
+  assert.deepEqual(fs.readFileSync(sourcePath), sourceBefore);
+  assert.equal(fs.statSync(sourcePath).mtimeNs, sourceStatBefore.mtimeNs);
+  assert.equal(fs.existsSync(path.join(tempRoot, "images", "covers")), false);
+
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("validation rebuilds stay side-effect-free when a local cover is missing", async () => {
+  const tempRoot = createTempSiteRoot();
+  seedAssets(tempRoot);
+  writeJson(path.join(tempRoot, "catalog-src", "entities.json"), []);
+  writeJson(path.join(tempRoot, "catalog-src", "shows", "_order.json"), ["demo-show"]);
+  writeJson(
+    path.join(tempRoot, "catalog-src", "shows", "demo-show.json"),
+    createShowRecord({
+      cover: "images/covers/missing-demo-show.jpg",
+      listenLinks: {
+        rss: "https://example.com/feed.xml",
+        apple: "",
+        website: "",
+      },
+    }),
+  );
+  writeJson(path.join(tempRoot, "catalog-src", "collections", "_order.json"), []);
+
+  const sourcePath = path.join(tempRoot, "catalog-src", "shows", "demo-show.json");
+  const sourceBefore = fs.readFileSync(sourcePath);
+  const sourceStatBefore = fs.statSync(sourcePath);
+  const originalFetch = global.fetch;
+  let fetchCalls = 0;
+  global.fetch = async () => {
+    fetchCalls += 1;
+    throw new Error("validation should not fetch covers");
+  };
+
+  try {
+    await validateSiteData(tempRoot);
+  } finally {
+    global.fetch = originalFetch;
+  }
+
+  assert.equal(fetchCalls, 0);
+  assert.deepEqual(fs.readFileSync(sourcePath), sourceBefore);
+  assert.equal(fs.statSync(sourcePath).mtimeNs, sourceStatBefore.mtimeNs);
+  assert.equal(fs.existsSync(path.join(tempRoot, "images", "covers")), false);
+
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
 test("the current catalog remains a no-op when every existing local cover is present", async () => {
   const fetchStub = createFetchStub(new Map());
-  const catalog = await loadCatalog(siteRoot, { coverSync: { fetchImpl: fetchStub, logger: createLogger() } });
+  await syncCatalogCovers(siteRoot, { fetchImpl: fetchStub, logger: createLogger() });
+  const catalog = await loadCatalog(siteRoot);
 
   assert.ok(catalog.length > 0);
   assert.equal(fetchStub.calls.length, 0);

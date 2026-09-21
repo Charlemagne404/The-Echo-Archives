@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Linux production-host monitor. GNU coreutils (including stat -c) and
+# systemd are intentional deployment requirements; developer portability is
+# covered by separate repository tests.
 set -Eeuo pipefail
 IFS=$'\n\t'
 umask 0077

@@ -1566,6 +1566,17 @@
       return matches.slice(0, limit);
     }
 
+    function passesSimilarityThreshold(similarity, { minimumScore, minimumMetadataDimensions, minimumAnchorDimensions, includePartial = false } = {}) {
+      if (!similarity) return false;
+      if (includePartial) return similarity.score > 0;
+      const anchorMatches = similarity.dimensions.filter((dimension) => dimension.anchor && dimension.matched);
+      return similarity.curatedEvidence || (
+        similarity.score >= minimumScore
+        && similarity.metadataMatches.length >= minimumMetadataDimensions
+        && anchorMatches.length >= minimumAnchorDimensions
+      );
+    }
+
     function getSimilarShows(sourceOrId, options = {}) {
       const source = typeof sourceOrId === "string" ? showById.get(sourceOrId) : sourceOrId;
       if (!source || !normalizeText(source.id)) return [];
@@ -1597,16 +1608,12 @@
       return publicShows
         .filter((candidate) => candidate.id !== source.id)
         .map((candidate) => ({ show: candidate, similarity: compareShows(source, candidate, context) }))
-        .filter(({ similarity }) => {
-          if (!similarity) return false;
-          if (includePartial) return similarity.score > 0;
-          const anchorMatches = similarity.dimensions.filter((dimension) => dimension.anchor && dimension.matched);
-          return similarity.curatedEvidence || (
-            similarity.score >= minimumScore
-            && similarity.metadataMatches.length >= minimumMetadataDimensions
-            && anchorMatches.length >= minimumAnchorDimensions
-          );
-        })
+        .filter(({ similarity }) => passesSimilarityThreshold(similarity, {
+          minimumScore,
+          minimumMetadataDimensions,
+          minimumAnchorDimensions,
+          includePartial,
+        }))
         .sort((left, right) => {
           const scoreDifference = right.similarity.score - left.similarity.score;
           if (scoreDifference !== 0) return scoreDifference;
@@ -1643,14 +1650,21 @@
       const minimumRecordMetadataCoverage = sparseSource
         ? PUBLIC_MATCH_POLICY.sparseMinimumRecordMetadataCoverage
         : PUBLIC_MATCH_POLICY.minimumRecordMetadataCoverage;
-      const candidates = getSimilarShows(source.id, {
-        limit: publicShows.length,
-        minimumScore,
-        minimumMetadataDimensions: PUBLIC_MATCH_POLICY.minimumMetadataDimensions,
-        minimumAnchorDimensions: PUBLIC_MATCH_POLICY.minimumAnchorDimensions,
-      });
+      const candidates = Array.isArray(options.precomputedCandidates)
+        ? options.precomputedCandidates
+        : getSimilarShows(source.id, {
+          limit: publicShows.length,
+          minimumScore,
+          minimumMetadataDimensions: PUBLIC_MATCH_POLICY.minimumMetadataDimensions,
+          minimumAnchorDimensions: PUBLIC_MATCH_POLICY.minimumAnchorDimensions,
+        });
 
       const matches = candidates
+        .filter(({ similarity }) => passesSimilarityThreshold(similarity, {
+          minimumScore,
+          minimumMetadataDimensions: PUBLIC_MATCH_POLICY.minimumMetadataDimensions,
+          minimumAnchorDimensions: PUBLIC_MATCH_POLICY.minimumAnchorDimensions,
+        }))
         .filter(({ show, similarity }) => {
           if (similarity.curatedEvidence) return false;
           if (similarity.metadataCoverage < minimumMetadataCoverage) return false;
@@ -1690,12 +1704,15 @@
       return publicMatches;
     }
 
-    function getRecommendationCoverage(sourceOrId) {
+    function getRecommendationCoverage(sourceOrId, options = {}) {
       const source = typeof sourceOrId === "string" ? showById.get(sourceOrId) : sourceOrId;
       if (!source || !normalizeText(source.id)) return null;
 
       const authored = getEditorialSimilarityMatches(source.id, { limit: publicShows.length });
-      const computed = getPublicSimilarityMatches(source.id, { limit: PUBLIC_MATCH_POLICY.maximumResults });
+      const computed = getPublicSimilarityMatches(source.id, {
+        limit: PUBLIC_MATCH_POLICY.maximumResults,
+        ...(Array.isArray(options.precomputedCandidates) ? { precomputedCandidates: options.precomputedCandidates } : {}),
+      });
       const collectionMemberships = collectionsByShow.get(source.id) || [];
       const similarityRoutes = similarityCollections.filter((collection) => normalizeText(collection.anchorShowId) === source.id);
 

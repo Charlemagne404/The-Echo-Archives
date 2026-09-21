@@ -344,7 +344,7 @@ function createElevationService({ staticRoot, importService, onPublished = null 
     });
     const transaction = writeDirectChanges(staticRoot, source, updatedShow, updatedCollections, draft.review, changedCollectionIds);
     try {
-      await validateSiteData(staticRoot);
+      await validateSiteData(staticRoot, { recoverCovers: true });
       if (typeof onPublished === "function") await onPublished({ showIds: [showId] });
     } catch (error) {
       transaction.rollback();
@@ -366,7 +366,7 @@ function createElevationService({ staticRoot, importService, onPublished = null 
     const published = { ...show, reviewStatus: "full-review", updatedAt: new Date().toISOString().slice(0, 10) };
     const transaction = writeShowRecordsAtomically(staticRoot, [published]);
     try {
-      await validateSiteData(staticRoot);
+      await validateSiteData(staticRoot, { recoverCovers: true });
       if (typeof onPublished === "function") await onPublished({ showIds: [showId] });
       return { showId, reviewStatus: "full-review", reviewedBy: text(actor, 160) || "authenticated-maintainer" };
     } catch (error) {

@@ -384,6 +384,20 @@ test("recommendation coverage keeps authored and computed surfaces separate", ()
   assert.equal(coverage.similarityRouteCount, 0);
 });
 
+test("recommendation coverage can reuse diagnostic candidates without changing public results", () => {
+  const source = show("source");
+  const target = show("target");
+  const directIndex = createSimilarityIndex({ shows: [source, target] });
+  const reusedIndex = createSimilarityIndex({ shows: [source, target] });
+  const directCoverage = directIndex.getRecommendationCoverage("source");
+  const diagnosticCandidates = reusedIndex.getSimilarShows("source", { limit: reusedIndex.shows.length });
+
+  assert.deepEqual(
+    reusedIndex.getRecommendationCoverage("source", { precomputedCandidates: diagnosticCandidates }),
+    directCoverage,
+  );
+});
+
 test("frequency-aware discovery weighting prefers distinctive combinations over common tags", () => {
   const source = show("source", {
     themes: ["isolation", "unknown-signal"],

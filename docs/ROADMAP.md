@@ -43,14 +43,14 @@ The current generated catalog snapshot contains:
 | Imported shows | 517 |
 | Indexed-only shows | 228 |
 | Full reviews | 7 |
-| Collections | 46 |
+| Runtime collections | 54 (47 authored + 7 generated) |
 | Creator-verified shows | 0 |
 
 Exact counts and gap detail remain generated evidence, not hand-maintained
-product copy. The latest catalog-authored update is 2026-09-17.
+product copy. The latest catalog-authored update is 2026-09-20.
 
 The current generated report marks Gate B complete with zero blockers. Six
-missing RSS links, four documented runtime gaps, and 29 research-gap records
+missing RSS links, eight documented runtime gaps, and 29 research-gap records
 remain explicit in the generated report. This is separate from host, provider,
 recovery, browser, and deployment checks, which are recorded in the relevant
 dated QA reports.
@@ -81,7 +81,7 @@ Keep these out of scope unless a demonstrated bottleneck changes the decision:
 
 ## Current Priorities
 
-1. Review the six documented RSS gaps, four documented runtime gaps, and 29 research-gap records when new evidence appears; Gate B has no remaining catalog blockers.
+1. Review the six documented RSS gaps, eight documented runtime gaps, and 29 research-gap records when new evidence appears; Gate B has no remaining catalog blockers.
 2. Complete the repository, host, external-provider, backup/restore, monitoring, and browser gates recorded in the relevant dated QA reports.
 3. Increase editorial depth beyond 7 full reviews without weakening the factual Imported/indexed-only lanes.
 4. Improve weak collection and similarity coverage where it creates a real listener route.
@@ -110,7 +110,7 @@ The catalog is broad enough for a real release but remains uneven in depth.
 
 Next work:
 
-- preserve the four documented missing RSS cases and four documented runtime unknowns until new evidence appears
+- preserve the six documented missing RSS cases and eight documented runtime unknowns until new evidence appears
 - convert selected Imported records to indexed-only through current factual review
 - move selected high-value records through the elevation desk into full review
 - add reviews where they improve recommendation routes, not merely to raise a count
@@ -223,7 +223,7 @@ not mark these gates complete from local unit tests alone.
 | --- | --- | --- |
 | 1.1.0 product baseline | Current | The shipped static-first product, creator discovery, and protected workflows are represented in the repository. |
 | Catalog quality | `Gate B complete` | Numeric floors pass; factual, editorial, collection, taxonomy, and scope blockers are at zero. |
-| Repository verification | `partial` | Backend serial tests and browser smoke pass, and the structure check completes with soft-limit warnings; the root gate remains partial because two host-specific tool tests fail on this macOS environment. |
+| Repository verification | `partial` | Portable tool checks pass with explicit skips for two Linux production-host checks and three Restic-dependent checks in this macOS environment; the full root gate and release-host/browser evidence remain separate. |
 | Production operations | `unverified` | Host, external provider, recovery, monitoring, and live browser evidence are not established by this local docs pass. |
 | Post-1.1 discovery | `next` | Improve data-backed search, filters, collection routes, and recommendation context. |
 | Mature archive | `future` | Broader editorial depth, creator context, and sustained quality follow-through. |
@@ -235,6 +235,7 @@ Status labels:
 - `blocked`: a required repository gate currently fails
 - `partial`: focused repository gates pass, but the complete verification gate remains unfinished
 - `unverified`: evidence requires the target host, provider, or physical device
+- An environment-specific skip is neither a pass nor an application failure; rerun the check with its required host or tooling before treating it as release evidence.
 - `next`: the next planned workstream
 - `future`: intentionally later work
 

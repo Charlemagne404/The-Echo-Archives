@@ -1419,7 +1419,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         return record;
       });
       catalogTransaction = writeShowRecordsAtomically(staticRoot, records);
-      await validateSiteData(staticRoot);
+      await validateSiteData(staticRoot, { recoverCovers: true });
       catalogCache = null;
       if (typeof onPublished === "function") await onPublished({ showIds: records.map((record) => record.id) });
       const published = candidates.map((candidate) => {
@@ -1510,7 +1510,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     let catalogTransaction = null;
     try {
       catalogTransaction = writeShowRecordsAtomically(staticRoot, [promoted]);
-      await validateSiteData(staticRoot);
+      await validateSiteData(staticRoot, { recoverCovers: true });
       catalogCache = null;
       if (typeof onPublished === "function") await onPublished({ showIds: [promoted.id] });
       const updated = store.updateCandidate(id, { preparedRecord: promoted, lastError: "" });
@@ -1633,7 +1633,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     let catalogTransaction = null;
     try {
       catalogTransaction = writeShowRecordsAtomically(staticRoot, [promoted]);
-      await validateSiteData(staticRoot);
+      await validateSiteData(staticRoot, { recoverCovers: true });
       catalogCache = null;
       if (typeof onPublished === "function") await onPublished({ showIds: [promoted.id] });
       const updated = store.updateCandidate(id, { status: "published", publishedShowId: promoted.id, preparedRecord: promoted, lastError: "" });
