@@ -126,6 +126,31 @@
   height: 18px;
 }
 
+.submit-clear-draft-button {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 11px;
+  background: transparent;
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.submit-clear-draft-button:hover,
+.submit-clear-draft-button:focus-visible {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+}
+
+.submit-clear-draft-button:disabled {
+  cursor: progress;
+  opacity: 0.6;
+}
+
 .submit-footer-note {
   min-height: 20px;
   color: var(--text-secondary);

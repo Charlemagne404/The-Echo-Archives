@@ -232,6 +232,7 @@
 
 .detail-content-layout > .detail-similar-section,
 .detail-content-layout > .detail-collections-section,
+.detail-content-layout > .detail-continuation-section,
 .detail-content-layout > .detail-correction-section {
   grid-column: 1 / -1;
 }

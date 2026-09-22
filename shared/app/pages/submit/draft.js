@@ -1,5 +1,128 @@
 import { MODES_WITH_EXISTING_SHOW } from "../../submit/config.js";
-import { getActiveDraft } from "../../submit/state.js";
+import { createDraft, getActiveDraft } from "../../submit/state.js";
+import {
+  clearStoredDraft,
+  createDraftContext,
+  hasDraftContent,
+  loadStoredDraft,
+  saveStoredDraft,
+} from "../../submit/draft-storage.js";
+
+const DRAFT_MODES = ["show", "correction", "listener-review", "creator-verification"];
+
+export function createDraftContexts() {
+  return Object.fromEntries(DRAFT_MODES.map((mode) => [mode, createDraftContext()]));
+}
+
+export function hydrateDraftsForRoute(state, route = {}) {
+  const requestedShowId = String(route.requestedShowId || "").trim();
+  const requestedEntityId = String(route.requestedEntityId || "").trim();
+  const knownRequestedShow = !requestedShowId || state.showMap.has(requestedShowId);
+
+  DRAFT_MODES.forEach((mode) => {
+    if (state.draftHydrated.has(mode)) {
+      return;
+    }
+
+    if (MODES_WITH_EXISTING_SHOW.has(mode) && requestedShowId && !knownRequestedShow) {
+      return;
+    }
+
+    hydrateDraftForMode(state, mode, createDraftContext({
+      showId: MODES_WITH_EXISTING_SHOW.has(mode) ? requestedShowId : "",
+      entityId: mode === "correction" ? requestedEntityId : "",
+    }));
+  });
+}
+
+export function hydrateDraftForMode(state, mode, context) {
+  const normalizedContext = createDraftContext(context);
+  const restoredDraft = loadStoredDraft(mode, normalizedContext);
+  const draft = {
+    ...createDraft(mode),
+    ...(restoredDraft || {}),
+  };
+
+  state.drafts[mode] = draft;
+  state.draftContexts[mode] = normalizedContext;
+  state.draftHydrated.add(mode);
+  applyDraftContext(state, mode, normalizedContext);
+  return Boolean(restoredDraft);
+}
+
+export function switchActiveDraftContext(state, elements, context, { restore = true, showTitle = "" } = {}) {
+  captureCurrentDraft(state, elements);
+  const mode = state.activeMode;
+  const normalizedContext = createDraftContext(context);
+  const restoredDraft = restore ? loadStoredDraft(mode, normalizedContext) : null;
+
+  state.drafts[mode] = {
+    ...createDraft(mode),
+    ...(restoredDraft || {}),
+  };
+  state.draftContexts[mode] = normalizedContext;
+  state.draftHydrated.add(mode);
+  applyDraftContext(state, mode, normalizedContext, { showTitle });
+  return Boolean(restoredDraft);
+}
+
+export function clearActiveDraft(state, elements) {
+  const mode = state.activeMode;
+  const context = state.draftContexts[mode] || createDraftContext();
+  clearStoredDraft(mode, context);
+  state.drafts[mode] = createDraft(mode);
+  state.draftHydrated.add(mode);
+  applyDraftContext(state, mode, context);
+  elements.legalAcknowledgement.checked = false;
+  state.onDraftChanged?.();
+}
+
+export function clearSubmittedDraft(state, mode, context) {
+  clearStoredDraft(mode, context);
+  state.drafts[mode] = createDraft(mode);
+  state.draftContexts[mode] = createDraftContext();
+  state.draftHydrated.add(mode);
+}
+
+export function persistActiveDraft(state) {
+  const mode = state.activeMode;
+  if (!state.draftHydrated.has(mode)) {
+    return false;
+  }
+
+  return saveStoredDraft(
+    mode,
+    state.draftContexts[mode] || createDraftContext(),
+    getActiveDraft(state),
+  );
+}
+
+export function hasActiveDraftContent(state) {
+  const mode = state.activeMode;
+  return state.draftHydrated.has(mode) && hasDraftContent(
+    mode,
+    getActiveDraft(state),
+    state.draftContexts[mode] || createDraftContext(),
+  );
+}
+
+function applyDraftContext(state, mode, context, { showTitle = "" } = {}) {
+  const draft = state.drafts[mode];
+  if (!draft) {
+    return;
+  }
+
+  if (MODES_WITH_EXISTING_SHOW.has(mode)) {
+    draft.existingShowId = context.showId;
+    if (context.showId) {
+      draft.showSearch = showTitle || state.showMap.get(context.showId)?.title || draft.showSearch;
+    }
+  }
+
+  if (mode === "correction") {
+    draft.creatorPageId = context.entityId;
+  }
+}
 
 export function captureCurrentDraft(state, elements) {
   const draft = getActiveDraft(state);
@@ -16,6 +139,7 @@ export function captureCurrentDraft(state, elements) {
       draft.creatorName = readValue("submitCreatorName");
       draft.contactEmail = readValue("submitContactEmail");
       draft.completionStatus = readValue("submitCompletionStatus");
+      draft.suggestedDescriptors = readValue("submitSuggestedDescriptors");
       draft.shortDescription = readValue("submitShortDescription");
       draft.verificationNotes = readValue("submitVerificationNotes");
       draft.listenLinks = readLinkRows(elements.form, "listenLinks", false);
@@ -68,6 +192,9 @@ export function captureCurrentDraft(state, elements) {
     default:
       break;
   }
+
+  state.persistActiveDraft?.();
+  state.onDraftChanged?.();
 }
 
 function readValue(id) {

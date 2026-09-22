@@ -3,6 +3,7 @@ import { getActiveDraft } from "../../submit/state.js";
 import { getShowMatches, getTagSuggestions, renderSearchResultsMarkup } from "../../submit/search.js";
 import { renderModeCardsMarkup, renderModeFields, renderRailCard } from "../../submit/render.js";
 import { escapeHtml, iconMarkup } from "../../submit/utils.js";
+import { hasActiveDraftContent } from "./draft.js";
 
 export function createSubmitUiController({ state, elements }) {
   return {
@@ -21,6 +22,7 @@ export function createSubmitUiController({ state, elements }) {
     showSuccess,
     showForm,
     focusFirstField,
+    updateDraftControls,
   };
 
   function renderAll() {
@@ -28,6 +30,8 @@ export function createSubmitUiController({ state, elements }) {
     renderActiveMode();
     syncHiddenInputs();
     syncQueryState();
+    state.persistActiveDraft?.();
+    updateDraftControls();
   }
 
   function renderModeCards() {
@@ -139,6 +143,7 @@ export function createSubmitUiController({ state, elements }) {
     const config = MODE_CONFIG[mode];
     elements.form.setAttribute("aria-busy", String(isPending));
     elements.submitButton.disabled = isPending || (MODES_WITH_EXISTING_SHOW.has(mode) && state.lookupStatus !== "ready");
+    elements.clearDraftButton.disabled = isPending;
     elements.submitButtonText.textContent = isPending ? pendingLabel : config.submitLabel;
   }
 
@@ -161,6 +166,12 @@ export function createSubmitUiController({ state, elements }) {
     elements.legalAcknowledgement.checked = false;
     setStatus("");
     renderAll();
+  }
+
+  function updateDraftControls() {
+    const canClear = !elements.form.hidden && hasActiveDraftContent(state);
+    elements.clearDraftButton.hidden = !canClear;
+    elements.clearDraftButton.disabled = elements.form.getAttribute("aria-busy") === "true";
   }
 
   function focusFirstField() {

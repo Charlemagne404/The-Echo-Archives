@@ -23,7 +23,14 @@ import {
 import { validateDraft } from "../submit/validation.js";
 import { buildPayload, getPendingCopy, getSuccessCopy, loadShowContext, submitSubmission } from "../submit/api.js";
 import { bindSubmitPageClickHandlers } from "./submit/click-handlers.js";
-import { captureCurrentDraft } from "./submit/draft.js";
+import {
+  clearSubmittedDraft,
+  createDraftContexts,
+  captureCurrentDraft,
+  hydrateDraftsForRoute,
+  persistActiveDraft,
+  switchActiveDraftContext,
+} from "./submit/draft.js";
 import { getSubmitElements } from "./submit/elements.js";
 import { createSubmitUiController } from "./submit/ui.js";
 
@@ -65,8 +72,12 @@ export async function initializeSubmitPage() {
       workedBest: REVIEW_STRENGTH_OPTIONS,
     },
     drafts: createDrafts(),
+    draftContexts: createDraftContexts(),
+    draftHydrated: new Set(),
   };
   const ui = createSubmitUiController({ state, elements });
+  state.persistActiveDraft = () => persistActiveDraft(state);
+  state.onDraftChanged = () => ui.updateDraftControls();
   const renderPreservingFocus = ({ capture = true } = {}) => {
     if (capture) {
       captureCurrentDraft(state, elements);
@@ -116,6 +127,9 @@ export async function initializeSubmitPage() {
 
   const initialParams = seedStateFromParams(state);
   state.requestedShowId = initialParams?.requestedShowId || "";
+  hydrateDraftsForRoute(state, initialParams);
+  seedStateFromParams(state);
+  elements.legalAcknowledgement.checked = false;
   ui.renderAll();
   const ensureLookup = async ({ force = false, focusSearch = false } = {}) => {
     if (state.lookupStatus === "ready") {
@@ -143,6 +157,8 @@ export async function initializeSubmitPage() {
         state.tagFieldOptions.selectedTags = buildTagOptions(shows);
         state.lookupStatus = "ready";
         state.lookupMessage = "";
+        const routeParams = seedStateFromParams(state);
+        hydrateDraftsForRoute(state, routeParams);
         seedStateFromParams(state);
         state.requestedShowId = "";
         renderPreservingFocus({ capture: false });
@@ -247,12 +263,24 @@ export async function initializeSubmitPage() {
     ui.updateCounterFor(target.id, target.value.length);
 
     if (target.id === "submitExistingShowSearch") {
-      const draft = getActiveDraft(state);
-      draft.showSearch = target.value;
+      let draft = getActiveDraft(state);
       const selectedShow = state.showMap.get(draft.existingShowId) || null;
       if (!selectedShow || selectedShow.title !== target.value.trim()) {
+        if (draft.existingShowId) {
+          const currentContext = state.draftContexts[state.activeMode] || {};
+          switchActiveDraftContext(
+            state,
+            elements,
+            { showId: "", entityId: currentContext.entityId || "" },
+            { restore: false },
+          );
+          draft = getActiveDraft(state);
+        }
         draft.existingShowId = "";
       }
+      draft.showSearch = target.value;
+      state.persistActiveDraft?.();
+      state.onDraftChanged?.();
       state.searchOpen = true;
       state.showHighlightIndex = -1;
       ui.syncHiddenInputs();
@@ -332,13 +360,20 @@ export async function initializeSubmitPage() {
         const selectedShow = matches[state.showHighlightIndex];
         if (selectedShow) {
           event.preventDefault();
-          draft.existingShowId = selectedShow.id;
-          draft.showSearch = selectedShow.title;
+          const currentContext = state.draftContexts[state.activeMode] || {};
+          switchActiveDraftContext(
+            state,
+            elements,
+            { showId: selectedShow.id, entityId: currentContext.entityId || "" },
+            { showTitle: selectedShow.title },
+          );
           state.searchOpen = false;
           state.showHighlightIndex = -1;
+          ui.syncHiddenInputs();
+          ui.syncQueryState();
           ui.renderAll();
           void ensureShowContext(selectedShow.id);
-          ui.focusExistingShowSearch(draft.showSearch.length);
+          ui.focusExistingShowSearch(selectedShow.title.length);
         }
         return;
       }
@@ -433,6 +468,7 @@ export async function initializeSubmitPage() {
 
     const mode = state.activeMode;
     const draft = getActiveDraft(state);
+    const submittedContext = state.draftContexts[mode];
     if (!draft.legalAcknowledged) {
       ui.setStatus("Please acknowledge the Terms and Privacy notice before submitting.", "error");
       elements.legalAcknowledgement.focus();
@@ -452,7 +488,7 @@ export async function initializeSubmitPage() {
 
     try {
       await submitSubmission(payload);
-      state.drafts[mode] = createDraft(mode);
+      clearSubmittedDraft(state, mode, submittedContext);
       state.searchOpen = false;
       const successMessage = getSuccessCopy(mode);
       ui.showSuccess(successMessage, mode);

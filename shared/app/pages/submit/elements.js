@@ -11,6 +11,7 @@ export function getSubmitElements() {
     sideRail: document.getElementById("submitSideRail"),
     submitButton: document.getElementById("submitPrimaryButton"),
     submitButtonText: document.getElementById("submitPrimaryButtonText"),
+    clearDraftButton: document.getElementById("submitClearDraftButton"),
     submitFooterNote: document.getElementById("submitFooterNote"),
     legalAcknowledgement: document.getElementById("submitLegalAcknowledgement"),
     submitStatus: document.getElementById("submitStatus"),
@@ -29,6 +30,7 @@ export function getSubmitElements() {
     !elements.sideRail ||
     !(elements.submitButton instanceof HTMLButtonElement) ||
     !elements.submitButtonText ||
+    !(elements.clearDraftButton instanceof HTMLButtonElement) ||
     !elements.submitFooterNote ||
     !(elements.legalAcknowledgement instanceof HTMLInputElement) ||
     elements.legalAcknowledgement.type !== "checkbox" ||

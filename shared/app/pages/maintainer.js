@@ -3,6 +3,7 @@ import { bindMaintainerListenerReviewEditor } from "../maintainer/listener-revie
 import { formatDateTime, formatStatus, formatSubmissionType, summarizeCounts } from "../maintainer/format.js";
 import {
   buildFilterSummary,
+  areMaintainerFiltersEqual,
   FILTER_OPTIONS,
   focusMaintainerWorkspace,
   getMaintainerViewElements,
@@ -10,10 +11,13 @@ import {
   initializeAuthFlow,
   isAbortError,
   readFilters,
+  readSelectedSubmissionId,
   renderSelectOptions,
+  resolveSelectedSubmissionId,
   runMaintainerAction,
   setMaintainerViewState,
   setStoredReviewer,
+  syncSelectedSubmissionToUrl,
   syncFiltersToUrl,
 } from "../maintainer/page-helpers.js";
 import { renderDetailPane, renderQueueList, renderReportContent, renderSummaryCards } from "../maintainer/render.js";
@@ -41,7 +45,7 @@ export async function initializeMaintainerPage() {
   const state = {
     filters: readFilters(20),
     response: null,
-    selectedId: "",
+    selectedId: readSelectedSubmissionId(),
     storedReviewer: getStoredReviewer(),
     hasBeenReady: false,
     queueController: null,
@@ -78,12 +82,16 @@ export async function initializeMaintainerPage() {
   };
   const view = getMaintainerViewElements(elements.appShell);
 
-  renderSelectOptions(elements.status, FILTER_OPTIONS.status, state.filters.status);
-  renderSelectOptions(elements.submissionType, FILTER_OPTIONS.submissionType, state.filters.submissionType);
-  renderSelectOptions(elements.priority, FILTER_OPTIONS.priority, state.filters.priority);
-  if (elements.search instanceof HTMLInputElement) elements.search.value = state.filters.q;
-  if (elements.includeClosed instanceof HTMLInputElement) elements.includeClosed.checked = state.filters.includeClosed;
-  if (elements.pageSize instanceof HTMLSelectElement) elements.pageSize.value = String(state.filters.pageSize);
+  function syncFilterControls() {
+    renderSelectOptions(elements.status, FILTER_OPTIONS.status, state.filters.status);
+    renderSelectOptions(elements.submissionType, FILTER_OPTIONS.submissionType, state.filters.submissionType);
+    renderSelectOptions(elements.priority, FILTER_OPTIONS.priority, state.filters.priority);
+    if (elements.search instanceof HTMLInputElement) elements.search.value = state.filters.q;
+    if (elements.includeClosed instanceof HTMLInputElement) elements.includeClosed.checked = state.filters.includeClosed;
+    if (elements.pageSize instanceof HTMLSelectElement) elements.pageSize.value = String(state.filters.pageSize);
+  }
+
+  syncFilterControls();
 
   const abortRequests = () => {
     state.queueController?.abort();
@@ -227,9 +235,9 @@ export async function initializeMaintainerPage() {
       if (elements.refreshButton) elements.refreshButton.hidden = false;
       setMaintainerViewState(view, "ready");
       elements.summaryCards.innerHTML = renderSummaryCards(summarizeCounts(response.counts, response.total));
-      if (!preserveSelection || !response.items.some((item) => item.id === state.selectedId)) {
-        state.selectedId = response.items[0]?.id || "";
-      }
+      const requestedId = readSelectedSubmissionId() || (preserveSelection ? state.selectedId : "");
+      state.selectedId = resolveSelectedSubmissionId(response.items, requestedId);
+      syncSelectedSubmissionToUrl(state.selectedId);
       elements.list.innerHTML = renderQueueList({ items: response.items, selectedId: state.selectedId });
       const start = response.total === 0 ? 0 : ((response.page - 1) * response.pageSize) + 1;
       const end = Math.min(response.total, response.page * response.pageSize);
@@ -256,6 +264,24 @@ export async function initializeMaintainerPage() {
     }
   }
 
+  async function handlePopState() {
+    const nextFilters = readFilters(20);
+    const filtersChanged = !areMaintainerFiltersEqual(state.filters, nextFilters);
+    state.filters = nextFilters;
+    state.selectedId = readSelectedSubmissionId();
+    syncFilterControls();
+
+    if (filtersChanged || !state.response) {
+      await loadQueue();
+      return;
+    }
+
+    state.selectedId = resolveSelectedSubmissionId(state.response.items, state.selectedId);
+    syncSelectedSubmissionToUrl(state.selectedId);
+    elements.list.innerHTML = renderQueueList({ items: state.response.items, selectedId: state.selectedId });
+    await loadDetail();
+  }
+
   elements.retryButton?.addEventListener("click", async (event) => {
     await runMaintainerAction({ control: event.currentTarget, action: async () => loadQueue(true) });
   });
@@ -270,12 +296,12 @@ export async function initializeMaintainerPage() {
       pageSize: Number.parseInt(elements.pageSize.value, 10) || 20,
       page: 1,
     };
-    syncFiltersToUrl(state.filters);
+    syncFiltersToUrl(state.filters, { selectedId: state.selectedId });
     await runMaintainerAction({ control: event.submitter, region: elements.filterForm, action: async () => loadQueue() });
   });
   document.getElementById("maintainerResetFilters")?.addEventListener("click", () => {
     state.filters = { q: "", status: "", submissionType: "", priority: "", includeClosed: false, page: 1, pageSize: 20 };
-    syncFiltersToUrl(state.filters);
+    syncFiltersToUrl(state.filters, { selectedId: state.selectedId });
     window.location.reload();
   });
   elements.refreshButton?.addEventListener("click", async (event) => {
@@ -284,18 +310,19 @@ export async function initializeMaintainerPage() {
   elements.previousPage?.addEventListener("click", async (event) => {
     if (state.filters.page <= 1) return;
     state.filters.page -= 1;
-    syncFiltersToUrl(state.filters);
+    syncFiltersToUrl(state.filters, { selectedId: state.selectedId });
     await runMaintainerAction({ control: event.currentTarget, action: async () => loadQueue() });
   });
   elements.nextPage?.addEventListener("click", async (event) => {
     state.filters.page += 1;
-    syncFiltersToUrl(state.filters);
+    syncFiltersToUrl(state.filters, { selectedId: state.selectedId });
     await runMaintainerAction({ control: event.currentTarget, action: async () => loadQueue() });
   });
   elements.list?.addEventListener("click", async (event) => {
     const button = event.target instanceof Element ? event.target.closest("[data-submission-id]") : null;
     if (!(button instanceof HTMLElement) || button.dataset.maintainerBusy === "true") return;
     state.selectedId = button.dataset.submissionId || "";
+    syncSelectedSubmissionToUrl(state.selectedId, { mode: "push" });
     elements.list.innerHTML = renderQueueList({ items: state.response?.items || [], selectedId: state.selectedId });
     await runMaintainerAction({ control: button, region: elements.detail, action: async () => loadDetail({ focusDetail: true }) });
   });
@@ -304,6 +331,7 @@ export async function initializeMaintainerPage() {
     window.requestAnimationFrame(() => elements.listHeading?.focus({ preventScroll: true }));
   });
 
+  window.addEventListener("popstate", () => { void handlePopState(); });
   window.addEventListener("pagehide", abortRequests, { once: true });
   await loadQueue();
 }

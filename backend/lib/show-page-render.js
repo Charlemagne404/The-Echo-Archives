@@ -1,4 +1,4 @@
-const { renderEntityFacts, renderMoreFrom } = require("../../shared/archive-entities");
+const { renderEntityFacts, renderMoreFrom, selectMoreFrom } = require("../../shared/archive-entities");
 const { createSimilarityIndex } = require("../../shared/archive-similarity");
 const { renderCollectionShowCard } = require("../../tools/lib/home-page-prerender");
 
@@ -7,6 +7,7 @@ const {
   formatCount,
   formatRouteExpansion,
   getPublicVerificationLabel,
+  getShowContinuationRoutes,
   toPublicLabel,
 } = require("../../shared/archive-record");
 
@@ -681,6 +682,15 @@ function getSimilarShowGroups(show, showMap, collections = [], providedSimilarit
   return { authoredNeighbors, computedNeighbors };
 }
 
+function getShowRelationshipState(show, showMap, collections = [], providedSimilarityIndex = null) {
+  return {
+    ...getSimilarShowGroups(show, showMap, collections, providedSimilarityIndex),
+    memberships: getCollectionMemberships(show, collections),
+    hasMoreFrom: Boolean(selectMoreFrom(show, [...showMap.values()])),
+    hasEntityRoute: Array.isArray(show?.resolvedEntities) && show.resolvedEntities.some((entity) => entity?.id),
+  };
+}
+
 function getFallbackEditorialNeighbors(show, showMap) {
   const matches = [];
   const seen = new Set();
@@ -703,8 +713,8 @@ function getFallbackEditorialNeighbors(show, showMap) {
   return matches;
 }
 
-function renderSimilarSection(show, showMap, collections = [], providedSimilarityIndex = null) {
-  const { authoredNeighbors, computedNeighbors } = getSimilarShowGroups(
+function renderSimilarSection(show, showMap, collections = [], providedSimilarityIndex = null, relationshipState = null) {
+  const { authoredNeighbors, computedNeighbors } = relationshipState || getShowRelationshipState(
     show,
     showMap,
     collections,
@@ -759,8 +769,8 @@ function renderSimilarCards(source, neighbors, offset = 0) {
   }).join("");
 }
 
-function renderCollectionsSection(show, collections = [], showMap = new Map()) {
-  const memberships = getCollectionMemberships(show, collections);
+function renderCollectionsSection(show, collections = [], showMap = new Map(), relationshipState = null) {
+  const memberships = relationshipState?.memberships || getCollectionMemberships(show, collections);
   if (memberships.length === 0) {
     return "";
   }
@@ -808,6 +818,35 @@ function getCollectionCoverShows(collection, showMap) {
 function getCollectionAccent(coverShows) {
   const accent = coverShows.find((show) => /^#[0-9a-f]{3,8}$/i.test(String(show?.accent?.hex || "")))?.accent?.hex;
   return String(accent || "");
+}
+
+function renderShowContinuationSection(show, relationshipState = null) {
+  if (!relationshipState) return "";
+  if (
+    relationshipState.authoredNeighbors.length > 0 ||
+    relationshipState.computedNeighbors.length > 0 ||
+    relationshipState.memberships.length > 0 ||
+    relationshipState.hasMoreFrom ||
+    relationshipState.hasEntityRoute
+  ) {
+    return "";
+  }
+
+  const routes = getShowContinuationRoutes(show);
+  return `
+    <section class="detail-section detail-continuation-section" aria-labelledby="detail-continuation-title">
+      <div class="detail-section-header">
+        <div>
+          <p class="detail-continuation-kicker">Archive navigation</p>
+          <h2 id="detail-continuation-title">Continue exploring</h2>
+          <p>The archive does not have enough relationship data to make a “Try next” recommendation for this show yet. These links browse verified catalogue routes; they are not recommendations.</p>
+        </div>
+      </div>
+      <nav class="detail-continuation-links" aria-label="Continue exploring the archive">
+        ${routes.map((route) => `<a class="detail-archive-link detail-continuation-link" href="${escapeHtml(route.href)}">${escapeHtml(route.label)}</a>`).join("")}
+      </nav>
+    </section>
+  `;
 }
 
 function renderCorrectionSection(show) {
@@ -861,6 +900,7 @@ function renderCommunityScoreBreakdown(show, scoreSummary = {}) {
 function createShowPageMarkup(show, showMap, collections = [], reviewData = {}, similarityIndex = null) {
   const isFullReview = show.reviewStatus === "full-review";
   const facts = renderFactsLinksCard(show, { inline: !isFullReview });
+  const relationshipState = getShowRelationshipState(show, showMap, collections, similarityIndex);
   return `
     <section class="detail-main podcast-detail detail-main--${isFullReview ? "full" : "indexed"}">
       ${renderDetailHero(show, reviewData)}
@@ -876,8 +916,9 @@ function createShowPageMarkup(show, showMap, collections = [], reviewData = {}, 
           recommendationSource: "creator_more_from",
           entityId: entity?.id || "",
         }))}
-        ${renderSimilarSection(show, showMap, collections, similarityIndex)}
-        ${renderCollectionsSection(show, collections, showMap)}
+        ${renderSimilarSection(show, showMap, collections, similarityIndex, relationshipState)}
+        ${renderCollectionsSection(show, collections, showMap, relationshipState)}
+        ${renderShowContinuationSection(show, relationshipState)}
         ${renderCorrectionSection(show)}
       </div>
     </section>

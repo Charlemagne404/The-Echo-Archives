@@ -132,6 +132,46 @@
       .join(" ");
   }
 
+  function createArchiveBrowseHref(filterGroup, value) {
+    const queryKey = filterGroup === "genres" ? "genre" : filterGroup;
+    return `/?${encodeURIComponent(queryKey)}=${encodeURIComponent(value)}#archive`;
+  }
+
+  function getShowContinuationRoutes(show = {}) {
+    const routeDefinitions = [
+      { field: "genres", filterGroup: "genres", label: (value) => `Browse more ${toPublicLabel(value)}` },
+      { field: "formats", filterGroup: "formats", label: (value) => `Browse ${toPublicLabel(value)} shows` },
+      { field: "tones", filterGroup: "tones", label: (value) => `Browse ${toPublicLabel(value)} shows` },
+      { field: "tags", filterGroup: "tags", label: (value) => `Browse ${toPublicLabel(value)} shows` },
+      { field: "bestFor", filterGroup: "bestFor", label: (value) => `Browse ${toPublicLabel(value)} listens` },
+    ];
+    const routes = [];
+    const seen = new Set();
+
+    for (const definition of routeDefinitions) {
+      for (const value of uniqueDisplayValues(show[definition.field])) {
+        const key = `${definition.filterGroup}:${normalizeTagValue(value)}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        routes.push({
+          id: key,
+          kind: "category",
+          href: createArchiveBrowseHref(definition.filterGroup, value),
+          label: definition.label(value),
+        });
+        if (routes.length >= 2) break;
+      }
+      if (routes.length >= 2) break;
+    }
+
+    if (routes.length === 0) {
+      return [{ id: "archive", kind: "archive", href: "/#archive", label: "Explore the archive" }];
+    }
+
+    routes.push({ id: "collections", kind: "collections", href: "/collections", label: "Browse all collections" });
+    return routes.slice(0, 3);
+  }
+
   function derivePublicStatus(show = {}) {
     const release = String(show.releaseStatus || "").trim().toLowerCase();
     const completion = String(show.completionStatus || "").trim().toLowerCase();
@@ -541,6 +581,7 @@
     formatCount,
     formatRouteExpansion,
     toPublicLabel,
+    getShowContinuationRoutes,
     derivePublicStatus,
     getPublicVerificationLabel,
     getPublicContentProfile,

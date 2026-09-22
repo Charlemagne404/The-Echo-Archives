@@ -248,6 +248,15 @@
     width: 100%;
     min-height: 38px;
   }
+
+  .detail-continuation-links {
+    display: grid;
+    gap: 8px;
+  }
+
+  .detail-continuation-link {
+    width: 100%;
+  }
 }
 
 @media (max-width: 560px) {

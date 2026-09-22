@@ -174,6 +174,47 @@ test("indexed-only detail page shows truthful canonical metadata without narrow 
   }
 });
 
+test("sparse detail pages offer archive navigation while connected pages omit redundant continuation", async () => {
+  assert.ok(showFixtures.some((show) => show.id === "1865"), "expected sparse show fixture 1865");
+  const page = await browser.newPage({ viewport: { width: 1280, height: 1000 } });
+
+  try {
+    await page.goto(`${baseUrl}/shows/1865`, { waitUntil: "networkidle" });
+    await page.waitForSelector(".detail-continuation-section");
+
+    const sparseState = await page.evaluate(() => {
+      const block = document.querySelector(".detail-continuation-section");
+      return {
+        text: block?.textContent?.trim() || "",
+        links: Array.from(block?.querySelectorAll("a") || []).map((link) => ({
+          href: link.getAttribute("href") || "",
+          text: link.textContent?.trim() || "",
+        })),
+        tryNext: Boolean(document.querySelector(".detail-similar-section")),
+        recommendationAttributes: block?.querySelectorAll("[data-recommendation-source], [data-discovery-result-type]").length || 0,
+      };
+    });
+
+    assert.match(sparseState.text, /Continue exploring/);
+    assert.match(sparseState.text, /not recommendations/);
+    assert.doesNotMatch(sparseState.text, /You might also like|Similar shows|Because you liked/i);
+    assert.equal(sparseState.tryNext, false);
+    assert.equal(sparseState.recommendationAttributes, 0);
+    assert.ok(sparseState.links.some((link) => link.href === "/?genre=drama#archive"));
+    assert.ok(sparseState.links.some((link) => link.href === "/?formats=serialized#archive"));
+    assert.ok(sparseState.links.some((link) => link.href === "/collections"));
+
+    await page.getByRole("link", { name: "Browse more Drama" }).click();
+    await page.waitForURL((url) => url.pathname === "/" && url.searchParams.get("genre") === "drama" && url.hash === "#archive");
+
+    await page.goto(`${baseUrl}/shows/solar`, { waitUntil: "networkidle" });
+    assert.equal(await page.locator(".detail-continuation-section").count(), 0);
+    assert.ok((await page.locator(".detail-similar-section, .detail-collections-section").count()) > 0);
+  } finally {
+    await page.close();
+  }
+});
+
 test("show detail layouts stay readable across desktop, intermediate, and compact widths", async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1100 } });
   const expectedImpactWinterRoutes = collectionFixtures.filter(

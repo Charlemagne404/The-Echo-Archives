@@ -1,4 +1,15 @@
 const REVIEWER_STORAGE_KEY = "echo-maintainer-reviewed-by";
+export const MAINTAINER_SELECTED_ITEM_PARAM = "item";
+
+const MAINTAINER_FILTER_KEYS = [
+  "q",
+  "status",
+  "submissionType",
+  "priority",
+  "includeClosed",
+  "page",
+  "pageSize",
+];
 
 const VIEW_STATE_COPY = {
   loading: {
@@ -62,7 +73,38 @@ export function readFilters(defaultPageSize = 20) {
   };
 }
 
-export function syncFiltersToUrl(filters) {
+export function readSelectedSubmissionId() {
+  return (new URLSearchParams(window.location.search).get(MAINTAINER_SELECTED_ITEM_PARAM) || "").trim();
+}
+
+export function resolveSelectedSubmissionId(items = [], requestedId = "") {
+  const normalizedRequestedId = String(requestedId || "").trim();
+  const visibleItems = Array.isArray(items) ? items : [];
+  const requestedItem = visibleItems.find((item) => String(item?.id || "").trim() === normalizedRequestedId);
+  return String(requestedItem?.id || visibleItems[0]?.id || "").trim();
+}
+
+export function areMaintainerFiltersEqual(first = {}, second = {}) {
+  return MAINTAINER_FILTER_KEYS.every((key) => first[key] === second[key]);
+}
+
+function buildMaintainerPageUrl(params) {
+  const nextSearch = params.toString();
+  return `${window.location.pathname}${nextSearch ? `?${nextSearch}` : ""}${window.location.hash || ""}`;
+}
+
+function writeMaintainerPageUrl(nextUrl, mode = "replace") {
+  const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash || ""}`;
+  if (nextUrl === currentUrl) {
+    return false;
+  }
+
+  const method = mode === "push" ? "pushState" : "replaceState";
+  window.history[method]({}, "", nextUrl);
+  return true;
+}
+
+export function syncFiltersToUrl(filters, { selectedId = "" } = {}) {
   const params = new URLSearchParams();
   Object.entries(filters).forEach(([key, value]) => {
     if (value === "" || value === false || value === null || value === undefined) {
@@ -70,9 +112,25 @@ export function syncFiltersToUrl(filters) {
     }
     params.set(key, String(value));
   });
-  const nextSearch = params.toString();
-  const nextUrl = `${window.location.pathname}${nextSearch ? `?${nextSearch}` : ""}`;
-  window.history.replaceState({}, "", nextUrl);
+
+  const normalizedSelectedId = String(selectedId || "").trim();
+  if (normalizedSelectedId) {
+    params.set(MAINTAINER_SELECTED_ITEM_PARAM, normalizedSelectedId);
+  }
+
+  return writeMaintainerPageUrl(buildMaintainerPageUrl(params));
+}
+
+export function syncSelectedSubmissionToUrl(selectedId = "", { mode = "replace" } = {}) {
+  const params = new URLSearchParams(window.location.search);
+  const normalizedSelectedId = String(selectedId || "").trim();
+  if (normalizedSelectedId) {
+    params.set(MAINTAINER_SELECTED_ITEM_PARAM, normalizedSelectedId);
+  } else {
+    params.delete(MAINTAINER_SELECTED_ITEM_PARAM);
+  }
+
+  return writeMaintainerPageUrl(buildMaintainerPageUrl(params), mode);
 }
 
 export function renderSelectOptions(select, options, currentValue) {

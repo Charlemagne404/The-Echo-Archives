@@ -1,4 +1,5 @@
 import { getShowCollectionMemberships } from "../render-collections.js";
+import { archiveRecord } from "../constants.js";
 import { getResponsiveImageSource } from "../images.js";
 import { createCollectionHref } from "../urls.js";
 import { escapeHtml, formatRouteExpansion, getSimilarReason } from "./utils.js";
@@ -6,8 +7,32 @@ import { bucketDiscoveryPosition, getDiscoveryContentProfile } from "../discover
 
 const similarityIndexCache = new WeakMap();
 
-export function renderCollectionsSection(show, collections = [], showMap = new Map()) {
-  const memberships = getShowCollectionMemberships(show.id, collections);
+export function getShowRelationshipState(show, showMap, collections = [], providedSimilarityIndex = null) {
+  const similar = getSimilarShowGroups(show, showMap, collections, providedSimilarityIndex);
+  const showValues = showMap instanceof Map ? [...showMap.values()] : [];
+  return {
+    ...similar,
+    memberships: getShowCollectionMemberships(show.id, collections),
+    hasMoreFrom: Boolean(globalThis.EchoArchiveEntities?.selectMoreFrom?.(show, showValues)),
+    hasEntityRoute: Array.isArray(show?.resolvedEntities) && show.resolvedEntities.some((entity) => entity?.id),
+  };
+}
+
+function getSimilarShowGroups(show, showMap, collections = [], providedSimilarityIndex = null) {
+  const similarityIndex = resolveSimilarityIndex(showMap, collections, providedSimilarityIndex);
+  const authoredNeighbors = getEditorialNeighbors(show, showMap, similarityIndex);
+  const authoredIds = new Set(authoredNeighbors.map(({ neighbor }) => neighbor.id));
+  const computedNeighbors = similarityIndex
+    ? similarityIndex.getPublicSimilarityMatches(show.id)
+      .filter(({ show: neighbor }) => neighbor && !authoredIds.has(neighbor.id))
+      .map(({ show: neighbor, explanation, confidence }) => ({ neighbor, reason: explanation, confidence }))
+    : [];
+
+  return { authoredNeighbors, computedNeighbors };
+}
+
+export function renderCollectionsSection(show, collections = [], showMap = new Map(), relationshipState = null) {
+  const memberships = relationshipState?.memberships || getShowCollectionMemberships(show.id, collections);
   if (memberships.length === 0) {
     return "";
   }
@@ -28,15 +53,13 @@ export function renderCollectionsSection(show, collections = [], showMap = new M
   `;
 }
 
-export function renderSimilarSection(show, showMap, collections = [], providedSimilarityIndex = null) {
-  const similarityIndex = resolveSimilarityIndex(showMap, collections, providedSimilarityIndex);
-  const authoredNeighbors = getEditorialNeighbors(show, showMap, similarityIndex);
-  const authoredIds = new Set(authoredNeighbors.map(({ neighbor }) => neighbor.id));
-  const computedNeighbors = similarityIndex
-    ? similarityIndex.getPublicSimilarityMatches(show.id)
-      .filter(({ show: neighbor }) => neighbor && !authoredIds.has(neighbor.id))
-      .map(({ show: neighbor, explanation, confidence }) => ({ neighbor, reason: explanation, confidence }))
-    : [];
+export function renderSimilarSection(show, showMap, collections = [], providedSimilarityIndex = null, relationshipState = null) {
+  const { authoredNeighbors, computedNeighbors } = relationshipState || getShowRelationshipState(
+    show,
+    showMap,
+    collections,
+    providedSimilarityIndex,
+  );
 
   if (authoredNeighbors.length === 0 && computedNeighbors.length === 0) {
     return "";
@@ -55,6 +78,35 @@ export function renderSimilarSection(show, showMap, collections = [], providedSi
         ${authoredNeighbors.length ? renderSimilarGroup("curated", "Curated by the archive", "Editorial picks", "Written relationship notes and curated similarity routes from the archive.", authoredNeighbors) : ""}
         ${computedNeighbors.length ? renderSimilarGroup("computed", "Computed archive matches", "A second signal", "Matches across multiple archive dimensions. These are not authored links.", computedNeighbors) : ""}
       </div>
+    </section>
+  `;
+}
+
+export function renderShowContinuationSection(show, relationshipState = null) {
+  if (!relationshipState) return "";
+  if (
+    relationshipState.authoredNeighbors.length > 0 ||
+    relationshipState.computedNeighbors.length > 0 ||
+    relationshipState.memberships.length > 0 ||
+    relationshipState.hasMoreFrom ||
+    relationshipState.hasEntityRoute
+  ) {
+    return "";
+  }
+
+  const routes = archiveRecord.getShowContinuationRoutes(show);
+  return `
+    <section class="detail-section detail-continuation-section" aria-labelledby="detail-continuation-title">
+      <div class="detail-section-header">
+        <div>
+          <p class="detail-continuation-kicker">Archive navigation</p>
+          <h2 id="detail-continuation-title">Continue exploring</h2>
+          <p>The archive does not have enough relationship data to make a “Try next” recommendation for this show yet. These links browse verified catalogue routes; they are not recommendations.</p>
+        </div>
+      </div>
+      <nav class="detail-continuation-links" aria-label="Continue exploring the archive">
+        ${routes.map((route) => `<a class="detail-archive-link detail-continuation-link" href="${escapeHtml(route.href)}">${escapeHtml(route.label)}</a>`).join("")}
+      </nav>
     </section>
   `;
 }

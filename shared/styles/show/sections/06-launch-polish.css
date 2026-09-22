@@ -315,8 +315,10 @@
   .detail-main--indexed .detail-similar-section { order: 4; }
   .detail-main--full .detail-collections-section,
   .detail-main--indexed .detail-collections-section { order: 5; }
+  .detail-main--full .detail-continuation-section,
+  .detail-main--indexed .detail-continuation-section { order: 6; }
   .detail-main--full .detail-correction-section,
-  .detail-main--indexed .detail-correction-section { order: 6; }
+  .detail-main--indexed .detail-correction-section { order: 7; }
 
   .community-review-panel {
     grid-template-columns: auto minmax(0, 1fr) auto;

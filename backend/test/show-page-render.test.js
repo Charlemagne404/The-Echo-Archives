@@ -4,8 +4,13 @@ const collections = require("../../data/collections.json");
 const shows = require("../../data/shows.json");
 const { createShowPageMarkup } = require("../lib/show-page-render");
 const { createSimilarityIndex } = require("../../shared/archive-similarity");
+const { getShowContinuationRoutes } = require("../../shared/archive-record");
 
 const showMap = new Map(shows.map((show) => [show.id, show]));
+const emptySimilarityIndex = {
+  getEditorialSimilarityMatches: () => [],
+  getPublicSimilarityMatches: () => [],
+};
 
 test("show relationships keep authored recommendations distinct from computed archive matches", () => {
   const base = showMap.get("solar");
@@ -29,6 +34,7 @@ test("show relationships keep authored recommendations distinct from computed ar
   assert.match(markup, /Computed archive matches/);
   assert.match(markup, /Matches across multiple archive dimensions\. These are not authored links\./);
   assert.match(markup, /An authored archive route\./);
+  assert.doesNotMatch(markup, /detail-continuation-section/);
   const computedGroup = markup.match(/<section class="detail-similar-group detail-similar-group--computed"[\s\S]*?<\/section>/)?.[0] || "";
   assert.doesNotMatch(computedGroup, /score|\/100/i);
   assert.ok(markup.indexOf("data-recommendation-source=\"curated\"") < markup.indexOf("data-recommendation-source=\"computed\""));
@@ -122,6 +128,78 @@ test("client-rendered show relationships keep the same curated overflow behavior
     assert.match(markup, /detail-similar-overflow/);
     assert.match(markup, /Client route-specific reason\./);
     assert.match(markup, /Show 1 more/);
+  } finally {
+    delete global.document;
+    delete global.EchoArchiveSearch;
+    delete global.EchoArchiveRecord;
+  }
+});
+
+test("sparse show pages get navigation-only continuation without changing recommendation output", async () => {
+  const sparse = showMap.get("1865");
+  const sparseMap = new Map([[sparse.id, sparse]]);
+  const sparseMarkup = createShowPageMarkup(sparse, sparseMap, [], {}, emptySimilarityIndex);
+  const continuation = sparseMarkup.match(/<section class="detail-section detail-continuation-section"[\s\S]*?<\/section>/)?.[0] || "";
+
+  assert.ok(continuation);
+  assert.match(continuation, /<h2 id="detail-continuation-title">Continue exploring<\/h2>/);
+  assert.match(continuation, /does not have enough relationship data/);
+  assert.match(continuation, /verified catalogue routes/);
+  assert.match(continuation, /not recommendations/);
+  assert.match(continuation, /href="\/\?genre=drama#archive"/);
+  assert.match(continuation, /href="\/\?formats=serialized#archive"/);
+  assert.match(continuation, /href="\/collections"/);
+  assert.doesNotMatch(continuation, /data-recommendation|data-discovery|similar_show/);
+  assert.doesNotMatch(sparseMarkup, /detail-similar-section/);
+  assert.doesNotMatch(sparseMarkup, /detail-collections-section/);
+
+  const minimal = {
+    ...sparse,
+    id: "minimal-metadata-show",
+    genres: [],
+    formats: [],
+    tones: [],
+    tags: [],
+    bestFor: [],
+    similarTo: [],
+    similarReasons: {},
+    resolvedEntities: [],
+    entityLinks: [],
+    creators: [],
+  };
+  const minimalMarkup = createShowPageMarkup(minimal, new Map([[minimal.id, minimal]]), [], {}, emptySimilarityIndex);
+  assert.match(minimalMarkup, /class="detail-archive-link detail-continuation-link" href="\/#archive"/);
+  assert.doesNotMatch(minimalMarkup, /href="\/\?genre=/);
+  assert.doesNotMatch(minimalMarkup, /href="\/\?formats=/);
+
+  const tagRoutes = getShowContinuationRoutes({ tags: ["Spacecraft disaster"] });
+  assert.equal(tagRoutes[0].href, "/?tags=Spacecraft%20disaster#archive");
+  assert.equal(tagRoutes[1].href, "/collections");
+
+  const richMarkup = createShowPageMarkup(showMap.get("solar"), showMap, collections, {}, emptySimilarityIndex);
+  assert.doesNotMatch(richMarkup, /detail-continuation-section/);
+
+  const entityConnected = {
+    ...sparse,
+    id: "entity-connected-show",
+    resolvedEntities: [{ id: "verified-entity", name: "Verified Entity", type: "network", role: "network" }],
+  };
+  const entityMarkup = createShowPageMarkup(entityConnected, new Map([[entityConnected.id, entityConnected]]), [], {}, emptySimilarityIndex);
+  assert.match(entityMarkup, /data-discovery-entity-id="verified-entity"/);
+  assert.doesNotMatch(entityMarkup, /detail-continuation-section/);
+
+  global.document = { body: { dataset: {} }, getElementById: () => null, querySelector: () => null };
+  global.EchoArchiveSearch = {};
+  global.EchoArchiveEntities = require("../../shared/archive-entities");
+  global.EchoArchiveRecord = require("../../shared/archive-record.js");
+  global.EchoArchiveSimilarity = require("../../shared/archive-similarity");
+  try {
+    const { createShowPageMarkup: createClientShowPageMarkup } = await import("../../shared/app/render-show.js");
+    const clientSparseMarkup = createClientShowPageMarkup(sparse, sparseMap, [], {});
+    const clientContinuation = clientSparseMarkup.match(/<section class="detail-section detail-continuation-section"[\s\S]*?<\/section>/)?.[0] || "";
+    assert.ok(clientContinuation);
+    assert.match(clientContinuation, /href="\/\?genre=drama#archive"/);
+    assert.doesNotMatch(clientContinuation, /data-recommendation|data-discovery|similar_show/);
   } finally {
     delete global.document;
     delete global.EchoArchiveSearch;

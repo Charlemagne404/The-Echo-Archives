@@ -1,7 +1,7 @@
 import { MODE_CONFIG } from "../../submit/config.js";
 import { appendModeLinkRow, addArrayValue, getActiveDraft, removeLinkRow, toggleArrayValue } from "../../submit/state.js";
 import { normalizeCustomTag } from "../../submit/search.js";
-import { captureCurrentDraft } from "./draft.js";
+import { captureCurrentDraft, clearActiveDraft, switchActiveDraftContext } from "./draft.js";
 
 function resetModeUiState(state) {
   state.searchOpen = false;
@@ -83,6 +83,23 @@ function setCategoryRatingSliderState(slider, value) {
 }
 
 export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup, ensureShowContext }) {
+  function selectShow(show) {
+    const currentContext = state.draftContexts[state.activeMode] || {};
+    switchActiveDraftContext(
+      state,
+      elements,
+      { showId: show.id, entityId: currentContext.entityId || "" },
+      { showTitle: show.title },
+    );
+    state.searchOpen = false;
+    state.showHighlightIndex = -1;
+    ui.syncHiddenInputs();
+    ui.syncQueryState();
+    ui.renderAll();
+    void ensureShowContext(show.id);
+    ui.focusExistingShowSearch(show.title.length);
+  }
+
   function activateMode(nextMode, { focus = false } = {}) {
     if (!nextMode || nextMode === state.activeMode || !Object.prototype.hasOwnProperty.call(MODE_CONFIG, nextMode)) {
       return;
@@ -194,6 +211,15 @@ export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup,
         toggleArrayValue(getActiveDraft(state), field, value);
         ui.renderAll();
       }
+      return;
+    }
+
+    const clearDraft = target.closest("[data-clear-submit-draft]");
+    if (clearDraft) {
+      event.preventDefault();
+      clearActiveDraft(state, elements);
+      ui.setStatus("Draft cleared.");
+      ui.renderAll();
       return;
     }
 
@@ -336,9 +362,13 @@ export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup,
     const clearSelectedShow = target.closest("[data-clear-existing-show]");
     if (clearSelectedShow) {
       event.preventDefault();
-      const draft = getActiveDraft(state);
-      draft.existingShowId = "";
-      draft.showSearch = "";
+      const currentContext = state.draftContexts[state.activeMode] || {};
+      switchActiveDraftContext(
+        state,
+        elements,
+        { showId: "", entityId: currentContext.entityId || "" },
+        { restore: false },
+      );
       state.searchOpen = true;
       state.showHighlightIndex = -1;
       ui.syncHiddenInputs();
@@ -373,16 +403,7 @@ export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup,
         return;
       }
 
-      const draft = getActiveDraft(state);
-      draft.existingShowId = show.id;
-      draft.showSearch = show.title;
-      state.searchOpen = false;
-      state.showHighlightIndex = -1;
-      ui.syncHiddenInputs();
-      ui.syncQueryState();
-      ui.renderAll();
-      void ensureShowContext(show.id);
-      ui.focusExistingShowSearch(draft.showSearch.length);
+      selectShow(show);
       return;
     }
 
@@ -408,6 +429,8 @@ export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup,
     captureCurrentDraft(state, elements);
     const draft = getActiveDraft(state);
     draft.categoryScores = { ...(draft.categoryScores || {}), [key]: value };
+    state.persistActiveDraft?.();
+    state.onDraftChanged?.();
     setCategoryRatingSliderState(slider, value);
   });
 

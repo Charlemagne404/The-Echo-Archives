@@ -697,6 +697,11 @@ test("submit success and failure flows use one persistent result surface and pre
     assert.equal(failureState.showTitle, "Launch Test Show");
     assert.equal(failureState.toastCount, 0);
 
+    await page.reload({ waitUntil: "networkidle" });
+    assert.equal(await page.locator("#submitShowTitle").inputValue(), "Launch Test Show");
+    assert.equal(await page.locator("#submitLegalAcknowledgement").isChecked(), false);
+    await page.locator("#submitLegalAcknowledgement").check();
+
     await page.unroute("**/api/submissions/shows");
     await page.route("**/api/submissions/shows", async (route) => {
       await route.fulfill({
@@ -723,6 +728,104 @@ test("submit success and failure flows use one persistent result surface and pre
       { timeout: 5_000 },
     );
     assert.equal(await page.locator("#submitShowTitle").inputValue(), "Launch Test Show");
+  } finally {
+    await context.close();
+  }
+});
+
+test("submit drafts survive refresh, require fresh legal acknowledgement, and clear deliberately", async () => {
+  const context = await browser.newContext({ serviceWorkers: "block" });
+  const page = await context.newPage();
+
+  try {
+    await page.goto(`${baseUrl}/submit`, { waitUntil: "networkidle" });
+    await page.locator("#submitShowTitle").fill("Refresh Draft Show");
+    await page.locator("#submitHelpfulDetails > summary").click();
+    await page.locator("#submitCreatorName").fill("Draft Studio");
+    await page.locator("#submitContactEmail").fill("draft@example.com");
+    await page.locator("#submitSuggestedDescriptors").fill("Remote station mystery");
+    await page.locator('[data-add-link-option="listenLinks"][data-add-link-value="RSS Feed"]').click();
+    await page.locator('[data-link-list="listenLinks"][data-link-part="url"]').fill("https://example.com/refresh-draft-feed");
+    await page.locator("#submitLegalAcknowledgement").check();
+    await page.locator("#submitClearDraftButton").waitFor({ state: "visible" });
+
+    await page.locator("#submitClearDraftButton").click();
+    assert.equal(await page.locator("#submitShowTitle").inputValue(), "");
+    assert.equal(await page.locator("#submitClearDraftButton").isVisible(), false);
+    assert.equal(await page.locator("#submitLegalAcknowledgement").isChecked(), false);
+
+    await page.locator("#submitShowTitle").fill("Refresh Draft Show");
+    await page.locator("#submitHelpfulDetails > summary").click();
+    await page.locator("#submitCreatorName").fill("Draft Studio");
+    await page.locator("#submitContactEmail").fill("draft@example.com");
+    await page.locator("#submitSuggestedDescriptors").fill("Remote station mystery");
+    await page.locator('[data-add-link-option="listenLinks"][data-add-link-value="RSS Feed"]').click();
+    await page.locator('[data-link-list="listenLinks"][data-link-part="url"]').fill("https://example.com/refresh-draft-feed");
+    await page.locator("#submitLegalAcknowledgement").check();
+
+    await page.reload({ waitUntil: "networkidle" });
+    assert.equal(await page.locator("#submitShowTitle").inputValue(), "Refresh Draft Show");
+    assert.equal(await page.locator("#submitCreatorName").inputValue(), "Draft Studio");
+    assert.equal(await page.locator("#submitContactEmail").inputValue(), "draft@example.com");
+    assert.equal(await page.locator("#submitSuggestedDescriptors").inputValue(), "Remote station mystery");
+    assert.equal(
+      await page.locator('[data-link-list="listenLinks"][data-link-part="url"]').inputValue(),
+      "https://example.com/refresh-draft-feed",
+    );
+    assert.equal(await page.locator("#submitLegalAcknowledgement").isChecked(), false);
+    assert.equal(await page.locator("#submitClearDraftButton").isVisible(), true);
+
+    await page.route("**/api/submissions/shows", async (route) => {
+      await route.fulfill({
+        status: 202,
+        contentType: "application/json",
+        body: JSON.stringify({ accepted: true, submissionId: "refresh-draft-success" }),
+      });
+    });
+    await page.locator("#submitLegalAcknowledgement").check();
+    await page.locator('button[type="submit"]').click();
+    await page.locator("[data-submit-another]").waitFor();
+    await page.locator("[data-submit-another]").click();
+    assert.equal(await page.locator("#submitShowTitle").inputValue(), "");
+    assert.equal(await page.locator("#submitClearDraftButton").isVisible(), false);
+    assert.equal(await page.locator("#submitLegalAcknowledgement").isChecked(), false);
+
+    await page.reload({ waitUntil: "networkidle" });
+    assert.equal(await page.locator("#submitShowTitle").inputValue(), "");
+    assert.equal(await page.locator("#submitLegalAcknowledgement").isChecked(), false);
+  } finally {
+    await context.close();
+  }
+});
+
+test("submit drafts stay isolated across modes and show-specific correction contexts", async () => {
+  const context = await browser.newContext({ serviceWorkers: "block" });
+  const page = await context.newPage();
+
+  try {
+    await page.goto(`${baseUrl}/submit`, { waitUntil: "networkidle" });
+    await page.locator("#submitShowTitle").fill("Mode Isolation Show");
+    await page.locator('[data-submission-mode="listener-review"]').click();
+    await page.locator("#submitReviewText").waitFor();
+    assert.equal(await page.locator("#submitReviewText").inputValue(), "");
+    await page.locator('[data-submission-mode="show"]').click();
+    assert.equal(await page.locator("#submitShowTitle").inputValue(), "Mode Isolation Show");
+
+    await page.goto(`${baseUrl}/submit?submissionType=correction&showId=impact-winter`, { waitUntil: "networkidle" });
+    await page.locator("#submitAffectedUrl").waitFor();
+    await page.locator("#submitAffectedUrl").fill("https://impact.example/old");
+    await page.locator("#submitReplacementUrl").fill("https://impact.example/new");
+
+    await page.goto(`${baseUrl}/submit?submissionType=correction&showId=solar`, { waitUntil: "networkidle" });
+    await page.locator("#submitAffectedUrl").waitFor();
+    assert.equal(await page.locator("#existingShowId").inputValue(), "solar");
+    assert.equal(await page.locator("#submitAffectedUrl").inputValue(), "");
+    assert.equal(await page.locator("#submitReplacementUrl").inputValue(), "");
+
+    await page.goto(`${baseUrl}/submit?submissionType=correction&showId=impact-winter`, { waitUntil: "networkidle" });
+    await page.locator("#submitAffectedUrl").waitFor();
+    assert.equal(await page.locator("#submitAffectedUrl").inputValue(), "https://impact.example/old");
+    assert.equal(await page.locator("#submitReplacementUrl").inputValue(), "https://impact.example/new");
   } finally {
     await context.close();
   }

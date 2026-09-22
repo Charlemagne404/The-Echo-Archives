@@ -1,7 +1,12 @@
 import { createCollectionShowCard } from "./render-cards.js";
 import { renderCorrectionSection, renderFactsLinksCard } from "./render-show/facts.js";
 import { renderDetailHero } from "./render-show/hero.js";
-import { renderCollectionsSection, renderSimilarSection } from "./render-show/relationships.js";
+import {
+  getShowRelationshipState,
+  renderCollectionsSection,
+  renderShowContinuationSection,
+  renderSimilarSection,
+} from "./render-show/relationships.js";
 import {
   renderCommunityFallback,
   renderCommunityScoreBreakdown,
@@ -15,6 +20,7 @@ import {
 export function createShowPageMarkup(show, showMap, collections = [], reviewData = {}) {
   const isFullReview = show.reviewStatus === "full-review";
   const facts = renderFactsLinksCard(show, { inline: !isFullReview });
+  const relationshipState = getShowRelationshipState(show, showMap, collections);
 
   return `
     <section class="detail-main podcast-detail detail-main--${isFullReview ? "full" : "indexed"}">
@@ -42,8 +48,9 @@ export function createShowPageMarkup(show, showMap, collections = [], reviewData
           recommendationSource: "creator_more_from",
           entityId: entity?.id || "",
         }).outerHTML)}
-        ${renderSimilarSection(show, showMap, collections)}
-        ${renderCollectionsSection(show, collections, showMap)}
+        ${renderSimilarSection(show, showMap, collections, null, relationshipState)}
+        ${renderCollectionsSection(show, collections, showMap, relationshipState)}
+        ${renderShowContinuationSection(show, relationshipState)}
         ${renderCorrectionSection(show)}
       </div>
     </section>
