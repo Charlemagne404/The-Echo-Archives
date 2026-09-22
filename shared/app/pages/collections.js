@@ -1,13 +1,20 @@
 import { DEFAULT_SOCIAL_IMAGE, archiveSearch } from "../constants.js";
+import { createDebouncedHistoryCommit, createDiscoveryHistoryController } from "../discovery-history.js";
 import { buildShowMap, getCollectionShows, getPublishedShows, loadCollections, loadSearchIndex } from "../data.js";
 import { createCollectionDirectoryCard, createCollectionFeatureCard, getCollectionAnchorShow } from "../render-collections.js";
 import { renderRouteErrorSurface } from "../route-error.js";
 import { createScrollRestoration } from "../scroll-restoration.js";
 import { buildCollectionsDirectoryStructuredData } from "../structured-data.js";
-import { formatDate, normalizeTag, setTextContent, updateDocumentMetadata } from "../utils.js";
+import { formatDate, setTextContent, updateDocumentMetadata } from "../utils.js";
 import { buildIntentCounts, buildIntentFilters, createStickyMoodBarController, mountMoodChips, syncMoodChipState } from "./collections-intents.js";
 import { getCollectionsGridMotionProfile, syncCollectionGrid } from "./collections-grid-motion.js";
 import { prefersReducedMotion, syncCollectionsSummary, syncCollectionsSurfaceVisibility } from "./collections-motion.js";
+import { sortCollections } from "./collections-sort.js";
+import {
+  buildCollectionsUrl,
+  parseCollectionsUrlState,
+  syncCollectionsUrlState,
+} from "./collections-url-state.js";
 import {
   bucketDiscoveryClearedFilterCount,
   bucketDiscoveryFilterCount,
@@ -15,7 +22,6 @@ import {
   trackDiscoveryEvent,
 } from "../discovery-analytics.js";
 
-const COLLECTION_SORT_MODES = new Set(["editorial", "newest", "title", "shows", "rating", "popularity"]);
 const SIMILARITY_COLLECTIONS_PAGE_SIZE = 5;
 const SIMILARITY_COLLECTIONS_QUERY = "shows like";
 
@@ -75,17 +81,6 @@ function renderCollectionsLoadingState(elements) {
   }
 }
 
-function getInitialState(validIntentIds) {
-  const params = new URLSearchParams(window.location.search);
-  const intent = normalizeTag(params.get("intent") || "");
-  const sort = params.get("sort") === "updated" ? "newest" : params.get("sort") || "editorial";
-  return {
-    intent: validIntentIds.has(intent) ? intent : "",
-    query: params.get("q") || "",
-    sortMode: COLLECTION_SORT_MODES.has(sort) ? sort : "editorial",
-  };
-}
-
 function getCollectionSearchText(collection, shows) {
   const collectionShows = Array.isArray(shows) ? shows : [];
   return [
@@ -108,90 +103,6 @@ function collectionMatchesIntent(collection, intent) {
 function collectionMatchesQuery(collection, shows, query) {
   return !query || getCollectionSearchText(collection, shows).includes(query.toLowerCase());
 }
-
-function getAggregateValue(shows, selector) {
-  const values = (Array.isArray(shows) ? shows : [])
-    .map((show) => selector(show))
-    .filter((value) => Number.isFinite(value));
-
-  if (values.length === 0) {
-    return Number.NEGATIVE_INFINITY;
-  }
-
-  return values.reduce((total, value) => total + value, 0) / values.length;
-}
-
-function getCollectionSortTitle(collection) {
-  return String(collection?.title || "Untitled collection");
-}
-
-function getCollectionSortOrder(collection) {
-  return Number.isFinite(collection?.order) ? collection.order : Number.MAX_SAFE_INTEGER;
-}
-
-function getCollectionSortDate(collection) {
-  const timestamp = Date.parse(String(collection?.updatedAt || "").trim());
-  return Number.isFinite(timestamp) ? timestamp : Number.NEGATIVE_INFINITY;
-}
-
-function getCollectionShowsForSort(showsByCollection, collection) {
-  return showsByCollection.get(collection.id) || [];
-}
-
-function sortCollections(collections, showsByCollection, sortMode) {
-  return [...collections].sort((left, right) => {
-    if (sortMode === "newest") {
-      return getCollectionSortDate(right) - getCollectionSortDate(left) || getCollectionSortOrder(left) - getCollectionSortOrder(right);
-    }
-    if (sortMode === "title") {
-      return getCollectionSortTitle(left).localeCompare(getCollectionSortTitle(right));
-    }
-    if (sortMode === "shows") {
-      return (
-        getCollectionShowsForSort(showsByCollection, right).length -
-          getCollectionShowsForSort(showsByCollection, left).length ||
-        getCollectionSortOrder(left) - getCollectionSortOrder(right)
-      );
-    }
-    if (sortMode === "rating") {
-      return (
-        getAggregateValue(getCollectionShowsForSort(showsByCollection, right), (show) => show.finalRating) -
-          getAggregateValue(getCollectionShowsForSort(showsByCollection, left), (show) => show.finalRating) ||
-        getCollectionSortOrder(left) - getCollectionSortOrder(right) ||
-        getCollectionSortTitle(left).localeCompare(getCollectionSortTitle(right))
-      );
-    }
-    if (sortMode === "popularity") {
-      return (
-        getAggregateValue(getCollectionShowsForSort(showsByCollection, right), (show) => show.popularity?.score) -
-          getAggregateValue(getCollectionShowsForSort(showsByCollection, left), (show) => show.popularity?.score) ||
-        getCollectionSortOrder(left) - getCollectionSortOrder(right) ||
-        getCollectionSortTitle(left).localeCompare(getCollectionSortTitle(right))
-      );
-    }
-    return getCollectionSortOrder(left) - getCollectionSortOrder(right) || getCollectionSortTitle(left).localeCompare(getCollectionSortTitle(right));
-  });
-}
-
-function syncUrlState(state) {
-  const params = new URLSearchParams(window.location.search);
-  params.delete("intent");
-  params.delete("q");
-  params.delete("sort");
-  if (state.intent) {
-    params.set("intent", state.intent);
-  }
-  if (state.query) {
-    params.set("q", state.query);
-  }
-  if (state.sortMode !== "editorial") {
-    params.set("sort", state.sortMode);
-  }
-  const nextSearch = params.toString();
-  const nextUrl = `${window.location.pathname}${nextSearch ? `?${nextSearch}` : ""}${window.location.hash}`;
-  window.history.replaceState(window.history.state, "", nextUrl);
-}
-
 
 function focusMoodChip(moodChips) {
   const activeChip =
@@ -261,7 +172,7 @@ export async function initializeCollectionsPage() {
     orderedCollections.map((collection) => [collection.id, getCollectionShows(collection, showMap)]),
   );
   const validIntentIds = new Set(intentFilters.map((filter) => filter.id));
-  const state = getInitialState(validIntentIds);
+  const state = parseCollectionsUrlState(window.location, validIntentIds);
   const collectionsAnalytics = {
     hasRendered: false,
     previousResultCountBucket: "unknown",
@@ -275,13 +186,23 @@ export async function initializeCollectionsPage() {
   const similarityState = {
     visibleCount: SIMILARITY_COLLECTIONS_PAGE_SIZE,
   };
+  const { commitCurrentUrlState, markCurrentUrl, synchronizeUrlState } = createDiscoveryHistoryController({
+    state,
+    buildUrl: buildCollectionsUrl,
+    syncUrl: syncCollectionsUrlState,
+    onBeforeSync: () => scrollRestoration.save(),
+  });
+  const searchHistoryCommit = createDebouncedHistoryCommit({
+    onCommit: () => commitCurrentUrlState(),
+  });
   const handleMoodSelection = (intent, sourceSurface = "hero") => {
+    searchHistoryCommit.commitNow();
     collectionsAnalytics.pendingFilterChanges.push({
       action: state.intent === intent ? "removed" : "added",
       filterValue: intent,
     });
     state.intent = state.intent === intent ? "" : intent;
-    render("explicit", sourceSurface);
+    render("explicit", sourceSurface, "push");
   };
   const heroMoodChipMap = mountMoodChips({
     moodChips: elements.moodChips,
@@ -351,7 +272,7 @@ export async function initializeCollectionsPage() {
     elements.sortSelect.value = state.sortMode;
   }
 
-  const render = (changeReason = "initial", sourceSurface = "") => {
+  const render = (changeReason = "initial", sourceSurface = "", historyMode = "replace") => {
     const filtered = sortCollections(
       orderedCollections.filter((collection) => {
         const collectionShows = showsByCollection.get(collection.id);
@@ -408,9 +329,23 @@ export async function initializeCollectionsPage() {
         enterOffsetY: 10,
       });
     }
-    syncUrlState(state);
+    synchronizeUrlState(historyMode, changeReason);
 
     const resultCountBucket = bucketDiscoveryResultCount(filtered.length);
+    if (changeReason === "history-restore") {
+      collectionsAnalytics.pendingSearch = null;
+      if (collectionsAnalytics.searchAnalyticsTimer) {
+        window.clearTimeout(collectionsAnalytics.searchAnalyticsTimer);
+        collectionsAnalytics.searchAnalyticsTimer = 0;
+      }
+      collectionsAnalytics.pendingFilterChanges.splice(0);
+      collectionsAnalytics.pendingClear = null;
+      collectionsAnalytics.lastResultCount = filtered.length;
+      collectionsAnalytics.previousResultCountBucket = resultCountBucket;
+      collectionsAnalytics.hasRendered = true;
+      return;
+    }
+
     const recoveryContext = collectionsAnalytics.previousResultCountBucket === "0"
       ? "after_zero_results"
       : collectionsAnalytics.hasRendered
@@ -483,13 +418,24 @@ export async function initializeCollectionsPage() {
 
   elements.searchInput?.addEventListener("input", () => {
     state.query = elements.searchInput.value.trim();
-    render("live-search");
+    searchHistoryCommit.schedule();
+    render("live-search", "", "replace");
+  });
+  elements.searchInput?.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      searchHistoryCommit.commitNow();
+    }
   });
   elements.sortSelect?.addEventListener("change", () => {
+    if (state.sortMode === elements.sortSelect.value) {
+      return;
+    }
+    searchHistoryCommit.commitNow();
     state.sortMode = elements.sortSelect.value;
-    render("explicit");
+    render("explicit", "", "push");
   });
   elements.clearSearch?.addEventListener("click", () => {
+    searchHistoryCommit.cancel();
     const hadSearch = Boolean(state.query.trim());
     const hadIntent = Boolean(state.intent);
     if (hadSearch || hadIntent) {
@@ -504,7 +450,7 @@ export async function initializeCollectionsPage() {
       elements.searchInput.value = "";
       elements.searchInput.focus();
     }
-    render("explicit");
+    render("explicit", "", hadSearch || hadIntent ? "push" : "replace");
   });
   elements.similarityMore?.addEventListener("click", () => {
     similarityState.visibleCount = Math.min(
@@ -517,17 +463,31 @@ export async function initializeCollectionsPage() {
   elements.browseAll?.addEventListener("click", () => scrollToDirectorySection(elements));
   elements.similarityBrowseAll?.addEventListener("click", (event) => {
     event.preventDefault();
+    searchHistoryCommit.commitNow();
     state.intent = "";
     state.query = SIMILARITY_COLLECTIONS_QUERY;
     if (elements.searchInput instanceof HTMLInputElement) {
       elements.searchInput.value = SIMILARITY_COLLECTIONS_QUERY;
     }
-    render("explicit");
+    render("explicit", "", "push");
     scrollToDirectorySection(elements, { updateHash: true });
+    markCurrentUrl();
   });
 
   renderSimilarityCollections();
-  render();
+  render("initial", "", "replace");
+  window.addEventListener("popstate", () => {
+    searchHistoryCommit.cancel();
+    Object.assign(state, parseCollectionsUrlState(window.location, validIntentIds));
+    if (elements.searchInput instanceof HTMLInputElement) {
+      elements.searchInput.value = state.query;
+    }
+    if (elements.sortSelect instanceof HTMLSelectElement) {
+      elements.sortSelect.value = state.sortMode;
+    }
+    render("history-restore", "", "replace");
+    scrollRestoration.restore({ force: true });
+  });
   stickyMoodBarController.start();
 }
 

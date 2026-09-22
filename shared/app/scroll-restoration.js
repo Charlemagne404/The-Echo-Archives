@@ -22,6 +22,7 @@ export function createScrollRestoration({ key = "" } = {}) {
   const resolveStorageKey = () => getStorageKey(typeof key === "function" ? key() : key);
   let saveTimer = 0;
   let restored = false;
+  let restoreSequence = 0;
 
   const save = () => {
     const storageKey = resolveStorageKey();
@@ -60,16 +61,18 @@ export function createScrollRestoration({ key = "" } = {}) {
     restore();
   };
 
-  const restore = () => {
-    if (restored) {
+  const restore = ({ force = false } = {}) => {
+    if (restored && !force) {
       return;
     }
 
     restored = true;
+    const sequence = ++restoreSequence;
     if (
-      window.__echoScrollBootInstalled ||
-      window.__echoScrollBootState === "restored" ||
-      window.__echoScrollBootState === "cancelled"
+      !force &&
+      (window.__echoScrollBootInstalled ||
+        window.__echoScrollBootState === "restored" ||
+        window.__echoScrollBootState === "cancelled")
     ) {
       return;
     }
@@ -79,7 +82,9 @@ export function createScrollRestoration({ key = "" } = {}) {
     }
 
     window.requestAnimationFrame(() => {
+      if (sequence !== restoreSequence) return;
       window.requestAnimationFrame(() => {
+        if (sequence !== restoreSequence) return;
         window.scrollTo({
           top: saved.y,
           left: Number.isFinite(saved.x) ? saved.x : 0,

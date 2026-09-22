@@ -137,6 +137,7 @@ test("browse URL state ignores unknown filters and writes a stable canonical que
     const { seedHomeStateFromParams, syncBrowseUrlState } = await importSharedModule("shared/app/pages/home/url-state.js");
     const state = createBrowseState();
     let replacedUrl = "";
+    let pushedUrl = "";
 
     await withWindow(
       {
@@ -149,6 +150,9 @@ test("browse URL state ignores unknown filters and writes a stable canonical que
           state: null,
           replaceState(_historyState, _unused, url) {
             replacedUrl = url;
+          },
+          pushState(_historyState, _unused, url) {
+            pushedUrl = url;
           },
         },
       },
@@ -185,6 +189,43 @@ test("browse URL state ignores unknown filters and writes a stable canonical que
         assert.deepEqual(url.searchParams.getAll("formats"), ["full-cast"]);
         assert.equal(url.searchParams.getAll("tags").includes("old"), false);
         assert.equal(url.hash, "#archive");
+
+        syncBrowseUrlState(state, { historyMode: "push" });
+        const pushed = new URL(`https://example.test${pushedUrl}`);
+        assert.equal(pushed.searchParams.get("q"), "derelict");
+        assert.equal(pushed.hash, "#archive");
+      },
+    );
+  });
+});
+
+test("browse URL hydration clears stale in-memory state before restoring a new URL", async () => {
+  await withAppGlobals(async () => {
+    const { seedHomeStateFromParams } = await importSharedModule("shared/app/pages/home/url-state.js");
+    const state = createBrowseState();
+    state.query = "old query";
+    state.selectedCollectionId = "old-collection";
+    state.sortMode = "recently-updated";
+    state.filters.genres.add("horror");
+    state.filters.tags.add("old-tag");
+
+    await withWindow(
+      {
+        location: { search: "?q=new%20query&genre=sci-fi&sort=unknown" },
+      },
+      async () => {
+        seedHomeStateFromParams({
+          state,
+          shows: [{ genreTokens: ["sci-fi"] }],
+          collectionsById: new Map(),
+          structuredFilterGroups: [{ id: "tags", options: [{ id: "new-tag" }] }],
+        });
+
+        assert.equal(state.query, "new query");
+        assert.equal(state.selectedCollectionId, "");
+        assert.equal(state.sortMode, "default");
+        assert.deepEqual([...state.filters.genres], ["sci-fi"]);
+        assert.deepEqual([...state.filters.tags], []);
       },
     );
   });

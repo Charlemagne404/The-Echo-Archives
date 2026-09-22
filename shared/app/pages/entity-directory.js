@@ -4,11 +4,17 @@ import {
   bucketDiscoveryResultCount,
   trackDiscoveryEvent,
 } from "../discovery-analytics.js";
+import { createDebouncedHistoryCommit, createDiscoveryHistoryController } from "../discovery-history.js";
+import { createScrollRestoration } from "../scroll-restoration.js";
+import {
+  buildEntityDirectoryUrl,
+  normalizeEntityDirectoryFilter,
+  normalizeEntityDirectorySort,
+  parseEntityDirectoryUrlState,
+  syncEntityDirectoryUrlState,
+} from "./entity-directory-url-state.js";
 
 const { matchesEntityQuery } = globalThis.EchoArchiveEntities;
-
-const DIRECTORY_FILTER_VALUES = new Set(["all", "production-company", "studio", "network"]);
-const DIRECTORY_SORT_VALUES = new Set(["name", "shows"]);
 
 function initializeEntityCatalogueSearch() {
   const grid = document.querySelector(".entity-detail-catalogue #entityShowGrid");
@@ -48,14 +54,6 @@ function initializeEntityCatalogueSearch() {
   update();
 }
 
-function normalizeFilter(value) {
-  return DIRECTORY_FILTER_VALUES.has(value) ? value : "all";
-}
-
-function normalizeSort(value) {
-  return DIRECTORY_SORT_VALUES.has(value) ? value : "name";
-}
-
 export async function initializeEntityDirectory() {
   const catalogueGrid = document.querySelector(".entity-catalogue .podcast-card-grid");
   if (catalogueGrid) {
@@ -68,6 +66,9 @@ export async function initializeEntityDirectory() {
 
   const input = document.getElementById("entitySearch");
   if (!input) return;
+
+  const scrollRestoration = createScrollRestoration();
+  scrollRestoration.enable();
 
   const form = input.closest("form");
   const directoryGrid = document.getElementById("entityGrid");
@@ -90,11 +91,7 @@ export async function initializeEntityDirectory() {
       showCount: Number(element.dataset.entityShowCount) || 0,
     };
   });
-  const url = new URL(window.location.href);
-  const state = {
-    type: normalizeFilter(url.searchParams.get("type")),
-    sort: normalizeSort(url.searchParams.get("sort")),
-  };
+  const state = parseEntityDirectoryUrlState(window.location);
   const entityAnalytics = {
     hasRendered: false,
     previousResultCountBucket: "unknown",
@@ -106,8 +103,18 @@ export async function initializeEntityDirectory() {
     pendingSearch: null,
   };
 
-  const update = () => {
-    const query = input.value.trim();
+  const { commitCurrentUrlState, synchronizeUrlState } = createDiscoveryHistoryController({
+    state,
+    buildUrl: buildEntityDirectoryUrl,
+    syncUrl: syncEntityDirectoryUrlState,
+    onBeforeSync: () => scrollRestoration.save(),
+  });
+  const searchHistoryCommit = createDebouncedHistoryCommit({
+    onCommit: () => commitCurrentUrlState(),
+  });
+
+  const update = ({ historyMode = "replace", changeReason = "explicit" } = {}) => {
+    const query = state.query.trim();
     const sortedEntries = [...entries].sort((a, b) => {
       if (state.sort === "shows") return (b.showCount - a.showCount) || a.name.localeCompare(b.name, "en");
       return a.name.localeCompare(b.name, "en");
@@ -158,16 +165,24 @@ export async function initializeEntityDirectory() {
     }
     if (sortSelect) sortSelect.value = state.sort;
 
-    const nextUrl = new URL(window.location.href);
-    if (query) nextUrl.searchParams.set("q", query);
-    else nextUrl.searchParams.delete("q");
-    if (state.type === "all") nextUrl.searchParams.delete("type");
-    else nextUrl.searchParams.set("type", state.type);
-    if (state.sort === "name") nextUrl.searchParams.delete("sort");
-    else nextUrl.searchParams.set("sort", state.sort);
-    history.replaceState(history.state, "", nextUrl);
+    input.value = state.query;
+    synchronizeUrlState(historyMode, changeReason);
 
     const resultCountBucket = bucketDiscoveryResultCount(count);
+    if (changeReason === "history-restore") {
+      entityAnalytics.pendingSearch = null;
+      if (entityAnalytics.searchAnalyticsTimer) {
+        window.clearTimeout(entityAnalytics.searchAnalyticsTimer);
+        entityAnalytics.searchAnalyticsTimer = 0;
+      }
+      entityAnalytics.pendingFilterChange = null;
+      entityAnalytics.pendingClear = null;
+      entityAnalytics.lastResultCount = count;
+      entityAnalytics.previousResultCountBucket = resultCountBucket;
+      entityAnalytics.hasRendered = true;
+      return;
+    }
+
     const recoveryContext = entityAnalytics.previousResultCountBucket === "0"
       ? "after_zero_results"
       : entityAnalytics.hasRendered
@@ -238,26 +253,41 @@ export async function initializeEntityDirectory() {
     entityAnalytics.hasRendered = true;
   };
 
-  form.addEventListener("submit", (event) => { event.preventDefault(); update(); });
-  input.addEventListener("input", update);
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    searchHistoryCommit.commitNow();
+  });
+  input.addEventListener("input", () => {
+    state.query = input.value.trim();
+    searchHistoryCommit.schedule();
+    update({ changeReason: "live-search", historyMode: "replace" });
+  });
   input.addEventListener("keydown", (event) => {
     if (event.key !== "Escape" || !input.value) return;
     event.preventDefault();
+    searchHistoryCommit.cancel();
     entityAnalytics.pendingClear = { count: 1, hadSearch: true };
     input.value = "";
-    update();
+    state.query = "";
+    update({ historyMode: "push" });
   });
   clearButton?.addEventListener("click", () => {
+    searchHistoryCommit.cancel();
     if (input.value.trim()) {
       entityAnalytics.pendingClear = { count: 1, hadSearch: true };
     }
     input.value = "";
-    update();
+    state.query = "";
+    update({ historyMode: "push" });
     input.focus();
   });
   for (const button of filterButtons) {
     button.addEventListener("click", () => {
-      const nextType = normalizeFilter(button.dataset.entityFilter);
+      const nextType = normalizeEntityDirectoryFilter(button.dataset.entityFilter);
+      if (nextType === state.type) {
+        return;
+      }
+      searchHistoryCommit.commitNow();
       if (nextType !== state.type) {
         entityAnalytics.pendingFilterChange = {
           action: nextType === "all" ? "removed" : "added",
@@ -265,25 +295,44 @@ export async function initializeEntityDirectory() {
         };
       }
       state.type = nextType;
-      update();
+      update({ historyMode: "push" });
     });
   }
-  sortSelect?.addEventListener("change", () => { state.sort = normalizeSort(sortSelect.value); update(); });
+  sortSelect?.addEventListener("change", () => {
+    const nextSort = normalizeEntityDirectorySort(sortSelect.value);
+    if (nextSort === state.sort) {
+      return;
+    }
+    searchHistoryCommit.commitNow();
+    state.sort = nextSort;
+    update({ historyMode: "push" });
+  });
   resetLinks.forEach((resetLink) => resetLink.addEventListener("click", (event) => {
     event.preventDefault();
+    searchHistoryCommit.cancel();
     if (input.value.trim() || state.type !== "all") {
       entityAnalytics.pendingClear = {
         count: Number(Boolean(input.value.trim())) + Number(state.type !== "all"),
         hadSearch: Boolean(input.value.trim()),
       };
     }
-    input.value = "";
+    state.query = "";
     state.type = "all";
     state.sort = "name";
-    update();
+    input.value = "";
+    update({ historyMode: "push" });
     input.focus();
   }));
 
-  input.value = url.searchParams.get("q") || "";
-  update();
+  input.value = state.query;
+  if (sortSelect) sortSelect.value = state.sort;
+  update({ changeReason: "initial", historyMode: "replace" });
+  window.addEventListener("popstate", () => {
+    searchHistoryCommit.cancel();
+    Object.assign(state, parseEntityDirectoryUrlState(window.location));
+    input.value = state.query;
+    if (sortSelect) sortSelect.value = state.sort;
+    update({ changeReason: "history-restore", historyMode: "replace" });
+    scrollRestoration.restore({ force: true });
+  });
 }

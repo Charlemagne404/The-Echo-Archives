@@ -4,7 +4,7 @@ import { ARCHIVIST_ENABLED } from "../../constants.js";
 import { setShowDiscoveryMarker, syncShowCardPresentation } from "../../render-cards.js";
 import { bucketDiscoveryPosition, getDiscoveryContentProfile } from "../../discovery-analytics.js";
 import { getSavedHomeResultLimit, HOME_RESULTS_PAGE_SIZE, persistHomeResultLimit } from "./state.js";
-import { syncBrowseUrlState } from "./url-state.js";
+import { buildBrowseUrlState, syncBrowseUrlState } from "./url-state.js";
 import { formatResultsSummaryPrefix, matchesSelectedFilters, renderActiveBrowseState, syncHomeControls } from "./filters.js";
 import { patchArchiveGrid, sortVisibleShows } from "./layout.js";
 import { syncResultsSummary } from "./results-motion.js";
@@ -27,12 +27,15 @@ export function createHomeResultsController({
   shows,
   state,
   stickyBrowseController,
+  onBeforeUrlSync = () => {},
   onResultsRendered = () => {},
 }) {
   const renderEntityResults = createEntitySearchResults(elements.archiveGrid, shows);
   let pendingRenderReason = "";
+  let pendingHistoryMode = "replace";
   let renderFrame = 0;
   let hasRenderedHomeResults = false;
+  let lastCommittedUrl = "";
   let displayedResultLimit = getSavedHomeResultLimit();
   let matchingResultCount = 0;
   let displayedResultCount = 0;
@@ -176,7 +179,35 @@ export function createHomeResultsController({
     }
   }
 
-  function renderHomeResults(changeReason = "explicit") {
+  function synchronizeUrlState(historyMode, changeReason) {
+    const nextUrl = buildBrowseUrlState(state);
+    const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+    const shouldPush = historyMode === "push" && nextUrl !== lastCommittedUrl;
+    const effectiveHistoryMode = shouldPush ? "push" : "replace";
+    const shouldWrite = effectiveHistoryMode === "push" || nextUrl !== currentUrl;
+    if (shouldWrite) {
+      onBeforeUrlSync({ changeReason, currentUrl, historyMode: effectiveHistoryMode, nextUrl });
+    }
+
+    const syncedUrl = syncBrowseUrlState(state, { historyMode: effectiveHistoryMode });
+    if (effectiveHistoryMode === "push" || changeReason === "initial" || changeReason === "history-restore") {
+      lastCommittedUrl = syncedUrl;
+    }
+    return syncedUrl;
+  }
+
+  function commitCurrentUrlState() {
+    const nextUrl = buildBrowseUrlState(state);
+    if (nextUrl === lastCommittedUrl) {
+      synchronizeUrlState("replace", "search-commit");
+      return false;
+    }
+
+    synchronizeUrlState("push", "search-commit");
+    return true;
+  }
+
+  function renderHomeResults(changeReason = "explicit", historyMode = "replace") {
     previewController.closeActivePreview({ immediate: true });
     const selectedCollection = getSelectedCollection();
     const matchingShows = getVisibleShows(selectedCollection);
@@ -238,9 +269,9 @@ export function createHomeResultsController({
       activeBrowseChips: elements.activeBrowseChips,
       activeBrowseClear: elements.activeBrowseClear,
       descriptors: activeDescriptors,
-      onAfterRemove: () => scheduleHomeResults("explicit"),
+      onAfterRemove: () => scheduleHomeResults("explicit", "push"),
     });
-    syncBrowseUrlState(state);
+    synchronizeUrlState(historyMode, changeReason);
     persistHomeResultLimit(displayedResultLimit);
     void syncCommunityCardBadges(elements.archiveGrid, visibleShows);
 
@@ -294,13 +325,29 @@ export function createHomeResultsController({
     hasRenderedHomeResults = true;
   }
 
-  function scheduleHomeResults(changeReason = "explicit") {
+  function scheduleHomeResults(changeReason = "explicit", historyMode = "replace") {
+    if (changeReason === "history-restore") {
+      if (renderFrame) {
+        window.cancelAnimationFrame(renderFrame);
+        renderFrame = 0;
+      }
+      pendingRenderReason = "";
+      pendingHistoryMode = "replace";
+      displayedResultLimit = getSavedHomeResultLimit();
+      resetAutoLoadScrollAttempts();
+      renderHomeResults(changeReason, "replace");
+      return;
+    }
+
     if (!LOAD_MORE_CHANGE_REASONS.has(changeReason) && changeReason !== "layout-change") {
       displayedResultLimit = HOME_RESULTS_PAGE_SIZE;
       persistHomeResultLimit(displayedResultLimit);
       resetAutoLoadScrollAttempts();
     }
     pendingRenderReason = pendingRenderReason === "explicit" || changeReason === "explicit" ? "explicit" : changeReason;
+    if (historyMode === "push") {
+      pendingHistoryMode = "push";
+    }
     if (renderFrame) {
       return;
     }
@@ -308,8 +355,10 @@ export function createHomeResultsController({
     renderFrame = window.requestAnimationFrame(() => {
       renderFrame = 0;
       const nextReason = pendingRenderReason || changeReason;
+      const nextHistoryMode = pendingHistoryMode;
       pendingRenderReason = "";
-      renderHomeResults(nextReason);
+      pendingHistoryMode = "replace";
+      renderHomeResults(nextReason, nextHistoryMode);
     });
   }
 
@@ -319,7 +368,7 @@ export function createHomeResultsController({
   window.addEventListener("touchstart", handleTouchStart, { passive: true });
   window.addEventListener("touchend", handleTouchEnd, { passive: true });
 
-  return { renderHomeResults, scheduleHomeResults };
+  return { commitCurrentUrlState, renderHomeResults, restoreHomeResults: () => scheduleHomeResults("history-restore"), scheduleHomeResults };
 }
 
 function getActiveFilterCountForResults(filters) {

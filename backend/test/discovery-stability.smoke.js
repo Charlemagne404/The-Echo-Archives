@@ -658,3 +658,192 @@ test("similarity collection pages render anchor context in the overview panel", 
     await page.close();
   }
 });
+
+test("home discovery history restores combined states, empty results, and forward navigation", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1200 }, reducedMotion: "reduce" });
+
+  const readHomeState = () => page.evaluate(() => ({
+    url: `${window.location.pathname}${window.location.search}${window.location.hash}`,
+    query: document.getElementById("search")?.value || "",
+    filterCount: document.getElementById("filterCount")?.textContent?.trim() || "0",
+    sort: document.querySelector('.browse-mode-button[aria-pressed="true"]')?.dataset.browseMode || "",
+    resultCards: document.querySelectorAll("#podcast-grid .podcast-card-shell").length,
+    empty: Boolean(document.getElementById("noResultsMsg")),
+  }));
+
+  try {
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await page.waitForFunction(() => document.querySelectorAll("#podcast-grid .podcast-card-shell").length > 0);
+    const initialHistoryLength = await page.evaluate(() => history.length);
+
+    await page.locator("#search").fill("space");
+    await page.waitForFunction(() => (document.getElementById("resultsSummary")?.textContent || "").includes('results for "space"'));
+    await page.waitForTimeout(650);
+    const searchState = await readHomeState();
+    assert.match(searchState.url, /[?&]q=space(?:&|#|$)/);
+
+    await openFilterBucket(page, "storyType");
+    await page.locator('.filter-option[data-filter-group="genres"][data-filter-value="sci-fi"]').click();
+    await page.waitForFunction(() => document.getElementById("filterCount")?.textContent?.trim() === "1");
+    await page.locator('.browse-mode-button[data-browse-mode="recently-updated"]').click();
+    await page.waitForFunction(
+      () => document.querySelector('.browse-mode-button[data-browse-mode="recently-updated"]')?.getAttribute("aria-pressed") === "true",
+    );
+    const combinedState = await readHomeState();
+    assert.match(combinedState.url, /[?&]q=space(?:&|#)/);
+    assert.match(combinedState.url, /[?&]genre=sci-fi(?:&|#)/);
+    assert.match(combinedState.url, /[?&]sort=recently-updated(?:&|#)/);
+
+    await page.locator("#search").fill("no-such-echo-history-state");
+    await page.waitForFunction(() => Boolean(document.getElementById("noResultsMsg")));
+    await page.waitForTimeout(650);
+    const emptyState = await readHomeState();
+    assert.equal(emptyState.empty, true);
+    assert.match(emptyState.url, /q=no-such-echo-history-state/);
+
+    await page.goBack();
+    await page.waitForFunction(
+      () =>
+        document.getElementById("search")?.value === "space" &&
+        document.getElementById("filterCount")?.textContent?.trim() === "1" &&
+        document.querySelector('.browse-mode-button[data-browse-mode="recently-updated"]')?.getAttribute("aria-pressed") === "true" &&
+        !document.getElementById("noResultsMsg"),
+    );
+    const restoredCombined = await readHomeState();
+    assert.equal(restoredCombined.url, combinedState.url);
+    assert.ok(restoredCombined.resultCards > 0);
+
+    await page.goBack();
+    await page.waitForFunction(
+      () =>
+        document.getElementById("search")?.value === "space" &&
+        document.getElementById("filterCount")?.textContent?.trim() === "1" &&
+        document.querySelector('.browse-mode-button[data-browse-mode="default"]')?.getAttribute("aria-pressed") === "true",
+    );
+    const restoredSearch = await readHomeState();
+    assert.equal(restoredSearch.url, searchState.url);
+
+    await page.goBack();
+    await page.waitForFunction(
+      () =>
+        document.getElementById("search")?.value === "" &&
+        document.getElementById("filterCount")?.textContent?.trim() === "0" &&
+        document.querySelector('.browse-mode-button[data-browse-mode="default"]')?.getAttribute("aria-pressed") === "true",
+    );
+    const restoredInitial = await readHomeState();
+    assert.equal(restoredInitial.query, "");
+    assert.equal(restoredInitial.filterCount, "0");
+    assert.equal(restoredInitial.sort, "default");
+
+    await page.goForward();
+    await page.waitForFunction(() => document.getElementById("search")?.value === "space");
+    await page.goForward();
+    await page.waitForFunction(
+      () =>
+        document.getElementById("filterCount")?.textContent?.trim() === "1" &&
+        document.querySelector('.browse-mode-button[data-browse-mode="recently-updated"]')?.getAttribute("aria-pressed") === "true",
+    );
+    const restoredForward = await readHomeState();
+    assert.equal(restoredForward.url, combinedState.url);
+
+    await page.goForward();
+    await page.waitForFunction(() => document.getElementById("search")?.value === "no-such-echo-history-state");
+    assert.equal((await readHomeState()).empty, true);
+    assert.ok((await page.evaluate(() => history.length)) >= initialHistoryLength + 4);
+  } finally {
+    await page.close();
+  }
+});
+
+test("home search typing settles into one history entry instead of one entry per character", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce" });
+
+  try {
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await page.waitForFunction(() => document.querySelectorAll("#podcast-grid .podcast-card-shell").length > 0);
+    const initialHistoryLength = await page.evaluate(() => history.length);
+    await page.locator("#search").pressSequentially("midnight", { delay: 12 });
+    await page.waitForTimeout(250);
+    assert.equal(await page.evaluate(() => history.length), initialHistoryLength);
+    await page.waitForTimeout(400);
+    assert.equal(await page.evaluate(() => history.length), initialHistoryLength + 1);
+    assert.equal(await page.locator("#search").inputValue(), "midnight");
+  } finally {
+    await page.close();
+  }
+});
+
+test("collections discovery history restores mood, sort, search, and empty states", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1200 }, reducedMotion: "reduce" });
+
+  try {
+    await page.goto(`${baseUrl}/collections`, { waitUntil: "networkidle" });
+    await page.waitForFunction(() => document.querySelectorAll("#collectionsDirectory .collections-directory-card").length > 0);
+    const mood = page.locator('#collectionsMoodChips [data-intent="finished"]');
+    await mood.click();
+    await page.waitForFunction(() => document.querySelector('#collectionsMoodChips [data-intent="finished"]')?.getAttribute("aria-pressed") === "true");
+    await page.locator("#collectionsSort").selectOption("rating");
+    await page.locator("#collectionsSearch").fill("no-such-collection-history-state");
+    await page.waitForFunction(() => document.getElementById("collectionsEmptyState")?.hidden === false);
+    await page.waitForTimeout(650);
+    assert.match(await page.evaluate(() => window.location.search), /intent=finished/);
+    assert.match(await page.evaluate(() => window.location.search), /sort=rating/);
+    assert.match(await page.evaluate(() => window.location.search), /q=no-such-collection-history-state/);
+
+    await page.goBack();
+    await page.waitForFunction(
+      () =>
+        document.getElementById("collectionsSearch")?.value === "" &&
+        document.getElementById("collectionsSort")?.value === "rating" &&
+        document.querySelector('#collectionsMoodChips [data-intent="finished"]')?.getAttribute("aria-pressed") === "true" &&
+        document.getElementById("collectionsEmptyState")?.hidden === true,
+    );
+    await page.goBack();
+    await page.waitForFunction(
+      () =>
+        document.getElementById("collectionsSort")?.value === "editorial" &&
+        document.querySelector('#collectionsMoodChips [data-intent="finished"]')?.getAttribute("aria-pressed") === "true",
+    );
+    await page.goForward();
+    await page.waitForFunction(() => document.getElementById("collectionsSort")?.value === "rating");
+  } finally {
+    await page.close();
+  }
+});
+
+test("creator directory history restores filter, sort, query, and forward navigation", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1200 }, reducedMotion: "reduce" });
+
+  try {
+    await page.goto(`${baseUrl}/creators`, { waitUntil: "networkidle" });
+    await page.waitForFunction(() => document.querySelectorAll("#entityGrid .entity-card").length > 0);
+    await page.locator('[data-entity-filter="network"]').click();
+    await page.locator("#entitySort").selectOption("shows");
+    await page.locator("#entitySearch").fill("no-such-creator-history-state");
+    await page.waitForFunction(() => document.getElementById("entityEmpty")?.hidden === false);
+    await page.waitForTimeout(650);
+
+    await page.goBack();
+    await page.waitForFunction(
+      () =>
+        document.getElementById("entitySearch")?.value === "" &&
+        document.querySelector('[data-entity-filter="network"]')?.getAttribute("aria-pressed") === "true" &&
+        document.getElementById("entitySort")?.value === "shows" &&
+        document.getElementById("entityEmpty")?.hidden === true,
+    );
+    await page.goBack();
+    await page.waitForFunction(
+      () =>
+        document.querySelector('[data-entity-filter="all"]')?.getAttribute("aria-pressed") === "true" &&
+        document.getElementById("entitySort")?.value === "name",
+    );
+    await page.goForward();
+    await page.waitForFunction(
+      () =>
+        document.querySelector('[data-entity-filter="network"]')?.getAttribute("aria-pressed") === "true" &&
+        document.getElementById("entitySort")?.value === "shows",
+    );
+  } finally {
+    await page.close();
+  }
+});

@@ -4,6 +4,12 @@ const HOME_SORT_MODES = new Set(["default", "recently-updated"]);
 
 export function seedHomeStateFromParams({ state, shows, collectionsById, structuredFilterGroups }) {
   const params = new URLSearchParams(window.location.search);
+
+  state.selectedCollectionId = "";
+  state.query = "";
+  state.sortMode = "default";
+  Object.values(state.filters || {}).forEach((values) => values.clear());
+
   const initialCollectionId = params.get("collection") || "";
   if (collectionsById.has(initialCollectionId)) {
     state.selectedCollectionId = initialCollectionId;
@@ -45,8 +51,8 @@ export function seedHomeStateFromParams({ state, shows, collectionsById, structu
   });
 }
 
-export function syncBrowseUrlState(state) {
-  const nextParams = new URLSearchParams(window.location.search);
+export function buildBrowseUrlState(state, location = window.location) {
+  const nextParams = new URLSearchParams(location.search);
   nextParams.delete("collection");
   nextParams.delete("genre");
   nextParams.delete("q");
@@ -86,10 +92,18 @@ export function syncBrowseUrlState(state) {
   });
 
   const nextSearch = nextParams.toString();
-  const nextUrl = `${window.location.pathname}${nextSearch ? `?${nextSearch}` : ""}${window.location.hash}`;
-  const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  return `${location.pathname}${nextSearch ? `?${nextSearch}` : ""}${location.hash}`;
+}
 
-  if (nextUrl !== currentUrl) {
-    window.history.replaceState(window.history.state, "", nextUrl);
+export function syncBrowseUrlState(state, { historyMode = "replace" } = {}) {
+  const nextUrl = buildBrowseUrlState(state);
+  const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  const shouldWrite = historyMode === "push" || nextUrl !== currentUrl;
+
+  if (shouldWrite) {
+    const method = historyMode === "push" ? "pushState" : "replaceState";
+    window.history[method](window.history.state, "", nextUrl);
   }
+
+  return nextUrl;
 }

@@ -1,4 +1,5 @@
 import { DEFAULT_SOCIAL_IMAGE, HOME_CARD_HOVER_EXPAND_ENABLED, HOME_FAVORITE_ROUTE_IDS, archiveSearch, archiveSimilarity } from "../constants.js";
+import { createDebouncedHistoryCommit } from "../discovery-history.js";
 import { createScrollRestoration } from "../scroll-restoration.js";
 import {
   applyArchiveStats,
@@ -132,6 +133,8 @@ export async function initializeHomePage() {
   let collectionCarouselControls = null;
   let favoriteRoutesCarouselControls = null;
   let searchRenderTimer = 0;
+  let searchHistoryCommit = null;
+  let commitPendingSearchHistory = () => false;
   if (elements.activeBrowseClear) {
     elements.activeBrowseClear.hidden = true;
   }
@@ -175,13 +178,23 @@ export async function initializeHomePage() {
     });
   };
 
+  const hasMeaningfulHomeState = () =>
+    Boolean(
+      state.query ||
+        state.selectedCollectionId ||
+        state.sortMode !== "default" ||
+        Object.values(state.filters).some((values) => values.size > 0),
+    );
+
   const clearAllFilters = () => {
     if (searchRenderTimer) {
       window.clearTimeout(searchRenderTimer);
       searchRenderTimer = 0;
     }
+    searchHistoryCommit?.cancel();
     const activeFilterCount = getActiveFilterCountForAnalytics();
     const hadSearch = Boolean(state.query.trim());
+    const hadMeaningfulState = hasMeaningfulHomeState();
     recordFilterClear({
       clearScope: "all",
       count: activeFilterCount,
@@ -193,7 +206,7 @@ export async function initializeHomePage() {
     state.query = "";
     syncSearchInputs("");
     filterSurfaceController?.renderAll();
-    scheduleHomeResults("explicit");
+    scheduleHomeResults("explicit", hadMeaningfulState ? "push" : "replace");
   };
 
   const clearBucketFilters = (bucketId) => {
@@ -202,6 +215,10 @@ export async function initializeHomePage() {
       return;
     }
 
+    commitPendingSearchHistory();
+    const hadMeaningfulState = Boolean(
+      state.selectedCollectionId || bucket.groups.some((group) => (state.filters[group.id]?.size || 0) > 0),
+    );
     const hadSearch = Boolean(state.query.trim());
     bucket.groups.forEach((group) => {
       const selectedCount = state.filters[group.id]?.size || 0;
@@ -216,7 +233,7 @@ export async function initializeHomePage() {
       state.filters[group.id]?.clear();
     });
     state.selectedCollectionId = "";
-    scheduleHomeResults("explicit");
+    scheduleHomeResults("explicit", hadMeaningfulState ? "push" : "replace");
   };
 
   const toggleFilter = (groupId, filterId) => {
@@ -225,6 +242,7 @@ export async function initializeHomePage() {
       return;
     }
 
+    commitPendingSearchHistory();
     const action = selectedValues.has(filterId) ? "removed" : "added";
     if (action === "removed") {
       selectedValues.delete(filterId);
@@ -234,11 +252,12 @@ export async function initializeHomePage() {
 
     homeAnalytics.pendingFilterChanges.push({ groupId, action, filterValue: filterId });
     state.selectedCollectionId = "";
-    scheduleHomeResults("explicit");
+    scheduleHomeResults("explicit", "push");
   };
 
   const getSelectedCollection = () => (state.selectedCollectionId ? collectionsById.get(state.selectedCollectionId) : null);
   const removeFilter = (groupId, value) => {
+    commitPendingSearchHistory();
     state.filters[groupId]?.delete(value);
   };
   const getDescriptors = () =>
@@ -263,7 +282,7 @@ export async function initializeHomePage() {
     state,
     stickyFilterDropdownController: filterSurfaceController.stickyFilterDropdownController,
   });
-  const { renderHomeResults, scheduleHomeResults } = createHomeResultsController({
+  const { commitCurrentUrlState, renderHomeResults, restoreHomeResults, scheduleHomeResults } = createHomeResultsController({
     archiveCardShellsById,
     elements,
     filterMenuBuckets,
@@ -276,7 +295,8 @@ export async function initializeHomePage() {
     shows,
     state,
     stickyBrowseController,
-    onResultsRendered: ({ resultCount }) => {
+    onBeforeUrlSync: () => scrollRestoration.save(),
+    onResultsRendered: ({ changeReason, resultCount }) => {
       const resultCountBucket = bucketDiscoveryResultCount(resultCount);
       const activeFilterCount = getActiveFilterCountForAnalytics();
       const recoveryContext = homeAnalytics.previousResultCountBucket === "0"
@@ -284,6 +304,20 @@ export async function initializeHomePage() {
         : homeAnalytics.hasRendered
           ? "none"
           : "unknown";
+
+      if (changeReason === "history-restore") {
+        homeAnalytics.pendingSearch = null;
+        if (homeAnalytics.searchAnalyticsTimer) {
+          window.clearTimeout(homeAnalytics.searchAnalyticsTimer);
+          homeAnalytics.searchAnalyticsTimer = 0;
+        }
+        homeAnalytics.pendingFilterChanges.splice(0);
+        homeAnalytics.pendingClears.splice(0);
+        homeAnalytics.lastResultCount = resultCount;
+        homeAnalytics.previousResultCountBucket = resultCountBucket;
+        homeAnalytics.hasRendered = true;
+        return;
+      }
 
       if (state.query.trim()) {
         homeAnalytics.pendingSearch = {
@@ -353,6 +387,10 @@ export async function initializeHomePage() {
       homeAnalytics.hasRendered = true;
     },
   });
+  searchHistoryCommit = createDebouncedHistoryCommit({
+    onCommit: () => commitCurrentUrlState(),
+  });
+  commitPendingSearchHistory = () => searchHistoryCommit.commitNow();
   const stickyBrowseVisibilityController = createStickyBrowseVisibilityController({
     elements,
     state,
@@ -373,8 +411,12 @@ export async function initializeHomePage() {
   renderBrowseModes({
     browseModesRoot: elements.browseModesRoot,
     onModeChange: (modeId) => {
+      if (state.sortMode === modeId) {
+        return;
+      }
+      commitPendingSearchHistory();
       state.sortMode = modeId;
-      scheduleHomeResults("explicit");
+      scheduleHomeResults("explicit", "push");
     },
   });
   recentlyAddedController.render();
@@ -416,7 +458,11 @@ export async function initializeHomePage() {
       stickyBrowseController.markExpanded();
     }
     syncSearchInputs(input.value, input);
-    state.query = input.value.trim();
+    const nextQuery = input.value.trim();
+    if (nextQuery !== state.query) {
+      state.query = nextQuery;
+      searchHistoryCommit?.schedule();
+    }
     stickyBrowseVisibilityController.sync();
     if (searchRenderTimer) {
       window.clearTimeout(searchRenderTimer);
@@ -429,6 +475,11 @@ export async function initializeHomePage() {
 
   searchInputs.forEach((input) => {
     input.addEventListener("input", handleSearchInput);
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        searchHistoryCommit?.commitNow();
+      }
+    });
   });
 
   elements.stickySearchToggle.addEventListener("click", stickyBrowseController.handleStickySearchToggle);
@@ -466,6 +517,21 @@ export async function initializeHomePage() {
   });
   elements.activeBrowseClear?.addEventListener("click", clearAllFilters);
   stickyBrowseVisibilityController.observe();
+
+  window.addEventListener("popstate", () => {
+    searchHistoryCommit?.cancel();
+    if (searchRenderTimer) {
+      window.clearTimeout(searchRenderTimer);
+      searchRenderTimer = 0;
+    }
+    seedHomeStateFromParams({ state, shows, collectionsById, structuredFilterGroups });
+    syncSearchInputs(state.query);
+    filterSurfaceController.renderAll();
+    stickyBrowseController.syncStickySearchMode();
+    restoreHomeResults();
+    stickyBrowseVisibilityController.sync();
+    scrollRestoration.restore({ force: true });
+  });
 
   window.addEventListener("resize", () => {
     previewController.closeActivePreview({ immediate: true });
