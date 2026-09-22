@@ -193,7 +193,7 @@ If `npm run verify` fails, do not publish.
 - runs backend data validation
 - runs archive link checks
 - runs backend tests
-- runs Playwright smoke coverage
+- runs required Playwright smoke coverage; missing browser tooling cannot pass
 
 The root verify pipeline begins with explicit catalog and page builds, so it is
 not a read-only catalog check. Those write-capable build steps may recover
@@ -207,24 +207,27 @@ run on macOS, while Linux production-host checks intentionally require GNU
 tooling such as `stat -c`, `systemd`, `flock`, and `/usr/bin/node`. A host/tool
 check that is unavailable locally may be reported as `SKIP`; that is neither an
 application failure nor a passing release gate. Genuine test failures remain
-failures. Install optional Playwright browser binaries and Restic before using
-those checks as release evidence on the appropriate host.
+failures. Install Playwright browser binaries and Restic before using those
+checks as release evidence on the appropriate host.
 
 The default smoke browser is Chromium. Before a public release, install the additional Playwright engines and repeat the serial browser suite in Firefox and WebKit:
 
 ```bash
 npm --prefix backend run test:setup:browser -- firefox webkit
-SMOKE_BROWSER=firefox npm --prefix backend run test:smoke:serial
-SMOKE_BROWSER=webkit npm --prefix backend run test:smoke:serial
+SMOKE_BROWSER=firefox npm --prefix backend run test:smoke -- --require-browser --serial
+SMOKE_BROWSER=webkit npm --prefix backend run test:smoke -- --require-browser --serial
 ```
 
-If the selected Playwright browser executable is not installed locally, the
-smoke runner reports an explicit `SKIP` with the setup command instead of
-representing missing browser tooling as an application failure or a passing
-browser suite. Restic recovery tests use the same deliberate skipped-check
-model when Restic is unavailable. CI and release hosts should install and run
-the required browser/Restic prerequisites before treating those checks as
-release evidence.
+The ordinary `npm --prefix backend run test:smoke` command is portable: when the
+selected Playwright browser executable is not installed locally, it reports an
+explicit `SKIP`, says that browser coverage did not run, and exits successfully.
+Pass `--require-browser` (or use
+`npm --prefix backend run test:smoke:required`) when browser verification is part
+of the evidence contract. Missing browser tooling, browser setup/launch errors,
+and failed browser assertions then return non-zero. The root `npm run verify`
+path uses required mode, so CI and release preflight cannot silently succeed
+without browser execution. Restic recovery tests use their own deliberate
+skipped-check model when Restic is unavailable.
 
 The service-worker smoke test stops the local test server after the public shell
 is cached, verifies cached navigation and the uncached offline fallback, and then
@@ -522,10 +525,12 @@ Catalog/page builds also own `images/generated/covers/`, `images/generated/info/
 
 Normal validation and startup do not download covers or rewrite authored
 sources. They may still refresh derived artifacts as part of validation. The
-explicit catalog build/import-publication workflow may recover a
-missing cover into `images/covers/` and rewrite the authored source with the
-resolved local path. Validation helpers default to recovery-off; publication
-callers must opt in explicitly when recovery is part of the write workflow.
+explicit `npm run build:catalog`, review (`review:new`/`review:publish`), import
+publication (`import:publish`/`import:promote`), and protected maintainer
+elevation workflows may recover a missing cover into `images/covers/` and
+rewrite the authored source with the resolved local path. Validation helpers
+default to recovery-off; publication callers must opt in explicitly when
+recovery is part of the write workflow.
 
 Review and commit those changes when they are legitimate.
 

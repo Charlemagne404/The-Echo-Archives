@@ -27,7 +27,7 @@ jobs:
       - name: Install Playwright Chromium
         run: npx --prefix backend playwright install --with-deps chromium
 
-      - name: Build and verify the complete generated site
+      - name: Build and verify the complete generated site with required browser smoke
         run: npm run verify
 
       - name: Confirm clean checkout remains reproducible

@@ -322,7 +322,7 @@ Validation covers:
 
 The system should fail fast on malformed structured data rather than silently degrading.
 
-## Automatic Cover Sync
+## Explicit Cover Synchronization
 
 Normal catalog loading is side-effect-free. Server startup and reloads, reports,
 validation, link checks, tests, and smoke setup do not contact cover providers or
@@ -454,15 +454,18 @@ Key verification commands:
 - `npm --prefix backend run check:links`
 - `npm --prefix backend test`
 - `npm --prefix backend run test:smoke`
+- `npm --prefix backend run test:smoke:required`
 - `npm run verify`
 
 Portable repository checks are distinct from Linux production-host checks.
 GNU coreutils such as `stat -c`, `systemd`, `flock`, and `/usr/bin/node` remain
 intentional host contracts and may be unavailable or explicitly skipped on
-macOS. Optional Playwright browser binaries and Restic tooling can also produce
-explicit skips; a skip is not a passing validation result, and genuine
-application or test failures remain failures. See `docs/OPERATIONS.md` for the
-release verification boundary.
+macOS. The ordinary smoke command is intentionally portable and may report a
+successful `SKIP` when its Playwright browser is unavailable. The required smoke
+command and full `npm run verify` path fail instead; they cannot provide release
+evidence without browser execution. Restic tooling can still produce an explicit
+skip in its own portable checks. See `docs/OPERATIONS.md` for the release
+verification boundary.
 
 ## Deployment Assumptions
 

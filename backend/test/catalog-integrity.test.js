@@ -165,6 +165,61 @@ test("raw integrity validates optional discovery profiles without requiring them
   assert.match(invalidReport.errors.join("\n"), /discovery\.narrativeFocus must be one of/);
 });
 
+test("split-source integrity gates malformed dispositions and unresolved provider collisions", () => {
+  const sharedRss = "https://feeds.example.test/shared.xml";
+  const showIds = ["first-show", "second-show"];
+  const research = {
+    sourceUrls: ["https://example.com/provider-review"],
+    reviewedAt: "2026-09-01T00:00:00.000Z",
+    sharedProviderIdentities: [{
+      provider: "rss",
+      identity: sharedRss,
+      showIds,
+      intentional: true,
+    }],
+  };
+  const makeShow = (id, externalResearch) => show({
+    id,
+    title: id,
+    listenLinks: { website: "https://example.com/show", rss: sharedRss },
+    metadata: {
+      import: {
+        identifiers: { rssUrl: sharedRss },
+        ...(externalResearch ? { externalResearch } : {}),
+      },
+    },
+  });
+
+  const validReport = collectCatalogIntegrityIssues({
+    sourceData: {
+      mode: "split",
+      shows: [makeShow("first-show", research), makeShow("second-show", research)],
+      collections: [],
+      reviewsById: {},
+    },
+    entities: [],
+    creators: [],
+    networks: [],
+    changelog: [],
+  });
+  assert.equal(validReport.ok, true);
+
+  const invalidReport = collectCatalogIntegrityIssues({
+    sourceData: {
+      mode: "split",
+      shows: [makeShow("first-show"), makeShow("second-show")],
+      collections: [],
+      reviewsById: {},
+    },
+    entities: [],
+    creators: [],
+    networks: [],
+    changelog: [],
+  });
+  assert.equal(invalidReport.ok, false);
+  assert.match(invalidReport.errors.join("\n"), /Provider identity RSS feed .*shared by first-show, second-show/);
+});
+
 test("entity graph validation surfaces role/type divergence and multi-role links as warnings", () => {
   const report = collectCatalogIntegrityIssues({
     sourceData: {

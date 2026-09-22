@@ -1,5 +1,11 @@
 # The Echo Archives — Comprehensive Read-Only Audit
 
+> **Historical snapshot — not active documentation.** This report describes the
+> 2026-09-06 checkout recorded below. It may contain superseded findings and is
+> retained for historical reference only. Use `docs/CURRENT_STATE.md`,
+> `docs/ARCHITECTURE.md`, and `docs/OPERATIONS.md` for current repository
+> behavior and release guidance.
+
 Audit date: 2026-09-06  
 Repository: /Users/charliearnerstal/Documents/GitHub/The-Echo-Archives  
 Audit scope: the current checkout, including authored source, generated public output, backend, tests, operational metadata, local application rendering, and the local SQLite workflow database.

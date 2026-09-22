@@ -2,6 +2,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const { readCatalogSource } = require("../../tools/lib/catalog-source");
+const { getProviderIdentityStructuralErrors } = require("../../tools/lib/provider-identity-dispositions");
 const {
   COMPLETION_STATUSES,
   DISCOVERY_PROFILE_FIELDS,
@@ -801,6 +802,12 @@ function collectCatalogIntegrityIssues(options = {}) {
   checkUniqueIds(collections, "collection", errors);
   const showIds = new Set(shows.filter((show) => isRecord(show) && isSlug(show.id)).map((show) => show.id));
   const publishedShowIds = new Set(shows.filter((show) => isRecord(show) && show.status === "published").map((show) => show.id));
+
+  if (sourceData.mode !== "runtime") {
+    getProviderIdentityStructuralErrors(shows, {
+      selectedShows: shows.filter((show) => isRecord(show) && show.status === "published"),
+    }).errors.forEach((message) => addIssue(errors, message));
+  }
 
   let entities = options.entities;
   if (entities === undefined) {

@@ -21,7 +21,7 @@ The default scope is published shows in `catalog-src/`, with entities, collectio
 - Recommendation coverage across similar links, collection routes, listener-intent routes, distinctive facets, and similarity reasons.
 - Entity-link gaps, exact legacy-to-registry matches, unresolved creator/network evidence, orphan entities, role/type conflicts, duplicate names, and incomplete public review trails.
 - Collection membership/reference integrity, show-reason coverage, anchors, cover-show references, automation definitions, descriptions, and weak routes.
-- Provider identity collisions, malformed or semantically misplaced URLs, local cover paths, missing alt text, and duplicate cover assets.
+- Provider identity collisions, reviewed intentional shared-provider declarations, malformed or semantically misplaced URLs, local cover paths, missing alt text, and duplicate cover assets.
 - Contradictory lifecycle, intensity, format, similarity, episode-count, and runtime combinations.
 
 ## How to read the ranking
@@ -31,5 +31,7 @@ Every queue has a severity and a deterministic priority score. Severity reflects
 The report separates `actionable` findings from policy signals. `imported` records are factual-only until they go through editorial promotion, so missing tones, themes, best-for routes, and similarity links are reported as a promotion queue rather than treated as defects. Missing factual genres or formats, malformed URLs, provider collisions, and contradictory metadata remain actionable regardless of review status.
 
 Inference findings are review leads only. They cite the exact fields already present in the record and recommend manual verification; the audit never copies raw source keywords, invents relationships, or mass-edits catalogue records.
+
+Provider identity collisions are checked for RSS URLs, Apple collection IDs, Podcast GUIDs, and Podcast Index feed IDs. A reviewed intentional overlap is authored under `metadata.import.externalResearch.sharedProviderIdentities` and must be reciprocal, source-backed, identity-matching, and complete for the current identity group. It remains visible in the report as a documented shared identity. Invalid declarations and uncovered overlaps remain critical; there is no global collision-ignore flag.
 
 The machine-readable report is suitable for a later maintainer queue or dated QA snapshot, but no report file is written by default. This keeps the command safe to run while other catalogue or generated-artifact work is in progress.

@@ -6,7 +6,7 @@ Archivist is a preserved optional integration and is disabled by default.
 ## What it does
 
 - Loads the authored archive catalog from `../catalog-src/` and serves generated runtime data at `/data/*`
-- Recovers missing show cover art only during the explicit catalog build workflow; normal reads preserve authored data, using an in-memory placeholder for an incomplete cover without network or file side effects
+- Recovers missing show cover art only during explicit write-capable catalog build/import/publication workflows; normal reads preserve authored data, using an in-memory placeholder for an incomplete cover without network or file side effects
 - Exposes a same-origin chat API at `/api/chat`
 - Keeps the archive assistant implementation isolated under `lib/ai/`
 - Persists device-scoped, publicly anonymous community ratings with pseudonymous backend state in SQLite
@@ -84,10 +84,16 @@ before local startup. Run `NODE_ENV=production npm run check:config` before
 deployment. Production requirements, backup/restore, and deployment procedures
 live in [`docs/OPERATIONS.md`](../docs/OPERATIONS.md).
 
+`npm run test:smoke` is the portable browser check: if the selected Playwright
+browser is unavailable, it reports an explicit `SKIP` and exits successfully.
+`npm run test:smoke:required` adds `--require-browser` for release evidence and
+fails when browser verification cannot run. The full repository `npm run verify`
+path uses the required form.
+
 ## Maintainer review workflow
 
 The service exposes the merged catalog at `/data/shows.json` and the generated browse/search payload at `/data/search-index.json`, so the frontend keeps working while long-form review copy lives in `catalog-src/reviews/<show-id>.json`.
-Normal catalog loading is read-only with respect to external providers and the filesystem. It does not fetch missing covers, write `images/covers/`, or rewrite authored show sources. The explicit `npm run build:catalog` workflow runs cover recovery in source order (`listenLinks.rss`, `listenLinks.apple`, `officialLinks.website`, then `listenLinks.website`), persists successful managed covers, and falls back to the local placeholder for that build when recovery fails.
+Normal catalog loading is read-only with respect to external providers and the filesystem. It does not fetch missing covers, write `images/covers/`, or rewrite authored show sources. The explicit `npm run build:catalog` workflow, review commands, import publication commands, and protected maintainer elevation workflows opt into cover recovery in source order (`listenLinks.rss`, `listenLinks.apple`, `officialLinks.website`, then `listenLinks.website`) while already writing catalog state. Successful recovery persists a managed cover; failed recovery falls back to the local placeholder for that build.
 
 Protected maintainer submission workflow routes:
 

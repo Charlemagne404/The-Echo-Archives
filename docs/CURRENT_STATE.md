@@ -219,6 +219,7 @@ Backend verification commands:
 
 - `npm --prefix backend test`
 - `npm --prefix backend run test:smoke`
+- `npm --prefix backend run test:smoke:required`
 - `npm --prefix backend run validate:data`
 - `npm --prefix backend run check:links`
 - `npm --prefix backend run review:new -- <show-id>`
@@ -228,6 +229,11 @@ Backend verification commands:
 - `npm --prefix backend run import:report`
 - `npm --prefix backend run import:publish -- <candidate-id> --tier <imported|indexed-only>`
 - `npm --prefix backend run import:promote -- <candidate-id> --reviewer <name>`
+
+The ordinary smoke command is a portable developer check and may explicitly
+skip when its Playwright browser is unavailable. The required smoke command and
+the full root `npm run verify` path fail closed instead of claiming browser
+coverage without a browser run.
 
 This is enough process to support disciplined iteration without a large platform footprint.
 

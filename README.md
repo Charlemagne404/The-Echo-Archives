@@ -150,14 +150,15 @@ Root commands:
 | `npm run check:generated` | Verifies the complete generated HTML set is present, ignored, and untracked while authored HTML remains trackable |
 | `npm run check:structure` | Enforces repo structure and generated-source boundaries |
 | `npm run test:tools` | Runs repository build/SEO/operations tool tests |
-| `npm run verify` | Regenerates catalog + pages, checks repo structure, then runs backend tests, smoke tests, and data/link validation |
+| `npm run verify` | Runs the full generated-site verification, including backend tests, data/link validation, and required browser smoke coverage |
 
 Useful backend commands:
 
 | Command | What it does |
 | --- | --- |
 | `npm --prefix backend test` | Runs backend tests |
-| `npm --prefix backend run test:smoke` | Runs Playwright smoke coverage |
+| `npm --prefix backend run test:smoke` | Runs portable Playwright smoke coverage; an unavailable browser is reported as an explicit `SKIP` with success |
+| `npm --prefix backend run test:smoke:required` | Runs Playwright smoke coverage in required-browser mode; missing browser tooling or browser failures return non-zero |
 | `npm --prefix backend run validate:data` | Validates catalog and collection data |
 | `npm --prefix backend run report:entity-graph` | Reports source-backed entity graph coverage and enrichment queues |
 | `npm --prefix backend run check:links` | Checks internal and external archive links |

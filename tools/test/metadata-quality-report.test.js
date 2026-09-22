@@ -57,6 +57,37 @@ function entity(id, overrides = {}) {
   };
 }
 
+function providerDisposition(provider, identity, showIds, overrides = {}) {
+  return {
+    provider,
+    identity,
+    showIds,
+    intentional: true,
+    ...overrides,
+  };
+}
+
+function withProviderDispositions(record, sharedProviderIdentities, identifiers = {}) {
+  return {
+    ...record,
+    metadata: {
+      ...record.metadata,
+      import: {
+        ...record.metadata.import,
+        identifiers: {
+          ...record.metadata.import.identifiers,
+          ...identifiers,
+        },
+        externalResearch: {
+          sourceUrls: ["https://example.test/provider-review"],
+          reviewedAt: "2026-09-01T00:00:00.000Z",
+          sharedProviderIdentities,
+        },
+      },
+    },
+  };
+}
+
 function getGroup(report, id) {
   return report.priorityQueue.find((group) => group.id === id);
 }
@@ -179,6 +210,163 @@ test("metadata audit detects provider collisions, malformed URLs, status/runtime
   assert.ok(getGroup(report, "invalid-collection-cover-references").affectedIds.includes("weak-route"));
   assert.ok(getGroup(report, "invalid-similarity-anchors").affectedIds.includes("weak-route"));
   assert.ok(getGroup(report, "orphan-entities").affectedIds.includes("orphan-entity"));
+  assert.equal(getGroup(report, "duplicate-provider-identities").severity, "critical");
+  assert.equal(report.providerIdentities.unresolvedCollisions.length, 1);
+});
+
+test("metadata audit acknowledges reciprocal, source-backed intentional provider sharing without hiding it", () => {
+  const sharedRss = "https://feeds.example.test/shared.xml";
+  const sharedApple = "123456";
+  const showIds = ["first-show", "second-show"];
+  const declarations = [
+    providerDisposition("rss", sharedRss, showIds),
+    providerDisposition("apple", sharedApple, showIds),
+  ];
+  const first = withProviderDispositions(show("first-show", {
+    metadata: {
+      sourceCategories: ["Science Fiction"],
+      sourceTags: [],
+      objectiveSources: ["https://example.test/source"],
+      import: { identifiers: { rssUrl: sharedRss, appleCollectionId: sharedApple } },
+    },
+  }), declarations, { rssUrl: sharedRss, appleCollectionId: sharedApple });
+  const second = withProviderDispositions(show("second-show", {
+    metadata: {
+      sourceCategories: ["Science Fiction"],
+      sourceTags: [],
+      objectiveSources: ["https://example.test/source"],
+      import: { identifiers: { rssUrl: sharedRss, appleCollectionId: sharedApple } },
+    },
+  }), declarations, { rssUrl: sharedRss, appleCollectionId: sharedApple });
+
+  const inputs = { shows: [first, second], collections: [], entities: [], taxonomy: { tags: [] } };
+  const report = buildMetadataQualityReport(inputs);
+  const documented = getGroup(report, "documented-shared-provider-identities");
+
+  assert.equal(getGroup(report, "duplicate-provider-identities"), undefined);
+  assert.ok(documented);
+  assert.equal(documented.actionable, false);
+  assert.equal(documented.severity, "info");
+  assert.deepEqual(documented.affectedIds, showIds);
+  assert.equal(report.providerIdentities.documentedSharedIdentities.length, 2);
+  assert.deepEqual(report.providerIdentities.unresolvedCollisions, []);
+  assert.deepEqual(report, buildMetadataQualityReport(inputs));
+});
+
+test("metadata audit keeps a genuine collision critical when a disposition does not match the provider identity", () => {
+  const sharedRss = "https://feeds.example.test/shared.xml";
+  const showIds = ["first-show", "second-show"];
+  const invalid = providerDisposition("rss", "https://feeds.example.test/not-the-shared.xml", showIds);
+  const first = withProviderDispositions(show("first-show", {
+    metadata: {
+      sourceCategories: ["Science Fiction"],
+      sourceTags: [],
+      objectiveSources: ["https://example.test/source"],
+      import: { identifiers: { rssUrl: sharedRss } },
+    },
+  }), [invalid], { rssUrl: sharedRss });
+  const second = show("second-show", {
+    metadata: {
+      sourceCategories: ["Science Fiction"],
+      sourceTags: [],
+      objectiveSources: ["https://example.test/source"],
+      import: { identifiers: { rssUrl: sharedRss } },
+    },
+  });
+
+  const report = buildMetadataQualityReport({ shows: [first, second], collections: [], entities: [], taxonomy: { tags: [] } });
+  const invalidGroup = getGroup(report, "invalid-provider-identity-dispositions");
+  const collisionGroup = getGroup(report, "duplicate-provider-identities");
+
+  assert.ok(invalidGroup);
+  assert.ok(invalidGroup.affectedIds.includes("first-show"));
+  assert.ok(collisionGroup);
+  assert.equal(collisionGroup.severity, "critical");
+  assert.equal(report.providerIdentities.documentedSharedIdentities.length, 0);
+  assert.equal(report.providerIdentities.unresolvedCollisions.length, 1);
+});
+
+test("metadata audit acknowledges only the declared provider and leaves an unrelated collision actionable", () => {
+  const sharedRss = "https://feeds.example.test/shared.xml";
+  const sharedApple = "123456";
+  const rssShowIds = ["first-show", "second-show"];
+  const first = withProviderDispositions(show("first-show", {
+    metadata: {
+      sourceCategories: ["Science Fiction"],
+      sourceTags: [],
+      objectiveSources: ["https://example.test/source"],
+      import: { identifiers: { rssUrl: sharedRss, appleCollectionId: sharedApple } },
+    },
+  }), [providerDisposition("rss", sharedRss, rssShowIds)], { rssUrl: sharedRss, appleCollectionId: sharedApple });
+  const second = withProviderDispositions(show("second-show", {
+    metadata: {
+      sourceCategories: ["Science Fiction"],
+      sourceTags: [],
+      objectiveSources: ["https://example.test/source"],
+      import: { identifiers: { rssUrl: sharedRss, appleCollectionId: "654321" } },
+    },
+  }), [providerDisposition("rss", sharedRss, rssShowIds)], { rssUrl: sharedRss, appleCollectionId: "654321" });
+  const third = show("third-show", {
+    metadata: {
+      sourceCategories: ["Science Fiction"],
+      sourceTags: [],
+      objectiveSources: ["https://example.test/source"],
+      import: { identifiers: { rssUrl: "https://feeds.example.test/other.xml", appleCollectionId: sharedApple } },
+    },
+  });
+
+  const report = buildMetadataQualityReport({ shows: [first, second, third], collections: [], entities: [], taxonomy: { tags: [] } });
+  const documented = getGroup(report, "documented-shared-provider-identities");
+  const unresolved = getGroup(report, "duplicate-provider-identities");
+
+  assert.ok(documented);
+  assert.equal(documented.values.length, 1);
+  assert.equal(documented.values[0].value, sharedRss);
+  assert.ok(unresolved);
+  assert.equal(unresolved.severity, "critical");
+  assert.deepEqual(unresolved.affectedIds, ["first-show", "third-show"]);
+  assert.equal(report.providerIdentities.documentedSharedIdentities.length, 1);
+  assert.equal(report.providerIdentities.unresolvedCollisions.length, 1);
+  assert.equal(report.providerIdentities.unresolvedCollisions[0].value, sharedApple);
+});
+
+test("metadata audit rejects a one-sided declaration for only part of a larger identity group", () => {
+  const sharedRss = "https://feeds.example.test/shared.xml";
+  const first = withProviderDispositions(show("first-show", {
+    metadata: {
+      sourceCategories: ["Science Fiction"],
+      sourceTags: [],
+      objectiveSources: ["https://example.test/source"],
+      import: { identifiers: { rssUrl: sharedRss } },
+    },
+  }), [providerDisposition("rss", sharedRss, ["first-show", "second-show"])], { rssUrl: sharedRss });
+  const second = show("second-show", {
+    metadata: {
+      sourceCategories: ["Science Fiction"],
+      sourceTags: [],
+      objectiveSources: ["https://example.test/source"],
+      import: { identifiers: { rssUrl: sharedRss } },
+    },
+  });
+  const third = show("third-show", {
+    metadata: {
+      sourceCategories: ["Science Fiction"],
+      sourceTags: [],
+      objectiveSources: ["https://example.test/source"],
+      import: { identifiers: { rssUrl: sharedRss } },
+    },
+  });
+
+  const report = buildMetadataQualityReport({ shows: [first, second, third], collections: [], entities: [], taxonomy: { tags: [] } });
+  const invalid = getGroup(report, "invalid-provider-identity-dispositions");
+  const unresolved = getGroup(report, "duplicate-provider-identities");
+
+  assert.ok(invalid);
+  assert.match(invalid.topFindings[0].evidence.errors.join("\n"), /must exactly match current identity participants/);
+  assert.ok(unresolved);
+  assert.equal(unresolved.severity, "critical");
+  assert.deepEqual(unresolved.affectedIds, ["first-show", "second-show", "third-show"]);
+  assert.deepEqual(report.providerIdentities.documentedSharedIdentities, []);
 });
 
 test("metadata audit is deterministic, report-only, and formats a useful human queue", () => {

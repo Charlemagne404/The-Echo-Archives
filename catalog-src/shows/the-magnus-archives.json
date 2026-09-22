@@ -306,7 +306,27 @@
         "fieldSources": {},
         "notes": "The Acast feed, Spotify show ID, and Apple collection are shared provider identities for The Magnus Archives and The Magnus Protocol. This record's count, runtime, and date fields use the numbered MAG 1–200 items only; 54 other MAG-tagged full items and one feed-tagged trailer remain non-core extras. The main series ended 2021-03-25; newer items belong to the shared Protocol/franchise feed.",
         "uncertainFields": [],
-        "reviewedAt": "2026-08-03T15:25:31.306Z"
+        "reviewedAt": "2026-08-03T15:25:31.306Z",
+        "sharedProviderIdentities": [
+          {
+            "provider": "rss",
+            "identity": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8",
+            "showIds": [
+              "the-magnus-archives",
+              "the-magnus-protocol"
+            ],
+            "intentional": true
+          },
+          {
+            "provider": "apple",
+            "identity": "1095138637",
+            "showIds": [
+              "the-magnus-archives",
+              "the-magnus-protocol"
+            ],
+            "intentional": true
+          }
+        ]
       },
       "fields": {
         "title": {

@@ -243,7 +243,34 @@ Publisher-provided RSS/iTunes categories and keywords are retained as provenance
 
 Importer-prepared records may also include factual `releaseDates.latestFeedItem` and `releaseDates.next`, richer observed runtime values under `length`, transcript coverage/language/format values under `availability`, and source/feed details under `metadata`. These are evidence-backed operational facts, not archive editorial judgments.
 
-## Automatic Cover Sync
+### Reviewed shared provider identities
+
+When two or more authored show records intentionally use the same provider identity, the reviewed relationship may be recorded under the existing import research structure:
+
+```json
+{
+  "metadata": {
+    "import": {
+      "externalResearch": {
+        "sourceUrls": ["https://example.com/provider-record"],
+        "reviewedAt": "2026-08-03T15:25:31.424Z",
+        "sharedProviderIdentities": [
+          {
+            "provider": "rss",
+            "identity": "https://feeds.example.com/shared.xml",
+            "showIds": ["first-show", "second-show"],
+            "intentional": true
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+Supported providers are `rss`, `apple`, `podcast-guid`, and `podcast-index`, matching the provider identities checked by the metadata-quality tooling. Every participating record must carry the same reviewed declaration, its `showIds` must exactly match every current catalogue record with that identity, and the provider identity must still match each named record. The declaration is an auditable acknowledgement, not a global collision exemption; malformed declarations and any uncovered collision remain structural errors. Existing records may omit it.
+
+## Explicit Cover Synchronization
 
 Authoring can now leave `cover` blank when the show has at least one usable source link:
 
@@ -252,16 +279,16 @@ Authoring can now leave `cover` blank when the show has at least one usable sour
 - `officialLinks.website`
 - `listenLinks.website`
 
-During catalog load, the Node service and validation scripts try those sources in that order, extract the best available show art, download it into `images/covers/`, and rewrite the authored show source with the resolved local cover path.
+Normal catalog reads and validation are provider-free and side-effect-free. `loadCatalog()`, server startup and reload, reports, link checks, tests, smoke setup, and the default `validate:data` path do not fetch remote covers, write `images/covers/`, or rewrite authored catalog source. An incomplete record receives the shared local placeholder in memory for that read.
 
-If no cover can be resolved, catalog load keeps running, logs a warning, and uses a shared local placeholder for that process. The resolved catalog still guarantees a usable `cover` string even when the authoring file does not.
+Cover recovery is reserved for explicit write-capable workflows. `npm run build:catalog` calls `syncCatalogCovers()` before generating catalog artifacts. The review and import publication entry points (`npm --prefix backend run review:new -- <show-id>`, `npm --prefix backend run review:publish -- <show-id>`, `npm --prefix backend run import:publish -- <candidate-id> --tier <imported|indexed-only>`, and `npm --prefix backend run import:promote -- <candidate-id> --reviewer <name>`) and protected maintainer elevation workflows opt into the same recovery while already writing catalogue state. Successful recovery stores a managed local cover and updates the authored record; an unsuccessful recovery keeps the placeholder for that build.
 
 ## Required Fields
 
 - `id`
 - `title`
 - `description`
-- `cover` in the resolved catalog; authoring may leave it blank when auto-sync source links are present
+- `cover` in the resolved catalog; authoring may leave it blank when explicit cover-recovery source links are present
 - `coverAlt`
 - `status`
 - `reviewStatus`

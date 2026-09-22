@@ -5,7 +5,6 @@ const {
   CANONICAL_GENRES,
   comparableText,
   isNonWebsiteUrl,
-  appleCollectionIdFromUrl,
 } = require("../../shared/archive-quality");
 const {
   canonicalizeDiscoveryTag,
@@ -15,8 +14,12 @@ const {
   normalizeDiscoveryTagKey,
 } = require("../../shared/archive-tags");
 const { normalizeEntityName } = require("../../shared/archive-entities");
+const {
+  SHARED_PROVIDER_IDENTITIES_PATH,
+  auditProviderIdentityDispositions,
+} = require("./provider-identity-dispositions");
 
-const REPORT_VERSION = 1;
+const REPORT_VERSION = 2;
 const IMPORTED_REVIEW_STATUS = "imported";
 const DEFAULT_SAMPLE_LIMIT = 12;
 const MIN_USEFUL_COLLECTION_DESCRIPTION_LENGTH = 20;
@@ -1391,24 +1394,31 @@ function buildMetadataQualityReport(inputs = {}, options = {}) {
     });
   });
 
-  const identityGroups = new Map();
-  selectedShows.forEach((show) => {
-    const identifiers = show.metadata?.import?.identifiers || {};
-    const values = [
-      ["podcastGuid", identifiers.podcastGuid],
-      ["rssUrl", identifiers.rssUrl || show.listenLinks?.rss],
-      ["appleCollectionId", identifiers.appleCollectionId || appleCollectionIdFromUrl(show.listenLinks?.apple)],
-      ["podcastIndexFeedId", identifiers.podcastIndexFeedId],
-    ];
-    values.forEach(([fieldName, value]) => {
-      if (!isMeaningful(value)) return;
-      const normalizedValue = fieldName === "rssUrl" ? normalizeUrl(value) : text(value).toLowerCase();
-      const key = `${fieldName}:${normalizedValue}`;
-      if (!identityGroups.has(key)) identityGroups.set(key, { field: fieldName, value: text(value), showIds: [] });
-      identityGroups.get(key).showIds.push(show.id);
+  const providerIdentityAudit = auditProviderIdentityDispositions(scopeSets.records, { selectedShows });
+  providerIdentityAudit.invalidDispositions.forEach((entry) => {
+    issue({
+      groupId: "invalid-provider-identity-dispositions",
+      category: "identity",
+      label: "Malformed intentional provider-sharing dispositions",
+      severity: "critical",
+      scope: "selected",
+      denominator: selectedShows.length,
+      recordType: "provider-disposition",
+      recordId: `${entry.owner.id}:${entry.index}`,
+      value: entry.identity || entry.provider || entry.declaration,
+      affectedIds: [entry.owner.id, ...entry.showIds],
+      evidence: {
+        path: `${SHARED_PROVIDER_IDENTITIES_PATH}[${entry.index}]`,
+        showId: entry.owner.id,
+        provider: entry.provider || null,
+        identity: entry.identity || null,
+        showIds: entry.showIds,
+        errors: entry.errors,
+      },
+      suggestedNextAction: "Repair the reviewed provider-sharing declaration so its provider, identity, reciprocal participants, and current source records all agree; do not use a broad collision exemption.",
     });
   });
-  [...identityGroups.values()].filter((entry) => new Set(entry.showIds).size > 1).forEach((entry) => {
+  providerIdentityAudit.unresolvedCollisions.forEach((entry) => {
     aggregate({
       groupId: "duplicate-provider-identities",
       category: "identity",
@@ -1420,8 +1430,29 @@ function buildMetadataQualityReport(inputs = {}, options = {}) {
       recordId: `${entry.field}:${entry.value}`,
       value: entry.value,
       affectedIds: sortedUnique(entry.showIds),
-      evidence: entry,
-      suggestedNextAction: "Resolve the provider collision before enrichment or publication; confirm whether these are distinct shows, a sequel/feed migration, or a duplicate catalogue record.",
+      evidence: { ...entry, dispositionStatus: "unresolved" },
+      suggestedNextAction: "Resolve the provider collision before enrichment or publication, or add a reciprocal exact disposition only when the complete current identity group is intentionally shared.",
+    });
+  });
+  providerIdentityAudit.acknowledged.forEach((entry) => {
+    aggregate({
+      groupId: "documented-shared-provider-identities",
+      category: "identity",
+      label: "Documented intentional provider identities shared by multiple shows",
+      severity: "info",
+      scope: "selected",
+      denominator: selectedShows.length,
+      recordType: "provider-identity",
+      recordId: `${entry.field}:${entry.value}`,
+      value: entry.value,
+      affectedIds: sortedUnique(entry.showIds),
+      evidence: {
+        ...entry,
+        dispositionStatus: "documented-intentional-sharing",
+        declarationPath: SHARED_PROVIDER_IDENTITIES_PATH,
+      },
+      suggestedNextAction: "Keep the reciprocal reviewed disposition and the provider-specific source evidence synchronized when either show or identity changes.",
+      actionable: false,
     });
   });
 
@@ -1857,6 +1888,31 @@ function buildMetadataQualityReport(inputs = {}, options = {}) {
     note: "Imported records are factual-only and remain manual promotion/enrichment candidates. Their missing editorial facets are reported as policy signals, not automatic defects.",
   };
 
+  const providerIdentitySummary = {
+    dispositionPath: SHARED_PROVIDER_IDENTITIES_PATH,
+    providerTypes: providerIdentityAudit.providerTypes,
+    documentedSharedIdentities: providerIdentityAudit.acknowledged.map((entry) => ({
+      provider: entry.provider,
+      field: entry.field,
+      value: entry.value,
+      showIds: entry.showIds,
+    })),
+    unresolvedCollisions: providerIdentityAudit.unresolvedCollisions.map((entry) => ({
+      provider: entry.provider,
+      field: entry.field,
+      value: entry.value,
+      showIds: entry.showIds,
+    })),
+    invalidDispositions: providerIdentityAudit.invalidDispositions.map((entry) => ({
+      showId: entry.owner.id,
+      index: entry.index,
+      provider: entry.provider || null,
+      identity: entry.identity || null,
+      showIds: entry.showIds,
+      errors: entry.errors,
+    })),
+  };
+
   const finalized = collector.finalize();
   const summary = {
     selectedShowCount: selectedShows.length,
@@ -1905,6 +1961,7 @@ function buildMetadataQualityReport(inputs = {}, options = {}) {
     entityGraph: entitySummary,
     collections: collectionSummary,
     policySignals,
+    providerIdentities: providerIdentitySummary,
     namingVariants,
     priorityQueue: finalized.issueGroups,
     findings: finalized.findings,
@@ -2065,6 +2122,23 @@ function formatMetadataQualityReport(report, options = {}) {
       });
     }
   }
+
+  const providerIdentities = report.providerIdentities || {};
+  const documentedProviderIdentities = providerIdentities.documentedSharedIdentities || [];
+  const unresolvedProviderCollisions = providerIdentities.unresolvedCollisions || [];
+  const invalidProviderDispositions = providerIdentities.invalidDispositions || [];
+  lines.push(
+    "",
+    "## Provider identity review",
+    "",
+    `- Documented intentional sharing: ${documentedProviderIdentities.length}; unresolved collisions: ${unresolvedProviderCollisions.length}; invalid dispositions: ${invalidProviderDispositions.length}.`,
+    documentedProviderIdentities.length > 0
+      ? `- Auditable shared identities: ${documentedProviderIdentities.map((entry) => `${entry.provider}=${entry.value} (${entry.showIds.join(", ")})`).join("; ")}.`
+      : "- Auditable shared identities: none.",
+    unresolvedProviderCollisions.length > 0
+      ? `- Unresolved identities remain critical: ${unresolvedProviderCollisions.map((entry) => `${entry.provider}=${entry.value} (${entry.showIds.join(", ")})`).join("; ")}.`
+      : "- Unresolved identities remain critical: none.",
+  );
 
   lines.push("", "## Coverage by field", "", "| Field | Selected | Enrichment-eligible | Imported |", "| --- | ---: | ---: | ---: | ");
   report.coverage.forEach((field) => {

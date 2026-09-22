@@ -299,7 +299,27 @@
         "fieldSources": {},
         "notes": "The Magnus Protocol intentionally uses the existing Magnus Archives public RSS, Spotify show ID, and Apple collection. This record's count and runtime use the numbered The Magnus Protocol 1–55 items only; four additional full-tagged items and three trailers are non-core extras. The feed's raw season values are 7 and 8, while the official Protocol site presents the series as seasons 1 and 2.",
         "uncertainFields": [],
-        "reviewedAt": "2026-08-03T15:25:31.424Z"
+        "reviewedAt": "2026-08-03T15:25:31.424Z",
+        "sharedProviderIdentities": [
+          {
+            "provider": "rss",
+            "identity": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8",
+            "showIds": [
+              "the-magnus-archives",
+              "the-magnus-protocol"
+            ],
+            "intentional": true
+          },
+          {
+            "provider": "apple",
+            "identity": "1095138637",
+            "showIds": [
+              "the-magnus-archives",
+              "the-magnus-protocol"
+            ],
+            "intentional": true
+          }
+        ]
       },
       "fields": {
         "title": {

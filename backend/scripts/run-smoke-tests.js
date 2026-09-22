@@ -18,24 +18,11 @@ const readOnlySmokeFiles = [
 ];
 const statefulSmokeFiles = ["test/chat-submit-flow.smoke.js", "test/community-rating-flow.smoke.js"];
 
-const smokeBrowserName = String(process.env.SMOKE_BROWSER || "chromium").trim().toLowerCase();
-const smokeBrowserType = { chromium, firefox, webkit }[smokeBrowserName];
-if (!smokeBrowserType) {
-  console.error(`Unsupported SMOKE_BROWSER "${smokeBrowserName}". Use chromium, firefox, or webkit.`);
-  process.exit(1);
-}
+const browserTypes = { chromium, firefox, webkit };
+const REQUIRED_BROWSER_FLAG = "--require-browser";
 
-const smokeBrowserExecutable = smokeBrowserType.executablePath();
-if (!fs.existsSync(smokeBrowserExecutable)) {
-  console.log(
-    `[smoke] SKIP: Playwright ${smokeBrowserName} is not installed at ${smokeBrowserExecutable}. ` +
-    `Run npm --prefix backend run test:setup:browser -- ${smokeBrowserName} before treating browser smoke as release evidence.`,
-  );
-  process.exit(0);
-}
-
-function resolveConcurrency(envVarName, fallback) {
-  const configuredValue = Number.parseInt(process.env[envVarName] || "", 10);
+function resolveConcurrency(envVarName, fallback, env = process.env) {
+  const configuredValue = Number.parseInt(env[envVarName] || "", 10);
   return Number.isInteger(configuredValue) && configuredValue > 0 ? configuredValue : fallback;
 }
 
@@ -72,16 +59,74 @@ function runBatch(files, concurrency) {
   return typeof result.status === "number" ? result.status : 1;
 }
 
-if (process.argv.includes("--serial")) {
-  const allSmokeFiles = fs
-    .readdirSync(testRoot)
-    .filter((fileName) => fileName.endsWith(".smoke.js"))
-    .sort()
-    .map((fileName) => path.join("test", fileName));
-  process.exit(runBatch(allSmokeFiles, 1));
+function runSmokeTests({
+  args = process.argv.slice(2),
+  env = process.env,
+  availableBrowserTypes = browserTypes,
+  existsSync = fs.existsSync,
+  readDir = fs.readdirSync,
+  runBatchImpl = runBatch,
+  log = console.log,
+  error = console.error,
+} = {}) {
+  const smokeBrowserName = String(env.SMOKE_BROWSER || "chromium").trim().toLowerCase();
+  const smokeBrowserType = availableBrowserTypes[smokeBrowserName];
+  if (!smokeBrowserType) {
+    error(`Unsupported SMOKE_BROWSER "${smokeBrowserName}". Use chromium, firefox, or webkit.`);
+    return 1;
+  }
+
+  const smokeBrowserExecutable = smokeBrowserType.executablePath();
+  if (!existsSync(smokeBrowserExecutable)) {
+    const setupCommand = `npm --prefix backend run test:setup:browser -- ${smokeBrowserName}`;
+    const missingBrowserMessage =
+      `Playwright ${smokeBrowserName} is not installed at ${smokeBrowserExecutable}.`;
+
+    if (args.includes(REQUIRED_BROWSER_FLAG)) {
+      error(
+        `[smoke] ERROR: Required browser verification could not run: ${missingBrowserMessage} ` +
+        `Run ${setupCommand} before retrying.`,
+      );
+      return 1;
+    }
+
+    log(
+      `[smoke] SKIP: Browser coverage did not run: ${missingBrowserMessage} ` +
+      `Run ${setupCommand} before treating browser smoke as release evidence.`,
+    );
+    return 0;
+  }
+
+  if (args.includes("--serial")) {
+    const allSmokeFiles = readDir(testRoot)
+      .filter((fileName) => fileName.endsWith(".smoke.js"))
+      .sort()
+      .map((fileName) => path.join("test", fileName));
+    return runBatchImpl(allSmokeFiles, 1);
+  }
+
+  const readOnlyStatus = runBatchImpl(
+    readOnlySmokeFiles,
+    resolveConcurrency("SMOKE_TEST_READ_ONLY_CONCURRENCY", 1, env),
+  );
+  const statefulStatus = runBatchImpl(
+    statefulSmokeFiles,
+    resolveConcurrency("SMOKE_TEST_STATEFUL_CONCURRENCY", 1, env),
+  );
+
+  return readOnlyStatus || statefulStatus;
 }
 
-const readOnlyStatus = runBatch(readOnlySmokeFiles, resolveConcurrency("SMOKE_TEST_READ_ONLY_CONCURRENCY", 1));
-const statefulStatus = runBatch(statefulSmokeFiles, resolveConcurrency("SMOKE_TEST_STATEFUL_CONCURRENCY", 1));
+if (require.main === module) {
+  try {
+    process.exitCode = runSmokeTests();
+  } catch (error) {
+    console.error(error.message || error);
+    process.exitCode = 1;
+  }
+}
 
-process.exit(readOnlyStatus || statefulStatus);
+module.exports = {
+  REQUIRED_BROWSER_FLAG,
+  runSmokeTests,
+};
