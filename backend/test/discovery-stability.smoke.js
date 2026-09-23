@@ -81,6 +81,13 @@ async function openFilterBucket(page, bucketId) {
   );
 }
 
+function assertUrlSearchParams(url, expected) {
+  const parsed = new URL(url, "https://echo-archives.test");
+  Object.entries(expected).forEach(([name, value]) => {
+    assert.equal(parsed.searchParams.get(name), value, `Expected URL parameter ${name}=${value} in ${parsed.href}`);
+  });
+}
+
 test.before(async () => {
   await setupSmoke();
   ({ browser, baseUrl, showFixtures, collectionFixtures, firstCollectionId } = getSmokeContext());
@@ -680,7 +687,7 @@ test("home discovery history restores combined states, empty results, and forwar
     await page.waitForFunction(() => (document.getElementById("resultsSummary")?.textContent || "").includes('results for "space"'));
     await page.waitForTimeout(650);
     const searchState = await readHomeState();
-    assert.match(searchState.url, /[?&]q=space(?:&|#|$)/);
+    assertUrlSearchParams(searchState.url, { q: "space" });
 
     await openFilterBucket(page, "storyType");
     await page.locator('.filter-option[data-filter-group="genres"][data-filter-value="sci-fi"]').click();
@@ -690,16 +697,18 @@ test("home discovery history restores combined states, empty results, and forwar
       () => document.querySelector('.browse-mode-button[data-browse-mode="recently-updated"]')?.getAttribute("aria-pressed") === "true",
     );
     const combinedState = await readHomeState();
-    assert.match(combinedState.url, /[?&]q=space(?:&|#)/);
-    assert.match(combinedState.url, /[?&]genre=sci-fi(?:&|#)/);
-    assert.match(combinedState.url, /[?&]sort=recently-updated(?:&|#)/);
+    assertUrlSearchParams(combinedState.url, {
+      q: "space",
+      genre: "sci-fi",
+      sort: "recently-updated",
+    });
 
     await page.locator("#search").fill("no-such-echo-history-state");
     await page.waitForFunction(() => Boolean(document.getElementById("noResultsMsg")));
     await page.waitForTimeout(650);
     const emptyState = await readHomeState();
     assert.equal(emptyState.empty, true);
-    assert.match(emptyState.url, /q=no-such-echo-history-state/);
+    assertUrlSearchParams(emptyState.url, { q: "no-such-echo-history-state" });
 
     await page.goBack();
     await page.waitForFunction(
@@ -720,6 +729,16 @@ test("home discovery history restores combined states, empty results, and forwar
         document.getElementById("filterCount")?.textContent?.trim() === "1" &&
         document.querySelector('.browse-mode-button[data-browse-mode="default"]')?.getAttribute("aria-pressed") === "true",
     );
+    const restoredFiltered = await readHomeState();
+    assertUrlSearchParams(restoredFiltered.url, { q: "space", genre: "sci-fi" });
+
+    await page.goBack();
+    await page.waitForFunction(
+      () =>
+        document.getElementById("search")?.value === "space" &&
+        document.getElementById("filterCount")?.textContent?.trim() === "0" &&
+        document.querySelector('.browse-mode-button[data-browse-mode="default"]')?.getAttribute("aria-pressed") === "true",
+    );
     const restoredSearch = await readHomeState();
     assert.equal(restoredSearch.url, searchState.url);
 
@@ -737,6 +756,14 @@ test("home discovery history restores combined states, empty results, and forwar
 
     await page.goForward();
     await page.waitForFunction(() => document.getElementById("search")?.value === "space");
+    await page.goForward();
+    await page.waitForFunction(
+      () =>
+        document.getElementById("filterCount")?.textContent?.trim() === "1" &&
+        document.querySelector('.browse-mode-button[data-browse-mode="default"]')?.getAttribute("aria-pressed") === "true",
+    );
+    const restoredForwardFiltered = await readHomeState();
+    assertUrlSearchParams(restoredForwardFiltered.url, { q: "space", genre: "sci-fi" });
     await page.goForward();
     await page.waitForFunction(
       () =>
@@ -834,6 +861,12 @@ test("creator directory history restores filter, sort, query, and forward naviga
     await page.goBack();
     await page.waitForFunction(
       () =>
+        document.querySelector('[data-entity-filter="network"]')?.getAttribute("aria-pressed") === "true" &&
+        document.getElementById("entitySort")?.value === "name",
+    );
+    await page.goBack();
+    await page.waitForFunction(
+      () =>
         document.querySelector('[data-entity-filter="all"]')?.getAttribute("aria-pressed") === "true" &&
         document.getElementById("entitySort")?.value === "name",
     );
@@ -841,7 +874,19 @@ test("creator directory history restores filter, sort, query, and forward naviga
     await page.waitForFunction(
       () =>
         document.querySelector('[data-entity-filter="network"]')?.getAttribute("aria-pressed") === "true" &&
+        document.getElementById("entitySort")?.value === "name",
+    );
+    await page.goForward();
+    await page.waitForFunction(
+      () =>
+        document.querySelector('[data-entity-filter="network"]')?.getAttribute("aria-pressed") === "true" &&
         document.getElementById("entitySort")?.value === "shows",
+    );
+    await page.goForward();
+    await page.waitForFunction(
+      () =>
+        document.getElementById("entitySearch")?.value === "no-such-creator-history-state" &&
+        document.getElementById("entityEmpty")?.hidden === false,
     );
   } finally {
     await page.close();

@@ -134,7 +134,58 @@ test("discovery history controller replaces transient state and pushes meaningfu
     },
   );
 
-  assert.deepEqual(calls, ["replaceState", "replaceState", "pushState", "replaceState"]);
+  assert.deepEqual(calls, ["replaceState", "replaceState", "replaceState", "pushState", "replaceState"]);
+});
+
+test("committing transient search restores the previous entry before pushing the settled URL", async () => {
+  const { createDiscoveryHistoryController } = await importSharedModule("shared/app/discovery-history.js");
+  const calls = [];
+  const state = { view: "initial" };
+
+  function updateLocation(nextUrl) {
+    const next = new URL(nextUrl, "https://echo.test");
+    global.window.location.pathname = next.pathname;
+    global.window.location.search = next.search;
+    global.window.location.hash = next.hash;
+  }
+
+  await withWindow(
+    {
+      location: { pathname: "/browse", search: "", hash: "" },
+      history: {
+        state: null,
+        pushState(_state, _title, nextUrl) {
+          calls.push(["pushState", nextUrl]);
+          updateLocation(nextUrl);
+        },
+        replaceState(_state, _title, nextUrl) {
+          calls.push(["replaceState", nextUrl]);
+          updateLocation(nextUrl);
+        },
+      },
+    },
+    async () => {
+      const buildUrl = (currentState) => "/browse?view=" + currentState.view;
+      const syncUrl = (currentState, { historyMode }) => {
+        const nextUrl = buildUrl(currentState);
+        window.history[historyMode === "push" ? "pushState" : "replaceState"](window.history.state, "", nextUrl);
+        return nextUrl;
+      };
+      const controller = createDiscoveryHistoryController({ state, buildUrl, syncUrl });
+
+      controller.synchronizeUrlState("replace", "initial");
+      state.view = "search";
+      controller.synchronizeUrlState("replace", "live-search");
+      controller.commitCurrentUrlState();
+    },
+  );
+
+  assert.deepEqual(calls, [
+    ["replaceState", "/browse?view=initial"],
+    ["replaceState", "/browse?view=search"],
+    ["replaceState", "/browse?view=initial"],
+    ["pushState", "/browse?view=search"],
+  ]);
 });
 
 test("collections URL state canonicalizes supported filters and preserves unrelated URL state", async () => {
