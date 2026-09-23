@@ -292,10 +292,10 @@ test("show detail layouts stay readable across desktop, intermediate, and compac
       await page.setViewportSize({ width, height: 844 });
       await page.goto(`${baseUrl}/shows/impact-winter`, { waitUntil: "networkidle" });
       await page.waitForFunction(() => document.getElementById("showRoot")?.dataset.detailMotionReady === "true");
-      const expansion = page.locator(".detail-route-overflow summary");
+      const expansion = page.locator(".detail-collections-section .detail-route-overflow summary");
       await expansion.focus();
       await page.evaluate(() => {
-        const details = document.querySelector(".detail-route-overflow");
+        const details = document.querySelector(".detail-collections-section .detail-route-overflow");
         window.__routeMotionObserved = false;
         new MutationObserver(() => {
           if (details?.classList.contains("is-route-overflow-revealing")) {
@@ -311,7 +311,7 @@ test("show detail layouts stay readable across desktop, intermediate, and compac
       await page.waitForFunction(() => window.__routeMotionObserved === true);
       const compact = await page.evaluate(() => ({
         overflow: document.documentElement.scrollWidth - window.innerWidth,
-        expanded: document.querySelector(".detail-route-overflow")?.open || false,
+        expanded: document.querySelector(".detail-collections-section .detail-route-overflow")?.open || false,
         visibleRoutes: document.querySelectorAll(".detail-collection-route").length,
         actionHeights: Array.from(document.querySelectorAll(".detail-actions > a, .detail-actions > button"))
           .map((node) => node.getBoundingClientRect().height),

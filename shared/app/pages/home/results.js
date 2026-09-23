@@ -1,6 +1,7 @@
 import { createEntitySearchResults } from "./entity-results.js";
 import { syncCommunityCardBadges } from "../../community.js";
 import { ARCHIVIST_ENABLED } from "../../constants.js";
+import { createDiscoveryHistoryController } from "../../discovery-history.js";
 import { setShowDiscoveryMarker, syncShowCardPresentation } from "../../render-cards.js";
 import { bucketDiscoveryPosition, getDiscoveryContentProfile } from "../../discovery-analytics.js";
 import { getSavedHomeResultLimit, HOME_RESULTS_PAGE_SIZE, persistHomeResultLimit } from "./state.js";
@@ -35,13 +36,19 @@ export function createHomeResultsController({
   let pendingHistoryMode = "replace";
   let renderFrame = 0;
   let hasRenderedHomeResults = false;
-  let lastCommittedUrl = "";
   let displayedResultLimit = getSavedHomeResultLimit();
   let matchingResultCount = 0;
   let displayedResultCount = 0;
   let autoLoadScrollAttempts = 0;
   let lastAutoLoadAttemptAt = 0;
   let touchStartY = null;
+
+  const { commitCurrentUrlState, synchronizeUrlState } = createDiscoveryHistoryController({
+    state,
+    buildUrl: buildBrowseUrlState,
+    syncUrl: syncBrowseUrlState,
+    onBeforeSync: onBeforeUrlSync,
+  });
 
   function syncNoResultsState(isActive) {
     const mount = elements.noResultsMount;
@@ -177,34 +184,6 @@ export function createHomeResultsController({
     if (didSwipeDownPage) {
       registerDownwardScrollAttempt();
     }
-  }
-
-  function synchronizeUrlState(historyMode, changeReason) {
-    const nextUrl = buildBrowseUrlState(state);
-    const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
-    const shouldPush = historyMode === "push" && nextUrl !== lastCommittedUrl;
-    const effectiveHistoryMode = shouldPush ? "push" : "replace";
-    const shouldWrite = effectiveHistoryMode === "push" || nextUrl !== currentUrl;
-    if (shouldWrite) {
-      onBeforeUrlSync({ changeReason, currentUrl, historyMode: effectiveHistoryMode, nextUrl });
-    }
-
-    const syncedUrl = syncBrowseUrlState(state, { historyMode: effectiveHistoryMode });
-    if (effectiveHistoryMode === "push" || changeReason === "initial" || changeReason === "history-restore") {
-      lastCommittedUrl = syncedUrl;
-    }
-    return syncedUrl;
-  }
-
-  function commitCurrentUrlState() {
-    const nextUrl = buildBrowseUrlState(state);
-    if (nextUrl === lastCommittedUrl) {
-      synchronizeUrlState("replace", "search-commit");
-      return false;
-    }
-
-    synchronizeUrlState("push", "search-commit");
-    return true;
   }
 
   function renderHomeResults(changeReason = "explicit", historyMode = "replace") {

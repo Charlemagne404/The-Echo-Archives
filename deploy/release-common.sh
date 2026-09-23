@@ -55,6 +55,13 @@ require_command() {
   command -v "$1" >/dev/null 2>&1 || die "required command is missing: $1"
 }
 
+# Keep the deployed Linux executable contract fixed while giving shell-level
+# verification fixtures a narrow command boundary they can replace after
+# sourcing this file. Production callers leave this function untouched.
+run_release_node() {
+  /usr/bin/node "$@"
+}
+
 require_deployment_user() {
   [[ "${EUID}" -ne 0 ]] || die "run as the deployment user; use sudo only for systemd operations"
 }
@@ -532,7 +539,7 @@ release_commit() {
   local path
   path="$(release_path "${release_id}")"
   [[ -d "${path}" && ! -L "${path}" ]] || die "release directory is missing or unsafe: ${path}"
-  /usr/bin/node - "${path}/release.json" <<'NODE'
+  run_release_node - "${path}/release.json" <<'NODE'
 const fs = require("node:fs");
 const filePath = process.argv[2];
 const metadata = JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -549,7 +556,7 @@ verify_release() {
   path="$(release_path "${release_id}")"
   [[ -d "${path}" && ! -L "${path}" ]] || die "release is missing: ${release_id}"
   [[ -f "${path}/release.json" && ! -L "${path}/release.json" ]] || die "release metadata is missing: ${release_id}"
-  /usr/bin/node - "${path}/release.json" "${release_id}" "${expected_commit}" <<'NODE' ||
+  run_release_node - "${path}/release.json" "${release_id}" "${expected_commit}" <<'NODE' ||
 const fs = require("node:fs");
 const [filePath, expectedReleaseId, expectedCommit] = process.argv.slice(2);
 const metadata = JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -632,7 +639,7 @@ health_response_is_ready() {
   local output="$1"
   local expected_environment="$2"
   local expected_commit="$3"
-  /usr/bin/node - "${output}" "${expected_environment}" "${expected_commit}" <<'NODE'
+  run_release_node - "${output}" "${expected_environment}" "${expected_commit}" <<'NODE'
 const fs = require("node:fs");
 const [filePath, expectedEnvironment, expectedCommit] = process.argv.slice(2);
 let health = null;
@@ -887,7 +894,7 @@ record_staging_test() {
   local release_id="$1"
   local commit="$2"
   local temporary_file="${STATE_DIR}/staging-tested.json.tmp.$$"
-  /usr/bin/node - "${temporary_file}" "${release_id}" "${commit}" "${STAGING_URL}" <<'NODE'
+  run_release_node - "${temporary_file}" "${release_id}" "${commit}" "${STAGING_URL}" <<'NODE'
 const fs = require("node:fs");
 const [filePath, releaseId, commit, url] = process.argv.slice(2);
 fs.writeFileSync(
@@ -902,7 +909,7 @@ NODE
 
 tested_staging_commit() {
   [[ -f "${STATE_DIR}/staging-tested.json" && ! -L "${STATE_DIR}/staging-tested.json" ]] || return 1
-  /usr/bin/node - "${STATE_DIR}/staging-tested.json" <<'NODE'
+  run_release_node - "${STATE_DIR}/staging-tested.json" <<'NODE'
 const fs = require("node:fs");
 const metadata = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
 if (typeof metadata.commit !== "string" || !/^[0-9a-f]{40}$/.test(metadata.commit)) process.exit(1);
@@ -913,7 +920,7 @@ NODE
 preflight_legacy_commit() {
   local marker="${STATE_DIR}/preflight-latest.json"
   [[ -f "${marker}" && ! -L "${marker}" ]] || return 1
-  /usr/bin/node - "${marker}" <<'NODE'
+  run_release_node - "${marker}" <<'NODE'
 const fs = require("node:fs");
 const metadata = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
 if (typeof metadata.legacyCommit !== "string" || !/^[0-9a-f]{40}$/.test(metadata.legacyCommit)) process.exit(1);
@@ -924,7 +931,7 @@ NODE
 preflight_legacy_worktree_status() {
   local marker="${STATE_DIR}/preflight-latest.json"
   [[ -f "${marker}" && ! -L "${marker}" ]] || return 1
-  /usr/bin/node - "${marker}" <<'NODE'
+  run_release_node - "${marker}" <<'NODE'
 const fs = require("node:fs");
 const metadata = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
 if (!Number.isInteger(metadata.legacyWorktreeStatus) || metadata.legacyWorktreeStatus < 0) process.exit(1);

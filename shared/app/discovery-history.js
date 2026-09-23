@@ -10,9 +10,20 @@ export function createDiscoveryHistoryController({
 
   const synchronizeUrlState = (historyMode = "replace", changeReason = "explicit") => {
     const nextUrl = buildUrl(state);
-    const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+    let currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
     const shouldPush = historyMode === "push" && nextUrl !== lastCommittedUrl;
     const effectiveHistoryMode = shouldPush ? "push" : "replace";
+
+    // Live typing replaces the current entry so the address bar stays
+    // shareable without adding one entry per character. Before committing
+    // that state, restore the last committed URL in the current slot, then
+    // push the meaningful state as a new entry. This keeps Back from landing
+    // on a duplicate of the transient search URL.
+    if (effectiveHistoryMode === "push" && lastCommittedUrl && currentUrl !== lastCommittedUrl) {
+      window.history.replaceState(window.history.state, "", lastCommittedUrl);
+      currentUrl = lastCommittedUrl;
+    }
+
     if (effectiveHistoryMode === "push" || nextUrl !== currentUrl) {
       onBeforeSync({ changeReason, currentUrl, historyMode: effectiveHistoryMode, nextUrl });
     }

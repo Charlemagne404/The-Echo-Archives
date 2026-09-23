@@ -248,6 +248,8 @@ test("deployment shell scripts parse and preserve the required safety order", (c
   ]);
   assert.match(releaseWorkflow, /health_check \"production\"/);
   const releaseCommon = read("deploy/release-common.sh");
+  assert.match(releaseCommon, /run_release_node\(\) \{\n  \/usr\/bin\/node "\$@"\n\}/);
+  assert.match(releaseCommon, /run_release_node - "\$\{path\}\/release\.json"/);
   assert.match(releaseCommon, /DEPLOYMENT_LOCK_HELD=false/);
   assert.match(releaseCommon, /if \[\[ "\$\{DEPLOYMENT_LOCK_HELD:-false\}" == "true" \]\]/);
   assert.match(releaseCommon, /verify_running_release \"\$\{expected_environment\}" \"\$\{expected_commit\}"/);
@@ -450,6 +452,8 @@ test("deployment shell scripts parse and preserve the required safety order", (c
   const readinessFixtureScript = String.raw`
 set -Eeuo pipefail
 source "$1" help >/dev/null
+TEST_NODE_BINARY="$4"
+run_release_node() { "$TEST_NODE_BINARY" "$@"; }
 SCENARIO="$3"
 NEW_COMMIT=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 OLD_COMMIT=bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
@@ -557,6 +561,13 @@ curl() {
   fi
 }
 
+if [[ "$SCENARIO" == invalid-release ]]; then
+  printf '{"releaseId":"%s","commit":"%s"}\n' "$NEW_COMMIT" "$OLD_COMMIT" > "$(release_path "$NEW_COMMIT")/release.json"
+  verify_release "$NEW_COMMIT" "$NEW_COMMIT"
+  printf 'RESULT=invalid-release-accepted\n'
+  exit 1
+fi
+
 if [[ "$SCENARIO" == mismatch ]]; then
   HEALTH_PHASE=forward
   if health_check mismatch "$STAGING_HEALTH_URL" staging "$NEW_COMMIT"; then
@@ -575,6 +586,8 @@ printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
 
   const runReadinessFixture = (scenario) => {
     const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-release-health-race-"));
+    const fixtureNode = path.join(fixtureRoot, "node");
+    fs.symlinkSync(process.execPath, fixtureNode);
     try {
       const result = spawnSync(
         "bash",
@@ -585,6 +598,7 @@ printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
           path.join(ROOT, "deploy", "echo"),
           fixtureRoot,
           scenario,
+          fixtureNode,
         ],
         {
           cwd: ROOT,
@@ -630,6 +644,10 @@ printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
   assert.match(mismatchedReadiness.combined, /did not identify staging\/a{40}/);
   assert.doesNotMatch(mismatchedReadiness.combined, /fixture-secret/);
   assert.match(mismatchedReadiness.combined, /token=\[REDACTED\]/);
+
+  const invalidRelease = runReadinessFixture("invalid-release");
+  assert.notEqual(invalidRelease.status, 0, invalidRelease.combined);
+  assert.match(invalidRelease.combined, /release metadata does not match expected commit or release id/);
 
   const compatibilityUpdateScript = read("update-echo-archives.sh");
   assert.match(compatibilityUpdateScript, /CANONICAL_WORKFLOW=.*deploy\/echo/);
