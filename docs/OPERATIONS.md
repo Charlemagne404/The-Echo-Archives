@@ -596,6 +596,29 @@ If maintainer auth is enabled, also verify:
 - `/maintainer/collections.html`
 - `/maintainer/analytics.html`
 
+## Read-only production browser verification
+
+Production browser checks must use a fresh Playwright context created with the
+repository helper `createReadOnlyBrowserContext` from
+`backend/test/helpers/browser-smoke.js`. The helper must be installed before
+the first page is created or navigated.
+
+The helper:
+
+- forces `serviceWorkers: "block"`, because Playwright routing does not cover
+  requests handled by a service worker;
+- installs one context-wide route for every page and popup;
+- allows only `GET` and `HEAD` to reach the origin;
+- aborts and records `POST`, `PUT`, `PATCH`, `DELETE`, and every other method;
+- disables first-party page analytics before application scripts run; and
+- fails through `assertNoMutationAttempts()` if any mutation was attempted.
+
+Use ordinary smoke contexts for staging tests that intentionally mock or
+exercise writes. The production helper is specifically for public, read-only
+verification. Page-level routes are not a substitute for the context guard,
+and the guard must be asserted after the browser actions and before the
+production verification is reported successful.
+
 ## Launch Checks
 
 - production must serve `/shows/:showId`, `/collections/:collectionId`, their compatibility redirects, and `/sitemap.xml` through the backend so crawlers and social scrapers receive entry-specific metadata and real status codes

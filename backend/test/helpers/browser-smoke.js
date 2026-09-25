@@ -7,6 +7,7 @@ const { spawn } = require("node:child_process");
 const { chromium, firefox, webkit } = require("playwright");
 const { loadCatalog, loadCollections, scoreCatalog } = require("../../lib/catalog");
 const { applyGeneratedCoverVariants } = require("../../lib/responsive-images");
+const { createReadOnlyBrowserContext } = require("./read-only-browser");
 
 const projectRoot = path.resolve(__dirname, "../..");
 const siteRoot = path.resolve(projectRoot, "..");
@@ -514,6 +515,7 @@ function getSmokeContext() {
 module.exports = {
   buildSummaryPayload,
   countDistinctRows,
+  createReadOnlyBrowserContext,
   createEmptyDistribution,
   createSummary,
   getArchiveGridMotionState,
