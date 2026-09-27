@@ -345,6 +345,11 @@ test("maintainer import routes enforce auth and allow candidate seeding and revi
     assert.equal(pageResponse.status, 200);
     assert.match(await pageResponse.text(), /catalog imports/i);
 
+    const publicVerificationAsset = await fetch(`${context.baseUrl}/shared/app/maintainer-import/external-verification.js`);
+    assert.equal(publicVerificationAsset.status, 404);
+    const unauthorizedVerificationAsset = await fetch(`${context.baseUrl}/api/maintainer/assets/external-verification.js`);
+    assert.equal(unauthorizedVerificationAsset.status, 401);
+
     const unauthorizedList = await fetch(`${context.baseUrl}/api/maintainer/imports`);
     assert.equal(unauthorizedList.status, 401);
 
@@ -355,6 +360,13 @@ test("maintainer import routes enforce auth and allow candidate seeding and revi
     });
     assert.equal(loginResponse.status, 204);
     const cookie = loginResponse.headers.get("set-cookie") || "";
+
+    const authorizedVerificationAsset = await fetch(`${context.baseUrl}/api/maintainer/assets/external-verification.js`, {
+      headers: { Cookie: cookie },
+    });
+    assert.equal(authorizedVerificationAsset.status, 200);
+    assert.match(authorizedVerificationAsset.headers.get("cache-control") || "", /no-store/i);
+    assert.match(await authorizedVerificationAsset.text(), /Verify details with ChatGPT/);
 
     const seedResponse = await fetch(`${context.baseUrl}/api/maintainer/imports`, {
       method: "POST",

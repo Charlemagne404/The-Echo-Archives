@@ -5,6 +5,7 @@ const { buildCatalog } = require("../../tools/build-catalog");
 const { getReviewSourcePath, readCatalogSource, writeCatalogSource } = require("../../tools/lib/catalog-source");
 const { loadArchiveContext } = require("../lib/ai/archive-context");
 const { loadCatalog, loadCollections } = require("../lib/catalog");
+const config = require("../lib/config");
 const { getGateBCriticalValidationErrors } = require("../lib/discovery-gaps");
 const {
   hasRichReviewContent,
@@ -13,7 +14,7 @@ const {
 } = require("../lib/reviews");
 
 function resolveSiteRoot() {
-  return path.resolve(process.cwd(), process.env.STATIC_ROOT || "..");
+  return config.STATIC_ROOT;
 }
 
 function getShowsFilePath(siteRoot) {
@@ -87,10 +88,13 @@ function assertShowExists(shows, showId) {
   return show;
 }
 
-async function validateSiteData(siteRoot, { recoverCovers = false } = {}) {
-  // Keep validation provider-free by default; publication workflows opt in
-  // explicitly when cover recovery is part of their write operation.
-  await buildCatalog(siteRoot, { recoverCovers });
+async function validateSiteData(siteRoot, { recoverCovers = false, buildArtifacts = recoverCovers } = {}) {
+  // Validation reads and checks current state by default. Write-capable
+  // publication workflows opt into artifact generation, and into cover
+  // recovery when that is part of their existing maintenance operation.
+  if (buildArtifacts) {
+    await buildCatalog(siteRoot, { recoverCovers });
+  }
   const catalog = await loadCatalog(siteRoot);
   const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)));
   await loadArchiveContext(siteRoot, catalog, collections);

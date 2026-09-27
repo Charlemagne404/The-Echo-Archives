@@ -464,22 +464,26 @@ async function copyText(text) {
   if (!copied) throw new Error("Your browser could not copy the brief. Open the text area below and copy it manually.");
 }
 
-export function bindExternalVerificationWorkspace({ container, reviewForm, runAction }) {
-  const brief = container.querySelector("[data-import-verification-brief]");
-  const response = container.querySelector("[data-import-verification-response]");
-  const preview = container.querySelector("[data-import-verification-preview]");
-  const apply = container.querySelector("[data-import-verification-apply]");
-  const previewResult = container.querySelector("[data-import-verification-preview-result]");
-  const copyStatus = container.querySelector("[data-import-verification-copy-status]");
-  const status = container.querySelector("[data-import-verification-status]");
+export function bindExternalVerificationWorkspace({ container, reviewForm, runAction, candidate }) {
+  const workspace = container.querySelector("[data-import-verification-workspace]");
+  if (!workspace) return;
+  workspace.innerHTML = renderExternalVerificationWorkspace(candidate);
+
+  const brief = workspace.querySelector("[data-import-verification-brief]");
+  const response = workspace.querySelector("[data-import-verification-response]");
+  const preview = workspace.querySelector("[data-import-verification-preview]");
+  const apply = workspace.querySelector("[data-import-verification-apply]");
+  const previewResult = workspace.querySelector("[data-import-verification-preview-result]");
+  const copyStatus = workspace.querySelector("[data-import-verification-copy-status]");
+  const status = workspace.querySelector("[data-import-verification-status]");
   let verification = null;
 
-  container.querySelector("[data-import-verification-copy]")?.addEventListener("click", async (event) => {
+  workspace.querySelector("[data-import-verification-copy]")?.addEventListener("click", async (event) => {
     const button = event.currentTarget;
     if (!(button instanceof HTMLButtonElement) || !(brief instanceof HTMLTextAreaElement)) return;
     await runAction({
       control: button,
-      region: container,
+      region: workspace,
       action: async () => {
         try {
           await copyText(brief.value);

@@ -3,6 +3,7 @@ const assert = require("node:assert/strict");
 const collections = require("../../data/collections.json");
 const shows = require("../../data/shows.json");
 const { createShowPageMarkup } = require("../lib/show-page-render");
+const { renderShowMarkdown } = require("../lib/public-markdown-render");
 const { createSimilarityIndex } = require("../../shared/archive-similarity");
 const { getShowContinuationRoutes } = require("../../shared/archive-record");
 
@@ -20,9 +21,10 @@ test("show relationships keep authored recommendations distinct from computed ar
     title: "Relationship Source",
     similarTo: ["relationship-authored"],
     similarReasons: { "relationship-authored": "An authored archive route." },
+    listenLinks: {},
   };
-  const authored = { ...base, id: "relationship-authored", title: "Authored Route", similarTo: [], similarReasons: {} };
-  const computed = { ...base, id: "relationship-computed", title: "Computed Route", similarTo: [], similarReasons: {} };
+  const authored = { ...base, id: "relationship-authored", title: "Authored Route", similarTo: [], similarReasons: {}, listenLinks: {} };
+  const computed = { ...base, id: "relationship-computed", title: "Computed Route", similarTo: [], similarReasons: {}, listenLinks: {} };
   const relationshipMap = new Map([source, authored, computed].map((show) => [show.id, show]));
   const similarityIndex = createSimilarityIndex({ shows: [source, authored, computed] });
   const markup = createShowPageMarkup(source, relationshipMap, [], {}, similarityIndex);
@@ -31,13 +33,21 @@ test("show relationships keep authored recommendations distinct from computed ar
   assert.match(markup, /data-recommendation-source="curated"/);
   assert.match(markup, /data-recommendation-source="computed"/);
   assert.match(markup, /Curated by the archive/);
-  assert.match(markup, /Computed archive matches/);
-  assert.match(markup, /Matches across multiple archive dimensions\. These are not authored links\./);
+  assert.match(markup, /Related shows/);
+  assert.match(markup, /More to explore/);
+  assert.match(markup, /Suggestions based on details these shows have in common\./);
+  assert.match(markup, /Start with hand-picked routes, then explore other shows that share something with this one\./);
+  assert.doesNotMatch(markup, /deterministic archive matches|catalogue evidence is strong enough|computed archive matches|archive dimensions/i);
   assert.match(markup, /An authored archive route\./);
   assert.doesNotMatch(markup, /detail-continuation-section/);
   const computedGroup = markup.match(/<section class="detail-similar-group detail-similar-group--computed"[\s\S]*?<\/section>/)?.[0] || "";
   assert.doesNotMatch(computedGroup, /score|\/100/i);
   assert.ok(markup.indexOf("data-recommendation-source=\"curated\"") < markup.indexOf("data-recommendation-source=\"computed\""));
+
+  const markdown = renderShowMarkdown({ show: source, shows: [...relationshipMap.values()], siteUrl: "https://echoarchives.net", similarityIndex });
+  assert.match(markdown, /### More to explore/);
+  assert.match(markdown, /Hand-picked routes and other suggestions are shown separately\./);
+  assert.doesNotMatch(markdown, /Computed archive matches|computed matches|archive dimensions/i);
 });
 
 test("show relationships expose incoming and similarity-route picks through a compact overflow", () => {

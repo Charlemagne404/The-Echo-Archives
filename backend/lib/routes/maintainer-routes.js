@@ -53,6 +53,13 @@ function createMaintainerRouter({
     return next();
   }
 
+  router.get("/api/maintainer/assets/external-verification.js", requireMaintainerSession, (_req, res, next) => {
+    res.type("application/javascript");
+    return res.sendFile(path.join(staticRoot, "shared", "app", "maintainer-import", "external-verification.js"), (error) => {
+      if (error) next(error);
+    });
+  });
+
   router.get("/maintainer/submissions.html", sendMaintainerPage("maintainer/submissions.html"));
   router.get("/maintainer/submissions/report.html", sendMaintainerPage("maintainer/submissions/report.html"));
   router.get("/maintainer/imports.html", sendMaintainerPage("maintainer/imports.html"));

@@ -587,9 +587,9 @@ function renderShowMarkdown({ show, collections = [], shows = [], siteUrl, revie
     similarItems.push(`### Curated by the archive\n\n${renderBulletList(similar.authoredNeighbors.map(({ neighbor, reason }) => `${markdownLink(neighbor.title, buildShowPath(neighbor.id), siteUrl)} — ${escapeMarkdownText(reason)}`))}`);
   }
   if (similar.computedNeighbors.length) {
-    similarItems.push(`### Computed archive matches\n\n${renderBulletList(similar.computedNeighbors.map(({ neighbor, reason }) => `${markdownLink(neighbor.title, buildShowPath(neighbor.id), siteUrl)} — ${escapeMarkdownText(reason)}`))}`);
+    similarItems.push(`### More to explore\n\nSuggestions based on details these shows have in common.\n\n${renderBulletList(similar.computedNeighbors.map(({ neighbor, reason }) => `${markdownLink(neighbor.title, buildShowPath(neighbor.id), siteUrl)} — ${escapeMarkdownText(reason)}`))}`);
   }
-  if (similarItems.length) sections.push(["## Similar shows", "Curated relationships and computed matches are separate signals.", similarItems.join("\n\n")].join("\n\n"));
+  if (similarItems.length) sections.push(["## Similar shows", "Hand-picked routes and other suggestions are shown separately.", similarItems.join("\n\n")].join("\n\n"));
 
   const memberships = getCollectionMemberships(show, collections).map((collection) => {
     const reason = usefulValue(collection.showReasons?.[show.id]) || "Collection in the archive.";

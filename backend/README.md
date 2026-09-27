@@ -95,6 +95,10 @@ path uses the required form.
 The service exposes the merged catalog at `/data/shows.json` and the generated browse/search payload at `/data/search-index.json`, so the frontend keeps working while long-form review copy lives in `catalog-src/reviews/<show-id>.json`.
 Normal catalog loading is read-only with respect to external providers and the filesystem. It does not fetch missing covers, write `images/covers/`, or rewrite authored show sources. The explicit `npm run build:catalog` workflow, review commands, import publication commands, and protected maintainer elevation workflows opt into cover recovery in source order (`listenLinks.rss`, `listenLinks.apple`, `officialLinks.website`, then `listenLinks.website`) while already writing catalog state. Successful recovery persists a managed cover; failed recovery falls back to the local placeholder for that build.
 
+`validateSiteData()` is read-only by default as well. Write-capable callers can
+request artifact generation with `buildArtifacts: true`; existing publication
+flows that recover covers continue to opt in explicitly with `recoverCovers: true`.
+
 Protected maintainer submission workflow routes:
 
 - `/maintainer/submissions.html`

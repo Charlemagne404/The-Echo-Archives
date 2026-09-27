@@ -4,9 +4,11 @@ const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
 const { spawn } = require("node:child_process");
+const { XMLParser, XMLValidator } = require("fast-xml-parser");
 const { loadCatalog, loadCollections } = require("../lib/catalog");
 const { buildCollectionPath, isIndexableCollection } = require("../lib/seo");
 const { loadEntities } = require("../lib/entities");
+const { buildSitemapEntries } = require("../lib/sitemap");
 const { injectRuntimeSiteConfig } = require("../lib/public-page-render");
 const { createSimilarityIndex } = require("../../shared/archive-similarity");
 const { findFreePort } = require("./helpers/free-port");
@@ -145,12 +147,84 @@ test("public clean routes resolve and legacy html routes redirect", async () => 
       ["/show.html?id=impact-winter", "/shows/impact-winter"],
       ["/show/index.html?id=impact-winter", "/shows/impact-winter"],
       ["/collection?id=best-for-long-walks", "/collections/best-for-long-walks"],
+      ["/show?id=IMPACT-WINTER", "/shows/impact-winter"],
+      ["/collection?id=BEST-FOR-LONG-WALKS", "/collections/best-for-long-walks"],
       ["/collection.html?id=best-for-long-walks", "/collections/best-for-long-walks"],
       ["/collections/best-for-long-walks/", "/collections/best-for-long-walks"],
+      ["/ABOUT?utm_source=test", "/about?utm_source=test"],
+      ["/ABOUT", "/about"],
+      ["/ABOUT.HTML", "/about"],
+      ["/SHOWS/IMPACT-WINTER", "/shows/impact-winter"],
+      ["/COLLECTIONS/BEST-FOR-LONG-WALKS", "/collections/best-for-long-walks"],
+      ["/CREATORS/7-LAMB-PRODUCTIONS", "/creators/7-lamb-productions"],
     ]) {
       const alias = await fetch(`${context.baseUrl}${route}`, { redirect: "manual" });
       assert.equal(alias.status, 301, route);
       assert.equal(alias.headers.get("location"), location, route);
+    }
+  } finally {
+    await stopPublicRouteServer(context);
+  }
+});
+
+test("runtime sitemap matches the canonical route set and representative URLs return indexable pages", async () => {
+  const context = await startPublicRouteServer();
+
+  try {
+    const robotsResponse = await fetch(`${context.baseUrl}/robots.txt`);
+    assert.equal(robotsResponse.status, 200);
+    const robots = await robotsResponse.text();
+    assert.match(robots, new RegExp(`Sitemap: ${context.baseUrl}/sitemap\\.xml`));
+
+    const sitemapResponse = await fetch(`${context.baseUrl}/sitemap.xml`);
+    assert.equal(sitemapResponse.status, 200);
+    assert.match(sitemapResponse.headers.get("content-type") || "", /^application\/xml(?:;|$)/i);
+    const sitemapXml = await sitemapResponse.text();
+    assert.equal(XMLValidator.validate(sitemapXml), true);
+
+    const parsed = new XMLParser({ ignoreAttributes: true, parseTagValue: false }).parse(sitemapXml);
+    assert.ok(parsed.urlset, "sitemap should be a URL set, not a sitemap index");
+    const sitemapRecords = Array.isArray(parsed.urlset.url) ? parsed.urlset.url : [parsed.urlset.url];
+    const sitemapUrls = sitemapRecords.map((entry) => entry.loc);
+    const catalog = await loadCatalog(siteRoot);
+    const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)));
+    const entities = loadEntities(siteRoot, catalog);
+    const expectedUrls = buildSitemapEntries({
+      siteUrl: context.baseUrl,
+      catalog,
+      collections,
+      entities,
+    }).map((entry) => entry.loc);
+
+    assert.ok(sitemapUrls.length < 50_000, "single sitemap remains within the URL limit");
+    assert.ok(Buffer.byteLength(sitemapXml) < 52_428_800, "single sitemap remains within the size limit");
+    assert.equal(new Set(sitemapUrls).size, sitemapUrls.length, "sitemap URLs must be unique");
+    assert.deepEqual(new Set(sitemapUrls), new Set(expectedUrls));
+    assert.ok(sitemapUrls.every((url) => new URL(url).origin === context.baseUrl));
+    assert.ok(sitemapUrls.every((url) => !/[?#]/.test(url) && !url.endsWith(".html") && !url.endsWith("/index.html")));
+
+    const sitemapUrlSet = new Set(sitemapUrls);
+    const representativeUrls = [
+      `${context.baseUrl}/`,
+      `${context.baseUrl}/about`,
+      `${context.baseUrl}/shows/impact-winter`,
+      `${context.baseUrl}/collections/best-for-long-walks`,
+      `${context.baseUrl}/collections/shows-like-midnight-burger`,
+      `${context.baseUrl}/creators`,
+      `${context.baseUrl}/creators/7-lamb-productions`,
+    ];
+
+    for (const url of representativeUrls) {
+      assert.ok(sitemapUrlSet.has(url), `${url} should be in the sitemap`);
+      const response = await fetch(url);
+      assert.equal(response.status, 200, url);
+      assert.match(response.headers.get("content-type") || "", /text\/html/i, url);
+      const html = await response.text();
+      const canonicalLinks = [...html.matchAll(/<link\s+rel="canonical"\s+href="([^"]+)"\s*\/?>/gi)];
+      assert.equal(canonicalLinks.length, 1, `${url} should have exactly one canonical link`);
+      assert.equal(canonicalLinks[0][1], url, `${url} should select itself as canonical`);
+      assert.doesNotMatch(html, /<meta\s+name="robots"\s+content="noindex/i, `${url} must not be noindex`);
+      assert.doesNotMatch(response.headers.get("x-robots-tag") || "", /noindex/i, `${url} response must be indexable`);
     }
   } finally {
     await stopPublicRouteServer(context);
@@ -275,6 +349,7 @@ test("public content pages negotiate Markdown without changing HTML defaults", a
     assert.equal(missingEntityHtmlResponse.status, 404);
     assert.match(missingEntityHtmlResponse.headers.get("content-type") || "", /text\/html/);
     assert.equal(missingEntityHtmlResponse.headers.get("vary"), "Accept");
+    assert.doesNotMatch(await missingEntityHtmlResponse.text(), /rel="canonical"|property="og:url"/i);
 
     const apiResponse = await fetch(`${context.baseUrl}/api/health`, {
       headers: { Accept: "text/markdown" },
@@ -411,6 +486,10 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
   try {
     const catalog = await loadCatalog(siteRoot);
     const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)));
+    const publishedShowIds = new Set(catalog.filter((show) => show.status === "published").map((show) => show.id));
+    const longWalkCollection = collections.find((collection) => collection.id === "best-for-long-walks");
+    assert.ok(longWalkCollection);
+    const longWalkShowCount = longWalkCollection.showIds.filter((showId) => publishedShowIds.has(showId)).length;
     const similarityCollection = collections.find((collection) => collection.kind === "similarity");
     const similarityAnchor = catalog.find((show) => show.id === similarityCollection?.anchorShowId);
 
@@ -462,7 +541,7 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
     );
     assert.match(collectionHtml, /<h1 id="collectionTitle">Best for long walks<\/h1>/);
     assert.doesNotMatch(collectionHtml, /Loading collection/);
-    assert.match(collectionHtml, /46 shows in this collection/);
+    assert.match(collectionHtml, new RegExp(`${longWalkShowCount} shows in this collection`));
     assert.match(collectionHtml, /href="\/shows\/impact-winter"/);
     assert.match(collectionHtml, /class="collection-show-card-note"/);
     assert.match(collectionHtml, /data-discovery-recommendation-source="collection_membership"/);
@@ -474,7 +553,7 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
     const collectionPage = graphNode(collectionStructuredData, "CollectionPage");
     const collectionItemList = graphNode(collectionStructuredData, "ItemList");
     assert.equal(collectionPage.url, `${context.baseUrl}/collections/best-for-long-walks`);
-    assert.equal(collectionItemList.numberOfItems, 46);
+    assert.equal(collectionItemList.numberOfItems, longWalkShowCount);
     assert.ok(collectionItemList.itemListElement.every((item) => item.url.startsWith(`${context.baseUrl}/shows/`)));
 
     assert.ok(similarityCollection?.id);
@@ -586,6 +665,17 @@ test("search index responses use cache-friendly headers for versioned and unvers
       unversionedResponse.headers.get("cache-control"),
       "public, max-age=0, must-revalidate, stale-while-revalidate=60",
     );
+
+    for (const route of [
+      "/data/archive-stats.json",
+      "/data/tag-taxonomy.json",
+      "/data/reviews/impact-winter.json",
+    ]) {
+      const response = await fetch(`${context.baseUrl}${route}`);
+      assert.equal(response.status, 200, route);
+      assert.match(response.headers.get("content-type") || "", /application\/json/i, route);
+      assert.match(response.headers.get("x-robots-tag") || "", /noindex, nofollow, noarchive/i, route);
+    }
   } finally {
     await stopPublicRouteServer(context);
   }
@@ -708,10 +798,16 @@ test("errors, contact, robots, canonical origin, and security headers have safe 
     assert.equal(missing.status, 404);
     assert.equal(missing.headers.get("cache-control"), "no-cache");
     assert.match(missing.headers.get("x-robots-tag") || "", /noindex/);
-    assert.match(await missing.text(), /Page not found\./i);
+    const missingHtml = await missing.text();
+    assert.match(missingHtml, /Page not found\./i);
+    assert.doesNotMatch(missingHtml, /rel="canonical"|property="og:url"/i);
 
-    assert.equal((await fetch(`${context.baseUrl}/404.html`)).status, 404);
-    assert.equal((await fetch(`${context.baseUrl}/500.html`)).status, 500);
+    const notFoundPage = await fetch(`${context.baseUrl}/404.html`);
+    assert.equal(notFoundPage.status, 404);
+    assert.doesNotMatch(await notFoundPage.text(), /rel="canonical"|property="og:url"/i);
+    const serverErrorPage = await fetch(`${context.baseUrl}/500.html`);
+    assert.equal(serverErrorPage.status, 500);
+    assert.doesNotMatch(await serverErrorPage.text(), /rel="canonical"|property="og:url"/i);
     assert.equal((await fetch(`${context.baseUrl}/offline.html`)).status, 200);
 
     const contact = await fetch(`${context.baseUrl}/contact`, { redirect: "manual" });
@@ -747,7 +843,9 @@ test("errors, contact, robots, canonical origin, and security headers have safe 
     const missingShow = await fetch(`${context.baseUrl}/shows/not-a-show`);
     assert.equal(missingShow.status, 404);
     assert.match(missingShow.headers.get("x-robots-tag") || "", /noindex/);
-    assert.match(await missingShow.text(), /name="robots" content="noindex, nofollow, noarchive"/);
+    const missingShowHtml = await missingShow.text();
+    assert.match(missingShowHtml, /name="robots" content="noindex, nofollow, noarchive"/);
+    assert.doesNotMatch(missingShowHtml, /rel="canonical"|property="og:url"/i);
 
     const filteredHome = await fetch(`${context.baseUrl}/?q=horror`);
     assert.equal(filteredHome.status, 200);

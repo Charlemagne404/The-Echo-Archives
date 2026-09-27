@@ -503,7 +503,7 @@ test("scoreCatalog can opt into high-confidence computed fallback for authored-f
     similarityIndex,
   });
   assert.deepEqual(fallbackResults.map((result) => result.id), ["target-show"]);
-  assert.match(fallbackResults[0].searchPresentation.metaText, /^Computed archive match · Shared production company: Shared Studio/);
+  assert.match(fallbackResults[0].searchPresentation.metaText, /^Computed archive match · Shared tone: Dark/);
   assert.doesNotMatch(fallbackResults[0].searchPresentation.metaText, /score|\/100/i);
   assert.equal(Object.hasOwn(fallbackResults[0], "similarity"), false);
 
@@ -891,7 +891,7 @@ test("indexed-only factual records can publish without editorial discovery field
   );
   writeJson(path.join(dataRoot, "collections.json"), []);
 
-  await assert.doesNotReject(validateSiteData(tempRoot));
+  await assert.doesNotReject(validateSiteData(tempRoot, { buildArtifacts: true }));
 
   const authoredShowPath = path.join(tempRoot, "catalog-src/shows/demo-show.json");
   const authoredShow = JSON.parse(fs.readFileSync(authoredShowPath, "utf8"));
@@ -924,7 +924,7 @@ test("Imported records require automated provenance and reject archive editorial
   writeJson(path.join(dataRoot, "shows.json"), [imported]);
   writeJson(path.join(dataRoot, "collections.json"), []);
 
-  await assert.doesNotReject(validateSiteData(tempRoot));
+  await assert.doesNotReject(validateSiteData(tempRoot, { buildArtifacts: true }));
 
   const authoredShowPath = path.join(tempRoot, "catalog-src/shows/demo-show.json");
   const authoredShow = JSON.parse(fs.readFileSync(authoredShowPath, "utf8"));

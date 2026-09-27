@@ -59,6 +59,67 @@ function sparseShow(id, overrides = {}) {
   };
 }
 
+function recommendationShow(id, overrides = {}) {
+  const base = {
+    genres: ["drama", "sci-fi"],
+    formats: ["full-cast", "serialized"],
+    tones: ["dark", "tense"],
+    tags: ["Horror", "Found media"],
+    themes: ["survival", "mystery"],
+    bestFor: ["headphones-on", "late-night"],
+    discovery: {
+      voiceStyle: "primarily-acted",
+      narrativeFocus: "plot-driven",
+      intensity: "high",
+      commitment: "short",
+    },
+    content: {
+      setting: "remote research outpost",
+      sourceMaterial: "original fiction",
+      intensity: "high",
+    },
+    length: { episodes: 10, avgEpisodeMinutes: 24, totalHours: 4 },
+    releaseStatus: "completed",
+    completionStatus: "finished",
+    listenLinks: {},
+    entityLinks: [],
+    resolvedEntities: [],
+  };
+
+  return show(id, {
+    ...base,
+    ...overrides,
+    discovery: { ...base.discovery, ...overrides.discovery },
+    content: { ...base.content, ...overrides.content },
+    length: { ...base.length, ...overrides.length },
+    listenLinks: { ...base.listenLinks, ...overrides.listenLinks },
+  });
+}
+
+function recommendationPadding(count, { popularGenre = "drama", entity = null } = {}) {
+  return Array.from({ length: count }, (_, index) => recommendationShow(`padding-${index}`, {
+    genres: [popularGenre, `padding-genre-${index}`],
+    formats: ["narrated", "episodic"],
+    tones: [`padding-tone-${index}`],
+    tags: [`padding-tag-${index}`],
+    themes: [`padding-theme-${index}`],
+    bestFor: [`padding-intent-${index}`],
+    discovery: {
+      voiceStyle: `padding-voice-${index}`,
+      narrativeFocus: `padding-focus-${index}`,
+      intensity: "variable",
+      commitment: "medium",
+    },
+    content: {
+      setting: `padding setting ${index}`,
+      sourceMaterial: "original fiction",
+    },
+    entityLinks: entity ? [{ entityId: entity.id, role: entity.role }] : [],
+    resolvedEntities: entity ? [{ id: entity.id, name: entity.name, role: entity.role }] : [],
+    length: { episodes: 90 + index, avgEpisodeMinutes: 55 + index, totalHours: 80 + index },
+  }));
+}
+
 test("similarity returns deterministic dimension-level metadata reasons", () => {
   const left = show("left", {
     title: "Left Show",
@@ -276,7 +337,8 @@ test("public computed matches require enriched factual overlap and explain thems
   assert.ok(
     match.similarity.metadataMatches.filter((id) => PUBLIC_SPECIFIC_DIMENSION_IDS.includes(id)).length >= PUBLIC_MATCH_POLICY.minimumSpecificDimensions,
   );
-  assert.match(match.explanation, /Shared production company: Night Rocket Productions/);
+  assert.match(match.explanation, /Shared tone: Dark/);
+  assert.match(buildPublicSimilarityExplanation(match.similarity, { limit: 12 }), /Shared production company: Night Rocket Productions/);
   assert.doesNotMatch(match.explanation, /score|\/100/i);
   assert.equal(match.explanation, buildPublicSimilarityExplanation(match.similarity));
 });
@@ -435,7 +497,254 @@ test("frequency-aware discovery weighting prefers distinctive combinations over 
   assert.deepEqual(index.getPublicSimilarityMatches("source").map((entry) => entry.show.id), ["distinctive"]);
 });
 
-test("public ranking soft-penalizes feed duplicates and keeps a varied second route", () => {
+test("public computed matches resist broad, popular, rare, and entity-only evidence", () => {
+  const sharedEntity = { id: "catalogue-hub", name: "Catalogue Hub", role: "production-company" };
+  const source = recommendationShow("source", {
+    title: "Source",
+    genres: ["drama", "sci-fi", "space-opera"],
+    entityLinks: [{ entityId: sharedEntity.id, role: sharedEntity.role }],
+    resolvedEntities: [sharedEntity],
+    listenLinks: { rss: "https://feeds.example.test/source.xml" },
+  });
+  const experienceWide = recommendationShow("experience-wide", {
+    title: "Experience Wide",
+    genres: ["drama", "sci-fi", "space-opera"],
+    entityLinks: [{ entityId: sharedEntity.id, role: sharedEntity.role }],
+    resolvedEntities: [sharedEntity],
+  });
+  const entityHeavy = recommendationShow("entity-heavy", {
+    title: "Entity Heavy",
+    genres: ["drama"],
+    formats: ["full-cast", "serialized"],
+    tones: ["tense"],
+    tags: ["Horror"],
+    themes: ["friendship"],
+    bestFor: ["long-walks"],
+    discovery: {
+      voiceStyle: "primarily-acted",
+      narrativeFocus: "character-driven",
+      intensity: "medium",
+      commitment: "medium",
+    },
+    entityLinks: [{ entityId: sharedEntity.id, role: sharedEntity.role }],
+    resolvedEntities: [sharedEntity],
+  });
+  const entityOnly = recommendationShow("entity-only", {
+    title: "Entity Only",
+    genres: ["drama"],
+    tones: ["tense"],
+    tags: ["General audio"],
+    themes: ["friendship"],
+    bestFor: ["long-walks"],
+    discovery: {
+      voiceStyle: "primarily-narrated",
+      narrativeFocus: "character-driven",
+      intensity: "low",
+      commitment: "deep-dive",
+    },
+    entityLinks: [{ entityId: sharedEntity.id, role: sharedEntity.role }],
+    resolvedEntities: [sharedEntity],
+  });
+  const oneBroadTag = recommendationShow("one-broad-tag", {
+    genres: ["drama"],
+    tones: ["funny"],
+    tags: ["Horror"],
+    themes: ["friendship"],
+    bestFor: ["long-walks"],
+    discovery: {
+      voiceStyle: "primarily-narrated",
+      narrativeFocus: "character-driven",
+      intensity: "low",
+      commitment: "deep-dive",
+    },
+  });
+  const popularGenreOnly = recommendationShow("popular-genre-only", {
+    genres: ["drama"],
+    tones: ["funny"],
+    tags: ["General audio"],
+    themes: ["friendship"],
+    bestFor: ["long-walks"],
+    discovery: {
+      voiceStyle: "primarily-narrated",
+      narrativeFocus: "character-driven",
+      intensity: "low",
+      commitment: "deep-dive",
+    },
+  });
+  const rareGenreOnly = recommendationShow("rare-genre-only", {
+    genres: ["space-opera"],
+    tones: ["funny"],
+    tags: ["General audio"],
+    themes: ["friendship"],
+    bestFor: ["long-walks"],
+    discovery: {
+      voiceStyle: "primarily-narrated",
+      narrativeFocus: "character-driven",
+      intensity: "low",
+      commitment: "deep-dive",
+    },
+  });
+  const nearDuplicate = recommendationShow("near-duplicate", {
+    title: "Source feed mirror",
+    listenLinks: { rss: "https://feeds.example.test/source.xml" },
+  });
+  const explicitNonfiction = recommendationShow("explicit-nonfiction", {
+    title: "Explicit Nonfiction",
+    content: { sourceMaterial: "non-fiction documentary" },
+  });
+  const shows = [
+    source,
+    experienceWide,
+    entityHeavy,
+    entityOnly,
+    oneBroadTag,
+    popularGenreOnly,
+    rareGenreOnly,
+    nearDuplicate,
+    explicitNonfiction,
+    ...recommendationPadding(12, { entity: sharedEntity }),
+  ];
+  const index = createSimilarityIndex({ shows });
+  const matches = index.getPublicSimilarityMatches("source", {
+    limit: 20,
+    maximumResults: 20,
+    diversify: false,
+  });
+  const matchIds = matches.map((entry) => entry.show.id);
+
+  assert.equal(index.compare("source", "rare-genre-only").dimensions.find((dimension) => dimension.id === "genre").contribution
+    > index.compare("source", "popular-genre-only").dimensions.find((dimension) => dimension.id === "genre").contribution, true);
+  assert.deepEqual(matchIds.slice(0, 2), ["experience-wide", "entity-heavy"]);
+  assert.equal(matchIds.includes("entity-only"), false);
+  assert.equal(matchIds.includes("one-broad-tag"), false);
+  assert.equal(matchIds.includes("popular-genre-only"), false);
+  assert.equal(matchIds.includes("rare-genre-only"), false);
+  assert.equal(matchIds.includes("near-duplicate"), false);
+  assert.equal(matchIds.includes("explicit-nonfiction"), false);
+  assert.equal(matches[0].reasons[0].dimension, "tone");
+  assert.ok(matches[0].rankingScore > matches[1].rankingScore);
+});
+
+test("recommendation fit downranks tone, performance, structure, and commitment conflicts", () => {
+  const source = recommendationShow("source");
+  const sameExperience = recommendationShow("same-experience");
+  const sameSettingDifferentTone = recommendationShow("same-setting-different-tone", {
+    tones: ["warm", "hopeful"],
+    themes: ["friendship"],
+    tags: ["community"],
+    bestFor: ["long-walks"],
+    discovery: {
+      voiceStyle: "primarily-acted",
+      narrativeFocus: "plot-driven",
+      intensity: "high",
+      commitment: "short",
+    },
+  });
+  const sameToneDifferentFormat = recommendationShow("same-tone-different-format", {
+    formats: ["narrated", "episodic"],
+    discovery: {
+      voiceStyle: "primarily-narrated",
+      narrativeFocus: "plot-driven",
+      intensity: "high",
+      commitment: "short",
+    },
+  });
+  const anthology = recommendationShow("anthology-vs-serial", {
+    formats: ["anthology"],
+  });
+  const largeCommitment = recommendationShow("large-commitment", {
+    discovery: {
+      voiceStyle: "primarily-acted",
+      narrativeFocus: "plot-driven",
+      intensity: "high",
+      commitment: "deep-dive",
+    },
+    length: { episodes: 300, avgEpisodeMinutes: 45, totalHours: 240 },
+  });
+  const explicitNonfiction = recommendationShow("explicit-nonfiction", {
+    content: { sourceMaterial: "non-fiction documentary" },
+  });
+  const authoredRoute = {
+    id: "shows-like-source",
+    title: "Shows like Source",
+    kind: "similarity",
+    anchorShowId: "source",
+    showIds: [
+      sameSettingDifferentTone.id,
+      sameToneDifferentFormat.id,
+      anthology.id,
+      largeCommitment.id,
+      explicitNonfiction.id,
+      sameExperience.id,
+    ],
+    showReasons: Object.fromEntries([
+      sameSettingDifferentTone,
+      sameToneDifferentFormat,
+      anthology,
+      largeCommitment,
+      explicitNonfiction,
+      sameExperience,
+    ].map((candidate) => [candidate.id, `The archive wrote a specific route to ${candidate.title} for this listener.`])),
+  };
+  const shows = [source, sameExperience, sameSettingDifferentTone, sameToneDifferentFormat, anthology, largeCommitment, explicitNonfiction,
+    ...recommendationPadding(12)];
+  const index = createSimilarityIndex({ shows });
+  const comparisons = [
+    [sameSettingDifferentTone, "tone"],
+    [sameToneDifferentFormat, "performance"],
+    [sameToneDifferentFormat, "narrativeStructure"],
+    [anthology, "narrativeStructure"],
+    [largeCommitment, "commitment"],
+  ];
+
+  for (const [candidate, dimension] of comparisons) {
+    assert.ok(index.compare("source", candidate.id).recommendationFit.conflicts.some((conflict) => conflict.dimension === dimension));
+  }
+  assert.ok(index.compare("source", sameSettingDifferentTone.id).collectionSignals.some((signal) => signal.id === "setting"));
+  const runtimeOnlyShort = recommendationShow("runtime-only-short", {
+    discovery: { commitment: "" },
+    length: { totalObservedHours: 4 },
+  });
+  const runtimeOnlyLong = recommendationShow("runtime-only-long", {
+    discovery: { commitment: "" },
+    length: { totalHours: "", totalObservedHours: 120 },
+  });
+  assert.ok(index.compare(runtimeOnlyShort, runtimeOnlyLong).recommendationFit.conflicts.some((conflict) => conflict.dimension === "commitment"));
+  assert.equal(index.compare("source", explicitNonfiction.id).recommendationFit.blocked, true);
+  const ambiguousDocudrama = recommendationShow("ambiguous-docudrama", {
+    content: { sourceMaterial: "documentary/docudrama" },
+  });
+  assert.equal(index.compare("source", ambiguousDocudrama).recommendationFit.blocked, false);
+  const publicMatches = index.getPublicSimilarityMatches("source", { limit: 20, maximumResults: 20, diversify: false });
+  const publicIds = publicMatches.map((entry) => entry.show.id);
+  assert.equal(publicIds.includes(explicitNonfiction.id), false);
+  assert.ok(publicIds.includes(sameToneDifferentFormat.id));
+  assert.ok(publicIds.includes(anthology.id));
+  assert.ok(publicIds.includes(largeCommitment.id));
+  assert.ok(publicIds.indexOf("same-experience") < publicIds.indexOf(sameToneDifferentFormat.id));
+  assert.ok(publicIds.indexOf("same-experience") < publicIds.indexOf(anthology.id));
+  assert.ok(publicIds.indexOf("same-experience") < publicIds.indexOf(largeCommitment.id));
+
+  const authoredSource = recommendationShow("authored-source", {
+    similarTo: [explicitNonfiction.id],
+    similarReasons: { [explicitNonfiction.id]: "An explicit editorial route despite the different source material." },
+  });
+  const authoredIndex = createSimilarityIndex({ shows: [authoredSource, explicitNonfiction, sameExperience] });
+  assert.equal(authoredIndex.getEditorialSimilarityMatches(authoredSource.id)[0].show.id, explicitNonfiction.id);
+  assert.equal(authoredIndex.getPublicSimilarityMatches(authoredSource.id).some((entry) => entry.show.id === explicitNonfiction.id), false);
+
+  const view = index.getShowsLikeCollectionView("source", authoredRoute);
+  const recommendationById = new Map(view.recommendations.map((entry) => [entry.show.id, entry]));
+  assert.ok(recommendationById.get(sameExperience.id).rankingScore > recommendationById.get(sameSettingDifferentTone.id).rankingScore);
+  assert.ok(recommendationById.get(sameExperience.id).rankingScore > recommendationById.get(sameToneDifferentFormat.id).rankingScore);
+  assert.ok(recommendationById.get(sameExperience.id).rankingScore > recommendationById.get(anthology.id).rankingScore);
+  assert.ok(recommendationById.get(sameExperience.id).rankingScore > recommendationById.get(largeCommitment.id).rankingScore);
+  assert.equal(recommendationById.has(explicitNonfiction.id), true);
+  assert.equal(recommendationById.get(explicitNonfiction.id).source, "authored");
+  assert.equal(view.recommendations.some((entry) => entry.source === "computed" && entry.show.id === explicitNonfiction.id), false);
+});
+
+test("public recommendations exclude exact feed duplicates and keep a varied second route", () => {
   const source = show("source", {
     listenLinks: {
       rss: "https://feeds.example.test/source.xml",
@@ -463,8 +772,8 @@ test("public ranking soft-penalizes feed duplicates and keeps a varied second ro
 
   assert.equal(index.compare("source", "duplicate").nearDuplicate, true);
   const matches = index.getPublicSimilarityMatches("source", { limit: 4 });
-  assert.deepEqual(matches.map((entry) => entry.show.id), ["focused", "alternate", "duplicate"]);
-  assert.equal(matches[0].show.id === "duplicate", false);
+  assert.deepEqual(matches.map((entry) => entry.show.id), ["focused", "alternate"]);
+  assert.equal(matches.some((entry) => entry.show.id === "duplicate"), false);
   assert.notEqual(matches[0].explanation, matches[1].explanation);
   assert.deepEqual(matches, index.getPublicSimilarityMatches("source", { limit: 4 }));
 });
@@ -514,9 +823,10 @@ test("public reasons group entity roles and keep explanations compact", () => {
   const index = createSimilarityIndex({ shows: [left, right] });
   const [match] = index.getPublicSimilarityMatches("left");
 
-  assert.match(match.explanation, /Shared creator: A\. Creator/);
-  assert.match(match.explanation, /Shared production company: A Studio/);
-  assert.doesNotMatch(match.explanation, /Shared archive entities/);
+  const detailedExplanation = buildPublicSimilarityExplanation(match.similarity, { limit: 12 });
+  assert.match(detailedExplanation, /Shared creator: A\. Creator/);
+  assert.match(detailedExplanation, /Shared production company: A Studio/);
+  assert.doesNotMatch(detailedExplanation, /Shared archive entities/);
   assert.ok(match.reasons.length <= PUBLIC_MATCH_POLICY.explanationReasons);
 });
 
@@ -664,8 +974,9 @@ test("Shows Like ranking favors multi-signal listening matches and discloses spa
 test("computed Shows Like fallbacks use collection-specific experience reasons without scores", () => {
   const source = show("source", {
     title: "Remote Source",
-    tones: [],
-    themes: [],
+    listenLinks: { rss: "https://feeds.example.test/source.xml" },
+    tones: ["dark"],
+    themes: ["isolation"],
     tags: ["Remote outpost"],
     bestFor: ["headphones-on"],
     discovery: {},
@@ -675,14 +986,21 @@ test("computed Shows Like fallbacks use collection-specific experience reasons w
   });
   const target = show("target", {
     title: "Remote Target",
-    tones: [],
-    themes: [],
+    tones: ["dark"],
+    themes: ["isolation"],
     tags: ["Remote outpost"],
     bestFor: ["headphones-on"],
     discovery: {},
     releaseStatus: "active",
     completionStatus: "ongoing",
     content: { setting: "remote arctic outpost / global horror sites", pov: "found footage / collected records" },
+  });
+  const nearDuplicate = show("near-duplicate", {
+    title: "Source feed mirror",
+    listenLinks: { rss: "https://feeds.example.test/source.xml" },
+    tags: ["Remote outpost"],
+    bestFor: ["headphones-on"],
+    content: { setting: "remote arctic outpost", pov: "found footage / collected records" },
   });
   const collection = {
     id: "shows-like-source",
@@ -692,13 +1010,15 @@ test("computed Shows Like fallbacks use collection-specific experience reasons w
     showIds: [],
     showReasons: {},
   };
-  const index = createSimilarityIndex({ shows: [source, target], collections: [collection] });
+  const index = createSimilarityIndex({ shows: [source, target, nearDuplicate], collections: [collection] });
   const view = index.getShowsLikeCollectionView(source.id, collection);
 
   assert.equal(view.authoredCount, 0);
   assert.equal(view.computedCount, 1);
   assert.equal(view.recommendations[0].source, "computed");
-  assert.match(view.recommendations[0].reason, /similar setting involving/i);
+  assert.equal(view.recommendations.some((entry) => entry.show.id === nearDuplicate.id), false);
+  assert.match(view.recommendations[0].reason, /dark atmosphere/i);
+  assert.ok(view.recommendations[0].similarity.collectionSignals.some((signal) => signal.id === "setting"));
   assert.doesNotMatch(view.recommendations[0].reason, /score|\/100/i);
 });
 

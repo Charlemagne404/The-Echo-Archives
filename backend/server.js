@@ -543,7 +543,6 @@ async function startServer() {
       description: isServerError
         ? "The Echo Archives encountered an unexpected server error."
         : "The requested Echo Archives page could not be found.",
-      canonicalUrl: `${normalizeSiteUrl(config.SITE_URL)}/${fileName}`,
       imageUrl: `${normalizeSiteUrl(config.SITE_URL)}/echo-wordmark1.png`,
       imageAlt: "The Echo Archives social preview",
     };
@@ -773,11 +772,17 @@ async function startServer() {
     const resolveEntityAliasTarget = (routePath, req) => {
       const id = typeof req.query.id === "string" ? req.query.id.trim() : "";
       if (routePath === "/show") {
-        return id && state.publicCatalog.some((show) => show.id === id) ? buildShowPath(id) : id ? "" : routePath;
+        const show = id
+          ? state.publicCatalog.find((entry) => String(entry.id || "").toLowerCase() === id.toLowerCase())
+          : null;
+        return show ? buildShowPath(show.id) : id ? "" : routePath;
       }
       if (routePath === "/collection") {
-        return id && state.collections.some((collection) => collection.id === id)
-          ? buildCollectionPath(id)
+        const collection = id
+          ? state.collections.find((entry) => String(entry.id || "").toLowerCase() === id.toLowerCase())
+          : null;
+        return collection
+          ? buildCollectionPath(collection.id)
           : id
             ? ""
             : routePath;
@@ -797,7 +802,7 @@ async function startServer() {
     });
 
     app.use((req, res, next) => {
-      const redirectPath = PUBLIC_ROUTE_REDIRECTS.get(req.path);
+      const redirectPath = PUBLIC_ROUTE_REDIRECTS.get(req.path) || PUBLIC_ROUTE_REDIRECTS.get(req.path.toLowerCase());
       if (!redirectPath) {
         return next();
       }
@@ -889,9 +894,17 @@ async function startServer() {
       res.set("Cache-Control", "no-cache");
       return res.type("html").send(applyRuntimeSiteConfig(rendered, req.cspNonce));
     };
-    app.get("/creators", (req, res) => sendEntityPage(req, res));
+    app.get("/creators", (req, res) => {
+      if (req.path !== "/creators") {
+        const queryIndex = req.url.indexOf("?");
+        const search = queryIndex >= 0 ? req.url.slice(queryIndex) : "";
+        return res.redirect(301, `/creators${search}`);
+      }
+      return sendEntityPage(req, res);
+    });
     app.get(["/creators/:entityId", "/creators/:entityId/index.html"], (req, res) => {
-      const entity = state.entities.find((entry) => entry.id === req.params.entityId);
+      const requestedEntityId = String(req.params.entityId || "");
+      const entity = state.entities.find((entry) => String(entry.id || "").toLowerCase() === requestedEntityId.toLowerCase());
       const isCanonicalEntityPath = req.path === entityPath(req.params.entityId);
       if (!entity) {
         res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
@@ -1012,9 +1025,13 @@ async function startServer() {
     };
 
     app.get("/collections/:collectionId", (req, res) => {
-      const collectionId = String(req.params.collectionId || "").trim();
+      const requestedCollectionId = String(req.params.collectionId || "").trim();
+      const collection = state.collections.find(
+        (entry) => String(entry.id || "").toLowerCase() === requestedCollectionId.toLowerCase(),
+      );
+      const collectionId = collection?.id || requestedCollectionId;
       const canonicalPath = buildCollectionPath(collectionId);
-      if (Object.keys(req.query).length > 0) {
+      if (Object.keys(req.query).length > 0 || req.path !== canonicalPath) {
         return res.redirect(301, canonicalPath);
       }
       return renderCollectionPage(req, res, collectionId);
@@ -1022,7 +1039,9 @@ async function startServer() {
 
     app.get("/collection", (req, res) => {
       const collectionId = typeof req.query.id === "string" ? req.query.id.trim() : "";
-      const collection = state.collections.find((entry) => entry.id === collectionId);
+      const collection = state.collections.find(
+        (entry) => String(entry.id || "").toLowerCase() === collectionId.toLowerCase(),
+      );
       if (!collection) {
         res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
         res.set("Cache-Control", "no-cache");
@@ -1059,7 +1078,6 @@ async function startServer() {
           {
             title: "Show not found - The Echo Archives",
             description: "The requested Echo Archives show page could not be found.",
-            canonicalUrl: `${normalizeSiteUrl(config.SITE_URL)}/show`,
             imageUrl: `${normalizeSiteUrl(config.SITE_URL)}/echo-wordmark1.png`,
             imageAlt: "The Echo Archives social preview",
           },
@@ -1117,9 +1135,13 @@ async function startServer() {
     };
 
     app.get("/shows/:showId", (req, res) => {
-      const showId = String(req.params.showId || "").trim();
+      const requestedShowId = String(req.params.showId || "").trim();
+      const show = state.publicCatalog.find(
+        (entry) => String(entry.id || "").toLowerCase() === requestedShowId.toLowerCase(),
+      );
+      const showId = show?.id || requestedShowId;
       const canonicalPath = buildShowPath(showId);
-      if (Object.keys(req.query).length > 0) {
+      if (Object.keys(req.query).length > 0 || req.path !== canonicalPath) {
         return res.redirect(301, canonicalPath);
       }
       return renderShowPage(req, res, showId);
@@ -1127,7 +1149,9 @@ async function startServer() {
 
     app.get("/show", (req, res) => {
       const showId = typeof req.query.id === "string" ? req.query.id.trim() : "";
-      const show = state.publicCatalog.find((entry) => entry.id === showId);
+      const show = state.publicCatalog.find(
+        (entry) => String(entry.id || "").toLowerCase() === showId.toLowerCase(),
+      );
       if (!show) {
         return renderShowPage(req, res, showId, { allowMarkdown: false });
       }
@@ -1136,6 +1160,11 @@ async function startServer() {
 
     PUBLIC_PAGE_FILES.forEach((fileName, routePath) => {
       app.get(routePath, (req, res) => {
+        if (routePath !== "/" && req.path !== routePath) {
+          const queryIndex = req.url.indexOf("?");
+          const search = queryIndex >= 0 ? req.url.slice(queryIndex) : "";
+          return res.redirect(301, `${routePath}${search}`);
+        }
         const supportsMarkdown = routePath === "/" || routePath === "/collections" || routePath === "/creators" || STATIC_MARKDOWN_FILES.has(fileName);
         if (supportsMarkdown) {
           markNegotiatedResponse(res);
@@ -1245,6 +1274,7 @@ async function startServer() {
       });
     }
 
+    app.get("/shared/app/maintainer-import/external-verification.js", (_req, res) => res.status(404).end());
     app.use(
       "/shared",
       allowStaticExtensions(PUBLIC_SHARED_EXTENSIONS),
@@ -1276,6 +1306,7 @@ async function startServer() {
       "/data",
       allowStaticExtensions(new Set([".json"])),
       (req, res, next) => {
+        res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
         setPublicCacheHeaders(req, res);
         next();
       },

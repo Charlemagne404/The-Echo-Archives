@@ -113,6 +113,12 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     serviceWorkers: "block",
   });
   const page = await context.newPage();
+  const verificationAssetRequests = [];
+  page.on("request", (request) => {
+    if (new URL(request.url()).pathname.endsWith("/external-verification.js")) {
+      verificationAssetRequests.push(request.url());
+    }
+  });
   const calls = { evidence: 0, publish: 0, retry: 0, review: 0, reviewDraft: 0, seed: 0, rerunAll: 0, lastReviewPayload: null, lastPublishPayload: null, lastReviewDraftPayload: null };
   const candidates = [
     createCandidate(),
@@ -156,6 +162,7 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
   try {
     await page.goto(`${baseUrl}/maintainer/imports.html`, { waitUntil: "networkidle" });
     await page.locator("#maintainerAuthPanel").waitFor({ state: "visible" });
+    assert.equal(verificationAssetRequests.length, 0);
 
     await page.route("**/api/maintainer/imports**", async (route) => {
       const request = route.request();
@@ -272,8 +279,14 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     });
 
     await page.locator("#maintainerPassphrase").fill("smoke-maintainer");
+    const verificationAssetResponsePromise = page.waitForResponse((response) =>
+      new URL(response.url()).pathname === "/api/maintainer/assets/external-verification.js",
+    );
     await page.getByRole("button", { name: "Unlock import lane" }).click();
     await page.locator("#maintainerAppShell").waitFor({ state: "visible" });
+    const verificationAssetResponse = await verificationAssetResponsePromise;
+    assert.equal(verificationAssetResponse.status(), 200);
+    assert.equal(verificationAssetRequests.length, 1);
     await page.waitForFunction(() => document.activeElement?.id === "maintainerWorkspaceTitle" && window.scrollY <= 1);
     await page.getByText("Review and publish", { exact: true }).waitFor();
     await page.getByRole("heading", { name: "Draft or edit archive reviews" }).waitFor();

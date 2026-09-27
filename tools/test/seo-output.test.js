@@ -9,6 +9,9 @@ const {
   resolveSiteUrl,
   serializeStructuredData,
 } = require("../build-pages");
+const { loadCatalog, loadCollections } = require("../../backend/lib/catalog");
+const { loadEntities } = require("../../backend/lib/entities");
+const { buildSitemapEntries } = require("../../backend/lib/sitemap");
 
 const ROOT = path.resolve(__dirname, "..", "..");
 
@@ -72,7 +75,7 @@ test("service-worker install list stays within the offline-shell budget", () => 
   assert.equal(urls.some((url) => url.includes("/pages/") || url.includes("maintainer") || url.includes("chat")), false);
 });
 
-test("generated public metadata and discovery documents use one configured origin", () => {
+test("generated public metadata and discovery documents use one configured origin", async () => {
   const indexHtml = read("index.html");
   const siteUrl = indexHtml.match(/data-site-url="([^"]+)"/)?.[1];
   assert.ok(siteUrl);
@@ -98,8 +101,26 @@ test("generated public metadata and discovery documents use one configured origi
   assert.match(robotsGeneralGroup, /^Disallow: \/maintainer\/$/m);
   assert.match(robotsGeneralGroup, /^Disallow: \/api\/$/m);
   assert.match(robots, new RegExp(`Sitemap: ${siteUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\/sitemap\\.xml`));
-  assert.match(read("sitemap.xml"), new RegExp(`<loc>${siteUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\/</loc>`));
-  assert.doesNotMatch(read("sitemap.xml"), /\/(?:show|collection)\?id=/);
+  const sitemapXml = read("sitemap.xml");
+  assert.match(sitemapXml, /<urlset\b/);
+  assert.doesNotMatch(sitemapXml, /<sitemapindex\b/i);
+  assert.doesNotMatch(sitemapXml, /\/(?:show|collection)\?id=/);
+
+  const catalog = await loadCatalog(ROOT);
+  const collections = loadCollections(ROOT, new Set(catalog.map((show) => show.id)));
+  const entities = loadEntities(ROOT, catalog);
+  const expectedUrls = buildSitemapEntries({ siteUrl, catalog, collections, entities }).map((entry) => entry.loc);
+  const decodeXml = (value) => String(value)
+    .replace(/&apos;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&gt;/g, ">")
+    .replace(/&lt;/g, "<")
+    .replace(/&amp;/g, "&");
+  const actualUrls = [...sitemapXml.matchAll(/<loc>([\s\S]*?)<\/loc>/g)].map((match) => decodeXml(match[1]));
+  assert.ok(actualUrls.length < 50_000, "generated sitemap remains within the URL limit");
+  assert.ok(Buffer.byteLength(sitemapXml) < 52_428_800, "generated sitemap remains within the size limit");
+  assert.equal(new Set(actualUrls).size, actualUrls.length, "generated sitemap URLs must be unique");
+  assert.deepEqual(new Set(actualUrls), new Set(expectedUrls));
 });
 
 test("generated structured data describes only supported discovery entities", () => {

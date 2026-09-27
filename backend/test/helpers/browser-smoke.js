@@ -282,6 +282,7 @@ function buildSummaryPayload(summaryMap, requestUrl) {
 async function getMostPopularBandState(page) {
   return page.evaluate(() => ({
     sectionHidden: document.getElementById("mostPopular")?.hidden ?? true,
+    sectionTitle: document.getElementById("mostPopularTitle")?.textContent?.trim() || "",
     cardIds: Array.from(document.querySelectorAll("#popularGrid .popular-card")).map((card) => card.dataset.podcastId || ""),
     titles: Array.from(document.querySelectorAll("#popularGrid .popular-card-title")).map((node) => node.textContent?.trim() || ""),
     hrefs: Array.from(document.querySelectorAll("#popularGrid .popular-card")).map((card) => card.getAttribute("href") || ""),

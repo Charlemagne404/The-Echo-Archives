@@ -13,12 +13,10 @@ function resolveSiteRoot() {
 }
 
 async function buildCatalog(siteRoot = resolveSiteRoot(), options = {}) {
+  // This is the explicit maintenance boundary: migrate legacy source layout,
+  // optionally recover covers, and generate runtime catalogue artifacts.
   ensureSplitCatalogSource(siteRoot);
 
-  // Cover recovery is deliberately part of this write-capable build workflow,
-  // not of normal catalog reads used by the server, reports, or tests.
-  // Validation callers opt out while still reusing the generated-artifact
-  // checks below.
   if (options.recoverCovers !== false) {
     await syncCatalogCovers(siteRoot);
   }

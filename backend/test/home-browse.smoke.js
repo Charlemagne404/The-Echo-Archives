@@ -782,6 +782,7 @@ test("homepage most popular band keeps the hardcoded fallback when community sum
 
     const fallbackState = await getMostPopularBandState(page);
     assert.equal(fallbackState.sectionHidden, false);
+    assert.equal(fallbackState.sectionTitle, "Archive picks");
     assert.deepEqual(fallbackState.cardIds, homeMostPopularIds);
     assert.deepEqual(fallbackState.titles, homeMostPopularTitles);
   } finally {
@@ -813,6 +814,35 @@ test("homepage most popular band reorders by community rating volume and average
 
     const rankedState = await getMostPopularBandState(page);
     assert.deepEqual(rankedState.cardIds, expectedIds);
+    assert.equal(rankedState.sectionTitle, "Popular in the archive");
+  } finally {
+    await page.close();
+  }
+});
+
+test("homepage labels ranked shows with unranked fallback cards as archive picks", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+  const summaryMap = {
+    story: createSummary({ averageRating: 8.6, ratingCount: 7 }),
+    "station-151": createSummary({ averageRating: 9.2, ratingCount: 3 }),
+  };
+  const expectedIds = ["story", "station-151", ...homeMostPopularIds].filter((id, index, ids) => ids.indexOf(id) === index).slice(0, 4);
+
+  try {
+    await page.route("**/api/community/ratings/summary?*", async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify(buildSummaryPayload(summaryMap, route.request().url())),
+      });
+    });
+
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await waitForMostPopularBandIds(page, expectedIds);
+
+    const mixedState = await getMostPopularBandState(page);
+    assert.deepEqual(mixedState.cardIds, expectedIds);
+    assert.equal(mixedState.sectionTitle, "Archive picks");
   } finally {
     await page.close();
   }
@@ -870,6 +900,7 @@ test("homepage most popular band fills remaining slots from popularity metadata 
 
     const rankedState = await getMostPopularBandState(page);
     assert.deepEqual(rankedState.cardIds, expectedIds);
+    assert.equal(rankedState.sectionTitle, "Popular in the archive");
   } finally {
     await context.close();
   }

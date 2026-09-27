@@ -15,7 +15,6 @@ const {
   GENERATED_STATUS_PATH,
   RUNTIME_DATA_DIR,
   SEARCH_INDEX_PATH,
-  ensureSplitCatalogSource,
   readCatalogSource,
   readGeneratedFileText,
   readJsonFile,
@@ -34,10 +33,7 @@ function hasJsonDrift(filePath, expectedValue) {
   }
 }
 
-async function main() {
-  const siteRoot = resolveSiteRoot();
-  ensureSplitCatalogSource(siteRoot);
-
+async function createCatalogReport(siteRoot = resolveSiteRoot()) {
   const catalog = await loadCatalog(siteRoot);
   applyGeneratedCoverVariants(siteRoot, catalog);
   const sourceData = readCatalogSource(siteRoot);
@@ -64,6 +60,29 @@ async function main() {
     statusDoc: readGeneratedFileText(path.join(siteRoot, GENERATED_STATUS_PATH)).trim() !== statusMarkdown.trim(),
   };
 
+  return {
+    archiveContext,
+    catalog,
+    collections,
+    drift,
+    gapReport,
+    runtimeCatalog,
+    runtimeSearchIndex,
+    snapshot,
+    sourceData,
+    statusMarkdown,
+  };
+}
+
+async function main() {
+  const {
+    catalog,
+    collections,
+    drift,
+    gapReport,
+    snapshot,
+  } = await createCatalogReport();
+
   console.log(`Published shows: ${snapshot.metrics.publishedShows}`);
   console.log(`Draft shows: ${snapshot.metrics.draftShows}`);
   console.log(`Collections: ${snapshot.metrics.collections}`);
@@ -86,7 +105,15 @@ async function main() {
   if (snapshot.phase2.blockingErrors.length > 0) process.exitCode = 1;
 }
 
-main().catch((error) => {
-  console.error(error.message || error);
-  process.exitCode = 1;
-});
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(error.message || error);
+    process.exitCode = 1;
+  });
+}
+
+module.exports = {
+  createCatalogReport,
+  hasJsonDrift,
+  resolveSiteRoot,
+};

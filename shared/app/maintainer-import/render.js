@@ -1,6 +1,5 @@
 import { formatDateTime, renderBadge, renderLabeledLink } from "../maintainer/format.js";
 import { renderQuickDetailsEditor } from "./details-editor.js";
-import { renderExternalVerificationWorkspace } from "./external-verification.js";
 import { renderImportReadiness } from "./readiness.js";
 import {
   buildImportPreview,
@@ -385,7 +384,7 @@ export function renderImportDetailPane({ candidate = null, storedReviewer = "" }
       ])}
 
       <form id="maintainerImportReviewForm" class="maintainer-review-form" data-import-candidate-id="${escapeHtml(candidate.id)}">
-        ${renderExternalVerificationWorkspace(candidate)}
+        <div data-import-verification-workspace></div>
         ${renderQuickDetailsEditor(candidate)}
         <div class="maintainer-review-grid">
           <label class="maintainer-field">

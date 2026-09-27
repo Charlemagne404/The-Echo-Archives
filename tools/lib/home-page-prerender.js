@@ -505,10 +505,11 @@ function renderCollectionDirectoryCard(collection, showMap, { compact = false, d
 }
 
 function replaceMarkup(source, pattern, replacement, label) {
-  const next = source.replace(pattern, replacement);
-  if (next === source) {
+  if (!source.match(pattern)) {
     throw new Error(`Unable to update homepage ${label}.`);
   }
+
+  const next = source.replace(pattern, replacement);
   return next;
 }
 

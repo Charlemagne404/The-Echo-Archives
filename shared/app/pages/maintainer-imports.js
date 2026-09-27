@@ -45,7 +45,6 @@ import { bindDiscoveryWorkspace } from "../maintainer-import/discovery-workspace
 import { bindImportBatchActions } from "../maintainer-import/batch-actions.js";
 import { bindImportCandidateActions } from "../maintainer-import/detail-actions.js";
 import { buildReviewPayload, collectSeedEntries, revealCompactDetail, waitForManagedImportRun } from "../maintainer-import/workflow.js";
-import { bindExternalVerificationWorkspace } from "../maintainer-import/external-verification.js";
 import { bindElevationDesk } from "../maintainer-import/elevation.js";
 import { initializeMaintainerImportsReportPage } from "./maintainer-import-report.js";
 
@@ -208,7 +207,10 @@ export async function initializeMaintainerImportsPage() {
       elements.detailMeta.textContent = `${formatStatus(candidate.status)} · ${formatScopeStatus(candidate.scopeStatus)}.`;
 
       const reviewForm = document.getElementById("maintainerImportReviewForm");
-      bindExternalVerificationWorkspace({ container: elements.detail, reviewForm, runAction: runMaintainerAction });
+      try {
+        const { bindExternalVerificationWorkspace } = await import("/api/maintainer/assets/external-verification.js");
+        bindExternalVerificationWorkspace({ container: elements.detail, reviewForm, runAction: runMaintainerAction, candidate });
+      } catch (error) { console.error("Unable to load the maintainer verification helper.", error); }
 
       reviewForm?.addEventListener("submit", async (event) => {
         event.preventDefault();

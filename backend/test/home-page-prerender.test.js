@@ -53,6 +53,7 @@ test("homepage prerender injects initial discovery content into the build templa
   assert.equal((initialGridMarkup.match(/class="podcast-card-shell"/g) || []).length, Math.min(60, publishedShowCount));
   assert.match(rendered, /id="archiveLoadMore" class="archive-load-more"/);
   assert.match(rendered, /<div class="popular-grid" id="popularGrid" data-home-prerendered="true">[\s\S]*popular-card/);
+  assert.match(rendered, /<h3 id="mostPopularTitle">Archive picks<\/h3>/);
   assert.match(rendered, /<div class="collection-grid collection-carousel-track" id="favoriteRoutesGrid" data-home-prerendered="true">[\s\S]*collection-card/);
   assert.match(rendered, /<div class="collection-grid collection-carousel-track" id="collectionGrid" data-home-prerendered="true">[\s\S]*collection-card/);
   assert.match(rendered, /<strong id="homeShowCount">\d+<\/strong>/);

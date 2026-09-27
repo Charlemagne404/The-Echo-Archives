@@ -727,10 +727,10 @@ function renderSimilarSection(show, showMap, collections = [], providedSimilarit
 
   return `
     <section class="detail-section detail-similar-section" aria-labelledby="detail-similar-title">
-      <div class="detail-section-header"><div><h2 id="detail-similar-title">Try next</h2><p>Written routes lead; deterministic archive matches add a varied second path when the catalogue evidence is strong enough.</p></div></div>
+      <div class="detail-section-header"><div><h2 id="detail-similar-title">Try next</h2><p>Start with hand-picked routes, then explore other shows that share something with this one.</p></div></div>
       <div class="detail-similar-groups">
         ${authoredNeighbors.length ? renderSimilarGroup("curated", "Curated by the archive", "Editorial picks", "Written relationship notes and curated similarity routes from the archive.", authoredNeighbors) : ""}
-        ${computedNeighbors.length ? renderSimilarGroup("computed", "Computed archive matches", "A second signal", "Matches across multiple archive dimensions. These are not authored links.", computedNeighbors) : ""}
+        ${computedNeighbors.length ? renderSimilarGroup("computed", "Related shows", "More to explore", "Suggestions based on details these shows have in common.", computedNeighbors) : ""}
       </div>
     </section>
   `;

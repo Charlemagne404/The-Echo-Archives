@@ -9,6 +9,7 @@ export function createMostPopularController({
   showMap,
   publishedShows,
   popularSection,
+  popularTitle = popularSection.querySelector("#mostPopularTitle"),
   popularGrid,
   state,
   onVisibilityChange = () => {},
@@ -19,6 +20,12 @@ export function createMostPopularController({
     .slice(0, HOME_MOST_POPULAR_LIMIT);
   let mostPopularShows = fallbackMostPopularShows;
   let mostPopularResolutionToken = 0;
+
+  function setMostPopularTitle(value) {
+    if (popularTitle && popularTitle.textContent !== value) {
+      popularTitle.textContent = value;
+    }
+  }
 
   function hasRenderedShowOrder() {
     const renderedIds = Array.from(popularGrid.querySelectorAll(":scope > [data-podcast-id]"))
@@ -88,7 +95,7 @@ export function createMostPopularController({
     });
   }
 
-  function buildMostPopularShows(communitySummaries) {
+  function buildMostPopularResolution(communitySummaries) {
     const rankedByCommunity = publishedShows
       .map((show) => ({
         show,
@@ -106,12 +113,25 @@ export function createMostPopularController({
         return rightScore - leftScore || String(left.title || "Untitled show").localeCompare(String(right.title || "Untitled show"));
       });
 
+    const popularityEvidenceIds = new Set([
+      ...rankedByCommunity.map((show) => show.id),
+      ...publishedShows
+        .filter((show) => Number.isFinite(show.popularity?.score) && show.popularity.score > 0)
+        .map((show) => show.id),
+    ]);
+
     const resolved = [];
     const seenIds = new Set();
     appendUniqueMostPopularShows(resolved, seenIds, rankedByCommunity);
     appendUniqueMostPopularShows(resolved, seenIds, rankedByPopularityScore);
     appendUniqueMostPopularShows(resolved, seenIds, fallbackMostPopularShows);
-    return resolved.slice(0, HOME_MOST_POPULAR_LIMIT);
+    const shows = resolved.slice(0, HOME_MOST_POPULAR_LIMIT);
+    return {
+      shows,
+      title: shows.length > 0 && shows.every((show) => popularityEvidenceIds.has(show.id))
+        ? "Popular in the archive"
+        : "Archive picks",
+    };
   }
 
   function hasSameShowOrder(left, right) {
@@ -138,8 +158,10 @@ export function createMostPopularController({
         return;
       }
 
-      const nextMostPopularShows = buildMostPopularShows(communitySummaries);
+      const resolution = buildMostPopularResolution(communitySummaries);
+      const nextMostPopularShows = resolution.shows;
       mostPopularShows = nextMostPopularShows;
+      setMostPopularTitle(resolution.title);
 
       if (hasSameShowOrder(nextMostPopularShows, fallbackMostPopularShows)) {
         void syncCommunityCardBadges(popularGrid, mostPopularShows);
@@ -154,6 +176,7 @@ export function createMostPopularController({
       }
 
       mostPopularShows = fallbackMostPopularShows;
+      setMostPopularTitle("Archive picks");
       syncMostPopularSectionVisibility();
     }
   }

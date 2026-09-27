@@ -4,7 +4,6 @@ const path = require("node:path");
 const test = require("node:test");
 
 const {
-  GENERATED_PAGE_BANNER,
   expectedGeneratedPagePaths,
   listGeneratedHtmlPaths,
 } = require("../lib/generated-pages");
@@ -20,6 +19,6 @@ test("build:pages output covers every manifest route, clean alias, and public cr
 
   expected.forEach((relativePath) => {
     const contents = fs.readFileSync(path.join(ROOT, relativePath), "utf8");
-    assert.ok(contents.includes(GENERATED_PAGE_BANNER), relativePath);
+    assert.doesNotMatch(contents, /<!-- Generated from site-src by tools\/build-pages\.js\./, relativePath);
   });
 });

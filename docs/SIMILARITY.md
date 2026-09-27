@@ -33,12 +33,21 @@ negative match; `metadataCoverage` tells the caller how much comparable data
 was actually available.
 
 The public recommendation adapter keeps this scoring model intact while adding
-discovery guardrails. It gives tone/theme/tag/listening-context combinations
-more influence than broad genre/format overlap, adds a small cohesion lift when
-multiple discovery dimensions agree, and requires multiple specific signals
-plus factual anchors before a computed match is surfaced. The catalogue-wide
-frequency calculation means a shared value such as a common tone or format
-cannot carry a recommendation by itself.
+discovery guardrails. A computed match needs at least two listener-facing
+discovery dimensions; creator/entity overlap does not count as one of them. For
+larger catalogues, at least one of those discovery matches must also be
+distinctive. Tone/theme/tag/listening-context combinations matter more than
+broad genre/format overlap, and multiple discovery matches receive a small
+cohesion lift.
+
+Comparisons also return a separate `recommendationFit` assessment. It applies
+small ranking penalties when both records explicitly disagree on tone, primary
+performance style, narrative structure, or a large intensity/commitment gap.
+Clear fiction-versus-nonfiction labels block computed recommendations; unclear
+or hybrid source-material labels remain unknown. These adjustments affect
+recommendation ordering, not the explainable metadata score. Shared entity
+contribution is capped for public ranking, and listener-facing reasons sort
+ahead of creator/network relationships.
 
 `getEditorialSimilarityMatches()` is the display-facing view of explicit
 catalogue relationships. It merges outgoing and incoming `similarTo` links and
@@ -46,9 +55,9 @@ anchored `similarity` collection members once, preserving written reasons and
 deterministic catalogue order. `getPublicSimilarityMatches()` excludes those
 editorial relationships, returns up to four computed matches, and uses a
 deterministic greedy diversity pass so the visible set does not repeat the same
-metadata profile. Exact RSS/Apple/Spotify identity matches receive a soft
-near-duplicate penalty rather than being deleted: a genuine follow-on can still
-appear when the evidence warrants it.
+metadata profile. Exact RSS/Apple/Spotify identity matches are excluded from
+computed recommendations to avoid listing the same feed as a next show. An
+authored relationship remains visible in its separate editorial surface.
 
 Computed explanations are grouped to at most two meaningful dimensions (for
 example, a shared production company plus tone, or shared tone plus theme).
@@ -74,14 +83,17 @@ Archive ratings are returned as an evidence-only `ratingProfile` dimension.
 They are not part of the score: only a small reviewed subset has ratings, and a
 shared quality assessment is not the same as shared story/content similarity.
 
-Descriptions, archive reviews, `archiveTake`, free-form settings/structure,
-popularity, unknown release state, and review status are not scored. This
-avoids turning prose, lifecycle metadata, or sparse editorial coverage into
-invented similarity claims. A normal candidate needs at least two matched
-metadata dimensions and one factual anchor; sparse records use the separately
-configured lower score floor only when they still meet that same two-dimension
-anchor gate. Authored similarity links remain eligible even when the target
-record is sparse.
+Descriptions, archive reviews, `archiveTake`, popularity, unknown release
+state, and review status are not scored. Free-form setting and story-structure
+text provide small supplemental signals only to Shows Like collection ranking;
+they cannot satisfy the computed-match discovery gate. This avoids turning
+prose, lifecycle metadata, or sparse editorial coverage into invented
+similarity claims. A normal candidate needs multiple matched metadata
+dimensions, at least two discovery dimensions, and factual anchors; sparse
+records use the separately configured lower score floor only when they still
+meet those same discovery and anchor gates. Authored similarity links remain
+eligible even when the target record is sparse and stay separate from computed
+matches when their written rationale conflicts with the metadata profile.
 
 ## Local inspection
 

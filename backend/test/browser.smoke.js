@@ -277,13 +277,13 @@ test("public and error routes expose the expected metadata", async () => {
       {
         url: `${baseUrl}/404.html`,
         expectedTitle: "Page Not Found - The Echo Archives",
-        expectedCanonical: `${baseUrl}/404.html`,
+        expectedCanonical: "",
         noIndex: true,
       },
       {
         url: `${baseUrl}/500.html`,
         expectedTitle: "Server Error - The Echo Archives",
-        expectedCanonical: `${baseUrl}/500.html`,
+        expectedCanonical: "",
         noIndex: true,
       },
     ];

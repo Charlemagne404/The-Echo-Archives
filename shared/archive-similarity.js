@@ -50,12 +50,13 @@
     minimumMetadataDimensions: 3,
     minimumAnchorDimensions: 2,
     minimumSpecificDimensions: 2,
+    minimumDiscoveryDimensions: 2,
     minimumDistinctiveSpecificDimensions: 1,
     minimumSpecificDistinctiveness: 0.25,
+    maximumEntityRankingContribution: 8,
     maximumResults: 4,
     explanationReasons: 2,
     diversityPenalty: 7,
-    nearDuplicatePenalty: 14,
   });
 
   const PUBLIC_SPECIFIC_DIMENSION_IDS = Object.freeze([
@@ -71,15 +72,15 @@
   ]);
   const PUBLIC_SPECIFIC_DIMENSION_SET = new Set(PUBLIC_SPECIFIC_DIMENSION_IDS);
   const PUBLIC_REASON_PRIORITY = Object.freeze({
-    entity: 0,
-    tone: 1,
-    theme: 2,
-    tag: 3,
-    bestFor: 4,
-    voiceStyle: 5,
-    narrativeFocus: 6,
-    intensity: 7,
-    commitment: 8,
+    tone: 0,
+    theme: 1,
+    tag: 2,
+    bestFor: 3,
+    voiceStyle: 4,
+    narrativeFocus: 5,
+    intensity: 6,
+    commitment: 7,
+    entity: 8,
     sharedCollection: 9,
     releaseProfile: 10,
     format: 11,
@@ -149,7 +150,7 @@
   ]);
   const SHOWS_LIKE_SECTION_BY_ID = new Map(SHOWS_LIKE_SECTION_DEFINITIONS.map((section) => [section.id, section]));
   const SHOWS_LIKE_EXPERIENCE_FACTORS = Object.freeze({
-    entity: 1.25,
+    entity: 0.85,
     genre: 0.8,
     format: 0.8,
     tone: 1.25,
@@ -167,6 +168,13 @@
   const SHOWS_LIKE_SUPPLEMENTAL_FACTORS = Object.freeze({
     setting: 4,
     storyStructure: 3,
+  });
+  const EXPERIENCE_CONFLICT_PENALTIES = Object.freeze({
+    tone: 2.5,
+    performance: 4,
+    narrativeStructure: 3.5,
+    intensityPerStep: 1.25,
+    commitmentPerStep: 1.5,
   });
   const SHOWS_LIKE_DIVERSITY_PENALTY = 4;
   const SHOWS_LIKE_LIMITED_METADATA_COVERAGE = 0.65;
@@ -358,6 +366,125 @@
     if (release === "hiatus") return "hiatus";
     if (release === "inactive") return "inactive";
     return "";
+  }
+
+  function getExplicitFictionProfile(show) {
+    const sourceMaterial = normalizeText(show?.content?.sourceMaterial);
+    const classificationLabels = [
+      ...asArray(show?.genres),
+      ...asArray(show?.formats),
+    ].map((value) => normalizeValue(value));
+    const nonFiction = /\bnon[\s-]?fiction\b/i.test(sourceMaterial)
+      || classificationLabels.some((value) => /^(?:non-?fiction|documentary)$/.test(value));
+    const fiction = /\bfiction\b/i.test(sourceMaterial) && !/\bnon[\s-]?fiction\b/i.test(sourceMaterial)
+      || classificationLabels.some((value) => /^(?:fiction|audio-fiction)$/.test(value));
+
+    if (nonFiction && fiction) return "mixed";
+    if (nonFiction) return "nonfiction";
+    if (fiction) return "fiction";
+    return "";
+  }
+
+  function getRecommendationPerformanceMode(show) {
+    const voiceStyle = normalizeValue(show?.discovery?.voiceStyle);
+    if (voiceStyle === "primarily-acted") return "acted";
+    if (voiceStyle === "primarily-narrated") return "narrated";
+    if (voiceStyle === "mixed") return "";
+
+    const formats = normalizeSetValues(show?.formats);
+    if (formats.has("full-cast") && !formats.has("narrated")) return "acted";
+    if (formats.has("narrated") && !formats.has("full-cast")) return "narrated";
+    return "";
+  }
+
+  function getRecommendationNarrativeStructure(show) {
+    const formats = normalizeSetValues(show?.formats);
+    const episodic = formats.has("episodic");
+    const serialized = formats.has("serialized");
+    if (episodic !== serialized) return episodic ? "episodic" : "serialized";
+    if (episodic && serialized) return "";
+    return formats.has("anthology") ? "anthology" : "";
+  }
+
+  function getRecommendationLevel(show, field, levels) {
+    let value = normalizeValue(show?.discovery?.[field]);
+    if (!value && field === "intensity") value = normalizeValue(show?.content?.intensity);
+    return Object.prototype.hasOwnProperty.call(levels, value) ? levels[value] : null;
+  }
+
+  function createRecommendationFit(source, target) {
+    const conflicts = [];
+    const blockers = [];
+    let penalty = 0;
+    const addConflict = (dimension, label, weight) => {
+      penalty += weight;
+      conflicts.push({ dimension, label, penalty: round(weight, 2) });
+    };
+
+    const sourceFictionProfile = getExplicitFictionProfile(source);
+    const targetFictionProfile = getExplicitFictionProfile(target);
+    if (
+      sourceFictionProfile
+      && targetFictionProfile
+      && sourceFictionProfile !== "mixed"
+      && targetFictionProfile !== "mixed"
+      && sourceFictionProfile !== targetFictionProfile
+    ) {
+      blockers.push("fiction-profile-mismatch");
+    }
+
+    const sourceTones = normalizeSetValues(source?.tones);
+    const targetTones = normalizeSetValues(target?.tones);
+    const sharesTone = [...sourceTones.keys()].some((value) => targetTones.has(value));
+    if (sourceTones.size > 0 && targetTones.size > 0 && !sharesTone) {
+      addConflict("tone", "Different stated tone", EXPERIENCE_CONFLICT_PENALTIES.tone);
+    }
+
+    const sourcePerformance = getRecommendationPerformanceMode(source);
+    const targetPerformance = getRecommendationPerformanceMode(target);
+    if (sourcePerformance && targetPerformance && sourcePerformance !== targetPerformance) {
+      addConflict("performance", "Different primary performance style", EXPERIENCE_CONFLICT_PENALTIES.performance);
+    }
+
+    const sourceStructure = getRecommendationNarrativeStructure(source);
+    const targetStructure = getRecommendationNarrativeStructure(target);
+    if (sourceStructure && targetStructure && sourceStructure !== targetStructure) {
+      addConflict("narrativeStructure", "Different narrative structure", EXPERIENCE_CONFLICT_PENALTIES.narrativeStructure);
+    }
+
+    const intensityLevels = { low: 0, medium: 1, high: 2 };
+    const sourceIntensity = getRecommendationLevel(source, "intensity", intensityLevels);
+    const targetIntensity = getRecommendationLevel(target, "intensity", intensityLevels);
+    if (sourceIntensity !== null && targetIntensity !== null && Math.abs(sourceIntensity - targetIntensity) === 2) {
+      addConflict("intensity", "Different stated intensity", EXPERIENCE_CONFLICT_PENALTIES.intensityPerStep * 2);
+    }
+
+    const commitmentLevels = { short: 0, medium: 1, long: 2, "deep-dive": 3 };
+    const sourceCommitment = getRecommendationLevel(source, "commitment", commitmentLevels);
+    const targetCommitment = getRecommendationLevel(target, "commitment", commitmentLevels);
+    if (sourceCommitment !== null && targetCommitment !== null) {
+      const gap = Math.abs(sourceCommitment - targetCommitment);
+      if (gap >= 2) {
+        addConflict("commitment", "Different listening commitment", Math.min(
+          EXPERIENCE_CONFLICT_PENALTIES.commitmentPerStep * gap,
+          4.5,
+        ));
+      }
+    } else if (sourceCommitment === null && targetCommitment === null) {
+      const sourceHours = getNumeric(source?.length?.totalHours) || getNumeric(source?.length?.totalObservedHours);
+      const targetHours = getNumeric(target?.length?.totalHours) || getNumeric(target?.length?.totalObservedHours);
+      if (sourceHours !== null && targetHours !== null) {
+        const ratio = Math.max(sourceHours, targetHours) / Math.min(sourceHours, targetHours);
+        if (ratio >= 8) addConflict("commitment", "Very different total listening time", 4.5);
+      }
+    }
+
+    return {
+      penalty: round(penalty, 2),
+      blocked: blockers.length > 0,
+      blockers,
+      conflicts,
+    };
   }
 
   function getRatingNumber(value) {
@@ -967,6 +1094,7 @@
     ];
     const collectionSignals = createSupplementalExperienceSignals(source, target);
     const score = round(dimensions.reduce((total, dimension) => total + dimension.contribution, 0), 1);
+    const recommendationFit = createRecommendationFit(source, target);
     const metadataDimensions = dimensions.filter((dimension) => dimension.coverageEligible);
     const metadataMatches = metadataDimensions.filter((dimension) => dimension.matched);
     const metadataCoverage = createComparisonMetadataCoverage(source, target, dimensions, comparisonContext);
@@ -989,6 +1117,7 @@
       targetMetadataAvailableWeight: metadataCoverage.targetMetadataAvailableWeight,
       discoveryCohesion: comparisonContext.discoveryCohesion,
       collectionSignals,
+      recommendationFit,
       nearDuplicate: areNearDuplicates(source, target, comparisonContext),
       metadataAvailableDimensions: metadataCoverage.metadataAvailableDimensions,
       metadataMissingDimensions: metadataCoverage.metadataMissingDimensions,
@@ -1144,7 +1273,7 @@
     const discoveryDimensions = dimensions.filter((dimension) => DISCOVERY_DIMENSION_SET.has(dimension.id));
     const discoveryMatchCount = discoveryDimensions.length;
     const entityMatched = dimensions.some((dimension) => dimension.id === "entity");
-    const evidenceCount = discoveryMatchCount + (entityMatched ? 2 : 0);
+    const evidenceCount = discoveryMatchCount + (entityMatched ? 1 : 0);
     const evidenceFactor = evidenceCount >= 2 ? 1 : evidenceCount === 1 ? 0.72 : 0.5;
     const sourceCoverage = Number.isFinite(Number(similarity?.sourceMetadataCoverage))
       ? Number(similarity.sourceMetadataCoverage)
@@ -1157,9 +1286,11 @@
     const supplementalScore = asArray(similarity?.collectionSignals).reduce((total, signal) => (
       total + (Number(signal?.strength) || 0) * (SHOWS_LIKE_SUPPLEMENTAL_FACTORS[signal?.id] || 0)
     ), 0);
+    const experiencePenalty = Number(similarity?.recommendationFit?.penalty) || 0;
     const rankingScore = round(
       ((weightedExperienceScore + supplementalScore) * evidenceFactor * coverageFactor)
-      + (Number(similarity?.discoveryCohesion || 0) * 5),
+      + (Number(similarity?.discoveryCohesion || 0) * 5)
+      - experiencePenalty,
       2,
     );
 
@@ -1168,6 +1299,7 @@
       metadataScore: round(metadataScore, 2),
       discoveryMatchCount,
       evidenceCount,
+      experiencePenalty: round(experiencePenalty, 2),
       supplementalScore: round(supplementalScore, 2),
       sourceCoverage: round(sourceCoverage, 3),
       targetCoverage: round(targetCoverage, 3),
@@ -1233,8 +1365,23 @@
     return selected;
   }
 
+  function getPublicSimilarityRankingScore(similarity) {
+    const entityContribution = asArray(similarity?.dimensions)
+      .find((dimension) => dimension.id === "entity")?.contribution || 0;
+    const entityExcess = Math.max(
+      0,
+      Number(entityContribution) - PUBLIC_MATCH_POLICY.maximumEntityRankingContribution,
+    );
+    return round(
+      Number(similarity?.score || 0)
+      - entityExcess
+      - (Number(similarity?.recommendationFit?.penalty) || 0),
+      2,
+    );
+  }
+
   function compareCandidateOrder(left, right) {
-    const scoreDifference = Number(right.similarity?.score || 0) - Number(left.similarity?.score || 0);
+    const scoreDifference = getPublicSimilarityRankingScore(right.similarity) - getPublicSimilarityRankingScore(left.similarity);
     if (scoreDifference !== 0) return scoreDifference;
     const coverageDifference = Number(right.similarity?.metadataCoverage || 0) - Number(left.similarity?.metadataCoverage || 0);
     if (coverageDifference !== 0) return coverageDifference;
@@ -1257,12 +1404,8 @@
           maximum,
           getFeatureOverlap(profile, profiles.get(selectedCandidate.show.id) || new Map()),
         ), 0);
-        const duplicatePenalty = candidate.similarity?.nearDuplicate
-          ? PUBLIC_MATCH_POLICY.nearDuplicatePenalty
-          : 0;
-        const effectiveScore = Number(candidate.similarity?.score || 0)
-          - (overlap * PUBLIC_MATCH_POLICY.diversityPenalty)
-          - duplicatePenalty;
+        const effectiveScore = getPublicSimilarityRankingScore(candidate.similarity)
+          - (overlap * PUBLIC_MATCH_POLICY.diversityPenalty);
 
         if (
           effectiveScore > bestEffectiveScore
@@ -1300,7 +1443,7 @@
       case "tag":
         return joinedValues ? `the ${joinedValues} thread` : "the same discovery thread";
       case "bestFor":
-        return joinedValues ? `the ${joinedValues} listening context` : "a similar listening context";
+        return joinedValues || "a similar listening context";
       case "voiceStyle":
         return joinedValues ? `a ${joinedValues} voice style` : "a similar voice style";
       case "narrativeFocus":
@@ -1331,17 +1474,17 @@
       contribution: (Number(signal.strength) || 0) * (SHOWS_LIKE_SUPPLEMENTAL_FACTORS[signal.id] || 0),
     }));
     const reasonPriority = {
-      entity: 0,
-      tone: 1,
-      theme: 2,
-      tag: 3,
-      setting: 4,
-      bestFor: 5,
-      voiceStyle: 6,
-      narrativeFocus: 7,
-      storyStructure: 8,
-      intensity: 9,
-      commitment: 10,
+      tone: 0,
+      theme: 1,
+      tag: 2,
+      setting: 3,
+      bestFor: 4,
+      voiceStyle: 5,
+      narrativeFocus: 6,
+      storyStructure: 7,
+      intensity: 8,
+      commitment: 9,
+      entity: 10,
       format: 11,
       genre: 12,
     };
@@ -1666,10 +1809,17 @@
           minimumAnchorDimensions: PUBLIC_MATCH_POLICY.minimumAnchorDimensions,
         }))
         .filter(({ show, similarity }) => {
-          if (similarity.curatedEvidence) return false;
+          if (
+            similarity.curatedEvidence
+            || similarity.nearDuplicate
+            || similarity.recommendationFit?.blocked
+          ) return false;
           if (similarity.metadataCoverage < minimumMetadataCoverage) return false;
           if (similarity.sourceMetadataCoverage < minimumRecordMetadataCoverage) return false;
           if (similarity.targetMetadataCoverage < minimumRecordMetadataCoverage) return false;
+
+          const discoveryMatches = similarity.metadataMatches.filter((id) => DISCOVERY_DIMENSION_SET.has(id));
+          if (discoveryMatches.length < PUBLIC_MATCH_POLICY.minimumDiscoveryDimensions) return false;
 
           const specificMatches = similarity.metadataMatches.filter((id) => PUBLIC_SPECIFIC_DIMENSION_SET.has(id));
           if (specificMatches.length < PUBLIC_MATCH_POLICY.minimumSpecificDimensions) return false;
@@ -1677,7 +1827,7 @@
           if (Number(similarity.catalogShowCount || 0) < 10) return true;
 
           const distinctiveSpecificMatches = similarity.dimensions.filter((dimension) => (
-            PUBLIC_SPECIFIC_DIMENSION_SET.has(dimension.id)
+            DISCOVERY_DIMENSION_SET.has(dimension.id)
             && dimension.matched
             && Number(dimension.distinctiveness || 0) >= PUBLIC_MATCH_POLICY.minimumSpecificDistinctiveness
           ));
@@ -1691,6 +1841,7 @@
         .map(({ show, similarity }) => ({
           show,
           similarity,
+          rankingScore: getPublicSimilarityRankingScore(similarity),
           reasons: getPublicSimilarityReasons(similarity),
           explanation: buildPublicSimilarityExplanation(similarity),
           confidence: similarity.sourceMetadataCoverage < PUBLIC_MATCH_POLICY.sparseCoverageThreshold

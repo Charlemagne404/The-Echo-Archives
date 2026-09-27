@@ -68,6 +68,44 @@ function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
 }
 
+function snapshotTree(root) {
+  const entries = [];
+  const visit = (directoryPath) => {
+    const stat = fs.statSync(directoryPath, { bigint: true });
+    const relativePath = path.relative(root, directoryPath) || ".";
+    entries.push({
+      path: relativePath,
+      type: "directory",
+      mode: String(stat.mode),
+      mtimeNs: String(stat.mtimeNs),
+      ctimeNs: String(stat.ctimeNs),
+    });
+
+    fs.readdirSync(directoryPath, { withFileTypes: true })
+      .sort((left, right) => left.name.localeCompare(right.name))
+      .forEach((entry) => {
+        const entryPath = path.join(directoryPath, entry.name);
+        if (entry.isDirectory()) {
+          visit(entryPath);
+          return;
+        }
+
+        const fileStat = fs.statSync(entryPath, { bigint: true });
+        entries.push({
+          path: path.relative(root, entryPath),
+          type: "file",
+          mode: String(fileStat.mode),
+          mtimeNs: String(fileStat.mtimeNs),
+          ctimeNs: String(fileStat.ctimeNs),
+          contents: fs.readFileSync(entryPath).toString("base64"),
+        });
+      });
+  };
+
+  visit(root);
+  return entries;
+}
+
 function createTempSiteRoot() {
   return fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-cover-sync-"));
 }
@@ -456,6 +494,7 @@ test("normal catalog loading is side-effect-free when a local cover is missing",
   const sourcePath = path.join(tempRoot, "catalog-src", "shows", "demo-show.json");
   const sourceBefore = fs.readFileSync(sourcePath);
   const sourceStatBefore = fs.statSync(sourcePath);
+  const treeBefore = snapshotTree(tempRoot);
   const fetchStub = createFetchStub(new Map());
 
   const firstLoad = await loadCatalog(tempRoot, {
@@ -472,11 +511,12 @@ test("normal catalog loading is side-effect-free when a local cover is missing",
   assert.deepEqual(fs.readFileSync(sourcePath), sourceBefore);
   assert.equal(fs.statSync(sourcePath).mtimeNs, sourceStatBefore.mtimeNs);
   assert.equal(fs.existsSync(path.join(tempRoot, "images", "covers")), false);
+  assert.deepEqual(snapshotTree(tempRoot), treeBefore);
 
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
 
-test("validation rebuilds stay side-effect-free when a local cover is missing", async () => {
+test("validation is side-effect-free when a local cover is missing", async () => {
   const tempRoot = createTempSiteRoot();
   seedAssets(tempRoot);
   writeJson(path.join(tempRoot, "catalog-src", "entities.json"), []);
@@ -497,6 +537,7 @@ test("validation rebuilds stay side-effect-free when a local cover is missing", 
   const sourcePath = path.join(tempRoot, "catalog-src", "shows", "demo-show.json");
   const sourceBefore = fs.readFileSync(sourcePath);
   const sourceStatBefore = fs.statSync(sourcePath);
+  const treeBefore = snapshotTree(tempRoot);
   const originalFetch = global.fetch;
   let fetchCalls = 0;
   global.fetch = async () => {
@@ -514,6 +555,7 @@ test("validation rebuilds stay side-effect-free when a local cover is missing", 
   assert.deepEqual(fs.readFileSync(sourcePath), sourceBefore);
   assert.equal(fs.statSync(sourcePath).mtimeNs, sourceStatBefore.mtimeNs);
   assert.equal(fs.existsSync(path.join(tempRoot, "images", "covers")), false);
+  assert.deepEqual(snapshotTree(tempRoot), treeBefore);
 
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });

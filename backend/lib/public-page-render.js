@@ -53,6 +53,12 @@ function replaceCanonicalLink(html, href) {
   );
 }
 
+function removeCanonicalMetadata(html) {
+  return html
+    .replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/i, "")
+    .replace(/<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/i, "");
+}
+
 function replaceBodyDataAttribute(html, attributeName, value) {
   const escapedAttributeName = escapeRegExp(attributeName);
   const renderedValue = escapeAttribute(value);
@@ -365,14 +371,18 @@ function injectPageMetadata(html, metadata) {
   rendered = replaceNamedMeta(rendered, "description", metadata.description);
   rendered = replacePropertyMeta(rendered, "og:title", metadata.title);
   rendered = replacePropertyMeta(rendered, "og:description", metadata.description);
-  rendered = replacePropertyMeta(rendered, "og:url", metadata.canonicalUrl);
+  if (metadata.canonicalUrl) {
+    rendered = replacePropertyMeta(rendered, "og:url", metadata.canonicalUrl);
+    rendered = replaceCanonicalLink(rendered, metadata.canonicalUrl);
+  } else {
+    rendered = removeCanonicalMetadata(rendered);
+  }
   rendered = replacePropertyMeta(rendered, "og:image", metadata.imageUrl);
   rendered = replacePropertyMeta(rendered, "og:image:alt", metadata.imageAlt || "The Echo Archives social preview");
   rendered = replaceNamedMeta(rendered, "twitter:title", metadata.title);
   rendered = replaceNamedMeta(rendered, "twitter:description", metadata.description);
   rendered = replaceNamedMeta(rendered, "twitter:image", metadata.imageUrl);
   rendered = replaceNamedMeta(rendered, "twitter:image:alt", metadata.imageAlt || "The Echo Archives social preview");
-  rendered = replaceCanonicalLink(rendered, metadata.canonicalUrl);
 
   return rendered;
 }
