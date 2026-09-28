@@ -431,6 +431,7 @@ function renderMostPopularCard(show, index = 0) {
   const copy = String(show.archiveTake || show.description || "").trim();
 
   return `
+    <div class="popular-card-shell">
     <a class="popular-card" href="${escapeAttribute(show.href || createShowHref(show.id || ""))}" data-podcast-id="${escapeAttribute(show.id || "")}" ${renderShowDiscoveryAttributes(show, { surface: "home_popular_rail", resultPositionBucket: getDiscoveryPositionBucket(Number(index) + 1) })} aria-label="Open ${escapeAttribute(show.title || "Untitled show")} in the archive"${accentStyle}>
       <div class="popular-card-media">
         <img src="${escapeAttribute(show.imageSrc || resolveImageSrc(show.cover))}"${renderResponsiveCoverAttributes(show, "(max-width: 560px) 44vw, (max-width: 960px) 44vw, 320px")} alt="${escapeAttribute(show.imageAlt || show.coverAlt || `${show.title || "Untitled show"} cover art`)}" loading="lazy" decoding="async" width="320" height="320" />
@@ -450,6 +451,7 @@ function renderMostPopularCard(show, index = 0) {
         </div>
       </div>
     </a>
+    </div>
   `.trim();
 }
 

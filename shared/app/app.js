@@ -9,6 +9,7 @@ import { initializeViewportMetrics } from "./viewport-metrics.js";
 
 export async function initializeApp() {
   initializeDiscoveryAnalytics();
+  initializeLibraryIntegrationLazily();
   initializeViewportMetrics();
   initializeServiceWorker();
   initializeMobileNav();
@@ -90,6 +91,23 @@ export async function initializeApp() {
   if (document.body) {
     document.body.dataset.appReady = "true";
   }
+}
+
+function initializeLibraryIntegrationLazily() {
+  const version = encodeURIComponent(document.body?.dataset.libraryVersion || "local");
+  void import(`./library/integration.js?v=${version}`)
+    .then(({ initializeLibraryIntegration }) => initializeLibraryIntegration())
+    .catch((error) => {
+      const app = document.getElementById("listenerLibraryApp");
+      if (!app) return;
+      app.hidden = false;
+      const status = document.getElementById("libraryPageStatus");
+      if (status) {
+        status.textContent = "The local Library controls could not start in this browser. Your entries have not been changed. Ordinary Echo browsing remains available.";
+        status.dataset.tone = "error";
+      }
+      console.error("Failed to initialize local Library controls.", error);
+    });
 }
 
 function initializeDiscoveryAnalytics() {

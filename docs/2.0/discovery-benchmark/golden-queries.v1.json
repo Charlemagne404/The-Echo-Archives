@@ -1,0 +1,1596 @@
+{
+  "schemaVersion": 1,
+  "corpusVersion": "1.2.0",
+  "targetContract": "discovery-2.0-draft",
+  "baseline": {
+    "label": "baseline-v1",
+    "capturedAt": "2026-09-28T18:34:08.961Z",
+    "implementationCommit": "55ca3969c850cabbc3c0159aae4e3c77da7e0410",
+    "catalogueFingerprint": "fe17934a5cc714b8057699a6223c30ffc13cb1b218020eecefe2e8c8f72a10b5",
+    "catalogueRevision": "sha256:fe17934a5cc714b8057699a6223c30ffc13cb1b218020eecefe2e8c8f72a10b5",
+    "catalogueFileCount": 814,
+    "catalogueSourceFileCount": 811,
+    "sourceEvidence": [
+      "catalog-src/**",
+      "data/shows.json",
+      "data/search-index.json",
+      "data/collections.json"
+    ],
+    "gitEvidence": {
+      "repositoryCommit": "55ca3969c850cabbc3c0159aae4e3c77da7e0410",
+      "sourceTree": "72aaea11ec81c28052ce576734e18468f8419870",
+      "showSourceTree": "3b61f0a102d5942db0ee28a97e5c0dc6e06bd6fd",
+      "collectionSourceTree": "49275080bc3cb0326242b83967fc87489b1af882",
+      "entitySourceBlob": "0497780986e189eb1c55f87cf4590666df794397",
+      "runtimeBlobs": {
+        "data/shows.json": "378e71da007b68fc1471d35fe8c20f0519cb33f5",
+        "data/search-index.json": "77a1ab26d36b6cf7f3fc7323851c90e3b10d62ae",
+        "data/collections.json": "6c614637df99c84ce087c4db1cbd4620555cc108"
+      }
+    },
+    "counts": {
+      "publishedShows": 752,
+      "searchRecords": 752,
+      "runtimeCollections": 54,
+      "entities": 132
+    },
+    "observationShape": "resultCount, top five IDs, v1 query shape, and concise top-result evidence; no full ranking snapshot"
+  },
+  "cases": [
+    {
+      "id": "identity-midnight-burger-exact",
+      "family": "identity",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "Midnight Burger",
+      "rationale": "Canonical exact-title identity must remain stronger than descriptive or facet matches.",
+      "baselineV1": {
+        "resultCount": 17,
+        "topIds": [
+          "midnight-burger",
+          "brimstone-valley-mall",
+          "caravan",
+          "desert-skies",
+          "greater-boston"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "midnight-burger",
+          "matchTier": 5,
+          "reasons": [
+            "direct title match for midnight burger",
+            "alias match for midnight burger"
+          ],
+          "presentation": "Also listed as Midnight Burger"
+        }
+      }
+    },
+    {
+      "id": "identity-white-vault-exact",
+      "family": "identity",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "The White Vault",
+      "rationale": "Canonical exact-title identity for a frequently used similarity seed.",
+      "baselineV1": {
+        "resultCount": 19,
+        "topIds": [
+          "the-white-vault",
+          "the-harrowing",
+          "the-phenomenon",
+          "long-night-in-egypt",
+          "trice-forgotten"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "the-white-vault",
+          "matchTier": 5,
+          "reasons": [
+            "direct title match for the white vault",
+            "alias match for the white vault",
+            "content notes match horror or supernatural themes"
+          ],
+          "presentation": "Also listed as The White Vault"
+        }
+      }
+    },
+    {
+      "id": "identity-were-alive-straight-apostrophe",
+      "family": "identity",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "We're Alive",
+      "rationale": "Preserve the catalogue title when the query uses a straight apostrophe.",
+      "baselineV1": {
+        "resultCount": 15,
+        "topIds": [
+          "were-alive",
+          "i-am-in-eskew",
+          "blackout",
+          "copperheart-a-riggstories-audio-drama",
+          "end-of-all-hope"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "were-alive",
+          "matchTier": 5,
+          "reasons": [
+            "direct title match for were alive",
+            "alias match for were alive"
+          ],
+          "presentation": "Also listed as We’re Alive"
+        }
+      }
+    },
+    {
+      "id": "identity-were-alive-curly-apostrophe",
+      "family": "identity",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "We’re Alive",
+      "rationale": "Curly and straight apostrophes should resolve the same title identity.",
+      "baselineV1": {
+        "resultCount": 15,
+        "topIds": [
+          "were-alive",
+          "i-am-in-eskew",
+          "blackout",
+          "copperheart-a-riggstories-audio-drama",
+          "end-of-all-hope"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "were-alive",
+          "matchTier": 5,
+          "reasons": [
+            "direct title match for were alive",
+            "alias match for were alive"
+          ],
+          "presentation": "Also listed as We’re Alive"
+        }
+      }
+    },
+    {
+      "id": "identity-white-vault-no-article",
+      "family": "identity",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "White Vault",
+      "rationale": "Common leading articles may be omitted without losing the exact intended show.",
+      "baselineV1": {
+        "resultCount": 19,
+        "topIds": [
+          "the-white-vault",
+          "alice-isnt-dead",
+          "archive-81",
+          "dont-mind",
+          "how-i-died"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "the-white-vault",
+          "matchTier": 5,
+          "reasons": [
+            "direct title match ignoring a common prefix for white vault",
+            "alias match for the white vault"
+          ],
+          "presentation": "Also listed as The White Vault"
+        }
+      }
+    },
+    {
+      "id": "identity-midnight-alias-we-open-at-six",
+      "family": "identity",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "We Open at Six",
+      "rationale": "Resolve an authored show alias to its canonical title and ID.",
+      "baselineV1": {
+        "resultCount": 1,
+        "topIds": [
+          "midnight-burger"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "midnight-burger",
+          "matchTier": 4,
+          "reasons": [
+            "alias match for we open at six",
+            "transcript notes match n a"
+          ],
+          "presentation": "Also listed as We Open at Six"
+        }
+      }
+    },
+    {
+      "id": "identity-derelict-diacritics",
+      "family": "identity",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "Dérélìct",
+      "rationale": "Unicode diacritic folding should retain exact identity.",
+      "baselineV1": {
+        "resultCount": 9,
+        "topIds": [
+          "derelict",
+          "copperheart-a-riggstories-audio-drama",
+          "earth-eclipsed",
+          "marsfall",
+          "solar"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "derelict",
+          "matchTier": 5,
+          "reasons": [
+            "direct title match for derelict",
+            "alias match for derelict",
+            "transcript notes match available for season one fathom and season two derelict episode pages"
+          ],
+          "presentation": "Also listed as DERELICT"
+        }
+      }
+    },
+    {
+      "id": "identity-derelict-initial-periods",
+      "family": "identity",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "D.E.R.E.L.I.C.T",
+      "rationale": "Stylized punctuation in a query should resolve the same title.",
+      "baselineV1": {
+        "resultCount": 9,
+        "topIds": [
+          "derelict",
+          "copperheart-a-riggstories-audio-drama",
+          "earth-eclipsed",
+          "marsfall",
+          "solar"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "derelict",
+          "matchTier": 5,
+          "reasons": [
+            "direct title match for derelict",
+            "alias match for derelict",
+            "transcript notes match available for season one fathom and season two derelict episode pages"
+          ],
+          "presentation": "Also listed as DERELICT"
+        }
+      }
+    },
+    {
+      "id": "identity-rosanna-curly-apostrophe",
+      "family": "identity",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "Rosanna’s Secret",
+      "rationale": "Apostrophe normalization for a current catalogue title.",
+      "baselineV1": {
+        "resultCount": 1,
+        "topIds": [
+          "rosannas-secret"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "rosannas-secret",
+          "matchTier": 5,
+          "reasons": [
+            "direct title match for rosannas secret",
+            "alias match for rosannas secret a vampires tale"
+          ],
+          "presentation": "Also listed as Rosanna's Secret: A Vampire's Tale"
+        }
+      }
+    },
+    {
+      "id": "identity-rosanna-no-apostrophe",
+      "family": "identity",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "Rosannas Secret",
+      "rationale": "Apostrophe-free typing should resolve the same title identity.",
+      "baselineV1": {
+        "resultCount": 1,
+        "topIds": [
+          "rosannas-secret"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "rosannas-secret",
+          "matchTier": 5,
+          "reasons": [
+            "direct title match for rosannas secret",
+            "alias match for rosannas secret a vampires tale"
+          ],
+          "presentation": "Also listed as Rosanna's Secret: A Vampire's Tale"
+        }
+      }
+    },
+    {
+      "id": "identity-midnight-burger-case",
+      "family": "identity",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "mIdNiGhT bUrGeR",
+      "rationale": "Case changes must not alter title identity.",
+      "baselineV1": {
+        "resultCount": 17,
+        "topIds": [
+          "midnight-burger",
+          "brimstone-valley-mall",
+          "caravan",
+          "desert-skies",
+          "greater-boston"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "midnight-burger",
+          "matchTier": 5,
+          "reasons": [
+            "direct title match for midnight burger",
+            "alias match for midnight burger"
+          ],
+          "presentation": "Also listed as Midnight Burger"
+        }
+      }
+    },
+    {
+      "id": "identity-midnight-burger-partial",
+      "family": "identity",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "Midnight Burg",
+      "rationale": "Measure a useful partial title without requiring an exact total ranking.",
+      "baselineV1": {
+        "resultCount": 17,
+        "topIds": [
+          "midnight-burger",
+          "brimstone-valley-mall",
+          "caravan",
+          "desert-skies",
+          "greater-boston"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "midnight-burger",
+          "matchTier": 3,
+          "reasons": [
+            "title starts with midnight burg",
+            "alias match for midnight burger"
+          ],
+          "presentation": "Also listed as Midnight Burger"
+        }
+      }
+    },
+    {
+      "id": "identity-magnus-archives-partial",
+      "family": "identity",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "Magnus Arch",
+      "rationale": "Measure a longer partial title among similarly named catalogue entries.",
+      "baselineV1": {
+        "resultCount": 16,
+        "topIds": [
+          "the-magnus-archives",
+          "the-magnus-protocol",
+          "scp-archives",
+          "a-voice-from-darkness",
+          "darkest-night"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "the-magnus-archives",
+          "matchTier": 3,
+          "reasons": [
+            "title starts with magnus arch after a common prefix",
+            "alias match for the magnus archives",
+            "tracks archives and institutional secrecy"
+          ],
+          "presentation": "Also listed as The Magnus Archives"
+        }
+      }
+    },
+    {
+      "id": "identity-the-walk-common-words",
+      "family": "identity",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "The Walk",
+      "rationale": "Common title words should preserve the exact title result.",
+      "baselineV1": {
+        "resultCount": 68,
+        "topIds": [
+          "the-walk",
+          "the-nosleep-podcast",
+          "the-orphans",
+          "the-red-panda-adventures",
+          "the-strata"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "the-walk",
+          "matchTier": 5,
+          "reasons": [
+            "direct title match for the walk",
+            "alias match for the walk",
+            "good for long walks"
+          ],
+          "presentation": "Also listed as The Walk"
+        }
+      }
+    },
+    {
+      "id": "identity-taxonomy-horror",
+      "family": "identity-taxonomy-collision",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "horror",
+      "rationale": "Record title, genre, tone, and tag competition for a common taxonomy word.",
+      "baselineV1": {
+        "resultCount": 67,
+        "topIds": [
+          "the-other-stories-sci-fi-horror-thriller-wtf-stories",
+          "knifepoint-horror",
+          "the-horror-of-dolores-roach",
+          "octobers-children",
+          "the-dead-letter-office-of-somewhere-ohio"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "genre"
+        },
+        "topEvidence": {
+          "id": "the-other-stories-sci-fi-horror-thriller-wtf-stories",
+          "matchTier": 3,
+          "reasons": [
+            "title lines up with horror",
+            "alias match for the other stories sci fi horror thriller wtf stories",
+            "matches horror"
+          ],
+          "presentation": "Also listed as The Other Stories | Sci-Fi, Horror, Thriller, WTF Stories"
+        }
+      }
+    },
+    {
+      "id": "identity-taxonomy-sci-fi",
+      "family": "identity-taxonomy-collision",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "sci fi",
+      "rationale": "Measure a structured alias while preserving any title or body-text collisions.",
+      "baselineV1": {
+        "resultCount": 289,
+        "topIds": [
+          "the-other-stories-sci-fi-horror-thriller-wtf-stories",
+          "vega-a-sci-fi-adventure-podcast",
+          "enter-the-house-between",
+          "hollow-disciple",
+          "the-scent-of-gravity"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "genre"
+        },
+        "topEvidence": {
+          "id": "the-other-stories-sci-fi-horror-thriller-wtf-stories",
+          "matchTier": 3,
+          "reasons": [
+            "title lines up with sci fi",
+            "alias match for the other stories sci fi horror thriller wtf stories",
+            "fits sci fi"
+          ],
+          "presentation": "Also listed as The Other Stories | Sci-Fi, Horror, Thriller, WTF Stories"
+        }
+      }
+    },
+    {
+      "id": "identity-taxonomy-full-cast",
+      "family": "identity-taxonomy-collision",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "full cast",
+      "rationale": "Measure a structured format alias against the actual full-cast catalogue evidence.",
+      "baselineV1": {
+        "resultCount": 107,
+        "topIds": [
+          "syntax",
+          "earth-eclipsed",
+          "the-nosleep-podcast",
+          "vast-horizon",
+          "how-i-died"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "format"
+        },
+        "topEvidence": {
+          "id": "syntax",
+          "matchTier": 2,
+          "reasons": [
+            "alias match for syntax podcast",
+            "full cast format",
+            "created by syntax podcast"
+          ],
+          "presentation": "Also listed as Syntax"
+        }
+      }
+    },
+    {
+      "id": "typo-midnight-buger",
+      "family": "typo",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "midnight buger",
+      "rationale": "Measure one realistic bounded typo without expanding fuzzy-search scope by assumption.",
+      "baselineV1": {
+        "resultCount": 17,
+        "topIds": [
+          "midnight-burger",
+          "brimstone-valley-mall",
+          "caravan",
+          "desert-skies",
+          "greater-boston"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "midnight-burger",
+          "matchTier": 2,
+          "reasons": [
+            "title survives a close spelling for midnight buger",
+            "alias match for midnight burger"
+          ],
+          "presentation": "Also listed as Midnight Burger"
+        }
+      }
+    },
+    {
+      "id": "typo-derelct",
+      "family": "typo",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "derelct",
+      "rationale": "Known bounded title typo from the focused search suite.",
+      "baselineV1": {
+        "resultCount": 9,
+        "topIds": [
+          "derelict",
+          "copperheart-a-riggstories-audio-drama",
+          "earth-eclipsed",
+          "marsfall",
+          "solar"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "derelict",
+          "matchTier": 2,
+          "reasons": [
+            "title survives a close spelling for derelct",
+            "alias survives a close spelling for derelct"
+          ],
+          "presentation": "Also listed as DERELICT"
+        }
+      }
+    },
+    {
+      "id": "typo-white-vaul",
+      "family": "typo",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "white vaul",
+      "rationale": "Measure a one-character title misspelling and the current false-positive boundary.",
+      "baselineV1": {
+        "resultCount": 19,
+        "topIds": [
+          "the-white-vault",
+          "alice-isnt-dead",
+          "archive-81",
+          "dont-mind",
+          "how-i-died"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "the-white-vault",
+          "matchTier": 3,
+          "reasons": [
+            "title starts with white vaul after a common prefix",
+            "alias match for the white vault"
+          ],
+          "presentation": "Also listed as The White Vault"
+        }
+      }
+    },
+    {
+      "id": "entity-qcode-name",
+      "family": "entity-creator",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "QCODE",
+      "rationale": "Organization lookup must use explicit typed production-company evidence.",
+      "baselineV1": {
+        "resultCount": 10,
+        "topIds": [
+          "from-now",
+          "blackout",
+          "borrasca",
+          "carrier",
+          "how-to-win-friends-and-disappear-people"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "from-now",
+          "matchTier": 4,
+          "reasons": [
+            "alias match for qcode from now",
+            "created by qcode",
+            "transcript notes match available for episodes 101 106 on official qcode page"
+          ],
+          "presentation": "Production company: QCODE"
+        }
+      }
+    },
+    {
+      "id": "entity-qcode-alias",
+      "family": "entity-creator",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "QCODE Media",
+      "rationale": "Resolve an authored organization alias without inferring links from shared credits.",
+      "baselineV1": {
+        "resultCount": 10,
+        "topIds": [
+          "from-now",
+          "blackout",
+          "borrasca",
+          "carrier",
+          "how-to-win-friends-and-disappear-people"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "from-now",
+          "matchTier": 4,
+          "reasons": [
+            "alias match for qcode from now",
+            "created by qcode",
+            "transcript notes match available for episodes 101 106 on official qcode page"
+          ],
+          "presentation": "Production company: QCODE"
+        }
+      }
+    },
+    {
+      "id": "entity-seven-lamb-alias",
+      "family": "entity-creator",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "7 Lamb",
+      "rationale": "Resolve a production-company alias through explicit typed relationships.",
+      "baselineV1": {
+        "resultCount": 6,
+        "topIds": [
+          "crystal-blue",
+          "end-of-all-hope",
+          "paralyzed",
+          "story",
+          "tower-4"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "crystal-blue",
+          "matchTier": 4,
+          "reasons": [
+            "alias match for 7 lamb crystal blue",
+            "created by 7 lamb"
+          ],
+          "presentation": "Production company: 7 Lamb Productions"
+        }
+      }
+    },
+    {
+      "id": "entity-bloody-fm-network",
+      "family": "entity-creator",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "Bloody FM",
+      "rationale": "Keep a network identity distinct from show-title or horror-tag matches.",
+      "baselineV1": {
+        "resultCount": 17,
+        "topIds": [
+          "mayfair-watchers-society",
+          "crystal-blue",
+          "end-of-all-hope",
+          "paralyzed",
+          "re-dracula"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "mayfair-watchers-society",
+          "matchTier": 4,
+          "reasons": [
+            "created by bloody fm"
+          ],
+          "presentation": "Network: Bloody FM"
+        }
+      }
+    },
+    {
+      "id": "entity-rusty-quill-company",
+      "family": "entity-creator",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "Rusty Quill",
+      "rationale": "Organization retrieval must be backed by explicit typed entity links.",
+      "baselineV1": {
+        "resultCount": 11,
+        "topIds": [
+          "stellar-firma",
+          "the-magnus-protocol",
+          "last-dance",
+          "neon-inkwell",
+          "malevolent"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "stellar-firma",
+          "matchTier": 4,
+          "reasons": [
+            "alias match for stellar firma transcripts rusty quill",
+            "created by rusty quill"
+          ],
+          "presentation": "Production company: Rusty Quill"
+        }
+      }
+    },
+    {
+      "id": "entity-people-behind-white-vault",
+      "family": "entity-creator",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "people behind The White Vault",
+      "rationale": "Relationship intent should return explicitly linked people and preserve each authored role.",
+      "baselineV1": {
+        "resultCount": 0,
+        "topIds": [],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": null
+      }
+    },
+    {
+      "id": "entity-who-created-midnight-burger",
+      "family": "entity-creator",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "who created Midnight Burger",
+      "rationale": "Creator intent should resolve the record's explicit creator relationship.",
+      "baselineV1": {
+        "resultCount": 17,
+        "topIds": [
+          "midnight-burger",
+          "greater-boston",
+          "startripper",
+          "the-amelia-project",
+          "the-chronicles-of-astrimos"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "midnight-burger",
+          "matchTier": 4,
+          "reasons": [
+            "title matches a prefix of who created midnight burger",
+            "alias match for midnight burger"
+          ],
+          "presentation": "Also listed as Midnight Burger"
+        }
+      }
+    },
+    {
+      "id": "collection-best-for-long-walks",
+      "family": "collection",
+      "surface": "collections-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "best for long walks",
+      "rationale": "The /collections directory searches collections and member metadata with its own literal-match behavior.",
+      "baselineV1": {
+        "resultCount": 1,
+        "topIds": [
+          "best-for-long-walks"
+        ]
+      }
+    },
+    {
+      "id": "collection-late-night-tension",
+      "family": "collection",
+      "surface": "collections-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "late-night tension",
+      "rationale": "Search a current collection title on its dedicated route.",
+      "baselineV1": {
+        "resultCount": 1,
+        "topIds": [
+          "late-night-tension"
+        ]
+      }
+    },
+    {
+      "id": "collection-shows-like-white-vault",
+      "family": "collection",
+      "surface": "collections-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "shows like The White Vault",
+      "rationale": "A Shows Like collection remains a collection-directory result, separate from homepage show ranking.",
+      "baselineV1": {
+        "resultCount": 1,
+        "topIds": [
+          "shows-like-the-white-vault"
+        ]
+      }
+    },
+    {
+      "id": "collection-completed-sci-fi",
+      "family": "collection",
+      "surface": "collections-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "completed sci-fi",
+      "rationale": "Search a rule-based authored collection by its current title.",
+      "baselineV1": {
+        "resultCount": 1,
+        "topIds": [
+          "completed-sci-fi"
+        ]
+      }
+    },
+    {
+      "id": "collection-long-walk-intent",
+      "family": "collection",
+      "surface": "collections-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "long walks",
+      "rationale": "Measure collection intent-tag matching on /collections without assuming it matches homepage semantics.",
+      "baselineV1": {
+        "resultCount": 1,
+        "topIds": [
+          "best-for-long-walks"
+        ]
+      }
+    },
+    {
+      "id": "facet-finished-sci-fi",
+      "family": "structured-facets",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "finished sci-fi",
+      "rationale": "Completion and genre are hard constraints when both are accepted as structured facets.",
+      "baselineV1": {
+        "resultCount": 29,
+        "topIds": [
+          "janus-descending",
+          "case-63",
+          "mirrors",
+          "liminal",
+          "moonbase-theta-out"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "multiple"
+        },
+        "topEvidence": {
+          "id": "janus-descending",
+          "matchTier": 0,
+          "reasons": [
+            "matches sci fi",
+            "good for serious sci fi",
+            "fits sci fi"
+          ],
+          "presentation": "Tag: Sci-fi"
+        }
+      }
+    },
+    {
+      "id": "facet-full-cast-mystery",
+      "family": "structured-facets",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "full cast mystery",
+      "rationale": "Format and genre constraints must both be supported by each returned record.",
+      "baselineV1": {
+        "resultCount": 41,
+        "topIds": [
+          "how-i-died",
+          "paralyzed",
+          "octobers-children",
+          "spectre",
+          "story"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "multiple"
+        },
+        "topEvidence": {
+          "id": "how-i-died",
+          "matchTier": 2,
+          "reasons": [
+            "alias match for how i died podcast",
+            "matches mystery",
+            "tracks mystery"
+          ],
+          "presentation": "Also listed as How I Died"
+        }
+      }
+    },
+    {
+      "id": "facet-ongoing-comedy",
+      "family": "structured-facets",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "ongoing comedy",
+      "rationale": "Lifecycle and genre constraints must not be confused with release cadence.",
+      "baselineV1": {
+        "resultCount": 52,
+        "topIds": [
+          "perswayssick-radio-unearthly-comedy",
+          "midnight-burger",
+          "oz-9",
+          "anticrastination",
+          "fawx-stallion"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "multiple"
+        },
+        "topEvidence": {
+          "id": "perswayssick-radio-unearthly-comedy",
+          "matchTier": 2,
+          "reasons": [
+            "alias match for perswayssick radio unearthly comedy",
+            "fits comedy",
+            "ongoing listen"
+          ],
+          "presentation": "Also listed as Perswayssick Radio: Unearthly Comedy"
+        }
+      }
+    },
+    {
+      "id": "facet-cold-isolation-horror",
+      "family": "structured-facets",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "cold isolation horror",
+      "rationale": "Measure the existing composed best-for alias plus horror genre evidence.",
+      "baselineV1": {
+        "resultCount": 15,
+        "topIds": [
+          "i-am-in-eskew",
+          "the-white-vault",
+          "station-151",
+          "uncanny-valley",
+          "alice-isnt-dead"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "best_for"
+        },
+        "topEvidence": {
+          "id": "i-am-in-eskew",
+          "matchTier": 0,
+          "reasons": [
+            "matches isolation",
+            "good for cold isolation horror",
+            "tracks isolation"
+          ],
+          "presentation": "Tag: Isolation"
+        }
+      }
+    },
+    {
+      "id": "facet-finished-mystery",
+      "family": "structured-facets",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "finished mystery",
+      "rationale": "Completion aliases and genre must compose without satisfying a constraint lexically only.",
+      "baselineV1": {
+        "resultCount": 15,
+        "topIds": [
+          "wormwood-a-serialized-mystery",
+          "ars-paradoxica",
+          "spectre",
+          "borrasca",
+          "case-63"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "multiple"
+        },
+        "topEvidence": {
+          "id": "wormwood-a-serialized-mystery",
+          "matchTier": 2,
+          "reasons": [
+            "alias match for wormwood a serialized mystery",
+            "matches mystery",
+            "fits mystery"
+          ],
+          "presentation": "Also listed as Wormwood: A Serialized Mystery"
+        }
+      }
+    },
+    {
+      "id": "context-long-walk-home",
+      "family": "listening-context",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "something for a long walk",
+      "rationale": "Capture any incidental title match such as The Walk separately from authored best-for evidence.",
+      "baselineV1": {
+        "resultCount": 66,
+        "topIds": [
+          "the-walk",
+          "the-nosleep-podcast",
+          "tumanbay",
+          "the-bonneville-game",
+          "acephale-horror-fiction"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "the-walk",
+          "matchTier": 2,
+          "reasons": [
+            "title matches a prefix of something for a long walk",
+            "alias match for the walk",
+            "good for long walks"
+          ],
+          "presentation": "Also listed as The Walk"
+        }
+      }
+    },
+    {
+      "id": "context-late-night-horror",
+      "family": "listening-context",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "late night horror",
+      "rationale": "Late-night context and horror genre should use explicit fields when available.",
+      "baselineV1": {
+        "resultCount": 59,
+        "topIds": [
+          "welcome-to-night-vale",
+          "darkest-night",
+          "knifepoint-horror",
+          "the-other-stories-sci-fi-horror-thriller-wtf-stories",
+          "the-dead-letter-office-of-somewhere-ohio"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "genre"
+        },
+        "topEvidence": {
+          "id": "welcome-to-night-vale",
+          "matchTier": 2,
+          "reasons": [
+            "alias match for welcome to night vale podcast",
+            "matches cosmic horror",
+            "good for late night"
+          ],
+          "presentation": "Also listed as Welcome to Night Vale podcast"
+        }
+      }
+    },
+    {
+      "id": "context-funny-space-disasters",
+      "family": "listening-context",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "funny space disasters",
+      "rationale": "Measure the authored listening-intent alias and its real eligible show set.",
+      "baselineV1": {
+        "resultCount": 9,
+        "topIds": [
+          "wolf-359",
+          "marscorp",
+          "oblivity",
+          "stellar-firma",
+          "oz-9"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "best_for"
+        },
+        "topEvidence": {
+          "id": "wolf-359",
+          "matchTier": 0,
+          "reasons": [
+            "matches space station",
+            "good for funny space disasters",
+            "tracks space"
+          ],
+          "presentation": "Best for: Funny Space Disasters"
+        }
+      }
+    },
+    {
+      "id": "runtime-short-finished",
+      "family": "runtime-commitment",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "short finished show",
+      "rationale": "Short commitment must be distinguished from an exact duration and composed with completion.",
+      "baselineV1": {
+        "resultCount": 20,
+        "topIds": [
+          "dracula-the-danse-macabre",
+          "the-hatred-a-supernatural-thriller-miniseries",
+          "36-questions",
+          "batman-unburied",
+          "carrier"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "completion"
+        },
+        "topEvidence": {
+          "id": "dracula-the-danse-macabre",
+          "matchTier": 2,
+          "reasons": [
+            "created by long story short productions",
+            "finished listen"
+          ],
+          "presentation": "Production company: Long Story Short Productions"
+        }
+      }
+    },
+    {
+      "id": "runtime-finished-cinematic-scifi-ten-hours",
+      "family": "runtime-commitment",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "finished cinematic sci-fi around 10 hours",
+      "rationale": "Around ten hours is a soft target; known, estimated, and unknown duration evidence must remain distinct.",
+      "baselineV1": {
+        "resultCount": 0,
+        "topIds": [],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "multiple"
+        },
+        "topEvidence": null
+      }
+    },
+    {
+      "id": "runtime-near-observed-ten-hours",
+      "family": "runtime-commitment",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "show around 10.9 hours",
+      "rationale": "Red Valley has complete observed duration coverage in the baseline catalogue; preserve its evidence qualifier.",
+      "baselineV1": {
+        "resultCount": 0,
+        "topIds": [],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": null
+      }
+    },
+    {
+      "id": "runtime-derived-midnight-burger",
+      "family": "runtime-commitment",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "show around 79 hours",
+      "rationale": "Midnight Burger's total is derived from listed episodes and average episode length, not an exact episode-duration sum.",
+      "baselineV1": {
+        "resultCount": 0,
+        "topIds": [],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": null
+      }
+    },
+    {
+      "id": "runtime-unknown-case-63",
+      "family": "runtime-commitment",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "exact runtime for Case 63",
+      "rationale": "Case 63's aggregate runtime is explicitly unknown and must not be fabricated from its episode count.",
+      "baselineV1": {
+        "resultCount": 0,
+        "topIds": [],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": null
+      }
+    },
+    {
+      "id": "similarity-white-vault-sci-fi",
+      "family": "similarity-seed-modifier",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "something like The White Vault but sci-fi",
+      "rationale": "Resolve the White Vault seed, then enforce the supported sci-fi modifier as a hard facet.",
+      "baselineV1": {
+        "resultCount": 16,
+        "topIds": [
+          "impact-winter",
+          "janus-descending",
+          "the-phenomenon",
+          "mirrors",
+          "the-harrowing"
+        ],
+        "queryShape": {
+          "queryKind": "shows_like_resolved",
+          "structuredClauseGroup": "genre"
+        },
+        "topEvidence": {
+          "id": "impact-winter",
+          "matchTier": 0,
+          "reasons": [
+            "similar to The White Vault",
+            "matches sci fi",
+            "good for serious sci fi"
+          ],
+          "presentation": "Tag: Sci-fi"
+        }
+      }
+    },
+    {
+      "id": "similarity-midnight-less-chaotic",
+      "family": "similarity-seed-modifier",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "funny like Midnight Burger but less chaotic",
+      "rationale": "Resolve the seed and funny preference; keep the comparative phrase unresolved because no ordinal chaos scale exists.",
+      "baselineV1": {
+        "resultCount": 17,
+        "topIds": [
+          "brimstone-valley-mall",
+          "midst",
+          "oblivity",
+          "we-fix-space-junk",
+          "the-amelia-project"
+        ],
+        "queryShape": {
+          "queryKind": "shows_like_resolved",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "brimstone-valley-mall",
+          "matchTier": 0,
+          "reasons": [
+            "similar to Midnight Burger",
+            "leans chaotic",
+            "linked to midnight burger"
+          ],
+          "presentation": "Tone: Chaotic"
+        }
+      }
+    },
+    {
+      "id": "similarity-midnight-darker",
+      "family": "similarity-seed-modifier",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "like Midnight Burger but darker",
+      "rationale": "Resolve the seed while treating darker as unresolved unless a defensible catalogue comparison exists.",
+      "baselineV1": {
+        "resultCount": 17,
+        "topIds": [
+          "welcome-to-night-vale",
+          "greater-boston",
+          "the-amelia-project",
+          "the-chronicles-of-astrimos",
+          "wolf-359"
+        ],
+        "queryShape": {
+          "queryKind": "shows_like_resolved",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "welcome-to-night-vale",
+          "matchTier": 0,
+          "reasons": [
+            "similar to Midnight Burger",
+            "leans dark",
+            "linked to midnight burger"
+          ],
+          "presentation": "Tone: Dark"
+        }
+      }
+    },
+    {
+      "id": "exclusion-scifi-not-comedy",
+      "family": "exclusion",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "sci-fi but not comedy",
+      "rationale": "If accepted, sci-fi is required and comedy is explicitly excluded; absent comedy evidence stays unknown rather than being invented.",
+      "baselineV1": {
+        "resultCount": 5,
+        "topIds": [
+          "midnight-burger",
+          "oz-9",
+          "wolf-359",
+          "super-suits",
+          "death-by-inches"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "genre"
+        },
+        "topEvidence": {
+          "id": "midnight-burger",
+          "matchTier": 0,
+          "reasons": [
+            "matches comedy",
+            "tracks sci fi",
+            "fits sci fi"
+          ],
+          "presentation": "Tag: Comedy"
+        }
+      }
+    },
+    {
+      "id": "lifecycle-finished-catalogue",
+      "family": "privacy-scope",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "finished shows",
+      "rationale": "Finished shows describes public catalogue lifecycle when it refers to shows generally.",
+      "baselineV1": {
+        "resultCount": 77,
+        "topIds": [
+          "borrasca",
+          "i-am-in-eskew",
+          "mabel",
+          "midst",
+          "the-bright-sessions"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "completion"
+        },
+        "topEvidence": {
+          "id": "borrasca",
+          "matchTier": 0,
+          "reasons": [
+            "finished listen"
+          ],
+          "presentation": ""
+        }
+      }
+    },
+    {
+      "id": "lifecycle-i-have-finished",
+      "family": "privacy-scope",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "shows I've finished",
+      "rationale": "Personal listening completion belongs to the local Library and must never become public URL or shared query state.",
+      "baselineV1": {
+        "resultCount": 0,
+        "topIds": [],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "completion"
+        },
+        "topEvidence": null
+      }
+    },
+    {
+      "id": "sparse-similar-13-minutes",
+      "family": "sparse-no-match",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "something like 13 Minutes or Less",
+      "rationale": "This factual-only record has limited recommendation evidence; a truthful result may be unresolved or empty.",
+      "baselineV1": {
+        "resultCount": 0,
+        "topIds": [],
+        "queryShape": {
+          "queryKind": "shows_like_resolved",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": null
+      }
+    },
+    {
+      "id": "sparse-exact-13-minutes",
+      "family": "sparse-no-match",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "13 Minutes or Less",
+      "rationale": "Sparse metadata must not weaken exact title identity.",
+      "baselineV1": {
+        "resultCount": 1,
+        "topIds": [
+          "13-minutes-or-less"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": {
+          "id": "13-minutes-or-less",
+          "matchTier": 5,
+          "reasons": [
+            "direct title match for 13 minutes or less",
+            "alias match for 13 minutes or less"
+          ],
+          "presentation": "Also listed as 13 Minutes Or Less"
+        }
+      }
+    },
+    {
+      "id": "sparse-no-match-mars-archaeology",
+      "family": "sparse-no-match",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "quantum archaeologists on Mars in 1920",
+      "rationale": "The archive may lack enough support for this compound request; do not fabricate precision.",
+      "baselineV1": {
+        "resultCount": 0,
+        "topIds": [],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "none"
+        },
+        "topEvidence": null
+      }
+    },
+    {
+      "id": "sparse-no-match-experimental-lighthouse",
+      "family": "sparse-no-match",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "experimental lighthouse mystery with a silent cast",
+      "rationale": "When no catalogued evidence supports a narrow request, preserve the unresolved intent or strict empty result.",
+      "baselineV1": {
+        "resultCount": 0,
+        "topIds": [],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "genre"
+        },
+        "topEvidence": null
+      }
+    },
+    {
+      "id": "runtime-ambiguous-season-vs-hours",
+      "family": "runtime-commitment",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "finished sci-fi about one season long",
+      "rationale": "A season is a count unit, not a stable runtime unit; preserve the ambiguity instead of converting it to hours.",
+      "baselineV1": {
+        "resultCount": 2,
+        "topIds": [
+          "janus-descending",
+          "the-bright-sessions"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "multiple"
+        },
+        "topEvidence": {
+          "id": "janus-descending",
+          "matchTier": 0,
+          "reasons": [
+            "matches sci fi",
+            "good for headphones on",
+            "fits sci fi"
+          ],
+          "presentation": "Tag: Sci-fi"
+        }
+      }
+    },
+    {
+      "id": "identity-full-title-horror-taxonomy",
+      "family": "identity-taxonomy-collision",
+      "surface": "show-search",
+      "catalogueRevision": "baseline-v1",
+      "query": "The Horror of Dolores Roach",
+      "rationale": "An exact title contains the common horror taxonomy word; title identity must win over incidental facet matching.",
+      "baselineV1": {
+        "resultCount": 1,
+        "topIds": [
+          "the-horror-of-dolores-roach"
+        ],
+        "queryShape": {
+          "queryKind": "text",
+          "structuredClauseGroup": "genre"
+        },
+        "topEvidence": {
+          "id": "the-horror-of-dolores-roach",
+          "matchTier": 5,
+          "reasons": [
+            "direct title match for the horror of dolores roach",
+            "alias match for the horror of dolores roach",
+            "fits horror"
+          ],
+          "presentation": "Also listed as The Horror of Dolores Roach"
+        }
+      }
+    }
+  ]
+}

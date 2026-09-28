@@ -47,8 +47,17 @@ test.after(async () => {
 });
 
 async function clickCollectionArrow(page, selector) {
-  await page.evaluate((currentSelector) => {
+  return page.evaluate((currentSelector) => {
     document.querySelector(currentSelector)?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    const carousel = document.getElementById("collectionCarousel");
+    const arrow = document.querySelector(currentSelector);
+    const glyph = arrow?.querySelector("span");
+    return {
+      interaction: carousel?.dataset.collectionInteraction || "",
+      direction: carousel?.dataset.collectionDirection || "",
+      arrowTransform: arrow ? window.getComputedStyle(arrow).transform : "none",
+      glyphTransform: glyph ? window.getComputedStyle(glyph).transform : "none",
+    };
   }, selector);
 }
 
@@ -194,28 +203,15 @@ test("homepage featured collections carousel applies center-weighted focus and d
     assert.ok((hoveredTargetState?.scale || 0) > 1.03);
     assert.ok((hoveredTargetState?.translateY || 0) < -5);
 
-    await clickCollectionArrow(page, "#collectionNext");
-    if (!prefersReducedMotion) {
-      await page.waitForFunction(
-        () =>
-          document.getElementById("collectionCarousel")?.dataset.collectionInteraction === "active" &&
-          document.getElementById("collectionCarousel")?.dataset.collectionDirection === "next",
-        undefined,
-        { timeout: 1_000 },
-      );
-    }
-
-    const duringNextPulseState = await getCollectionCarouselFocusState(page);
-    const nextPulseCards = duringNextPulseState.cards;
-    const nextPulseState = nextPulseCards.find((card) => card.index === nearestToCenter.index) || nextPulseCards[0];
+    const nextPulseState = await clickCollectionArrow(page, "#collectionNext");
     if (prefersReducedMotion) {
-      assert.equal(nextPulseState?.carouselInteraction, "");
-      assert.equal(nextPulseState?.carouselDirection, "");
+      assert.equal(nextPulseState.interaction, "");
+      assert.equal(nextPulseState.direction, "");
     } else {
-      assert.equal(nextPulseState?.carouselInteraction, "active");
-      assert.equal(nextPulseState?.carouselDirection, "next");
-      assert.notEqual(nextPulseState?.nextArrowTransform, "none");
-      assert.notEqual(nextPulseState?.nextArrowGlyphTransform, "none");
+      assert.equal(nextPulseState.interaction, "active");
+      assert.equal(nextPulseState.direction, "next");
+      assert.notEqual(nextPulseState.arrowTransform, "none");
+      assert.notEqual(nextPulseState.glyphTransform, "none");
     }
     expectedCollectionIndex = (expectedCollectionIndex + 1) % featuredCollectionIds.length;
     await waitForCenteredCollection(page, featuredCollectionIds[expectedCollectionIndex]);
@@ -230,28 +226,15 @@ test("homepage featured collections carousel applies center-weighted focus and d
     assert.equal(nextStrongestAmbientCard.carouselDirection, "");
     assert.ok(nextNearestToCenter.distanceFromCenter < 16);
 
-    await clickCollectionArrow(page, "#collectionPrev");
-    if (!prefersReducedMotion) {
-      await page.waitForFunction(
-        () =>
-          document.getElementById("collectionCarousel")?.dataset.collectionInteraction === "active" &&
-          document.getElementById("collectionCarousel")?.dataset.collectionDirection === "prev",
-        undefined,
-        { timeout: 1_000 },
-      );
-    }
-
-    const duringPrevPulseState = await getCollectionCarouselFocusState(page);
-    const prevPulseCards = duringPrevPulseState.cards;
-    const prevPulseState = prevPulseCards.find((card) => card.index === nextNearestToCenter.index) || prevPulseCards[0];
+    const prevPulseState = await clickCollectionArrow(page, "#collectionPrev");
     if (prefersReducedMotion) {
-      assert.equal(prevPulseState?.carouselInteraction, "");
-      assert.equal(prevPulseState?.carouselDirection, "");
+      assert.equal(prevPulseState.interaction, "");
+      assert.equal(prevPulseState.direction, "");
     } else {
-      assert.equal(prevPulseState?.carouselInteraction, "active");
-      assert.equal(prevPulseState?.carouselDirection, "prev");
-      assert.notEqual(prevPulseState?.prevArrowTransform, "none");
-      assert.notEqual(prevPulseState?.prevArrowGlyphTransform, "none");
+      assert.equal(prevPulseState.interaction, "active");
+      assert.equal(prevPulseState.direction, "prev");
+      assert.notEqual(prevPulseState.arrowTransform, "none");
+      assert.notEqual(prevPulseState.glyphTransform, "none");
     }
     expectedCollectionIndex = (expectedCollectionIndex - 1 + featuredCollectionIds.length) % featuredCollectionIds.length;
     await waitForCenteredCollection(page, featuredCollectionIds[expectedCollectionIndex]);

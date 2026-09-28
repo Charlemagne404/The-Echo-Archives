@@ -1,0 +1,1599 @@
+{
+  "schemaVersion": 1,
+  "targetVersion": "2.0-contract-draft.1",
+  "corpusVersion": "1.2.0",
+  "cases": {
+    "identity-midnight-burger-exact": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "title-identity",
+          "showId": "midnight-burger"
+        },
+        "reason": "The typed query should preserve exact title identity."
+      },
+      "identityFirst": {
+        "support": "current-v1",
+        "showId": "midnight-burger"
+      },
+      "prohibitedTopK": {
+        "support": "current-v1",
+        "ids": [
+          "the-white-vault"
+        ],
+        "k": 5
+      },
+      "explanationEvidenceV1": {
+        "support": "current-v1",
+        "required": [
+          {
+            "kind": "title_identity"
+          }
+        ]
+      }
+    },
+    "identity-white-vault-exact": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "title-identity",
+          "showId": "the-white-vault"
+        }
+      },
+      "identityFirst": {
+        "support": "current-v1",
+        "showId": "the-white-vault"
+      },
+      "explanationEvidenceV1": {
+        "support": "current-v1",
+        "required": [
+          {
+            "kind": "title_identity"
+          }
+        ]
+      }
+    },
+    "identity-were-alive-straight-apostrophe": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "title-identity",
+          "showId": "were-alive"
+        }
+      },
+      "identityFirst": {
+        "support": "current-v1",
+        "showId": "were-alive"
+      },
+      "explanationEvidenceV1": {
+        "support": "current-v1",
+        "required": [
+          {
+            "kind": "title_identity"
+          }
+        ]
+      }
+    },
+    "identity-were-alive-curly-apostrophe": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "title-identity",
+          "showId": "were-alive"
+        }
+      },
+      "identityFirst": {
+        "support": "current-v1",
+        "showId": "were-alive"
+      }
+    },
+    "identity-white-vault-no-article": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "title-identity",
+          "showId": "the-white-vault",
+          "commonArticleOmitted": true
+        }
+      },
+      "identityFirst": {
+        "support": "current-v1",
+        "showId": "the-white-vault"
+      }
+    },
+    "identity-midnight-alias-we-open-at-six": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "title-alias",
+          "showId": "midnight-burger",
+          "matchedAlias": "We Open at Six"
+        }
+      },
+      "identityFirst": {
+        "support": "current-v1",
+        "showId": "midnight-burger"
+      },
+      "explanationEvidenceV1": {
+        "support": "current-v1",
+        "required": [
+          {
+            "kind": "alias_identity"
+          }
+        ]
+      }
+    },
+    "identity-derelict-diacritics": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "title-identity",
+          "showId": "derelict",
+          "normalization": "unicode-diacritics"
+        }
+      },
+      "identityFirst": {
+        "support": "current-v1",
+        "showId": "derelict"
+      }
+    },
+    "identity-derelict-initial-periods": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "title-identity",
+          "showId": "derelict",
+          "normalization": "punctuation"
+        }
+      },
+      "identityFirst": {
+        "support": "current-v1",
+        "showId": "derelict"
+      }
+    },
+    "identity-rosanna-curly-apostrophe": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "title-identity",
+          "showId": "rosannas-secret"
+        }
+      },
+      "identityFirst": {
+        "support": "current-v1",
+        "showId": "rosannas-secret"
+      }
+    },
+    "identity-rosanna-no-apostrophe": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "title-identity",
+          "showId": "rosannas-secret"
+        }
+      },
+      "identityFirst": {
+        "support": "current-v1",
+        "showId": "rosannas-secret"
+      }
+    },
+    "identity-midnight-burger-case": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "title-identity",
+          "showId": "midnight-burger",
+          "normalization": "case-folding"
+        }
+      },
+      "identityFirst": {
+        "support": "current-v1",
+        "showId": "midnight-burger"
+      }
+    },
+    "identity-midnight-burger-partial": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "partial-title",
+          "showId": "midnight-burger"
+        }
+      },
+      "acceptableTopK": {
+        "support": "current-v1",
+        "ids": [
+          "midnight-burger"
+        ],
+        "k": 5
+      }
+    },
+    "identity-magnus-archives-partial": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "partial-title",
+          "showId": "the-magnus-archives",
+          "acceptableSiblingId": "the-magnus-protocol"
+        }
+      },
+      "acceptableTopK": {
+        "support": "current-v1",
+        "ids": [
+          "the-magnus-archives",
+          "the-magnus-protocol"
+        ],
+        "k": 5
+      }
+    },
+    "identity-the-walk-common-words": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "title-identity",
+          "showId": "the-walk",
+          "commonWords": true
+        }
+      },
+      "identityFirst": {
+        "support": "current-v1",
+        "showId": "the-walk"
+      },
+      "explanationEvidenceV1": {
+        "support": "current-v1",
+        "required": [
+          {
+            "kind": "title_identity"
+          }
+        ]
+      }
+    },
+    "identity-taxonomy-horror": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "genre-query",
+          "required": {
+            "genres": [
+              "horror"
+            ]
+          },
+          "defaultInterpretation": "genre"
+        }
+      },
+      "queryShapeV1": {
+        "support": "current-v1",
+        "queryKind": "text",
+        "structuredClauseGroup": "genre"
+      },
+      "ambiguity": {
+        "support": "discovery-v2",
+        "acceptableInterpretations": [
+          {
+            "kind": "genre",
+            "value": "horror"
+          },
+          {
+            "kind": "title-fragment",
+            "value": "horror"
+          }
+        ],
+        "resolution": "editable-interpretation-or-text-search"
+      }
+    },
+    "identity-taxonomy-sci-fi": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "genre-query",
+          "required": {
+            "genres": [
+              "sci-fi"
+            ]
+          },
+          "alias": "sci fi"
+        }
+      },
+      "queryShapeV1": {
+        "support": "current-v1",
+        "queryKind": "text",
+        "structuredClauseGroup": "genre"
+      },
+      "hardConstraints": {
+        "support": "current-v1",
+        "k": 5,
+        "all": [
+          {
+            "field": "genres",
+            "operator": "includes",
+            "value": "sci-fi"
+          }
+        ]
+      }
+    },
+    "identity-taxonomy-full-cast": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "format-query",
+          "required": {
+            "formats": [
+              "full-cast"
+            ]
+          }
+        }
+      },
+      "queryShapeV1": {
+        "support": "current-v1",
+        "queryKind": "text",
+        "structuredClauseGroup": "format"
+      },
+      "hardConstraints": {
+        "support": "current-v1",
+        "k": 5,
+        "all": [
+          {
+            "field": "formats",
+            "operator": "includes",
+            "value": "full-cast"
+          }
+        ]
+      }
+    },
+    "typo-midnight-buger": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "bounded-typo",
+          "showId": "midnight-burger",
+          "fuzzyScope": "conservative"
+        }
+      },
+      "acceptableTopK": {
+        "support": "current-v1",
+        "ids": [
+          "midnight-burger"
+        ],
+        "k": 5
+      }
+    },
+    "typo-derelct": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "bounded-typo",
+          "showId": "derelict",
+          "fuzzyScope": "conservative"
+        }
+      },
+      "acceptableTopK": {
+        "support": "current-v1",
+        "ids": [
+          "derelict"
+        ],
+        "k": 5
+      }
+    },
+    "typo-white-vaul": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "bounded-typo-or-prefix",
+          "showId": "the-white-vault"
+        }
+      },
+      "acceptableTopK": {
+        "support": "current-v1",
+        "ids": [
+          "the-white-vault"
+        ],
+        "k": 5
+      }
+    },
+    "entity-qcode-name": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "entity-lookup",
+          "entityId": "qcode",
+          "role": "production-company"
+        }
+      },
+      "entityEvidenceV1": {
+        "support": "current-v1",
+        "entityId": "qcode",
+        "role": "production-company",
+        "acceptableShowIds": [
+          "from-now"
+        ],
+        "k": 5
+      },
+      "explanationEvidenceV1": {
+        "support": "current-v1",
+        "required": [
+          {
+            "kind": "typed_relationship",
+            "entityId": "qcode",
+            "role": "production-company"
+          }
+        ]
+      }
+    },
+    "entity-qcode-alias": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "entity-alias",
+          "entityId": "qcode",
+          "alias": "QCODE Media",
+          "role": "production-company"
+        }
+      },
+      "entityEvidenceV1": {
+        "support": "current-v1",
+        "entityId": "qcode",
+        "role": "production-company",
+        "acceptableShowIds": [
+          "from-now"
+        ],
+        "k": 5
+      }
+    },
+    "entity-seven-lamb-alias": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "entity-alias",
+          "entityId": "7-lamb-productions",
+          "alias": "7 Lamb",
+          "role": "production-company"
+        }
+      },
+      "entityEvidenceV1": {
+        "support": "current-v1",
+        "entityId": "7-lamb-productions",
+        "role": "production-company",
+        "acceptableShowIds": [
+          "crystal-blue",
+          "end-of-all-hope",
+          "paralyzed",
+          "story",
+          "tower-4"
+        ],
+        "k": 5
+      }
+    },
+    "entity-bloody-fm-network": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "entity-lookup",
+          "entityId": "bloody-fm",
+          "role": "network"
+        }
+      },
+      "entityEvidenceV1": {
+        "support": "current-v1",
+        "entityId": "bloody-fm",
+        "role": "network",
+        "acceptableShowIds": [
+          "mayfair-watchers-society"
+        ],
+        "k": 5
+      }
+    },
+    "entity-rusty-quill-company": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "entity-lookup",
+          "entityId": "rusty-quill",
+          "role": "production-company"
+        }
+      },
+      "entityEvidenceV1": {
+        "support": "current-v1",
+        "entityId": "rusty-quill",
+        "role": "production-company",
+        "acceptableShowIds": [
+          "stellar-firma"
+        ],
+        "k": 5
+      }
+    },
+    "entity-people-behind-white-vault": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "people-behind",
+          "seedShowId": "the-white-vault",
+          "roles": [
+            "creator"
+          ],
+          "cooccurrenceIsNotAffiliation": true
+        }
+      },
+      "entityResolution": {
+        "support": "discovery-v2",
+        "kind": "people-behind",
+        "seedShowId": "the-white-vault",
+        "entityIds": [
+          "k-a-statz",
+          "travis-vengroff"
+        ],
+        "relationshipRole": "creator",
+        "evidenceSource": "explicit-entityLinks"
+      }
+    },
+    "entity-who-created-midnight-burger": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "creator-lookup",
+          "seedShowId": "midnight-burger",
+          "roles": [
+            "creator"
+          ]
+        }
+      },
+      "entityResolution": {
+        "support": "discovery-v2",
+        "kind": "creator-lookup",
+        "seedShowId": "midnight-burger",
+        "entityIds": [
+          "joe-fisher"
+        ],
+        "relationshipRole": "creator",
+        "evidenceSource": "explicit-entityLinks"
+      }
+    },
+    "collection-best-for-long-walks": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "authored-collection-route",
+          "collectionId": "best-for-long-walks",
+          "surface": "collections-search"
+        }
+      },
+      "routeRecognition": {
+        "support": "current-v1",
+        "surface": "collections-search"
+      },
+      "acceptableTopK": {
+        "support": "current-v1",
+        "ids": [
+          "best-for-long-walks"
+        ],
+        "k": 5
+      }
+    },
+    "collection-late-night-tension": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "authored-collection-route",
+          "collectionId": "late-night-tension",
+          "surface": "collections-search"
+        }
+      },
+      "routeRecognition": {
+        "support": "current-v1",
+        "surface": "collections-search"
+      },
+      "acceptableTopK": {
+        "support": "current-v1",
+        "ids": [
+          "late-night-tension"
+        ],
+        "k": 5
+      }
+    },
+    "collection-shows-like-white-vault": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "authored-similarity-collection",
+          "collectionId": "shows-like-the-white-vault",
+          "seedShowId": "the-white-vault"
+        }
+      },
+      "routeRecognition": {
+        "support": "current-v1",
+        "surface": "collections-search"
+      },
+      "acceptableTopK": {
+        "support": "current-v1",
+        "ids": [
+          "shows-like-the-white-vault"
+        ],
+        "k": 5
+      }
+    },
+    "collection-completed-sci-fi": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "authored-collection-route",
+          "collectionId": "completed-sci-fi",
+          "surface": "collections-search"
+        }
+      },
+      "routeRecognition": {
+        "support": "current-v1",
+        "surface": "collections-search"
+      },
+      "acceptableTopK": {
+        "support": "current-v1",
+        "ids": [
+          "completed-sci-fi"
+        ],
+        "k": 5
+      }
+    },
+    "collection-long-walk-intent": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "collection-intent",
+          "intentTag": "long-walks",
+          "surface": "collections-search"
+        }
+      },
+      "routeRecognition": {
+        "support": "current-v1",
+        "surface": "collections-search"
+      },
+      "acceptableTopK": {
+        "support": "current-v1",
+        "ids": [
+          "best-for-long-walks"
+        ],
+        "k": 5
+      }
+    },
+    "facet-finished-sci-fi": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "facet-search",
+          "required": {
+            "completionStatus": [
+              "finished"
+            ],
+            "genres": [
+              "sci-fi"
+            ]
+          }
+        }
+      },
+      "queryShapeV1": {
+        "support": "current-v1",
+        "queryKind": "text",
+        "structuredClauseGroup": "multiple"
+      },
+      "hardConstraints": {
+        "support": "current-v1",
+        "k": 5,
+        "all": [
+          {
+            "field": "completionStatus",
+            "operator": "equals",
+            "value": "finished"
+          },
+          {
+            "field": "genres",
+            "operator": "includes",
+            "value": "sci-fi"
+          }
+        ]
+      }
+    },
+    "facet-full-cast-mystery": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "facet-search",
+          "required": {
+            "formats": [
+              "full-cast"
+            ],
+            "genres": [
+              "mystery"
+            ]
+          }
+        }
+      },
+      "queryShapeV1": {
+        "support": "current-v1",
+        "queryKind": "text",
+        "structuredClauseGroup": "multiple"
+      },
+      "hardConstraints": {
+        "support": "current-v1",
+        "k": 5,
+        "all": [
+          {
+            "field": "formats",
+            "operator": "includes",
+            "value": "full-cast"
+          },
+          {
+            "field": "genres",
+            "operator": "includes",
+            "value": "mystery"
+          }
+        ]
+      }
+    },
+    "facet-ongoing-comedy": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "facet-search",
+          "required": {
+            "completionStatus": [
+              "ongoing"
+            ],
+            "genres": [
+              "comedy"
+            ]
+          }
+        }
+      },
+      "queryShapeV1": {
+        "support": "current-v1",
+        "queryKind": "text",
+        "structuredClauseGroup": "multiple"
+      },
+      "hardConstraints": {
+        "support": "current-v1",
+        "k": 5,
+        "all": [
+          {
+            "field": "completionStatus",
+            "operator": "equals",
+            "value": "ongoing"
+          },
+          {
+            "field": "genres",
+            "operator": "includes",
+            "value": "comedy"
+          }
+        ]
+      }
+    },
+    "facet-cold-isolation-horror": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "facet-search",
+          "required": {
+            "genres": [
+              "horror"
+            ],
+            "bestFor": [
+              "cold-isolation-horror"
+            ]
+          }
+        }
+      },
+      "queryShapeV1": {
+        "support": "current-v1",
+        "queryKind": "text",
+        "structuredClauseGroup": "best_for"
+      },
+      "hardConstraints": {
+        "support": "current-v1",
+        "k": 5,
+        "all": [
+          {
+            "field": "genres",
+            "operator": "includes",
+            "value": "horror"
+          },
+          {
+            "field": "bestFor",
+            "operator": "includes",
+            "value": "cold-isolation-horror"
+          }
+        ]
+      }
+    },
+    "facet-finished-mystery": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "facet-search",
+          "required": {
+            "completionStatus": [
+              "finished"
+            ],
+            "genres": [
+              "mystery"
+            ]
+          }
+        }
+      },
+      "queryShapeV1": {
+        "support": "current-v1",
+        "queryKind": "text",
+        "structuredClauseGroup": "multiple"
+      },
+      "hardConstraints": {
+        "support": "current-v1",
+        "k": 5,
+        "all": [
+          {
+            "field": "completionStatus",
+            "operator": "equals",
+            "value": "finished"
+          },
+          {
+            "field": "genres",
+            "operator": "includes",
+            "value": "mystery"
+          }
+        ]
+      }
+    },
+    "context-long-walk-home": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "listening-context",
+          "preferred": {
+            "bestFor": [
+              "long-walks"
+            ]
+          },
+          "lexicalTitleMatchIsNotSufficient": true
+        }
+      },
+      "acceptableTopK": {
+        "support": "current-v1",
+        "ids": [
+          "the-walk"
+        ],
+        "k": 5
+      },
+      "explanationEvidenceV1": {
+        "support": "current-v1",
+        "required": [
+          {
+            "kind": "catalogue_field",
+            "field": "bestFor",
+            "value": "long-walks"
+          }
+        ]
+      }
+    },
+    "context-late-night-horror": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "listening-context",
+          "required": {
+            "genres": [
+              "horror"
+            ]
+          },
+          "preferred": {
+            "bestFor": [
+              "late-night"
+            ]
+          }
+        }
+      },
+      "queryShapeV1": {
+        "support": "current-v1",
+        "queryKind": "text",
+        "structuredClauseGroup": "genre"
+      },
+      "hardConstraints": {
+        "support": "current-v1",
+        "k": 5,
+        "all": [
+          {
+            "field": "genres",
+            "operator": "includes",
+            "value": "horror"
+          }
+        ]
+      }
+    },
+    "context-funny-space-disasters": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "listening-context",
+          "preferred": {
+            "bestFor": [
+              "funny-space-disasters"
+            ]
+          }
+        }
+      },
+      "queryShapeV1": {
+        "support": "current-v1",
+        "queryKind": "text",
+        "structuredClauseGroup": "best_for"
+      },
+      "hardConstraints": {
+        "support": "current-v1",
+        "k": 5,
+        "all": [
+          {
+            "field": "bestFor",
+            "operator": "includes",
+            "value": "funny-space-disasters"
+          }
+        ]
+      }
+    },
+    "runtime-short-finished": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "facet-search",
+          "required": {
+            "completionStatus": [
+              "finished"
+            ]
+          },
+          "preferred": {
+            "commitment": [
+              "short"
+            ]
+          }
+        }
+      },
+      "queryShapeV1": {
+        "support": "current-v1",
+        "queryKind": "text",
+        "structuredClauseGroup": "completion"
+      },
+      "hardConstraints": {
+        "support": "current-v1",
+        "k": 5,
+        "all": [
+          {
+            "field": "completionStatus",
+            "operator": "equals",
+            "value": "finished"
+          }
+        ]
+      }
+    },
+    "runtime-finished-cinematic-scifi-ten-hours": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "facet-search",
+          "required": {
+            "completionStatus": [
+              "finished"
+            ],
+            "genres": [
+              "sci-fi"
+            ],
+            "tones": [
+              "cinematic"
+            ]
+          },
+          "preferred": {
+            "totalHoursTarget": {
+              "hours": 10,
+              "mode": "around",
+              "strength": "soft"
+            }
+          },
+          "unknownRuntime": "retain-qualified-after-known-values"
+        }
+      },
+      "acceptableTopK": {
+        "support": "discovery-v2",
+        "ids": [
+          "solar",
+          "janus-descending",
+          "from-now"
+        ],
+        "k": 5,
+        "reason": "These are reviewed finished cinematic sci-fi records with numeric runtime evidence; this is an acceptable set, not a required order."
+      },
+      "sparseOutcome": {
+        "support": "discovery-v2",
+        "allowed": [
+          "known-ranked-with-qualifier",
+          "unknown-after-known-with-label",
+          "unresolved-runtime-phrase"
+        ],
+        "reason": "Do not show an estimate as exact or put unknown duration ahead of known duration without an explanation."
+      }
+    },
+    "runtime-near-observed-ten-hours": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "runtime-preference",
+          "preferred": {
+            "totalHoursTarget": {
+              "hours": 10.9,
+              "mode": "around",
+              "strength": "soft"
+            }
+          },
+          "preserveObservedScope": true
+        }
+      },
+      "acceptableTopK": {
+        "support": "discovery-v2",
+        "ids": [
+          "red-valley"
+        ],
+        "k": 5
+      }
+    },
+    "runtime-derived-midnight-burger": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "runtime-preference",
+          "preferred": {
+            "totalHoursTarget": {
+              "hours": 79,
+              "mode": "around",
+              "strength": "soft"
+            }
+          },
+          "preserveEstimateQualifier": true
+        }
+      },
+      "acceptableTopK": {
+        "support": "discovery-v2",
+        "ids": [
+          "midnight-burger"
+        ],
+        "k": 5
+      }
+    },
+    "runtime-unknown-case-63": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "runtime-lookup",
+          "showId": "case-63",
+          "requestedPrecision": "exact",
+          "runtimeState": "unknown"
+        }
+      },
+      "unresolvedPhrases": {
+        "support": "discovery-v2",
+        "phrases": [
+          "exact runtime"
+        ],
+        "reason": "The catalogue states that aggregate runtime is not source-verifiable."
+      },
+      "sparseOutcome": {
+        "support": "discovery-v2",
+        "allowed": [
+          "explicit-unknown",
+          "limited-evidence",
+          "strict-empty",
+          "user-invoked-broadening"
+        ]
+      }
+    },
+    "similarity-white-vault-sci-fi": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "similarity",
+          "seedShowId": "the-white-vault",
+          "required": {
+            "genres": [
+              "sci-fi"
+            ]
+          },
+          "seedExcluded": true
+        }
+      },
+      "seedResolution": {
+        "support": "discovery-v2",
+        "showId": "the-white-vault",
+        "reason": "Resolve the exact catalogue identity before applying modifiers."
+      },
+      "queryShapeV1": {
+        "support": "current-v1",
+        "queryKind": "shows_like_resolved",
+        "structuredClauseGroup": "genre"
+      },
+      "hardConstraints": {
+        "support": "discovery-v2",
+        "k": 5,
+        "all": [
+          {
+            "field": "genres",
+            "operator": "includes",
+            "value": "sci-fi"
+          }
+        ]
+      },
+      "prohibitedTopK": {
+        "support": "discovery-v2",
+        "ids": [
+          "the-harrowing"
+        ],
+        "k": 5
+      },
+      "acceptableTopK": {
+        "support": "current-v1",
+        "ids": [
+          "impact-winter",
+          "janus-descending",
+          "the-phenomenon"
+        ],
+        "k": 5
+      }
+    },
+    "similarity-midnight-less-chaotic": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "similarity",
+          "seedShowId": "midnight-burger",
+          "preferred": {
+            "tones": [
+              "funny"
+            ]
+          },
+          "unresolvedPhrases": [
+            "less chaotic"
+          ],
+          "noOrdinalChaosClaim": true
+        }
+      },
+      "seedResolution": {
+        "support": "discovery-v2",
+        "showId": "midnight-burger"
+      },
+      "queryShapeV1": {
+        "support": "current-v1",
+        "queryKind": "shows_like_resolved",
+        "structuredClauseGroup": "none"
+      },
+      "unresolvedPhrases": {
+        "support": "discovery-v2",
+        "phrases": [
+          "less chaotic"
+        ],
+        "reason": "Chaos is a label, not a supported ordinal scale."
+      }
+    },
+    "similarity-midnight-darker": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "similarity",
+          "seedShowId": "midnight-burger",
+          "unresolvedPhrases": [
+            "darker"
+          ],
+          "noRelativeToneClaim": true
+        }
+      },
+      "seedResolution": {
+        "support": "discovery-v2",
+        "showId": "midnight-burger"
+      },
+      "queryShapeV1": {
+        "support": "current-v1",
+        "queryKind": "shows_like_resolved",
+        "structuredClauseGroup": "none"
+      },
+      "unresolvedPhrases": {
+        "support": "discovery-v2",
+        "phrases": [
+          "darker"
+        ],
+        "reason": "A dark tone tag does not establish a comparative scale against the seed."
+      }
+    },
+    "exclusion-scifi-not-comedy": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "facet-search",
+          "required": {
+            "genres": [
+              "sci-fi"
+            ]
+          },
+          "avoid": {
+            "genres": [
+              "comedy"
+            ]
+          },
+          "avoidIsHardWhenEvidenceExists": true
+        }
+      },
+      "queryShapeV1": {
+        "support": "current-v1",
+        "queryKind": "text",
+        "structuredClauseGroup": "genre"
+      },
+      "prohibitedTopK": {
+        "support": "discovery-v2",
+        "ids": [
+          "midnight-burger",
+          "oz-9",
+          "wolf-359",
+          "super-suits",
+          "death-by-inches"
+        ],
+        "k": 5,
+        "reason": "The frozen v1 output includes these comedy records; 2.0 must exclude explicit comedy evidence if it accepts the negation."
+      },
+      "hardConstraints": {
+        "support": "discovery-v2",
+        "k": 5,
+        "all": [
+          {
+            "field": "genres",
+            "operator": "includes",
+            "value": "sci-fi"
+          },
+          {
+            "field": "genres",
+            "operator": "excludes",
+            "value": "comedy"
+          }
+        ]
+      }
+    },
+    "lifecycle-finished-catalogue": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "catalogue-lifecycle",
+          "required": {
+            "completionStatus": [
+              "finished"
+            ]
+          },
+          "scope": "public-catalogue"
+        }
+      },
+      "queryShapeV1": {
+        "support": "current-v1",
+        "queryKind": "text",
+        "structuredClauseGroup": "completion"
+      },
+      "hardConstraints": {
+        "support": "current-v1",
+        "k": 5,
+        "all": [
+          {
+            "field": "completionStatus",
+            "operator": "equals",
+            "value": "finished"
+          }
+        ]
+      }
+    },
+    "lifecycle-i-have-finished": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "personal-library-status",
+          "status": "finished",
+          "scope": "local-only",
+          "shareableUrl": false,
+          "serverRequest": false
+        }
+      },
+      "queryShapeV1": {
+        "support": "current-v1",
+        "queryKind": "text",
+        "structuredClauseGroup": "completion"
+      },
+      "routeRecognition": {
+        "support": "discovery-v2",
+        "surface": "local-library",
+        "reason": "This phrase describes the listener, not a public show lifecycle filter."
+      }
+    },
+    "sparse-similar-13-minutes": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "similarity",
+          "seedShowId": "13-minutes-or-less",
+          "evidencePolicy": "no-fabricated-precision"
+        }
+      },
+      "seedResolution": {
+        "support": "discovery-v2",
+        "showId": "13-minutes-or-less"
+      },
+      "queryShapeV1": {
+        "support": "current-v1",
+        "queryKind": "shows_like_resolved",
+        "structuredClauseGroup": "none"
+      },
+      "sparseOutcome": {
+        "support": "discovery-v2",
+        "allowed": [
+          "unresolved",
+          "limited-evidence",
+          "strict-empty",
+          "user-invoked-broadening"
+        ]
+      }
+    },
+    "sparse-exact-13-minutes": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "title-identity",
+          "showId": "13-minutes-or-less",
+          "sparseMetadataDoesNotWeakenIdentity": true
+        }
+      },
+      "identityFirst": {
+        "support": "current-v1",
+        "showId": "13-minutes-or-less"
+      },
+      "explanationEvidenceV1": {
+        "support": "current-v1",
+        "required": [
+          {
+            "kind": "title_identity"
+          }
+        ]
+      }
+    },
+    "sparse-no-match-mars-archaeology": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "unresolved-compound-request",
+          "phrase": "quantum archaeologists on Mars in 1920"
+        }
+      },
+      "unresolvedPhrases": {
+        "support": "discovery-v2",
+        "phrases": [
+          "quantum archaeologists",
+          "Mars",
+          "1920"
+        ]
+      },
+      "sparseOutcome": {
+        "support": "discovery-v2",
+        "allowed": [
+          "unresolved",
+          "limited-evidence",
+          "strict-empty",
+          "user-invoked-broadening"
+        ]
+      }
+    },
+    "sparse-no-match-experimental-lighthouse": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "unresolved-compound-request",
+          "phrase": "experimental lighthouse mystery with a silent cast"
+        }
+      },
+      "unresolvedPhrases": {
+        "support": "discovery-v2",
+        "phrases": [
+          "experimental lighthouse",
+          "silent cast"
+        ]
+      },
+      "sparseOutcome": {
+        "support": "discovery-v2",
+        "allowed": [
+          "unresolved",
+          "limited-evidence",
+          "strict-empty",
+          "user-invoked-broadening"
+        ]
+      }
+    },
+    "runtime-ambiguous-season-vs-hours": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "ambiguous-runtime",
+          "phrase": "one season long",
+          "alternatives": [
+            {
+              "kind": "catalogue-season-count"
+            },
+            {
+              "kind": "runtime-preference"
+            }
+          ],
+          "askOrPreserveText": true
+        }
+      },
+      "ambiguity": {
+        "support": "discovery-v2",
+        "acceptableInterpretations": [
+          {
+            "kind": "catalogue-season-count",
+            "unit": "season"
+          },
+          {
+            "kind": "runtime-preference",
+            "unit": "hours"
+          }
+        ],
+        "resolution": "editable-choice-or-retain-phrase"
+      },
+      "unresolvedPhrases": {
+        "support": "discovery-v2",
+        "phrases": [
+          "one season long"
+        ]
+      },
+      "queryShapeV1": {
+        "support": "current-v1",
+        "queryKind": "text",
+        "structuredClauseGroup": "multiple"
+      }
+    },
+    "identity-full-title-horror-taxonomy": {
+      "intent": {
+        "support": "discovery-v2",
+        "expected": {
+          "kind": "title-identity",
+          "showId": "the-horror-of-dolores-roach",
+          "taxonomyCollision": "horror"
+        }
+      },
+      "identityFirst": {
+        "support": "current-v1",
+        "showId": "the-horror-of-dolores-roach"
+      },
+      "explanationEvidenceV1": {
+        "support": "current-v1",
+        "required": [
+          {
+            "kind": "title_identity"
+          }
+        ]
+      }
+    }
+  },
+  "runtimeEvidence": {
+    "runtime-near-observed-ten-hours": {
+      "kind": "observed-exact",
+      "showId": "red-valley",
+      "hours": 10.9,
+      "scope": "Exact duration for the currently observed full-episode set; completion is unclear, so this is not a final whole-series runtime.",
+      "rationale": "durationCoverage is 1 for observed episodes; preserve the observed-set qualifier and the unclear completion state."
+    },
+    "runtime-derived-midnight-burger": {
+      "kind": "derived-estimate",
+      "showId": "midnight-burger",
+      "hours": 78.8,
+      "basis": "105 listed episodes multiplied by 45 average minutes, rounded to one decimal hour.",
+      "rationale": "The record also names exact total runtime from RSS as a research gap; this number is an estimate, not an exact feed sum."
+    },
+    "runtime-unknown-case-63": {
+      "kind": "unknown",
+      "showId": "case-63",
+      "rationale": "The source record explicitly says aggregate runtime is not source-verifiable; the exact episode inventory is not a runtime."
+    },
+    "runtime-ambiguous-season-vs-hours": {
+      "kind": "unsupported-ambiguity",
+      "queryPhrase": "one season long",
+      "rationale": "A season count has no stable conversion to hours; preserve the phrase or let the listener choose a count versus time interpretation."
+    }
+  },
+  "implementationReview": {
+    "version": 1,
+    "previouslyUnsupportedAssertions": 82,
+    "nowSupported": [
+      "identity-midnight-burger-exact:intent",
+      "identity-white-vault-exact:intent",
+      "identity-were-alive-straight-apostrophe:intent",
+      "identity-were-alive-curly-apostrophe:intent",
+      "identity-white-vault-no-article:intent",
+      "identity-midnight-alias-we-open-at-six:intent",
+      "identity-derelict-diacritics:intent",
+      "identity-derelict-initial-periods:intent",
+      "identity-rosanna-curly-apostrophe:intent",
+      "identity-rosanna-no-apostrophe:intent",
+      "identity-midnight-burger-case:intent",
+      "identity-midnight-burger-partial:intent",
+      "identity-magnus-archives-partial:intent",
+      "identity-the-walk-common-words:intent",
+      "identity-taxonomy-sci-fi:intent",
+      "identity-taxonomy-full-cast:intent",
+      "typo-midnight-buger:intent",
+      "typo-derelct:intent",
+      "typo-white-vaul:intent",
+      "entity-qcode-name:intent",
+      "entity-qcode-alias:intent",
+      "entity-seven-lamb-alias:intent",
+      "entity-bloody-fm-network:intent",
+      "entity-rusty-quill-company:intent",
+      "entity-people-behind-white-vault:intent",
+      "entity-people-behind-white-vault:entityResolution",
+      "entity-who-created-midnight-burger:intent",
+      "entity-who-created-midnight-burger:entityResolution",
+      "collection-best-for-long-walks:intent",
+      "collection-late-night-tension:intent",
+      "collection-shows-like-white-vault:intent",
+      "collection-completed-sci-fi:intent",
+      "collection-long-walk-intent:intent",
+      "facet-finished-sci-fi:intent",
+      "facet-full-cast-mystery:intent",
+      "facet-ongoing-comedy:intent",
+      "facet-cold-isolation-horror:intent",
+      "facet-finished-mystery:intent",
+      "context-long-walk-home:intent",
+      "context-late-night-horror:intent",
+      "context-funny-space-disasters:intent",
+      "runtime-short-finished:intent",
+      "runtime-finished-cinematic-scifi-ten-hours:intent",
+      "runtime-finished-cinematic-scifi-ten-hours:acceptableTopK",
+      "runtime-finished-cinematic-scifi-ten-hours:sparseOutcome",
+      "runtime-near-observed-ten-hours:intent",
+      "runtime-near-observed-ten-hours:acceptableTopK",
+      "runtime-derived-midnight-burger:intent",
+      "runtime-derived-midnight-burger:acceptableTopK",
+      "similarity-white-vault-sci-fi:intent",
+      "similarity-white-vault-sci-fi:seedResolution",
+      "similarity-midnight-less-chaotic:seedResolution",
+      "similarity-midnight-darker:seedResolution",
+      "exclusion-scifi-not-comedy:intent",
+      "exclusion-scifi-not-comedy:prohibitedTopK",
+      "exclusion-scifi-not-comedy:hardConstraints",
+      "lifecycle-finished-catalogue:intent",
+      "lifecycle-i-have-finished:intent",
+      "lifecycle-i-have-finished:routeRecognition",
+      "sparse-similar-13-minutes:intent",
+      "sparse-similar-13-minutes:seedResolution",
+      "sparse-similar-13-minutes:sparseOutcome",
+      "sparse-exact-13-minutes:intent",
+      "identity-full-title-horror-taxonomy:intent"
+    ],
+    "intentionallyUnresolvedOrAmbiguous": [
+      "identity-taxonomy-horror:intent",
+      "identity-taxonomy-horror:ambiguity",
+      "similarity-midnight-less-chaotic:intent",
+      "similarity-midnight-less-chaotic:unresolvedPhrases",
+      "similarity-midnight-darker:intent",
+      "similarity-midnight-darker:unresolvedPhrases",
+      "sparse-no-match-mars-archaeology:intent",
+      "sparse-no-match-mars-archaeology:unresolvedPhrases",
+      "sparse-no-match-mars-archaeology:sparseOutcome",
+      "sparse-no-match-experimental-lighthouse:intent",
+      "sparse-no-match-experimental-lighthouse:unresolvedPhrases",
+      "sparse-no-match-experimental-lighthouse:sparseOutcome",
+      "runtime-ambiguous-season-vs-hours:intent",
+      "runtime-ambiguous-season-vs-hours:ambiguity",
+      "runtime-ambiguous-season-vs-hours:unresolvedPhrases"
+    ],
+    "deferredForCatalogueEvidence": [
+      "runtime-unknown-case-63:intent",
+      "runtime-unknown-case-63:unresolvedPhrases",
+      "runtime-unknown-case-63:sparseOutcome"
+    ],
+    "additionalRegressionAssertions": [
+      "similarity-white-vault-sci-fi:hardConstraints",
+      "similarity-white-vault-sci-fi:prohibitedTopK"
+    ],
+    "notes": {
+      "intentionallyUnresolvedOrAmbiguous": "The engine keeps these comparisons, title collisions, and catalogue-unsupported compounds explicit for later UI choice or honest empty-state handling.",
+      "deferredForCatalogueEvidence": "Case 63 aggregate runtime remains unknown until the catalogue has source-backed total-duration evidence. The engine currently returns an explicit unknown and does not invent a value.",
+      "additionalRegressionAssertions": "These two hard-constraint checks were promoted from current-v1 after the known v1 White Vault modifier defect; the frozen v1 observations remain unchanged."
+    }
+  }
+}

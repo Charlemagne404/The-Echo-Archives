@@ -55,7 +55,12 @@ for (const width of [1440, 1024, 768, 390, 320]) {
       assert.equal(await page.locator(".entity-seo-intro").count(), 0);
       assert.equal(await page.locator(".entity-faq details").count(), 3);
       const nav = width < 960 ? ".site-mobile-primary-nav" : ".site-nav";
-      assert.deepEqual(await page.locator(`${nav} a`).allTextContents().then((labels) => labels.map((label) => label.trim()).map((label) => label.replace(/All shows.*|Shows grouped.*|People and studios.*|What the archive.*|Add shows.*|Verification and standards.*/s, ""))), width < 960 ? ["Browse", "Collections", "Creators", "Submit"] : ["Browse", "Collections", "Creators", "About", "Submit", "For creators"]);
+      assert.deepEqual(
+        await page.locator(`${nav} a`).evaluateAll((links) => links.map((link) => new URL(link.href).pathname)),
+        width < 960
+          ? ["/", "/library", "/collections", "/creators", "/submit"]
+          : ["/", "/library", "/collections", "/creators", "/about", "/submit", "/for-creators"],
+      );
       assert.ok(await page.locator(`${nav} a[href="/submit"]`).isVisible());
       assert.ok(await page.locator(`${nav} a[href="/creators"][aria-current="page"]`).isVisible());
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1));

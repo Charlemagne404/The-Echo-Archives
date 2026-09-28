@@ -1,0 +1,216 @@
+.library-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 14px;
+}
+
+.library-section-heading p:not(.library-section-kicker) {
+  max-width: 610px;
+  margin: 0;
+  color: rgba(240, 238, 233, 0.63);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.library-transfer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.library-transfer-card {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.library-transfer-card h3 {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.library-transfer-card > p,
+.library-recovery-details > p {
+  color: rgba(240, 238, 233, 0.64);
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
+.library-transfer-card button {
+  margin-top: 7px;
+}
+
+.library-file-label {
+  display: block;
+  margin: 12px 0 6px;
+}
+
+.library-page-shell input[type="file"] {
+  height: auto;
+  padding: 7px;
+  color: rgba(240, 238, 233, 0.68);
+}
+
+.library-page-shell input[type="file"]::file-selector-button {
+  min-height: 32px;
+  margin-right: 8px;
+  padding: 6px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 7px;
+  background: #171c24;
+  color: #f0eee9;
+  cursor: pointer;
+}
+
+.library-import-mode {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 13px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.library-import-mode legend {
+  margin-bottom: 7px;
+  color: rgba(240, 238, 233, 0.75);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.library-import-mode label,
+.library-replace-acknowledgement {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: rgba(240, 238, 233, 0.82);
+  font-size: 0.76rem;
+}
+
+.library-import-mode input,
+.library-replace-acknowledgement input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #f18a69;
+}
+
+.library-import-rule {
+  padding: 9px 10px;
+  border-left: 2px solid rgba(241, 138, 105, 0.45);
+  background: rgba(157, 57, 39, 0.07);
+}
+
+.library-import-preview {
+  margin-top: 14px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 11px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.library-import-preview h4 {
+  margin: 0 0 8px;
+  font-size: 0.88rem;
+}
+
+.library-preview-list {
+  padding: 8px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.library-preview-list h5 {
+  margin: 0 0 5px;
+  color: rgba(240, 238, 233, 0.8);
+  font-size: 0.72rem;
+}
+
+.library-status-count-list,
+.library-preview-list ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 13px;
+  margin: 5px 0;
+  padding-left: 19px;
+  color: rgba(240, 238, 233, 0.67);
+  font-size: 0.7rem;
+  overflow-wrap: anywhere;
+}
+
+.library-preview-validity {
+  color: #caddbe;
+  font-size: 0.74rem;
+}
+
+.library-preview-note {
+  color: #e1d0a9;
+  font-size: 0.72rem;
+}
+
+.library-import-preview > button + button {
+  margin-left: 5px;
+}
+
+.library-recovery-details {
+  margin-top: 12px;
+  padding: 14px 17px;
+}
+
+.library-recovery-details summary {
+  width: fit-content;
+  color: rgba(240, 238, 233, 0.8);
+  cursor: pointer;
+  font-size: 0.79rem;
+  font-weight: 700;
+}
+
+.library-recovery-details button {
+  white-space: normal;
+}
+
+.library-confirm-dialog {
+  width: min(520px, calc(100% - 32px));
+  max-width: 520px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  background: #0c1016;
+  color: #f0eee9;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.72);
+}
+
+.library-confirm-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.library-confirm-content {
+  padding: clamp(20px, 5vw, 30px);
+}
+
+.library-confirm-content h2 {
+  margin: 0 0 8px;
+  font-size: 1.3rem;
+}
+
+.library-confirm-content > p:not(.library-section-kicker) {
+  color: rgba(240, 238, 233, 0.72);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.library-dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.library-dialog-actions .library-secondary-button {
+  background: rgba(255, 255, 255, 0.035);
+  color: #f0eee9;
+}

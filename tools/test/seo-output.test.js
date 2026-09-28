@@ -5,6 +5,7 @@ const test = require("node:test");
 
 const {
   createPrecacheUrlSet,
+  renderServiceWorker,
   resolveManifestCanonicalUrls,
   resolveSiteUrl,
   serializeStructuredData,
@@ -73,6 +74,54 @@ test("service-worker install list stays within the offline-shell budget", () => 
   assert.ok(urls.some((url) => url.startsWith("/info.css?v=")));
   assert.equal(urls.some((url) => url.includes("/data/")), false);
   assert.equal(urls.some((url) => url.includes("/pages/") || url.includes("maintainer") || url.includes("chat")), false);
+});
+
+test("Library route is a noindex static shell and its modules and stylesheet invalidate the worker cache", () => {
+  const manifest = JSON.parse(read("site-src/page-manifest.json"));
+  const entry = manifest.find((candidate) => candidate.canonicalUrl === "/library");
+  assert.ok(entry);
+  assert.equal(entry.output, "library.html");
+  assert.equal(entry.noIndex, true);
+  assert.equal(entry.includeAnalytics, false);
+
+  const shell = read("library/index.html");
+  assert.match(shell, /<meta name="robots" content="noindex, nofollow, noarchive"/);
+  assert.match(shell, /data-analytics-enabled="false"/);
+  assert.match(shell, /<noscript>[\s\S]*JavaScript and browser storage are required/);
+  assert.doesNotMatch(shell, /personalDiscoveryEnabled|titleSnapshot|createdAt|updatedAt/);
+  assert.doesNotMatch(read("sitemap.xml"), /\/library(?:<|\/)/);
+
+  const style = read("library.css");
+  assert.match(shell, /library\.css\?v=[a-f0-9]+/);
+  assert.match(style, /max-width: 640px/);
+  assert.match(read("style.css"), /prefers-reduced-motion/);
+
+  const versions = {
+    script: "script",
+    library: "library-platform",
+    libraryIntegration: "library-ui",
+    app: "app",
+    scrollRestorationBoot: "boot",
+    style: "style",
+    archiveRecord: "record",
+    archiveSearch: "search",
+    archiveSimilarity: "similarity",
+    archiveEntities: "entities",
+    icons: ["icons"],
+    shows: "shows",
+    collections: "collections",
+    searchIndex: "index",
+    extra: new Map([["public-heroes.css", "heroes"], ["info.css", "info"], ["library.css", "library-styles"]]),
+  };
+  const firstWorker = renderServiceWorker({ versions, manifest: [] });
+  const updatedWorker = renderServiceWorker({ versions: { ...versions, library: "changed-library-platform" }, manifest: [] });
+  const updatedLibraryStyles = new Map(versions.extra);
+  updatedLibraryStyles.set("library.css", "changed-library-styles");
+  const updatedLibraryStylesWorker = renderServiceWorker({ versions: { ...versions, extra: updatedLibraryStyles }, manifest: [] });
+  assert.notEqual(firstWorker.match(/const CACHE_VERSION = "([^"]+)"/)[1], updatedWorker.match(/const CACHE_VERSION = "([^"]+)"/)[1]);
+  assert.notEqual(firstWorker.match(/const CACHE_VERSION = "([^"]+)"/)[1], updatedLibraryStylesWorker.match(/const CACHE_VERSION = "([^"]+)"/)[1]);
+  assert.match(read("sw.js"), /const CACHE_VERSION = "[a-f0-9]+"/);
+  assert.doesNotMatch(read("sw.js"), /\/shared\/library\//, "local IndexedDB content and Library modules are not precached");
 });
 
 test("generated public metadata and discovery documents use one configured origin", async () => {

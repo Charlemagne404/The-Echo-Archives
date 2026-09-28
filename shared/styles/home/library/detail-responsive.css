@@ -1,0 +1,225 @@
+.library-detail-control {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) minmax(170px, 230px) minmax(170px, 230px) auto;
+  align-items: end;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 13px;
+  background: rgba(7, 10, 15, 0.64);
+}
+
+.library-detail-heading {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #ead8cf;
+  font-size: 0.86rem;
+}
+
+.library-detail-field {
+  display: grid;
+  gap: 5px;
+  color: rgba(240, 238, 233, 0.75);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.library-detail-field select {
+  min-height: 42px;
+}
+
+.library-detail-rating-note,
+.library-hidden-meaning {
+  grid-column: 1 / -1;
+  margin: -3px 0 0;
+  color: rgba(196, 213, 180, 0.73);
+  font-size: 0.69rem;
+  line-height: 1.45;
+}
+
+.library-hidden-meaning {
+  color: rgba(240, 238, 233, 0.62);
+}
+
+.library-detail-remove {
+  align-self: end;
+}
+
+.library-global-status {
+  position: absolute;
+}
+
+@media (max-width: 900px) {
+  .library-entry-card,
+  .library-entry-card.is-unresolved {
+    grid-template-columns: 62px minmax(0, 1fr) minmax(140px, 190px);
+  }
+
+  .library-entry-cover {
+    width: 62px;
+    height: 62px;
+    grid-row: span 2;
+  }
+
+  .library-entry-copy {
+    grid-column: 2 / -1;
+  }
+
+  .library-entry-card .library-entry-field:first-of-type {
+    grid-column: 2;
+  }
+
+  .library-entry-card .library-private-rating-field {
+    grid-column: 3;
+  }
+
+  .library-private-rating-note {
+    grid-column: 3;
+    margin-top: -7px;
+  }
+
+  .library-entry-remove {
+    grid-column: 2 / -1;
+    justify-self: start;
+  }
+
+  .library-detail-control {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .library-page-shell {
+    width: min(100% - 24px, 560px);
+    margin-top: 20px;
+  }
+
+  .library-page-heading {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+
+  .library-page-intro {
+    margin-inline: 0;
+  }
+
+  .library-local-note {
+    align-items: flex-start;
+    border-radius: 11px;
+  }
+
+  .library-personal-setting {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 11px;
+    padding: 16px;
+  }
+
+  .library-switch-label {
+    min-width: 58px;
+  }
+
+  .library-toolbar {
+    grid-template-columns: minmax(0, 1fr) minmax(130px, 0.72fr);
+    gap: 7px 10px;
+    padding: 12px;
+  }
+
+  .library-search-label,
+  #librarySearch {
+    grid-column: 1 / -1;
+  }
+
+  .library-search-label,
+  #librarySearch {
+    grid-row: auto;
+  }
+
+  .library-sort-label,
+  #librarySort {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .library-state-filters {
+    margin-inline: -1px;
+  }
+
+  .library-entry-card,
+  .library-entry-card.is-unresolved {
+    grid-template-columns: 58px minmax(0, 1fr);
+    align-items: start;
+    gap: 9px 10px;
+    padding: 10px;
+  }
+
+  .library-entry-cover {
+    width: 58px;
+    height: 58px;
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .library-entry-copy {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+  }
+
+  .library-entry-card .library-entry-field:first-of-type {
+    grid-column: 1 / -1;
+  }
+
+  .library-entry-card .library-private-rating-field {
+    grid-column: 1 / -1;
+  }
+
+  .library-private-rating-note {
+    grid-column: 1 / -1;
+    margin-top: -6px;
+  }
+
+  .library-entry-remove {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+  }
+
+  .library-transfer-section {
+    padding: 15px;
+  }
+
+  .library-section-heading {
+    display: block;
+  }
+
+  .library-section-heading p:not(.library-section-kicker) {
+    margin-top: 9px;
+  }
+
+  .library-transfer-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .library-transfer-card {
+    padding: 13px;
+  }
+
+  .library-import-preview > button + button {
+    margin: 7px 0 0;
+  }
+
+  .library-detail-control {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .library-detail-heading,
+  .library-detail-rating-note,
+  .library-hidden-meaning {
+    grid-column: 1;
+  }
+
+  .library-dialog-actions > button {
+    flex: 1 1 150px;
+    white-space: normal;
+  }
+}

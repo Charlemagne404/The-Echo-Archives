@@ -4708,6 +4708,212 @@ img.is-image-fallback {
   }
 }
 
+/* Source: shared/styles/home/cards/21-library.css */
+.podcast-card-shell.library-card-host,
+.popular-card-shell.library-card-host {
+  position: relative;
+}
+
+.popular-card-shell {
+  min-width: 0;
+  height: 100%;
+}
+
+.home-page .popular-card-shell > .popular-card {
+  height: 100%;
+}
+
+.library-card-host:has(> .library-card-control[open]) {
+  z-index: 70;
+}
+
+.library-card-control {
+  position: absolute;
+  z-index: 12;
+  top: 8px;
+  right: 8px;
+  max-width: min(228px, calc(100vw - 24px));
+  color: var(--text-primary, #f0eee9);
+  font: inherit;
+}
+
+.library-card-control > summary {
+  display: flex;
+  min-height: 36px;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 222, 208, 0.26);
+  border-radius: 999px;
+  background: rgba(7, 9, 13, 0.94);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.42);
+  color: #f4e5dc;
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.15;
+  list-style: none;
+  text-align: center;
+  touch-action: manipulation;
+}
+
+.library-card-control > summary::-webkit-details-marker {
+  display: none;
+}
+
+.library-card-control > summary::marker {
+  content: "";
+}
+
+.library-card-control > summary:hover {
+  border-color: rgba(255, 172, 145, 0.56);
+  background: #171116;
+}
+
+.library-card-control > summary:focus-visible,
+.library-card-panel button:focus-visible,
+.library-detail-control :focus-visible {
+  outline: 2px solid #ffc6ae;
+  outline-offset: 3px;
+}
+
+.library-card-control[data-library-hidden="true"] > summary {
+  border-color: rgba(189, 202, 166, 0.5);
+  color: #dbe5cc;
+}
+
+.library-card-control[open] > summary {
+  border-color: rgba(255, 172, 145, 0.68);
+}
+
+.library-card-panel {
+  position: absolute;
+  top: calc(100% + 7px);
+  right: 0;
+  display: grid;
+  width: max-content;
+  max-width: min(228px, calc(100vw - 24px));
+  gap: 8px;
+  padding: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  background: #0b0e13;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.62);
+}
+
+.library-card-panel-heading {
+  margin: 0;
+  color: rgba(240, 238, 233, 0.7);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.library-card-state-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.library-card-panel button {
+  min-height: 38px;
+  padding: 7px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #f0eee9;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  text-align: left;
+  touch-action: manipulation;
+}
+
+.library-card-panel button[aria-pressed="true"] {
+  border-color: rgba(255, 153, 121, 0.66);
+  background: rgba(157, 57, 39, 0.26);
+  color: #ffd4c3;
+}
+
+.library-card-panel button:hover:not(:disabled) {
+  border-color: rgba(255, 183, 154, 0.56);
+}
+
+.library-card-panel button:disabled {
+  cursor: not-allowed;
+  opacity: 0.56;
+}
+
+.library-card-panel .library-card-remove {
+  grid-column: 1 / -1;
+  color: #f5c1b8;
+}
+
+.library-card-remove[hidden] {
+  display: none !important;
+}
+
+.library-control-status {
+  min-height: 0;
+  color: #d7e5c7;
+  font-size: 0.68rem;
+  line-height: 1.35;
+}
+
+.library-control-status:empty {
+  display: none;
+}
+
+.library-control-status[data-tone="error"] {
+  color: #ffc0b6;
+}
+
+.library-card-control.is-relationship-control {
+  position: relative;
+  inset: auto;
+  z-index: 1;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 10px;
+}
+
+.library-card-control.is-relationship-control[open] {
+  z-index: 30;
+}
+
+.library-card-control.is-relationship-control .library-card-panel {
+  right: auto;
+  left: 0;
+}
+
+@media (max-width: 560px) {
+  .library-card-control {
+    top: 6px;
+    right: 6px;
+  }
+
+  .library-card-control > summary {
+    min-height: 40px;
+    padding-inline: 9px;
+  }
+
+  .library-card-panel {
+    width: min(220px, calc(100vw - 20px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .library-card-control,
+  .library-card-panel,
+  .library-card-panel button {
+    scroll-behavior: auto;
+    transition: none !important;
+  }
+}
+
 /* Source: shared/styles/base/responsive-robustness.css */
 /*
  * Shared responsive resilience contract.

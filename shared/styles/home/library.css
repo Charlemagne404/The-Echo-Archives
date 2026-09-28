@@ -1,0 +1,292 @@
+.library-page .library-main {
+  width: 100%;
+}
+
+.library-page-shell {
+  width: min(1240px, calc(100% - 40px));
+  margin: 30px auto 76px;
+}
+
+.library-page-heading {
+  max-width: 850px;
+  margin: 0 auto 26px;
+  text-align: center;
+}
+
+.library-kicker,
+.library-section-kicker {
+  margin: 0 0 8px;
+  color: #f18a69;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.library-page-heading h1 {
+  margin: 0;
+  color: var(--text-primary, #f0eee9);
+  font-size: clamp(2.1rem, 5vw, 3.55rem);
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+}
+
+.library-page-intro {
+  max-width: 690px;
+  margin: 15px auto 0;
+  color: rgba(240, 238, 233, 0.82);
+  font-size: clamp(0.98rem, 2vw, 1.12rem);
+  line-height: 1.65;
+}
+
+.library-local-note {
+  display: inline-flex;
+  margin: 16px auto 0;
+  padding: 7px 11px;
+  border: 1px solid rgba(159, 192, 143, 0.25);
+  border-radius: 999px;
+  background: rgba(85, 119, 71, 0.1);
+  color: #d2dfc6;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.library-noscript-note,
+.listener-library-app {
+  width: min(100%, 1100px);
+  margin-inline: auto;
+}
+
+.library-noscript-note {
+  padding: clamp(20px, 4vw, 34px);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(20, 25, 33, 0.96), rgba(9, 12, 17, 0.98));
+}
+
+.library-noscript-note h2,
+.library-empty-state h2 {
+  margin: 0 0 10px;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+}
+
+.library-noscript-note p,
+.library-empty-state p {
+  max-width: 700px;
+  color: rgba(240, 238, 233, 0.72);
+  line-height: 1.6;
+}
+
+.listener-library-app[hidden],
+.library-page-shell [hidden] {
+  display: none !important;
+}
+
+.library-live-status,
+.library-inline-status,
+.library-entry-summary {
+  min-height: 1.3em;
+  margin: 8px 0;
+  color: rgba(230, 235, 224, 0.76);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.library-live-status[data-tone="error"],
+.library-inline-status[data-tone="error"] {
+  color: #ffc0b6;
+}
+
+.library-personal-setting,
+.library-transfer-section,
+.library-toolbar,
+.library-state-filters,
+.library-empty-state,
+.library-recovery-details {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 17px;
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.026), transparent 42%),
+    rgba(10, 13, 18, 0.86);
+}
+
+.library-personal-setting {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 22px;
+  padding: 21px 24px;
+  border-color: rgba(160, 190, 143, 0.19);
+}
+
+.library-personal-setting h2,
+.library-section-heading h2,
+.library-transfer-section h2 {
+  margin: 0;
+  color: var(--text-primary, #f0eee9);
+  font-size: clamp(1.14rem, 2.6vw, 1.42rem);
+  letter-spacing: -0.02em;
+}
+
+.library-personal-setting p:not(.library-section-kicker) {
+  max-width: 780px;
+  margin: 9px 0 0;
+  color: rgba(240, 238, 233, 0.7);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.library-switch-label {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  min-width: 76px;
+  color: #dde8d5;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.library-switch-label input {
+  width: 46px;
+  height: 26px;
+  margin: 0;
+  accent-color: #95b57f;
+  cursor: pointer;
+}
+
+.library-switch-label input:focus-visible,
+.library-page-shell input:focus-visible,
+.library-page-shell select:focus-visible,
+.library-page-shell button:focus-visible,
+.library-page-shell a:focus-visible,
+.library-recovery-details summary:focus-visible {
+  outline: 2px solid #ffc6ae;
+  outline-offset: 3px;
+}
+
+.library-toolbar {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto minmax(180px, 240px);
+  align-items: end;
+  gap: 10px 14px;
+  margin-top: 22px;
+  padding: 16px;
+}
+
+.library-search-label,
+.library-sort-label,
+.library-file-label {
+  color: rgba(240, 238, 233, 0.78);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.library-search-label {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+#librarySearch {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.library-sort-label {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+#librarySort {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.library-toolbar input,
+.library-toolbar select,
+.library-page-shell select,
+.library-page-shell input[type="file"] {
+  width: 100%;
+  min-width: 0;
+  min-height: 43px;
+  padding: 9px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  background: #0d1118;
+  color: #f0eee9;
+  font: inherit;
+  font-size: 0.84rem;
+}
+
+.library-page-shell select option {
+  background: #0d1118;
+  color: #f0eee9;
+}
+
+.library-state-filters {
+  display: flex;
+  gap: 7px;
+  margin-top: 12px;
+  padding: 8px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+}
+
+.library-state-filters button,
+.library-transfer-card button,
+.library-import-preview > button,
+.library-recovery-details button,
+.library-browse-link,
+.library-dialog-actions button {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 13px;
+  border: 1px solid rgba(255, 172, 145, 0.32);
+  border-radius: 10px;
+  background: rgba(157, 57, 39, 0.16);
+  color: #ffd8c9;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-decoration: none;
+  white-space: nowrap;
+  touch-action: manipulation;
+}
+
+.library-state-filters button {
+  flex: 0 0 auto;
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.025);
+  color: rgba(240, 238, 233, 0.76);
+}
+
+.library-state-filters button[aria-pressed="true"] {
+  border-color: rgba(255, 166, 136, 0.64);
+  background: rgba(140, 52, 38, 0.3);
+  color: #ffe0d4;
+}
+
+.library-transfer-card button:hover:not(:disabled),
+.library-import-preview > button:hover:not(:disabled),
+.library-recovery-details button:hover:not(:disabled),
+.library-dialog-actions button:hover:not(:disabled),
+.library-browse-link:hover {
+  border-color: rgba(255, 188, 164, 0.72);
+  background: rgba(157, 57, 39, 0.28);
+}
+
+.library-transfer-card button:disabled,
+.library-import-preview > button:disabled,
+.library-dialog-actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.library-entry-summary {
+  margin: 12px 2px;
+}

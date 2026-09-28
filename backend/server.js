@@ -81,6 +81,7 @@ const { createSearchIndexRecord, serializeRuntimeShow } = require("../tools/lib/
 const CONTACT_URL = "https://contact.continental-hub.com/";
 const PUBLIC_ROOT_ASSETS = new Set([
   "style.css",
+  "library.css",
   "public-heroes.css",
   "home.css",
   "info.css",
@@ -114,6 +115,7 @@ const PUBLIC_ROUTE_REDIRECTS = new Map([
   ["/supporters.html", "/supporters"],
   ["/help-center.html", "/help-center"],
   ["/collections.html", "/collections"],
+  ["/library.html", "/library"],
   ["/creators.html", "/creators"],
   ["/collection.html", "/collection"],
   ["/show.html", "/show"],
@@ -132,6 +134,7 @@ const PUBLIC_PAGE_FILES = new Map([
   ["/supporters", "supporters.html"],
   ["/help-center", "help-center.html"],
   ["/collections", "collections.html"],
+  ["/library", "library.html"],
   ["/creators", "creators.html"],
   ["/collection", "collection.html"],
   ["/show", "show.html"],
@@ -1173,6 +1176,9 @@ async function startServer() {
         const manifestEntry = publicPageManifestByFile.get(fileName);
         if (!manifestEntry) {
           return res.sendFile(path.join(config.STATIC_ROOT, fileName));
+        }
+        if (manifestEntry.noIndex) {
+          res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
         }
 
         const isFilteredDiscoveryPage = ["/", "/collections"].includes(routePath) && Object.keys(req.query).length > 0;

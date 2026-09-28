@@ -83,7 +83,10 @@ export function createMostPopularCard(show, discovery = {}) {
 
   body.append(statusRow, title, subtitle, metadata, copy, footer);
   card.append(media, body);
-  return card;
+  const shell = document.createElement("div");
+  shell.className = "popular-card-shell";
+  shell.append(card);
+  return shell;
 }
 
 function createMostPopularStatusChip({ label, tone = "default" }) {
