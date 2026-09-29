@@ -8,6 +8,7 @@ const { chromium, firefox, webkit } = require("playwright");
 const { loadCatalog, loadCollections, scoreCatalog } = require("../../lib/catalog");
 const { applyGeneratedCoverVariants } = require("../../lib/responsive-images");
 const { createReadOnlyBrowserContext } = require("./read-only-browser");
+const { createStaticRootAlias } = require("./static-root");
 
 const projectRoot = path.resolve(__dirname, "../..");
 const siteRoot = path.resolve(projectRoot, "..");
@@ -27,6 +28,7 @@ const smokeBrowserAvailable = fs.existsSync(smokeBrowserExecutable);
 let browser;
 let serverProcess;
 let tempDir;
+let smokeStaticRoot;
 let smokeDbPath;
 let showFixtures;
 let collectionFixtures;
@@ -429,6 +431,7 @@ async function waitForMostPopularBandIds(page, expectedIds) {
 async function setupSmoke() {
   try {
     tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-smoke-"));
+    smokeStaticRoot = createStaticRootAlias(tempDir, siteRoot);
     smokeDbPath = path.join(tempDir, "community.sqlite");
     const basePort = await findFreePort();
     baseUrl = `http://127.0.0.1:${basePort}`;
@@ -467,7 +470,7 @@ async function startSmokeServer() {
       MAINTAINER_REVIEW_PASSPHRASE: "smoke-maintainer",
       MAINTAINER_REVIEW_COOKIE_SECRET: "smoke-maintainer-secret",
       OLLAMA_URL: "http://127.0.0.1:9/api/generate",
-      STATIC_ROOT: siteRoot,
+      STATIC_ROOT: smokeStaticRoot,
     },
     stdio: ["ignore", "pipe", "pipe"],
   });
@@ -495,6 +498,8 @@ async function teardownSmoke() {
 
   if (tempDir) {
     fs.rmSync(tempDir, { recursive: true, force: true });
+    tempDir = null;
+    smokeStaticRoot = null;
   }
 }
 

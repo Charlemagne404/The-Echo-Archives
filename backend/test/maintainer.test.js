@@ -9,6 +9,7 @@ const { openDatabase } = require("../lib/store/database");
 const { createSubmissionStore } = require("../lib/store/submission-store");
 const { createSubmissionService } = require("../lib/services/submission-service");
 const { findFreePort } = require("./helpers/free-port");
+const { createStaticRootAlias } = require("./helpers/static-root");
 
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
@@ -71,6 +72,7 @@ async function waitForServer(url, timeoutMs = 20_000) {
 async function startMaintainerServer({ enabled = true, envOverrides = {} } = {}) {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-maintainer-server-"));
   const dbPath = path.join(tempDir, "community.sqlite");
+  const staticRoot = createStaticRootAlias(tempDir, siteRoot);
   const db = openDatabase(dbPath);
   const store = createSubmissionStore({ db });
   const seeded = seedSubmission(store, {
@@ -106,7 +108,7 @@ async function startMaintainerServer({ enabled = true, envOverrides = {} } = {})
       ...process.env,
       PORT: String(port),
       SERVE_STATIC: "true",
-      STATIC_ROOT: siteRoot,
+      STATIC_ROOT: staticRoot,
       DB_PATH: dbPath,
       OLLAMA_URL: "http://127.0.0.1:9/api/generate",
       MAINTAINER_REVIEW_PASSPHRASE: enabled ? "archive-test-passphrase" : "",
@@ -193,13 +195,24 @@ test("maintainer session and queue routes enforce auth and allow queue updates a
   const context = await startMaintainerServer();
 
   try {
-    const pageResponse = await fetch(`${context.baseUrl}/maintainer/submissions.html`);
-    assert.equal(pageResponse.status, 200);
-    assert.match(await pageResponse.text(), /maintainer passphrase/i);
-
-    const analyticsPageResponse = await fetch(`${context.baseUrl}/maintainer/analytics.html`);
-    assert.equal(analyticsPageResponse.status, 200);
-    assert.match(await analyticsPageResponse.text(), /archive pulse/i);
+    const maintainerPageRoutes = [
+      "/maintainer/submissions.html",
+      "/maintainer/submissions/report.html",
+      "/maintainer/imports.html",
+      "/maintainer/imports/report.html",
+      "/maintainer/collections.html",
+      "/maintainer/analytics.html",
+    ];
+    for (const route of maintainerPageRoutes) {
+      const response = await fetch(`${context.baseUrl}${route}`);
+      assert.equal(response.status, 200, `${route} is served`);
+      assert.match(response.headers.get("x-robots-tag") || "", /noindex, nofollow, noarchive/i);
+      if (route === "/maintainer/submissions.html") {
+        assert.match(await response.text(), /maintainer passphrase/i);
+      } else if (route === "/maintainer/analytics.html") {
+        assert.match(await response.text(), /archive pulse/i);
+      }
+    }
 
     const unauthorizedList = await fetch(`${context.baseUrl}/api/maintainer/submissions`);
     assert.equal(unauthorizedList.status, 401);
@@ -283,6 +296,13 @@ test("maintainer session and queue routes enforce auth and allow queue updates a
     const patchPayload = await patchResponse.json();
     assert.equal(patchPayload.submission.status, "accepted");
     assert.equal(patchPayload.submission.reviewedBy, "CA");
+
+    const invalidStatusResponse = await fetch(`${context.baseUrl}/api/maintainer/submissions/${context.seededId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", Cookie: cookie },
+      body: JSON.stringify({ status: "published", priority: "normal" }),
+    });
+    assert.equal(invalidStatusResponse.status, 400, "moderation transitions reject statuses outside the queue contract");
 
     const publishResponse = await fetch(`${context.baseUrl}/api/maintainer/submissions/${context.seededId}/listener-review/publish`, {
       method: "POST",

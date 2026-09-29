@@ -341,6 +341,12 @@ test("public computed matches require enriched factual overlap and explain thems
   assert.match(buildPublicSimilarityExplanation(match.similarity, { limit: 12 }), /Shared production company: Night Rocket Productions/);
   assert.doesNotMatch(match.explanation, /score|\/100/i);
   assert.equal(match.explanation, buildPublicSimilarityExplanation(match.similarity));
+
+  const belowFloor = {
+    ...index.getSimilarShows("left", { limit: 1 })[0],
+    similarity: { ...match.similarity, score: 0 },
+  };
+  assert.deepEqual(index.getPublicSimilarityMatches("left", { precomputedCandidates: [belowFloor] }), []);
 });
 
 test("public computed matches reject sparse and broad genre-format-runtime neighbors", () => {

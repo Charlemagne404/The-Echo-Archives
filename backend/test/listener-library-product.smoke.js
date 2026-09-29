@@ -6,6 +6,7 @@ const { spawn } = require("node:child_process");
 const { after, before, test } = require("node:test");
 const { chromium } = require("playwright");
 const { findFreePort } = require("./helpers/free-port");
+const { createStaticRootAlias } = require("./helpers/static-root");
 
 const repositoryRoot = path.resolve(__dirname, "../..");
 const backendRoot = path.join(repositoryRoot, "backend");
@@ -30,13 +31,14 @@ async function waitFor(url, timeoutMs = 20_000) {
 before(async () => {
   const port = await findFreePort();
   tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "echo-library-product-"));
+  const staticRoot = createStaticRootAlias(tempDirectory, repositoryRoot);
   serverProcess = spawn(process.execPath, ["server.js"], {
     cwd: backendRoot,
     env: {
       ...process.env,
       PORT: String(port),
       SERVE_STATIC: "true",
-      STATIC_ROOT: repositoryRoot,
+      STATIC_ROOT: staticRoot,
       DB_PATH: path.join(tempDirectory, "community.sqlite"),
       SITE_URL: `http://127.0.0.1:${port}`,
       NODE_ENV: "test",

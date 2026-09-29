@@ -9,6 +9,7 @@ const { findFreePort } = require("./helpers/free-port");
 const { openDatabase } = require("../lib/store/database");
 const { createSubmissionStore } = require("../lib/store/submission-store");
 const { createPublishedListenerReviewStore } = require("../lib/store/published-listener-review-store");
+const { createStaticRootAlias } = require("./helpers/static-root");
 
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
@@ -97,6 +98,7 @@ async function startCommunityServer({ writesEnabled = true, minimumPublicRatings
   const turnstile = await createTurnstileMock();
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-community-route-"));
   const dbPath = path.join(tempDir, "community.sqlite");
+  const staticRoot = createStaticRootAlias(tempDir, siteRoot);
   const review = seedPublishedListenerReview(dbPath);
   const port = await findFreePort();
   const baseUrl = `http://127.0.0.1:${port}`;
@@ -108,7 +110,7 @@ async function startCommunityServer({ writesEnabled = true, minimumPublicRatings
       SERVE_STATIC: "true",
       DB_PATH: dbPath,
       OLLAMA_URL: "http://127.0.0.1:9/api/generate",
-      STATIC_ROOT: siteRoot,
+      STATIC_ROOT: staticRoot,
       COMMUNITY_MIN_PUBLIC_RATINGS: String(minimumPublicRatings),
       COMMUNITY_TURNSTILE_ENABLED: "true",
       COMMUNITY_TURNSTILE_SITE_KEY: "test-site-key",

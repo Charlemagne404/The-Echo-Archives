@@ -12,6 +12,7 @@ const { buildSitemapEntries } = require("../lib/sitemap");
 const { injectRuntimeSiteConfig } = require("../lib/public-page-render");
 const { createSimilarityIndex } = require("../../shared/archive-similarity");
 const { findFreePort } = require("./helpers/free-port");
+const { createStaticRootAlias } = require("./helpers/static-root");
 const { entityPath, getEntityShows, isIndexableEntity } = require("../../shared/archive-entities");
 
 const projectRoot = path.resolve(__dirname, "..");
@@ -44,6 +45,7 @@ async function waitForServer(url, timeoutMs = 60_000) {
 async function startPublicRouteServer(envOverrides = {}) {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-public-routes-"));
   const dbPath = path.join(tempDir, "community.sqlite");
+  const staticRoot = createStaticRootAlias(tempDir, siteRoot);
   const port = await findFreePort();
   const baseUrl = `http://127.0.0.1:${port}`;
   const serverProcess = spawn(process.execPath, ["server.js"], {
@@ -52,7 +54,7 @@ async function startPublicRouteServer(envOverrides = {}) {
       ...process.env,
       PORT: String(port),
       SERVE_STATIC: "true",
-      STATIC_ROOT: siteRoot,
+      STATIC_ROOT: staticRoot,
       DB_PATH: dbPath,
       SITE_URL: baseUrl,
       NODE_ENV: "test",
