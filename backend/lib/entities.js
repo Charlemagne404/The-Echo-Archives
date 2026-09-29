@@ -21,12 +21,14 @@ function validateEntities(entities, shows = []) {
   if (!Array.isArray(entities)) throw new Error("Entity registry must contain an array.");
   const ids = new Set();
   const names = new Map();
+  const entitiesById = new Map();
   for (const entity of entities) {
     if (!entity || typeof entity !== "object" || Array.isArray(entity)) throw new Error("Malformed entity record.");
     const { id } = entity;
     if (!isText(id) || !STABLE_ID.test(id) || id.length > 80) throw new Error(`Invalid stable entity id "${id}".`);
     if (ids.has(id)) throw new Error(`Duplicate entity id "${id}".`);
     ids.add(id);
+    entitiesById.set(id, entity);
     if (!isText(entity.name) || entity.name.length > 120 || !TYPES.includes(entity.type) || !["public", "draft"].includes(entity.publication) || typeof entity.indexable !== "boolean") {
       throw new Error(`Malformed entity "${id}": name, type, publication and indexable are required.`);
     }
@@ -67,7 +69,7 @@ function validateEntities(entities, shows = []) {
       if (typeof link.role !== "string" || !ROLES.includes(link.role)) {
         throw new Error(`Show "${show.id}" has invalid entity relationship role "${link.role}".`);
       }
-      const entity = entities.find((entry) => entry.id === link.entityId);
+      const entity = entitiesById.get(link.entityId);
       if (show.status === "published" && entity.publication !== "public") {
         throw new Error(`Published show "${show.id}" cannot reference draft entity "${entity.id}".`);
       }

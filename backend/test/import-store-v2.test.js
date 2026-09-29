@@ -99,6 +99,58 @@ test("cache payloads round-trip compressed and reviewer evidence selections lock
   }
 });
 
+test("an unknown evidence selection preserves the existing selected evidence", () => {
+  const value = context();
+  try {
+    const candidate = value.store.createCandidate({ title: "Evidence Show" });
+    value.store.appendFieldEvidence(candidate.id, [
+      { fieldName: "title", value: "Evidence Show", sourceType: "rss" },
+      { fieldName: "title", value: "Evidence Programme", sourceType: "website" },
+    ]);
+    const before = value.store.getCandidate(candidate.id).fieldEvidence;
+    value.store.selectEvidence(candidate.id, "title", before[0].id, "CA");
+
+    assert.equal(value.store.selectEvidence(candidate.id, "title", "missing-evidence", "CA"), null);
+
+    const after = value.store.getCandidate(candidate.id).fieldEvidence;
+    assert.equal(after.find((item) => item.id === before[0].id).selected, true);
+    assert.equal(after.find((item) => item.id === before[1].id).selected, false);
+  } finally {
+    cleanup(value);
+  }
+});
+
+test("review evidence selection rolls back when event persistence fails", () => {
+  const value = context();
+  try {
+    const candidate = value.store.createCandidate({ title: "Evidence Show" });
+    value.store.appendFieldEvidence(candidate.id, [
+      { fieldName: "title", value: "Evidence Show", sourceType: "rss" },
+      { fieldName: "title", value: "Evidence Programme", sourceType: "website" },
+    ]);
+    const evidence = value.store.getCandidate(candidate.id).fieldEvidence;
+    value.db.exec(`
+      CREATE TRIGGER reject_evidence_event
+      BEFORE INSERT ON catalog_import_events
+      WHEN NEW.event_type = 'field-evidence-selected'
+      BEGIN
+        SELECT RAISE(ABORT, 'injected event write failure');
+      END;
+    `);
+
+    assert.throws(
+      () => value.store.selectEvidence(candidate.id, "title", evidence[0].id, "CA"),
+      /injected event write failure/,
+    );
+    const after = value.store.getCandidate(candidate.id);
+    assert.equal(after.fieldEvidence.every((item) => item.selected === false), true);
+    assert.equal(after.lockedFields.includes("title"), false);
+    assert.equal(value.db.prepare("SELECT COUNT(*) AS count FROM catalog_import_events WHERE candidate_id = ?").get(candidate.id).count, 0);
+  } finally {
+    cleanup(value);
+  }
+});
+
 test("FTS queue search finds candidates without scanning objective JSON", () => {
   const value = context();
   try {
@@ -106,6 +158,25 @@ test("FTS queue search finds candidates without scanning objective JSON", () => 
     const result = value.store.listCandidates({ q: "Archive Signal 73", includeClosed: true, pageSize: 20 });
     assert.equal(result.total, 1);
     assert.equal(result.items[0].title, "Archive Signal 73");
+  } finally {
+    cleanup(value);
+  }
+});
+
+test("truncated persisted candidate JSON fails closed without overwriting its raw evidence", () => {
+  const value = context();
+  try {
+    const candidate = value.store.createCandidate({ title: "Corrupted Evidence Show" });
+    const truncated = '{"officialSource":"https://example.com/source"';
+    value.db.prepare("UPDATE catalog_import_candidates SET objective_json = ? WHERE id = ?").run(truncated, candidate.id);
+
+    assert.throws(() => value.store.getCandidate(candidate.id), /stored.*json|malformed.*json/i);
+    assert.throws(() => value.store.updateCandidate(candidate.id, { status: "needs-review" }), /stored.*json|malformed.*json/i);
+    assert.equal(
+      value.db.prepare("SELECT objective_json FROM catalog_import_candidates WHERE id = ?").get(candidate.id).objective_json,
+      truncated,
+      "a failed read or update must leave the only recoverable source bytes untouched",
+    );
   } finally {
     cleanup(value);
   }

@@ -188,8 +188,11 @@ export function initializeMobileNav() {
     const [firstFocusable] = getFocusables();
     firstFocusable?.focus();
     window.requestAnimationFrame(() => {
-      const [currentFirstFocusable] = getFocusables();
-      currentFirstFocusable?.focus();
+      window.requestAnimationFrame(() => {
+        if (!isOpen) return;
+        const [currentFirstFocusable] = getFocusables();
+        currentFirstFocusable?.focus({ preventScroll: true });
+      });
     });
   };
 

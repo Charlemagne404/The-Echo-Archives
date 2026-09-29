@@ -142,6 +142,17 @@
   cursor: pointer;
 }
 
+.submit-lookup-retry:hover,
+.submit-lookup-retry:focus-visible {
+  border-color: rgba(255, 197, 191, 0.78);
+  background: rgba(229, 72, 56, 0.18);
+}
+
+.submit-lookup-retry:focus-visible {
+  outline: 2px solid #ffc5bf;
+  outline-offset: 2px;
+}
+
 .submit-search-result-topline {
   display: flex;
   align-items: center;

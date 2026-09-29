@@ -167,6 +167,8 @@ test("homepage and collection prerendering only reads catalogue files", () => {
     assert.match(homeMarkup, /data-home-prerendered="true"/);
     assert.match(homeMarkup, /Demo Show/);
     assert.match(collectionsMarkup, /data-collections-prerendered="true"/);
+    assert.match(collectionsMarkup, /id="collectionsDirectorySummary" role="status" aria-atomic="true">1 audio drama and fiction podcast collections\./);
+    assert.match(collectionsMarkup, /id="collectionsDirectory" class="collections-directory-grid" data-collections-prerendered="true">/);
     assert.match(collectionsMarkup, /Demo Route/);
     assert.equal(fetchCalls, 0);
     assert.deepEqual(snapshotTree(tempRoot), before);

@@ -12,6 +12,7 @@ const {
   getOverlayMetrics,
   getPreviewOverlapPoint,
   getSmokeContext,
+  gotoSmokePage,
   homeMostPopularIds,
   legacyRedirectManifest,
   scoreCatalog,
@@ -140,7 +141,7 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
   const expectedSimilarTitle = scoreCatalog(showFixtures, "like Midnight Burger")[0]?.title || "";
 
   try {
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
     assert.equal(await page.locator("#activeBrowseState").isVisible(), false);
     const defaultGridState = await getArchiveGridMotionState(page);
     const defaultVisibleIds = defaultGridState.visibleIds;
@@ -480,7 +481,7 @@ test("homepage mobile filter uses a non-scrolling launcher sheet with drill-in d
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
 
   try {
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
 
     await ensureFilterMenuOpen(page);
     const launcherState = await page.evaluate(() => {
@@ -536,7 +537,7 @@ test("homepage rapid filter toggles fall back to a stable grid when animations o
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
 
   try {
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
     await waitForHydratedHomeLayout(page);
 
     const readStableGridState = () =>
@@ -610,7 +611,7 @@ test("homepage filter reversals during in-flight grid motion recover to the base
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
 
   try {
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
     await waitForHydratedHomeLayout(page);
 
     const readStableGridState = () =>
@@ -705,7 +706,7 @@ test("homepage most popular band renders a valid 4-card band and hides outside t
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
 
   try {
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
     await page.locator("#popularGrid .popular-card").first().waitFor();
 
     const defaultState = await getMostPopularBandState(page);
@@ -758,7 +759,7 @@ test("homepage most popular band renders a valid 4-card band and hides outside t
     await page.getByRole("button", { name: "Default order" }).click();
     await page.waitForFunction(() => document.getElementById("mostPopular")?.hidden === false);
 
-    await page.goto(`${baseUrl}/?collection=${firstCollectionId}#archive`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/?collection=${firstCollectionId}#archive`, { waitUntil: "networkidle" });
     await page.waitForFunction(() => document.getElementById("mostPopular")?.hidden === true);
   } finally {
     await page.close();
@@ -777,7 +778,7 @@ test("homepage most popular band keeps the hardcoded fallback when community sum
       });
     });
 
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
     await waitForMostPopularBandIds(page, homeMostPopularIds);
 
     const fallbackState = await getMostPopularBandState(page);
@@ -809,7 +810,7 @@ test("homepage most popular band reorders by community rating volume and average
       });
     });
 
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
     await waitForMostPopularBandIds(page, expectedIds);
 
     const rankedState = await getMostPopularBandState(page);
@@ -837,7 +838,7 @@ test("homepage labels ranked shows with unranked fallback cards as archive picks
       });
     });
 
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
     await waitForMostPopularBandIds(page, expectedIds);
 
     const mixedState = await getMostPopularBandState(page);
@@ -895,7 +896,7 @@ test("homepage most popular band fills remaining slots from popularity metadata 
       });
     });
 
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
     await waitForMostPopularBandIds(page, expectedIds);
 
     const rankedState = await getMostPopularBandState(page);
@@ -910,7 +911,7 @@ test("homepage most popular band uses 4-up on desktop and 2-up at narrower width
   const desktopPage = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
 
   try {
-    await desktopPage.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(desktopPage, `${baseUrl}/`, { waitUntil: "networkidle" });
     await desktopPage.locator("#popularGrid .popular-card").first().waitFor();
 
     const desktopLayout = await desktopPage.evaluate(() =>
@@ -931,7 +932,7 @@ test("homepage most popular band uses 4-up on desktop and 2-up at narrower width
   const tabletPage = await browser.newPage({ viewport: { width: 980, height: 1400 } });
 
   try {
-    await tabletPage.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(tabletPage, `${baseUrl}/`, { waitUntil: "networkidle" });
     await tabletPage.locator("#popularGrid .popular-card").first().waitFor();
 
     const tabletLayout = await tabletPage.evaluate(() =>
@@ -951,7 +952,7 @@ test("homepage most popular band uses 4-up on desktop and 2-up at narrower width
   const mobilePage = await browser.newPage({ viewport: { width: 390, height: 1400 } });
 
   try {
-    await mobilePage.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(mobilePage, `${baseUrl}/`, { waitUntil: "networkidle" });
     await mobilePage.locator("#popularGrid .popular-card").first().waitFor();
 
     const mobileLayout = await mobilePage.evaluate(() =>

@@ -12,6 +12,35 @@ const {
 } = require("../../shared/archive-record");
 
 const similarityIndexCache = new WeakMap();
+const showRecordsByMap = new WeakMap();
+const collectionMembershipsByCollectionList = new WeakMap();
+
+function getShowRecords(showMap) {
+  if (!showMap || typeof showMap !== "object") return [];
+  const cached = showRecordsByMap.get(showMap);
+  if (cached) return cached;
+  const records = [...showMap.values()];
+  showRecordsByMap.set(showMap, records);
+  return records;
+}
+
+function getCollectionMembershipIndex(collections = []) {
+  const records = Array.isArray(collections) ? collections : [];
+  const cached = collectionMembershipsByCollectionList.get(records);
+  if (cached) return cached;
+
+  const membershipsByShowId = new Map();
+  records.forEach((collection) => {
+    if (!Array.isArray(collection.showIds)) return;
+    collection.showIds.forEach((showId) => {
+      const memberships = membershipsByShowId.get(showId) || [];
+      memberships.push(collection);
+      membershipsByShowId.set(showId, memberships);
+    });
+  });
+  collectionMembershipsByCollectionList.set(records, membershipsByShowId);
+  return membershipsByShowId;
+}
 
 function getDiscoveryContentProfile(reviewStatus) {
   switch (String(reviewStatus || "").trim().toLowerCase()) {
@@ -686,7 +715,7 @@ function getShowRelationshipState(show, showMap, collections = [], providedSimil
   return {
     ...getSimilarShowGroups(show, showMap, collections, providedSimilarityIndex),
     memberships: getCollectionMemberships(show, collections),
-    hasMoreFrom: Boolean(selectMoreFrom(show, [...showMap.values()])),
+    hasMoreFrom: Boolean(selectMoreFrom(show, getShowRecords(showMap))),
     hasEntityRoute: Array.isArray(show?.resolvedEntities) && show.resolvedEntities.some((entity) => entity?.id),
   };
 }
@@ -795,7 +824,7 @@ function renderCollectionsSection(show, collections = [], showMap = new Map(), r
 }
 
 function getCollectionMemberships(show, collections = []) {
-  return collections.filter((collection) => Array.isArray(collection.showIds) && collection.showIds.includes(show.id));
+  return [...(getCollectionMembershipIndex(collections).get(show?.id) || [])];
 }
 
 function getCollectionCoverShows(collection, showMap) {
@@ -910,7 +939,7 @@ function createShowPageMarkup(show, showMap, collections = [], reviewData = {}, 
         </div>
         ${renderCommunityFallback()}
         ${isFullReview && facts ? `<aside class="detail-side-rail">${facts}</aside>` : ""}
-        ${renderMoreFrom(show, [...showMap.values()], (entry, entity) => renderCollectionShowCard(entry, "", {
+        ${renderMoreFrom(show, getShowRecords(showMap), (entry, entity) => renderCollectionShowCard(entry, "", {
           surface: "show_more_from",
           resultType: "more_from",
           recommendationSource: "creator_more_from",

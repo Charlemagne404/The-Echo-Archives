@@ -125,6 +125,47 @@ test("similarity seed plus hard modifier reuses both existing similarity pathway
   assert.equal(oldSimpleQuery.candidateIds[0], "midnight-burger");
 });
 
+test("multiple hard values in one facet stay conjunctive on authored and computed similarity", () => {
+  const makeShow = (id, title, genres) => ({
+    id,
+    title,
+    status: "published",
+    reviewStatus: "full-review",
+    genres,
+    aliases: [],
+    tags: [],
+    tones: [],
+    formats: [],
+    themes: [],
+    bestFor: [],
+    similarTo: [],
+    entityLinks: [],
+    length: {},
+  });
+  const fixtureShows = [
+    makeShow("seed-show", "Signal Harbor", ["drama"]),
+    makeShow("both-genres", "Copper Lantern", ["sci-fi", "mystery"]),
+    makeShow("only-sci-fi", "Glass Orchard", ["sci-fi"]),
+    makeShow("only-mystery", "Quiet Meridian", ["mystery"]),
+  ];
+  const candidates = fixtureShows.slice(1);
+  const similarityIndex = {
+    getEditorialSimilarityMatches: () => candidates.map((show) => ({ show, direction: "authored", reason: "Fixture editorial relation." })),
+    getPublicSimilarityMatches: () => candidates.map((show) => ({ show, similarity: { dimensions: [] }, reasons: ["Fixture computed relation."], explanation: "Fixture evidence." })),
+  };
+  const fixtureEngine = discovery.createDiscoveryEngine({
+    shows: fixtureShows,
+    searchCatalog: fixtureShows,
+    similarityIndex,
+  });
+
+  const result = fixtureEngine.retrieve("something like Signal Harbor but sci-fi mystery");
+  assert.deepEqual(result.intent.required.genreIds, ["sci-fi", "mystery"]);
+  assert.deepEqual(result.sections.authoredSimilarity.map((entry) => entry.id), ["both-genres"]);
+  assert.deepEqual(result.sections.computedSimilarity.map((entry) => entry.id), ["both-genres"]);
+  assert.deepEqual(result.candidateIds, ["both-genres"]);
+});
+
 test("comparative subjective modifiers remain visible and do not become fabricated scales", () => {
   const darker = engine.retrieve("like Midnight Burger but darker");
   assert.equal(darker.intent.identity.id, "midnight-burger");

@@ -482,3 +482,49 @@ async function assertEventually(assertion, timeoutMs = 5_000) {
   }
   throw lastError || new Error("Expected condition did not become true.");
 }
+
+test("the latest Library backup selection wins when an earlier file read is delayed", async () => {
+  const context = await newContext();
+  try {
+    const page = await context.newPage();
+    await page.addInitScript(() => {
+      const readFileText = File.prototype.text;
+      Object.defineProperty(File.prototype, "text", {
+        configurable: true,
+        value() {
+          if (this.name !== "slow-backup.json") return readFileText.call(this);
+          return new Promise((resolve, reject) => {
+            window.releaseSlowBackupRead = () => readFileText.call(this).then(resolve, reject);
+          });
+        },
+      });
+    });
+    await page.goto(`${baseUrl}/library`);
+    await page.waitForSelector("#listenerLibraryApp:not([hidden])");
+    await page.waitForFunction(() => document.getElementById("listenerLibraryApp")?.dataset.libraryCatalogueState === "available");
+
+    const importFile = page.locator("#libraryImportFile");
+    const staleFile = makeBackup([{ showId: "stale-import-selection", state: "saved", titleSnapshot: "Older delayed backup" }]);
+    const currentFile = makeBackup([{ showId: "current-import-selection", state: "saved", titleSnapshot: "Most recently selected backup" }]);
+    await importFile.setInputFiles({
+      name: "slow-backup.json",
+      mimeType: "application/json",
+      buffer: Buffer.from(JSON.stringify(staleFile)),
+    });
+    await page.waitForFunction(() => typeof window.releaseSlowBackupRead === "function");
+    await importFile.setInputFiles({
+      name: "current-backup.json",
+      mimeType: "application/json",
+      buffer: Buffer.from(JSON.stringify(currentFile)),
+    });
+    await page.getByText(/Most recently selected backup/).waitFor();
+
+    await page.evaluate(() => window.releaseSlowBackupRead());
+    await page.waitForTimeout(100);
+    const previewText = await page.locator("#libraryImportPreviewContent").textContent();
+    assert.match(previewText, /Most recently selected backup/);
+    assert.doesNotMatch(previewText, /Older delayed backup/);
+  } finally {
+    await context.close();
+  }
+});

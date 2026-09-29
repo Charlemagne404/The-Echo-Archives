@@ -26,6 +26,36 @@ function assertOrdered(contents, fragments) {
   });
 }
 
+function writeReleaseCommandShims(shimRoot) {
+  fs.mkdirSync(shimRoot, { recursive: true });
+  fs.writeFileSync(
+    path.join(shimRoot, "readlink"),
+    `#!/usr/bin/env bash
+if [[ "$1" == "-f" ]]; then
+  shift
+  [[ "$1" == "--" ]] && shift
+  "$TEST_NODE_BINARY" -e 'console.log(require("node:fs").realpathSync.native(process.argv[1]))' "$1"
+else
+  exec /usr/bin/readlink "$@"
+fi
+`,
+    { mode: 0o755 },
+  );
+  fs.writeFileSync(
+    path.join(shimRoot, "mv"),
+    `#!/usr/bin/env bash
+if [[ "$1" == "-Tf" ]]; then
+  shift
+  [[ "$1" == "--" ]] && shift
+  "$TEST_NODE_BINARY" -e 'require("node:fs").renameSync(process.argv[1], process.argv[2])' "$1" "$2"
+else
+  exec /bin/mv "$@"
+fi
+`,
+    { mode: 0o755 },
+  );
+}
+
 test("database backup creates a private, integrity-checked copy and refuses overwrite", () => {
   const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-backup-test-"));
   const sourcePath = path.join(tempRoot, "source.sqlite");
@@ -953,6 +983,286 @@ printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
   assert.doesNotMatch(localReadiness, /ip6?tables\s+-[AIDF]/);
   assert.doesNotMatch(localReadiness, /for \(index\s*=/);
   assert.doesNotMatch(localReadiness, /systemctl (?:reboot|poweroff)|shutdown\s+-r/);
+});
+
+test("release rollback switches isolated release/runtime pointers and recovers after target health failure", () => {
+  const fixtureScript = String.raw`
+set -Eeuo pipefail
+export DEPLOY_ROOT="$2/$3/deploy-root"
+export PRODUCTION_DATABASE_PATH="$2/$3/production.sqlite"
+export TEST_NODE_BINARY="$4"
+export PATH="$2/shims:$PATH"
+source "$1" help >/dev/null
+log() { printf '[fixture] %s\n' "$*"; }
+run_release_node() { "$TEST_NODE_BINARY" "$@"; }
+require_deployment_user() { :; }
+require_common_commands() { :; }
+acquire_deployment_lock() { :; }
+cleanup_stale_temporary_artifacts() { :; }
+assert_release_service() { :; }
+prepare_runtime_permissions() { :; }
+grant_active_runtime_write_paths() { :; }
+restart_service() { printf 'RESTART=%s\n' "$1"; }
+record_production_history() { printf '%s\t%s\t%s\n' "$1" "$2" "$3" >> "$STATE_DIR/production-history.log"; }
+
+CURRENT_RELEASE=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+TARGET_RELEASE=bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+SCENARIO="$3"
+ensure_layout
+printf 'database-must-not-change\n' > "$PRODUCTION_DATABASE_PATH"
+
+write_release() {
+  local release_id="$1"
+  local release_dir
+  release_dir="$(release_path "$release_id")"
+  mkdir -p "$release_dir/backend/node_modules"
+  printf '{"releaseId":"%s","commit":"%s"}\n' "$release_id" "$release_id" > "$release_dir/release.json"
+  printf 'fixture-server\n' > "$release_dir/backend/server.js"
+
+  local runtime_dir
+  runtime_dir="$(runtime_path production "$release_id")"
+  mkdir -p "$runtime_dir/catalog-src" "$runtime_dir/data" "$runtime_dir/images" "$runtime_dir/import-staging"
+  ln -s "$release_dir/release.json" "$runtime_dir/release.json"
+}
+
+write_release "$CURRENT_RELEASE"
+write_release "$TARGET_RELEASE"
+ln -s "releases/$CURRENT_RELEASE" "$CURRENT_LINK"
+ln -s "$CURRENT_RELEASE" "$PRODUCTION_SITE_LINK"
+printf 'current-release-mutable-state\n' > "$(runtime_path production "$CURRENT_RELEASE")/import-staging/state.txt"
+printf 'stale-target-state\n' > "$(runtime_path production "$TARGET_RELEASE")/import-staging/stale.txt"
+
+start_and_check_production() {
+  local expected_commit="$1"
+  [[ "$(release_commit "$(link_release_id "$CURRENT_LINK")")" == "$expected_commit" ]] || return 1
+  [[ "$(runtime_link_release_id production)" == "$(link_release_id "$CURRENT_LINK")" ]] || return 1
+  if [[ "$SCENARIO" == "target-fails" ]]; then return 1; fi
+  return 0
+}
+
+health_check() {
+  local expected_commit="$4"
+  [[ "$(release_commit "$(link_release_id "$CURRENT_LINK")")" == "$expected_commit" ]] || return 1
+  [[ "$(runtime_link_release_id production)" == "$(link_release_id "$CURRENT_LINK")" ]] || return 1
+  printf 'RECOVERY_HEALTH=passed\n'
+}
+
+if [[ "$SCENARIO" == "healthy" ]]; then
+  rollback_production "$TARGET_RELEASE"
+  expected_current="$TARGET_RELEASE"
+  [[ "$(cat "$STATE_DIR/production-history.log")" == "rollback$(printf '\t')$CURRENT_RELEASE$(printf '\t')$TARGET_RELEASE" ]]
+  result=rollback-success
+else
+  if (rollback_production "$TARGET_RELEASE"); then
+    echo 'rollback unexpectedly succeeded despite failed target health' >&2
+    exit 1
+  fi
+  expected_current="$CURRENT_RELEASE"
+  [[ ! -e "$STATE_DIR/production-history.log" ]]
+  result=rollback-recovery-success
+fi
+
+[[ "$(link_release_id "$CURRENT_LINK")" == "$expected_current" ]]
+[[ "$(runtime_link_release_id production)" == "$expected_current" ]]
+[[ "$(cat "$(runtime_path production "$TARGET_RELEASE")/import-staging/state.txt")" == 'current-release-mutable-state' ]]
+[[ "$(cat "$PRODUCTION_DATABASE_PATH")" == 'database-must-not-change' ]]
+printf 'RESULT=%s\n' "$result"
+`;
+
+  const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-production-rollback-fixture-"));
+  const shimRoot = path.join(fixtureRoot, "shims");
+  writeReleaseCommandShims(shimRoot);
+
+  try {
+    for (const [scenario, expectedResult] of [
+      ["healthy", "RESULT=rollback-success"],
+      ["target-fails", "RESULT=rollback-recovery-success"],
+    ]) {
+      const result = spawnSync(
+        "bash",
+        [
+          "-c",
+          fixtureScript,
+          "release-rollback-fixture",
+          path.join(ROOT, "deploy", "echo"),
+          fs.realpathSync.native(fixtureRoot),
+          scenario,
+          process.execPath,
+        ],
+        { cwd: ROOT, encoding: "utf8" },
+      );
+      assert.equal(result.status, 0, `${scenario}: ${result.stderr}\n${result.stdout}`);
+      assert.match(result.stdout, new RegExp(expectedResult));
+      if (scenario === "target-fails") {
+        assert.match(result.stderr, /rollback target failed; original production release was restored/);
+        assert.match(result.stdout, /RECOVERY_HEALTH=passed/);
+      }
+    }
+  } finally {
+    fs.rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("release promotion requires the staging-tested SHA, backs up before switching, and recovers failed health", () => {
+  const fixtureScript = String.raw`
+set -Eeuo pipefail
+export DEPLOY_ROOT="$2/$3/deploy-root"
+export PRODUCTION_BACKUP_DIR="$2/$3/backups"
+export PRODUCTION_DATABASE_PATH="$2/$3/production.sqlite"
+export TEST_NODE_BINARY="$4"
+export PATH="$2/shims:$PATH"
+source "$1" help >/dev/null
+log() { printf '[fixture] %s\n' "$*"; }
+run_release_node() { "$TEST_NODE_BINARY" "$@"; }
+require_deployment_user() { :; }
+require_common_commands() { :; }
+acquire_deployment_lock() { :; }
+cleanup_stale_temporary_artifacts() { :; }
+validate_environment_file() { :; }
+validate_environment_with_root() { :; }
+assert_release_service() { :; }
+prepare_runtime_permissions() { :; }
+grant_active_runtime_write_paths() { :; }
+restart_service() { printf 'RESTART=%s\n' "$1"; }
+record_production_history() { printf '%s\t%s\t%s\n' "$1" "$2" "$3" >> "$STATE_DIR/production-history.log"; }
+
+PREVIOUS_RELEASE=cccccccccccccccccccccccccccccccccccccccc
+STAGING_RELEASE=dddddddddddddddddddddddddddddddddddddddd
+SCENARIO="$3"
+ensure_layout
+printf 'database-must-not-change\n' > "$PRODUCTION_DATABASE_PATH"
+
+write_release() {
+  local release_id="$1"
+  local release_dir
+  release_dir="$(release_path "$release_id")"
+  mkdir -p "$release_dir/backend/node_modules" "$release_dir/catalog-src/shows" \
+    "$release_dir/images/covers" "$release_dir/data/reviews" "$release_dir/docs/generated"
+  printf '{"releaseId":"%s","commit":"%s"}\n' "$release_id" "$release_id" > "$release_dir/release.json"
+  printf 'fixture-server\n' > "$release_dir/backend/server.js"
+}
+
+write_existing_runtime() {
+  local environment="$1"
+  local release_id="$2"
+  local runtime_dir
+  runtime_dir="$(runtime_path "$environment" "$release_id")"
+  mkdir -p "$runtime_dir/catalog-src" "$runtime_dir/data" "$runtime_dir/images" "$runtime_dir/import-staging"
+  ln -s "$(release_path "$release_id")/release.json" "$runtime_dir/release.json"
+}
+
+write_release "$PREVIOUS_RELEASE"
+write_release "$STAGING_RELEASE"
+write_existing_runtime production "$PREVIOUS_RELEASE"
+write_existing_runtime staging "$STAGING_RELEASE"
+ln -s "releases/$PREVIOUS_RELEASE" "$CURRENT_LINK"
+ln -s "releases/$STAGING_RELEASE" "$STAGING_LINK"
+ln -s "$PREVIOUS_RELEASE" "$PRODUCTION_SITE_LINK"
+ln -s "$STAGING_RELEASE" "$STAGING_SITE_LINK"
+printf 'production-mutable-state\n' > "$(runtime_path production "$PREVIOUS_RELEASE")/import-staging/state.txt"
+
+backup_production_database() {
+  [[ "$(link_release_id "$CURRENT_LINK")" == "$PREVIOUS_RELEASE" ]] || return 1
+  [[ "$(runtime_link_release_id production)" == "$PREVIOUS_RELEASE" ]] || return 1
+  mkdir -p "$PRODUCTION_BACKUP_DIR"
+  printf 'verified-pre-promotion-backup\n' > "$PRODUCTION_BACKUP_DIR/pre-promotion.sqlite"
+}
+
+health_check() {
+  local expected_commit="$4"
+  local environment="$3"
+  local link_path="$CURRENT_LINK"
+  if [[ "$environment" == "staging" ]]; then link_path="$STAGING_LINK"; fi
+  local release_id
+  release_id="$(link_release_id "$link_path")"
+  [[ "$(release_commit "$release_id")" == "$expected_commit" ]] || return 1
+  [[ "$(runtime_link_release_id "$environment")" == "$release_id" ]] || return 1
+  printf 'HEALTH=%s\n' "$environment"
+}
+
+start_and_check_production() {
+  local expected_commit="$1"
+  [[ "$(link_release_id "$CURRENT_LINK")" == "$STAGING_RELEASE" ]] || return 1
+  [[ "$(runtime_link_release_id production)" == "$STAGING_RELEASE" ]] || return 1
+  [[ "$(release_commit "$STAGING_RELEASE")" == "$expected_commit" ]] || return 1
+  if [[ "$SCENARIO" == "target-fails" ]]; then return 1; fi
+  return 0
+}
+
+if [[ "$SCENARIO" != "untested" ]]; then
+  record_staging_test "$STAGING_RELEASE" "$STAGING_RELEASE"
+fi
+if [[ "$SCENARIO" == "untested" ]]; then
+  if (promote_staging); then
+    echo 'promotion unexpectedly accepted a staging release without smoke evidence' >&2
+    exit 1
+  fi
+  expected_current="$PREVIOUS_RELEASE"
+  result=promotion-rejected-untested
+elif [[ "$SCENARIO" == "healthy" ]]; then
+  promote_staging
+  expected_current="$STAGING_RELEASE"
+  expected_history="promote$(printf '\t')$PREVIOUS_RELEASE$(printf '\t')$STAGING_RELEASE"
+  result=promotion-success
+else
+  if (promote_staging); then
+    echo 'promotion unexpectedly succeeded despite failed production health' >&2
+    exit 1
+  fi
+  expected_current="$PREVIOUS_RELEASE"
+  expected_history="automatic-rollback$(printf '\t')$STAGING_RELEASE$(printf '\t')$PREVIOUS_RELEASE"
+  result=promotion-recovery-success
+fi
+
+[[ "$(link_release_id "$CURRENT_LINK")" == "$expected_current" ]]
+[[ "$(runtime_link_release_id production)" == "$expected_current" ]]
+[[ "$(link_release_id "$STAGING_LINK")" == "$STAGING_RELEASE" ]]
+[[ "$(cat "$PRODUCTION_DATABASE_PATH")" == 'database-must-not-change' ]]
+if [[ "$SCENARIO" == "untested" ]]; then
+  [[ ! -e "$STATE_DIR/production-history.log" ]]
+  [[ ! -e "$PRODUCTION_BACKUP_DIR/pre-promotion.sqlite" ]]
+else
+  [[ "$(cat "$STATE_DIR/production-history.log")" == "$expected_history" ]]
+  [[ "$(cat "$PRODUCTION_BACKUP_DIR/pre-promotion.sqlite")" == 'verified-pre-promotion-backup' ]]
+  [[ "$(cat "$(runtime_path production "$STAGING_RELEASE")/import-staging/state.txt")" == 'production-mutable-state' ]]
+fi
+printf 'RESULT=%s\n' "$result"
+`;
+
+  const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-production-promotion-fixture-"));
+  writeReleaseCommandShims(path.join(fixtureRoot, "shims"));
+
+  try {
+    for (const [scenario, expectedResult] of [
+      ["untested", "RESULT=promotion-rejected-untested"],
+      ["healthy", "RESULT=promotion-success"],
+      ["target-fails", "RESULT=promotion-recovery-success"],
+    ]) {
+      const result = spawnSync(
+        "bash",
+        [
+          "-c",
+          fixtureScript,
+          "release-promotion-fixture",
+          path.join(ROOT, "deploy", "echo"),
+          fs.realpathSync.native(fixtureRoot),
+          scenario,
+          process.execPath,
+        ],
+        { cwd: ROOT, encoding: "utf8" },
+      );
+      assert.equal(result.status, 0, `${scenario}: ${result.stderr}\n${result.stdout}`);
+      assert.match(result.stdout, new RegExp(expectedResult));
+      if (scenario === "untested") {
+        assert.match(result.stderr, /has not passed the recorded smoke test/);
+      } else if (scenario === "target-fails") {
+        assert.match(result.stderr, /promotion failed; previous production release was restored/);
+        assert.match(result.stdout, /HEALTH=production/);
+      }
+    }
+  } finally {
+    fs.rmSync(fixtureRoot, { recursive: true, force: true });
+  }
 });
 
 test("checked-in service and proxy retain production hardening", () => {

@@ -703,8 +703,13 @@ function renderCollectionsPagePrerender(pageBody, { rootDir }) {
 
   let rendered = replaceMarkup(
     pageBody,
-    /<div id="collectionsDirectory" class="collections-directory-grid" aria-live="polite"><\/div>/,
-    `<div id="collectionsDirectory" class="collections-directory-grid" aria-live="polite" data-collections-prerendered="true">${directoryMarkup}</div>`,
+    /(<div\b(?=[^>]*\bid="collectionsDirectory")(?=[^>]*\bclass="collections-directory-grid")[^>]*)><\/div>/,
+    (_match, openingTag) => {
+      const prerenderedOpeningTag = /\sdata-collections-prerendered=/.test(openingTag)
+        ? openingTag
+        : `${openingTag} data-collections-prerendered="true"`;
+      return `${prerenderedOpeningTag}>${directoryMarkup}</div>`;
+    },
     "collections directory prerender",
   );
   for (const [id, value] of [
@@ -719,7 +724,7 @@ function renderCollectionsPagePrerender(pageBody, { rootDir }) {
     );
   }
   return rendered.replace(
-    /(<p id="collectionsDirectorySummary">)[\s\S]*?(<\/p>)/,
+    /(<p\b(?=[^>]*\bid="collectionsDirectorySummary")[^>]*>)[\s\S]*?(<\/p>)/,
     `$1${collections.length} audio drama and fiction podcast collections.$2`,
   );
 }

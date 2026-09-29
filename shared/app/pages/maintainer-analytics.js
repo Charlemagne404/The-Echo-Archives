@@ -136,7 +136,7 @@ function renderEmpty(message = "No tracked events in this range.") {
   return `<p class="analytics-empty-state">${escapeHtml(message)}</p>`;
 }
 
-function renderChart(container, points, series, rangeKey) {
+function renderChart(container, points, series, rangeKey, headingId) {
   if (!(container instanceof HTMLElement)) return;
   if (!Array.isArray(points) || points.length === 0) {
     container.innerHTML = renderEmpty();
@@ -154,7 +154,7 @@ function renderChart(container, points, series, rangeKey) {
       </div>
       <p class="analytics-chart-summary">${formatNumber(primaryTotal)} ${escapeHtml(primaryLabel)} · peak ${formatNumber(peakPoint?.[primarySeries.key])}</p>
     </div>
-    <div class="analytics-chart-rows">
+    <div class="analytics-chart-rows" role="region" tabindex="0" aria-labelledby="${escapeHtml(headingId)}">
       ${points.map((point) => {
         const label = formatBucket(point.bucket, rangeKey);
         const values = series.map(({ key, label: seriesLabel }) => `${seriesLabel} ${formatNumber(point[key])}`).join(", ");
@@ -334,16 +334,16 @@ function renderDashboard(payload, elements, rangeKey) {
     { key: "pageViews", label: "Page views", tone: "red" },
     { key: "showPageViews", label: "Show pages", tone: "orange" },
     { key: "uniqueVisitors", label: "Visitors", tone: "blue" },
-  ], rangeKey);
+  ], rangeKey, "analyticsTrafficHeading");
   renderChart(elements.interactionsChart, payload.interactionsOverTime, [
     { key: "interactions", label: "Actions", tone: "green" },
     { key: "showOpens", label: "Show opens", tone: "orange" },
     { key: "listenClicks", label: "Listen links", tone: "blue" },
-  ], rangeKey);
+  ], rangeKey, "analyticsInteractionsHeading");
   renderChart(elements.contributionsChart, payload.contributionsOverTime, [
     { key: "ratings", label: "Ratings", tone: "orange" },
     { key: "submissions", label: "Submissions", tone: "green" },
-  ], rangeKey);
+  ], rangeKey, "analyticsContributionsHeading");
   renderRankedList(elements.topShows, payload.topShows, { emptyMessage: "No show engagement recorded in this range.", renderItem: renderTopShows });
   renderRankedList(elements.topCollections, payload.topCollections, { emptyMessage: "No collection engagement recorded in this range.", renderItem: renderTopCollection });
   renderRankedList(elements.topPages, payload.topPages, { emptyMessage: "No public page views recorded in this range.", renderItem: renderTopPage });

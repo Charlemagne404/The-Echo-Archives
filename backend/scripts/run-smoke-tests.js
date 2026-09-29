@@ -6,6 +6,7 @@ const { chromium, firefox, webkit } = require("playwright");
 const testRoot = path.resolve(__dirname, "..");
 // Keep mutating flows isolated while overlapping the slower read-only browser smoke files.
 const readOnlySmokeFiles = [
+  "test/accessibility.smoke.js",
   "test/mobile-launch.smoke.js",
   "test/home-browse.smoke.js",
   "test/home-card-interactions.smoke.js",

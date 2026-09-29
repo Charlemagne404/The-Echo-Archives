@@ -22,12 +22,12 @@ function graphNode(structuredData, type) {
   return nodes.find((node) => node?.["@type"] === type);
 }
 
-async function waitForServer(url, timeoutMs = 20_000) {
+async function waitForServer(url, timeoutMs = 60_000) {
   const startedAt = Date.now();
 
   while (Date.now() - startedAt < timeoutMs) {
     try {
-      const response = await fetch(url);
+      const response = await fetch(url, { signal: AbortSignal.timeout(1_000) });
       if (response.ok) {
         return;
       }
@@ -62,8 +62,15 @@ async function startPublicRouteServer(envOverrides = {}) {
     },
     stdio: ["ignore", "pipe", "pipe"],
   });
+  serverProcess.stdout?.resume();
+  serverProcess.stderr?.resume();
 
-  await waitForServer(`${baseUrl}/api/health`);
+  try {
+    await waitForServer(`${baseUrl}/api/health`);
+  } catch (error) {
+    await stopPublicRouteServer({ serverProcess, tempDir });
+    throw error;
+  }
 
   return {
     baseUrl,
@@ -73,9 +80,40 @@ async function startPublicRouteServer(envOverrides = {}) {
 }
 
 async function stopPublicRouteServer({ serverProcess, tempDir }) {
-  if (serverProcess && !serverProcess.killed) {
-    serverProcess.kill("SIGTERM");
-    await new Promise((resolve) => serverProcess.once("exit", resolve));
+  if (serverProcess && serverProcess.exitCode === null && serverProcess.signalCode === null) {
+    await new Promise((resolve) => {
+      let settled = false;
+      const finish = () => {
+        if (settled) return;
+        settled = true;
+        clearTimeout(forceKillTimer);
+        serverProcess.removeListener("exit", finish);
+        serverProcess.removeListener("error", finish);
+        resolve();
+      };
+      const forceKillTimer = setTimeout(() => {
+        if (serverProcess.exitCode !== null || serverProcess.signalCode !== null) {
+          finish();
+          return;
+        }
+        try {
+          serverProcess.kill("SIGKILL");
+        } catch (_error) {
+          finish();
+          return;
+        }
+        const finalWaitTimer = setTimeout(finish, 1_000);
+        finalWaitTimer.unref();
+      }, 15_000);
+      forceKillTimer.unref();
+      serverProcess.once("exit", finish);
+      serverProcess.once("error", finish);
+      try {
+        serverProcess.kill("SIGTERM");
+      } catch (_error) {
+        finish();
+      }
+    });
   }
 
   if (tempDir) {

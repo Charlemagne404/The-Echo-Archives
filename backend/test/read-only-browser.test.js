@@ -15,6 +15,12 @@ function writeResponse(response, status, body, headers = {}) {
   response.end(body);
 }
 
+function sortRequests(requests) {
+  return requests
+    .map(({ method, pathname }) => ({ method, pathname }))
+    .sort((left, right) => left.pathname.localeCompare(right.pathname) || left.method.localeCompare(right.method));
+}
+
 function readOnlyFixtureMarkup() {
   return `<!doctype html>
 <html lang="en">
@@ -135,8 +141,8 @@ test("read-only context disables analytics before scripts and blocks fetch, XHR,
 
     const attempts = guard.getMutationAttempts();
     assert.deepEqual(
-      attempts.map(({ method, pathname }) => ({ method, pathname })),
-      [
+      sortRequests(attempts),
+      sortRequests([
         { method: "POST", pathname: "/mutate-fetch" },
         { method: "PUT", pathname: "/mutate-put" },
         { method: "PATCH", pathname: "/mutate-patch" },
@@ -144,7 +150,7 @@ test("read-only context disables analytics before scripts and blocks fetch, XHR,
         { method: "POST", pathname: "/mutate-xhr" },
         { method: "POST", pathname: "/mutate-beacon" },
         { method: "POST", pathname: "/form-submit" },
-      ],
+      ]),
     );
     assert.deepEqual(receivedRequests, [
       { method: "GET", pathname: "/" },

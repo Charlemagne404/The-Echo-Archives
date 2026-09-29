@@ -23,7 +23,7 @@
     <div>
       <p class="maintainer-kicker">Protected workspace</p>
       <h2 id="maintainerStateTitle">Checking maintainer access</h2>
-      <p id="maintainerStateMessage" aria-live="polite">Loading the protected analytics dashboard…</p>
+      <p id="maintainerStateMessage" role="status">Loading the protected analytics dashboard…</p>
     </div>
     <button id="maintainerRetryButton" class="maintainer-ghost-button" type="button" hidden>Retry</button>
   </section>
@@ -61,45 +61,45 @@
         </div>
       </div>
       <div class="analytics-toolbar-meta-row">
-        <p id="analyticsRangeMeta" class="maintainer-toolbar-meta">Loading range…</p>
+        <p id="analyticsRangeMeta" class="maintainer-toolbar-meta" role="status">Loading range…</p>
         <p id="analyticsCoverageMeta" class="maintainer-toolbar-meta">Tracking coverage is loading…</p>
       </div>
     </section>
 
-    <div id="maintainerSummaryCards" class="maintainer-summary-grid analytics-summary-grid" aria-live="polite"></div>
+    <div id="maintainerSummaryCards" class="maintainer-summary-grid analytics-summary-grid"></div>
 
     <section class="analytics-chart-grid" aria-label="Usage trends">
       <article class="page-card analytics-panel analytics-panel--wide">
         <div class="maintainer-panel-heading">
           <div>
             <p class="maintainer-kicker">Traffic</p>
-            <h2>Traffic over time</h2>
+          <h2 id="analyticsTrafficHeading">Traffic over time</h2>
           </div>
           <p class="maintainer-panel-meta">Views · show routes · approximate visitors</p>
         </div>
-        <div id="analyticsTrafficChart" class="analytics-chart" aria-live="polite"></div>
+        <div id="analyticsTrafficChart" class="analytics-chart"></div>
       </article>
 
       <article class="page-card analytics-panel">
         <div class="maintainer-panel-heading">
           <div>
             <p class="maintainer-kicker">Depth</p>
-            <h2>Interactions over time</h2>
+          <h2 id="analyticsInteractionsHeading">Interactions over time</h2>
           </div>
           <p class="maintainer-panel-meta">Search, navigation, shows, and listens</p>
         </div>
-        <div id="analyticsInteractionsChart" class="analytics-chart" aria-live="polite"></div>
+        <div id="analyticsInteractionsChart" class="analytics-chart"></div>
       </article>
 
       <article class="page-card analytics-panel">
         <div class="maintainer-panel-heading">
           <div>
             <p class="maintainer-kicker">Community</p>
-            <h2>Ratings and submissions</h2>
+          <h2 id="analyticsContributionsHeading">Ratings and submissions</h2>
           </div>
           <p class="maintainer-panel-meta">Tracked successful writes</p>
         </div>
-        <div id="analyticsContributionsChart" class="analytics-chart" aria-live="polite"></div>
+        <div id="analyticsContributionsChart" class="analytics-chart"></div>
       </article>
     </section>
 
@@ -112,7 +112,7 @@
           </div>
           <p class="maintainer-panel-meta">Views · listens · ratings</p>
         </div>
-        <div id="analyticsTopShows" class="analytics-list" aria-live="polite"></div>
+        <div id="analyticsTopShows" class="analytics-list"></div>
       </article>
 
         <article class="page-card analytics-panel">
@@ -123,7 +123,7 @@
           </div>
           <p class="maintainer-panel-meta">Path only; no query strings</p>
         </div>
-          <div id="analyticsTopPages" class="analytics-list" aria-live="polite"></div>
+          <div id="analyticsTopPages" class="analytics-list"></div>
         </article>
 
         <article class="page-card analytics-panel">
@@ -134,7 +134,7 @@
             </div>
             <p class="maintainer-panel-meta">Opens · show routes · sessions</p>
           </div>
-          <div id="analyticsTopCollections" class="analytics-list" aria-live="polite"></div>
+          <div id="analyticsTopCollections" class="analytics-list"></div>
         </article>
 
         <article class="page-card analytics-panel">
@@ -145,7 +145,7 @@
           </div>
           <p class="maintainer-panel-meta">Current active records</p>
         </div>
-        <div id="analyticsMostRated" class="analytics-list" aria-live="polite"></div>
+        <div id="analyticsMostRated" class="analytics-list"></div>
       </article>
     </section>
 
@@ -158,7 +158,7 @@
           </div>
           <p class="maintainer-panel-meta">Coarse surface labels only</p>
         </div>
-        <div id="analyticsDiscoverySurfaces" class="analytics-surfaces" aria-live="polite"></div>
+        <div id="analyticsDiscoverySurfaces" class="analytics-surfaces"></div>
       </article>
 
       <article class="page-card analytics-panel">
@@ -169,7 +169,7 @@
           </div>
           <p class="maintainer-panel-meta">Selected range</p>
         </div>
-        <div id="analyticsDiscoverySignals" class="analytics-signals" aria-live="polite"></div>
+        <div id="analyticsDiscoverySignals" class="analytics-signals"></div>
       </article>
     </section>
 
@@ -182,7 +182,7 @@
           </div>
           <p id="analyticsReturningVisitors" class="maintainer-panel-meta">New and returning are approximate</p>
         </div>
-        <div id="analyticsFunnel" class="analytics-funnel" aria-live="polite"></div>
+        <div id="analyticsFunnel" class="analytics-funnel"></div>
       </article>
 
       <article class="page-card analytics-panel">
@@ -193,7 +193,7 @@
           </div>
           <p class="maintainer-panel-meta">Coarse referrer hostname only</p>
         </div>
-        <div id="analyticsSources" class="analytics-list" aria-live="polite"></div>
+          <div id="analyticsSources" class="analytics-list"></div>
       </article>
 
       <article class="page-card analytics-panel">
@@ -204,7 +204,7 @@
           </div>
           <p class="maintainer-panel-meta">Existing SQLite records, not fabricated history</p>
         </div>
-        <div id="analyticsRecordTotals" class="analytics-ledger" aria-live="polite"></div>
+        <div id="analyticsRecordTotals" class="analytics-ledger"></div>
       </article>
     </section>
 
@@ -216,7 +216,7 @@
         </div>
         <p class="maintainer-panel-meta">Counts are tracked events in the selected range</p>
       </div>
-      <div id="analyticsInteractionBreakdown" class="analytics-breakdown" aria-live="polite"></div>
+      <div id="analyticsInteractionBreakdown" class="analytics-breakdown"></div>
     </section>
   </section>
 </main>

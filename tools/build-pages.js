@@ -1290,6 +1290,25 @@ async function main() {
   });
 }
 
+function listBuildOutputs() {
+  const manifest = JSON.parse(readFile(MANIFEST_PATH));
+  const outputs = new Set(["robots.txt", "sitemap.xml", "sw.js", ...Object.keys(ENTRY_ASSETS)]);
+  const entities = readJsonIfExists(path.join(ROOT, "data", "entities.json"), []);
+
+  manifest.forEach((entry) => {
+    outputs.add(entry.output);
+    const cleanRouteAlias = resolveCleanRouteAlias(entry);
+    if (cleanRouteAlias) outputs.add(path.posix.join(cleanRouteAlias, "index.html"));
+    if (entry.output === "creators.html") {
+      entities.forEach((entity) => {
+        if (entity?.id) outputs.add(path.posix.join("creators", entity.id, "index.html"));
+      });
+    }
+  });
+
+  return [...outputs].sort((left, right) => left.localeCompare(right));
+}
+
 if (require.main === module) {
   main().catch((error) => {
     console.error(error);
@@ -1299,6 +1318,8 @@ if (require.main === module) {
 
 module.exports = {
   createPrecacheUrlSet,
+  listBuildOutputs,
+  main,
   renderServiceWorker,
   resolveManifestCanonicalUrls,
   resolveCleanRouteAlias,

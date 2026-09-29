@@ -261,6 +261,7 @@ export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup,
     if (tagPickerToggle) {
       event.preventDefault();
       event.stopPropagation();
+      captureCurrentDraft(state, elements);
       const field = tagPickerToggle.getAttribute("data-toggle-tag-picker");
       if (!field) {
         return;
@@ -273,7 +274,8 @@ export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup,
       state.tagPickerOpen = state.tagPickerPinned;
       ui.renderAll();
       if (state.tagPickerOpen) {
-        ui.focusTagInput(field, state.tagQuery.length);
+        const selectionStart = state.tagQuery.length;
+        window.requestAnimationFrame(() => ui.focusTagInput(field, selectionStart));
       }
       return;
     }

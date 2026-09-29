@@ -189,7 +189,9 @@ If `npm run verify` fails, do not publish.
 
 - regenerates the complete public HTML output from `site-src/`; the output is ignored by Git and checked for completeness
 - runs repo structure checks
+- checks generated catalog and expected public route counts for the release artifact
 - runs repository build, SEO, and operations tool tests
+- rebuilds catalog and pages twice with cover recovery disabled, then compares the generated output paths and contents
 - runs backend data validation
 - runs archive link checks
 - runs backend tests

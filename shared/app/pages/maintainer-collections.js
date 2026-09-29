@@ -1,8 +1,6 @@
 import {
   approveMaintainerCollectionCandidate,
   clearMaintainerCollectionMembership,
-  createMaintainerSession,
-  destroyMaintainerSession,
   fetchMaintainerCollection,
   fetchMaintainerCollections,
   generateMaintainerCollectionCandidates,
@@ -12,6 +10,7 @@ import {
   rejectMaintainerCollectionCandidate,
   setMaintainerCollectionMembership,
 } from "../maintainer/collection-api.js";
+import { createMaintainerSession, destroyMaintainerSession } from "../maintainer/api.js";
 import {
   focusMaintainerWorkspace,
   getMaintainerViewElements,

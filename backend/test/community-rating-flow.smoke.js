@@ -1,5 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
+const axeScriptPath = require.resolve("axe-core/axe.min.js");
 const {
   buildSummaryPayload,
   countDistinctRows,
@@ -27,6 +28,18 @@ let collectionFixtures;
 let firstCollectionId;
 let firstShowId;
 let homeMostPopularTitles;
+
+async function assertAxeClean(page, label) {
+  const results = await page.evaluate((tags) => window.axe.run(document, {
+    runOnly: { type: "tag", values: tags },
+  }), ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa", "best-practice"]);
+  const violations = results.violations.map((violation) => ({
+    id: violation.id,
+    impact: violation.impact,
+    nodes: violation.nodes.map((node) => ({ target: node.target, summary: node.failureSummary })),
+  }));
+  assert.deepEqual(violations, [], `${label} has accessibility violations: ${JSON.stringify(violations)}`);
+}
 
 test.before(async () => {
   await setupSmoke();
@@ -224,6 +237,7 @@ test("detail community rating renders Turnstile and sends the verification token
     serviceWorkers: "block",
   });
   const page = await context.newPage();
+  await page.addInitScript({ path: axeScriptPath });
   const ratingRequests = [];
   const summaryRequests = [];
   let profileRequests = 0;
@@ -313,6 +327,7 @@ test("detail community rating renders Turnstile and sends the verification token
     await page.goto(`${baseUrl}/shows/impact-winter`, { waitUntil: "networkidle" });
     await page.locator(".community-review-panel .community-turnstile-shell").waitFor({ state: "visible" });
     await page.waitForFunction(() => /complete/i.test(document.querySelector(".community-turnstile-status")?.textContent || ""));
+    await assertAxeClean(page, "enabled community rating controls");
     assert.equal(profileRequests, 0);
     assert.ok(summaryRequests.length >= 1);
     assert.ok(summaryRequests.every(({ profileId }) => profileId === null));
@@ -335,7 +350,10 @@ test("detail community rating renders Turnstile and sends the verification token
     assert.equal(turnstilePlacement.isLastControl, true);
     assert.ok(turnstilePlacement.verificationTop >= turnstilePlacement.distributionBottom);
 
-    await page.locator(".community-review-button").nth(6).click();
+    const selectedRating = page.locator(".community-review-button").nth(6);
+    await selectedRating.focus();
+    assert.notEqual(await selectedRating.evaluate((node) => getComputedStyle(node).outlineStyle), "none");
+    await page.keyboard.press("Enter");
     await page.waitForFunction(() => window.__echoTurnstileReset === "test-widget-id");
 
     assert.equal(profileRequests, 1);
@@ -358,6 +376,7 @@ test("detail community rating renders Turnstile and sends the verification token
     )));
     assert.equal(await page.locator(".community-review-button.is-active").textContent(), "7");
     assert.equal(await page.locator(".community-review-clear").isVisible(), true);
+    await assertAxeClean(page, "community rating after keyboard selection");
   } finally {
     await context.close();
   }
@@ -369,6 +388,7 @@ test("review carousel keeps the server-rendered archive first, supports accessib
     serviceWorkers: "block",
   });
   const page = await context.newPage();
+  await page.addInitScript({ path: axeScriptPath });
   let failedPage = 0;
   const helpfulRequests = [];
 
@@ -439,6 +459,7 @@ test("review carousel keeps the server-rendered archive first, supports accessib
     await page.goto(`${baseUrl}/shows/impact-winter`, { waitUntil: "domcontentloaded" });
     await page.waitForFunction(() => document.querySelector("[data-review-carousel-status]")?.textContent?.includes("Review 1 of 9"));
     const carousel = page.locator("[data-review-carousel]");
+    await assertAxeClean(page, "listener review carousel with its first result");
     const sectionOrder = await page.evaluate(() => {
       const reviews = document.querySelector("#review-notes");
       const scoreBreakdown = document.querySelector(".detail-community-score-section");
@@ -460,6 +481,7 @@ test("review carousel keeps the server-rendered archive first, supports accessib
     await carousel.locator("[data-review-carousel-viewport]").focus();
     await page.keyboard.press("ArrowRight");
     await page.waitForFunction(() => document.querySelector("[data-review-carousel-slide]")?.textContent?.includes("Listener page 2"));
+    await assertAxeClean(page, "listener review carousel after keyboard navigation");
 
     await carousel.locator("[data-review-carousel-viewport]").evaluate((node) => {
       node.dispatchEvent(new PointerEvent("pointerdown", { bubbles: true, clientX: 320 }));
@@ -485,6 +507,7 @@ test("review carousel keeps the server-rendered archive first, supports accessib
     await carousel.locator("[data-review-carousel-next]").click();
     await page.waitForFunction(() => /Review page failed.*Try another review/i.test(document.querySelector("[data-review-carousel-status]")?.textContent || ""));
     assert.match(await carousel.locator("[data-review-carousel-slide]").textContent(), /Listener page 3/);
+    await assertAxeClean(page, "listener review carousel failure state");
 
     await page.setViewportSize({ width: 390, height: 844 });
     const mobile = await carousel.evaluate((node) => ({

@@ -126,6 +126,12 @@ test("Listener Library schema validates every state, IDs, ratings, timestamps, a
   for (const rating of [0, 6, 1.5, "5", null]) assert.equal(schema.isValidPrivateRating(rating), false);
   assert.equal(schema.isValidShowId("show-alpha"), true);
   assert.equal(schema.isValidShowId("Unknown Show"), false);
+  assert.equal(schema.validateLibraryEntry({
+    showId: "Unknown Show",
+    state: "saved",
+    createdAt: "2026-09-28T10:00:00.000Z",
+    updatedAt: "2026-09-28T10:01:00.000Z",
+  }).ok, false);
   assert.equal(schema.isValidUtcTimestamp("2026-09-28T10:00:00.000Z"), true);
   assert.equal(schema.isValidUtcTimestamp("September 28, 2026"), false);
 

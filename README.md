@@ -89,6 +89,20 @@ Install backend dependencies once:
 npm --prefix backend ci
 ```
 
+Install Chromium before the required browser checks:
+
+```bash
+npm --prefix backend run test:setup:browser -- chromium
+```
+
+On Debian or Ubuntu, install Chromium's system libraries once as well:
+
+```bash
+(cd backend && sudo ./node_modules/.bin/playwright install-deps chromium)
+```
+
+Run the complete clean-clone verification with `npm run verify`.
+
 Build the complete public site after a fresh clone (generated HTML is build
 output, not committed source):
 
@@ -149,6 +163,8 @@ Root commands:
 | `npm run build:pages` | Generates the ignored public HTML, route bundles, service worker, sitemap, and robots output from `site-src/` |
 | `npm run check:generated` | Verifies the complete generated HTML set is present, ignored, and untracked while authored HTML remains trackable |
 | `npm run check:structure` | Enforces repo structure and generated-source boundaries |
+| `npm run check:release-artifact` | Checks the generated catalog and expected public route counts without deploying |
+| `npm run check:build-determinism` | Builds catalog and pages twice without cover recovery and compares generated file paths and contents |
 | `npm run test:tools` | Runs repository build/SEO/operations tool tests |
 | `npm run verify` | Runs the full generated-site verification, including backend tests, data/link validation, and required browser smoke coverage |
 

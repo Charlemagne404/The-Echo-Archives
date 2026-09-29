@@ -18,7 +18,7 @@
     <div>
       <p class="maintainer-kicker">Protected workspace</p>
       <h2 id="maintainerStateTitle">Checking maintainer access</h2>
-      <p id="maintainerStateMessage" aria-live="polite">Loading the protected import queue…</p>
+      <p id="maintainerStateMessage" role="status">Loading the protected import queue…</p>
     </div>
     <button id="maintainerRetryButton" class="maintainer-ghost-button" type="button" hidden>Retry</button>
   </section>
@@ -42,9 +42,9 @@
   </section>
 
   <section id="maintainerAppShell" class="maintainer-app-shell" hidden>
-    <div id="maintainerSummaryCards" class="maintainer-summary-grid" aria-live="polite"></div>
+    <div id="maintainerSummaryCards" class="maintainer-summary-grid"></div>
 
-    <section id="maintainerElevationDesk" class="page-card maintainer-toolbar-card" aria-live="polite"></section>
+    <section id="maintainerElevationDesk" class="page-card maintainer-toolbar-card"></section>
 
     <section class="page-card maintainer-toolbar-card">
       <div class="maintainer-toolbar-heading">
@@ -140,10 +140,10 @@
           </div>
           <div class="maintainer-review-actions">
             <button class="maintainer-primary-button" type="submit">Search sources</button>
-            <p id="maintainerImportSearchStatus" class="maintainer-status-copy">Search results stay internal until you add them as candidates.</p>
+            <p id="maintainerImportSearchStatus" class="maintainer-status-copy" role="status">Search results stay internal until you add them as candidates.</p>
           </div>
         </form>
-        <div id="maintainerImportSearchResults" class="import-search-results" aria-live="polite"></div>
+        <div id="maintainerImportSearchResults" class="import-search-results"></div>
       </article>
     </section>
 
@@ -207,7 +207,7 @@
           </div>
         </div>
         <p id="maintainerDiscoveryRunFeedback" class="maintainer-status-copy maintainer-discovery-feedback" role="status" aria-live="polite">Ready to search Podcast Index for audio dramas.</p>
-        <div id="maintainerDiscoveryWorkspace" aria-live="polite"></div>
+        <div id="maintainerDiscoveryWorkspace"></div>
       </article>
     </section>
 
@@ -222,10 +222,10 @@
             <button id="maintainerSelectImportedEligible" class="maintainer-ghost-button" type="button">Select eligible on page</button>
             <button id="maintainerPublishImportedBatch" class="maintainer-primary-button" type="button" disabled>Publish selected as Imported</button>
             <button id="maintainerRerunAllPreparation" class="maintainer-ghost-button" type="button">Re-run all preparation</button>
-            <p id="maintainerListStatus" class="maintainer-panel-meta">Loading import queue…</p>
+            <p id="maintainerListStatus" class="maintainer-panel-meta" role="status">Loading import queue…</p>
           </div>
         </div>
-        <div id="maintainerList" class="maintainer-list" aria-live="polite"></div>
+        <div id="maintainerList" class="maintainer-list"></div>
         <div class="maintainer-pagination">
           <button id="maintainerPreviousPage" class="maintainer-ghost-button" type="button">Previous</button>
           <p id="maintainerPaginationSummary" class="maintainer-panel-meta">Page 1</p>
@@ -240,9 +240,9 @@
             <h2 id="maintainerDetailHeading" tabindex="-1">Selected candidate</h2>
           </div>
           <button id="maintainerBackToQueue" class="maintainer-ghost-button maintainer-mobile-back" type="button">Back to queue</button>
-          <p id="maintainerDetailMeta" class="maintainer-panel-meta">Choose a candidate to inspect readiness, the prepared record, cover quality, source evidence, and named blockers.</p>
+          <p id="maintainerDetailMeta" class="maintainer-panel-meta" role="status">Choose a candidate to inspect readiness, the prepared record, cover quality, source evidence, and named blockers.</p>
         </div>
-        <div id="maintainerDetail" class="maintainer-detail" aria-live="polite"></div>
+        <div id="maintainerDetail" class="maintainer-detail"></div>
       </article>
     </section>
   </section>

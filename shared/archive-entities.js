@@ -39,6 +39,8 @@
   const TYPE_LABELS = { person: "Creator", "production-company": "Production company", studio: "Studio", network: "Network" };
   const ROLE_LABELS = { creator: "Created by", "production-company": "Produced by", studio: "Studio", network: "Network" };
   const ROLE_PRIORITY = ["production-company", "studio", "creator", "network"];
+  const entityShowIndexByCatalogue = new WeakMap();
+  const publicEntityIndexByRegistry = new WeakMap();
   const entityPath = (id) => `/creators/${encodeURIComponent(id)}`;
   const normalizeEntityName = (value) => String(value || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/&/g, " and ").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
   const normalizeEntityIdentityKey = (value) => normalizeEntityName(value)
@@ -49,11 +51,45 @@
   const escapeHtml = (value) => String(value || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 
   function getEntityShows(entityId, shows = []) {
-    return shows.filter((show) => show.status === "published" && (show.entityLinks || []).some((link) => link.entityId === entityId));
+    return [...(getEntityShowIndex(shows).get(entityId) || [])];
+  }
+
+  function getEntityShowIndex(shows = []) {
+    const records = Array.isArray(shows) ? shows : [];
+    const cached = entityShowIndexByCatalogue.get(records);
+    if (cached) return cached;
+
+    const showsByEntityId = new Map();
+    records.forEach((show) => {
+      if (show.status !== "published" || !Array.isArray(show.entityLinks)) return;
+      const seenEntityIds = new Set();
+      show.entityLinks.forEach((link) => {
+        const entityId = String(link?.entityId || "");
+        if (!entityId || seenEntityIds.has(entityId)) return;
+        seenEntityIds.add(entityId);
+        const members = showsByEntityId.get(entityId) || [];
+        members.push(show);
+        showsByEntityId.set(entityId, members);
+      });
+    });
+
+    entityShowIndexByCatalogue.set(records, showsByEntityId);
+    return showsByEntityId;
+  }
+
+  function getPublicEntityIndex(entities = []) {
+    const records = Array.isArray(entities) ? entities : [];
+    const cached = publicEntityIndexByRegistry.get(records);
+    if (cached) return cached;
+    const index = new Map(records.filter((entity) => entity?.publication === "public").map((entity) => [entity.id, entity]));
+    publicEntityIndexByRegistry.set(records, index);
+    return index;
   }
 
   function getPublicEntities(entities = [], shows = []) {
-    return entities.filter((entity) => entity.publication === "public" && getEntityShows(entity.id, shows).length > 0);
+    const showIdsByEntity = getEntityShowIndex(shows);
+    return (Array.isArray(entities) ? entities : [])
+      .filter((entity) => entity.publication === "public" && showIdsByEntity.has(entity.id));
   }
 
   // The public directory is an organization-led discovery surface. People can
@@ -100,11 +136,11 @@
   }
 
   function isIndexableEntity(entity, shows = []) {
-    return entity.publication === "public" && entity.indexable === true && getEntityShows(entity.id, shows).length >= 2;
+    return entity.publication === "public" && entity.indexable === true && (getEntityShowIndex(shows).get(entity.id)?.length || 0) >= 2;
   }
 
   function resolveShowEntities(show, entities = []) {
-    const byId = new Map(entities.filter((entity) => entity.publication === "public").map((entity) => [entity.id, entity]));
+    const byId = getPublicEntityIndex(entities);
     return (show.entityLinks || []).flatMap((link) => {
       const entity = byId.get(link.entityId);
       return entity ? [{ id: entity.id, name: entity.name, type: entity.type, aliases: entity.aliases, role: link.role }] : [];
@@ -185,5 +221,5 @@
     };
   }
 
-  return { TYPES, ROLES, ROLE_COMPATIBILITY, TYPE_LABELS, ROLE_LABELS, entityPath, normalizeEntityName, normalizeEntityIdentityKey, isEntityRoleCompatible, escapeHtml, getEntityShows, getPublicEntities, isPublicDirectoryEntity, getPublicDirectoryEntities, getEntityConnections, isIndexableEntity, resolveShowEntities, matchesEntityQuery, selectMoreFrom, renderEntityFacts, renderMoreFrom, entityStructuredData, showEntityStructuredData };
+  return { TYPES, ROLES, ROLE_COMPATIBILITY, TYPE_LABELS, ROLE_LABELS, entityPath, normalizeEntityName, normalizeEntityIdentityKey, isEntityRoleCompatible, escapeHtml, getEntityShows, getEntityShowIndex, getPublicEntities, isPublicDirectoryEntity, getPublicDirectoryEntities, getEntityConnections, isIndexableEntity, resolveShowEntities, matchesEntityQuery, selectMoreFrom, renderEntityFacts, renderMoreFrom, entityStructuredData, showEntityStructuredData };
 });

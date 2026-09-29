@@ -527,6 +527,27 @@ test("service worker supports cached public pages offline and falls back for unc
     await page.waitForFunction(() => navigator.serviceWorker.controller !== null, undefined, { timeout: 10_000 });
     await page.waitForFunction(() => document.body.dataset.offlineReady === "true", undefined, { timeout: 10_000 });
 
+    const apiBoundary = await page.evaluate(async () => {
+      const healthResponse = await fetch("/api/health");
+      const writeResponse = await fetch("/api/analytics/events", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ eventName: "unknown", properties: {} }),
+      });
+      const cachedApiResponses = await Promise.all((await caches.keys()).map(async (key) => {
+        const response = await (await caches.open(key)).match(new URL("/api/health", location.origin).href);
+        return response ? 1 : 0;
+      }));
+      return {
+        healthStatus: healthResponse.status,
+        writeStatus: writeResponse.status,
+        cachedApiResponses: cachedApiResponses.reduce((total, count) => total + count, 0),
+      };
+    });
+    assert.equal(apiBoundary.healthStatus, 200, "same-origin APIs must go to the network");
+    assert.equal(apiBoundary.writeStatus, 204, "non-GET API requests must bypass the worker");
+    assert.equal(apiBoundary.cachedApiResponses, 0, "API responses must not enter public caches");
+
     await stopSmokeServer();
     serverStopped = true;
     await page.goto(`${baseUrl}/`, { waitUntil: "domcontentloaded" });

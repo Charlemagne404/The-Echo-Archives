@@ -17,6 +17,7 @@
     "report:collection-candidates": "node tools/report-collection-candidates.js",
     "report:collection-catalogue": "node tools/report-collection-catalogue.js",
     "benchmark:discovery": "node tools/report-discovery-benchmark.js",
+    "benchmark:catalog-scale": "node --expose-gc tools/benchmark-catalog-scale.js",
     "test:discovery-benchmark": "node --test tools/test/discovery-golden-benchmark.test.js tools/test/discovery-v2.test.js",
     "check:collection-catalogue": "node tools/report-collection-catalogue.js --check",
     "report:entity-graph": "node backend/scripts/entity-graph-report.js",
@@ -30,8 +31,10 @@
     "build:pages": "node tools/build-pages.js",
     "check:generated": "node tools/check-generated-boundary.js",
     "check:structure": "node tools/check-structure.js",
+    "check:release-artifact": "node deploy/catalog-sanity.js .",
+    "check:build-determinism": "node tools/check-build-determinism.js",
     "test:tools": "node --test tools/test/*.test.js",
-    "verify": "npm run build:catalog && npm run build:pages && npm run check:structure && npm run check:generated && npm run test:tools && npm --prefix backend run verify"
+    "verify": "npm run build:catalog && npm run build:pages && npm run check:structure && npm run check:generated && npm run check:release-artifact && npm run test:tools && npm run check:build-determinism && npm --prefix backend run verify"
   },
   "engines": {
     "node": ">=22.12"

@@ -18,7 +18,7 @@
     <div>
       <p class="maintainer-kicker">Protected workspace</p>
       <h2 id="maintainerStateTitle">Checking maintainer access</h2>
-      <p id="maintainerStateMessage" aria-live="polite">Loading collection definitions and the review queue…</p>
+      <p id="maintainerStateMessage" role="status">Loading collection definitions and the review queue…</p>
     </div>
     <button id="maintainerRetryButton" class="maintainer-ghost-button" type="button" hidden>Retry</button>
   </section>
@@ -40,7 +40,7 @@
       <article class="page-card maintainer-toolbar-card">
         <div class="maintainer-toolbar-heading">
           <div><p class="maintainer-kicker">Candidate generator</p><h2>Suggest new collections</h2></div>
-          <p id="collectionGeneratorStatus" class="maintainer-toolbar-meta">Rule proposals use real metadata. Semantic proposals use the configured local model and always enter review.</p>
+          <p id="collectionGeneratorStatus" class="maintainer-toolbar-meta" role="status">Rule proposals use real metadata. Semantic proposals use the configured local model and always enter review.</p>
         </div>
         <div class="maintainer-review-actions">
           <button id="generateCollectionCandidates" class="maintainer-primary-button" type="button">Generate review candidates</button>
@@ -57,14 +57,14 @@
 
     <section class="maintainer-workspace collection-engine-workspace">
       <article class="page-card maintainer-list-card">
-        <div class="maintainer-panel-heading"><div><p class="maintainer-kicker">Review queue</p><h2>Proposed collections</h2></div><p id="collectionCandidateMeta" class="maintainer-panel-meta">Loading proposals…</p></div>
-        <div id="collectionCandidateList" class="maintainer-list" aria-live="polite"></div>
-        <div class="maintainer-panel-heading"><div><p class="maintainer-kicker">Public and draft definitions</p><h2 id="maintainerWorkspaceTitle" tabindex="-1">Collections</h2></div><p id="collectionListMeta" class="maintainer-panel-meta"></p></div>
-        <div id="collectionDefinitionList" class="maintainer-list" aria-live="polite"></div>
+        <div class="maintainer-panel-heading"><div><p class="maintainer-kicker">Review queue</p><h2>Proposed collections</h2></div><p id="collectionCandidateMeta" class="maintainer-panel-meta" role="status">Loading proposals…</p></div>
+        <div id="collectionCandidateList" class="maintainer-list"></div>
+        <div class="maintainer-panel-heading"><div><p class="maintainer-kicker">Public and draft definitions</p><h2 id="maintainerWorkspaceTitle" tabindex="-1">Collections</h2></div><p id="collectionListMeta" class="maintainer-panel-meta" role="status"></p></div>
+        <div id="collectionDefinitionList" class="maintainer-list"></div>
       </article>
       <article class="page-card maintainer-detail-card">
-        <div class="maintainer-panel-heading"><div><p class="maintainer-kicker">Inspector</p><h2 id="collectionDetailHeading" tabindex="-1">Select a collection</h2></div><p id="collectionDetailMeta" class="maintainer-panel-meta">Review matching shows, confidence, provenance, and manual decisions.</p></div>
-        <div id="collectionDetail" class="maintainer-detail" aria-live="polite"></div>
+        <div class="maintainer-panel-heading"><div><p class="maintainer-kicker">Inspector</p><h2 id="collectionDetailHeading" tabindex="-1">Select a collection</h2></div><p id="collectionDetailMeta" class="maintainer-panel-meta" role="status">Review matching shows, confidence, provenance, and manual decisions.</p></div>
+        <div id="collectionDetail" class="maintainer-detail"></div>
       </article>
     </section>
   </section>

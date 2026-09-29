@@ -69,6 +69,7 @@
     "supernatural",
     "thriller",
   ]);
+  const searchCandidateIndexByCatalog = new WeakMap();
   const QUERY_STOP_WORDS = new Set([
     "a",
     "an",
@@ -507,6 +508,7 @@
 
   function hydrateCatalogSearch(catalog) {
     const records = Array.isArray(catalog) ? catalog : [];
+    searchCandidateIndexByCatalog.delete(records);
     const catalogById = new Map(records.map((record) => [record.id, record]));
 
     records.forEach((record) => {
@@ -604,6 +606,93 @@
       isStopWordOnly: rawTokens.length > 0 && rawTokens.every((token) => QUERY_STOP_WORDS.has(token)),
       seedRecord: similaritySeed?.record || null,
     };
+  }
+
+  function createSearchCandidateIndex(catalog) {
+    const records = Array.isArray(catalog) ? catalog : [];
+    const tokenPostings = new Map();
+    const vocabularyByInitial = new Map();
+
+    for (let recordIndex = 0; recordIndex < records.length; recordIndex += 1) {
+      const tokenSet = records[recordIndex]?.searchIndex?.tokenSet;
+      if (!tokenSet || typeof tokenSet[Symbol.iterator] !== "function") return null;
+      for (const token of tokenSet) {
+        if (!token) continue;
+        const postings = tokenPostings.get(token);
+        if (postings) postings.push(recordIndex);
+        else tokenPostings.set(token, [recordIndex]);
+      }
+    }
+
+    tokenPostings.forEach((_, token) => {
+      const initial = token.charAt(0);
+      const vocabulary = vocabularyByInitial.get(initial) || [];
+      vocabulary.push(token);
+      vocabularyByInitial.set(initial, vocabulary);
+    });
+
+    const index = { catalog: records, tokenPostings, vocabularyByInitial };
+    searchCandidateIndexByCatalog.set(records, index);
+    return index;
+  }
+
+  function getSearchCandidateIndex(catalog) {
+    if (!Array.isArray(catalog)) return null;
+    return searchCandidateIndexByCatalog.get(catalog) || createSearchCandidateIndex(catalog);
+  }
+
+  function intersectRows(left, right) {
+    const smaller = left.size <= right.size ? left : right;
+    const larger = smaller === left ? right : left;
+    return new Set([...smaller].filter((recordIndex) => larger.has(recordIndex)));
+  }
+
+  function getScoringCandidateRows(catalog, preparedQuery, requiredClauses) {
+    if (
+      preparedQuery.seedRecord
+      || preparedQuery.tokens.length === 0
+      || (requiredClauses.length === 0 && !preparedQuery.isStopWordOnly)
+    ) {
+      return null;
+    }
+
+    const index = getSearchCandidateIndex(catalog);
+    if (!index) return null;
+    const rowsByQueryToken = new Map();
+    const rowsForToken = (queryToken) => {
+      if (rowsByQueryToken.has(queryToken)) return rowsByQueryToken.get(queryToken);
+      const rows = new Set();
+      const vocabulary = index.vocabularyByInitial.get(queryToken.charAt(0)) || [];
+      vocabulary.forEach((fieldToken) => {
+        if (!matchesSearchToken(queryToken, fieldToken)) return;
+        (index.tokenPostings.get(fieldToken) || []).forEach((recordIndex) => rows.add(recordIndex));
+      });
+      rowsByQueryToken.set(queryToken, rows);
+      return rows;
+    };
+    const rowsForOption = (tokens) => {
+      let matchingRows = null;
+      for (const token of tokens) {
+        const tokenRows = rowsForToken(token);
+        if (tokenRows.size === 0) return new Set();
+        matchingRows = matchingRows === null ? tokenRows : intersectRows(matchingRows, tokenRows);
+        if (matchingRows.size === 0) return matchingRows;
+      }
+      return matchingRows || new Set();
+    };
+
+    let clauseRows = null;
+    for (const clause of requiredClauses) {
+      const matchingClauseRows = new Set();
+      clause.options.forEach((option) => rowsForOption(option).forEach((recordIndex) => matchingClauseRows.add(recordIndex)));
+      clauseRows = clauseRows === null ? matchingClauseRows : intersectRows(clauseRows, matchingClauseRows);
+      if (clauseRows.size === 0) break;
+    }
+
+    const matchingQueryRows = rowsForOption(preparedQuery.tokens);
+    if (clauseRows === null) return matchingQueryRows;
+    matchingQueryRows.forEach((recordIndex) => clauseRows.add(recordIndex));
+    return clauseRows;
   }
 
   function hasTokenCoverage(recordTokens, tokens) {
@@ -1251,7 +1340,15 @@
         )
       : new Map();
 
-    return (Array.isArray(catalog) ? catalog : [])
+    const catalogRecords = Array.isArray(catalog) ? catalog : [];
+    const candidateRows = options.exhaustiveCandidates === true
+      ? null
+      : getScoringCandidateRows(catalogRecords, preparedQuery, requiredClauses);
+    const candidateRecords = candidateRows === null
+      ? catalogRecords
+      : [...candidateRows].sort((left, right) => left - right).map((recordIndex) => catalogRecords[recordIndex]);
+
+    return candidateRecords
       .map((record) => {
         const searchIndex = record.searchIndex || buildSearchIndex(record, new Map());
         const reasons = [];

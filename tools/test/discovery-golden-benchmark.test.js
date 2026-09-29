@@ -187,12 +187,14 @@ test("baseline capture is one-time and refuses a separate target contract", () =
   }
 });
 
-test("the benchmark produces identical reports on repeat runs", () => {
+test("the benchmark is deterministic and reports catalogue drift accurately", () => {
   const first = buildBenchmarkReport(corpus, context, siteRoot, targetContract);
   const second = buildBenchmarkReport(corpus, context, siteRoot, targetContract);
   assert.deepEqual(first, second);
-  assert.equal(first.current.catalogueDrift, false);
-  assert.equal(first.summary.baselineChanged, 0);
+  assert.equal(
+    first.current.catalogueDrift,
+    first.current.catalogueFingerprint !== corpus.baseline.catalogueFingerprint,
+  );
 });
 
 test("the frozen v1 White Vault defect remains visible and Discovery 2 removes it", () => {

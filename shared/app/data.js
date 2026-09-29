@@ -37,22 +37,18 @@ export async function fetchJson(url, options = {}) {
         ...headerOverrides,
       },
     });
-  } catch (error) {
-    if (error?.name === "AbortError") {
-      throw new Error(`Request for ${url} timed out.`);
+    if (!response.ok) {
+      throw new Error(`Request for ${url} failed with ${response.status}`);
     }
+    return await response.json();
+  } catch (error) {
+    if (error?.name === "AbortError" || timeoutController.signal.aborted) {
+      throw new Error(`Request for ${url} timed out.`, { cause: error });
+    }
+    if (response?.ok) throw new Error(`Request for ${url} did not return valid JSON.`, { cause: error });
     throw error;
   } finally {
     window.clearTimeout(timeoutId);
-  }
-  if (!response.ok) {
-    throw new Error(`Request for ${url} failed with ${response.status}`);
-  }
-
-  try {
-    return await response.json();
-  } catch (error) {
-    throw new Error(`Request for ${url} did not return valid JSON.`, { cause: error });
   }
 }
 

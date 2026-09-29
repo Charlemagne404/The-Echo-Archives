@@ -89,6 +89,11 @@ function resetGridItemMotion(node) {
   clearAnimation(node, "__collectionsExitAnimation");
   resetFrozenGridItemPosition(node);
   node.dataset.collectionsMotionState = "settled";
+  if (Object.hasOwn(node, "__collectionsExitTabIndex")) {
+    if (node.__collectionsExitTabIndex === null) node.removeAttribute("tabindex");
+    else node.setAttribute("tabindex", node.__collectionsExitTabIndex);
+    delete node.__collectionsExitTabIndex;
+  }
   node.removeAttribute("aria-hidden");
 }
 
@@ -195,6 +200,8 @@ function scheduleGridExit(node, root, durationMs) {
   resetGridItemMotion(node);
   freezeGridItemPosition(node, root);
   node.dataset.collectionsMotionState = "exiting";
+  node.__collectionsExitTabIndex = node.getAttribute("tabindex");
+  node.setAttribute("tabindex", "-1");
   node.setAttribute("aria-hidden", "true");
   node.__collectionsExitAnimation = animateNode(
     node,

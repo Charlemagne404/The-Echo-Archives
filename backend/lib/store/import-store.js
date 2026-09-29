@@ -4,7 +4,6 @@ const { gunzipSync, gzipSync } = require("node:zlib");
 const {
   IMPORT_OPEN_STATUSES,
   normalizeUrl,
-  safeJsonParse,
   trimText,
 } = require("../import/utils");
 
@@ -12,7 +11,19 @@ const MAX_RAW_SNAPSHOT_BYTES = 2 * 1024 * 1024;
 const SUCCESS_SOURCE_STATUSES = new Set(["fetched", "success", "not-modified", "cache-hit"]);
 
 function json(value, fallback) {
-  return safeJsonParse(value, fallback);
+  if (value === undefined || value === null || value === "") return fallback;
+  if (typeof value !== "string") {
+    const error = new Error("Stored import data contains malformed JSON; the stored value was left unchanged.");
+    error.code = "malformed_stored_json";
+    throw error;
+  }
+  try {
+    return JSON.parse(value);
+  } catch (cause) {
+    const error = new Error("Stored import data contains malformed JSON; the stored value was left unchanged.", { cause });
+    error.code = "malformed_stored_json";
+    throw error;
+  }
 }
 
 function stableHash(value) {
@@ -595,7 +606,6 @@ function createImportStore({ db }) {
 
   function selectEvidence(candidateId, fieldName, evidenceId, actor = "") {
     return db.transaction(() => {
-      db.prepare("UPDATE catalog_import_field_evidence SET selected = 0 WHERE candidate_id = ? AND field_name = ?").run(candidateId, fieldName);
       const selected = db.prepare(`
         UPDATE catalog_import_field_evidence
         SET selected = 1, confidence = 1, method = 'reviewer-selected', evidence_status = 'selected'
@@ -604,6 +614,11 @@ function createImportStore({ db }) {
       if (selected.changes === 0) {
         return null;
       }
+      db.prepare(`
+        UPDATE catalog_import_field_evidence
+        SET selected = 0
+        WHERE candidate_id = ? AND field_name = ? AND id <> ?
+      `).run(candidateId, fieldName, evidenceId);
       const locks = new Set(hydrateCandidate(getCandidateRow.get(candidateId))?.lockedFields || []);
       locks.add(fieldName);
       updateCandidate(candidateId, { lockedFields: [...locks] });

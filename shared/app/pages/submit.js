@@ -449,6 +449,7 @@ export async function initializeSubmitPage() {
       state.tagQuery = "";
       state.tagHighlightIndex = -1;
       ui.renderAll();
+      ui.focusTagInput(tagField);
       return;
     }
 

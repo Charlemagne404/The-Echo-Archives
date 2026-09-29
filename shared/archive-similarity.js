@@ -729,43 +729,50 @@
   }
 
   function createEditorialDimension(source, target, context) {
-    const evidence = [];
-    const sourceLinks = new Set(asArray(source?.similarTo).map(normalizeText));
-    const targetLinks = new Set(asArray(target?.similarTo).map(normalizeText));
+    let evidence;
+    const hasIndexedRecords = context.catalogShowById instanceof Map
+      && context.catalogShowById.get(source?.id) === source
+      && context.catalogShowById.get(target?.id) === target;
+    if (context.editorialEvidenceByShow instanceof Map && hasIndexedRecords) {
+      evidence = context.editorialEvidenceByShow.get(source.id)?.get(target.id) || [];
+    } else {
+      evidence = [];
+      const sourceLinks = new Set(asArray(source?.similarTo).map(normalizeText));
+      const targetLinks = new Set(asArray(target?.similarTo).map(normalizeText));
 
-    if (sourceLinks.has(target.id)) {
-      evidence.push({
-        code: "similarTo",
-        source: "catalog.similarTo",
-        direction: "source-to-target",
-        text: normalizeText(source?.similarReasons?.[target.id]) || "Explicit catalog similarity link.",
+      if (sourceLinks.has(target.id)) {
+        evidence.push({
+          code: "similarTo",
+          source: "catalog.similarTo",
+          direction: "source-to-target",
+          text: normalizeText(source?.similarReasons?.[target.id]) || "Explicit catalog similarity link.",
+        });
+      }
+      if (targetLinks.has(source.id)) {
+        evidence.push({
+          code: "similarTo",
+          source: "catalog.similarTo",
+          direction: "target-to-source",
+          text: normalizeText(target?.similarReasons?.[source.id]) || "Explicit catalog similarity link.",
+        });
+      }
+
+      context.similarityCollections.filter((collection) => {
+        const anchor = normalizeText(collection.anchorShowId);
+        const members = new Set(asArray(collection.showIds).map(normalizeText));
+        return (anchor === source.id && members.has(target.id)) || (anchor === target.id && members.has(source.id));
+      }).forEach((collection) => {
+        const memberId = collection.anchorShowId === source.id ? target.id : source.id;
+        const title = normalizeText(collection.title) || collection.id;
+        evidence.push({
+          code: "similarityCollection",
+          source: "catalog.similarity-collection",
+          collectionId: collection.id,
+          collectionTitle: title,
+          text: normalizeText(collection.showReasons?.[memberId]) || `Included in ${title}.`,
+        });
       });
     }
-    if (targetLinks.has(source.id)) {
-      evidence.push({
-        code: "similarTo",
-        source: "catalog.similarTo",
-        direction: "target-to-source",
-        text: normalizeText(target?.similarReasons?.[source.id]) || "Explicit catalog similarity link.",
-      });
-    }
-
-    const similarityCollections = context.similarityCollections.filter((collection) => {
-      const anchor = normalizeText(collection.anchorShowId);
-      const members = new Set(asArray(collection.showIds).map(normalizeText));
-      return (anchor === source.id && members.has(target.id)) || (anchor === target.id && members.has(source.id));
-    });
-
-    similarityCollections.forEach((collection) => {
-      const memberId = collection.anchorShowId === source.id ? target.id : source.id;
-      evidence.push({
-        code: "similarityCollection",
-        source: "catalog.similarity-collection",
-        collectionId: collection.id,
-        collectionTitle: normalizeText(collection.title) || collection.id,
-        text: normalizeText(collection.showReasons?.[memberId]) || `Included in ${normalizeText(collection.title) || collection.id}.`,
-      });
-    });
 
     return createDimensionBase(DIMENSION_BY_ID.get("editorial"), {
       available: evidence.length > 0,
@@ -1632,8 +1639,187 @@
       });
     });
 
+    const setDefinitions = DIMENSION_DEFINITIONS.filter((definition) => definition.field || definition.path);
+    const valuePostings = new Map(setDefinitions.map((definition) => [definition.id, new Map()]));
+    const entityPostings = new Map();
+    const releasePostings = new Map();
+    const collectionPostings = new Map();
+    const episodeLengthPostings = [];
+    const catalogLengthPostings = new Map([["episodes", []], ["seasons", []]]);
+    const featuresByShowId = new Map();
+    const editorialEvidenceByShow = new Map(publicShows.map((show) => [show.id, new Map()]));
+    const incomingSimilarByShow = new Map(publicShows.map((show) => [show.id, []]));
+    const similarityCollectionsByAnchor = new Map();
+    const similarityCollectionsByMember = new Map();
+
+    function addPosting(postings, key, showId) {
+      if (!key) return;
+      const ids = postings.get(key) || new Set();
+      ids.add(showId);
+      postings.set(key, ids);
+    }
+
+    function addEditorialEvidence(fromId, toId, evidence) {
+      if (!showById.has(fromId) || !showById.has(toId) || fromId === toId) return;
+      const byTarget = editorialEvidenceByShow.get(fromId);
+      const entries = byTarget.get(toId) || [];
+      entries.push(evidence);
+      byTarget.set(toId, entries);
+    }
+
+    publicShows.forEach((show) => {
+      const setValuesByDimension = new Map();
+      setDefinitions.forEach((definition) => {
+        const keys = [...normalizeSetValues(getDefinitionValues(show, definition)).keys()];
+        setValuesByDimension.set(definition.id, keys);
+        keys.forEach((key) => addPosting(valuePostings.get(definition.id), key, show.id));
+      });
+
+      const entityKeys = [...new Set(getEntityEntries(show).map((entity) => entity.role + ":" + entity.id))];
+      entityKeys.forEach((key) => addPosting(entityPostings, key, show.id));
+      const releaseState = getReleaseState(show);
+      if (releaseState) addPosting(releasePostings, releaseState, show.id);
+
+      const sharedCollectionIds = [...new Set((collectionsByShow.get(show.id) || []).map((collection) => collection.id))];
+      sharedCollectionIds.forEach((collectionId) => addPosting(collectionPostings, collectionId, show.id));
+
+      const episodeLength = getEpisodeLength(show)?.value || null;
+      if (episodeLength) episodeLengthPostings.push({ value: episodeLength, showId: show.id });
+      const catalogLength = getCatalogLength(show);
+      if (catalogLength) catalogLengthPostings.get(catalogLength.unit)?.push({ value: catalogLength.value, showId: show.id });
+
+      featuresByShowId.set(show.id, {
+        setValuesByDimension,
+        entityKeys: new Set(entityKeys),
+        releaseState,
+        sharedCollectionIds: new Set(sharedCollectionIds),
+        episodeLength,
+        catalogLength,
+      });
+
+      const outgoingIds = [...new Set(asArray(show.similarTo).map(normalizeText).filter(Boolean))];
+      outgoingIds.forEach((targetId) => {
+        if (!showById.has(targetId)) return;
+        const reason = normalizeText(show.similarReasons?.[targetId]) || "Explicit catalog similarity link.";
+        incomingSimilarByShow.get(targetId)?.push(show);
+        addEditorialEvidence(show.id, targetId, {
+          code: "similarTo",
+          source: "catalog.similarTo",
+          direction: "source-to-target",
+          text: reason,
+        });
+        addEditorialEvidence(targetId, show.id, {
+          code: "similarTo",
+          source: "catalog.similarTo",
+          direction: "target-to-source",
+          text: reason,
+        });
+      });
+    });
+
+    episodeLengthPostings.sort((left, right) => left.value - right.value || left.showId.localeCompare(right.showId, "en"));
+    catalogLengthPostings.forEach((records) => records.sort((left, right) => left.value - right.value || left.showId.localeCompare(right.showId, "en")));
+
+    similarityCollections.forEach((collection) => {
+      const anchorId = normalizeText(collection.anchorShowId);
+      const memberIds = [...new Set(collection.showIds.filter(Boolean))];
+      if (showById.has(anchorId)) {
+        const anchored = similarityCollectionsByAnchor.get(anchorId) || [];
+        anchored.push(collection);
+        similarityCollectionsByAnchor.set(anchorId, anchored);
+      }
+      memberIds.forEach((memberId) => {
+        if (!showById.has(memberId)) return;
+        const memberships = similarityCollectionsByMember.get(memberId) || [];
+        memberships.push({ collection, memberId });
+        similarityCollectionsByMember.set(memberId, memberships);
+        if (!showById.has(anchorId)) return;
+        const title = normalizeText(collection.title) || collection.id;
+        const reason = normalizeText(collection.showReasons?.[memberId]) || ("Included in " + title + ".");
+        const evidence = {
+          code: "similarityCollection",
+          source: "catalog.similarity-collection",
+          collectionId: collection.id,
+          collectionTitle: title,
+          text: reason,
+        };
+        addEditorialEvidence(anchorId, memberId, evidence);
+        addEditorialEvidence(memberId, anchorId, evidence);
+      });
+    });
+
+    function addRangePostings(records, value, threshold, dimensionId, matchesByShowId) {
+      if (!value || !records.length) return;
+      const minimum = value * threshold;
+      const maximum = value / threshold;
+      let low = 0;
+      let high = records.length;
+      while (low < high) {
+        const middle = (low + high) >> 1;
+        if (records[middle].value < minimum) low = middle + 1;
+        else high = middle;
+      }
+      for (let index = low; index < records.length && records[index].value <= maximum; index += 1) {
+        const dimensions = matchesByShowId.get(records[index].showId) || new Set();
+        dimensions.add(dimensionId);
+        matchesByShowId.set(records[index].showId, dimensions);
+      }
+    }
+
+    function getIndexedCandidates(source, { minimumScore, minimumMetadataDimensions, minimumAnchorDimensions, includePartial }) {
+      if (showById.get(source.id) !== source) return publicShows;
+      if (!includePartial && minimumScore <= 0 && minimumMetadataDimensions === 0 && minimumAnchorDimensions === 0) {
+        return publicShows;
+      }
+
+      const matchesByShowId = new Map();
+      const markMatches = (posting, dimensionId) => {
+        if (!posting) return;
+        posting.forEach((showId) => {
+          if (showId === source.id) return;
+          const dimensions = matchesByShowId.get(showId) || new Set();
+          dimensions.add(dimensionId);
+          matchesByShowId.set(showId, dimensions);
+        });
+      };
+      const sourceFeatures = featuresByShowId.get(source.id);
+      sourceFeatures.setValuesByDimension.forEach((values, dimensionId) => {
+        const postings = valuePostings.get(dimensionId);
+        values.forEach((value) => markMatches(postings.get(value), dimensionId));
+      });
+      sourceFeatures.entityKeys.forEach((key) => markMatches(entityPostings.get(key), "entity"));
+      if (sourceFeatures.releaseState) markMatches(releasePostings.get(sourceFeatures.releaseState), "releaseProfile");
+      sourceFeatures.sharedCollectionIds.forEach((id) => markMatches(collectionPostings.get(id), "sharedCollection"));
+      addRangePostings(episodeLengthPostings, sourceFeatures.episodeLength, 0.6, "episodeLength", matchesByShowId);
+      if (sourceFeatures.catalogLength) {
+        addRangePostings(
+          catalogLengthPostings.get(sourceFeatures.catalogLength.unit) || [],
+          sourceFeatures.catalogLength.value,
+          0.55,
+          "catalogLength",
+          matchesByShowId,
+        );
+      }
+      editorialEvidenceByShow.get(source.id)?.forEach((_, targetId) => {
+        if (targetId === source.id) return;
+        const dimensions = matchesByShowId.get(targetId) || new Set();
+        dimensions.add("editorial");
+        matchesByShowId.set(targetId, dimensions);
+      });
+
+      return [...matchesByShowId].filter(([showId, dimensionIds]) => {
+        if (!includePartial && dimensionIds.has("editorial")) return true;
+        const metadataDimensions = [...dimensionIds].filter((id) => id !== "editorial");
+        if (includePartial) return metadataDimensions.length > 0 || dimensionIds.has("editorial");
+        const anchorCount = [...dimensionIds].filter((id) => DIMENSION_BY_ID.get(id)?.anchor).length;
+        return metadataDimensions.length >= minimumMetadataDimensions && anchorCount >= minimumAnchorDimensions;
+      }).map(([showId]) => showById.get(showId)).filter(Boolean);
+    }
+
     const context = {
       showCount: publicShows.length,
+      catalogShowById: showById,
+      editorialEvidenceByShow,
       frequencies: createFrequencyIndex(publicShows),
       similarityCollections: similarityCollections.map((collection) => ({
         ...collection,
@@ -1679,30 +1865,27 @@
         addMatch(neighbor, source.similarReasons?.[neighbor?.id], "source-to-target");
       });
 
-      similarityCollections.forEach((collection) => {
-        const anchorId = normalizeText(collection.anchorShowId);
-        const memberIds = asArray(collection.showIds).map(normalizeText).filter(Boolean);
-        if (anchorId === source.id) {
-          memberIds.forEach((memberId) => {
-            const neighbor = showById.get(memberId);
-            addMatch(
-              neighbor,
-              collection.showReasons?.[memberId] || `Included in ${collection.title}.`,
-              "similarity-collection",
-            );
-          });
-        } else if (memberIds.includes(source.id)) {
-          const neighbor = showById.get(anchorId);
+      (similarityCollectionsByAnchor.get(source.id) || []).forEach((collection) => {
+        [...new Set(collection.showIds.filter(Boolean))].forEach((memberId) => {
+          const neighbor = showById.get(memberId);
           addMatch(
             neighbor,
-            collection.showReasons?.[source.id] || `Included in ${collection.title}.`,
+            collection.showReasons?.[memberId] || `Included in ${collection.title}.`,
             "similarity-collection",
           );
-        }
+        });
       });
 
-      publicShows
-        .filter((candidate) => candidate.id !== source.id && asArray(candidate.similarTo).map(normalizeText).includes(source.id))
+      (similarityCollectionsByMember.get(source.id) || []).forEach(({ collection }) => {
+        const neighbor = showById.get(normalizeText(collection.anchorShowId));
+        addMatch(
+          neighbor,
+          collection.showReasons?.[source.id] || `Included in ${collection.title}.`,
+          "similarity-collection",
+        );
+      });
+
+      [...(incomingSimilarByShow.get(source.id) || [])]
         .sort((left, right) => String(left.title || left.id).localeCompare(String(right.title || right.id), "en") || left.id.localeCompare(right.id, "en"))
         .forEach((neighbor) => addMatch(neighbor, neighbor.similarReasons?.[source.id], "target-to-source"));
 
@@ -1748,7 +1931,12 @@
       );
       const includePartial = options.includePartial === true;
 
-      return publicShows
+      return getIndexedCandidates(source, {
+        minimumScore,
+        minimumMetadataDimensions,
+        minimumAnchorDimensions,
+        includePartial,
+      })
         .filter((candidate) => candidate.id !== source.id)
         .map((candidate) => ({ show: candidate, similarity: compareShows(source, candidate, context) }))
         .filter(({ similarity }) => passesSimilarityThreshold(similarity, {

@@ -27,6 +27,14 @@ export function setBrowseControlsDisabled(elements, disabled) {
     }
   });
 
+  if (elements.quickFiltersRoot instanceof HTMLElement) {
+    if (disabled) {
+      elements.quickFiltersRoot.setAttribute("tabindex", "0");
+    } else {
+      elements.quickFiltersRoot.removeAttribute("tabindex");
+    }
+  }
+
   document.body.dataset.homeReady = disabled ? "false" : "true";
 }
 

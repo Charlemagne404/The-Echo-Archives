@@ -47,6 +47,7 @@ export async function initializeLibraryPage({ library, runtime, refreshRuntime }
     importEntries: [],
     importPreview: null,
     importPreviewGeneration: 0,
+    importFileGeneration: 0,
     importMode: "merge",
   };
 
@@ -197,6 +198,7 @@ export async function initializeLibraryPage({ library, runtime, refreshRuntime }
   }
 
   function clearImport(message = "") {
+    state.importFileGeneration += 1;
     state.importPreviewGeneration += 1;
     state.importText = "";
     state.importEntries = [];
@@ -267,18 +269,23 @@ export async function initializeLibraryPage({ library, runtime, refreshRuntime }
   });
 
   importInput?.addEventListener("change", async () => {
+    const fileGeneration = ++state.importFileGeneration;
     const file = importInput.files?.[0];
     if (!file) {
       clearImport("Import canceled. Your Library was not changed.");
       return;
     }
     try {
-      state.importText = await file.text();
+      const importText = await file.text();
+      if (fileGeneration !== state.importFileGeneration) return;
+      state.importText = importText;
       state.importEntries = readImportEntries(state.importText);
       await refreshImportPreview();
+      if (fileGeneration !== state.importFileGeneration || state.importText !== importText) return;
       if (state.importPreview?.valid) setStatus("libraryTransferStatus", "Backup validated. Review the preview and choose Merge or Replace. Nothing has been imported yet.");
       else setStatus("libraryTransferStatus", "This backup has invalid data. Review the issues below; nothing has been imported.", "error");
     } catch (error) {
+      if (fileGeneration !== state.importFileGeneration) return;
       clearImport();
       setStatus("libraryTransferStatus", `The selected file could not be read: ${error?.message || "file read failed"}. Nothing was changed.`, "error");
     }

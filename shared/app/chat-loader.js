@@ -1,5 +1,5 @@
 const CHAT_SHELL_MARKUP = `
-  <aside id="chat-container" role="dialog" aria-modal="true" aria-labelledby="chatDialogTitle" aria-hidden="true">
+  <div id="chat-container" role="dialog" aria-modal="true" aria-labelledby="chatDialogTitle" aria-hidden="true">
     <div class="chat-panel-header">
       <div class="chat-panel-heading">
         <h2 id="chatDialogTitle">Ask the Archivist</h2>
@@ -34,7 +34,7 @@ const CHAT_SHELL_MARKUP = `
       <button id="sendMessageButton" type="button">Ask</button>
     </div>
     <p class="chat-footnote">Ask for a completed show, a mood, or a title already in the archive.</p>
-  </aside>
+  </div>
 `;
 
 export async function mountAndInitializeSharedChat() {
