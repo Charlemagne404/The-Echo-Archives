@@ -345,6 +345,13 @@ function createCommunityStore({ db, catalog, minPublicRatings = 1 }) {
       return null;
     }
 
+    let metadata;
+    try {
+      metadata = JSON.parse(row.metadata_json || "{}");
+    } catch (cause) {
+      throw new Error(`Invalid stored metadata JSON for podcast ${row.id}.`, { cause });
+    }
+
     return {
       id: row.id,
       title: row.title,
@@ -352,7 +359,7 @@ function createCommunityStore({ db, catalog, minPublicRatings = 1 }) {
       image: row.image,
       hasPage: Boolean(row.has_page),
       staffRating: row.staff_rating,
-      metadata: JSON.parse(row.metadata_json || "{}"),
+      metadata,
     };
   }
 

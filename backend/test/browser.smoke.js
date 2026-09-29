@@ -1,5 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
+const http = require("node:http");
 const {
   buildSummaryPayload,
   countDistinctRows,
@@ -518,6 +519,7 @@ test("service worker supports cached public pages offline and falls back for unc
   const context = await browser.newContext({ viewport: { width: 1280, height: 720 } });
   const page = await context.newPage();
   let serverStopped = false;
+  let failureProxy = null;
 
   try {
     await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "domcontentloaded" });
@@ -562,8 +564,37 @@ test("service worker supports cached public pages offline and falls back for unc
     assert.equal(apiBoundary.writeStatus, 204, "non-GET API requests must bypass the worker");
     assert.equal(apiBoundary.cachedApiResponses, 0, "API responses must not enter public caches");
 
+    await page.waitForFunction(async () => {
+      const cacheName = (await caches.keys()).find((key) => key.startsWith("echo-archives-html-"));
+      return Boolean(cacheName && await (await caches.open(cacheName)).match(location.href));
+    });
+
     await stopSmokeServer();
     serverStopped = true;
+    failureProxy = http.createServer((_request, response) => {
+      response.writeHead(502, { "Content-Type": "text/plain" });
+      response.end("Bad Gateway");
+    });
+    await new Promise((resolve, reject) => {
+      failureProxy.once("error", reject);
+      failureProxy.listen(Number(new URL(baseUrl).port), "127.0.0.1", resolve);
+    });
+
+    await page.goto(`${baseUrl}/`, { waitUntil: "domcontentloaded" });
+    assert.equal(await page.title(), "The Echo Archives — Audio Drama Discovery");
+    await page.waitForFunction(() => document.body.dataset.homeReady === "true", undefined, { timeout: 15_000 });
+
+    await page.goto(`${baseUrl}/this-route-should-fallback-on-gateway-error`, { waitUntil: "domcontentloaded" });
+    assert.equal(await page.title(), "Offline - The Echo Archives");
+
+    const failedApiStatus = await page.evaluate(async () => (await fetch("/api/health")).status);
+    assert.equal(failedApiStatus, 502, "API calls must expose the gateway failure rather than use page cache");
+
+    await new Promise((resolve, reject) => {
+      failureProxy.close((error) => error ? reject(error) : resolve());
+    });
+    failureProxy = null;
+
     await page.goto(`${baseUrl}/`, { waitUntil: "domcontentloaded" });
     assert.equal(await page.title(), "The Echo Archives — Audio Drama Discovery");
     await page.waitForFunction(() => document.body.dataset.homeReady === "true", undefined, { timeout: 10_000 });
@@ -573,6 +604,9 @@ test("service worker supports cached public pages offline and falls back for unc
     await page.goto(`${baseUrl}/this-route-should-fallback-offline`, { waitUntil: "domcontentloaded" });
     assert.equal(await page.title(), "Offline - The Echo Archives");
   } finally {
+    if (failureProxy?.listening) {
+      await new Promise((resolve) => failureProxy.close(resolve));
+    }
     if (serverStopped) {
       await startSmokeServer();
     }

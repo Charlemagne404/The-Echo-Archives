@@ -82,6 +82,30 @@ test("device-scoped community ratings update one active vote per show", async ()
   }
 });
 
+test("malformed stored podcast metadata identifies the affected row without a partial rating write", async () => {
+  const context = await createCommunityContext();
+
+  try {
+    context.db.prepare("UPDATE podcasts SET metadata_json = ? WHERE id = ?").run("{malformed", "impact-winter");
+
+    await assert.rejects(
+      context.community.submitRating({
+        podcastId: "impact-winter",
+        rating: 8,
+        voterSecret: "malformed-metadata-voter",
+        userAgent: "recovery-test-agent",
+      }),
+      /Invalid stored metadata JSON for podcast impact-winter\./,
+    );
+
+    assert.equal(context.db.prepare("SELECT COUNT(*) FROM rating_submissions WHERE podcast_id = ?").pluck().get("impact-winter"), 0);
+    assert.equal(context.db.prepare("SELECT COUNT(*) FROM rating_events WHERE podcast_id = ?").pluck().get("impact-winter"), 0);
+    assert.equal(context.db.prepare("PRAGMA integrity_check").pluck().get(), "ok");
+  } finally {
+    cleanupCommunityContext(context);
+  }
+});
+
 test("device profile bootstrap is idempotent for a repeated voter secret", async () => {
   const context = await createCommunityContext();
 

@@ -8,6 +8,7 @@ const { openDatabase } = require("../lib/store/database");
 const { createRateLimitStore } = require("../lib/store/rate-limit-store");
 const { createRateLimitService } = require("../lib/services/rate-limit-service");
 const { findFreePort } = require("./helpers/free-port");
+const { createVisibleStaticRoot } = require("./helpers/visible-static-root");
 
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
@@ -61,6 +62,7 @@ async function waitForServer(url, timeoutMs = 20_000) {
 async function startRateLimitServer() {
   const turnstile = await createTurnstileMock();
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-rate-limit-"));
+  const staticRoot = createVisibleStaticRoot(tempDir, siteRoot);
   const dbPath = path.join(tempDir, "community.sqlite");
   const port = await findFreePort();
   const baseUrl = `http://127.0.0.1:${port}`;
@@ -73,7 +75,7 @@ async function startRateLimitServer() {
       DB_PATH: dbPath,
       ARCHIVIST_ENABLED: "true",
       OLLAMA_URL: "http://127.0.0.1:9/api/generate",
-      STATIC_ROOT: siteRoot,
+      STATIC_ROOT: staticRoot,
       CHAT_RATE_LIMIT_MAX: "2",
       // This HTTP test checks route-level throttling. Expiration is tested
       // below with a controlled clock so worker contention cannot expire the

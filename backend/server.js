@@ -247,6 +247,20 @@ function buildStaticPageMetadata({ routePath, requestSiteUrl, manifestEntry }) {
 async function startServer() {
   config.validateConfig(config);
   const { validateDiscoveryProps } = await import("../shared/app/discovery-analytics.js");
+  const publicPageManifest = config.SERVE_STATIC
+    ? JSON.parse(fs.readFileSync(path.join(config.STATIC_ROOT, "site-src", "page-manifest.json"), "utf8"))
+    : [];
+  if (config.SERVE_STATIC && !Array.isArray(publicPageManifest)) {
+    throw new Error("The generated page manifest must be a JSON array.");
+  }
+  const publicPageManifestByFile = new Map(
+    publicPageManifest
+      .filter((entry) => entry && typeof entry.output === "string")
+      .map((entry) => [entry.output, entry]),
+  );
+  const legacyRedirects = config.SERVE_STATIC
+    ? JSON.parse(fs.readFileSync(path.join(config.STATIC_ROOT, "shared", "config", "legacy-redirects.json"), "utf8"))
+    : [];
   const app = express();
   const releaseMetadata = readReleaseMetadata(config.STATIC_ROOT);
   const state = {
@@ -764,22 +778,9 @@ async function startServer() {
   );
 
   if (config.SERVE_STATIC) {
-    const publicPageManifest = JSON.parse(
-      fs.readFileSync(path.join(config.STATIC_ROOT, "site-src", "page-manifest.json"), "utf8"),
-    );
-    const publicPageManifestByFile = new Map(
-      publicPageManifest
-        .filter((entry) => entry && typeof entry.output === "string")
-        .map((entry) => [entry.output, entry]),
-    );
-
     function readPublicPageTemplate(fileName) {
       return fs.readFileSync(path.join(config.STATIC_ROOT, fileName), "utf8");
     }
-
-    const legacyRedirects = JSON.parse(
-      fs.readFileSync(path.join(config.STATIC_ROOT, "shared", "config", "legacy-redirects.json"), "utf8"),
-    );
 
     const resolveEntityAliasTarget = (routePath, req) => {
       const id = typeof req.query.id === "string" ? req.query.id.trim() : "";

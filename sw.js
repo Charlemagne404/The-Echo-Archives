@@ -89,25 +89,32 @@ self.addEventListener("message", (event) => {
 async function handleNavigationRequest(request) {
   const cache = await caches.open(HTML_CACHE);
 
+  let response = null;
   try {
-    const response = await fetch(request);
-    if (response && response.ok) {
-      void cache.put(request, response.clone());
-    }
-    return response;
+    response = await fetch(request);
   } catch (_error) {
-    const cachedResponse = await cache.match(request);
-    if (cachedResponse) {
-      return cachedResponse;
-    }
-
-    const precachedFallback = await caches.match(request.url);
-    if (precachedFallback) {
-      return precachedFallback;
-    }
-
-    return caches.match(OFFLINE_FALLBACK_URL);
+    // A failed network request uses the same cached-page path as a gateway error.
   }
+
+  if (response && response.ok) {
+    void cache.put(request, response.clone());
+    return response;
+  }
+  if (response && ![502, 503, 504].includes(response.status)) {
+    return response;
+  }
+
+  const cachedResponse = await cache.match(request);
+  if (cachedResponse) {
+    return cachedResponse;
+  }
+
+  const precachedFallback = await caches.match(request.url);
+  if (precachedFallback) {
+    return precachedFallback;
+  }
+
+  return caches.match(OFFLINE_FALLBACK_URL);
 }
 
 async function cacheVisitedPage(url) {
