@@ -417,6 +417,12 @@ function migrate(db) {
       created_at_ms INTEGER NOT NULL
     );
 
+    CREATE TABLE IF NOT EXISTS maintainer_sessions (
+      session_id TEXT PRIMARY KEY,
+      expires_at_ms INTEGER NOT NULL
+    );
+    CREATE INDEX IF NOT EXISTS maintainer_sessions_expiry_idx ON maintainer_sessions(expires_at_ms);
+
     CREATE TABLE IF NOT EXISTS analytics_meta (
       key TEXT PRIMARY KEY,
       value TEXT NOT NULL

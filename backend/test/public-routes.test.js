@@ -861,6 +861,9 @@ test("server exposes only intended public files and preserves legacy show redire
       "/TODO.md",
       "/data/schema.md",
       "/shared/package.json",
+      "/%2e%2e/package.json",
+      "/data/%2e%2e/site-src/page-manifest.json",
+      "/shared%2f..%2fsite-src%2fpage-manifest.json",
     ]) {
       const response = await fetch(`${context.baseUrl}${route}`);
       assert.equal(response.status, 404, route);
@@ -997,7 +1000,7 @@ test("public data responses are versionable and exclude server-only catalog fiel
   }
 });
 
-test("malformed JSON requests remain actionable 400 responses", async () => {
+test("malformed, oversized, and unsupported JSON requests fail safely", async () => {
   const context = await startPublicRouteServer();
 
   try {
@@ -1009,6 +1012,24 @@ test("malformed JSON requests remain actionable 400 responses", async () => {
     assert.equal(response.status, 400);
     const payload = await response.json();
     assert.doesNotMatch(payload.error || "", /unexpected server/i);
+
+    const oversized = await fetch(`${context.baseUrl}/api/submissions/shows`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ notes: "x".repeat(30_000) }),
+    });
+    assert.equal(oversized.status, 413);
+    const oversizedPayload = await oversized.json();
+    assert.doesNotMatch(oversizedPayload.error || "", /stack|node_modules|internal\/modules/i);
+
+    const unsupportedType = await fetch(`${context.baseUrl}/api/submissions/shows`, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain" },
+      body: "{\"showTitle\":\"not parsed\"}",
+    });
+    assert.equal(unsupportedType.status, 400);
+    const unsupportedPayload = await unsupportedType.json();
+    assert.doesNotMatch(unsupportedPayload.error || "", /stack|node_modules|internal\/modules/i);
   } finally {
     await stopPublicRouteServer(context);
   }

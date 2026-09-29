@@ -569,6 +569,20 @@ test("service worker supports cached public pages offline and falls back for unc
       return Boolean(cacheName && await (await caches.open(cacheName)).match(location.href));
     });
 
+    const noStoreBoundary = await page.evaluate(async () => {
+      const url = new URL("/maintainer/submissions.html", location.origin);
+      const response = await fetch(url);
+      const cachedResponse = await caches.match(url.href);
+      return {
+        status: response.status,
+        cacheControl: response.headers.get("cache-control") || "",
+        cached: Boolean(cachedResponse),
+      };
+    });
+    assert.equal(noStoreBoundary.status, 200, "maintainer page shells remain available before authentication");
+    assert.match(noStoreBoundary.cacheControl, /no-store/i);
+    assert.equal(noStoreBoundary.cached, false, "Cache Storage must honor no-store on same-origin responses");
+
     await stopSmokeServer();
     serverStopped = true;
     failureProxy = http.createServer((_request, response) => {

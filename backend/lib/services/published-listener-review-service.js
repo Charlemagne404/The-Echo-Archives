@@ -1,4 +1,4 @@
-const { createAbuseHash, hashValue } = require("./community-service");
+const { createAbuseHash, createRateLimitHash, hashValue } = require("./community-service");
 
 const SPOILER_LEVELS = new Set(["spoiler-free", "light-spoilers", "full-spoilers"]);
 const CATEGORY_SCORE_KEYS = ["voiceActing", "soundDesign", "story", "characters", "ads", "length"];
@@ -230,7 +230,7 @@ function createPublishedListenerReviewService({
     }
 
     const abuseHash = createAbuseHash({ secret: voterHashSecret, sourceIp, userAgent });
-    rateLimiter?.check("community", abuseHash);
+    rateLimiter?.check("community", createRateLimitHash({ secret: voterHashSecret, sourceIp }));
     const profileId = communityStore.ensureDeviceProfile({
       voterHash: hashValue(voterHashSecret, voterSecret),
       userAgent,

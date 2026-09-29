@@ -10,12 +10,20 @@ const CATEGORY_SCORE_COLUMNS = {
 };
 
 function parseJsonArray(value) {
+  if (value === null || value === undefined || value === "") return [];
+
   try {
-    const parsed = JSON.parse(value || "[]");
-    return Array.isArray(parsed) ? parsed : [];
-  } catch (_error) {
-    return [];
+    const parsed = JSON.parse(value);
+    if (Array.isArray(parsed)) return parsed;
+  } catch (cause) {
+    const error = new Error("Stored listener review data contains malformed JSON; the stored value was left unchanged.", { cause });
+    error.code = "malformed_stored_json";
+    throw error;
   }
+
+  const error = new Error("Stored listener review data contains an invalid JSON shape; the stored value was left unchanged.");
+  error.code = "malformed_stored_json";
+  throw error;
 }
 
 function normalizeScore(value) {

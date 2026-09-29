@@ -479,7 +479,7 @@ async function startServer() {
     importService,
     onPublished: refreshCollectionsForCatalogChange,
   });
-  const maintainerAuth = createMaintainerAuth(config);
+  const maintainerAuth = createMaintainerAuth(config, { db: database });
 
   function getAnalyticsRequestContext(req) {
     return {

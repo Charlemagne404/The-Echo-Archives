@@ -88,6 +88,24 @@ function cleanup(context) {
   fs.rmSync(context.tempDir, { recursive: true, force: true });
 }
 
+test("malformed persisted collection JSON fails closed instead of becoming trusted empty state", () => {
+  const context = createContext();
+  try {
+    const candidate = context.store.createCandidate({
+      id: "malformed-json-candidate",
+      definition: { all: [] },
+      matchingShowIds: ["finished-signal"],
+      evidence: { source: "maintainer" },
+    });
+    context.db.prepare("UPDATE collection_candidates SET definition_json = ? WHERE id = ?").run("{broken", candidate.id);
+
+    assert.throws(() => context.store.getCandidate(candidate.id), { code: "malformed_stored_json" });
+    assert.equal(context.db.prepare("SELECT definition_json FROM collection_candidates WHERE id = ?").get(candidate.id).definition_json, "{broken");
+  } finally {
+    cleanup(context);
+  }
+});
+
 test("rule membership recalculation preserves manual removals and pins", async () => {
   const context = createContext({
     collections: [{

@@ -332,6 +332,7 @@ test("maintainer session and queue routes enforce auth and allow queue updates a
     assert.match(logoutResponse.headers.get("set-cookie") || "", /echo-maintainer-session=;/);
 
     const postLogoutList = await fetch(`${context.baseUrl}/api/maintainer/submissions`, {
+      headers: { Cookie: cookie },
     });
     assert.equal(postLogoutList.status, 401);
   } finally {

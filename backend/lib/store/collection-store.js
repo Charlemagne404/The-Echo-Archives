@@ -1,11 +1,24 @@
 const { randomUUID } = require("node:crypto");
 
 function parseJson(value, fallback) {
+  if (value === null || value === undefined || value === "") return fallback;
+
+  let parsed;
   try {
-    return JSON.parse(value || "");
-  } catch (_error) {
-    return fallback;
+    parsed = JSON.parse(value);
+  } catch (cause) {
+    const error = new Error("Stored collection data contains malformed JSON; the stored value was left unchanged.", { cause });
+    error.code = "malformed_stored_json";
+    throw error;
   }
+
+  const expectsArray = Array.isArray(fallback);
+  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed) !== expectsArray) {
+    const error = new Error("Stored collection data contains an invalid JSON shape; the stored value was left unchanged.");
+    error.code = "malformed_stored_json";
+    throw error;
+  }
+  return parsed;
 }
 
 function stringify(value, fallback) {
