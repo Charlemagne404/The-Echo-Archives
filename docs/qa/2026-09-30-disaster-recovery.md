@@ -96,6 +96,7 @@ retention policy was changed.
 | `npm run build:pages` | Pass; generated `sw.js` matches the renderer source. |
 | `git diff --check` | Pass after the report and runbook were added; rerun before commit. |
 | `npm run verify` | Pass; exit 0. This ran `build:catalog`, `build:pages`, `check:structure`, `check:generated`, `check:release-artifact`, `test:tools`, `check:build-determinism`, and the backend `verify` chain including data/link validation, serial tests, and required Chromium smokes. Data validation printed existing referenced-cover soft-limit notices; the gate completed successfully. |
+| Combined `codex/overnight-integration` verification at `7fff7f9` | Pass; `rtk npm run verify` exited 0 after the task fast-forward, including generated checks, serial backend tests, and required Chromium smokes. Post-merge focused recovery/routes passed 36/36, service-worker browser scenario 1/1, and overlapping routes/auth/library checks 19/19. |
 
 ## Long absence and remaining risk
 
