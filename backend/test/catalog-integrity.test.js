@@ -165,6 +165,23 @@ test("raw integrity validates optional discovery profiles without requiring them
   assert.match(invalidReport.errors.join("\n"), /discovery\.narrativeFocus must be one of/);
 });
 
+test("raw integrity treats canonically equivalent Unicode list values as duplicates", () => {
+  const report = collectCatalogIntegrityIssues({
+    sourceData: {
+      mode: "runtime",
+      shows: [show({ aliases: ["Café Signal", "Cafe\u0301 Signal"] })],
+      collections: [],
+      reviewsById: {},
+    },
+    entities: [],
+    creators: [],
+    networks: [],
+    changelog: [],
+  });
+
+  assert.match(report.errors.join("\n"), /aliases contains duplicate value/);
+});
+
 test("split-source integrity gates malformed dispositions and unresolved provider collisions", () => {
   const sharedRss = "https://feeds.example.test/shared.xml";
   const showIds = ["first-show", "second-show"];

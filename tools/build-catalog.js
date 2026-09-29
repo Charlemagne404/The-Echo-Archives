@@ -2,6 +2,7 @@ const path = require("node:path");
 
 const { loadArchiveContext } = require("../backend/lib/ai/archive-context");
 const { loadCatalog, loadCollections, syncCatalogCovers } = require("../backend/lib/catalog");
+const { assertCatalogIntegrity } = require("../backend/lib/catalog-integrity");
 const { buildDiscoveryGapReport, getGateBCriticalValidationErrors } = require("../backend/lib/discovery-gaps");
 const { generateCoverVariants } = require("../backend/lib/responsive-images");
 const { writeCatalogArtifacts } = require("./lib/catalog-artifacts");
@@ -15,14 +16,16 @@ function resolveSiteRoot() {
 async function buildCatalog(siteRoot = resolveSiteRoot(), options = {}) {
   // This is the explicit maintenance boundary: migrate legacy source layout,
   // optionally recover covers, and generate runtime catalogue artifacts.
+  const sourceData = readCatalogSource(siteRoot);
+  assertCatalogIntegrity(siteRoot, { sourceData });
   ensureSplitCatalogSource(siteRoot);
 
   if (options.recoverCovers !== false) {
     await syncCatalogCovers(siteRoot);
   }
   const catalog = await loadCatalog(siteRoot);
-  const sourceData = readCatalogSource(siteRoot);
-  const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)), { sourceData });
+  const generatedSourceData = readCatalogSource(siteRoot);
+  const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)), { sourceData: generatedSourceData });
   const archiveContext = await loadArchiveContext(siteRoot, catalog, collections);
   const gapReport = buildDiscoveryGapReport(catalog, collections);
   const gateBErrors = getGateBCriticalValidationErrors(catalog, collections);
@@ -36,7 +39,7 @@ async function buildCatalog(siteRoot = resolveSiteRoot(), options = {}) {
   const artifacts = writeCatalogArtifacts(siteRoot, {
     catalog,
     collections,
-    reviewsById: sourceData.reviewsById,
+    reviewsById: generatedSourceData.reviewsById,
     gapReport,
     archiveContext,
     tagTaxonomy: getDiscoveryTaxonomy(),

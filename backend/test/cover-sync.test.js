@@ -479,6 +479,7 @@ test("normal catalog loading is side-effect-free when a local cover is missing",
   seedAssets(tempRoot);
   writeJson(path.join(tempRoot, "catalog-src", "entities.json"), []);
   writeJson(path.join(tempRoot, "catalog-src", "shows", "_order.json"), ["demo-show"]);
+  writeJson(path.join(tempRoot, "catalog-src", "collections", "_order.json"), []);
   writeJson(
     path.join(tempRoot, "catalog-src", "shows", "demo-show.json"),
     createShowRecord({

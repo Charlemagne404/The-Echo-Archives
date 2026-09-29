@@ -41,6 +41,10 @@ function createSearchRecord(overrides = {}) {
   };
 }
 
+test("search tag normalization treats composed and decomposed Unicode identically", () => {
+  assert.equal(archiveSearch.normalizeTag("Café Signal"), archiveSearch.normalizeTag("Cafe\u0301 Signal"));
+});
+
 test("public search keeps title identity ahead of weak metadata", () => {
   const catalog = archiveSearch.hydrateCatalogSearch([
     createSearchRecord({

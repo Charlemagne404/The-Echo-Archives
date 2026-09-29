@@ -275,6 +275,21 @@ test("similarity relationships reject duplicate and self references", async () =
   }
 });
 
+test("catalog loading rejects canonically equivalent Unicode list values", async () => {
+  const tempRoot = createTempSiteRoot();
+
+  try {
+    writeJson(path.join(tempRoot, "data", "collections.json"), []);
+    writeJson(path.join(tempRoot, "data", "shows.json"), [
+      createShowRecord({ aliases: ["Café Signal", "Cafe\u0301 Signal"] }),
+    ]);
+
+    await assert.rejects(loadCatalog(tempRoot), /duplicate aliases value/i);
+  } finally {
+    fs.rmSync(tempRoot, { recursive: true, force: true });
+  }
+});
+
 test("published catalog records require approved discovery signals instead of filler tags", async () => {
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");
