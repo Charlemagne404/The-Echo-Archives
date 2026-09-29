@@ -704,6 +704,14 @@ test("search index responses use cache-friendly headers for versioned and unvers
       "public, max-age=0, must-revalidate, stale-while-revalidate=60",
     );
 
+    const runtimeResponse = await fetch(`${context.baseUrl}/data/runtime-evidence.json?v=test-build`);
+    assert.equal(runtimeResponse.status, 200);
+    assert.match(runtimeResponse.headers.get("content-type") || "", /application\/json/);
+    assert.match(runtimeResponse.headers.get("x-robots-tag") || "", /noindex/);
+    assert.equal(runtimeResponse.headers.get("cache-control"), "public, max-age=31536000, immutable");
+    const runtimeEvidence = await runtimeResponse.json();
+    assert.ok(runtimeEvidence.find((entry) => entry.id === "solar")?.length?.totalHours > 0);
+
     for (const route of [
       "/data/archive-stats.json",
       "/data/tag-taxonomy.json",

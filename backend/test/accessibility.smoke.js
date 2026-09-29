@@ -76,7 +76,7 @@ test("all authored public templates, a creator page, and maintainer sign-in pass
   }
 });
 
-test("core discovery, detail, creator, submit, and Library routes reflow at 320 CSS pixels", { timeout: 90_000 }, async () => {
+test("core discovery, detail, creator, and submit routes reflow at 320 CSS pixels", { timeout: 90_000 }, async () => {
   const guard = await createReadOnlyBrowserContext(browser, {
     viewport: { width: 320, height: 844 },
     reducedMotion: "reduce",
@@ -91,7 +91,6 @@ test("core discovery, detail, creator, submit, and Library routes reflow at 320 
     ["creator directory", "/creators"],
     ["creator detail", "/creators/7-lamb-productions"],
     ["submission form", "/submit"],
-    ["Library", "/library"],
   ];
 
   try {
@@ -426,7 +425,7 @@ test("show-lookup error state is announced and remains keyboard accessible", asy
   }
 });
 
-test("Library card state controls and a populated local Library pass semantic checks", { timeout: 60_000 }, async () => {
+test("compact Library controls on cards and show pages pass semantic checks", { timeout: 60_000 }, async () => {
   const guard = await createReadOnlyBrowserContext(browser);
   await installAxe(guard.context);
   const page = await guard.context.newPage();
@@ -440,21 +439,28 @@ test("Library card state controls and a populated local Library pass semantic ch
       const details = document.querySelector(`[data-library-control="card"][data-library-show-id="${CSS.escape(showId)}"]`);
       return details?.open === true;
     }, await cardControl.getAttribute("data-library-show-id"));
-    const saveAction = cardControl.locator('[data-library-state-action="saved"]');
-    await saveAction.waitFor({ state: "visible" });
+    const cardState = cardControl.locator("[data-library-state-select]");
+    await cardState.waitFor({ state: "visible" });
     await assertAxeClean(page, "open show-card Library controls");
-    await saveAction.press("Enter");
+    assert.equal(await cardControl.evaluate((node) => node.closest("a") !== null), false, "the control stays outside the card link");
+    await cardState.selectOption("saved");
     await page.waitForFunction((showId) => {
-      const summary = document.querySelector(`[data-library-control="card"][data-library-show-id="${CSS.escape(showId)}"] summary`);
-      return summary?.textContent?.includes("Saved") === true;
+      const control = document.querySelector(`[data-library-control="card"][data-library-show-id="${CSS.escape(showId)}"]`);
+      return control?.querySelector("summary")?.textContent?.includes("Saved") === true && control.open === false;
     }, await cardControl.getAttribute("data-library-show-id"));
     assert.equal(await cardSummary.evaluate((node) => node === document.activeElement), true);
 
-    await gotoSmokePage(page, `${baseUrl}/library`, { waitUntil: "networkidle" });
-    await page.locator("#listenerLibraryApp:not([hidden])").waitFor();
-    await page.waitForFunction(() => document.getElementById("libraryPageStatus")?.textContent.includes("stored in this browser"));
-    await page.locator("[data-library-show-id]").first().waitFor();
-    await assertAxeClean(page, "Library with a locally saved show");
+    await gotoSmokePage(page, `${baseUrl}/shows/${encodeURIComponent(firstShowId)}`, { waitUntil: "networkidle" });
+    const detailControl = page.locator('[data-library-control="detail"]');
+    await detailControl.waitFor();
+    assert.ok(await page.locator(".detail-actions a").count() > 0, "listen actions remain in the primary action area");
+    const detailSummary = detailControl.locator("summary");
+    await detailSummary.press("Enter");
+    await detailControl.locator("[data-library-state-select]").waitFor({ state: "visible" });
+    await assertAxeClean(page, "open show-detail Library controls");
+    await detailControl.locator("[data-library-state-select]").selectOption("listening");
+    await detailControl.locator("[data-library-rating-select]").selectOption("4");
+    assert.match(await detailControl.locator(".library-detail-rating-note").textContent(), /never submits a Community Rating/);
     guard.assertNoMutationAttempts();
   } finally {
     await page.close();

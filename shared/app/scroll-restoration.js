@@ -24,8 +24,7 @@ export function createScrollRestoration({ key = "" } = {}) {
   let restored = false;
   let restoreSequence = 0;
 
-  const save = () => {
-    const storageKey = resolveStorageKey();
+  const save = (storageKey = resolveStorageKey()) => {
     try {
       window.sessionStorage.setItem(
         storageKey,
@@ -41,8 +40,12 @@ export function createScrollRestoration({ key = "" } = {}) {
   };
 
   const scheduleSave = () => {
+    // Capture the URL when the scroll event happens. A delayed write that
+    // resolves the key after history changes can overwrite the previous
+    // entry's snapshot with the next entry's clamped scroll position.
+    const storageKey = resolveStorageKey();
     window.clearTimeout(saveTimer);
-    saveTimer = window.setTimeout(save, 90);
+    saveTimer = window.setTimeout(() => save(storageKey), 90);
   };
 
   const enable = () => {

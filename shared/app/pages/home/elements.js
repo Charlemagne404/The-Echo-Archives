@@ -28,6 +28,7 @@ export function getHomeElements() {
     loadMoreStatus: document.getElementById("archiveLoadMoreStatus"),
     noResultsMount: document.getElementById("noResultsMount"),
     resultsSummary: document.getElementById("resultsSummary"),
+    personalDiscoveryReason: document.getElementById("personalDiscoveryReason"),
     quickFiltersRoot: document.getElementById("quickFilters"),
     favoriteRoutesSection: document.getElementById("favoriteRoutes"),
     favoriteRoutesCarousel: document.getElementById("favoriteRoutesCarousel"),

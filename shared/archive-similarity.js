@@ -1971,7 +1971,8 @@
       );
       const diversify = options.diversify !== false;
       const cacheKey = `${source.id}:${limit}:${maximumResults}:${diversify ? "diverse" : "ranked"}`;
-      if (publicMatchCache.has(cacheKey)) return publicMatchCache.get(cacheKey);
+      const hasPrecomputedCandidates = Array.isArray(options.precomputedCandidates);
+      if (!hasPrecomputedCandidates && publicMatchCache.has(cacheKey)) return publicMatchCache.get(cacheKey);
       const sourceCoverage = createRecordMetadataCoverage(source, context).metadataCoverage;
       const sparseSource = sourceCoverage < PUBLIC_MATCH_POLICY.sparseCoverageThreshold;
       const minimumScore = sparseSource ? PUBLIC_MATCH_POLICY.sparseMinimumScore : PUBLIC_MATCH_POLICY.minimumScore;
@@ -2039,7 +2040,7 @@
         }))
         .filter((entry) => entry.explanation)
         .slice(0, limit);
-      publicMatchCache.set(cacheKey, publicMatches);
+      if (!hasPrecomputedCandidates) publicMatchCache.set(cacheKey, publicMatches);
       return publicMatches;
     }
 

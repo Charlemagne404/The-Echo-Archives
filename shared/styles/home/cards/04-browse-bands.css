@@ -39,6 +39,8 @@
   will-change: transform, opacity;
 }
 
+.discovery-query-feedback { color: var(--text-muted); font-size: 0.82em; white-space: normal; }
+
 .results-heading-meta {
   display: inline-flex;
   align-items: center;

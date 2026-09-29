@@ -1,13 +1,18 @@
-import { loadCollections, loadSearchIndex } from "../../data.js";
+import { loadCollections, loadRuntimeEvidence, loadSearchIndex } from "../../data.js";
 import { createRouteErrorSurface } from "../../route-error.js";
 import { renderHomeErrorState } from "./loading.js";
 import { hasPrerenderedHomeContent } from "./prerender.js";
 
 export async function loadHomePageData(elements) {
   const preserveExistingContent = hasPrerenderedHomeContent(elements);
+  const runtimeEvidencePromise = loadRuntimeEvidence().catch(() => []);
 
   try {
-    return await Promise.all([loadSearchIndex(), loadCollections()]);
+    const [shows, collections] = await Promise.all([
+      loadSearchIndex(),
+      loadCollections(),
+    ]);
+    return [shows, collections, runtimeEvidencePromise];
   } catch (_error) {
     renderHomeErrorState(
       elements,
@@ -21,6 +26,6 @@ export async function loadHomePageData(elements) {
         }),
       { preserveExistingContent },
     );
-    return [null, null];
+    return [null, null, runtimeEvidencePromise];
   }
 }

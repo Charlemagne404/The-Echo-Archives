@@ -6,7 +6,8 @@ const path = require("node:path");
 
 const { buildCatalog } = require("../../tools/build-catalog");
 const { scaffoldCatalogEntry } = require("../../tools/scaffold-catalog");
-const { buildCatalogSnapshot, createSearchIndexRecord, serializeRuntimeShow } = require("../../tools/lib/catalog-artifacts");
+const { buildCatalogSnapshot, createRuntimeEvidenceRecord, createSearchIndexRecord, serializeRuntimeShow } = require("../../tools/lib/catalog-artifacts");
+const { getRuntimeEvidence } = require("../../shared/discovery/runtime");
 const {
   ensureSplitCatalogSource,
   readCatalogSource,
@@ -129,6 +130,23 @@ test("public catalogue artifacts retain Imported trust state without maintainer 
   assert.equal(snapshot.metrics.imported, 1);
 });
 
+test("runtime evidence stays in its compact projection and keeps estimate qualifiers", () => {
+  const show = createShowRecord({
+    length: { episodes: 10, avgEpisodeMinutes: 30, totalHours: 5, durationCoverage: 0.4 },
+    metadata: { objectiveSources: ["https://example.com"], researchGaps: ["Runtime estimate; exact duration unknown.", "Missing transcript sources."] },
+  });
+  const projection = createRuntimeEvidenceRecord(show);
+
+  assert.deepEqual(projection, {
+    id: "demo-show",
+    length: { episodes: 10, avgEpisodeMinutes: 30, totalHours: 5, durationCoverage: 0.4 },
+    runtimeGap: true,
+  });
+  assert.equal(Object.hasOwn(createSearchIndexRecord(show), "length"), false);
+  assert.equal(Object.hasOwn(createSearchIndexRecord(show), "metadata"), false);
+  assert.equal(getRuntimeEvidence({ ...show, ...projection }).kind, "derived-estimate");
+});
+
 test("buildCatalog bootstraps split catalog source and writes generated artifacts", async () => {
   const tempRoot = createTempSiteRoot();
   fs.mkdirSync(path.join(tempRoot, "images"), { recursive: true });
@@ -174,6 +192,7 @@ test("buildCatalog bootstraps split catalog source and writes generated artifact
   assert.equal(ensureSplitCatalogSource(tempRoot), false);
   assert.ok(fs.existsSync(path.join(tempRoot, "catalog-src", "shows", "_order.json")));
   assert.ok(fs.existsSync(path.join(tempRoot, "data", "search-index.json")));
+  assert.ok(fs.existsSync(path.join(tempRoot, "data", "runtime-evidence.json")));
   assert.ok(fs.existsSync(path.join(tempRoot, "data", "entity-graph.json")));
   assert.equal(JSON.parse(fs.readFileSync(path.join(tempRoot, "data", "entity-graph.json"), "utf8")).schema, "echo-archives/entity-graph/v1");
   assert.ok(fs.existsSync(path.join(tempRoot, "docs", "generated", "catalog-status.md")));

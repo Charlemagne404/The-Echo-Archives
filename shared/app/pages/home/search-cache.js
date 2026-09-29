@@ -1,6 +1,62 @@
+import { archiveSimilarity } from "../../constants.js";
+import { createPersonalDiscoveryPersonalizer } from "../../discovery-personalization.js";
+import { createHomeDiscoveryAdapter } from "./discovery.js";
+
 const SEARCH_SCORE_CACHE_LIMIT = 12;
 
-export function createHomeSearchPerformanceCache({ shows, archiveSearch, similarityIndex = null }) {
+function addRuntimeEvidence(shows, runtimeEvidence) {
+  const lengthById = new Map((Array.isArray(runtimeEvidence) ? runtimeEvidence : [])
+    .filter((record) => record?.id && record.length && Object.keys(record.length).length)
+    .map((record) => [record.id, record.length]));
+  return shows.map((show) => {
+    const length = lengthById.get(show.id);
+    return length ? { ...show, length } : show;
+  });
+}
+
+export function createHomeSearchPerformanceCache({
+  shows,
+  archiveSearch,
+  collections = [],
+  runtimeEvidence = [],
+  runtimeEvidencePromise = null,
+  similarityIndex = null,
+  discoveryAdapter = null,
+  catalogueRevision = "",
+}) {
+  const activeSimilarityIndex = similarityIndex || archiveSimilarity?.createSimilarityIndex?.({ shows, collections }) || null;
+  const activeDiscoveryAdapter = discoveryAdapter || createHomeDiscoveryAdapter({
+    shows,
+    runtimeEvidence,
+    collections,
+    archiveSearch,
+    similarityIndex: activeSimilarityIndex,
+    catalogueRevision: catalogueRevision || `${globalThis.document?.body?.dataset.searchIndexVersion || "search"}:${globalThis.document?.body?.dataset.collectionsVersion || "collections"}`,
+  });
+  let personalSimilarityIndex = similarityIndex
+    || archiveSimilarity?.createSimilarityIndex?.({ shows: addRuntimeEvidence(shows, runtimeEvidence), collections })
+    || null;
+  let personalizeDiscoveryResult = createPersonalDiscoveryPersonalizer({
+    shows,
+    similarityIndex: personalSimilarityIndex,
+    scope: "search",
+  });
+  if (runtimeEvidencePromise && typeof runtimeEvidencePromise.then === "function") {
+    void runtimeEvidencePromise.then((records) => {
+      activeDiscoveryAdapter?.setRuntimeEvidence(records);
+      if (!similarityIndex && archiveSimilarity?.createSimilarityIndex && Array.isArray(records) && records.length) {
+        personalSimilarityIndex = archiveSimilarity.createSimilarityIndex({
+          shows: addRuntimeEvidence(shows, records),
+          collections,
+        });
+        personalizeDiscoveryResult = createPersonalDiscoveryPersonalizer({
+          shows,
+          similarityIndex: personalSimilarityIndex,
+          scope: "search",
+        });
+      }
+    });
+  }
   const collectionShowIdSets = new Map();
   const scoredSearchResultsByQuery = new Map();
 
@@ -33,7 +89,7 @@ export function createHomeSearchPerformanceCache({ shows, archiveSearch, similar
 
       const scoredResults = archiveSearch.scoreCatalog(shows, cacheKey, {
         includeComputedSimilarityFallback: true,
-        similarityIndex,
+        similarityIndex: activeSimilarityIndex,
       });
       scoredSearchResultsByQuery.set(cacheKey, scoredResults);
       if (scoredSearchResultsByQuery.size > SEARCH_SCORE_CACHE_LIMIT) {
@@ -41,6 +97,18 @@ export function createHomeSearchPerformanceCache({ shows, archiveSearch, similar
         scoredSearchResultsByQuery.delete(oldestKey);
       }
       return scoredResults;
+    },
+
+    getDiscoverySearch(query) {
+      return activeDiscoveryAdapter?.getSearch(query) || null;
+    },
+
+    getDiscoveryIntent(query) {
+      return activeDiscoveryAdapter?.getIntent(query) || null;
+    },
+
+    personalizeDiscoveryResult(publicResult, personalContext, intent) {
+      return personalizeDiscoveryResult({ publicResult, personalContext, intent });
     },
   };
 }

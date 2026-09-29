@@ -3,6 +3,7 @@ import {
   SHOWS_DATA_URL,
   COLLECTIONS_DATA_URL,
   SEARCH_INDEX_URL,
+  RUNTIME_EVIDENCE_URL,
   archiveSearch,
   archiveRecord,
   dataCache,
@@ -105,6 +106,17 @@ export async function loadSearchIndex() {
       "Search index data",
     );
     return archiveSearch.hydrateCatalogSearch(records.map((record) => normalizeShowRecord(record)));
+  });
+}
+
+export async function loadRuntimeEvidence() {
+  return loadCachedData("runtimeEvidence", "runtimeEvidencePromise", async () => {
+    const records = assertJsonArray(
+      await fetchJson(RUNTIME_EVIDENCE_URL, { credentials: "omit" }),
+      RUNTIME_EVIDENCE_URL,
+      "Runtime evidence data",
+    );
+    return records.filter((record) => typeof record?.id === "string");
   });
 }
 

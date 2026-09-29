@@ -1,0 +1,238 @@
+{
+  "defaultMetrics": {
+    "documentHeight": 7134,
+    "heroHeight": 430,
+    "cardWidth": 212,
+    "cardCount": 60,
+    "summary": "60 of 752 results • 7 full reviews"
+  },
+  "searches": [
+    {
+      "query": "finished sci-fi",
+      "url": "/?q=finished+sci-fi&genre=sci-fi&completionStatus=finished",
+      "summary": "29 results for \"finished sci-fi\" • 1 full review · Sci-fi · Finished",
+      "visibleCardCount": 29,
+      "topIds": [
+        "janus-descending",
+        "case-63",
+        "mirrors",
+        "liminal",
+        "moonbase-theta-out"
+      ],
+      "entityCount": 0,
+      "entityNames": [],
+      "noResults": "",
+      "collectionLinks": [],
+      "provenance": [
+        "shows",
+        "shows",
+        "shows",
+        "shows",
+        "shows",
+        "shows",
+        "shows",
+        "shows"
+      ],
+      "canonical": "http://127.0.0.1:63119/"
+    },
+    {
+      "query": "sci-fi but not comedy",
+      "url": "/?q=sci-fi+but+not+comedy&genre=sci-fi&avoidGenre=comedy",
+      "summary": "50 results for \"sci-fi but not comedy\" • 3 full reviews · Sci-fi · Not Comedy",
+      "visibleCardCount": 50,
+      "topIds": [
+        "the-other-stories-sci-fi-horror-thriller-wtf-stories",
+        "vega-a-sci-fi-adventure-podcast",
+        "enter-the-house-between",
+        "hollow-disciple",
+        "the-program-audio-series"
+      ],
+      "entityCount": 0,
+      "entityNames": [],
+      "noResults": "",
+      "collectionLinks": [],
+      "provenance": [
+        "shows",
+        "shows",
+        "shows",
+        "shows",
+        "shows",
+        "shows",
+        "shows",
+        "shows"
+      ],
+      "canonical": "http://127.0.0.1:63119/"
+    },
+    {
+      "query": "something like The White Vault but sci-fi",
+      "url": "/?q=something+like+The+White+Vault+but+sci-fi&seed=the-white-vault&genre=sci-fi",
+      "summary": "10 results for \"something like The White Vault but sci-fi\" • 2 full reviews · 7 archive picks · 3 computed matches",
+      "visibleCardCount": 10,
+      "topIds": [
+        "mirrors",
+        "station-151",
+        "red-valley",
+        "derelict",
+        "impact-winter"
+      ],
+      "entityCount": 0,
+      "entityNames": [],
+      "noResults": "",
+      "collectionLinks": [],
+      "provenance": [
+        "authoredSimilarity",
+        "authoredSimilarity",
+        "authoredSimilarity",
+        "authoredSimilarity",
+        "authoredSimilarity",
+        "authoredSimilarity",
+        "authoredSimilarity",
+        "computedSimilarity"
+      ],
+      "canonical": "http://127.0.0.1:63119/"
+    },
+    {
+      "query": "something like The White Vault but darker",
+      "url": "/?q=something+like+The+White+Vault+but+darker&seed=the-white-vault",
+      "summary": "23 results for \"something like The White Vault but darker\" • 2 full reviews · 19 archive picks · 4 computed matches · “darker” wasn’t used as a filter",
+      "visibleCardCount": 23,
+      "topIds": [
+        "tower-4",
+        "archive-81",
+        "malevolent",
+        "how-i-died",
+        "mirrors"
+      ],
+      "entityCount": 0,
+      "entityNames": [],
+      "noResults": "",
+      "collectionLinks": [],
+      "provenance": [
+        "authoredSimilarity",
+        "authoredSimilarity",
+        "authoredSimilarity",
+        "authoredSimilarity",
+        "authoredSimilarity",
+        "authoredSimilarity",
+        "authoredSimilarity",
+        "authoredSimilarity"
+      ],
+      "canonical": "http://127.0.0.1:63119/"
+    },
+    {
+      "query": "shows by the people behind The White Vault",
+      "url": "/?q=shows+by+the+people+behind+The+White+Vault",
+      "summary": "1 results for \"shows by the people behind The White Vault\" • 0 full reviews",
+      "visibleCardCount": 1,
+      "topIds": [
+        "vast-horizon"
+      ],
+      "entityCount": 2,
+      "entityNames": [
+        "K.A. Statz Creator · 2 shows",
+        "Travis Vengroff Creator · 2 shows"
+      ],
+      "noResults": "",
+      "collectionLinks": [],
+      "provenance": [
+        "shows"
+      ],
+      "canonical": "http://127.0.0.1:63119/"
+    },
+    {
+      "query": "around 10 hours",
+      "url": "/?q=around+10+hours&hours=10&hoursMode=around",
+      "summary": "50 results for \"around 10 hours\" • 7 full reviews · Around 10 h · Runtime evidence: unknown",
+      "visibleCardCount": 50,
+      "topIds": [
+        "solar",
+        "story",
+        "from-now",
+        "the-deca-tapes",
+        "earth-eclipsed"
+      ],
+      "entityCount": 0,
+      "entityNames": [],
+      "noResults": "",
+      "collectionLinks": [],
+      "provenance": [
+        "shows",
+        "shows",
+        "shows",
+        "shows",
+        "shows",
+        "shows",
+        "shows",
+        "shows"
+      ],
+      "canonical": "http://127.0.0.1:63119/"
+    },
+    {
+      "query": "horror",
+      "url": "/?q=horror&genre=horror",
+      "summary": "50 results for \"horror\" • 2 full reviews · “horror” can be a genre or title fragment; using genre",
+      "visibleCardCount": 50,
+      "topIds": [
+        "the-other-stories-sci-fi-horror-thriller-wtf-stories",
+        "knifepoint-horror",
+        "the-horror-of-dolores-roach",
+        "octobers-children",
+        "the-dead-letter-office-of-somewhere-ohio"
+      ],
+      "entityCount": 0,
+      "entityNames": [],
+      "noResults": "",
+      "collectionLinks": [],
+      "provenance": [
+        "shows",
+        "shows",
+        "shows",
+        "shows",
+        "shows",
+        "shows",
+        "shows",
+        "shows"
+      ],
+      "canonical": "http://127.0.0.1:63119/"
+    },
+    {
+      "query": "Best for long walks",
+      "url": "/?q=Best+for+long+walks&collection=best-for-long-walks",
+      "summary": "0 results for \"Best for long walks\" • 0 full reviews",
+      "visibleCardCount": 0,
+      "topIds": [],
+      "entityCount": 0,
+      "entityNames": [],
+      "noResults": "That query matches a curated collection. Open its existing listening path.\n      Open Best for long walks\n        Clear filters\n        Browse collections\n        Ask the Archivist\n        Submit or correct a show",
+      "collectionLinks": [
+        {
+          "text": "Open Best for long walks",
+          "href": "/collections/best-for-long-walks"
+        }
+      ],
+      "provenance": [],
+      "canonical": "http://127.0.0.1:63119/"
+    },
+    {
+      "query": "shows I have finished",
+      "url": "/",
+      "summary": "0 results for \"shows I have finished\" • 0 full reviews · Private listening history is not used in public search",
+      "visibleCardCount": 0,
+      "topIds": [],
+      "entityCount": 0,
+      "entityNames": [],
+      "noResults": "This request depends on private listening history, which public search does not use.\n      \n        Clear filters\n        Browse collections\n        Ask the Archivist\n        Submit or correct a show",
+      "collectionLinks": [],
+      "provenance": [],
+      "canonical": "http://127.0.0.1:63119/"
+    }
+  ],
+  "mobileMetrics": {
+    "documentHeight": 14688,
+    "heroHeight": 656,
+    "cardWidth": 173,
+    "cardCount": 60,
+    "overflow": false
+  },
+  "pageErrors": []
+}

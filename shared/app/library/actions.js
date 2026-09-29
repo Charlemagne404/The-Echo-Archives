@@ -16,25 +16,6 @@ export function announceStorageFailure(runtimeState) {
 }
 
 export function bindLibraryActions({ library, getRuntimeState, refreshRuntime }) {
-  async function setState(showId, state, control) {
-    const title = control?.dataset.libraryTitle || control?.querySelector("h2, h3, h4")?.textContent?.trim() || "";
-    control?.setAttribute("aria-busy", "true");
-    const result = await library.setState(showId, state);
-    if (!result.ok) {
-      setControlStatus(showId, `Could not save: ${result.error.message}`, "error");
-      control?.removeAttribute("aria-busy");
-      return;
-    }
-    await refreshRuntime();
-    setControlStatus(showId, `${title || "Show"} saved as ${STATE_LABELS[state]} in your local Library.`);
-    const details = control instanceof HTMLDetailsElement ? control : control?.closest("details.library-card-control");
-    if (details) {
-      details.open = false;
-      details.querySelector("summary")?.focus();
-    }
-    control?.removeAttribute("aria-busy");
-  }
-
   async function removeEntry(showId) {
     const result = await library.removeEntry(showId);
     if (!result.ok) {
@@ -63,13 +44,6 @@ export function bindLibraryActions({ library, getRuntimeState, refreshRuntime })
 
   document.addEventListener("click", async (event) => {
     if (!(event.target instanceof Element)) return;
-    const stateButton = event.target.closest("[data-library-state-action]");
-    if (stateButton) {
-      event.preventDefault();
-      const control = stateButton.closest("[data-library-control]");
-      await setState(control.dataset.libraryShowId, stateButton.dataset.libraryStateAction, control);
-      return;
-    }
     const removeButton = event.target.closest("[data-library-remove]");
     if (removeButton) {
       event.preventDefault();
@@ -92,7 +66,13 @@ export function bindLibraryActions({ library, getRuntimeState, refreshRuntime })
       }
       await refreshRuntime();
       setControlStatus(showId, `Library state changed to ${STATE_LABELS[stateSelect.value]}.`);
-      stateSelect.focus();
+      const cardControl = stateSelect.closest("details.library-card-control");
+      if (cardControl) {
+        cardControl.open = false;
+        cardControl.querySelector("summary")?.focus();
+      } else {
+        stateSelect.focus();
+      }
       return;
     }
     const ratingSelect = event.target.closest("[data-library-rating-select]");

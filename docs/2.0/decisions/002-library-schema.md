@@ -11,6 +11,8 @@ The device-local Personal Discovery opt-in defaults to off and is stored separat
 
 Merge preserves local-only records and replaces a conflicting same-ID record with the imported record after preview disclosure. Replace makes imported entries the complete entry set after explicit confirmation. Both preserve unknown IDs, reject title/alias remapping, and commit atomically. The opt-in setting remains local for both operations.
 
+These operations are service capabilities; 2.0 does not require a public Library management page or normal import/export controls.
+
 ## Why
 
 The status is current listener-owned state, not an event stream. A rating is retained as an explicit personal preference signal and stays distinct from Archive Rating and Community Rating. Keeping the opt-in device-local prevents an imported file from silently enabling personalization on another device.

@@ -1,6 +1,6 @@
 # Discovery 2.0 golden-query benchmark
 
-This is the reviewed measurement foundation for Discovery 2.0. It preserves the existing 1.x observation and evaluates a separate deterministic 2.0 orchestration result over the same catalogue. It does not change production browser routing or catalogue data.
+This is the reviewed measurement foundation for Discovery 2.0. It preserves the existing 1.x observation and evaluates a separate deterministic 2.0 orchestration result over the same catalogue. Homepage routing now integrates the engine; this benchmark continues to evaluate the frozen engine inputs and does not rewrite the v1 observations.
 
 ## Baseline provenance
 
@@ -55,11 +55,21 @@ These are retained measurements, not requests to tune v1. The frozen observation
 5. Exact collection routes and intent-tag routes use separate collection results. Collection membership is not pairwise similarity evidence.
 6. Runtime values carry `observed-exact`, `observed-reported`, `derived-estimate`, or `unknown` with scope/basis. Around-duration is a soft preference; an explicit numeric range is hard and preserves strict/inclusive boundaries.
 7. `darker`, `less chaotic`, `more cinematic`, unsupported compounds, short taxonomy collisions, and season/time ambiguity remain visible as unresolved or ambiguous state. The engine does not claim unsupported comparisons.
-8. “Finished shows” is catalogue lifecycle; “shows I've finished” is local-only and produces no public query parameter. Retrieval accepts an optional sanitized Library context seam but does not read storage or personalize without a later injected layer.
-9. `shared/discovery/url-state.js` provides pure, stable, allowlisted public URL parsing/serialization. Live browser history integration is not part of this session.
+8. “Finished shows” is catalogue lifecycle; “shows I've finished” is local-only and produces no public query parameter. Discovery retrieval stays storage-pure; the homepage applies a separate page-level personalizer after retrieval and direct filters, using only the sanitized local context supplied by the Library runtime.
+9. `shared/discovery/url-state.js` provides pure, stable, allowlisted public URL parsing/serialization. Homepage rich queries use it through the existing URL/history controller; simple text, exact title, and bounded typo queries retain the original scorer path.
 10. Results include separate candidate sections, evidence, reason strings, applied constraints/preferences/exclusions, unresolved phrases, ambiguities, limitations, and trace flags; internal similarity scores are not exposed as user truth.
 
 The JSON target contract is the case-level source of truth for IDs, acceptable sets, top-N windows, prohibited IDs, required constraints, unresolved phrases, ambiguity alternatives, route/seed/entity IDs, and evidence expectations. It classifies the 82 formerly unsupported assertions as 64 now-supported, 15 intentionally unresolved/ambiguous, and 3 deferred because Case 63 lacks source-backed aggregate-runtime evidence. Two additional Discovery checks cover the frozen v1 hard-constraint regressions. All 84 Discovery assertions execute.
+
+## Homepage integration
+
+The homepage routes recognized multi-part, runtime, entity, collection, and similarity intent through one lazily constructed Discovery engine. Exact titles, ordinary text, and bounded typos continue through `archive-search`. The page keeps its existing compact cards, direct filters, creator links, and collection paths. The existing result summary carries a short criteria/evidence note; there is no query-builder surface. Similarity remains ordered as authored archive picks followed by computed matches, and unresolved or ambiguous language remains visible. Hard constraints and private-context requests stay strict.
+
+Public rich intent is serialized with allowlisted URL parameters through the homepage’s existing history controller, which preserves legacy `q`/filter URLs and Back/Forward rendering. Local-only listening intent produces a privacy note and omits its query text from the URL. The public query adapter does not read the Listener Library service; a separate homepage integration receives the sanitized context and personalizes only eligible show and computed-similarity candidates. Search analytics continue to omit query text and Library state.
+
+Runtime data is supplied through generated `data/runtime-evidence.json`, a compact projection of public show length fields and runtime-gap flags. Its current 752-row JSON payload is 105,978 bytes (12,242 bytes gzipped). It is fetched non-blockingly alongside the existing homepage search data, then joined to the search index in the adapter when available. `data/search-index.json` remains unchanged and stays inside the frozen benchmark fingerprint.
+
+The required Chromium integration case covers old-path title search, typed hard constraints, exclusions, authored/computed similarity order, creator entity links, qualified runtime results, collection routing, unresolved/ambiguous wording, strict empty states, local-only URL omission, Back/Forward with scroll restoration, and mobile card density/overflow. See the [2026-09-29 homepage integration QA report](../qa/2026-09-29-discovery-homepage-integration.md) for screenshots, detailed visual metrics, and validation results; the default homepage retained its pre-integration hero, card count/width, and page height on desktop and mobile.
 
 ## Metrics and commands
 

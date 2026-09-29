@@ -76,12 +76,11 @@ const {
   createShowPageMarkup,
   injectShowRootContent,
 } = require("./lib/show-page-render");
-const { createSearchIndexRecord, serializeRuntimeShow } = require("../tools/lib/catalog-artifacts");
+const { createRuntimeEvidenceRecord, createSearchIndexRecord, serializeRuntimeShow } = require("../tools/lib/catalog-artifacts");
 
 const CONTACT_URL = "https://contact.continental-hub.com/";
 const PUBLIC_ROOT_ASSETS = new Set([
   "style.css",
-  "library.css",
   "public-heroes.css",
   "home.css",
   "info.css",
@@ -115,7 +114,6 @@ const PUBLIC_ROUTE_REDIRECTS = new Map([
   ["/supporters.html", "/supporters"],
   ["/help-center.html", "/help-center"],
   ["/collections.html", "/collections"],
-  ["/library.html", "/library"],
   ["/creators.html", "/creators"],
   ["/collection.html", "/collection"],
   ["/show.html", "/show"],
@@ -134,7 +132,6 @@ const PUBLIC_PAGE_FILES = new Map([
   ["/supporters", "supporters.html"],
   ["/help-center", "help-center.html"],
   ["/collections", "collections.html"],
-  ["/library", "library.html"],
   ["/creators", "creators.html"],
   ["/collection", "collection.html"],
   ["/show", "show.html"],
@@ -162,7 +159,7 @@ function hashPublicFile(staticRoot, relativePath) {
 }
 
 function getPublicDataRevision(staticRoot) {
-  return ["data/shows.json", "data/collections.json", "data/search-index.json", "data/entities.json", "data/entity-graph.json"]
+  return ["data/shows.json", "data/collections.json", "data/search-index.json", "data/runtime-evidence.json", "data/entities.json", "data/entity-graph.json"]
     .map((relativePath) => {
       try {
         const file = fs.statSync(path.join(staticRoot, relativePath));
@@ -260,12 +257,14 @@ async function startServer() {
     entities: [],
     entityGraph: { schema: "echo-archives/entity-graph/v1", entities: [], shows: [], edges: [], entityConnections: [] },
     collections: [],
+    runtimeEvidence: [],
     archiveContext: null,
     siteHelpContext: null,
     similarityIndex: null,
     showsVersion: "",
     collectionsVersion: "",
     searchIndexVersion: "",
+    runtimeEvidenceVersion: "",
     publicDataRevision: "",
   };
   let publicStateRefreshPromise = null;
@@ -276,6 +275,7 @@ async function startServer() {
     const publicCatalog = catalog.filter((show) => show.status === "published");
     const publicRuntimeCatalog = publicCatalog.map(serializeRuntimeShow);
     const publicSearchIndex = publicCatalog.map(createSearchIndexRecord);
+    const runtimeEvidence = publicCatalog.map(createRuntimeEvidenceRecord);
     const collections = loadCollections(config.STATIC_ROOT, new Set(catalog.map((show) => show.id)));
     const similarityIndex = createSimilarityIndex({ shows: publicCatalog, collections });
     const archiveContext = await loadArchiveContext(config.STATIC_ROOT, catalog, collections);
@@ -287,6 +287,7 @@ async function startServer() {
     state.publicCatalog = publicCatalog;
     state.publicRuntimeCatalog = publicRuntimeCatalog;
     state.publicSearchIndex = publicSearchIndex;
+    state.runtimeEvidence = runtimeEvidence;
     state.collections = collections;
     state.similarityIndex = similarityIndex;
     state.archiveContext = archiveContext;
@@ -294,6 +295,7 @@ async function startServer() {
     state.showsVersion = hashPublicFile(config.STATIC_ROOT, "data/shows.json");
     state.collectionsVersion = hashPublicFile(config.STATIC_ROOT, "data/collections.json");
     state.searchIndexVersion = hashPublicFile(config.STATIC_ROOT, "data/search-index.json");
+    state.runtimeEvidenceVersion = hashPublicFile(config.STATIC_ROOT, "data/runtime-evidence.json");
     state.publicDataRevision = getPublicDataRevision(config.STATIC_ROOT);
   }
 
@@ -534,6 +536,7 @@ async function startServer() {
       showsVersion: state.showsVersion,
       collectionsVersion: state.collectionsVersion,
       searchIndexVersion: state.searchIndexVersion,
+      runtimeEvidenceVersion: state.runtimeEvidenceVersion,
       nonce,
     });
     return config.IS_STAGING ? injectNoIndex(configured) : configured;
@@ -698,6 +701,12 @@ async function startServer() {
     res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
     setPublicCacheHeaders(req, res);
     res.json(state.publicSearchIndex);
+  });
+
+  app.get("/data/runtime-evidence.json", (req, res) => {
+    res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+    setPublicCacheHeaders(req, res);
+    res.json(state.runtimeEvidence);
   });
 
   app.use(

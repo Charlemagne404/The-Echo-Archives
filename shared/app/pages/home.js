@@ -1,4 +1,4 @@
-import { DEFAULT_SOCIAL_IMAGE, HOME_CARD_HOVER_EXPAND_ENABLED, HOME_FAVORITE_ROUTE_IDS, archiveSearch, archiveSimilarity } from "../constants.js";
+import { DEFAULT_SOCIAL_IMAGE, HOME_CARD_HOVER_EXPAND_ENABLED, HOME_FAVORITE_ROUTE_IDS, archiveSearch } from "../constants.js";
 import { createDebouncedHistoryCommit } from "../discovery-history.js";
 import { createScrollRestoration } from "../scroll-restoration.js";
 import {
@@ -32,6 +32,7 @@ import { createHomeState } from "./home/state.js";
 import { createStickyBrowseController } from "./home/sticky-search.js";
 import { createStickyBrowseVisibilityController } from "./home/sticky-visibility.js";
 import { seedHomeStateFromParams } from "./home/url-state.js";
+import { createHomePersonalContext } from "./home/personal-context.js";
 import {
   bucketDiscoveryClearedFilterCount,
   bucketDiscoveryFilterCount,
@@ -54,7 +55,7 @@ export async function initializeHomePage() {
   const scrollRestoration = createScrollRestoration();
   scrollRestoration.enable();
 
-  const [shows, collections] = await loadHomePageData(elements);
+  const [shows, collections, runtimeEvidencePromise] = await loadHomePageData(elements);
   if (!shows || !collections) return;
   const showMap = buildShowMap(shows);
 
@@ -75,8 +76,8 @@ export async function initializeHomePage() {
   const publishedShows = shows.filter((show) => show.status === "published");
   const collectionsById = buildCollectionMap(collections);
   const favoriteCollections = HOME_FAVORITE_ROUTE_IDS.map((collectionId) => collectionsById.get(collectionId)).filter(Boolean);
-  const similarityIndex = archiveSimilarity?.createSimilarityIndex?.({ shows, collections }) || null;
-  const searchPerformanceCache = createHomeSearchPerformanceCache({ shows, archiveSearch, similarityIndex });
+  const searchPerformanceCache = createHomeSearchPerformanceCache({ shows, archiveSearch, collections, runtimeEvidencePromise });
+  const personalContextController = createHomePersonalContext(runtimeEvidencePromise);
   const filterGroupsById = new Map(structuredFilterGroups.map((group) => [group.id, group]));
   const filterOptionsByGroup = new Map(
     structuredFilterGroups.map((group) => [group.id, new Map(group.options.map((option) => [option.id, option.label]))]),
@@ -142,11 +143,6 @@ export async function initializeHomePage() {
 
   const getActiveFilterCountForAnalytics = () =>
     Object.values(state.filters).reduce((count, values) => count + values.size, 0) + Number(Boolean(state.selectedCollectionId));
-  const getBrowseStateForAnalytics = () => {
-    const hasSearch = Boolean(state.query.trim());
-    const hasFilters = getActiveFilterCountForAnalytics() > 0 || Boolean(state.selectedCollectionId);
-    return hasSearch ? (hasFilters ? "search_and_filtered" : "search") : hasFilters ? "filtered" : "default";
-  };
   const getFilterStateSignature = () =>
     JSON.stringify({
       query: state.query.trim(),
@@ -295,7 +291,8 @@ export async function initializeHomePage() {
     shows,
     state,
     stickyBrowseController,
-    onBeforeUrlSync: () => scrollRestoration.save(),
+    getPersonalContext: personalContextController.getCurrentContext,
+    onBeforeUrlSync: ({ changeReason } = {}) => changeReason !== "live-search" && scrollRestoration.save(),
     onResultsRendered: ({ changeReason, resultCount }) => {
       const resultCountBucket = bucketDiscoveryResultCount(resultCount);
       const activeFilterCount = getActiveFilterCountForAnalytics();
@@ -387,6 +384,8 @@ export async function initializeHomePage() {
       homeAnalytics.hasRendered = true;
     },
   });
+  personalContextController.subscribe(() => scheduleHomeResults("personal-context"));
+
   searchHistoryCommit = createDebouncedHistoryCommit({
     onCommit: () => commitCurrentUrlState(),
   });
@@ -460,6 +459,7 @@ export async function initializeHomePage() {
     syncSearchInputs(input.value, input);
     const nextQuery = input.value.trim();
     if (nextQuery !== state.query) {
+      scrollRestoration.save();
       state.query = nextQuery;
       searchHistoryCommit?.schedule();
     }

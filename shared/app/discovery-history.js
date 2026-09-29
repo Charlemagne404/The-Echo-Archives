@@ -13,6 +13,7 @@ export function createDiscoveryHistoryController({
     let currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
     const shouldPush = historyMode === "push" && nextUrl !== lastCommittedUrl;
     const effectiveHistoryMode = shouldPush ? "push" : "replace";
+    let restoredCommittedEntry = false;
 
     // Live typing replaces the current entry so the address bar stays
     // shareable without adding one entry per character. Before committing
@@ -22,9 +23,10 @@ export function createDiscoveryHistoryController({
     if (effectiveHistoryMode === "push" && lastCommittedUrl && currentUrl !== lastCommittedUrl) {
       window.history.replaceState(window.history.state, "", lastCommittedUrl);
       currentUrl = lastCommittedUrl;
+      restoredCommittedEntry = true;
     }
 
-    if (effectiveHistoryMode === "push" || nextUrl !== currentUrl) {
+    if (!restoredCommittedEntry && (effectiveHistoryMode === "push" || nextUrl !== currentUrl)) {
       onBeforeSync({ changeReason, currentUrl, historyMode: effectiveHistoryMode, nextUrl });
     }
     const syncedUrl = syncUrl(state, { historyMode: effectiveHistoryMode });

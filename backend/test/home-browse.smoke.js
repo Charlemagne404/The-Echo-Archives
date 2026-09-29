@@ -15,7 +15,6 @@ const {
   gotoSmokePage,
   homeMostPopularIds,
   legacyRedirectManifest,
-  scoreCatalog,
   setupSmoke,
   teardownSmoke,
   waitForMostPopularBandIds,
@@ -138,7 +137,9 @@ async function waitForInitialHomeResultPage(page, expectedTotal) {
 
 test("homepage supports structured filtering, recently updated mode, and no-result recovery", async () => {
   const page = await browser.newPage();
-  const expectedSimilarTitle = scoreCatalog(showFixtures, "like Midnight Burger")[0]?.title || "";
+  const midnightBurger = showFixtures.find((show) => show.id === "midnight-burger");
+  const expectedAuthoredSimilarId = midnightBurger?.similarTo?.[0] || "";
+  const expectedSimilarTitle = showFixtures.find((show) => show.id === expectedAuthoredSimilarId)?.title || "";
 
   try {
     await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
@@ -437,7 +438,7 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
       { query: "easy entry" },
       { query: "long walks" },
       { query: "completed sci fi" },
-      { query: "like Midnight Burger", expectedTopTitle: expectedSimilarTitle },
+      { query: "like Midnight Burger", expectedTopTitle: expectedSimilarTitle, expectedProvenance: "authoredSimilarity" },
     ];
 
     for (const searchCase of searchCases) {
@@ -455,15 +456,19 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
           titles: cards
             .map((card) => card.querySelector(".podcast-card-title, h2, h3")?.textContent?.trim() || "")
             .filter(Boolean),
+          provenance: cards[0]?.querySelector(".podcast-card")?.dataset.discoveryCandidateSection || "",
         };
       });
 
       assert.equal(searchState.allActive, false);
       assert.match(searchState.summary, new RegExp(`results for "${searchCase.query}"`, "i"));
-      assert.ok(searchState.titles.length > 0);
+      assert.ok(searchState.titles.length > 0, `${searchCase.query} should retain browse results: ${searchState.summary}`);
 
       if (searchCase.expectedTopTitle) {
         assert.equal(searchState.titles[0], searchCase.expectedTopTitle);
+      }
+      if (searchCase.expectedProvenance) {
+        assert.equal(searchState.provenance, searchCase.expectedProvenance);
       }
     }
 

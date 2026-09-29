@@ -58,8 +58,8 @@ for (const width of [1440, 1024, 768, 390, 320]) {
       assert.deepEqual(
         await page.locator(`${nav} a`).evaluateAll((links) => links.map((link) => new URL(link.href).pathname)),
         width < 960
-          ? ["/", "/library", "/collections", "/creators", "/submit"]
-          : ["/", "/library", "/collections", "/creators", "/about", "/submit", "/for-creators"],
+          ? ["/", "/collections", "/creators", "/submit"]
+          : ["/", "/collections", "/creators", "/about", "/submit", "/for-creators"],
       );
       assert.ok(await page.locator(`${nav} a[href="/submit"]`).isVisible());
       assert.ok(await page.locator(`${nav} a[href="/creators"][aria-current="page"]`).isVisible());

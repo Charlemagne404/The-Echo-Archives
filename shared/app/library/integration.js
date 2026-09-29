@@ -1,4 +1,8 @@
 import { getShowIdFromLocation } from "../urls.js";
+import { archiveSimilarity } from "../constants.js";
+import { loadCollections, loadShows } from "../data.js";
+import { createPersonalDiscoveryPersonalizer } from "../discovery-personalization.js";
+import { formatRouteExpansion } from "../utils.js";
 import { announceStorageFailure, bindLibraryActions } from "./actions.js";
 import { STATE_LABELS, STATE_ORDER } from "./constants.js";
 import {
@@ -11,6 +15,13 @@ import {
 
 const library = getLibraryService();
 let observer = null;
+let personalDiscoveryDataPromise = null;
+let personalPresentationGeneration = 0;
+const recommendationGroupBaselines = new WeakMap();
+const noAnchorPersonalizer = createPersonalDiscoveryPersonalizer({
+  similarityIndex: { getPublicSimilarityMatches: () => [] },
+  scope: "try-next",
+});
 
 function makeElement(tagName, className = "", text = "") {
   const node = document.createElement(tagName);
@@ -36,22 +47,18 @@ function createCardControl(showId, title, relationship = false) {
   const details = makeElement("details", `library-card-control${relationship ? " is-relationship-control" : ""}`);
   details.dataset.libraryShowId = showId;
   details.dataset.libraryControl = "card";
-  const summary = makeElement("summary", "library-card-summary", "+ Library");
+  const summary = makeElement("summary", "library-card-summary", "Save");
   summary.setAttribute("aria-label", `Manage ${title} in your Library`);
   details.append(summary);
 
   const panel = makeElement("div", "library-card-panel");
-  const heading = makeElement("p", "library-card-panel-heading", "Library state");
-  const group = makeElement("div", "library-card-state-options");
-  group.setAttribute("aria-label", `Choose a Library state for ${title}`);
-  STATE_ORDER.forEach((state) => {
-    const button = makeElement("button", "library-card-state-option", STATE_LABELS[state]);
-    button.type = "button";
-    button.dataset.libraryStateAction = state;
-    button.setAttribute("aria-pressed", "false");
-    button.setAttribute("aria-label", `${title}: set Library state to ${STATE_LABELS[state]}`);
-    group.append(button);
-  });
+  const stateLabel = makeElement("label", "library-card-field");
+  stateLabel.append(makeElement("span", "", "Library status"));
+  const stateSelect = makeElement("select", "library-card-state");
+  stateSelect.dataset.libraryStateSelect = showId;
+  stateSelect.setAttribute("aria-label", `Library status for ${title}`);
+  appendDetailStateOptions(stateSelect, "");
+  stateLabel.append(stateSelect);
   const remove = makeElement("button", "library-card-remove", "Remove from Library");
   remove.type = "button";
   remove.dataset.libraryRemove = showId;
@@ -59,7 +66,7 @@ function createCardControl(showId, title, relationship = false) {
   const status = makeStatusNode();
   status.setAttribute("role", "status");
   status.setAttribute("aria-live", "polite");
-  panel.append(heading, group, remove, status);
+  panel.append(stateLabel, remove, status);
   details.append(panel);
   return details;
 }
@@ -79,12 +86,14 @@ function appendDetailStateOptions(select, currentState) {
 }
 
 function createDetailControl(showId, title) {
-  const section = makeElement("section", "library-detail-control");
+  const section = makeElement("details", "library-detail-control");
   section.dataset.libraryShowId = showId;
   section.dataset.libraryTitle = title;
   section.dataset.libraryControl = "detail";
   section.setAttribute("aria-label", `${title} in your Listener Library`);
-  const heading = makeElement("h2", "library-detail-heading", "Your Listener Library");
+  const summary = makeElement("summary", "library-detail-summary", "Save to Library");
+  section.append(summary);
+  const panel = makeElement("div", "library-detail-panel");
   const stateLabel = makeElement("label", "library-detail-field");
   stateLabel.append(makeElement("span", "", "Library state"));
   const stateSelect = makeElement("select", "library-detail-state");
@@ -108,17 +117,29 @@ function createDetailControl(showId, title) {
   }
   ratingLabel.append(rating);
 
+  const preference = makeElement("label", "library-personal-discovery-setting");
+  const preferenceInput = document.createElement("input");
+  preferenceInput.type = "checkbox";
+  preferenceInput.dataset.libraryDiscoveryPreference = "true";
+  preferenceInput.setAttribute("aria-label", "Use my Library in discovery");
+  const preferenceCopy = makeElement("span", "library-personal-discovery-copy", "Use my Library in discovery");
+  preference.append(preferenceInput, preferenceCopy);
+  const preferenceHelp = makeElement("p", "library-personal-discovery-help", "Uses this browser’s Library states and private ratings.");
+  preferenceHelp.id = `library-discovery-help-${showId}`;
+  preferenceInput.setAttribute("aria-describedby", preferenceHelp.id);
+
   const remove = makeElement("button", "library-detail-remove", "Remove from Library");
   remove.type = "button";
   remove.dataset.libraryRemove = showId;
   remove.hidden = true;
   const note = makeElement("p", "library-detail-rating-note", "Your private rating is stored only in this browser. It never submits a Community Rating.");
-  const hiddenNote = makeElement("p", "library-hidden-meaning", "Hidden affects only this exact show in Personal Discovery when that integration is active. It does not change the catalogue, ordinary browsing, or direct access to this show.");
+  const hiddenNote = makeElement("p", "library-hidden-meaning", "Hidden removes this exact show from discovery while Personal Discovery is on. It does not change the catalogue, ordinary browsing, or direct access to this show.");
   const status = makeStatusNode();
   status.setAttribute("role", "status");
   status.setAttribute("aria-live", "polite");
   status.setAttribute("aria-atomic", "true");
-  section.append(heading, stateLabel, ratingLabel, note, remove, hiddenNote, status);
+  panel.append(stateLabel, ratingLabel, note, preference, preferenceHelp, remove, hiddenNote, status);
+  section.append(panel);
   return section;
 }
 
@@ -130,21 +151,19 @@ function renderControlState(control, runtimeState) {
   if (control.dataset.libraryControl === "card") {
     const summary = control.querySelector("summary");
     const statusText = !runtimeState.storageAvailable && !runtimeState.loading
-      ? "Local saving unavailable"
+      ? "Unavailable"
       : runtimeState.entries === null && !runtimeState.loading
-        ? "Library needs recovery"
-        : entry ? STATE_LABELS[entry.state] : "+ Library";
+        ? "Recovery needed"
+        : entry ? (entry.state === "hidden" ? "Hidden" : STATE_LABELS[entry.state]) : "Save";
     summary.textContent = statusText;
     summary.setAttribute("aria-label", unavailable
       ? `${title}: local Library saving is unavailable`
       : entry ? `Manage ${title} in your Library. Current state: ${STATE_LABELS[entry.state]}.` : `Add ${title} to your Library`);
     summary.setAttribute("aria-disabled", String(unavailable));
     summary.tabIndex = 0;
-    control.querySelectorAll("[data-library-state-action]").forEach((button) => {
-      const state = button.dataset.libraryStateAction;
-      button.disabled = unavailable;
-      button.setAttribute("aria-pressed", String(entry?.state === state));
-    });
+    const stateSelect = control.querySelector("[data-library-state-select]");
+    appendDetailStateOptions(stateSelect, entry?.state || "");
+    stateSelect.disabled = unavailable;
     const remove = control.querySelector("[data-library-remove]");
     remove.hidden = !entry;
     remove.disabled = unavailable;
@@ -175,7 +194,25 @@ function renderControlState(control, runtimeState) {
   const remove = control.querySelector("[data-library-remove]");
   remove.hidden = !entry;
   remove.disabled = unavailable;
+  const preference = control.querySelector("[data-library-discovery-preference]");
+  preference.checked = runtimeState.personalContext?.enabled === true && !runtimeState.loading;
+  preference.disabled = unavailable || Boolean(runtimeState.personalDiscoveryError);
+  preference.setAttribute("aria-describedby", `library-discovery-help-${showId}`);
+  const preferenceHelp = control.querySelector(".library-personal-discovery-help");
+  if (runtimeState.personalDiscoveryError) {
+    preferenceHelp.textContent = "Personal Discovery is unavailable until the local Library setting can be read.";
+  } else {
+    preferenceHelp.textContent = "Uses this browser’s Library states and private ratings.";
+  }
   control.dataset.libraryCurrentState = entry?.state || "";
+  const summary = control.querySelector("summary");
+  summary.textContent = entry
+    ? `Library · ${entry.state === "hidden" ? "Hidden" : STATE_LABELS[entry.state]}`
+    : "Save to Library";
+  summary.setAttribute("aria-label", entry
+    ? `Manage ${title} in your Library. Current state: ${STATE_LABELS[entry.state]}.`
+    : `Add ${title} to your Library`);
+  summary.setAttribute("aria-disabled", String(unavailable));
 }
 
 function findCardHosts(anchor) {
@@ -208,11 +245,11 @@ function ensureDetailControl() {
   const showId = getShowIdFromLocation();
   const actions = document.querySelector(".podcast-detail .detail-actions");
   if (!showId || !actions) return;
-  let control = actions.parentElement.querySelector(":scope > [data-library-control=detail]");
+  let control = actions.querySelector(":scope > [data-library-control=detail]");
   if (!control) {
     const title = document.querySelector(".podcast-detail .detail-title-group h1")?.textContent?.trim() || showId;
     control = createDetailControl(showId, title);
-    actions.insertAdjacentElement("afterend", control);
+    actions.append(control);
   }
   renderControlState(control, currentState);
 }
@@ -221,6 +258,170 @@ function renderAllControls(runtimeState = getLibraryRuntimeState()) {
   ensureCardControls();
   document.querySelectorAll("[data-library-control]").forEach((control) => renderControlState(control, runtimeState));
   ensureDetailControl();
+  void syncPersonalTryNext(runtimeState);
+}
+
+function getRecommendationGroupBaseline(group) {
+  let baseline = recommendationGroupBaselines.get(group);
+  if (baseline) return baseline;
+  const cards = [...group.querySelectorAll(".detail-similar-card")];
+  const visibleGrid = group.querySelector(":scope > .detail-similar-grid");
+  const overflow = group.querySelector(":scope > .detail-similar-overflow");
+  const overflowGrid = overflow?.querySelector(".detail-similar-overflow-grid") || null;
+  if (!visibleGrid || !cards.length) return null;
+  baseline = {
+    source: group.dataset.recommendationSource,
+    cards,
+    visibleLimit: visibleGrid.children.length,
+    visibleGrid,
+    overflow,
+    overflowGrid,
+    reasons: new Map(cards.map((card) => [card, card.querySelector(".detail-similar-reason")?.textContent || ""])),
+    // Click telemetry keeps the authored/public position while visible order changes locally.
+    positionBuckets: new Map(cards.map((card) => [
+      card,
+      card.querySelector("a[data-discovery-show-id]")?.dataset.discoveryResultPositionBucket || "unknown",
+    ])),
+  };
+  recommendationGroupBaselines.set(group, baseline);
+  return baseline;
+}
+
+function getRecommendationEntries(baseline) {
+  return baseline.cards.map((card) => ({
+    id: card.querySelector("a[data-discovery-show-id]")?.dataset.discoveryShowId || "",
+    provenance: { kind: baseline.source === "curated" ? "authored" : "computed" },
+  })).filter((entry) => entry.id);
+}
+
+async function getPersonalDiscoveryData() {
+  if (!personalDiscoveryDataPromise) {
+    personalDiscoveryDataPromise = Promise.all([loadShows(), loadCollections()])
+      .then(([shows, collections]) => {
+        const publishedShows = shows.filter((show) => show?.status === "published");
+        const similarityIndex = archiveSimilarity.createSimilarityIndex({ shows: publishedShows, collections });
+        return {
+          shows: publishedShows,
+          similarityIndex,
+          personalize: createPersonalDiscoveryPersonalizer({ shows: publishedShows, similarityIndex, scope: "try-next" }),
+        };
+      })
+      .catch((error) => {
+        personalDiscoveryDataPromise = null;
+        throw error;
+      });
+  }
+  return personalDiscoveryDataPromise;
+}
+
+function hasPersonalTasteSignal(entries) {
+  return entries.some((entry) => {
+    if ([1, 2, 4, 5].includes(entry.rating)) return true;
+    return !Number.isInteger(entry.rating) && (entry.state === "saved" || entry.state === "listening");
+  });
+}
+
+function restoreRecommendationGroup(group, baseline) {
+  baseline.cards.forEach((card) => {
+    card.querySelector(".detail-similar-reason")?.replaceChildren(document.createTextNode(baseline.reasons.get(card) || ""));
+  });
+  const visible = baseline.cards.slice(0, baseline.visibleLimit);
+  const overflow = baseline.cards.slice(baseline.visibleLimit);
+  baseline.visibleGrid.replaceChildren(...visible);
+  if (baseline.overflowGrid) baseline.overflowGrid.replaceChildren(...overflow);
+  if (baseline.overflow) {
+    baseline.overflow.hidden = overflow.length === 0;
+    const summary = baseline.overflow.querySelector(":scope > summary");
+    if (summary && overflow.length) summary.textContent = formatRouteExpansion(overflow.length);
+  }
+  baseline.cards.forEach((card) => {
+    const link = card.querySelector("a[data-discovery-show-id]");
+    if (link) link.dataset.discoveryResultPositionBucket = baseline.positionBuckets.get(card) || "unknown";
+  });
+  group.hidden = baseline.cards.length === 0;
+}
+
+function syncTryNextSectionVisibility() {
+  const section = document.querySelector(".detail-similar-section");
+  if (!section) return;
+  section.hidden = ![...section.querySelectorAll(".detail-similar-group[data-recommendation-source]")]
+    .some((group) => !group.hidden);
+}
+
+function applyPersonalRecommendationGroup(group, baseline, entries) {
+  const cardById = new Map(baseline.cards.map((card) => [
+    card.querySelector("a[data-discovery-show-id]")?.dataset.discoveryShowId || "",
+    card,
+  ]));
+  const visibleEntries = entries.slice(0, baseline.visibleLimit);
+  const overflowEntries = entries.slice(baseline.visibleLimit);
+  baseline.visibleGrid.replaceChildren(...visibleEntries.map((entry) => cardById.get(entry.id)).filter(Boolean));
+  if (baseline.overflowGrid) baseline.overflowGrid.replaceChildren(...overflowEntries.map((entry) => cardById.get(entry.id)).filter(Boolean));
+  if (baseline.overflow) {
+    baseline.overflow.hidden = overflowEntries.length === 0;
+    const summary = baseline.overflow.querySelector(":scope > summary");
+    if (summary && overflowEntries.length) summary.textContent = formatRouteExpansion(overflowEntries.length);
+  }
+  entries.forEach((entry) => {
+    const card = cardById.get(entry.id);
+    if (!card) return;
+    const reason = card.querySelector(".detail-similar-reason");
+    if (reason && entry.personalizationReason) reason.textContent = entry.personalizationReason;
+  });
+  group.hidden = entries.length === 0;
+}
+
+async function syncPersonalTryNext(runtimeState) {
+  const generation = ++personalPresentationGeneration;
+  const groups = [...document.querySelectorAll(".detail-similar-group[data-recommendation-source]")];
+  if (!groups.length) return;
+  const baselines = groups.map((group) => ({ group, baseline: getRecommendationGroupBaseline(group) })).filter(({ baseline }) => baseline);
+  baselines.forEach(({ group, baseline }) => restoreRecommendationGroup(group, baseline));
+  syncTryNextSectionVisibility();
+  const context = runtimeState?.personalContext;
+  if (runtimeState?.loading || !runtimeState?.storageAvailable || context?.enabled !== true || !context.entries.length) return;
+
+  let personalize = noAnchorPersonalizer;
+  if (hasPersonalTasteSignal(context.entries)) {
+    try {
+      personalize = (await getPersonalDiscoveryData()).personalize;
+    } catch (error) {
+      console.error("Personal Discovery could not prepare local Try Next ordering.", error);
+      return;
+    }
+  }
+  const currentState = getLibraryRuntimeState();
+  if (
+    generation !== personalPresentationGeneration
+      || currentState.loading
+      || currentState.personalContext !== context
+      || currentState.personalContext?.enabled !== true
+  ) return;
+
+  const bySource = new Map(baselines.map(({ group, baseline }) => [baseline.source, { group, baseline }]));
+  const authored = bySource.get("curated")?.baseline;
+  const computed = bySource.get("computed")?.baseline;
+  const sections = {
+    shows: [],
+    authoredSimilarity: authored ? getRecommendationEntries(authored) : [],
+    computedSimilarity: computed ? getRecommendationEntries(computed) : [],
+    collections: [],
+    entities: [],
+  };
+  const publicResult = {
+    sections,
+    candidateIds: [...sections.authoredSimilarity, ...sections.computedSimilarity].map((entry) => entry.id),
+    outcome: "results",
+  };
+  const sourceShowId = getShowIdFromLocation();
+  const result = personalize({
+    publicResult,
+    personalContext: context,
+    intent: { kind: "similarity", surface: "show-page", identity: { kind: "show", id: sourceShowId } },
+  });
+  if (authored) applyPersonalRecommendationGroup(bySource.get("curated").group, authored, result.sections.authoredSimilarity);
+  if (computed) applyPersonalRecommendationGroup(bySource.get("computed").group, computed, result.sections.computedSimilarity);
+  syncTryNextSectionVisibility();
 }
 
 function initMutationObserver() {
@@ -237,8 +438,39 @@ function initMutationObserver() {
     if (addedNodes.some((node) => subtreeHas(node, ".podcast-detail .detail-actions"))) {
       ensureDetailControl();
     }
+    if (addedNodes.some((node) => subtreeHas(node, ".detail-similar-group[data-recommendation-source]"))) {
+      void syncPersonalTryNext(getLibraryRuntimeState());
+    }
   });
   observer.observe(document.body, { childList: true, subtree: true });
+}
+
+function bindPersonalDiscoveryPreference() {
+  document.addEventListener("change", async (event) => {
+    if (!(event.target instanceof Element)) return;
+    const preference = event.target.closest("[data-library-discovery-preference]");
+    if (!preference) return;
+
+    const requestedValue = preference.checked;
+    preference.disabled = true;
+    const result = await library.setPersonalDiscoveryEnabled(requestedValue);
+    if (!result.ok) {
+      await refreshLibraryRuntime();
+      const status = preference.closest("[data-library-control]")?.querySelector(".library-control-status");
+      if (status) {
+        status.textContent = `Personal Discovery could not be changed: ${result.error.message}`;
+        status.dataset.tone = "error";
+      }
+      return;
+    }
+
+    await refreshLibraryRuntime();
+    const status = preference.closest("[data-library-control]")?.querySelector(".library-control-status");
+    if (status) {
+      status.textContent = `Personal Discovery ${requestedValue ? "enabled" : "disabled"} on this browser.`;
+      status.dataset.tone = "";
+    }
+  });
 }
 
 export async function initializeLibraryIntegration() {
@@ -252,6 +484,7 @@ export async function initializeLibraryIntegration() {
   document.body.append(status);
 
   bindLibraryActions({ library, getRuntimeState: getLibraryRuntimeState, refreshRuntime: refreshLibraryRuntime });
+  bindPersonalDiscoveryPreference();
   renderAllControls();
   subscribeToLibraryRuntime((runtimeState) => {
     renderAllControls(runtimeState);
@@ -259,12 +492,5 @@ export async function initializeLibraryIntegration() {
   });
   initMutationObserver();
 
-  if (document.getElementById("listenerLibraryApp")) {
-    void import("../pages/library.js").then(({ initializeLibraryPage }) => initializeLibraryPage({
-      library,
-      runtime: { getState: getLibraryRuntimeState, subscribe: subscribeToLibraryRuntime },
-      refreshRuntime: refreshLibraryRuntime,
-    }));
-  }
   await initializeLibraryRuntime();
 }

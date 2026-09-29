@@ -16,22 +16,6 @@
     "includeFloatingControls": true
   },
   {
-    "source": "library.html",
-    "output": "library.html",
-    "title": "Your Listener Library | The Echo Archives",
-    "description": "A private, browser-local place to keep your Echo Archives shows.",
-    "canonicalUrl": "/library",
-    "bodyClass": "home-page library-page",
-    "activeNav": "library",
-    "extraStylesheets": [
-      "library.css"
-    ],
-    "includeAnalytics": false,
-    "noIndex": true,
-    "includeChatShell": false,
-    "includeFloatingControls": false
-  },
-  {
     "source": "about.html",
     "output": "about.html",
     "title": "About The Echo Archives",

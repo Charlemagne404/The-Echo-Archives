@@ -800,6 +800,195 @@ test("home search typing settles into one history entry instead of one entry per
   }
 });
 
+test("home Discovery 2 integration keeps rich criteria public, strict, and on existing result surfaces", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1100 }, reducedMotion: "reduce" });
+  const showsById = new Map(showFixtures.map((show) => [show.id, show]));
+  const search = async (query, { preserveFocus = false } = {}) => {
+    const input = page.locator(preserveFocus ? "#stickySearch" : "#search");
+    await input.fill(query);
+    if (preserveFocus) await page.keyboard.press("Enter");
+    else await input.press("Enter");
+    await page.waitForFunction(
+      (currentQuery) => (document.getElementById("resultsSummary")?.textContent || "").includes(`results for "${currentQuery}"`),
+      query,
+    );
+    await page.waitForTimeout(620);
+  };
+
+  try {
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await page.waitForFunction(() => document.querySelectorAll("#podcast-grid .podcast-card-shell").length > 0);
+
+    await search("Midnight Burger");
+    assert.ok(await page.locator('#podcast-grid .podcast-card-shell[data-podcast-id="midnight-burger"]').count());
+    assert.equal(await page.locator("#resultsSummary .discovery-query-feedback").count(), 0);
+    assertUrlSearchParams(await page.evaluate(() => window.location.href), { q: "Midnight Burger" });
+
+    await search("finished sci-fi");
+    const finished = await page.evaluate(() => ({
+      summary: document.getElementById("resultsSummary")?.textContent || "",
+      url: window.location.href,
+      ids: Array.from(document.querySelectorAll("#podcast-grid .podcast-card-shell")).map((shell) => shell.dataset.podcastId || ""),
+    }));
+    assert.match(finished.summary, /Sci-fi.*Finished|Finished.*Sci-fi/i);
+    assertUrlSearchParams(finished.url, { q: "finished sci-fi", genre: "sci-fi", completionStatus: "finished" });
+    assert.ok(finished.ids.length > 0);
+    finished.ids.forEach((id) => {
+      const show = showsById.get(id);
+      assert.ok(show?.genres?.includes("sci-fi"), `${id} should satisfy the typed sci-fi requirement`);
+      assert.equal(show?.completionStatus, "finished", `${id} should satisfy the typed finished requirement`);
+    });
+
+    const shareableUrl = await page.evaluate(() => window.location.href);
+    await page.reload({ waitUntil: "networkidle" });
+    await page.waitForFunction(
+      () => document.getElementById("search")?.value === "finished sci-fi" &&
+        (document.getElementById("resultsSummary")?.textContent || "").includes('results for "finished sci-fi"'),
+    );
+    const reloadedState = await page.evaluate(() => ({
+      url: window.location.href,
+      ids: Array.from(document.querySelectorAll("#podcast-grid .podcast-card-shell")).map((shell) => shell.dataset.podcastId || ""),
+    }));
+    assert.equal(reloadedState.url, shareableUrl);
+    assert.ok(reloadedState.ids.length > 0);
+    reloadedState.ids.forEach((id) => {
+      const show = showsById.get(id);
+      assert.ok(show?.genres?.includes("sci-fi"), `${id} should retain the bookmarked sci-fi requirement`);
+      assert.equal(show?.completionStatus, "finished", `${id} should retain the bookmarked finished requirement`);
+    });
+
+    await page.evaluate(() => window.scrollTo(0, 720));
+    await page.waitForFunction(() => document.getElementById("stickyBrowseBar")?.dataset.visibility === "visible");
+    const savedScroll = await page.evaluate(() => window.scrollY);
+    await search("sci-fi but not comedy", { preserveFocus: true });
+    const excluded = await page.evaluate(() => ({
+      summary: document.getElementById("resultsSummary")?.textContent || "",
+      url: window.location.href,
+      ids: Array.from(document.querySelectorAll("#podcast-grid .podcast-card-shell")).map((shell) => shell.dataset.podcastId || ""),
+    }));
+    assert.match(excluded.summary, /Not Comedy/i);
+    assertUrlSearchParams(excluded.url, { q: "sci-fi but not comedy", genre: "sci-fi", avoidGenre: "comedy" });
+    excluded.ids.forEach((id) => {
+      const show = showsById.get(id);
+      assert.ok(show?.genres?.includes("sci-fi"), `${id} should satisfy the typed sci-fi requirement`);
+      assert.ok(!show?.genres?.includes("comedy"), `${id} should satisfy the typed comedy exclusion`);
+    });
+    const savedPreviousEntryScroll = await page.evaluate((href) => {
+      const previousUrl = new URL(href);
+      const key = `echo-scroll:${previousUrl.pathname}${previousUrl.search}${previousUrl.hash}`;
+      return JSON.parse(window.sessionStorage.getItem(key) || "null")?.y ?? null;
+    }, shareableUrl);
+    assert.equal(savedPreviousEntryScroll, savedScroll, "committing a rich query should preserve the prior entry's scroll snapshot");
+
+    await page.goBack();
+    await page.waitForFunction(
+      () => document.getElementById("search")?.value === "finished sci-fi" &&
+        (document.getElementById("resultsSummary")?.textContent || "").includes('results for "finished sci-fi"'),
+      undefined,
+      { timeout: 5_000 },
+    );
+    try {
+      await page.waitForFunction(
+        (scrollTarget) => {
+          const maxScrollTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+          const expectedScroll = Math.min(scrollTarget, maxScrollTop);
+          return Math.abs(window.scrollY - expectedScroll) < 8;
+        },
+        savedScroll,
+        { timeout: 5_000 },
+      );
+    } catch (error) {
+      const actualState = await page.evaluate(() => {
+        const key = `echo-scroll:${window.location.pathname}${window.location.search}${window.location.hash}`;
+        return {
+          url: window.location.href,
+          query: document.getElementById("search")?.value || "",
+          scrollY: window.scrollY,
+          maxScrollTop: Math.max(0, document.documentElement.scrollHeight - window.innerHeight),
+          savedPosition: window.sessionStorage.getItem(key),
+          restoration: window.history.scrollRestoration,
+        };
+      });
+      throw new Error(`${error.message}; saved scroll ${savedScroll}, restored state ${JSON.stringify(actualState)}`);
+    }
+    const expectedRestoredScroll = await page.evaluate(
+      (scrollTarget) => Math.min(scrollTarget, Math.max(0, document.documentElement.scrollHeight - window.innerHeight)),
+      savedScroll,
+    );
+    assert.ok(
+      Math.abs((await page.evaluate(() => window.scrollY)) - expectedRestoredScroll) < 8,
+      "Back should restore or clamp the saved results scroll position",
+    );
+    await page.goForward();
+    await page.waitForFunction(() => document.getElementById("search")?.value === "sci-fi but not comedy");
+
+    await search("something like The White Vault but sci-fi");
+    const similarity = await page.evaluate(() => ({
+      summary: document.getElementById("resultsSummary")?.textContent || "",
+      url: window.location.href,
+      provenance: Array.from(document.querySelectorAll("#podcast-grid .podcast-card")).map((card) => ({
+        section: card.dataset.discoveryCandidateSection || "",
+        kind: card.dataset.discoveryCandidateProvenance || "",
+      })),
+    }));
+    assert.match(similarity.summary, /archive picks.*computed matches/i);
+    assertUrlSearchParams(similarity.url, { seed: "the-white-vault", genre: "sci-fi" });
+    const computedIndex = similarity.provenance.findIndex((entry) => entry.section === "computedSimilarity");
+    assert.ok(similarity.provenance.some((entry) => entry.section === "authoredSimilarity" && entry.kind === "authored"));
+    assert.ok(computedIndex > 0, "authored similarity should precede computed candidates");
+    assert.ok(similarity.provenance.slice(computedIndex).every((entry) => entry.section === "computedSimilarity"));
+
+    await search("shows by the people behind The White Vault");
+    assert.ok(await page.locator(".archive-entity-results [data-discovery-entity-id]").count());
+    assertUrlSearchParams(await page.evaluate(() => window.location.href), { q: "shows by the people behind The White Vault" });
+
+    await search("around 10 hours");
+    const runtime = await page.evaluate(() => ({
+      summary: document.getElementById("resultsSummary")?.textContent || "",
+      request: performance.getEntriesByType("resource").some((entry) => new URL(entry.name).pathname === "/data/runtime-evidence.json"),
+    }));
+    assert.match(runtime.summary, /Runtime evidence: (observed|reported|estimated)/i);
+    assert.equal(runtime.request, true);
+
+    await search("something like The White Vault but darker");
+    assert.match(await page.locator("#resultsSummary").innerText(), /“darker” wasn’t used as a filter/);
+
+    await search("Best for long walks");
+    assert.ok(await page.locator('#noResultsMsg a[data-discovery-collection-id="best-for-long-walks"]').count());
+
+    await search("shows I have finished");
+    const privateIntent = await page.evaluate(() => ({ url: window.location.href, summary: document.getElementById("resultsSummary")?.textContent || "" }));
+    assert.doesNotMatch(privateIntent.url, /shows(?:\+|%20)i(?:\+|%20)have(?:\+|%20)finished/i);
+    assert.match(privateIntent.summary, /Private listening history is not used in public search/i);
+
+    await search("horror");
+    assert.match(await page.locator("#resultsSummary").innerText(), /can be a genre or title fragment; using genre/i);
+
+    await search("at least 100000 hours");
+    assert.match(await page.locator("#noResultsMsg").innerText(), /kept those conditions strict/i);
+
+    const mobilePage = await browser.newPage({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce" });
+    try {
+      await mobilePage.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+      await mobilePage.locator("#search").fill("finished sci-fi");
+      await mobilePage.waitForFunction(() => (document.getElementById("resultsSummary")?.textContent || "").includes('results for "finished sci-fi"'));
+      const mobileMetrics = await mobilePage.evaluate(() => ({
+        viewport: window.innerWidth,
+        documentWidth: document.documentElement.scrollWidth,
+        cardWidth: document.querySelector("#podcast-grid .podcast-card-shell")?.getBoundingClientRect().width || 0,
+        cardCount: document.querySelectorAll("#podcast-grid .podcast-card-shell").length,
+      }));
+      assert.ok(mobileMetrics.documentWidth <= mobileMetrics.viewport, "rich search should not create horizontal overflow on mobile");
+      assert.ok(mobileMetrics.cardWidth >= 150 && mobileMetrics.cardWidth < 200, "rich results should retain the compact mobile card width");
+      assert.ok(mobileMetrics.cardCount > 0);
+    } finally {
+      await mobilePage.close();
+    }
+  } finally {
+    await page.close();
+  }
+});
+
 test("collections discovery history restores mood, sort, search, and empty states", async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1200 }, reducedMotion: "reduce" });
 

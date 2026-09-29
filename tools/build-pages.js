@@ -80,12 +80,6 @@ const ENTRY_ASSETS = {
   "public-heroes.css": () => renderCssBundle([
     "shared/styles/home/public-heroes.css",
   ]),
-  "library.css": () => renderCssBundle([
-    "shared/styles/home/library.css",
-    "shared/styles/home/library/entries.css",
-    "shared/styles/home/library/transfer.css",
-    "shared/styles/home/library/detail-responsive.css",
-  ]),
   "home.css": () => renderCssBundle([
     "shared/styles/home/cards/02a-sticky-browse.css",
     "shared/styles/home/cards/03-filter-controls.css",
@@ -356,7 +350,6 @@ function isAnalyticsEnabled(entry) {
 
 const PRIMARY_NAV_ITEMS = [
     { id: "browse", label: "Browse", detail: "All shows and archive filters", href: "/" },
-    { id: "library", label: "Library", detail: "Shows saved on this device", href: "/library" },
     { id: "collections", label: "Collections", detail: "Shows grouped by mood and theme", href: "/collections" },
     { id: "creators", label: "Creators", detail: "People and studios behind the shows", href: "/creators" },
     { id: "about", label: "About", detail: "What the archive is building", href: "/about" },
@@ -369,7 +362,6 @@ const MOBILE_DRAWER_SECTIONS = [
     label: "Explore",
     items: [
       { id: "browse", label: "Browse", href: "/", icon: "search" },
-      { id: "library", label: "Library", href: "/library", icon: "library" },
       { id: "collections", label: "Collections", href: "/collections", icon: "folder" },
       { id: "creators", label: "Creators", href: "/creators", icon: "person" },
       { id: "about", label: "About", href: "/about", icon: "info" },
@@ -405,7 +397,6 @@ const MOBILE_DRAWER_SECTIONS = [
 const MOBILE_NAV_ICONS = {
   search: '<path d="m20 20-4.35-4.35M10.75 18a7.25 7.25 0 1 1 0-14.5 7.25 7.25 0 0 1 0 14.5Z" />',
   folder: '<path d="M3 7.75A2.75 2.75 0 0 1 5.75 5h4.12l1.8 2.1H18.25A2.75 2.75 0 0 1 21 9.85v7.4A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25v-9.5Z" />',
-  library: '<path d="M5 4.5h11.5A2.5 2.5 0 0 1 19 7v12.5H7A2 2 0 0 1 5 17.5v-13Z" /><path d="M5 6.5H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h15M9 8.5h6M9 12h6" />',
   info: '<circle cx="12" cy="12" r="8.5" /><path d="M12 10.8v5M12 7.8h.01" />',
   plus: '<circle cx="12" cy="12" r="8.5" /><path d="M12 8v8M8 12h8" />',
   person: '<circle cx="12" cy="8.1" r="3" /><path d="M5.4 20c.65-3.45 2.82-5.2 6.6-5.2s5.95 1.75 6.6 5.2" />',
@@ -445,7 +436,7 @@ function isMobileNavItemActive(item, entry, directPaths) {
 }
 
 function renderMobilePrimaryNav(entry) {
-  const mobileItems = ["browse", "library", "collections", "creators", "submit"]
+  const mobileItems = ["browse", "collections", "creators", "submit"]
     .map((id) => PRIMARY_NAV_ITEMS.find((item) => item.id === id))
     .filter(Boolean);
   const directPaths = new Set(mobileItems.map((item) => item.href));
@@ -814,7 +805,7 @@ function renderPage(entry, partials, versions, homeConfig, seoContext, submitPre
       : "",
     renderStructuredData(structuredData),
     "</head>",
-    `<body class="${entry.bodyClass}" data-site-url="${escapeAttribute(seoContext.siteUrl)}" data-chat-stylesheet="/chat.css?v=${versions.extra.get("chat.css")}" data-analytics-enabled="${String(analyticsEnabled)}" data-archivist-enabled="${String(archivistEnabled)}" data-home-card-hover-expand-enabled="${String(homeCardHoverExpandEnabled)}" data-shows-version="${versions.shows}" data-collections-version="${versions.collections}" data-search-index-version="${versions.searchIndex}" data-library-version="${versions.library}">`,
+    `<body class="${entry.bodyClass}" data-site-url="${escapeAttribute(seoContext.siteUrl)}" data-chat-stylesheet="/chat.css?v=${versions.extra.get("chat.css")}" data-analytics-enabled="${String(analyticsEnabled)}" data-archivist-enabled="${String(archivistEnabled)}" data-home-card-hover-expand-enabled="${String(homeCardHoverExpandEnabled)}" data-shows-version="${versions.shows}" data-collections-version="${versions.collections}" data-search-index-version="${versions.searchIndex}" data-runtime-evidence-version="${versions.runtimeEvidence}" data-library-version="${versions.library}">`,
     bodySections,
     "</body>",
     "</html>",
@@ -943,7 +934,6 @@ function renderServiceWorker({ versions, manifest }) {
         app: versions.app,
         scrollRestorationBoot: versions.scrollRestorationBoot,
         style: versions.style,
-        libraryStylesheet: versions.extra.get("library.css"),
         publicHeroes: versions.extra.get("public-heroes.css"),
         info: versions.extra.get("info.css"),
         archiveRecord: versions.archiveRecord,
@@ -953,6 +943,7 @@ function renderServiceWorker({ versions, manifest }) {
         shows: versions.shows,
         collections: versions.collections,
         searchIndex: versions.searchIndex,
+        runtimeEvidence: versions.runtimeEvidence,
         precacheUrls,
       }),
     ),
@@ -1217,8 +1208,6 @@ async function main() {
     library: hashBuffer(Buffer.from(JSON.stringify({
       platform: hashTree("shared/library"),
       appLibrary: hashTree("shared/app/library"),
-      libraryPage: hashFile("shared/app/pages/library.js"),
-      libraryPageModules: hashTree("shared/app/pages/library"),
     }))),
     libraryIntegration: hashFile("shared/app/library/integration.js"),
     scrollRestorationBoot: hashFile("shared/app/scroll-restoration-boot.js"),
@@ -1229,6 +1218,7 @@ async function main() {
     shows: hashFile("data/shows.json"),
     collections: hashFile("data/collections.json"),
     searchIndex: hashFile("data/search-index.json"),
+    runtimeEvidence: hashFile("data/runtime-evidence.json"),
     icons: ["favicon.ico", "apple-touch-icon.png", "icon-192.png", "icon-512.png"].map(hashFile),
     script: hashFile("script.js"),
     style: cssVersions.get("style.css"),

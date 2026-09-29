@@ -526,6 +526,20 @@ test("service worker supports cached public pages offline and falls back for unc
     });
     await page.waitForFunction(() => navigator.serviceWorker.controller !== null, undefined, { timeout: 10_000 });
     await page.waitForFunction(() => document.body.dataset.offlineReady === "true", undefined, { timeout: 10_000 });
+    await page.waitForFunction(() => document.body.dataset.homeReady === "true", undefined, { timeout: 10_000 });
+
+    const homeDataCache = await page.evaluate(async () => {
+      const resources = [
+        ["search index", "/data/search-index.json", document.body.dataset.searchIndexVersion],
+        ["collections", "/data/collections.json", document.body.dataset.collectionsVersion],
+        ["runtime evidence", "/data/runtime-evidence.json", document.body.dataset.runtimeEvidenceVersion],
+      ];
+      return Promise.all(resources.map(async ([name, pathname, version]) => [
+        name,
+        Boolean(version && await caches.match(new URL(`${pathname}?v=${encodeURIComponent(version)}`, location.origin).href)),
+      ]));
+    });
+    assert.deepEqual(homeDataCache, [["search index", true], ["collections", true], ["runtime evidence", true]]);
 
     const apiBoundary = await page.evaluate(async () => {
       const healthResponse = await fetch("/api/health");
@@ -648,7 +662,7 @@ test("mobile header menu opens, closes, and routes cleanly on phone widths", asy
     assert.equal(closedState.navState, "closed");
     assert.equal(closedState.expanded, "false");
     assert.equal(closedState.bodyLocked, false);
-    assert.deepEqual(closedState.primaryLinks, ["Browse", "Library", "Collections", "Creators", "Submit"]);
+    assert.deepEqual(closedState.primaryLinks, ["Browse", "Collections", "Creators", "Submit"]);
     assert.equal(closedState.activePrimaryHref, "/");
 
     await page.locator("#siteNavToggle").click();
@@ -731,7 +745,7 @@ test("site header keeps the primary navigation reachable across responsive break
       assert.equal(state.navVisible, true, `desktop nav should be visible at ${width}px`);
       assert.equal(state.mobileNavVisible, false, `mobile strip should be hidden at ${width}px`);
       assert.equal(state.toggleVisible, false, `menu toggle should be hidden at ${width}px`);
-      assert.equal(state.linkCount, 7);
+      assert.equal(state.linkCount, 6);
       assert.equal(state.navWithinHeader, true, `desktop nav escaped the header at ${width}px`);
       assert.equal(state.brandWithinHeader, true, `brand escaped the header at ${width}px`);
       assert.equal(state.noOverflow, true, `header created overflow at ${width}px`);
@@ -752,7 +766,7 @@ test("site header keeps the primary navigation reachable across responsive break
       assert.equal(closedState.navVisible, false, `desktop nav should be hidden at ${width}px`);
       assert.equal(closedState.mobileNavVisible, true, `mobile strip should be visible at ${width}px`);
       assert.equal(closedState.toggleVisible, true, `menu toggle should be visible at ${width}px`);
-      assert.equal(closedState.primaryLinkCount, 5);
+      assert.equal(closedState.primaryLinkCount, 4);
       assert.equal(closedState.noOverflow, true, `mobile header created overflow at ${width}px`);
 
       await page.locator("#siteNavToggle").click();
@@ -772,7 +786,7 @@ test("site header keeps the primary navigation reachable across responsive break
         };
       });
 
-      assert.equal(drawerState.linkCount, 15);
+      assert.equal(drawerState.linkCount, 14);
       assert.ok(drawerState.left >= -1 && drawerState.right <= drawerState.viewportWidth + 1, `drawer escaped horizontally at ${width}px`);
       assert.ok(drawerState.top >= -1 && drawerState.bottom <= drawerState.viewportHeight + 1, `drawer escaped vertically at ${width}px`);
       await page.keyboard.press("Escape");

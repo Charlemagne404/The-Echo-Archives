@@ -16,7 +16,7 @@
     const statedHours = Number(length.totalHours);
     const hasStatedHours = Number.isFinite(statedHours) && statedHours > 0;
     const researchGaps = Array.isArray(show?.metadata?.researchGaps) ? show.metadata.researchGaps : [];
-    const runtimeGap = researchGaps.some((gap) => /runtime|total duration/i.test(String(gap)));
+    const runtimeGap = show?.runtimeGap === true || researchGaps.some((gap) => /runtime|total duration/i.test(String(gap)));
     const estimateMatches = hasStatedHours && calculatedHours !== null && Math.abs(statedHours - calculatedHours) < 0.051;
 
     if (estimateMatches && runtimeGap) {

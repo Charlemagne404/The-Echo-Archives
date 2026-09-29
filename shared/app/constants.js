@@ -12,6 +12,10 @@ const SEARCH_INDEX_VERSION = document.body?.dataset.searchIndexVersion?.trim() |
 export const SEARCH_INDEX_URL = SEARCH_INDEX_VERSION
   ? `/data/search-index.json?v=${SEARCH_INDEX_VERSION}`
   : "/data/search-index.json";
+const RUNTIME_EVIDENCE_VERSION = document.body?.dataset.runtimeEvidenceVersion?.trim() || "";
+export const RUNTIME_EVIDENCE_URL = RUNTIME_EVIDENCE_VERSION
+  ? `/data/runtime-evidence.json?v=${RUNTIME_EVIDENCE_VERSION}`
+  : "/data/runtime-evidence.json";
 export const ARCHIVE_STATS_URL = "/data/archive-stats.json";
 export const DEFAULT_SOCIAL_IMAGE = "/echo-wordmark1.png";
 export const DEFAULT_FALLBACK_COVER_IMAGE = "/images/TEA-Logo-S.png";
@@ -48,6 +52,8 @@ export const dataCache = {
   collectionsPromise: null,
   searchIndex: null,
   searchIndexPromise: null,
+  runtimeEvidence: null,
+  runtimeEvidencePromise: null,
   communitySummaries: new Map(),
   communitySummaryRequests: new Map(),
   listenerReviewSummaries: new Map(),

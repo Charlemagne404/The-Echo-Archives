@@ -1,0 +1,30 @@
+[
+  {
+    "name": "desktop",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "documentHeight": 7134,
+    "heroHeight": 430,
+    "searchHeight": 56,
+    "cardCount": 60,
+    "cardWidth": 212,
+    "summary": "60 of 752 results • 7 full reviews",
+    "canonical": "http://127.0.0.1:62905/"
+  },
+  {
+    "name": "mobile",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "documentHeight": 14688,
+    "heroHeight": 656,
+    "searchHeight": 54,
+    "cardCount": 60,
+    "cardWidth": 173,
+    "summary": "60 of 752 results • 7 full reviews",
+    "canonical": "http://127.0.0.1:62905/"
+  }
+]

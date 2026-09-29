@@ -1,6 +1,6 @@
 # The Echo Archives 2.0 — Product specification
 
-**Status:** Listener Library product implemented on this branch. Discovery 2.0 behavior below remains the product contract for separate in-flight query/retrieval work.<br>
+**Status:** Discovery 2.0 rich-query routing and opt-in Personal Discovery are integrated into homepage search and existing show-page Try Next results. The browser-local Library controls remain compact, with no Library page or new navigation destination. Full release QA remains open.<br>
 **Repository basis:** main at 55ca3969, reviewed 2026-09-28.
 **Executable baseline:** [BASELINE.md](BASELINE.md).
 
@@ -17,7 +17,7 @@ Echo already helps listeners find shows by title, genre, tone, format, completio
 The 2.0 problems are therefore:
 
 - A listener cannot maintain a private, durable record of shows they plan to hear, are listening to, finished, dropped, or do not want to see again.
-- That state does not follow the listener through browse cards, show pages, collections, creator pages, and recommendations.
+- A listener cannot update that state from the existing browse cards and show-page action area. The state remains private and does not alter ordinary public results.
 - Search intent such as “finished cinematic sci-fi around 10 hours” or “horror for a long walk” is harder to express than the current structured data warrants.
 - Recommendations cannot use the listener’s explicit local choices, while a server-side profile or an unexplained behavioral model would violate Echo’s product direction.
 
@@ -31,31 +31,32 @@ An entry has one current status at a time:
 
 | Status | Listener meaning | Discovery effect when personal discovery is on |
 | --- | --- | --- |
-| Saved | I may want to listen later. | A weak, explicit interest anchor. |
-| Listening | I am listening now. | A weak, explicit interest anchor; do not treat it as a quality vote. |
-| Finished | I consider this listen finished. | While Personal Discovery is enabled, exclude this exact show from “new to you” recommendations. It is not a positive taste signal by itself. |
-| Dropped | I stopped this listen. | While Personal Discovery is enabled, suppress this exact show from recommendations by default. Do not infer why it was dropped or generalize that choice to similar shows. |
-| Hidden | Do not surface this exact show in my personalized discovery results. | While Personal Discovery is enabled, suppress this exact show only. Hidden does not change catalogue truth or imply dislike of its genre, creators, collections, or similar shows. The direct show route remains accessible. |
+| Saved | I may want to listen later. | A weak positive anchor when there is no explicit rating for that show. |
+| Listening | I am listening now. | A weak positive anchor when there is no explicit rating; it is not a quality vote. |
+| Finished | I consider this listen finished. | Not a taste signal. Suppressed only in the explicit “new to you” scope; current homepage search and Try Next do not use that scope. |
+| Dropped | I stopped this listen. | Suppresses this exact show in recommendation scopes such as Try Next. It is not a negative signal unless a separate explicit 1–2 private rating supplies one. |
+| Hidden | Do not surface this exact show in my personalized discovery results. | While Personal Discovery is enabled, suppress this exact show from broad search and relevant recommendation results. Exact-title search and the direct show route remain available. |
 
-The discovery effects in the table are future integration semantics. This branch records Library state and exposes a sanitized context API, but does not yet use that context to change results. Hidden never changes the catalogue, blocks a direct URL, or hides a show from ordinary non-personalized browsing. Statuses are explicit and reversible. Opening a show, clicking a listen link, or viewing a card never changes a status. A listener can remove an entry; removal also removes its private rating.
+These effects are implemented behind the opt-in preference. Personal Discovery sees only a sanitized browser-local context and operates after ordinary query, filter, and similarity eligibility checks. Hidden never changes catalogue truth or blocks a direct route. When Personal Discovery is off or unavailable, ordinary results keep their public order and Hidden visibility. Statuses are explicit and reversible. Opening a show, clicking a listen link, or viewing a card never changes a status. A listener can remove an entry; removal also removes its private rating.
 
-An optional private rating uses a clearly labeled integer 1–5 scale and exists only when the listener explicitly enters it for a Library entry. It is not an Archive Rating, Community Rating, review, submission, or creator-facing comment. A private rating of 4–5 can be used as a positive recommendation anchor; 1–2 as a negative anchor; 3 is neutral. No public or inferred rating may be substituted.
+An optional private rating uses a clearly labeled integer 1–5 scale and exists only when the listener explicitly enters it for a Library entry. It is not an Archive Rating, Community Rating, review, submission, or creator-facing comment. Ratings 5 and 4 are positive anchors, 3 is neutral, and 2 and 1 are negative anchors. These internal adjustments are never displayed as a user score. No public or inferred rating may be substituted.
 
 ### UX
 
-- Add a compact, keyboard-operable library action to shared show cards and show details. Reused cards on collection, creator, and search surfaces must use the same state control.
-- Show the current state without making the dense browse cards taller or hiding the title and existing ratings.
-- Provide a dedicated Library page with status filters, local search, a clear empty state, export/import, and the device-local Personal Discovery preference.
-- Put the private rating in an explicitly private detail/editor area, not in public review or community components.
-- Use the Library service for all reads and writes. Make successful changes visible in other open Echo tabs through cross-tab notification.
+- Keep a tiny, keyboard- and touch-operable status control beside existing show cards. Show its current state without increasing card height or obscuring title and rating content. The card control offers state changes and removal, not private rating.
+- Keep a compact Library disclosure inside the existing show-detail listening action area. It can change/remove state, set an optional private rating, and contains the small “Use my Library in discovery” checkbox with contextual help. It stays off by default.
+- Do not create a dedicated Library page, another top-level navigation item, or a global settings surface. The opt-in sits in the existing detail disclosure rather than occupying a permanent homepage area.
+- Use the Library service for all reads and writes. Make successful changes visible in other open Echo tabs through cross-tab notification. Be explicit when browser storage is unavailable.
 - Do not add an activity feed, status-change history, recently-viewed history, or listening progress.
-- Keep the public catalogue useful without JavaScript. Library actions and stored state require JavaScript; the Library page must say so when scripts cannot run.
+- Keep the public catalogue useful without JavaScript. Library controls and stored state require JavaScript; without it, existing Echo pages remain ordinary browse and show pages.
 
 ### Backup and transfer
 
-Export is a user-triggered download of the version-1 JSON document defined in [ARCHITECTURE.md](ARCHITECTURE.md). It contains stable show IDs, current statuses, explicitly entered private ratings, and an optional last-known title for an unresolved show. It contains no account, analytics identifiers, server response, full catalogue snapshot, or Personal Discovery opt-in. Warn that private ratings and title labels are readable as ordinary text.
+The service retains export and validated import capabilities using the version-1 JSON document defined in [ARCHITECTURE.md](ARCHITECTURE.md). This release does not expose normal public import/export UI. Do not add a replacement page or global settings surface for it. A later compact contextual surface may be considered if it fits Echo’s existing structure. Recovery export remains a service capability and should be offered contextually only when a storage problem needs it.
 
-Import validates the entire document and previews entry counts, status counts, unknown catalogue IDs, same-ID conflicts, and invalid data before writing. Merge preserves local-only records; each imported same-ID record replaces the complete local record after that rule and its conflicts are disclosed. Replace makes the validated imported entries the complete Library entry set after explicit confirmation. Both modes preserve unknown IDs, do not remap by title or alias, leave the device-local opt-in unchanged, and commit all-or-nothing. Commit-time conflicts are recalculated so concurrent local-only entries survive Merge. A failed preview or commit changes nothing.
+The document contains stable show IDs, current statuses, explicitly entered private ratings, and an optional last-known title for an unresolved show. It contains no account, analytics identifiers, server response, full catalogue snapshot, or Personal Discovery opt-in. Exported private ratings and title labels are readable as ordinary text.
+
+Import validates the entire document before writing. When exposed through an approved compact flow, it must preview entry counts, status counts, unknown catalogue IDs, same-ID conflicts, and invalid data. Merge preserves local-only records; each imported same-ID record replaces the complete local record. Replace makes the validated imported entries the complete Library entry set after explicit confirmation. Both modes preserve unknown IDs, do not remap by title or alias, leave the device-local opt-in unchanged, and commit all-or-nothing. Commit-time conflicts are recalculated so concurrent local-only entries survive Merge. A failed preview or commit changes nothing.
 
 ## 2. Discovery 2.0
 
@@ -63,9 +64,9 @@ Discovery 2.0 gives one typed interpretation to the existing search, filters, en
 
 Its initial versioned intent and public URL representation are frozen in [ARCHITECTURE.md](ARCHITECTURE.md) and decision [004](decisions/004-discovery-intent-and-url-state.md). The supported vocabulary stays tied to existing catalogue fields and reviewed benchmark cases; unsupported text remains visible as residual text.
 
-For a supported query, Echo presents the understood parts as editable criteria before or alongside results: required facts, soft preferences, a resolved show or entity, and any unsupported phrase that remains ordinary text search. Hard requirements are never silently relaxed. Unknown metadata stays unknown.
+Recognized rich queries use the deterministic 2.0 adapter over the existing search, similarity, entity, collection, filter, and runtime evidence. Exact-title, ordinary text, and bounded-typo searches keep the current fast scorer. The homepage keeps the existing search and filter controls, compact show cards, creator links, and collection routes. One restrained line in the existing results summary shows useful interpreted criteria, runtime qualifiers, ambiguity, or unsupported phrases; the page does not open a query builder. Hard requirements are never silently relaxed. Unknown metadata stays unknown.
 
-Disambiguate catalogue lifecycle from personal listening state. “Finished shows” means the show’s published completion status when the phrase describes the catalogue item; “shows I’ve finished” refers to the listener’s local Library and must stay local. If grammar or context does not make that distinction clear, ask the listener to choose. A personal Library criterion is not encoded in a shareable URL.
+Disambiguate catalogue lifecycle from personal listening state. “Finished shows” means the show’s published completion status when the phrase describes the catalogue item; “shows I’ve finished” requires private listening history. Public search returns a clear local-context note for that request, does not read Library state, and omits the private query text from the URL. Ambiguous wording remains visible for correction.
 
 Examples:
 
@@ -80,27 +81,23 @@ Exact title, alias, and identity matches remain stronger than incidental body-te
 
 | Existing surface | 2.0 behavior |
 | --- | --- |
-| Search and filters | One intent model composes the current title/alias search and structured filters. Existing controls remain available as direct, inspectable ways to edit the interpreted query. |
-| Collections | Keep authored listening paths and reasons intact. Collections can supply a direct route or evidence for retrieval, but generated membership is not a second editorial source. |
-| Show pages and Try Next | Preserve written catalogue relationships first and the existing explainable computed matches separately. Add an optional, explicitly labeled personal section only when enabled and supported. |
-| Shows Like | Keep the anchor, authored picks, pair-specific reasons, and separate computed fallback. Do not rebuild these routes as generic personalized pages. |
-| Creator surfaces | Extend discovery through stable entity IDs, reviewed aliases, and explicit typed roles. Preserve organization-led directory rules and person/detail behavior. |
-| URL and browser history | Keep public query/filter/seed state shareable and restore the rendered controls, results, summaries, empty state, and scroll on Back/Forward. Keep local Library records and personal recommendation settings out of URLs. |
-| Empty and sparse results | Explain which requested evidence is missing; offer a clear edit/relax action. Never lower similarity thresholds or fabricate a match to avoid an empty state. |
+| Search and filters | Rich homepage queries use typed criteria; simple text/title/typo queries retain the existing scorer. Direct filters remain available and compose with recognized query constraints. The summary line reports interpreted criteria and unsupported phrases. |
+| Collections | Keep authored listening paths and reasons intact. A recognized collection query links to its existing collection route; generated membership is not a second editorial source. |
+| Show pages and Try Next | Preserve authored picks and their order. Personal Discovery may reorder only eligible computed fallback candidates and suppress exact Hidden or Dropped shows in this recommendation scope. |
+| Shows Like | Rich homepage similarity searches keep the anchor, authored picks, and computed fallback in separate sections; only the computed fallback can receive a modest personal reorder. Creator/entity and collection membership remain editorial/public. |
+| Creator surfaces | Rich homepage creator queries use stable entity IDs and explicit typed roles, then reuse the existing creator links and show cards. The creator directory keeps its current search behavior. |
+| URL and browser history | Public rich-query criteria use allowlisted parameters through the existing homepage URL/history controller. Back/Forward restores the query, direct filters, results, and scroll. Personal Library records, settings, and local-only query text stay out of URLs. |
+| Empty and sparse results | The existing empty-state panel explains strict no-match, private-context, clarification, and collection-route outcomes. The engine does not lower similarity thresholds or fabricate a match to avoid an empty state. |
 
 ## 3. Personal Discovery
 
-Personal Discovery is a user-controlled preference on this device, defaulting off. The Library can be used and edited while it is off. This branch stores the preference and exposes it with a sanitized Library context, but Discovery 2.0 has not yet integrated it; enabling it currently does not alter results. It never changes catalogue truth or direct route accessibility.
+Personal Discovery is a user-controlled preference on this device, defaulting off. Its checkbox sits inside the existing show-detail Library disclosure. The homepage uses only the sanitized context from the Library runtime; Discovery never reads IndexedDB. Personalization operates on already eligible candidates and uses the archive’s public similarity evidence. Search and Try Next can reorder candidates by at most three positions; authored similarity picks, collection membership, creator identity, hard requirements, exclusions, and sparse-evidence gates stay intact.
 
-When Discovery integration is complete, the planned behavior when enabled is:
+Saved and Listening are weak positive anchors only when the same entry has no explicit rating. An explicit rating takes precedence: 5/4 are positive, 3 is neutral, and 2/1 are negative. Finished is never a positive signal and is suppressed only in the “new to you” scope, which current surfaces do not use. Dropped suppresses only that exact show in recommendation scopes and is not generalized; a low explicit rating may independently act as a negative anchor. Hidden suppresses only the exact show while Personal Discovery is enabled. Direct-title search and direct show routes still find it. A Hidden, Finished, or Dropped state does not imply a preference about similar shows.
 
-- Saved and Listening entries are weak interest anchors, not quality judgments.
-- Only an explicitly entered private rating can act as a positive or negative anchor. A reason identifies the rated show and the specific shared catalogue dimensions.
-- Finished, Dropped, and Hidden affect only the exact-show recommendations described above. Finished does not mean liked; Dropped does not mean disliked; Hidden does not mean that similar shows are unwelcome.
-- Personal signals can reorder only candidates that already pass the ordinary query and evidence gates. They cannot defeat a hard user constraint, invent a catalogue fact, or make a metadata-poor comparison appear certain.
-- Each personal result states why it appeared, such as “Shares tone and theme with a show you saved” or “Shares format with a show you rated 5/5.” The listener can open the cited show, pause use of the Library, or clear local state.
+Reasons appear only when an eligible candidate actually moves. They identify the concrete shared catalogue dimensions and the anchor, for example “Shares tone (Funny, Weird) and discovery tags (Comedy) with King Falls AM, which you rated 5/5.” Internal weights and scores are never exposed. If the public similarity gate or evidence for a reason is missing, no personal reorder is made.
 
-Pausing Personal Discovery leaves entries and ratings intact. Once ranking integration lands, it will restore the exact ordinary, non-personalized candidate set, sections, ordering, and hidden-show visibility. Re-enabling requires an explicit action. The service reset operation removes all entries and sets the local opt-in to off in one transaction.
+Turning Personal Discovery off preserves Library entries and ratings and restores the exact public order, section membership, Hidden visibility, and reasons. Clearing the final entry also restores that baseline across open tabs. The service reset operation removes entries and sets the local opt-in to off in one transaction.
 
 ## Privacy guarantees and user controls
 
@@ -109,26 +106,29 @@ Pausing Personal Discovery leaves entries and ratings intact. Once ranking integ
 - No personal state is serialized into a URL, generated/static response HTML, generated catalogue data, sitemap, service-worker cache, or server database. The browser may render the owner’s state into the live UI on that device.
 - Discovery receives only the sanitized context defined in [ARCHITECTURE.md](ARCHITECTURE.md); it receives no database objects, title snapshots, timestamps, or export metadata.
 - Existing anonymous community ratings remain server-backed community responses. They are separate from the local five-star rating and may not be merged or presented as the listener’s private history.
-- Provide clear per-entry removal, pause, full clear, export, and import controls. Clearing Echo Library data does not claim to clear the archive’s separate analytics token, community-rating identity, chat session, or browser-wide site data.
+- Existing controls provide per-entry state changes/removal and private rating on show pages. Management flows for pause, full clear, import, and export are intentionally not exposed in normal public UI. Clearing Echo Library data through the service does not clear the archive’s separate analytics token, community-rating identity, chat session, or browser-wide site data.
 - Update the public Privacy and Cookies storage inventory and obtain the project’s normal legal review before release. Do not claim a consent or legal classification that has not been reviewed.
 
-The existing first-party analytics collector intentionally does not store search text. 2.0 keeps that boundary and adds no Library status, rating, seed, or personalization events. The Library route itself is excluded from analytics.
+The existing first-party analytics collector intentionally does not store search text. 2.0 keeps that boundary and adds no Library status, rating, seed, or personalization events. There is no Library route to include or exclude from analytics.
 
 ## Degradation behavior
 
 | Condition | Expected behavior |
 | --- | --- |
-| JavaScript unavailable | Existing generated public pages and routes remain readable and navigable. Library controls are unavailable; the Library shell explains that local state needs JavaScript. |
+| JavaScript unavailable | Existing generated public pages and routes remain readable and navigable. Library controls are unavailable; there is no separate Library shell. |
 | IndexedDB unavailable, denied, or blocked | Ordinary discovery works. Explain that Library changes cannot be saved; never claim persistence or send state to a server or localStorage fallback. |
 | IndexedDB transaction/quota failure | The transaction leaves the last committed state intact. Report the failed action and offer recovery guidance; do not clear or partially write the Library. |
 | Malformed stored data | Preserve recoverable data and offer export/reset. Do not silently replace it with an empty Library. |
 | Newer unsupported database version | Do not downgrade or overwrite it. Explain that the Library is unavailable to this code version and continue ordinary non-personalized discovery. |
 | Another tab is blocking a schema upgrade | Report the blocked open and ask the listener to close or refresh older Echo tabs. Do not claim the upgrade completed. |
 | Another tab commits a change | Broadcast a generic invalidation; other tabs reload through the service. Same-tab updates are delivered directly. If BroadcastChannel is unavailable, cross-tab immediate updates are unavailable. |
-| Network unavailable | Previously cached public catalogue assets may support a previously visited Library route. Otherwise retain the local data and show unresolved entries from stable IDs/title snapshots; do not promise a cold offline catalogue. |
+| Network unavailable | Previously cached Echo pages and assets may remain available under existing offline behavior. The Library service retains browser-local data; do not promise a cold offline catalogue or a separate Library management page. |
 | Stale or removed show ID | Keep the listener’s entry and private data visible/exportable with an unresolved marker. Never substitute a different show by title guess. |
 
 ## Explicit non-goals
+
+- A dedicated Library management page, a new Library navigation item, another global settings page, or a dashboard.
+- Expanding Echo’s visible UI footprint as a default consequence of 2.0 behavior changes. Prefer improving existing surfaces; add a page only when the problem cannot reasonably fit Echo’s current structure.
 
 - Accounts, cloud sync, cross-device identity, social profiles, followers, comments, or public collections of listener activity.
 - Podcast hosting, playback, queue control, native apps, or a playback-platform rewrite.
@@ -143,7 +143,7 @@ The existing first-party analytics collector intentionally does not store search
 
 Echo 1.2.7 is already a substantive, static-first discovery product. Its search, filters, creator graph, collections, deterministic similarity, public query URLs/history, submissions, importer, maintainer workspaces, analytics, and offline shell remain useful and must be retained.
 
-2.0 changes the product contract in two connected ways: Echo gains a persistent but device-local listener-owned Library that can be explicitly used across discovery surfaces, and query handling becomes a coherent, inspectable composition of existing discovery evidence. That creates a durable personal workflow and a new retrieval model across the archive; it is more than adding a bookmark page or another filter.
+2.0 changes the product contract in two connected ways: Echo gains a persistent but device-local listener-owned Library with controls on existing cards and show pages, and query handling becomes a coherent, inspectable composition of existing discovery evidence. It preserves the compact hierarchy and visual restraint of Echo 1.2.x while improving behavior; it does not add a Library destination or dashboard.
 
 ## Critical review of the proposed direction
 

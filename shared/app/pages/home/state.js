@@ -28,6 +28,7 @@ function createHomeFilterState(structuredFilterGroups = []) {
 export function createHomeState(structuredFilterGroups = []) {
   return {
     query: "",
+    discoveryIntent: null,
     filters: createHomeFilterState(structuredFilterGroups),
     selectedCollectionId: "",
     sortMode: "default",

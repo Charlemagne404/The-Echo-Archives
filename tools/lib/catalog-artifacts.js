@@ -99,6 +99,23 @@ function createSearchIndexRecord(record) {
   };
 }
 
+function createRuntimeEvidenceRecord(record) {
+  const length = record?.length || {};
+  const runtimeGap = (record?.metadata?.researchGaps || [])
+    .some((gap) => /runtime|total duration/i.test(String(gap)));
+  const runtimeLength = Object.fromEntries(
+    ["episodes", "avgEpisodeMinutes", "totalHours", "durationCoverage"]
+      .filter((key) => length[key] !== undefined)
+      .map((key) => [key, length[key]]),
+  );
+
+  return {
+    id: record.id,
+    ...(Object.keys(runtimeLength).length ? { length: runtimeLength } : {}),
+    ...(runtimeGap ? { runtimeGap: true } : {}),
+  };
+}
+
 function buildCatalogSnapshot(catalog, collections, reviewCount, gapReport, archiveContext, reviewsById = {}, tagTaxonomy = {}) {
   const publishedShows = catalog.filter((show) => show.status === "published");
   const latestUpdatedAt = [
@@ -254,12 +271,16 @@ function writeCatalogArtifacts(siteRoot, { catalog, collections, reviewsById, ga
   const runtimeSearchIndex = catalog
     .filter((show) => show.status === "published")
     .map(createSearchIndexRecord);
+  const runtimeEvidence = catalog
+    .filter((show) => show.status === "published")
+    .map(createRuntimeEvidenceRecord);
   const snapshot = buildCatalogSnapshot(catalog, collections, Object.keys(reviewsById).length, gapReport, archiveContext, reviewsById, tagTaxonomy);
   const archiveStats = buildArchiveStats(catalog, collections);
   const statusMarkdown = buildCatalogStatusMarkdown(snapshot);
 
   writeJsonFile(path.join(siteRoot, RUNTIME_DATA_DIR, "shows.json"), runtimeCatalog);
   writeJsonFile(path.join(siteRoot, RUNTIME_DATA_DIR, "collections.json"), collections);
+  writeJsonFile(path.join(siteRoot, "data", "runtime-evidence.json"), runtimeEvidence);
   const runtimeReviewsDirectory = path.join(siteRoot, "data", "reviews");
   fs.mkdirSync(runtimeReviewsDirectory, { recursive: true });
   fs.readdirSync(runtimeReviewsDirectory)
@@ -283,6 +304,7 @@ function writeCatalogArtifacts(siteRoot, { catalog, collections, reviewsById, ga
   return {
     runtimeCatalog,
     runtimeSearchIndex,
+    runtimeEvidence,
     entityGraph,
     statusMarkdown,
     snapshot,
@@ -294,6 +316,7 @@ module.exports = {
   buildCatalogSnapshot,
   buildCatalogStatusMarkdown,
   createSearchIndexRecord,
+  createRuntimeEvidenceRecord,
   serializeRuntimeShow,
   writeCatalogArtifacts,
 };

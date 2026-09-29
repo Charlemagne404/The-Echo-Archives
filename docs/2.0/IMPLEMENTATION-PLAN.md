@@ -1,6 +1,6 @@
 # The Echo Archives 2.0 — Implementation plan
 
-**Status:** Phases 1–3 are implemented on this worktree. Discovery 2.0 query/retrieval remains separate in-flight work; full release QA is still open.<br>
+**Status:** Phases 1–7 are implemented on this worktree, including rich homepage search and opt-in Personal Discovery on existing search and Try Next surfaces. Full release QA remains open.<br>
 **Baseline:** repository `main` at `55ca3969c850cabbc3c0159aae4e3c77da7e0410` (v1.2.7), reviewed 2026-09-28. See [BASELINE.md](BASELINE.md) for environment, exact commands/results, catalogue revision, browser availability, route families, privacy/service-worker boundaries, and baseline limits. Recheck the live branch/worktree before execution; preserve later or concurrent work.
 
 ## Delivery shape and dependencies
@@ -8,7 +8,7 @@
 Keep the project’s generated static pages, authored catalogue, plain browser modules, and current backend. The central dependency path is:
 
 ```text
-1 Foundation ──┬── 2 Library platform ── 3 Library site integration ──┐
+1 Foundation ──┬── 2 Library platform ── 3 Existing-surface controls ──┐
                └── 4 Discovery benchmark ── 5 retrieval/query ── 6 UI ── 7 personalization
                                                                     │
                                     8 maintainer workbench (conditional) ──┤
@@ -16,7 +16,7 @@ Keep the project’s generated static pages, authored catalogue, plain browser m
                                     10 migration/release QA ◄─────────────┘
 ```
 
-Phases 2 and 3 are complete on this worktree. Their ownership remains separate from the Discovery benchmark/query/retrieval work in flight. Phase 5 needs the benchmark’s vocabulary and reviewed expected results; Phase 6 needs Phase 5’s query/API contract; Phase 7 needs both the Library service and retrieval result model. Phase 8 remains conditional on evidence of material maintenance friction and is not a current follow-on. Phase 9 still covers broader Discovery hardening; Library accessibility and responsive checks are included in the completed Phase 3 work. Phase 10 is serial release evidence.
+Phases 2–7 are complete on this worktree. Revised Phase 3 supersedes its original dedicated Library page implementation with compact controls on existing cards and show pages. Phase 7 consumes the sanitized Library service boundary and follows the Discovery retrieval result model. Phase 8 remains conditional on evidence of material maintenance friction and is not a current follow-on. Phase 9 still covers broader hardening; Phase 10 is serial release evidence.
 
 For separate Codex sessions, give each phase an isolated worktree/branch and explicit file ownership. Do not ask parallel workers to edit `shared/archive-search.js`, `shared/archive-similarity.js`, `shared/app/discovery-history.js`, `tools/build-pages.js`, `site-src/partials/header.html`, or the same generated output. Prefer a new adapter/orchestrator module and small reviewed integration commits. Reconcile to the latest shared branch before opening an integration PR; generated files must come only from their generator.
 
@@ -52,23 +52,25 @@ For separate Codex sessions, give each phase an isolated worktree/branch and exp
 
 **Boundary:** There is no server endpoint, SQLite table, account, sync, status-history log, or automatic migration from unrelated analytics/community keys. The service contract is consumed by Phase 3.
 
-## Phase 3 — Library site integration — implemented
+## Phase 3 — Compact Library integration on existing surfaces — revised and implemented
 
-**Result:** Added a generated `/library` noindex shell and responsive local Library UI with all five states, All Library, local search, updated/added/title sorting, unresolved exact IDs, private 1–5 rating, removal, entry-only backup, validated import preview, Merge/confirmed Replace, and raw malformed-row recovery export. The setting is labeled “Use my Library in discovery,” defaults off, and says Discovery integration is not active yet. The route has no personal generated payload or Library analytics and provides a useful no-JavaScript explanation.
+**Scope:** Integrate a small state/status control into shared show cards and a compact state/private-rating disclosure in the existing show-detail action area. Keep card controls outside full-card anchors. Support all five states and removal, show current state, announce storage failures, preserve focus, and synchronize same-page/cross-tab changes. Keep ordinary browsing functional when storage is unavailable and preserve the visible hierarchy and compact density of Echo 1.2.x.
 
-**Likely files:** `site-src/pages/library.html` (or source naming convention), `site-src/page-manifest.json`, `site-src/partials/header.html`, source CSS partials, `shared/app/app.js`, `shared/app/` library/card/show-page modules, `shared/app/discovery-analytics.js` only to verify/exclude—not to add Library events—and focused UI smoke tests. Generated root `library/index.html`, `script.js`, CSS, and `sw.js` are outputs, never hand-edited.
+**Revised result (2026-09-29):** Removed the dedicated `/library` route, page manifest entry, noindex/sitemap/analytics handling, navigation item, page-only controller modules, page stylesheet, management UI, and page-specific tests. Retained IndexedDB persistence, validation, timestamps, recovery/import/export service methods, sanitized Personal Discovery context, and lazy synchronization. Cards expose a tiny state affordance; show details keep state, private rating, and the opt-in checkbox inside the existing listening action disclosure. Import/export/recovery have no normal public UI.
 
-**Integration surfaces:** Pre-rendered and hydrated show cards use a sibling control outside each full-card anchor. Shared card rendering covers the homepage, collections, creator/entity cards, and search/card variants; show-detail primary listen actions remain first, with a larger Library control after them. Relationship cards receive compact controls. The service runtime loads lazily and does not block ordinary page initialization; all surfaces subscribe to local and cross-tab invalidation.
+**Likely files:** `shared/app/library/`, card/control styles, `shared/app/app.js`, generated-output configuration, service-worker hash inputs, and focused control/privacy tests. Removed page-only files are not future implementation targets. Generated output is rebuilt from authored sources and never hand-edited.
 
-**Status:** Implemented with keyboard, mobile, reduced-motion, storage-denial, unknown-ID, import/export, and network-privacy browser coverage. Generated output is produced only by `npm run build:pages`.
+**Integration surfaces:** Pre-rendered and hydrated cards use a sibling control outside each full-card anchor. Shared cards cover home, collections, creator/entity results, and search/card variants. Show details place the control inside the existing listening action area. The service runtime loads lazily and does not block ordinary page initialization; surfaces subscribe to same-page and cross-tab invalidation.
 
-**Tests/gates:** Generated-route/noindex/sitemap assertions; service integration and storage-denial browser flows; all card/detail states; keyboard interaction, focus, mobile density, empty/unresolved states; page has no Analytics inclusion and emits no state-bearing network request. Keep optional and required-browser commands distinct.
+**Status:** Implemented with keyboard, mobile, reduced-motion, storage-denial, same-page/cross-tab, reload persistence, Hidden-state browsing, and network-privacy browser coverage. Service tests cover import/export, reset, malformed rows, and recovery. Generated output is produced only by `npm run build:pages`.
 
-**Migration risks:** Shared card rendering affects home, collection, creator, search, and show surfaces; a new route may accidentally be indexed or included in analytics; no-script and small-screen behavior can degrade unnoticed.
+**Tests/gates:** Prove that no generated/public `/library` route or nav item exists; retain service persistence/recovery checks; cover compact card/detail states, private rating only on detail, keyboard focus, mobile density, storage honesty, ordinary browsing, cross-tab updates, reload persistence, and absence of personal state in network/URL/generated HTML. Keep optional and required-browser commands distinct.
+
+**Migration risks:** Shared card rendering affects home, collection, creator, search, and show surfaces; removing the page must not break the service or leave dead routes/assets; reducing visual footprint must preserve accessible state and private-data boundaries.
 
 **Boundary:** Library actions are not server-backed; private ratings never become reviews/community votes; no personal state is shown on other users’ public surfaces or cached in the service worker.
 
-## Phase 4 — Discovery benchmark
+## Phase 4 — Discovery benchmark — complete
 
 **Scope:** Review and carry forward the versioned golden-query benchmark captured from the v1.2.7 catalogue in [discovery-benchmark/README.md](discovery-benchmark/README.md). Measure title/alias resolution, query interpretation, hard filter correctness, seed similarity, entity-role resolution, runtime uncertainty, sparse metadata, and explanation grounding. Keep current-v1 observations separate from draft 2.0 assertions; preserve expected sections and authored/computed distinctions. Identify unsupported phrase cases rather than forcing coverage.
 
@@ -84,11 +86,11 @@ For separate Codex sessions, give each phase an isolated worktree/branch and exp
 
 **Do not do yet:** Do not tune weights to fit a handful of titles, bulk-enrich the catalogue, convert subjective phrases into unsupported scales, or use an LLM as expected-result authority.
 
-## Phase 5 — Discovery 2.0 retrieval/query system
+## Phase 5 — Discovery 2.0 retrieval/query system — complete
 
-**Scope:** Introduce a typed query representation and deterministic parser for benchmark-supported intent; compose exact search, structured filters, seed similarity, explicit entity roles, and authored collection/show routes. Track hard requirements, soft preferences, avoid criteria, unresolved language, and match provenance. Maintain identity precedence and visible unknown metadata. This is orchestration over 1.x systems, not a replacement ranker.
+**Result:** The deterministic typed parser and retrieval orchestrator are implemented in `shared/discovery/` over the existing archive search, similarity, entities, runtime, and collection evidence. It preserves identity precedence, hard/soft/avoid criteria, unresolved text, runtime qualifiers, and authored/computed result sections. The engine does not replace the 1.x search or similarity systems.
 
-**Likely files:** New `shared/discovery/query.js`, `retrieve.js`, normalizers or taxonomy map; focused unit tests and benchmark report; integration points to `shared/archive-search.js`, `archive-similarity.js`, `archive-entities.js` should be small and isolated. Avoid broad edits to those shared engines until a concrete gap is shown.
+**Files:** `shared/discovery/query.js`, `index.js`, `runtime.js`, `url-state.js`, the benchmark corpus/contract/report, and focused Discovery tests. The existing engines remain the data and candidate adapters.
 
 **Prerequisites:** Phase 4 benchmark and Phase 1 query schema/URL-state decisions; existing 1.x regression tests available as baseline.
 
@@ -100,33 +102,37 @@ For separate Codex sessions, give each phase an isolated worktree/branch and exp
 
 **Do not do yet:** Do not delete current engines or routes, introduce free-form AI, auto-relax hard constraints, build a vector database, or infer entity links from shared credits.
 
-## Phase 6 — Discovery 2.0 UI integration
+## Phase 6 — Discovery 2.0 UI integration — complete
 
-**Scope:** Make the typed query inspectable and editable in existing browse/search/collection/creator/show routes. Add only supported controls and criterion chips; retain direct structured filters. Extend URLs only with public, allowlisted state and preserve current Back/Forward rendering, scroll, and query-key compatibility. Explain unsupported phrases and evidence gaps with useful correction paths.
+**Result:** Integrated recognized rich queries into homepage search through `shared/app/pages/home/discovery.js`. Exact-title, simple-text, and bounded-typo searches retain the fast existing scorer; recognized rich intent uses one lazily constructed Discovery engine. Existing direct filters, compact show cards, creator links, collection routes, results summary, URL controller, and history restoration remain in use. The summary receives a brief inline note for interpreted criteria, runtime qualifiers, ambiguity, or unsupported phrases. No query-builder surface or per-query chips were added.
 
-**Likely files:** Existing `site-src/pages/` and partials where needed; `shared/app/` home, collection, entity/creator, show-page and history modules; new discovery UI module/CSS partial; page manifests; route/history and browser smoke tests. `shared/app/discovery-history.js` is an integration seam and should be changed narrowly.
+**Files:** `shared/app/pages/home/`, the home controller and search cache, existing browse summary styling, Discovery URL codec integration, the generated `data/runtime-evidence.json` projection, its build/server route, and `backend/test/discovery-stability.smoke.js`. The frozen `data/search-index.json` input was left unchanged.
 
-**Prerequisites:** Phase 5 query and retrieval contracts; Library route must already keep its private state out of URLs.
+**Prerequisites:** Phase 5 query and retrieval contracts; local Library state remains out of URLs and ordinary public browsing.
 
 **Can run in parallel:** Independent accessibility/performance audit preparation under Phase 9 can start once markup prototypes settle. Phase 8 remains separate.
 
-**Tests/gates:** Existing URL tests and actual popstate UI restoration; public URL roundtrip; alias/title precedence; filter AND/OR behavior; empty/sparse states; small viewport/keyboard/zoom; generated page and alias checks; no private state in URL/title/referrer/HTML.
+**Tests/gates:** Browser coverage checks simple-search fallback, required and avoided criteria, authored-before-computed similarity, creator links, runtime evidence, collection routing, unresolved and ambiguous wording, strict no-match, private-intent URL omission, Back/Forward with scroll restoration, and compact mobile cards. The required Chromium suite and full verification remain release evidence and are recorded separately from staging/deployment sign-off.
 
 **Migration risks:** Historical query URLs, old filters, collection and Shows Like routes, browser history semantics, and the intentionally dense browse layout.
 
 **Do not do yet:** Do not hide filter controls behind natural language, change collection editorial membership, merge authored/computed results, or place Library status in public URL state.
 
-## Phase 7 — Personal Discovery
+## Phase 7 — Personal Discovery — implemented
 
-**Scope:** Pass a minimal immutable Library signal snapshot into a separate deterministic personalization layer after public candidates pass query/evidence gates. Support explicit opt-in, exact-show lifecycle suppression, limited positive/negative rating signals, weak Saved/Listening anchors, grounded reasons, pause, clear-to-baseline, and explanation links to the anchor.
+**Implemented result (2026-09-29):** A minimal sanitized context reaches a separate deterministic personalization helper only while the device-local opt-in is on. The checkbox lives inside the existing show-detail Library disclosure and defaults off. The homepage applies the helper after query and direct-filter eligibility; the existing show-page Try Next integration applies it to computed recommendations while preserving authored picks and provenance. No new route, navigation item, page section, or dashboard was added.
 
-**Likely files:** `shared/discovery/personalize.js`, `shared/library/service.js` read API, page controllers, show-card/show-page recommendation renderers, reason-copy module, focused pure and browser tests. Do not add private fields to `archive-search.js` data or public catalog records.
+**Behavior:** Saved and Listening are weak positive anchors only without an explicit rating. Ratings 5/4 are positive, 3 neutral, and 2/1 negative. Finished is never positive and is excluded only in the supported `new-to-you` scope, which has no current public surface. Dropped suppresses only the exact show in recommendation scopes and does not generalize; Hidden suppresses only the exact show while enabled. Direct title identity and direct routes remain available. Search and Try Next adjust only eligible `shows` and computed-similarity candidates, by at most three positions; authored recommendations, hard constraints, exclusions, duplicate protection, and similarity evidence gates stay authoritative. Reasons name the specific public dimensions and the explicit Library signal; no score is shown. Off, unavailable, disabled, or cleared contexts restore exact public order and visibility.
+
+**Data/performance boundary:** The homepage uses the generated search index for ordinary retrieval and the separate public `runtime-evidence.json` projection to complete the in-memory similarity metadata used by Personal Discovery. The search index and frozen v1 golden baseline are not rewritten. Bounded caches contain derivable public comparisons only; no personal context or personalized result is persisted.
+
+**Files:** `shared/app/discovery-personalization.js`, `shared/app/library/runtime.js`, `shared/app/library/integration.js`, homepage search cache/results/controller, generated runtime-evidence projection, pure tests, browser product tests, and `tools/benchmark-personal-discovery.js`.
 
 **Prerequisites:** Phases 2 and 5 complete; Phase 6 defines how optional personal results fit existing sections; benchmark includes disabled/cleared parity cases.
 
 **Can run in parallel:** Isolated reason-copy/accessibility review can happen once the reason object schema is frozen. Phase 8 can still proceed separately.
 
-**Tests/gates:** Off/cleared exact candidate, section, ordering, and Hidden-show visibility parity with ordinary discovery; explicit opt-in only; exact status semantics; only explicitly entered ratings may influence results; explainability for every order change; hard query gates cannot be overridden; no personal data in analytics, requests, URLs, generated output, or service worker.
+**Tests/gates:** Ten deterministic personalization tests pass. Required-browser product coverage checks opt-in, ratings, Hidden/direct-title behavior, exact disabled and cleared parity, cross-tab changes, reload, request privacy, keyboard use, and narrow mobile layout. `benchmark:personal-discovery` records enabled/disabled latency for 1, 5, and 20 Library entries. Full verification and residual release gates are recorded in [RELEASE-GATES.md](RELEASE-GATES.md).
 
 **Migration risks:** Treating Finished as positive, Dropped/Hidden as broad dislike, exposing private anchors in logs/DOM or external links, or allowing a score to bypass sparse-evidence rules.
 
@@ -182,4 +188,4 @@ For separate Codex sessions, give each phase an isolated worktree/branch and exp
 
 ## Recommended next implementation work
 
-Phases 1–3 are implemented on this worktree. Continue the separately owned Discovery benchmark/query/retrieval work, then integrate Personal Discovery through `getPersonalContext()` only after its result contract is reviewed. Complete the still-open staging, rollback, legal-copy, and full 2.0 release gates before release. Phase 8 remains conditional and is not part of this implementation.
+Phases 1–7 are implemented on this worktree. Complete the still-open staging, rollback, legal-copy, deployment, and full 2.0 release gates before release. Phase 8 remains conditional and is not part of this implementation.

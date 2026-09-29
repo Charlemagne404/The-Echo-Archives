@@ -1,23 +1,27 @@
+import "../../../discovery/url-state.js";
 import { normalizeTag } from "../../utils.js";
 
 const HOME_SORT_MODES = new Set(["default", "recently-updated"]);
+const discoveryUrlState = globalThis.EchoDiscoveryUrlState;
 
 export function seedHomeStateFromParams({ state, shows, collectionsById, structuredFilterGroups }) {
   const params = new URLSearchParams(window.location.search);
+  const publicDiscoveryState = discoveryUrlState.parsePublicDiscoveryUrl(window.location.href);
 
   state.selectedCollectionId = "";
   state.query = "";
+  state.discoveryIntent = null;
   state.sortMode = "default";
   Object.values(state.filters || {}).forEach((values) => values.clear());
 
-  const initialCollectionId = params.get("collection") || "";
+  const initialCollectionId = params.get("collection") || publicDiscoveryState.collectionId || "";
   if (collectionsById.has(initialCollectionId)) {
     state.selectedCollectionId = initialCollectionId;
   }
 
-  state.query = params.get("q")?.trim() || "";
+  state.query = (params.has("q") ? params.get("q") : publicDiscoveryState.query)?.trim() || "";
 
-  const sortMode = params.get("sort") || "";
+  const sortMode = params.get("sort") || publicDiscoveryState.sort || "";
   if (HOME_SORT_MODES.has(sortMode)) {
     state.sortMode = sortMode;
   }
@@ -53,6 +57,12 @@ export function seedHomeStateFromParams({ state, shows, collectionsById, structu
 
 export function buildBrowseUrlState(state, location = window.location) {
   const nextParams = new URLSearchParams(location.search);
+  const appendUnique = (name, value) => {
+    if (!nextParams.getAll(name).includes(value)) {
+      nextParams.append(name, value);
+    }
+  };
+  discoveryUrlState.PARAM_ORDER.forEach((name) => nextParams.delete(name));
   nextParams.delete("collection");
   nextParams.delete("genre");
   nextParams.delete("q");
@@ -61,11 +71,24 @@ export function buildBrowseUrlState(state, location = window.location) {
     nextParams.delete(groupId);
   });
 
+  const currentDiscoveryIntent = state.discoveryIntent?.query === state.query ? state.discoveryIntent : null;
+  if (currentDiscoveryIntent) {
+    const discoveryUrl = discoveryUrlState.serializePublicUrlState(currentDiscoveryIntent, {
+      pathname: location.pathname,
+    });
+    const discoveryParams = new URLSearchParams(discoveryUrl.split("?")[1] || "");
+    discoveryParams.forEach((value, name) => {
+      if (!nextParams.getAll(name).includes(value)) nextParams.append(name, value);
+    });
+  } else if (state.query) {
+    nextParams.set("q", state.query);
+  }
+
   if (state.selectedCollectionId) {
     nextParams.set("collection", state.selectedCollectionId);
   }
 
-  if (state.query) {
+  if (state.query && !state.discoveryIntent && !nextParams.has("q")) {
     nextParams.set("q", state.query);
   }
 
@@ -76,7 +99,7 @@ export function buildBrowseUrlState(state, location = window.location) {
   Array.from(state.filters.genres)
     .sort()
     .forEach((genreId) => {
-      nextParams.append("genre", genreId);
+      appendUnique("genre", genreId);
     });
 
   Object.entries(state.filters || {}).forEach(([groupId, values]) => {
@@ -87,7 +110,7 @@ export function buildBrowseUrlState(state, location = window.location) {
     Array.from(values)
       .sort()
       .forEach((value) => {
-        nextParams.append(groupId, value);
+        appendUnique(groupId, value);
       });
   });
 

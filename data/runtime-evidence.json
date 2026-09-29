@@ -1,0 +1,5955 @@
+[
+  {
+    "id": "solar",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 35,
+      "totalHours": 7
+    }
+  },
+  {
+    "id": "story",
+    "length": {
+      "episodes": 56,
+      "avgEpisodeMinutes": 25
+    }
+  },
+  {
+    "id": "from-now",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 35,
+      "totalHours": 3.5
+    }
+  },
+  {
+    "id": "the-deca-tapes",
+    "length": {
+      "episodes": 21,
+      "avgEpisodeMinutes": 34,
+      "totalHours": 11.9
+    }
+  },
+  {
+    "id": "earth-eclipsed",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 30
+    }
+  },
+  {
+    "id": "vast-horizon",
+    "length": {
+      "episodes": 36,
+      "avgEpisodeMinutes": 30,
+      "totalHours": 18
+    }
+  },
+  {
+    "id": "how-i-died",
+    "length": {
+      "episodes": 52,
+      "avgEpisodeMinutes": 25,
+      "totalHours": 21.7
+    }
+  },
+  {
+    "id": "windfall",
+    "length": {
+      "episodes": 22,
+      "avgEpisodeMinutes": 34,
+      "totalHours": 12.5
+    }
+  },
+  {
+    "id": "the-waystation",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 26
+    }
+  },
+  {
+    "id": "were-alive",
+    "length": {
+      "episodes": 231,
+      "avgEpisodeMinutes": 30,
+      "totalHours": 70
+    }
+  },
+  {
+    "id": "impact-winter",
+    "length": {
+      "episodes": 36,
+      "avgEpisodeMinutes": 30,
+      "totalHours": 18
+    }
+  },
+  {
+    "id": "oz-9",
+    "length": {
+      "episodes": 163,
+      "avgEpisodeMinutes": 27,
+      "totalHours": 54
+    }
+  },
+  {
+    "id": "ars-paradoxica",
+    "length": {
+      "episodes": 49,
+      "avgEpisodeMinutes": 32,
+      "totalHours": 26.1
+    }
+  },
+  {
+    "id": "red-valley",
+    "length": {
+      "episodes": 25,
+      "avgEpisodeMinutes": 26,
+      "totalHours": 10.9,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-white-vault",
+    "length": {
+      "episodes": 119,
+      "avgEpisodeMinutes": 30,
+      "totalHours": 46
+    }
+  },
+  {
+    "id": "eos-10",
+    "length": {
+      "episodes": 40,
+      "avgEpisodeMinutes": 25,
+      "totalHours": 18.3
+    }
+  },
+  {
+    "id": "desert-skies",
+    "length": {
+      "episodes": 46,
+      "avgEpisodeMinutes": 37,
+      "totalHours": 8.2
+    }
+  },
+  {
+    "id": "wolf-359",
+    "length": {
+      "episodes": 61,
+      "avgEpisodeMinutes": 30,
+      "totalHours": 30.5
+    }
+  },
+  {
+    "id": "station-151",
+    "length": {
+      "episodes": 36,
+      "avgEpisodeMinutes": 22,
+      "totalHours": 15
+    }
+  },
+  {
+    "id": "midnight-burger",
+    "length": {
+      "episodes": 105,
+      "avgEpisodeMinutes": 45,
+      "totalHours": 78.8
+    },
+    "runtimeGap": true
+  },
+  {
+    "id": "spectre",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 30
+    }
+  },
+  {
+    "id": "the-phenomenon",
+    "length": {
+      "episodes": 29,
+      "avgEpisodeMinutes": 25,
+      "totalHours": 12.1
+    }
+  },
+  {
+    "id": "paralyzed",
+    "length": {
+      "episodes": 117,
+      "avgEpisodeMinutes": 19
+    }
+  },
+  {
+    "id": "derelict",
+    "length": {
+      "episodes": 20,
+      "avgEpisodeMinutes": 65,
+      "totalHours": 21.7
+    }
+  },
+  {
+    "id": "crystal-blue",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 40
+    }
+  },
+  {
+    "id": "end-of-all-hope",
+    "length": {
+      "episodes": 99,
+      "avgEpisodeMinutes": 28
+    }
+  },
+  {
+    "id": "tower-4",
+    "length": {
+      "episodes": 62,
+      "avgEpisodeMinutes": 35
+    }
+  },
+  {
+    "id": "the-bright-sessions",
+    "length": {
+      "episodes": 124,
+      "avgEpisodeMinutes": 25,
+      "totalHours": 45.3
+    }
+  },
+  {
+    "id": "wooden-overcoats",
+    "length": {
+      "episodes": 55,
+      "avgEpisodeMinutes": 24
+    }
+  },
+  {
+    "id": "alice-isnt-dead",
+    "length": {
+      "episodes": 65,
+      "avgEpisodeMinutes": 21
+    }
+  },
+  {
+    "id": "mirrors",
+    "length": {
+      "episodes": 25,
+      "avgEpisodeMinutes": 28
+    }
+  },
+  {
+    "id": "unwell",
+    "length": {
+      "episodes": 60,
+      "avgEpisodeMinutes": 25
+    }
+  },
+  {
+    "id": "midst",
+    "length": {
+      "episodes": 132,
+      "avgEpisodeMinutes": 29
+    }
+  },
+  {
+    "id": "the-program-audio-series",
+    "length": {
+      "episodes": 44,
+      "avgEpisodeMinutes": 24
+    }
+  },
+  {
+    "id": "malevolent",
+    "length": {
+      "episodes": 81,
+      "avgEpisodeMinutes": 50,
+      "totalHours": 67.1,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "case-63",
+    "length": {
+      "episodes": 20
+    },
+    "runtimeGap": true
+  },
+  {
+    "id": "borrasca",
+    "length": {
+      "episodes": 23,
+      "avgEpisodeMinutes": 27
+    }
+  },
+  {
+    "id": "mabel",
+    "length": {
+      "episodes": 50,
+      "avgEpisodeMinutes": 19
+    }
+  },
+  {
+    "id": "archive-81",
+    "length": {
+      "episodes": 51,
+      "avgEpisodeMinutes": 28
+    }
+  },
+  {
+    "id": "homecoming",
+    "length": {
+      "episodes": 18,
+      "avgEpisodeMinutes": 24
+    }
+  },
+  {
+    "id": "welcome-to-night-vale",
+    "length": {
+      "episodes": 374,
+      "avgEpisodeMinutes": 25
+    }
+  },
+  {
+    "id": "marsfall",
+    "length": {
+      "episodes": 50,
+      "avgEpisodeMinutes": 29,
+      "totalHours": 24.2
+    }
+  },
+  {
+    "id": "the-strange-case-of-starship-iris",
+    "length": {
+      "episodes": 42,
+      "avgEpisodeMinutes": 29,
+      "totalHours": 20.3
+    }
+  },
+  {
+    "id": "the-amelia-project",
+    "length": {
+      "episodes": 144,
+      "avgEpisodeMinutes": 26,
+      "totalHours": 62.4
+    }
+  },
+  {
+    "id": "victoriocity",
+    "length": {
+      "episodes": 20,
+      "avgEpisodeMinutes": 45,
+      "totalHours": 15,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "startripper",
+    "length": {
+      "episodes": 38,
+      "avgEpisodeMinutes": 24,
+      "totalHours": 15.2
+    }
+  },
+  {
+    "id": "the-lovecraft-investigations",
+    "length": {
+      "episodes": 44,
+      "avgEpisodeMinutes": 28,
+      "totalHours": 20.5
+    }
+  },
+  {
+    "id": "video-palace",
+    "length": {
+      "episodes": 14,
+      "avgEpisodeMinutes": 25,
+      "totalHours": 5.8
+    }
+  },
+  {
+    "id": "limetown",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 22,
+      "totalHours": 4.4
+    }
+  },
+  {
+    "id": "the-black-tapes",
+    "length": {
+      "episodes": 30,
+      "avgEpisodeMinutes": 27,
+      "totalHours": 13.5
+    }
+  },
+  {
+    "id": "girl-in-space",
+    "length": {
+      "episodes": 13,
+      "avgEpisodeMinutes": 36,
+      "totalHours": 7.8
+    }
+  },
+  {
+    "id": "mockery-manor",
+    "length": {
+      "avgEpisodeMinutes": 23
+    }
+  },
+  {
+    "id": "forest-404",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 12,
+      "totalHours": 1.8
+    }
+  },
+  {
+    "id": "greater-boston",
+    "length": {
+      "avgEpisodeMinutes": 32
+    }
+  },
+  {
+    "id": "tumanbay",
+    "length": {
+      "episodes": 34,
+      "avgEpisodeMinutes": 45,
+      "totalHours": 25.5
+    }
+  },
+  {
+    "id": "janus-descending",
+    "length": {
+      "episodes": 13,
+      "avgEpisodeMinutes": 17,
+      "totalHours": 3.7
+    }
+  },
+  {
+    "id": "spines-podcast",
+    "length": {
+      "episodes": 24,
+      "avgEpisodeMinutes": 22,
+      "totalHours": 8.8
+    }
+  },
+  {
+    "id": "caravan",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 26,
+      "totalHours": 4.3
+    }
+  },
+  {
+    "id": "oblivity",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 23,
+      "totalHours": 4.6
+    }
+  },
+  {
+    "id": "the-once-and-future-nerd",
+    "length": {
+      "avgEpisodeMinutes": 31
+    }
+  },
+  {
+    "id": "king-falls-am",
+    "length": {
+      "episodes": 100,
+      "avgEpisodeMinutes": 33,
+      "totalHours": 55
+    }
+  },
+  {
+    "id": "brimstone-valley-mall",
+    "length": {
+      "episodes": 19,
+      "avgEpisodeMinutes": 25,
+      "totalHours": 7.9
+    }
+  },
+  {
+    "id": "midnight-radio",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 16,
+      "totalHours": 2.7
+    }
+  },
+  {
+    "id": "mission-rejected",
+    "length": {
+      "avgEpisodeMinutes": 31
+    }
+  },
+  {
+    "id": "we-fix-space-junk",
+    "length": {
+      "avgEpisodeMinutes": 15
+    }
+  },
+  {
+    "id": "harbor",
+    "length": {
+      "episodes": 20,
+      "avgEpisodeMinutes": 40,
+      "totalHours": 13.3
+    }
+  },
+  {
+    "id": "passenger-list",
+    "length": {
+      "episodes": 16,
+      "avgEpisodeMinutes": 25,
+      "totalHours": 6.7
+    }
+  },
+  {
+    "id": "moonbase-theta-out",
+    "length": {
+      "avgEpisodeMinutes": 23
+    }
+  },
+  {
+    "id": "flash-gordon-and-buck-rogers-radio-adventurers",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 35
+    }
+  },
+  {
+    "id": "copperheart-a-riggstories-audio-drama",
+    "length": {
+      "episodes": 57,
+      "avgEpisodeMinutes": 37,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-penumbra-podcast",
+    "length": {
+      "episodes": 180,
+      "avgEpisodeMinutes": 39,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-silt-verses",
+    "length": {
+      "episodes": 50,
+      "avgEpisodeMinutes": 54,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "old-gods-of-appalachia",
+    "length": {
+      "episodes": 112,
+      "avgEpisodeMinutes": 34,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-storage-papers",
+    "length": {
+      "episodes": 84,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "station-blue",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-strata",
+    "length": {
+      "episodes": 121,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-call-of-the-void",
+    "length": {
+      "episodes": 29,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-burned-photo",
+    "length": {
+      "episodes": 14,
+      "avgEpisodeMinutes": 40,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "a-voice-from-darkness",
+    "length": {
+      "episodes": 19,
+      "avgEpisodeMinutes": 23,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-sheridan-tapes",
+    "length": {
+      "episodes": 100,
+      "avgEpisodeMinutes": 35,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-mistholme-museum-of-mystery-morbidity-and-mortality",
+    "length": {
+      "episodes": 68,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-town-whispers",
+    "length": {
+      "episodes": 95,
+      "avgEpisodeMinutes": 23,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-cellar-letters",
+    "length": {
+      "episodes": 91,
+      "avgEpisodeMinutes": 14,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "woe-begone",
+    "length": {
+      "episodes": 312,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-milkman-of-st-gaffs",
+    "length": {
+      "episodes": 53,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "where-the-stars-fell",
+    "length": {
+      "episodes": 27,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-pasithea-powder",
+    "length": {
+      "episodes": 48,
+      "avgEpisodeMinutes": 34,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-antique-shop",
+    "length": {
+      "episodes": 26,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "re-dracula",
+    "length": {
+      "episodes": 29,
+      "avgEpisodeMinutes": 7,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-imperfection",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "fawx-stallion",
+    "length": {
+      "episodes": 25,
+      "avgEpisodeMinutes": 41,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "mayfair-watchers-society",
+    "length": {
+      "episodes": 71,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "wrong-station",
+    "length": {
+      "episodes": 173,
+      "avgEpisodeMinutes": 33,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "not-quite-dead",
+    "length": {
+      "episodes": 66,
+      "avgEpisodeMinutes": 27,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "hi-nay",
+    "length": {
+      "episodes": 196,
+      "avgEpisodeMinutes": 33,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "super-suits",
+    "length": {
+      "episodes": 17,
+      "avgEpisodeMinutes": 35,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "wake-of-corrosion",
+    "length": {
+      "episodes": 73
+    },
+    "runtimeGap": true
+  },
+  {
+    "id": "the-secret-of-st-kilda",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 35,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "death-by-dying",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 39,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-wyrd-side",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 38,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "syntax",
+    "length": {
+      "episodes": 53,
+      "avgEpisodeMinutes": 55,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-night-post",
+    "length": {
+      "episodes": 45,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "observable-radio",
+    "length": {
+      "episodes": 28,
+      "avgEpisodeMinutes": 27,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "octobers-children",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "knifepoint-horror",
+    "length": {
+      "episodes": 126,
+      "avgEpisodeMinutes": 48,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-cryptonaturalist",
+    "length": {
+      "episodes": 69,
+      "avgEpisodeMinutes": 17,
+      "durationCoverage": 0.957
+    }
+  },
+  {
+    "id": "ghost-wax",
+    "length": {
+      "episodes": 51,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-grey-rooms",
+    "length": {
+      "episodes": 148,
+      "avgEpisodeMinutes": 57,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "tanis",
+    "length": {
+      "episodes": 60,
+      "avgEpisodeMinutes": 40,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-patron-saint-of-suicides",
+    "length": {
+      "episodes": 35,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "uncanny-valley",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 38,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-hyacinth-disaster",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-edge-of-sleep",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-left-right-game",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 41,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "hello-from-the-hallowoods",
+    "length": {
+      "episodes": 212,
+      "avgEpisodeMinutes": 38,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-polybius-conspiracy",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-nosleep-podcast",
+    "length": {
+      "episodes": 722,
+      "avgEpisodeMinutes": 75,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-orphans",
+    "length": {
+      "episodes": 37,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "modes-of-thought-in-anterran-literature",
+    "length": {
+      "episodes": 32,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-truth",
+    "length": {
+      "episodes": 190,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "give-me-away",
+    "length": {
+      "episodes": 47,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-far-meridian",
+    "length": {
+      "episodes": 28,
+      "avgEpisodeMinutes": 18,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-leviathan-chronicles",
+    "length": {
+      "episodes": 95,
+      "avgEpisodeMinutes": 40,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "bridgewater",
+    "length": {
+      "episodes": 22,
+      "avgEpisodeMinutes": 31,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-last-movie",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 31,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-magnus-archives",
+    "length": {
+      "episodes": 200,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-magnus-protocol",
+    "length": {
+      "episodes": 55,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-rapscallion-agency",
+    "length": {
+      "episodes": 11
+    },
+    "runtimeGap": true
+  },
+  {
+    "id": "the-invenios-expeditions",
+    "length": {
+      "episodes": 15
+    },
+    "runtimeGap": true
+  },
+  {
+    "id": "sandra",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-walk",
+    "length": {
+      "episodes": 31,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "scp-archives",
+    "length": {
+      "episodes": 294,
+      "avgEpisodeMinutes": 36,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "blackout",
+    "length": {
+      "episodes": 16,
+      "avgEpisodeMinutes": 33,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "carrier",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-horror-of-dolores-roach",
+    "length": {
+      "episodes": 14,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "world-gone-wrong-a-fictional-chat-show-about-friendship-at-the-end-of-the-world",
+    "length": {
+      "episodes": 57,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-phone-booth",
+    "length": {
+      "episodes": 14,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-cipher",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "stellar-firma",
+    "length": {
+      "episodes": 135,
+      "avgEpisodeMinutes": 23,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-big-loop",
+    "length": {
+      "episodes": 13,
+      "avgEpisodeMinutes": 43,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "marvels-wolverine-the-long-night",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-orbiting-human-circus",
+    "length": {
+      "episodes": 22,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-angel-of-vine",
+    "length": {
+      "episodes": 10,
+      "totalHours": 4.2
+    }
+  },
+  {
+    "id": "blood-ties",
+    "length": {
+      "episodes": 26
+    },
+    "runtimeGap": true
+  },
+  {
+    "id": "within-the-wires",
+    "length": {
+      "episodes": 107,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "motherhacker",
+    "length": {
+      "episodes": 19,
+      "avgEpisodeMinutes": 12,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "marvels-wolverine-the-lost-trail",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-two-princes",
+    "length": {
+      "episodes": 21,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "rabbits",
+    "length": {
+      "episodes": 20,
+      "avgEpisodeMinutes": 43,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "lifeafter-the-message",
+    "length": {
+      "episodes": 18,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "our-fair-city",
+    "runtimeGap": true
+  },
+  {
+    "id": "darkest-night",
+    "length": {
+      "episodes": 30,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "campfire-radio-theater",
+    "length": {
+      "episodes": 49,
+      "avgEpisodeMinutes": 33,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-dead-letters-podcast",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 23,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-dead-letter-office-of-somewhere-ohio",
+    "length": {
+      "episodes": 22,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-godfrey-audio-guide",
+    "length": {
+      "episodes": 66,
+      "avgEpisodeMinutes": 13,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dont-mind",
+    "length": {
+      "episodes": 25,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-subjective-truth",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "two-flat-earthers-kidnap-a-freemason",
+    "length": {
+      "episodes": 35,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-dragoning",
+    "length": {
+      "episodes": 31,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-love-talker",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 44,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-viridian-wild",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 16,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-land-whale-murders",
+    "length": {
+      "episodes": 26,
+      "avgEpisodeMinutes": 27,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-way-we-haunt-now",
+    "length": {
+      "episodes": 34,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 0.853
+    }
+  },
+  {
+    "id": "the-liminal-lands",
+    "length": {
+      "episodes": 72,
+      "avgEpisodeMinutes": 17,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-tower",
+    "length": {
+      "episodes": 21,
+      "avgEpisodeMinutes": 13,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-thieves-guild",
+    "length": {
+      "episodes": 407,
+      "avgEpisodeMinutes": 9,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "artifacts-of-the-arcane",
+    "length": {
+      "episodes": 85,
+      "avgEpisodeMinutes": 14,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-liberty-podcast",
+    "length": {
+      "episodes": 71,
+      "avgEpisodeMinutes": 35,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "edict-zero-fis",
+    "length": {
+      "episodes": 60,
+      "durationCoverage": 0
+    }
+  },
+  {
+    "id": "attention-hellmart-shoppers",
+    "length": {
+      "episodes": 21,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-elmwood-strain",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-awkward-screw",
+    "length": {
+      "episodes": 24,
+      "avgEpisodeMinutes": 13,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-rats-under-eden-an-audio-drama-musical",
+    "length": {
+      "episodes": 3,
+      "avgEpisodeMinutes": 49,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-other-stories-sci-fi-horror-thriller-wtf-stories",
+    "length": {
+      "episodes": 675,
+      "avgEpisodeMinutes": 17,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-great-chameleon-war",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-hidden-people",
+    "length": {
+      "episodes": 75,
+      "avgEpisodeMinutes": 43,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dark-woods",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 31,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "wake-up-new-vilirth",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-next-5-minutes",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 23,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "hannahpocalypse",
+    "length": {
+      "episodes": 32,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "tales-from-wolf-mountain",
+    "length": {
+      "episodes": 92,
+      "avgEpisodeMinutes": 16,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "iowa-chapman-and-the-last-dog",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 13,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "blackwood",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "anticrastination",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "how-to-win-friends-and-disappear-people",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 39,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "unkillable",
+    "length": {
+      "episodes": 19,
+      "avgEpisodeMinutes": 13,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "horror-eternal",
+    "length": {
+      "episodes": 47,
+      "avgEpisodeMinutes": 27,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-hatred-a-supernatural-thriller-miniseries",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "out-of-place",
+    "length": {
+      "episodes": 27,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "coexistence",
+    "length": {
+      "episodes": 16,
+      "avgEpisodeMinutes": 16,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "liminal",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "petrified",
+    "length": {
+      "episodes": 41,
+      "avgEpisodeMinutes": 31,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-nebulous-saga",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 11,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "badlands-cola",
+    "length": {
+      "episodes": 13,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dust",
+    "length": {
+      "episodes": 35,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "sorry-about-the-murder",
+    "length": {
+      "episodes": 25,
+      "avgEpisodeMinutes": 18,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "from-within-a-tale-of-the-macabre",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dreamboy",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 36,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "crooked-river",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "1865",
+    "length": {
+      "episodes": 26,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "kalila-stormfires-economical-magick-services",
+    "length": {
+      "episodes": 42,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "kakos-industries",
+    "length": {
+      "episodes": 258,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "arden",
+    "length": {
+      "episodes": 61,
+      "avgEpisodeMinutes": 36,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "hello-from-the-magic-tavern",
+    "length": {
+      "episodes": 595,
+      "avgEpisodeMinutes": 46,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "mission-to-zyxx",
+    "length": {
+      "episodes": 105,
+      "avgEpisodeMinutes": 46,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "sayer",
+    "length": {
+      "episodes": 110,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 0.927
+    }
+  },
+  {
+    "id": "bronzeville",
+    "length": {
+      "episodes": 25,
+      "avgEpisodeMinutes": 34,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "cold-tapes",
+    "length": {
+      "episodes": 84,
+      "avgEpisodeMinutes": 12,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "sherlock-co",
+    "length": {
+      "episodes": 150,
+      "avgEpisodeMinutes": 37,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-mantawauk-caves",
+    "length": {
+      "episodes": 14,
+      "avgEpisodeMinutes": 38,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "meet-cute-originals",
+    "length": {
+      "episodes": 367,
+      "avgEpisodeMinutes": 18,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dc-high-volume-batman",
+    "length": {
+      "episodes": 50,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "uncanny-county",
+    "length": {
+      "episodes": 26,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "quiet-part-loud",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "what-happened-in-skinner",
+    "length": {
+      "episodes": 27,
+      "avgEpisodeMinutes": 33,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "two-thousand-and-late",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 34,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-unexplainable-disappearance-of-mars-patel",
+    "length": {
+      "episodes": 31,
+      "avgEpisodeMinutes": 19,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "six-minutes",
+    "length": {
+      "episodes": 382,
+      "avgEpisodeMinutes": 9,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-fourth-ambit",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 58,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "love-and-luck",
+    "length": {
+      "episodes": 100,
+      "avgEpisodeMinutes": 11,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "almelem",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 33,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "adventures-in-new-america",
+    "length": {
+      "episodes": 16,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "valence",
+    "length": {
+      "episodes": 37,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "unseen",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 47,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "time-bombs",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "ostium-podcast",
+    "length": {
+      "episodes": 93,
+      "avgEpisodeMinutes": 48,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "apollyon",
+    "length": {
+      "episodes": 26,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "relativity",
+    "length": {
+      "episodes": 64,
+      "avgEpisodeMinutes": 16,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-green-horizon",
+    "length": {
+      "episodes": 34,
+      "avgEpisodeMinutes": 31,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-beacon",
+    "length": {
+      "episodes": 24,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "what-will-be-here",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 34,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "sidequesting",
+    "length": {
+      "episodes": 31,
+      "avgEpisodeMinutes": 19,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "counterbalance",
+    "length": {
+      "episodes": 28,
+      "avgEpisodeMinutes": 33,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "inn-between",
+    "length": {
+      "episodes": 70,
+      "avgEpisodeMinutes": 15,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-call-of-the-flame",
+    "length": {
+      "episodes": 31,
+      "avgEpisodeMinutes": 23,
+      "durationCoverage": 0.968
+    }
+  },
+  {
+    "id": "the-attic-monologues",
+    "length": {
+      "episodes": 51,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "someone-dies-in-this-elevator",
+    "length": {
+      "episodes": 55,
+      "avgEpisodeMinutes": 16,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "less-is-morgue",
+    "length": {
+      "episodes": 45,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 0.667
+    }
+  },
+  {
+    "id": "achewillow",
+    "length": {
+      "episodes": 137,
+      "avgEpisodeMinutes": 35,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "folxlore",
+    "length": {
+      "episodes": 29,
+      "avgEpisodeMinutes": 15,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "cybernautica",
+    "length": {
+      "episodes": 18,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "vega-a-sci-fi-adventure-podcast",
+    "length": {
+      "episodes": 13,
+      "avgEpisodeMinutes": 27,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "ronstadt",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 40,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-foxes-of-hydesville",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "hunted",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "deadly-manners",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "aftershock",
+    "length": {
+      "episodes": 20,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "mordeo",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 27,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "strawberry-spring",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "red-frontier",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 13,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "ghostwriter",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 80,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "academy",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 37,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "moriarty-the-devils-game",
+    "length": {
+      "episodes": 2,
+      "avgEpisodeMinutes": 34,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "hot-white-heist",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "shipworm",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 118,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "you-feeling-this",
+    "length": {
+      "episodes": 23,
+      "avgEpisodeMinutes": 17,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "marvels-wastelanders",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 39,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "marvels-squirrel-girl-the-unbeatable-radio-show",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 42,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "orphan-black-the-next-chapter",
+    "length": {
+      "episodes": 21,
+      "avgEpisodeMinutes": 56,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "big-grande-teachers-lounge",
+    "length": {
+      "episodes": 161,
+      "avgEpisodeMinutes": 51,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "this-sounds-serious",
+    "length": {
+      "episodes": 24,
+      "avgEpisodeMinutes": 27,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "who-killed-avril-lavigne",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 35,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "next-stop",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "life-with-leo-h",
+    "length": {
+      "episodes": 18,
+      "avgEpisodeMinutes": 23,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "gather-the-suspects",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-ballad-of-anne-mary",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 23,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "rex-rivetter-private-eye",
+    "length": {
+      "episodes": 51,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-hotel",
+    "length": {
+      "episodes": 79,
+      "avgEpisodeMinutes": 19,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "thirteen",
+    "length": {
+      "episodes": 131,
+      "avgEpisodeMinutes": 50,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-wicked-library",
+    "length": {
+      "episodes": 187,
+      "avgEpisodeMinutes": 58,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "back-again-back-again",
+    "length": {
+      "episodes": 62,
+      "avgEpisodeMinutes": 17,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "celeritas",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "cry-havoc-ask-questions-later",
+    "length": {
+      "episodes": 41,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "haunted-house-flippers",
+    "length": {
+      "episodes": 31,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "haunted-the-audio-drama",
+    "length": {
+      "episodes": 140,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "middle-below",
+    "length": {
+      "episodes": 14,
+      "avgEpisodeMinutes": 12,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "primordial-deep",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 53,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-rez",
+    "length": {
+      "episodes": 26,
+      "avgEpisodeMinutes": 16,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-road-of-shadows",
+    "length": {
+      "episodes": 50,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-madness-of-chartrulean",
+    "length": {
+      "episodes": 35,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-technomancy-project",
+    "length": {
+      "episodes": 36,
+      "avgEpisodeMinutes": 44,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "trice-forgotten",
+    "length": {
+      "episodes": 21,
+      "avgEpisodeMinutes": 34,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "breaker-whiskey",
+    "length": {
+      "episodes": 301,
+      "avgEpisodeMinutes": 3,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "magenta-presents",
+    "length": {
+      "episodes": 25,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "acephale-horror-fiction",
+    "length": {
+      "episodes": 74,
+      "avgEpisodeMinutes": 48,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "all-in-my-head",
+    "length": {
+      "episodes": 19,
+      "avgEpisodeMinutes": 13,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "beneath",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "bloodrock-springs",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "calling-darkness-podcast",
+    "length": {
+      "episodes": 19,
+      "avgEpisodeMinutes": 33,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "cicatrix",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 43,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dark-northwest",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dead-space-deep-cover",
+    "length": {
+      "episodes": 13,
+      "avgEpisodeMinutes": 36,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dead-west",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 34,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "eelers-choice",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 36,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "enter-the-house-between",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 55,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "forbidden-cassettes-consummation",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 45,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "grim-death-and-bill-the-electrocuted-criminal",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 23,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "hemophobia",
+    "length": {
+      "episodes": 18,
+      "avgEpisodeMinutes": 69,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "in-another-room",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 33,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "liars-leeches",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "mercy-a-queer-eldritch-western",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 62,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "rapture-518",
+    "length": {
+      "episodes": 40,
+      "avgEpisodeMinutes": 15,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "secrets-of-harridge-house",
+    "length": {
+      "episodes": 45,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "spirit-box-radio",
+    "length": {
+      "episodes": 161,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "station-to-station",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "submitted-for-the-approval-of-the-midnight-pals",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 37,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "tell-no-tales",
+    "length": {
+      "episodes": 62,
+      "avgEpisodeMinutes": 18,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-antiquarium-of-sinister-happenings",
+    "length": {
+      "episodes": 143,
+      "avgEpisodeMinutes": 31,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-callisto-protocol-helix-station",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-dispossessed",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 17,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "twilight-meridian",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 46,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "whats-the-frequency",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 31,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "fresh-meat",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "chain-of-being",
+    "length": {
+      "episodes": 20,
+      "avgEpisodeMinutes": 18,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "inkwyrm",
+    "length": {
+      "episodes": 28,
+      "avgEpisodeMinutes": 18,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "jack-valentine-vampire-detective",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 41,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "point-mystic",
+    "length": {
+      "episodes": 23,
+      "avgEpisodeMinutes": 34,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "temujin",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 49,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-bridge",
+    "length": {
+      "episodes": 33,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-dex-legacy",
+    "length": {
+      "episodes": 43,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-lost-cat-podcast",
+    "length": {
+      "episodes": 49,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "tides",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "chaika",
+    "length": {
+      "episodes": 17,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "josies-lonely-hearts-club",
+    "length": {
+      "episodes": 57,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "last-dance",
+    "length": {
+      "episodes": 14,
+      "avgEpisodeMinutes": 45,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-prickwillow-papers",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 12,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "hit-the-bricks",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "under-the-electric-stars",
+    "length": {
+      "episodes": 33,
+      "avgEpisodeMinutes": 42,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "superhuman-public-radio",
+    "length": {
+      "episodes": 31,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-second-oil-age",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 17,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "eliza-a-robot-story",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 42,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "splintered-caravan",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 36,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "once-upon-a-wasteland-a-fallout-story",
+    "length": {
+      "episodes": 30,
+      "avgEpisodeMinutes": 54,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "machina",
+    "length": {
+      "durationCoverage": 0
+    }
+  },
+  {
+    "id": "small-victories",
+    "length": {
+      "episodes": 30,
+      "avgEpisodeMinutes": 14,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "girl-tales",
+    "length": {
+      "episodes": 262,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-hollow",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 13,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "supernatural-sexuality-with-dr-seabrooke",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 19,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "heads-will-roll",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "max-ivan-fugitives",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 27,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "keep-it-steady",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 38,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "1972-the-chisholm-campaign-trail-and-the-davis-trial",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 18,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "supreme-the-battle-for-roe",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "bone-marry-bury",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "we-stay-looking",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 35,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "mansfield-mysteries",
+    "length": {
+      "episodes": 27,
+      "avgEpisodeMinutes": 27,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-inn-at-the-end-of-things",
+    "length": {
+      "episodes": 13,
+      "avgEpisodeMinutes": 39,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "a-murder-in-montecito",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "broken-veil",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 37,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "ramon-fears-terror-tapes",
+    "length": {
+      "episodes": 26,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "buzz-the-man-the-moon",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dragon-age-vows-vengeance",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 44,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-last-city",
+    "length": {
+      "episodes": 2,
+      "avgEpisodeMinutes": 37,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "stanland",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 37,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "in-media-res",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "frequency-a-sci-fi-horror-audio-drama",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 14,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-midnight-hour",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 17,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "behind-closed-doors-a-48-hour-audio-drama-festival",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "saigon",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-phantom-of-ocean-park",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 15,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-dolos-project",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 37,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "directive",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 16,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "this-planet-needs-a-name",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 37,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "carcerem",
+    "length": {
+      "episodes": 32,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "starfall",
+    "length": {
+      "episodes": 20,
+      "avgEpisodeMinutes": 40,
+      "durationCoverage": 0.9
+    }
+  },
+  {
+    "id": "dash",
+    "length": {
+      "episodes": 45,
+      "avgEpisodeMinutes": 19,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-stench-of-adventure",
+    "length": {
+      "episodes": 52,
+      "avgEpisodeMinutes": 19,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "electromancy",
+    "length": {
+      "episodes": 22,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dispatch-from-the-desert-planet",
+    "length": {
+      "episodes": 18,
+      "avgEpisodeMinutes": 11,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "station-arcadia",
+    "length": {
+      "episodes": 33,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 0.788
+    }
+  },
+  {
+    "id": "light-house",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 34,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "constants",
+    "length": {
+      "episodes": 20,
+      "avgEpisodeMinutes": 19,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "moonface",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "sonic-the-hedgehog-presents-the-chaotix-casefiles",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "blood-gold",
+    "length": {
+      "episodes": 16,
+      "avgEpisodeMinutes": 42,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "roommate-from-hell",
+    "length": {
+      "episodes": 28,
+      "avgEpisodeMinutes": 11,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "madame-magenta-sonos-mystica",
+    "length": {
+      "episodes": 157,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "newts",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "little-did-i-know",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-world-to-come",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 35,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "zoo",
+    "length": {
+      "episodes": 29,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "lake-clarity",
+    "length": {
+      "episodes": 23,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "tales-to-terrify",
+    "length": {
+      "episodes": 760,
+      "avgEpisodeMinutes": 58,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "jackie-the-ripper",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "mina-and-lucys-guide-to-slaying-dracula",
+    "length": {
+      "episodes": 21,
+      "avgEpisodeMinutes": 13,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "neon-inkwell",
+    "length": {
+      "episodes": 40,
+      "avgEpisodeMinutes": 33,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "a-darker-tale",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 27,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "aberrations",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 34,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "abnormal-advice",
+    "length": {
+      "episodes": 3,
+      "avgEpisodeMinutes": 13,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "amahdalia",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 51,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "beyond-repair",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 11,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "black-friday",
+    "length": {
+      "episodes": 18,
+      "avgEpisodeMinutes": 19,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "brave-new-frontiersman",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "burn-pattern",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 37,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "campers-pike-on-the-forgotten-road",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 5,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "conversations-with-ghosts",
+    "length": {
+      "episodes": 17,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "cryptid-counselor",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 17,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dark-days-in-brighton",
+    "length": {
+      "episodes": 25,
+      "avgEpisodeMinutes": 12,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "degrave-brothers",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dracula-2004",
+    "length": {
+      "episodes": 27,
+      "avgEpisodeMinutes": 19,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dracula-the-danse-macabre",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 57,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "ergo-antz",
+    "length": {
+      "episodes": 19,
+      "avgEpisodeMinutes": 14,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "fabric",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "glasgow-ghost-stories",
+    "length": {
+      "episodes": 39,
+      "avgEpisodeMinutes": 9,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "gonsanto-industries-the-insomnia-project",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 15,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "gothic-fm",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 17,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "hallway-to-nowhere",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 6,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "havoc-town",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 33,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "hollow",
+    "length": {
+      "episodes": 14,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "into-the-dark-of-the-woods",
+    "length": {
+      "episodes": 36,
+      "avgEpisodeMinutes": 19,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "its-all-in-the-cards-podcast",
+    "length": {
+      "episodes": 48,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "jack-of-all-trades",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "john-from-back-home",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 17,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "jollyland",
+    "length": {
+      "episodes": 14,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "lands-end-a-shepherds-tale",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "leftovers-at-the-end-of-the-world",
+    "length": {
+      "episodes": 18,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "longtime-first-time",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 38,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "magmell",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 27,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "on-asphalt-bones",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "overbrook",
+    "length": {
+      "episodes": 24,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "poe-evermore",
+    "length": {
+      "episodes": 21,
+      "avgEpisodeMinutes": 41,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "pret-101",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 8,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "priced-to-sell",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 11,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "purgatory-missouri",
+    "length": {
+      "episodes": 21,
+      "avgEpisodeMinutes": 11,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "red-riding-hoods",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "shadows-of-a-dark-past",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 16,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "shelterwood",
+    "length": {
+      "episodes": 16,
+      "avgEpisodeMinutes": 38,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "station-13",
+    "length": {
+      "episodes": 19,
+      "avgEpisodeMinutes": 33,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "tapes-from-beyond",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-blood-moone-files",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 18,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-curse-of-the-lake-house",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 12,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-custodians",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 35,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-devils-plaything",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-grimoire-diaries",
+    "length": {
+      "episodes": 20,
+      "avgEpisodeMinutes": 27,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-harrowing-of-minerva-damson",
+    "length": {
+      "episodes": 25,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-hidden-heart",
+    "length": {
+      "episodes": 3,
+      "avgEpisodeMinutes": 18,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-lost-son",
+    "length": {
+      "episodes": 3,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-lovecraft-covenant",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 33,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-marksbury-incident",
+    "length": {
+      "episodes": 35,
+      "avgEpisodeMinutes": 10,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-nephilim-hunter",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-night-visitor",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 34,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-shadowbrook-files",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-veins-below",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-void",
+    "length": {
+      "episodes": 38,
+      "avgEpisodeMinutes": 23,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "what-lies-in-wait",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 13,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "zoic",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 27,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "hellhound-country",
+    "length": {
+      "episodes": 23,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "hollow-disciple",
+    "length": {
+      "episodes": 14,
+      "avgEpisodeMinutes": 23,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "anoraks",
+    "length": {
+      "episodes": 18,
+      "avgEpisodeMinutes": 3,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "burnout-a-cyberpunk-thriller",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "candy-claus-private-eye",
+    "length": {
+      "episodes": 14,
+      "avgEpisodeMinutes": 31,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "cat-person",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 12,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dashing-onions-audio",
+    "length": {
+      "episodes": 16,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "deans-killer-joke",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 31,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "deathless",
+    "length": {
+      "episodes": 49,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "divorce-ranch",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dr-goodvibes",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dying-breeds",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 41,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "from-an-island",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 11,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "garden-plots-with-skeletor",
+    "length": {
+      "episodes": 57,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "glitch-twisted-tech-tales",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 15,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "happy-we-know-it",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 40,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "hearthbound-an-untelling-of-the-odyssey",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "hearthfall-a-dark-fantasy-audio-drama",
+    "length": {
+      "episodes": 2,
+      "avgEpisodeMinutes": 31,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "homicide-at-heavensgate",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 31,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "leylines",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "neighbourly",
+    "length": {
+      "episodes": 41,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "null-void",
+    "length": {
+      "episodes": 13,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "project-foxtrot",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 16,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "regina-prime",
+    "length": {
+      "episodes": 25,
+      "avgEpisodeMinutes": 15,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "saturns-return",
+    "length": {
+      "episodes": 3,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "sos-humanity-earths-last-distress-signal",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-aberrant-report",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-cal-rowe-casefiles",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 54,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-case-within",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-goblet-wire",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 10,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-heart-pyre",
+    "length": {
+      "episodes": 32,
+      "avgEpisodeMinutes": 27,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-pensive-tower",
+    "length": {
+      "episodes": 40,
+      "avgEpisodeMinutes": 27,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-six-disappearances-of-ella-mccray",
+    "length": {
+      "episodes": 16,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-sulphuric-secrets",
+    "length": {
+      "episodes": 14,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-supernatural-protection-company",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 16,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-twelvelms-conspiracy",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "where-the-leaves-fall-purple",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 44,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "wizard-seeking-wizard",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 47,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "american-afterlife",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "invaded",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "somewhere-city",
+    "length": {
+      "episodes": 3,
+      "avgEpisodeMinutes": 38,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-lavender-tavern",
+    "length": {
+      "episodes": 18,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "starcalled",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 35,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dispatches-from-the-multiverse",
+    "length": {
+      "episodes": 300,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-wanderer",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "heroics",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "apex-magazine-podcast",
+    "length": {
+      "episodes": 96,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "a-fairy-tale-for-adults",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "experiment-31e",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 33,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "strange-new-worlds-and-spaced-out-tales",
+    "length": {
+      "episodes": 24,
+      "avgEpisodeMinutes": 36,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "bones-of-the-land",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "agent-stoker",
+    "length": {
+      "episodes": 51,
+      "avgEpisodeMinutes": 23,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "project-bla-ckfisk",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 35,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "hindsight-the-fracture",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 36,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-bekkoning-noizemaker",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "zenith",
+    "length": {
+      "episodes": 13,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "proxy-zone-reboot",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "infinitas",
+    "length": {
+      "episodes": 20,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-carrington-doctrine",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 5,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "beyond-awakening",
+    "length": {
+      "episodes": 30,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "black-pulse",
+    "length": {
+      "episodes": 20,
+      "avgEpisodeMinutes": 16,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dakota-gold-mysteries",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 49,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "milkfish",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 18,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-unlikely-show",
+    "length": {
+      "episodes": 16,
+      "avgEpisodeMinutes": 18,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "cyphers-edge",
+    "length": {
+      "episodes": 46,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "your-local-time-travelers",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 47,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "90-degrees-south",
+    "length": {
+      "episodes": 76,
+      "avgEpisodeMinutes": 39,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "paradise-cab",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "deep-space-radio",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 85,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "after-impact",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "route-6-6",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-lost-channel",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 10,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "e-a-t-i",
+    "length": {
+      "episodes": 16,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-scent-of-gravity",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 34,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "shelar-and-the-scavengers",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 18,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-harbingers",
+    "length": {
+      "episodes": 16,
+      "avgEpisodeMinutes": 40,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "legends-of-khampiohn",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 47,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-hand-of-brass",
+    "length": {
+      "episodes": 23,
+      "avgEpisodeMinutes": 17,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "its-grimm",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 16,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-doorstep-project",
+    "length": {
+      "episodes": 56,
+      "avgEpisodeMinutes": 8,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "mysteries-of-sparrow-crest",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "rock-scree-drownt",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 63,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "forged-bonds",
+    "length": {
+      "episodes": 48,
+      "avgEpisodeMinutes": 17,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "witchever-path",
+    "length": {
+      "episodes": 85,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "creation-a-whole-new-reality",
+    "length": {
+      "episodes": 17,
+      "avgEpisodeMinutes": 19,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "heartglass",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 39,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "choose-the-bear",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 38,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dawn-of-tomorrow",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "only-human-bound",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "for-king-and-country",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 11,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "flula-makes-five",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "mars-best-brisket",
+    "length": {
+      "episodes": 3,
+      "avgEpisodeMinutes": 15,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "paired",
+    "length": {
+      "episodes": 74,
+      "avgEpisodeMinutes": 10,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-shelf-life-a-podcast-sitcom",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 10,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "feedback-a-comedy-of-impeccable-customer-service",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 17,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "kicking-the-bucket",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "baked-off",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-adventures-of-sir-rodney-the-root",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "hit-job",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "margaritas-donuts",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "greenhouse",
+    "length": {
+      "episodes": 19,
+      "avgEpisodeMinutes": 6,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "roommates",
+    "length": {
+      "episodes": 36,
+      "avgEpisodeMinutes": 6,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "look-up",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 33,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-unmasked-podcast",
+    "length": {
+      "episodes": 16,
+      "avgEpisodeMinutes": 38,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-sound-museum",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 42,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dirt-an-audio-drama",
+    "length": {
+      "episodes": 34,
+      "avgEpisodeMinutes": 38,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-peek-with-samuel-pepys",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "let-me-tell-you-about-my-murder",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 15,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "conference-call",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 23,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-bystanders",
+    "length": {
+      "episodes": 14,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "diary-of-a-space-archivist",
+    "length": {
+      "episodes": 19,
+      "avgEpisodeMinutes": 11,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "tales-from-the-aletheian-society",
+    "length": {
+      "episodes": 27,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-unseen-hour",
+    "length": {
+      "episodes": 51,
+      "avgEpisodeMinutes": 33,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "sonic-cinema-productions",
+    "length": {
+      "episodes": 127,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "fireside-canada",
+    "length": {
+      "episodes": 44,
+      "avgEpisodeMinutes": 44,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "american-comedy-horror-story",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 10,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "atlas-avenue-beat",
+    "length": {
+      "episodes": 67,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "calais-2037",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "neon-nights-the-arcane-files-of-jack-tracer",
+    "length": {
+      "episodes": 63,
+      "avgEpisodeMinutes": 19,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "sumeria",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "fight-jack",
+    "length": {
+      "episodes": 3,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "moose-on-a-highway",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 12,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "paranormal-passion",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-marriage-show",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "fate-of-korr",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 33,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "autumn-an-audio-drama",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "project-daydream",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-richard-osman-fan-club",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-susie-house",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "when-tower-angels-fall",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 39,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "yokai-detective-agency",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "jesus-pancake",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "gabriela-the-inn-between",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 17,
+      "durationCoverage": 0.9
+    }
+  },
+  {
+    "id": "dear-earth-im-really-sorry",
+    "length": {
+      "episodes": 22,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "argon-a-tech-noir-thriller",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "mortuus-est-legacy",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 14,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "friday-knight-fights",
+    "length": {
+      "episodes": 20,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "attention-the-captain-is-fine",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 27,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "to-chart-a-well-trod-course",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 19,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "lisa-upside-down",
+    "length": {
+      "episodes": 3,
+      "avgEpisodeMinutes": 18,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "never-enough",
+    "length": {
+      "episodes": 2,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "silkhaven-pulp",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 38,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-fog-city-mysteries-in-color",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 10,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-sherwood-society",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 7,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "world-devotion-project",
+    "length": {
+      "episodes": 3,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "how-to-start-a-cult",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-mechadova-engine",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-chronicles-of-astrimos",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 23,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "crossroads-a-48-hour-audio-drama-festival",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "kovacs-breaking-conventions",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 60,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "on-the-roman-nose",
+    "length": {
+      "episodes": 19,
+      "avgEpisodeMinutes": 3,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "infinity-frontiers",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 7,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "life-happens-an-audio-series",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "acorn-originals",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "listen-with-other",
+    "length": {
+      "episodes": 31,
+      "avgEpisodeMinutes": 14,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "signed-in-blood",
+    "length": {
+      "episodes": 20,
+      "avgEpisodeMinutes": 34,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "engine-of-war",
+    "length": {
+      "episodes": 19,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "mikey-and-the-garden-arch",
+    "length": {
+      "episodes": 19,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "how-it-falls-apart",
+    "length": {
+      "episodes": 34,
+      "avgEpisodeMinutes": 17,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "osciluna-lounge-stories",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 4,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "hubris-a-24-hour-podcast-project",
+    "length": {
+      "episodes": 61,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 0.951
+    }
+  },
+  {
+    "id": "vigil",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "1968-blackflower-drive",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 70,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "cede-malis",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 7,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "confessions-cryptids",
+    "length": {
+      "episodes": 3,
+      "avgEpisodeMinutes": 14,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dead-evil-tales",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "death-by-inches",
+    "length": {
+      "episodes": 34,
+      "avgEpisodeMinutes": 7,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "elias-the-caretaker",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "from-the-depths",
+    "length": {
+      "episodes": 3,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "halcyon-the-book-of-paimon",
+    "length": {
+      "episodes": 22,
+      "avgEpisodeMinutes": 40,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "hiker-gothic",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 7,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "left-alone-once-more",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 11,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "long-night-in-egypt",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 31,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "mage-in-the-machine",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "polybius-protocol",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 17,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "sojourns-in-slumberland",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 33,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-bonneville-game",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 27,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-gospel-of-haven",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 31,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-nightstar-specters",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 31,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-northwood-project",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 15,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-override-protocol",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-seven-planes",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 10,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-voicemail-box-is-full",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 12,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "twisted-curiosities",
+    "length": {
+      "episodes": 2,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "unusual-happenings-at-paradise",
+    "length": {
+      "episodes": 3,
+      "avgEpisodeMinutes": 12,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "whispers-of-delirium",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 8,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "a-midsummers-quarantine",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 31,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "bee-dubs-ai-labs",
+    "length": {
+      "episodes": 24,
+      "avgEpisodeMinutes": 6,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "blood-bunnies",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 44,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "blueberries-hill",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 40,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "cosmic-riff",
+    "length": {
+      "episodes": 2,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "crap-noir",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "deconstructive-criticism",
+    "length": {
+      "episodes": 21,
+      "avgEpisodeMinutes": 18,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "in-the-gloaming",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "jack-and-lou-a-gangster-love-story",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 19,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "mondaze",
+    "length": {
+      "episodes": 17,
+      "avgEpisodeMinutes": 33,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "of-the-sword",
+    "length": {
+      "episodes": 21,
+      "avgEpisodeMinutes": 7,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "sequestered-an-audio-drama",
+    "length": {
+      "episodes": 3,
+      "avgEpisodeMinutes": 12,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-heresies-of-radulf-burntwine",
+    "length": {
+      "episodes": 28,
+      "avgEpisodeMinutes": 36,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-realm-tree",
+    "length": {
+      "episodes": 30,
+      "avgEpisodeMinutes": 27,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "tranthologies",
+    "length": {
+      "episodes": 82,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "wandering-with-the-dead",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 37,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "werewolf-the-podcast-a-serial-killer-drama",
+    "length": {
+      "episodes": 273,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "wrong-turn-at-alpine",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 17,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "futurepast",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "metra-a-climate-revolution-with-songs",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-pancake-eating-robots",
+    "length": {
+      "episodes": 14,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "storm-runner-the-ezz-bennil-files",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 31,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "to-court-death",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "inkandneon",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 11,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "set-sail",
+    "length": {
+      "episodes": 18,
+      "avgEpisodeMinutes": 18,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "gertrude-stunt-girl-zombie-killer",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 16,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "red-rhino",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "clean-green-music-machine-turn-it-up",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 13,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "fairies-and-dragons-ponies-and-knights",
+    "length": {
+      "episodes": 36,
+      "avgEpisodeMinutes": 36,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "captain-kayato-and-the-catsairs",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 46,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-heron",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 17,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "welcome-to-hope-springs",
+    "length": {
+      "episodes": 19,
+      "avgEpisodeMinutes": 25,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-kringles",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 6,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "nicked",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "wilder-dreams",
+    "length": {
+      "episodes": 20,
+      "avgEpisodeMinutes": 16,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "quaranteend",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "relying-on-benjamins",
+    "length": {
+      "episodes": 37,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "retreat-comedy",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 20,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "sacred-hearts",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 16,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "claudia-a-viral-love-story",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-single-squad",
+    "length": {
+      "episodes": 20,
+      "avgEpisodeMinutes": 6,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "a-practical-guide-to-death",
+    "length": {
+      "episodes": 11,
+      "avgEpisodeMinutes": 33,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "a-store-for-witches-and-wizards",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 13,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "13-minutes-or-less",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 7,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "grounds-a-blackcast",
+    "length": {
+      "episodes": 18,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-ladies-of-burdoo-springs",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "murder-we-spoke",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 43,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "tagged",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 36,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "crestfall-a-fantasy-audio-drama",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 13,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "eve-of-independence",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 18,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-maiden-and-the-dragon",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 31,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "wildtrials",
+    "length": {
+      "episodes": 2,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "faithfully-yours-mozart-the-courtship",
+    "length": {
+      "episodes": 35,
+      "avgEpisodeMinutes": 23,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-crime-at-camp-ashwood",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 15,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "professionally-possessed",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 36,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-foundation-dossier",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 10,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-zibs-misadventures-in-spaaaace",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 52,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "flashover",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 13,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-soft-boiled-detective",
+    "length": {
+      "episodes": 7,
+      "avgEpisodeMinutes": 19,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "wilzerlott",
+    "length": {
+      "episodes": 45,
+      "avgEpisodeMinutes": 21,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "ghost-hunt-pacific",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 27,
+      "durationCoverage": 0.9
+    }
+  },
+  {
+    "id": "feminist-fairytales",
+    "length": {
+      "episodes": 45,
+      "avgEpisodeMinutes": 30,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "perswayssick-radio-unearthly-comedy",
+    "length": {
+      "episodes": 262,
+      "avgEpisodeMinutes": 23,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "radio-outcast",
+    "length": {
+      "episodes": 24,
+      "avgEpisodeMinutes": 36,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "aaveloura-studios",
+    "length": {
+      "episodes": 2,
+      "avgEpisodeMinutes": 56,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "urban-soul-cafe",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 13,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "my-date-with-lainey-lee",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 93,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "atrophys-eden",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "absent-always-theatreworks",
+    "length": {
+      "episodes": 3,
+      "avgEpisodeMinutes": 8,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-third-rock-theatre-of-the-air",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 45,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-heroes-helpline",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 34,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "brevity",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 16,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "15-second-mysteries",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 1,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "echoes-of-shadows",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "anime-audio-drama-surge-saga",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 17,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "spiked-eggs-podcast",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 23,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "in-dying-days",
+    "length": {
+      "episodes": 5,
+      "avgEpisodeMinutes": 16,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-henchmans-journal",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 22,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-accursed",
+    "length": {
+      "episodes": 15,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-romcom-formula",
+    "length": {
+      "episodes": 9,
+      "avgEpisodeMinutes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-cold-plunge",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 41,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "true-urban-legends",
+    "length": {
+      "episodes": 4,
+      "avgEpisodeMinutes": 15,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "chongqing-punk",
+    "length": {
+      "episodes": 16,
+      "avgEpisodeMinutes": 4,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "a-dream-too-heroic-the-hero-of-korvalin",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 18,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "dreamstar-chasers",
+    "length": {
+      "episodes": 12,
+      "avgEpisodeMinutes": 34,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-heart-bleeds-lavender",
+    "length": {
+      "episodes": 2,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "sascha-martins-ripping-news",
+    "length": {
+      "episodes": 6,
+      "avgEpisodeMinutes": 10,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "nocturne-cipher",
+    "length": {
+      "episodes": 2,
+      "avgEpisodeMinutes": 19,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "salmons-run",
+    "length": {
+      "episodes": 2,
+      "avgEpisodeMinutes": 26,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "long-winter-nights",
+    "length": {
+      "episodes": 44,
+      "avgEpisodeMinutes": 8,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-montana-incident",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 35,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "36-questions",
+    "length": {
+      "episodes": 4,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-thrilling-adventure-hour",
+    "length": {
+      "episodes": 123,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-red-panda-adventures",
+    "length": {
+      "episodes": 551,
+      "durationCoverage": 0.996
+    }
+  },
+  {
+    "id": "second-shift",
+    "length": {
+      "episodes": 38,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-radio-adventures-of-dr-floyd",
+    "length": {
+      "episodes": 106,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "steal-the-stars",
+    "length": {
+      "episodes": 15,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-archers",
+    "length": {
+      "episodes": 216,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "batman-unburied",
+    "length": {
+      "episodes": 10,
+      "avgEpisodeMinutes": 29,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "wormwood-a-serialized-mystery",
+    "length": {
+      "episodes": 70,
+      "avgEpisodeMinutes": 28,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-cleansed",
+    "length": {
+      "episodes": 27,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "marscorp",
+    "length": {
+      "episodes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "i-am-in-eskew",
+    "length": {
+      "episodes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "palimpsest",
+    "length": {
+      "episodes": 54,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-earth-collective",
+    "length": {
+      "episodes": 74,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "camlann",
+    "length": {
+      "episodes": 10,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "doctor-who-redacted",
+    "length": {
+      "episodes": 18,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-fitzroy-diaries",
+    "length": {
+      "episodes": 24,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "parkdale-haunt",
+    "length": {
+      "episodes": 33,
+      "avgEpisodeMinutes": 39,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-harrowing",
+    "length": {
+      "episodes": 8,
+      "avgEpisodeMinutes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "escape-pod",
+    "length": {
+      "episodes": 300,
+      "durationCoverage": 0.99
+    }
+  },
+  {
+    "id": "eleanor-amplified",
+    "length": {
+      "episodes": 51,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "deviser",
+    "length": {
+      "episodes": 7,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "afflicted",
+    "length": {
+      "episodes": 10,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "alba-salix-royal-physician",
+    "length": {
+      "episodes": 32,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "the-sojourn",
+    "length": {
+      "episodes": 18,
+      "avgEpisodeMinutes": 40,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "red-for-revolution",
+    "length": {
+      "episodes": 6,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "twilight-histories",
+    "length": {
+      "episodes": 109,
+      "durationCoverage": 1
+    }
+  },
+  {
+    "id": "rosannas-secret",
+    "length": {
+      "episodes": 1,
+      "avgEpisodeMinutes": 19,
+      "durationCoverage": 1
+    }
+  }
+]

@@ -42,6 +42,19 @@ async function warmVisitedPageCache({ preferBrowserCache = false } = {}) {
     }
   });
 
+  if (document.body.classList.contains("home-page")) {
+    [
+      ["searchIndexVersion", "/data/search-index.json"],
+      ["collectionsVersion", "/data/collections.json"],
+      ["runtimeEvidenceVersion", "/data/runtime-evidence.json"],
+    ].forEach(([versionKey, pathname]) => {
+      const version = document.body.dataset[versionKey]?.trim();
+      if (version) {
+        urls.add(new URL(`${pathname}?v=${encodeURIComponent(version)}`, window.location.href).href);
+      }
+    });
+  }
+
   await new Promise((resolve) => {
     const channel = new MessageChannel();
     const timeout = window.setTimeout(resolve, 8_000);

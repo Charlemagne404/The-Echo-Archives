@@ -525,7 +525,9 @@ test("an unused Library service has no analytics, network, community, submission
   assert.match(appSource, /void import\(`\.\/library\/integration\.js\?v=/);
   assert.doesNotMatch(appSource, /from ["'][^"']*library\/service\.js/);
   assert.match(generatorSource, /platform:\s*hashTree\("shared\/library"\)/);
+  assert.match(generatorSource, /appLibrary:\s*hashTree\("shared\/app\/library"\)/);
   assert.match(generatorSource, /libraryIntegration:\s*hashFile\("shared\/app\/library\/integration\.js"\)/);
+  assert.doesNotMatch(generatorSource, /shared\/app\/pages\/library|libraryStylesheet/);
   assert.doesNotMatch(serverSource, /listener-library|ListenerLibrary/);
 
   const context = await createContext();

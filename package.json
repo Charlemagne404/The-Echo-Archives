@@ -17,6 +17,8 @@
     "report:collection-candidates": "node tools/report-collection-candidates.js",
     "report:collection-catalogue": "node tools/report-collection-catalogue.js",
     "benchmark:discovery": "node tools/report-discovery-benchmark.js",
+    "benchmark:personal-discovery": "node tools/benchmark-personal-discovery.js",
+    "test:personal-discovery": "node --test tools/test/discovery-personalization.test.js",
     "benchmark:catalog-scale": "node --expose-gc tools/benchmark-catalog-scale.js",
     "test:discovery-benchmark": "node --test tools/test/discovery-golden-benchmark.test.js tools/test/discovery-v2.test.js",
     "check:collection-catalogue": "node tools/report-collection-catalogue.js --check",

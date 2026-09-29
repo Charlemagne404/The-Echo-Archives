@@ -420,6 +420,7 @@ function injectRuntimeSiteConfig(html, config = {}) {
     ["showsVersion", "data-shows-version"],
     ["collectionsVersion", "data-collections-version"],
     ["searchIndexVersion", "data-search-index-version"],
+    ["runtimeEvidenceVersion", "data-runtime-evidence-version"],
   ]) {
     if (Object.hasOwn(config, key)) {
       rendered = replaceBodyDataAttribute(rendered, attributeName, String(config[key] || ""));

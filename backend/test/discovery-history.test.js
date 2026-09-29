@@ -140,7 +140,9 @@ test("discovery history controller replaces transient state and pushes meaningfu
 test("committing transient search restores the previous entry before pushing the settled URL", async () => {
   const { createDiscoveryHistoryController } = await importSharedModule("shared/app/discovery-history.js");
   const calls = [];
+  const scrollSnapshots = [];
   const state = { view: "initial" };
+  let scrollY = 720;
 
   function updateLocation(nextUrl) {
     const next = new URL(nextUrl, "https://echo.test");
@@ -171,11 +173,17 @@ test("committing transient search restores the previous entry before pushing the
         window.history[historyMode === "push" ? "pushState" : "replaceState"](window.history.state, "", nextUrl);
         return nextUrl;
       };
-      const controller = createDiscoveryHistoryController({ state, buildUrl, syncUrl });
+      const controller = createDiscoveryHistoryController({
+        state,
+        buildUrl,
+        syncUrl,
+        onBeforeSync: ({ currentUrl }) => scrollSnapshots.push({ currentUrl, scrollY }),
+      });
 
       controller.synchronizeUrlState("replace", "initial");
       state.view = "search";
       controller.synchronizeUrlState("replace", "live-search");
+      scrollY = 409;
       controller.commitCurrentUrlState();
     },
   );
@@ -185,6 +193,10 @@ test("committing transient search restores the previous entry before pushing the
     ["replaceState", "/browse?view=search"],
     ["replaceState", "/browse?view=initial"],
     ["pushState", "/browse?view=search"],
+  ]);
+  assert.deepEqual(scrollSnapshots, [
+    { currentUrl: "/browse", scrollY: 720 },
+    { currentUrl: "/browse?view=initial", scrollY: 720 },
   ]);
 });
 

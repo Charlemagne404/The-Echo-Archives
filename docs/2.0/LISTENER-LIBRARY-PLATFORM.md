@@ -1,6 +1,6 @@
 # Listener Library platform
 
-This note records the implemented, browser-local Library platform and its listener-facing `/library` product. Personal recommendation ranking is not implemented here; Discovery 2.0 can consume only the sanitized service boundary described below.
+This note records the browser-local Library platform and its compact controls on existing Echo surfaces. There is no public `/library` management page. Personal ranking is implemented in a separate page-level Discovery helper; this document describes only the sanitized Library service boundary it consumes.
 
 ## Domain and service
 
@@ -22,7 +22,7 @@ The service exposes:
 
 Entry states are `saved`, `listening`, `finished`, `dropped`, and `hidden`. A private rating is an optional integer from 1 through 5. Entries retain `createdAt` and `updatedAt` as current-record metadata for deterministic sorting and backup fidelity; these fields are not event history. `titleSnapshot` is optional plain text for identifying an unresolved ID. Reads do not create entries, and rating edits require an existing entry.
 
-The Library page sorts by recently updated, recently added, or title. It can filter each state, search local title/creator/tag/ID text, hydrate exact IDs from the current public catalogue, and keep unresolved IDs in a separate section. There is no fuzzy ID remapping, listening progress, public rating submission, or generated personal payload.
+No public page sorts, filters, or searches Library entries. Those operations are not needed for the current compact controls. There is no fuzzy ID remapping, listening progress, public rating submission, or generated personal payload.
 
 ## IndexedDB schema and upgrade behavior
 
@@ -54,6 +54,8 @@ Each entry contains `showId`, `state`, and `rating` only when explicitly set. Wh
 
 ## External Library backup format
 
+Import/export remains a validated service capability, with no normal public UI in this release. Do not add another page or a global settings surface to expose it. Recovery export is a service capability and may be offered contextually only when a storage problem requires it.
+
 Normal backup JSON contains Library entries only. It does not export Personal Discovery opt-in, and neither Merge nor Replace reads, clears, or writes that preference.
 
 ```json
@@ -78,14 +80,16 @@ Import reads a selected file locally, validates it, and previews total entries, 
 
 Recovery export is a separate raw snapshot format (`the-echo-archives.listener-library-recovery`) for troubleshooting malformed persisted rows. It is not accepted as a normal Library backup and does not change stored rows. Because it is a raw recovery file, it may contain local settings; keep it private.
 
-## Listener-facing route and privacy
+## Existing-surface controls and privacy
 
-`/library` is an ordinary generated page shell marked `noindex`, excluded from the sitemap, and generated without personal state. Its Analytics flag is off. Personal content is read from IndexedDB after app initialization and rendered only in the live browser DOM. The route, URL, and `history.state` never store Library entries or the opt-in. The route remains useful without JavaScript by explaining the local-storage requirement and linking to ordinary archive browsing.
+The manifest, generated routes, navigation, sitemap, server aliases, and stylesheet bundles contain no Library management page. The Library control is not a new destination or top-level navigation item.
 
-Cards use a sibling Library disclosure outside their full-card anchors. Show details add a separate local state/rating panel after primary listen actions. The controls synchronize across current-page instances and open tabs through the service subscription; they do not poll. Library actions have no analytics event and no server write path. Personal state is not added to the service-worker precache or page cache. Build/cache versions include hashes for `shared/library/`, `shared/app/library/`, `shared/app/pages/library/`, and the `library.css` bundle version so changed Library imports and styles do not reuse an unnoticed stale asset cache.
+Cards use a small status disclosure as a sibling of each full-card link; it offers state changes and removal but no private rating. Show details put state and private rating in a compact disclosure within the existing listening action area. These controls preserve ordinary show visibility, synchronize across repeated cards and open tabs, and report unavailable storage. Library actions have no analytics event or server write path.
 
-When storage is denied or unavailable, public Echo browsing remains usable. Library controls identify that local saving is unavailable and do not claim a save. A recovery export is available under a collapsed troubleshooting disclosure; malformed data is not silently deleted.
+Personal state is not added to URLs, generated HTML, catalogue artifacts, sitemap, service-worker caches, analytics, or server storage. The service-worker cache version hashes the imported `shared/library/` and `shared/app/library/` modules; the page-only modules and stylesheet have been removed. Library modules remain lazy imports and are not precached.
+
+When storage is denied or unavailable, public Echo browsing remains usable. Library controls identify that local saving is unavailable and do not claim a save. Recovery data is not silently deleted; the recovery snapshot remains available through the service API for an appropriate future contextual flow.
 
 ## Browser proof and automated coverage
 
-`npm --prefix backend run test:library` runs schema/service tests and real Chromium product flows. Coverage includes persistence, imports and reset, ratings, Personal Discovery context and setting preservation, invalid/malformed data recovery, same-tab and cross-tab updates, storage failures, generated route privacy/indexing, card/detail controls, Library search/state filtering, and backup transfer. `npm run build:pages` generates `/library`, its clean `/library` route alias, styles, metadata, sitemap, and service worker from the manifest and source template.
+`npm --prefix backend run test:library` runs schema/service tests and real Chromium product flows. Coverage includes persistence, service import/export and reset, ratings, Personal Discovery context and setting preservation, invalid/malformed data recovery, same-tab and cross-tab updates, storage failures, absence of a generated/public Library route, compact card/detail controls, ordinary browsing, and request privacy. `npm run build:pages` generates the remaining public routes, existing-surface controls, metadata, sitemap, and service worker from authored sources.
