@@ -19,18 +19,18 @@ Each agent receives a unique `TASK_SLUG`. Use it exactly, in lowercase kebab cas
 - Branch: `codex/overnight-<TASK_SLUG>`
 - Worktree: `/Users/charliearnerstal/Documents/GitHub/.echo-codex-<TASK_SLUG>`
 
-Before task work, verify that neither the branch nor the worktree path is already in use. Never use another agent's branch or worktree, delete another worktree, or reset another agent's branch. Start from the current `codex/overnight-integration` commit when creating your worktree. Record that exact starting commit as `ORIGINAL_BASE` in your handoff and final report. If integration advances while you work, rebase your task branch onto the newer integration commit under the lock before attempting integration.
+Before task work, verify that neither the branch nor the worktree path is already in use. Never use another agent's branch or worktree, delete another worktree, or reset another agent's branch. Acquire the integration lock briefly to read the integration worktree's current commit and create your task branch/worktree from that exact commit. This serializes only task setup; agents can work concurrently after releasing the lock. Use the lock procedure below. Record the exact starting commit as `ORIGINAL_BASE` in your handoff and final report. If integration advances while you work, rebase your task branch onto the newer integration commit under the lock before attempting integration.
 
-For example, from a terminal outside the protected original worktree, resolve the current integration tip immediately before creating your own worktree, then pass that commit explicitly:
+For example, while holding the lock, from the clean shared integration worktree, resolve its current integration tip immediately before creating your own worktree, then pass that commit explicitly:
 
 ```sh
-ORIGINAL_BASE="$(rtk proxy git rev-parse refs/heads/codex/overnight-integration)"
+ORIGINAL_BASE="$(rtk proxy git rev-parse HEAD)"
 rtk proxy git worktree add -b "codex/overnight-$TASK_SLUG" \
   "/Users/charliearnerstal/Documents/GitHub/.echo-codex-$TASK_SLUG" \
   "$ORIGINAL_BASE"
 ```
 
-If another agent advances integration just after this snapshot, your recorded base is still the exact commit from which your worktree was created; incorporate later commits by rebasing under the integration lock.
+Record `ORIGINAL_BASE`, then release your own lock. If another agent integrates after this snapshot, your recorded base is still the exact commit from which your worktree was created; incorporate later commits by rebasing under the integration lock.
 
 From the assigned task worktree, read every existing Markdown handoff in `docs/qa/agent-handoffs/` before beginning task work. These notes are the persistent communication channel between agents. Follow their integration constraints and preserve already integrated behavior. Read them again after acquiring the integration lock, because new notes may have arrived while you worked.
 
