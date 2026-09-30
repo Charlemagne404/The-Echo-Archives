@@ -3,7 +3,7 @@
 - Task slug: `browser-compat`
 - Task branch: `codex/overnight-browser-compat`
 - Starting integration commit: `aa81d5d088508e65822ea059af5928569e2c4043`
-- Task commit: `e9939345e32502b8f93e62461e697c794d8e45c0`
+- Task commit: `3f4829f3b387ea3719a0959f75e2d76ec67573b5`
 - Changes made: Added an 11-suite serial Playwright compatibility runner for Chromium, Firefox, and WebKit; added browser fetch failure tests, Library stress and upgrade cases, and service-worker update/cache privacy coverage; fixed demonstrated static delivery, Library state, mobile focus, submit focus, accessible naming, and test-fixture issues. Added the dated compatibility report at `docs/qa/2026-09-30-browser-compatibility.md`.
 - Bugs found/fixed: Static delivery failed from a hidden dot-prefixed worktree; Firefox exposed a Library preference checkbox race; WebKit lost submit tag-picker focus after render; mobile menu focus could run before the drawer became rendered; generated mobile navigation/filter controls needed explicit accessible names and cross-engine visibility rules. The maintainer route matcher and debounced history assertion were narrowed to match their actual request/timing behavior. The blocked-upgrade fixture was corrected to model an open old connection without leaving Firefox hung.
 - Important files/subsystems touched: `backend/server.js`, `backend/lib/routes/maintainer-routes.js`, `backend/scripts/run-browser-compat.js`, `backend/test/browser-api-compat.smoke.js`, `backend/test/browser.smoke.js`, `backend/test/listener-library.test.js`, `backend/test/listener-library-product.smoke.js`, `shared/app/library/integration.js`, `shared/app/mobile-nav.js`, `shared/app/pages/submit/click-handlers.js`, `shared/styles/home/cards/17-responsive-780-a.css`, and `tools/build-pages.js`.
@@ -17,15 +17,16 @@
 
 ## Integration notes for later agents
 
-- Rebase onto the latest `codex/overnight-integration` commit under the shared integration lock and preserve compatible fixes from every newer handoff.
-- Rerun the focused/overlapping browser checks after rebase, then run the full root `npm run verify` on the combined integration branch.
+- Rebase onto `6583e5f34d501fa709cc24f705ec31c782406751` under the shared integration lock. Two conflicts were resolved: the `backend/test/browser.smoke.js` imports were combined, and `sw.js` was regenerated from the merged `tools/build-pages.js`. The rebuilt worker retains the integrated no-store policy, 502/503/504 offline fallback, and data-integrity archive-search fingerprint, along with this task's update/cache privacy coverage.
+- Post-rebase checks passed: Firefox compatibility runner (11/11 suites), WebKit compatibility runner (11/11), overlapping Chromium security service-worker scenario (1/1), and Chromium mobile-navigation keyboard accessibility regression (1/1).
+- Rerun the full root `npm run verify` on the combined integration branch.
 - Never update or merge into `main`.
 
 ## Integration result
 
-- Pre-integration commit: Pending; record the clean integration checkout SHA immediately before merge.
-- Rebase/conflicts: Pending.
-- Prior handoffs incorporated: Pending; reread all handoffs while holding the integration lock.
+- Pre-integration commit: `6583e5f34d501fa709cc24f705ec31c782406751`; the shared checkout was clean on `codex/overnight-integration` under the lock.
+- Rebase/conflicts: Rebased onto the pre-integration commit. `backend/test/browser.smoke.js` import conflict resolved by retaining `fs`, `http`, and `path`; generated `sw.js` conflict resolved by rebuilding with the merged generator. No other conflicts.
+- Prior handoffs incorporated: `disaster-recovery.md`, `security-redteam.md`, and `data-integrity.md`, read under the lock; preserved their startup validation, service-worker gateway fallback and no-store behavior, strict catalogue integrity, and archive-search fingerprint.
 - Combined verification: Pending.
 - Final overnight integration commit: Pending; record the final commit including this completed integration result.
 - Push result: Pending; push only `codex/overnight-browser-compat` and `codex/overnight-integration`, without force.
