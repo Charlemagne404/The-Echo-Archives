@@ -3,7 +3,7 @@
 - Task slug: `data-integrity`
 - Task branch: `codex/overnight-data-integrity`
 - Starting integration commit: `aa81d5d088508e65822ea059af5928569e2c4043`
-- Task commit: `4ef4f386e09822119e961397bb365fd092edc3d3`
+- Task commit: `5e1541c650fb529504845b4d6b46385275bca17a`
 - Changes made: fail-closed split-source loading and safe source writes; raw source-integrity gate before build side effects; NFC normalization for list identity and search tags; synthetic corruption/rollback/order tests; dated QA report.
 - Bugs found/fixed: unsafe/duplicate writer IDs; malformed show replacement without preflight; temp-file debris after injected rename errors; missing/incomplete split manifests silently becoming empty or reordered reads; raw provider-identity conflicts reaching generation; composed/decomposed Unicode duplicates.
 - Important files/subsystems touched: `tools/lib/catalog-source.js`, `tools/build-catalog.js`, `backend/lib/catalog-integrity.js`, `shared/archive-search.js`, their tests, generated `sw.js`, and `docs/qa/2026-09-30-data-integrity.md`.
@@ -30,12 +30,14 @@
 - Re-read every handoff under the integration lock before rebasing. Preserve strict split-source validation and the pre-generation raw integrity gate if neighboring catalog or discovery work touches these paths.
 - The initial route/browser failures were caused by the hidden task worktree path interacting with Express `sendFile` dotfile handling. The task worktree now lives at `/Users/charliearnerstal/Documents/GitHub/echo-codex-data-integrity`; do not move it back under a dot-prefixed path when running browser or route tests.
 - The benchmark corpus is stale relative to current source; do not recapture its baseline as part of this task.
+- This branch was rebased from `aa81d5d088508e65822ea059af5928569e2c4043` onto `5eed3f1b522517544c19fdc27fd4206168d66ce4` under the integration lock. The only conflict was generated `sw.js`; the integrated service-worker generator was retained and `rtk npm run build:pages` regenerated the worker with the task's archive-search fingerprint, preserving the no-store and 502/503/504 offline-fallback behavior.
+- `disaster-recovery.md` and `security-redteam.md` were read under the lock and their integrated behavior was preserved.
 
 ## Integration result
 
-- Pre-integration commit: Pending lock acquisition.
-- Rebase/conflicts: Pending.
-- Prior handoffs incorporated: Pending lock-time review; none were present at task start.
+- Pre-integration commit: `5eed3f1b522517544c19fdc27fd4206168d66ce4`; the shared worktree was clean on `codex/overnight-integration`.
+- Rebase/conflicts: Rebased onto the pre-integration commit. One generated `sw.js` conflict was resolved by rebuilding from the integrated generator; no other conflicts remained.
+- Prior handoffs incorporated: `disaster-recovery.md` and `security-redteam.md`, read under the lock; their changes were retained.
 - Combined verification: Pending quiet-window verification on the combined branch.
 - Final overnight integration commit: Pending.
 - Push result: Pending; only the task and overnight integration branches may be pushed, never `main`.
