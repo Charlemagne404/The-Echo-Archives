@@ -39,6 +39,6 @@
     "verify": "npm run build:catalog && npm run build:pages && npm run check:structure && npm run check:generated && npm run check:release-artifact && npm run test:tools && npm run check:build-determinism && npm --prefix backend run verify"
   },
   "engines": {
-    "node": ">=22.12"
+    "node": ">=22.14.0"
   }
 }

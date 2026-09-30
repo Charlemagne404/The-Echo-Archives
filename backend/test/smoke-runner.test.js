@@ -1,5 +1,6 @@
 const assert = require("node:assert/strict");
 const test = require("node:test");
+const path = require("node:path");
 
 const { REQUIRED_BROWSER_FLAG, runSmokeTests } = require("../scripts/run-smoke-tests");
 
@@ -78,4 +79,27 @@ test("required browser mode preserves a non-zero smoke batch result", () => {
   );
 
   assert.equal(status, 1);
+});
+
+test("serial mode discovers browser smoke files from the test directory", () => {
+  let discoveredDirectory = "";
+  let dispatchedFiles = [];
+  const status = runSmokeTests(
+    createRunnerOptions({
+      args: ["--serial"],
+      readDir: (directory) => {
+        discoveredDirectory = directory;
+        return ["first.smoke.js", "not-a-smoke.test.js", "second.smoke.js"];
+      },
+      runBatchImpl: (files, concurrency) => {
+        dispatchedFiles = files;
+        assert.equal(concurrency, 1);
+        return 0;
+      },
+    }),
+  );
+
+  assert.equal(status, 0);
+  assert.equal(discoveredDirectory, path.resolve(__dirname));
+  assert.deepEqual(dispatchedFiles, ["test/first.smoke.js", "test/second.smoke.js"]);
 });

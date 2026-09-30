@@ -100,7 +100,8 @@ function runSmokeTests({
   }
 
   if (args.includes("--serial")) {
-    const allSmokeFiles = readDir(testRoot)
+    const smokeTestDirectory = path.join(testRoot, "test");
+    const allSmokeFiles = readDir(smokeTestDirectory)
       .filter((fileName) => fileName.endsWith(".smoke.js"))
       .sort()
       .map((fileName) => path.join("test", fileName));

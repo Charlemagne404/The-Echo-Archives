@@ -279,6 +279,10 @@ test("mobile navigation and filter sheet support keyboard focus, Escape, and foc
     await filterToggle.focus();
     await page.keyboard.press("Enter");
     await page.waitForFunction(() => document.getElementById("filterDropdown")?.dataset.state === "open");
+    await page.waitForFunction(() => {
+      const grid = document.querySelector("#filterDropdown .filter-option-grid");
+      return grid && Number.parseFloat(getComputedStyle(grid).opacity) >= 0.99;
+    });
     assert.equal(await page.locator("#filterDropdown").getAttribute("role"), "dialog");
     assert.equal(await page.locator("#filterDropdown").getAttribute("aria-modal"), "true");
     assert.equal(await filterToggle.getAttribute("aria-expanded"), "true");
@@ -335,6 +339,11 @@ test("submission mode, tag-picker, and correction-result states pass semantic ch
     const tagInput = page.locator('[data-tag-input="selectedTags"]');
     await page.waitForFunction(
       () => document.querySelector('[data-toggle-tag-picker="selectedTags"]')?.getAttribute("aria-expanded") === "true",
+    );
+    await page.waitForFunction(
+      () => document.activeElement === document.querySelector('[data-tag-input="selectedTags"]'),
+      null,
+      { timeout: 5_000 },
     );
     const tagPickerFocusDebug = await page.evaluate(() => {
       const input = document.querySelector('[data-tag-input="selectedTags"]');

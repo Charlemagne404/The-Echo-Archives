@@ -26,7 +26,7 @@ npm start
 ```
 
 By default the service serves the static site from the repo root as well, so you can open `http://localhost:3010`.
-Node.js 22.12 or newer is required. CI pins the current production runtime, Node.js 22.23.1. The start/dev/config wrappers load `backend/.env` when it exists without overriding variables already exported by the shell.
+Node.js 22.14 or newer is required. This is the first Node 22 release with Node-API 10, which the `better-sqlite3` 13 native binding requires. CI pins the current production runtime, Node.js 22.23.1. The start/dev/config wrappers load `backend/.env` when it exists without overriding variables already exported by the shell.
 
 ## Environment
 

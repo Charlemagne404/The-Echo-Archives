@@ -399,6 +399,7 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     await page.getByRole("button", { name: "Retry" }).click();
     await page.locator("#maintainerAppShell").waitFor({ state: "visible" });
     await page.getByRole("button", { name: "Refresh queue" }).waitFor({ state: "visible" });
+    await page.waitForFunction(() => Boolean(document.querySelector("#maintainerDetailMeta")?.textContent?.trim()));
 
     const expireSession = (route) => route.fulfill({
       status: 401,

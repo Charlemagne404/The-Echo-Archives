@@ -42,8 +42,9 @@ require_common_commands() {
   [[ -x /usr/bin/node ]] || die "the system Node runtime is missing at /usr/bin/node"
   /usr/bin/node -e '
     const [major, minor] = process.versions.node.split(".").map(Number);
-    process.exit(major > 22 || (major === 22 && minor >= 12) ? 0 : 1);
-  ' || die "Node.js 22.12 or newer is required"
+    const napi = Number(process.versions.napi || 0);
+    process.exit((major > 22 || (major === 22 && minor >= 14)) && napi >= 10 ? 0 : 1);
+  ' || die "Node.js 22.14+ with Node-API 10 or newer is required"
 }
 
 write_release_metadata() {

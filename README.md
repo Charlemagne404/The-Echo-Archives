@@ -74,7 +74,7 @@ The first-party analytics design and retention boundary are documented in
 
 - Static HTML, CSS, and vanilla JavaScript
 - Shared frontend modules in `shared/app/`
-- Node 22.12+ (CI and production currently use 22.23.1)
+- Node 22.14+ (CI and production currently use 22.23.1)
 - Express
 - SQLite for ratings and submission workflow storage
 - Optional Ollama integration for the preserved Archivist feature
@@ -87,6 +87,15 @@ Install backend dependencies once:
 
 ```bash
 npm --prefix backend ci
+```
+
+The SQLite addon ships prebuilt binaries for macOS, Linux, and Windows x64/arm64.
+If your platform needs a source build, install Python 3 and a C++20 toolchain
+(plus `make` on Unix-like systems, or the MSVC C++ Build Tools on Windows), then
+ensure `node-gyp` is available from your active npm/Node toolchain and run:
+
+```bash
+npm --prefix backend explore better-sqlite3 -- npm run build-release
 ```
 
 Install Chromium before the required browser checks:

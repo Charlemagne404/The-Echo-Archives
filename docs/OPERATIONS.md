@@ -43,7 +43,7 @@ The 2026-08-20 and 2026-08-18 reports remain historical snapshots.
 
 The supported production shape is:
 
-- Node.js `22.12` or newer; CI and production currently pin `22.23.1`
+- Node.js `22.14` or newer; CI and production currently pin `22.23.1`
 - the Express service bound to `127.0.0.1:3010` through Caddy
 - Caddy terminating HTTPS for `https://echoarchives.net`
 - systemd running the app as the dedicated `echo-archives` account

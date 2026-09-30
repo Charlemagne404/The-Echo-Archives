@@ -1,5 +1,9 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const { assertNativeRuntime } = require("./native-runtime");
+
+assertNativeRuntime();
+
 const Database = require("better-sqlite3");
 
 const DEFAULT_SYNCHRONOUS_MODE = "FULL";
