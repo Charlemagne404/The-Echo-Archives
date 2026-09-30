@@ -186,6 +186,7 @@ test("raw search data, forbidden keys, nested values, and query-bearing URLs nev
   assert.doesNotMatch(serializedCalls, /#archive/i);
   assert.equal(analytics.sanitizeDiscoveryUrl({ origin: "https://echoarchives.net", pathname: "/collections", search: "?q=secret", hash: "#archive" }), "https://echoarchives.net/collections");
   assert.equal(analytics.sanitizeDiscoveryUrl({ origin: "https://echoarchives.net", pathname: "/collections?q=secret#archive" }), "https://echoarchives.net/collections");
+  assert.equal(analytics.sanitizeDiscoveryUrl({ href: "https://echoarchives.net/collections?q=secret#archive" }), "https://echoarchives.net/collections");
   assert.equal(analytics.sanitizeDiscoveryUrl({ href: "http://[invalid", origin: "https://echoarchives.net", pathname: "/collections?q=secret#archive" }), "https://echoarchives.net/collections");
 });
 

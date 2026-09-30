@@ -4,6 +4,7 @@ const { spawnSync } = require("node:child_process");
 const { chromium, firefox, webkit } = require("playwright");
 
 const testRoot = path.resolve(__dirname, "..");
+const smokeTestDirectory = path.join(testRoot, "test");
 // Keep mutating flows isolated while overlapping the slower read-only browser smoke files.
 const readOnlySmokeFiles = [
   "test/accessibility.smoke.js",
@@ -17,8 +18,15 @@ const readOnlySmokeFiles = [
   "test/discovery-stability.smoke.js",
   "test/maintainer-queue.smoke.js",
   "test/maintainer-import.smoke.js",
+  "test/discovery-analytics.handler.smoke.js",
+ "test/browser-api-compat.smoke.js",
 ];
-const statefulSmokeFiles = ["test/chat-submit-flow.smoke.js", "test/community-rating-flow.smoke.js"];
+const statefulSmokeFiles = [
+  "test/chat-submit-flow.smoke.js",
+  "test/community-rating-flow.smoke.js",
+  "test/discovery-analytics.smoke.js",
+  "test/listener-library-product.smoke.js",
+];
 
 const browserTypes = { chromium, firefox, webkit };
 const REQUIRED_BROWSER_FLAG = "--require-browser";
@@ -61,6 +69,23 @@ function runBatch(files, concurrency) {
   return typeof result.status === "number" ? result.status : 1;
 }
 
+function discoverSmokeFiles(readDir = fs.readdirSync) {
+  return readDir(smokeTestDirectory)
+    .filter((fileName) => fileName.endsWith(".smoke.js"))
+    .sort()
+    .map((fileName) => path.join("test", fileName));
+}
+
+function getSmokeInventoryProblems(discoveredFiles) {
+  const configuredFiles = [...readOnlySmokeFiles, ...statefulSmokeFiles];
+  const configuredSet = new Set(configuredFiles);
+  const discoveredSet = new Set(discoveredFiles);
+  const duplicateFiles = configuredFiles.filter((file, index) => configuredFiles.indexOf(file) !== index);
+  const unassignedFiles = discoveredFiles.filter((file) => !configuredSet.has(file));
+  const staleFiles = configuredFiles.filter((file) => !discoveredSet.has(file));
+  return { duplicateFiles, unassignedFiles, staleFiles };
+}
+
 function runSmokeTests({
   args = process.argv.slice(2),
   env = process.env,
@@ -100,12 +125,27 @@ function runSmokeTests({
   }
 
   if (args.includes("--serial")) {
-    const smokeTestDirectory = path.join(testRoot, "test");
-    const allSmokeFiles = readDir(smokeTestDirectory)
-      .filter((fileName) => fileName.endsWith(".smoke.js"))
-      .sort()
-      .map((fileName) => path.join("test", fileName));
+    const allSmokeFiles = discoverSmokeFiles(readDir);
+    if (allSmokeFiles.length === 0) {
+      error("[smoke] ERROR: No browser smoke files found in backend/test.");
+      return 1;
+    }
     return runBatchImpl(allSmokeFiles, 1);
+  }
+
+  const inventoryProblems = getSmokeInventoryProblems(discoverSmokeFiles(readDir));
+  if (
+    inventoryProblems.duplicateFiles.length > 0 ||
+    inventoryProblems.unassignedFiles.length > 0 ||
+    inventoryProblems.staleFiles.length > 0
+  ) {
+    error(
+      `[smoke] ERROR: Browser smoke inventory is incomplete. ` +
+      `Unassigned: ${inventoryProblems.unassignedFiles.join(", ") || "none"}; ` +
+      `stale: ${inventoryProblems.staleFiles.join(", ") || "none"}; ` +
+      `duplicated: ${inventoryProblems.duplicateFiles.join(", ") || "none"}.`,
+    );
+    return 1;
   }
 
   const readOnlyStatus = runBatchImpl(

@@ -140,6 +140,12 @@ const PUBLIC_PAGE_FILES = new Map([
   ["/terms", "terms.html"],
   ["/cookies", "cookies.html"],
   ["/copyright", "copyright.html"],
+  ["/maintainer/submissions.html", "maintainer/submissions.html"],
+  ["/maintainer/submissions/report.html", "maintainer/submissions/report.html"],
+  ["/maintainer/imports.html", "maintainer/imports.html"],
+  ["/maintainer/imports/report.html", "maintainer/imports/report.html"],
+  ["/maintainer/collections.html", "maintainer/collections.html"],
+  ["/maintainer/analytics.html", "maintainer/analytics.html"],
 ]);
 
 function normalizeSiteUrl(value = "") {

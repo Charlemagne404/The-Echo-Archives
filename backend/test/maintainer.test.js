@@ -195,13 +195,24 @@ test("maintainer session and queue routes enforce auth and allow queue updates a
   const context = await startMaintainerServer();
 
   try {
-    const pageResponse = await fetch(`${context.baseUrl}/maintainer/submissions.html`);
-    assert.equal(pageResponse.status, 200);
-    assert.match(await pageResponse.text(), /maintainer passphrase/i);
-
-    const analyticsPageResponse = await fetch(`${context.baseUrl}/maintainer/analytics.html`);
-    assert.equal(analyticsPageResponse.status, 200);
-    assert.match(await analyticsPageResponse.text(), /archive pulse/i);
+    const maintainerPageRoutes = [
+      "/maintainer/submissions.html",
+      "/maintainer/submissions/report.html",
+      "/maintainer/imports.html",
+      "/maintainer/imports/report.html",
+      "/maintainer/collections.html",
+      "/maintainer/analytics.html",
+    ];
+    for (const route of maintainerPageRoutes) {
+      const response = await fetch(`${context.baseUrl}${route}`);
+      assert.equal(response.status, 200, `${route} is served`);
+      assert.match(response.headers.get("x-robots-tag") || "", /noindex, nofollow, noarchive/i);
+      if (route === "/maintainer/submissions.html") {
+        assert.match(await response.text(), /maintainer passphrase/i);
+      } else if (route === "/maintainer/analytics.html") {
+        assert.match(await response.text(), /archive pulse/i);
+      }
+    }
 
     const unauthorizedList = await fetch(`${context.baseUrl}/api/maintainer/submissions`);
     assert.equal(unauthorizedList.status, 401);
@@ -285,6 +296,13 @@ test("maintainer session and queue routes enforce auth and allow queue updates a
     const patchPayload = await patchResponse.json();
     assert.equal(patchPayload.submission.status, "accepted");
     assert.equal(patchPayload.submission.reviewedBy, "CA");
+
+    const invalidStatusResponse = await fetch(`${context.baseUrl}/api/maintainer/submissions/${context.seededId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", Cookie: cookie },
+      body: JSON.stringify({ status: "published", priority: "normal" }),
+    });
+    assert.equal(invalidStatusResponse.status, 400, "moderation transitions reject statuses outside the queue contract");
 
     const publishResponse = await fetch(`${context.baseUrl}/api/maintainer/submissions/${context.seededId}/listener-review/publish`, {
       method: "POST",

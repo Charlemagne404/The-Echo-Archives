@@ -498,6 +498,8 @@ async function teardownSmoke() {
 
   if (tempDir) {
     fs.rmSync(tempDir, { recursive: true, force: true });
+    tempDir = null;
+    smokeStaticRoot = null;
   }
 }
 
