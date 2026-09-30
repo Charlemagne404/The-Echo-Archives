@@ -171,10 +171,10 @@
     transition: opacity 160ms ease, transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  .site-nav-shell[data-state="open"] .site-nav-drawer {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  .site-nav-shell[data-state="open"] .site-nav-drawer { visibility: visible; opacity: 1; transform: translateX(0); }
+  .site-nav-shell[data-state="open"] .site-nav-drawer button,
+  .site-nav-shell[data-state="open"] .site-nav-drawer a,
+  .site-nav-shell[data-state="open"] .site-nav-drawer a span { visibility: visible; }
 
   .site-nav-drawer-head {
     display: flex;

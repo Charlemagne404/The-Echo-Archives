@@ -1185,7 +1185,7 @@ async function startServer() {
         res.set("Cache-Control", "no-cache");
         const manifestEntry = publicPageManifestByFile.get(fileName);
         if (!manifestEntry) {
-          return res.sendFile(path.join(config.STATIC_ROOT, fileName));
+          return res.sendFile(fileName, { root: config.STATIC_ROOT });
         }
         if (manifestEntry.noIndex) {
           res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
@@ -1286,7 +1286,7 @@ async function startServer() {
         if (fileName === "favicon.ico") {
           res.set("Content-Type", "image/x-icon");
         }
-        return res.sendFile(path.join(config.STATIC_ROOT, fileName));
+        return res.sendFile(fileName, { root: config.STATIC_ROOT });
       });
     }
 

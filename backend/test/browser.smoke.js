@@ -1,6 +1,8 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
+const fs = require("node:fs");
 const http = require("node:http");
+const path = require("node:path");
 const {
   buildSummaryPayload,
   countDistinctRows,
@@ -230,6 +232,8 @@ test("static delivery files expose intentional HTTP statuses", async () => {
     { path: "/404.html", status: 404 },
     { path: "/500.html", status: 500 },
     { path: "/offline.html", status: 200 },
+    { path: "/style.css", status: 200, contentType: "text/css" },
+    { path: "/script.js", status: 200 },
     { path: "/sw.js", status: 200 },
     { path: "/robots.txt", status: 200 },
     { path: "/site.webmanifest", status: 200 },
@@ -625,6 +629,139 @@ test("service worker supports cached public pages offline and falls back for unc
       await startSmokeServer();
     }
     await context.close();
+  }
+});
+
+test("service worker update replaces a stale worker without caching private Library state", async () => {
+  const context = await browser.newContext({ viewport: { width: 1280, height: 720 } });
+  const page = await context.newPage();
+  const { siteRoot } = getSmokeContext();
+  const serviceWorkerSource = fs.readFileSync(path.join(siteRoot, "sw.js"), "utf8");
+  const scriptResponses = [];
+  let scriptRevision = "compat-first";
+  const proxyServer = http.createServer(async (request, response) => {
+    const pathname = new URL(request.url, "http://127.0.0.1").pathname;
+    if (pathname === "/") {
+      response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
+      response.end("<!doctype html><html lang=\"en\"><title>Service worker compatibility fixture</title><body>Offline archive test</body></html>");
+      return;
+    }
+    if (pathname === "/sw.js") {
+      scriptResponses.push(scriptRevision);
+      response.writeHead(200, {
+        "cache-control": "no-cache",
+        "content-type": "text/javascript; charset=utf-8",
+        "service-worker-allowed": "/",
+      });
+      response.end(`${serviceWorkerSource}\n// ${scriptRevision}`);
+      return;
+    }
+
+    try {
+      const upstream = await fetch(new URL(request.url, baseUrl), {
+        method: request.method,
+        headers: { accept: request.headers.accept || "*/*" },
+      });
+      const headers = Object.fromEntries(upstream.headers.entries());
+      ["connection", "content-encoding", "content-length", "transfer-encoding"].forEach((header) => delete headers[header]);
+      response.writeHead(upstream.status, headers);
+      response.end(Buffer.from(await upstream.arrayBuffer()));
+    } catch (error) {
+      response.writeHead(502, { "content-type": "text/plain; charset=utf-8" });
+      response.end(error.message || "Proxy request failed.");
+    }
+  });
+  await new Promise((resolve, reject) => {
+    proxyServer.once("error", reject);
+    proxyServer.listen(0, "127.0.0.1", resolve);
+  });
+  const proxyBaseUrl = `http://127.0.0.1:${proxyServer.address().port}`;
+
+  try {
+    await page.goto(proxyBaseUrl, { waitUntil: "load" });
+    await page.evaluate(() => navigator.serviceWorker.register("/sw.js"));
+    await page.evaluate(() => navigator.serviceWorker.ready);
+    await page.waitForFunction(() => navigator.serviceWorker.controller !== null, undefined, { timeout: 10_000 });
+
+    const privateState = await page.evaluate(async () => {
+      const { createListenerLibrary } = await import("/shared/library/service.js");
+      const library = createListenerLibrary({
+        databaseName: "echo-browser-compat-cache-check",
+        channelName: "echo-browser-compat-cache-check:changes",
+      });
+      const state = await library.setState("compat-private-show", "hidden", { titleSnapshot: "compat-private-title" });
+      const rating = await library.setRating("compat-private-show", 1);
+      const preference = await library.setPersonalDiscoveryEnabled(true);
+      const entry = await library.getEntry("compat-private-show");
+      const setting = await library.getPersonalDiscoveryEnabled();
+      const stale = await caches.open("echo-archives-assets-stale-compat");
+      await stale.put(new Request(new URL("/stale-compat.json", location.origin)), new Response("stale"));
+      return {
+        stateOk: state.ok,
+        ratingOk: rating.ok,
+        preferenceOk: preference.ok,
+        entry: entry.value,
+        preference: setting.value,
+      };
+    });
+    assert.equal(privateState.stateOk, true);
+    assert.equal(privateState.ratingOk, true);
+    assert.equal(privateState.preferenceOk, true);
+    assert.equal(privateState.entry.showId, "compat-private-show");
+    assert.equal(privateState.entry.rating, 1);
+    assert.equal(privateState.preference, true);
+
+    scriptRevision = "compat-second";
+    const update = await page.evaluate(async () => {
+      const registration = await navigator.serviceWorker.ready;
+      const activated = new Promise((resolve, reject) => {
+        const timer = window.setTimeout(() => reject(new Error("Timed out waiting for the updated service worker.")), 15_000);
+        registration.addEventListener("updatefound", () => {
+          const worker = registration.installing;
+          const checkState = () => {
+            if (worker?.state === "activated") {
+              window.clearTimeout(timer);
+              resolve(worker.state);
+            }
+          };
+          worker?.addEventListener("statechange", checkState);
+          checkState();
+        }, { once: true });
+      });
+      await registration.update();
+      await activated;
+      return {
+        active: registration.active?.state || "",
+        cacheKeys: await caches.keys(),
+      };
+    });
+
+    assert.equal(update.active, "activated");
+    assert.ok(scriptResponses.includes("compat-first"), "initial installation should fetch the first script revision");
+    assert.ok(scriptResponses.includes("compat-second"), "registration.update() should fetch a changed script revision");
+    assert.equal(update.cacheKeys.includes("echo-archives-assets-stale-compat"), false, "activation should retire stale Echo caches");
+
+    const cachedPrivateMarkers = await page.evaluate(async () => {
+      const markers = ["compat-private-show", "compat-private-title", '"rating":1', '"state":"hidden"'];
+      const matches = [];
+      for (const cacheName of await caches.keys()) {
+        const cache = await caches.open(cacheName);
+        for (const request of await cache.keys()) {
+          const response = await cache.match(request);
+          const contentType = response?.headers.get("content-type") || "";
+          if (!/^(?:text\/|application\/(?:javascript|json|xml))/i.test(contentType)) continue;
+          const body = await response.text();
+          markers.forEach((marker) => {
+            if (body.includes(marker)) matches.push({ cacheName, url: request.url, marker });
+          });
+        }
+      }
+      return matches;
+    });
+    assert.deepEqual(cachedPrivateMarkers, [], "private Library records and ratings must remain outside Cache Storage");
+  } finally {
+    await context.close();
+    if (proxyServer.listening) await new Promise((resolve) => proxyServer.close(resolve));
   }
 });
 

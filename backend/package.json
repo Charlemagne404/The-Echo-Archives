@@ -18,6 +18,8 @@
     "test:setup:browser": "playwright install chromium",
     "test:smoke:maintainer-import": "node --test test/maintainer-import.smoke.js",
     "test:smoke:serial": "node scripts/run-smoke-tests.js --serial",
+    "test:smoke:service-worker": "node --test --test-concurrency=1 --test-name-pattern='static delivery files expose intentional HTTP statuses|service worker supports cached public pages offline and falls back for uncached routes|service worker update replaces a stale worker without caching private Library state' test/browser.smoke.js",
+    "test:smoke:compat": "node scripts/run-browser-compat.js",
     "check:config": "node ../tools/run-backend.js --check-config",
     "validate:data": "node scripts/validate-data.js",
     "report:discovery-gaps": "node scripts/discovery-gap-report.js",

@@ -3,7 +3,12 @@ const fs = require("node:fs");
 const http = require("node:http");
 const path = require("node:path");
 const { after, before, test } = require("node:test");
-const { chromium } = require("playwright");
+const browserTypes = require("playwright");
+const browserName = String(process.env.SMOKE_BROWSER || "chromium").trim().toLowerCase();
+const browserType = browserTypes[browserName];
+if (!browserType) {
+  throw new Error(`Unsupported SMOKE_BROWSER "${browserName}". Use chromium, firefox, or webkit.`);
+}
 
 const repositoryRoot = path.resolve(__dirname, "../..");
 const moduleRoot = path.join(repositoryRoot, "shared", "library");
@@ -44,7 +49,7 @@ before(async () => {
     server.listen(0, "127.0.0.1", resolve);
   });
   origin = `http://127.0.0.1:${server.address().port}`;
-  browser = await chromium.launch();
+  browser = await browserType.launch();
 });
 
 after(async () => {
@@ -148,7 +153,7 @@ test("Listener Library schema validates every state, IDs, ratings, timestamps, a
   assert.equal(schema.validateBackupDocument({ ...validBackup, entries: [validBackup.entries[0], validBackup.entries[0]] }).issues.at(-1).code, "duplicate_show_id");
 });
 
-test("real Chromium Library API persists entries, ratings, preferences, imports, and reset atomically", async () => {
+test(`real ${browserName} Library API persists entries, ratings, preferences, imports, and reset atomically`, async () => {
   const context = await createContext();
   try {
     const first = await context.newPage();
@@ -327,7 +332,56 @@ test("real Chromium Library API persists entries, ratings, preferences, imports,
   }
 });
 
-test("real Chromium reports storage failures, preserves malformed data, and handles migrations and stale tabs", async () => {
+test(`real ${browserName} imports and reads a Library with 500 entries`, async () => {
+  const context = await createContext();
+  try {
+    const page = await context.newPage();
+    const showIds = Array.from({ length: 500 }, (_value, index) => `compat-bulk-${String(index).padStart(4, "0")}`);
+    const { availability } = await initializeLibrary(page, { knownShowIds: showIds });
+    assert.equal(availability.ok, true);
+
+    const baseTime = Date.parse("2026-09-28T14:00:00.000Z");
+    const states = ["saved", "listening", "finished", "dropped", "hidden"];
+    const document = {
+      format: backupFormat,
+      schemaVersion: 1,
+      exportedAt: new Date(baseTime).toISOString(),
+      entries: showIds.map((showId, index) => {
+        const timestamp = new Date(baseTime + index * 1000).toISOString();
+        return {
+          showId,
+          state: states[index % states.length],
+          ...(index % 3 === 0 ? { rating: (index % 5) + 1 } : {}),
+          createdAt: timestamp,
+          updatedAt: timestamp,
+        };
+      }),
+    };
+    const preview = await call(page, "previewImport", document, { mode: "replace" });
+    assert.equal(preview.ok, true);
+    assert.equal(preview.value.valid, true);
+    assert.equal(preview.value.totalEntries, 500);
+    assert.deepEqual(preview.value.statusCounts, {
+      saved: 100,
+      listening: 100,
+      finished: 100,
+      dropped: 100,
+      hidden: 100,
+    });
+
+    const committed = await call(page, "commitImport", preview.value.previewId, { confirmed: true });
+    assert.equal(committed.ok, true);
+    assert.equal((await call(page, "listEntries")).value.length, 500);
+    assert.deepEqual((await call(page, "listEntries")).value.slice(0, 5).map((entry) => entry.state), Array(5).fill("saved"));
+    assert.equal((await call(page, "getEntry", "compat-bulk-0499")).value.state, "hidden");
+    assert.equal((await call(page, "getEntry", "compat-bulk-0499")).value.rating, undefined);
+    assert.equal((await call(page, "getEntry", "compat-bulk-0495")).value.rating, 1);
+  } finally {
+    await context.close();
+  }
+});
+
+test(`real ${browserName} reports storage failures, preserves malformed data, and handles migrations and stale tabs`, { timeout: 90_000 }, async () => {
   const context = await createContext();
   try {
     const first = await context.newPage();
@@ -488,7 +542,7 @@ test("real Chromium reports storage failures, preserves malformed data, and hand
     const base = await initializeLibrary(first, { databaseName: blockedDatabase, channelName: `${blockedDatabase}:changes` });
     await first.evaluate(() => { window.__versionEvents = []; window.__stopVersionEvents = library.subscribe((event) => window.__versionEvents.push(event.type)); });
     await second.goto(`${origin}/`);
-    await directDatabase(second, blockedDatabase, 1);
+    await directDatabase(first, blockedDatabase, 1);
     const upgradeResult = await second.evaluate(async (name) => {
       const { createListenerLibrary } = await import(`${location.origin}/shared/library/service.js`);
       window.futureLibrary = createListenerLibrary({
@@ -501,7 +555,7 @@ test("real Chromium reports storage failures, preserves malformed data, and hand
     }, blockedDatabase);
     assert.equal(upgradeResult.error.code, "blocked_upgrade");
     assert.equal((await first.evaluate(() => window.__versionEvents.includes("upgrade"))), true);
-    await second.evaluate(() => window.__testDatabase.close());
+    await first.evaluate(() => window.__testDatabase.close());
     const reopened = await second.evaluate(async () => futureLibrary.checkAvailability());
     assert.equal(reopened.ok, true);
     assert.equal((await call(first, "getEntry", "before-upgrade")).error.code, "unsupported_database_version");

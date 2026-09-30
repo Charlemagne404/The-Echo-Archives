@@ -17,6 +17,7 @@ const library = getLibraryService();
 let observer = null;
 let personalDiscoveryDataPromise = null;
 let personalPresentationGeneration = 0;
+let pendingPersonalDiscoveryValue;
 const recommendationGroupBaselines = new WeakMap();
 const noAnchorPersonalizer = createPersonalDiscoveryPersonalizer({
   similarityIndex: { getPublicSimilarityMatches: () => [] },
@@ -195,8 +196,11 @@ function renderControlState(control, runtimeState) {
   remove.hidden = !entry;
   remove.disabled = unavailable;
   const preference = control.querySelector("[data-library-discovery-preference]");
-  preference.checked = runtimeState.personalContext?.enabled === true && !runtimeState.loading;
-  preference.disabled = unavailable || Boolean(runtimeState.personalDiscoveryError);
+  const preferencePending = pendingPersonalDiscoveryValue !== undefined;
+  preference.checked = preferencePending
+    ? pendingPersonalDiscoveryValue
+    : runtimeState.personalContext?.enabled === true && !runtimeState.loading;
+  preference.disabled = unavailable || Boolean(runtimeState.personalDiscoveryError) || preferencePending;
   preference.setAttribute("aria-describedby", `library-discovery-help-${showId}`);
   const preferenceHelp = control.querySelector(".library-personal-discovery-help");
   if (runtimeState.personalDiscoveryError) {
@@ -452,10 +456,13 @@ function bindPersonalDiscoveryPreference() {
     if (!preference) return;
 
     const requestedValue = preference.checked;
+    pendingPersonalDiscoveryValue = requestedValue;
     preference.disabled = true;
     const result = await library.setPersonalDiscoveryEnabled(requestedValue);
     if (!result.ok) {
+      pendingPersonalDiscoveryValue = undefined;
       await refreshLibraryRuntime();
+      renderAllControls();
       const status = preference.closest("[data-library-control]")?.querySelector(".library-control-status");
       if (status) {
         status.textContent = `Personal Discovery could not be changed: ${result.error.message}`;
@@ -465,6 +472,8 @@ function bindPersonalDiscoveryPreference() {
     }
 
     await refreshLibraryRuntime();
+    pendingPersonalDiscoveryValue = undefined;
+    renderAllControls();
     const status = preference.closest("[data-library-control]")?.querySelector(".library-control-status");
     if (status) {
       status.textContent = `Personal Discovery ${requestedValue ? "enabled" : "disabled"} on this browser.`;

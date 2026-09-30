@@ -466,7 +466,7 @@ function renderMobileDrawerLink(item, isActive) {
   const activeClass = isActive ? " is-active" : "";
   const currentPage = isActive ? ' aria-current="page"' : "";
   const icon = MOBILE_NAV_ICONS[item.icon] || MOBILE_NAV_ICONS.document;
-  return `<a class="site-mobile-nav-link${activeClass}"${currentPage} href="${item.href}"><svg class="site-mobile-nav-icon" viewBox="0 0 24 24" aria-hidden="true">${icon}</svg><span>${item.label}</span></a>`;
+  return `<a class="site-mobile-nav-link${activeClass}"${currentPage} href="${item.href}" aria-label="${escapeAttribute(item.label)}"><svg class="site-mobile-nav-icon" viewBox="0 0 24 24" aria-hidden="true">${icon}</svg><span>${item.label}</span></a>`;
 }
 
 function renderSocialLinks(socialLinks = []) {
