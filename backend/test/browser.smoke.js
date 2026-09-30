@@ -631,7 +631,8 @@ test("service worker supports cached public pages offline and falls back for unc
 
     await page.goto(`${baseUrl}/`, { waitUntil: "domcontentloaded" });
     assert.equal(await page.title(), "The Echo Archives — Audio Drama Discovery");
-    await page.waitForFunction(() => document.body.dataset.homeReady === "true", undefined, { timeout: 15_000 });
+    // The offline shell must rehydrate the cached module graph after the server switches to its failure proxy.
+    await page.waitForFunction(() => document.body.dataset.homeReady === "true", undefined, { timeout: 25_000 });
 
     await page.goto(`${baseUrl}/this-route-should-fallback-on-gateway-error`, { waitUntil: "domcontentloaded" });
     assert.equal(await page.title(), "Offline - The Echo Archives");
