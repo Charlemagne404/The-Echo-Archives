@@ -89,7 +89,7 @@ The current tests prove private IP/literal and private DNS-answer rejection befo
 
 ## 9. Verification evidence
 
-All commands ran in the assigned task worktree. Results:
+Commands ran in the assigned task worktree unless the row names the shared integration worktree. Results:
 
 | Command | Result |
 | --- | --- |
@@ -101,10 +101,12 @@ All commands ran in the assigned task worktree. Results:
 | `rtk proxy npm --prefix backend run test:library:product` | Passed, 4/4 private Library product tests. |
 | `rtk npm audit` | Passed; zero vulnerabilities reported. |
 | `rtk npm audit --prefix backend` | Passed; zero vulnerabilities reported. |
-| `rtk proxy npm run verify` | Passed after integration rebase, exit 0. The serial backend suite reported 450/450 passing, and every required Chromium smoke batch reported zero failures and zero skips. The chain also passed catalogue/page builds, structure, generated-output, release-artifact, tooling, and determinism gates. |
+| `rtk proxy npm run verify` (task branch after rebase, before merge) | Passed, exit 0. The serial backend suite reported 450/450 passing, and every required Chromium smoke batch reported zero failures and zero skips. Catalogue/page builds, structure, generated-output, release-artifact, tooling, and determinism gates also passed. This validated the same source tree later fast-forwarded into integration. |
+| `rtk proxy npm run verify` (shared integration worktree after fast-forward) | Did not pass. `test:serial` again reported 450/450 passing. In `test:smoke:required`, `test/mobile-launch.smoke.js` was cancelled with `Promise resolution is still pending but the event loop has already resolved`; its child returned exit 143. The smoke runner continued into later files, but the command session detached before a final aggregate was captured. Source inspection found no direct signal/kill path in that test. Since the same tree had passed the complete required browser run immediately before integration, this is recorded as one unexplained browser-runner interruption; the full suite was not looped to force a green result. |
+| `npm run test:tools` within full verification | 149 passed, 5 skipped with explicit environment reasons: two Linux production-host fixtures and three tests requiring Restic, unavailable on the macOS host. |
 | `rtk git diff --check` | Passed before documentation/commit. |
 
-`check:structure` emitted its existing soft-limit warnings for source and cover-file sizes; it did not fail. Earlier incomplete route sweeps before generated-page setup and non-dot static-root aliases were corrected were test-harness setup failures, not product failures, and were superseded by the successful focused and full verification above. The dot-prefixed assigned worktree path caused Express `sendFile`/`send` to reject fixtures because a parent path component began with a dot; test servers use temporary non-dot symlink aliases. The incoming disaster-recovery campaign added the equivalent `visible-static-root` helper before this branch integrated, so the rebased task reuses that helper rather than carrying a duplicate. This workaround is test-only and does not change app routing. The final 450-test verification was run on the security task branch after rebasing onto the shared overnight integration tip; a second combined run is recorded in the handoff after fast-forward integration.
+`check:structure` emitted its existing soft-limit warnings for source and cover-file sizes; it did not fail. Earlier incomplete route sweeps before generated-page setup and non-dot static-root aliases were corrected were test-harness setup failures, not product failures, and were superseded by the successful focused and full verification above. The dot-prefixed assigned worktree path caused Express `sendFile`/`send` to reject fixtures because a parent path component began with a dot; test servers use temporary non-dot symlink aliases. The incoming disaster-recovery campaign added the equivalent `visible-static-root` helper before this branch integrated, so the rebased task reuses that helper rather than carrying a duplicate. This workaround is test-only and does not change app routing. The integrated full-run interruption is left as an unresolved verification limitation pending a later diagnostic run under the protocol's retry guidance; focused security, targeted browser, and Library privacy checks all passed after fast-forward integration.
 
 ## 10. Files, integration record, and reconciler notes
 
