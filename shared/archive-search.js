@@ -139,6 +139,7 @@
 
   function normalizeTag(value) {
     return String(value || "")
+      .normalize("NFC")
       .trim()
       .toLowerCase()
       .replace(/\./g, "")

@@ -13,6 +13,7 @@ const { injectRuntimeSiteConfig } = require("../lib/public-page-render");
 const { createSimilarityIndex } = require("../../shared/archive-similarity");
 const { findFreePort } = require("./helpers/free-port");
 const { entityPath, getEntityShows, isIndexableEntity } = require("../../shared/archive-entities");
+const { createVisibleStaticRoot } = require("./helpers/visible-static-root");
 
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
@@ -43,6 +44,7 @@ async function waitForServer(url, timeoutMs = 60_000) {
 
 async function startPublicRouteServer(envOverrides = {}) {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-public-routes-"));
+  const staticRoot = createVisibleStaticRoot(tempDir, siteRoot);
   const dbPath = path.join(tempDir, "community.sqlite");
   const port = await findFreePort();
   const baseUrl = `http://127.0.0.1:${port}`;
@@ -52,7 +54,7 @@ async function startPublicRouteServer(envOverrides = {}) {
       ...process.env,
       PORT: String(port),
       SERVE_STATIC: "true",
-      STATIC_ROOT: siteRoot,
+      STATIC_ROOT: staticRoot,
       DB_PATH: dbPath,
       SITE_URL: baseUrl,
       NODE_ENV: "test",
@@ -120,6 +122,68 @@ async function stopPublicRouteServer({ serverProcess, tempDir }) {
     fs.rmSync(tempDir, { recursive: true, force: true });
   }
 }
+
+test("missing generated page manifest fails before database initialization", async () => {
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-missing-manifest-"));
+  const staticRoot = createVisibleStaticRoot(tempDir, siteRoot);
+  const dbPath = path.join(tempDir, "community.sqlite");
+  const preloadPath = path.join(tempDir, "inject-missing-manifest.cjs");
+  fs.writeFileSync(preloadPath, `
+    const fs = require("node:fs");
+    const readFileSync = fs.readFileSync;
+    fs.readFileSync = function (filePath, ...args) {
+      if (String(filePath).endsWith("/site-src/page-manifest.json")) {
+        const error = new Error("ENOENT: injected missing generated page manifest");
+        error.code = "ENOENT";
+        throw error;
+      }
+      return readFileSync.call(this, filePath, ...args);
+    };
+  `);
+
+  const serverProcess = spawn(process.execPath, ["--require", preloadPath, "server.js"], {
+    cwd: projectRoot,
+    env: {
+      ...process.env,
+      PORT: "42000",
+      SERVE_STATIC: "true",
+      STATIC_ROOT: staticRoot,
+      DB_PATH: dbPath,
+      SITE_URL: "http://127.0.0.1:42000",
+      NODE_ENV: "test",
+      OLLAMA_URL: "http://127.0.0.1:9/api/generate",
+    },
+    stdio: ["ignore", "ignore", "pipe"],
+  });
+  let stderr = "";
+  serverProcess.stderr.setEncoding("utf8").on("data", (chunk) => { stderr += chunk; });
+
+  try {
+    const result = await new Promise((resolve, reject) => {
+      const timeout = setTimeout(() => {
+        serverProcess.kill("SIGKILL");
+        reject(new Error("Timed out waiting for startup to reject the missing page manifest."));
+      }, 15_000);
+      serverProcess.once("error", (error) => {
+        clearTimeout(timeout);
+        reject(error);
+      });
+      serverProcess.once("close", (code, signal) => {
+        clearTimeout(timeout);
+        resolve({ code, signal });
+      });
+    });
+
+    assert.notEqual(result.code, 0);
+    assert.match(stderr, /injected missing generated page manifest/);
+    assert.equal(fs.existsSync(dbPath), false, "startup validation must fail before SQLite can be created or migrated");
+  } finally {
+    if (serverProcess.exitCode === null && serverProcess.signalCode === null) {
+      serverProcess.kill("SIGKILL");
+    }
+    fs.rmSync(tempDir, { recursive: true, force: true });
+  }
+});
 
 test("runtime page config replaces public feature and data attributes", () => {
   for (const [publicAnalyticsEnabled, expectedAnalyticsValue] of [[false, "false"], [true, "true"]]) {
@@ -797,6 +861,9 @@ test("server exposes only intended public files and preserves legacy show redire
       "/TODO.md",
       "/data/schema.md",
       "/shared/package.json",
+      "/%2e%2e/package.json",
+      "/data/%2e%2e/site-src/page-manifest.json",
+      "/shared%2f..%2fsite-src%2fpage-manifest.json",
     ]) {
       const response = await fetch(`${context.baseUrl}${route}`);
       assert.equal(response.status, 404, route);
@@ -933,7 +1000,7 @@ test("public data responses are versionable and exclude server-only catalog fiel
   }
 });
 
-test("malformed JSON requests remain actionable 400 responses", async () => {
+test("malformed, oversized, and unsupported JSON requests fail safely", async () => {
   const context = await startPublicRouteServer();
 
   try {
@@ -945,6 +1012,24 @@ test("malformed JSON requests remain actionable 400 responses", async () => {
     assert.equal(response.status, 400);
     const payload = await response.json();
     assert.doesNotMatch(payload.error || "", /unexpected server/i);
+
+    const oversized = await fetch(`${context.baseUrl}/api/submissions/shows`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ notes: "x".repeat(30_000) }),
+    });
+    assert.equal(oversized.status, 413);
+    const oversizedPayload = await oversized.json();
+    assert.doesNotMatch(oversizedPayload.error || "", /stack|node_modules|internal\/modules/i);
+
+    const unsupportedType = await fetch(`${context.baseUrl}/api/submissions/shows`, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain" },
+      body: "{\"showTitle\":\"not parsed\"}",
+    });
+    assert.equal(unsupportedType.status, 400);
+    const unsupportedPayload = await unsupportedType.json();
+    assert.doesNotMatch(unsupportedPayload.error || "", /stack|node_modules|internal\/modules/i);
   } finally {
     await stopPublicRouteServer(context);
   }

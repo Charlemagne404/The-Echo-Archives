@@ -91,6 +91,7 @@ function renderFilterMenuLauncher({
     button.type = "button";
     button.dataset.filterBucketId = bucket.id;
     button.dataset.hasSelection = String(getBucketSelectionCount(bucket, filters) > 0);
+    button.setAttribute("aria-label", bucket.label);
     button.addEventListener("click", () => {
       onOpenBucket(bucket.id);
     });

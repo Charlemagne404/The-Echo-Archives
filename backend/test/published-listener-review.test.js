@@ -7,6 +7,8 @@ const { openDatabase } = require("../lib/store/database");
 const { createSubmissionStore } = require("../lib/store/submission-store");
 const { createPublishedListenerReviewStore } = require("../lib/store/published-listener-review-store");
 const { createCommunityStore } = require("../lib/store/community-store");
+const { createRateLimitStore } = require("../lib/store/rate-limit-store");
+const { createRateLimitService } = require("../lib/services/rate-limit-service");
 const { createPublishedListenerReviewService, normalizeCategoryScores } = require("../lib/services/published-listener-review-service");
 
 const categoryScores = {
@@ -25,7 +27,7 @@ test("published category normalization keeps sparse scores strict", () => {
   assert.throws(() => normalizeCategoryScores({ madeUp: 8 }), /unknown detailed rating category/i);
 });
 
-function createContext() {
+function createContext({ rateLimitPolicy = null } = {}) {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-public-review-"));
   const db = openDatabase(path.join(tempDir, "community.sqlite"));
   const submissionStore = createSubmissionStore({ db });
@@ -35,6 +37,9 @@ function createContext() {
     db,
     catalog: [{ id: "impact-winter", title: "Impact Winter", href: "/shows/impact-winter", image: "", hasPage: true, finalRating: 10 }],
   });
+  const rateLimiter = rateLimitPolicy
+    ? createRateLimitService({ store: createRateLimitStore({ db }), policies: { community: rateLimitPolicy } })
+    : null;
   const recordAbuseEvent = communityStore.recordAbuseEvent.bind(communityStore);
   communityStore.recordAbuseEvent = (value) => {
     calls.push(value);
@@ -44,6 +49,7 @@ function createContext() {
     store,
     submissionStore,
     communityStore,
+    rateLimiter,
     voterHashSecret: "listener-review-test-secret",
     knownShowIds: new Set(["impact-winter"]),
     minimumPublicRatings: 3,
@@ -166,6 +172,20 @@ test("published listener reviews aggregate each supplied category independently"
   }
 });
 
+test("malformed persisted listener-review lists fail closed without erasing stored evidence", () => {
+  const context = createContext();
+  try {
+    const submission = createSubmission(context);
+    const review = context.service.publishForMaintainer(submission.id, {});
+    context.db.prepare("UPDATE published_listener_reviews SET best_for_json = ? WHERE id = ?").run("not-json", review.id);
+
+    assert.throws(() => context.store.getBySubmissionId(submission.id), { code: "malformed_stored_json" });
+    assert.equal(context.db.prepare("SELECT best_for_json FROM published_listener_reviews WHERE id = ?").get(review.id).best_for_json, "not-json");
+  } finally {
+    cleanup(context);
+  }
+});
+
 test("Listener Review Score aggregates only published written-review ratings and updates with moderation", () => {
   const context = createContext();
   try {
@@ -226,6 +246,37 @@ test("listener reviews are paginated by helpful votes then publication date and 
     const removedVote = await context.service.updateHelpful({ reviewId: newerReview.id, helpful: false, voterSecret: "device-one", sourceIp: "127.0.0.1" });
     assert.deepEqual(removedVote, { reviewId: newerReview.id, helpfulCount: 1, viewerMarkedHelpful: false });
     assert.ok(context.calls.length >= 6);
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("helpful-vote limits cannot be bypassed by rotating User-Agent or voter cookies", async () => {
+  const context = createContext({ rateLimitPolicy: { windowMs: 60_000, max: 2 } });
+  try {
+    const submission = createSubmission(context);
+    const review = context.service.publishForMaintainer(submission.id, {});
+
+    for (let index = 0; index < 2; index += 1) {
+      await context.service.updateHelpful({
+        reviewId: review.id,
+        helpful: true,
+        voterSecret: `device-${index}`,
+        sourceIp: "203.0.113.10",
+        userAgent: `agent-${index}`,
+      });
+    }
+
+    await assert.rejects(
+      () => context.service.updateHelpful({
+        reviewId: review.id,
+        helpful: true,
+        voterSecret: "new-device",
+        sourceIp: "203.0.113.10",
+        userAgent: "rotated-agent",
+      }),
+      (error) => error.statusCode === 429,
+    );
   } finally {
     cleanup(context);
   }

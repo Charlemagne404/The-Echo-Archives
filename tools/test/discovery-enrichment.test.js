@@ -174,11 +174,13 @@ test("source writer changes only the intended split show file", () => {
   try {
     const showsDirectory = path.join(siteRoot, "catalog-src", "shows");
     fs.mkdirSync(showsDirectory, { recursive: true });
+    fs.mkdirSync(path.join(siteRoot, "catalog-src", "collections"), { recursive: true });
     const show = createShow();
     const showPath = path.join(showsDirectory, `${show.id}.json`);
     const orderPath = path.join(showsDirectory, "_order.json");
     fs.writeFileSync(showPath, `${JSON.stringify(show, null, 2)}\n`);
     fs.writeFileSync(orderPath, `${JSON.stringify([show.id], null, 2)}\n`);
+    fs.writeFileSync(path.join(siteRoot, "catalog-src", "collections", "_order.json"), "[]\n");
 
     const updatedShow = { ...show, tones: ["dark"] };
     const result = writeEnrichedShow({
@@ -203,10 +205,12 @@ test("source writer refuses a record that changed after selection", () => {
   try {
     const showsDirectory = path.join(siteRoot, "catalog-src", "shows");
     fs.mkdirSync(showsDirectory, { recursive: true });
+    fs.mkdirSync(path.join(siteRoot, "catalog-src", "collections"), { recursive: true });
     const show = createShow();
     const showPath = path.join(showsDirectory, `${show.id}.json`);
     fs.writeFileSync(showPath, `${JSON.stringify(show, null, 2)}\n`);
     fs.writeFileSync(path.join(showsDirectory, "_order.json"), `${JSON.stringify([show.id], null, 2)}\n`);
+    fs.writeFileSync(path.join(siteRoot, "catalog-src", "collections", "_order.json"), "[]\n");
 
     fs.writeFileSync(showPath, `${JSON.stringify({ ...show, description: "A newer source-backed description changed after selection." }, null, 2)}\n`);
 

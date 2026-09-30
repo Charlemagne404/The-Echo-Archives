@@ -275,7 +275,7 @@ export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup,
       ui.renderAll();
       if (state.tagPickerOpen) {
         const selectionStart = state.tagQuery.length;
-        window.requestAnimationFrame(() => ui.focusTagInput(field, selectionStart));
+        ui.focusTagInput(field, selectionStart);
       }
       return;
     }

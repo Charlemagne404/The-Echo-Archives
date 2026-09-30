@@ -1,5 +1,6 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const { randomUUID } = require("node:crypto");
 
 const CATALOG_SOURCE_ROOT = "catalog-src";
 const SHOWS_SOURCE_DIR = path.join(CATALOG_SOURCE_ROOT, "shows");
@@ -22,16 +23,37 @@ function writeJsonFile(filePath, value) {
 
 function writeJsonFileAtomic(filePath, value) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  const tempPath = `${filePath}.import-${process.pid}-${Date.now()}`;
-  fs.writeFileSync(tempPath, `${JSON.stringify(value, null, 2)}\n`);
-  fs.renameSync(tempPath, filePath);
+  const tempPath = `${filePath}.import-${process.pid}-${randomUUID()}`;
+  try {
+    fs.writeFileSync(tempPath, `${JSON.stringify(value, null, 2)}\n`);
+    fs.renameSync(tempPath, filePath);
+  } catch (error) {
+    fs.rmSync(tempPath, { force: true });
+    throw error;
+  }
+}
+
+function assertRecordBatchIds(records, recordLabel) {
+  if (records.length === 0) {
+    throw new Error(`At least one ${recordLabel} record is required.`);
+  }
+
+  const seenIds = new Set();
+  records.forEach((record, index) => {
+    const id = record && typeof record === "object" && !Array.isArray(record) ? record.id : null;
+    if (typeof id !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)) {
+      throw new Error(`Every ${recordLabel} record needs a valid slug id (record ${index}).`);
+    }
+    if (seenIds.has(id)) {
+      throw new Error(`Duplicate ${recordLabel} id "${id}".`);
+    }
+    seenIds.add(id);
+  });
 }
 
 function writeShowRecordsAtomically(siteRoot, records = []) {
   const nextRecords = Array.isArray(records) ? records : [];
-  if (nextRecords.length === 0) {
-    throw new Error("At least one show record is required.");
-  }
+  assertRecordBatchIds(nextRecords, "show");
   const backups = new Map();
   const changedPaths = [];
   const remember = (filePath) => {
@@ -53,6 +75,21 @@ function writeShowRecordsAtomically(siteRoot, records = []) {
       const orderPath = getOrderFilePath(directoryPath);
       const order = readOrderFile(directoryPath);
       const nextOrder = [...order];
+      const orderedIds = new Set(order);
+      nextRecords.forEach((record) => {
+        const filePath = path.join(directoryPath, `${record.id}.json`);
+        const fileExists = fs.existsSync(filePath);
+        const isOrdered = orderedIds.has(record.id);
+        if (fileExists !== isOrdered) {
+          throw new Error(`Show "${record.id}" source file and ${ORDER_FILE_NAME} disagree.`);
+        }
+        if (fileExists) {
+          const existing = readJsonFile(filePath);
+          if (!existing || typeof existing !== "object" || Array.isArray(existing) || existing.id !== record.id) {
+            throw new Error(`Show "${record.id}" source file is malformed or has a different internal id.`);
+          }
+        }
+      });
       nextRecords.forEach((record) => {
         const filePath = path.join(directoryPath, `${record.id}.json`);
         remember(filePath);
@@ -86,17 +123,10 @@ function writeShowRecordsAtomically(siteRoot, records = []) {
 
 function writeCollectionRecordsAtomically(siteRoot, records = []) {
   const nextRecords = Array.isArray(records) ? records : [];
-  if (nextRecords.length === 0) {
-    throw new Error("At least one collection record is required.");
-  }
+  assertRecordBatchIds(nextRecords, "collection");
 
   const sourceData = readCatalogSource(siteRoot);
-  const replacements = new Map(
-    nextRecords.map((record) => [String(record?.id || "").trim(), record]).filter(([id]) => id),
-  );
-  if (replacements.size !== nextRecords.length) {
-    throw new Error("Every collection record needs an id.");
-  }
+  const replacements = new Map(nextRecords.map((record) => [record.id, record]));
 
   if (sourceData.mode !== "split") {
     const collections = sourceData.collections.map((record) => replacements.get(record.id) || record);
@@ -166,7 +196,7 @@ function getOrderFilePath(directoryPath) {
 function readOrderFile(directoryPath) {
   const orderFilePath = getOrderFilePath(directoryPath);
   if (!fs.existsSync(orderFilePath)) {
-    return [];
+    throw new Error(`The ${path.basename(directoryPath)} ${ORDER_FILE_NAME} is missing.`);
   }
 
   const parsed = readJsonFile(orderFilePath);
@@ -174,7 +204,17 @@ function readOrderFile(directoryPath) {
     throw new Error(`${path.relative(directoryPath, orderFilePath)} must contain an array of ids.`);
   }
 
-  return parsed.map((value) => String(value || "").trim()).filter(Boolean);
+  const seenIds = new Set();
+  return parsed.map((value, index) => {
+    if (typeof value !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value)) {
+      throw new Error(`${path.basename(directoryPath)}/${ORDER_FILE_NAME}[${index}] must be a slug id.`);
+    }
+    if (seenIds.has(value)) {
+      throw new Error(`${path.basename(directoryPath)}/${ORDER_FILE_NAME} contains duplicate id "${value}".`);
+    }
+    seenIds.add(value);
+    return value;
+  });
 }
 
 function listRecordIds(directoryPath) {
@@ -185,10 +225,14 @@ function listRecordIds(directoryPath) {
   return fs.readdirSync(directoryPath)
     .filter((fileName) => fileName.endsWith(".json") && fileName !== ORDER_FILE_NAME)
     .map((fileName) => fileName.replace(/\.json$/i, ""))
-    .sort((left, right) => left.localeCompare(right));
+    .sort();
 }
 
 function readSplitRecordDirectory(directoryPath, recordLabel) {
+  if (!fs.existsSync(directoryPath) || !fs.statSync(directoryPath).isDirectory()) {
+    throw new Error(`${recordLabel} source directory ${directoryPath} is missing or not a directory.`);
+  }
+
   const recordIds = listRecordIds(directoryPath);
   const discoveredIds = new Set(recordIds);
   const orderedIds = [];
@@ -206,13 +250,21 @@ function readSplitRecordDirectory(directoryPath, recordLabel) {
     orderedIds.push(id);
   });
 
-  recordIds.forEach((id) => {
-    if (!seenIds.has(id)) {
-      orderedIds.push(id);
-    }
-  });
+  const unlistedIds = recordIds.filter((id) => !seenIds.has(id));
+  if (unlistedIds.length > 0) {
+    throw new Error(`${recordLabel} ${ORDER_FILE_NAME} is missing source record${unlistedIds.length === 1 ? "" : "s"}: ${unlistedIds.join(", ")}.`);
+  }
 
-  return orderedIds.map((id) => readJsonFile(path.join(directoryPath, `${id}.json`)));
+  return orderedIds.map((id) => {
+    const record = readJsonFile(path.join(directoryPath, `${id}.json`));
+    if (!record || typeof record !== "object" || Array.isArray(record)) {
+      throw new Error(`${recordLabel} source record "${id}" must contain an object.`);
+    }
+    if (record.id !== id) {
+      throw new Error(`${recordLabel} source file "${id}.json" has internal id "${record.id}".`);
+    }
+    return record;
+  });
 }
 
 function readSplitReviews(siteRoot) {
@@ -236,7 +288,7 @@ function readRuntimeReviews(siteRoot) {
 
   fs.readdirSync(directoryPath)
     .filter((fileName) => fileName.endsWith(".json"))
-    .sort((left, right) => left.localeCompare(right))
+    .sort()
     .forEach((fileName) => {
       const id = fileName.replace(/\.json$/i, "");
       reviewsById[id] = readJsonFile(path.join(directoryPath, fileName));
@@ -280,7 +332,7 @@ function syncRecordDirectory(directoryPath, records, { preserveOrder = true } = 
   fs.mkdirSync(directoryPath, { recursive: true });
 
   const ids = records.map((record) => String(record?.id || "").trim()).filter(Boolean);
-  const nextIds = preserveOrder ? ids : [...ids].sort((left, right) => left.localeCompare(right));
+  const nextIds = preserveOrder ? ids : [...ids].sort();
   const keepFileNames = new Set(nextIds.map((id) => `${id}.json`));
 
   fs.readdirSync(directoryPath).forEach((fileName) => {
@@ -300,7 +352,7 @@ function syncRecordDirectory(directoryPath, records, { preserveOrder = true } = 
 function syncReviewsDirectory(directoryPath, reviewsById) {
   fs.mkdirSync(directoryPath, { recursive: true });
 
-  const nextIds = Object.keys(reviewsById).sort((left, right) => left.localeCompare(right));
+  const nextIds = Object.keys(reviewsById).sort();
   const keepFileNames = new Set(nextIds.map((id) => `${id}.json`));
 
   fs.readdirSync(directoryPath).forEach((fileName) => {

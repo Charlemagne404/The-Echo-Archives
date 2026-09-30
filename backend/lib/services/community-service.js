@@ -30,6 +30,11 @@ function createAbuseHash({ secret, sourceIp = "", userAgent = "", date = new Dat
   return hashValue(secret, `${getDailySalt(date)}\n${sourceIp || "unknown"}\n${userAgent || ""}`);
 }
 
+function createRateLimitHash({ secret, sourceIp = "" }) {
+  const clientIp = String(sourceIp || "unknown").trim() || "unknown";
+  return hashValue(secret, `rate-limit\n${clientIp}`);
+}
+
 function createCommunityService({
   store,
   rateLimiter = null,
@@ -93,7 +98,7 @@ function createCommunityService({
     sourceIp = "",
   }) {
     const abuseHash = createAbuseHash({ secret: voterHashSecret, sourceIp, userAgent });
-    rateLimiter?.check("community", abuseHash);
+    rateLimiter?.check("community", createRateLimitHash({ secret: voterHashSecret, sourceIp }));
     await turnstile?.verify(turnstileToken, sourceIp);
 
     const normalizedRatingText = String(rating ?? "").trim();
@@ -148,7 +153,7 @@ function createCommunityService({
     sourceIp = "",
   }) {
     const abuseHash = createAbuseHash({ secret: voterHashSecret, sourceIp, userAgent });
-    rateLimiter?.check("community", abuseHash);
+    rateLimiter?.check("community", createRateLimitHash({ secret: voterHashSecret, sourceIp }));
     await turnstile?.verify(turnstileToken, sourceIp);
 
     const podcast = store.getPodcast(podcastId);
@@ -202,5 +207,6 @@ function createCommunityService({
 module.exports = {
   createAbuseHash,
   createCommunityService,
+  createRateLimitHash,
   hashValue,
 };

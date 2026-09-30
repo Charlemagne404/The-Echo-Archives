@@ -9,6 +9,7 @@ const { openDatabase } = require("../lib/store/database");
 const { createSubmissionStore } = require("../lib/store/submission-store");
 const { createSubmissionService } = require("../lib/services/submission-service");
 const { findFreePort } = require("./helpers/free-port");
+const { createVisibleStaticRoot } = require("./helpers/visible-static-root");
 
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
@@ -70,6 +71,7 @@ async function waitForServer(url, timeoutMs = 20_000) {
 
 async function startMaintainerServer({ enabled = true, envOverrides = {} } = {}) {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-maintainer-server-"));
+  const staticRoot = createVisibleStaticRoot(tempDir, siteRoot);
   const dbPath = path.join(tempDir, "community.sqlite");
   const db = openDatabase(dbPath);
   const store = createSubmissionStore({ db });
@@ -106,7 +108,7 @@ async function startMaintainerServer({ enabled = true, envOverrides = {} } = {})
       ...process.env,
       PORT: String(port),
       SERVE_STATIC: "true",
-      STATIC_ROOT: siteRoot,
+      STATIC_ROOT: staticRoot,
       DB_PATH: dbPath,
       OLLAMA_URL: "http://127.0.0.1:9/api/generate",
       MAINTAINER_REVIEW_PASSPHRASE: enabled ? "archive-test-passphrase" : "",
@@ -330,6 +332,7 @@ test("maintainer session and queue routes enforce auth and allow queue updates a
     assert.match(logoutResponse.headers.get("set-cookie") || "", /echo-maintainer-session=;/);
 
     const postLogoutList = await fetch(`${context.baseUrl}/api/maintainer/submissions`, {
+      headers: { Cookie: cookie },
     });
     assert.equal(postLogoutList.status, 401);
   } finally {

@@ -104,7 +104,7 @@ function hasOwn(value, key) {
 }
 
 function normalized(value) {
-  return String(value ?? "").trim().toLowerCase().replace(/\s+/g, " ");
+  return String(value ?? "").normalize("NFC").trim().toLowerCase().replace(/\s+/g, " ");
 }
 
 function isSlug(value) {

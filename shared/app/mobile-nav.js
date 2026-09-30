@@ -185,15 +185,31 @@ export function initializeMobileNav() {
     isOpen = true;
     syncInteractiveState();
 
-    const [firstFocusable] = getFocusables();
-    firstFocusable?.focus();
-    window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => {
-        if (!isOpen) return;
-        const [currentFirstFocusable] = getFocusables();
-        currentFirstFocusable?.focus({ preventScroll: true });
-      });
-    });
+    const focusFirstFocusableWhenRendered = (remainingFrames = 12) => {
+      if (!isOpen) return;
+
+      const [firstFocusable] = getFocusables();
+      if (!(firstFocusable instanceof HTMLElement)) return;
+
+      const style = window.getComputedStyle(firstFocusable);
+      const bounds = firstFocusable.getBoundingClientRect();
+      const isRendered =
+        style.display !== "none" &&
+        style.visibility !== "hidden" &&
+        bounds.width > 0 &&
+        bounds.height > 0;
+
+      if (isRendered) {
+        firstFocusable.focus({ preventScroll: true });
+        if (document.activeElement === firstFocusable || remainingFrames <= 0) return;
+      } else if (remainingFrames <= 0) {
+        return;
+      }
+
+      window.requestAnimationFrame(() => focusFirstFocusableWhenRendered(remainingFrames - 1));
+    };
+
+    window.requestAnimationFrame(() => focusFirstFocusableWhenRendered());
   };
 
   toggle.addEventListener("click", () => {

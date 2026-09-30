@@ -7,18 +7,24 @@ const path = require("node:path");
 const { loadCatalog } = require("../lib/catalog");
 const { openDatabase } = require("../lib/store/database");
 const { createCommunityStore } = require("../lib/store/community-store");
-const { createCommunityService, createAbuseHash } = require("../lib/services/community-service");
+const { createRateLimitStore } = require("../lib/store/rate-limit-store");
+const { createRateLimitService } = require("../lib/services/rate-limit-service");
+const { createCommunityService, createAbuseHash, createRateLimitHash } = require("../lib/services/community-service");
 
 const siteRoot = path.resolve(__dirname, "../..");
 
-async function createCommunityContext({ minPublicRatings = 3, serviceOptions = {} } = {}) {
+async function createCommunityContext({ minPublicRatings = 3, rateLimitPolicy = null, serviceOptions = {} } = {}) {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-community-"));
   const dbPath = path.join(tempDir, "community.sqlite");
   const db = openDatabase(dbPath);
   const catalog = await loadCatalog(siteRoot);
   const store = createCommunityStore({ db, catalog, minPublicRatings });
+  const rateLimiter = rateLimitPolicy
+    ? createRateLimitService({ store: createRateLimitStore({ db }), policies: { community: rateLimitPolicy } })
+    : null;
   const community = createCommunityService({
     store,
+    rateLimiter,
     voterHashSecret: "test-community-secret",
     ...serviceOptions,
   });
@@ -77,6 +83,30 @@ test("device-scoped community ratings update one active vote per show", async ()
     assert.equal(updatedSubmission.summary.distribution["10"], 1);
     assert.equal(updatedSubmission.summary.distribution["7"], 1);
     assert.equal(updatedSubmission.summary.distribution["9"], 0);
+  } finally {
+    cleanupCommunityContext(context);
+  }
+});
+
+test("malformed stored podcast metadata identifies the affected row without a partial rating write", async () => {
+  const context = await createCommunityContext();
+
+  try {
+    context.db.prepare("UPDATE podcasts SET metadata_json = ? WHERE id = ?").run("{malformed", "impact-winter");
+
+    await assert.rejects(
+      context.community.submitRating({
+        podcastId: "impact-winter",
+        rating: 8,
+        voterSecret: "malformed-metadata-voter",
+        userAgent: "recovery-test-agent",
+      }),
+      /Invalid stored metadata JSON for podcast impact-winter\./,
+    );
+
+    assert.equal(context.db.prepare("SELECT COUNT(*) FROM rating_submissions WHERE podcast_id = ?").pluck().get("impact-winter"), 0);
+    assert.equal(context.db.prepare("SELECT COUNT(*) FROM rating_events WHERE podcast_id = ?").pluck().get("impact-winter"), 0);
+    assert.equal(context.db.prepare("PRAGMA integrity_check").pluck().get(), "ok");
   } finally {
     cleanupCommunityContext(context);
   }
@@ -217,7 +247,7 @@ test("community ratings reject values that are not exact integers", async () => 
   }
 });
 
-test("community rating writes are throttled by salted abuse hash", async () => {
+test("community rating writes are throttled by a private client-IP hash", async () => {
   const context = await createCommunityContext({
     serviceOptions: {
       rateLimiter: {
@@ -256,6 +286,39 @@ test("community rating writes are throttled by salted abuse hash", async () => {
     assert.equal(context.calls[0].scope, "community");
     assert.match(context.calls[0].clientIp, /^[0-9a-f]{64}$/);
     assert.equal(context.calls[0].clientIp, context.calls[1].clientIp);
+    assert.equal(context.calls[0].clientIp, createRateLimitHash({ secret: "test-community-secret", sourceIp: "127.0.0.1" }));
+  } finally {
+    cleanupCommunityContext(context);
+  }
+});
+
+test("community rating limits cannot be bypassed by rotating User-Agent or voter cookies", async () => {
+  const context = await createCommunityContext({
+    rateLimitPolicy: { windowMs: 60_000, max: 2 },
+    minPublicRatings: 1,
+  });
+
+  try {
+    for (let index = 0; index < 2; index += 1) {
+      await context.community.submitRating({
+        podcastId: "impact-winter",
+        rating: 8 + index,
+        voterSecret: `device-${index}`,
+        userAgent: `agent-${index}`,
+        sourceIp: "203.0.113.10",
+      });
+    }
+
+    await assert.rejects(
+      () => context.community.submitRating({
+        podcastId: "impact-winter",
+        rating: 10,
+        voterSecret: "new-device",
+        userAgent: "rotated-agent",
+        sourceIp: "203.0.113.10",
+      }),
+      (error) => error.statusCode === 429,
+    );
   } finally {
     cleanupCommunityContext(context);
   }

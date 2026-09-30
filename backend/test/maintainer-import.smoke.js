@@ -420,6 +420,7 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     await page.getByRole("button", { name: "Retry" }).click();
     await page.locator("#maintainerAppShell").waitFor({ state: "visible" });
     await page.getByRole("button", { name: "Refresh queue" }).waitFor({ state: "visible" });
+    await page.waitForFunction(() => Boolean(document.querySelector("#maintainerDetailMeta")?.textContent?.trim()));
 
     const expireSession = (route) => route.fulfill({
       status: 401,
@@ -427,7 +428,7 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
       body: JSON.stringify({ error: "Maintainer authentication required." }),
     });
     await page.unroute("**/api/maintainer/imports**");
-    await page.route("**/api/maintainer/imports**", expireSession);
+    await page.route((url) => url.pathname === "/api/maintainer/imports", expireSession);
     await page.getByRole("button", { name: "Refresh queue" }).click();
     await page.locator("#maintainerAuthPanel").waitFor({ state: "visible" });
     await page.waitForFunction(() => document.body.dataset.maintainerState === "authRequired");

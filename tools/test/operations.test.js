@@ -1450,10 +1450,15 @@ test("checked-in service and proxy retain production hardening", () => {
   const rootPackage = JSON.parse(read("package.json"));
   assert.match(rootPackage.scripts.verify, /npm run test:tools/);
   assert.equal(rootPackage.scripts["check:backup"], "node tools/check-database-backup.js");
-  assert.equal(rootPackage.engines.node, ">=22.12");
+  assert.equal(rootPackage.engines.node, ">=22.14.0");
 
   const backendPackage = JSON.parse(read("backend/package.json"));
-  assert.equal(backendPackage.engines.node, ">=22.12");
+  assert.equal(backendPackage.engines.node, ">=22.14.0");
+
+  const releaseScript = read("deploy/echo");
+  assert.match(releaseScript, /process\.versions\.napi/);
+  assert.match(releaseScript, /napi >= 10/);
+  assert.match(releaseScript, /Node\.js 22\.14\+ with Node-API 10 or newer is required/);
 
   const verifyWorkflow = read(".github/workflows/verify.yml");
   assert.match(verifyWorkflow, /node-version: "22\.23\.1"/);

@@ -41,7 +41,7 @@ function createMaintainerRouter({
   function sendMaintainerPage(relativePath) {
     return (_req, res) => {
       res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
-      res.sendFile(path.join(staticRoot, relativePath));
+      res.sendFile(relativePath, { root: staticRoot });
     };
   }
 
@@ -55,7 +55,7 @@ function createMaintainerRouter({
 
   router.get("/api/maintainer/assets/external-verification.js", requireMaintainerSession, (_req, res, next) => {
     res.type("application/javascript");
-    return res.sendFile(path.join(staticRoot, "shared", "app", "maintainer-import", "external-verification.js"), (error) => {
+    return res.sendFile(path.join("shared", "app", "maintainer-import", "external-verification.js"), { root: staticRoot }, (error) => {
       if (error) next(error);
     });
   });

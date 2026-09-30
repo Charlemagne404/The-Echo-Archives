@@ -1,5 +1,9 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const { assertNativeRuntime } = require("./native-runtime");
+
+assertNativeRuntime();
+
 const Database = require("better-sqlite3");
 
 const DEFAULT_SYNCHRONOUS_MODE = "FULL";
@@ -416,6 +420,12 @@ function migrate(db) {
       client_ip TEXT NOT NULL,
       created_at_ms INTEGER NOT NULL
     );
+
+    CREATE TABLE IF NOT EXISTS maintainer_sessions (
+      session_id TEXT PRIMARY KEY,
+      expires_at_ms INTEGER NOT NULL
+    );
+    CREATE INDEX IF NOT EXISTS maintainer_sessions_expiry_idx ON maintainer_sessions(expires_at_ms);
 
     CREATE TABLE IF NOT EXISTS analytics_meta (
       key TEXT PRIMARY KEY,

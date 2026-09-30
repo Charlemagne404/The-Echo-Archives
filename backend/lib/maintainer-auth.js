@@ -34,23 +34,31 @@ function parseCookies(header = "") {
     }, {});
 }
 
-function createMaintainerAuth(config) {
+function createMaintainerAuth(config, { db } = {}) {
   const cookieName = config.MAINTAINER_REVIEW_COOKIE_NAME || "echo-maintainer-session";
   const passphrase = String(config.MAINTAINER_REVIEW_PASSPHRASE || "");
   const signingSecret = String(config.MAINTAINER_REVIEW_COOKIE_SECRET || passphrase || "");
   const sessionTtlHours = Math.max(1, Number.parseInt(String(config.MAINTAINER_REVIEW_SESSION_TTL_HOURS || "12"), 10) || 12);
   const sessionMaxAgeMs = sessionTtlHours * 60 * 60 * 1000;
-  const enabled = Boolean(passphrase && signingSecret);
+  const enabled = Boolean(passphrase && signingSecret && db);
+  const findSession = db?.prepare("SELECT expires_at_ms FROM maintainer_sessions WHERE session_id = ?");
+  const insertSession = db?.prepare("INSERT INTO maintainer_sessions (session_id, expires_at_ms) VALUES (?, ?)");
+  const deleteSession = db?.prepare("DELETE FROM maintainer_sessions WHERE session_id = ?");
+  const pruneExpiredSessions = db?.prepare("DELETE FROM maintainer_sessions WHERE expires_at_ms <= ?");
 
-  function signSessionToken(expiresAtMs) {
-    const payload = String(expiresAtMs);
+  function signSessionToken(expiresAtMs, sessionId) {
+    const payload = `${expiresAtMs}.${sessionId}`;
     const signature = crypto.createHmac("sha256", signingSecret).update(payload, "utf8").digest("hex");
     return `${payload}.${signature}`;
   }
 
   function createSessionToken() {
-    const expiresAtMs = Date.now() + sessionMaxAgeMs;
-    return signSessionToken(expiresAtMs);
+    const now = Date.now();
+    const expiresAtMs = now + sessionMaxAgeMs;
+    const sessionId = crypto.randomBytes(32).toString("hex");
+    pruneExpiredSessions?.run(now);
+    insertSession.run(sessionId, expiresAtMs);
+    return signSessionToken(expiresAtMs, sessionId);
   }
 
   function hasValidSessionToken(token = "") {
@@ -58,20 +66,30 @@ function createMaintainerAuth(config) {
       return false;
     }
 
-    const separatorIndex = token.indexOf(".");
-    if (separatorIndex <= 0) {
+    const segments = token.split(".");
+    if (segments.length !== 3) {
       return false;
     }
 
-    const payload = token.slice(0, separatorIndex);
-    const signature = token.slice(separatorIndex + 1);
-    const expiresAtMs = Number.parseInt(payload, 10);
+    const [expiryPayload, sessionId, signature] = segments;
+    const expiresAtMs = Number(expiryPayload);
 
-    if (!Number.isFinite(expiresAtMs) || expiresAtMs <= Date.now()) {
+    if (
+      !Number.isSafeInteger(expiresAtMs) ||
+      String(expiresAtMs) !== expiryPayload ||
+      !/^[a-f0-9]{64}$/.test(sessionId) ||
+      !/^[a-f0-9]{64}$/.test(signature) ||
+      expiresAtMs <= Date.now()
+    ) {
       return false;
     }
 
-    return safeEqual(signature, signSessionToken(expiresAtMs).slice(payload.length + 1));
+    if (!safeEqual(signature, signSessionToken(expiresAtMs, sessionId).split(".")[2])) {
+      return false;
+    }
+
+    const session = findSession.get(sessionId);
+    return Number(session?.expires_at_ms) === expiresAtMs;
   }
 
   function hasSession(req) {
@@ -90,6 +108,11 @@ function createMaintainerAuth(config) {
   }
 
   function clearSessionCookie(req, res) {
+    const token = parseCookies(req?.headers?.cookie || "")[cookieName] || "";
+    const [, sessionId] = token.split(".");
+    if (/^[a-f0-9]{64}$/.test(sessionId || "")) {
+      deleteSession.run(sessionId);
+    }
     res.clearCookie(cookieName, {
       httpOnly: true,
       sameSite: "lax",

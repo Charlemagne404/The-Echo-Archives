@@ -47,7 +47,7 @@ The 2026-08-20 and 2026-08-18 reports remain historical snapshots.
 
 The supported production shape is:
 
-- Node.js `22.12` or newer; CI and production currently pin `22.23.1`
+- Node.js `22.14` or newer; CI and production currently pin `22.23.1`
 - the Express service bound to `127.0.0.1:3010` through Caddy
 - Caddy terminating HTTPS for `https://echoarchives.net`
 - systemd running the app as the dedicated `echo-archives` account
@@ -72,6 +72,11 @@ procedure is [`deploy/RELEASE_WORKFLOW.md`](../deploy/RELEASE_WORKFLOW.md).
 Read it before changing the production host. It keeps staging on port `3011`
 with its own database and promotes an already-tested SHA by switching a
 symlink; normal promotion does not reload Caddy.
+
+For incident triage and recovery branches, use the grounded
+[`deploy/DISASTER_RECOVERY.md`](../deploy/DISASTER_RECOVERY.md) runbook. It
+distinguishes cached public-page behavior, backend/API availability, code
+rollback, and the separately approved database-restore procedure.
 
 ## Production Environment
 
@@ -329,6 +334,15 @@ writes mode-`0600`, timestamped SQLite files under
 `/var/backups/echo-archives/`. Promotion takes an additional verified backup
 immediately before switching production. No retention deletion is automatic in
 the local timer; off-site retention is applied only after a verified restore.
+
+`tools/check-database-backup.js` selects the newest `.sqlite` by modification
+time when given `--directory`; it does not search older files after validation
+fails. Preserve a failed newest file, identify an exact older candidate, and
+validate it with `--file <exact-path> --max-age-hours <accepted-window>` before
+using it. Record the selected file's age and the resulting recovery point.
+Never infer that a backup is valid because it is newest or because the local
+backup timer ran; see the disaster-recovery runbook for the disposable restore
+checks and production boundary.
 
 Explicit paths are supported for one-off checks and off-host mount points. Relative paths are resolved from `backend/`:
 

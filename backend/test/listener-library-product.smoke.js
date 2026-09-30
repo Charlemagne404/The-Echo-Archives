@@ -4,8 +4,14 @@ const os = require("node:os");
 const path = require("node:path");
 const { spawn } = require("node:child_process");
 const { after, before, test } = require("node:test");
-const { chromium } = require("playwright");
+const browserTypes = require("playwright");
+const browserName = String(process.env.SMOKE_BROWSER || "chromium").trim().toLowerCase();
+const browserType = browserTypes[browserName];
+if (!browserType) {
+  throw new Error(`Unsupported SMOKE_BROWSER "${browserName}". Use chromium, firefox, or webkit.`);
+}
 const { findFreePort } = require("./helpers/free-port");
+const { createVisibleStaticRoot } = require("./helpers/visible-static-root");
 
 const repositoryRoot = path.resolve(__dirname, "../..");
 const backendRoot = path.join(repositoryRoot, "backend");
@@ -30,13 +36,14 @@ async function waitFor(url, timeoutMs = 20_000) {
 before(async () => {
   const port = await findFreePort();
   tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "echo-library-product-"));
+  const staticRoot = createVisibleStaticRoot(tempDirectory, repositoryRoot);
   serverProcess = spawn(process.execPath, ["server.js"], {
     cwd: backendRoot,
     env: {
       ...process.env,
       PORT: String(port),
       SERVE_STATIC: "true",
-      STATIC_ROOT: repositoryRoot,
+      STATIC_ROOT: staticRoot,
       DB_PATH: path.join(tempDirectory, "community.sqlite"),
       SITE_URL: `http://127.0.0.1:${port}`,
       NODE_ENV: "test",
@@ -50,7 +57,7 @@ before(async () => {
   serverProcess.stderr.on("data", (data) => { serverOutput += data.toString(); });
   baseUrl = `http://127.0.0.1:${port}`;
   await waitFor(`${baseUrl}/api/health`);
-  browser = await chromium.launch();
+  browser = await browserType.launch();
 });
 
 after(async () => {
@@ -280,13 +287,18 @@ test("compact card and show controls persist and synchronize without exposing Li
     for (const { body } of analyticsRequests) {
       assert.doesNotMatch(body, /libraryState|personalContext|privateRating|"state"\s*:|"rating"\s*:/i);
     }
-    const requestsContainingPrivateValues = requests.filter(({ url, body, referer }) => /"(?:state|rating|libraryState|privateRating|personalDiscoveryEnabled)"\s*:|\b(hidden|listening|saved|personalDiscovery)\b/i.test(`${url}\n${body}\n${referer}`));
-    assert.deepEqual(requestsContainingPrivateValues, [], "Library status and private rating do not enter request URLs, bodies, or referrers");
+    const requestsContainingPrivateValues = requests.filter(({ url, body, referer }) => {
+      const queryHasPrivateKey = [...new URL(url).searchParams.keys()].some((key) => /^(?:state|rating|libraryState|privateRating|personalDiscoveryEnabled)$/i.test(key));
+      const bodyHasPrivateField = /"(?:state|rating|libraryState|privateRating|personalDiscoveryEnabled)"\s*:/i.test(body);
+      const privateValuePresent = /EchoLibraryPrivateStateCanary|personalContext|personalDiscovery|privateRating|\b(hidden|listening|saved|personalDiscovery)\b/i.test([url, body, referer].join("\n"));
+      return queryHasPrivateKey || bodyHasPrivateField || privateValuePresent;
+    });
+    assert.deepEqual(requestsContainingPrivateValues, [], "Library state and private rating do not enter request URLs, bodies, or referrers");
     const accessLogs = serverOutput.split("\n")
-      .filter((line) => line.includes('"event":"http_request"'))
+      .filter((line) => line.includes(JSON.stringify({ event: "http_request" }).slice(1, -1)))
       .map((line) => JSON.parse(line));
     assert.ok(accessLogs.length > 0, "the disposable server emitted inspectable access-log events");
-    assert.ok(accessLogs.every((entry) => !/EchoLibraryPrivateStateCanary|personalContext|personalDiscovery|privateRating|\"state\"\s*:|\"rating\"\s*:/i.test(JSON.stringify(entry))));
+    assert.ok(accessLogs.every((entry) => !/EchoLibraryPrivateStateCanary|personalContext|personalDiscovery|privateRating|"state"\s*:|"rating"\s*:/i.test(JSON.stringify(entry))));
     assert.ok(accessLogs.every((entry) => !Object.hasOwn(entry, "query") && !Object.hasOwn(entry, "body") && !Object.hasOwn(entry, "referer")));
   } finally {
     await context.close();
@@ -337,25 +349,29 @@ test("Personal Discovery refines existing search locally and restores public ord
     await kingFallsControl.locator("[data-library-rating-select]").selectOption("5");
     await assertEventually(async () => assert.match(await kingFallsControl.locator(".library-control-status").textContent(), /private rating is 5 of 5/i));
     const preference = kingFallsControl.locator("[data-library-discovery-preference]");
-    await preference.check();
+    await preference.focus();
+    await preference.press("Space");
     await assertEventually(async () => {
       assert.equal(await preference.isChecked(), true);
       assert.match(await kingFallsControl.locator(".library-control-status").textContent(), /Personal Discovery enabled/i);
     });
-    const homeRuntimeState = await home.evaluate(async () => {
-      const { getLibraryRuntimeState } = await import("/shared/app/library/runtime.js");
-      const runtimeState = getLibraryRuntimeState();
-      return {
-        loading: runtimeState.loading,
-        available: runtimeState.storageAvailable,
-        personalDiscoveryError: runtimeState.personalDiscoveryError?.code || null,
-        personalContext: runtimeState.personalContext,
-      };
-    });
-    assert.equal(homeRuntimeState.loading, false);
-    assert.equal(homeRuntimeState.available, true);
-    assert.equal(homeRuntimeState.personalContext.enabled, true, "the other tab receives the explicit opt-in");
-    assert.ok(homeRuntimeState.personalContext.entries.some((entry) => entry.showId === "king-falls-am" && entry.rating === 5), "the other tab receives the local rating anchor");
+    let homeRuntimeState;
+    await assertEventually(async () => {
+      homeRuntimeState = await home.evaluate(async () => {
+        const { getLibraryRuntimeState } = await import("/shared/app/library/runtime.js");
+        const runtimeState = getLibraryRuntimeState();
+        return {
+          loading: runtimeState.loading,
+          available: runtimeState.storageAvailable,
+          personalDiscoveryError: runtimeState.personalDiscoveryError?.code || null,
+          personalContext: runtimeState.personalContext,
+        };
+      });
+      assert.equal(homeRuntimeState.loading, false);
+      assert.equal(homeRuntimeState.available, true);
+      assert.equal(homeRuntimeState.personalContext.enabled, true, "the other tab receives the explicit opt-in");
+      assert.ok(homeRuntimeState.personalContext.entries.some((entry) => entry.showId === "king-falls-am" && entry.rating === 5), "the other tab receives the local rating anchor");
+    }, 10_000);
     await assertEventually(async () => {
       const ids = await home.locator("#podcast-grid a[data-discovery-show-id]").evaluateAll((links) => links.map((link) => link.dataset.discoveryShowId));
       const reason = await home.locator("#personalDiscoveryReason").textContent();
@@ -371,8 +387,9 @@ test("Personal Discovery refines existing search locally and restores public ord
 
     const arsDetail = await context.newPage();
     await arsDetail.goto(`${baseUrl}/shows/ars-paradoxica`);
+    await arsDetail.waitForFunction(() => document.body.dataset.appReady === "true", undefined, { timeout: 15_000 });
     const arsControl = arsDetail.locator('[data-library-control="detail"]');
-    await arsControl.waitFor();
+    await arsControl.waitFor({ state: "visible", timeout: 15_000 });
     await arsControl.locator("summary").click();
     await arsControl.locator("[data-library-state-select]").selectOption("hidden");
     await assertEventually(async () => assert.match(await arsControl.locator(".library-control-status").textContent(), /Library state changed to Hidden/i));
