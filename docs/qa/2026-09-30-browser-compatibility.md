@@ -13,16 +13,16 @@ WebKit is Playwright's WebKit runtime; it is not a Safari installation. Mobile v
 
 ## Browser behavior matrix
 
-The focused compatibility runner contains 11 serial suites. Its complete Firefox and WebKit runs passed before the final mobile-navigation accessibility adjustment. After that adjustment, the focused keyboard focus/focus-return regression passed in Chromium, Firefox, and WebKit. The final full repository verification passed in Chromium after all changes.
+The focused compatibility runner contains 11 serial suites. After the final mobile-navigation accessibility adjustment and rebase, the complete Firefox and WebKit runs each passed all 11 suites. The task branch's full repository verification passed in Chromium before rebase; post-rebase Chromium focused worker and keyboard-accessibility checks also passed. The combined integration verification is recorded in the handoff.
 
 | Behavior area | Exercised behavior | Result |
 | --- | --- | --- |
-| IndexedDB and Library | Open and persist state; read/write and rollback; concurrent pages, BroadcastChannel synchronization, version changes and blocked upgrades; invalid rows, migration, storage failures, close/reopen, reset, and a 500-entry import/read round trip. | Full focused Firefox and WebKit matrices passed before the final accessibility adjustment; final Chromium repository verification passed. |
-| Fetch and failure handling | Abort a fetch, bound a delayed response, reject malformed JSON, and keep failure handling same-origin in the browser fixture. | Full focused Firefox and WebKit matrices passed; final Chromium repository verification passed. |
-| Search, Discovery, and history | Typo-tolerant search, shareable URL state, rich Discovery criteria, similarity routes, collection filters/sorts, creator filters, and Back/Forward restoration. | Full focused Firefox and WebKit matrices passed; final Chromium repository verification passed. |
-| Filters and responsive surfaces | Structured filters, mobile filter sheet, narrow layouts down to 320 CSS pixels, and touch target sizing. | Full focused Firefox and WebKit matrices passed; final Chromium repository verification passed. |
-| Service workers and cache | Public-page offline fallback, stale-worker update, cache retirement, delivery statuses, and exclusion of private Library state from Cache Storage. | Full focused Firefox and WebKit matrices passed; final Chromium repository verification passed. |
-| Focus, forms, and navigation | Mobile menu open/close, Escape and focus return, filter focus, Library card/detail controls, Personal Discovery, submit/correction flows, maintainer import, and creator/entity routes. | Full focused Firefox and WebKit matrices passed before the final accessibility adjustment. The targeted mobile-navigation keyboard-focus regression then passed on all three engines. |
+| IndexedDB and Library | Open and persist state; read/write and rollback; concurrent pages, BroadcastChannel synchronization, version changes and blocked upgrades; invalid rows, migration, storage failures, close/reopen, reset, and a 500-entry import/read round trip. | Full 11-suite Firefox and WebKit matrices passed after the final accessibility adjustment; task-branch full verification passed in Chromium before rebase. |
+| Fetch and failure handling | Abort a fetch, bound a delayed response, reject malformed JSON, and keep failure handling same-origin in the browser fixture. | Full 11-suite Firefox and WebKit matrices passed after the final adjustment; task-branch full verification passed in Chromium before rebase. |
+| Search, Discovery, and history | Typo-tolerant search, shareable URL state, rich Discovery criteria, similarity routes, collection filters/sorts, creator filters, and Back/Forward restoration. | Full 11-suite Firefox and WebKit matrices passed after the final adjustment; task-branch full verification passed in Chromium before rebase. |
+| Filters and responsive surfaces | Structured filters, mobile filter sheet, narrow layouts down to 320 CSS pixels, and touch target sizing. | Full 11-suite Firefox and WebKit matrices passed after the final adjustment; task-branch full verification passed in Chromium before rebase. |
+| Service workers and cache | Public-page offline fallback, stale-worker update, cache retirement, delivery statuses, and exclusion of private Library state from Cache Storage. | Full 11-suite Firefox and WebKit matrices passed after the final adjustment; post-rebase overlapping security worker check passed in Chromium. |
+| Focus, forms, and navigation | Mobile menu open/close, Escape and focus return, filter focus, Library card/detail controls, Personal Discovery, submit/correction flows, maintainer import, and creator/entity routes. | Full 11-suite Firefox and WebKit matrices passed after the final adjustment; post-rebase mobile-navigation keyboard regression passed in Chromium. |
 
 These results show the exercised browser APIs and core flows working consistently across the three Playwright engines, subject to the chronology above. They do not establish parity for untested operating systems or physical devices.
 
@@ -69,13 +69,14 @@ No catalogue source data changed. The final structure check reported the touched
 
 ## Verification
 
-- `rtk proxy npm --prefix backend run test:smoke:compat -- --browser=firefox` — all 11 focused suites passed.
-- `rtk proxy npm --prefix backend run test:smoke:compat -- --browser=webkit` — all 11 focused suites passed.
-- Focused `test/accessibility.smoke.js` test `mobile navigation and filter sheet support keyboard focus` with `SMOKE_BROWSER=chromium`, `firefox`, and `webkit` — passed on each engine after the final navigation/accessibility change.
-- `rtk npm run verify` — passed on the task branch after all changes. This ran catalog/page builds, structure and generated-boundary checks, release artifact checks, tooling tests, build determinism, backend data/link checks, serial tests, and required Chromium browser smoke coverage.
+- `rtk proxy npm --prefix backend run test:smoke:compat -- --browser=firefox` after rebase — all 11 focused suites passed.
+- `rtk proxy npm --prefix backend run test:smoke:compat -- --browser=webkit` after rebase — all 11 focused suites passed.
+- `rtk proxy npm --prefix backend run test:security:browser` after rebase — overlapping Chromium service-worker gateway/offline scenario passed (1/1).
+- `SMOKE_BROWSER=chromium rtk proxy node --test --test-name-pattern='mobile navigation and filter sheet support keyboard focus' test/accessibility.smoke.js` after rebase — passed (1/1).
+- `rtk npm run verify` — passed on the task branch before rebase. It ran catalog/page builds, structure and generated-boundary checks, release artifact checks, tooling tests, build determinism, backend data/link checks, serial tests, and required Chromium browser smoke coverage. The combined integration gate is recorded in the handoff.
 - `rtk proxy git diff --check` — passed.
 
-The full Firefox/WebKit 11-suite matrices were not rerun after the final accessibility-only navigation adjustment. Their earlier full passes plus the final targeted three-engine regression are reported separately above; the final broad verification was Chromium. No Linux, Safari, or physical iOS verification was performed.
+The full Firefox and WebKit matrices were rerun after the final accessibility adjustment and rebase; both passed. The combined full repository verification is recorded separately in the handoff. No Linux, Safari, or physical iOS verification was performed.
 
 ## Integration record
 
