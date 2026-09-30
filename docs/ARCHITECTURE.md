@@ -2,7 +2,8 @@
 
 ## Purpose
 
-This is the active architecture reference for the 1.1.0 release of The Echo Archives.
+This is the active architecture reference for the current Echo Archives 2.0
+candidate. Earlier release snapshots remain historical evidence.
 
 Use it as the source of truth for:
 
@@ -385,6 +386,16 @@ Current participation features include:
 - internal catalog import queue, report, and CLI automation
 
 All intake remains moderation-first. Nothing auto-publishes into the editorial catalog.
+
+## Browser-local Listener Library
+
+The Listener Library stores explicit show states, optional private ratings, and
+the separate Personal Discovery setting in the origin-scoped
+`echo-archives-listener-library` IndexedDB database. It has no server API,
+SQLite table, account sync, or public management page. The page layer passes
+Discovery only a sanitized snapshot; turning Personal Discovery off preserves
+the entries. The service worker caches code and static assets, never Library
+records.
 
 ## Storage Model
 

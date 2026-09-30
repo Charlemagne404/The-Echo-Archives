@@ -13,14 +13,17 @@ Use it as the current-release reality check alongside:
 
 ## Snapshot Date
 
-This narrative snapshot reflects the repository as of **2026-09-20**. The latest
+This narrative snapshot reflects the repository implementation as of **2026-09-29**. The latest
 catalog-authored update in the generated snapshot is **2026-09-20**; for exact
 counts and coverage gaps, use [`docs/generated/catalog-status.md`](generated/catalog-status.md).
+The 2.0 release candidate is not a production deployment claim.
 
 ## Current Release Posture
 
 The 1.0 product baseline and 1.1.0 Creators release are represented in the
-repository. It is a static-first, listener-facing archive with protected
+repository. The current 2.0 candidate adds rich Discovery queries and opt-in,
+browser-local Personal Discovery through compact Listener Library controls. It
+is a static-first, listener-facing archive with protected
 maintainer workflows and a current catalog of 752 published shows, 7 full
 reviews, and 54 runtime collections (47 authored plus 7 generated similarity
 companions). Current authored collection materialization is 1,130 valid
@@ -83,6 +86,10 @@ Operational and trust-related surfaces currently include:
 - `/maintainer/imports.html`
 - `/maintainer/imports/report.html`
 - `/maintainer/collections.html`
+
+There is no public `/library` route, Library page, or Library navigation item.
+The Library uses origin-scoped IndexedDB for explicit show states and private
+ratings; its preference defaults off and does not create a server-side profile.
 
 Legacy show pages and query-string detail aliases remain as permanent compatibility redirects to the clean detail routes.
 

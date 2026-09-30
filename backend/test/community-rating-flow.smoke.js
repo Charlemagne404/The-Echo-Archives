@@ -240,7 +240,14 @@ test("detail community rating renders Turnstile and sends the verification token
   await page.addInitScript({ path: axeScriptPath });
   const ratingRequests = [];
   const summaryRequests = [];
+  const observedRequests = [];
   let profileRequests = 0;
+  const libraryPrivacyCanary = "EchoLibraryPrivateStateCanary-Community-2026-09-29";
+  context.on("request", (request) => observedRequests.push({
+    url: request.url(),
+    body: request.postData() || "",
+    referer: request.headers().referer || "",
+  }));
 
   try {
     await page.addInitScript(() => {
@@ -308,8 +315,9 @@ test("detail community rating renders Turnstile and sends the verification token
     });
 
     await page.route("**/api/community/podcasts/impact-winter/rating", async (route) => {
-      const body = route.request().postDataJSON();
-      ratingRequests.push(body);
+      const request = route.request();
+      const body = request.postDataJSON();
+      ratingRequests.push({ body, url: request.url(), referer: request.headers().referer || "" });
       await route.fulfill({
         status: 200,
         contentType: "application/json",
@@ -325,6 +333,15 @@ test("detail community rating renders Turnstile and sends the verification token
     });
 
     await page.goto(`${baseUrl}/shows/impact-winter`, { waitUntil: "networkidle" });
+    const privateStateSeeded = await page.evaluate(async (titleSnapshot) => {
+      const { getLibraryService } = await import("/shared/app/library/runtime.js");
+      const library = getLibraryService();
+      const state = await library.setState("impact-winter", "hidden", { titleSnapshot });
+      const rating = await library.setRating("impact-winter", 4);
+      const preference = await library.setPersonalDiscoveryEnabled(true);
+      return { state: state.ok, rating: rating.ok, preference: preference.ok };
+    }, libraryPrivacyCanary);
+    assert.deepEqual(privateStateSeeded, { state: true, rating: true, preference: true });
     await page.locator(".community-review-panel .community-turnstile-shell").waitFor({ state: "visible" });
     await page.waitForFunction(() => /complete/i.test(document.querySelector(".community-turnstile-status")?.textContent || ""));
     await assertAxeClean(page, "enabled community rating controls");
@@ -358,8 +375,9 @@ test("detail community rating renders Turnstile and sends the verification token
 
     assert.equal(profileRequests, 1);
     assert.equal(ratingRequests.length, 1);
-    assert.equal(ratingRequests[0].rating, 7);
-    assert.equal(ratingRequests[0].turnstileToken, "browser-turnstile-token");
+    assert.equal(ratingRequests[0].body.rating, 7);
+    assert.equal(ratingRequests[0].body.turnstileToken, "browser-turnstile-token");
+    assert.doesNotMatch(JSON.stringify(ratingRequests[0]), /EchoLibraryPrivateStateCanary|personalContext|personalDiscovery|privateRating|"state"\s*:|"rating"\s*:\s*4/i);
     assert.equal(
       await page.evaluate(() => window.localStorage.getItem("echo-community-profile-id")),
       "00000000-0000-4000-8000-000000000007",
@@ -376,6 +394,8 @@ test("detail community rating renders Turnstile and sends the verification token
     )));
     assert.equal(await page.locator(".community-review-button.is-active").textContent(), "7");
     assert.equal(await page.locator(".community-review-clear").isVisible(), true);
+    const privateStateEgress = observedRequests.filter(({ url, body, referer }) => /EchoLibraryPrivateStateCanary|personalContext|personalDiscovery|privateRating|libraryState|"state"\s*:/i.test(`${url}\n${body}\n${referer}`));
+    assert.deepEqual(privateStateEgress, [], "community-rating requests and referrers remain separate from browser-local Library state");
     await assertAxeClean(page, "community rating after keyboard selection");
   } finally {
     await context.close();

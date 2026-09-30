@@ -931,7 +931,7 @@ test("home Discovery 2 integration keeps rich criteria public, strict, and on ex
         kind: card.dataset.discoveryCandidateProvenance || "",
       })),
     }));
-    assert.match(similarity.summary, /archive picks.*computed matches/i);
+    assert.match(similarity.summary, /archive picks.*more similar shows/i);
     assertUrlSearchParams(similarity.url, { seed: "the-white-vault", genre: "sci-fi" });
     const computedIndex = similarity.provenance.findIndex((entry) => entry.section === "computedSimilarity");
     assert.ok(similarity.provenance.some((entry) => entry.section === "authoredSimilarity" && entry.kind === "authored"));
@@ -947,7 +947,7 @@ test("home Discovery 2 integration keeps rich criteria public, strict, and on ex
       summary: document.getElementById("resultsSummary")?.textContent || "",
       request: performance.getEntriesByType("resource").some((entry) => new URL(entry.name).pathname === "/data/runtime-evidence.json"),
     }));
-    assert.match(runtime.summary, /Runtime evidence: (observed|reported|estimated)/i);
+    assert.match(runtime.summary, /Runtime: (observed|reported|estimated)/i);
     assert.equal(runtime.request, true);
 
     await search("something like The White Vault but darker");
@@ -1079,5 +1079,45 @@ test("creator directory history restores filter, sort, query, and forward naviga
     );
   } finally {
     await page.close();
+  }
+});
+
+test("public search remains usable when only the runtime evidence projection is unavailable", async () => {
+  const context = await browser.newContext({
+    serviceWorkers: "block",
+    viewport: { width: 1280, height: 720 },
+  });
+  const page = await context.newPage();
+  let runtimeEvidenceRequests = 0;
+  const runtimeEvidenceResponse = page.waitForResponse(
+    (response) => new URL(response.url()).pathname === "/data/runtime-evidence.json",
+    { timeout: 20_000 },
+  );
+  await page.route("**/data/runtime-evidence.json*", async (route) => {
+    runtimeEvidenceRequests += 1;
+    await route.fulfill({
+      status: 503,
+      contentType: "application/json",
+      body: JSON.stringify({ error: "runtime evidence temporarily unavailable" }),
+    });
+  });
+
+  try {
+    await page.goto(`${baseUrl}/`, { waitUntil: "domcontentloaded" });
+    assert.equal((await runtimeEvidenceResponse).status(), 503, "the runtime projection request should receive the simulated failure");
+    await page.waitForFunction(() => document.body.dataset.homeReady === "true", undefined, { timeout: 20_000 });
+    assert.equal(runtimeEvidenceRequests, 1, "only the optional runtime projection should fail");
+
+    await page.locator("#search").fill("Midnight Burger");
+    await page.locator("#search").press("Enter");
+    await page.waitForFunction(
+      () => document.querySelector('#podcast-grid a[data-discovery-show-id="midnight-burger"]') !== null,
+      undefined,
+      { timeout: 10_000 },
+    );
+    const result = await page.locator('#podcast-grid a[data-discovery-show-id="midnight-burger"]').innerText();
+    assert.match(result, /Midnight Burger/i, "ordinary exact-title discovery should remain available");
+  } finally {
+    await context.close();
   }
 });

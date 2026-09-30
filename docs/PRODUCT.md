@@ -2,8 +2,9 @@
 
 ## Purpose
 
-This is the active product brief for the current 1.1.0 release of The Echo
-Archives.
+This is the active product brief for the current Echo Archives 2.0 candidate.
+The 1.1.0 release remains part of the product history, not the current
+implementation description.
 
 Use it as the source of truth for:
 
@@ -43,13 +44,30 @@ The Echo Archives exists to solve that discovery problem directly by:
 - helping creators get represented accurately
 - building a human-curated archive that feels specific, trustworthy, and alive
 
-## Release 1.1.0 Baseline
+## Current 2.0 Candidate
 
-The current release is a working static-first discovery product, not a
-prototype or playback app. Current published-show, review, collection, entity,
-and readiness counts belong to the generated catalog status
+The current implementation is a working static-first discovery product, not a
+prototype or playback app. It includes Discovery 2.0 rich-query routing and
+Personal Discovery over the browser-local Listener Library. The opt-in defaults
+off; private Library state does not become catalogue truth, server storage, or
+aggregate analytics data. There is no public Library management page or
+navigation destination. The full release remains subject to its dated
+verification gates. Current published-show, review, collection, entity, and
+readiness counts belong to the generated catalog status
 [`docs/generated/catalog-status.md`](generated/catalog-status.md), not to
 hand-maintained product copy.
+
+The current product surface retains the 1.1.0 baseline of browse/search,
+structured filters, collections, show pages, moderated contributions,
+community rating infrastructure, and protected maintainer workflows. Ask the
+Archivist remains preserved but disabled by default; production rating writes,
+maintainer access, analytics, and external provider integrations remain
+configuration-gated.
+
+Discovery 2.0 interprets supported rich queries against published catalogue
+facts and routes results through existing show, collection, creator, similarity,
+and runtime surfaces. Personal Discovery uses only explicit local Library state
+when the listener enables it. Turning it off restores ordinary public ordering.
 
 The release includes browse/search, structured filters, collections, show pages,
 moderated contributions, community rating infrastructure, protected importer

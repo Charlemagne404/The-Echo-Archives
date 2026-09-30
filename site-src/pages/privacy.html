@@ -56,7 +56,7 @@
         </span>
         <div>
           <h2>Browser-scoped state</h2>
-          <p>{{#archivist}}Ask the Archivist uses session storage, and {{/archivist}}community ratings use a cookie plus a linked local profile id.</p>
+          <p>{{#archivist}}Ask the Archivist uses session storage, and {{/archivist}}community ratings use a cookie plus a linked local profile id. The optional Listener Library uses IndexedDB in this browser.</p>
         </div>
       </article>
       <article class="page-card info-summary-card">
@@ -124,6 +124,10 @@
               <p>Passive show-page browsing does not create a rating profile. Submitting or clearing a rating can create a publicly anonymous, pseudonymous profile using the HTTP-only voter cookie <code>echo-community-voter</code> plus the linked localStorage key <code>echo-community-profile-id</code>. Rating actions also send the rating value and can send a Cloudflare Turnstile token when that protection is enabled.</p>
             </li>
             <li>
+              <strong>Listener Library and Personal Discovery</strong>
+              <p>The optional Listener Library stores a current show status (Saved, Listening, Finished, Dropped, or Hidden) and any private 1–5 rating you explicitly enter in the origin-scoped IndexedDB database <code>echo-archives-listener-library</code>. The separate Personal Discovery setting defaults off. When enabled, the browser uses those explicit choices locally to adjust eligible search and Try Next results; it does not send Library entries, private ratings, or the setting to archive APIs, analytics, community ratings, submissions, maintainer tools, URLs, or referrers. The site does not synchronize this data to a server or include it in server database backups.</p>
+            </li>
+            <li>
               <strong>Submissions and contact details</strong>
               <p>When you send a show submission, correction, listener review, or creator verification request, the server receives the request body you send. That can include titles, links, notes, review text, proof URLs, and any contact email you choose or are required to provide for that submission type.</p>
             </li>
@@ -175,6 +179,10 @@
               <p>Browser session storage for chat history and scroll restoration lasts until the browser session ends or you clear site data. The public site does not provide saved account-based chat history.</p>
             </li>
             {{/archivist}}
+            <li>
+              <strong>Listener Library and Personal Discovery</strong>
+              <p>Library entries and the opt-in setting remain in this browser’s IndexedDB until you remove entries or clear the archive’s site data. Turning Personal Discovery off preserves Library entries and private ratings. The public site does not provide a Library export or backup control, and browser-local data is not included in server database backups. The service-level export is not part of the public interface; it creates readable JSON that can contain private ratings and title snapshots, so protect any file saved through it.</p>
+            </li>
             <li>
               <strong>Cloudflare challenge clearance</strong>
               <p>The <code>cf_clearance</code> lifetime follows the Cloudflare zone’s Challenge Passage setting and can be refreshed as security checks continue. The exact production-zone setting is not visible from an ordinary public response.</p>

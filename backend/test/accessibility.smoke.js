@@ -460,7 +460,7 @@ test("compact Library controls on cards and show pages pass semantic checks", { 
     await assertAxeClean(page, "open show-detail Library controls");
     await detailControl.locator("[data-library-state-select]").selectOption("listening");
     await detailControl.locator("[data-library-rating-select]").selectOption("4");
-    assert.match(await detailControl.locator(".library-detail-rating-note").textContent(), /never submits a Community Rating/);
+    assert.match(await detailControl.locator(".library-detail-rating-note").textContent(), /never submitted as a Community Rating/);
     guard.assertNoMutationAttempts();
   } finally {
     await page.close();

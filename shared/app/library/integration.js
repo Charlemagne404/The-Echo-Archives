@@ -73,7 +73,7 @@ function createCardControl(showId, title, relationship = false) {
 
 function appendDetailStateOptions(select, currentState) {
   select.replaceChildren();
-  const prompt = makeElement("option", "", currentState ? STATE_LABELS[currentState] : "Choose a Library state");
+  const prompt = makeElement("option", "", currentState ? STATE_LABELS[currentState] : "Choose a state");
   prompt.value = currentState || "";
   prompt.disabled = !currentState;
   prompt.selected = true;
@@ -124,7 +124,7 @@ function createDetailControl(showId, title) {
   preferenceInput.setAttribute("aria-label", "Use my Library in discovery");
   const preferenceCopy = makeElement("span", "library-personal-discovery-copy", "Use my Library in discovery");
   preference.append(preferenceInput, preferenceCopy);
-  const preferenceHelp = makeElement("p", "library-personal-discovery-help", "Uses this browser’s Library states and private ratings.");
+  const preferenceHelp = makeElement("p", "library-personal-discovery-help", "Uses your Library states and private ratings.");
   preferenceHelp.id = `library-discovery-help-${showId}`;
   preferenceInput.setAttribute("aria-describedby", preferenceHelp.id);
 
@@ -132,8 +132,9 @@ function createDetailControl(showId, title) {
   remove.type = "button";
   remove.dataset.libraryRemove = showId;
   remove.hidden = true;
-  const note = makeElement("p", "library-detail-rating-note", "Your private rating is stored only in this browser. It never submits a Community Rating.");
-  const hiddenNote = makeElement("p", "library-hidden-meaning", "Hidden removes this exact show from discovery while Personal Discovery is on. It does not change the catalogue, ordinary browsing, or direct access to this show.");
+  const note = makeElement("p", "library-detail-rating-note", "Private to this browser; never submitted as a Community Rating.");
+  const hiddenNote = makeElement("p", "library-hidden-meaning", "With Personal Discovery on, Hidden removes this show from your results; its page stays available.");
+  hiddenNote.hidden = true;
   const status = makeStatusNode();
   status.setAttribute("role", "status");
   status.setAttribute("aria-live", "polite");
@@ -202,8 +203,10 @@ function renderControlState(control, runtimeState) {
   if (runtimeState.personalDiscoveryError) {
     preferenceHelp.textContent = "Personal Discovery is unavailable until the local Library setting can be read.";
   } else {
-    preferenceHelp.textContent = "Uses this browser’s Library states and private ratings.";
+    preferenceHelp.textContent = "Uses your Library states and private ratings.";
   }
+  const hiddenNote = control.querySelector(".library-hidden-meaning");
+  hiddenNote.hidden = entry?.state !== "hidden";
   control.dataset.libraryCurrentState = entry?.state || "";
   const summary = control.querySelector("summary");
   summary.textContent = entry

@@ -22,9 +22,10 @@ user and group are host-specific. The service never runs from this checkout.
 
 ## Current Release Status
 
-This runbook reflects the current 1.1.0 repository and generated catalog
-snapshot through **2026-09-20**. The repository contains the released
-static-first product, creator discovery, and protected submission, import,
+This runbook reflects the current 2.0 candidate implementation and generated
+catalog snapshot through **2026-09-20**. The repository contains the
+static-first product, creator discovery, rich Discovery 2.0 queries, and an
+opt-in browser-local Listener Library alongside protected submission, import,
 elevation, and collection-maintainer workflows. The generated catalog snapshot
 has 752 published shows, 517 imported records, 228 indexed-only records, 7 full
 reviews, and 54 runtime collections (47 authored plus 7 generated similarity
@@ -32,9 +33,12 @@ companions). Gate B is complete with zero catalog blockers; six missing RSS
 links and eight runtime gaps are explicitly documented, alongside 29
 research-gap records.
 
-Do not treat the product release marker or local catalog checks as proof that
-every deployment gate has passed. Host, provider, recovery, monitoring, and
-production-device/browser evidence must still be verified separately. Use the
+The Listener Library has no server-side table or API and is not included in
+server database backups. Browser site-data clearing removes its IndexedDB data;
+turning off Personal Discovery preserves entries. Do not treat the candidate
+marker or local catalog checks as proof that every deployment gate has passed.
+Host, provider, recovery, monitoring, and production-device/browser evidence
+must still be verified separately. Use the
 generated catalog report for current catalog evidence and the relevant dated
 reports in `docs/qa/` for focused release, legal, creator, and linking checks.
 The 2026-08-20 and 2026-08-18 reports remain historical snapshots.

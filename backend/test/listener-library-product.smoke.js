@@ -41,6 +41,8 @@ before(async () => {
       SITE_URL: `http://127.0.0.1:${port}`,
       NODE_ENV: "test",
       PUBLIC_ANALYTICS_ENABLED: "true",
+      ACCESS_LOG_ENABLED: "true",
+      ACCESS_LOG_HMAC_SECRET: "echo-library-test-privacy-hmac-secret-2026",
     },
     stdio: ["ignore", "pipe", "pipe"],
   });
@@ -109,7 +111,13 @@ test("the dedicated Library route, page modules, styles, and navigation are gone
 test("compact card and show controls persist and synchronize without exposing Library state", async () => {
   const context = await newContext();
   const requests = [];
-  context.on("request", (request) => requests.push({ method: request.method(), url: request.url(), body: request.postData() || "" }));
+  const privacyCanary = "EchoLibraryPrivateStateCanary-2026-09-29";
+  context.on("request", (request) => requests.push({
+    method: request.method(),
+    url: request.url(),
+    body: request.postData() || "",
+    referer: request.headers().referer || "",
+  }));
   try {
     const browse = await context.newPage();
     await browse.goto(`${baseUrl}/`);
@@ -163,7 +171,8 @@ test("compact card and show controls persist and synchronize without exposing Li
       assert.ok(summaries.every((label) => label === "Listening"), JSON.stringify(summaries));
     });
     await detailControl.locator("[data-library-rating-select]").selectOption("4");
-    assert.match(await detailControl.locator(".library-detail-rating-note").textContent(), /never submits a Community Rating/);
+    assert.match(await detailControl.locator(".library-detail-rating-note").textContent(), /never submitted as a Community Rating/);
+    assert.equal(await detailControl.locator(".library-hidden-meaning").isVisible(), false, "Hidden guidance stays out of the way for other Library states");
 
     await cardControl.locator("summary").click();
     await cardControl.locator("[data-library-state-select]").selectOption("hidden");
@@ -172,6 +181,12 @@ test("compact card and show controls persist and synchronize without exposing Li
       const summaries = await cards.locator("summary").allTextContents();
       assert.ok(summaries.every((label) => label === "Hidden"), JSON.stringify(summaries));
     });
+    const privacySnapshot = await detail.evaluate(async ({ showId, titleSnapshot }) => {
+      const { getLibraryService } = await import("/shared/app/library/runtime.js");
+      return getLibraryService().setState(showId, "hidden", { titleSnapshot });
+    }, { showId: repeatedShow.id, titleSnapshot: privacyCanary });
+    assert.equal(privacySnapshot.ok, true);
+    assert.equal(await detailControl.locator(".library-hidden-meaning").isVisible(), true, "Hidden guidance appears only for the Hidden state");
     assert.equal(await browse.locator(`#podcast-grid a[data-discovery-show-id="${repeatedShow.id}"]`).isVisible(), true, "Hidden does not change ordinary browse visibility");
 
     await detail.reload();
@@ -186,15 +201,20 @@ test("compact card and show controls persist and synchronize without exposing Li
     await detailControl.locator("summary").click();
     assert.equal(await personalPreference.isChecked(), false, "Personal Discovery defaults to off on this browser");
     assert.equal(await personalPreference.getAttribute("aria-label"), "Use my Library in discovery");
-    assert.match(await detail.locator(`#${await personalPreference.getAttribute("aria-describedby")}`).textContent(), /this browser’s Library states and private ratings/i);
+    assert.match(await detail.locator(`#${await personalPreference.getAttribute("aria-describedby")}`).textContent(), /Uses your Library states and private ratings/i);
     await personalPreference.focus();
     await personalPreference.press("Space");
+    await assertEventually(async () => assert.equal(await personalPreference.isChecked(), true));
+    await personalPreference.uncheck();
+    await assertEventually(async () => assert.equal(await personalPreference.isChecked(), false));
+    await personalPreference.check();
     await assertEventually(async () => assert.equal(await personalPreference.isChecked(), true));
     const preferenceBounds = await personalPreference.boundingBox();
     const detailControlBounds = await detailControl.boundingBox();
     const detailPanelBounds = await detailControl.locator(".library-detail-panel").boundingBox();
     assert.ok(
-      preferenceBounds.x >= 0 && preferenceBounds.x + preferenceBounds.width <= 390,
+      preferenceBounds.x >= 0 && preferenceBounds.x + preferenceBounds.width <= 390
+        && preferenceBounds.y >= 0 && preferenceBounds.y + preferenceBounds.height <= 844,
       `the opt-in remains visible at a 390px viewport (${JSON.stringify({ preferenceBounds, detailControlBounds, detailPanelBounds })})`,
     );
     const urlAndHistory = await detail.evaluate(() => `${location.href}\n${JSON.stringify(history.state)}`);
@@ -243,16 +263,31 @@ test("compact card and show controls persist and synchronize without exposing Li
     await targetPage.close();
     await tryNextPage.close();
 
-    const pageHtml = await (await fetch(repeatedShow.href)).text();
-    assert.doesNotMatch(pageHtml, /data-library-state|private listener rating|personalContext|personalDiscovery/i);
+    const publicArtifacts = await Promise.all([
+      `${baseUrl}/`,
+      `${baseUrl}/sitemap.xml`,
+      `${baseUrl}/data/search-index.json`,
+      `${baseUrl}/data/runtime-evidence.json`,
+      repeatedShow.href,
+    ].map(async (url) => `${url}\n${await (await fetch(url)).text()}`));
+    for (const artifact of publicArtifacts) {
+      assert.doesNotMatch(artifact, /data-library-state=["'](?:hidden|listening|saved|finished|dropped)|private listener rating|personalContext|personalDiscoveryEnabled/i);
+      assert.doesNotMatch(artifact, new RegExp(privacyCanary));
+    }
     const writeRequests = requests.filter(({ method, url }) => method !== "GET" && !url.endsWith("/api/health") && !/\/api\/analytics\/events(?:\?|$)/.test(url));
     assert.deepEqual(writeRequests, [], "Library actions do not write personal state to the server");
     const analyticsRequests = requests.filter(({ url }) => /\/api\/analytics\/events(?:\?|$)/.test(url));
     for (const { body } of analyticsRequests) {
       assert.doesNotMatch(body, /libraryState|personalContext|privateRating|"state"\s*:|"rating"\s*:/i);
     }
-    const requestsContainingPrivateValues = requests.filter(({ url, body }) => /"(?:state|rating|libraryState|privateRating|personalDiscoveryEnabled)"\s*:|\b(hidden|listening|saved|personalDiscovery)\b/i.test(`${url}\n${body}`));
-    assert.deepEqual(requestsContainingPrivateValues, [], "Library status and private rating do not enter request URLs or bodies");
+    const requestsContainingPrivateValues = requests.filter(({ url, body, referer }) => /"(?:state|rating|libraryState|privateRating|personalDiscoveryEnabled)"\s*:|\b(hidden|listening|saved|personalDiscovery)\b/i.test(`${url}\n${body}\n${referer}`));
+    assert.deepEqual(requestsContainingPrivateValues, [], "Library status and private rating do not enter request URLs, bodies, or referrers");
+    const accessLogs = serverOutput.split("\n")
+      .filter((line) => line.includes('"event":"http_request"'))
+      .map((line) => JSON.parse(line));
+    assert.ok(accessLogs.length > 0, "the disposable server emitted inspectable access-log events");
+    assert.ok(accessLogs.every((entry) => !/EchoLibraryPrivateStateCanary|personalContext|personalDiscovery|privateRating|\"state\"\s*:|\"rating\"\s*:/i.test(JSON.stringify(entry))));
+    assert.ok(accessLogs.every((entry) => !Object.hasOwn(entry, "query") && !Object.hasOwn(entry, "body") && !Object.hasOwn(entry, "referer")));
   } finally {
     await context.close();
   }
@@ -261,7 +296,12 @@ test("compact card and show controls persist and synchronize without exposing Li
 test("Personal Discovery refines existing search locally and restores public order when disabled or cleared", async () => {
   const context = await newContext();
   const requests = [];
-  context.on("request", (request) => requests.push({ method: request.method(), url: request.url(), body: request.postData() || "" }));
+  context.on("request", (request) => requests.push({
+    method: request.method(),
+    url: request.url(),
+    body: request.postData() || "",
+    referer: request.headers().referer || "",
+  }));
   try {
     const home = await context.newPage();
     await home.setViewportSize({ width: 390, height: 844 });
@@ -319,7 +359,7 @@ test("Personal Discovery refines existing search locally and restores public ord
     await assertEventually(async () => {
       const ids = await home.locator("#podcast-grid a[data-discovery-show-id]").evaluateAll((links) => links.map((link) => link.dataset.discoveryShowId));
       const reason = await home.locator("#personalDiscoveryReason").textContent();
-      assert.match(reason, /tone .+ discovery tags .+ King Falls AM, which you rated 5\/5/i, `the moved candidate has a grounded reason (${JSON.stringify({ homeRuntimeState, reason })})`);
+      assert.match(reason, /tone .+ tags .+ King Falls AM \(rated 5\/5\)/i, `the moved candidate has a grounded reason (${JSON.stringify({ homeRuntimeState, reason })})`);
       assert.notDeepEqual(ids, baselineIds, "the existing result order updates in the other tab");
       assert.ok(ids.indexOf("midnight-burger") < baselineIds.indexOf("midnight-burger"), "a public-similarity match moves up modestly");
     });
@@ -348,7 +388,7 @@ test("Personal Discovery refines existing search locally and restores public ord
     await assertEventually(async () => {
       const ids = await home.locator("#podcast-grid a[data-discovery-show-id]").evaluateAll((links) => links.map((link) => link.dataset.discoveryShowId));
       assert.equal(ids.includes("ars-paradoxica"), false, "the enabled Hidden preference survives reload");
-      assert.match(await home.locator("#personalDiscoveryReason").textContent(), /King Falls AM, which you rated 5\/5/i);
+      assert.match(await home.locator("#personalDiscoveryReason").textContent(), /King Falls AM \(rated 5\/5\)/i);
     });
 
     await preference.uncheck();
@@ -396,12 +436,12 @@ test("Personal Discovery refines existing search locally and restores public ord
     assert.doesNotMatch(urlAndHistory, /personalContext|personalDiscovery|privateRating|"rating"|"state"|hidden|listening|saved/i);
     const nonAnalyticsWrites = requests.filter(({ method, url }) => method !== "GET" && !/\/api\/analytics\/events(?:\?|$)/.test(url));
     assert.deepEqual(nonAnalyticsWrites, [], "Library state and preference do not write to the server");
-    const privateNetworkRequests = requests.filter(({ url, body }) => (
-      /personalContext|personalDiscovery|privateRating|libraryState/i.test(`${url}\n${body}`)
+    const privateNetworkRequests = requests.filter(({ url, body, referer }) => (
+      /personalContext|personalDiscovery|privateRating|libraryState/i.test(`${url}\n${body}\n${referer}`)
         || /(?:[?&])(?:personalDiscoveryEnabled|state|rating)=(?:true|false|hidden|listening|saved|finished|dropped|[1-5])(?:&|$)/i.test(url)
         || /"(?:state|rating)"\s*:\s*(?:"(?:hidden|listening|saved|finished|dropped)"|[1-5])\b/i.test(body)
     ));
-    assert.deepEqual(privateNetworkRequests, [], "local statuses, preference, and private ratings do not enter request URLs or bodies");
+    assert.deepEqual(privateNetworkRequests, [], "local statuses, preference, and private ratings do not enter request URLs, bodies, or referrers");
   } finally {
     await context.close();
   }

@@ -113,6 +113,17 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     serviceWorkers: "block",
   });
   const page = await context.newPage();
+  const observedMaintainerRequests = [];
+  const libraryPrivacyCanary = "EchoLibraryPrivateStateCanary-Maintainer-2026-09-29";
+  context.on("request", (request) => {
+    const requestUrl = new URL(request.url());
+    if (!requestUrl.pathname.startsWith("/api/maintainer/")) return;
+    observedMaintainerRequests.push({
+      url: request.url(),
+      body: request.postData() || "",
+      referer: request.headers().referer || "",
+    });
+  });
   const verificationAssetRequests = [];
   page.on("request", (request) => {
     if (new URL(request.url()).pathname.endsWith("/external-verification.js")) {
@@ -160,6 +171,16 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
   ];
 
   try {
+    await page.goto(`${baseUrl}/`);
+    const privateStateSeeded = await page.evaluate(async (titleSnapshot) => {
+      const { getLibraryService } = await import("/shared/app/library/runtime.js");
+      const library = getLibraryService();
+      const state = await library.setState("impact-winter", "hidden", { titleSnapshot });
+      const rating = await library.setRating("impact-winter", 4);
+      const preference = await library.setPersonalDiscoveryEnabled(true);
+      return { state: state.ok, rating: rating.ok, preference: preference.ok };
+    }, libraryPrivacyCanary);
+    assert.deepEqual(privateStateSeeded, { state: true, rating: true, preference: true });
     await page.goto(`${baseUrl}/maintainer/imports.html`, { waitUntil: "networkidle" });
     await page.locator("#maintainerAuthPanel").waitFor({ state: "visible" });
     assert.equal(verificationAssetRequests.length, 0);
@@ -412,6 +433,8 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     await page.waitForFunction(() => document.body.dataset.maintainerState === "authRequired");
     assert.equal(await page.locator("body").getAttribute("data-maintainer-state"), "authRequired");
     assert.match(await page.locator("#maintainerAuthStatus").innerText(), /session expired/i);
+    const privateStateEgress = observedMaintainerRequests.filter(({ url, body, referer }) => /EchoLibraryPrivateStateCanary|personalContext|personalDiscovery|privateRating|libraryState|\"state\"\s*:|\"rating\"\s*:\s*4/i.test(`${url}\n${body}\n${referer}`));
+    assert.deepEqual(privateStateEgress, [], "maintainer requests and referrers exclude browser-local Library state");
   } finally {
     await context.close();
   }

@@ -62,7 +62,7 @@ test("Saved and Listening weakly prefer only candidates passing public similarit
     const result = personalize({ publicResult: baseline, personalContext: makePersonalContext(state), intent: baseline.intent });
     assert.deepEqual(result.sections.shows.map((entry) => entry.id), [fixture.unmatched[0], fixture.matched, fixture.unmatched[1]]);
     const reason = result.sections.shows.find((entry) => entry.id === fixture.matched).personalizationReason;
-    assert.match(reason, /shares .+ with Ars Paradoxica, which (?:you saved|you’re listening to)\./i);
+    assert.match(reason, /shares .+ with Ars Paradoxica \((?:saved|listening)\)\./i);
     assert.equal(result.candidateIds.length, baseline.candidateIds.length);
   }
 });
@@ -76,7 +76,7 @@ test("explicit private ratings use 5/4 positive, 3 neutral, and 1/2 negative sig
   for (const rating of [4, 5]) {
     const result = personalize({ publicResult: positiveBase, personalContext: makePersonalContext("finished", rating), intent: positiveBase.intent });
     assert.equal(result.sections.shows[0].id, fixture.matched, `rating ${rating} should bring a qualified match forward`);
-    assert.match(result.sections.shows[0].personalizationReason, new RegExp(`Ars Paradoxica, which you rated ${rating}/5`));
+    assert.match(result.sections.shows[0].personalizationReason, new RegExp(`Ars Paradoxica \\(rated ${rating}/5\\)`));
   }
 
   const neutral = personalize({ publicResult: positiveBase, personalContext: makePersonalContext("saved", 3), intent: positiveBase.intent });
@@ -87,7 +87,7 @@ test("explicit private ratings use 5/4 positive, 3 neutral, and 1/2 negative sig
   for (const rating of [1, 2]) {
     const result = personalize({ publicResult: negativeBase, personalContext: makePersonalContext("finished", rating), intent: negativeBase.intent });
     assert.equal(result.sections.shows.at(-1).id, fixture.matched, `rating ${rating} should lower a qualified match`);
-    assert.match(result.sections.shows.at(-1).personalizationReason, new RegExp(`Placed lower because it shares .+ with Ars Paradoxica, which you rated ${rating}/5`));
+    assert.match(result.sections.shows.at(-1).personalizationReason, new RegExp(`Placed lower because it shares .+ with Ars Paradoxica \\(rated ${rating}/5\\)`));
   }
 
   const droppedWithExplicitLowRating = personalize({
@@ -157,6 +157,58 @@ test("Disabled and cleared context preserve exact public results and order", asy
   assert.deepEqual(engineDisabled, baseline);
 });
 
+test("repeated Personal Discovery with hundreds of anchors reuses bounded candidate matches", async () => {
+  const { createPersonalDiscoveryPersonalizer: create } = await personalizationModule;
+  const libraryShows = Array.from({ length: 102 }, (_, index) => ({
+    id: `library-anchor-${index}`,
+    title: `Library anchor ${index}`,
+  }));
+  const showsForCandidates = [
+    { id: "candidate-a", title: "Candidate A" },
+    { id: "candidate-b", title: "Candidate B" },
+  ];
+  let similarityLookups = 0;
+  const personalized = create({
+    shows: [...libraryShows, ...showsForCandidates],
+    scope: "search",
+    similarityIndex: {
+      compare: () => ({ dimensions: [] }),
+      getPublicSimilarityMatches: () => {
+        similarityLookups += 1;
+        return [];
+      },
+    },
+  });
+  const baseline = {
+    candidateIds: ["candidate-a", "candidate-b"],
+    intent: { kind: "facet-search", surface: "search" },
+    outcome: "results",
+    sections: {
+      shows: [{ id: "candidate-a" }, { id: "candidate-b" }],
+      authoredSimilarity: [],
+      computedSimilarity: [],
+      collections: [],
+      entities: [],
+    },
+  };
+  const personalContext = {
+    enabled: true,
+    entries: libraryShows.map((show, index) => ({
+      showId: show.id,
+      state: index % 2 === 0 ? "saved" : "listening",
+    })),
+  };
+
+  const first = personalized({ publicResult: baseline, personalContext, intent: baseline.intent });
+  const lookupsAfterWarmup = similarityLookups;
+  const repeated = personalized({ publicResult: baseline, personalContext, intent: baseline.intent });
+
+  assert.deepEqual(first.candidateIds, baseline.candidateIds);
+  assert.deepEqual(repeated.candidateIds, baseline.candidateIds);
+  assert.equal(lookupsAfterWarmup, personalContext.entries.length);
+  assert.equal(similarityLookups, lookupsAfterWarmup, "a repeated query should reuse each anchor's cached public matches");
+});
+
 test("hard requirements and exclusions remain authoritative; personalization never adds candidates", async () => {
   const personalize = await getSearchPersonalizer();
   const baseline = engine.retrieve("sci-fi but not comedy");
@@ -188,8 +240,8 @@ test("authored similarity identity and order stay editorial; personal reasons ex
   assert.ok(result.sections.computedSimilarity.every((entry) => entry.provenance.kind === "computed"));
   const explained = [...result.sections.shows, ...result.sections.computedSimilarity].find((entry) => entry.personalizationReason);
   if (explained) {
-    assert.match(explained.personalizationReason, /(?:tone|themes|discovery tags|listening context|voice style|narrative focus|intensity|commitment)/i);
-    assert.match(explained.personalizationReason, /Ars Paradoxica, which you rated 5\/5/i);
+    assert.match(explained.personalizationReason, /(?:tone|themes|tags|listening context|voice style|narrative focus|intensity|commitment)/i);
+    assert.match(explained.personalizationReason, /Ars Paradoxica \(rated 5\/5\)/i);
     assert.doesNotMatch(explained.personalizationReason, /score|weight|confidence/i);
   }
 });

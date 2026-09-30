@@ -528,6 +528,16 @@ test("service worker supports cached public pages offline and falls back for unc
     await page.waitForFunction(() => document.body.dataset.offlineReady === "true", undefined, { timeout: 10_000 });
     await page.waitForFunction(() => document.body.dataset.homeReady === "true", undefined, { timeout: 10_000 });
 
+    const privateStateSeeded = await page.evaluate(async () => {
+      const { getLibraryService } = await import("/shared/app/library/runtime.js");
+      const library = getLibraryService();
+      const state = await library.setState("impact-winter", "hidden", { titleSnapshot: "EchoLibraryPrivateStateCanary-Cache-2026-09-29" });
+      const rating = await library.setRating("impact-winter", 4);
+      const preference = await library.setPersonalDiscoveryEnabled(true);
+      return { state: state.ok, rating: rating.ok, preference: preference.ok };
+    });
+    assert.deepEqual(privateStateSeeded, { state: true, rating: true, preference: true });
+
     const homeDataCache = await page.evaluate(async () => {
       const resources = [
         ["search index", "/data/search-index.json", document.body.dataset.searchIndexVersion],
@@ -540,6 +550,27 @@ test("service worker supports cached public pages offline and falls back for unc
       ]));
     });
     assert.deepEqual(homeDataCache, [["search index", true], ["collections", true], ["runtime evidence", true]]);
+
+    const privateCacheAudit = await page.evaluate(async () => {
+      const urls = [];
+      const bodies = [];
+      for (const name of await caches.keys()) {
+        const cache = await caches.open(name);
+        for (const request of await cache.keys()) {
+          urls.push(request.url);
+          const response = await cache.match(request);
+          if (!response) continue;
+          try { bodies.push(await response.clone().text()); } catch {}
+        }
+      }
+      const serialized = `${urls.join("\\n")}\\n${bodies.join("\\n")}`;
+      return {
+        canaryPresent: serialized.includes("EchoLibraryPrivateStateCanary-Cache-2026-09-29"),
+        statePresent: serialized.includes('"state":"hidden"'),
+        privateRatingPresent: serialized.includes('"rating":4'),
+      };
+    });
+    assert.deepEqual(privateCacheAudit, { canaryPresent: false, statePresent: false, privateRatingPresent: false });
 
     const apiBoundary = await page.evaluate(async () => {
       const healthResponse = await fetch("/api/health");

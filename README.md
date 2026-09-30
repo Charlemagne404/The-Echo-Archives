@@ -6,7 +6,17 @@ It exists to answer one question well: **what should I listen to next?**
 
 This repo is not a generic podcast directory or a playback app. It is a dark, editorial, metadata-driven archive built around compact discovery, useful show pages, grounded recommendations, and clear trust signals.
 
-## Release 1.1.0 — Creators
+## Current implementation — 2.0 candidate
+
+The candidate integrates Discovery 2.0 rich-query routing and opt-in Personal
+Discovery with a browser-local Listener Library. Personal Discovery is off by
+default; its state and private ratings stay in the browser and do not sync to
+the archive. There is no public Library page or navigation item. Release
+verification, staging, rollback, and legal review remain separate from the
+repository implementation. Current counts are in the generated
+[catalog status](docs/generated/catalog-status.md).
+
+## Release 1.1.0 — Creators (historical)
 
 The repository now implements curated creator, studio, production-company and
 network discovery, with explicit show relationships and stable creator pages.
@@ -30,6 +40,8 @@ evidence, not proof of the state of a deployed production site.
 | Catalog source | Split JSON authoring files under `catalog-src/` |
 | Runtime catalog | Generated public data under `data/` plus a generated `/data/search-index.json` browse index |
 | Main browse surface | Homepage with structured filters, quick filters, search, recently updated mode, featured collections, and a most-popular band |
+| Discovery 2.0 | Rich criteria resolve to existing public results, collections, entity routes, runtime facts, and similarity paths |
+| Listener Library | Compact card/detail controls use origin-scoped IndexedDB; Personal Discovery is an explicit opt-in and remains browser-local |
 | Detail routes | Reusable show pages at `/shows/<show-id>` and collection pages at `/collections/<collection-id>` |
 | Community layer | Publicly anonymous, pseudonymous ratings, moderated submissions, corrections, listener reviews, and creator verification intake |
 | Assistant | Preserved Archivist integration, disabled by default for the current release |
@@ -69,6 +81,11 @@ Legacy HTML and query-string detail routes remain compatibility entry points and
 
 The first-party analytics design and retention boundary are documented in
 [`docs/ANALYTICS.md`](docs/ANALYTICS.md).
+
+The Listener Library is not part of generated catalogue data, analytics, the
+server database, or the public machine-readable reference. See
+[`docs/2.0/ARCHITECTURE.md`](docs/2.0/ARCHITECTURE.md) for the storage and
+discovery boundaries.
 
 ## Stack
 

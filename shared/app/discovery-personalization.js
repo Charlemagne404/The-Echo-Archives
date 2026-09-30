@@ -1,7 +1,10 @@
 const MAX_PERSONAL_SIMILARITY_MATCHES = 50;
 const MAX_POSITION_ADJUSTMENT = 3;
 const MAX_PUBLIC_SIMILARITY_PAIR_CACHE_SIZE = 2000;
-const MAX_CANDIDATE_MATCH_CACHE_SIZE = 64;
+// A 500-entry Library can contain several hundred weighted anchors. Keep one
+// bounded entry per anchor for the current candidate set so repeated searches
+// do not churn through the cache and recompute the same similarity matches.
+const MAX_CANDIDATE_MATCH_CACHE_SIZE = 512;
 
 const SIGNAL_WEIGHT = Object.freeze({
   saved: 1,
@@ -44,7 +47,7 @@ const DIMENSION_PRIORITY = Object.freeze([
 const DIMENSION_LABELS = Object.freeze({
   tone: "tone",
   theme: "themes",
-  tag: "discovery tags",
+  tag: "tags",
   bestFor: "listening context",
   voiceStyle: "voice style",
   narrativeFocus: "narrative focus",
@@ -90,15 +93,18 @@ function getDimensionDescription(dimension) {
   const label = DIMENSION_LABELS[dimension.id];
   if (!values.length) return label;
   const valueText = values.join(", ");
+  if (dimension.id === "tone" || dimension.id === "tag") {
+    return `${values.join("/")} ${label}`;
+  }
   return `${label} (${valueText.length > 48 ? `${valueText.slice(0, 45).trimEnd()}…` : valueText})`;
 }
 
 function getAnchorDescription(entry, show) {
   if (Number.isInteger(entry.rating) && entry.rating >= 1 && entry.rating <= 5) {
-    return `${show.title}, which you rated ${entry.rating}/5`;
+    return `${show.title} (rated ${entry.rating}/5)`;
   }
-  if (entry.state === "saved") return `${show.title}, which you saved`;
-  if (entry.state === "listening") return `${show.title}, which you’re listening to`;
+  if (entry.state === "saved") return `${show.title} (saved)`;
+  if (entry.state === "listening") return `${show.title} (listening)`;
   return "";
 }
 

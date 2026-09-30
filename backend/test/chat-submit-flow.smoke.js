@@ -619,6 +619,13 @@ test("show context failures stay non-blocking and stale responses cannot replace
 test("submit success and failure flows use one persistent result surface and preserve retry data", async () => {
   const context = await browser.newContext({ serviceWorkers: "block" });
   const page = await context.newPage();
+  const observedRequests = [];
+  const libraryPrivacyCanary = "EchoLibraryPrivateStateCanary-Submission-2026-09-29";
+  context.on("request", (request) => observedRequests.push({
+    url: request.url(),
+    body: request.postData() || "",
+    referer: request.headers().referer || "",
+  }));
 
   async function fillValidShowSubmission() {
     await page.locator("#submitShowTitle").fill("Launch Test Show");
@@ -629,6 +636,15 @@ test("submit success and failure flows use one persistent result surface and pre
 
   try {
     await page.goto(`${baseUrl}/submit`, { waitUntil: "networkidle" });
+    const privateStateSeeded = await page.evaluate(async (titleSnapshot) => {
+      const { getLibraryService } = await import("/shared/app/library/runtime.js");
+      const library = getLibraryService();
+      const state = await library.setState("impact-winter", "hidden", { titleSnapshot });
+      const rating = await library.setRating("impact-winter", 4);
+      const preference = await library.setPersonalDiscoveryEnabled(true);
+      return { state: state.ok, rating: rating.ok, preference: preference.ok };
+    }, libraryPrivacyCanary);
+    assert.deepEqual(privateStateSeeded, { state: true, rating: true, preference: true });
     await page.route("**/api/submissions/shows", async (route) => {
       await new Promise((resolve) => setTimeout(resolve, 200));
       await route.fulfill({
@@ -728,6 +744,9 @@ test("submit success and failure flows use one persistent result surface and pre
       { timeout: 5_000 },
     );
     assert.equal(await page.locator("#submitShowTitle").inputValue(), "Launch Test Show");
+    const submissionEgress = observedRequests.filter(({ url, body, referer }) => new URL(url).pathname === "/api/submissions/shows"
+      && /EchoLibraryPrivateStateCanary|personalContext|personalDiscovery|privateRating|libraryState|\"state\"\s*:|\"rating\"\s*:\s*4/i.test(`${url}\n${body}\n${referer}`));
+    assert.deepEqual(submissionEgress, [], "submission requests and referrers exclude browser-local Library state");
   } finally {
     await context.close();
   }

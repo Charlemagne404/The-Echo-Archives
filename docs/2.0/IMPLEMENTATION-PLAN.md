@@ -186,6 +186,6 @@ For separate Codex sessions, give each phase an isolated worktree/branch and exp
 
 **Do not do yet:** Do not launch on an optional-browser skip, silently reset unsupported state, add a server database migration as a substitute for local-state recovery, or claim success without staging/rollback evidence.
 
-## Recommended next implementation work
+## Remaining release work
 
-Phases 1–7 are implemented on this worktree. Complete the still-open staging, rollback, legal-copy, deployment, and full 2.0 release gates before release. Phase 8 remains conditional and is not part of this implementation.
+Phases 1–7 are implemented on this worktree. Phase 8 remains conditional and is not a release requirement. The dated 2.0 release-candidate QA report records completed local disposable staging, the local application/state rollback drill, and the privacy/cookie copy update. Release work still requires a clean immutable candidate commit that preserves the shared visual-audit changes; full verification on pinned Node 22.23.1 and Linux/GNU/Restic tooling; exact-SHA external staging with cross-origin isolation and operator rollback checks; named product, privacy/legal, and release-owner review; a supported browser/device and accessibility review; and disposition of the source-backed relationship warnings. Production deployment and backup/restore remain unperformed and require their own release-owner decision.

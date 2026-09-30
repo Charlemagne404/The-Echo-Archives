@@ -64,3 +64,7 @@ unsupported claims remain outside this reference surface. No `llms.txt` or
 other crawler-specific protocol is required: the sitemap, canonical pages,
 Markdown negotiation, JSON-LD, and this documented JSON index cover the useful
 machine-consumption paths without changing the listener-first product.
+
+Listener Library entries, private ratings, and the Personal Discovery setting
+are origin-scoped browser data. They do not appear in these JSON resources,
+generated catalogue output, or server endpoints.

@@ -4738,6 +4738,11 @@ img.is-image-fallback {
   z-index: 70;
 }
 
+.detail-hero-panel:has(.detail-actions > .library-detail-control[open]) {
+  z-index: 80;
+  overflow: visible;
+}
+
 .library-card-control,
 .library-detail-control {
   position: relative;

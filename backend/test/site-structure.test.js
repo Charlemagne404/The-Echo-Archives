@@ -148,7 +148,10 @@ test("privacy and storage pages disclose current passive and edge storage behavi
   assert.match(privacy, /Cloudflare may inject Real User Monitoring \(RUM\) at the edge/);
   assert.match(cookies, /Cloudflare may inject RUM at the edge/);
   assert.doesNotMatch(privacy, /Cloudflare describes RUM as not using cookies or local storage/i);
-  assert.match(cookies, /technically necessary for the rating or helpful-vote functionality/i);
+  assert.match(cookies, /optional browser-local Listener Library/i);
+  assert.match(cookies, /Personal Discovery choice defaults off/i);
+  assert.match(cookies, /optional IndexedDB setting, not a cookie/i);
+  assert.match(cookies, /no Library state or private rating is included in analytics events/i);
   const copyright = fs.readFileSync(path.join(siteRoot, "copyright.html"), "utf8");
   assert.match(copyright, /id="copyright-notices"/);
   assert.match(copyright, /statutory notice, complaint, appeal, or authority process/i);

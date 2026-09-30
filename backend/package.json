@@ -16,6 +16,8 @@
     "test:smoke:required": "node scripts/run-smoke-tests.js --require-browser",
     "test:setup:browser": "playwright install chromium",
     "test:smoke:maintainer-import": "node --test test/maintainer-import.smoke.js",
+    "test:smoke:home-card": "node --test --test-concurrency=1 test/home-card-interactions.smoke.js",
+    "test:smoke:runtime-projection": "node --test --test-concurrency=1 --test-name-pattern='only the runtime evidence projection is unavailable' test/discovery-stability.smoke.js",
     "test:smoke:serial": "node scripts/run-smoke-tests.js --serial",
     "check:config": "node ../tools/run-backend.js --check-config",
     "validate:data": "node scripts/validate-data.js",

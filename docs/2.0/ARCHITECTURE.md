@@ -41,7 +41,7 @@ The v1.2.7 baseline had no Library service or IndexedDB Library implementation. 
 
 The generated service worker caches a small offline shell and assets; it does not cache personal state or the full catalogue. API requests bypass its cache. Analytics events are allowlisted and avoid search text and direct personal data. There is no Library route requiring per-page analytics exclusion. The Library platform and imported app-integration modules contribute to generated cache versioning; the page-only module tree and dedicated page stylesheet have been removed.
 
-## 2. Proposed 2.0 architecture
+## 2. Current 2.0 architecture
 
 ### Boundary overview
 
@@ -397,7 +397,7 @@ Discovery pure tests are in `tools/test/discovery-v2.test.js`; the reviewed gold
 
 Use browser smoke coverage for card/detail/library integration, rich homepage query routing, privacy surfaces, keyboard-only operation, mobile card density, reduced motion, storage denial, and true Back/Forward/scroll restoration. Keep a required-browser gate separate from optional skip behavior. Never claim a browser release gate passed when Chromium was skipped.
 
-The initial local baseline and its limits are recorded in [BASELINE.md](BASELINE.md). Before choosing performance budgets, measure the supported browser/device profile with controlled cache state, data download and parse, first useful results, filter/query latency, result rendering, and memory. The existing report timings are full-catalogue local operation samples, not browser latency. Compare the same scenario after 2.0. Synthetic scale tests should use a fixture at least ten times the then-current published catalogue size as a stress check, while separately preserving real-catalogue correctness. Page results and cards rather than mounting the whole synthetic catalogue. A scale failure should identify the operation and boundary, not be hidden by loosening relevance gates.
+The initial local baseline and its limits are recorded in [BASELINE.md](BASELINE.md). The 2.0 review budget and integrated 10× measurements are recorded in [PERFORMANCE-BUDGET.md](PERFORMANCE-BUDGET.md) and the [2026-09-30 candidate QA report](../qa/2026-09-30-2.0-release-candidate.md). Those timings name their host and runtime and remain local review evidence, not portable browser guarantees. Repeat the same scenario when the supported browser/device target changes. Synthetic scale tests use at least ten times the published catalogue size while preserving real-catalogue correctness. Page results and cards rather than mounting the whole synthetic catalogue. A scale failure should identify the operation and boundary, not be hidden by loosening relevance gates.
 
 ## 4. Compatibility and operating assumptions
 

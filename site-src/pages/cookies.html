@@ -92,7 +92,7 @@
           <span class="page-card-kicker">Operator and scope</span>
           <h2>What this page covers</h2>
           <p>The legal operator and data controller is Charlie Arnerstål. The Echo Archives is a Continental project, not a separate legal entity, and the controller is established in Sweden. Privacy questions can be sent to <a href="mailto:privacy@echoarchives.net">privacy@echoarchives.net</a>.</p>
-          <p>This page covers first-party cookies, sessionStorage, localStorage, the first-party aggregate analytics signal, and the small number of related server-side identifiers used by the current archive. For broader personal-data handling, see <a href="/privacy">Privacy</a>.</p>
+          <p>This page covers first-party cookies, sessionStorage, localStorage, IndexedDB, the first-party aggregate analytics signal, and the small number of related server-side identifiers used by the current archive. IndexedDB is browser storage, not a cookie. For broader personal-data handling, see <a href="/privacy">Privacy</a>.</p>
         </article>
 
         <article class="page-card info-section-card" id="cookies-inventory">
@@ -132,6 +132,13 @@
                   <td>Stores the linked publicly anonymous, pseudonymous community profile id used by the frontend to fetch and update your rating state.</td>
                   <td>Until you clear site data or remove it manually.</td>
                   <td>After you submit or clear a community rating or mark a listener review helpful; passive show-page browsing does not create a profile.</td>
+                </tr>
+                <tr>
+                  <td><code>echo-archives-listener-library</code></td>
+                  <td><code>IndexedDB</code></td>
+                  <td>Keeps explicit show states, optional private 1–5 ratings, and the separate Personal Discovery choice in this browser. Personal Discovery defaults off and the Library is not synchronized to or backed up by the server. The current public interface has no export control; a service-level export, if used, is readable JSON.</td>
+                  <td>Until entries are removed or archive site data is cleared. Turning Personal Discovery off preserves entries.</td>
+                  <td>When you use an existing show-card or show-detail Library control; the preference is stored when you explicitly change it.</td>
                 </tr>
                 <tr>
                   <td><code>echo-analytics-visitor-v1</code></td>
@@ -190,8 +197,8 @@
         <article class="page-card info-section-card" id="cookies-essential">
           <span class="page-card-kicker">Essential and optional use</span>
           <h2>What kind of storage this is</h2>
-          <p>The current storage items are functional or security-related. They support chat and scroll continuity, publicly anonymous ratings, Cloudflare challenge protection, and maintainer authentication. The community voter storage is technically necessary for the rating or helpful-vote functionality; first-party analytics storage is only for aggregate operational measurement. The protected report can group trends, top pages, shows, collections, discovery surfaces, and conversion stages for a selected range, but it does not expose an individual browsing history. The maintainer analytics page does not collect its own browser analytics, and its report data is available only after maintainer authentication.</p>
-          <p>The archive does not use advertising cookies, third-party analytics cookies, or cross-site marketing cookies. Public pages do use the two first-party browser-storage keys listed above for aggregate operational analytics; they do not hold raw IPs, raw user agents, or a fingerprint on the server. No separate preference-cookie layer is implemented today. Cloudflare may inject RUM at the edge as a performance-measurement service; this page does not assert its storage or retention behavior without current provider and production evidence. Cloudflare separately processes request and security data and may set challenge-related storage as described in the inventory above.</p>
+          <p>The listed storage supports current site functions such as chat and scroll continuity, publicly anonymous ratings, Cloudflare challenge protection, maintainer authentication, and the optional browser-local Listener Library. The Library’s Personal Discovery choice defaults off; it changes eligible result ordering only in this browser and is kept separate from aggregate analytics and community ratings. The protected report can group trends, top pages, shows, collections, discovery surfaces, and conversion stages for a selected range, but it does not expose an individual browsing history. The maintainer analytics page does not collect its own browser analytics, and its report data is available only after maintainer authentication.</p>
+          <p>The archive does not use advertising cookies, third-party analytics cookies, or cross-site marketing cookies. Public pages do use the two first-party browser-storage keys listed above for aggregate operational analytics; they do not hold raw IPs, raw user agents, or a fingerprint on the server. The Personal Discovery choice is an optional IndexedDB setting, not a cookie, and no Library state or private rating is included in analytics events. Cloudflare may inject RUM at the edge as a performance-measurement service; this page does not assert its storage or retention behavior without current provider and production evidence. Cloudflare separately processes request and security data and may set challenge-related storage as described in the inventory above.</p>
         </article>
 
         <article class="page-card info-section-card" id="cookies-ratings">
@@ -206,7 +213,8 @@
           <span class="page-card-kicker">Your controls</span>
           <h2>How to clear or limit storage</h2>
           <ul>
-            <li>Clearing site data in your browser removes session storage, localStorage, and first-party cookies for the archive.</li>
+            <li>Clearing site data in your browser removes session storage, localStorage, IndexedDB, and first-party cookies for the archive.</li>
+            <li>Turning Personal Discovery off preserves Library entries and private ratings. Remove individual entries in the existing card or show-page controls, or clear archive site data to remove all browser-local Library data.</li>
             <li>Blocking the archive’s cookies can interfere with publicly anonymous community rating behavior; blocking browser storage reduces the accuracy of analytics visitor and session estimates.</li>
             <li>Logging out of protected maintainer routes clears the maintainer session cookie.</li>
           </ul>

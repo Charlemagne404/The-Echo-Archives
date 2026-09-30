@@ -71,14 +71,23 @@ export function getDiscoveryFeedback(discoverySearch, filters = {}) {
     } else if (runtimeKinds.length) {
       const qualifierOrder = ["observed-exact", "observed-reported", "derived-estimate", "unknown"];
       const orderedKinds = qualifierOrder.filter((kind) => runtimeKinds.includes(kind));
-      details.push(`Runtime evidence: ${orderedKinds.map((kind) => qualifierLabels[kind]).join(", ")}`);
+      if (orderedKinds.length === 1 && orderedKinds[0] === "unknown") {
+        details.push("Runtime unknown");
+      } else {
+        const qualifiers = orderedKinds.map((kind) => qualifierLabels[kind]);
+        const qualifierSummary = qualifiers.length > 1
+          ? `${qualifiers.slice(0, -1).join(", ")}, or ${qualifiers[qualifiers.length - 1]}`
+          : qualifiers[0];
+        details.push(`Runtime: ${qualifierSummary}`);
+      }
     }
   }
 
   if (intent.kind === "similarity") {
     const authoredCount = result.sections?.authoredSimilarity?.length || 0;
     const computedCount = result.sections?.computedSimilarity?.length || 0;
-    details.push(`${authoredCount} archive picks · ${computedCount} computed matches`);
+    const similarShowLabel = computedCount === 1 ? "similar show" : "similar shows";
+    details.push(`${authoredCount} archive picks · ${computedCount} more ${similarShowLabel}`);
   }
 
   if (intent.personalIntent) {
