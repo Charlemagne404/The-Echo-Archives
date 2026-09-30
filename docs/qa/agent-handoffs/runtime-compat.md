@@ -27,6 +27,6 @@
 - Pre-integration commit: `3a1156128f090a9c02a40cd22d307c601accde4b`; the shared worktree was clean on `codex/overnight-integration` under the lock.
 - Rebase/conflicts: Rebased onto `3a1156128f090a9c02a40cd22d307c601accde4b` with no conflicts.
 - Prior handoffs incorporated: `disaster-recovery.md`, `security-redteam.md`, `data-integrity.md`, and `browser-compat.md` were reread under the lock; their integrated behavior is preserved.
-- Combined verification: Pending.
-- Final overnight integration commit: Pending.
+- Combined verification: Passed after fast-forward integration. `npm --prefix backend ci --no-audit --no-fund` installed 112 locked packages; `npm run verify` passed on Node 22.23.1/npm 10.9.8 with 457/457 backend serial tests and 97/97 required Chromium smoke tests. Build, generated, release-artifact, tool, determinism, backend data/link checks, and `git diff --check` passed. Existing source-file-size and referenced-cover advisories were nonfatal; Linux host fixtures were environment-gated on macOS.
+- Final overnight integration commit: Fast-forwarded code tip `846e181f` on `codex/overnight-integration`; this report and integration-result update are committed as a follow-up on the integration branch.
 - Push result: Pending; only task and overnight integration branches may be pushed.

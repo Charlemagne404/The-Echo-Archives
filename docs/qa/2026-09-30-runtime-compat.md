@@ -72,7 +72,17 @@ The XML validator also accepted a synthetic 4,194,325-byte RSS document with lon
 
 ## Verification results
 
-### Required gate on the production Node line
+### Combined gate after overnight integration
+
+Command: `npm run verify`
+
+Environment: Node 22.23.1 / npm 10.9.8; macOS 26.5.1 arm64; Playwright binaries from `/tmp/echo-runtime-compat/playwright-browsers`. Before verification, `npm --prefix backend ci --no-audit --no-fund` installed 112 locked packages successfully; npm emitted the existing `whatwg-encoding@3.1.1` deprecation warning.
+
+Result: passed with exit code 0. Catalog and page builds, structure, generated-boundary, release-artifact, tooling, build determinism, backend validation/link checks, and the full backend serial suite passed. The integrated backend suite reported 457/457 tests; required Chromium smoke coverage reported 97/97 tests. `git diff --check` passed. Structure checks emitted existing source-file-size and referenced-cover soft-limit advisories; Linux production-host fixtures were environment-gated on this macOS run. No generated drift remained.
+
+### Earlier task-branch gate before integration
+
+This earlier isolated task-branch run predates the final removal of a no-op `allowScripts` setting and the final README build-command wording. The combined gate above covers the integrated final tree.
 
 Command: `npm run verify`
 
