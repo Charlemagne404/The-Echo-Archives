@@ -4,7 +4,7 @@ This is the reviewed measurement foundation for Discovery 2.0. It preserves the 
 
 ## Baseline provenance
 
-The immutable `baseline-v1` was captured from repository commit `55ca3969c850cabbc3c0159aae4e3c77da7e0410` on 2026-09-28. Its catalogue revision is `sha256:fe17934a5cc714b8057699a6223c30ffc13cb1b218020eecefe2e8c8f72a10b5`. The fingerprint covers every authored file under `catalog-src/**` and the runtime `data/shows.json`, `data/search-index.json`, and `data/collections.json` files. The fixture also records their Git tree/blob IDs and counts: 752 shows, 54 runtime collections, and 132 entities.
+The immutable `baseline-v1` was captured from repository commit `55ca3969c850cabbc3c0159aae4e3c77da7e0410` on 2026-09-28. Its catalogue revision is `sha256:438453480783c1f32fb14bdf714e481c7882ff6d8eb6a9b2b3765c166e1f863f`. The fingerprint covers authored files under `catalog-src/**` and the runtime `data/shows.json`, `data/search-index.json`, and `data/collections.json` files; macOS `.DS_Store` and AppleDouble `._*` metadata are excluded. The original capture accidentally counted an untracked `.DS_Store`; this correction changes only the derived fingerprint and input-file counts, preserving all 57 recorded observations and the baseline commit's Git tree/blob evidence. The fixture records 752 shows, 54 runtime collections, and 132 entities.
 
 Each observed case stores the result count, at most five IDs, concise v1 query-shape data, and top-result evidence. It deliberately omits a complete ordered result snapshot. Re-running the benchmark compares today's observation with this captured baseline and reports catalogue drift or changed observations. It never silently refreshes the baseline.
 

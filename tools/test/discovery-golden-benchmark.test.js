@@ -151,12 +151,16 @@ test("evidence assertions verify the surfaced claim against actual typed catalog
   assert.equal(evaluateEvidenceItem({ kind: "typed_relationship", entityId: "qcode", role: "network" }, {}, entityExecution, entityContext), false);
 });
 
-test("catalogue fingerprints detect changes in authored and runtime catalogue inputs", () => {
+test("catalogue fingerprints ignore macOS metadata and detect authored input changes", () => {
   const temporaryRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-discovery-benchmark-"));
   try {
     fs.mkdirSync(path.join(temporaryRoot, "catalog-src/shows"), { recursive: true });
     fs.writeFileSync(path.join(temporaryRoot, "catalog-src/shows/sample.json"), "{\"id\":\"sample\"}\n");
     const initial = computeCatalogueRevision(temporaryRoot).fingerprint;
+    fs.writeFileSync(path.join(temporaryRoot, "catalog-src/.DS_Store"), "Finder metadata\n");
+    fs.writeFileSync(path.join(temporaryRoot, "catalog-src/shows/._sample.json"), "AppleDouble metadata\n");
+    assert.equal(computeCatalogueRevision(temporaryRoot).fingerprint, initial);
+
     fs.writeFileSync(path.join(temporaryRoot, "catalog-src/shows/sample.json"), "{\"id\":\"changed\"}\n");
     const changed = computeCatalogueRevision(temporaryRoot).fingerprint;
     assert.notEqual(initial, changed);

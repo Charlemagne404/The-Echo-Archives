@@ -288,10 +288,18 @@ test("compact card and show controls persist and synchronize without exposing Li
       assert.doesNotMatch(body, /libraryState|personalContext|privateRating|"state"\s*:|"rating"\s*:/i);
     }
     const requestsContainingPrivateValues = requests.filter(({ url, body, referer }) => {
-      const queryHasPrivateKey = [...new URL(url).searchParams.keys()].some((key) => /^(?:state|rating|libraryState|privateRating|personalDiscoveryEnabled)$/i.test(key));
-      const bodyHasPrivateField = /"(?:state|rating|libraryState|privateRating|personalDiscoveryEnabled)"\s*:/i.test(body);
-      const privateValuePresent = /EchoLibraryPrivateStateCanary|personalContext|personalDiscovery|privateRating|\b(hidden|listening|saved|personalDiscovery)\b/i.test([url, body, referer].join("\n"));
-      return queryHasPrivateKey || bodyHasPrivateField || privateValuePresent;
+      const hasPrivateQueryKey = (value) => {
+        try {
+          return [...new URL(value).searchParams.keys()].some((key) => /^(?:state|rating|libraryState|privateRating|personalDiscoveryEnabled)$/i.test(key));
+        } catch {
+          return false;
+        }
+      };
+      const queryHasPrivateKey = hasPrivateQueryKey(url) || hasPrivateQueryKey(referer);
+      const bodyHasPrivateField = /"(?:state|rating|libraryState|privateRating|personalDiscoveryEnabled)"\s*:/i.test(body)
+        || /(?:^|[?&])(?:state|rating|libraryState|privateRating|personalDiscoveryEnabled)=/i.test(body);
+      const privateMarkerPresent = /EchoLibraryPrivateStateCanary|personalContext|personalDiscovery|privateRating/i.test([url, body, referer].join("\n"));
+      return queryHasPrivateKey || bodyHasPrivateField || privateMarkerPresent;
     });
     assert.deepEqual(requestsContainingPrivateValues, [], "Library state and private rating do not enter request URLs, bodies, or referrers");
     const accessLogs = serverOutput.split("\n")

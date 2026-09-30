@@ -47,6 +47,7 @@ function listFilesRecursively(directoryPath, rootPath = directoryPath) {
   return fs.readdirSync(directoryPath, { withFileTypes: true })
     .flatMap((entry) => {
       const fullPath = path.join(directoryPath, entry.name);
+      if (entry.name === ".DS_Store" || entry.name.startsWith("._")) return [];
       if (entry.isDirectory()) return listFilesRecursively(fullPath, rootPath);
       if (!entry.isFile()) return [];
       return [path.relative(rootPath, fullPath).split(path.sep).join("/")];

@@ -1,18 +1,19 @@
 import { HOME_FAVORITE_ROUTE_IDS as HOME_FAVORITE_ROUTE_IDS_CONFIG, HOME_MOST_POPULAR_IDS as HOME_MOST_POPULAR_IDS_CONFIG } from "./home-config.js";
 
-const SHOWS_DATA_VERSION = document.body?.dataset.showsVersion?.trim() || "";
-const COLLECTIONS_DATA_VERSION = document.body?.dataset.collectionsVersion?.trim() || "";
+const pageBody = globalThis.document?.body;
+const SHOWS_DATA_VERSION = pageBody?.dataset.showsVersion?.trim() || "";
+const COLLECTIONS_DATA_VERSION = pageBody?.dataset.collectionsVersion?.trim() || "";
 export const SHOWS_DATA_URL = SHOWS_DATA_VERSION
   ? `/data/shows.json?v=${SHOWS_DATA_VERSION}`
   : "/data/shows.json";
 export const COLLECTIONS_DATA_URL = COLLECTIONS_DATA_VERSION
   ? `/data/collections.json?v=${COLLECTIONS_DATA_VERSION}`
   : "/data/collections.json";
-const SEARCH_INDEX_VERSION = document.body?.dataset.searchIndexVersion?.trim() || "";
+const SEARCH_INDEX_VERSION = pageBody?.dataset.searchIndexVersion?.trim() || "";
 export const SEARCH_INDEX_URL = SEARCH_INDEX_VERSION
   ? `/data/search-index.json?v=${SEARCH_INDEX_VERSION}`
   : "/data/search-index.json";
-const RUNTIME_EVIDENCE_VERSION = document.body?.dataset.runtimeEvidenceVersion?.trim() || "";
+const RUNTIME_EVIDENCE_VERSION = pageBody?.dataset.runtimeEvidenceVersion?.trim() || "";
 export const RUNTIME_EVIDENCE_URL = RUNTIME_EVIDENCE_VERSION
   ? `/data/runtime-evidence.json?v=${RUNTIME_EVIDENCE_VERSION}`
   : "/data/runtime-evidence.json";
@@ -35,8 +36,8 @@ export const DEFAULT_CHAT_SUGGESTIONS = [
 export const PREFERRED_QUICK_FILTERS = ["sci-fi", "mystery", "horror", "comedy", "survival", "time-travel"];
 export const HOME_MOST_POPULAR_IDS = HOME_MOST_POPULAR_IDS_CONFIG;
 export const HOME_FAVORITE_ROUTE_IDS = HOME_FAVORITE_ROUTE_IDS_CONFIG;
-export const HOME_CARD_HOVER_EXPAND_ENABLED = document.body?.dataset.homeCardHoverExpandEnabled === "true";
-export const ARCHIVIST_ENABLED = document.body?.dataset.archivistEnabled === "true";
+export const HOME_CARD_HOVER_EXPAND_ENABLED = pageBody?.dataset.homeCardHoverExpandEnabled === "true";
+export const ARCHIVIST_ENABLED = pageBody?.dataset.archivistEnabled === "true";
 export const SHOW_CARD_PREVIEW_DELAY_MS = 480;
 export const SHOW_CARD_PREVIEW_CLOSE_DELAY_MS = 32;
 export const SHOW_CARD_PREVIEW_CLOSE_TRANSITION_MS = 210;
@@ -86,26 +87,28 @@ export let userInput;
 export let sendMessageButton;
 
 export function refreshSharedElements() {
-  backToTopBtn = document.getElementById("backToTop");
-  toggleBtn = document.getElementById("chat-toggle");
-  closeChatBtn = document.getElementById("chat-close");
-  clearChatButton = document.getElementById("chat-clear");
-  chatContainer = document.getElementById("chat-container");
-  chatLog = document.getElementById("chatLog");
-  chatStatus = document.getElementById("chatStatus");
-  chatSuggestionRegion = document.getElementById("chatSuggestionRegion");
-  chatSuggestions = document.getElementById("chatSuggestions");
-  chatFootnote = document.querySelector(".chat-footnote");
-  userInput = document.getElementById("userInput");
-  sendMessageButton = document.getElementById("sendMessageButton");
+  const currentDocument = globalThis.document;
+  if (!currentDocument?.getElementById) return;
+  backToTopBtn = currentDocument.getElementById("backToTop");
+  toggleBtn = currentDocument.getElementById("chat-toggle");
+  closeChatBtn = currentDocument.getElementById("chat-close");
+  clearChatButton = currentDocument.getElementById("chat-clear");
+  chatContainer = currentDocument.getElementById("chat-container");
+  chatLog = currentDocument.getElementById("chatLog");
+  chatStatus = currentDocument.getElementById("chatStatus");
+  chatSuggestionRegion = currentDocument.getElementById("chatSuggestionRegion");
+  chatSuggestions = currentDocument.getElementById("chatSuggestions");
+  chatFootnote = currentDocument.querySelector?.(".chat-footnote") || null;
+  userInput = currentDocument.getElementById("userInput");
+  sendMessageButton = currentDocument.getElementById("sendMessageButton");
 }
 
 refreshSharedElements();
 
-if (!archiveSearch) {
+if (globalThis.document && !archiveSearch) {
   throw new Error("EchoArchiveSearch helper was not loaded before script.js.");
 }
 
-if (!archiveRecord) {
+if (globalThis.document && !archiveRecord) {
   throw new Error("EchoArchiveRecord helper was not loaded before script.js.");
 }
