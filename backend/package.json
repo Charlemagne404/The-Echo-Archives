@@ -47,6 +47,8 @@
     "test:entities": "node --test test/entities.test.js test/entity-directory.smoke.js",
     "test:security": "node --test --test-concurrency=1 test/collection-service.test.js test/community.test.js test/community-routes.test.js test/maintainer.test.js test/published-listener-review.test.js test/rate-limit.test.js",
     "test:security:browser": "node --test --test-concurrency=1 --test-name-pattern='service worker supports cached public pages offline and falls back for uncached routes' test/browser.smoke.js",
+    "test:fetch-safety": "node --test --test-concurrency=1 test/fetch-safety.test.js",
+    "test:importer": "node --test --test-concurrency=1 test/import*.test.js",
     "test:entity-pages": "node --test test/entities.test.js",
     "test:entity-graph": "node --test test/entity-graph.test.js test/entity-graph-report.test.js",
     "test:entity-tooling": "node --test test/catalog-tooling.test.js",

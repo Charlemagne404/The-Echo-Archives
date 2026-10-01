@@ -340,7 +340,7 @@ function createLimitedFetch(fetchImpl, { perHost = 2, applePerMinute = 15 } = {}
     const next = waiters.get(host)?.shift();
     if (next) next();
   }
-  const limitedFetch = async (url, init) => {
+  const withHostLimit = async (url, performRequest) => {
     const host = new URL(String(url)).hostname.toLowerCase();
     await acquire(host);
     try {
@@ -352,12 +352,14 @@ function createLimitedFetch(fetchImpl, { perHost = 2, applePerMinute = 15 } = {}
         }
         appleRequests.push(Date.now());
       }
-      return await fetchImpl(url, init);
+      return await performRequest();
     } finally {
       release(host);
     }
   };
+  const limitedFetch = (url, init) => withHostLimit(url, () => fetchImpl(url, init));
   limitedFetch.isNetworkFetch = fetchImpl === globalThis.fetch || fetchImpl.isNetworkFetch === true;
+  limitedFetch.withNetworkRequest = (url, performRequest) => withHostLimit(url, performRequest);
   return limitedFetch;
 }
 

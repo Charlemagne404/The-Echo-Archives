@@ -595,6 +595,30 @@ test("permanent source failures finish with explicit readiness blockers instead 
   }
 });
 
+test("outbound-address policy failures remain durable importer evidence with maintainer diagnostics", async () => {
+  const requestedUrls = [];
+  const context = createTempImportContext({
+    fetchImpl: async (url) => {
+      requestedUrls.push(String(url));
+      return new Response("unexpected network call", { status: 200 });
+    },
+  });
+  try {
+    const seeded = await context.service.seedCandidates({ entries: ["http://127.0.0.1/feed.xml"], autoHydrate: true });
+    const candidate = context.service.getForMaintainer(seeded.candidateIds[0]);
+    const failedSource = candidate.sources.find((source) => source.sourceType === "rss" && source.fetchStatus === "failed");
+
+    assert.equal(requestedUrls.some((url) => new URL(url).hostname === "127.0.0.1"), false);
+    assert.ok(failedSource);
+    assert.match(failedSource.payload.error, /private-network URL/i);
+    assert.doesNotMatch(failedSource.payload.error, /127\.0\.0\.1/);
+    assert.equal(candidate.sourceHealth.errors.find((error) => error.sourceType === "rss").retryable, false);
+    assert.match(candidate.provenance.sourceErrors.find((error) => error.sourceType === "rss").error, /private-network URL/i);
+  } finally {
+    cleanup(context);
+  }
+});
+
 test("failed publication rolls authored and generated catalog data back and leaves the candidate ready", async () => {
   const context = createTempImportContext({ fetchImpl: sourceRichFetch() });
   try {

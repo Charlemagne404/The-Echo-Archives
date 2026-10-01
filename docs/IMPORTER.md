@@ -27,6 +27,14 @@ Prepared records also retain high-signal feed facts without expanding the defaul
 
 Only the official homepage and up to four same-origin, depth-one pages labeled listen, about, cast, credits, episodes, or transcripts are fetched. DTD/entity XML, private-network URLs, unsafe redirects, oversized responses, unsupported MIME types, malformed documents, corrupt images, and SVG covers are rejected.
 
+### Outbound source requests
+
+`backend/lib/import/fetch.js` permits HTTP(S) URLs without credentials and rejects local hostnames and non-public destination addresses. For hostnames it resolves all A and AAAA answers, rejects the whole answer set if any address is prohibited, and binds the validated set to Node's HTTP lookup callback for that connection. The HTTP client therefore cannot perform a second DNS lookup after validation. HTTPS keeps the URL hostname for both the `Host` header and TLS server name, with Node's normal certificate verification enabled.
+
+Redirects are manual and limited to five hops by default (at most eight when explicitly configured). Each redirect is parsed, resolved, checked against the same address policy, and pinned before the next connection. The policy blocks private, loopback, link-local, shared, multicast, reserved, and documentation ranges; IPv4-mapped IPv6 and the standard NAT64/6to4 forms are checked against their embedded IPv4 destination. Other IPv6 destinations must be globally assigned unicast space. The ranges follow the [IANA IPv4 special-purpose registry](https://www.iana.org/assignments/iana-ipv4-special-registry) and [IANA IPv6 special-purpose registry](https://www.iana.org/assignments/iana-ipv6-special-registry), including their globally reachable exceptions.
+
+Policy rejections fail before opening the prohibited connection with `IMPORT_UNSAFE_URL`. The import workflow retains the normal source failure evidence and maintainer-facing error code. Address validation is application-level; deployment egress controls and any network-specific address translation still need to be evaluated for the actual host.
+
 Confidence is deterministic:
 
 - direct RSS or structured official-site data: `0.95`
