@@ -112,7 +112,7 @@ function resetChatThread() {
   renderAndStoreEntry({
     role: "assistant",
     content:
-      "Ask about a show, the archive, ratings, creators, runtime, transcripts, collections, or what to listen to next.",
+      "Ask what to listen to next, compare shows, explore a collection, check a show fact, or get help using the site.",
     recommendations: [],
     actions: [],
   });
@@ -158,6 +158,10 @@ async function sendMessage(prefilledMessage) {
       body: JSON.stringify({
         message,
         seenRecommendationIds: collectSeenRecommendationIds(),
+        recentRecommendationIds: (chatState.history.filter((entry) => entry.role === "assistant").at(-1)?.recommendations || [])
+          .map((recommendation) => recommendation?.id)
+          .filter((id) => typeof id === "string" && id)
+          .slice(0, 3),
         history: chatState.history.map((entry) => ({
           role: entry.role,
           content: entry.content,
@@ -187,7 +191,7 @@ async function sendMessage(prefilledMessage) {
     );
     if (result.source === "ollama") {
       setChatStatus("The live assistant is connected.");
-    } else if (result.source === "site-help") {
+    } else if (result.source === "site-help" || result.source === "archive-knowledge") {
       setChatStatus("Using archive help.");
     } else {
       setChatStatus("Using a basic archive answer.");

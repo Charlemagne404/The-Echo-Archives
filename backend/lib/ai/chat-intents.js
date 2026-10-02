@@ -204,6 +204,7 @@ const HELP_TOPIC_PATTERNS = [
     topic: "submission",
     patterns: [
       /\bsubmit\b/i,
+      /\bmissing show\b|\bshow is missing\b/i,
       /\bnew show\b/i,
       /\badd (?:a )?show\b/i,
       /\bhow do i add\b/i,

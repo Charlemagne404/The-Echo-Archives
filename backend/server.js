@@ -40,6 +40,7 @@ const { createMaintainerRouter } = require("./lib/routes/maintainer-routes");
 const { createSubmissionRouter } = require("./lib/routes/submission-routes");
 const { createPublishedListenerReviewRouter } = require("./lib/routes/published-listener-review-routes");
 const { loadSiteHelpContext } = require("./lib/ai/site-help");
+const { loadPublicPageKnowledge } = require("./lib/ai/archive-knowledge");
 const { buildRobotsTxt } = require("./lib/robots");
 const {
   markNegotiatedResponse,
@@ -329,6 +330,7 @@ async function startServer() {
     const similarityIndex = createSimilarityIndex({ shows: publicCatalog, collections });
     const archiveContext = await loadArchiveContext(config.STATIC_ROOT, catalog, collections);
     const siteHelpContext = loadSiteHelpContext({ catalog: publicCatalog, collections, archiveContext });
+    siteHelpContext.publicPages = loadPublicPageKnowledge(config.STATIC_ROOT);
 
     const entities = archiveContext.entities;
     const entityGraph = buildEntityGraphData({ shows: publicCatalog, entities });

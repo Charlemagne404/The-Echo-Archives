@@ -15,7 +15,13 @@ Archivist is a preserved optional integration and is disabled by default.
 - Exposes a protected internal import lane for machine-found catalog candidates
 - Exposes a protected collection automation workspace for candidate review, membership overrides, and regeneration
 - Exposes a protected first-party analytics dashboard for aggregate public usage
-- When Archivist is enabled, uses Ollama when available and falls back to grounded heuristic recommendations when it is not
+- When Archivist is enabled, answers from the published catalogue, authored and generated collections, reviewed public creator entities, and public site pages. Recommendations use the archive scorer and still work when Ollama is unavailable
+
+### Archivist knowledge boundary
+
+The assistant reads the same published show and collection records as the public site. It can answer named collection membership and intent questions, factual show questions, show comparisons, creator/entity links, common help flows, and questions matched to authored public page sections. For less common show questions, it can use relevant published description or editorial prose and labels that source; when the record does not support an answer, it says so. Short follow-ups can refer to the last named collection or a displayed recommendation (including "the second one"). Page answers link to the section used. The page index is rebuilt with backend catalogue state and can read generated public HTML when `site-src` is absent from the deployed site root.
+
+Only public pages and published catalogue records are eligible. Drafts, maintainer pages, submissions, personal Library state, and private operational data are outside chat context. Unknown facts are reported as unknown. The optional Ollama path only phrases candidate-based recommendations; responses that add an unseen title, link, or unsupported number fall back to the deterministic answer. It does not receive an unrestricted website dump. `ARCHIVIST_ENABLED` remains off by default until the public feature is deliberately enabled and verified.
 
 ## Run locally
 

@@ -7,6 +7,7 @@ const { loadArchiveContext } = require("../lib/ai/archive-context");
 const { loadCatalog, loadCollections } = require("../lib/catalog");
 const { createChatRouter } = require("../lib/routes/chat-routes");
 const { loadSiteHelpContext } = require("../lib/ai/site-help");
+const { loadPublicPageKnowledge } = require("../lib/ai/archive-knowledge");
 
 const siteRoot = path.resolve(__dirname, "../..");
 
@@ -15,6 +16,7 @@ async function createChatTestServer({ archivistEnabled = true } = {}) {
   const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)));
   const archiveContext = await loadArchiveContext(siteRoot, catalog, collections);
   const siteHelpContext = loadSiteHelpContext({ catalog, collections, archiveContext });
+  siteHelpContext.publicPages = loadPublicPageKnowledge(siteRoot);
   const app = express();
   app.use(express.json());
   app.use(
@@ -92,6 +94,82 @@ test("chat route returns structured help actions for site questions", async () =
     assert.equal(result.body.source, "site-help");
     assert.equal(result.body.recommendations.length, 0);
     assert.equal(result.body.actions[0].href, "/submit");
+  } finally {
+    await closeChatTestServer(context.server);
+  }
+});
+
+test("chat route explains guest submission without inventing an account step", async () => {
+  const context = await createChatTestServer();
+  try {
+    const result = await postJson(context.baseUrl, { message: "Can I submit a show without an account?", page: { pageType: "home" } });
+    assert.equal(result.body.source, "site-help");
+    assert.match(result.body.answer, /as a guest/);
+    assert.equal(result.body.actions[0].href, "/submit");
+    const missing = await postJson(context.baseUrl, { message: "What if a show is missing?", page: { pageType: "home" } });
+    assert.equal(missing.body.source, "site-help");
+    assert.equal(missing.body.actions[0].href, "/submit");
+  } finally {
+    await closeChatTestServer(context.server);
+  }
+});
+
+test("chat route can answer named collection and public page questions", async () => {
+  const context = await createChatTestServer();
+  try {
+    const collection = context.collections.find((entry) => entry.id === "cold-isolation-horror");
+    assert.ok(collection);
+    const collectionResult = await postJson(context.baseUrl, { message: `What is in ${collection.title}?`, page: { pageType: "home" } });
+    assert.equal(collectionResult.body.source, "archive-knowledge");
+    assert.equal(collectionResult.body.actions[0].href, `/collections/${collection.id}`);
+    assert.ok(collectionResult.body.recommendations.length > 0);
+
+    const pageResult = await postJson(context.baseUrl, { message: "How do I request copyright removal?", page: { pageType: "home" } });
+    assert.equal(pageResult.body.source, "archive-knowledge");
+    assert.equal(pageResult.body.actions[0].href, "/copyright#copyright-requests");
+
+    const privacyResult = await postJson(context.baseUrl, { message: "How do I request my data be deleted?", page: { pageType: "home" } });
+    assert.equal(privacyResult.body.source, "archive-knowledge");
+    assert.equal(privacyResult.body.actions[0].href, "/privacy#privacy-rights");
+
+    const retentionResult = await postJson(context.baseUrl, { message: "How long do submissions stay in the database?", page: { pageType: "home" } });
+    assert.equal(retentionResult.body.source, "archive-knowledge");
+    assert.match(retentionResult.body.answer, /180 days/);
+  } finally {
+    await closeChatTestServer(context.server);
+  }
+});
+
+test("chat route uses the previously displayed recommendation for an ordinal follow-up", async () => {
+  const context = await createChatTestServer();
+  try {
+    const first = await postJson(context.baseUrl, { message: "Recommend a finished sci-fi show", page: { pageType: "home" } });
+    assert.ok(first.body.recommendations.length >= 2);
+    const secondId = first.body.recommendations[1].id;
+    const secondTitle = context.catalog.find((show) => show.id === secondId)?.title;
+    const followUp = await postJson(context.baseUrl, {
+      message: "How long is the second one?",
+      page: { pageType: "home" },
+      recentRecommendationIds: first.body.recommendations.map((show) => show.id),
+      history: [
+        { role: "user", content: "Recommend a finished sci-fi show" },
+        { role: "assistant", content: first.body.answer },
+      ],
+    });
+    assert.equal(followUp.body.source, "site-help");
+    assert.ok(followUp.body.answer.includes(secondTitle));
+  } finally {
+    await closeChatTestServer(context.server);
+  }
+});
+
+test("chat route answers a specific show question from published description evidence", async () => {
+  const context = await createChatTestServer();
+  try {
+    const result = await postJson(context.baseUrl, { message: "Does Derelict have a giant door?", page: { pageType: "home" } });
+    assert.equal(result.body.source, "archive-knowledge");
+    assert.match(result.body.answer, /giant door/i);
+    assert.equal(result.body.actions[0].href, "/shows/derelict");
   } finally {
     await closeChatTestServer(context.server);
   }

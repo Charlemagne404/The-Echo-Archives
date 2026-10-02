@@ -28,10 +28,10 @@ export const CHAT_STORAGE_KEY = "echo-archives-chat-v3";
 export const COMMUNITY_PROFILE_KEY = "echo-community-profile-id";
 export const COMMUNITY_PROFILE_HEADER = "x-echo-profile-id";
 export const DEFAULT_CHAT_SUGGESTIONS = [
-  "How do I submit a correction?",
-  "What does creator verified mean?",
-  "How are community ratings different?",
   "Recommend a finished show with strong worldbuilding",
+  "What is in Cold isolation horror?",
+  "Compare Derelict and Midnight Burger",
+  "How do I submit a correction?",
 ];
 export const PREFERRED_QUICK_FILTERS = ["sci-fi", "mystery", "horror", "comedy", "survival", "time-travel"];
 export const HOME_MOST_POPULAR_IDS = HOME_MOST_POPULAR_IDS_CONFIG;

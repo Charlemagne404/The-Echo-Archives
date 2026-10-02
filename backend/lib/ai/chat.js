@@ -1,5 +1,7 @@
 const GREETING_PATTERN = /^(hi|hello|hey|yo|sup|howdy)$/i;
 const HELP_PATTERN = /(what can you do|help|how does this work)/i;
+const { normalizeText } = require("../../../shared/archive-search");
+const { findTitleMentions } = require("./chat-query");
 
 function hashText(value = "") {
   return Array.from(String(value || "")).reduce((hash, character) => ((hash * 31 + character.charCodeAt(0)) >>> 0), 11);
@@ -274,6 +276,17 @@ function sanitizeAnswerText(answer, fallback) {
   return concise.length > 420 ? `${concise.slice(0, 417).trim()}...` : concise;
 }
 
+function isGroundedRecommendationAnswer(answer, matches = [], catalog = []) {
+  if (!answer || !matches.length || /https?:\/\/|www\./i.test(answer)) return false;
+  const normalized = ` ${normalizeText(answer)} `;
+  const firstTitle = normalizeText(matches[0].title);
+  if (!firstTitle || !normalized.includes(` ${firstTitle} `)) return false;
+  const allowedIds = new Set(matches.slice(0, 6).map((match) => match.id));
+  if (findTitleMentions(answer, catalog).some((mention) => !allowedIds.has(mention.show.id))) return false;
+  const permittedNumbers = new Set((JSON.stringify(buildCandidateDigest(matches)).match(/\b\d+(?:\.\d+)?\b/g) || []));
+  return (answer.match(/\b\d+(?:\.\d+)?\b/g) || []).every((number) => permittedNumbers.has(number));
+}
+
 function buildShowSnapshot(match) {
   const pieces = [];
 
@@ -368,5 +381,6 @@ module.exports = {
   buildRecommendationCard,
   buildSuggestedPrompts,
   isClarificationRequest,
+  isGroundedRecommendationAnswer,
   sanitizeAnswerText,
 };

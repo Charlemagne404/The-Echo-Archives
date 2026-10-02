@@ -20,7 +20,7 @@ function applyChatCopy() {
       ? "Ask about creator verification, standards, or submissions"
       : isHelpContext
         ? "Ask about broken links, ratings, search, creator verified, or how the site works"
-        : "Ask about the archive, a show, runtime, creators, or how the site works";
+        : "Ask for a recommendation, compare shows, explore collections, or get site help";
   }
 
   if (chatFootnote) {
@@ -28,7 +28,7 @@ function applyChatCopy() {
       ? "Ask how creator verification works, what stays editorial, or which form to use."
       : isHelpContext
         ? "Ask how to fix a broken link, what creator verified means, why a rating did not stick, or how to search better."
-        : "Ask for a recommendation, a correction, creator or runtime details, privacy help, or what Creator Verified means.";
+        : "Answers use published archive records and public site pages. Ask for a listening route, a show fact, or help using the site.";
   }
 }
 
