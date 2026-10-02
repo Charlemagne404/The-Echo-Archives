@@ -820,7 +820,7 @@ test("fresh browser contexts load the core public routes without relying on prio
       chatHistory: window.sessionStorage.getItem("echo-archives-chat-v3"),
       chatControls: document.getElementById("chat-toggle")?.getAttribute("aria-controls") || "",
     }));
-    assert.match(mountedChatState.chatHistory || "", /Ask about a show, the archive, ratings, creators, runtime, transcripts, collections/);
+    assert.match(mountedChatState.chatHistory || "", /Ask what to listen to next, compare shows, explore a collection/);
     assert.equal(mountedChatState.chatControls, "chat-container");
     await page.getByRole("button", { name: "Close chat" }).click();
 

@@ -32,7 +32,7 @@ function assertRecordBatchIds(records, label) {
   records.forEach((record, index) => {
     const id = record && typeof record === "object" && !Array.isArray(record) ? record.id : null;
     if (typeof id !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)) {
-      throw new Error("Every " + label + " record needs a valid slug id (record " + index + ").");
+      throw new Error("Invalid " + label + " id; every record needs a valid slug id (record " + index + ").");
     }
     if (ids.has(id)) throw new Error("Duplicate " + label + " id \"" + id + "\".");
     ids.add(id);

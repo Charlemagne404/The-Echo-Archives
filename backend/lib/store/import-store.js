@@ -1191,6 +1191,10 @@ function createImportStore({ db }) {
     `).run(`-${days} days`).changes;
   }
 
+  function withTransaction(callback) {
+    return db.transaction(callback)();
+  }
+
   function publicationSnapshot(candidates) {
     return JSON.parse(JSON.stringify({ schema: 1, candidates: candidates.map((candidate) => ({
       id: candidate.id,
@@ -1219,7 +1223,7 @@ function createImportStore({ db }) {
   }
 
   return {
-    withTransaction: (callback) => db.transaction(callback)(),
+    withTransaction,
     publicationSnapshot,
     restorePublicationSnapshot,
     appendCandidateSources,
