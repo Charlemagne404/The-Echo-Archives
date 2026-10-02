@@ -1,6 +1,8 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
+const crypto = require("node:crypto");
+const http = require("node:http");
 const os = require("node:os");
 const path = require("node:path");
 const { spawn } = require("node:child_process");
@@ -17,6 +19,10 @@ const { createVisibleStaticRoot } = require("./helpers/visible-static-root");
 
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
+
+function publicFileVersion(relativePath) {
+  return crypto.createHash("sha1").update(fs.readFileSync(path.join(siteRoot, relativePath))).digest("hex").slice(0, 10);
+}
 
 function graphNode(structuredData, type) {
   const nodes = Array.isArray(structuredData?.["@graph"]) ? structuredData["@graph"] : [structuredData];
@@ -757,9 +763,12 @@ test("search index responses use cache-friendly headers for versioned and unvers
     assert.ok(Array.isArray(graph.entityConnections));
     assert.match(graph.semantics.entityConnections, /does not assert a direct affiliation/);
 
-    const versionedResponse = await fetch(`${context.baseUrl}/data/search-index.json?v=test-build`);
+    const versionedResponse = await fetch(`${context.baseUrl}/data/search-index.json?v=${publicFileVersion("data/search-index.json")}`);
     assert.equal(versionedResponse.status, 200);
     assert.equal(versionedResponse.headers.get("cache-control"), "public, max-age=31536000, immutable");
+
+    const falseVersionResponse = await fetch(`${context.baseUrl}/data/search-index.json?v=test-build`);
+    assert.equal(falseVersionResponse.headers.get("cache-control"), "public, max-age=0, must-revalidate, stale-while-revalidate=60");
 
     const unversionedResponse = await fetch(`${context.baseUrl}/data/search-index.json`);
     assert.equal(unversionedResponse.status, 200);
@@ -768,7 +777,7 @@ test("search index responses use cache-friendly headers for versioned and unvers
       "public, max-age=0, must-revalidate, stale-while-revalidate=60",
     );
 
-    const runtimeResponse = await fetch(`${context.baseUrl}/data/runtime-evidence.json?v=test-build`);
+    const runtimeResponse = await fetch(`${context.baseUrl}/data/runtime-evidence.json?v=${publicFileVersion("data/runtime-evidence.json")}`);
     assert.equal(runtimeResponse.status, 200);
     assert.match(runtimeResponse.headers.get("content-type") || "", /application\/json/);
     assert.match(runtimeResponse.headers.get("x-robots-tag") || "", /noindex/);
@@ -983,7 +992,7 @@ test("public data responses are versionable and exclude server-only catalog fiel
   const context = await startPublicRouteServer();
 
   try {
-    const showsResponse = await fetch(`${context.baseUrl}/data/shows.json?v=launch`);
+    const showsResponse = await fetch(`${context.baseUrl}/data/shows.json?v=${publicFileVersion("data/shows.json")}`);
     assert.equal(showsResponse.headers.get("cache-control"), "public, max-age=31536000, immutable");
     assert.match(showsResponse.headers.get("x-robots-tag") || "", /noindex/);
     const shows = await showsResponse.json();
@@ -991,7 +1000,7 @@ test("public data responses are versionable and exclude server-only catalog fiel
     assert.equal(Object.hasOwn(shows[0], "imageSrc"), false);
     assert.equal(Object.hasOwn(shows[0], "searchIndex"), false);
 
-    const collectionsResponse = await fetch(`${context.baseUrl}/data/collections.json?v=launch`);
+    const collectionsResponse = await fetch(`${context.baseUrl}/data/collections.json?v=${publicFileVersion("data/collections.json")}`);
     assert.equal(collectionsResponse.headers.get("cache-control"), "public, max-age=31536000, immutable");
     assert.match(collectionsResponse.headers.get("x-robots-tag") || "", /noindex/);
     assert.ok(Array.isArray(await collectionsResponse.json()));
@@ -1032,5 +1041,254 @@ test("malformed, oversized, and unsupported JSON requests fail safely", async ()
     assert.doesNotMatch(unsupportedPayload.error || "", /stack|node_modules|internal\/modules/i);
   } finally {
     await stopPublicRouteServer(context);
+  }
+});
+
+test("malformed public traffic is bounded and negotiated variants cannot share cache identity", async () => {
+  const context = await startPublicRouteServer();
+  try {
+    const html = await fetch(`${context.baseUrl}/shows/impact-winter`, { headers: { Accept: "text/html" } });
+    const markdown = await fetch(`${context.baseUrl}/shows/impact-winter`, { headers: { Accept: "text/markdown" } });
+    assert.match(html.headers.get("content-type") || "", /text\/html/);
+    assert.match(markdown.headers.get("content-type") || "", /text\/markdown/);
+    assert.match(html.headers.get("vary") || "", /Accept/i);
+    assert.match(markdown.headers.get("vary") || "", /Accept/i);
+    assert.equal(html.headers.get("cache-control"), "no-cache");
+    assert.equal(markdown.headers.get("cache-control"), "no-cache");
+
+    const falseAssetVersion = await fetch(`${context.baseUrl}/style.css?v=arbitrary`);
+    assert.equal(falseAssetVersion.status, 200);
+    assert.notEqual(falseAssetVersion.headers.get("cache-control"), "public, max-age=31536000, immutable");
+    const validAssetVersion = await fetch(`${context.baseUrl}/style.css?v=${publicFileVersion("style.css")}`);
+    assert.equal(validAssetVersion.headers.get("cache-control"), "public, max-age=31536000, immutable");
+
+    const longUrl = await fetch(`${context.baseUrl}/?q=${"a".repeat(9000)}`);
+    assert.equal(longUrl.status, 414);
+    assert.equal(longUrl.headers.get("cache-control"), "no-store");
+    const parameterFlood = await fetch(`${context.baseUrl}/?${Array.from({ length: 101 }, (_, i) => `x${i}=1`).join("&")}`);
+    assert.equal(parameterFlood.status, 400);
+    const traceStatus = await new Promise((resolve, reject) => {
+      const request = http.request(`${context.baseUrl}/shows/impact-winter`, { method: "TRACE" }, (response) => {
+        response.resume();
+        response.on("end", () => resolve(response.statusCode));
+      });
+      request.on("error", reject);
+      request.end();
+    });
+    assert.equal(traceStatus, 405);
+    const head = await fetch(`${context.baseUrl}/shows/impact-winter`, { method: "HEAD" });
+    assert.equal(head.status, 200);
+    assert.match(head.headers.get("vary") || "", /Accept/i);
+    for (const route of ["/shows/%ZZ", "/shows/%00", "/shows/%2F", "/shows/" + "x".repeat(300)]) {
+      const response = await fetch(`${context.baseUrl}${route}`, { redirect: "manual" });
+      assert.ok(response.status >= 400 && response.status < 500, `${route}: ${response.status}`);
+    }
+  } finally {
+    await stopPublicRouteServer(context);
+  }
+});
+
+test("a malformed catalogue refresh serves the last good snapshot and fails readiness", async () => {
+  const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-catalogue-reload-"));
+  for (const name of fs.readdirSync(siteRoot)) {
+    if (name === "catalog-src" || name === "data") {
+      fs.cpSync(path.join(siteRoot, name), path.join(fixtureRoot, name), { recursive: true });
+    } else if (!name.startsWith(".")) {
+      fs.symlinkSync(path.join(siteRoot, name), path.join(fixtureRoot, name));
+    }
+  }
+  const showPath = path.join(fixtureRoot, "catalog-src", "shows", "impact-winter.json");
+  const dataPath = path.join(fixtureRoot, "data", "shows.json");
+  const originalShow = fs.readFileSync(showPath);
+  let context;
+  try {
+    context = await startPublicRouteServer({ STATIC_ROOT: fixtureRoot });
+    assert.equal((await fetch(`${context.baseUrl}/shows/impact-winter`)).status, 200);
+    fs.writeFileSync(showPath, "{broken-json");
+    fs.appendFileSync(dataPath, "\n");
+    const stalePage = await fetch(`${context.baseUrl}/shows/impact-winter`);
+    assert.equal(stalePage.status, 200);
+    assert.match(await stalePage.text(), /Impact Winter/);
+    const degraded = await fetch(`${context.baseUrl}/api/health`);
+    assert.equal(degraded.status, 503);
+    assert.deepEqual(await degraded.json(), { ok: false, status: "degraded" });
+
+    fs.writeFileSync(showPath, originalShow);
+    await new Promise((resolve) => setTimeout(resolve, 5100));
+    assert.equal((await fetch(`${context.baseUrl}/shows/impact-winter`)).status, 200);
+    assert.equal((await fetch(`${context.baseUrl}/api/health`)).status, 200);
+  } finally {
+    if (context) await stopPublicRouteServer(context);
+    fs.rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+
+test("missing error templates cannot expose an Express stack trace", async () => {
+  const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-error-disk-"));
+  let server;
+  try {
+    for (const name of fs.readdirSync(siteRoot)) {
+      if (!name.startsWith(".") && name !== "500.html" && name !== "404.html") {
+        fs.symlinkSync(path.join(siteRoot, name), path.join(fixtureRoot, name));
+      }
+    }
+    server = await startPublicRouteServer({ STATIC_ROOT: fixtureRoot });
+    const response = await fetch(`${server.baseUrl}/__test/boom`, { headers: { Accept: "text/html" } });
+    assert.equal(response.status, 500);
+    const body = await response.text();
+    assert.match(body, /Server Error/);
+    assert.doesNotMatch(body, /Intentional|ENOENT|server\.js|Error:|at Object/);
+    assert.equal(response.headers.get("cache-control"), "no-store");
+    const missing = await fetch(`${server.baseUrl}/unavailable-page`, { headers: { Accept: "text/html" } });
+    assert.equal(missing.status, 404);
+    assert.doesNotMatch(await missing.text(), /ENOENT|Error:|at Object/);
+  } finally {
+    if (server) await stopPublicRouteServer(server);
+    fs.rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+
+test("shared proxy isolates representations, credentials, queries, expiry and purge", async () => {
+  const { startCacheProxy } = require("./helpers/cache-proxy");
+  const context = await startPublicRouteServer({ MAINTAINER_REVIEW_PASSPHRASE: "test-passphrase", MAINTAINER_REVIEW_COOKIE_SECRET: "test-cookie-secret" });
+  const proxy = await startCacheProxy(context.baseUrl);
+  try {
+    const asset = `/style.css?v=${publicFileVersion("style.css")}`;
+    assert.equal((await fetch(proxy.url + asset)).headers.get("cf-cache-status"), "MISS");
+    assert.equal((await fetch(proxy.url + asset)).headers.get("cf-cache-status"), "HIT");
+    assert.equal((await fetch(proxy.url + asset, { headers: { Cookie: "session=invalid" } })).headers.get("cf-cache-status"), "BYPASS");
+    assert.notEqual((await fetch(proxy.url + "/style.css?v=false")).headers.get("cf-cache-status"), "HIT");
+    for (const accept of ["text/html", "text/markdown", "text/html"]) {
+      const response = await fetch(proxy.url + "/shows/impact-winter", { headers: { Accept: accept } });
+      assert.equal(response.headers.get("cf-cache-status"), "DYNAMIC");
+      assert.match(response.headers.get("content-type"), accept === "text/markdown" ? /markdown/ : /html/);
+    }
+    const privateResponse = await fetch(proxy.url + "/api/maintainer/submissions", { headers: { Cookie: "echo-maintainer-session=invalid" } });
+    assert.equal(privateResponse.headers.get("cf-cache-status"), "BYPASS");
+    assert.equal(privateResponse.status, 401);
+    assert.match(privateResponse.headers.get("cache-control"), /no-store/);
+    proxy.advance(366 * 24 * 60 * 60 * 1000);
+    assert.equal((await fetch(proxy.url + asset)).headers.get("cf-cache-status"), "EXPIRED");
+    proxy.purge();
+    assert.equal((await fetch(proxy.url + asset)).headers.get("cf-cache-status"), "MISS");
+  } finally {
+    await proxy.close();
+    await stopPublicRouteServer(context);
+  }
+});
+
+
+test("database read failure degrades readiness without leaking internals or blocking static reads", async () => {
+  const faultRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-db-fault-"));
+  const loader = path.join(faultRoot, "fault.cjs");
+  fs.writeFileSync(loader, `const Database = require(${JSON.stringify(require.resolve("better-sqlite3"))});
+    const prepare = Database.prototype.prepare;
+    let failed = false;
+    process.on("SIGUSR2", () => { failed = !failed; });
+    Database.prototype.prepare = function (...args) {
+      if (failed) throw new Error("Synthetic database unavailable: private/path.sqlite");
+      const statement = prepare.apply(this, args);
+      return new Proxy(statement, { get(target, key) {
+        const value = Reflect.get(target, key);
+        if (typeof value !== "function") return value;
+        return (...params) => {
+          if (failed) throw new Error("Synthetic database unavailable: private/path.sqlite");
+          return value.apply(target, params);
+        };
+      } });
+    };`);
+  let context;
+  try {
+    context = await startPublicRouteServer({ NODE_OPTIONS: `--require=${loader}` });
+    context.serverProcess.kill("SIGUSR2");
+    let health;
+    for (let i = 0; i < 30; i += 1) {
+      health = await fetch(`${context.baseUrl}/api/health`);
+      if (health.status === 503) break;
+      await new Promise((resolve) => setTimeout(resolve, 10));
+    }
+    assert.equal(health.status, 503);
+    assert.deepEqual(await health.json(), { ok: false, status: "unhealthy" });
+    const show = await fetch(`${context.baseUrl}/shows/impact-winter`, { headers: { Accept: "text/html" } });
+    assert.equal(show.status, 500);
+    assert.doesNotMatch(await show.text(), /Synthetic|private\/path|sqlite|Error:/);
+    assert.equal((await fetch(`${context.baseUrl}/style.css`)).status, 200);
+    assert.equal((await fetch(`${context.baseUrl}/sitemap.xml`)).status, 200);
+    context.serverProcess.kill("SIGUSR2");
+    await waitForServer(`${context.baseUrl}/api/health`, 5000);
+    assert.equal((await fetch(`${context.baseUrl}/shows/impact-winter`)).status, 200);
+  } finally {
+    if (context) await stopPublicRouteServer(context);
+    fs.rmSync(faultRoot, { recursive: true, force: true });
+  }
+});
+
+
+test("a locked SQLite writer fails cheaply while public reads remain responsive", async () => {
+  const Database = require("better-sqlite3");
+  const context = await startPublicRouteServer();
+  const locker = new Database(path.join(context.tempDir, "community.sqlite"));
+  try {
+    locker.exec("BEGIN IMMEDIATE");
+    const started = performance.now();
+    const writing = fetch(`${context.baseUrl}/api/submissions/shows`, {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ intakeVersion: 2, submissionType: "show", showTitle: "Local Lock Fixture", listenLinks: [{ label: "Official Website", url: "https://example.com" }], legalAcknowledged: true, legalVersion: "2026-09-15" }),
+    });
+    const response = await writing;
+    const elapsed = performance.now() - started;
+    console.log(`SQLite locked-write response: ${response.status}, ${elapsed.toFixed(0)} ms`);
+    assert.equal(response.status, 503);
+    assert.equal(response.headers.get("retry-after"), "1");
+    assert.match(response.headers.get("cache-control"), /no-store/);
+    assert.ok(elapsed < 1000, `locked write took ${elapsed} ms`);
+    assert.equal((await fetch(`${context.baseUrl}/sitemap.xml`)).status, 200);
+    assert.equal((await fetch(`${context.baseUrl}/api/health`)).status, 503);
+    const burstStarted = performance.now();
+    const burst = await Promise.all(Array.from({ length: 10 }, () => fetch(`${context.baseUrl}/api/submissions/shows`, {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: "{}",
+    })));
+    assert.ok(burst.every((response) => response.status === 503));
+    assert.ok(performance.now() - burstStarted < 500, "busy cooldown avoids repeating synchronous DB waits");
+    locker.exec("ROLLBACK");
+    await new Promise((resolve) => setTimeout(resolve, 1050));
+    assert.equal((await fetch(`${context.baseUrl}/api/health`)).status, 200);
+    const recovered = await fetch(`${context.baseUrl}/api/submissions/shows`, {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ intakeVersion: 2, submissionType: "show", showTitle: "Recovered Fixture", listenLinks: [{ label: "Official Website", url: "https://example.com" }], legalAcknowledged: true, legalVersion: "2026-09-15" }),
+    });
+    assert.equal(recovered.status, 201);
+  } finally {
+    if (locker.inTransaction) locker.exec("ROLLBACK");
+    locker.close();
+    await stopPublicRouteServer(context);
+  }
+});
+
+test("startup recovers a SIGKILL publication before serving public pages", async () => {
+  const { spawnSync } = require("node:child_process");
+  const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-startup-recovery-"));
+  let context;
+  try {
+    for (const name of fs.readdirSync(siteRoot)) {
+      if (["catalog-src", "data", "docs"].includes(name)) fs.cpSync(path.join(siteRoot, name), path.join(fixtureRoot, name), { recursive: true });
+      else if (!name.startsWith(".")) fs.symlinkSync(path.join(siteRoot, name), path.join(fixtureRoot, name));
+    }
+    const sourceModule = require.resolve("../../tools/lib/catalog-source");
+    const crashed = spawnSync(process.execPath, ["-e", `const fs=require('node:fs');const root=process.env.CRASH_ROOT;const show=JSON.parse(fs.readFileSync(root+'/catalog-src/shows/impact-winter.json'));show.title='Interrupted replacement';require(${JSON.stringify(sourceModule)}).writeShowRecordsAtomically(root,[show],{deferCommit:true});fs.writeFileSync(root+'/data/shows.json','invalid partial artifact');process.kill(process.pid,'SIGKILL');`], { env: { ...process.env, CRASH_ROOT: fixtureRoot }, timeout: 10000 });
+    assert.equal(crashed.signal, "SIGKILL", crashed.stderr.toString());
+    context = await startPublicRouteServer({ STATIC_ROOT: fixtureRoot });
+    const response = await fetch(`${context.baseUrl}/shows/impact-winter`);
+    assert.equal(response.status, 200);
+    const html = await response.text();
+    assert.match(html, /Impact Winter/);
+    assert.doesNotMatch(html, /Interrupted replacement/);
+    assert.equal((await fetch(`${context.baseUrl}/api/health`)).status, 200);
+    assert.equal(fs.existsSync(path.join(fixtureRoot, ".echo-catalog-transaction")), false);
+  } finally {
+    if (context) await stopPublicRouteServer(context);
+    fs.rmSync(fixtureRoot, { recursive: true, force: true });
   }
 });

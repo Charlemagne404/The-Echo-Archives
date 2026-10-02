@@ -42,13 +42,14 @@ function buildResource({
 
 function buildPublicReferenceManifest({ siteUrl, catalog = [], collections = [], entities = [] }) {
   const publishedShows = (Array.isArray(catalog) ? catalog : []).filter((show) => show?.status === "published");
+  const showsById = new Map(publishedShows.map((show) => [show.id, show]));
   const publicCollections = Array.isArray(collections) ? collections.filter(Boolean) : [];
   const publicEntities = Array.isArray(entities)
     ? entities.filter((entity) => entity?.publication === "public")
     : [];
   const indexableCollections = publicCollections.filter((collection) => {
     const collectionShows = (Array.isArray(collection.showIds) ? collection.showIds : [])
-      .map((showId) => publishedShows.find((show) => show.id === showId))
+      .map((showId) => showsById.get(showId))
       .filter(Boolean);
     return isIndexableCollection(collection, collectionShows);
   });

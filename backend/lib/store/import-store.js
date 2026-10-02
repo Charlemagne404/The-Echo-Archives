@@ -1191,11 +1191,37 @@ function createImportStore({ db }) {
     `).run(`-${days} days`).changes;
   }
 
-  function withTransaction(callback) {
-    return db.transaction(callback)();
+  function publicationSnapshot(candidates) {
+    return JSON.parse(JSON.stringify({ schema: 1, candidates: candidates.map((candidate) => ({
+      id: candidate.id,
+      fields: Object.fromEntries(["status", "publishedShowId", "preparedRecord", "reviewedAt", "reviewedBy", "lastError"].map((key) => [key, candidate[key]])),
+      identities: listIdentities(candidate.id),
+    })) }));
+  }
+
+  function restorePublicationSnapshot(snapshot) {
+    if (snapshot?.schema !== 1 || !Array.isArray(snapshot.candidates) || snapshot.candidates.some((item) =>
+      typeof item?.id !== "string" || !item.id || !item.fields || typeof item.fields !== "object" || !Array.isArray(item.identities))) {
+      throw new Error("Malformed import publication recovery snapshot.");
+    }
+    const restoreIdentity = db.prepare(`UPDATE catalog_import_identities SET existing_show_id = ?, updated_at = CURRENT_TIMESTAMP
+      WHERE identity_type = ? AND identity_value = ? AND candidate_id = ?`);
+    db.transaction(() => {
+      for (const item of snapshot.candidates) {
+        if (!getCandidate(item.id)) continue;
+        const fields = Object.fromEntries(["status", "publishedShowId", "preparedRecord", "reviewedAt", "reviewedBy", "lastError"]
+          .filter((key) => Object.hasOwn(item.fields, key)).map((key) => [key, item.fields[key]]));
+        updateCandidate(item.id, fields);
+        for (const identity of item.identities) restoreIdentity.run(identity.existingShowId || "", identity.identityType, identity.identityValue, item.id);
+        recordEvent(item.id, "publication-recovered", "startup-recovery", { restoredStatus: fields.status });
+      }
+    })();
   }
 
   return {
+    withTransaction: (callback) => db.transaction(callback)(),
+    publicationSnapshot,
+    restorePublicationSnapshot,
     appendCandidateSources,
     appendFieldEvidence,
     bindIdentitiesToShow,

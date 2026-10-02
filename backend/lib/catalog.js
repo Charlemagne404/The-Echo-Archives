@@ -727,7 +727,7 @@ async function syncCatalogCovers(siteRoot, options = {}) {
           ...sourceData,
           shows: nextRecords,
         },
-        { mode: sourceData.mode },
+        { mode: sourceData.mode, joinExisting: true },
       );
     },
   });

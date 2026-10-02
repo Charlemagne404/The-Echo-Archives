@@ -90,3 +90,39 @@ test("thin collections stay out of the sitemap", () => {
   });
   assert.equal(entries.some((entry) => entry.loc.endsWith("/collections/thin")), false);
 });
+
+test("sitemaps beyond 50000 URLs produce bounded shards and a canonical index", () => {
+  const { buildSitemapDocuments } = require("../lib/sitemap");
+  const { XMLValidator, XMLParser } = require("fast-xml-parser");
+  const catalog = Array.from({ length: 50001 }, (_, index) => ({ id: `show-${index}`, status: "published", updatedAt: "2026-10-01" }));
+  const documents = buildSitemapDocuments({ siteUrl: "https://echo.example", catalog, collections: [] });
+  assert.equal(documents.size, 3);
+  const parser = new XMLParser();
+  const index = parser.parse(documents.get("sitemap.xml")).sitemapindex.sitemap;
+  assert.deepEqual(index.map((entry) => entry.loc), ["https://echo.example/sitemap-1.xml", "https://echo.example/sitemap-2.xml"]);
+  const urls = [];
+  for (const name of ["sitemap-1.xml", "sitemap-2.xml"]) {
+    const xml = documents.get(name);
+    assert.equal(XMLValidator.validate(xml), true);
+    assert.ok(Buffer.byteLength(xml) <= 52428800);
+    const entries = parser.parse(xml).urlset.url;
+    assert.ok(entries.length <= 50000);
+    urls.push(...entries.map((entry) => entry.loc));
+  }
+  assert.equal(urls.length, 50014);
+  assert.equal(new Set(urls).size, urls.length);
+});
+
+test("sitemap byte limits use UTF-8 bytes and preserve every escaped URL", () => {
+  const { buildSitemapDocuments, buildSitemapEntries } = require("../lib/sitemap");
+  const options = { siteUrl: "https://echo.example", catalog: Array.from({ length: 20 }, (_, index) => ({ id: `café-${index}`, status: "published" })), collections: [] };
+  const documents = buildSitemapDocuments(options, { maxBytes: 512 });
+  assert.match(documents.get("sitemap.xml"), /sitemapindex/);
+  let count = 0;
+  for (const [name, xml] of documents) {
+    if (name === "sitemap.xml") continue;
+    assert.ok(Buffer.byteLength(xml) <= 512);
+    count += (xml.match(/<url>/g) || []).length;
+  }
+  assert.equal(count, buildSitemapEntries(options).length);
+});

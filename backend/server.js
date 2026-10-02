@@ -2,6 +2,8 @@ const fs = require("node:fs");
 const path = require("node:path");
 const crypto = require("node:crypto");
 const express = require("express");
+const { createBoundedHttpServer } = require("./lib/http-server");
+const { recoverCatalogPublication, completeCatalogPublicationRecovery } = require("../tools/lib/catalog-publication-transaction");
 
 const config = require("./lib/config");
 const { createAccessObservability } = require("./lib/access-observability");
@@ -11,7 +13,7 @@ const { buildEntityGraphData } = require("./lib/entity-graph");
 const { createMaintainerAuth } = require("./lib/maintainer-auth");
 const { renderEntityPage } = require("./lib/entity-page-render");
 const { entityPath, isIndexableEntity } = require("../shared/archive-entities");
-const { buildSitemapXml } = require("./lib/sitemap");
+const { buildSitemapDocuments } = require("./lib/sitemap");
 const { buildPublicReferenceManifest } = require("./lib/public-reference");
 const { openDatabase } = require("./lib/store/database");
 const { createCommunityStore } = require("./lib/store/community-store");
@@ -190,9 +192,9 @@ function readReleaseMetadata(staticRoot) {
   }
 }
 
-function setPublicCacheHeaders(req, res, { image = false } = {}) {
+function setPublicCacheHeaders(req, res, { image = false, version = "" } = {}) {
   let cacheControl;
-  if (typeof req.query.v === "string" && req.query.v.trim()) {
+  if (version && req.query.v === version) {
     cacheControl = "public, max-age=31536000, immutable";
   } else if (image) {
     cacheControl = "public, max-age=86400, stale-while-revalidate=604800";
@@ -251,6 +253,7 @@ function buildStaticPageMetadata({ routePath, requestSiteUrl, manifestEntry }) {
 }
 
 async function startServer() {
+  const publicationRecovery = recoverCatalogPublication(config.STATIC_ROOT);
   config.validateConfig(config);
   const { validateDiscoveryProps } = await import("../shared/app/discovery-analytics.js");
   const publicPageManifest = config.SERVE_STATIC
@@ -269,11 +272,33 @@ async function startServer() {
     : [];
   const app = express();
   const releaseMetadata = readReleaseMetadata(config.STATIC_ROOT);
+  const assetVersions = new Map();
+  function getAssetVersion(relativePath) {
+    const absolutePath = path.join(config.STATIC_ROOT, relativePath);
+    try {
+      const stat = fs.statSync(absolutePath);
+      const cached = assetVersions.get(relativePath);
+      if (cached?.size === stat.size && cached.mtimeMs === stat.mtimeMs && cached.ctimeMs === stat.ctimeMs && cached.ino === stat.ino) return cached.version;
+      const version = hashPublicFile(config.STATIC_ROOT, relativePath);
+      assetVersions.set(relativePath, { size: stat.size, mtimeMs: stat.mtimeMs, ctimeMs: stat.ctimeMs, ino: stat.ino, version });
+      return version;
+    } catch (_error) {
+      assetVersions.delete(relativePath);
+      return "";
+    }
+  }
   const state = {
     catalog: [],
     publicCatalog: [],
     publicRuntimeCatalog: [],
     publicSearchIndex: [],
+    showById: new Map(),
+    showByLowerId: new Map(),
+    collectionById: new Map(),
+    collectionByLowerId: new Map(),
+    entityByLowerId: new Map(),
+    sitemapDocuments: new Map(),
+    publicReferenceManifest: null,
     entities: [],
     entityGraph: { schema: "echo-archives/entity-graph/v1", entities: [], shows: [], edges: [], entityConnections: [] },
     collections: [],
@@ -286,10 +311,14 @@ async function startServer() {
     searchIndexVersion: "",
     runtimeEvidenceVersion: "",
     publicDataRevision: "",
+    publicDataHealthy: true,
+    databaseBusyUntil: 0,
   };
   let publicStateRefreshPromise = null;
+  let publicStateRetryAt = 0;
 
   async function reloadState() {
+    const startingRevision = getPublicDataRevision(config.STATIC_ROOT);
     const catalog = await loadCatalog(config.STATIC_ROOT);
     applyGeneratedCoverVariants(config.STATIC_ROOT, catalog);
     const publicCatalog = catalog.filter((show) => show.status === "published");
@@ -301,12 +330,30 @@ async function startServer() {
     const archiveContext = await loadArchiveContext(config.STATIC_ROOT, catalog, collections);
     const siteHelpContext = loadSiteHelpContext({ catalog: publicCatalog, collections, archiveContext });
 
-    state.entities = archiveContext.entities;
-    state.entityGraph = buildEntityGraphData({ shows: publicCatalog, entities: state.entities });
+    const entities = archiveContext.entities;
+    const entityGraph = buildEntityGraphData({ shows: publicCatalog, entities });
+    const showById = new Map(publicCatalog.map((show) => [show.id, show]));
+    const collectionById = new Map(collections.map((collection) => [collection.id, collection]));
+    const sitemapDocuments = buildSitemapDocuments({ siteUrl: config.SITE_URL, catalog: publicCatalog, collections, entities });
+    const publicReferenceManifest = buildPublicReferenceManifest({ siteUrl: config.SITE_URL, catalog: publicCatalog, collections, entities });
+    const completedRevision = getPublicDataRevision(config.STATIC_ROOT);
+    if (startingRevision !== completedRevision) {
+      throw new Error("Public catalogue files changed during reload.");
+    }
+
+    state.entities = entities;
+    state.entityGraph = entityGraph;
     state.catalog = catalog;
     state.publicCatalog = publicCatalog;
     state.publicRuntimeCatalog = publicRuntimeCatalog;
     state.publicSearchIndex = publicSearchIndex;
+    state.showById = showById;
+    state.showByLowerId = new Map(publicCatalog.map((show) => [show.id.toLowerCase(), show]));
+    state.collectionById = collectionById;
+    state.collectionByLowerId = new Map(collections.map((collection) => [collection.id.toLowerCase(), collection]));
+    state.entityByLowerId = new Map(entities.map((entity) => [entity.id.toLowerCase(), entity]));
+    state.sitemapDocuments = sitemapDocuments;
+    state.publicReferenceManifest = publicReferenceManifest;
     state.runtimeEvidence = runtimeEvidence;
     state.collections = collections;
     state.similarityIndex = similarityIndex;
@@ -316,18 +363,27 @@ async function startServer() {
     state.collectionsVersion = hashPublicFile(config.STATIC_ROOT, "data/collections.json");
     state.searchIndexVersion = hashPublicFile(config.STATIC_ROOT, "data/search-index.json");
     state.runtimeEvidenceVersion = hashPublicFile(config.STATIC_ROOT, "data/runtime-evidence.json");
-    state.publicDataRevision = getPublicDataRevision(config.STATIC_ROOT);
+    state.publicDataRevision = completedRevision;
+    state.publicDataHealthy = true;
+    publicStateRetryAt = 0;
   }
 
   async function refreshStateIfPublicDataChanged() {
-    if (getPublicDataRevision(config.STATIC_ROOT) === state.publicDataRevision) {
+    const revision = getPublicDataRevision(config.STATIC_ROOT);
+    if (revision === state.publicDataRevision) {
+      state.publicDataHealthy = true;
       return;
     }
+    if (Date.now() < publicStateRetryAt) return;
 
     if (!publicStateRefreshPromise) {
-      publicStateRefreshPromise = reloadState().finally(() => {
-        publicStateRefreshPromise = null;
-      });
+      publicStateRefreshPromise = reloadState()
+        .catch((error) => {
+          state.publicDataHealthy = false;
+          publicStateRetryAt = Date.now() + 5000;
+          console.error(JSON.stringify({ level: "error", event: "public_catalogue_reload_failed", error: error.message || String(error) }));
+        })
+        .finally(() => { publicStateRefreshPromise = null; });
     }
 
     await publicStateRefreshPromise;
@@ -376,6 +432,10 @@ async function startServer() {
   const submissionStore = createSubmissionStore({ db: database });
   const publishedListenerReviewStore = createPublishedListenerReviewStore({ db: database });
   const importStore = createImportStore({ db: database });
+  if (publicationRecovery?.pendingDatabaseRecovery) {
+    importStore.restorePublicationSnapshot(publicationRecovery.pendingDatabaseRecovery);
+    completeCatalogPublicationRecovery(config.STATIC_ROOT);
+  }
   const collectionStore = createCollectionStore({ db: database });
   const turnstileService = createTurnstileService({
     enabled: config.COMMUNITY_TURNSTILE_ENABLED,
@@ -500,6 +560,9 @@ async function startServer() {
   function getHealthPayload({ detailed = false } = {}) {
     try {
       database.prepare("SELECT 1 AS ready").get();
+      if (!state.publicDataHealthy || Date.now() < state.databaseBusyUntil) {
+        return { ok: false, status: "degraded" };
+      }
       const payload = { ok: true, status: "ok" };
       if (!detailed) {
         return payload;
@@ -572,7 +635,13 @@ async function startServer() {
       imageUrl: `${normalizeSiteUrl(config.SITE_URL)}/echo-wordmark1.png`,
       imageAlt: "The Echo Archives social preview",
     };
-    const template = fs.readFileSync(path.join(config.STATIC_ROOT, fileName), "utf8");
+    let template;
+    try {
+      template = fs.readFileSync(path.join(config.STATIC_ROOT, fileName), "utf8");
+    } catch (error) {
+      console.error(JSON.stringify({ level: "error", event: "error_page_unavailable", requestId: req.requestId, code: error.code }));
+      return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><title>${metadata.title}</title></head><body><h1>${isServerError ? "Server Error" : "Page Not Found"}</h1><p>${metadata.description}</p></body></html>`;
+    }
     return applyRuntimeSiteConfig(injectNoIndex(injectPageMetadata(template, metadata)), req.cspNonce);
   };
 
@@ -590,6 +659,25 @@ async function startServer() {
     }),
   );
   app.use(applySecurityHeaders);
+  app.use((req, res, next) => {
+    // Reject scraper-generated URL explosions before catalogue refresh, JSON
+    // parsing, route lookup, or a database call.
+    if (!["GET", "HEAD", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"].includes(req.method)) {
+      res.set({ "Allow": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS", "Cache-Control": "no-store" });
+      return res.status(405).json({ error: "Method not allowed." });
+    }
+    const url = req.url || "";
+    if (Buffer.byteLength(url) > 8192) {
+      res.set("Cache-Control", "no-store");
+      return res.status(414).json({ error: "Request URL is too long." });
+    }
+    const queryStart = url.indexOf("?");
+    if (queryStart >= 0 && (url.slice(queryStart + 1).match(/&/g) || []).length >= 100) {
+      res.set("Cache-Control", "no-store");
+      return res.status(400).json({ error: "Too many query parameters." });
+    }
+    return next();
+  });
   app.use((_req, res, next) => {
     if (config.IS_STAGING) {
       res.set("X-Echo-Environment", "staging");
@@ -608,6 +696,13 @@ async function startServer() {
     } catch (error) {
       next(error);
     }
+  });
+  app.use("/api", (req, res, next) => {
+    if (!["GET", "HEAD", "OPTIONS"].includes(req.method) && Date.now() < state.databaseBusyUntil) {
+      res.set({ "Retry-After": "1", "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow, noarchive" });
+      return res.status(503).json({ error: "Database temporarily busy. Retry shortly." });
+    }
+    next();
   });
   app.use(express.json({ limit: "24kb" }));
   app.use("/api", (_req, res, next) => {
@@ -667,14 +762,14 @@ async function startServer() {
 
   app.get("/sitemap.xml", (_req, res) => {
     res.set("Cache-Control", "public, max-age=3600, stale-while-revalidate=3600");
-    res.type("application/xml").send(
-      buildSitemapXml({
-        siteUrl: config.SITE_URL,
-        catalog: state.publicCatalog,
-        collections: state.collections,
-        entities: state.entities,
-      }),
-    );
+    res.type("application/xml").send(state.sitemapDocuments.get("sitemap.xml"));
+  });
+
+  app.get(/^\/sitemap-[1-9]\d*\.xml$/, (req, res) => {
+    const xml = state.sitemapDocuments.get(req.path.slice(1));
+    if (!xml) { res.set("Cache-Control", "no-store").status(404).end(); return; }
+    res.set("Cache-Control", "public, max-age=3600, stale-while-revalidate=3600");
+    res.type("application/xml").send(xml);
   });
 
   app.get("/robots.txt", (_req, res) => {
@@ -684,24 +779,19 @@ async function startServer() {
 
   app.get("/data/shows.json", (_req, res) => {
     res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
-    setPublicCacheHeaders(_req, res);
+    setPublicCacheHeaders(_req, res, { version: state.showsVersion });
     res.json(state.publicRuntimeCatalog);
   });
 
   app.get("/data/archive.json", (req, res) => {
     res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
     setPublicCacheHeaders(req, res);
-    res.json(buildPublicReferenceManifest({
-      siteUrl: config.SITE_URL,
-      catalog: state.publicCatalog,
-      collections: state.collections,
-      entities: state.entities,
-    }));
+    res.json(state.publicReferenceManifest);
   });
 
   app.get("/data/collections.json", (req, res) => {
     res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
-    setPublicCacheHeaders(req, res);
+    setPublicCacheHeaders(req, res, { version: state.collectionsVersion });
     res.json(state.collections);
   });
 
@@ -719,13 +809,13 @@ async function startServer() {
 
   app.get("/data/search-index.json", (req, res) => {
     res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
-    setPublicCacheHeaders(req, res);
+    setPublicCacheHeaders(req, res, { version: state.searchIndexVersion });
     res.json(state.publicSearchIndex);
   });
 
   app.get("/data/runtime-evidence.json", (req, res) => {
     res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
-    setPublicCacheHeaders(req, res);
+    setPublicCacheHeaders(req, res, { version: state.runtimeEvidenceVersion });
     res.json(state.runtimeEvidence);
   });
 
@@ -792,13 +882,13 @@ async function startServer() {
       const id = typeof req.query.id === "string" ? req.query.id.trim() : "";
       if (routePath === "/show") {
         const show = id
-          ? state.publicCatalog.find((entry) => String(entry.id || "").toLowerCase() === id.toLowerCase())
+          ? state.showByLowerId.get(id.toLowerCase())
           : null;
         return show ? buildShowPath(show.id) : id ? "" : routePath;
       }
       if (routePath === "/collection") {
         const collection = id
-          ? state.collections.find((entry) => String(entry.id || "").toLowerCase() === id.toLowerCase())
+          ? state.collectionByLowerId.get(id.toLowerCase())
           : null;
         return collection
           ? buildCollectionPath(collection.id)
@@ -863,9 +953,9 @@ async function startServer() {
       try {
         const targetUrl = new URL(target, config.SITE_URL);
         const id = targetUrl.searchParams.get("id") || "";
-        if (targetUrl.pathname === "/show" && state.publicCatalog.some((show) => show.id === id)) {
+        if (targetUrl.pathname === "/show" && state.showById.has(id)) {
           normalizedTarget = buildShowPath(id);
-        } else if (targetUrl.pathname === "/collection" && state.collections.some((collection) => collection.id === id)) {
+        } else if (targetUrl.pathname === "/collection" && state.collectionById.has(id)) {
           normalizedTarget = buildCollectionPath(id);
         }
       } catch (_error) {
@@ -923,7 +1013,7 @@ async function startServer() {
     });
     app.get(["/creators/:entityId", "/creators/:entityId/index.html"], (req, res) => {
       const requestedEntityId = String(req.params.entityId || "");
-      const entity = state.entities.find((entry) => String(entry.id || "").toLowerCase() === requestedEntityId.toLowerCase());
+      const entity = state.entityByLowerId.get(requestedEntityId.toLowerCase());
       const isCanonicalEntityPath = req.path === entityPath(req.params.entityId);
       if (!entity) {
         res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
@@ -951,7 +1041,7 @@ async function startServer() {
 
     const renderCollectionPage = (req, res, collectionId) => {
       markNegotiatedResponse(res);
-      const collection = state.collections.find((entry) => entry.id === collectionId);
+      const collection = state.collectionById.get(collectionId);
 
       if (!collection) {
         res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
@@ -971,7 +1061,7 @@ async function startServer() {
         return res.status(404).type("html").send(renderErrorPage(req, "404.html"));
       }
 
-      const showMap = new Map(state.publicCatalog.map((show) => [show.id, show]));
+      const showMap = state.showById;
       const collectionShows = (Array.isArray(collection.showIds) ? collection.showIds : [])
         .map((showId) => showMap.get(showId))
         .filter(Boolean);
@@ -1045,9 +1135,7 @@ async function startServer() {
 
     app.get("/collections/:collectionId", (req, res) => {
       const requestedCollectionId = String(req.params.collectionId || "").trim();
-      const collection = state.collections.find(
-        (entry) => String(entry.id || "").toLowerCase() === requestedCollectionId.toLowerCase(),
-      );
+      const collection = state.collectionByLowerId.get(requestedCollectionId.toLowerCase());
       const collectionId = collection?.id || requestedCollectionId;
       const canonicalPath = buildCollectionPath(collectionId);
       if (Object.keys(req.query).length > 0 || req.path !== canonicalPath) {
@@ -1058,9 +1146,7 @@ async function startServer() {
 
     app.get("/collection", (req, res) => {
       const collectionId = typeof req.query.id === "string" ? req.query.id.trim() : "";
-      const collection = state.collections.find(
-        (entry) => String(entry.id || "").toLowerCase() === collectionId.toLowerCase(),
-      );
+      const collection = state.collectionByLowerId.get(collectionId.toLowerCase());
       if (!collection) {
         res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
         res.set("Cache-Control", "no-cache");
@@ -1073,7 +1159,7 @@ async function startServer() {
       if (allowMarkdown) {
         markNegotiatedResponse(res);
       }
-      const show = state.publicCatalog.find((entry) => entry.id === showId);
+      const show = state.showById.get(showId);
 
       if (!show) {
         if (allowMarkdown && prefersMarkdown(req.get("accept"))) {
@@ -1106,7 +1192,7 @@ async function startServer() {
         return res.status(404).type("html").send(applyRuntimeSiteConfig(renderedMissing, req.cspNonce));
       }
 
-      const showMap = new Map(state.publicCatalog.map((entry) => [entry.id, entry]));
+      const showMap = state.showById;
       if (prefersMarkdown(req.get("accept"))) {
         const reviewData = publishedListenerReviewService.getPublicReviewPage(show.id, { page: 1, pageSize: 10 });
         const communitySummary = communityService.getRatingSummaries({ podcastIds: [show.id], compact: true }).summaries?.[show.id] || {};
@@ -1155,9 +1241,7 @@ async function startServer() {
 
     app.get("/shows/:showId", (req, res) => {
       const requestedShowId = String(req.params.showId || "").trim();
-      const show = state.publicCatalog.find(
-        (entry) => String(entry.id || "").toLowerCase() === requestedShowId.toLowerCase(),
-      );
+      const show = state.showByLowerId.get(requestedShowId.toLowerCase());
       const showId = show?.id || requestedShowId;
       const canonicalPath = buildShowPath(showId);
       if (Object.keys(req.query).length > 0 || req.path !== canonicalPath) {
@@ -1168,9 +1252,7 @@ async function startServer() {
 
     app.get("/show", (req, res) => {
       const showId = typeof req.query.id === "string" ? req.query.id.trim() : "";
-      const show = state.publicCatalog.find(
-        (entry) => String(entry.id || "").toLowerCase() === showId.toLowerCase(),
-      );
+      const show = state.showByLowerId.get(showId.toLowerCase());
       if (!show) {
         return renderShowPage(req, res, showId, { allowMarkdown: false });
       }
@@ -1285,7 +1367,7 @@ async function startServer() {
     for (const fileName of PUBLIC_ROOT_ASSETS) {
       app.get(`/${fileName}`, (req, res) => {
         const extension = path.extname(fileName).toLowerCase();
-        setPublicCacheHeaders(req, res, { image: PUBLIC_IMAGE_EXTENSIONS.has(extension) });
+        setPublicCacheHeaders(req, res, { image: PUBLIC_IMAGE_EXTENSIONS.has(extension), version: req.query.v ? getAssetVersion(fileName) : "" });
         if (fileName === "sw.js") {
           res.set({ "Cache-Control": "no-cache", "CDN-Cache-Control": "no-cache" });
         }
@@ -1301,7 +1383,7 @@ async function startServer() {
       "/shared",
       allowStaticExtensions(PUBLIC_SHARED_EXTENSIONS),
       (req, res, next) => {
-        setPublicCacheHeaders(req, res);
+        setPublicCacheHeaders(req, res, { version: req.query.v ? getAssetVersion(path.join("shared", req.path)) : "" });
         next();
       },
       express.static(path.join(config.STATIC_ROOT, "shared"), { index: false, fallthrough: true }),
@@ -1310,7 +1392,7 @@ async function startServer() {
       "/images",
       allowStaticExtensions(PUBLIC_IMAGE_EXTENSIONS),
       (req, res, next) => {
-        setPublicCacheHeaders(req, res, { image: true });
+        setPublicCacheHeaders(req, res, { image: true, version: req.query.v ? getAssetVersion(path.join("images", req.path)) : "" });
         next();
       },
       express.static(path.join(config.STATIC_ROOT, "images"), { index: false, fallthrough: true }),
@@ -1319,7 +1401,7 @@ async function startServer() {
       "/shows",
       allowStaticExtensions(PUBLIC_IMAGE_EXTENSIONS),
       (req, res, next) => {
-        setPublicCacheHeaders(req, res, { image: true });
+        setPublicCacheHeaders(req, res, { image: true, version: req.query.v ? getAssetVersion(path.join("shows", req.path)) : "" });
         next();
       },
       express.static(path.join(config.STATIC_ROOT, "shows"), { index: false, fallthrough: true }),
@@ -1329,7 +1411,7 @@ async function startServer() {
       allowStaticExtensions(new Set([".json"])),
       (req, res, next) => {
         res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
-        setPublicCacheHeaders(req, res);
+        setPublicCacheHeaders(req, res, { version: req.query.v ? getAssetVersion(path.join("data", req.path)) : "" });
         next();
       },
       express.static(path.join(config.STATIC_ROOT, "data"), { index: false, fallthrough: true }),
@@ -1354,12 +1436,17 @@ async function startServer() {
       return _next(error);
     }
 
-    const candidateStatus = Number.isInteger(error.statusCode)
+    const databaseBusy = /^SQLITE_(BUSY|LOCKED)(?:_|$)/.test(String(error.code || ""));
+    const candidateStatus = databaseBusy ? 503 : Number.isInteger(error.statusCode)
       ? error.statusCode
       : Number.isInteger(error.status)
         ? error.status
         : 500;
     const statusCode = candidateStatus >= 400 && candidateStatus <= 599 ? candidateStatus : 500;
+    if (databaseBusy) {
+      state.databaseBusyUntil = Date.now() + 1000;
+      res.set({ "Retry-After": "1", "Cache-Control": "no-store" });
+    }
     if (statusCode === 429 && Number.isInteger(error.retryAfterSeconds) && error.retryAfterSeconds > 0) {
       res.set("Retry-After", String(error.retryAfterSeconds));
     }
@@ -1372,6 +1459,7 @@ async function startServer() {
           method: req.method,
           path: req.path,
           error: error.message || "Unexpected server error.",
+          ...(databaseBusy ? { dependency: "sqlite", code: error.code } : {}),
         }),
       );
     }
@@ -1384,7 +1472,7 @@ async function startServer() {
 
     if (wantsHtml) {
       res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
-      res.set("Cache-Control", "no-cache");
+      res.set("Cache-Control", "no-store");
       return res.status(statusCode).type("html").send(renderErrorPage(req, "500.html"));
     }
 
@@ -1397,7 +1485,7 @@ async function startServer() {
     });
   });
 
-  const server = app.listen(config.PORT, config.HOST, () => {
+  const server = createBoundedHttpServer(app).listen(config.PORT, config.HOST, () => {
     console.log(`Echo Archives listening on http://${config.HOST}:${config.PORT}`);
   });
 
@@ -1411,7 +1499,7 @@ async function startServer() {
 
   let internalHealthServer = null;
   if (config.INTERNAL_HEALTH_PORT > 0) {
-    internalHealthServer = internalHealthApp.listen(config.INTERNAL_HEALTH_PORT, "127.0.0.1", () => {
+    internalHealthServer = createBoundedHttpServer(internalHealthApp).listen(config.INTERNAL_HEALTH_PORT, "127.0.0.1", () => {
       console.log(`Echo Archives internal health listening on http://127.0.0.1:${config.INTERNAL_HEALTH_PORT}`);
     });
     internalHealthServer.on("error", (error) => {

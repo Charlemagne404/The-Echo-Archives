@@ -388,56 +388,72 @@ async function fetchBufferWithLimits(fetchImpl, url, init = {}, options = {}) {
   const isNetworkFetch = fetchImpl.isNetworkFetch ?? fetchImpl === globalThis.fetch;
   const resolveDns = isNetworkFetch ? true : options.resolveDns ?? false;
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  let rejectDeadline;
+  const deadline = new Promise((_resolve, reject) => { rejectDeadline = reject; });
+  const withinDeadline = (operation) => Promise.race([Promise.resolve().then(operation), deadline]);
+  const timeout = setTimeout(() => {
+    const error = createFetchLimitError(label, "timed out after " + timeoutMs + "ms.", { code: "IMPORT_TIMEOUT", retryable: true });
+    controller.abort(error);
+    rejectDeadline(error);
+  }, timeoutMs);
+  let requestHeaders;
   try {
     const resolveOptions = { resolveDns, resolver: options.resolver, label };
-    let destination = await resolveSafeRemoteUrl(url, resolveOptions);
+    requestHeaders = new Headers(init.headers || {});
+    let destination = await withinDeadline(() => resolveSafeRemoteUrl(url, resolveOptions));
     let currentUrl = destination.parsed.href;
     for (let redirectCount = 0; redirectCount <= maxRedirects; redirectCount += 1) {
       if (controller.signal.aborted) {
         throw controller.signal.reason || new DOMException("Aborted", "AbortError");
       }
-      const requestInit = { ...init, redirect: "manual", signal: controller.signal };
-      const response = resolveDns
-        ? await (typeof fetchImpl.withNetworkRequest === "function"
+      const requestInit = { ...init, headers: requestHeaders, redirect: "manual", signal: controller.signal };
+      const response = await withinDeadline(() => resolveDns
+        ? (typeof fetchImpl.withNetworkRequest === "function"
           ? fetchImpl.withNetworkRequest(currentUrl, () => requestWithPinnedAddresses(currentUrl, requestInit, destination.addresses, { requestImpl: options.requestImpl }))
           : requestWithPinnedAddresses(currentUrl, requestInit, destination.addresses, { requestImpl: options.requestImpl }))
-        : await fetchImpl(currentUrl, requestInit);
+        : fetchImpl(currentUrl, requestInit));
       if (response.status >= 300 && response.status < 400) {
+        await withinDeadline(() => cancelResponseBody(response));
         const location = response.headers?.get?.("location") || "";
         if (!location || redirectCount === maxRedirects) {
-          await cancelResponseBody(response);
           throw createFetchLimitError(label, "encountered an invalid or excessive redirect chain.", { code: "IMPORT_REDIRECT_FAILED", retryable: false });
         }
         let redirectUrl;
         try {
           redirectUrl = new URL(location, currentUrl).href;
         } catch (_error) {
-          await cancelResponseBody(response);
           throw createFetchLimitError(label, "encountered an invalid or excessive redirect chain.", { code: "IMPORT_REDIRECT_FAILED", retryable: false });
         }
-        await cancelResponseBody(response);
-        destination = await resolveSafeRemoteUrl(redirectUrl, resolveOptions);
+        const previousOrigin = new URL(currentUrl).origin;
+        destination = await withinDeadline(() => resolveSafeRemoteUrl(redirectUrl, resolveOptions));
+        if (destination.parsed.origin !== previousOrigin) {
+          const publicHeaders = new Headers();
+          for (const name of ["accept", "accept-language", "user-agent"]) {
+            if (requestHeaders.has(name)) publicHeaders.set(name, requestHeaders.get(name));
+          }
+          requestHeaders = publicHeaders;
+        }
         currentUrl = destination.parsed.href;
         continue;
       }
       if (response.url) {
         if (resolveDns && response.url !== currentUrl) {
-          await cancelResponseBody(response);
+          await withinDeadline(() => cancelResponseBody(response));
           throw createFetchLimitError(label, "changed its destination outside the validated redirect chain.", { code: "IMPORT_REDIRECT_FAILED", retryable: false });
         }
-        if (!resolveDns) await assertSafeRemoteUrl(response.url, { resolveDns: false, label });
+        if (!resolveDns) await withinDeadline(() => assertSafeRemoteUrl(response.url, { resolveDns: false, label }));
       }
       const contentType = String(response.headers?.get?.("content-type") || "").toLowerCase();
       if (Array.isArray(options.allowedContentTypes) && options.allowedContentTypes.length > 0 && contentType && !options.allowedContentTypes.some((type) => contentType.includes(type))) {
-        await cancelResponseBody(response);
+        await withinDeadline(() => cancelResponseBody(response));
         throw createFetchLimitError(label, `returned unsupported content type ${contentType}.`, { code: "IMPORT_INVALID_MIME", retryable: false });
       }
-      const buffer = await readResponseBuffer(response, { maxBytes, label });
+      const buffer = await withinDeadline(() => readResponseBuffer(response, { maxBytes, label }));
       return { response, buffer, resolvedUrl: response.url || currentUrl };
     }
     throw createFetchLimitError(label, "exceeded its redirect limit.", { retryable: false });
   } catch (error) {
+    if (error?.cause?.code === "IMPORT_UNSAFE_URL") error = error.cause;
     if (controller.signal.aborted) {
       throw createFetchLimitError(label, `timed out after ${timeoutMs}ms.`, { code: "IMPORT_TIMEOUT", retryable: true });
     }
@@ -448,6 +464,7 @@ async function fetchBufferWithLimits(fetchImpl, url, init = {}, options = {}) {
     throw error;
   } finally {
     clearTimeout(timeout);
+    if (!controller.signal.aborted) controller.abort();
   }
 }
 

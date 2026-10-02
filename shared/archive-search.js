@@ -578,6 +578,9 @@
   }
 
   function prepareQuery(catalog, message, options = {}) {
+    if (String(message || "").length > 2000) {
+      return null;
+    }
     const normalizedQuery = normalizeText(message);
     if (!normalizedQuery) {
       return null;

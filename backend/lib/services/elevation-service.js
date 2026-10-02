@@ -219,7 +219,8 @@ function writeDirectChanges(siteRoot, source, show, collections, review, changed
     remember(filePath);
     writeJsonFileAtomic(filePath, value);
   };
-  const showTransaction = writeShowRecordsAtomically(siteRoot, [show]);
+  const extraPaths = [getReviewSourcePath(siteRoot, show.id), ...changedCollectionIds.map((id) => path.join(siteRoot, COLLECTIONS_SOURCE_DIR, `${id}.json`))];
+  const showTransaction = writeShowRecordsAtomically(siteRoot, [show], { deferCommit: true, additionalPaths: extraPaths });
   try {
     const reviewPath = getReviewSourcePath(siteRoot, show.id);
     write(reviewPath, review);
@@ -235,6 +236,7 @@ function writeDirectChanges(siteRoot, source, show, collections, review, changed
     throw error;
   }
   return {
+    commit: () => showTransaction.commit(),
     rollback() {
       showTransaction.rollback();
       [...backups.entries()].reverse().forEach(([filePath, value]) => value === null ? fs.rmSync(filePath, { force: true }) : fs.writeFileSync(filePath, value));
@@ -346,6 +348,7 @@ function createElevationService({ staticRoot, importService, onPublished = null 
     try {
       await validateSiteData(staticRoot, { recoverCovers: true });
       if (typeof onPublished === "function") await onPublished({ showIds: [showId] });
+      transaction.commit();
     } catch (error) {
       transaction.rollback();
       throw error;
@@ -364,10 +367,11 @@ function createElevationService({ staticRoot, importService, onPublished = null 
       throw error;
     }
     const published = { ...show, reviewStatus: "full-review", updatedAt: new Date().toISOString().slice(0, 10) };
-    const transaction = writeShowRecordsAtomically(staticRoot, [published]);
+    const transaction = writeShowRecordsAtomically(staticRoot, [published], { deferCommit: true });
     try {
       await validateSiteData(staticRoot, { recoverCovers: true });
       if (typeof onPublished === "function") await onPublished({ showIds: [showId] });
+      transaction.commit();
       return { showId, reviewStatus: "full-review", reviewedBy: text(actor, 160) || "authenticated-maintainer" };
     } catch (error) {
       transaction.rollback();

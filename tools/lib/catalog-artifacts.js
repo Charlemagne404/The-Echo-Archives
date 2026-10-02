@@ -1,11 +1,12 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const { beginCatalogPublication } = require("./catalog-publication-transaction");
 
 const {
   GENERATED_STATUS_PATH,
   RUNTIME_DATA_DIR,
   SEARCH_INDEX_PATH,
-  writeJsonFile,
+  writeJsonFileAtomic,
 } = require("./catalog-source");
 const { loadEntities, publicEntityRecords } = require("../../backend/lib/entities");
 const { buildEntityGraphData } = require("../../backend/lib/entity-graph");
@@ -262,11 +263,13 @@ function buildCatalogStatusMarkdown(snapshot) {
 }
 
 function writeCatalogArtifacts(siteRoot, { catalog, collections, reviewsById, gapReport, archiveContext, tagTaxonomy }) {
+  const publication = beginCatalogPublication(siteRoot, Object.keys(reviewsById).map((id) => path.join(siteRoot, "data/reviews", `${id}.json`)), { includeGenerated: true, joinExisting: true });
+  try {
   const authoredEntities = loadEntities(siteRoot, catalog);
   const entities = publicEntityRecords(authoredEntities, catalog);
   const entityGraph = buildEntityGraphData({ shows: catalog, entities: authoredEntities });
-  writeJsonFile(path.join(siteRoot, RUNTIME_DATA_DIR, "entities.json"), entities);
-  writeJsonFile(path.join(siteRoot, RUNTIME_DATA_DIR, "entity-graph.json"), entityGraph);
+  writeJsonFileAtomic(path.join(siteRoot, RUNTIME_DATA_DIR, "entities.json"), entities);
+  writeJsonFileAtomic(path.join(siteRoot, RUNTIME_DATA_DIR, "entity-graph.json"), entityGraph);
   const runtimeCatalog = catalog.filter((show) => show.status === "published").map(serializeRuntimeShow);
   const runtimeSearchIndex = catalog
     .filter((show) => show.status === "published")
@@ -278,9 +281,9 @@ function writeCatalogArtifacts(siteRoot, { catalog, collections, reviewsById, ga
   const archiveStats = buildArchiveStats(catalog, collections);
   const statusMarkdown = buildCatalogStatusMarkdown(snapshot);
 
-  writeJsonFile(path.join(siteRoot, RUNTIME_DATA_DIR, "shows.json"), runtimeCatalog);
-  writeJsonFile(path.join(siteRoot, RUNTIME_DATA_DIR, "collections.json"), collections);
-  writeJsonFile(path.join(siteRoot, "data", "runtime-evidence.json"), runtimeEvidence);
+  writeJsonFileAtomic(path.join(siteRoot, RUNTIME_DATA_DIR, "shows.json"), runtimeCatalog);
+  writeJsonFileAtomic(path.join(siteRoot, RUNTIME_DATA_DIR, "collections.json"), collections);
+  writeJsonFileAtomic(path.join(siteRoot, "data", "runtime-evidence.json"), runtimeEvidence);
   const runtimeReviewsDirectory = path.join(siteRoot, "data", "reviews");
   fs.mkdirSync(runtimeReviewsDirectory, { recursive: true });
   fs.readdirSync(runtimeReviewsDirectory)
@@ -289,18 +292,19 @@ function writeCatalogArtifacts(siteRoot, { catalog, collections, reviewsById, ga
       fs.rmSync(path.join(runtimeReviewsDirectory, fileName), { force: true });
     });
   Object.entries(reviewsById).forEach(([showId, reviewRecord]) => {
-    writeJsonFile(path.join(runtimeReviewsDirectory, `${showId}.json`), reviewRecord);
+    writeJsonFileAtomic(path.join(runtimeReviewsDirectory, `${showId}.json`), reviewRecord);
   });
-  writeJsonFile(path.join(siteRoot, SEARCH_INDEX_PATH), runtimeSearchIndex);
-  writeJsonFile(path.join(siteRoot, "data", "archive-stats.json"), archiveStats);
-  writeJsonFile(path.join(siteRoot, "data", "tag-taxonomy.json"), tagTaxonomy || {});
-  writeJsonFile(path.join(siteRoot, "docs", "generated", "catalog-status.json"), {
+  writeJsonFileAtomic(path.join(siteRoot, SEARCH_INDEX_PATH), runtimeSearchIndex);
+  writeJsonFileAtomic(path.join(siteRoot, "data", "archive-stats.json"), archiveStats);
+  writeJsonFileAtomic(path.join(siteRoot, "data", "tag-taxonomy.json"), tagTaxonomy || {});
+  writeJsonFileAtomic(path.join(siteRoot, "docs", "generated", "catalog-status.json"), {
     ...snapshot.metrics,
     phase2: snapshot.phase2,
   });
   fs.mkdirSync(path.dirname(path.join(siteRoot, GENERATED_STATUS_PATH)), { recursive: true });
   fs.writeFileSync(path.join(siteRoot, GENERATED_STATUS_PATH), `${statusMarkdown}\n`);
 
+  publication.commit();
   return {
     runtimeCatalog,
     runtimeSearchIndex,
@@ -309,6 +313,10 @@ function writeCatalogArtifacts(siteRoot, { catalog, collections, reviewsById, ga
     statusMarkdown,
     snapshot,
   };
+  } catch (error) {
+    publication.rollback();
+    throw error;
+  }
 }
 
 module.exports = {

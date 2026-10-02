@@ -1,4 +1,5 @@
 const path = require("node:path");
+const { beginCatalogPublication } = require("./lib/catalog-publication-transaction");
 
 const { loadArchiveContext } = require("../backend/lib/ai/archive-context");
 const { loadCatalog, loadCollections, syncCatalogCovers } = require("../backend/lib/catalog");
@@ -19,7 +20,9 @@ async function buildCatalog(siteRoot = resolveSiteRoot(), options = {}) {
   const sourceData = readCatalogSource(siteRoot);
   assertCatalogIntegrity(siteRoot, { sourceData });
   ensureSplitCatalogSource(siteRoot);
-
+  const publication = beginCatalogPublication(siteRoot, () => Object.keys(readCatalogSource(siteRoot).reviewsById)
+    .map((id) => path.join(siteRoot, "data/reviews", `${id}.json`)), { includeGenerated: true, includeSource: true, joinExisting: true });
+  try {
   if (options.recoverCovers !== false) {
     await syncCatalogCovers(siteRoot);
   }
@@ -45,6 +48,7 @@ async function buildCatalog(siteRoot = resolveSiteRoot(), options = {}) {
     tagTaxonomy: getDiscoveryTaxonomy(),
   });
 
+  publication.commit();
   return {
     artifacts,
     archiveContext,
@@ -52,6 +56,10 @@ async function buildCatalog(siteRoot = resolveSiteRoot(), options = {}) {
     collections,
     gapReport,
   };
+  } catch (error) {
+    publication.rollback();
+    throw error;
+  }
 }
 
 async function main() {
