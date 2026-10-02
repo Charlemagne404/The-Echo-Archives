@@ -67,20 +67,51 @@ function buildSitemapEntries({ siteUrl, catalog, collections, entities = [] }) {
   ];
 }
 
-function buildSitemapXml({ siteUrl, catalog, collections, entities = [] }) {
-  const entries = buildSitemapEntries({ siteUrl, catalog, collections, entities });
-  const body = entries
-    .map((entry) => {
-      const lastmod = entry.lastmod ? `<lastmod>${escapeXml(entry.lastmod)}</lastmod>` : "";
-      return `<url><loc>${escapeXml(entry.loc)}</loc>${lastmod}</url>`;
-    })
-    .join("");
+const XML_HEADER = '<?xml version="1.0" encoding="UTF-8"?>';
+const URLSET_OPEN = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+const URLSET_CLOSE = '</urlset>';
 
-  return `<?xml version="1.0" encoding="UTF-8"?>` +
-    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${body}</urlset>`;
+function serializeEntry(entry) {
+  const lastmod = entry.lastmod ? `<lastmod>${escapeXml(entry.lastmod)}</lastmod>` : "";
+  return `<url><loc>${escapeXml(entry.loc)}</loc>${lastmod}</url>`;
 }
 
-module.exports = {
-  buildSitemapEntries,
-  buildSitemapXml,
-};
+function buildSitemapDocuments(options, { maxUrls = 50000, maxBytes = 52428800 } = {}) {
+  if (!Number.isInteger(maxUrls) || maxUrls < 1 || maxUrls > 50000 || !Number.isInteger(maxBytes) || maxBytes < 256 || maxBytes > 52428800) throw new Error("Invalid sitemap limits.");
+  const overhead = Buffer.byteLength(XML_HEADER + URLSET_OPEN + URLSET_CLOSE);
+  const chunks = [];
+  let entries = [];
+  let bytes = overhead;
+  for (const entry of buildSitemapEntries(options)) {
+    const xml = serializeEntry(entry);
+    const size = Buffer.byteLength(xml);
+    if (overhead + size > maxBytes) throw new Error("A sitemap entry exceeds the document byte limit.");
+    if (entries.length === maxUrls || bytes + size > maxBytes) {
+      chunks.push(XML_HEADER + URLSET_OPEN + entries.join("") + URLSET_CLOSE);
+      entries = [];
+      bytes = overhead;
+    }
+    entries.push(xml);
+    bytes += size;
+  }
+  chunks.push(XML_HEADER + URLSET_OPEN + entries.join("") + URLSET_CLOSE);
+  if (chunks.length === 1) return new Map([["sitemap.xml", chunks[0]]]);
+  if (chunks.length > 50000) throw new Error("Too many sitemap shards for one index.");
+  const documents = new Map();
+  const baseUrl = normalizeSiteUrl(options.siteUrl);
+  const indexEntries = chunks.map((xml, index) => {
+    const name = `sitemap-${index + 1}.xml`;
+    documents.set(name, xml);
+    return `<sitemap><loc>${escapeXml(`${baseUrl}/${name}`)}</loc></sitemap>`;
+  });
+  const indexXml = XML_HEADER + '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + indexEntries.join("") + '</sitemapindex>';
+  if (Buffer.byteLength(indexXml) > 52428800) throw new Error("Sitemap index exceeds the document byte limit.");
+  documents.set("sitemap.xml", indexXml);
+  return documents;
+}
+
+function buildSitemapXml(options) {
+  return buildSitemapDocuments(options).get("sitemap.xml");
+}
+
+module.exports = { buildSitemapEntries, buildSitemapXml, buildSitemapDocuments };

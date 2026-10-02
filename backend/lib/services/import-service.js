@@ -28,6 +28,7 @@ const {
 const { readShowsFile, validateSiteData } = require("../../scripts/review-helpers");
 const { buildCatalog } = require("../../../tools/build-catalog");
 const { writeShowRecordsAtomically } = require("../../../tools/lib/catalog-source");
+const { completeCatalogPublicationRecovery } = require("../../../tools/lib/catalog-publication-transaction");
 
 const PIPELINE_VERSION = "2.0";
 const IDENTITY_FIELDS = [
@@ -1332,21 +1333,6 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     return enqueueCandidate(id, { actor, runType: "resolve-conflict", incrementRevision: true });
   }
 
-  function acquirePublishLock() {
-    fs.mkdirSync(stagingRoot, { recursive: true });
-    const lockPath = path.join(stagingRoot, "publish.lock");
-    try {
-      const descriptor = fs.openSync(lockPath, "wx");
-      fs.writeFileSync(descriptor, `${process.pid} ${new Date().toISOString()}\n`);
-      fs.closeSync(descriptor);
-    } catch (_error) {
-      const error = new Error("Another import publication is already running.");
-      error.statusCode = 409;
-      throw error;
-    }
-    return () => fs.rmSync(lockPath, { force: true });
-  }
-
   async function publishCandidates(ids, actor = "", { batch = false, publicationTier = "" } = {}) {
     const requestedTier = ensurePublicationTier(publicationTier);
     const candidateIds = mergeUniqueStrings(ids);
@@ -1374,10 +1360,12 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         throw error;
       }
     });
-    const releaseLock = acquirePublishLock();
     const hadSplitCatalog = fs.existsSync(path.join(staticRoot, "catalog-src"));
     const coverBackups = [];
+    const stagedCoverChanges = [];
     let catalogTransaction = null;
+    let databasePublicationCommitted = false;
+    let publicationSnapshot = null;
     try {
       const records = candidates.map((candidate) => {
         const record = JSON.parse(JSON.stringify(candidate.preparedRecord));
@@ -1413,16 +1401,20 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         if (candidate.coverStage?.ready && !candidate.coverStage.existing && record.cover === candidate.preparedRecord.cover) {
           const targetPath = path.join(staticRoot, record.cover);
           coverBackups.push({ targetPath, content: fs.existsSync(targetPath) ? fs.readFileSync(targetPath) : null });
-          const promoted = promoteStagedCover(candidate.coverStage, staticRoot, record.id);
-          record.cover = promoted.relativePath;
+          stagedCoverChanges.push({ stage: candidate.coverStage, record });
         }
         return record;
       });
-      catalogTransaction = writeShowRecordsAtomically(staticRoot, records);
+      publicationSnapshot = store.publicationSnapshot(candidates);
+      catalogTransaction = writeShowRecordsAtomically(staticRoot, records, {
+        deferCommit: true, recoveryData: publicationSnapshot,
+        additionalPaths: stagedCoverChanges.map(({ stage, record }) => path.join(staticRoot, "images/covers", `${record.id}${stage.extension}`)),
+        beforeWrite: () => stagedCoverChanges.forEach(({ stage, record }) => { record.cover = promoteStagedCover(stage, staticRoot, record.id).relativePath; }),
+      });
       await validateSiteData(staticRoot, { recoverCovers: true });
       catalogCache = null;
       if (typeof onPublished === "function") await onPublished({ showIds: records.map((record) => record.id) });
-      const published = candidates.map((candidate) => {
+      const published = store.withTransaction(() => candidates.map((candidate) => {
         const showId = candidate.preparedRecord.id;
         store.bindIdentitiesToShow(candidate.id, showId);
         const updated = store.updateCandidate(candidate.id, {
@@ -1432,10 +1424,15 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         });
         store.recordEvent(candidate.id, "published", actor || "authenticated-maintainer", { showId, batch, publicationTier: requestedTier });
         return updated;
-      });
+      }));
+      databasePublicationCommitted = true;
+      catalogTransaction.commit();
       return { candidates: published, showIds: records.map((record) => record.id), candidate: published[0], showId: records[0]?.id || "", buildCount: 1 };
     } catch (error) {
-      catalogTransaction?.rollback();
+      if (!catalogTransaction) throw error;
+      catalogTransaction.rollback();
+      if (databasePublicationCommitted) store.restorePublicationSnapshot(publicationSnapshot);
+      if (catalogTransaction) completeCatalogPublicationRecovery(staticRoot);
       if (!hadSplitCatalog) fs.rmSync(path.join(staticRoot, "catalog-src"), { recursive: true, force: true });
       coverBackups.reverse().forEach(({ targetPath, content }) => {
         if (content === null) fs.rmSync(targetPath, { force: true });
@@ -1447,8 +1444,6 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       await buildCatalog(staticRoot).catch(() => {});
       candidates.forEach((candidate) => store.updateCandidate(candidate.id, { status: "ready", lastError: trimText(error.message || error, 4_000) }));
       throw error;
-    } finally {
-      releaseLock();
     }
   }
 
@@ -1506,23 +1501,31 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         },
       },
     };
-    const releaseLock = acquirePublishLock();
     let catalogTransaction = null;
+    let databasePublicationCommitted = false;
+    let publicationSnapshot = null;
     try {
-      catalogTransaction = writeShowRecordsAtomically(staticRoot, [promoted]);
+      publicationSnapshot = store.publicationSnapshot([candidate]);
+      catalogTransaction = writeShowRecordsAtomically(staticRoot, [promoted], { deferCommit: true, recoveryData: publicationSnapshot });
       await validateSiteData(staticRoot, { recoverCovers: true });
       catalogCache = null;
       if (typeof onPublished === "function") await onPublished({ showIds: [promoted.id] });
-      const updated = store.updateCandidate(id, { preparedRecord: promoted, lastError: "" });
-      store.recordEvent(id, "promoted", reviewer, { showId: promoted.id, reviewStatus: "indexed-only" });
+      const updated = store.withTransaction(() => {
+        const result = store.updateCandidate(id, { preparedRecord: promoted, lastError: "" });
+        store.recordEvent(id, "promoted", reviewer, { showId: promoted.id, reviewStatus: "indexed-only" });
+        return result;
+      });
+      databasePublicationCommitted = true;
+      catalogTransaction.commit();
       return { candidate: updated, showId: promoted.id, reviewStatus: promoted.reviewStatus };
     } catch (error) {
-      catalogTransaction?.rollback();
+      if (!catalogTransaction) throw error;
+      catalogTransaction.rollback();
+      if (databasePublicationCommitted) store.restorePublicationSnapshot(publicationSnapshot);
+      if (catalogTransaction) completeCatalogPublicationRecovery(staticRoot);
       await buildCatalog(staticRoot).catch(() => {});
       store.updateCandidate(id, { lastError: trimText(error.message || error, 4_000) });
       throw error;
-    } finally {
-      releaseLock();
     }
   }
 
@@ -1629,23 +1632,31 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         },
       },
     };
-    const releaseLock = acquirePublishLock();
     let catalogTransaction = null;
+    let databasePublicationCommitted = false;
+    let publicationSnapshot = null;
     try {
-      catalogTransaction = writeShowRecordsAtomically(staticRoot, [promoted]);
+      publicationSnapshot = store.publicationSnapshot([candidate]);
+      catalogTransaction = writeShowRecordsAtomically(staticRoot, [promoted], { deferCommit: true, recoveryData: publicationSnapshot });
       await validateSiteData(staticRoot, { recoverCovers: true });
       catalogCache = null;
       if (typeof onPublished === "function") await onPublished({ showIds: [promoted.id] });
-      const updated = store.updateCandidate(id, { status: "published", publishedShowId: promoted.id, preparedRecord: promoted, lastError: "" });
-      store.recordEvent(id, "elevation-promoted", reviewer, { showId: promoted.id, reviewStatus: promoted.reviewStatus });
+      const updated = store.withTransaction(() => {
+        const result = store.updateCandidate(id, { status: "published", publishedShowId: promoted.id, preparedRecord: promoted, lastError: "" });
+        store.recordEvent(id, "elevation-promoted", reviewer, { showId: promoted.id, reviewStatus: promoted.reviewStatus });
+        return result;
+      });
+      databasePublicationCommitted = true;
+      catalogTransaction.commit();
       return { candidate: updated, showId: promoted.id, reviewStatus: promoted.reviewStatus };
     } catch (error) {
-      catalogTransaction?.rollback();
+      if (!catalogTransaction) throw error;
+      catalogTransaction.rollback();
+      if (databasePublicationCommitted) store.restorePublicationSnapshot(publicationSnapshot);
+      if (catalogTransaction) completeCatalogPublicationRecovery(staticRoot);
       await buildCatalog(staticRoot).catch(() => {});
       store.updateCandidate(id, { status: "ready", lastError: trimText(error.message || error, 4_000) });
       throw error;
-    } finally {
-      releaseLock();
     }
   }
 

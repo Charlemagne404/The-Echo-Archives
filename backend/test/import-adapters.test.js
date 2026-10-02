@@ -238,3 +238,23 @@ test("buildDedupeMatches detects show and candidate duplicates across stable ide
   assert.ok(matches.existingShows.some((match) => match.matchType === "rss-url"));
   assert.ok(matches.existingCandidates.some((match) => match.matchType === "podcast-index-guid"));
 });
+
+test("duplicate episode identities and GUID changes do not inflate observed feed counts", () => {
+  const feed = `<rss><channel>
+    <item><guid>one</guid><enclosure url="https://audio.example/one.mp3"/><pubDate>malformed-date</pubDate></item>
+    <item><guid>one</guid><enclosure url="https://audio.example/one.mp3"/></item>
+    <item><guid>new-guid-format</guid><enclosure url="https://audio.example/one.mp3"/></item>
+    <item><guid>new-guid-format</guid></item>
+    <item><title>Same title</title></item><item><title>Same title</title></item>
+  </channel></rss>`;
+  const parsed = parseRssText(feed, "https://publisher.example/feed");
+  assert.equal(parsed.episodeCount, 3);
+  assert.equal(parsed.duplicateEpisodeCount, 3);
+  assert.equal(parsed.latestPublicationDate, "");
+  assert.equal(parsed.episodeCountExact, false);
+});
+
+test("deeply nested RSS is a permanent controlled parser failure", () => {
+  const xml = '<rss><channel>' + '<itunes:category text="x">'.repeat(10000) + '</itunes:category>'.repeat(10000) + '</channel></rss>';
+  assert.throws(() => parseRssText(xml, 'https://publisher.example/feed'), { code: 'IMPORT_INVALID_XML', retryable: false });
+});

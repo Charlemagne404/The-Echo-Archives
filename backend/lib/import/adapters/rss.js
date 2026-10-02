@@ -178,7 +178,13 @@ function parseRssText(text = "", sourceUrl = "") {
     error.retryable = false;
     throw error;
   }
-  const document = parser.parse(xml);
+  let document;
+  try { document = parser.parse(xml); } catch (cause) {
+    const error = new Error("RSS feed exceeds parser limits or contains unsupported XML.", { cause });
+    error.code = "IMPORT_INVALID_XML";
+    error.retryable = false;
+    throw error;
+  }
   const isAtom = Boolean(document.feed && !document.rss);
   const channel = document.rss?.channel || document["rdf:RDF"]?.channel || document.feed;
   if (!channel || typeof channel !== "object") {
@@ -188,7 +194,18 @@ function parseRssText(text = "", sourceUrl = "") {
     throw error;
   }
   const rawEpisodes = isAtom ? asArray(channel.entry) : asArray(channel.item || document["rdf:RDF"]?.item);
-  const episodes = rawEpisodes.map((item) => parseEpisode(item, sourceUrl, isAtom));
+  const episodeGuids = new Set();
+  const episodeEnclosures = new Set();
+  let duplicateEpisodeCount = 0;
+  const episodes = [];
+  for (const item of rawEpisodes) {
+    const episode = parseEpisode(item, sourceUrl, isAtom);
+    const duplicate = (episode.guid && episodeGuids.has(episode.guid)) || (episode.enclosureUrl && episodeEnclosures.has(episode.enclosureUrl));
+    if (episode.guid) episodeGuids.add(episode.guid);
+    if (episode.enclosureUrl) episodeEnclosures.add(episode.enclosureUrl);
+    if (duplicate) { duplicateEpisodeCount += 1; continue; }
+    episodes.push(episode);
+  }
   const fullEpisodes = episodes.filter((episode) => episode.episodeType === "full");
   const publishedFullEpisodes = fullEpisodes.filter((episode) => episode.publicationDate && !episode.scheduled);
   const scheduledFullEpisodes = fullEpisodes.filter((episode) => episode.publicationDate && episode.scheduled);
@@ -242,6 +259,7 @@ function parseRssText(text = "", sourceUrl = "") {
     complete,
     podcastGuid: trimText(guid, 240),
     podcastGuidIsValid: Boolean(guid && (/^[0-9a-f]{8}-[0-9a-f-]{27,}$/i.test(guid) || /^https?:\/\//i.test(guid))),
+    duplicateEpisodeCount,
     episodeCount: fullEpisodes.length || null,
     episodeCountObserved: fullEpisodes.length,
     episodeCountExact: complete === true,
@@ -257,7 +275,7 @@ function parseRssText(text = "", sourceUrl = "") {
     latestPublicationDate: dates.at(-1) || "",
     latestAnyPublicationDate: allDates.at(-1) || "",
     nextScheduledPublicationDate: scheduledFullEpisodes.map((episode) => episode.publicationDate).sort()[0] || "",
-    seasonCount: Math.max(0, ...fullEpisodes.map((episode) => episode.season || 0)) || null,
+    seasonCount: fullEpisodes.reduce((maximum, episode) => Math.max(maximum, episode.season || 0), 0) || null,
     seasonsObserved: mergeUniqueStrings(fullEpisodes.map((episode) => episode.season).filter(Boolean).map(String)).map(Number),
     avgEpisodeMinutes: durationStats.average,
     medianEpisodeMinutes: durationStats.median,

@@ -420,6 +420,9 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     await page.getByRole("button", { name: "Retry" }).click();
     await page.locator("#maintainerAppShell").waitFor({ state: "visible" });
     await page.getByRole("button", { name: "Refresh queue" }).waitFor({ state: "visible" });
+    // Retry also loads protected detail/discovery/elevation dependencies after
+    // showing the queue. Finish that action before introducing the next fault.
+    await page.waitForFunction(() => document.getElementById("maintainerRetryButton")?.getAttribute("aria-busy") === "false");
 
     const expireSession = (route) => route.fulfill({
       status: 401,

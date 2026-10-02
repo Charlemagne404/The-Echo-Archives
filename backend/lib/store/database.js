@@ -766,6 +766,10 @@ function openDatabase(dbPath, { synchronous = process.env.SQLITE_SYNCHRONOUS } =
   db.pragma("busy_timeout = 5000");
   try {
     migrate(db);
+    // better-sqlite3 waits synchronously: a long competing maintenance writer
+    // must not stall every public request on this process's event loop.
+    // Startup migration retains the larger allowance above.
+    db.pragma("busy_timeout = 100");
     return db;
   } catch (error) {
     db.close();

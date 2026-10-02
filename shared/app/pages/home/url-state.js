@@ -19,7 +19,7 @@ export function seedHomeStateFromParams({ state, shows, collectionsById, structu
     state.selectedCollectionId = initialCollectionId;
   }
 
-  state.query = (params.has("q") ? params.get("q") : publicDiscoveryState.query)?.trim() || "";
+  state.query = (params.has("q") ? params.get("q") : publicDiscoveryState.query)?.trim().slice(0, 200) || "";
 
   const sortMode = params.get("sort") || publicDiscoveryState.sort || "";
   if (HOME_SORT_MODES.has(sortMode)) {

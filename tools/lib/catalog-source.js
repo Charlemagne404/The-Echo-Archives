@@ -1,5 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const { randomUUID } = require("node:crypto");
+const { beginCatalogPublication, recoverCatalogPublication, assertCatalogPublicationReadable, sourcePaths, completeCatalogPublicationRecovery } = require("./catalog-publication-transaction");
 
 const CATALOG_SOURCE_ROOT = "catalog-src";
 const SHOWS_SOURCE_DIR = path.join(CATALOG_SOURCE_ROOT, "shows");
@@ -10,6 +12,19 @@ const RUNTIME_DATA_DIR = "data";
 const RUNTIME_REVIEWS_DIR = path.join(RUNTIME_DATA_DIR, "reviews");
 const SEARCH_INDEX_PATH = path.join(RUNTIME_DATA_DIR, "search-index.json");
 const GENERATED_STATUS_PATH = path.join("docs", "generated", "catalog-status.md");
+
+function assertUniqueRecordIds(records, label) {
+  if (!Array.isArray(records)) throw new Error(`${label} records must be an array.`);
+  const ids = new Set();
+  for (const record of records) {
+    const id = record?.id;
+    if (typeof id !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)) {
+      throw new Error(`Invalid ${label} id.`);
+    }
+    if (ids.has(id)) throw new Error(`Duplicate ${label} id "${id}".`);
+    ids.add(id);
+  }
+}
 
 function readJsonFile(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -22,22 +37,39 @@ function writeJsonFile(filePath, value) {
 
 function writeJsonFileAtomic(filePath, value) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  const tempPath = `${filePath}.import-${process.pid}-${Date.now()}`;
-  fs.writeFileSync(tempPath, `${JSON.stringify(value, null, 2)}\n`);
-  fs.renameSync(tempPath, filePath);
+  const tempPath = `${filePath}.import-${process.pid}-${randomUUID()}`;
+  try {
+    fs.writeFileSync(tempPath, `${JSON.stringify(value, null, 2)}\n`, { flag: "wx" });
+    fs.renameSync(tempPath, filePath);
+  } finally {
+    fs.rmSync(tempPath, { force: true });
+  }
 }
 
-function writeShowRecordsAtomically(siteRoot, records = []) {
+function writeShowRecordsAtomically(siteRoot, records = [], { deferCommit = false, additionalPaths = [], recoveryData = null, beforeWrite = null } = {}) {
   const nextRecords = Array.isArray(records) ? records : [];
   if (nextRecords.length === 0) {
     throw new Error("At least one show record is required.");
   }
+  assertUniqueRecordIds(nextRecords, "show");
+  recoverCatalogPublication(siteRoot);
+  let split;
+  const publication = beginCatalogPublication(siteRoot, () => {
+    split = hasSplitCatalogSource(siteRoot);
+    const targets = split
+      ? [...nextRecords.map((record) => path.join(siteRoot, SHOWS_SOURCE_DIR, `${record.id}.json`)), path.join(siteRoot, SHOWS_SOURCE_DIR, ORDER_FILE_NAME)]
+      : [path.join(siteRoot, RUNTIME_DATA_DIR, "shows.json")];
+    return [...targets, ...additionalPaths, ...nextRecords.map((record) => path.join(siteRoot, RUNTIME_REVIEWS_DIR, `${record.id}.json`))];
+  }, { includeGenerated: deferCommit, includeSource: deferCommit, recoveryData });
+  let committed = false;
+  const commit = () => { publication.commit(); committed = true; };
   const backups = new Map();
   const changedPaths = [];
   const remember = (filePath) => {
     if (!backups.has(filePath)) backups.set(filePath, fs.existsSync(filePath) ? fs.readFileSync(filePath) : null);
   };
   const rollback = () => {
+    if (!committed && !publication.joined) { publication.rollback(); return; }
     [...backups.entries()].reverse().forEach(([filePath, content]) => {
       if (content === null) fs.rmSync(filePath, { force: true });
       else {
@@ -48,7 +80,8 @@ function writeShowRecordsAtomically(siteRoot, records = []) {
   };
 
   try {
-    if (hasSplitCatalogSource(siteRoot)) {
+    if (beforeWrite) beforeWrite();
+    if (split) {
       const directoryPath = path.join(siteRoot, SHOWS_SOURCE_DIR);
       const orderPath = getOrderFilePath(directoryPath);
       const order = readOrderFile(directoryPath);
@@ -79,24 +112,35 @@ function writeShowRecordsAtomically(siteRoot, records = []) {
     }
   } catch (error) {
     rollback();
+    if (recoveryData) completeCatalogPublicationRecovery(siteRoot);
     throw error;
   }
-  return { changedPaths, rollback };
+  try { if (!deferCommit) commit(); } catch (error) { rollback(); throw error; }
+  return { changedPaths, rollback, commit };
 }
 
-function writeCollectionRecordsAtomically(siteRoot, records = []) {
+function writeCollectionRecordsAtomically(siteRoot, records = [], { deferCommit = false } = {}) {
   const nextRecords = Array.isArray(records) ? records : [];
   if (nextRecords.length === 0) {
     throw new Error("At least one collection record is required.");
   }
 
-  const sourceData = readCatalogSource(siteRoot);
+  assertUniqueRecordIds(nextRecords, "collection");
+  recoverCatalogPublication(siteRoot);
   const replacements = new Map(
     nextRecords.map((record) => [String(record?.id || "").trim(), record]).filter(([id]) => id),
   );
   if (replacements.size !== nextRecords.length) {
     throw new Error("Every collection record needs an id.");
   }
+
+  const publication = beginCatalogPublication(siteRoot, () => hasSplitCatalogSource(siteRoot)
+    ? [...nextRecords.map((record) => path.join(siteRoot, COLLECTIONS_SOURCE_DIR, `${record.id}.json`)), path.join(siteRoot, COLLECTIONS_SOURCE_DIR, ORDER_FILE_NAME)]
+    : [path.join(siteRoot, RUNTIME_DATA_DIR, "collections.json")], { includeGenerated: deferCommit, includeSource: deferCommit });
+  let sourceData;
+  try { sourceData = readCatalogSource(siteRoot); } catch (error) { publication.rollback(); throw error; }
+  let committed = false;
+  const commit = () => { publication.commit(); committed = true; };
 
   if (sourceData.mode !== "split") {
     const collections = sourceData.collections.map((record) => replacements.get(record.id) || record);
@@ -105,10 +149,15 @@ function writeCollectionRecordsAtomically(siteRoot, records = []) {
     });
     const targetPath = path.join(siteRoot, RUNTIME_DATA_DIR, "collections.json");
     const previous = fs.existsSync(targetPath) ? fs.readFileSync(targetPath) : null;
-    writeJsonFileAtomic(targetPath, collections);
+    try {
+      writeJsonFileAtomic(targetPath, collections);
+      if (!deferCommit) commit();
+    } catch (error) { publication.rollback(); throw error; }
     return {
       changedPaths: [targetPath],
+      commit,
       rollback: () => {
+        if (!committed) { publication.rollback(); return; }
         if (previous === null) fs.rmSync(targetPath, { force: true });
         else fs.writeFileSync(targetPath, previous);
       },
@@ -125,6 +174,7 @@ function writeCollectionRecordsAtomically(siteRoot, records = []) {
     if (!backups.has(filePath)) backups.set(filePath, fs.existsSync(filePath) ? fs.readFileSync(filePath) : null);
   };
   const rollback = () => {
+    if (!committed) { publication.rollback(); return; }
     [...backups.entries()].reverse().forEach(([filePath, content]) => {
       if (content === null) fs.rmSync(filePath, { force: true });
       else {
@@ -152,7 +202,8 @@ function writeCollectionRecordsAtomically(siteRoot, records = []) {
     throw error;
   }
 
-  return { changedPaths, rollback };
+  try { if (!deferCommit) commit(); } catch (error) { rollback(); throw error; }
+  return { changedPaths, rollback, commit };
 }
 
 function hasSplitCatalogSource(siteRoot) {
@@ -246,6 +297,7 @@ function readRuntimeReviews(siteRoot) {
 }
 
 function readCatalogSource(siteRoot) {
+  assertCatalogPublicationReadable(siteRoot);
   if (hasSplitCatalogSource(siteRoot)) {
     return {
       mode: "split",
@@ -316,26 +368,47 @@ function syncReviewsDirectory(directoryPath, reviewsById) {
   });
 }
 
-function writeCatalogSource(siteRoot, sourceData, { mode = sourceData.mode || "split" } = {}) {
+function writeCatalogSource(siteRoot, sourceData, { mode = sourceData.mode || "split", joinExisting = false } = {}) {
+  // Validate all path-bearing ids before any directory synchronizer can delete
+  // or replace existing source files.
+  assertUniqueRecordIds(sourceData.shows, "show");
+  assertUniqueRecordIds(sourceData.collections, "collection");
+  assertUniqueRecordIds(Object.keys(sourceData.reviewsById || {}).map((id) => ({ id })), "review");
+  recoverCatalogPublication(siteRoot);
+  const recordTargets = () => mode === "split"
+    ? [...sourceData.shows.map((record) => path.join(siteRoot, SHOWS_SOURCE_DIR, `${record.id}.json`)), path.join(siteRoot, SHOWS_SOURCE_DIR, ORDER_FILE_NAME),
+      ...sourceData.collections.map((record) => path.join(siteRoot, COLLECTIONS_SOURCE_DIR, `${record.id}.json`)), path.join(siteRoot, COLLECTIONS_SOURCE_DIR, ORDER_FILE_NAME),
+      ...Object.keys(sourceData.reviewsById || {}).map((id) => path.join(siteRoot, REVIEWS_SOURCE_DIR, `${id}.json`)), ...sourcePaths(siteRoot)]
+    : [path.join(siteRoot, RUNTIME_DATA_DIR, "shows.json"), path.join(siteRoot, RUNTIME_DATA_DIR, "collections.json"),
+      ...Object.keys(sourceData.reviewsById || {}).map((id) => path.join(siteRoot, RUNTIME_REVIEWS_DIR, `${id}.json`))];
+  const publication = beginCatalogPublication(siteRoot, recordTargets, { joinExisting, includeGenerated: mode !== "split" });
+  try {
   if (mode === "split") {
     syncRecordDirectory(path.join(siteRoot, SHOWS_SOURCE_DIR), sourceData.shows);
     syncRecordDirectory(path.join(siteRoot, COLLECTIONS_SOURCE_DIR), sourceData.collections);
     syncReviewsDirectory(path.join(siteRoot, REVIEWS_SOURCE_DIR), sourceData.reviewsById || {});
+    publication.commit();
     return;
   }
 
   writeJsonFile(path.join(siteRoot, RUNTIME_DATA_DIR, "shows.json"), sourceData.shows);
   writeJsonFile(path.join(siteRoot, RUNTIME_DATA_DIR, "collections.json"), sourceData.collections);
   syncReviewsDirectory(path.join(siteRoot, RUNTIME_REVIEWS_DIR), sourceData.reviewsById || {});
+  publication.commit();
+  } catch (error) {
+    publication.rollback();
+    throw error;
+  }
 }
 
 function ensureSplitCatalogSource(siteRoot) {
+  recoverCatalogPublication(siteRoot);
   if (hasSplitCatalogSource(siteRoot)) {
     return false;
   }
 
   const sourceData = readCatalogSource(siteRoot);
-  writeCatalogSource(siteRoot, sourceData, { mode: "split" });
+  writeCatalogSource(siteRoot, sourceData, { mode: "split", joinExisting: true });
   return true;
 }
 

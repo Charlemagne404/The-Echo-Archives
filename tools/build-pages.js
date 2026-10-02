@@ -6,7 +6,7 @@ const { pathToFileURL } = require("node:url");
 const { renderEntityPage } = require("../backend/lib/entity-page-render");
 const { loadEntities, publicEntityRecords } = require("../backend/lib/entities");
 const { buildRobotsTxt } = require("../backend/lib/robots");
-const { buildSitemapXml } = require("../backend/lib/sitemap");
+const { buildSitemapDocuments } = require("../backend/lib/sitemap");
 const { BRAND_DESCRIPTOR, DEFAULT_DESCRIPTION } = require("../backend/lib/seo");
 const { generateStaticImageVariants } = require("../backend/lib/responsive-images");
 const { renderCollectionsPagePrerender, renderHomePagePrerender } = require("./lib/home-page-prerender");
@@ -1132,8 +1132,11 @@ function renderServiceWorker({ versions, manifest }) {
 }
 
 function writeStaticSitemap({ siteUrl, catalog, collections, entities }) {
-  const sitemapXml = buildSitemapXml({ siteUrl, catalog, collections, entities });
-  writeFile(path.join(ROOT, "sitemap.xml"), `${sitemapXml}\n`);
+  const documents = buildSitemapDocuments({ siteUrl, catalog, collections, entities });
+  for (const name of fs.readdirSync(ROOT).filter((name) => /^sitemap-[1-9]\d*\.xml$/.test(name))) {
+    if (!documents.has(name)) fs.rmSync(path.join(ROOT, name));
+  }
+  for (const [name, xml] of documents) writeFile(path.join(ROOT, name), `${xml}\n`);
 }
 
 function writeRobots({ siteUrl }) {
@@ -1284,6 +1287,7 @@ function listBuildOutputs() {
   const manifest = JSON.parse(readFile(MANIFEST_PATH));
   const outputs = new Set(["robots.txt", "sitemap.xml", "sw.js", ...Object.keys(ENTRY_ASSETS)]);
   const entities = readJsonIfExists(path.join(ROOT, "data", "entities.json"), []);
+  fs.readdirSync(ROOT).filter((name) => /^sitemap-[1-9]\d*\.xml$/.test(name)).forEach((name) => outputs.add(name));
 
   manifest.forEach((entry) => {
     outputs.add(entry.output);

@@ -37,6 +37,12 @@
     "check:release-artifact": "node deploy/catalog-sanity.js .",
     "check:build-determinism": "node tools/check-build-determinism.js",
     "test:tools": "node --test tools/test/*.test.js",
+    "test:fast": "node --test tools/test/catalog-scale.test.js backend/test/markdown-negotiation.test.js backend/test/public-reference.test.js",
+    "test:normal": "npm run test:tools && npm --prefix backend run test:serial",
+    "test:integration": "npm --prefix backend run test:entity-routes",
+    "test:crawl": "node tools/benchmark-public-load.js links 16 0",
+    "test:load": "node tools/benchmark-public-load.js mixed 32 500",
+    "test:chaos": "node --test --test-name-pattern='malformed catalogue refresh|missing error templates|database read failure|shared proxy|locked SQLite writer|startup recovers' backend/test/public-routes.test.js && node --test backend/test/import-fetch-limits.test.js backend/test/http-server.test.js && node --test tools/test/catalog-publication-recovery.test.js && node --test backend/test/import-rss.chaos.js",
     "verify": "npm run build:catalog && npm run build:pages && npm run check:structure && npm run check:generated && npm run check:release-artifact && npm run test:tools && npm run check:build-determinism && npm --prefix backend run verify"
   },
   "engines": {

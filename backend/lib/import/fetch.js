@@ -1,5 +1,6 @@
 const dns = require("node:dns").promises;
 const net = require("node:net");
+const { Agent } = require("undici");
 
 function createFetchLimitError(label, detail, properties = {}) {
   const error = new Error(`${label} ${detail}`);
@@ -38,7 +39,7 @@ function mappedIpv4Address(address = "") {
 }
 
 function isPrivateIpAddress(address = "") {
-  const value = String(address || "").toLowerCase().split("%")[0];
+  let value = String(address || "").toLowerCase().split("%")[0];
   if (net.isIPv4(value)) {
     const [a, b] = value.split(".").map(Number);
     return (
@@ -51,6 +52,7 @@ function isPrivateIpAddress(address = "") {
     );
   }
   if (net.isIPv6(value)) {
+    value = new URL(`http://[${value}]/`).hostname.slice(1, -1);
     const mappedIpv4 = mappedIpv4Address(value);
     return (
       (mappedIpv4 && isPrivateIpAddress(mappedIpv4)) ||
@@ -90,6 +92,24 @@ async function assertSafeRemoteUrl(value, { resolveDns = true, label = "Import r
     }
   }
   return parsed;
+}
+
+function createSafeRemoteLookup(label) {
+  return (hostname, options, callback) => {
+    // Check the answers used by the socket itself, rather than trusting a
+    // separate preflight DNS lookup that a rebinding host can change.
+    const resolve = async () => {
+      const records = await dns.lookup(hostname, { all: true, verbatim: true, family: options.family || 0 });
+      if (!records.length || records.some((record) => isPrivateIpAddress(record.address))) {
+        throw createFetchLimitError(label, "rejected a connection resolving to a private network.", { code: "IMPORT_UNSAFE_URL", retryable: false });
+      }
+      return records;
+    };
+    resolve().then((records) => {
+      if (options.all) callback(null, records);
+      else callback(null, records[0].address, records[0].family);
+    }, callback);
+  };
 }
 
 async function readResponseBuffer(response, { maxBytes, label }) {
@@ -133,35 +153,58 @@ function retryAfterMilliseconds(response) {
 async function fetchBufferWithLimits(fetchImpl, url, init = {}, options = {}) {
   const timeoutMs = Math.max(1, Number(options.timeoutMs) || 15_000);
   const maxBytes = Math.max(1, Number(options.maxBytes) || 5 * 1024 * 1024);
-  const maxRedirects = Math.min(8, Math.max(0, Number(options.maxRedirects) || 5));
+  const requestedRedirects = Number(options.maxRedirects ?? 5);
+  const maxRedirects = Number.isFinite(requestedRedirects) ? Math.min(8, Math.max(0, Math.floor(requestedRedirects))) : 5;
   const label = String(options.label || "Import request");
   const resolveDns = options.resolveDns ?? fetchImpl.isNetworkFetch ?? fetchImpl === globalThis.fetch;
+  const dispatcher = resolveDns ? new Agent({ connect: { lookup: createSafeRemoteLookup(label) } }) : null;
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  let rejectDeadline;
+  const deadline = new Promise((_resolve, reject) => { rejectDeadline = reject; });
+  const withinDeadline = (operation) => Promise.race([operation, deadline]);
+  const timeout = setTimeout(() => {
+    controller.abort();
+    rejectDeadline(createFetchLimitError(label, `timed out after ${timeoutMs}ms.`, { code: "IMPORT_TIMEOUT", retryable: true }));
+  }, timeoutMs);
   try {
-    let currentUrl = (await assertSafeRemoteUrl(url, { resolveDns, label })).href;
+    let currentUrl = (await withinDeadline(assertSafeRemoteUrl(url, { resolveDns, label }))).href;
+    let requestHeaders = new Headers(init.headers || {});
     for (let redirectCount = 0; redirectCount <= maxRedirects; redirectCount += 1) {
-      const response = await fetchImpl(currentUrl, { ...init, redirect: "manual", signal: controller.signal });
+      const response = await withinDeadline(fetchImpl(currentUrl, { ...init, headers: requestHeaders, ...(dispatcher ? { dispatcher } : {}), redirect: "manual", signal: controller.signal }));
       if (response.status >= 300 && response.status < 400) {
+        // Redirect bodies may be endless. Release the connection before the
+        // next hop, including when validation rejects the target.
+        await withinDeadline(response.body?.cancel?.().catch(() => {}));
         const location = response.headers?.get?.("location") || "";
         if (!location || redirectCount === maxRedirects) {
           throw createFetchLimitError(label, "encountered an invalid or excessive redirect chain.", { code: "IMPORT_REDIRECT_FAILED", retryable: false });
         }
-        currentUrl = (await assertSafeRemoteUrl(new URL(location, currentUrl).href, { resolveDns, label })).href;
+        const nextUrl = (await withinDeadline(assertSafeRemoteUrl(new URL(location, currentUrl).href, { resolveDns, label }))).href;
+        if (new URL(nextUrl).origin !== new URL(currentUrl).origin) {
+          // Directory credentials and custom authentication must never follow
+          // a redirect to an unrelated publisher or CDN.
+          const publicHeaders = new Headers();
+          for (const name of ["accept", "accept-language", "user-agent"]) {
+            if (requestHeaders.has(name)) publicHeaders.set(name, requestHeaders.get(name));
+          }
+          requestHeaders = publicHeaders;
+        }
+        currentUrl = nextUrl;
         continue;
       }
       if (response.url) {
-        await assertSafeRemoteUrl(response.url, { resolveDns, label });
+        await withinDeadline(assertSafeRemoteUrl(response.url, { resolveDns, label }));
       }
       const contentType = String(response.headers?.get?.("content-type") || "").toLowerCase();
       if (Array.isArray(options.allowedContentTypes) && options.allowedContentTypes.length > 0 && contentType && !options.allowedContentTypes.some((type) => contentType.includes(type))) {
         throw createFetchLimitError(label, `returned unsupported content type ${contentType}.`, { code: "IMPORT_INVALID_MIME", retryable: false });
       }
-      const buffer = await readResponseBuffer(response, { maxBytes, label });
+      const buffer = await withinDeadline(readResponseBuffer(response, { maxBytes, label }));
       return { response, buffer, resolvedUrl: response.url || currentUrl };
     }
     throw createFetchLimitError(label, "exceeded its redirect limit.", { retryable: false });
   } catch (error) {
+    if (error?.cause?.code === "IMPORT_UNSAFE_URL") error = error.cause;
     if (controller.signal.aborted) {
       throw createFetchLimitError(label, `timed out after ${timeoutMs}ms.`, { code: "IMPORT_TIMEOUT", retryable: true });
     }
@@ -172,6 +215,10 @@ async function fetchBufferWithLimits(fetchImpl, url, init = {}, options = {}) {
     throw error;
   } finally {
     clearTimeout(timeout);
+    // Also dispose responses rejected before their body was read (MIME,
+    // advertised size, unsafe final URL). Do not leave pooled sockets busy.
+    controller.abort();
+    if (dispatcher) await dispatcher.destroy();
   }
 }
 

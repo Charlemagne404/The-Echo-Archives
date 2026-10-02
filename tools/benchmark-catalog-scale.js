@@ -112,6 +112,16 @@ function timeSync(operation) {
 }
 
 async function loadHomeModules() {
+  // The search cache imports the browser app constants. Supply the small DOM
+  // surface they read so this Node benchmark exercises the real cache module.
+  globalThis.document ||= {
+    body: { dataset: {} },
+    getElementById: () => null,
+    querySelector: () => null,
+  };
+  globalThis.EchoArchiveSearch ||= archiveSearch;
+  globalThis.EchoArchiveRecord ||= require("../shared/archive-record");
+  globalThis.EchoArchiveSimilarity ||= require("../shared/archive-similarity");
   const moduleUrl = (relativePath) => require("node:url").pathToFileURL(path.join(root, relativePath)).href;
   const [filterState, searchCache] = await Promise.all([
     import(moduleUrl("shared/app/pages/home/filter-state.js")),

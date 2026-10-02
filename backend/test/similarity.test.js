@@ -1028,3 +1028,19 @@ test("similarity weights remain explicit and sum to the public score budget", ()
   assert.ok(DIMENSION_DEFINITIONS.some((definition) => definition.id === "catalogLength" && definition.weight > 0));
   assert.equal(typeof MATCH_POLICY.minimumScore, "number");
 });
+
+
+test("warm similarity results remain deterministic and rebuilding invalidates derived metadata", () => {
+  const records = [show("source"), show("neighbor")];
+  const index = createSimilarityIndex({ shows: records });
+  const initial = index.compare("source", "neighbor");
+  for (let i = 0; i < 20; i += 1) assert.deepEqual(index.compare("source", "neighbor"), initial);
+  const updated = records.map((record) => record.id === "neighbor" ? {
+    ...record, genres: ["comedy"], tones: ["light"], tags: ["improv"], themes: ["family"],
+  } : record);
+  const rebuilt = createSimilarityIndex({ shows: updated });
+  const changed = rebuilt.compare("source", "neighbor");
+  assert.notDeepEqual(changed, initial);
+  assert.ok(changed.score < initial.score);
+  assert.deepEqual(index.compare("source", "neighbor"), initial);
+});

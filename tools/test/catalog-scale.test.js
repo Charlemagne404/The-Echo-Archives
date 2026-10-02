@@ -136,3 +136,11 @@ test("indexed catalogue search preserves exhaustive results across title, facet,
     assert.deepEqual(indexed, exhaustive, "indexed search changed results for " + query);
   }
 });
+
+test("pathological search text is rejected before catalogue scoring", () => {
+  const dataset = createScaleDataset(120);
+  for (const query of ["x".repeat(2001), "👩🏽‍🚀".repeat(300), "e\u0301".repeat(1001)]) {
+    assert.deepEqual(archiveSearch.scoreCatalog(dataset.shows, query), []);
+  }
+  assert.ok(archiveSearch.scoreCatalog(dataset.shows, "Synthetic Signal 00000").length > 0);
+});

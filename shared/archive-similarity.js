@@ -646,11 +646,22 @@
     return clamp(Math.log((total + 1) / (count + 1)) / Math.log(total + 1));
   }
 
+  function getNormalizedDimensionValues(record, definition, context) {
+    if (!context.normalizedValuesByRecord) return normalizeSetValues(getDefinitionValues(record, definition));
+    let values = context.normalizedValuesByRecord.get(record);
+    if (!values) {
+      values = new Map();
+      context.normalizedValuesByRecord.set(record, values);
+    }
+    if (!values.has(definition.id)) values.set(definition.id, normalizeSetValues(getDefinitionValues(record, definition)));
+    return values.get(definition.id);
+  }
+
   function getDiscoveryCohesion(source, target, context) {
     const discoveryDefinitions = DIMENSION_DEFINITIONS.filter((definition) => DISCOVERY_DIMENSION_SET.has(definition.id));
     const matchedSignals = discoveryDefinitions.map((definition) => {
-      const leftValues = normalizeSetValues(getDefinitionValues(source, definition));
-      const rightValues = normalizeSetValues(getDefinitionValues(target, definition));
+      const leftValues = getNormalizedDimensionValues(source, definition, context);
+      const rightValues = getNormalizedDimensionValues(target, definition, context);
       const sharedKeys = [...leftValues.keys()].filter((key) => rightValues.has(key));
       if (sharedKeys.length === 0) return null;
 
@@ -686,8 +697,8 @@
   }
 
   function createSetDimension(definition, source, target, context) {
-    const leftValues = normalizeSetValues(getDefinitionValues(source, definition));
-    const rightValues = normalizeSetValues(getDefinitionValues(target, definition));
+    const leftValues = getNormalizedDimensionValues(source, definition, context);
+    const rightValues = getNormalizedDimensionValues(target, definition, context);
     const available = leftValues.size > 0 && rightValues.size > 0;
     const sharedKeys = [...leftValues.keys()].filter((key) => rightValues.has(key));
 
@@ -991,7 +1002,7 @@
     if (definition.id === "episodeLength") return getEpisodeLength(record) !== null;
     if (definition.id === "catalogLength") return getCatalogLength(record) !== null;
     if (definition.id === "sharedCollection") return (context.collectionsByShow.get(record?.id) || []).length > 0;
-    return normalizeSetValues(getDefinitionValues(record, definition)).size > 0;
+    return getNormalizedDimensionValues(record, definition, context).size > 0;
   }
 
   function getActiveCoverageDefinitions(records, context) {
@@ -1001,6 +1012,8 @@
   }
 
   function createRecordMetadataCoverage(record, context) {
+    const cached = context.recordCoverageCache?.get(record);
+    if (cached) return cached;
     const definitions = context.coverageDefinitions || getActiveCoverageDefinitions([record], context);
     const activeDefinitions = definitions.filter((definition) => context.coverageDefinitionIds?.has(definition.id) ?? true);
     const denominatorWeight = activeDefinitions.reduce((total, definition) => total + definition.weight, 0);
@@ -1008,7 +1021,7 @@
     const availableWeight = availableDefinitions.reduce((total, definition) => total + definition.weight, 0);
     const availableIds = new Set(availableDefinitions.map((definition) => definition.id));
 
-    return {
+    const result = {
       metadataCoverage: round(availableWeight / Math.max(denominatorWeight, 1), 3),
       metadataAvailableWeight: availableWeight,
       metadataDenominatorWeight: denominatorWeight,
@@ -1023,6 +1036,8 @@
         available: hasRecordDimensionValue(record, definition, context),
       })),
     };
+    context.recordCoverageCache?.set(record, result);
+    return result;
   }
 
   function createComparisonMetadataCoverage(source, target, dimensions, context) {
@@ -1817,6 +1832,10 @@
     }
 
     const context = {
+      // One index owns one immutable catalogue snapshot. Rebuild the index
+      // when records change; weak keys bound derived data to that snapshot.
+      normalizedValuesByRecord: new WeakMap(),
+      recordCoverageCache: new WeakMap(),
       showCount: publicShows.length,
       catalogShowById: showById,
       editorialEvidenceByShow,
