@@ -91,9 +91,10 @@ test("Ask the Archivist and the remade submit page interactions work across mode
         node.textContent?.trim() || "",
       ),
     }));
-    assert.match(chatState.placeholder, /archive|site works/i);
+    assert.match(chatState.placeholder, /recommendation|collections/i);
     assert.ok(chatState.suggestions.includes("How do I submit a correction?"));
-    assert.ok(chatState.suggestions.includes("What does creator verified mean?"));
+    assert.ok(chatState.suggestions.includes("What is in Cold isolation horror?"));
+    assert.ok(chatState.suggestions.includes("Compare Derelict and Midnight Burger"));
 
     await page.locator("#userInput").fill("How do I submit a correction?");
     await page.locator("#sendMessageButton").click();
@@ -111,7 +112,7 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     await page.waitForFunction(
       () =>
         Array.from(document.querySelectorAll("#chatLog .message.bot")).some((node) =>
-          /Ask about a show, the archive, ratings, creators, runtime, transcripts, collections/i.test(node.textContent || ""),
+          /Ask what to listen to next, compare shows, explore a collection/i.test(node.textContent || ""),
         ),
       undefined,
       { timeout: 5_000 },

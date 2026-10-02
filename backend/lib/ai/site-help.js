@@ -51,6 +51,7 @@ function loadSiteHelpContext({ catalog, collections, archiveContext }) {
       contact: { label: "Contact Continental", href: "https://contact.continental-hub.com/", external: true },
     },
     featureAvailability: archiveContext?.featureAvailability || {},
+    publicEntities: archiveContext?.entities || [],
     showsById: new Map(publishedShows.map((show) => [show.id, show])),
     archiveLists: {
       topRatedShows,
@@ -177,6 +178,13 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
     case "full-review-list":
       return buildFullReviewListResponse(siteHelpContext);
     case "submission":
+      if (/\b(account|log[ -]?in|sign[ -]?up)\b/i.test(message)) {
+        return {
+          answer: "You can submit a new show or factual correction as a guest through the Submit page. Include a reliable source when possible. A submission is reviewed before it affects the public archive.",
+          actions: [siteHelpContext.routes.submit],
+          suggestedPrompts: ["How do I submit a correction?", "What does creator verified mean?", "How long does review take?"],
+        };
+      }
       return {
         answer:
           "The submit page has four forms: new show, show or creator-page correction, listener review, and creator verification. Nothing auto-publishes, and submissions are reviewed before they affect the archive.",

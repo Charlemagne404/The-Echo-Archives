@@ -6,16 +6,19 @@ const {
   buildMessages,
   buildRecommendationCard,
   buildSuggestedPrompts,
+  isGroundedRecommendationAnswer,
   sanitizeAnswerText,
 } = require("../ai/chat");
 const {
   classifyChatIntent,
+  hasRecommendationSignal,
   inferShowDetailTopic,
   isClarificationRequest,
   promoteIntentWithMatches,
 } = require("../ai/chat-intents");
 const { analyzeChatQuery, answerMentionsExcludedTitle } = require("../ai/chat-query");
 const { buildSiteHelpResponse } = require("../ai/site-help");
+const { answerCollectionQuestion, answerEntityQuestion, answerShowRecordQuestion, answerShowEvidenceQuestion, findPublicPageAnswer, resolveConversationContext } = require("../ai/archive-knowledge");
 
 const REPEAT_SCORE_MARGIN = 35;
 const SHOW_CONTEXT_TOPICS = new Set([
@@ -146,7 +149,11 @@ function createChatRouter({ getCatalog, getCollections, getSiteHelpContext, conf
             content: entry.content.slice(0, historyEntryMaxLength),
           }))
       : [];
-    const page = normalizePageContext(req.body.page);
+    const suppliedPage = normalizePageContext(req.body.page);
+    const recentRecommendationIds = (Array.isArray(req.body.recentRecommendationIds) ? req.body.recentRecommendationIds : [])
+      .filter((id) => typeof id === "string" && id.length <= 120)
+      .slice(0, 3);
+    const page = resolveConversationContext({ message, page: suppliedPage, history, catalog, collections, recentRecommendationIds });
     const seenRecommendationIds = normalizeSeenRecommendationIds(req.body.seenRecommendationIds);
 
     if (!message) {
@@ -160,6 +167,13 @@ function createChatRouter({ getCatalog, getCollections, getSiteHelpContext, conf
     }
 
     rateLimiter?.check("chat", req.ip || "");
+
+    const collectionAnswer = answerCollectionQuestion({ message, page, catalog, collections });
+    if (collectionAnswer) return res.json(collectionAnswer);
+    const showRecordAnswer = answerShowRecordQuestion({ message, page, catalog });
+    if (showRecordAnswer) return res.json(showRecordAnswer);
+    const entityAnswer = answerEntityQuestion({ message, catalog, entities: siteHelpContext.publicEntities });
+    if (entityAnswer) return res.json(entityAnswer);
 
     const queryContext = analyzeChatQuery({ message, history, catalog });
     let initialIntent = classifyChatIntent({ message, page, history });
@@ -205,6 +219,19 @@ function createChatRouter({ getCatalog, getCollections, getSiteHelpContext, conf
         ],
         source: "fallback",
       });
+    }
+
+    if (initialIntent.primary === "recommendation" && !queryContext.isTitleDetailQuestion) {
+      const evidenceAnswer = answerShowEvidenceQuestion({ message, page, catalog });
+      if (evidenceAnswer) return res.json(evidenceAnswer);
+    }
+
+    const seeksSpecificSiteSection = /\b(copyright|takedown|privacy rights?|delet(?:e|ed|ion)|eras(?:e|ure)|retention|editorial boundaries|paid placement)\b/i.test(message) ||
+      (/\b(submissions?|corrections?|reviews?)\b/i.test(message) && /\b(how long|stay|kept|database)\b/i.test(message));
+    if (!hasRecommendationSignal(message) && !queryContext.targetShowId &&
+      (initialIntent.primary === "recommendation" || seeksSpecificSiteSection)) {
+      const pageAnswer = findPublicPageAnswer(message, siteHelpContext.publicPages);
+      if (pageAnswer) return res.json(pageAnswer);
     }
 
     const shouldScoreCatalog = initialIntent.primary !== "clarification";
@@ -257,7 +284,7 @@ function createChatRouter({ getCatalog, getCollections, getSiteHelpContext, conf
     if (isClarificationRequest(message) || matches.length === 0) {
       return res.json({
         answer: buildFallbackAnswer(message, matches, buildFallbackOptions(queryContext, repeatAware.repeatedRecommendation)),
-        actions: [],
+        actions: matches.length === 0 ? [siteHelpContext.routes.browse, siteHelpContext.routes.collections] : [],
         recommendations,
         suggestedPrompts: buildSuggestedPrompts(matches),
         source: "fallback",
@@ -304,7 +331,10 @@ function createChatRouter({ getCatalog, getCollections, getSiteHelpContext, conf
         !answerMentionsExcludedTitle(result.response, queryContext.excludedTitles);
 
       if (canUseModelAnswer) {
-        answer = sanitizeAnswerText(result.response, fallbackAnswer);
+        const candidateAnswer = sanitizeAnswerText(result.response, fallbackAnswer);
+        if (candidateAnswer !== fallbackAnswer && isGroundedRecommendationAnswer(candidateAnswer, matches, catalog)) {
+          answer = candidateAnswer;
+        }
       }
 
       return res.json({
@@ -312,7 +342,7 @@ function createChatRouter({ getCatalog, getCollections, getSiteHelpContext, conf
         actions: [],
         recommendations,
         suggestedPrompts: buildSuggestedPrompts(matches),
-        source: canUseModelAnswer ? "ollama" : "fallback",
+        source: answer !== fallbackAnswer ? "ollama" : "fallback",
       });
     } catch (error) {
       return res.json({
