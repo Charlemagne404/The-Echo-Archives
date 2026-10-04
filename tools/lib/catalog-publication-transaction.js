@@ -1,11 +1,14 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const { randomUUID } = require("node:crypto");
+const { AsyncLocalStorage } = require("node:async_hooks");
 
 const JOURNAL = ".echo-catalog-transaction";
 const instance = randomUUID();
 const activeManifests = new Map();
+const activePublicationTokens = new Map();
 const abandonedRoots = new Set();
+const publicationContext = new AsyncLocalStorage();
 
 function containedPath(root, relative) {
   if (typeof relative !== "string" || !relative || path.isAbsolute(relative)) throw new Error("Invalid publication recovery path.");
@@ -73,6 +76,7 @@ function restore(root, directory, manifest) {
 function cleanupJournal(root, directory) {
   abandonedRoots.delete(path.resolve(root));
   activeManifests.delete(path.resolve(root));
+  activePublicationTokens.delete(path.resolve(root));
   // Retire atomically before recursive deletion: interrupted cleanup must not
   // turn a committed journal into a malformed active one.
   const retired = path.join(root, `${JOURNAL}-committed-${randomUUID()}`);
@@ -86,7 +90,7 @@ function cleanupJournal(root, directory) {
 
 function recoverCatalogPublication(root) {
   const directory = path.join(root, JOURNAL);
-  if (!fs.existsSync(directory)) { abandonedRoots.delete(path.resolve(root)); activeManifests.delete(path.resolve(root)); return false; }
+  if (!fs.existsSync(directory)) { abandonedRoots.delete(path.resolve(root)); activeManifests.delete(path.resolve(root)); activePublicationTokens.delete(path.resolve(root)); return false; }
   const manifest = readManifest(root, directory);
   if (manifest.phase === "committed") {
     cleanupJournal(root, directory);
@@ -198,28 +202,35 @@ function beginCatalogPublication(root, targets, { includeGenerated = false, incl
   }
   const directory = path.join(root, JOURNAL);
   const key = path.resolve(root);
-  if (joinExisting && ownsCatalogPublication(root)) {
+  const activeToken = activePublicationTokens.get(key);
+  // A live same-process journal alone cannot prove that a writer is nested;
+  // require the async parent token so concurrent requests fail closed.
+  if (joinExisting && activeToken && publicationContext.getStore() === activeToken && ownsCatalogPublication(root)) {
     const manifest = activeManifests.get(key);
     if (!manifest) throw new Error("The current publication owner is unavailable.");
     extendSnapshots(root, directory, manifest, targets, { includeGenerated, includeSource });
-    return { joined: true, commit() {}, rollback() {} };
+    return { joined: true, publicationToken: activeToken, commit() {}, rollback() {} };
   }
   try { fs.mkdirSync(directory, { mode: 0o700 }); } catch (error) {
     if (error.code === "EEXIST") error.statusCode = 503;
     throw error;
   }
   const manifest = { schema: 1, pid: process.pid, instance, phase: "preparing", files: [], absentDirectories: [], recoveryData };
+  const publicationToken = Object.freeze({ root: key, id: randomUUID() });
   try {
     writeManifest(directory, manifest);
     activeManifests.set(key, manifest);
+    activePublicationTokens.set(key, publicationToken);
     extendSnapshots(root, directory, manifest, targets, { includeGenerated, includeSource });
   } catch (error) {
     activeManifests.delete(key);
+    activePublicationTokens.delete(key);
     fs.rmSync(directory, { recursive: true, force: true });
     throw error;
   }
   let finished = false;
   return {
+    publicationToken,
     commit() {
       if (finished) return;
       manifest.phase = "committed";
@@ -237,12 +248,18 @@ function beginCatalogPublication(root, targets, { includeGenerated = false, incl
         if (!manifest.recoveryData) cleanupJournal(root, directory);
         finished = true;
         activeManifests.delete(key);
+        activePublicationTokens.delete(key);
       } catch (error) {
         abandonedRoots.add(key);
         throw error;
       }
     },
   };
+}
+
+function runWithCatalogPublication(publicationToken, operation) {
+  if (!publicationToken || typeof operation !== "function") throw new Error("A catalogue publication token and operation are required.");
+  return publicationContext.run(publicationToken, operation);
 }
 
 function completeCatalogPublicationRecovery(root) {
@@ -255,4 +272,4 @@ function completeCatalogPublicationRecovery(root) {
   cleanupJournal(root, directory);
 }
 
-module.exports = { beginCatalogPublication, recoverCatalogPublication, ownsCatalogPublication, assertCatalogPublicationReadable, sourcePaths, completeCatalogPublicationRecovery };
+module.exports = { beginCatalogPublication, recoverCatalogPublication, ownsCatalogPublication, assertCatalogPublicationReadable, runWithCatalogPublication, sourcePaths, completeCatalogPublicationRecovery };

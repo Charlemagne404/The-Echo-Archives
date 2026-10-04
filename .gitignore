@@ -125,3 +125,6 @@ test-results/
 **/.DS_Store
 /.codex-artifacts
 .codex
+
+# Automated social previews (authored templates and font remain tracked).
+/images/generated/social/

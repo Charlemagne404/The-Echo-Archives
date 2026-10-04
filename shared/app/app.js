@@ -1,5 +1,6 @@
 import { initializeArchivistLauncher } from "./archivist-launcher.js";
 import { trackDiscoveryEvent, trackDiscoveryPageview } from "./discovery-analytics.js";
+import { initializeShowCardImpressions } from "./discovery-impressions.js";
 import { initializeHorizontalScrollAffordances } from "./horizontal-scroll-affordance.js";
 import { initializeManagedImages } from "./images.js";
 import { initializeMobileNav } from "./mobile-nav.js";
@@ -107,8 +108,12 @@ function initializeDiscoveryAnalytics() {
     return;
   }
 
+  if (document.body?.classList.contains("home-page")) {
+    document.body.dataset.homePopularityReady = "false";
+  }
   document.documentElement.dataset.discoveryAnalyticsBound = "true";
   trackDiscoveryPageview();
+  initializeShowCardImpressions();
 
   document.addEventListener("click", (event) => {
     if (event.isTrusted !== true || event.defaultPrevented) {
@@ -139,9 +144,13 @@ function initializeDiscoveryAnalytics() {
 
     const showId = anchor.dataset.discoveryShowId;
     if (showId) {
+      const surface = anchor.dataset.discoverySurface || "unknown_internal";
+      if (surface === "home_archive_grid" && document.body?.dataset.homePopularityReady === "false") {
+        return;
+      }
       const props = {
         show_id: showId,
-        discovery_surface: anchor.dataset.discoverySurface || "unknown_internal",
+        discovery_surface: surface,
         browse_state: anchor.dataset.discoveryBrowseState || "default",
         result_type: anchor.dataset.discoveryResultType || "show_card",
         recommendation_source: anchor.dataset.discoveryRecommendationSource || "unknown",

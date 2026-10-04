@@ -8,7 +8,7 @@ import { createCollectionHref } from "../../urls.js";
 import { getSavedHomeResultLimit, HOME_RESULTS_PAGE_SIZE, persistHomeResultLimit } from "./state.js";
 import { buildBrowseUrlState, syncBrowseUrlState } from "./url-state.js";
 import { formatResultsSummaryPrefix, matchesSelectedFilters, renderActiveBrowseState, syncHomeControls } from "./filters.js";
-import { patchArchiveGrid, sortVisibleShows } from "./layout.js";
+import { HOME_SORT_OPTIONS, createSearchSortApplier, patchArchiveGrid, sortVisibleShows } from "./layout.js";
 import { syncResultsSummary } from "./results-motion.js";
 import { getDiscoveryFeedback } from "./discovery-feedback.js";
 
@@ -37,6 +37,8 @@ export function createHomeResultsController({
 }) {
   const renderEntityResults = createEntitySearchResults(elements.archiveGrid, shows);
   const showsById = new Map(shows.map((show) => [show.id, show]));
+  const archiveOrderById = new Map(shows.map((show, index) => [show.id, index]));
+  const applyExplicitSearchSort = createSearchSortApplier({ state, archiveOrderById });
   let pendingRenderReason = "";
   let pendingHistoryMode = "replace";
   let renderFrame = 0;
@@ -169,7 +171,15 @@ export function createHomeResultsController({
 
     if (!state.query) {
       return {
-        shows: sortVisibleShows({ visibleShows: filteredShows, selectedCollection, sortMode: state.sortMode }),
+        shows: sortVisibleShows({
+          visibleShows: filteredShows,
+          selectedCollection,
+          sortMode: state.sortMode,
+          sortModeExplicit: state.sortModeExplicit,
+          popularityScores: state.popularityScores,
+          communitySummaries: state.communitySummaries,
+          archiveOrderById,
+        }),
         candidatesById: new Map(),
         publicPositionById: new Map(),
         publicResultCount: filteredShows.length,
@@ -197,31 +207,31 @@ export function createHomeResultsController({
       const publicPresentation = getSearchCandidatePresentation(publicCandidates);
       const personalContext = getPersonalContext();
       if (!hasPersonalSignals(personalContext)) {
-        return {
+        return applyExplicitSearchSort({
           shows: publicPresentation.visibleShows,
           candidatesById: publicPresentation.candidatesById,
           publicPositionById: publicPresentation.publicPositionById,
           publicResultCount: publicPresentation.visibleShows.length,
-        };
+        }, selectedCollection);
       }
 
       const personalizedResult = searchPerformanceCache.personalizeDiscoveryResult(publicResult, personalContext, discoverySearch.intent);
       if (personalizedResult === publicResult) {
-        return {
+        return applyExplicitSearchSort({
           shows: publicPresentation.visibleShows,
           candidatesById: publicPresentation.candidatesById,
           publicPositionById: publicPresentation.publicPositionById,
           publicResultCount: publicPresentation.visibleShows.length,
-        };
+        }, selectedCollection);
       }
       const personalizedCandidates = getDiscoveryCandidates(personalizedResult, isSimilarity);
       const personalizedPresentation = getSearchCandidatePresentation(personalizedCandidates);
-      return {
+      return applyExplicitSearchSort({
         shows: personalizedPresentation.visibleShows,
         candidatesById: personalizedPresentation.candidatesById,
         publicPositionById: publicPresentation.publicPositionById,
         publicResultCount: publicPresentation.visibleShows.length,
-      };
+      }, selectedCollection);
     }
 
     const scoredResults = searchPerformanceCache.getScoredSearchResults(state.query);
@@ -229,12 +239,12 @@ export function createHomeResultsController({
     const publicPresentation = getSearchCandidatePresentation(publicCandidates);
     const personalContext = getPersonalContext();
     if (!hasPersonalSignals(personalContext)) {
-      return {
+      return applyExplicitSearchSort({
         shows: publicCandidates,
         candidatesById: new Map(),
         publicPositionById: publicPresentation.publicPositionById,
         publicResultCount: publicCandidates.length,
-      };
+      }, selectedCollection);
     }
 
     const intent = searchPerformanceCache.getDiscoveryIntent(state.query);
@@ -246,22 +256,22 @@ export function createHomeResultsController({
     };
     const personalizedResult = searchPerformanceCache.personalizeDiscoveryResult(publicResult, personalContext, intent);
     if (personalizedResult === publicResult) {
-      return {
+      return applyExplicitSearchSort({
         shows: publicCandidates,
         candidatesById: new Map(),
         publicPositionById: publicPresentation.publicPositionById,
         publicResultCount: publicCandidates.length,
-      };
+      }, selectedCollection);
     }
 
     const personalizedCandidates = getDiscoveryCandidates(personalizedResult, false);
     const personalizedPresentation = getSearchCandidatePresentation(personalizedCandidates);
-    return {
+    return applyExplicitSearchSort({
       shows: personalizedPresentation.visibleShows,
       candidatesById: personalizedPresentation.candidatesById,
       publicPositionById: publicPresentation.publicPositionById,
       publicResultCount: publicCandidates.length,
-    };
+    }, selectedCollection);
   }
 
   function loadMoreResults(changeReason = "load-more") {
@@ -423,7 +433,9 @@ export function createHomeResultsController({
     const browsePrefix = `${collectionPrefix}${formatResultsSummaryPrefix(activeDescriptors)}`;
     const resultCountLabel = displayedResultCount < matchingResultCount ? `${displayedResultCount} of ${matchingResultCount}` : `${matchingResultCount}`;
     const searchPrefix = state.query ? `${resultCountLabel} results for "${state.query}"` : `${resultCountLabel} results`;
-    const modePrefix = !state.query && state.sortMode === "recently-updated" ? "Recently updated • " : "";
+    const selectedSort = HOME_SORT_OPTIONS.find((option) => option.id === state.sortMode);
+    const sortIsApplied = !(state.query && !state.sortModeExplicit) && !(selectedCollection && !state.sortModeExplicit);
+    const modePrefix = sortIsApplied && selectedSort ? `${selectedSort.label} • ` : "";
     const summaryText = `${browsePrefix}${modePrefix}${searchPrefix} • ${fullReviewCount} ${suffix}`;
     syncResultsSummary(
       elements.resultsSummary,
@@ -460,6 +472,7 @@ export function createHomeResultsController({
       query: state.query,
       selectedCollectionId: state.selectedCollectionId,
       sortMode: state.sortMode,
+      sortModeExplicit: state.sortModeExplicit,
     });
     syncHomeControls({
       filterOptionGrid: elements.stickyFilterOptionGrid,
@@ -471,6 +484,7 @@ export function createHomeResultsController({
       query: state.query,
       selectedCollectionId: state.selectedCollectionId,
       sortMode: state.sortMode,
+      sortModeExplicit: state.sortModeExplicit,
     });
     stickyBrowseController.syncStickySearchMode();
     onResultsRendered({

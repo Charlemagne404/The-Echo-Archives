@@ -284,7 +284,7 @@ test("mobile discovery, collection, and submit controls meet input and touch siz
         { selector: "#search", requireFontSize: true },
         { selector: "#filterToggle" },
         { selector: "#siteNavToggle" },
-        { selector: "#browseModes .browse-mode-button" },
+        { selector: "#browseSort" },
         { selector: "#quickFilters .quick-filter" },
       ]),
       "Homepage",

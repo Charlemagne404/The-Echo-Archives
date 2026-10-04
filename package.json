@@ -36,6 +36,7 @@
     "check:structure": "node tools/check-structure.js",
     "check:release-artifact": "node deploy/catalog-sanity.js .",
     "check:build-determinism": "node tools/check-build-determinism.js",
+    "test:social": "node --test --test-concurrency=1 tools/test/social-cards.test.js tools/test/seo-output.test.js backend/test/seo.test.js backend/test/entities.test.js backend/test/public-routes.test.js",
     "test:tools": "node --test tools/test/*.test.js",
     "test:fast": "node --test tools/test/catalog-scale.test.js backend/test/markdown-negotiation.test.js backend/test/public-reference.test.js",
     "test:normal": "npm run test:tools && npm --prefix backend run test:serial",

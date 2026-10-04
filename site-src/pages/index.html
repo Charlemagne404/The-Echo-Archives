@@ -134,9 +134,17 @@
               </div>
             </div>
 
-            <div class="browse-modes" id="browseModes" role="group" aria-label="Browse modes">
-              <button class="browse-mode-button is-active" type="button" data-browse-mode="default" aria-pressed="true" aria-disabled="true" disabled>Default order</button>
-              <button class="browse-mode-button" type="button" data-browse-mode="recently-updated" aria-pressed="false" aria-disabled="true" disabled>Recently updated</button>
+            <div class="browse-modes" id="browseModes" role="group" aria-label="Sort catalogue shows">
+              <label class="browse-sort-label" for="browseSort">Sort by</label>
+              <select class="browse-sort-select" id="browseSort" aria-disabled="true" disabled>
+                <option value="popular" selected>Popular</option>
+                <option value="recently-added">Recently added</option>
+                <option value="recently-updated">Recently updated</option>
+                <option value="archive-rating">Highest Archive rating</option>
+                <option value="most-rated">Most listener ratings</option>
+                <option value="title">A–Z</option>
+                <option value="archive-order">Archive order</option>
+              </select>
             </div>
             <div class="quick-filters" id="quickFilters" role="group" aria-label="Quick filters">
               <button class="quick-filter is-active" type="button" data-chip-filter="all" aria-pressed="true" aria-disabled="true" disabled>All</button>

@@ -48,7 +48,7 @@ async function findFreePort() {
   });
 }
 
-async function waitForServer(url, timeoutMs = 20_000) {
+async function waitForServer(url, timeoutMs = 60_000) {
   const startedAt = Date.now();
 
   while (Date.now() - startedAt < timeoutMs) {
@@ -475,7 +475,18 @@ async function startSmokeServer() {
     stdio: ["ignore", "pipe", "pipe"],
   });
 
-  await waitForServer(`${baseUrl}/api/health`);
+  let startupOutput = "";
+  const rememberOutput = (stream, chunk) => {
+    startupOutput = `${startupOutput}[${stream}] ${chunk.toString()}`.slice(-12_000);
+  };
+  serverProcess.stdout.on("data", (chunk) => rememberOutput("stdout", chunk));
+  serverProcess.stderr.on("data", (chunk) => rememberOutput("stderr", chunk));
+  try {
+    await waitForServer(`${baseUrl}/api/health`);
+  } catch (error) {
+    if (startupOutput.trim()) error.message += `\nSmoke server output:\n${startupOutput.trim()}`;
+    throw error;
+  }
 }
 
 async function stopSmokeServer() {

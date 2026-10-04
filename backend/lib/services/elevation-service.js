@@ -1,7 +1,6 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
-const { buildCatalog } = require("../../../tools/build-catalog");
 const {
   COLLECTIONS_SOURCE_DIR,
   RUNTIME_DATA_DIR,
@@ -13,6 +12,13 @@ const {
 } = require("../../../tools/lib/catalog-source");
 const { normalizeParagraphs, normalizeQuote, normalizeReviewRecord } = require("../reviews");
 const { validateSiteData } = require("../../scripts/review-helpers");
+const { runWithCatalogPublication } = require("../../../tools/lib/catalog-publication-transaction");
+const {
+  canonicalizeDiscoveryTag,
+  getDiscoveryTaxonomy,
+  isApprovedDiscoveryTag,
+  MAX_PUBLISHED_DISCOVERY_TAGS,
+} = require("../../../shared/archive-tags");
 
 const FULL_REVIEW_SOURCE_STATUSES = new Set(["imported", "indexed-only", "planned"]);
 const EDITABLE_REVIEW_STATUSES = new Set([...FULL_REVIEW_SOURCE_STATUSES, "full-review"]);
@@ -45,7 +51,8 @@ function collectionMemberships(showId, collections = []) {
 function missingEditorialFields(show, review, collections, factualCurrent) {
   const missing = [];
   if (!factualCurrent) missing.push("current factual review");
-  if (!Number.isFinite(Number(show.ratings?.archive))) missing.push("archive rating");
+  const archiveRating = show.ratings?.archive;
+  if (typeof archiveRating !== "number" || !Number.isFinite(archiveRating) || archiveRating < 0 || archiveRating > 10) missing.push("archive rating");
   if (!text(review?.archiveTake)) missing.push("archive take");
   if (!normalizeParagraphs(review?.spoilerFreeReview).length) missing.push("spoiler-safe review");
   if (!strings(show.tones).length) missing.push("tones");
@@ -193,6 +200,22 @@ function buildBrief({ show, candidate, review, target, collections }) {
 }
 
 function normalizeDraft(raw = {}) {
+  const suppliedTags = (Array.isArray(raw.tags) ? raw.tags : typeof raw.tags === "string" ? raw.tags.split(",") : [])
+    .map((tag) => text(tag, 160))
+    .filter(Boolean)
+    .map(canonicalizeDiscoveryTag);
+  const tags = [...new Map(suppliedTags.map((tag) => [tag.toLowerCase(), tag])).values()];
+  if (tags.length > MAX_PUBLISHED_DISCOVERY_TAGS) {
+    const error = new Error(`Choose no more than ${MAX_PUBLISHED_DISCOVERY_TAGS} discovery tags.`);
+    error.statusCode = 400;
+    throw error;
+  }
+  const unapprovedTags = tags.filter((tag) => !isApprovedDiscoveryTag(tag));
+  if (unapprovedTags.length) {
+    const error = new Error(`Discovery tags must use approved taxonomy labels: ${unapprovedTags.join(", ")}.`);
+    error.statusCode = 400;
+    throw error;
+  }
   return {
     review: normalizeReviewRecord({
       archiveTake: text(raw.archiveTake, 500),
@@ -200,7 +223,9 @@ function normalizeDraft(raw = {}) {
       thoughts: normalizeParagraphs(raw.thoughts),
       quote: normalizeQuote({ text: text(raw.quoteText, 500), attribution: text(raw.quoteAttribution, 160) }),
     }),
-    archiveRating: raw.archiveRating === "" || raw.archiveRating === undefined ? null : Number(raw.archiveRating),
+    archiveRating: raw.archiveRating === "" || raw.archiveRating === undefined || raw.archiveRating === null ? null : Number(raw.archiveRating),
+    tags,
+    tagsProvided: Object.hasOwn(raw, "tags"),
     tones: strings(raw.tones),
     formats: strings(raw.formats),
     bestFor: strings(raw.bestFor),
@@ -236,6 +261,7 @@ function writeDirectChanges(siteRoot, source, show, collections, review, changed
     throw error;
   }
   return {
+    publicationToken: showTransaction.publicationToken,
     commit: () => showTransaction.commit(),
     rollback() {
       showTransaction.rollback();
@@ -244,7 +270,7 @@ function writeDirectChanges(siteRoot, source, show, collections, review, changed
   };
 }
 
-function createElevationService({ staticRoot, importService, onPublished = null }) {
+function createElevationService({ staticRoot, importService, onPublished = null, validateSiteDataImpl = validateSiteData }) {
   function getShow(showId) {
     const source = readCatalogSource(staticRoot);
     const show = source.shows.find((entry) => entry.id === showId);
@@ -292,8 +318,9 @@ function createElevationService({ staticRoot, importService, onPublished = null 
         factsReviewedAt: candidate.factsReviewedAt,
         factsReviewedRevision: candidate.factsReviewedRevision,
         conflicts: candidate.conflicts,
-        sources: candidate.sources.map((entry) => ({ sourceType: entry.sourceType, sourceUrl: entry.sourceUrl, sourceKey: entry.sourceKey, fetchStatus: entry.fetchStatus, fetchedAt: entry.fetchedAt })),
+        sources: (Array.isArray(candidate.sources) ? candidate.sources : []).map((entry) => ({ sourceType: entry.sourceType, sourceUrl: entry.sourceUrl, sourceKey: entry.sourceKey, fetchStatus: entry.fetchStatus, fetchedAt: entry.fetchedAt })),
       } : null,
+      approvedTags: getDiscoveryTaxonomy().tags.filter((tag) => tag.status === "approved").map((tag) => tag.label),
       factualCurrent,
       editorialMissing: show.reviewStatus === "full-review" ? [] : missingEditorialFields(show, review, source.collections, factualCurrent),
       collections: source.collections.map((collection) => ({ id: collection.id, title: collection.title, selected: collection.showIds?.includes(showId), reason: collection.showReasons?.[showId] || "" })),
@@ -324,13 +351,16 @@ function createElevationService({ staticRoot, importService, onPublished = null 
     };
     const isPublishedReview = show.reviewStatus === "full-review";
     if (draft.archiveRating !== null) updatedShow.ratings = { ...(show.ratings || {}), archive: draft.archiveRating };
+    if (draft.tagsProvided) updatedShow.tags = draft.tags;
     ["tones", "formats", "bestFor", "similarTo"].forEach((field) => {
       if (draft[field].length || isPublishedReview) updatedShow[field] = draft[field];
     });
     if (draft.similarTo.length || isPublishedReview) {
       updatedShow.similarReasons = Object.fromEntries(draft.similarTo.map((id) => [id, draft.similarReasons[id] || ""]));
     }
-    const selected = new Map(draft.collections.map((entry) => [entry.id, entry.reason]));
+    const selected = new Map(draft.collections
+      .filter((entry) => text(entry.reason))
+      .map((entry) => [entry.id, entry.reason]));
     const changedCollectionIds = [];
     const updatedCollections = source.collections.map((collection) => {
       const currentlyIncluded = Array.isArray(collection.showIds) && collection.showIds.includes(showId);
@@ -341,13 +371,19 @@ function createElevationService({ staticRoot, importService, onPublished = null 
       const showReasons = { ...(collection.showReasons || {}) };
       if (requested) showReasons[showId] = selected.get(collection.id);
       else delete showReasons[showId];
+      const updatedCollection = { ...collection, showIds, showReasons, updatedAt: updatedShow.updatedAt };
+      if (Array.isArray(collection.coverShowIds)) {
+        updatedCollection.coverShowIds = collection.coverShowIds.filter((id) => id !== showId || requested);
+      }
       changedCollectionIds.push(collection.id);
-      return { ...collection, showIds, showReasons, updatedAt: updatedShow.updatedAt };
+      return updatedCollection;
     });
     const transaction = writeDirectChanges(staticRoot, source, updatedShow, updatedCollections, draft.review, changedCollectionIds);
     try {
-      await validateSiteData(staticRoot, { recoverCovers: true });
-      if (typeof onPublished === "function") await onPublished({ showIds: [showId] });
+      await runWithCatalogPublication(transaction.publicationToken, async () => {
+        await validateSiteDataImpl(staticRoot, { recoverCovers: true });
+        if (typeof onPublished === "function") await onPublished({ showIds: [showId] });
+      });
       transaction.commit();
     } catch (error) {
       transaction.rollback();
@@ -369,13 +405,14 @@ function createElevationService({ staticRoot, importService, onPublished = null 
     const published = { ...show, reviewStatus: "full-review", updatedAt: new Date().toISOString().slice(0, 10) };
     const transaction = writeShowRecordsAtomically(staticRoot, [published], { deferCommit: true });
     try {
-      await validateSiteData(staticRoot, { recoverCovers: true });
-      if (typeof onPublished === "function") await onPublished({ showIds: [showId] });
+      await runWithCatalogPublication(transaction.publicationToken, async () => {
+        await validateSiteDataImpl(staticRoot, { recoverCovers: true });
+        if (typeof onPublished === "function") await onPublished({ showIds: [showId] });
+      });
       transaction.commit();
       return { showId, reviewStatus: "full-review", reviewedBy: text(actor, 160) || "authenticated-maintainer" };
     } catch (error) {
       transaction.rollback();
-      await buildCatalog(staticRoot).catch(() => {});
       throw error;
     }
   }

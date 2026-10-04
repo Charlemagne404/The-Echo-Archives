@@ -305,6 +305,7 @@
 }
 
 .detail-similar-card {
+  position: relative;
   display: grid;
   grid-template-columns: 92px minmax(0, 1fr);
   gap: 14px;
@@ -327,11 +328,10 @@
     rgba(8, 11, 14, 0.78);
 }
 
-.detail-similar-card img {
+.detail-similar-artwork {
   width: 92px;
-  height: 92px;
+  aspect-ratio: 1 / 1;
   border-radius: 14px;
-  object-fit: cover;
 }
 
 .detail-card-copy {

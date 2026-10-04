@@ -222,7 +222,7 @@ test("creator SEO exposes unique intent, rich catalogue lists, social images, an
   assert.equal(directory.metadata.title, "Audio Drama Creators & Production Companies | The Echo Archives");
   assert.match(directory.metadata.description, new RegExp(`These ${directoryEntities.length} production companies, studios, and networks have source-backed links to shows in the archive`, "i"));
   assert.match(directory.metadata.description, /Individual creators stay linked from their show pages/i);
-  assert.match(directory.metadata.imageUrl, /images\/(?:generated\/covers|covers)\//);
+  assert.match(directory.metadata.imageUrl, /\/images\/generated\/social\/default\.png$/);
 
   const directoryList = directory.structuredData["@graph"].find((entry) => entry["@type"] === "ItemList");
   assert.equal(directoryList.numberOfItems, directoryEntities.length);
@@ -235,7 +235,7 @@ test("creator SEO exposes unique intent, rich catalogue lists, social images, an
   assert.equal(detail.metadata.title, "7 Lamb Productions — Audio Drama Production Company | The Echo Archives");
   assert.match(detail.metadata.description, /6 shows/i);
   assert.match(detail.metadata.description, /Atlas Avenue Beat/i);
-  assert.match(detail.metadata.imageUrl, /images\/(?:generated\/covers|covers)\//);
+  assert.equal(detail.metadata.imageUrl, `https://example.com/images/generated/social/creators/${entity.id}.png`);
 
   const graph = detail.structuredData["@graph"];
   const page = graph.find((entry) => entry["@type"] === "CollectionPage");

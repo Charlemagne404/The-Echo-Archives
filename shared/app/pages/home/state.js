@@ -31,9 +31,32 @@ export function createHomeState(structuredFilterGroups = []) {
     discoveryIntent: null,
     filters: createHomeFilterState(structuredFilterGroups),
     selectedCollectionId: "",
-    sortMode: "default",
+    sortMode: "popular",
+    sortModeExplicit: false,
+    popularityScores: null,
+    communitySummaries: null,
     gridLayoutBucket: getHomeGridLayoutBucket(),
   };
+}
+
+export function getHomeFilterStateSignature(state) {
+  return JSON.stringify({
+    query: state.query.trim(),
+    selectedCollectionId: state.selectedCollectionId,
+    filters: Object.fromEntries(
+      Object.entries(state.filters).map(([groupId, values]) => [groupId, Array.from(values).sort()]),
+    ),
+  });
+}
+
+export function hasMeaningfulHomeState(state) {
+  return Boolean(
+    state.query ||
+      state.selectedCollectionId ||
+      state.sortModeExplicit ||
+      state.sortMode !== "popular" ||
+      Object.values(state.filters).some((values) => values.size > 0),
+  );
 }
 
 function isValidHomeResultLimit(value) {

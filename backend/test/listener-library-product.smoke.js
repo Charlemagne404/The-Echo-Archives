@@ -91,6 +91,19 @@ async function assertEventually(assertion, timeoutMs = 5_000) {
   throw lastError || new Error("Expected condition did not become true.");
 }
 
+function analyticsEventsFor(requests, eventName, showId) {
+  return requests.flatMap(({ url, body }) => {
+    if (!/\/api\/analytics\/events(?:\/batch)?(?:\?|$)/.test(url)) return [];
+    try {
+      const payload = JSON.parse(body);
+      const events = Array.isArray(payload.events) ? payload.events : [payload];
+      return events.filter((event) => event.eventName === eventName && event.properties?.show_id === showId);
+    } catch {
+      return [];
+    }
+  });
+}
+
 test("the dedicated Library route, page modules, styles, and navigation are gone", async () => {
   const manifest = JSON.parse(fs.readFileSync(path.join(repositoryRoot, "site-src/page-manifest.json"), "utf8"));
   assert.equal(manifest.some((entry) => entry.canonicalUrl === "/library"), false);
@@ -115,7 +128,7 @@ test("the dedicated Library route, page modules, styles, and navigation are gone
   assert.doesNotMatch(await fs.promises.readFile(path.join(repositoryRoot, "sw.js"), "utf8"), /library\.css|shared\/app\/pages\/library/);
 });
 
-test("compact card and show controls persist and synchronize without exposing Library state", async () => {
+test("quick-save cards and show controls persist and synchronize without exposing Library state", async () => {
   const context = await newContext();
   const requests = [];
   const privacyCanary = "EchoLibraryPrivateStateCanary-2026-09-29";
@@ -138,35 +151,131 @@ test("compact card and show controls persist and synchronize without exposing Li
     });
     assert.ok(repeatedShow?.id, "the home page repeats at least one show across its existing card surfaces");
 
-    const cards = browse.locator(`[data-library-control="card"][data-library-show-id="${repeatedShow.id}"]`);
-    await assertEventually(async () => assert.ok(await cards.count() >= 2));
+    const quickSaveControls = browse.locator(`button.library-card-quick-save[data-library-show-id="${repeatedShow.id}"]`);
+    const cards = quickSaveControls;
+    const archiveHosts = browse.locator("#podcast-grid [data-library-show-card][data-library-show-id]");
+    const archiveControls = browse.locator("#podcast-grid button.library-card-quick-save");
+    const popularHosts = browse.locator("#popularGrid [data-library-show-card][data-library-show-id]");
+    const popularControls = browse.locator("#popularGrid button.library-card-quick-save");
+    const recentHosts = browse.locator("#recentlyAddedGrid [data-library-show-card][data-library-show-id]");
+    const recentControls = browse.locator("#recentlyAddedGrid button.library-card-quick-save");
+    await assertEventually(async () => {
+      assert.ok(await quickSaveControls.count() >= 2, "a repeated show has controls in the archive and Popular rail");
+      assert.ok(await popularHosts.count() > 0, "Popular contains individual show-card hosts");
+      assert.ok(await recentHosts.count() > 0, "Recently Added contains individual show-card hosts");
+      assert.equal(await archiveControls.count(), await archiveHosts.count(), "archive show cards each expose quick save");
+      assert.equal(await popularControls.count(), await popularHosts.count(), "Popular show cards each expose quick save");
+      assert.equal(await recentControls.count(), await recentHosts.count(), "Recently Added show cards each expose quick save");
+    });
     assert.equal(await cards.locator("[data-library-rating-select]").count(), 0, "cards do not expose private rating controls");
-    const cardControl = browse.locator(`#podcast-grid [data-library-control="card"][data-library-show-id="${repeatedShow.id}"]`).first();
-    const cardSummary = cardControl.locator("summary");
-    let summarySize = null;
+    const archiveSave = browse.locator(`#podcast-grid button.library-card-quick-save[data-library-show-id="${repeatedShow.id}"]`).first();
+    const quickSaveControl = browse.locator(`#popularGrid button.library-card-quick-save[data-library-show-id="${repeatedShow.id}"]`).first();
+    let controlSize = null;
     await assertEventually(async () => {
-      summarySize = await cardSummary.boundingBox();
-      assert.ok(summarySize, "the archive-card Library summary is visible before measuring it");
+      controlSize = await quickSaveControl.boundingBox();
+      assert.ok(controlSize, "the Popular quick-save control is present before measuring it");
     });
-    assert.ok(summarySize.height <= 40, `card Library affordance stays compact (${summarySize.height}px)`);
-    assert.equal(await cardControl.evaluate((node) => node.closest("a") !== null), false, "the control is a sibling of the show link");
+    assert.ok(controlSize.height <= 44, `card quick-save affordance stays compact (${controlSize.height}px)`);
+    assert.equal(await quickSaveControl.evaluate((node) => node.getAttribute("aria-pressed")), "false");
+    assert.equal(await quickSaveControl.evaluate((node) => node.closest("a") !== null), false, "the control is a sibling of the show link");
+    assert.ok(await archiveSave.count(), "the repeated show also has an archive quick-save control");
 
-    await cardSummary.focus();
-    await cardSummary.press("Enter");
-    await assertEventually(async () => assert.equal(await cardControl.evaluate((node) => node.open), true));
-    await cardControl.locator("[data-library-state-select]").selectOption("saved");
+    const browseUrl = browse.url();
+    await browse.locator(`#popularGrid a[data-discovery-show-id="${repeatedShow.id}"]`).hover();
+    await quickSaveControl.click();
     await assertEventually(async () => {
-      const summaries = await cards.locator("summary").allTextContents();
-      assert.ok(summaries.every((label) => label === "Saved"), JSON.stringify(summaries));
-      assert.equal(await cardControl.evaluate((node) => node.open), false);
-      assert.equal(await cardSummary.evaluate((node) => node === document.activeElement), true);
+      const quickSaveLabels = await quickSaveControls.evaluateAll((buttons) => buttons.map((button) => button.getAttribute("aria-label")));
+      assert.ok(quickSaveLabels.length > 0 && quickSaveLabels.every((label) => label.includes("Current status: Saved.")), JSON.stringify(quickSaveLabels));
+      const savedStates = await quickSaveControls.evaluateAll((buttons) => buttons.map((button) => button.getAttribute("aria-pressed")));
+      assert.ok(savedStates.every((saved) => saved === "true"), JSON.stringify(savedStates));
+      assert.equal(browse.url(), browseUrl, "quick save does not navigate through the parent show card");
+      assert.equal(analyticsEventsFor(requests, "Show Saved", repeatedShow.id).length, 1, "one save action emits one Library analytics event despite state synchronization");
+      assert.equal(analyticsEventsFor(requests, "Show Opened", repeatedShow.id).length, 0, "saving does not emit Show Opened");
     });
+    const savedVisual = await quickSaveControl.evaluate((button) => ({
+      opacity: Number.parseFloat(getComputedStyle(button).opacity) || 0,
+      fill: getComputedStyle(button.querySelector(".library-card-quick-save-icon")).fill,
+      label: button.getAttribute("aria-label"),
+    }));
+    assert.ok(savedVisual.opacity > 0.99 && savedVisual.fill !== "none" && savedVisual.label.includes("Current status: Saved."),
+      `saved state remains visible and labeled: ${JSON.stringify(savedVisual)}`);
+
+    await browse.locator(`#popularGrid a[data-discovery-show-id="${repeatedShow.id}"]`).focus();
+    await browse.keyboard.press("Tab");
+    await assertEventually(async () => assert.equal(await quickSaveControl.evaluate((node) => node === document.activeElement), true,
+      "Tab moves focus from the show link to its sibling quick-save button"));
+    const keyboardFocusState = await quickSaveControl.evaluate((node) => ({
+      visible: node.matches(":focus-visible"),
+      outline: getComputedStyle(node).outlineStyle,
+    }));
+    assert.ok(keyboardFocusState.visible && keyboardFocusState.outline !== "none", `keyboard focus is visible: ${JSON.stringify(keyboardFocusState)}`);
+    await quickSaveControl.press("Space");
+    await assertEventually(async () => {
+      const savedStates = await quickSaveControls.evaluateAll((buttons) => buttons.map((button) => button.getAttribute("aria-pressed")));
+      assert.ok(savedStates.every((saved) => saved === "false"), JSON.stringify(savedStates));
+      assert.equal(await quickSaveControl.evaluate((node) => node === document.activeElement), true, "state synchronization keeps keyboard focus on the save button");
+      assert.equal(browse.url(), browseUrl, "Space activation does not navigate through the show card");
+      assert.equal(analyticsEventsFor(requests, "Show Saved", repeatedShow.id).length, 1, "removing the entry during state synchronization does not duplicate Save analytics");
+      assert.equal(analyticsEventsFor(requests, "Show Opened", repeatedShow.id).length, 0, "keyboard save controls do not emit Show Opened");
+    });
+    await quickSaveControl.press("Enter");
+    await assertEventually(async () => {
+      assert.equal(await quickSaveControl.getAttribute("aria-pressed"), "true", "Enter activates the quick-save button");
+      assert.equal(analyticsEventsFor(requests, "Show Saved", repeatedShow.id).length, 2, "each explicit save emits exactly one Library analytics event");
+      assert.equal(browse.url(), browseUrl, "Enter activation does not navigate through the show card");
+    });
+
+    await browse.evaluate(({ showId, title }) => {
+      const host = document.createElement("article");
+      host.id = "library-contract-test-card";
+      host.dataset.libraryShowCard = "true";
+      host.dataset.libraryShowId = showId;
+      const heading = document.createElement("h3");
+      heading.textContent = title;
+      host.append(heading);
+      document.body.append(host);
+    }, { showId: repeatedShow.id, title: `${repeatedShow.title} future rail` });
+    const genericHostControl = browse.locator("#library-contract-test-card > button.library-card-quick-save");
+    await genericHostControl.waitFor({ state: "attached" });
+    await assertEventually(async () => assert.equal(await genericHostControl.getAttribute("aria-pressed"), "true", "a new host following the show-card contract receives synchronized state"));
+
+    const collections = await context.newPage();
+    await collections.goto(`${baseUrl}/collections`);
+    await collections.waitForSelector(".collections-directory-card");
+    assert.ok(await collections.locator(".collections-directory-card").count() > 0, "collection cards are rendered");
+    assert.equal(await collections.locator(".collections-directory-card [data-library-show-card], .collections-directory-card [data-library-control='card']").count(), 0, "collection cards do not receive show-save controls");
+    await collections.close();
+
+    const recommendations = await context.newPage();
+    await recommendations.goto(`${baseUrl}/shows/derelict`);
+    await recommendations.waitForSelector(".detail-similar-card[data-library-show-card][data-library-show-id]");
+    const recommendationHosts = recommendations.locator(".detail-similar-card[data-library-show-card][data-library-show-id]");
+    const recommendationControls = recommendations.locator(".detail-similar-card > button.library-card-quick-save");
+    assert.ok(await recommendationHosts.count() > 0, "similar-show recommendation cards are present");
+    await assertEventually(async () => assert.equal(await recommendationControls.count(), await recommendationHosts.count(), "similar-show cards each receive the shared quick-save control"));
+    await recommendations.close();
+
+    const navigation = await context.newPage();
+    await navigation.goto(`${baseUrl}/`);
+    const popularLink = navigation.locator(`#popularGrid a[data-discovery-show-id="${repeatedShow.id}"]`);
+    await popularLink.waitFor({ state: "visible" });
+    await popularLink.click();
+    await navigation.waitForLoadState("domcontentloaded");
+    assert.equal(new URL(navigation.url()).pathname, new URL(repeatedShow.href).pathname, "the Popular show link still navigates to its detail page");
+    await assertEventually(async () => assert.equal(analyticsEventsFor(requests, "Show Opened", repeatedShow.id).length, 1, "show-card activation emits one Show Opened event"));
+    await navigation.close();
 
     const detail = await context.newPage();
     await detail.goto(repeatedShow.href);
     await detail.waitForSelector(".podcast-detail .detail-actions");
     const detailControl = detail.locator('[data-library-control="detail"]');
     await detailControl.waitFor();
+    const similarHosts = detail.locator(".detail-similar-card[data-library-show-card][data-library-show-id]");
+    const similarControls = detail.locator(".detail-similar-card > button.library-card-quick-save");
+    await assertEventually(async () => {
+      const hostCount = await similarHosts.count();
+      if (hostCount > 0) assert.equal(await similarControls.count(), hostCount, "similar-show recommendations use the same quick-save control");
+    });
     assert.equal(await detailControl.evaluate((node) => node.parentElement.matches(".detail-actions")), true, "the detail control lives with the listening actions");
     assert.ok(await detail.locator(".detail-actions a").count() > 0, "existing listen actions remain present");
     assert.equal(await detailControl.locator("[data-library-state-select]").inputValue(), "saved");
@@ -174,19 +283,18 @@ test("compact card and show controls persist and synchronize without exposing Li
     await detailControl.locator("summary").click();
     await detailControl.locator("[data-library-state-select]").selectOption("listening");
     await assertEventually(async () => {
-      const summaries = await cards.locator("summary").allTextContents();
-      assert.ok(summaries.every((label) => label === "Listening"), JSON.stringify(summaries));
+      const quickSaveLabels = await quickSaveControls.evaluateAll((buttons) => buttons.map((button) => button.getAttribute("aria-label")));
+      assert.ok(quickSaveLabels.length >= 2 && quickSaveLabels.every((label) => label.includes("Current status: Listening.")), JSON.stringify(quickSaveLabels));
     });
     await detailControl.locator("[data-library-rating-select]").selectOption("4");
     assert.match(await detailControl.locator(".library-detail-rating-note").textContent(), /never submitted as a Community Rating/);
     assert.equal(await detailControl.locator(".library-hidden-meaning").isVisible(), false, "Hidden guidance stays out of the way for other Library states");
 
-    await cardControl.locator("summary").click();
-    await cardControl.locator("[data-library-state-select]").selectOption("hidden");
+    await detailControl.locator("[data-library-state-select]").selectOption("hidden");
     await assertEventually(async () => {
       assert.match(await detailControl.locator("[data-library-state-select]").inputValue(), /hidden/);
-      const summaries = await cards.locator("summary").allTextContents();
-      assert.ok(summaries.every((label) => label === "Hidden"), JSON.stringify(summaries));
+      const quickSaveLabels = await quickSaveControls.evaluateAll((buttons) => buttons.map((button) => button.getAttribute("aria-label")));
+      assert.ok(quickSaveLabels.length >= 2 && quickSaveLabels.every((label) => label.includes("Current status: Hidden / Not Interested.")), JSON.stringify(quickSaveLabels));
     });
     const privacySnapshot = await detail.evaluate(async ({ showId, titleSnapshot }) => {
       const { getLibraryService } = await import("/shared/app/library/runtime.js");
@@ -281,9 +389,10 @@ test("compact card and show controls persist and synchronize without exposing Li
       assert.doesNotMatch(artifact, /data-library-state=["'](?:hidden|listening|saved|finished|dropped)|private listener rating|personalContext|personalDiscoveryEnabled/i);
       assert.doesNotMatch(artifact, new RegExp(privacyCanary));
     }
-    const writeRequests = requests.filter(({ method, url }) => method !== "GET" && !url.endsWith("/api/health") && !/\/api\/analytics\/events(?:\?|$)/.test(url));
+    const analyticsEndpoint = /\/api\/analytics\/events(?:\/batch)?(?:\?|$)/;
+    const writeRequests = requests.filter(({ method, url }) => method !== "GET" && !url.endsWith("/api/health") && !analyticsEndpoint.test(url));
     assert.deepEqual(writeRequests, [], "Library actions do not write personal state to the server");
-    const analyticsRequests = requests.filter(({ url }) => /\/api\/analytics\/events(?:\?|$)/.test(url));
+    const analyticsRequests = requests.filter(({ url }) => analyticsEndpoint.test(url));
     for (const { body } of analyticsRequests) {
       assert.doesNotMatch(body, /libraryState|personalContext|privateRating|"state"\s*:|"rating"\s*:/i);
     }
@@ -459,7 +568,7 @@ test("Personal Discovery refines existing search locally and restores public ord
 
     const urlAndHistory = await home.evaluate(() => `${location.href}\n${JSON.stringify(history.state)}`);
     assert.doesNotMatch(urlAndHistory, /personalContext|personalDiscovery|privateRating|"rating"|"state"|hidden|listening|saved/i);
-    const nonAnalyticsWrites = requests.filter(({ method, url }) => method !== "GET" && !/\/api\/analytics\/events(?:\?|$)/.test(url));
+    const nonAnalyticsWrites = requests.filter(({ method, url }) => method !== "GET" && !/\/api\/analytics\/events(?:\/batch)?(?:\?|$)/.test(url));
     assert.deepEqual(nonAnalyticsWrites, [], "Library state and preference do not write to the server");
     const privateNetworkRequests = requests.filter(({ url, body, referer }) => (
       /personalContext|personalDiscovery|privateRating|libraryState/i.test(`${url}\n${body}\n${referer}`)
@@ -480,14 +589,11 @@ test("storage denial stays visible and disables Library changes without blocking
     });
     const page = await context.newPage();
     await page.goto(`${baseUrl}/`);
-    const control = page.locator('[data-library-control="card"]').first();
-    const summary = control.locator("summary");
-    await assertEventually(async () => assert.equal(await summary.textContent(), "Unavailable"));
-    assert.match(await summary.getAttribute("aria-label"), /unavailable/i);
-    assert.equal(await summary.evaluate((node) => node.tabIndex), 0);
-    await summary.click();
-    assert.equal(await control.locator("[data-library-state-select]").isDisabled(), true);
-    await assertEventually(async () => assert.match(await control.locator(".library-control-status").textContent(), /Local Library unavailable/i));
+    const quickSave = page.locator("button.library-card-quick-save").first();
+    await assertEventually(async () => assert.equal(await quickSave.isDisabled(), true));
+    assert.match(await quickSave.getAttribute("aria-label"), /unavailable/i);
+    assert.equal(await quickSave.getAttribute("aria-pressed"), "false");
+    await assertEventually(async () => assert.match(await page.locator("#libraryGlobalStatus").textContent(), /Local Library unavailable/i));
     assert.ok(await page.locator("#podcast-grid .podcast-card-shell").count() > 0, "ordinary browsing remains available");
   } finally {
     await context.close();

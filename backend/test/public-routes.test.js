@@ -588,6 +588,40 @@ test("public health stays coarse while detailed health remains loopback-only", a
   }
 });
 
+test("branded social cards are crawler-visible, served as PNGs, and preserve missing-route noindex", async () => {
+  const context = await startPublicRouteServer();
+  try {
+    for (const [route, image] of [
+      ["/", "default.png"], ["/about", "default.png"],
+      ["/shows/midnight-burger", "shows/midnight-burger.png"],
+      ["/collections/shows-like-midnight-burger", "collections/shows-like-midnight-burger.png"],
+      ["/creators/fool-and-scholar-productions", "creators/fool-and-scholar-productions.png"],
+    ]) {
+      const response = await fetch(`${context.baseUrl}${route}`);
+      assert.equal(response.status, 200, route);
+      const html = await response.text();
+      const imageUrl = `${context.baseUrl}/images/generated/social/${image}`;
+      assert.equal(html.match(/<meta property="og:image" content="([^"]+)"/)?.[1], imageUrl, route);
+      assert.equal(html.match(/<meta name="twitter:image" content="([^"]+)"/)?.[1], imageUrl, route);
+      assert.match(html, /<meta property="og:image:alt" content="[^"]+"/);
+      assert.match(html, /<meta name="twitter:image:alt" content="[^"]+"/);
+      const pngResponse = await fetch(imageUrl);
+      assert.equal(pngResponse.status, 200, imageUrl);
+      assert.match(pngResponse.headers.get("content-type"), /image\/png/);
+      const png = Buffer.from(await pngResponse.arrayBuffer());
+      assert.equal(png.readUInt32BE(16), 1200);
+      assert.equal(png.readUInt32BE(20), 630);
+    }
+    for (const route of ["/shows/unknown-social-record", "/collections/unknown-social-record", "/creators/unknown-social-record"]) {
+      const response = await fetch(`${context.baseUrl}${route}`);
+      assert.equal(response.status, 404);
+      assert.match(await response.text(), /<meta name="robots" content="noindex, nofollow, noarchive"/);
+    }
+  } finally {
+    await stopPublicRouteServer(context);
+  }
+});
+
 test("show and collection routes include crawler-visible metadata in the raw HTML response", async () => {
   const context = await startPublicRouteServer();
 
@@ -674,7 +708,7 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
     assert.match(
       similarityCollectionHtml,
       new RegExp(
-        `<meta property="og:image" content="${new URL(`/${similarityAnchor.cover}`, context.baseUrl).toString().replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`,
+        `<meta property="og:image" content="${new URL(`/images/generated/social/collections/${similarityCollection.id}.png`, context.baseUrl).toString().replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`,
       ),
     );
     assert.match(similarityCollectionHtml, /data-collection-prerendered="true"/);

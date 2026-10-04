@@ -128,7 +128,7 @@ function createCommunityService({
       abuseHash,
       retentionMs: abuseRetentionMs,
     });
-    store.upsertRating({
+    const ratingWrite = store.upsertRating({
       podcastId,
       profileId: resolvedProfileId,
       rating: normalizedRating,
@@ -139,6 +139,7 @@ function createCommunityService({
     return {
       profileId: resolvedProfileId,
       podcast,
+      ratingChangeType: ratingWrite.changeType,
       summary: store.listRatingSummaries([podcastId], resolvedProfileId)[podcastId],
     };
   }

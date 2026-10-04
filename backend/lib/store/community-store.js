@@ -195,7 +195,7 @@ function createCommunityStore({ db, catalog, minPublicRatings = 1 }) {
         source,
         abuseHash,
       });
-      return submissionId;
+      return { submissionId, changeType: "submitted" };
     }
 
     statements.updateSubmission.run({
@@ -215,7 +215,7 @@ function createCommunityStore({ db, catalog, minPublicRatings = 1 }) {
       source,
       abuseHash,
     });
-    return existing.id;
+    return { submissionId: existing.id, changeType: "changed" };
   });
 
   const deleteRating = db.transaction(({ podcastId, profileId, source, abuseHash = "" }) => {

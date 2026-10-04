@@ -26,6 +26,7 @@ function createMaintainerRouter({
   collectionService,
   rateLimiter = null,
   analyticsStore = null,
+  popularityService = null,
 }) {
   const router = express.Router();
 
@@ -90,6 +91,17 @@ function createMaintainerRouter({
         return res.status(503).json({ error: "Analytics storage is unavailable." });
       }
       return res.json(analyticsStore.getDashboard({ range: req.query.range }));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.get("/api/maintainer/popularity", requireMaintainerSession, (_req, res, next) => {
+    try {
+      if (!popularityService) {
+        return res.status(503).json({ error: "Popularity scoring is unavailable." });
+      }
+      return res.json(popularityService.getSnapshot());
     } catch (error) {
       return next(error);
     }

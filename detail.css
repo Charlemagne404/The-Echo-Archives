@@ -1103,6 +1103,7 @@
 }
 
 .detail-similar-card {
+  position: relative;
   display: grid;
   grid-template-columns: 92px minmax(0, 1fr);
   gap: 14px;
@@ -1125,11 +1126,10 @@
     rgba(8, 11, 14, 0.78);
 }
 
-.detail-similar-card img {
+.detail-similar-artwork {
   width: 92px;
-  height: 92px;
+  aspect-ratio: 1 / 1;
   border-radius: 14px;
-  object-fit: cover;
 }
 
 .detail-card-copy {
@@ -1678,9 +1678,8 @@
     font-size: clamp(1.85rem, 11vw, 2.45rem);
   }
 
-  .detail-similar-card img {
+  .detail-similar-card > .detail-similar-artwork {
     width: 100%;
-    height: auto;
     aspect-ratio: 16 / 9;
   }
 
@@ -3007,13 +3006,17 @@
   border-radius: 12px;
 }
 
-.detail-more-from .podcast-card img {
+.detail-more-from .podcast-card > .show-card-artwork {
   grid-column: 1;
   grid-row: 1 / span 3;
   width: var(--more-from-art-size);
-  height: var(--more-from-art-size);
+  aspect-ratio: 1 / 1;
   border-radius: 10px;
-  border-bottom: 0;
+}
+
+.detail-more-from .show-card-artwork > img {
+  border: 0;
+  border-radius: inherit;
 }
 
 .detail-more-from .editorial-badges {
@@ -3114,9 +3117,8 @@
     column-gap: 14px;
   }
 
-  .detail-more-from .podcast-card img {
+  .detail-more-from .podcast-card > .show-card-artwork {
     width: var(--more-from-art-size);
-    height: var(--more-from-art-size);
     aspect-ratio: 1 / 1;
     grid-column: 1;
     grid-row: 1 / span 3;
@@ -3236,6 +3238,29 @@
 /* Avoid an SVG/image fallback creating an inline overflow strip while it loads. */
 .home-page :where(img) {
   height: auto;
+}
+
+/* Show artwork slots own their aspect ratio so broken or source-less images
+ * cannot change the surrounding card geometry. */
+.show-card-artwork {
+  position: relative;
+  display: block;
+  min-inline-size: 0;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.06), transparent 54%),
+    linear-gradient(145deg, #15191f, #080a0e 72%);
+}
+
+.show-card-artwork > img:not(.editorial-badge-artwork) {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* The archive has intentionally cinematic, single-line desktop heroes. At the

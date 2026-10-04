@@ -178,9 +178,8 @@
     font-size: clamp(1.85rem, 11vw, 2.45rem);
   }
 
-  .detail-similar-card img {
+  .detail-similar-card > .detail-similar-artwork {
     width: 100%;
-    height: auto;
     aspect-ratio: 16 / 9;
   }
 

@@ -10,9 +10,13 @@ const DISCOVERY_EVENT_NAMES = new Set([
   "Entity Opened",
   "Show Opened",
   "Listen Link Opened",
+  "Show Card Impression",
+  "Show Saved",
+  "Library State Changed",
 ]);
 const SERVER_EVENT_NAMES = new Set([
   "Rating Submitted",
+  "Rating Changed",
   "Rating Removed",
   "Helpful Vote",
   "Helpful Vote Removed",
@@ -42,6 +46,11 @@ const BUCKET_EXPRESSIONS = Object.freeze({
   day: "strftime('%Y-%m-%dT00:00:00Z', occurred_at)",
   month: "strftime('%Y-%m-01T00:00:00Z', occurred_at)",
 });
+const POPULARITY_POSITION_BUCKETS = new Set(["1", "2-4", "5-9", "10-24", "25+", "unknown"]);
+const DAY_SECONDS = 24 * 60 * 60;
+const MONTH_SECONDS = 30 * DAY_SECONDS;
+const MAX_POPULARITY_COOLDOWN_SECONDS = MONTH_SECONDS;
+const POPULARITY_BACKFILL_BATCH_SIZE = 500;
 
 function toDate(value, fallback = null) {
   const date = value instanceof Date ? new Date(value.getTime()) : new Date(value || "");
@@ -136,6 +145,85 @@ function safeProperties(eventName, properties, validateClientEvent) {
   return safe;
 }
 
+function getPopularityContext(properties = {}) {
+  const surface = String(properties.discovery_surface || "");
+  const browseState = String(properties.browse_state || "unknown");
+  if (surface === "home_archive_grid") {
+    return ["default", "search", "filtered", "search_and_filtered"].includes(browseState)
+      ? (browseState === "default" ? "browse" : browseState)
+      : "unknown";
+  }
+  if (surface === "collection_page_grid") return "collection";
+  if (surface === "home_popular_rail") return "editorial";
+  return "other";
+}
+
+function getPopularitySignal(eventName, properties = {}) {
+  const positionBucket = POPULARITY_POSITION_BUCKETS.has(properties.result_position_bucket)
+    ? properties.result_position_bucket
+    : "unknown";
+  if (eventName === "Page Viewed" && properties.page_kind === "show") return "show_page_view";
+  if (eventName === "Show Card Impression") return `impression:${getPopularityContext(properties)}:${positionBucket}`;
+  if (eventName === "Show Opened") return `show_open:${getPopularityContext(properties)}:${positionBucket}`;
+  if (eventName === "Listen Link Opened") return "listen_click";
+  if (eventName === "Show Saved") return "show_saved";
+  if (eventName === "Library State Changed") {
+    const state = String(properties.library_state || "");
+    if (["saved", "listening", "finished", "dropped", "hidden", "removed"].includes(state)) {
+      return `library_${state}`;
+    }
+  }
+  if (eventName === "Rating Submitted") return "rating_submitted";
+  if (eventName === "Rating Changed") return "rating_changed";
+  if (eventName === "Helpful Vote") return "helpful_vote";
+  if (eventName === "Rating Removed") return "rating_removed";
+  if (eventName === "Helpful Vote Removed") return "helpful_vote_removed";
+  return "";
+}
+
+function getPopularityContribution(eventName, properties = {}) {
+  const signal = getPopularitySignal(eventName, properties);
+  if (!signal) return null;
+
+  const context = getPopularityContext(properties);
+  if (["Show Card Impression", "Show Opened"].includes(eventName) && context === "editorial") {
+    return { signal: null, limitGroup: "", cooldownSeconds: 0 };
+  }
+
+  let limitGroup = "";
+  let cooldownSeconds = 0;
+  if (eventName === "Page Viewed") {
+    limitGroup = "show_page_view";
+    cooldownSeconds = DAY_SECONDS;
+  } else if (eventName === "Show Card Impression") {
+    limitGroup = `impression:${context}`;
+    cooldownSeconds = DAY_SECONDS;
+  } else if (eventName === "Show Opened") {
+    limitGroup = `show_open:${context}`;
+    cooldownSeconds = DAY_SECONDS;
+  } else if (eventName === "Listen Link Opened") {
+    limitGroup = "listen_click";
+    cooldownSeconds = DAY_SECONDS;
+  } else if (eventName === "Show Saved" || eventName === "Library State Changed") {
+    limitGroup = "library_intent";
+    cooldownSeconds = MONTH_SECONDS;
+  } else if (["Rating Submitted", "Rating Changed"].includes(eventName)) {
+    limitGroup = "rating_activity";
+    cooldownSeconds = MONTH_SECONDS;
+  } else if (eventName === "Helpful Vote") {
+    limitGroup = "helpful_vote";
+    cooldownSeconds = MONTH_SECONDS;
+  }
+
+  return limitGroup
+    ? { signal, limitGroup, cooldownSeconds }
+    : { signal: null, limitGroup: "", cooldownSeconds: 0 };
+}
+
+function createPopularityLimitKey(secret, identityKey, showId, limitGroup) {
+  return createHash(secret, ["popularity-limit-v1", identityKey || "anonymous", showId, limitGroup].join("\n"));
+}
+
 function idFromProperties(properties, key) {
   return normalizeControlledId(properties?.[key]);
 }
@@ -215,6 +303,63 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
       @showId, @collectionId, @source, @propertiesJson, @isServerEvent, @dedupeKey
     )
   `);
+  const upsertPopularityDaily = db.prepare(`
+    INSERT INTO popularity_event_daily (show_id, event_day, signal, event_count)
+    VALUES (@showId, @eventDay, @signal, 1)
+    ON CONFLICT(show_id, event_day, signal) DO UPDATE SET
+      event_count = popularity_event_daily.event_count + 1
+  `);
+  const upsertPopularityRawDaily = db.prepare(`
+    INSERT INTO popularity_event_raw_daily (show_id, event_day, signal, event_count)
+    VALUES (@showId, @eventDay, @signal, 1)
+    ON CONFLICT(show_id, event_day, signal) DO UPDATE SET
+      event_count = popularity_event_raw_daily.event_count + 1
+  `);
+  const applyPopularityLimit = db.prepare(`
+    INSERT INTO popularity_contribution_limits (limit_key, last_contributed_at)
+    VALUES (@limitKey, @occurredAt)
+    ON CONFLICT(limit_key) DO UPDATE SET
+      last_contributed_at = excluded.last_contributed_at
+    WHERE julianday(excluded.last_contributed_at) -
+      julianday(popularity_contribution_limits.last_contributed_at) >= @cooldownSeconds / 86400.0
+  `);
+  const prunePopularityLimits = db.prepare(`
+    DELETE FROM popularity_contribution_limits
+    WHERE julianday(last_contributed_at) < julianday(@occurredAt) - @retentionSeconds / 86400.0
+  `);
+  const popularityBackfillEvents = db.prepare(`
+    SELECT id, event_name, occurred_at, visitor_key, session_key, show_id, properties_json
+    FROM analytics_events
+    WHERE occurred_at > @afterOccurredAt
+      OR (occurred_at = @afterOccurredAt AND id > @afterId)
+    ORDER BY occurred_at ASC, id ASC
+    LIMIT @limit
+  `);
+  const minimumPopularityEventDay = db.prepare("SELECT MIN(substr(occurred_at, 1, 10)) AS event_day FROM analytics_events");
+  let lastPopularityLimitPruneDay = "";
+
+  function prunePopularityLimitLedger(occurredAt) {
+    const day = String(occurredAt || "").slice(0, 10);
+    if (!day || day === lastPopularityLimitPruneDay) return;
+    prunePopularityLimits.run({ occurredAt, retentionSeconds: MAX_POPULARITY_COOLDOWN_SECONDS });
+    lastPopularityLimitPruneDay = day;
+  }
+
+  function recordPopularityContribution({ showId, eventDay, occurredAt, identityKey, contribution }) {
+    if (!showId || !contribution?.signal || !contribution.limitGroup) return false;
+    const limitKey = createPopularityLimitKey(normalizedSecret, identityKey, showId, contribution.limitGroup);
+    prunePopularityLimitLedger(occurredAt);
+    const accepted = applyPopularityLimit.run({
+      limitKey,
+      occurredAt,
+      cooldownSeconds: contribution.cooldownSeconds,
+    }).changes > 0;
+    if (accepted) {
+      upsertPopularityDaily.run({ showId, eventDay, signal: contribution.signal });
+    }
+    return accepted;
+  }
+
   const upsertVisitor = db.prepare(`
     INSERT INTO analytics_visitors (visitor_key, first_seen_at, last_seen_at, first_source, last_source)
     VALUES (@visitorKey, @occurredAt, @occurredAt, @source, @source)
@@ -233,8 +378,195 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
     if (result.changes > 0 && payload.visitorKey) {
       upsertVisitor.run(payload);
     }
-    return result.changes > 0;
+    if (result.changes > 0 && payload.rawPopularitySignal && payload.showId) {
+      upsertPopularityRawDaily.run({
+        showId: payload.showId,
+        eventDay: payload.eventDay,
+        signal: payload.rawPopularitySignal,
+      });
+    }
+    const popularityCounted = result.changes > 0 && recordPopularityContribution({
+      showId: payload.showId,
+      eventDay: payload.eventDay,
+      occurredAt: payload.occurredAt,
+      identityKey: payload.popularityIdentityKey,
+      contribution: payload.popularityContribution,
+    });
+    return { recorded: result.changes > 0, popularityCounted };
   });
+
+  const backfillPopularityRollups = db.transaction(() => {
+    const rollupVersion = getMeta.get("popularity_daily_rollup_version")?.value || "0";
+    const rawVersion = getMeta.get("popularity_raw_daily_rollup_version")?.value || "0";
+    if (rollupVersion === "3" && rawVersion === "1") return;
+
+    const minimumDay = minimumPopularityEventDay.get()?.event_day || "";
+    if (rollupVersion !== "3") {
+      if (minimumDay) {
+        db.prepare(`
+          UPDATE popularity_event_daily
+          SET signal = 'legacy:' || signal
+          WHERE event_day < @minimumDay AND signal NOT LIKE 'legacy:%'
+        `).run({ minimumDay });
+        db.prepare("DELETE FROM popularity_event_daily WHERE event_day >= ?").run(minimumDay);
+      } else {
+        db.prepare(`
+          UPDATE popularity_event_daily
+          SET signal = 'legacy:' || signal
+          WHERE signal NOT LIKE 'legacy:%'
+        `).run();
+      }
+      db.prepare("DELETE FROM popularity_contribution_limits").run();
+      lastPopularityLimitPruneDay = "";
+    }
+
+    if (rawVersion !== "1") db.prepare("DELETE FROM popularity_event_raw_daily").run();
+    const shouldBackfillRaw = rawVersion !== "1";
+    const shouldBackfillEffective = rollupVersion !== "3" && Boolean(minimumDay);
+    if (shouldBackfillRaw || shouldBackfillEffective) {
+      let afterOccurredAt = "";
+      let afterId = 0;
+      while (true) {
+        const rows = popularityBackfillEvents.all({
+          afterOccurredAt,
+          afterId,
+          limit: POPULARITY_BACKFILL_BATCH_SIZE,
+        });
+        if (rows.length === 0) break;
+
+        for (const row of rows) {
+          const eventDay = String(row.occurred_at || "").slice(0, 10);
+          const showId = normalizeControlledId(row.show_id);
+          if (!showId || !/^\d{4}-\d{2}-\d{2}$/.test(eventDay)) continue;
+          let properties = {};
+          try {
+            const parsed = JSON.parse(String(row.properties_json || "{}"));
+            if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) properties = parsed;
+          } catch (_error) {
+            // Older malformed analytics rows remain available in the raw event table only.
+          }
+
+          const rawSignal = getPopularitySignal(row.event_name, properties);
+          if (shouldBackfillRaw && rawSignal) {
+            upsertPopularityRawDaily.run({ showId, eventDay, signal: rawSignal });
+          }
+          if (shouldBackfillEffective && eventDay >= minimumDay) {
+            const contribution = getPopularityContribution(row.event_name, properties);
+            const identityKey = row.visitor_key || row.session_key || "anonymous";
+            recordPopularityContribution({
+              showId,
+              eventDay,
+              occurredAt: row.occurred_at,
+              identityKey,
+              contribution,
+            });
+          }
+        }
+
+        const lastRow = rows[rows.length - 1];
+        afterOccurredAt = lastRow.occurred_at;
+        afterId = lastRow.id;
+      }
+    }
+
+    if (rollupVersion !== "3") setMeta.run("popularity_daily_rollup_version", "3");
+    if (rawVersion !== "1") setMeta.run("popularity_raw_daily_rollup_version", "1");
+  });
+  backfillPopularityRollups();
+
+  const popularitySignalQueries = {
+    lifetime: db.prepare(`
+      SELECT show_id, signal, SUM(event_count) AS event_count
+      FROM popularity_event_daily
+      WHERE event_day <= @endDate
+      GROUP BY show_id, signal
+    `),
+    days90: db.prepare(`
+      SELECT show_id, signal, SUM(event_count) AS event_count
+      FROM popularity_event_daily
+      WHERE event_day BETWEEN @startDate AND @endDate
+      GROUP BY show_id, signal
+    `),
+    days28: db.prepare(`
+      SELECT show_id, signal, SUM(event_count) AS event_count
+      FROM popularity_event_daily
+      WHERE event_day BETWEEN @startDate AND @endDate
+      GROUP BY show_id, signal
+    `),
+    rawLifetime: db.prepare(`
+      SELECT show_id, signal, SUM(event_count) AS event_count
+      FROM popularity_event_raw_daily
+      WHERE event_day <= @endDate
+      GROUP BY show_id, signal
+    `),
+    rawDays90: db.prepare(`
+      SELECT show_id, signal, SUM(event_count) AS event_count
+      FROM popularity_event_raw_daily
+      WHERE event_day BETWEEN @startDate AND @endDate
+      GROUP BY show_id, signal
+    `),
+    rawDays28: db.prepare(`
+      SELECT show_id, signal, SUM(event_count) AS event_count
+      FROM popularity_event_raw_daily
+      WHERE event_day BETWEEN @startDate AND @endDate
+      GROUP BY show_id, signal
+    `),
+  };
+  const popularityRatingRows = db.prepare(`
+    SELECT podcast_id AS show_id, COUNT(*) AS rating_count, SUM(rating) AS rating_sum
+    FROM rating_submissions
+    WHERE status = 'active'
+    GROUP BY podcast_id
+  `);
+  const popularityReviewLifetimeRows = db.prepare(`
+    SELECT show_id, 'review_published' AS signal, COUNT(*) AS event_count
+    FROM published_listener_reviews
+    WHERE is_published = 1
+      AND substr(COALESCE(published_at, created_at), 1, 10) <= @endDate
+    GROUP BY show_id
+  `);
+  const popularityReviewWindowRows = db.prepare(`
+    SELECT show_id, 'review_published' AS signal, COUNT(*) AS event_count
+    FROM published_listener_reviews
+    WHERE is_published = 1
+      AND substr(COALESCE(published_at, created_at), 1, 10) BETWEEN @startDate AND @endDate
+    GROUP BY show_id
+  `);
+  const popularityReviewRows = db.prepare(`
+    WITH review_totals AS (
+      SELECT show_id, COUNT(*) AS review_count, SUM(rating_stars) AS review_rating_sum
+      FROM published_listener_reviews
+      WHERE is_published = 1
+      GROUP BY show_id
+    ),
+    helpful AS (
+      SELECT reviews.show_id, COUNT(DISTINCT votes.profile_id) AS vote_count
+      FROM listener_review_helpful_votes AS votes
+      INNER JOIN published_listener_reviews AS reviews ON reviews.id = votes.review_id
+      WHERE reviews.is_published = 1
+      GROUP BY reviews.show_id
+    )
+    SELECT
+      reviews.show_id,
+      reviews.review_count,
+      reviews.review_rating_sum,
+      COALESCE(helpful.vote_count, 0) AS helpful_vote_count
+    FROM review_totals AS reviews
+    LEFT JOIN helpful ON helpful.show_id = reviews.show_id
+  `);
+  const readPopularitySignalsSnapshot = db.transaction(({ start90, start28, endDate }) => ({
+    lifetime: popularitySignalQueries.lifetime.all({ endDate }),
+    days90: popularitySignalQueries.days90.all({ startDate: start90, endDate }),
+    days28: popularitySignalQueries.days28.all({ startDate: start28, endDate }),
+    rawLifetime: popularitySignalQueries.rawLifetime.all({ endDate }),
+    rawDays90: popularitySignalQueries.rawDays90.all({ startDate: start90, endDate }),
+    rawDays28: popularitySignalQueries.rawDays28.all({ startDate: start28, endDate }),
+    reviewActivityLifetime: popularityReviewLifetimeRows.all({ endDate }),
+    reviewActivity90: popularityReviewWindowRows.all({ startDate: start90, endDate }),
+    reviewActivity28: popularityReviewWindowRows.all({ startDate: start28, endDate }),
+    ratings: popularityRatingRows.all(),
+    reviews: popularityReviewRows.all(),
+  }));
 
   function getTrackingStartedAt() {
     const metaValue = getMeta.get("tracking_started_at")?.value;
@@ -263,10 +595,12 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
     const safeSource = normalizeSource(source);
     const safeShowId = idFromProperties(properties, "show_id");
     const safeCollectionId = idFromProperties(properties, "collection_id");
+    const eventDay = now.slice(0, 10);
     const dedupeKey = eventName === PAGE_VIEW_EVENT && context.sessionKey && safePath
       ? createHash(normalizedSecret, `pageview\n${context.sessionKey}\n${safePath}\n${Math.floor(new Date(now).getTime() / 30_000)}`)
       : null;
-    const recorded = insertAndUpsert({
+    const popularityContribution = getPopularityContribution(eventName, properties);
+    const result = insertAndUpsert({
       eventId: safeEventId(eventId),
       eventName,
       occurredAt: now,
@@ -279,8 +613,16 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
       propertiesJson: JSON.stringify(properties || {}),
       isServerEvent: isServerEvent ? 1 : 0,
       dedupeKey,
+      eventDay,
+      rawPopularitySignal: getPopularitySignal(eventName, properties),
+      popularityContribution,
+      popularityIdentityKey: context.visitorKey || context.sessionKey || "anonymous",
     });
-    return { recorded, reason: recorded ? "stored" : "duplicate" };
+    return {
+      recorded: result.recorded,
+      popularityCounted: result.popularityCounted,
+      reason: result.recorded ? "stored" : "duplicate",
+    };
   }
 
   function requestShouldBeIgnored({ userAgent = "", internal = false } = {}) {
@@ -356,10 +698,55 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
     });
   }
 
+  function getPopularitySignals({ now = new Date() } = {}) {
+    const nowDate = toDate(now, new Date());
+    const endDate = nowDate.toISOString().slice(0, 10);
+    const start90 = new Date(nowDate.getTime() - 89 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+    const start28 = new Date(nowDate.getTime() - 27 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+    const snapshot = readPopularitySignalsSnapshot({ start90, start28, endDate });
+    const byShowId = {};
+
+    const mergeRows = (targetKey, periodName, rows) => {
+      for (const row of rows) {
+        byShowId[row.show_id] ||= { periods: {}, rawPeriods: {}, community: {} };
+        byShowId[row.show_id][targetKey][periodName] ||= {};
+        const period = byShowId[row.show_id][targetKey][periodName];
+        period[row.signal] = (Number(period[row.signal]) || 0) + (Number(row.event_count) || 0);
+      }
+    };
+
+    for (const [periodName, rows, rawRows] of [
+      ["lifetime", [...snapshot.lifetime, ...snapshot.reviewActivityLifetime], snapshot.rawLifetime],
+      ["days90", [...snapshot.days90, ...snapshot.reviewActivity90], snapshot.rawDays90],
+      ["days28", [...snapshot.days28, ...snapshot.reviewActivity28], snapshot.rawDays28],
+    ]) {
+      mergeRows("periods", periodName, rows);
+      mergeRows("rawPeriods", periodName, rawRows);
+    }
+
+    for (const row of snapshot.ratings) {
+      byShowId[row.show_id] ||= { periods: {}, rawPeriods: {}, community: {} };
+      byShowId[row.show_id].community.ratingCount = Number(row.rating_count) || 0;
+      byShowId[row.show_id].community.ratingSum = Number(row.rating_sum) || 0;
+    }
+    for (const row of snapshot.reviews) {
+      byShowId[row.show_id] ||= { periods: {}, rawPeriods: {}, community: {} };
+      byShowId[row.show_id].community.reviewCount = Number(row.review_count) || 0;
+      byShowId[row.show_id].community.reviewRatingSum = Number(row.review_rating_sum) || 0;
+      byShowId[row.show_id].community.helpfulVoteCount = Number(row.helpful_vote_count) || 0;
+    }
+    return byShowId;
+  }
+
   function purgeExpiredEvents({ now = new Date() } = {}) {
     const nowDate = toDate(now, new Date());
     const cutoff = new Date(nowDate.getTime() - safeRetentionDays * 24 * 60 * 60 * 1000).toISOString();
     const deletedEvents = db.prepare("DELETE FROM analytics_events WHERE occurred_at < ?").run(cutoff).changes;
+    const popularityLimitsDeleted = prunePopularityLimits.run({
+      occurredAt: nowDate.toISOString(),
+      retentionSeconds: MAX_POPULARITY_COOLDOWN_SECONDS,
+    }).changes;
+    lastPopularityLimitPruneDay = nowDate.toISOString().slice(0, 10);
     const deletedVisitors = db.prepare(`
       DELETE FROM analytics_visitors
       WHERE last_seen_at < ?
@@ -367,7 +754,7 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
           SELECT 1 FROM analytics_events WHERE analytics_events.visitor_key = analytics_visitors.visitor_key
         )
     `).run(cutoff).changes;
-    return { eventsDeleted: deletedEvents, visitorsDeleted: deletedVisitors, cutoff }; 
+    return { eventsDeleted: deletedEvents, visitorsDeleted: deletedVisitors, popularityLimitsDeleted, cutoff };
   }
 
   function rangeWindow(rangeValue, nowValue = new Date()) {
@@ -854,6 +1241,7 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
     retentionDays: safeRetentionDays,
     getDashboard,
     getTrackingStartedAt,
+    getPopularitySignals,
     purgeExpiredEvents,
     recordClientEvent,
     recordServerInteraction,

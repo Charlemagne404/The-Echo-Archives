@@ -265,18 +265,21 @@ test("public and error routes expose the expected metadata", async () => {
         url: `${baseUrl}/`,
         expectedTitle: "The Echo Archives — Audio Drama Discovery",
         expectedCanonical: `${baseUrl}/`,
+        expectedImage: `${baseUrl}/images/generated/social/default.png`,
         noIndex: false,
       },
       {
         url: `${baseUrl}/shows/${firstShowId}`,
         expectedTitle: buildShowSeoTitle(showFixtures[0]),
         expectedCanonical: `${baseUrl}/shows/${encodeURIComponent(firstShowId)}`,
+        expectedImage: `${baseUrl}/images/generated/social/shows/${firstShowId}.png`,
         noIndex: false,
       },
       {
         url: `${baseUrl}/collections/${firstCollectionId}`,
         expectedTitle: buildCollectionSeoTitle(collectionFixtures[0]),
         expectedCanonical: `${baseUrl}/collections/${encodeURIComponent(firstCollectionId)}`,
+        expectedImage: `${baseUrl}/images/generated/social/collections/${firstCollectionId}.png`,
         noIndex: false,
       },
       {
@@ -305,9 +308,11 @@ test("public and error routes expose the expected metadata", async () => {
         ogDescription: document.querySelector('meta[property="og:description"]')?.getAttribute("content") || "",
         ogUrl: document.querySelector('meta[property="og:url"]')?.getAttribute("content") || "",
         ogImage: document.querySelector('meta[property="og:image"]')?.getAttribute("content") || "",
+        ogImageAlt: document.querySelector('meta[property="og:image:alt"]')?.getAttribute("content") || "",
         twitterTitle: document.querySelector('meta[name="twitter:title"]')?.getAttribute("content") || "",
         twitterDescription: document.querySelector('meta[name="twitter:description"]')?.getAttribute("content") || "",
         twitterImage: document.querySelector('meta[name="twitter:image"]')?.getAttribute("content") || "",
+        twitterImageAlt: document.querySelector('meta[name="twitter:image:alt"]')?.getAttribute("content") || "",
         themeColor: document.querySelector('meta[name="theme-color"]')?.getAttribute("content") || "",
         manifest: document.querySelector('link[rel="manifest"]')?.getAttribute("href") || "",
         robots: document.querySelector('meta[name="robots"]')?.getAttribute("content") || "",
@@ -323,6 +328,10 @@ test("public and error routes expose the expected metadata", async () => {
       assert.equal(metadata.twitterTitle, check.expectedTitle);
       assert.equal(metadata.twitterDescription, metadata.description);
       assert.ok(metadata.twitterImage.length > 0);
+      assert.equal(metadata.ogImage, metadata.twitterImage);
+      if (check.expectedImage) assert.equal(metadata.ogImage, check.expectedImage, "hydration must preserve the generated card URL");
+      assert.ok(metadata.ogImageAlt.length > 0);
+      assert.equal(metadata.ogImageAlt, metadata.twitterImageAlt);
       assert.equal(metadata.themeColor, "#06080b");
       assert.equal(metadata.manifest, "/site.webmanifest");
       assert.equal(metadata.robots, check.noIndex ? "noindex, nofollow, noarchive" : "index, follow, max-image-preview:large");
@@ -883,7 +892,11 @@ test("mobile header menu opens, closes, and routes cleanly on phone widths", asy
     assert.equal(closedState.activePrimaryHref, "/");
 
     await page.locator("#siteNavToggle").click();
-    await page.waitForFunction(() => document.getElementById("siteNavShell")?.dataset.state === "open");
+    await page.waitForFunction(
+      () =>
+        document.getElementById("siteNavShell")?.dataset.state === "open" &&
+        document.activeElement?.classList.contains("site-nav-close"),
+    );
 
     const openState = await page.evaluate(() => ({
       navState: document.getElementById("siteNavShell")?.dataset.state || "",
@@ -1055,7 +1068,7 @@ test("mobile chat launcher stays out of the first viewport until the user starts
 });
 
 test("public mobile route families preserve compact layouts and avoid horizontal overflow at 320px", async () => {
-  const page = await browser.newPage({ viewport: { width: 320, height: 844 } });
+  const page = await browser.newPage({ viewport: { width: 320, height: 844 }, hasTouch: true });
 
   try {
     const routeChecks = [
@@ -1067,17 +1080,65 @@ test("public mobile route families preserve compact layouts and avoid horizontal
           viewport: window.innerWidth,
           mainWidth: Math.round(document.querySelector(".home-main")?.getBoundingClientRect().width || 0),
           footerWidth: Math.round(document.getElementById("site-footer")?.getBoundingClientRect().width || 0),
-          browseModeColumns: (() => {
+          browseModeTracks: (() => {
             const template = window.getComputedStyle(document.getElementById("browseModes")).gridTemplateColumns.trim();
             return template && template !== "none" ? template.split(" ").length : 0;
           })(),
+          sortLabelHeight: document.querySelector(".browse-sort-label")?.getBoundingClientRect().height || 0,
+          sortControlHeight: document.getElementById("browseSort")?.getBoundingClientRect().height || 0,
+          searchControlHeight: document.getElementById("search")?.getBoundingClientRect().height || 0,
+          filterControlHeight: document.getElementById("filterToggle")?.getBoundingClientRect().height || 0,
           stickyWidth: Math.round(document.getElementById("stickyBrowseBar")?.getBoundingClientRect().width || 0),
+          archiveGridColumns: (() => {
+            const template = window.getComputedStyle(document.getElementById("podcast-grid")).gridTemplateColumns.trim();
+            return template && template !== "none" ? template.split(" ").length : 0;
+          })(),
+          archiveGridGap: Number.parseFloat(window.getComputedStyle(document.getElementById("podcast-grid")).columnGap) || 0,
+          firstCard: (() => {
+            const shell = document.querySelector('#podcast-grid > [data-library-show-card="true"][data-library-show-id]');
+            const card = shell?.querySelector(".podcast-card");
+            const cover = card?.querySelector(".show-card-artwork > img");
+            const title = card?.querySelector("h2");
+            const rating = card?.querySelector(".rating");
+            const save = shell?.querySelector("[data-library-quick-save]");
+            const box = (node) => {
+              const rect = node?.getBoundingClientRect();
+              return rect ? { width: rect.width, height: rect.height } : { width: 0, height: 0 };
+            };
+            return {
+              width: box(card).width,
+              cover: box(cover),
+              title: {
+                whiteSpace: title ? window.getComputedStyle(title).whiteSpace : "",
+                overflow: title ? window.getComputedStyle(title).textOverflow : "",
+              },
+              rating: box(rating),
+              save: box(save),
+              savePointerEvents: save ? window.getComputedStyle(save).pointerEvents : "none",
+            };
+          })(),
         }),
         assert(result) {
+          assert.ok(result.scrollWidth <= result.viewport, "320px Browse must not create horizontal page overflow");
           assert.ok(result.mainWidth <= result.viewport);
           assert.ok(result.footerWidth <= result.viewport);
-          assert.equal(result.browseModeColumns, 1);
+          // The two toolbar tracks are the compact “Sort by” label and its 44px select.
+          assert.equal(result.browseModeTracks, 2);
+          assert.ok(result.sortLabelHeight > 0);
+          assert.ok(result.sortControlHeight >= 44);
+          assert.ok(result.searchControlHeight >= 44);
+          assert.ok(result.filterControlHeight >= 44);
           assert.ok(result.stickyWidth <= result.viewport);
+          assert.equal(result.archiveGridColumns, 2, "show results stay two-up at 320px");
+          assert.ok(result.firstCard.width >= 130 && result.firstCard.width < 150);
+          assert.ok(result.firstCard.cover.width >= result.firstCard.width - 4);
+          assert.ok(result.firstCard.cover.height >= result.firstCard.cover.width - 4);
+          assert.ok(result.archiveGridGap >= 12);
+          assert.ok(result.firstCard.rating.width <= result.firstCard.width);
+          assert.ok(result.firstCard.save.width >= 44 && result.firstCard.save.height >= 44);
+          assert.notEqual(result.firstCard.savePointerEvents, "none");
+          assert.equal(result.firstCard.title.whiteSpace, "nowrap");
+          assert.equal(result.firstCard.title.overflow, "ellipsis");
         },
       },
       {

@@ -13,6 +13,8 @@ const {
 const { loadCatalog, loadCollections } = require("../../backend/lib/catalog");
 const { loadEntities } = require("../../backend/lib/entities");
 const { buildSitemapEntries } = require("../../backend/lib/sitemap");
+const { socialPreview } = require("../../shared/archive-social");
+const { buildShowPageMetadata, buildCollectionPageMetadata, injectPageMetadata, injectRuntimeSiteConfig } = require("../../backend/lib/public-page-render");
 
 const ROOT = path.resolve(__dirname, "..", "..");
 
@@ -30,6 +32,33 @@ function readStructuredData(relativePath) {
 function graphNode(data, type) {
   return (Array.isArray(data?.["@graph"]) ? data["@graph"] : [data]).find((entry) => entry?.["@type"] === type);
 }
+
+function assertSocialMetadata(html, url, alt) {
+  assert.equal(html.match(/<meta property="og:image" content="([^"]+)"/)?.[1], url);
+  assert.equal(html.match(/<meta name="twitter:image" content="([^"]+)"/)?.[1], url);
+  assert.equal(html.match(/<meta property="og:image:alt" content="([^"]+)"/)?.[1], alt);
+  assert.equal(html.match(/<meta name="twitter:image:alt" content="([^"]+)"/)?.[1], alt);
+  assert.match(html, /<meta name="twitter:card" content="summary_large_image"/);
+}
+
+test("generated shells and creator pages share the branded social resolver with runtime metadata", () => {
+  const home = read("index.html");
+  const siteUrl = home.match(/data-site-url="([^"]+)"/)[1];
+  const generic = socialPreview();
+  for (const page of ["index.html", "about.html", "collections.html", "creators.html"]) assertSocialMetadata(read(page), `${siteUrl}${generic.path}`, generic.alt);
+  const show = JSON.parse(read("data/shows.json")).find((record) => record.id === "midnight-burger");
+  const collection = JSON.parse(read("data/collections.json")).find((record) => record.id === "shows-like-midnight-burger");
+  for (const [kind, record, template, buildMetadata] of [["show", show, "show.html", buildShowPageMetadata], ["collection", collection, "collection.html", buildCollectionPageMetadata]]) {
+    const preview = socialPreview(kind, record);
+    const metadata = buildMetadata({ siteUrl: "https://configured.example", [kind]: record });
+    assertSocialMetadata(injectPageMetadata(read(template), metadata), `https://configured.example${preview.path}`, preview.alt);
+    assert.ok(fs.existsSync(path.join(ROOT, preview.path.slice(1))));
+  }
+  const entity = JSON.parse(read("data/entities.json")).find((record) => record.id === "fool-and-scholar-productions");
+  const preview = socialPreview("entity", entity);
+  assertSocialMetadata(read(`creators/${entity.id}/index.html`), `${siteUrl}${preview.path}`, preview.alt.replace(/&/g, "&amp;"));
+  assertSocialMetadata(injectRuntimeSiteConfig(home, { siteUrl: "https://runtime.example" }), `https://runtime.example${generic.path}`, generic.alt);
+});
 
 test("SITE_URL is authoritative for generated canonical origins", () => {
   const previousSiteUrl = process.env.SITE_URL;

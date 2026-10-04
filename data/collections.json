@@ -19,7 +19,6 @@
     ],
     "showIds": [
       "wolf-359",
-      "tower-4",
       "startripper",
       "tumanbay",
       "old-gods-of-appalachia",
@@ -63,7 +62,8 @@
       "the-leviathan-chronicles",
       "mayfair-watchers-society",
       "victoriocity",
-      "the-once-and-future-nerd"
+      "the-once-and-future-nerd",
+      "tower-4"
     ],
     "showReasons": {
       "impact-winter": "Cinematic urgency and seasonal momentum make it easy to stay locked in.",
@@ -116,7 +116,7 @@
     "featured": true,
     "order": 10,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-09-17"
+    "updatedAt": "2026-10-04"
   },
   {
     "id": "easy-first-steps",
@@ -388,7 +388,6 @@
       "how-i-died"
     ],
     "showIds": [
-      "tower-4",
       "station-151",
       "copperheart-a-riggstories-audio-drama",
       "how-i-died",
@@ -402,7 +401,8 @@
       "station-blue",
       "uncanny-valley",
       "wake-of-corrosion",
-      "the-elmwood-strain"
+      "the-elmwood-strain",
+      "tower-4"
     ],
     "showReasons": {
       "the-white-vault": "This is the clearest match for the collection's remote-expedition horror.",
@@ -424,7 +424,7 @@
     "featured": true,
     "order": 50,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-09-17"
+    "updatedAt": "2026-10-04"
   },
   {
     "id": "time-bent-and-weird",
@@ -496,7 +496,6 @@
       "red-valley",
       "spectre",
       "paralyzed",
-      "tower-4",
       "mabel",
       "borrasca",
       "welcome-to-night-vale",
@@ -588,7 +587,8 @@
       "scp-archives",
       "the-magnus-archives",
       "the-godfrey-audio-guide",
-      "crooked-river"
+      "crooked-river",
+      "tower-4"
     ],
     "showReasons": {
       "solar": "Tight survival tension fits a focused night listen.",
@@ -694,7 +694,7 @@
     "featured": false,
     "order": 70,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-09-17"
+    "updatedAt": "2026-10-04"
   },
   {
     "id": "headphones-on-immersion",
@@ -2048,13 +2048,13 @@
       "mirrors"
     ],
     "showIds": [
-      "tower-4",
       "archive-81",
       "malevolent",
       "mirrors",
       "alice-isnt-dead",
       "station-151",
-      "red-valley"
+      "red-valley",
+      "tower-4"
     ],
     "showReasons": {
       "tower-4": "The clearest next stop for listeners who want remote-post unease without leaving the slow-burn lane.",
@@ -2068,7 +2068,7 @@
     "featured": false,
     "order": 160,
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-09-04"
+    "updatedAt": "2026-10-04"
   },
   {
     "id": "shows-like-wolf-359",
@@ -2297,11 +2297,11 @@
     ],
     "showIds": [
       "wolf-359",
-      "tower-4",
       "archive-81",
       "midnight-burger",
       "the-white-vault",
-      "oz-9"
+      "oz-9",
+      "tower-4"
     ],
     "showReasons": {
       "oz-9": "Leans harder into comedy if the broken-space-station absurdity is what you want more of.",
@@ -2314,7 +2314,7 @@
     "featured": false,
     "order": 220,
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-09-16"
+    "updatedAt": "2026-10-04"
   },
   {
     "id": "shows-like-oz-9",
@@ -3201,7 +3201,6 @@
       "paralyzed",
       "derelict",
       "crystal-blue",
-      "tower-4",
       "alice-isnt-dead",
       "malevolent",
       "archive-81",
@@ -3212,7 +3211,8 @@
       "ghost-wax",
       "modes-of-thought-in-anterran-literature",
       "the-magnus-protocol",
-      "the-subjective-truth"
+      "the-subjective-truth",
+      "tower-4"
     ],
     "showReasons": {
       "how-i-died": "Rule match: ongoing + Mystery.",
@@ -3221,7 +3221,6 @@
       "paralyzed": "Rule match: ongoing + Mystery.",
       "derelict": "Rule match: ongoing + Mystery.",
       "crystal-blue": "Rule match: ongoing + Mystery.",
-      "tower-4": "Rule match: ongoing + Mystery.",
       "alice-isnt-dead": "Rule match: ongoing + Mystery.",
       "malevolent": "Rule match: ongoing + Mystery.",
       "archive-81": "Rule match: ongoing + Mystery.",
@@ -3232,7 +3231,8 @@
       "ghost-wax": "Rule match: ongoing + Mystery.",
       "modes-of-thought-in-anterran-literature": "Rule match: ongoing + Mystery.",
       "the-magnus-protocol": "Rule match: ongoing + Mystery.",
-      "the-subjective-truth": "Rule match: ongoing + Mystery."
+      "the-subjective-truth": "Rule match: ongoing + Mystery.",
+      "tower-4": "Rule match: ongoing + Mystery."
     },
     "automation": {
       "mode": "rule",
@@ -3257,7 +3257,7 @@
     "featured": false,
     "order": 405,
     "createdAt": "2026-09-20",
-    "updatedAt": "2026-09-20"
+    "updatedAt": "2026-10-04"
   },
   {
     "id": "completed-drama",

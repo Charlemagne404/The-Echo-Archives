@@ -441,23 +441,29 @@ test("compact Library controls on cards and show pages pass semantic checks", { 
 
   try {
     await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
-    const cardControl = page.locator('[data-library-control="card"]').first();
-    const cardSummary = cardControl.locator("summary");
-    await cardSummary.press("Enter");
+    const quickSave = page.locator("button.library-card-quick-save").first();
+    const quickSaveShowId = await quickSave.getAttribute("data-library-show-id");
     await page.waitForFunction((showId) => {
-      const details = document.querySelector(`[data-library-control="card"][data-library-show-id="${CSS.escape(showId)}"]`);
-      return details?.open === true;
-    }, await cardControl.getAttribute("data-library-show-id"));
-    const cardState = cardControl.locator("[data-library-state-select]");
-    await cardState.waitFor({ state: "visible" });
-    await assertAxeClean(page, "open show-card Library controls");
-    assert.equal(await cardControl.evaluate((node) => node.closest("a") !== null), false, "the control stays outside the card link");
-    await cardState.selectOption("saved");
+      const button = document.querySelector(`button.library-card-quick-save[data-library-show-id="${CSS.escape(showId)}"]`);
+      return button && !button.disabled;
+    }, quickSaveShowId);
+    await quickSave.focus();
     await page.waitForFunction((showId) => {
-      const control = document.querySelector(`[data-library-control="card"][data-library-show-id="${CSS.escape(showId)}"]`);
-      return control?.querySelector("summary")?.textContent?.includes("Saved") === true && control.open === false;
-    }, await cardControl.getAttribute("data-library-show-id"));
-    assert.equal(await cardSummary.evaluate((node) => node === document.activeElement), true);
+      const button = document.querySelector(`button.library-card-quick-save[data-library-show-id="${CSS.escape(showId)}"]`);
+      return button && Number.parseFloat(getComputedStyle(button).opacity) >= 0.99;
+    }, quickSaveShowId);
+    await quickSave.press("Space");
+    await page.waitForFunction((showId) => {
+      const button = document.querySelector(`button.library-card-quick-save[data-library-show-id="${CSS.escape(showId)}"]`);
+      return button?.getAttribute("aria-pressed") === "true";
+    }, quickSaveShowId);
+    await assertAxeClean(page, "saved show-card quick-save controls");
+    assert.equal(await quickSave.evaluate((node) => node.closest("a") !== null), false, "the control stays outside the card link");
+    await page.waitForFunction((showId) => {
+      const button = document.querySelector(`button.library-card-quick-save[data-library-show-id="${CSS.escape(showId)}"]`);
+      return button?.getAttribute("aria-label")?.includes("Current status: Saved.") === true;
+    }, quickSaveShowId);
+    assert.equal(await quickSave.getAttribute("aria-pressed"), "true");
 
     await gotoSmokePage(page, `${baseUrl}/shows/${encodeURIComponent(firstShowId)}`, { waitUntil: "networkidle" });
     const detailControl = page.locator('[data-library-control="detail"]');

@@ -179,10 +179,48 @@ export function sendAnalyticsPayload(payload) {
   try {
     const request = fetcher.call(runtimeWindow, "/api/analytics/events", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "X-Echo-Analytics-Visitor": String(payload?.visitorId || ""),
+        "X-Echo-Analytics-Session": String(payload?.sessionId || ""),
+        "X-Echo-Analytics-Event-Id": String(payload?.eventId || ""),
+        "X-Echo-Analytics-Path": String(payload?.pagePath || ""),
+        "X-Echo-Analytics-Source": String(payload?.source || ""),
+      },
       credentials: "same-origin",
       keepalive: true,
-      body: JSON.stringify(payload),
+      body: JSON.stringify({
+        eventId: String(payload?.eventId || ""),
+        eventName: String(payload?.eventName || ""),
+        pagePath: String(payload?.pagePath || ""),
+        properties: payload?.properties || {},
+      }),
+    });
+    Promise.resolve(request).catch(() => {});
+    return true;
+  } catch (_error) {
+    return false;
+  }
+}
+
+export function sendAnalyticsBatchPayload(payload) {
+  const runtimeWindow = getRuntimeWindow();
+  const fetcher = runtimeWindow?.fetch || globalThis.fetch;
+  if (typeof fetcher !== "function" || !Array.isArray(payload?.events) || payload.events.length === 0) return false;
+
+  try {
+    const request = fetcher.call(runtimeWindow, "/api/analytics/events/batch", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Echo-Analytics-Visitor": String(payload?.visitorId || ""),
+        "X-Echo-Analytics-Session": String(payload?.sessionId || ""),
+        "X-Echo-Analytics-Path": String(payload?.pagePath || ""),
+        "X-Echo-Analytics-Source": String(payload?.source || ""),
+      },
+      credentials: "same-origin",
+      keepalive: true,
+      body: JSON.stringify({ events: payload.events }),
     });
     Promise.resolve(request).catch(() => {});
     return true;

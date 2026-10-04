@@ -31,17 +31,38 @@ function makeElement(tagName, className = "", text = "") {
   return node;
 }
 
-function getEntryTitle(anchor, showId) {
-  const card = anchor.closest(".podcast-card-shell, .popular-card-shell, .detail-similar-card");
-  const heading = card?.querySelector("h2, h3, h4, [data-card-title]")
-    || anchor.closest(".detail-card-copy")?.querySelector("h2, h3, h4");
+function getEntryTitle(host, showId) {
+  const heading = host.querySelector("h2, h3, h4, [data-card-title]");
+  const anchor = host.querySelector("a[data-discovery-show-id]");
   const title = heading?.textContent?.trim()
-    || anchor.getAttribute("aria-label")?.replace(/^Open\s+/i, "").replace(/\s+in the archive$/i, "").trim();
+    || anchor?.getAttribute("aria-label")?.replace(/^Open\s+/i, "").replace(/\s+in the archive$/i, "").trim();
   return title || showId;
 }
 
 function makeStatusNode() {
   return makeElement("span", "library-control-status");
+}
+
+function createQuickSaveControl(showId, title) {
+  const button = makeElement("button", "library-card-quick-save");
+  button.type = "button";
+  button.dataset.libraryShowId = showId;
+  button.dataset.libraryControl = "card";
+  button.dataset.libraryQuickSave = "true";
+  button.dataset.libraryTitle = title;
+  button.setAttribute("aria-pressed", "false");
+  button.setAttribute("aria-label", `Save ${title} for later to your local Library`);
+
+  const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  icon.classList.add("library-card-quick-save-icon");
+  icon.setAttribute("viewBox", "0 0 24 24");
+  icon.setAttribute("aria-hidden", "true");
+  icon.setAttribute("focusable", "false");
+  const shape = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  shape.setAttribute("d", "M6.75 3.75h10.5a1.5 1.5 0 0 1 1.5 1.5v15l-6.75-4-6.75 4v-15a1.5 1.5 0 0 1 1.5-1.5Z");
+  icon.append(shape);
+  button.append(icon);
+  return button;
 }
 
 function createCardControl(showId, title, relationship = false) {
@@ -151,6 +172,23 @@ function renderControlState(control, runtimeState) {
   const title = control.dataset.libraryTitle || showId;
   const unavailable = runtimeState.loading || !runtimeState.storageAvailable || runtimeState.entries === null;
   if (control.dataset.libraryControl === "card") {
+    if (control.matches("button.library-card-quick-save")) {
+      control.disabled = unavailable;
+      control.dataset.librarySaved = String(Boolean(entry));
+      control.setAttribute("aria-pressed", String(Boolean(entry)));
+      control.setAttribute("aria-disabled", String(unavailable));
+      const label = !runtimeState.storageAvailable && !runtimeState.loading
+        ? `${title}: local Library saving is unavailable in this browser.`
+        : runtimeState.entries === null && !runtimeState.loading
+          ? `${title}: the local Library needs recovery before it can be changed.`
+          : entry
+            ? `Remove ${title} from your local Library. Current status: ${STATE_LABELS[entry.state]}.`
+            : `Save ${title} for later to your local Library`;
+      control.setAttribute("aria-label", label);
+      control.title = label;
+      return;
+    }
+
     const summary = control.querySelector("summary");
     const statusText = !runtimeState.storageAvailable && !runtimeState.loading
       ? "Unavailable"
@@ -222,28 +260,26 @@ function renderControlState(control, runtimeState) {
   summary.setAttribute("aria-disabled", String(unavailable));
 }
 
-function findCardHosts(anchor) {
-  const showId = anchor.dataset.discoveryShowId;
-  if (!showId) return [];
-  const shell = anchor.closest(".podcast-card-shell, .popular-card-shell");
-  if (shell) return [{ host: shell, relationship: false }];
-  const relationshipCopy = anchor.closest(".detail-similar-card")?.querySelector(".detail-card-copy");
-  if (relationshipCopy) return [{ host: relationshipCopy, relationship: true }];
-  return [];
+function findCardHosts(root = document) {
+  const selector = "[data-library-show-card][data-library-show-id]";
+  const hosts = root instanceof Element && root.matches(selector) ? [root] : [];
+  if (typeof root?.querySelectorAll === "function") {
+    hosts.push(...root.querySelectorAll(selector));
+  }
+  return hosts;
 }
 
 function ensureCardControls() {
   const runtimeState = getLibraryRuntimeState();
-  document.querySelectorAll("a[data-discovery-show-id]").forEach((anchor) => {
-    const showId = anchor.dataset.discoveryShowId;
-    findCardHosts(anchor).forEach(({ host, relationship }) => {
-      if (host.querySelector(`:scope > [data-library-control="card"][data-library-show-id="${CSS.escape(showId)}"]`)) return;
-      const control = createCardControl(showId, getEntryTitle(anchor, showId), relationship);
-      control.dataset.libraryTitle = getEntryTitle(anchor, showId);
-      host.append(control);
-      host.classList.add("library-card-host");
-      renderControlState(control, runtimeState);
-    });
+  findCardHosts().forEach((host) => {
+    const showId = host.dataset.libraryShowId;
+    if (!showId || host.querySelector(`:scope > [data-library-control="card"][data-library-show-id="${CSS.escape(showId)}"]`)) return;
+    const title = getEntryTitle(host, showId);
+    const control = createQuickSaveControl(showId, title);
+    control.dataset.libraryTitle = title;
+    host.append(control);
+    host.classList.add("library-card-host");
+    renderControlState(control, runtimeState);
   });
 }
 
@@ -439,7 +475,7 @@ function initMutationObserver() {
   };
   observer = new MutationObserver((records) => {
     const addedNodes = records.flatMap((record) => [...record.addedNodes]);
-    if (addedNodes.some((node) => subtreeHas(node, "a[data-discovery-show-id]"))) {
+    if (addedNodes.some((node) => subtreeHas(node, "[data-library-show-card][data-library-show-id]"))) {
       ensureCardControls();
     }
     if (addedNodes.some((node) => subtreeHas(node, ".podcast-detail .detail-actions"))) {

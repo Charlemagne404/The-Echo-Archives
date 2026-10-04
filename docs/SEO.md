@@ -55,13 +55,54 @@ Structured data must describe visible, supported content and use the same canoni
 Use stable `@id` values derived from the canonical URL and connect entities with `isPartOf`, `mainEntity`, and `breadcrumb`. Keep creator values, official links, genres, languages, dates, images, and collection reasons grounded in catalog data.
 
 Creator-page `dateModified` and sitemap `lastmod` use the authored entity
-review date. Social previews use the first connected cover from the current
-catalogue, with the archive wordmark as a deterministic fallback. Entity
-descriptions, aliases, official links, show counts, genres, and collection
+review date. Entity descriptions, aliases, official links, show counts, genres, and collection
 connections must remain source-backed; never manufacture biographies or
 complete-discography claims.
 
 Do not emit `AggregateRating`, review counts, awards, organizations, authors, social profiles, or authority claims unless the repository has real source data that supports them. Archive ratings are editorial, community ratings are listener responses, and creator verification is factual metadata confirmation; never merge these meanings in markup. Follow [Google’s structured-data policies](https://developers.google.com/search/docs/appearance/structured-data/sd-policies) and the relevant [Schema.org types](https://schema.org/PodcastSeries).
+
+## Automated social previews
+
+Normal `npm run build:pages` generates branded **1200×630 PNGs** with Sharp.
+`backend/lib/social-cards.js` builds a shared SVG template from structured inputs;
+bundled, licensed Lato font outlines make wrapping independent of host fonts.
+No browser, network request, or per-record artwork authoring is involved.
+Cards use the primary public website palette from
+`shared/styles/home/cards/01-surface.css`: near-black, warm white, and the
+orange-red archive accent. Cards use only the full public header wordmark
+(`echo-wordmark-nosub1.svg`), with a subtle warm gradient and faint circular
+background geometry. The wordmark sits above large left-aligned editorial type;
+show covers use a single square image, while entity and collection covers use a
+contained staggered stack. Every card visibly includes `echoarchives.net` at
+bottom-right. Brand asset bytes participate in cache fingerprints, so replacing
+the wordmark regenerates cards automatically.
+
+- Homepage, public information pages, and directories share `/images/generated/social/default.png` (The Echo Archives / Audio Drama Discovery).
+- Published shows use `/images/generated/social/shows/<id>.png`, with title, up to two catalogue genres, and a square crop of local cover art.
+- Collections use `/images/generated/social/collections/<id>.png`, with title and up to three distinct local covers. Authored anchor/cover selection takes precedence over member order; recommendation order is untouched.
+- Public creator/entity pages use `/images/generated/social/creators/<id>.png`, with name, source-backed entity type, and up to three explicitly connected show covers. These represent the current archive, not a complete discography or endorsement.
+
+`shared/archive-social.js` is the path/alt-text resolver used by build metadata,
+server-rendered show/collection/entity metadata, and browser hydration. OG and
+Twitter use the same absolute URL on `SITE_URL`, concise image alt text, and
+`summary_large_image`. Crawlers receive the correct URL in initial HTML.
+Social previews do not change canonical, robots, sitemap, or indexability rules.
+
+Cards and their input/output-hash manifest live only in the ignored generated
+social directory, which is included in normal deployment and deterministic-build
+fingerprints. Unchanged validated PNGs are reused without rewrites; deleted or
+unpublished records are pruned. Missing, remote-only, or placeholder covers use
+branded text layouts. Malformed local images warn and fall back; rasterization
+failures abort the build rather than emit empty/corrupt assets. Covers are bounded
+and cropped intentionally, and long titles wrap or truncate at grapheme boundaries.
+
+Card copy is limited to approved brand text and existing catalogue titles, genres,
+entity names/types, and explicit collection/entity relationships. Never add inferred
+relationships, verification, reviews, ratings, biographies, quotes, awards, statistics,
+or editorial claims to improve the artwork. Unicode supported by the bundled font
+renders directly; unsupported scripts use the font's missing-glyph symbol. Identical
+inputs are byte-reproducible on the same locked image-toolchain platform; clean builds
+and cached builds are tested separately.
 
 ## Indexability rules
 

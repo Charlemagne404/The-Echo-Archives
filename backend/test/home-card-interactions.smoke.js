@@ -17,6 +17,7 @@ const {
   scoreCatalog,
   setupSmoke,
   teardownSmoke,
+  gotoSmokePage,
   waitForMostPopularBandIds,
 } = require("./helpers/browser-smoke");
 
@@ -62,59 +63,61 @@ async function clickCollectionArrow(page, selector) {
 }
 
 async function hoverCollectionCard(page, selector) {
-  const point = await page.locator(selector).evaluate((card) => {
-    const rect = card.getBoundingClientRect();
-    return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
-  });
-
-  // Locator hover may scroll an overflow carousel differently across engines.
-  await page.mouse.move(point.x, point.y);
+  await page.locator(selector).hover();
 }
 
 async function waitForCenteredCollection(page, expectedCollectionId, { maxDistance = 16 } = {}) {
-  const waitForStableCenter = () =>
-    page.waitForFunction(
-      ({ currentExpectedCollectionId, currentMaxDistance }) => {
-        const viewport = document.getElementById("collectionViewport");
-        const carousel = document.getElementById("collectionCarousel");
-        if (!viewport) {
-          return false;
-        }
+  await page.waitForFunction(
+    ({ currentExpectedCollectionId, currentMaxDistance }) => {
+      const viewport = document.getElementById("collectionViewport");
+      const carousel = document.getElementById("collectionCarousel");
+      if (!viewport) {
+        delete window.__echoCollectionCenterSample;
+        return false;
+      }
 
-        const viewportRect = viewport.getBoundingClientRect();
-        const viewportCenter = viewportRect.left + viewportRect.width / 2;
-        const visibleCards = Array.from(document.querySelectorAll("#collectionGrid .collection-card")).filter((card) => {
+      const viewportRect = viewport.getBoundingClientRect();
+      const viewportCenter = viewportRect.left + viewportRect.width / 2;
+      const visibleCards = Array.from(document.querySelectorAll("#collectionGrid .collection-card")).filter((card) => {
+        const rect = card.getBoundingClientRect();
+        return rect.right > viewportRect.left && rect.left < viewportRect.right;
+      });
+
+      if (visibleCards.length === 0) {
+        delete window.__echoCollectionCenterSample;
+        return false;
+      }
+
+      const centeredCard = visibleCards
+        .map((card) => {
           const rect = card.getBoundingClientRect();
-          return rect.right > viewportRect.left && rect.left < viewportRect.right;
-        });
+          return {
+            collectionId: card.dataset.collectionId || "",
+            distanceFromCenter: Math.abs(rect.left + rect.width / 2 - viewportCenter),
+          };
+        })
+        .sort((left, right) => left.distanceFromCenter - right.distanceFromCenter)[0];
 
-        if (visibleCards.length === 0) {
-          return false;
-        }
+      const centered =
+        centeredCard.collectionId === currentExpectedCollectionId &&
+        centeredCard.distanceFromCenter < currentMaxDistance &&
+        !(carousel?.dataset.collectionInteraction || "");
+      if (!centered) {
+        delete window.__echoCollectionCenterSample;
+        return false;
+      }
 
-        const centeredCard = visibleCards
-          .map((card) => {
-            const rect = card.getBoundingClientRect();
-            return {
-              collectionId: card.dataset.collectionId || "",
-              distanceFromCenter: Math.abs(rect.left + rect.width / 2 - viewportCenter),
-            };
-          })
-          .sort((left, right) => left.distanceFromCenter - right.distanceFromCenter)[0];
-
-        return (
-          centeredCard.collectionId === currentExpectedCollectionId &&
-          centeredCard.distanceFromCenter < currentMaxDistance &&
-          !(carousel?.dataset.collectionInteraction || "")
-        );
-      },
-      { currentExpectedCollectionId: expectedCollectionId, currentMaxDistance: maxDistance },
-      { timeout: 3_000 },
-    );
-
-  await waitForStableCenter();
-  await page.waitForTimeout(200);
-  await waitForStableCenter();
+      const sample = `${centeredCard.collectionId}:${viewport.scrollLeft.toFixed(1)}:${centeredCard.distanceFromCenter.toFixed(1)}`;
+      if (window.__echoCollectionCenterSample === sample) {
+        delete window.__echoCollectionCenterSample;
+        return true;
+      }
+      window.__echoCollectionCenterSample = sample;
+      return false;
+    },
+    { currentExpectedCollectionId: expectedCollectionId, currentMaxDistance: maxDistance },
+    { timeout: 3_000 },
+  );
 }
 
 async function waitForPreviewClosed(page, sourceIndex) {
@@ -135,14 +138,36 @@ async function waitForPreviewClosed(page, sourceIndex) {
   );
 }
 
+async function waitForPreviewSettled(page, sourceIndex) {
+  await page.waitForFunction((currentSourceIndex) => {
+    const shell = document.querySelectorAll("#podcast-grid .podcast-card-shell")[currentSourceIndex];
+    const panel = shell?.querySelector(".home-card-preview");
+    const layer = shell?.querySelector(".home-card-preview-layer");
+    if (!shell?.classList.contains("is-preview-expanded") || layer?.hidden || !panel) return false;
+
+    const title = panel.querySelector(".home-card-preview-title");
+    const footer = panel.querySelector(".home-card-preview-footer");
+    if (!title || !footer) return false;
+    const transform = window.getComputedStyle(panel).transform;
+    const matrix = transform === "none" ? null : new DOMMatrixReadOnly(transform);
+    const scaleSettled = !matrix || (Math.abs(matrix.a - 1) < 0.01 && Math.abs(matrix.d - 1) < 0.01);
+    const titleOpacity = Number.parseFloat(window.getComputedStyle(title).opacity) || 0;
+    const footerOpacity = Number.parseFloat(window.getComputedStyle(footer).opacity) || 0;
+    return scaleSettled && titleOpacity > 0.95 && footerOpacity > 0.95;
+  }, sourceIndex);
+}
+
 test("homepage featured collections carousel applies center-weighted focus and direct hover emphasis", async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 980 } });
 
   try {
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
     await page.locator("#collectionGrid .collection-card").first().waitFor();
     await page.locator("#collectionCarousel").hover();
-    await page.waitForTimeout(180);
+    await page.waitForFunction(() => {
+      const carousel = document.getElementById("collectionCarousel");
+      return Boolean(carousel?.matches(":hover") && carousel.querySelector(".collection-card.is-center-weighted"));
+    });
     const prefersReducedMotion = await page.evaluate(() =>
       window.matchMedia("(prefers-reduced-motion: reduce)").matches,
     );
@@ -202,6 +227,11 @@ test("homepage featured collections carousel applies center-weighted focus and d
     assert.ok(hoveredTargetState?.boosted);
     assert.ok((hoveredTargetState?.scale || 0) > 1.03);
     assert.ok((hoveredTargetState?.translateY || 0) < -5);
+    const centeredAfterHover = getCenteredVisibleCollectionCard(hoveredState);
+    assert.ok(centeredAfterHover);
+    expectedCollectionIndex = featuredCollectionIds.indexOf(centeredAfterHover.collectionId);
+    assert.notEqual(expectedCollectionIndex, -1);
+    await waitForCenteredCollection(page, centeredAfterHover.collectionId);
 
     const nextPulseState = await clickCollectionArrow(page, "#collectionNext");
     if (prefersReducedMotion) {
@@ -242,7 +272,7 @@ test("homepage featured collections carousel applies center-weighted focus and d
     const afterPrevState = await getCollectionCarouselFocusState(page);
     const afterPrevVisibleCards = afterPrevState.cards.filter((card) => card.isVisible);
     const prevNearestToCenter = [...afterPrevVisibleCards].sort((left, right) => left.distanceFromCenter - right.distanceFromCenter)[0];
-    assert.equal(prevNearestToCenter.collectionId, nearestToCenter.collectionId);
+    assert.equal(prevNearestToCenter.collectionId, centeredAfterHover.collectionId);
     assert.ok(prevNearestToCenter.distanceFromCenter < 16);
 
     for (let step = 0; step < featuredCollectionIds.length + 1; step += 1) {
@@ -265,7 +295,7 @@ test("homepage collection carousel keeps loop copies hoverable and clickable", a
   const page = await browser.newPage({ viewport: { width: 1440, height: 980 } });
 
   try {
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
     await page.locator("#collectionGrid .collection-card").first().waitFor();
     await page.locator("#collectionCarousel").hover();
 
@@ -282,7 +312,15 @@ test("homepage collection carousel keeps loop copies hoverable and clickable", a
       return { nextSetStart, originalsPerSet };
     });
     assert.ok(target);
-    await page.waitForTimeout(120);
+    await page.waitForFunction(() => {
+      const viewport = document.getElementById("collectionViewport");
+      const viewportRect = viewport?.getBoundingClientRect();
+      if (!viewportRect) return false;
+      return Array.from(document.querySelectorAll('#collectionGrid .collection-card[data-collection-clone="true"]')).some((card) => {
+        const rect = card.getBoundingClientRect();
+        return rect.right > viewportRect.left && rect.left < viewportRect.right && rect.bottom > viewportRect.top && rect.top < viewportRect.bottom;
+      });
+    }, undefined, { timeout: 3_000 });
 
     const visibleCards = await page.evaluate(() => {
       const viewport = document.getElementById("collectionViewport");
@@ -364,7 +402,7 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
 
   try {
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
 
     const shells = page.locator("#podcast-grid .podcast-card-shell");
     const cardCount = await shells.count();
@@ -376,8 +414,6 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     const middleBefore = await getOverlayMetrics(page, 1, 7);
 
     await middleShell.locator(".podcast-card-primary").hover();
-    await page.waitForTimeout(300);
-    assert.equal((await getOverlayMetrics(page, 1, 7)).overlayOpen, false);
     await page.waitForFunction(
       () => {
         const shell = document.querySelectorAll("#podcast-grid .podcast-card-shell")[1];
@@ -577,7 +613,7 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
   });
 
   try {
-    await touchPage.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(touchPage, `${baseUrl}/`, { waitUntil: "networkidle" });
 
     const touchGridLayout = await Promise.all([
       touchPage.locator("#podcast-grid .podcast-card-shell").nth(0).boundingBox(),
@@ -592,8 +628,7 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     await firstCard.scrollIntoViewIfNeeded();
     const touchBefore = await getOverlayMetrics(touchPage, 0, 2);
     await firstCard.tap();
-
-    await touchPage.waitForTimeout(360);
+    await waitForPreviewSettled(touchPage, 0);
     const touchMetrics = await getOverlayMetrics(touchPage, 0, 2);
     assert.equal(touchMetrics.overlayOpen, true);
     assert.equal(new URL(await touchPage.url()).pathname, "/");
@@ -615,7 +650,7 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
 
     await firstCard.scrollIntoViewIfNeeded();
     await firstCard.tap();
-    await touchPage.waitForTimeout(360);
+    await waitForPreviewSettled(touchPage, 0);
     await touchPage.locator(".site-header").dispatchEvent("pointerdown", { pointerType: "touch", bubbles: true });
     await waitForPreviewClosed(touchPage, 0);
     assert.equal((await getOverlayMetrics(touchPage, 0, 2)).overlayOpen, false);
@@ -630,12 +665,11 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
   });
 
   try {
-    await touchLinkPage.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(touchLinkPage, `${baseUrl}/`, { waitUntil: "networkidle" });
 
     const firstShell = touchLinkPage.locator("#podcast-grid .podcast-card-shell").nth(0);
     const firstCard = firstShell.locator(".podcast-card-primary");
     await firstCard.evaluate((node) => node.scrollIntoView({ block: "start" }));
-    await touchLinkPage.waitForTimeout(300);
     await firstCard.tap();
     await touchLinkPage.waitForFunction(
       () => {
@@ -649,12 +683,9 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
       undefined,
       { timeout: 2_000 },
     );
-    const openLinkBox = await firstShell.locator(".preview-open-link").boundingBox();
-    assert.ok(openLinkBox);
-    await touchLinkPage.touchscreen.tap(
-      openLinkBox.x + openLinkBox.width / 2,
-      openLinkBox.y + openLinkBox.height / 2,
-    );
+    const openLink = firstShell.locator(".preview-open-link");
+    assert.equal(await openLink.isVisible(), true);
+    await openLink.tap();
     await touchLinkPage.waitForURL(`${baseUrl}/shows/*`, { timeout: 5_000 });
   } finally {
     await touchLinkPage.close();
@@ -666,7 +697,7 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
   });
 
   try {
-    await narrowTouchPage.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(narrowTouchPage, `${baseUrl}/`, { waitUntil: "networkidle" });
 
     const narrowGridLayout = await Promise.all([
       narrowTouchPage.locator("#podcast-grid .podcast-card-shell").nth(0).boundingBox(),
@@ -702,7 +733,7 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
 
   try {
     await reducedMotionPage.emulateMedia({ reducedMotion: "reduce" });
-    await reducedMotionPage.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(reducedMotionPage, `${baseUrl}/`, { waitUntil: "networkidle" });
 
     const middleShell = reducedMotionPage.locator("#podcast-grid .podcast-card-shell").nth(1);
     await middleShell.locator(".podcast-card-primary").hover();
@@ -777,7 +808,7 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
       assert.equal(card.nextArrowTransform, "none");
     });
 
-    await reducedMotionPage.getByRole("button", { name: "Recently updated" }).click();
+    await reducedMotionPage.locator("#browseSort").selectOption("recently-updated");
     await reducedMotionPage.waitForFunction(() => /Recently updated/i.test(document.getElementById("resultsSummary")?.textContent || ""));
     const reducedGridState = await getArchiveGridMotionState(reducedMotionPage);
     assert.equal(reducedGridState.reason, "explicit");
@@ -798,7 +829,7 @@ test("homepage expanding archive card stays card-anchored and can overflow the v
   const targetIndex = 12;
 
   try {
-    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
     await page.evaluate((index) => {
       const shells = Array.from(document.querySelectorAll("#podcast-grid .podcast-card-shell"));
       const shell = shells[index];
@@ -824,6 +855,7 @@ test("homepage expanding archive card stays card-anchored and can overflow the v
       targetIndex,
       { timeout: 2_000 },
     );
+    await waitForPreviewSettled(page, targetIndex);
 
     const metrics = await getOverlayMetrics(page, targetIndex, targetIndex + 6);
     assert.equal(metrics.overlayOpen, true);

@@ -18,7 +18,6 @@
   ],
   "showIds": [
     "wolf-359",
-    "tower-4",
     "startripper",
     "tumanbay",
     "old-gods-of-appalachia",
@@ -62,7 +61,8 @@
     "the-leviathan-chronicles",
     "mayfair-watchers-society",
     "victoriocity",
-    "the-once-and-future-nerd"
+    "the-once-and-future-nerd",
+    "tower-4"
   ],
   "showReasons": {
     "impact-winter": "Cinematic urgency and seasonal momentum make it easy to stay locked in.",
@@ -115,5 +115,5 @@
   "featured": true,
   "order": 10,
   "createdAt": "2026-06-01",
-  "updatedAt": "2026-09-17"
+  "updatedAt": "2026-10-04"
 }

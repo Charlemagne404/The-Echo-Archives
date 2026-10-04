@@ -23,7 +23,6 @@
     "red-valley",
     "spectre",
     "paralyzed",
-    "tower-4",
     "mabel",
     "borrasca",
     "welcome-to-night-vale",
@@ -115,7 +114,8 @@
     "scp-archives",
     "the-magnus-archives",
     "the-godfrey-audio-guide",
-    "crooked-river"
+    "crooked-river",
+    "tower-4"
   ],
   "showReasons": {
     "solar": "Tight survival tension fits a focused night listen.",
@@ -221,5 +221,5 @@
   "featured": false,
   "order": 70,
   "createdAt": "2026-06-23",
-  "updatedAt": "2026-09-17"
+  "updatedAt": "2026-10-04"
 }

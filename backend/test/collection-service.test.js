@@ -7,7 +7,8 @@ const path = require("node:path");
 const { openDatabase } = require("../lib/store/database");
 const { createCollectionStore } = require("../lib/store/collection-store");
 const { createCollectionService } = require("../lib/services/collection-service");
-const { readCatalogSource } = require("../../tools/lib/catalog-source");
+const { readCatalogSource, writeCollectionRecordsAtomically, writeShowRecordsAtomically } = require("../../tools/lib/catalog-source");
+const { runWithCatalogPublication } = require("../../tools/lib/catalog-publication-transaction");
 
 function writeJson(filePath, value) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -138,6 +139,68 @@ test("rule membership recalculation preserves manual removals and pins", async (
     assert.equal(context.store.listOverrides("completed-sci-fi").find((entry) => entry.showId === "finished-signal").decision, "remove");
     const memberships = context.store.listMemberships("completed-sci-fi", { includeInactive: false });
     assert.equal(memberships.find((entry) => entry.showId === "ongoing-signal").sourceType, "manual-pin");
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("review publication refresh joins its active catalogue transaction", async () => {
+  const context = createContext({
+    collections: [{
+      id: "full-reviews",
+      title: "Full Reviews",
+      description: "Shows with a complete archive review.",
+      kind: "rule-based",
+      automation: {
+        mode: "rule",
+        criteria: { all: [{ field: "reviewStatus", operator: "equals", value: "full-review" }], any: [], not: [] },
+      },
+      showIds: [],
+      showReasons: {},
+    }],
+  });
+  try {
+    const service = createCollectionService({
+      store: context.store,
+      staticRoot: context.siteRoot,
+      loadCatalogImpl: async () => readCatalogSource(context.siteRoot).shows,
+      buildCatalogImpl: async () => {},
+    });
+    const show = context.shows.find((entry) => entry.id === "finished-signal");
+    const publication = writeShowRecordsAtomically(context.siteRoot, [{ ...show, reviewStatus: "full-review" }], { deferCommit: true });
+    try {
+      await runWithCatalogPublication(publication.publicationToken, () =>
+        service.refreshForShows([show.id], "review-publication", { joinExistingPublication: true }));
+      publication.commit();
+    } catch (error) {
+      publication.rollback();
+      throw error;
+    }
+
+    const source = readCatalogSource(context.siteRoot);
+    assert.equal(source.shows.find((entry) => entry.id === show.id).reviewStatus, "full-review");
+    assert.deepEqual(source.collections[0].showIds, [show.id]);
+    assert.equal(fs.existsSync(path.join(context.siteRoot, ".echo-catalog-transaction")), false);
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("unrelated collection writes cannot join an active review publication", () => {
+  const context = createContext();
+  try {
+    const show = context.shows.find((entry) => entry.id === "finished-signal");
+    const publication = writeShowRecordsAtomically(context.siteRoot, [{ ...show, reviewStatus: "full-review" }], { deferCommit: true });
+    try {
+      assert.throws(
+        () => writeCollectionRecordsAtomically(context.siteRoot, [{ id: "route-one", title: "Concurrent edit" }], { joinExisting: true }),
+        (error) => error.statusCode === 503,
+      );
+      assert.equal(readCatalogSource(context.siteRoot).shows.find((entry) => entry.id === show.id).reviewStatus, "full-review");
+      assert.equal(fs.existsSync(path.join(context.siteRoot, ".echo-catalog-transaction")), true);
+    } finally {
+      publication.rollback();
+    }
   } finally {
     cleanup(context);
   }

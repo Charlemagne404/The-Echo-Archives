@@ -1,6 +1,7 @@
 import { FILTER_COUNT_PULSE_DURATION_MS, restartAnimationClass } from "./filter-motion.js";
 import { getActiveFilterCount } from "./filter-state.js";
 import { formatFilterBucketStatus, formatFilterGroupCount, getBucketSelectionCount } from "./filter-utils.js";
+import { HOME_SORT_OPTIONS } from "./layout.js";
 
 export function renderQuickFilters({ quickFiltersRoot, quickFilters, onClearAllFilters, onToggleTagFilter }) {
   const tags = [{ id: "all", label: "All" }, ...quickFilters];
@@ -27,30 +28,23 @@ export function renderQuickFilters({ quickFiltersRoot, quickFilters, onClearAllF
   });
 }
 
-export function renderBrowseModes({ browseModesRoot, onModeChange }) {
-  const modes = [
-    { id: "default", label: "Default order" },
-    { id: "recently-updated", label: "Recently updated" },
-  ];
-  const existingButtons = new Map(
-    Array.from(browseModesRoot.querySelectorAll(".browse-mode-button[data-browse-mode]"))
-      .filter((button) => button instanceof HTMLButtonElement)
-      .map((button) => [button.dataset.browseMode || "", button]),
-  );
+export function renderBrowseModes({ browseModesRoot, sortMode, sortModeExplicit = false, query = "", onModeChange }) {
+  const select = browseModesRoot?.querySelector("#browseSort");
+  if (!(select instanceof HTMLSelectElement)) return;
 
-  modes.forEach((mode) => {
-    const button = existingButtons.get(mode.id) || document.createElement("button");
-    button.className = "browse-mode-button";
-    button.type = "button";
-    button.dataset.browseMode = mode.id;
-    button.textContent = mode.label;
-    button.disabled = false;
-    button.removeAttribute("aria-disabled");
-    button.onclick = () => {
-      onModeChange(mode.id);
-    };
-    browseModesRoot.appendChild(button);
-  });
+  const modes = query
+    ? [{ id: "search-relevance", label: "Search relevance" }, ...HOME_SORT_OPTIONS]
+    : HOME_SORT_OPTIONS;
+  select.replaceChildren(...modes.map((mode) => {
+    const option = document.createElement("option");
+    option.value = mode.id;
+    option.textContent = mode.label;
+    return option;
+  }));
+  select.value = query && !sortModeExplicit ? "search-relevance" : sortMode;
+  select.disabled = false;
+  select.removeAttribute("aria-disabled");
+  select.onchange = () => onModeChange(select.value);
 }
 
 export function syncHomeControls({
@@ -65,6 +59,7 @@ export function syncHomeControls({
   query,
   selectedCollectionId,
   sortMode,
+  sortModeExplicit = false,
 }) {
   const selectedCount = getActiveFilterCount(filters);
   const bucketMap = new Map((filterMenuBuckets || []).map((bucket) => [bucket.id, bucket]));
@@ -72,19 +67,27 @@ export function syncHomeControls({
   quickFiltersRoot?.querySelectorAll(".quick-filter").forEach((button) => {
     const filter = button.dataset.chipFilter || "";
     const isActive =
-      (filter === "all" && selectedCount === 0 && !query && !selectedCollectionId && sortMode === "default") ||
+      (filter === "all" && selectedCount === 0 && !query && !selectedCollectionId && sortMode === "popular" && !sortModeExplicit) ||
       (filter !== "all" && filters.tags.has(filter));
 
     button.classList.toggle("is-active", isActive);
     button.setAttribute("aria-pressed", String(isActive));
   });
 
-  browseModesRoot?.querySelectorAll(".browse-mode-button").forEach((button) => {
-    const mode = button.dataset.browseMode || "default";
-    const isActive = sortMode === mode;
-    button.classList.toggle("is-active", isActive);
-    button.setAttribute("aria-pressed", String(isActive));
-  });
+  const browseSort = browseModesRoot?.querySelector("#browseSort");
+  if (browseSort instanceof HTMLSelectElement) {
+    let relevanceOption = browseSort.querySelector('option[value="search-relevance"]');
+    if (query && !relevanceOption) {
+      relevanceOption = document.createElement("option");
+      relevanceOption.value = "search-relevance";
+      relevanceOption.textContent = "Search relevance";
+      browseSort.prepend(relevanceOption);
+    } else if (!query) {
+      relevanceOption?.remove();
+      relevanceOption = null;
+    }
+    browseSort.value = query && !sortModeExplicit ? "search-relevance" : sortMode;
+  }
 
   filterOptionGrid?.querySelectorAll(".filter-option").forEach((button) => {
     const groupId = button.dataset.filterGroup || "";
@@ -145,7 +148,7 @@ export function syncHomeControls({
   }
 
   if (filterClear) {
-    filterClear.hidden = selectedCount === 0 && !query && !selectedCollectionId && sortMode === "default";
+    filterClear.hidden = selectedCount === 0 && !query && !selectedCollectionId && !sortModeExplicit;
   }
 }
 

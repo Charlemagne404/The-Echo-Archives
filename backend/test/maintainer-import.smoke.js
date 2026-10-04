@@ -323,7 +323,9 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     assert.equal(await page.locator('textarea[name="archiveTake"]').inputValue(), "A published verdict.");
     await page.locator('textarea[name="archiveTake"]').fill("An edited verdict.");
     await page.getByRole("button", { name: "Save changes" }).click();
-    await page.getByText("Review changes saved.").waitFor();
+    await page.waitForFunction(() =>
+      document.querySelector("#maintainerDetailMeta[role=\"status\"]")?.textContent?.trim() === "Review changes saved.",
+    );
     assert.equal(calls.reviewDraft, 1);
     assert.equal(calls.lastReviewDraftPayload.archiveTake, "An edited verdict.");
     assert.equal(await page.getByText("Published archive review", { exact: false }).count() > 0, true);
@@ -439,6 +441,158 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     const privateStateEgress = observedMaintainerRequests.filter(({ url, body, referer }) => /EchoLibraryPrivateStateCanary|personalContext|personalDiscovery|privateRating|libraryState|\"state\"\s*:|\"rating\"\s*:\s*4/i.test(`${url}\n${body}\n${referer}`));
     assert.deepEqual(privateStateEgress, [], "maintainer requests and referrers exclude browser-local Library state");
   } finally {
+    await context.close();
+  }
+});
+
+test("maintainer review editing ignores stale detail responses and publishes once", async () => {
+  const context = await browser.newContext({
+    viewport: { width: 390, height: 844 },
+    serviceWorkers: "block",
+  });
+  const page = await context.newPage();
+  let slowRequestStarted;
+  let releaseSlowRequest;
+  let releaseDraftSave;
+  let draftSaveStarted;
+  const slowStarted = new Promise((resolve) => { slowRequestStarted = resolve; });
+  const slowResponseGate = new Promise((resolve) => { releaseSlowRequest = resolve; });
+  const draftStarted = new Promise((resolve) => { draftSaveStarted = resolve; });
+  const draftResponseGate = new Promise((resolve) => { releaseDraftSave = resolve; });
+  const calls = { draft: [], publish: [] };
+  let reviewPublished = false;
+  const details = {
+    "slow-show": { id: "slow-show", title: "Slow Show" },
+    "fast-show": { id: "fast-show", title: "Fast Show" },
+  };
+  const makeDetail = (showId) => {
+    const show = details[showId];
+    return {
+      show: {
+        ...show,
+        reviewStatus: reviewPublished && showId === "fast-show" ? "full-review" : "planned",
+        ratings: { archive: 8.5 },
+        tones: ["Tense"],
+        formats: ["Serialized"],
+        bestFor: ["Late listening"],
+        similarTo: ["neighbor-a", "neighbor-b", "neighbor-c"],
+        similarReasons: { "neighbor-a": "Adjacent in tone.", "neighbor-b": "A second route.", "neighbor-c": "A third route." },
+      },
+      review: { archiveTake: "A short take.", spoilerFreeReview: ["A spoiler-safe paragraph."], thoughts: [], quote: { text: "", attribution: "" } },
+      factualCurrent: true,
+      editorialMissing: [],
+      collections: [
+        { id: "route-one", title: "Route One", selected: true, reason: "A clear match." },
+        { id: "route-two", title: "Route Two", selected: true, reason: "A second route." },
+        { id: "easy-first-steps", title: "Start here", selected: true, reason: "" },
+      ],
+    };
+  };
+  const respond = (route, payload, status = 200) => route.fulfill({
+    status,
+    contentType: "application/json",
+    body: JSON.stringify(payload),
+  });
+
+  await page.route("**/api/maintainer/imports**", async (route) => {
+    const pathname = new URL(route.request().url()).pathname;
+    if (pathname === "/api/maintainer/imports/discovery") return respond(route, { sources: [], runs: [] });
+    if (pathname === "/api/maintainer/imports") return respond(route, listPayload([]));
+    return respond(route, { error: "Unexpected import request." }, 404);
+  });
+  await page.route("**/api/maintainer/elevations**", async (route) => {
+    const request = route.request();
+    const url = new URL(request.url());
+    const pathname = url.pathname;
+    if (request.method() === "GET" && pathname === "/api/maintainer/elevations") {
+      const target = url.searchParams.get("target") || "indexed-only";
+      const items = target === "full-review" ? [
+        { showId: "slow-show", title: "Slow Show", reviewStatus: "planned", target, score: 40, factors: [], blockers: [], eligible: true },
+        { showId: "fast-show", title: "Fast Show", reviewStatus: "planned", target, score: 35, factors: [], blockers: [], eligible: true },
+      ] : target === "published" && reviewPublished ? [
+        { showId: "fast-show", title: "Fast Show", reviewStatus: "full-review", target, score: 0, factors: ["Published archive review"], blockers: [], eligible: true },
+      ] : [];
+      return respond(route, { target, items });
+    }
+    if (request.method() === "GET" && pathname.startsWith("/api/maintainer/elevations/")) {
+      const showId = pathname.split("/").at(-1);
+      if (showId === "slow-show") {
+        slowRequestStarted();
+        await slowResponseGate;
+      }
+      try {
+        return await respond(route, makeDetail(showId));
+      } catch {
+        return;
+      }
+    }
+    if (request.method() === "PUT" && pathname.endsWith("/review-draft")) {
+      calls.draft.push(JSON.parse(request.postData() || "{}"));
+      draftSaveStarted();
+      await draftResponseGate;
+      return respond(route, makeDetail("fast-show"));
+    }
+    if (request.method() === "POST" && pathname.endsWith("/review-publish")) {
+      calls.publish.push({ showId: pathname.split("/").at(-2), body: JSON.parse(request.postData() || "{}") });
+      reviewPublished = true;
+      return respond(route, { showId: "fast-show", reviewStatus: "full-review" });
+    }
+    return respond(route, { error: "Unexpected elevation request." }, 404);
+  });
+
+  try {
+    await page.goto(`${baseUrl}/maintainer/imports.html`, { waitUntil: "networkidle" });
+    const passphraseInput = page.locator("#maintainerPassphrase");
+    if (await passphraseInput.isVisible()) {
+      await passphraseInput.fill("smoke-maintainer");
+      await page.getByRole("button", { name: "Unlock import lane" }).click();
+    }
+    await page.locator("#maintainerAppShell").waitFor({ state: "visible" });
+    await page.getByRole("tab", { name: /Build a full review/ }).click();
+
+    await page.locator('[data-elevation-select="slow-show"]').click();
+    await slowStarted;
+    await page.locator('[data-elevation-select="fast-show"]').click();
+    const selectedShowHeading = page.locator("#maintainerElevationDetail").getByRole("heading", { name: "Fast Show", exact: true });
+    await selectedShowHeading.waitFor();
+    releaseSlowRequest();
+    await page.waitForTimeout(50);
+    assert.equal(await selectedShowHeading.innerText(), "Fast Show");
+
+    const startHereReason = page.getByLabel("Placement reason for Start here", { exact: true });
+    assert.equal(await startHereReason.isVisible(), true);
+    const saveDraftButton = page.getByRole("button", { name: "Save editorial draft", exact: true });
+    await saveDraftButton.click();
+    await draftStarted;
+    assert.equal(await saveDraftButton.isDisabled(), true);
+    releaseDraftSave();
+    await page.waitForFunction(() => {
+      const status = document.querySelector("#maintainerDetailMeta")?.textContent || "";
+      return status.includes("Editorial draft saved.") && status.includes("Skipped Start here because no placement reason was entered.");
+    });
+    await startHereReason.fill("A clear entry point for listeners exploring the archive.");
+
+    const publishButton = page.getByRole("button", { name: "Publish full review" });
+    await publishButton.evaluate((button) => { button.click(); button.click(); });
+    assert.equal(await publishButton.isDisabled(), true);
+    await page.waitForFunction(() => document.querySelector("#maintainerDetailMeta")?.textContent?.includes("Full review published."));
+    await page.waitForFunction(() => document.querySelector('[data-elevation-lane="published"]')?.getAttribute("aria-selected") === "true");
+    assert.equal(await selectedShowHeading.innerText(), "Fast Show");
+    assert.equal(calls.draft.length, 2);
+    assert.equal(calls.publish.length, 1);
+    assert.equal(calls.publish[0].showId, "fast-show");
+    assert.deepEqual(calls.draft[0].collections, [
+      { id: "route-one", reason: "A clear match." },
+      { id: "route-two", reason: "A second route." },
+    ]);
+    assert.deepEqual(calls.draft[1].collections, [
+      { id: "route-one", reason: "A clear match." },
+      { id: "route-two", reason: "A second route." },
+      { id: "easy-first-steps", reason: "A clear entry point for listeners exploring the archive." },
+    ]);
+  } finally {
+    releaseSlowRequest();
+    releaseDraftSave();
     await context.close();
   }
 });

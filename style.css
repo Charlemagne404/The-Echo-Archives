@@ -1477,8 +1477,6 @@ img.is-image-fallback {
 #filterToggle:focus-visible,
 #stickyFilterToggle:hover,
 #stickyFilterToggle:focus-visible,
-.browse-mode-button:hover,
-.browse-mode-button:focus-visible,
 .collection-action:hover,
 .collection-action:focus-visible,
 #sendMessageButton:hover,
@@ -1865,6 +1863,7 @@ img.is-image-fallback {
   text-align: left;
   text-decoration: none;
   box-shadow: 0 20px 42px rgba(0, 0, 0, 0.28);
+  transform-origin: top right;
   transition:
     transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
     opacity 180ms ease,
@@ -1878,10 +1877,7 @@ img.is-image-fallback {
 
 .home-page .editorial-badges {
   position: absolute;
-  inset: 0 0 auto;
-  height: 0;
-  padding-bottom: 100%;
-  aspect-ratio: 1 / 1;
+  inset: 0;
   z-index: 2;
   pointer-events: none;
   overflow: hidden;
@@ -1896,8 +1892,7 @@ img.is-image-fallback {
 .home-page .editorial-badge-artwork {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: auto;
+  height: 100%;
   object-fit: contain;
   border: 0;
   border-radius: 0;
@@ -1909,6 +1904,7 @@ img.is-image-fallback {
   left: var(--editorial-corner-left);
   z-index: 3;
   width: var(--editorial-corner-width);
+  aspect-ratio: 192 / 503;
 }
 
 .home-page .editorial-badge-ribbon {
@@ -2000,7 +1996,7 @@ img.is-image-fallback {
   text-transform: uppercase;
 }
 
-.home-page .podcast-card:hover,
+.home-page .podcast-card-shell:hover > .podcast-card,
 .home-page .podcast-card:focus-visible {
   transform: translateY(-4px) scale(1.012);
   border-color: rgba(255, 255, 255, 0.24);
@@ -2017,12 +2013,16 @@ img.is-image-fallback {
   box-shadow: var(--shadow-md);
 }
 
-.home-page .podcast-card img {
+.home-page .podcast-card > .show-card-artwork {
+  flex: 0 0 auto;
   width: 100%;
   aspect-ratio: 1 / 1;
-  height: auto;
-  object-fit: cover;
-  object-position: center;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.home-page .podcast-card > .show-card-artwork > img:not(.editorial-badge-artwork) {
+  z-index: 1;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
@@ -2030,7 +2030,7 @@ img.is-image-fallback {
 
 .home-page .podcast-card .editorial-badge-artwork {
   width: 100%;
-  height: auto;
+  height: 100%;
   aspect-ratio: auto;
   object-fit: contain;
   object-position: center;
@@ -3520,13 +3520,6 @@ img.is-image-fallback {
     min-height: 56px;
   }
 
-  .home-page #search,
-  .home-page #stickySearch {
-    min-height: 54px;
-    padding: 14px 12px 14px 44px;
-    font-size: 1rem;
-  }
-
   .search-icon {
     left: 14px;
   }
@@ -3688,7 +3681,12 @@ img.is-image-fallback {
 
   .browse-modes {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .browse-sort-select {
+    min-width: 0;
+    width: 100%;
   }
 
   .quick-filters .quick-filter {
@@ -3952,6 +3950,33 @@ img.is-image-fallback {
     width: calc(100vw - (var(--chat-floating-edge) * 2));
     height: min(640px, calc(var(--visual-viewport-height) - max(24px, var(--safe-area-top)) - max(24px, var(--safe-area-bottom))));
   }
+
+  #stickyBrowseBar .sticky-search-toggle,
+  #stickyBrowseBar #stickyFilterToggle {
+    min-height: 44px;
+  }
+
+  #stickyBrowseBar .sticky-search-toggle {
+    flex-basis: 44px;
+    width: 44px;
+  }
+
+  #stickyBrowseBar .sticky-search-field {
+    min-height: 44px;
+  }
+
+  .home-page #search,
+  .home-page #stickySearch {
+    min-height: 54px;
+    padding: 14px 12px 14px 44px;
+    font-size: 1rem;
+  }
+
+  #stickyBrowseBar #stickySearch {
+    min-height: 42px;
+    padding: 9px 14px 9px 42px;
+    font-size: 0.96rem;
+  }
 }
 
 @media (max-width: 780px) {
@@ -4127,7 +4152,13 @@ img.is-image-fallback {
   }
 
   .browse-modes {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .browse-sort-select {
+    min-width: 0;
+    width: 100%;
   }
 
   .active-browse-state {
@@ -4260,7 +4291,12 @@ img.is-image-fallback {
   }
 
   .recently-added-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #stickyBrowseBar .sticky-search-toggle,
+  #stickyBrowseBar #stickyFilterToggle {
+    min-height: 44px;
   }
 
   .collection-card {
@@ -4377,10 +4413,10 @@ img.is-image-fallback {
   .sticky-browse-bar[data-mode="collapsed"] .sticky-browse-bar-inner,
   .sticky-browse-bar-inner {
     width: 100%;
-    gap: 8px;
+    gap: 6px;
     margin: 0;
-    padding: 8px;
-    border-radius: 16px;
+    padding: 5px 6px;
+    border-radius: 14px;
   }
 
   .sticky-browse-bar[data-mode="collapsed"] .sticky-search-shell,
@@ -4399,7 +4435,7 @@ img.is-image-fallback {
     width: auto;
     min-width: 0;
     max-width: none;
-    min-height: 56px;
+    min-height: 44px;
     border-color: rgba(255, 255, 255, 0.14);
     background: rgba(7, 10, 13, 0.88);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
@@ -4410,8 +4446,9 @@ img.is-image-fallback {
 
   .sticky-browse-bar[data-mode="collapsed"] #stickySearch,
   .sticky-browse-bar #stickySearch {
-    min-height: 54px;
-    padding: 14px 12px 14px 44px;
+    min-height: 42px;
+    padding: 9px 12px 9px 42px;
+    font-size: 0.96rem;
     opacity: 1;
   }
 
@@ -4421,6 +4458,8 @@ img.is-image-fallback {
   }
 
   .sticky-browse-bar #stickyFilterToggle {
+    min-height: 44px;
+    height: 44px;
     justify-content: center;
     padding: 0;
   }
@@ -4478,45 +4517,6 @@ img.is-image-fallback {
     height: min(640px, calc(var(--visual-viewport-height) - max(16px, var(--safe-area-top)) - max(16px, var(--safe-area-bottom))));
     padding: 12px;
     border-radius: 22px;
-  }
-
-  #chat-toggle.chat-toggle-button {
-    right: max(8px, var(--safe-area-right));
-    bottom: max(12px, var(--safe-area-bottom));
-    width: clamp(46px, 14vw, 50px);
-    height: clamp(46px, 14vw, 50px);
-  }
-
-  .community-card-controls {
-    grid-template-columns: 1fr;
-    top: calc(100% - 2px);
-  }
-
-  .community-card-widget {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-
-  .community-card-toggle {
-    grid-template-columns: 1fr;
-  }
-
-  .community-card-summary {
-    max-width: none;
-  }
-
-  .community-card-action {
-    justify-self: start;
-  }
-
-  .community-card-controls::before {
-    right: auto;
-    left: 24px;
-  }
-
-  #backToTop {
-    right: calc(max(12px, var(--safe-area-right)) + 60px);
-    bottom: max(16px, var(--safe-area-bottom));
   }
 
 }
@@ -4622,6 +4622,47 @@ img.is-image-fallback {
   }
 }
 
+@media (max-width: 560px) {
+  #chat-toggle.chat-toggle-button {
+    right: max(8px, var(--safe-area-right));
+    bottom: max(12px, var(--safe-area-bottom));
+    width: clamp(46px, 14vw, 50px);
+    height: clamp(46px, 14vw, 50px);
+  }
+
+  .community-card-controls {
+    grid-template-columns: 1fr;
+    top: calc(100% - 2px);
+  }
+
+  .community-card-widget {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .community-card-toggle {
+    grid-template-columns: 1fr;
+  }
+
+  .community-card-summary {
+    max-width: none;
+  }
+
+  .community-card-action {
+    justify-self: start;
+  }
+
+  .community-card-controls::before {
+    right: auto;
+    left: 24px;
+  }
+
+  #backToTop {
+    right: calc(max(12px, var(--safe-area-right)) + 60px);
+    bottom: max(16px, var(--safe-area-bottom));
+  }
+}
+
 /* Source: shared/styles/home/cards/20-motion.css */
 /* Grid motion stays on the shell so card hover/preview transforms can keep their own layer. */
 #podcast-grid {
@@ -4710,7 +4751,8 @@ img.is-image-fallback {
 
 /* Source: shared/styles/home/cards/21-library.css */
 .podcast-card-shell.library-card-host,
-.popular-card-shell.library-card-host {
+.popular-card-shell.library-card-host,
+.detail-similar-card.library-card-host {
   position: relative;
 }
 
@@ -4756,6 +4798,105 @@ img.is-image-fallback {
   top: 8px;
   right: 8px;
   max-width: min(145px, calc(100vw - 24px));
+}
+
+.library-card-quick-save {
+  --library-card-quick-save-size: 40px;
+  --library-card-quick-save-inset-top: 8px;
+  --library-card-quick-save-inset-right: 8px;
+  position: absolute;
+  z-index: 12;
+  top: var(--library-card-quick-save-inset-top);
+  right: var(--library-card-quick-save-inset-right);
+  display: grid;
+  width: var(--library-card-quick-save-size);
+  height: var(--library-card-quick-save-size);
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: rgba(247, 247, 243, 0.88);
+  box-shadow: none;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: none;
+  transform-origin:
+    calc(100% + var(--library-card-quick-save-inset-right))
+    calc(0px - var(--library-card-quick-save-inset-top));
+  transition: opacity 180ms ease, transform 180ms cubic-bezier(0.22, 1, 0.36, 1), color 140ms ease;
+  touch-action: manipulation;
+}
+
+.library-card-quick-save-icon {
+  width: var(--library-card-quick-save-icon-size, 26px);
+  height: var(--library-card-quick-save-icon-size, 26px);
+  fill: transparent;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.library-card-host:hover > .library-card-quick-save,
+.library-card-host:focus-within > .library-card-quick-save,
+.library-card-quick-save:focus-visible,
+.library-card-quick-save[data-library-saved="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.home-page .library-card-host:hover > .library-card-quick-save,
+.home-page .library-card-host.preview-source-active > .library-card-quick-save,
+.home-page .library-card-host:focus-within > .library-card-quick-save {
+  transform: translateY(-4px) scale(1.012);
+}
+
+.detail-similar-card > .library-card-quick-save {
+  top: 20px;
+  right: auto;
+  left: 20px;
+}
+
+.recently-added-grid .podcast-card-shell > .library-card-quick-save {
+  right: auto;
+  left: calc(var(--recently-added-cover-size, 122px) - 48px);
+}
+
+.detail-more-from .podcast-card-shell > .library-card-quick-save {
+  right: auto;
+  left: calc(var(--more-from-art-size, 176px) - 48px);
+}
+
+.library-card-quick-save[data-library-saved="true"] {
+  color: #ffb198;
+}
+
+.library-card-quick-save[data-library-saved="true"] .library-card-quick-save-icon {
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 1.3;
+}
+
+.library-card-quick-save:hover:not(:disabled),
+.library-card-quick-save:focus-visible {
+  color: #ffd0bd;
+}
+
+.library-card-quick-save:focus-visible {
+  outline: 2px solid #ffd0bd;
+  outline-offset: 1px;
+  border-radius: 6px;
+}
+
+.library-card-quick-save:focus-visible .library-card-quick-save-icon {
+  filter: drop-shadow(0 0 3px #ffc6ae);
+}
+
+.library-card-quick-save:disabled {
+  color: rgba(240, 238, 233, 0.56);
+  cursor: not-allowed;
 }
 
 .library-card-control > summary,
@@ -5003,6 +5144,12 @@ img.is-image-fallback {
     right: 6px;
   }
 
+  .library-card-quick-save {
+    --library-card-quick-save-size: 42px;
+    --library-card-quick-save-inset-top: 6px;
+    --library-card-quick-save-inset-right: 6px;
+  }
+
   .library-card-control > summary,
   .library-detail-control > summary {
     min-height: 36px;
@@ -5016,6 +5163,12 @@ img.is-image-fallback {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .library-card-quick-save {
+    scroll-behavior: auto;
+    transition: none !important;
+    transform: none !important;
+  }
+
   .library-card-control,
   .library-detail-control,
   .library-card-panel,
@@ -5024,6 +5177,16 @@ img.is-image-fallback {
   .library-detail-panel button {
     scroll-behavior: auto;
     transition: none !important;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .library-card-quick-save:not([data-library-saved="true"]) {
+    --library-card-quick-save-size: 44px;
+    --library-card-quick-save-icon-size: 28px;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
   }
 }
 
@@ -5101,6 +5264,29 @@ img.is-image-fallback {
 /* Avoid an SVG/image fallback creating an inline overflow strip while it loads. */
 .home-page :where(img) {
   height: auto;
+}
+
+/* Show artwork slots own their aspect ratio so broken or source-less images
+ * cannot change the surrounding card geometry. */
+.show-card-artwork {
+  position: relative;
+  display: block;
+  min-inline-size: 0;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.06), transparent 54%),
+    linear-gradient(145deg, #15191f, #080a0e 72%);
+}
+
+.show-card-artwork > img:not(.editorial-badge-artwork) {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* The archive has intentionally cinematic, single-line desktop heroes. At the

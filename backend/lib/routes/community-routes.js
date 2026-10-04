@@ -158,7 +158,7 @@ function createCommunityRouter({
       });
       recordAnalytics({
         ...getAnalyticsRequestContext(req),
-        eventName: "Rating Submitted",
+        eventName: result.ratingChangeType === "changed" ? "Rating Changed" : "Rating Submitted",
         properties: { show_id: req.params.podcastId },
         userAgent: req.get("user-agent") || "",
         internal: isInternalRequest(req),

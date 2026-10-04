@@ -46,13 +46,17 @@
   border-radius: 12px;
 }
 
-.detail-more-from .podcast-card img {
+.detail-more-from .podcast-card > .show-card-artwork {
   grid-column: 1;
   grid-row: 1 / span 3;
   width: var(--more-from-art-size);
-  height: var(--more-from-art-size);
+  aspect-ratio: 1 / 1;
   border-radius: 10px;
-  border-bottom: 0;
+}
+
+.detail-more-from .show-card-artwork > img {
+  border: 0;
+  border-radius: inherit;
 }
 
 .detail-more-from .editorial-badges {
@@ -153,9 +157,8 @@
     column-gap: 14px;
   }
 
-  .detail-more-from .podcast-card img {
+  .detail-more-from .podcast-card > .show-card-artwork {
     width: var(--more-from-art-size);
-    height: var(--more-from-art-size);
     aspect-ratio: 1 / 1;
     grid-column: 1;
     grid-row: 1 / span 3;

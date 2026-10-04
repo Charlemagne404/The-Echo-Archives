@@ -1,4 +1,5 @@
 import { ensureCommunityProfile, fetchCommunityConfig } from "./community/api.js";
+import { getDiscoveryAnalyticsHeaders } from "./discovery-analytics.js";
 import { renderListenerReviewCard } from "./render-show/sections.js";
 
 function getVisibleDotIndexes(totalSlides, currentIndex) {
@@ -27,7 +28,10 @@ async function updateHelpful(reviewId, helpful) {
   await ensureCommunityProfile();
   const response = await fetch(`/api/reviews/${encodeURIComponent(reviewId)}/helpful`, {
     method: helpful ? "PUT" : "DELETE",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      ...getDiscoveryAnalyticsHeaders(),
+    },
     body: JSON.stringify({}),
   });
   const payload = await response.json().catch(() => ({}));

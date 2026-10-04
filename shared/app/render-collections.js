@@ -159,11 +159,7 @@ export function createCollectionCard(collection, index, showMap, { isClone = fal
   count.className = "collection-card-count";
   count.textContent = getShowCountLabel(collectionShows);
 
-  const cta = document.createElement("span");
-  cta.className = "collection-card-cta";
-  cta.textContent = "Open";
-
-  footer.append(count, cta);
+  footer.append(count);
   card.append(titleNode, footer);
   return card;
 }

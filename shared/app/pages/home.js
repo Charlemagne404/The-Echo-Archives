@@ -28,11 +28,12 @@ import { createRecentlyAddedController } from "./home/recently-added.js";
 import { createHomeResultsController } from "./home/results.js";
 import { syncResultsSurfaceVisibility } from "./home/results-motion.js";
 import { createHomeSearchPerformanceCache } from "./home/search-cache.js";
-import { createHomeState } from "./home/state.js";
+import { createHomeState, getHomeFilterStateSignature, hasMeaningfulHomeState } from "./home/state.js";
 import { createStickyBrowseController } from "./home/sticky-search.js";
 import { createStickyBrowseVisibilityController } from "./home/sticky-visibility.js";
 import { seedHomeStateFromParams } from "./home/url-state.js";
 import { createHomePersonalContext } from "./home/personal-context.js";
+import { createHomeSortController } from "./home/sort-controller.js";
 import {
   bucketDiscoveryClearedFilterCount,
   bucketDiscoveryFilterCount,
@@ -135,6 +136,7 @@ export async function initializeHomePage() {
   let favoriteRoutesCarouselControls = null;
   let searchRenderTimer = 0;
   let searchHistoryCommit = null;
+  let homeSortController = null;
   let commitPendingSearchHistory = () => false;
   if (elements.activeBrowseClear) {
     elements.activeBrowseClear.hidden = true;
@@ -143,14 +145,6 @@ export async function initializeHomePage() {
 
   const getActiveFilterCountForAnalytics = () =>
     Object.values(state.filters).reduce((count, values) => count + values.size, 0) + Number(Boolean(state.selectedCollectionId));
-  const getFilterStateSignature = () =>
-    JSON.stringify({
-      query: state.query.trim(),
-      selectedCollectionId: state.selectedCollectionId,
-      filters: Object.fromEntries(
-        Object.entries(state.filters).map(([groupId, values]) => [groupId, Array.from(values).sort()]),
-      ),
-    });
 
   const recordFilterClear = ({ clearScope = "all", filterGroup = "", count, hadSearch }) => {
     if (count <= 0 && !hadSearch) {
@@ -174,15 +168,8 @@ export async function initializeHomePage() {
     });
   };
 
-  const hasMeaningfulHomeState = () =>
-    Boolean(
-      state.query ||
-        state.selectedCollectionId ||
-        state.sortMode !== "default" ||
-        Object.values(state.filters).some((values) => values.size > 0),
-    );
-
   const clearAllFilters = () => {
+    homeSortController?.cancelPendingChanges();
     if (searchRenderTimer) {
       window.clearTimeout(searchRenderTimer);
       searchRenderTimer = 0;
@@ -190,7 +177,7 @@ export async function initializeHomePage() {
     searchHistoryCommit?.cancel();
     const activeFilterCount = getActiveFilterCountForAnalytics();
     const hadSearch = Boolean(state.query.trim());
-    const hadMeaningfulState = hasMeaningfulHomeState();
+    const hadMeaningfulState = hasMeaningfulHomeState(state);
     recordFilterClear({
       clearScope: "all",
       count: activeFilterCount,
@@ -198,7 +185,8 @@ export async function initializeHomePage() {
     });
     Object.values(state.filters).forEach((values) => values.clear());
     state.selectedCollectionId = "";
-    state.sortMode = "default";
+    state.sortMode = "popular";
+    state.sortModeExplicit = false;
     state.query = "";
     syncSearchInputs("");
     filterSurfaceController?.renderAll();
@@ -318,7 +306,7 @@ export async function initializeHomePage() {
 
       if (state.query.trim()) {
         homeAnalytics.pendingSearch = {
-          signature: getFilterStateSignature(),
+          signature: getHomeFilterStateSignature(state),
           query: state.query,
           resultCountBucket,
           activeFilterCountBucket: bucketDiscoveryFilterCount(activeFilterCount),
@@ -390,6 +378,13 @@ export async function initializeHomePage() {
     onCommit: () => commitCurrentUrlState(),
   });
   commitPendingSearchHistory = () => searchHistoryCommit.commitNow();
+  homeSortController = createHomeSortController({
+    elements,
+    publishedShows,
+    state,
+    commitPendingSearchHistory,
+    scheduleHomeResults,
+  });
   const stickyBrowseVisibilityController = createStickyBrowseVisibilityController({
     elements,
     state,
@@ -409,14 +404,10 @@ export async function initializeHomePage() {
   });
   renderBrowseModes({
     browseModesRoot: elements.browseModesRoot,
-    onModeChange: (modeId) => {
-      if (state.sortMode === modeId) {
-        return;
-      }
-      commitPendingSearchHistory();
-      state.sortMode = modeId;
-      scheduleHomeResults("explicit", "push");
-    },
+    sortMode: state.sortMode,
+    sortModeExplicit: state.sortModeExplicit,
+    query: state.query,
+    onModeChange: homeSortController.changeMode,
   });
   recentlyAddedController.render();
   mostPopularController.renderMostPopularSection();
@@ -445,7 +436,10 @@ export async function initializeHomePage() {
   });
   syncSearchInputs(state.query);
   stickyBrowseController.syncStickySearchMode();
+  await homeSortController.initialize();
   renderHomeResults("initial");
+  document.body.dataset.homePopularityReady = "true";
+  document.dispatchEvent(new Event("echo:home-popularity-ready"));
 
   const handleSearchInput = (event) => {
     const input = event.currentTarget;
@@ -519,6 +513,7 @@ export async function initializeHomePage() {
   stickyBrowseVisibilityController.observe();
 
   window.addEventListener("popstate", () => {
+    homeSortController?.cancelPendingChanges();
     searchHistoryCommit?.cancel();
     if (searchRenderTimer) {
       window.clearTimeout(searchRenderTimer);

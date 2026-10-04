@@ -18,13 +18,13 @@
     "mirrors"
   ],
   "showIds": [
-    "tower-4",
     "archive-81",
     "malevolent",
     "mirrors",
     "alice-isnt-dead",
     "station-151",
-    "red-valley"
+    "red-valley",
+    "tower-4"
   ],
   "showReasons": {
     "tower-4": "The clearest next stop for listeners who want remote-post unease without leaving the slow-burn lane.",
@@ -38,5 +38,5 @@
   "featured": false,
   "order": 160,
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-09-04"
+  "updatedAt": "2026-10-04"
 }

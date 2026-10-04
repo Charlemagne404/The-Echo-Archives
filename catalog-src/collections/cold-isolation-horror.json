@@ -17,7 +17,6 @@
     "how-i-died"
   ],
   "showIds": [
-    "tower-4",
     "station-151",
     "copperheart-a-riggstories-audio-drama",
     "how-i-died",
@@ -31,7 +30,8 @@
     "station-blue",
     "uncanny-valley",
     "wake-of-corrosion",
-    "the-elmwood-strain"
+    "the-elmwood-strain",
+    "tower-4"
   ],
   "showReasons": {
     "the-white-vault": "This is the clearest match for the collection's remote-expedition horror.",
@@ -53,5 +53,5 @@
   "featured": true,
   "order": 50,
   "createdAt": "2026-06-01",
-  "updatedAt": "2026-09-17"
+  "updatedAt": "2026-10-04"
 }

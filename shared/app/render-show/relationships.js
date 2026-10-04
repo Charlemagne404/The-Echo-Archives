@@ -180,8 +180,10 @@ function renderSimilarCards(source, recommendationSource, neighbors, offset = 0)
       ? '<span class="detail-similar-confidence">Limited metadata</span>'
       : "";
     return `
-      <article class="detail-similar-card" data-recommendation-source="${source}"${confidence ? ` data-recommendation-confidence="${confidence}"` : ""}>
-        <img src="${escapeHtml(coverSource.src)}"${coverSource.srcset ? ` srcset="${escapeHtml(coverSource.srcset)}" sizes="${escapeHtml(coverSource.sizes)}"` : ""} alt="${escapeHtml(neighbor.imageAlt || neighbor.coverAlt || `${neighbor.title || "Untitled show"} cover art`)}" width="320" height="320" loading="lazy" decoding="async" />
+      <article class="detail-similar-card" data-library-show-card="true" data-library-show-id="${escapeHtml(neighbor.id || "")}" data-recommendation-source="${source}"${confidence ? ` data-recommendation-confidence="${confidence}"` : ""}>
+        <div class="detail-similar-artwork show-card-artwork">
+          <img src="${escapeHtml(coverSource.src)}"${coverSource.srcset ? ` srcset="${escapeHtml(coverSource.srcset)}" sizes="${escapeHtml(coverSource.sizes)}"` : ""} alt="${escapeHtml(neighbor.imageAlt || neighbor.coverAlt || `${neighbor.title || "Untitled show"} cover art`)}" width="320" height="320" loading="lazy" decoding="async" />
+        </div>
         <div class="detail-card-copy">
           <h4>${escapeHtml(neighbor.title || "Untitled show")}</h4>
           ${confidenceLabel}

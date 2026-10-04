@@ -144,6 +144,39 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
   try {
     await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
     assert.equal(await page.locator("#activeBrowseState").isVisible(), false);
+    await page.locator("#recentlyAdded .recently-added-grid .podcast-card").first().waitFor();
+    const browsePolishMetrics = await page.evaluate(() => {
+      const recentGrid = document.querySelector("#recentlyAddedGrid");
+      const recentCard = recentGrid?.querySelector(".podcast-card");
+      const archiveCard = document.querySelector("#podcast-grid .podcast-card");
+      const title = recentCard?.querySelector("h2");
+      const metadata = recentCard?.querySelector(".tags");
+      const art = recentCard?.querySelector(":scope > img");
+      const collection = document.querySelector("#collectionGrid .collection-card");
+      const columns = recentGrid ? getComputedStyle(recentGrid).gridTemplateColumns.trim().split(/\s+/).length : 0;
+      return {
+        recentHeight: recentCard?.getBoundingClientRect().height || 0,
+        archiveHeight: archiveCard?.getBoundingClientRect().height || 0,
+        recentColumns: columns,
+        artLeft: art?.getBoundingClientRect().left || 0,
+        titleLeft: title?.getBoundingClientRect().left || 0,
+        titleWhiteSpace: title ? getComputedStyle(title).whiteSpace : "",
+        metadataWhiteSpace: metadata ? getComputedStyle(metadata).whiteSpace : "",
+        collectionIsLink: collection instanceof HTMLAnchorElement,
+        collectionOpenPills: document.querySelectorAll(".collection-card-cta").length,
+      };
+    });
+    assert.equal(browsePolishMetrics.recentColumns, 4, "Recently Added uses a four-up desktop grid");
+    assert.ok(browsePolishMetrics.recentHeight > 0 && browsePolishMetrics.recentHeight <= 140);
+    assert.ok(browsePolishMetrics.archiveHeight > browsePolishMetrics.recentHeight * 2, "Recently Added remains much shorter than standard show cards");
+    assert.ok(browsePolishMetrics.artLeft < browsePolishMetrics.titleLeft, "Recently Added cover art sits to the left of its show information");
+    assert.equal(browsePolishMetrics.titleWhiteSpace, "nowrap");
+    assert.equal(browsePolishMetrics.metadataWhiteSpace, "nowrap");
+    assert.equal(browsePolishMetrics.collectionIsLink, true, "collection cards remain whole-card links");
+    assert.equal(browsePolishMetrics.collectionOpenPills, 0, "collection cards no longer render a redundant Open pill");
+    const collectionLink = page.locator("#collectionGrid .collection-card").first();
+    await collectionLink.focus();
+    assert.equal(await collectionLink.evaluate((node) => node === document.activeElement), true, "collection cards remain keyboard focusable links");
     const defaultGridState = await getArchiveGridMotionState(page);
     const defaultVisibleIds = defaultGridState.visibleIds;
 
@@ -315,6 +348,19 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     });
     await page.waitForFunction(() => document.getElementById("stickyBrowseBar")?.dataset.visibility === "visible");
     await page.waitForFunction(() => document.getElementById("stickyBrowseBar")?.dataset.mode === "collapsed");
+    const collapsedToolbarMetrics = await page.evaluate(() => {
+      const bar = document.getElementById("stickyBrowseBar");
+      const inner = bar?.querySelector(".sticky-browse-bar-inner");
+      const toggle = bar?.querySelector("#stickySearchToggle");
+      return {
+        height: inner?.getBoundingClientRect().height || 0,
+        searchIcon: toggle ? getComputedStyle(toggle.querySelector(".sticky-search-toggle-search-icon")).display : "none",
+        collapseIcon: toggle ? getComputedStyle(toggle.querySelector(".sticky-search-toggle-arrow")).display : "none",
+      };
+    });
+    assert.ok(collapsedToolbarMetrics.height <= 60, `collapsed floating bar stays compact (${collapsedToolbarMetrics.height}px)`);
+    assert.notEqual(collapsedToolbarMetrics.searchIcon, "none");
+    assert.equal(collapsedToolbarMetrics.collapseIcon, "none");
     await ensureFilterMenuOpen(page, { dropdownId: "stickyFilterDropdown", toggleSelector: "#stickyFilterToggle" });
     await page.waitForFunction(() => {
       const summary = document.querySelector('#stickyFilterDropdown [data-filter-bucket-status="archiveStatus"]');
@@ -336,7 +382,7 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     await page.keyboard.press("Escape");
     await page.waitForFunction(() => document.getElementById("stickyFilterDropdown")?.hidden === true);
 
-    await page.getByRole("button", { name: "Recently updated" }).click();
+    await page.locator("#browseSort").selectOption("recently-updated");
     await page.waitForTimeout(20);
     const sortMotionState = await getArchiveGridMotionState(page);
     assert.equal(sortMotionState.reason, "explicit");
@@ -361,12 +407,48 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     await page.waitForFunction(() => document.getElementById("stickyBrowseBar")?.dataset.visibility === "visible");
     await page.waitForFunction(() => document.getElementById("stickyBrowseBar")?.dataset.mode === "collapsed");
 
+    const gridTopBeforeExpansion = await page.locator("#podcast-grid").evaluate((grid) => grid.getBoundingClientRect().top);
     await page.locator("#stickySearchToggle").click();
     await page.waitForFunction(
       () =>
         document.getElementById("stickyBrowseBar")?.dataset.mode === "expanded" &&
         document.activeElement?.id === "stickySearch",
     );
+    const expandedToolbarMetrics = await page.evaluate(() => {
+      const bar = document.getElementById("stickyBrowseBar");
+      const inner = bar?.querySelector(".sticky-browse-bar-inner");
+      const toggle = bar?.querySelector("#stickySearchToggle");
+      const search = bar?.querySelector("#stickySearch");
+      const field = bar?.querySelector("#stickySearchField");
+      const filter = bar?.querySelector("#stickyFilterToggle");
+      const grid = document.getElementById("podcast-grid");
+      const gridRect = grid?.getBoundingClientRect();
+      const barRect = bar?.getBoundingClientRect();
+      return {
+        height: inner?.getBoundingClientRect().height || 0,
+        searchHeight: search?.getBoundingClientRect().height || 0,
+        filterHeight: filter?.getBoundingClientRect().height || 0,
+        toggleHeight: toggle?.getBoundingClientRect().height || 0,
+        fieldWidth: field?.getBoundingClientRect().width || 0,
+        searchIcon: toggle ? getComputedStyle(toggle.querySelector(".sticky-search-toggle-search-icon")).display : "none",
+        collapseIcon: toggle ? getComputedStyle(toggle.querySelector(".sticky-search-toggle-arrow")).display : "none",
+        barLeft: barRect?.left || 0,
+        barRight: barRect?.right || 0,
+        gridLeft: gridRect?.left || 0,
+        gridRight: gridRect?.right || 0,
+        gridTop: gridRect?.top || 0,
+      };
+    });
+    assert.ok(expandedToolbarMetrics.height <= 60, `expanded floating bar stays slim (${expandedToolbarMetrics.height}px)`);
+    assert.ok(expandedToolbarMetrics.searchHeight <= 44);
+    assert.ok(expandedToolbarMetrics.filterHeight <= 44);
+    assert.ok(expandedToolbarMetrics.toggleHeight <= 44);
+    assert.ok(expandedToolbarMetrics.fieldWidth >= 400, "expanded search keeps its generous width");
+    assert.equal(expandedToolbarMetrics.searchIcon, "none", "the expanded collapse control does not repeat the search icon");
+    assert.notEqual(expandedToolbarMetrics.collapseIcon, "none");
+    assert.ok(Math.abs(expandedToolbarMetrics.barLeft - expandedToolbarMetrics.gridLeft) <= 1);
+    assert.ok(Math.abs(expandedToolbarMetrics.barRight - expandedToolbarMetrics.gridRight) <= 1);
+    assert.ok(Math.abs(expandedToolbarMetrics.gridTop - gridTopBeforeExpansion) <= 1, "expanding the floating bar does not shift the grid");
     await page.locator("#stickySearch").fill("midnight");
     await page.waitForFunction(
       () =>
@@ -477,6 +559,181 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     await page.waitForFunction(
       () => (document.querySelector("#search")?.value || "") === "" && document.getElementById("activeBrowseState")?.hidden === true,
     );
+  } finally {
+    await page.close();
+  }
+});
+
+test("most listener ratings sorts the complete catalogue before pagination", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1200 }, reducedMotion: "reduce" });
+  const targetShow = showFixtures.at(-1);
+  assert.ok(targetShow?.id, "the smoke catalog should include a show beyond the first page");
+
+  await page.route("**/api/community/ratings/summary?*", async (route) => {
+    const url = new URL(route.request().url());
+    const ids = (url.searchParams.get("podcastIds") || "").split(",").filter(Boolean);
+    const summaries = Object.fromEntries(ids.map((id) => [id, {
+      averageRating: id === targetShow.id ? 9 : null,
+      ratingCount: id === targetShow.id ? 9 : 0,
+      minimumRatingCount: 3,
+    }]));
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ profileId: null, summaries }),
+    });
+  });
+
+  try {
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
+    await waitForInitialHomeResultPage(page, showFixtures.length);
+    await page.locator("#browseSort").selectOption("most-rated");
+    await page.waitForFunction(
+      (showId) => document.querySelector("#podcast-grid .podcast-card-shell")?.dataset.podcastId === showId,
+      targetShow.id,
+      { timeout: 10_000 },
+    );
+    assert.match(page.url(), /(?:\?|&)sort=most-rated(?:&|#|$)/);
+    assert.match((await page.locator("#resultsSummary").textContent()) || "", /Most listener ratings/i);
+  } finally {
+    await page.close();
+  }
+});
+
+test("Popular is the default and scores the complete catalogue before pagination", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1200 }, reducedMotion: "reduce" });
+  const targetShow = showFixtures.at(-1);
+  assert.ok(targetShow?.id, "the smoke catalog should include a show beyond the first page");
+  const finishedShows = showFixtures.filter((show) => show.completionStatus === "finished");
+  assert.ok(finishedShows.length > 1, "the smoke catalog should contain multiple finished shows");
+  const filteredHighScoreShow = finishedShows.at(-1);
+  const popularityScores = Object.fromEntries(showFixtures.map((show) => [
+    show.id,
+    show.id === targetShow.id ? 1000 : show.id === filteredHighScoreShow.id ? 200 : 0,
+  ]));
+  await page.route("**/api/popularity/scores", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        modelVersion: 1,
+        scores: popularityScores,
+      }),
+    });
+  });
+
+  try {
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
+    await waitForInitialHomeResultPage(page, showFixtures.length);
+    assert.equal(await page.locator("#browseSort").inputValue(), "popular");
+    assert.equal(await page.locator("#podcast-grid .podcast-card-shell").first().getAttribute("data-podcast-id"), targetShow.id);
+    assert.doesNotMatch(page.url(), /(?:\?|&)sort=/);
+    assert.match((await page.locator("#resultsSummary").textContent()) || "", /Popular/i);
+
+    await openFilterBucket(page, "archiveStatus");
+    await clickFilterOption(page, "completionStatus", "finished");
+    const highestScoredFinished = finishedShows.slice().sort((left, right) =>
+      popularityScores[right.id] - popularityScores[left.id] ||
+      String(left.title || "Untitled show").localeCompare(String(right.title || "Untitled show"), "en", { sensitivity: "base" }) ||
+      left.id.localeCompare(right.id),
+    )[0];
+    await page.waitForFunction(
+      (showId) => document.querySelector("#podcast-grid .podcast-card-shell")?.dataset.podcastId === showId,
+      highestScoredFinished.id,
+      { timeout: 10_000 },
+    );
+  } finally {
+    await page.close();
+  }
+});
+
+test("default search preserves relevance instead of applying the global Popular order", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1200 }, reducedMotion: "reduce" });
+  await page.route("**/api/popularity/scores", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        modelVersion: 1,
+        scores: Object.fromEntries(showFixtures.map((show) => [show.id, show.id === "midnight-burger" ? 0 : 100])),
+      }),
+    });
+  });
+
+  try {
+    await gotoSmokePage(page, `${baseUrl}/?q=midnight%20burger`, { waitUntil: "networkidle" });
+    await page.waitForFunction(() => document.querySelectorAll("#podcast-grid .podcast-card-shell").length > 0);
+    const initialIds = await page.locator("#podcast-grid .podcast-card-shell").evaluateAll((cards) => cards.map((card) => card.dataset.podcastId));
+    assert.ok(initialIds.length > 1, "the query should have multiple relevance-ranked results");
+    assert.equal(initialIds[0], "midnight-burger");
+    assert.equal(await page.locator("#browseSort").inputValue(), "search-relevance");
+
+    await page.locator("#browseSort").selectOption("title");
+    await page.waitForFunction(() => new URL(window.location.href).searchParams.get("sort") === "title");
+    await page.locator("#browseSort").selectOption("search-relevance");
+    await page.waitForFunction(() => !new URL(window.location.href).searchParams.has("sort"));
+    const restoredIds = await page.locator("#podcast-grid .podcast-card-shell").evaluateAll((cards) => cards.map((card) => card.dataset.podcastId));
+    assert.deepEqual(restoredIds, initialIds);
+  } finally {
+    await page.close();
+  }
+});
+
+test("homepage keeps Recently Added and the floating search compact on narrow screens", async () => {
+  const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+
+  try {
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
+    await page.locator("#recentlyAdded .recently-added-grid .podcast-card").first().waitFor();
+    const recentMetrics = await page.evaluate(() => {
+      const grid = document.getElementById("recentlyAddedGrid");
+      const card = grid?.querySelector(".podcast-card");
+      const title = card?.querySelector("h2");
+      const tags = card?.querySelector(".tags");
+      const art = card?.querySelector(":scope > img");
+      return {
+        columns: grid ? getComputedStyle(grid).gridTemplateColumns.trim().split(/\s+/).length : 0,
+        height: card?.getBoundingClientRect().height || 0,
+        artLeft: art?.getBoundingClientRect().left || 0,
+        titleLeft: title?.getBoundingClientRect().left || 0,
+        titleWhiteSpace: title ? getComputedStyle(title).whiteSpace : "",
+        tagsWhiteSpace: tags ? getComputedStyle(tags).whiteSpace : "",
+      };
+    });
+    assert.equal(recentMetrics.columns, 1, "Recently Added stacks into one compact horizontal card per row on phones");
+    assert.ok(recentMetrics.height > 0 && recentMetrics.height <= 130);
+    assert.ok(recentMetrics.artLeft < recentMetrics.titleLeft);
+    assert.equal(recentMetrics.titleWhiteSpace, "nowrap");
+    assert.equal(recentMetrics.tagsWhiteSpace, "nowrap");
+
+    await page.mouse.wheel(0, 1600);
+    await page.waitForFunction(() => window.scrollY >= window.innerHeight * 1.5);
+    await page.mouse.wheel(0, -48);
+    await page.waitForFunction(() => window.scrollY < window.innerHeight * 1.9);
+    await page.waitForFunction(() => document.getElementById("stickyBrowseBar")?.dataset.visibility === "visible");
+    const toolbar = await page.evaluate(() => {
+      const bar = document.getElementById("stickyBrowseBar");
+      const inner = bar?.querySelector(".sticky-browse-bar-inner");
+      const input = bar?.querySelector("#stickySearch");
+      const field = bar?.querySelector("#stickySearchField");
+      const filter = bar?.querySelector("#stickyFilterToggle");
+      const mainGrid = document.getElementById("podcast-grid");
+      return {
+        mode: bar?.dataset.mode || "",
+        height: inner?.getBoundingClientRect().height || 0,
+        inputHeight: input?.getBoundingClientRect().height || 0,
+        filterHeight: filter?.getBoundingClientRect().height || 0,
+        fieldWidth: field?.getBoundingClientRect().width || 0,
+        barLeft: bar?.getBoundingClientRect().left || 0,
+        gridLeft: mainGrid?.getBoundingClientRect().left || 0,
+      };
+    });
+    assert.equal(toolbar.mode, "expanded", "the existing always-expanded phone search remains intact");
+    assert.ok(toolbar.height <= 60, `phone floating bar stays slim (${toolbar.height}px)`);
+    assert.ok(toolbar.inputHeight <= 44);
+    assert.ok(toolbar.filterHeight >= 44 && toolbar.filterHeight <= 48);
+    assert.ok(toolbar.fieldWidth >= 200, "the phone search input retains practical width");
+    assert.ok(Math.abs(toolbar.barLeft - toolbar.gridLeft) <= 1);
   } finally {
     await page.close();
   }
@@ -758,11 +1015,11 @@ test("homepage most popular band renders a valid 4-card band and hides outside t
     await page.locator('.quick-filter[data-chip-filter="all"]').click();
     await page.waitForFunction(() => document.getElementById("mostPopular")?.hidden === false);
 
-    await page.getByRole("button", { name: "Recently updated" }).click();
+    await page.locator("#browseSort").selectOption("recently-updated");
     await page.waitForFunction(() => document.getElementById("mostPopular")?.hidden === true);
 
-    await page.getByRole("button", { name: "Default order" }).click();
-    await page.waitForFunction(() => document.getElementById("mostPopular")?.hidden === false);
+    await page.locator("#browseSort").selectOption("archive-order");
+    await page.waitForFunction(() => document.getElementById("mostPopular")?.hidden === true);
 
     await gotoSmokePage(page, `${baseUrl}/?collection=${firstCollectionId}#archive`, { waitUntil: "networkidle" });
     await page.waitForFunction(() => document.getElementById("mostPopular")?.hidden === true);

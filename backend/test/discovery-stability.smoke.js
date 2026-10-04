@@ -153,18 +153,21 @@ test("home browse keeps shareable state, restores scroll, highlights typo-tolera
     await page.waitForFunction(
       () =>
         (document.querySelector("#resultsSummary")?.textContent || "").includes('results for "derelct"') &&
-        document.querySelector("#podcast-grid .podcast-card h2")?.textContent?.includes("Derelict"),
+        document.querySelector('#podcast-grid [data-library-show-id="derelict"] [data-card-title]')?.textContent?.includes("Derelict") &&
+        document.querySelector("#browseSort")?.value === "search-relevance",
     );
 
     await openFilterBucket(page, "storyType");
     await page.locator('.filter-option[data-filter-group="genres"][data-filter-value="sci-fi"]').click();
     await page.waitForFunction(() => document.getElementById("filterCount")?.textContent?.trim() === "1");
-    await page.getByRole("button", { name: "Recently updated" }).click();
+    await page.locator("#browseSort").selectOption("recently-updated");
     await page.waitForFunction(
       () =>
-        document.querySelector('.browse-mode-button[data-browse-mode="recently-updated"]')?.getAttribute("aria-pressed") === "true" &&
-        document.querySelector("#podcast-grid .podcast-card h2 mark"),
+        document.querySelector("#browseSort")?.value === "recently-updated" &&
+        document.querySelector('#podcast-grid [data-library-show-id="derelict"] [data-card-title] mark'),
     );
+    await page.keyboard.press("Escape");
+    await page.waitForFunction(() => document.getElementById("filterDropdown")?.hidden === true);
 
     const stateBeforeNavigate = await page.evaluate(() => {
       const maxScrollTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
@@ -177,7 +180,7 @@ test("home browse keeps shareable state, restores scroll, highlights typo-tolera
     });
     await page.waitForFunction((scrollTarget) => window.scrollY >= Math.max(0, scrollTarget - 8), stateBeforeNavigate.scrollTarget);
 
-    await page.locator("#podcast-grid .podcast-card").first().click();
+    await page.locator('#podcast-grid [data-library-show-id="derelict"] a[href="/shows/derelict"]').click();
     await page.waitForURL(/\/shows\/[^/?#]+$/);
     await page.goBack({ waitUntil: "networkidle" });
 
@@ -185,7 +188,8 @@ test("home browse keeps shareable state, restores scroll, highlights typo-tolera
       (scrollTarget) =>
         (document.getElementById("search")?.value || "") === "derelct" &&
         document.getElementById("filterCount")?.textContent?.trim() === "1" &&
-        document.querySelector('.browse-mode-button[data-browse-mode="recently-updated"]')?.getAttribute("aria-pressed") === "true" &&
+        document.querySelector("#browseSort")?.value === "recently-updated" &&
+        document.querySelector('#podcast-grid [data-library-show-id="derelict"] [data-card-title] mark') &&
         window.scrollY >= Math.max(0, scrollTarget - 8),
       stateBeforeNavigate.scrollTarget,
       { timeout: 5_000 },
@@ -194,8 +198,8 @@ test("home browse keeps shareable state, restores scroll, highlights typo-tolera
     const restoredState = await page.evaluate(() => ({
       url: window.location.href,
       scrollY: window.scrollY,
-      title: document.querySelector("#podcast-grid .podcast-card h2")?.textContent?.trim() || "",
-      hasHighlight: Boolean(document.querySelector("#podcast-grid .podcast-card h2 mark")),
+      title: document.querySelector('#podcast-grid [data-library-show-id="derelict"] [data-card-title]')?.textContent?.trim() || "",
+      hasHighlight: Boolean(document.querySelector('#podcast-grid [data-library-show-id="derelict"] [data-card-title] mark')),
     }));
 
     assert.match(restoredState.url, /q=derelct/);
@@ -669,32 +673,87 @@ test("similarity collection pages render anchor context in the overview panel", 
 test("home discovery history restores combined states, empty results, and forward navigation", async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1200 }, reducedMotion: "reduce" });
 
-  const readHomeState = () => page.evaluate(() => ({
-    url: `${window.location.pathname}${window.location.search}${window.location.hash}`,
-    query: document.getElementById("search")?.value || "",
-    filterCount: document.getElementById("filterCount")?.textContent?.trim() || "0",
-    sort: document.querySelector('.browse-mode-button[aria-pressed="true"]')?.dataset.browseMode || "",
-    resultCards: document.querySelectorAll("#podcast-grid .podcast-card-shell").length,
-    empty: Boolean(document.getElementById("noResultsMsg")),
-  }));
+  const readHomeState = () => page.evaluate(() => {
+    const params = new URLSearchParams(window.location.search);
+    const activeFilters = Array.from(document.querySelectorAll('.filter-option[aria-pressed="true"]'))
+      .map((button) => `${button.dataset.filterGroup || ""}:${button.dataset.filterValue || ""}`)
+      .filter(Boolean);
+    const resultIds = Array.from(document.querySelectorAll('#podcast-grid > [data-library-show-card="true"][data-library-show-id]'))
+      .filter((shell) => !shell.classList.contains("is-grid-exiting"))
+      .map((shell) => shell.dataset.libraryShowId || "");
+    return {
+      url: `${window.location.pathname}${window.location.search}${window.location.hash}`,
+      query: document.getElementById("search")?.value || "",
+      filterCount: document.getElementById("filterCount")?.textContent?.trim() || "0",
+      activeFilters: [...new Set(activeFilters)].sort(),
+      sort: document.querySelector("#browseSort")?.value || "",
+      sortLabel: document.querySelector("#browseSort option:checked")?.textContent?.trim() || "",
+      explicitSort: params.has("sort"),
+      collectionId: params.get("collection") || "",
+      resultIds,
+      resultCards: resultIds.length,
+      summary: document.getElementById("resultsSummary")?.textContent?.trim() || "",
+      empty: Boolean(document.getElementById("noResultsMsg")),
+    };
+  });
+
+  const waitForHomeState = (expected) => page.waitForFunction((expectedState) => {
+    const params = new URLSearchParams(window.location.search);
+    const activeFilters = Array.from(document.querySelectorAll('.filter-option[aria-pressed="true"]'))
+      .map((button) => `${button.dataset.filterGroup || ""}:${button.dataset.filterValue || ""}`)
+      .filter(Boolean);
+    const resultIds = Array.from(document.querySelectorAll('#podcast-grid > [data-library-show-card="true"][data-library-show-id]'))
+      .filter((shell) => !shell.classList.contains("is-grid-exiting"))
+      .map((shell) => shell.dataset.libraryShowId || "");
+    return `${window.location.pathname}${window.location.search}${window.location.hash}` === expectedState.url &&
+      (document.getElementById("search")?.value || "") === expectedState.query &&
+      (document.getElementById("filterCount")?.textContent?.trim() || "0") === expectedState.filterCount &&
+      JSON.stringify([...new Set(activeFilters)].sort()) === JSON.stringify(expectedState.activeFilters) &&
+      (document.querySelector("#browseSort")?.value || "") === expectedState.sort &&
+      (document.querySelector("#browseSort option:checked")?.textContent?.trim() || "") === expectedState.sortLabel &&
+      params.has("sort") === expectedState.explicitSort &&
+      (params.get("collection") || "") === expectedState.collectionId &&
+      JSON.stringify(resultIds) === JSON.stringify(expectedState.resultIds) &&
+      Boolean(document.getElementById("noResultsMsg")) === expectedState.empty &&
+      (document.getElementById("resultsSummary")?.textContent?.trim() || "") === expectedState.summary;
+  }, expected);
 
   try {
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
     await page.waitForFunction(() => document.querySelectorAll("#podcast-grid .podcast-card-shell").length > 0);
     const initialHistoryLength = await page.evaluate(() => history.length);
+    const initialState = await readHomeState();
+    assert.equal(initialState.sort, "popular");
+    assert.equal(initialState.sortLabel, "Popular");
+    assert.equal(initialState.explicitSort, false);
 
     await page.locator("#search").fill("space");
     await page.waitForFunction(() => (document.getElementById("resultsSummary")?.textContent || "").includes('results for "space"'));
-    await page.waitForTimeout(650);
+    await page.waitForFunction(
+      (expectedLength) => history.length === expectedLength && new URLSearchParams(window.location.search).get("q") === "space",
+      initialHistoryLength + 1,
+    );
     const searchState = await readHomeState();
     assertUrlSearchParams(searchState.url, { q: "space" });
+    assert.equal(searchState.sort, "search-relevance");
+    assert.equal(searchState.sortLabel, "Search relevance");
+    assert.equal(searchState.explicitSort, false);
 
     await openFilterBucket(page, "storyType");
     await page.locator('.filter-option[data-filter-group="genres"][data-filter-value="sci-fi"]').click();
-    await page.waitForFunction(() => document.getElementById("filterCount")?.textContent?.trim() === "1");
-    await page.locator('.browse-mode-button[data-browse-mode="recently-updated"]').click();
+    await page.waitForFunction(() =>
+      document.getElementById("filterCount")?.textContent?.trim() === "1" &&
+      new URLSearchParams(window.location.search).get("genre") === "sci-fi" &&
+      document.querySelector('.filter-option[data-filter-group="genres"][data-filter-value="sci-fi"]')?.getAttribute("aria-pressed") === "true",
+    );
+    const filteredState = await readHomeState();
+    assert.equal(filteredState.sort, "search-relevance");
+    assert.deepEqual(filteredState.activeFilters, ["genres:sci-fi"]);
+    await page.locator("#browseSort").selectOption("recently-updated");
     await page.waitForFunction(
-      () => document.querySelector('.browse-mode-button[data-browse-mode="recently-updated"]')?.getAttribute("aria-pressed") === "true",
+      () => document.querySelector("#browseSort")?.value === "recently-updated" &&
+        new URLSearchParams(window.location.search).get("sort") === "recently-updated" &&
+        (document.getElementById("resultsSummary")?.textContent || "").includes("Recently updated"),
     );
     const combinedState = await readHomeState();
     assertUrlSearchParams(combinedState.url, {
@@ -704,80 +763,133 @@ test("home discovery history restores combined states, empty results, and forwar
     });
 
     await page.locator("#search").fill("no-such-echo-history-state");
-    await page.waitForFunction(() => Boolean(document.getElementById("noResultsMsg")));
-    await page.waitForTimeout(650);
+    await page.waitForFunction(() =>
+      Boolean(document.getElementById("noResultsMsg")) &&
+      new URLSearchParams(window.location.search).get("q") === "no-such-echo-history-state" &&
+      new URLSearchParams(window.location.search).get("genre") === "sci-fi" &&
+      new URLSearchParams(window.location.search).get("sort") === "recently-updated",
+    );
+    await page.waitForFunction((expectedLength) => history.length === expectedLength, initialHistoryLength + 4);
     const emptyState = await readHomeState();
     assert.equal(emptyState.empty, true);
-    assertUrlSearchParams(emptyState.url, { q: "no-such-echo-history-state" });
+    assert.deepEqual(emptyState.activeFilters, ["genres:sci-fi"]);
+    assert.equal(emptyState.sort, "recently-updated");
+    assertUrlSearchParams(emptyState.url, {
+      q: "no-such-echo-history-state",
+      genre: "sci-fi",
+      sort: "recently-updated",
+    });
 
     await page.goBack();
-    await page.waitForFunction(
-      () =>
-        document.getElementById("search")?.value === "space" &&
-        document.getElementById("filterCount")?.textContent?.trim() === "1" &&
-        document.querySelector('.browse-mode-button[data-browse-mode="recently-updated"]')?.getAttribute("aria-pressed") === "true" &&
-        !document.getElementById("noResultsMsg"),
-    );
+    await waitForHomeState(combinedState);
     const restoredCombined = await readHomeState();
-    assert.equal(restoredCombined.url, combinedState.url);
-    assert.ok(restoredCombined.resultCards > 0);
+    assert.deepEqual(restoredCombined, combinedState);
 
     await page.goBack();
-    await page.waitForFunction(
-      () =>
-        document.getElementById("search")?.value === "space" &&
-        document.getElementById("filterCount")?.textContent?.trim() === "1" &&
-        document.querySelector('.browse-mode-button[data-browse-mode="default"]')?.getAttribute("aria-pressed") === "true",
-    );
+    await waitForHomeState(filteredState);
     const restoredFiltered = await readHomeState();
-    assertUrlSearchParams(restoredFiltered.url, { q: "space", genre: "sci-fi" });
+    assert.deepEqual(restoredFiltered, filteredState);
 
     await page.goBack();
-    await page.waitForFunction(
-      () =>
-        document.getElementById("search")?.value === "space" &&
-        document.getElementById("filterCount")?.textContent?.trim() === "0" &&
-        document.querySelector('.browse-mode-button[data-browse-mode="default"]')?.getAttribute("aria-pressed") === "true",
-    );
+    await waitForHomeState(searchState);
     const restoredSearch = await readHomeState();
-    assert.equal(restoredSearch.url, searchState.url);
+    assert.deepEqual(restoredSearch, searchState);
 
     await page.goBack();
-    await page.waitForFunction(
-      () =>
-        document.getElementById("search")?.value === "" &&
-        document.getElementById("filterCount")?.textContent?.trim() === "0" &&
-        document.querySelector('.browse-mode-button[data-browse-mode="default"]')?.getAttribute("aria-pressed") === "true",
-    );
+    await waitForHomeState(initialState);
     const restoredInitial = await readHomeState();
-    assert.equal(restoredInitial.query, "");
-    assert.equal(restoredInitial.filterCount, "0");
-    assert.equal(restoredInitial.sort, "default");
+    assert.deepEqual(restoredInitial, initialState);
 
     await page.goForward();
-    await page.waitForFunction(() => document.getElementById("search")?.value === "space");
+    await waitForHomeState(searchState);
     await page.goForward();
-    await page.waitForFunction(
-      () =>
-        document.getElementById("filterCount")?.textContent?.trim() === "1" &&
-        document.querySelector('.browse-mode-button[data-browse-mode="default"]')?.getAttribute("aria-pressed") === "true",
-    );
+    await waitForHomeState(filteredState);
     const restoredForwardFiltered = await readHomeState();
-    assertUrlSearchParams(restoredForwardFiltered.url, { q: "space", genre: "sci-fi" });
+    assert.deepEqual(restoredForwardFiltered, filteredState);
     await page.goForward();
-    await page.waitForFunction(
-      () =>
-        document.getElementById("filterCount")?.textContent?.trim() === "1" &&
-        document.querySelector('.browse-mode-button[data-browse-mode="recently-updated"]')?.getAttribute("aria-pressed") === "true",
-    );
+    await waitForHomeState(combinedState);
     const restoredForward = await readHomeState();
-    assert.equal(restoredForward.url, combinedState.url);
+    assert.deepEqual(restoredForward, combinedState);
 
     await page.goForward();
-    await page.waitForFunction(() => document.getElementById("search")?.value === "no-such-echo-history-state");
-    assert.equal((await readHomeState()).empty, true);
-    assert.ok((await page.evaluate(() => history.length)) >= initialHistoryLength + 4);
+    await waitForHomeState(emptyState);
+    assert.deepEqual(await readHomeState(), emptyState);
+    assert.equal(await page.evaluate(() => history.length), initialHistoryLength + 4);
   } finally {
+    await page.close();
+  }
+});
+
+test("home Back cancels a sort that is still loading listener ratings", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce" });
+  let releaseSortResponse;
+  let sortRequestStarted;
+  const sortResponseGate = new Promise((resolve) => { releaseSortResponse = resolve; });
+  const sortRequestSeen = new Promise((resolve) => { sortRequestStarted = resolve; });
+  let delayedSummaryUrl = "";
+  let delayedOneRequest = true;
+
+  try {
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await page.waitForFunction(() => document.querySelectorAll("#podcast-grid .podcast-card-shell").length > 0);
+    await page.locator("#search").fill("space");
+    await page.locator("#search").press("Enter");
+    await page.waitForFunction(() =>
+      new URLSearchParams(window.location.search).get("q") === "space" &&
+      document.querySelector("#browseSort")?.value === "search-relevance" &&
+      (document.getElementById("resultsSummary")?.textContent || "").includes('results for "space"'),
+    );
+    const committedSearchHistoryLength = await page.evaluate(() => history.length);
+
+    await page.evaluate(async () => {
+      const { dataCache } = await import("/shared/app/constants.js");
+      await Promise.all(new Set(dataCache.communitySummaryRequests.values()));
+      dataCache.communitySummaries.clear();
+      dataCache.communitySummaryRequests.clear();
+    });
+    await page.route("**/api/community/ratings/summary?*", async (route) => {
+      if (!delayedOneRequest) return route.continue();
+      delayedOneRequest = false;
+      delayedSummaryUrl = route.request().url();
+      sortRequestStarted();
+      await sortResponseGate;
+      return route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({ summaries: {} }),
+      });
+    });
+
+    await page.locator("#browseSort").selectOption("most-rated");
+    await sortRequestSeen;
+    const delayedSummaryResponse = page.waitForResponse((response) => response.url() === delayedSummaryUrl);
+
+    await page.goBack();
+    await page.waitForFunction(() =>
+      window.location.pathname === "/" &&
+      !window.location.search &&
+      document.getElementById("search")?.value === "" &&
+      document.querySelector("#browseSort")?.value === "popular" &&
+      !document.getElementById("noResultsMsg"),
+    );
+
+    releaseSortResponse();
+    await delayedSummaryResponse;
+    await page.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    const restoredState = await page.evaluate(() => ({
+      url: `${window.location.pathname}${window.location.search}${window.location.hash}`,
+      query: document.getElementById("search")?.value || "",
+      sort: document.querySelector("#browseSort")?.value || "",
+      summary: document.getElementById("resultsSummary")?.textContent || "",
+      historyLength: history.length,
+    }));
+    assert.equal(restoredState.url, "/");
+    assert.equal(restoredState.query, "");
+    assert.equal(restoredState.sort, "popular");
+    assert.doesNotMatch(restoredState.summary, /Loading listener rating counts/i);
+    assert.equal(restoredState.historyLength, committedSearchHistoryLength, "the stale async sort does not append a history entry");
+  } finally {
+    releaseSortResponse?.();
     await page.close();
   }
 });
@@ -790,13 +902,11 @@ test("home search typing settles into one history entry instead of one entry per
     await page.waitForFunction(() => document.querySelectorAll("#podcast-grid .podcast-card-shell").length > 0);
     const initialHistoryLength = await page.evaluate(() => history.length);
     await page.locator("#search").pressSequentially("midnight", { delay: 12 });
-    await page.waitForTimeout(250);
-    assert.ok(
-      await page.evaluate(() => history.length) <= initialHistoryLength + 1,
-      "typing does not create a separate history entry for each character",
+    await page.waitForFunction((expectedLength) =>
+      history.length === expectedLength && new URLSearchParams(window.location.search).get("q") === "midnight",
+      initialHistoryLength + 1,
     );
-    await page.waitForTimeout(400);
-    assert.equal(await page.evaluate(() => history.length), initialHistoryLength + 1);
+    assert.equal(await page.evaluate(() => history.length), initialHistoryLength + 1, "typing settles into one history entry");
     assert.equal(await page.locator("#search").inputValue(), "midnight");
   } finally {
     await page.close();
@@ -815,7 +925,6 @@ test("home Discovery 2 integration keeps rich criteria public, strict, and on ex
       (currentQuery) => (document.getElementById("resultsSummary")?.textContent || "").includes(`results for "${currentQuery}"`),
       query,
     );
-    await page.waitForTimeout(620);
   };
 
   try {

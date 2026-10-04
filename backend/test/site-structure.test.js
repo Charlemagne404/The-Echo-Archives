@@ -107,8 +107,9 @@ test("homepage discovery controls are present before hydration", () => {
   const html = fs.readFileSync(path.join(siteRoot, "index.html"), "utf8");
 
   assert.match(html, /id="quickFilters"[\s\S]*data-chip-filter="all"/);
-  assert.match(html, /id="browseModes"[\s\S]*data-browse-mode="default"/);
-  assert.match(html, /id="browseModes"[\s\S]*data-browse-mode="recently-updated"/);
+  assert.match(html, /id="browseSort"[\s\S]*<option value="popular" selected>Popular<\/option>/);
+  assert.match(html, /id="browseSort"[\s\S]*<option value="recently-updated">Recently updated<\/option>/);
+  assert.match(html, /id="browseSort"[\s\S]*<option value="archive-order">Archive order<\/option>/);
 });
 
 test("default new-show submission is present before hydration", () => {

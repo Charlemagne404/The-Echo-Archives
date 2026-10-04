@@ -1,3 +1,4 @@
+const { DEFAULT_SOCIAL_IMAGE } = require("../../shared/archive-social");
 const cheerio = require("cheerio");
 
 const archiveRecord = require("../../shared/archive-record");
@@ -241,7 +242,7 @@ function buildStaticPageMetadata({ routePath, siteUrl, manifestEntry = {} }) {
   return {
     canonicalUrl: buildAbsoluteUrl(siteUrl, canonicalPath || "/"),
     description: normalizeText(manifestEntry.description),
-    imageUrl: buildAbsoluteUrl(siteUrl, "/echo-wordmark1.png"),
+    imageUrl: buildAbsoluteUrl(siteUrl, DEFAULT_SOCIAL_IMAGE),
     title: normalizeText(manifestEntry.title) || "The Echo Archives",
   };
 }
@@ -617,7 +618,7 @@ function renderMissingMarkdown({ title, description, siteUrl, routePath }) {
   const metadata = {
     canonicalUrl: "",
     description,
-    imageUrl: buildAbsoluteUrl(siteUrl, "/echo-wordmark1.png"),
+    imageUrl: buildAbsoluteUrl(siteUrl, DEFAULT_SOCIAL_IMAGE),
     title,
   };
   return renderDocument(metadata, [
@@ -783,7 +784,7 @@ function renderHomeMarkdown({ shows = [], collections = [], siteUrl, metadata: p
   const metadata = {
     ...providedMetadata,
     canonicalUrl: providedMetadata.canonicalUrl || buildAbsoluteUrl(siteUrl, "/"),
-    imageUrl: providedMetadata.imageUrl || buildAbsoluteUrl(siteUrl, "/echo-wordmark1.png"),
+    imageUrl: providedMetadata.imageUrl || buildAbsoluteUrl(siteUrl, DEFAULT_SOCIAL_IMAGE),
   };
   const stats = getArchiveStats(publishedShows, collections);
   const showMap = new Map(publishedShows.map((show) => [show.id, show]));

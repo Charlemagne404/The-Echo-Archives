@@ -1,3 +1,4 @@
+const { DEFAULT_SOCIAL_IMAGE } = require("../shared/archive-social");
 const fs = require("node:fs");
 const path = require("node:path");
 const crypto = require("node:crypto");
@@ -23,6 +24,7 @@ const { createPublishedListenerReviewStore } = require("./lib/store/published-li
 const { createRateLimitStore } = require("./lib/store/rate-limit-store");
 const { createSubmissionStore } = require("./lib/store/submission-store");
 const { createAnalyticsStore } = require("./lib/store/analytics-store");
+const { createPopularityService } = require("./lib/popularity");
 const { createCommunityService } = require("./lib/services/community-service");
 const { createDataRetentionService } = require("./lib/services/data-retention-service");
 const { createImportService } = require("./lib/services/import-service");
@@ -249,7 +251,7 @@ function buildStaticPageMetadata({ routePath, requestSiteUrl, manifestEntry }) {
     title: manifestEntry.title,
     description: manifestEntry.description,
     canonicalUrl,
-    imageUrl: `${normalizedSiteUrl}/echo-wordmark1.png`,
+    imageUrl: `${normalizedSiteUrl}${DEFAULT_SOCIAL_IMAGE}`,
   };
 }
 
@@ -400,6 +402,10 @@ async function startServer() {
     retentionDays: config.ANALYTICS_RETENTION_DAYS,
     collections: state.collections,
   });
+  const popularityService = createPopularityService({
+    analyticsStore,
+    getCatalog: () => state.publicCatalog,
+  });
   const rateLimitStore = createRateLimitStore({ db: database });
   const rateLimitService = createRateLimitService({
     store: rateLimitStore,
@@ -533,7 +539,7 @@ async function startServer() {
     onPublished: syncLiveCatalogState,
   });
   const refreshCollectionsForCatalogChange = async ({ showIds = [] } = {}) => {
-    await collectionService.refreshForShows(showIds, "catalogue-automation");
+    await collectionService.refreshForShows(showIds, "catalogue-automation", { joinExistingPublication: true });
     await syncLiveCatalogState();
   };
   const importService = createImportService({
@@ -634,7 +640,7 @@ async function startServer() {
       description: isServerError
         ? "The Echo Archives encountered an unexpected server error."
         : "The requested Echo Archives page could not be found.",
-      imageUrl: `${normalizeSiteUrl(config.SITE_URL)}/echo-wordmark1.png`,
+      imageUrl: `${normalizeSiteUrl(config.SITE_URL)}${DEFAULT_SOCIAL_IMAGE}`,
       imageAlt: "The Echo Archives social preview",
     };
     let template;
@@ -718,7 +724,7 @@ async function startServer() {
     return sendHealth(res);
   });
 
-  app.post("/api/analytics/events", (req, res) => {
+  function receiveAnalyticsEvents(req, res, events) {
     if (!analyticsStore.enabled) {
       return res.status(204).end();
     }
@@ -731,13 +737,16 @@ async function startServer() {
 
     try {
       rateLimitService.check("analytics", req.ip || "");
-      analyticsStore.recordClientEvent({
-        ...getAnalyticsRequestContext(req),
-        eventName: typeof req.body?.eventName === "string" ? req.body.eventName : "",
-        properties: req.body?.properties,
-        userAgent,
-        internal,
-      });
+      for (const event of events) {
+        analyticsStore.recordClientEvent({
+          ...getAnalyticsRequestContext(req),
+          eventId: typeof event?.eventId === "string" ? event.eventId : "",
+          eventName: typeof event?.eventName === "string" ? event.eventName : "",
+          properties: event?.properties,
+          userAgent,
+          internal,
+        });
+      }
     } catch (error) {
       if (error?.statusCode !== 429) {
         console.error(JSON.stringify({
@@ -750,6 +759,30 @@ async function startServer() {
     }
 
     return res.status(204).end();
+  }
+
+  app.post("/api/analytics/events", (req, res) => {
+    return receiveAnalyticsEvents(req, res, [req.body || {}]);
+  });
+
+  app.post("/api/analytics/events/batch", (req, res) => {
+    const events = req.body?.events;
+    if (!Array.isArray(events) || events.length > 100) return res.status(413).end();
+    return receiveAnalyticsEvents(req, res, events);
+  });
+
+  app.get("/api/popularity/scores", (_req, res, next) => {
+    try {
+      const cacheControl = "public, max-age=60, stale-while-revalidate=60";
+      res.set({
+        "Cache-Control": cacheControl,
+        "CDN-Cache-Control": cacheControl,
+        "X-Robots-Tag": "noindex, nofollow, noarchive",
+      });
+      return res.json(popularityService.getScores());
+    } catch (error) {
+      return next(error);
+    }
   });
 
   if (process.env.ENABLE_TEST_ERROR_ROUTES === "true") {
@@ -872,6 +905,7 @@ async function startServer() {
       collectionService,
       rateLimiter: rateLimitService,
       analyticsStore,
+      popularityService,
     }),
   );
 
@@ -1185,7 +1219,7 @@ async function startServer() {
           {
             title: "Show not found - The Echo Archives",
             description: "The requested Echo Archives show page could not be found.",
-            imageUrl: `${normalizeSiteUrl(config.SITE_URL)}/echo-wordmark1.png`,
+            imageUrl: `${normalizeSiteUrl(config.SITE_URL)}${DEFAULT_SOCIAL_IMAGE}`,
             imageAlt: "The Echo Archives social preview",
           },
         );
@@ -1348,7 +1382,7 @@ async function startServer() {
         title: "Offline - The Echo Archives",
         description: "The archive cannot reach the network right now. Reconnect to keep browsing and fetching live data.",
         canonicalUrl: `${normalizeSiteUrl(config.SITE_URL)}/offline.html`,
-        imageUrl: `${normalizeSiteUrl(config.SITE_URL)}/echo-wordmark1.png`,
+        imageUrl: `${normalizeSiteUrl(config.SITE_URL)}${DEFAULT_SOCIAL_IMAGE}`,
         imageAlt: "The Echo Archives social preview",
       });
       return res.type("html").send(applyRuntimeSiteConfig(rendered, _req.cspNonce, {

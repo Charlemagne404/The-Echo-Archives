@@ -13,7 +13,8 @@ function createBrowseState() {
   return {
     selectedCollectionId: "",
     query: "",
-    sortMode: "default",
+    sortMode: "popular",
+    sortModeExplicit: false,
     filters: {
       genres: new Set(),
       tones: new Set(),
@@ -223,9 +224,108 @@ test("browse URL hydration clears stale in-memory state before restoring a new U
 
         assert.equal(state.query, "new query");
         assert.equal(state.selectedCollectionId, "");
-        assert.equal(state.sortMode, "default");
+        assert.equal(state.sortMode, "popular");
         assert.deepEqual([...state.filters.genres], ["sci-fi"]);
         assert.deepEqual([...state.filters.tags], []);
+      },
+    );
+  });
+});
+
+test("catalogue sort modes rank only their named signal and keep deterministic fallbacks", async () => {
+  await withAppGlobals(async () => {
+    const { HOME_SORT_OPTIONS, sortVisibleShows } = await importSharedModule("shared/app/pages/home/layout.js");
+    const shows = [
+      { id: "zulu", title: "Zulu", createdAt: "2024-01-01", updatedAt: "2026-01-01", finalRating: null },
+      { id: "beta", title: "Beta", createdAt: "2025-01-01", updatedAt: "2025-01-01", finalRating: 8 },
+      { id: "alpha", title: "Alpha", createdAt: "2025-01-01", updatedAt: "2024-01-01", finalRating: 9 },
+      { id: "gamma", title: "Gamma", metadata: { import: { importedAt: "2023-01-01" } }, updatedAt: "2023-01-01", finalRating: 8 },
+    ];
+
+    assert.deepEqual(
+      HOME_SORT_OPTIONS.map((option) => option.id),
+      ["popular", "recently-added", "recently-updated", "archive-rating", "most-rated", "title", "archive-order"],
+    );
+    assert.deepEqual(sortVisibleShows({ visibleShows: shows, sortMode: "default" }).map((show) => show.id), ["zulu", "beta", "alpha", "gamma"]);
+    assert.deepEqual(
+      sortVisibleShows({
+        visibleShows: shows,
+        sortMode: "popular",
+        popularityScores: { alpha: 1, beta: 4, gamma: 2, zulu: 2 },
+      }).map((show) => show.id),
+      ["beta", "gamma", "zulu", "alpha"],
+    );
+    assert.deepEqual(sortVisibleShows({ visibleShows: shows, sortMode: "recently-added" }).map((show) => show.id), ["alpha", "beta", "zulu", "gamma"]);
+    assert.deepEqual(sortVisibleShows({ visibleShows: shows, sortMode: "recently-updated" }).map((show) => show.id), ["zulu", "beta", "alpha", "gamma"]);
+    assert.deepEqual(sortVisibleShows({ visibleShows: shows, sortMode: "archive-rating" }).map((show) => show.id), ["alpha", "beta", "gamma", "zulu"]);
+    assert.deepEqual(sortVisibleShows({ visibleShows: shows, sortMode: "title" }).map((show) => show.id), ["alpha", "beta", "gamma", "zulu"]);
+    assert.deepEqual(
+      sortVisibleShows({
+        visibleShows: shows,
+        sortMode: "most-rated",
+        communitySummaries: {
+          alpha: { ratingCount: 1, averageRating: null },
+          beta: { ratingCount: 100, averageRating: 8.5 },
+          gamma: { ratingCount: 100, averageRating: 9.1 },
+          zulu: { ratingCount: "malformed", averageRating: 10 },
+        },
+      }).map((show) => show.id),
+      ["gamma", "beta", "alpha", "zulu"],
+    );
+    assert.deepEqual(
+      sortVisibleShows({
+        visibleShows: [{ id: "zeta", title: "Zeta" }, { id: "alpha-unrated", title: "Alpha" }],
+        sortMode: "most-rated",
+        communitySummaries: {
+          zeta: { ratingCount: "malformed", averageRating: 10 },
+          "alpha-unrated": { ratingCount: 0, averageRating: 1 },
+        },
+      }).map((show) => show.id),
+      ["alpha-unrated", "zeta"],
+    );
+
+    const selectedCollection = { showIds: ["gamma", "beta", "alpha", "zulu"] };
+    assert.deepEqual(
+      sortVisibleShows({ visibleShows: shows, selectedCollection, sortMode: "popular" }).map((show) => show.id),
+      ["gamma", "beta", "alpha", "zulu"],
+    );
+  });
+});
+
+test("catalogue sort mode is preserved in the URL and invalid values fall back", async () => {
+  await withAppGlobals(async () => {
+    const { seedHomeStateFromParams, syncBrowseUrlState } = await importSharedModule("shared/app/pages/home/url-state.js");
+    const state = createBrowseState();
+    let replacedUrl = "";
+
+    await withWindow(
+      {
+        location: { pathname: "/", search: "?sort=most-rated", hash: "#archive" },
+        history: {
+          state: null,
+          replaceState(_historyState, _unused, url) { replacedUrl = url; },
+        },
+      },
+      async () => {
+        seedHomeStateFromParams({ state, shows: [], collectionsById: new Map(), structuredFilterGroups: [] });
+        assert.equal(state.sortMode, "most-rated");
+        assert.equal(state.sortModeExplicit, true);
+        global.window.location.search = "";
+        syncBrowseUrlState(state);
+        assert.equal(replacedUrl, "/?sort=most-rated#archive");
+
+        global.window.location.search = "?sort=popular";
+        seedHomeStateFromParams({ state, shows: [], collectionsById: new Map(), structuredFilterGroups: [] });
+        assert.equal(state.sortMode, "popular");
+        assert.equal(state.sortModeExplicit, true);
+        global.window.location.search = "";
+        seedHomeStateFromParams({ state, shows: [], collectionsById: new Map(), structuredFilterGroups: [] });
+        assert.equal(state.sortMode, "popular");
+        assert.equal(state.sortModeExplicit, false);
+        global.window.location.search = "?sort=default";
+        seedHomeStateFromParams({ state, shows: [], collectionsById: new Map(), structuredFilterGroups: [] });
+        assert.equal(state.sortMode, "archive-order");
+        assert.equal(state.sortModeExplicit, true);
       },
     );
   });

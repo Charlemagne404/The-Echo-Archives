@@ -109,6 +109,7 @@ async function startCommunityServer({ writesEnabled = true, minimumPublicRatings
       PORT: String(port),
       SERVE_STATIC: "true",
       DB_PATH: dbPath,
+      ANALYTICS_HMAC_SECRET: "test-analytics-hmac-secret-value-123456789",
       OLLAMA_URL: "http://127.0.0.1:9/api/generate",
       STATIC_ROOT: staticRoot,
       COMMUNITY_MIN_PUBLIC_RATINGS: String(minimumPublicRatings),
@@ -128,6 +129,7 @@ async function startCommunityServer({ writesEnabled = true, minimumPublicRatings
     baseUrl,
     serverProcess,
     tempDir,
+    dbPath,
     turnstile,
     review,
   };
@@ -209,6 +211,16 @@ test("community rating routes use the voter cookie instead of forged profile hea
       },
     );
     assert.equal(secondWrite.status, 200);
+
+    const analyticsDb = openDatabase(context.dbPath);
+    try {
+      assert.deepEqual(
+        analyticsDb.prepare("SELECT event_name FROM analytics_events WHERE event_name IN ('Rating Submitted', 'Rating Changed') ORDER BY id").all().map((row) => row.event_name),
+        ["Rating Submitted", "Rating Changed"],
+      );
+    } finally {
+      analyticsDb.close();
+    }
 
     const summaryResponse = await fetch(
       `${context.baseUrl}/api/community/ratings/summary?podcastIds=impact-winter`,

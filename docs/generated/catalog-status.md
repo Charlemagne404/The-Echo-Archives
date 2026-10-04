@@ -1,6 +1,6 @@
 # Catalog Status
 
-Latest catalog update: `2026-09-20`
+Latest catalog update: `2026-10-04`
 
 ## Snapshot
 
@@ -17,7 +17,7 @@ Latest catalog update: `2026-09-20`
 | Imported shows | 517 |
 | Planned reviews | 0 |
 | Collections | 54 |
-| Review companions | 7 |
+| Review companions | 8 |
 | Creator-verified shows | 0 |
 | Shows with RSS | 746 |
 | Shows missing metadata.objectiveSources | 0 |

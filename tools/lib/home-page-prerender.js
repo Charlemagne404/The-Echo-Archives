@@ -372,10 +372,12 @@ function renderArchiveCard(show, discovery = {}) {
   const imageAlt = escapeAttribute(show.imageAlt || show.coverAlt || `${show.title || "Untitled show"} cover art`);
 
   return `
-    <div class="podcast-card-shell" data-podcast-id="${escapeAttribute(show.id || "unknown-show")}">
+    <div class="podcast-card-shell" data-podcast-id="${escapeAttribute(show.id || "unknown-show")}" data-library-show-card="true" data-library-show-id="${escapeAttribute(show.id || "unknown-show")}">
       <a class="podcast-card" href="${href}" data-podcast-id="${escapeAttribute(show.id || "unknown-show")}" ${renderShowDiscoveryAttributes(show, discovery)}>
-        ${renderEditorialBadges(show)}
-        <img src="${imageSrc}"${renderResponsiveCoverAttributes(show, "(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px")} alt="${imageAlt}" loading="lazy" decoding="async" width="320" height="320" />
+        <div class="show-card-artwork">
+          ${renderEditorialBadges(show)}
+          <img src="${imageSrc}"${renderResponsiveCoverAttributes(show, "(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px")} alt="${imageAlt}" loading="lazy" decoding="async" width="320" height="320" />
+        </div>
         <h2 data-card-title="true">${title}</h2>
         <p class="tags" data-card-meta="true" data-card-meta-kind="${escapeAttribute(cardMetadata.kind)}"${metaText ? "" : " hidden"}>${escapeHtml(metaText)}</p>
         <div class="rating">
@@ -431,9 +433,9 @@ function renderMostPopularCard(show, index = 0) {
   const copy = String(show.archiveTake || show.description || "").trim();
 
   return `
-    <div class="popular-card-shell">
+    <div class="popular-card-shell" data-library-show-card="true" data-library-show-id="${escapeAttribute(show.id || "")}">
     <a class="popular-card" href="${escapeAttribute(show.href || createShowHref(show.id || ""))}" data-podcast-id="${escapeAttribute(show.id || "")}" ${renderShowDiscoveryAttributes(show, { surface: "home_popular_rail", resultPositionBucket: getDiscoveryPositionBucket(Number(index) + 1) })} aria-label="Open ${escapeAttribute(show.title || "Untitled show")} in the archive"${accentStyle}>
-      <div class="popular-card-media">
+      <div class="popular-card-media show-card-artwork">
         <img src="${escapeAttribute(show.imageSrc || resolveImageSrc(show.cover))}"${renderResponsiveCoverAttributes(show, "(max-width: 560px) 44vw, (max-width: 960px) 44vw, 320px")} alt="${escapeAttribute(show.imageAlt || show.coverAlt || `${show.title || "Untitled show"} cover art`)}" loading="lazy" decoding="async" width="320" height="320" />
       </div>
       <div class="popular-card-body">
@@ -474,7 +476,6 @@ function renderCollectionCard(collection, showMap) {
       <h3>${escapeHtml(collection.title || "Untitled collection")}</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">${escapeHtml(`${collectionShows.length} ${collectionShows.length === 1 ? "show" : "shows"}`)}</p>
-        <span class="collection-card-cta">Browse</span>
       </div>
     </a>
   `.trim();

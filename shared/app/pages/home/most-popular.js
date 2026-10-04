@@ -65,7 +65,7 @@ export function createMostPopularController({
       !state.query &&
       getActiveFilterCount(state.filters) === 0 &&
       !state.selectedCollectionId &&
-      state.sortMode === "default"
+      state.sortMode === "popular"
     );
   }
 

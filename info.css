@@ -2471,6 +2471,29 @@
   height: auto;
 }
 
+/* Show artwork slots own their aspect ratio so broken or source-less images
+ * cannot change the surrounding card geometry. */
+.show-card-artwork {
+  position: relative;
+  display: block;
+  min-inline-size: 0;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.06), transparent 54%),
+    linear-gradient(145deg, #15191f, #080a0e 72%);
+}
+
+.show-card-artwork > img:not(.editorial-badge-artwork) {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 /* The archive has intentionally cinematic, single-line desktop heroes. At the
  * first compact breakpoint, copy is allowed to wrap before it can be clipped. */
 @media (max-width: 1180px) {

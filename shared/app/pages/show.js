@@ -1,4 +1,4 @@
-import { DEFAULT_SOCIAL_IMAGE } from "../constants.js";
+import { DEFAULT_SOCIAL_IMAGE, socialPreview } from "../constants.js";
 import { buildShowMap, fetchJson, loadCollections, loadShows, normalizeShowRecord } from "../data.js";
 import { initializeDetailRatingPage, syncCommunityCardBadges } from "../community.js";
 import { initializeManagedImages } from "../images.js";
@@ -84,8 +84,8 @@ function applyShowMetadata(show) {
     title: buildShowSeoTitle(show),
     description: buildShowSeoDescription(show),
     path: createShowHref(show.id),
-    image: show.imageSrc || `/${show.cover}`,
-    imageAlt: show.imageAlt || show.coverAlt || `${show.title} cover art`,
+    image: socialPreview("show", show).path,
+    imageAlt: socialPreview("show", show).alt,
     structuredData: buildShowStructuredData(show),
   });
 }

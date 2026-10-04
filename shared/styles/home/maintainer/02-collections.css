@@ -13,6 +13,41 @@
   background: rgba(11, 13, 15, 0.7);
 }
 
+.maintainer-collection-list {
+  display: grid;
+  gap: 10px;
+}
+
+.maintainer-collection-row {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  background: rgba(8, 10, 12, 0.58);
+}
+
+.maintainer-collection-choice {
+  display: flex;
+  width: 100%;
+}
+
+.maintainer-collection-choice input {
+  accent-color: #b98750;
+}
+
+.maintainer-collection-choice strong {
+  color: #f5f1ea;
+}
+
+.maintainer-collection-reason {
+  width: 100%;
+}
+
+.maintainer-collection-reason input {
+  min-width: 0;
+}
+
 .collection-membership-list,
 .collection-event-list {
   display: grid;

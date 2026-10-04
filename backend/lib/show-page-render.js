@@ -790,8 +790,10 @@ function renderSimilarCards(source, neighbors, offset = 0) {
       ? '<span class="detail-similar-confidence">Limited metadata</span>'
       : "";
     return `
-      <article class="detail-similar-card" data-recommendation-source="${source}"${confidence ? ` data-recommendation-confidence="${confidence}"` : ""}>
-        <img src="${escapeHtml(getShowImageSrc(neighbor))}"${renderResponsiveCoverAttributes(neighbor, "(max-width: 959px) 84vw, (max-width: 1120px) 42vw, 320px")} alt="${escapeHtml(neighbor.coverAlt || `${neighbor.title || "Untitled show"} cover art`)}" width="320" height="320" loading="lazy" decoding="async" />
+      <article class="detail-similar-card" data-library-show-card="true" data-library-show-id="${escapeHtml(neighbor.id || "")}" data-recommendation-source="${source}"${confidence ? ` data-recommendation-confidence="${confidence}"` : ""}>
+        <div class="detail-similar-artwork show-card-artwork">
+          <img src="${escapeHtml(getShowImageSrc(neighbor))}"${renderResponsiveCoverAttributes(neighbor, "(max-width: 959px) 84vw, (max-width: 1120px) 42vw, 320px")} alt="${escapeHtml(neighbor.coverAlt || `${neighbor.title || "Untitled show"} cover art`)}" width="320" height="320" loading="lazy" decoding="async" />
+        </div>
         <div class="detail-card-copy"><h4>${escapeHtml(neighbor.title || "Untitled show")}</h4>${confidenceLabel}<p class="detail-similar-reason">${escapeHtml(reason)}</p><a class="detail-archive-link" href="${escapeHtml(neighbor.href || `/shows/${encodeURIComponent(neighbor.id || "")}`)}" ${renderShowDiscoveryAttributes(neighbor, { surface: "show_similar", resultType: "similar_show", recommendationSource: source === "curated" ? "authored_similarity" : "computed_similarity", resultPositionBucket: getDiscoveryPositionBucket(offset + index + 1) })}>Open show</a></div>
       </article>
     `;

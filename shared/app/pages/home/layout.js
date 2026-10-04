@@ -8,6 +8,19 @@ import {
   scheduleGridExit,
   setGridMotionMetadata,
 } from "./grid-motion.js";
+import { archiveRecord } from "../../constants.js";
+
+export const HOME_SORT_OPTIONS = Object.freeze([
+  { id: "popular", label: "Popular" },
+  { id: "recently-added", label: "Recently added" },
+  { id: "recently-updated", label: "Recently updated" },
+  { id: "archive-rating", label: "Highest Archive rating" },
+  { id: "most-rated", label: "Most listener ratings" },
+  { id: "title", label: "A–Z" },
+  { id: "archive-order", label: "Archive order" },
+]);
+
+export const HOME_SORT_MODES = new Set(HOME_SORT_OPTIONS.map(({ id }) => id));
 
 export function getHomeGridLayoutBucket() {
   return window.matchMedia("(max-width: 1180px)").matches ? "compact" : "wide";
@@ -26,6 +39,40 @@ function getSortableTitle(show) {
   return String(show?.title || "Untitled show");
 }
 
+function compareShowsByTitle(left, right) {
+  return getSortableTitle(left).localeCompare(getSortableTitle(right), "en", { sensitivity: "base" }) ||
+    String(left?.id || "").localeCompare(String(right?.id || ""));
+}
+
+function getFallbackPopularityScore(show, now = new Date()) {
+  const rating = Number(show?.finalRating);
+  const ratingPoints = Number.isFinite(rating) && rating >= 0 && rating <= 10 ? 1.5 * rating / 10 : 0;
+  const createdAt = Date.parse(String(show?.createdAt || ""));
+  const nowAt = now instanceof Date ? now.getTime() : Date.parse(String(now || ""));
+  const ageDays = Number.isFinite(createdAt) && Number.isFinite(nowAt)
+    ? Math.max(0, (nowAt - createdAt) / 86_400_000)
+    : null;
+  const freshnessPoints = ageDays === null ? 0 : 1.2 * Math.pow(0.5, ageDays / 90);
+  return ratingPoints + freshnessPoints;
+}
+
+function getPopularityScore(popularityScores, show, now) {
+  const value = popularityScores?.[show?.id];
+  return typeof value === "number" && Number.isFinite(value) ? value : getFallbackPopularityScore(show, now);
+}
+
+function getCommunityRatingCount(communitySummaries, showId) {
+  const count = Number(communitySummaries?.[showId]?.ratingCount);
+  return Number.isSafeInteger(count) && count >= 0 ? count : 0;
+}
+
+function getCommunityAverageRating(communitySummaries, showId) {
+  const value = communitySummaries?.[showId]?.averageRating;
+  if (value === null || value === undefined || value === "") return null;
+  const rating = Number(value);
+  return Number.isFinite(rating) && rating >= 0 && rating <= 10 ? rating : null;
+}
+
 function dedupeArchiveGridNodes(nodes) {
   const seenNodes = new Set();
   return nodes.filter((node) => {
@@ -38,8 +85,45 @@ function dedupeArchiveGridNodes(nodes) {
   });
 }
 
-export function sortVisibleShows({ visibleShows, selectedCollection, sortMode }) {
+export function sortVisibleShows({
+  visibleShows,
+  selectedCollection,
+  sortMode,
+  sortModeExplicit = false,
+  popularityScores = null,
+  communitySummaries = null,
+  archiveOrderById = null,
+  now = new Date(),
+}) {
   const sortedShows = [...visibleShows];
+
+  if (selectedCollection && !sortModeExplicit) {
+    const collectionOrder = new Map(selectedCollection.showIds.map((id, index) => [id, index]));
+    return sortedShows.sort((left, right) => {
+      const leftOrder = collectionOrder.get(left.id) ?? Number.MAX_SAFE_INTEGER;
+      const rightOrder = collectionOrder.get(right.id) ?? Number.MAX_SAFE_INTEGER;
+      return leftOrder - rightOrder || compareShowsByTitle(left, right);
+    });
+  }
+
+  if (sortMode === "popular") {
+    return sortedShows.sort((left, right) => {
+      const difference = getPopularityScore(popularityScores, right, now) - getPopularityScore(popularityScores, left, now);
+      return difference || compareShowsByTitle(left, right);
+    });
+  }
+
+  if (sortMode === "recently-added") {
+    return sortedShows.sort((left, right) => {
+      const leftValue = getSortableDateValue(archiveRecord.getCatalogPublicationDate(left));
+      const rightValue = getSortableDateValue(archiveRecord.getCatalogPublicationDate(right));
+      if (rightValue !== leftValue) {
+        return rightValue - leftValue;
+      }
+
+      return compareShowsByTitle(left, right);
+    });
+  }
 
   if (sortMode === "recently-updated") {
     return sortedShows.sort((left, right) => {
@@ -49,20 +133,74 @@ export function sortVisibleShows({ visibleShows, selectedCollection, sortMode })
         return rightValue - leftValue;
       }
 
-      return getSortableTitle(left).localeCompare(getSortableTitle(right));
+      return compareShowsByTitle(left, right);
     });
   }
 
-  if (!selectedCollection) {
-    return sortedShows;
+  if (sortMode === "archive-rating") {
+    return sortedShows.sort((left, right) => {
+      const leftRating = Number.isFinite(left?.finalRating) ? left.finalRating : Number.NEGATIVE_INFINITY;
+      const rightRating = Number.isFinite(right?.finalRating) ? right.finalRating : Number.NEGATIVE_INFINITY;
+      if (rightRating !== leftRating) {
+        return rightRating > leftRating ? 1 : -1;
+      }
+
+      return compareShowsByTitle(left, right);
+    });
   }
 
-  const collectionOrder = new Map(selectedCollection.showIds.map((id, index) => [id, index]));
-  return sortedShows.sort((left, right) => {
-    const leftOrder = collectionOrder.get(left.id) ?? Number.MAX_SAFE_INTEGER;
-    const rightOrder = collectionOrder.get(right.id) ?? Number.MAX_SAFE_INTEGER;
-    return leftOrder - rightOrder || getSortableTitle(left).localeCompare(getSortableTitle(right));
-  });
+  if (sortMode === "most-rated") {
+    return sortedShows.sort((left, right) => {
+      const leftCount = getCommunityRatingCount(communitySummaries, left?.id);
+      const rightCount = getCommunityRatingCount(communitySummaries, right?.id);
+      if (rightCount !== leftCount) {
+        return rightCount - leftCount;
+      }
+
+      const leftAverage = leftCount > 0 ? getCommunityAverageRating(communitySummaries, left?.id) : null;
+      const rightAverage = rightCount > 0 ? getCommunityAverageRating(communitySummaries, right?.id) : null;
+      if (leftAverage !== null && rightAverage !== null && rightAverage !== leftAverage) {
+        return rightAverage - leftAverage;
+      }
+
+      return compareShowsByTitle(left, right);
+    });
+  }
+
+  if (sortMode === "title") {
+    return sortedShows.sort(compareShowsByTitle);
+  }
+
+  if (sortMode === "archive-order" || sortMode === "default") {
+    if (!archiveOrderById) return sortedShows;
+    return sortedShows.sort((left, right) => {
+      const leftOrder = archiveOrderById.get(left.id) ?? Number.MAX_SAFE_INTEGER;
+      const rightOrder = archiveOrderById.get(right.id) ?? Number.MAX_SAFE_INTEGER;
+      return leftOrder - rightOrder || compareShowsByTitle(left, right);
+    });
+  }
+
+  return sortedShows;
+}
+
+export function createSearchSortApplier({ state, archiveOrderById }) {
+  return (presentation, selectedCollection) => {
+    if (!state.sortModeExplicit) return presentation;
+    const sortedShows = sortVisibleShows({
+      visibleShows: presentation.shows,
+      selectedCollection,
+      sortMode: state.sortMode,
+      sortModeExplicit: true,
+      popularityScores: state.popularityScores,
+      communitySummaries: state.communitySummaries,
+      archiveOrderById,
+    });
+    return {
+      ...presentation,
+      shows: sortedShows,
+      publicPositionById: new Map(sortedShows.map((show, index) => [show.id, index + 1])),
+    };
+  };
 }
 
 function getOrderedArchiveGridNodes({

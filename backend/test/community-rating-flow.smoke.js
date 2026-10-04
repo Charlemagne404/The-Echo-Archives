@@ -594,16 +594,25 @@ test("homepage community badges stay truthful across empty, offline, and stale a
     serviceWorkers: "block",
   });
   const page = await context.newPage();
+  const emptyShow = showFixtures.find((show) => show.id === "welcome-to-night-vale");
   const emptyShowId = "welcome-to-night-vale";
-  const delayedShowId = "welcome-to-night-vale";
+  const delayedShowId = "derelict";
   const activeShowId = "midnight-burger";
+  const showCardSelector = (showId) => `#podcast-grid [data-library-show-card="true"][data-library-show-id="${showId}"]`;
 
   try {
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
-    await page.locator(`#podcast-grid .podcast-card-shell[data-podcast-id="${emptyShowId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${emptyShowId}"]`).waitFor({ state: "attached" });
+    assert.ok(emptyShow, "the empty-state fixture show exists in the catalogue");
+    await page.locator("#search").fill(emptyShow.title);
+    await page.waitForFunction((showId) =>
+      Boolean(document.querySelector(`#podcast-grid [data-library-show-card="true"][data-library-show-id="${CSS.escape(showId)}"]`)),
+      emptyShowId,
+    );
+    await page.locator(`${showCardSelector(emptyShowId)} .community-inline-score[data-podcast-id="${emptyShowId}"]`).waitFor({ state: "attached" });
     await page.waitForFunction(
       (showId) => {
-        const badge = document.querySelector(`#podcast-grid .podcast-card-shell[data-podcast-id="${showId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${showId}"]`);
+        const escapedShowId = CSS.escape(showId);
+        const badge = document.querySelector(`#podcast-grid [data-library-show-card="true"][data-library-show-id="${escapedShowId}"] .community-inline-score[data-podcast-id="${escapedShowId}"]`);
         return badge?.getAttribute("aria-label") === "No community ratings yet.";
       },
       emptyShowId,
@@ -611,7 +620,8 @@ test("homepage community badges stay truthful across empty, offline, and stale a
     );
 
     let badgeState = await page.evaluate((showId) => {
-      const badge = document.querySelector(`#podcast-grid .podcast-card-shell[data-podcast-id="${showId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${showId}"]`);
+      const escapedShowId = CSS.escape(showId);
+      const badge = document.querySelector(`#podcast-grid [data-library-show-card="true"][data-library-show-id="${escapedShowId}"] .community-inline-score[data-podcast-id="${escapedShowId}"]`);
       const ratingGroup = badge?.closest(".rating");
       const listenerScore = ratingGroup?.querySelector(".listener-review-inline-score");
       const value = badge?.querySelector(".community-inline-score-value")?.textContent?.trim() || "";
@@ -655,7 +665,8 @@ test("homepage community badges stay truthful across empty, offline, and stale a
     }, emptyShowId);
 
     badgeState = await page.evaluate((showId) => {
-      const badge = document.querySelector(`#podcast-grid .podcast-card-shell[data-podcast-id="${showId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${showId}"]`);
+      const escapedShowId = CSS.escape(showId);
+      const badge = document.querySelector(`#podcast-grid [data-library-show-card="true"][data-library-show-id="${escapedShowId}"] .community-inline-score[data-podcast-id="${escapedShowId}"]`);
       const ratingGroup = badge?.closest(".rating");
       const value = badge?.querySelector(".community-inline-score-value")?.textContent?.trim() || "";
       return {
@@ -676,6 +687,12 @@ test("homepage community badges stay truthful across empty, offline, and stale a
 
     await page.unroute("**/api/community/ratings/summary?*");
     await page.unroute("**/api/reviews/scores/summary?*");
+
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await Promise.all([
+      page.locator(showCardSelector(delayedShowId)).waitFor({ state: "attached" }),
+      page.locator(showCardSelector(activeShowId)).waitFor({ state: "attached" }),
+    ]);
 
     let releaseDelayedResponse;
     const delayedRequestSeen = new Promise((resolve) => {
@@ -736,8 +753,10 @@ test("homepage community badges stay truthful across empty, offline, and stale a
     }, { delayedShowId, activeShowId });
 
     let staleState = await page.evaluate(({ delayedShowId, activeShowId }) => {
-      const delayedBadge = document.querySelector(`#podcast-grid .podcast-card-shell[data-podcast-id="${delayedShowId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${delayedShowId}"]`);
-      const activeBadge = document.querySelector(`#podcast-grid .podcast-card-shell[data-podcast-id="${activeShowId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${activeShowId}"]`);
+      const escapedDelayedShowId = CSS.escape(delayedShowId);
+      const escapedActiveShowId = CSS.escape(activeShowId);
+      const delayedBadge = document.querySelector(`#podcast-grid [data-library-show-card="true"][data-library-show-id="${escapedDelayedShowId}"] .community-inline-score[data-podcast-id="${escapedDelayedShowId}"]`);
+      const activeBadge = document.querySelector(`#podcast-grid [data-library-show-card="true"][data-library-show-id="${escapedActiveShowId}"] .community-inline-score[data-podcast-id="${escapedActiveShowId}"]`);
       return {
         delayedValue: delayedBadge?.querySelector(".community-inline-score-value")?.textContent?.trim() || "",
         activeValue: activeBadge?.querySelector(".community-inline-score-value")?.textContent?.trim() || "",
@@ -750,8 +769,10 @@ test("homepage community badges stay truthful across empty, offline, and stale a
     await page.waitForTimeout(100);
 
     staleState = await page.evaluate(({ delayedShowId, activeShowId }) => {
-      const delayedBadge = document.querySelector(`#podcast-grid .podcast-card-shell[data-podcast-id="${delayedShowId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${delayedShowId}"]`);
-      const activeBadge = document.querySelector(`#podcast-grid .podcast-card-shell[data-podcast-id="${activeShowId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${activeShowId}"]`);
+      const escapedDelayedShowId = CSS.escape(delayedShowId);
+      const escapedActiveShowId = CSS.escape(activeShowId);
+      const delayedBadge = document.querySelector(`#podcast-grid [data-library-show-card="true"][data-library-show-id="${escapedDelayedShowId}"] .community-inline-score[data-podcast-id="${escapedDelayedShowId}"]`);
+      const activeBadge = document.querySelector(`#podcast-grid [data-library-show-card="true"][data-library-show-id="${escapedActiveShowId}"] .community-inline-score[data-podcast-id="${escapedActiveShowId}"]`);
       return {
         delayedValue: delayedBadge?.querySelector(".community-inline-score-value")?.textContent?.trim() || "",
         activeValue: activeBadge?.querySelector(".community-inline-score-value")?.textContent?.trim() || "",

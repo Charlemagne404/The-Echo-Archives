@@ -547,7 +547,7 @@ function createCollectionService({
     }
   }
 
-  async function recalculate({ collectionIds = [], showIds = [], actor = "", forceSemantic = false, seedSemanticMatches = {}, build = true, reason = "manual", skipSourceDeltaCapture = false } = {}) {
+  async function recalculate({ collectionIds = [], showIds = [], actor = "", forceSemantic = false, seedSemanticMatches = {}, build = true, reason = "manual", skipSourceDeltaCapture = false, joinExistingPublication = false } = {}) {
     const runId = store.createRun({ runType: "membership-recalculation", input: { collectionIds, showIds, actor, forceSemantic, reason } });
     try {
       const catalogRecords = await catalog();
@@ -580,7 +580,7 @@ function createCollectionService({
         });
         results.push({ collectionId: collection.id, members: calculation.nextShowIds.length, semanticSkipped: calculation.semanticSkipped });
       }
-      if (changedDefinitions.length > 0) writeCollectionRecordsAtomically(staticRoot, changedDefinitions);
+      if (changedDefinitions.length > 0) writeCollectionRecordsAtomically(staticRoot, changedDefinitions, { joinExisting: joinExistingPublication });
       if (build && changedDefinitions.length > 0) {
         await buildCatalogImpl(staticRoot);
         if (typeof onPublished === "function") await onPublished();
@@ -794,7 +794,7 @@ function createCollectionService({
     getForMaintainer,
     listForMaintainer,
     recalculate,
-    refreshForShows: (showIds, actor = "") => recalculate({ showIds, actor, reason: "catalogue-updated" }),
+    refreshForShows: (showIds, actor = "", options = {}) => recalculate({ showIds, actor, reason: "catalogue-updated", joinExistingPublication: options.joinExistingPublication === true }),
     rejectCandidate,
     setMembershipOverride,
     updateCandidate,

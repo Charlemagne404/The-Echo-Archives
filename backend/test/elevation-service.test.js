@@ -5,6 +5,7 @@ const os = require("node:os");
 const path = require("node:path");
 
 const { createElevationService, rankEntry } = require("../lib/services/elevation-service");
+const { readCatalogSource, writeCollectionRecordsAtomically } = require("../../tools/lib/catalog-source");
 
 function writeJson(filePath, value) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -34,9 +35,9 @@ function makeShow(overrides = {}) {
   };
 }
 
-function setup({ factualCurrent = true, reviewStatus = "imported", review = null } = {}) {
+function setup({ factualCurrent = true, reviewStatus = "imported", review = null, showOverrides = {}, onPublished = null, validateSiteDataImpl = async () => {} } = {}) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), "echo-elevation-"));
-  const show = makeShow({ reviewStatus });
+  const show = makeShow({ ...showOverrides, reviewStatus });
   if (!factualCurrent) delete show.metadata.import.factualReview;
   writeJson(path.join(root, "data/shows.json"), [
     show,
@@ -55,7 +56,16 @@ function setup({ factualCurrent = true, reviewStatus = "imported", review = null
     sources: [{ sourceType: "rss", sourceUrl: "https://example.test/feed.xml", fetchStatus: "fetched" }],
   };
   const importService = { getPublishedCandidateForShow: (showId) => showId === "signal-show" ? candidate : null };
-  return { root, service: createElevationService({ staticRoot: root, importService }), candidate };
+  return {
+    root,
+    service: createElevationService({
+      staticRoot: root,
+      importService,
+      onPublished,
+      validateSiteDataImpl,
+    }),
+    candidate,
+  };
 }
 
 test("elevation ranking is deterministic and explains its score without popularity", () => {
@@ -86,6 +96,25 @@ test("saving an elevation review draft keeps Imported records out of the full-re
   }
 });
 
+test("saving an elevation review draft skips collection selections without a reason", async () => {
+  const { root, service } = setup();
+  try {
+    await service.saveReviewDraft("signal-show", {
+      archiveTake: "A useful archive take.",
+      spoilerFreeReview: "A spoiler-safe paragraph.",
+      collections: [
+        { id: "route-one", reason: "A clear match for this route." },
+        { id: "route-two", reason: "  " },
+      ],
+    });
+    const collections = readCatalogSource(root).collections;
+    assert.equal(collections.find((entry) => entry.id === "route-one").showIds.includes("signal-show"), true);
+    assert.equal(collections.find((entry) => entry.id === "route-two").showIds.includes("signal-show"), false);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("full-review publication promotes a complete fact-checked elevation draft", async () => {
   const { root, service } = setup();
   try {
@@ -100,6 +129,104 @@ test("full-review publication promotes a complete fact-checked elevation draft",
     assert.equal(result.reviewStatus, "full-review");
     const shows = JSON.parse(fs.readFileSync(path.join(root, "data/shows.json"), "utf8"));
     assert.equal(shows[0].reviewStatus, "full-review");
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("full-review publication commits an automated collection refresh with the review", async () => {
+  let root = "";
+  const onPublished = async () => {
+    const source = readCatalogSource(root);
+    const show = source.shows.find((entry) => entry.id === "signal-show");
+    if (show?.reviewStatus !== "full-review") return;
+    const collection = source.collections[0];
+    writeCollectionRecordsAtomically(root, [{ ...collection, updatedAt: "2099-12-31" }], { joinExisting: true });
+  };
+  const context = setup({ onPublished });
+  root = context.root;
+  try {
+    await context.service.saveReviewDraft("signal-show", {
+      archiveRating: "8.5", archiveTake: "A disciplined, suspenseful sci-fi listen.", spoilerFreeReview: "The first paragraph.",
+      tones: "Tense, Atmospheric", formats: "Serialized", bestFor: "Long walks",
+      similarTo: ["neighbor-a", "neighbor-b", "neighbor-c"],
+      similarReasons: { "neighbor-a": "Reason A", "neighbor-b": "Reason B", "neighbor-c": "Reason C" },
+      collections: [{ id: "route-one", reason: "Reason one" }, { id: "route-two", reason: "Reason two" }],
+    });
+    const result = await context.service.publishReview("signal-show", "tester");
+    const source = readCatalogSource(root);
+    assert.equal(result.reviewStatus, "full-review");
+    assert.equal(source.shows.find((entry) => entry.id === "signal-show").reviewStatus, "full-review");
+    assert.equal(source.collections[0].updatedAt, "2099-12-31");
+    assert.equal(fs.existsSync(path.join(root, ".echo-catalog-transaction")), false);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("review validation can build catalogue artifacts inside its parent publication", async () => {
+  let root = "";
+  const context = setup({
+    validateSiteDataImpl: async (siteRoot) => {
+      root = siteRoot;
+      const source = readCatalogSource(siteRoot);
+      writeCollectionRecordsAtomically(siteRoot, [source.collections[0]], { joinExisting: true });
+    },
+  });
+  root = context.root;
+  try {
+    await context.service.saveReviewDraft("signal-show", {
+      archiveRating: "8.5",
+      archiveTake: "A disciplined, suspenseful sci-fi listen.",
+      spoilerFreeReview: "The first paragraph.",
+    });
+    assert.equal(fs.existsSync(path.join(root, ".echo-catalog-transaction")), false);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("failed collection refresh rolls back full-review publication and its nested writes", async () => {
+  let root = "";
+  const onPublished = async () => {
+    const source = readCatalogSource(root);
+    const show = source.shows.find((entry) => entry.id === "signal-show");
+    if (show?.reviewStatus !== "full-review") return;
+    const collection = source.collections[0];
+    writeCollectionRecordsAtomically(root, [{ ...collection, updatedAt: "2099-12-31" }], { joinExisting: true });
+    throw new Error("simulated collection refresh failure");
+  };
+  const context = setup({ onPublished });
+  root = context.root;
+  try {
+    await context.service.saveReviewDraft("signal-show", {
+      archiveRating: "8.5", archiveTake: "A disciplined, suspenseful sci-fi listen.", spoilerFreeReview: "The first paragraph.",
+      tones: "Tense, Atmospheric", formats: "Serialized", bestFor: "Long walks",
+      similarTo: ["neighbor-a", "neighbor-b", "neighbor-c"],
+      similarReasons: { "neighbor-a": "Reason A", "neighbor-b": "Reason B", "neighbor-c": "Reason C" },
+      collections: [{ id: "route-one", reason: "Reason one" }, { id: "route-two", reason: "Reason two" }],
+    });
+    await assert.rejects(context.service.publishReview("signal-show", "tester"), /simulated collection refresh failure/);
+    const source = readCatalogSource(root);
+    assert.equal(source.shows.find((entry) => entry.id === "signal-show").reviewStatus, "planned");
+    assert.notEqual(source.collections[0].updatedAt, "2099-12-31");
+    assert.equal(fs.existsSync(path.join(root, ".echo-catalog-transaction")), false);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a null archive rating cannot satisfy the full-review publication gate", async () => {
+  const { root, service } = setup();
+  try {
+    await service.saveReviewDraft("signal-show", {
+      archiveRating: null, archiveTake: "A disciplined, suspenseful sci-fi listen.", spoilerFreeReview: "The first paragraph.",
+      tones: "Tense, Atmospheric", formats: "Serialized", bestFor: "Long walks",
+      similarTo: ["neighbor-a", "neighbor-b", "neighbor-c"],
+      similarReasons: { "neighbor-a": "Reason A", "neighbor-b": "Reason B", "neighbor-c": "Reason C" },
+      collections: [{ id: "route-one", reason: "Reason one" }, { id: "route-two", reason: "Reason two" }],
+    });
+    await assert.rejects(service.publishReview("signal-show", "tester"), /archive rating/i);
   } finally {
     fs.rmSync(root, { recursive: true, force: true });
   }

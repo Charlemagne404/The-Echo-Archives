@@ -28,7 +28,7 @@ const {
 const { readShowsFile, validateSiteData } = require("../../scripts/review-helpers");
 const { buildCatalog } = require("../../../tools/build-catalog");
 const { writeShowRecordsAtomically } = require("../../../tools/lib/catalog-source");
-const { completeCatalogPublicationRecovery } = require("../../../tools/lib/catalog-publication-transaction");
+const { completeCatalogPublicationRecovery, runWithCatalogPublication } = require("../../../tools/lib/catalog-publication-transaction");
 
 const PIPELINE_VERSION = "2.0";
 const IDENTITY_FIELDS = [
@@ -1413,9 +1413,11 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         additionalPaths: stagedCoverChanges.map(({ stage, record }) => path.join(staticRoot, "images/covers", `${record.id}${stage.extension}`)),
         beforeWrite: () => stagedCoverChanges.forEach(({ stage, record }) => { record.cover = promoteStagedCover(stage, staticRoot, record.id).relativePath; }),
       });
-      await validateSiteData(staticRoot, { recoverCovers: true });
-      catalogCache = null;
-      if (typeof onPublished === "function") await onPublished({ showIds: records.map((record) => record.id) });
+      await runWithCatalogPublication(catalogTransaction.publicationToken, async () => {
+        await validateSiteData(staticRoot, { recoverCovers: true });
+        catalogCache = null;
+        if (typeof onPublished === "function") await onPublished({ showIds: records.map((record) => record.id) });
+      });
       const published = store.withTransaction(() => candidates.map((candidate) => {
         const showId = candidate.preparedRecord.id;
         store.bindIdentitiesToShow(candidate.id, showId);
@@ -1509,9 +1511,11 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     try {
       publicationSnapshot = store.publicationSnapshot([candidate]);
       catalogTransaction = writeShowRecordsAtomically(staticRoot, [promoted], { deferCommit: true, recoveryData: publicationSnapshot });
-      await validateSiteData(staticRoot, { recoverCovers: true });
-      catalogCache = null;
-      if (typeof onPublished === "function") await onPublished({ showIds: [promoted.id] });
+      await runWithCatalogPublication(catalogTransaction.publicationToken, async () => {
+        await validateSiteData(staticRoot, { recoverCovers: true });
+        catalogCache = null;
+        if (typeof onPublished === "function") await onPublished({ showIds: [promoted.id] });
+      });
       const updated = store.withTransaction(() => {
         const result = store.updateCandidate(id, { preparedRecord: promoted, lastError: "" });
         store.recordEvent(id, "promoted", reviewer, { showId: promoted.id, reviewStatus: "indexed-only" });
@@ -1640,9 +1644,11 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     try {
       publicationSnapshot = store.publicationSnapshot([candidate]);
       catalogTransaction = writeShowRecordsAtomically(staticRoot, [promoted], { deferCommit: true, recoveryData: publicationSnapshot });
-      await validateSiteData(staticRoot, { recoverCovers: true });
-      catalogCache = null;
-      if (typeof onPublished === "function") await onPublished({ showIds: [promoted.id] });
+      await runWithCatalogPublication(catalogTransaction.publicationToken, async () => {
+        await validateSiteData(staticRoot, { recoverCovers: true });
+        catalogCache = null;
+        if (typeof onPublished === "function") await onPublished({ showIds: [promoted.id] });
+      });
       const updated = store.withTransaction(() => {
         const result = store.updateCandidate(id, { status: "published", publishedShowId: promoted.id, preparedRecord: promoted, lastError: "" });
         store.recordEvent(id, "elevation-promoted", reviewer, { showId: promoted.id, reviewStatus: promoted.reviewStatus });

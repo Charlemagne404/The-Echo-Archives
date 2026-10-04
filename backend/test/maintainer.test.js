@@ -218,6 +218,8 @@ test("maintainer session and queue routes enforce auth and allow queue updates a
     assert.equal(unauthorizedList.status, 401);
     const unauthorizedAnalytics = await fetch(`${context.baseUrl}/api/maintainer/analytics`);
     assert.equal(unauthorizedAnalytics.status, 401);
+    const unauthorizedPopularity = await fetch(`${context.baseUrl}/api/maintainer/popularity`);
+    assert.equal(unauthorizedPopularity.status, 401);
 
     const rejectedLogin = await fetch(`${context.baseUrl}/api/maintainer/session`, {
       method: "POST",
@@ -253,6 +255,14 @@ test("maintainer session and queue routes enforce auth and allow queue updates a
     });
     assert.equal(collectorResponse.status, 204);
 
+    const publicPopularity = await fetch(`${context.baseUrl}/api/popularity/scores`);
+    assert.equal(publicPopularity.status, 200);
+    assert.match(publicPopularity.headers.get("cache-control") || "", /max-age=60/);
+    const publicPopularityPayload = await publicPopularity.json();
+    assert.ok(Number.isFinite(publicPopularityPayload.scores["impact-winter"]));
+    assert.equal(Object.hasOwn(publicPopularityPayload, "diagnostics"), false);
+    assert.equal(Object.hasOwn(publicPopularityPayload, "rankingHealth"), false);
+
     const authenticatedAnalytics = await fetch(`${context.baseUrl}/api/maintainer/analytics?range=7d`, {
       headers: { Cookie: cookie },
     });
@@ -263,6 +273,22 @@ test("maintainer session and queue routes enforce auth and allow queue updates a
     assert.equal(analyticsPayload.privacy.rawIpStored, false);
     assert.equal(analyticsPayload.privacy.browserIdsStored, false);
     assert.ok(analyticsPayload.coverage.trackingStartedAt);
+    const authenticatedPopularity = await fetch(`${context.baseUrl}/api/maintainer/popularity`, {
+      headers: { Cookie: cookie },
+    });
+    assert.equal(authenticatedPopularity.status, 200);
+    const popularityPayload = await authenticatedPopularity.json();
+    const impactPopularity = popularityPayload.diagnostics["impact-winter"];
+    assert.equal(impactPopularity.score, publicPopularityPayload.scores["impact-winter"]);
+    assert.ok(Number.isInteger(impactPopularity.rank));
+    assert.equal(impactPopularity.components.windows.lifetime.showPageViews, 1);
+    assert.equal(impactPopularity.components.windows.lifetime.rawEventCounts.showPageViews, 1);
+    assert.equal(impactPopularity.components.windows.lifetime.rankingEffectiveEventCounts.showPageViews, 1);
+    assert.ok(Number.isFinite(impactPopularity.components.coldStart.archiveRatingPoints));
+    assert.ok(Number.isInteger(impactPopularity.windowRanks.days28));
+    assert.ok(Number.isFinite(popularityPayload.scoreSemantics.compositeMaximum));
+    assert.ok(Number.isFinite(popularityPayload.rankingHealth.zeroMeaningfulBehaviorPercent));
+    assert.ok(popularityPayload.rankingHealth.browsePositionBuckets);
 
     const authenticatedList = await fetch(`${context.baseUrl}/api/maintainer/submissions`, {
       headers: { Cookie: cookie },

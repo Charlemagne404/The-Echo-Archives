@@ -97,3 +97,44 @@
     min-height: 64px;
   }
 }
+
+@media (max-width: 560px) {
+  #chat-toggle.chat-toggle-button {
+    right: max(8px, var(--safe-area-right));
+    bottom: max(12px, var(--safe-area-bottom));
+    width: clamp(46px, 14vw, 50px);
+    height: clamp(46px, 14vw, 50px);
+  }
+
+  .community-card-controls {
+    grid-template-columns: 1fr;
+    top: calc(100% - 2px);
+  }
+
+  .community-card-widget {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .community-card-toggle {
+    grid-template-columns: 1fr;
+  }
+
+  .community-card-summary {
+    max-width: none;
+  }
+
+  .community-card-action {
+    justify-self: start;
+  }
+
+  .community-card-controls::before {
+    right: auto;
+    left: 24px;
+  }
+
+  #backToTop {
+    right: calc(max(12px, var(--safe-area-right)) + 60px);
+    bottom: max(16px, var(--safe-area-bottom));
+  }
+}

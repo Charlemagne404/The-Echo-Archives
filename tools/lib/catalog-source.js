@@ -144,10 +144,10 @@ function writeShowRecordsAtomically(siteRoot, records = [], { deferCommit = fals
     throw error;
   }
   try { if (!deferCommit) commit(); } catch (error) { rollback(); throw error; }
-  return { changedPaths, rollback, commit };
+  return { changedPaths, rollback, commit, publicationToken: publication.publicationToken };
 }
 
-function writeCollectionRecordsAtomically(siteRoot, records = [], { deferCommit = false } = {}) {
+function writeCollectionRecordsAtomically(siteRoot, records = [], { deferCommit = false, joinExisting = false } = {}) {
   const nextRecords = Array.isArray(records) ? records : [];
   if (nextRecords.length === 0) {
     throw new Error("At least one collection record is required.");
@@ -164,7 +164,7 @@ function writeCollectionRecordsAtomically(siteRoot, records = [], { deferCommit 
 
   const publication = beginCatalogPublication(siteRoot, () => hasSplitCatalogSource(siteRoot)
     ? [...nextRecords.map((record) => path.join(siteRoot, COLLECTIONS_SOURCE_DIR, `${record.id}.json`)), path.join(siteRoot, COLLECTIONS_SOURCE_DIR, ORDER_FILE_NAME)]
-    : [path.join(siteRoot, RUNTIME_DATA_DIR, "collections.json")], { includeGenerated: deferCommit, includeSource: deferCommit });
+    : [path.join(siteRoot, RUNTIME_DATA_DIR, "collections.json")], { includeGenerated: deferCommit, includeSource: deferCommit, joinExisting });
   let sourceData;
   try { sourceData = readCatalogSource(siteRoot); } catch (error) { publication.rollback(); throw error; }
   let committed = false;
@@ -183,6 +183,7 @@ function writeCollectionRecordsAtomically(siteRoot, records = [], { deferCommit 
     } catch (error) { publication.rollback(); throw error; }
     return {
       changedPaths: [targetPath],
+      publicationToken: publication.publicationToken,
       commit,
       rollback: () => {
         if (!committed) { publication.rollback(); return; }
@@ -231,7 +232,7 @@ function writeCollectionRecordsAtomically(siteRoot, records = [], { deferCommit 
   }
 
   try { if (!deferCommit) commit(); } catch (error) { rollback(); throw error; }
-  return { changedPaths, rollback, commit };
+  return { changedPaths, rollback, commit, publicationToken: publication.publicationToken };
 }
 
 function hasSplitCatalogSource(siteRoot) {

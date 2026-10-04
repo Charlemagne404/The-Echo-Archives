@@ -155,8 +155,7 @@
   gap: 16px;
 }
 
-.collection-card-count,
-.collection-card-cta {
+.collection-card-count {
   margin: 0;
 }
 
@@ -164,24 +163,6 @@
   color: rgba(247, 247, 243, calc(0.7 + (var(--collection-focus-weight) * 0.22)));
   font-size: 0.95rem;
   transition: color 220ms ease;
-}
-
-.collection-card-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 34px;
-  padding: 0 12px;
-  border-radius: 999px;
-  background: rgba(7, 10, 13, 0.7);
-  color: var(--text-primary);
-  font-size: 0.82rem;
-  font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, calc(0.16 + (var(--collection-focus-weight) * 0.22)));
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  background: rgba(7, 10, 13, calc(0.7 - (var(--collection-focus-weight) * 0.12)));
-  transition: border-color 220ms ease, background 220ms ease, color 220ms ease;
 }
 
 .section-link {

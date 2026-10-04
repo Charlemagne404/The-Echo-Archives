@@ -541,8 +541,7 @@
   .collection-carousel[data-collection-touching="true"] .collection-card::before,
   .collection-carousel[data-collection-touching="true"] .collection-card::after,
   .collection-carousel[data-collection-touching="true"] .collection-card h3,
-  .collection-carousel[data-collection-touching="true"] .collection-card-count,
-  .collection-carousel[data-collection-touching="true"] .collection-card-cta {
+  .collection-carousel[data-collection-touching="true"] .collection-card-count {
     transition: none !important;
   }
 }

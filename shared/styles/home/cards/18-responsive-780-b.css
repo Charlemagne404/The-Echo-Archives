@@ -212,6 +212,33 @@
     width: calc(100vw - (var(--chat-floating-edge) * 2));
     height: min(640px, calc(var(--visual-viewport-height) - max(24px, var(--safe-area-top)) - max(24px, var(--safe-area-bottom))));
   }
+
+  #stickyBrowseBar .sticky-search-toggle,
+  #stickyBrowseBar #stickyFilterToggle {
+    min-height: 44px;
+  }
+
+  #stickyBrowseBar .sticky-search-toggle {
+    flex-basis: 44px;
+    width: 44px;
+  }
+
+  #stickyBrowseBar .sticky-search-field {
+    min-height: 44px;
+  }
+
+  .home-page #search,
+  .home-page #stickySearch {
+    min-height: 54px;
+    padding: 14px 12px 14px 44px;
+    font-size: 1rem;
+  }
+
+  #stickyBrowseBar #stickySearch {
+    min-height: 42px;
+    padding: 9px 14px 9px 42px;
+    font-size: 0.96rem;
+  }
 }
 
 @media (max-width: 780px) {

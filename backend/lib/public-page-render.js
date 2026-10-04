@@ -1,3 +1,4 @@
+const { socialPreview } = require("../../shared/archive-social");
 function escapeHtml(value = "") {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -114,56 +115,31 @@ function fallbackDescription(description = "") {
   );
 }
 
-function fallbackImageUrl(siteUrl) {
-  return buildAbsoluteUrl(siteUrl, "/echo-wordmark1.png");
-}
-
 function getShowImagePath(show) {
-  const imageSrc = String(show?.imageSrc || "").trim();
-  if (imageSrc) {
-    return imageSrc;
-  }
-
-  const cover = String(show?.cover || "").trim();
-  if (!cover) {
-    return "";
-  }
-
-  if (/^(?:https?:)?\/\//i.test(cover) || /^data:image\//i.test(cover)) {
-    return cover;
-  }
-
-  return `/${cover.replace(/^\/+/, "")}`;
-}
-
-function getCollectionLeadShow(collection, { collectionShows = [], anchorShow = null } = {}) {
-  if (anchorShow?.imageSrc || anchorShow?.cover) {
-    return anchorShow;
-  }
-
-  return collectionShows.find((show) => show?.imageSrc || show?.cover) || null;
+  const source = String(show?.imageSrc || show?.cover || "").trim();
+  if (!source || /^(?:https?:)?\/\//i.test(source) || /^data:image\//i.test(source)) return source;
+  return `/${source.replace(/^\/+/, "")}`;
 }
 
 function buildShowPageMetadata({ siteUrl, show }) {
-  const imageSource = getShowImagePath(show);
+  const preview = socialPreview("show", show);
   return {
     title: buildShowSeoTitle(show),
     description: buildShowSeoDescription(show),
     canonicalUrl: buildAbsoluteUrl(siteUrl, buildShowPath(show.id)),
-    imageUrl: imageSource ? buildAbsoluteUrl(siteUrl, imageSource) : fallbackImageUrl(siteUrl),
-    imageAlt: String(show.coverAlt || `${show.title} cover art`).trim(),
+    imageUrl: buildAbsoluteUrl(siteUrl, preview.path),
+    imageAlt: preview.alt,
   };
 }
 
-function buildCollectionPageMetadata({ siteUrl, collection, collectionShows = [], anchorShow = null }) {
-  const firstCoverShow = getCollectionLeadShow(collection, { collectionShows, anchorShow });
-  const firstCover = getShowImagePath(firstCoverShow);
+function buildCollectionPageMetadata({ siteUrl, collection, collectionShows = [] }) {
+  const preview = socialPreview("collection", collection);
   return {
     title: buildCollectionSeoTitle(collection),
     description: buildCollectionSeoDescription(collection, collectionShows),
     canonicalUrl: buildAbsoluteUrl(siteUrl, buildCollectionPath(collection.id)),
-    imageUrl: firstCover ? buildAbsoluteUrl(siteUrl, firstCover) : fallbackImageUrl(siteUrl),
-    imageAlt: String(firstCoverShow?.coverAlt || `${collection.title} collection preview`).trim(),
+    imageUrl: buildAbsoluteUrl(siteUrl, preview.path),
+    imageAlt: preview.alt,
   };
 }
 
@@ -429,6 +405,10 @@ function injectRuntimeSiteConfig(html, config = {}) {
 
   if (Object.hasOwn(config, "siteUrl")) {
     rendered = replaceStructuredDataOrigin(rendered, previousSiteUrl, config.siteUrl);
+    const image = rendered.match(/<meta property="og:image" content="([^"]+)"/)?.[1];
+    if (image) rendered = replacePropertyMeta(rendered, "og:image", buildAbsoluteUrl(config.siteUrl, new URL(image, config.siteUrl).pathname));
+    const twitterImage = rendered.match(/<meta name="twitter:image" content="([^"]+)"/)?.[1];
+    if (twitterImage) rendered = replaceNamedMeta(rendered, "twitter:image", buildAbsoluteUrl(config.siteUrl, new URL(twitterImage, config.siteUrl).pathname));
   }
 
   if (config.nonce) {

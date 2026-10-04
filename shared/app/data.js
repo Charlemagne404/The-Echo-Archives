@@ -24,6 +24,28 @@ const {
   normalizeShowRecord: normalizeArchiveShowRecord,
 } = archiveRecord;
 
+let popularityScorePromise = null;
+
+export function loadPopularityScores() {
+  if (popularityScorePromise) return popularityScorePromise;
+  const request = fetchJson("/api/popularity/scores", { credentials: "same-origin", timeoutMs: 4_000 })
+    .then((payload) => {
+      if (!payload?.scores || typeof payload.scores !== "object" || Array.isArray(payload.scores)) {
+        throw new Error("Popularity scores were not returned as a show map.");
+      }
+      return Object.fromEntries(
+        Object.entries(payload.scores)
+          .filter(([showId, score]) => /^[a-z0-9]+(?:[-_][a-z0-9]+)*$/.test(showId) && typeof score === "number" && Number.isFinite(score))
+          .map(([showId, score]) => [showId, score]),
+      );
+    })
+    .finally(() => {
+      if (popularityScorePromise === request) popularityScorePromise = null;
+    });
+  popularityScorePromise = request;
+  return request;
+}
+
 export async function fetchJson(url, options = {}) {
   const { headers: headerOverrides = {}, timeoutMs = 12_000, ...requestOptions } = options || {};
   const timeoutController = new AbortController();

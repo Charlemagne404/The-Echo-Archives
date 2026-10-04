@@ -15,7 +15,6 @@
     "paralyzed",
     "derelict",
     "crystal-blue",
-    "tower-4",
     "alice-isnt-dead",
     "malevolent",
     "archive-81",
@@ -26,7 +25,8 @@
     "ghost-wax",
     "modes-of-thought-in-anterran-literature",
     "the-magnus-protocol",
-    "the-subjective-truth"
+    "the-subjective-truth",
+    "tower-4"
   ],
   "showReasons": {
     "how-i-died": "Rule match: ongoing + Mystery.",
@@ -35,7 +35,6 @@
     "paralyzed": "Rule match: ongoing + Mystery.",
     "derelict": "Rule match: ongoing + Mystery.",
     "crystal-blue": "Rule match: ongoing + Mystery.",
-    "tower-4": "Rule match: ongoing + Mystery.",
     "alice-isnt-dead": "Rule match: ongoing + Mystery.",
     "malevolent": "Rule match: ongoing + Mystery.",
     "archive-81": "Rule match: ongoing + Mystery.",
@@ -46,7 +45,8 @@
     "ghost-wax": "Rule match: ongoing + Mystery.",
     "modes-of-thought-in-anterran-literature": "Rule match: ongoing + Mystery.",
     "the-magnus-protocol": "Rule match: ongoing + Mystery.",
-    "the-subjective-truth": "Rule match: ongoing + Mystery."
+    "the-subjective-truth": "Rule match: ongoing + Mystery.",
+    "tower-4": "Rule match: ongoing + Mystery."
   },
   "automation": {
     "mode": "rule",
@@ -71,5 +71,5 @@
   "featured": false,
   "order": 405,
   "createdAt": "2026-09-20",
-  "updatedAt": "2026-09-20"
+  "updatedAt": "2026-10-04"
 }

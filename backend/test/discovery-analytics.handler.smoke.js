@@ -11,15 +11,16 @@ let browser;
 let server;
 let baseUrl;
 
-function fixtureMarkup(enabled = true) {
+function fixtureMarkup(enabled = true, homePage = false) {
   return `<!doctype html>
 <html lang="en">
   <head><meta charset="utf-8"><title>Discovery analytics fixture</title></head>
-  <body data-analytics-enabled="${enabled ? "true" : "false"}" data-archivist-enabled="false">
+  <body${homePage ? ' class="home-page"' : ""} data-analytics-enabled="${enabled ? "true" : "false"}" data-archivist-enabled="false">
     <a id="listen" href="https://example.com/listen?utm_source=echo" target="_blank" rel="noreferrer" data-discovery-listen-show-id="fixture-show" data-discovery-provider="spotify" data-discovery-link-role="primary" data-discovery-surface="show_page_hero" data-discovery-content-profile="full_review"><span>Listen</span></a>
     <a id="collection-clone" href="#clone" data-collection-clone="true" data-discovery-collection-id="fixture-collection" data-discovery-collection-kind="curated" data-discovery-surface="collections_directory">Clone</a>
     <a id="collection" href="#collection" data-discovery-collection-id="fixture-collection" data-discovery-collection-kind="curated" data-discovery-surface="collections_directory"><span>Collection</span></a>
     <a id="synthetic-show" href="javascript:void(0)" data-discovery-show-id="fixture-show" data-discovery-surface="home_archive_grid" data-discovery-browse-state="default" data-discovery-result-type="show_card" data-discovery-recommendation-source="none" data-discovery-result-position-bucket="1" data-discovery-content-profile="full_review">Synthetic show</a>
+    <a id="synthetic-show-duplicate" href="javascript:void(0)"${homePage ? ' style="display:none"' : ""} data-discovery-show-id="fixture-show" data-discovery-surface="home_archive_grid" data-discovery-browse-state="default" data-discovery-result-type="show_card" data-discovery-recommendation-source="none" data-discovery-result-position-bucket="2-4" data-discovery-content-profile="full_review">Same show on another card</a>
     <script>
       window.EchoArchiveSearch = {};
       window.EchoArchiveSimilarity = {};
@@ -38,11 +39,11 @@ function createFixtureServer() {
     const requestUrl = new URL(request.url || "/", "http://127.0.0.1");
     if (requestUrl.pathname === "/discovery-fixture") {
       response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
-      response.end(fixtureMarkup(requestUrl.searchParams.get("disabled") !== "1"));
+      response.end(fixtureMarkup(requestUrl.searchParams.get("disabled") !== "1", requestUrl.searchParams.get("home") === "1"));
       return;
     }
 
-    if (requestUrl.pathname === "/api/analytics/events") {
+    if (["/api/analytics/events", "/api/analytics/events/batch"].includes(requestUrl.pathname)) {
       response.writeHead(204);
       response.end();
       return;
@@ -86,6 +87,72 @@ test.before(async () => {
   server = createFixtureServer();
   baseUrl = await listen(server);
   browser = await chromium.launch();
+});
+
+test("show-card impressions require visibility and are batched once per show and surface", async () => {
+  const page = await browser.newPage({ viewport: { width: 900, height: 700 } });
+  const impressionRequests = [];
+  page.on("request", (request) => {
+    if (new URL(request.url()).pathname === "/api/analytics/events/batch" && request.postData()) {
+      impressionRequests.push(JSON.parse(request.postData()));
+    }
+  });
+
+  try {
+    await page.goto(`${baseUrl}/discovery-fixture`, { waitUntil: "domcontentloaded" });
+    await page.waitForFunction(() => document.body?.dataset.appReady === "true");
+    await page.waitForFunction(() => performance.getEntriesByType("resource").some((entry) => entry.name.includes("/api/analytics/events/batch")), undefined, { timeout: 5_000 });
+    await page.waitForTimeout(100);
+
+    const events = impressionRequests.flatMap((request) => request.events || []);
+    assert.equal(events.length, 1);
+    assert.equal(events[0].eventName, "Show Card Impression");
+    assert.deepEqual(events[0].properties, {
+      show_id: "fixture-show",
+      discovery_surface: "home_archive_grid",
+      browse_state: "default",
+      result_position_bucket: "1",
+    });
+  } finally {
+    await page.close();
+  }
+});
+
+test("home impressions and opens wait for sorted card positions", async () => {
+  const page = await browser.newPage({ viewport: { width: 900, height: 700 } });
+  const requests = [];
+  page.on("request", (request) => {
+    if (["/api/analytics/events", "/api/analytics/events/batch"].includes(new URL(request.url()).pathname) && request.postData()) {
+      requests.push({ path: new URL(request.url()).pathname, payload: JSON.parse(request.postData()) });
+    }
+  });
+
+  try {
+    await page.goto(`${baseUrl}/discovery-fixture?home=1`, { waitUntil: "domcontentloaded" });
+    await page.waitForFunction(() => document.body?.dataset.appReady === "true");
+    assert.equal(await page.locator("body").getAttribute("data-home-popularity-ready"), "false");
+    await page.locator("#synthetic-show").click();
+    await page.waitForTimeout(800);
+    assert.equal(requests.flatMap(({ payload }) => payload.events || [payload]).filter(({ eventName }) => eventName === "Show Opened").length, 0);
+    assert.equal(requests.flatMap(({ payload }) => payload.events || []).filter(({ eventName }) => eventName === "Show Card Impression").length, 0);
+
+    await page.evaluate(() => {
+      document.body.dataset.homePopularityReady = "true";
+      document.querySelector("#synthetic-show").dataset.discoveryResultPositionBucket = "5-9";
+      document.dispatchEvent(new Event("echo:home-popularity-ready"));
+    });
+    await page.locator("#synthetic-show").click();
+    await page.waitForFunction(() => performance.getEntriesByType("resource").some((entry) => entry.name.includes("/api/analytics/events/batch")));
+    await page.waitForTimeout(350);
+
+    const events = requests.flatMap(({ payload }) => payload.events || [payload]);
+    const opened = events.find(({ eventName }) => eventName === "Show Opened");
+    const impression = events.find(({ eventName }) => eventName === "Show Card Impression");
+    assert.equal(opened?.properties.result_position_bucket, "5-9");
+    assert.equal(impression?.properties.result_position_bucket, "5-9");
+  } finally {
+    await page.close();
+  }
 });
 
 test.after(async () => {

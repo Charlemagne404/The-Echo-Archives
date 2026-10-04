@@ -1,3 +1,4 @@
+const { socialPreview } = require("../../shared/archive-social");
 const { renderCollectionShowCard, renderCollectionDirectoryCard } = require("../../tools/lib/home-page-prerender");
 const { BRAND_DESCRIPTOR, buildAbsoluteUrl, truncateDescription } = require("./seo");
 const { injectPageMetadata, injectStructuredData, injectNoIndex } = require("./public-page-render");
@@ -76,17 +77,6 @@ function getShowImageSource(show) {
     || show?.coverVariants?.find((variant) => variant.width === 320)?.src
     || show?.cover
     || "";
-}
-
-function getEntitySocialImage({ entity = null, entities = [], shows = [], siteUrl }) {
-  const records = entity
-    ? orderedShows(entity, shows)
-    : getPublicDirectoryEntities(entities, shows)
-      .map((record) => ({ record, catalogue: orderedShows(record, shows) }))
-      .sort((a, b) => b.catalogue.length - a.catalogue.length || a.record.name.localeCompare(b.record.name, "en"))
-      .flatMap(({ catalogue }) => catalogue);
-  const source = getShowImageSource(records[0]);
-  return source ? buildAbsoluteUrl(siteUrl, source) : buildAbsoluteUrl(siteUrl, "/echo-wordmark1.png");
 }
 
 function buildEntitySeoTitle(entity = null) {
@@ -421,7 +411,8 @@ function buildEntityPageData({ entity, entities, shows, collections = [], siteUr
   const listId = `${canonicalUrl}#itemlist`;
   const entityId = `${canonicalUrl}#entity`;
   const breadcrumbId = `${canonicalUrl}#breadcrumb`;
-  const imageUrl = getEntitySocialImage({ entity, entities, shows, siteUrl });
+  const preview = socialPreview("entity", entity);
+  const imageUrl = buildAbsoluteUrl(siteUrl, preview.path);
   const graph = [
     {
       "@type": "CollectionPage",
@@ -465,7 +456,7 @@ function buildEntityPageData({ entity, entities, shows, collections = [], siteUr
       description,
       canonicalUrl,
       imageUrl,
-      imageAlt: entity ? `${entity.name} catalogue in The Echo Archives` : "Audio drama creator catalogues in The Echo Archives",
+      imageAlt: preview.alt,
     },
     structuredData: { "@context": "https://schema.org", "@graph": graph },
   };

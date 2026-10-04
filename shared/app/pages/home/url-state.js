@@ -1,7 +1,7 @@
 import "../../../discovery/url-state.js";
 import { normalizeTag } from "../../utils.js";
+import { HOME_SORT_MODES } from "./layout.js";
 
-const HOME_SORT_MODES = new Set(["default", "recently-updated"]);
 const discoveryUrlState = globalThis.EchoDiscoveryUrlState;
 
 export function seedHomeStateFromParams({ state, shows, collectionsById, structuredFilterGroups }) {
@@ -11,7 +11,8 @@ export function seedHomeStateFromParams({ state, shows, collectionsById, structu
   state.selectedCollectionId = "";
   state.query = "";
   state.discoveryIntent = null;
-  state.sortMode = "default";
+  state.sortMode = "popular";
+  state.sortModeExplicit = false;
   Object.values(state.filters || {}).forEach((values) => values.clear());
 
   const initialCollectionId = params.get("collection") || publicDiscoveryState.collectionId || "";
@@ -22,8 +23,12 @@ export function seedHomeStateFromParams({ state, shows, collectionsById, structu
   state.query = (params.has("q") ? params.get("q") : publicDiscoveryState.query)?.trim().slice(0, 200) || "";
 
   const sortMode = params.get("sort") || publicDiscoveryState.sort || "";
-  if (HOME_SORT_MODES.has(sortMode)) {
+  if (sortMode === "default") {
+    state.sortMode = "archive-order";
+    state.sortModeExplicit = true;
+  } else if (HOME_SORT_MODES.has(sortMode)) {
     state.sortMode = sortMode;
+    state.sortModeExplicit = true;
   }
 
   const validOptionsByGroup = new Map(
@@ -92,7 +97,7 @@ export function buildBrowseUrlState(state, location = window.location) {
     nextParams.set("q", state.query);
   }
 
-  if (state.sortMode && state.sortMode !== "default") {
+  if (state.sortMode && (state.sortMode !== "popular" || state.sortModeExplicit)) {
     nextParams.set("sort", state.sortMode);
   }
 

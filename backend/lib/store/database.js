@@ -469,6 +469,33 @@ function migrate(db) {
     CREATE INDEX IF NOT EXISTS idx_analytics_events_path_time
       ON analytics_events (page_path, occurred_at);
 
+    CREATE TABLE IF NOT EXISTS popularity_event_daily (
+      show_id TEXT NOT NULL,
+      event_day TEXT NOT NULL,
+      signal TEXT NOT NULL,
+      event_count INTEGER NOT NULL DEFAULT 0 CHECK (event_count >= 0),
+      PRIMARY KEY (show_id, event_day, signal)
+    );
+
+    CREATE TABLE IF NOT EXISTS popularity_event_raw_daily (
+      show_id TEXT NOT NULL,
+      event_day TEXT NOT NULL,
+      signal TEXT NOT NULL,
+      event_count INTEGER NOT NULL DEFAULT 0 CHECK (event_count >= 0),
+      PRIMARY KEY (show_id, event_day, signal)
+    );
+
+    CREATE TABLE IF NOT EXISTS popularity_contribution_limits (
+      limit_key TEXT PRIMARY KEY,
+      last_contributed_at TEXT NOT NULL
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_popularity_event_daily_day
+      ON popularity_event_daily (event_day, show_id);
+
+    CREATE INDEX IF NOT EXISTS idx_popularity_event_raw_daily_day
+      ON popularity_event_raw_daily (event_day, show_id);
+
     CREATE INDEX IF NOT EXISTS idx_analytics_visitors_last_seen
       ON analytics_visitors (last_seen_at);
 

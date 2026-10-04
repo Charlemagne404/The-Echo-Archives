@@ -27,13 +27,18 @@ function renderCards(items, target, selectedId) {
 }
 
 function renderCollectionControls(collections = []) {
-  return collections.map((collection) => `
-    <label class="maintainer-checkbox">
-      <input type="checkbox" name="collection" value="${escapeHtml(collection.id)}" ${collection.selected ? "checked" : ""} />
-      <span>${escapeHtml(collection.title)}</span>
-      <input type="text" name="collection-reason-${escapeHtml(collection.id)}" value="${escapeHtml(collection.reason || "")}" placeholder="Why this belongs here" />
-    </label>
-  `).join("");
+  return `<div class="maintainer-collection-list">${collections.map((collection) => `
+    <div class="maintainer-collection-row">
+      <label class="maintainer-checkbox maintainer-collection-choice">
+        <input type="checkbox" name="collection" value="${escapeHtml(collection.id)}" data-collection-title="${escapeHtml(collection.title)}" ${collection.selected ? "checked" : ""} />
+        <span>Include in <strong>${escapeHtml(collection.title)}</strong></span>
+      </label>
+      <label class="maintainer-field maintainer-collection-reason">
+        <span>Placement reason for ${escapeHtml(collection.title)}</span>
+        <input type="text" name="collection-reason-${escapeHtml(collection.id)}" value="${escapeHtml(collection.reason || "")}" placeholder="Why does this show fit here?" />
+      </label>
+    </div>
+  `).join("")}</div>`;
 }
 
 function renderDetail(detail, target, reviewer) {
@@ -52,9 +57,10 @@ function renderDetail(detail, target, reviewer) {
         ${!isExistingReview ? '<button type="button" class="maintainer-ghost-button" data-elevation-action="brief">Copy Codex brief</button>' : ""}
       </div>
       <p class="maintainer-panel-meta">${escapeHtml(isExistingReview ? "Edit the review copy below. Saving updates the authored archive source and regenerates the catalog automatically." : "A factual elevation opens a protected importer update draft. Review its source evidence, save any factual edits there, confirm factual review, and promote it to indexed-only.")}</p>
-      <form id="maintainerElevationReviewForm" class="maintainer-review-form">
+      <form id="maintainerElevationReviewForm" class="maintainer-review-form" novalidate>
         <input name="reviewedBy" type="hidden" value="${escapeHtml(reviewer)}" />
-        <label class="maintainer-field"><span>Archive rating (0–10)</span><input name="archiveRating" type="number" min="0" max="10" step="0.1" value="${escapeHtml(String(show.ratings?.archive ?? ""))}" /></label>
+        <label class="maintainer-field"><span>Tags shown on show cards</span><input name="tags" list="maintainerElevationTagSuggestions" value="${escapeHtml(listValue(show.tags))}" placeholder="Space, Survival" autocomplete="off" /><datalist id="maintainerElevationTagSuggestions">${(detail.approvedTags || []).map((tag) => `<option value="${escapeHtml(tag)}"></option>`).join("")}</datalist><span class="maintainer-panel-meta">Use up to four approved discovery tags, separated by commas. These are the tags shown on grid cards.</span></label>
+        <label class="maintainer-field"><span>Archive rating (0–10)</span><input name="archiveRating" type="number" min="0" max="10" step="any" value="${escapeHtml(String(show.ratings?.archive ?? ""))}" /></label>
         <label class="maintainer-field"><span>Archive take</span><textarea name="archiveTake" rows="3">${escapeHtml(review.archiveTake || "")}</textarea></label>
         <label class="maintainer-field"><span>Spoiler-safe review (separate paragraphs with blank lines)</span><textarea name="spoilerFreeReview" rows="8">${escapeHtml((review.spoilerFreeReview || []).join("\n\n"))}</textarea></label>
         <label class="maintainer-field"><span>Further thoughts (optional; separate paragraphs with blank lines)</span><textarea name="thoughts" rows="5">${escapeHtml((review.thoughts || []).join("\n\n"))}</textarea></label>
@@ -71,9 +77,10 @@ function renderDetail(detail, target, reviewer) {
           </div>
           <label class="maintainer-field"><span>Similar show IDs (3–5)</span><input name="similarTo" value="${escapeHtml(listValue(show.similarTo))}" placeholder="show-id-one, show-id-two" /></label>
           <label class="maintainer-field"><span>Similar-show reasons (one per line: show-id: reason)</span><textarea name="similarReasonsText" rows="5">${escapeHtml((show.similarTo || []).map((id) => `${id}: ${show.similarReasons?.[id] || ""}`).join("\n"))}</textarea></label>
-          <section class="maintainer-detail-section"><h3>Collection placement</h3><p class="maintainer-panel-meta">Choose at least two collections for a full review and record why the show belongs in each.</p>${renderCollectionControls(detail.collections)}</section>
+          <section class="maintainer-detail-section"><h3>Collection placement</h3><p class="maintainer-panel-meta">The square selects a collection. Add the reason in the labeled text field underneath it. Full reviews need at least two selected collections with reasons; reasonless selections are skipped when saving.</p>${renderCollectionControls(detail.collections)}</section>
         </details>
         <div class="maintainer-review-actions">${isExistingReview ? '<button class="maintainer-primary-button" type="submit" name="elevationAction" value="save">Save changes</button>' : '<button class="maintainer-primary-button" type="submit" name="elevationAction" value="save">Save editorial draft</button><button class="maintainer-secondary-button" type="submit" name="elevationAction" value="publish">Publish full review</button>'}</div>
+        <p class="maintainer-status-copy" data-elevation-review-status role="status" aria-live="polite"></p>
       </form>
     </div>
   `;
@@ -82,13 +89,22 @@ function renderDetail(detail, target, reviewer) {
 function formPayload(form) {
   const formData = new FormData(form);
   const similarTo = String(formData.get("similarTo") || "").split(",").map((value) => value.trim()).filter(Boolean);
-  const suppliedReasons = String(formData.get("similarReasonsText") || "").split("\n").map((line) => line.split(/:\s*/, 2)).filter(([id]) => id?.trim());
+  const suppliedReasons = String(formData.get("similarReasonsText") || "").split("\n").map((line) => {
+    const separator = line.indexOf(":");
+    return separator < 0 ? ["", ""] : [line.slice(0, separator).trim(), line.slice(separator + 1).trim()];
+  }).filter(([id]) => id);
   const reasonMap = new Map(suppliedReasons.map(([id, reason]) => [id.trim(), String(reason || "").trim()]));
   const similarReasons = Object.fromEntries(similarTo.map((id) => [id, reasonMap.get(id) || ""]));
-  const collections = [...form.querySelectorAll('input[name="collection"]:checked')].map((input) => ({ id: input.value, reason: String(formData.get(`collection-reason-${input.value}`) || "").trim() }));
+  const selectedCollections = [...form.querySelectorAll('input[name="collection"]:checked')].map((input) => ({
+    id: input.value,
+    title: input.dataset.collectionTitle || input.value,
+    reason: String(formData.get(`collection-reason-${input.value}`) || "").trim(),
+  }));
+  const collections = selectedCollections.filter((entry) => entry.reason).map(({ id, reason }) => ({ id, reason }));
+  const skippedCollections = selectedCollections.filter((entry) => !entry.reason).map((entry) => entry.title);
   return {
     archiveRating: String(formData.get("archiveRating") || ""), archiveTake: formData.get("archiveTake"), spoilerFreeReview: formData.get("spoilerFreeReview"), thoughts: formData.get("thoughts"), quoteText: formData.get("quoteText"), quoteAttribution: formData.get("quoteAttribution"),
-    tones: formData.get("tones"), formats: formData.get("formats"), bestFor: formData.get("bestFor"), similarTo, similarReasons, collections,
+    tags: formData.get("tags"), tones: formData.get("tones"), formats: formData.get("formats"), bestFor: formData.get("bestFor"), similarTo, similarReasons, collections, skippedCollections,
   };
 }
 
@@ -123,12 +139,19 @@ function filterLaneItems(items, query) {
 export function bindElevationDesk({ container, getReviewer, onAuthError, onStatus } = {}) {
   if (!container) return { load() {}, abort() {} };
   let controller = null;
+  let detailController = null;
+  let detailRequestSequence = 0;
   let selectedId = "";
   let selectedTarget = "published";
   let activeTarget = "published";
   let searchQuery = "";
   let laneData = null;
   const render = (html) => { container.innerHTML = html; };
+  function invalidateDetailRequest() {
+    detailRequestSequence += 1;
+    detailController?.abort();
+    detailController = null;
+  }
 
   function updateLanePanel() {
     if (!laneData) return;
@@ -163,7 +186,7 @@ export function bindElevationDesk({ container, getReviewer, onAuthError, onStatu
       const detailContainer = container.querySelector("#maintainerElevationDetail");
       if (detailContainer) detailContainer.innerHTML = "Loading selected review…";
       updateLanePanel();
-      await loadDetail();
+      await loadDetail(selectedId, selectedTarget);
       container.querySelector("#maintainerElevationDetail")?.scrollIntoView({ behavior: "smooth", block: "start" });
     }));
   }
@@ -171,6 +194,7 @@ export function bindElevationDesk({ container, getReviewer, onAuthError, onStatu
   function bindLaneControls() {
     container.querySelectorAll("[data-elevation-lane]").forEach((button) => {
       button.addEventListener("click", () => {
+        invalidateDetailRequest();
         activeTarget = button.dataset.elevationLane || "published";
         selectedTarget = activeTarget;
         selectedId = "";
@@ -230,6 +254,7 @@ export function bindElevationDesk({ container, getReviewer, onAuthError, onStatu
 
   async function load() {
     controller?.abort();
+    invalidateDetailRequest();
     controller = new AbortController();
     try {
       const [indexed, full, published] = await Promise.all([
@@ -243,7 +268,7 @@ export function bindElevationDesk({ container, getReviewer, onAuthError, onStatu
       if (selectedId) {
         const detailContainer = container.querySelector("#maintainerElevationDetail");
         if (detailContainer) detailContainer.innerHTML = "Loading selected review…";
-        await loadDetail();
+        await loadDetail(selectedId, selectedTarget);
       }
     } catch (error) {
       if (error.name === "AbortError") return;
@@ -252,26 +277,32 @@ export function bindElevationDesk({ container, getReviewer, onAuthError, onStatu
     }
   }
 
-  async function loadDetail() {
+  async function loadDetail(showId = selectedId, target = selectedTarget) {
+    invalidateDetailRequest();
+    const requestSequence = detailRequestSequence;
+    const requestController = new AbortController();
+    detailController = requestController;
     const detailContainer = container.querySelector("#maintainerElevationDetail");
-    if (!detailContainer || !selectedId) return;
+    if (!detailContainer || !showId) return;
     try {
-      const detail = await fetchMaintainerElevation(selectedId, { signal: controller?.signal });
-      detailContainer.innerHTML = renderDetail(detail, selectedTarget, getReviewer?.() || "");
-      bindDetailActions(detailContainer);
+      const detail = await fetchMaintainerElevation(showId, { signal: requestController.signal });
+      if (requestController.signal.aborted || requestSequence !== detailRequestSequence || showId !== selectedId || target !== selectedTarget) return;
+      detailContainer.innerHTML = renderDetail(detail, target, getReviewer?.() || "");
+      bindDetailActions(detailContainer, showId, target);
     } catch (error) {
       if (error.name === "AbortError") return;
+      if (requestSequence !== detailRequestSequence || showId !== selectedId || target !== selectedTarget) return;
       if (error.name === "MaintainerAuthError") return onAuthError?.(error);
       detailContainer.innerHTML = `<p class="maintainer-panel-meta">${escapeHtml(error.message || "Failed to load elevation detail.")}</p>`;
     }
   }
 
-  function bindDetailActions(detailContainer) {
+  function bindDetailActions(detailContainer, showId, target) {
     detailContainer.querySelector('[data-elevation-action="factual"]')?.addEventListener("click", async (event) => {
       const button = event.currentTarget;
       button.disabled = true;
       try {
-        const result = await createMaintainerElevationFactualDraft(selectedId, { reviewedBy: getReviewer?.() || "" });
+        const result = await createMaintainerElevationFactualDraft(showId, { reviewedBy: getReviewer?.() || "" });
         onStatus?.("Factual elevation draft queued. Opening it in the importer workspace…");
         window.location.assign(`/maintainer/imports.html?q=${encodeURIComponent(result.candidateIds?.[0] || "")}`);
       } catch (error) {
@@ -282,31 +313,70 @@ export function bindElevationDesk({ container, getReviewer, onAuthError, onStatu
     });
     detailContainer.querySelector('[data-elevation-action="brief"]')?.addEventListener("click", async () => {
       try {
-        const { brief } = await fetchMaintainerElevationBrief(selectedId, selectedTarget);
+        const { brief } = await fetchMaintainerElevationBrief(showId, target);
         await navigator.clipboard.writeText(brief);
         onStatus?.("Codex brief copied to the clipboard.");
       } catch (error) {
         onStatus?.(error.message || "Could not copy the Codex brief.");
       }
     });
-    detailContainer.querySelector("#maintainerElevationReviewForm")?.addEventListener("submit", async (event) => {
+    const form = detailContainer.querySelector("#maintainerElevationReviewForm");
+    if (!form) return;
+    let submitting = false;
+    const setFormStatus = (message) => {
+      const status = form.querySelector("[data-elevation-review-status]");
+      if (status) status.textContent = message;
+      onStatus?.(message);
+    };
+    form.addEventListener("click", (event) => {
+      const button = event.target instanceof Element ? event.target.closest('button[type="submit"][name="elevationAction"]') : null;
+      if (button instanceof HTMLButtonElement) form.dataset.submitAction = button.value;
+    });
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      const form = event.currentTarget;
-      const action = event.submitter?.value || "save";
+      if (submitting) return;
+      const action = event.submitter?.value || form.dataset.submitAction || "save";
+      form.dataset.submitAction = "";
+      const invalidControl = form.querySelector(":invalid");
+      if (invalidControl) {
+        const field = invalidControl.closest(".maintainer-field")?.querySelector("span")?.textContent?.trim() || "This field";
+        setFormStatus(`${field}: ${invalidControl.validationMessage}`);
+        invalidControl.focus();
+        return;
+      }
+      const { skippedCollections, ...payload } = formPayload(form);
+      const skippedNote = skippedCollections.length
+        ? ` Skipped ${skippedCollections.join(", ")} because no placement reason was entered.`
+        : "";
+      const controls = [...form.querySelectorAll("button, input, textarea, select")].map((control) => ({ control, wasDisabled: control.disabled }));
+      submitting = true;
+      form.setAttribute("aria-busy", "true");
+      controls.forEach(({ control }) => { control.disabled = true; });
+      setFormStatus((action === "publish" ? "Saving the review before publication…" : "Saving review changes…") + skippedNote);
       try {
-        await saveMaintainerElevationReviewDraft(selectedId, formPayload(form));
+        await saveMaintainerElevationReviewDraft(showId, payload);
         if (action === "publish") {
-          await publishMaintainerElevationReview(selectedId, { reviewedBy: getReviewer?.() || "" });
-          selectedTarget = "published";
+          await publishMaintainerElevationReview(showId, { reviewedBy: getReviewer?.() || "" });
+          if (selectedId === showId) {
+            activeTarget = "published";
+            selectedTarget = "published";
+          }
         }
-        onStatus?.(action === "publish" ? "Full review published." : selectedTarget === "published" ? "Review changes saved." : "Editorial draft saved.");
+        const successMessage = (action === "publish" ? "Full review published." : target === "published" ? "Review changes saved." : "Editorial draft saved.") + skippedNote;
         await load();
+        setFormStatus(successMessage);
       } catch (error) {
         if (error.name === "MaintainerAuthError") return onAuthError?.(error);
-        onStatus?.(error.message || "Failed to save elevation draft.");
+        setFormStatus((error.message || "Failed to save elevation draft.") + skippedNote);
+      } finally {
+        submitting = false;
+        if (form.isConnected) {
+          form.setAttribute("aria-busy", "false");
+          controls.forEach(({ control, wasDisabled }) => { control.disabled = wasDisabled; });
+        }
       }
     });
   }
 
-  return { load, abort: () => controller?.abort() };
+  return { load, abort: () => { controller?.abort(); invalidateDetailRequest(); } };
 }

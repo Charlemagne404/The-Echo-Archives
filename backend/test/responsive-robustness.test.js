@@ -114,6 +114,29 @@ async function assertFixedElementContained(page, selector, context) {
   );
 }
 
+async function readArtworkSlots(page, surfaces) {
+  return page.evaluate((surfaceDefinitions) => surfaceDefinitions.map(({ name, selector, ratio = 1 }) => {
+    const slots = [...document.querySelectorAll(selector)]
+      .filter((node) => node.getBoundingClientRect().width > 0)
+      .map((node) => {
+        const rect = node.getBoundingClientRect();
+        return { width: rect.width, height: rect.height, ratio };
+      });
+    return { name, slots };
+  }), surfaces);
+}
+
+function assertArtworkSlots(surfaces, context) {
+  for (const surface of surfaces) {
+    for (const slot of surface.slots) {
+      assert.ok(
+        slot.width > 0 && slot.height > 0 && Math.abs(slot.width / slot.height - slot.ratio) < 0.03,
+        `${surface.name} artwork slot lost its aspect ratio at ${context}: ${JSON.stringify(slot)}`,
+      );
+    }
+  }
+}
+
 test(
   "responsive robustness keeps major page families usable across awkward viewports and content",
   {
@@ -177,11 +200,58 @@ test(
     assertNoOverflow(await readOverflowState(page), "long collection hero heading at 320px with zoomed text");
 
     await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
-    await page.waitForSelector("#podcast-grid .podcast-card img");
+    await page.waitForSelector("#podcast-grid .podcast-card > .show-card-artwork > img:not(.editorial-badge-artwork)");
+
+    const homeArtworkSurfaces = [
+      { name: "archive", selector: "#podcast-grid .podcast-card > .show-card-artwork" },
+      { name: "Popular", selector: "#popularGrid .popular-card-media.show-card-artwork" },
+      { name: "Recently Added", selector: "#recentlyAddedGrid .podcast-card > .show-card-artwork" },
+    ];
+    for (const width of [320, 390, 1280]) {
+      await page.setViewportSize({ width, height: width === 1280 ? 720 : 844 });
+      await settleLayout(page);
+      const surfaces = await readArtworkSlots(page, homeArtworkSurfaces);
+      assert.ok(surfaces.find(({ name }) => name === "archive")?.slots.length, `archive artwork is present at ${width}px`);
+      assert.ok(surfaces.find(({ name }) => name === "Popular")?.slots.length, `Popular artwork is present at ${width}px`);
+      assertArtworkSlots(surfaces, `${width}px home Browse`);
+
+      if (width === 320) {
+        const mobileSave = page.locator("#popularGrid button.library-card-quick-save").first();
+        await mobileSave.waitFor({ state: "attached" });
+        const saveState = await mobileSave.evaluate((button) => {
+          const control = button.getBoundingClientRect();
+          const card = button.closest(".popular-card-shell")?.getBoundingClientRect();
+          return {
+            opacity: Number.parseFloat(getComputedStyle(button).opacity) || 0,
+            width: control.width,
+            height: control.height,
+            contained: Boolean(card && control.left >= card.left - 1 && control.right <= card.right + 1),
+          };
+        });
+        assert.ok(saveState.opacity > 0 && saveState.width >= 40 && saveState.height >= 40 && saveState.contained,
+          `touch quick-save remains visible, usable, and within the Popular card at 320px: ${JSON.stringify(saveState)}`);
+      }
+    }
+
+    await page.setViewportSize({ width: 320, height: 420 });
+    await gotoSmokePage(page, `${baseUrl}/shows/${encodeURIComponent(firstShowId)}`, { waitUntil: "networkidle" });
+    await settleLayout(page);
+    for (const width of [390, 1280]) {
+      await page.setViewportSize({ width, height: width === 1280 ? 720 : 844 });
+      await settleLayout(page);
+      const showArtworkSurfaces = await readArtworkSlots(page, [
+        { name: "similar-show recommendation", selector: ".detail-similar-card > .detail-similar-artwork", ratio: width <= 959 ? 16 / 9 : 1 },
+        { name: "creator more-from recommendation", selector: ".detail-more-from .show-card-artwork" },
+      ]);
+      assertArtworkSlots(showArtworkSurfaces, `${width}px show recommendations`);
+    }
+    await page.setViewportSize({ width: 320, height: 420 });
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
+    await page.waitForSelector("#podcast-grid .podcast-card > .show-card-artwork > img:not(.editorial-badge-artwork)");
 
     const fullReviewBadgeState = await page.locator("#podcast-grid .editorial-badge-ribbon").first().evaluate((badge) => {
       const card = badge.closest(".podcast-card");
-      const cover = card?.querySelector("img:not(.editorial-badge-artwork)");
+      const cover = card?.querySelector(".show-card-artwork > img:not(.editorial-badge-artwork)");
       const badgeRect = badge.getBoundingClientRect();
       const coverRect = cover?.getBoundingClientRect();
       const label = badge.querySelector(".editorial-badge-ribbon-label");
@@ -209,17 +279,74 @@ test(
     assert.equal(fullReviewBadgeState.transform, "none");
     assert.ok(fullReviewBadgeState.labelScrollWidth <= fullReviewBadgeState.labelWidth + 1);
 
-    await page.locator("#podcast-grid .podcast-card img").first().evaluate((image) => {
+    const missingCover = page.locator("#podcast-grid .podcast-card > .show-card-artwork > img:not(.editorial-badge-artwork)").first();
+    await missingCover.evaluate((image) => {
       image.removeAttribute("src");
+      image.removeAttribute("srcset");
+      image.removeAttribute("sizes");
     });
-    const missingImageState = await page.locator("#podcast-grid .podcast-card img").first().evaluate((image) => {
+    const missingImageState = await missingCover.evaluate((image) => {
       const rect = image.getBoundingClientRect();
-      return { hasSource: image.hasAttribute("src"), width: rect.width, height: rect.height };
+      const artwork = image.closest(".show-card-artwork")?.getBoundingClientRect();
+      return {
+        hasSource: image.hasAttribute("src"),
+        width: rect.width,
+        height: rect.height,
+        artworkWidth: artwork?.width || 0,
+        artworkHeight: artwork?.height || 0,
+      };
     });
     assert.ok(
-      !missingImageState.hasSource && missingImageState.width > 0 && missingImageState.height > 0,
-      `A missing cover should preserve card geometry: ${JSON.stringify(missingImageState)}`,
+      !missingImageState.hasSource && missingImageState.width > 0 && missingImageState.height > 0 &&
+        missingImageState.artworkWidth > 0 && missingImageState.artworkHeight > 0 &&
+        Math.abs(missingImageState.artworkWidth - missingImageState.artworkHeight) <= 1,
+      `A source-less cover must keep a square artwork slot: ${JSON.stringify(missingImageState)}`,
     );
+
+    const missingBadge = page.locator("#podcast-grid .editorial-badge-artwork").first();
+    assert.ok(await missingBadge.count() > 0, "the leading card includes its top-rated artwork badge");
+    await missingBadge.evaluate((image) => {
+      image.removeAttribute("src");
+      image.removeAttribute("srcset");
+      image.removeAttribute("sizes");
+    });
+    const missingBadgeState = await missingBadge.evaluate((image) => {
+      const imageRect = image.getBoundingClientRect();
+      const badgeRect = image.parentElement.getBoundingClientRect();
+      return { imageWidth: imageRect.width, imageHeight: imageRect.height, badgeWidth: badgeRect.width, badgeHeight: badgeRect.height };
+    });
+    assert.ok(missingBadgeState.imageWidth > 0 && missingBadgeState.imageHeight > 0 && missingBadgeState.badgeHeight > 0,
+      `a source-less editorial badge keeps its bookmark slot: ${JSON.stringify(missingBadgeState)}`);
+
+    const failedCover = page.locator("#podcast-grid .podcast-card > .show-card-artwork > img:not(.editorial-badge-artwork)").nth(1);
+    await failedCover.evaluate((image) => {
+      image.removeAttribute("srcset");
+      image.removeAttribute("sizes");
+      image.removeAttribute("src");
+      image.removeAttribute("data-image-fallback-applied");
+      image.dataset.imageFallbackSrc = "/images/responsive-robustness-unavailable-fallback.svg";
+      image.src = "/images/responsive-robustness-missing-cover.svg";
+    });
+    await page.waitForFunction(() => {
+      const image = document.querySelectorAll("#podcast-grid .podcast-card > .show-card-artwork > img:not(.editorial-badge-artwork)")[1];
+      return image?.dataset.imageFallbackApplied === "true" && image.complete && image.src.endsWith("/images/responsive-robustness-unavailable-fallback.svg");
+    });
+    const failedImageState = await failedCover.evaluate((image) => {
+      const imageRect = image.getBoundingClientRect();
+      const artworkRect = image.closest(".show-card-artwork").getBoundingClientRect();
+      return {
+        loaded: image.naturalWidth > 0,
+        imageWidth: imageRect.width,
+        imageHeight: imageRect.height,
+        artworkWidth: artworkRect.width,
+        artworkHeight: artworkRect.height,
+        fallbackBackground: getComputedStyle(image.closest(".show-card-artwork")).backgroundImage,
+      };
+    });
+    assert.ok(!failedImageState.loaded && failedImageState.imageHeight > 0 && failedImageState.artworkHeight > 0 &&
+      Math.abs(failedImageState.artworkWidth - failedImageState.artworkHeight) <= 1 &&
+      failedImageState.fallbackBackground !== "none",
+    `a failed cover and unavailable fallback retain the artwork area: ${JSON.stringify(failedImageState)}`);
     assertNoOverflow(await readOverflowState(page), "home card with a missing cover image");
 
     await page.locator("#filterToggle").click();

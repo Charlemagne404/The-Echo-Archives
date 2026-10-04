@@ -11,6 +11,8 @@ export function createShowCard(show, { previewMode = "", archiveScoreOptions = {
   const shell = document.createElement("div");
   shell.className = "podcast-card-shell";
   shell.dataset.podcastId = showId;
+  shell.dataset.libraryShowCard = "true";
+  shell.dataset.libraryShowId = show.id || "";
   if (previewMode === "inline-expand") {
     shell.dataset.previewCard = "true";
   }
@@ -73,7 +75,11 @@ function createShowCardPrimary(show, { isPreviewTrigger = false, previewId = "",
     createRatingDividerElement(),
     createCommunityScoreElement(show, { showLabel: false }),
   );
-  card.append(editorialBadges, image, title, tags, rating);
+  const artwork = document.createElement("div");
+  artwork.className = "show-card-artwork";
+  artwork.append(editorialBadges, image);
+
+  card.append(artwork, title, tags, rating);
   card.__cardNodes = { title, tags };
   return card;
 }

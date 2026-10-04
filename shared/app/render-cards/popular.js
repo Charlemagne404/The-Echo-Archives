@@ -25,7 +25,7 @@ export function createMostPopularCard(show, discovery = {}) {
   }
 
   const media = document.createElement("div");
-  media.className = "popular-card-media";
+  media.className = "popular-card-media show-card-artwork";
 
   const image = document.createElement("img");
   image.alt = show.imageAlt || show.coverAlt || `${show.title || "Untitled show"} cover art`;
@@ -85,6 +85,8 @@ export function createMostPopularCard(show, discovery = {}) {
   card.append(media, body);
   const shell = document.createElement("div");
   shell.className = "popular-card-shell";
+  shell.dataset.libraryShowCard = "true";
+  shell.dataset.libraryShowId = show.id || "";
   shell.append(card);
   return shell;
 }

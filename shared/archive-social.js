@@ -1,5 +1,5 @@
 (function (root, factory) {
-  const api = factory();
+  const api = root.EchoArchiveSocial || factory();
   if (typeof module === "object" && module.exports) module.exports = api;
   root.EchoArchiveSocial = api;
 })(typeof globalThis !== "undefined" ? globalThis : this, function () {

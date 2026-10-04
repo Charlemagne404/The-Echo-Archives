@@ -37,6 +37,12 @@ function main() {
     throw new Error(`Generated HTML must be ignored by .gitignore: ${notIgnored.join(", ")}`);
   }
 
+  const socialDirectory = "images/generated/social";
+  const trackedSocial = runGit(["ls-files", "--", socialDirectory]).trim();
+  if (trackedSocial || !isIgnored(`${socialDirectory}/default.png`)) {
+    throw new Error("Generated social cards must remain ignored and untracked.");
+  }
+
   const authoredHtml = [];
   function walk(currentPath) {
     fs.readdirSync(currentPath, { withFileTypes: true }).forEach((entry) => {

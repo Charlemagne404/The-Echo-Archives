@@ -1,4 +1,4 @@
-import { createAnonymousId, getAnalyticsPageProps, getAnalyticsSource, getAnonymousContext, sendAnalyticsPayload } from "./analytics-transport.js";
+import { createAnonymousId, getAnalyticsPageProps, getAnalyticsSource, getAnonymousContext, sendAnalyticsBatchPayload, sendAnalyticsPayload } from "./analytics-transport.js";
 
 const EVENT_CONTRACTS = Object.freeze({
   "Page Viewed": {
@@ -88,6 +88,18 @@ const EVENT_CONTRACTS = Object.freeze({
     required: ["show_id", "provider", "link_role", "discovery_surface", "content_profile"],
     allowed: ["show_id", "provider", "link_role", "discovery_surface", "content_profile"],
   },
+  "Show Card Impression": {
+    required: ["show_id", "discovery_surface", "result_position_bucket"],
+    allowed: ["show_id", "discovery_surface", "browse_state", "result_position_bucket", "collection_id", "entity_id"],
+  },
+  "Show Saved": {
+    required: ["show_id"],
+    allowed: ["show_id"],
+  },
+  "Library State Changed": {
+    required: ["show_id", "library_state"],
+    allowed: ["show_id", "library_state"],
+  },
 });
 
 const FORBIDDEN_PROPERTY_NAMES = new Set([
@@ -156,7 +168,7 @@ const ENUMS = Object.freeze({
   cleared_filter_count_bucket: new Set(["1", "2-3", "4+"]),
   collection_kind: new Set(["curated", "rule-based", "similarity"]),
   entity_type: new Set(["person", "production-company", "studio", "network", "unknown"]),
-  browse_state: new Set(["default", "search", "filtered", "search_and_filtered"]),
+  browse_state: new Set(["default", "search", "filtered", "search_and_filtered", "unknown"]),
   result_type: new Set(["show_card", "search_result", "collection_member", "entity_member", "similar_show", "more_from"]),
   recommendation_source: new Set([
     "none",
@@ -172,6 +184,7 @@ const ENUMS = Object.freeze({
   content_profile: new Set(["full_review", "imported", "indexed_only", "unknown"]),
   provider: new Set(["start", "website", "apple", "spotify", "rss", "other"]),
   link_role: new Set(["primary", "alternate"]),
+  library_state: new Set(["listening", "finished"]),
 });
 
 const EVENT_ENUMS = Object.freeze({
@@ -222,6 +235,21 @@ const EVENT_ENUMS = Object.freeze({
   }),
   "Listen Link Opened": Object.freeze({
     discovery_surface: new Set(["show_page_hero", "show_page_facts"]),
+  }),
+  "Show Card Impression": Object.freeze({
+    discovery_surface: new Set([
+      "home_archive_grid",
+      "home_popular_rail",
+      "home_recent_rail",
+      "home_collection_rail",
+      "collection_page_grid",
+      "entity_page_grid",
+      "show_similar",
+      "show_more_from",
+      "collection_membership",
+      "unknown_internal",
+    ]),
+    browse_state: ENUMS.browse_state,
   }),
 });
 
@@ -435,6 +463,34 @@ export function trackDiscoveryEvent(eventName, props) {
     pagePath: pathname,
     source: getAnalyticsSource(),
     properties: safeProps,
+  });
+}
+
+export function trackDiscoveryEvents(events) {
+  if (!isDiscoveryAnalyticsEnabled() || !Array.isArray(events) || events.length === 0) return false;
+  const normalized = events
+    .filter((event) => event && typeof event === "object")
+    .map((event) => ({
+      eventName: String(event.eventName || ""),
+      properties: normalizeDiscoveryProps(String(event.eventName || ""), event.properties),
+    }))
+    .filter((event) => event.properties)
+    .slice(0, 100);
+  if (!normalized.length) return false;
+
+  const { pathname } = getAnalyticsPageProps();
+  if (!pathname) return false;
+  const context = getAnonymousContext();
+  return sendAnalyticsBatchPayload({
+    visitorId: context.visitorId,
+    sessionId: context.sessionId,
+    pagePath: pathname,
+    source: getAnalyticsSource(),
+    events: normalized.map((event) => ({
+      eventId: createAnonymousId(),
+      eventName: event.eventName,
+      properties: event.properties,
+    })),
   });
 }
 

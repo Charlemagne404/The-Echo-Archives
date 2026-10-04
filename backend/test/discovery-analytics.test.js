@@ -132,6 +132,13 @@ test("public discovery events accept only the controlled scalar contract", () =>
       discovery_surface: "show_page_facts",
       content_profile: "full_review",
     }],
+    ["Show Card Impression", {
+      show_id: "midnight-burger",
+      discovery_surface: "home_archive_grid",
+      result_position_bucket: "2-4",
+    }],
+    ["Show Saved", { show_id: "midnight-burger" }],
+    ["Library State Changed", { show_id: "midnight-burger", library_state: "listening" }],
   ];
 
   eventProps.forEach(([eventName, props]) => {
@@ -142,8 +149,11 @@ test("public discovery events accept only the controlled scalar contract", () =>
   payloads.forEach((payload, index) => {
     assert.deepEqual(payload.properties, eventProps[index][1]);
     assert.equal(payload.pagePath, "/");
-    assert.ok(payload.visitorId);
-    assert.ok(payload.sessionId);
+    assert.equal(payload.visitorId, undefined);
+    assert.equal(payload.sessionId, undefined);
+    assert.match(requests[index].init.headers["X-Echo-Analytics-Visitor"], /^[A-Za-z0-9_-]{16,128}$/);
+    assert.match(requests[index].init.headers["X-Echo-Analytics-Session"], /^[A-Za-z0-9_-]{16,128}$/);
+    assert.equal(requests[index].init.headers["X-Echo-Analytics-Path"], "/");
   });
 
   assert.equal(analytics.trackDiscoveryEvent("Search Used", {
@@ -154,6 +164,31 @@ test("public discovery events accept only the controlled scalar contract", () =>
     active_filter_count_bucket: "0",
     recovery_context: "none",
   }), false);
+});
+
+test("impression and positive Library intent events are sent as a validated same-origin batch", () => {
+  const requests = installAnalyticsWindow({ href: "https://echoarchives.net/shows/midnight-burger?private=ignored" });
+
+  assert.equal(analytics.trackDiscoveryEvents([
+    { eventName: "Show Card Impression", properties: {
+      show_id: "midnight-burger",
+      discovery_surface: "collection_page_grid",
+      result_position_bucket: "10-24",
+      collection_id: "cold-isolation-horror",
+    } },
+    { eventName: "Show Saved", properties: { show_id: "midnight-burger" } },
+    { eventName: "Library State Changed", properties: { show_id: "midnight-burger", library_state: "finished" } },
+    { eventName: "Library State Changed", properties: { show_id: "midnight-burger", library_state: "hidden" } },
+  ]), true);
+
+  assert.equal(requests.length, 1);
+  assert.equal(requests[0].url, "/api/analytics/events/batch");
+  const payload = JSON.parse(requests[0].init.body);
+  assert.equal(payload.events.length, 3);
+  assert.deepEqual(payload.events.map(({ eventName }) => eventName), ["Show Card Impression", "Show Saved", "Library State Changed"]);
+  assert.equal(requests[0].init.headers["X-Echo-Analytics-Path"], "/shows/midnight-burger");
+  assert.ok(payload.events.every((event) => /^[A-Za-z0-9_-]{16,128}$/.test(event.eventId)));
+  assert.doesNotMatch(requests[0].init.body, /private=ignored|visitorId|sessionId|rating|note/i);
 });
 
 test("raw search data, forbidden keys, nested values, and query-bearing URLs never leave the browser", () => {

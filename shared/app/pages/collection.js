@@ -1,4 +1,4 @@
-import { DEFAULT_SOCIAL_IMAGE, archiveSimilarity } from "../constants.js";
+import { DEFAULT_SOCIAL_IMAGE, socialPreview, archiveSimilarity } from "../constants.js";
 import {
   buildCollectionMap,
   buildShowMap,
@@ -17,7 +17,6 @@ import {
   createCollectionHeroTagList,
   getCollectionShowReason,
 } from "../render-collections.js";
-import { resolveImageSrc } from "../images.js";
 import { bindShareButton } from "../share.js";
 import { buildCollectionSeoDescription, buildCollectionSeoTitle } from "../seo.js";
 import { buildCollectionStructuredData } from "../structured-data.js";
@@ -419,16 +418,12 @@ export async function initializeCollectionPage() {
   const collectionTitle = collection.title || "Untitled collection";
   const collectionDescription = collection.description || "No collection description yet.";
   const showCount = recommendationShows.length;
-  const leadCoverShow = anchorShow || recommendationShows[0] || null;
-  const firstCover = leadCoverShow?.imageSrc || (leadCoverShow?.cover ? resolveImageSrc(leadCoverShow.cover) : DEFAULT_SOCIAL_IMAGE);
   updateDocumentMetadata({
     title: buildCollectionSeoTitle(collection),
     description: buildCollectionSeoDescription(collection, recommendationShows),
     path: createCollectionHref(collection.id),
-    image: firstCover,
-    imageAlt: leadCoverShow
-      ? leadCoverShow.imageAlt || leadCoverShow.coverAlt || `${collectionTitle} collection cover art`
-      : "The Echo Archives social preview",
+    image: socialPreview("collection", collection).path,
+    imageAlt: socialPreview("collection", collection).alt,
     structuredData: buildCollectionStructuredData(collection, recommendationShows, recommendationView),
   });
 

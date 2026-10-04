@@ -1,4 +1,7 @@
 import { HOME_FAVORITE_ROUTE_IDS as HOME_FAVORITE_ROUTE_IDS_CONFIG, HOME_MOST_POPULAR_IDS as HOME_MOST_POPULAR_IDS_CONFIG } from "./home-config.js";
+// Browser HTML loads the versioned helper, including in the offline precache.
+// Node prerender/test imports do not have that script-loading phase.
+if (!globalThis.EchoArchiveSocial) await import("../archive-social.js");
 
 const pageBody = globalThis.document?.body;
 const SHOWS_DATA_VERSION = pageBody?.dataset.showsVersion?.trim() || "";
@@ -18,7 +21,7 @@ export const RUNTIME_EVIDENCE_URL = RUNTIME_EVIDENCE_VERSION
   ? `/data/runtime-evidence.json?v=${RUNTIME_EVIDENCE_VERSION}`
   : "/data/runtime-evidence.json";
 export const ARCHIVE_STATS_URL = "/data/archive-stats.json";
-export const DEFAULT_SOCIAL_IMAGE = "/echo-wordmark1.png";
+export const { DEFAULT_SOCIAL_IMAGE, socialPreview } = globalThis.EchoArchiveSocial;
 export const DEFAULT_FALLBACK_COVER_IMAGE = "/images/TEA-Logo-S.png";
 export const TOP_RATED_BADGE_ASSET_URL = "/images/badges/top-rated-bookmark.png";
 export const archiveSearch = globalThis.EchoArchiveSearch;
