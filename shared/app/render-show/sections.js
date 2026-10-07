@@ -23,8 +23,14 @@ export function renderOfficialSummarySection(show) {
   if (!summary) return "";
   return `
     <section class="detail-section detail-official-summary-section">
-      <div class="detail-section-header"><div><h2>${escapeHtml(summary.title)}</h2><p>${escapeHtml(summary.description)}</p></div></div>
-      <article class="detail-summary detail-summary-official"><p>${escapeHtml(summary.text)}</p>${summary.sourceUrl ? `<a class="detail-official-source" href="${escapeHtml(summary.sourceUrl)}" target="_blank" rel="noreferrer">View source</a>` : ""}</article>
+      <div class="detail-section-header"><div><h2>${escapeHtml(summary.title)}</h2>${summary.title === "About this show" ? `<p>${escapeHtml(summary.description)}</p>` : `<p class="detail-summary-provenance">${escapeHtml(summary.description)}</p>`}</div></div>
+      <article class="detail-summary detail-summary-official">
+        <div class="detail-mobile-expandable" data-mobile-expandable data-mobile-expand-mode="clamp" data-mobile-expand-threshold="320" data-mobile-expand-label="Read full description" data-mobile-collapse-label="Show less">
+          <div id="detail-official-summary-${escapeHtml(show.id)}" data-mobile-expandable-content><p>${escapeHtml(summary.text)}</p></div>
+          <button class="detail-mobile-expand-toggle" data-mobile-expand-toggle type="button" aria-expanded="true" aria-controls="detail-official-summary-${escapeHtml(show.id)}" hidden>Read full description</button>
+        </div>
+        ${summary.sourceUrl ? `<a class="detail-official-source" href="${escapeHtml(summary.sourceUrl)}" target="_blank" rel="noreferrer">View source</a>` : ""}
+      </article>
     </section>
   `;
 }
@@ -38,9 +44,15 @@ export function renderImportedTransparency(show) {
   return `
     <aside class="detail-imported-disclosure" aria-labelledby="imported-disclosure-title">
       <span class="detail-imported-signal" aria-hidden="true"></span>
-      <div>
+      <div class="detail-imported-disclosure-copy">
         <p class="detail-summary-kicker" id="imported-disclosure-title">Imported · source checked by automation</p>
-        <p>Factual metadata was assembled from official feeds and directories and has not yet been individually checked by an archive maintainer. Ratings and listener reviews remain separate.</p>
+        <p class="detail-imported-disclosure-short">Facts checked by automation, not an archive maintainer. Ratings and listener reviews remain separate.</p>
+        <div class="detail-mobile-expandable detail-imported-disclosure-details" data-mobile-expandable data-mobile-expand-mode="disclosure" data-mobile-expand-threshold="0" data-mobile-expand-label="How this entry was checked" data-mobile-collapse-label="Hide source-check details">
+          <div id="detail-imported-disclosure-full" data-mobile-expandable-content>
+            <p class="detail-imported-disclosure-full">Factual metadata was assembled from official feeds and directories and has not yet been individually checked by an archive maintainer. Ratings and listener reviews remain separate.</p>
+          </div>
+          <button class="detail-mobile-expand-toggle" data-mobile-expand-toggle type="button" aria-expanded="true" aria-controls="detail-imported-disclosure-full" hidden>How this entry was checked</button>
+        </div>
       </div>
     </aside>
   `;
@@ -50,19 +62,31 @@ function hasArchiveReviewContent(show) {
   return [show.archiveTake, show.spoilerFreeReview, show.thoughts].some((value) => String(value || "").trim());
 }
 
+function formatPublishedDate(value) {
+  const publishedAt = String(value || "").trim();
+  return publishedAt && !Number.isNaN(new Date(publishedAt).getTime())
+    ? new Intl.DateTimeFormat("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }).format(new Date(publishedAt))
+    : "";
+}
+
 function renderArchiveReviewCard(show) {
   if (!hasArchiveReviewContent(show)) return "";
   const isFullReview = show.reviewStatus === "full-review";
   const reviewCopy = renderParagraphMarkup(show.spoilerFreeReviewParagraphs, show.spoilerFreeReview);
   const reactionCopy = renderParagraphMarkup(show.thoughtsParagraphs, show.thoughts);
+  const reviewBody = [
+    reviewCopy ? `<div class="detail-review-prose">${reviewCopy}</div>` : "",
+    reactionCopy ? `<div class="detail-review-reaction">${reactionCopy}</div>` : "",
+  ].filter(Boolean).join("");
   const archiveRating = normalizeArchiveRating(show.finalRating);
   const rating = archiveRating === null ? "Unrated" : `${formatRating(archiveRating)}/10`;
+  const publishedAt = String(show.reviewPublishedAt || "").trim();
+  const publishedDate = formatPublishedDate(publishedAt);
   return `
     <article class="detail-authored-review detail-archive-review">
-      <header class="detail-authored-review-header"><div><span class="detail-review-kind">${isFullReview ? "Archive review" : "Archive note"}</span><h3>The Echo Archives</h3></div><span class="detail-review-rating">${rating}</span></header>
+      <header class="detail-authored-review-header"><div><span class="detail-review-kind">${isFullReview ? "Archive review" : "Archive note"}</span><h3>The Echo Archives</h3></div><div class="detail-review-header-meta"><span class="detail-review-rating">${rating}</span>${publishedDate ? `<p class="detail-review-published"><time datetime="${escapeHtml(publishedAt)}">Published ${escapeHtml(publishedDate)}</time></p>` : ""}</div></header>
       ${show.archiveTake ? `<p class="detail-review-verdict"><span>Archive verdict</span>${escapeHtml(show.archiveTake)}</p>` : ""}
-      ${reviewCopy ? `<div class="detail-review-prose">${reviewCopy}</div>` : ""}
-      ${reactionCopy ? `<div class="detail-review-reaction">${reactionCopy}</div>` : ""}
+      ${reviewBody ? `<div class="detail-mobile-expandable detail-review-expandable" data-mobile-expandable data-mobile-expand-mode="clamp" data-mobile-expand-threshold="380" data-mobile-expand-label="Read full review" data-mobile-collapse-label="Show less"><div id="detail-archive-review-copy-${escapeHtml(show.id)}" data-mobile-expandable-content>${reviewBody}</div><button class="detail-mobile-expand-toggle" data-mobile-expand-toggle type="button" aria-expanded="true" aria-controls="detail-archive-review-copy-${escapeHtml(show.id)}" hidden>Read full review</button></div>` : ""}
     </article>
   `;
 }
@@ -71,14 +95,14 @@ export function renderIndexedArchiveNote(show) {
   if (show.reviewStatus === "full-review" || !hasArchiveReviewContent(show)) return "";
   const reviewCopy = renderParagraphMarkup(show.spoilerFreeReviewParagraphs, show.spoilerFreeReview);
   const reactionCopy = renderParagraphMarkup(show.thoughtsParagraphs, show.thoughts);
-  const content = [
-    show.archiveTake ? `<p>${escapeHtml(show.archiveTake)}</p>` : "",
-    reviewCopy,
-    reactionCopy,
-  ].filter(Boolean).join("");
+  const reviewBody = [reviewCopy, reactionCopy].filter(Boolean).join("");
   return `
     <section class="detail-section detail-indexed-archive-note" id="archive-note" tabindex="-1" aria-labelledby="indexed-archive-note-title">
-      <article class="detail-summary detail-archive-note-summary"><p class="detail-summary-kicker" id="indexed-archive-note-title">Archive note</p>${content}</article>
+      <article class="detail-summary detail-archive-note-summary">
+        <p class="detail-summary-kicker" id="indexed-archive-note-title">Archive note</p>
+        ${show.archiveTake ? `<p>${escapeHtml(show.archiveTake)}</p>` : ""}
+        ${reviewBody ? `<div class="detail-mobile-expandable detail-review-expandable" data-mobile-expandable data-mobile-expand-mode="clamp" data-mobile-expand-threshold="380" data-mobile-expand-label="Read full note" data-mobile-collapse-label="Show less"><div id="detail-indexed-note-copy-${escapeHtml(show.id)}" data-mobile-expandable-content>${reviewBody}</div><button class="detail-mobile-expand-toggle" data-mobile-expand-toggle type="button" aria-expanded="true" aria-controls="detail-indexed-note-copy-${escapeHtml(show.id)}" hidden>Read full note</button></div>` : ""}
+      </article>
     </section>
   `;
 }
@@ -92,19 +116,16 @@ export function renderListenerReviewCard(review) {
     Array.isArray(review?.workedBest) && review.workedBest.length ? `<span><b>Worked best</b> ${review.workedBest.map(toLabel).join(" • ")}</span>` : "",
   ].filter(Boolean).join("");
   const publishedAt = String(review?.publishedAt || "").trim();
-  const publishedDate = publishedAt && !Number.isNaN(new Date(publishedAt).getTime())
-    ? new Intl.DateTimeFormat("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }).format(new Date(publishedAt))
-    : "";
+  const publishedDate = formatPublishedDate(publishedAt);
   const helpfulCount = Number(review?.helpfulCount || 0);
   const markedHelpful = Boolean(review?.viewerMarkedHelpful);
   return `
     <article class="detail-authored-review detail-listener-review" data-listener-review-id="${escapeHtml(review?.id || "")}">
-      <header class="detail-authored-review-header"><div><span class="detail-review-kind">Listener review</span><h3>${escapeHtml(review?.title || "Listener review")}</h3><p class="detail-review-byline">${escapeHtml(review?.authorName || "Anonymous listener")}</p></div><span class="detail-review-rating">${escapeHtml(String(review?.ratingStars || "--"))}/5</span></header>
+      <header class="detail-authored-review-header"><div><span class="detail-review-kind">Listener review</span><h3>${escapeHtml(review?.title || "Listener review")}</h3><p class="detail-review-byline">${escapeHtml(review?.authorName || "Anonymous listener")}</p></div><div class="detail-review-header-meta"><span class="detail-review-rating">${escapeHtml(String(review?.ratingStars || "--"))}/5</span>${publishedDate ? `<p class="detail-review-published"><time datetime="${escapeHtml(publishedAt)}">Published ${escapeHtml(publishedDate)}</time></p>` : ""}</div></header>
       <span class="detail-spoiler-label${hasSpoilers ? " is-warning" : ""}">${escapeHtml(toLabel(spoilerLevel))}</span>
       ${hasSpoilers ? `<details class="detail-listener-spoilers"><summary>Reveal spoilers</summary>${body}</details>` : body}
       ${context ? `<div class="detail-review-context">${context}</div>` : ""}
       <div class="detail-review-community-actions"><button class="detail-review-helpful${markedHelpful ? " is-active" : ""}" type="button" data-review-helpful="${escapeHtml(review?.id || "")}" aria-pressed="${String(markedHelpful)}">Helpful <span data-review-helpful-count>${helpfulCount}</span></button></div>
-      ${publishedDate ? `<p class="detail-review-published"><time datetime="${escapeHtml(publishedAt)}">Published ${escapeHtml(publishedDate)}</time></p>` : ""}
     </article>
   `;
 }

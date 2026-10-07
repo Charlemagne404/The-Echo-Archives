@@ -4802,8 +4802,11 @@ img.is-image-fallback {
 
 .library-card-quick-save {
   --library-card-quick-save-size: 40px;
+  --library-card-quick-save-icon-size: 30px;
   --library-card-quick-save-inset-top: 8px;
   --library-card-quick-save-inset-right: 8px;
+  --library-card-quick-save-offset-y: 0px;
+  --library-card-quick-save-scale: 1;
   position: absolute;
   z-index: 12;
   top: var(--library-card-quick-save-inset-top);
@@ -4814,19 +4817,30 @@ img.is-image-fallback {
   place-items: center;
   padding: 0;
   border: 0;
-  border-radius: 0;
+  border-radius: 50%;
   background: transparent;
-  color: rgba(247, 247, 243, 0.88);
+  color: rgba(255, 248, 242, 0.96);
   box-shadow: none;
   cursor: pointer;
   opacity: 0;
   pointer-events: none;
-  transform: none;
+  transform: translateY(var(--library-card-quick-save-offset-y)) scale(var(--library-card-quick-save-scale));
   transform-origin:
     calc(100% + var(--library-card-quick-save-inset-right))
     calc(0px - var(--library-card-quick-save-inset-top));
   transition: opacity 180ms ease, transform 180ms cubic-bezier(0.22, 1, 0.36, 1), color 140ms ease;
   touch-action: manipulation;
+}
+
+.detail-actions > .library-detail-quick-save {
+  position: relative;
+  inset: auto;
+  flex: 0 0 var(--library-card-quick-save-size);
+  align-self: center;
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+  transform-origin: center;
 }
 
 .library-card-quick-save-icon {
@@ -4837,10 +4851,13 @@ img.is-image-fallback {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1.7;
+  transform-origin: center;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.78));
+  transition: fill 180ms ease, stroke 180ms ease, filter 180ms ease, transform 130ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .library-card-host:hover > .library-card-quick-save,
-.library-card-host:focus-within > .library-card-quick-save,
+.library-card-host:has(:focus-visible) > .library-card-quick-save,
 .library-card-quick-save:focus-visible,
 .library-card-quick-save[data-library-saved="true"] {
   opacity: 1;
@@ -4849,8 +4866,14 @@ img.is-image-fallback {
 
 .home-page .library-card-host:hover > .library-card-quick-save,
 .home-page .library-card-host.preview-source-active > .library-card-quick-save,
-.home-page .library-card-host:focus-within > .library-card-quick-save {
-  transform: translateY(-4px) scale(1.012);
+.home-page .library-card-host:has(:focus-visible) > .library-card-quick-save {
+  --library-card-quick-save-offset-y: -4px;
+  --library-card-quick-save-scale: 1.012;
+}
+
+.library-card-host > .library-card-quick-save:active:not(:disabled) .library-card-quick-save-icon {
+  transform: scale(0.86);
+  transition-duration: 90ms;
 }
 
 .detail-similar-card > .library-card-quick-save {
@@ -4884,10 +4907,14 @@ img.is-image-fallback {
   color: #ffd0bd;
 }
 
+.library-card-quick-save:hover:not(:disabled) .library-card-quick-save-icon {
+  filter: drop-shadow(0 0 5px rgba(255, 177, 152, 0.42)) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.78));
+}
+
 .library-card-quick-save:focus-visible {
   outline: 2px solid #ffd0bd;
-  outline-offset: 1px;
-  border-radius: 6px;
+  outline-offset: 2px;
+  border-radius: 50%;
 }
 
 .library-card-quick-save:focus-visible .library-card-quick-save-icon {
@@ -5169,6 +5196,11 @@ img.is-image-fallback {
     transform: none !important;
   }
 
+  .library-card-quick-save-icon {
+    transition: none !important;
+    transform: none !important;
+  }
+
   .library-card-control,
   .library-detail-control,
   .library-card-panel,
@@ -5183,10 +5215,10 @@ img.is-image-fallback {
 @media (hover: none), (pointer: coarse) {
   .library-card-quick-save:not([data-library-saved="true"]) {
     --library-card-quick-save-size: 44px;
-    --library-card-quick-save-icon-size: 28px;
+    --library-card-quick-save-icon-size: 30px;
     opacity: 1;
     pointer-events: auto;
-    transform: none;
+    transform: translateY(var(--library-card-quick-save-offset-y)) scale(var(--library-card-quick-save-scale));
   }
 }
 

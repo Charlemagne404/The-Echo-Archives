@@ -22,7 +22,7 @@
   "cover": "shows/towe4/Tower4.jpeg",
   "coverAlt": "Tower 4 cover art",
   "status": "published",
-  "reviewStatus": "indexed-only",
+  "reviewStatus": "full-review",
   "releaseStatus": "active",
   "completionStatus": "ongoing",
   "listenLinks": {
@@ -122,27 +122,459 @@
   },
   "metadata": {
     "objectiveSources": [
-      "https://www.7lamb.com/audiodramas",
+      "https://www.7lamb.com/about-us",
       "https://www.7lamb.com/audiodramas/tower-4",
+      "https://podcasts.apple.com/us/podcast/tower-4/id1533736348?uo=4",
+      "https://feeds.simplecast.com/tcwTC6rY",
+      "https://www.7lamb.com/audiodramas",
       "https://podcasts.apple.com/us/podcast/tower-4/id1533736348",
-      "https://feeds.simplecast.com/tcwTC6rY"
+      "https://podcasts.apple.com/us/podcast/s1e1-first-night/id1533736348?i=1000492879605",
+      "https://podcasts.apple.com/in/podcast/tower-4/id1533736348",
+      "https://open.spotify.com/show/39IFvlWM7TPPSO9W5x8SuJ",
+      "https://www.patreon.com/7lamb",
+      "https://www.facebook.com/7LambPodcasts/",
+      "https://twitter.com/7lambpodcasts",
+      "https://audiofiction.co.uk/show.php?id=20200928-06"
     ],
     "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
     "objectiveVerifiedAt": "2026-07-18",
     "reviewFile": "reviews/tower-4.json",
-    "researchGaps": [],
+    "researchGaps": [
+      "subtitle",
+      "networkName",
+      "tags",
+      "avgEpisodeMinutes",
+      "enrichment.formats",
+      "enrichment.tones",
+      "enrichment.themes",
+      "enrichment.officialLinks.koFiUrl",
+      "enrichment.officialLinks.discordUrl",
+      "enrichment.officialLinks.youtubeUrl"
+    ],
     "awards": [],
     "schedule": {
-      "cadence": "unknown",
-      "note": "Schedule/cadence not fully verified."
+      "label": "Every two months",
+      "method": "maintainer-verified"
     },
-    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved.",
+    "sourceCategories": [
+      "mystery",
+      "thriller"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Mike Archer is a newly appointed fire watcher in the Wyoming woods. While he's never done anything like this before, he needed something new after his mom passed. Now he hopes to spend his days in a tower above the trees looking for fires and working on his new book. But things aren't as quiet and peaceful as he hoped. Strange interference blasts over his radio at night and he starts seeing and hearing creepy noises in the woods. But are these odd occurrences actually happening or is he just going stir crazy?",
+    "socialUrls": [
+      "https://www.facebook.com/7LambPodcasts/",
+      "https://twitter.com/7lambpodcasts"
+    ],
+    "funding": [],
+    "podcast": {
+      "medium": "",
+      "copyright": "",
+      "explicit": "Clean",
+      "license": {},
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.simplecast.com/tcwTC6rY",
+        "appleCollectionId": "1533736348",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.7lamb.com/about-us",
+          "fetchedAt": "2026-10-04T14:56:59.750Z",
+          "payloadHash": "2944701da208e2fb0b2a59b2eedc6a6b790eaca07e3e1f0e343d3a13d550a0a0"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.7lamb.com/audiodramas/tower-4",
+          "fetchedAt": "2026-10-04T14:56:59.748Z",
+          "payloadHash": "fa8ec75639d7227a779f7d97e52e13ec9acd60bc9c1460675c98b0b4dc203326"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/tower-4/id1533736348?uo=4",
+          "fetchedAt": "2026-10-04T14:56:59.128Z",
+          "payloadHash": "4e6687ed0878da3fb6d29038633a87ddf3438d90e29264f7473bff126aeb0a8c"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://feeds.simplecast.com/tcwTC6rY",
+          "https://www.7lamb.com/audiodramas/tower-4",
+          "https://www.7lamb.com/audiodramas",
+          "https://www.7lamb.com/about-us",
+          "https://podcasts.apple.com/us/podcast/tower-4/id1533736348",
+          "https://podcasts.apple.com/us/podcast/s1e1-first-night/id1533736348?i=1000492879605",
+          "https://podcasts.apple.com/in/podcast/tower-4/id1533736348",
+          "https://open.spotify.com/show/39IFvlWM7TPPSO9W5x8SuJ",
+          "https://www.patreon.com/7lamb",
+          "https://www.facebook.com/7LambPodcasts/",
+          "https://twitter.com/7lambpodcasts",
+          "https://audiofiction.co.uk/show.php?id=20200928-06"
+        ],
+        "fieldSources": {
+          "title": [
+            "https://www.7lamb.com/audiodramas/tower-4",
+            "https://feeds.simplecast.com/tcwTC6rY"
+          ],
+          "creatorName": [
+            "https://www.7lamb.com/audiodramas",
+            "https://www.patreon.com/7lamb"
+          ],
+          "description": [
+            "https://feeds.simplecast.com/tcwTC6rY",
+            "https://www.7lamb.com/audiodramas"
+          ],
+          "categories": [
+            "https://podcasts.apple.com/us/podcast/tower-4/id1533736348",
+            "https://www.patreon.com/7lamb"
+          ],
+          "language": [
+            "https://feeds.simplecast.com/tcwTC6rY"
+          ],
+          "rssUrl": [
+            "https://audiofiction.co.uk/show.php?id=20200928-06"
+          ],
+          "websiteUrl": [
+            "https://www.7lamb.com/audiodramas/tower-4"
+          ],
+          "appleUrl": [
+            "https://podcasts.apple.com/us/podcast/tower-4/id1533736348"
+          ],
+          "spotifyUrl": [
+            "https://open.spotify.com/show/39IFvlWM7TPPSO9W5x8SuJ"
+          ],
+          "episodeCount": [
+            "https://podcasts.apple.com/us/podcast/tower-4/id1533736348",
+            "https://audiofiction.co.uk/show.php?id=20200928-06"
+          ],
+          "seasonCount": [
+            "https://podcasts.apple.com/us/podcast/tower-4/id1533736348",
+            "https://feeds.simplecast.com/tcwTC6rY"
+          ],
+          "firstPublicationDate": [
+            "https://podcasts.apple.com/us/podcast/tower-4/id1533736348",
+            "https://feeds.simplecast.com/tcwTC6rY"
+          ],
+          "latestPublicationDate": [
+            "https://podcasts.apple.com/us/podcast/tower-4/id1533736348",
+            "https://feeds.simplecast.com/tcwTC6rY"
+          ],
+          "completionStatus": [
+            "https://podcasts.apple.com/us/podcast/tower-4/id1533736348"
+          ],
+          "contentNotes": [
+            "https://podcasts.apple.com/us/podcast/s1e1-first-night/id1533736348?i=1000492879605"
+          ],
+          "people": [
+            "https://www.7lamb.com/about-us",
+            "https://podcasts.apple.com/us/podcast/s1e1-first-night/id1533736348?i=1000492879605"
+          ],
+          "officialLinks": [
+            "https://www.7lamb.com/audiodramas/tower-4",
+            "https://www.patreon.com/7lamb"
+          ],
+          "socialUrls": [
+            "https://www.7lamb.com/audiodramas/tower-4"
+          ],
+          "cadenceLabel": [
+            "https://podcasts.apple.com/in/podcast/tower-4/id1533736348"
+          ]
+        },
+        "notes": "The current RSS/Apple attribution names Bloody FM as the feed creator, while 7 Lamb Productions' official site, Patreon presence, and copyright identify 7 Lamb Productions as the production company behind Tower 4. Because the checked sources do not explicitly label Bloody FM as the network, networkName is omitted. S4E8 is explicitly identified as the mid-season finale of Season 4, supporting an ongoing status.",
+        "uncertainFields": [
+          "subtitle",
+          "networkName",
+          "tags",
+          "avgEpisodeMinutes",
+          "enrichment.formats",
+          "enrichment.tones",
+          "enrichment.themes",
+          "enrichment.officialLinks.koFiUrl",
+          "enrichment.officialLinks.discordUrl",
+          "enrichment.officialLinks.youtubeUrl"
+        ],
+        "reviewedAt": "2026-10-04T15:07:39.496Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tower-4/id1533736348?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tower-4/id1533736348?uo=4"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tower-4/id1533736348?uo=4"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tower-4/id1533736348?uo=4"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "patreonUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.7lamb.com/audiodramas/tower-4"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.7lamb.com/about-us"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.7lamb.com/audiodramas/tower-4"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "genres": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        }
+      },
+      "importedAt": "2026-10-04T15:07:39.780Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "2305d3d6ca45ce1235ade6da3a091d841993aa7225ee575327ecc9535da530ba",
+        "subtitle": "e961f4ce7c90faa427c382bb95ad7e5f3910602655bd6116f95584e1faef4fdd",
+        "description": "01fc6d0fcce3b6402da00057e2521dc33609cbb925806fa9b5236756d95d12d9",
+        "cover": "c1b963d02237e029460f8d2c00954e3b0422de52b6ab728983e999e7c256cfb2",
+        "coverAlt": "3966f3e898e7f9b90d4df2be8aa987ae36d772380d8f535c07e2fe20c5866fa7",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "82371ecd86bedc9e06ba6e17f5863ce4d0a2d1de5b4583d01fb5b6960155e394",
+        "officialLinks": "b82cbd78b01c5f4fc571bd874acc7831e0ea8bddd148525cc397d65cedbf85e5",
+        "genres": "462532e960814b8c26b39dd5c2692f52cf0675434e4285bab1823adc20bc5382",
+        "tags": "053dec4f7ffef068b81887fc9ef555506851d338d5e3096f7f16b63f9b71ceb4",
+        "formats": "6b0e7ba9a1e0e2c5506b7f7d34a072af70323e1d7a3a4ffeb7e2ab2e94795708",
+        "aliases": "e61bf891aab99ef584c514dd99b6011b69f909b075a48b4065c0bc65a3cc039b",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "bd2e34081befa6f05d77890e6a0ada5502abe66e598b90c896e343f5505bae10",
+        "releaseDates": "9363f9122edf03486633ef2a5a5976e8f8045ee8dee91106972fed58794a0f96",
+        "credits": "c0338a811ab22e1e081f2379027971c52b5cda29ff7b7c9d917d9344b1e97f71",
+        "creators": "d4889d86eb9899671dab72e97c998368ad677acfa7aa93e4cd595c6e7b6a655d",
+        "cast": "4b742c27c1eada0159b04a49ee7845836c4e6c8495702a0a4a5838cf1c72fb68",
+        "availability": "351f0d0e18bd781941c58d395ca09bbf2608cfb805dc3b3f65d4bac528ab7bc1",
+        "verification": "1ae5fe1135135a43162d67b67131349101ebc58a4f349881ca2357fc02cfc6f1",
+        "provenance": "65c5ac1ca6eebc0d4aa9ebb1fcf42e5a5ef9ed7ee9f0f91d032466fb8686c27c"
+      },
+      "optionalGaps": [
+        "No structured transcript links were exposed by the feed."
+      ],
+      "automaticallyLockedFields": [
+        "title",
+        "subtitle",
+        "description",
+        "cover",
+        "coverAlt",
+        "releaseStatus",
+        "completionStatus",
+        "listenLinks",
+        "officialLinks",
+        "genres",
+        "tags",
+        "formats",
+        "aliases",
+        "languages",
+        "length",
+        "releaseDates",
+        "credits",
+        "creators",
+        "availability",
+        "verification",
+        "scopeStatus",
+        "creatorName",
+        "networkName",
+        "catalogEnrichment"
+      ],
+      "publication": {
+        "tier": "indexed-only"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-10-04T15:44:17.614Z",
+        "reviewedBy": "authenticated-maintainer",
+        "inputRevision": 2
+      }
+    }
   },
   "verification": {
-    "status": "source-verified-with-feed-note",
-    "verifiedAt": "2026-07-01",
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-10-04",
     "source": "https://www.7lamb.com/audiodramas; https://www.7lamb.com/audiodramas/tower-4; https://podcasts.apple.com/us/podcast/tower-4/id1533736348",
-    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
   },
   "aliases": [
     "Tower 4",
@@ -165,7 +597,15 @@
   "creators": [
     "7 Lamb Productions"
   ],
-  "cast": [],
+  "cast": [
+    "Jack Austin",
+    "Gina Coyle",
+    "Ariel Hack",
+    "Corey Pettit",
+    "Brett Wilkins",
+    "Douglas Salway",
+    "Nick “N.I.K” Keeney"
+  ],
   "releaseDates": {
     "first": "2020-09-14",
     "latest": "2026-05-04",
@@ -184,5 +624,84 @@
     "voiceStyle": "primarily-narrated",
     "narrativeFocus": "plot-driven",
     "intensity": "medium"
+  },
+  "provenance": {
+    "status": "documented",
+    "sources": [
+      {
+        "sourceUrl": "https://www.7lamb.com/about-us",
+        "sourceType": "official-website"
+      },
+      {
+        "sourceUrl": "https://www.7lamb.com/audiodramas/tower-4",
+        "sourceType": "official-website"
+      },
+      {
+        "sourceUrl": "https://podcasts.apple.com/us/podcast/tower-4/id1533736348?uo=4",
+        "sourceType": "official-platform"
+      },
+      {
+        "sourceUrl": "https://feeds.simplecast.com/tcwTC6rY",
+        "sourceType": "third-party-database"
+      },
+      {
+        "sourceUrl": "https://www.7lamb.com/audiodramas/tower-4",
+        "sourceType": "third-party-database"
+      },
+      {
+        "sourceUrl": "https://www.7lamb.com/audiodramas",
+        "sourceType": "third-party-database"
+      },
+      {
+        "sourceUrl": "https://www.7lamb.com/about-us",
+        "sourceType": "third-party-database"
+      },
+      {
+        "sourceUrl": "https://podcasts.apple.com/us/podcast/tower-4/id1533736348",
+        "sourceType": "third-party-database"
+      },
+      {
+        "sourceUrl": "https://podcasts.apple.com/us/podcast/s1e1-first-night/id1533736348?i=1000492879605",
+        "sourceType": "third-party-database"
+      },
+      {
+        "sourceUrl": "https://podcasts.apple.com/in/podcast/tower-4/id1533736348",
+        "sourceType": "third-party-database"
+      },
+      {
+        "sourceUrl": "https://open.spotify.com/show/39IFvlWM7TPPSO9W5x8SuJ",
+        "sourceType": "third-party-database"
+      },
+      {
+        "sourceUrl": "https://www.patreon.com/7lamb",
+        "sourceType": "third-party-database"
+      },
+      {
+        "sourceUrl": "https://www.facebook.com/7LambPodcasts/",
+        "sourceType": "third-party-database"
+      },
+      {
+        "sourceUrl": "https://twitter.com/7lambpodcasts",
+        "sourceType": "third-party-database"
+      },
+      {
+        "sourceUrl": "https://audiofiction.co.uk/show.php?id=20200928-06",
+        "sourceType": "third-party-database"
+      }
+    ],
+    "description": {
+      "origin": "sourced-externally",
+      "sourceUrls": [
+        "https://feeds.simplecast.com/tcwTC6rY",
+        "https://www.7lamb.com/audiodramas"
+      ]
+    },
+    "artwork": {
+      "sourceUrl": "https://podcasts.apple.com/us/podcast/tower-4/id1533736348?uo=4",
+      "sourceType": "official-platform",
+      "rightsNote": "Third-party artwork source recorded; licence or permission is not separately confirmed."
+    },
+    "logos": [],
+    "rightsNotes": "Source URLs are recorded for attribution and correction work; this record does not assert a licence or permission to reuse third-party artwork or text."
   }
 }

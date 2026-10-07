@@ -49,7 +49,7 @@ export function renderDetailHero(show, reviewData = {}) {
     statusChips.push(`<span class="detail-status-chip">${escapeHtml(toDisplayTag(show.reviewStatus))}</span>`);
   }
   if (show.tags[0]) {
-    statusChips.push(`<span class="detail-status-chip">${escapeHtml(toDisplayTag(show.tags[0]))}</span>`);
+    statusChips.push(`<span class="detail-status-chip detail-status-chip--key-tag">${escapeHtml(toDisplayTag(show.tags[0]))}</span>`);
   }
   const primaryLink = getHeroPrimaryListenLink(show);
   const hasListenLinks = Object.values(show.listenLinks || {}).some((href) => String(href || "").trim());
@@ -68,14 +68,15 @@ export function renderDetailHero(show, reviewData = {}) {
               </div>
               <h1>${escapeHtml(show.title)}</h1>
               ${show.subtitle ? `<p class="detail-subtitle">${escapeHtml(show.subtitle)}</p>` : ""}
-              ${renderHeroKeyTags(show)}
             </header>
+            ${renderHeroKeyTags(show)}
 
             <div class="detail-decision-console" aria-label="Quick listening decision">
               <div class="detail-score-cluster">
                 ${hasArchiveRating ? renderHeroScoreCard("Archive Rating", archiveRatingValue, archiveRatingNote, "archive") : ""}
                 ${listenerReviewScore.hasScore ? renderHeroScoreCard("Listener Review Score", listenerReviewScore.value, listenerReviewScore.note, "listener") : ""}
               </div>
+              ${show.reviewStatus === "indexed-only" ? '<p class="detail-mobile-tier-note">Facts checked · no full written review.</p>' : ""}
 
               <div class="detail-meta-grid">
                 ${renderHeroMetaCard("Runtime", escapeHtml(getHeroRuntimeValue(show)))}

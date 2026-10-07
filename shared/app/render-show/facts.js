@@ -1,4 +1,5 @@
 import { createSubmissionHref } from "../urls.js";
+import { archiveRecord } from "../constants.js";
 import {
   escapeHtml,
   formatDate,
@@ -29,6 +30,10 @@ function renderListenDiscoveryAttributes(show, provider, linkRole, discoverySurf
 
 export function renderFactsLinksCard(show, { inline = false } = {}) {
   const creatorNetwork = getCreatorNetworkLabel(show);
+  const factsCheckedAt = archiveRecord.getLatestFactsCheckedAt(show);
+  const factsCheckedMarkup = factsCheckedAt
+    ? `<time datetime="${escapeHtml(factsCheckedAt)}">${escapeHtml(formatDate(factsCheckedAt))}</time>`
+    : "<span>Date not recorded</span>";
   const seasonsEpisodes = getSeasonsEpisodesLabel(show);
   const firstRelease = getKnownDateLabel(getShowDateValue(show, "first"));
   const latestRelease = getKnownDateLabel(getShowDateValue(show, "latest"));
@@ -58,8 +63,9 @@ export function renderFactsLinksCard(show, { inline = false } = {}) {
 
   return `
     <section class="${inline ? "detail-section detail-facts-links-card detail-facts-links-card--inline" : "detail-side-card detail-facts-links-card"}" id="facts-links" tabindex="-1">
-      <div class="detail-side-card-header">
+      <div class="detail-side-card-header detail-side-card-header--checked">
         <h2>Facts &amp; links</h2>
+        <p class="detail-last-checked"><span>Last checked</span>${factsCheckedMarkup}</p>
       </div>
 
       <dl class="detail-fact-list">
@@ -104,7 +110,6 @@ function renderVerificationRow(show) {
 
   const status = getPublicVerificationLabel(show);
   if (!status) return "";
-  const verifiedAt = verification.verifiedAt ? `Checked ${formatDate(verification.verifiedAt)}` : "";
   const note = "Factual metadata only";
 
   return renderFactRow(
@@ -112,7 +117,6 @@ function renderVerificationRow(show) {
     `
       <div class="detail-verification-value">
         <span>${escapeHtml(status)}</span>
-        ${verifiedAt ? `<small>${escapeHtml(verifiedAt)}</small>` : ""}
         <small>${escapeHtml(note)}</small>
       </div>
     `,

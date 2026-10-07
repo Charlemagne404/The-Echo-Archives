@@ -48,6 +48,7 @@ function normalizeReviewRecord(record) {
 
   return {
     archiveTake: String(record.archiveTake || "").trim(),
+    ...(String(record.publishedAt || "").trim() ? { publishedAt: String(record.publishedAt).trim() } : {}),
     spoilerFreeReview: spoilerFreeReviewParagraphs,
     thoughts: thoughtsParagraphs,
     quote: normalizeQuote(record.quote),
@@ -97,10 +98,12 @@ function mergeReviewContent(record, reviewRecord) {
   const spoilerFreeReviewParagraphs = pickParagraphs(reviewRecord?.spoilerFreeReview, record.spoilerFreeReview);
   const thoughtsParagraphs = pickParagraphs(reviewRecord?.thoughts, record.thoughts);
   const quote = pickQuote(reviewRecord?.quote, record.quote);
+  const reviewPublishedAt = String(reviewRecord?.publishedAt || record.reviewPublishedAt || "").trim();
 
   return {
     ...record,
     archiveTake,
+    ...(reviewPublishedAt ? { reviewPublishedAt } : {}),
     spoilerFreeReview: paragraphsToText(spoilerFreeReviewParagraphs),
     spoilerFreeReviewParagraphs,
     thoughts: paragraphsToText(thoughtsParagraphs),

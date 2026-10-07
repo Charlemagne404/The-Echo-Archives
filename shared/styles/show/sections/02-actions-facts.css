@@ -258,6 +258,29 @@
   margin-bottom: 18px;
 }
 
+.detail-side-card-header--checked {
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.detail-last-checked {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  flex: 0 0 auto;
+  margin: 0 0 0 auto;
+  color: var(--detail-text-muted);
+  font-size: 0.7rem;
+  line-height: 1.25;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.detail-last-checked time,
+.detail-last-checked span:last-child {
+  color: var(--detail-text-secondary);
+}
+
 .detail-side-card-header h2,
 .detail-section-header h2 {
   font-size: clamp(1.4rem, 1.8vw, 1.95rem);

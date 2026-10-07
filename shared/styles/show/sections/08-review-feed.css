@@ -47,6 +47,14 @@
   font-weight: 750;
 }
 
+.detail-review-header-meta {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
 .detail-review-byline {
   margin: 7px 0 0;
   color: var(--detail-text-muted);
@@ -257,11 +265,29 @@
 .detail-review-published {
   margin: 0;
   color: var(--detail-text-muted);
-  font-size: 0.76rem;
+  font-size: 0.68rem;
+  line-height: 1.25;
+  text-align: right;
 }
 
 .detail-review-published time {
   color: inherit;
+  white-space: nowrap;
+}
+
+.detail-archive-review .detail-review-expandable [data-mobile-expandable-content] {
+  display: grid;
+  gap: 16px;
+}
+
+.detail-archive-note-summary .detail-review-expandable [data-mobile-expandable-content] {
+  display: contents;
+}
+
+@media (min-width: 641px) {
+  .detail-archive-note-summary .detail-review-expandable {
+    display: contents;
+  }
 }
 
 .detail-review-helpful {
@@ -329,16 +355,51 @@
   }
 
   .detail-review-section-header .detail-primary-action {
-    min-height: 38px;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 640px) {
+  .detail-review-section-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .detail-review-section-header > div {
+    min-width: 0;
+  }
+
+  .detail-review-section-header .detail-primary-action {
+    width: 100%;
+    min-height: 44px;
   }
 
   .detail-review-carousel {
-    grid-template-columns: 44px minmax(0, 1fr) 44px;
-    gap: 7px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
   }
 
   .detail-review-carousel-arrow {
-    width: 44px;
-    min-height: 58px;
+    display: none;
+  }
+
+  .detail-review-carousel-viewport {
+    touch-action: pan-y;
+  }
+
+  .detail-archive-note-summary .detail-review-expandable [data-mobile-expandable-content] {
+    display: grid;
+    gap: 10px;
+  }
+
+  .detail-review-carousel[data-has-archive="true"][data-listener-total="0"] .detail-review-carousel-pagination,
+  .detail-review-carousel[data-has-archive="false"][data-listener-total="1"] .detail-review-carousel-pagination {
+    display: none;
+  }
+
+  .detail-page .community-review-button,
+  .detail-page .community-review-clear {
+    min-height: 44px;
   }
 }

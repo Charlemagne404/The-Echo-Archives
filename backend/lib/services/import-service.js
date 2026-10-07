@@ -1542,8 +1542,8 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       error.statusCode = 404;
       throw error;
     }
-    if (!["imported", "planned"].includes(existing.reviewStatus)) {
-      const error = new Error("Only Imported or planned-review entries can use a factual elevation draft.");
+    if (!["imported", "indexed-only", "planned"].includes(existing.reviewStatus)) {
+      const error = new Error("Only Imported, indexed-only, or planned-review entries can use a factual elevation draft.");
       error.statusCode = 409;
       throw error;
     }
@@ -1576,7 +1576,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     payload.mode = "update";
     payload.existingShowId = showId;
     payload.scopeStatus = "in-scope";
-    payload.reviewNotes = "Factual elevation draft created from the published Imported record.";
+    payload.reviewNotes = `Factual elevation draft created from the published ${existing.reviewStatus} record.`;
     const candidate = store.createCandidate(payload);
     const dedupe = buildDedupe(candidate);
     store.updateCandidate(candidate.id, { hasDuplicateMatch: dedupe.hasDuplicateMatch, dedupe });
@@ -1602,8 +1602,8 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       throw error;
     }
     const existing = readCatalogRecords(true).find((show) => show.id === candidate.existingShowId);
-    if (!existing || !["imported", "planned"].includes(existing.reviewStatus)) {
-      const error = new Error("Only current Imported or planned-review records can be updated through a factual elevation draft.");
+    if (!existing || !["imported", "indexed-only", "planned"].includes(existing.reviewStatus)) {
+      const error = new Error("Only current Imported, indexed-only, or planned-review records can be updated through a factual elevation draft.");
       error.statusCode = 409;
       throw error;
     }

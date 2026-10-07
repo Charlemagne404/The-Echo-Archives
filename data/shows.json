@@ -2486,6 +2486,7 @@
       "intensity": "high",
       "commitment": "long"
     },
+    "reviewPublishedAt": "2026-07-01",
     "spoilerFreeReviewParagraphs": [
       "Impact Winter unexpectedly became one of my all-time favorites. It started out somewhat slow, but by episode 6 it had me HOOKED. I couldn't stop listening because I HAD to know what happened next. It really grabs you by the throat and doesn't let go.",
       "Season 1 was amazing, though I do feel like the show tapers off as it goes on. By season 3, I felt like it had lost some of what made season 1 so great.",
@@ -2722,6 +2723,7 @@
       "intensity": "low",
       "commitment": "deep-dive"
     },
+    "reviewPublishedAt": "2026-07-01",
     "spoilerFreeReviewParagraphs": [
       "I wasn’t the biggest fan of Oz 9 at first. It took a while to get going, and I usually prefer more serious audio dramas. This was basically the exact opposite of that. That said, it does get more interesting after the first season, and I understand why some people really love it. It’s chaotic, unserious, and definitely has its moments. Not for me, but not bad either, just not my style.",
       "However, I couldn’t bring myself to keep listening after episode 94. I felt like the main plotline had mostly ended by around episode 80, and after that the show started to feel directionless. It lost the central story that had been keeping me interested and leaned much more heavily into just goofing off every episode. Some of my favorite characters were also killed off or removed from the main plot, and at that point I didn’t really see a reason to keep listening.",
@@ -2967,6 +2969,7 @@
       "narrativeFocus": "plot-driven",
       "commitment": "long"
     },
+    "reviewPublishedAt": "2026-07-01",
     "spoilerFreeReviewParagraphs": [
       "Ars Paradoxica is a science fiction audio drama centered around time travel, secrecy, and the ethical dilemmas of science.",
       "It follows a brilliant physicist who accidentally discovers time travel and finds herself entangled in a web of Cold War-era espionage, military agendas, and the consequences of tampering with time itself. The show blends hard science fiction with noir-style storytelling, offering a mix of mystery, intrigue, and deep moral questions. It is known for its smart writing, complex characters, and tight plotting that asks the listener to keep up."
@@ -3488,6 +3491,7 @@
       "intensity": "high",
       "commitment": "deep-dive"
     },
+    "reviewPublishedAt": "2026-07-01",
     "spoilerFreeReviewParagraphs": [
       "The White Vault is strong in that every answer leaves you with more questions. It's an unending mystery filled with supernatural occurrences. It finds a really good balance between leaving things just strange enough that you want to know what happens next without making the listener confused.",
       "One thing I really liked was the international cast. There are voice actors from all around the world speaking all kinds of different languages. I at least got very happy when I heard my own native language, Swedish, being spoken. For people who only speak English, though, it's no problem. The show is intended for English speakers, and anything that isn't translated is usually either not important or simply not meant to be understood. This is something I've noticed in other Fool & Scholar shows too, since they often make use of international casts and characters.",
@@ -4633,6 +4637,7 @@
       "intensity": "medium",
       "commitment": "deep-dive"
     },
+    "reviewPublishedAt": "2026-07-01",
     "spoilerFreeReviewParagraphs": [
       "I loved Midnight Burger. It has amazing world-building combined with a cast of characters you really start to love. It starts out small, with a lovable group dashing around the galaxy, but as time goes on our protagonists start running into challenges that test them in every way possible. The world keeps expanding, and every time you think it can't get any bigger, it does. There is always a new world for them to explore and a new challenge for them to face, but through it all, there's a diner.",
       "The character development is really good. The characters grow as people over the course of the show, not because of one pivotal moment, but by slowly learning through challenge and hardship.",
@@ -5515,6 +5520,7 @@
       "intensity": "high",
       "commitment": "long"
     },
+    "reviewPublishedAt": "2026-07-01",
     "spoilerFreeReviewParagraphs": [
       "I loved Derelict. It really keeps you on your toes with constant action without making you tired or confused. I especially like how it focuses on a small setting while constantly hinting at a much larger world beyond it.",
       "It doesn't waste time dumping exposition on you and gets straight into the action. At the same time, it doesn't leave you wondering what everything is, because things are explained naturally as you go instead of through some long monologue about how this specific piece of tech killed someone's brother's wife's sister.",
@@ -6050,7 +6056,7 @@
     "cover": "shows/towe4/Tower4.jpeg",
     "coverAlt": "Tower 4 cover art",
     "status": "published",
-    "reviewStatus": "indexed-only",
+    "reviewStatus": "full-review",
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
@@ -6141,25 +6147,253 @@
     },
     "metadata": {
       "objectiveSources": [
-        "https://www.7lamb.com/audiodramas",
+        "https://www.7lamb.com/about-us",
         "https://www.7lamb.com/audiodramas/tower-4",
+        "https://podcasts.apple.com/us/podcast/tower-4/id1533736348?uo=4",
+        "https://feeds.simplecast.com/tcwTC6rY",
+        "https://www.7lamb.com/audiodramas",
         "https://podcasts.apple.com/us/podcast/tower-4/id1533736348",
-        "https://feeds.simplecast.com/tcwTC6rY"
+        "https://podcasts.apple.com/us/podcast/s1e1-first-night/id1533736348?i=1000492879605",
+        "https://podcasts.apple.com/in/podcast/tower-4/id1533736348",
+        "https://open.spotify.com/show/39IFvlWM7TPPSO9W5x8SuJ",
+        "https://www.patreon.com/7lamb",
+        "https://www.facebook.com/7LambPodcasts/",
+        "https://twitter.com/7lambpodcasts",
+        "https://audiofiction.co.uk/show.php?id=20200928-06"
       ],
       "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
       "objectiveVerifiedAt": "2026-07-18",
       "reviewFile": "reviews/tower-4.json",
+      "researchGaps": [
+        "subtitle",
+        "networkName",
+        "tags",
+        "avgEpisodeMinutes",
+        "enrichment.formats",
+        "enrichment.tones",
+        "enrichment.themes",
+        "enrichment.officialLinks.koFiUrl",
+        "enrichment.officialLinks.discordUrl",
+        "enrichment.officialLinks.youtubeUrl"
+      ],
       "schedule": {
-        "cadence": "unknown",
-        "note": "Schedule/cadence not fully verified."
+        "label": "Every two months",
+        "method": "maintainer-verified"
       },
-      "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
+      "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved.",
+      "sourceCategories": [
+        "mystery",
+        "thriller"
+      ],
+      "importOfficialSummary": "Mike Archer is a newly appointed fire watcher in the Wyoming woods. While he's never done anything like this before, he needed something new after his mom passed. Now he hopes to spend his days in a tower above the trees looking for fires and working on his new book. But things aren't as quiet and peaceful as he hoped. Strange interference blasts over his radio at night and he starts seeing and hearing creepy noises in the woods. But are these odd occurrences actually happening or is he just going stir crazy?",
+      "socialUrls": [
+        "https://www.facebook.com/7LambPodcasts/",
+        "https://twitter.com/7lambpodcasts"
+      ],
+      "podcast": {
+        "explicit": "Clean",
+        "country": "USA",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.simplecast.com/tcwTC6rY",
+          "appleCollectionId": "1533736348"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.7lamb.com/about-us",
+            "fetchedAt": "2026-10-04T14:56:59.750Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.7lamb.com/audiodramas/tower-4",
+            "fetchedAt": "2026-10-04T14:56:59.748Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/tower-4/id1533736348?uo=4",
+            "fetchedAt": "2026-10-04T14:56:59.128Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "creatorName": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "description": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "rssUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "appleUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/tower-4/id1533736348?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/tower-4/id1533736348?uo=4"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/tower-4/id1533736348?uo=4"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "latestPublicationDate": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/tower-4/id1533736348?uo=4"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "patreonUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.7lamb.com/audiodramas/tower-4"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.7lamb.com/about-us"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.7lamb.com/audiodramas/tower-4"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "categories": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "genres": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "tags": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "language": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "spotifyUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "startUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "seasonCount": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "firstPublicationDate": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "manualReleaseState": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "subtitle": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "manualEnrichment": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "releaseStatus": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "completionStatus": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          }
+        },
+        "importedAt": "2026-10-04T15:07:39.780Z",
+        "optionalGaps": [
+          "No structured transcript links were exposed by the feed."
+        ],
+        "publication": {
+          "tier": "indexed-only"
+        },
+        "factualReview": {
+          "reviewedAt": "2026-10-04T15:44:17.614Z",
+          "inputRevision": 2
+        }
+      }
     },
     "verification": {
-      "status": "source-verified-with-feed-note",
-      "verifiedAt": "2026-07-01",
+      "status": "maintainer-source-reviewed",
+      "verifiedAt": "2026-10-04",
       "source": "https://www.7lamb.com/audiodramas; https://www.7lamb.com/audiodramas/tower-4; https://podcasts.apple.com/us/podcast/tower-4/id1533736348",
-      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+      "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
     },
     "aliases": [
       "Tower 4",
@@ -6182,7 +6416,15 @@
     "creators": [
       "7 Lamb Productions"
     ],
-    "cast": [],
+    "cast": [
+      "Jack Austin",
+      "Gina Coyle",
+      "Ariel Hack",
+      "Corey Pettit",
+      "Brett Wilkins",
+      "Douglas Salway",
+      "Nick “N.I.K” Keeney"
+    ],
     "releaseDates": {
       "first": "2020-09-14",
       "latest": "2026-05-04",
@@ -6202,6 +6444,86 @@
       "narrativeFocus": "plot-driven",
       "intensity": "medium"
     },
+    "provenance": {
+      "status": "documented",
+      "sources": [
+        {
+          "sourceUrl": "https://www.7lamb.com/about-us",
+          "sourceType": "official-website"
+        },
+        {
+          "sourceUrl": "https://www.7lamb.com/audiodramas/tower-4",
+          "sourceType": "official-website"
+        },
+        {
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/tower-4/id1533736348?uo=4",
+          "sourceType": "official-platform"
+        },
+        {
+          "sourceUrl": "https://feeds.simplecast.com/tcwTC6rY",
+          "sourceType": "third-party-database"
+        },
+        {
+          "sourceUrl": "https://www.7lamb.com/audiodramas/tower-4",
+          "sourceType": "third-party-database"
+        },
+        {
+          "sourceUrl": "https://www.7lamb.com/audiodramas",
+          "sourceType": "third-party-database"
+        },
+        {
+          "sourceUrl": "https://www.7lamb.com/about-us",
+          "sourceType": "third-party-database"
+        },
+        {
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/tower-4/id1533736348",
+          "sourceType": "third-party-database"
+        },
+        {
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/s1e1-first-night/id1533736348?i=1000492879605",
+          "sourceType": "third-party-database"
+        },
+        {
+          "sourceUrl": "https://podcasts.apple.com/in/podcast/tower-4/id1533736348",
+          "sourceType": "third-party-database"
+        },
+        {
+          "sourceUrl": "https://open.spotify.com/show/39IFvlWM7TPPSO9W5x8SuJ",
+          "sourceType": "third-party-database"
+        },
+        {
+          "sourceUrl": "https://www.patreon.com/7lamb",
+          "sourceType": "third-party-database"
+        },
+        {
+          "sourceUrl": "https://www.facebook.com/7LambPodcasts/",
+          "sourceType": "third-party-database"
+        },
+        {
+          "sourceUrl": "https://twitter.com/7lambpodcasts",
+          "sourceType": "third-party-database"
+        },
+        {
+          "sourceUrl": "https://audiofiction.co.uk/show.php?id=20200928-06",
+          "sourceType": "third-party-database"
+        }
+      ],
+      "description": {
+        "origin": "sourced-externally",
+        "sourceUrls": [
+          "https://feeds.simplecast.com/tcwTC6rY",
+          "https://www.7lamb.com/audiodramas"
+        ]
+      },
+      "artwork": {
+        "sourceUrl": "https://podcasts.apple.com/us/podcast/tower-4/id1533736348?uo=4",
+        "sourceType": "official-platform",
+        "rightsNote": "Third-party artwork source recorded; licence or permission is not separately confirmed."
+      },
+      "logos": [],
+      "rightsNotes": "Source URLs are recorded for attribution and correction work; this record does not assert a licence or permission to reuse third-party artwork or text."
+    },
+    "reviewPublishedAt": "2026-10-04T15:45:51.148Z",
     "spoilerFreeReviewParagraphs": [
       "Tower 4 was the first audio drama that really pulled me into the medium. It will always have a special place in my heart for that reason. But beyond that, the show is just great. I really liked the characters, and the show does a good job of making you care about them. It starts out somewhat slow, but in later seasons the scope grows a lot and things start getting intense.",
       "The show is great in that it doesn't always just tell you the truth. You have to figure things out alongside the characters. It's the good kind of mystery where you don't feel lost, but always feel like the answer is just around the corner.",
@@ -6219,7 +6541,7 @@
     "imageAlt": "Tower 4 cover art",
     "summary": "Mike Archer is a newly appointed fire watcher in the Wyoming woods. While he's never done anything like this before, he needed something new after his mom passed. Now he hopes to spend his days in a tower above the trees looking for fires and working on his new book. But things aren't as quiet and peaceful as he hoped. Strange interference blasts over his radio at night and he starts seeing and hearing creepy noises in the woods. But are these odd occurrences actually happening or is he just going stir crazy?",
     "finalRating": 10,
-    "searchText": "tower 4 isolation mystery with a slow burn dread profile mike archer is a newly appointed fire watcher in the wyoming woods while hes never done anything like this before he needed something new after his mom passed now he hopes to spend his days in a tower above the trees looking for fires and working on his new book but things arent as quiet and peaceful as he hoped strange interference blasts over his radio at night and he starts seeing and hearing creepy noises in the woods but are these odd occurrences actually happening or is he just going stir crazy one of the easiest shows to recommend to someone getting into audio dramas approachable mysterious and increasingly intense tower 4 was the first audio drama that really pulled me into the medium it will always have a special place in my heart for that reason but beyond that the show is just great i really liked the characters and the show does a good job of making you care about them it starts out somewhat slow but in later seasons the scope grows a lot and things start getting intense the show is great in that it doesnt always just tell you the truth you have to figure things out alongside the characters its the good kind of mystery where you dont feel lost but always feel like the answer is just around the corner my only real complaint is that it makes use of a lot of inner monologue which im not a huge fan of however i think that also makes it great for beginner listeners who havent gotten used to the medium yet tower 4 pulls it off really well and since large parts of the show are spent with characters in isolation it feels like a necessary evil i would strongly recommend this to new and old audio drama listeners alike if youre looking for a mystery or just characters to fall in love with this is a great show for you its one of my cleanest recommendations for anyone whos new to audio dramas and looking to get into the medium tower 4 will always mean a little more to me than most shows because it was the one that really pulled me into audio drama in the first place without it i probably wouldnt have gone looking for half the shows i ended up loving later i also think its unusually good as a first audio drama the inner monologue can be a bit much for me personally but it makes the story incredibly easy to follow while youre still getting used to a format where you cant rely on visuals once the mystery starts opening up it gets much harder to put down tower 4 was the first audio drama that really pulled me into the medium it will always have a special place in my heart for that reason but beyond that the show is just great i really liked the characters and the show does a good job of making you care about them it starts out somewhat slow but in later seasons the scope grows a lot and things start getting intense the show is great in that it doesnt always just tell you the truth you have to figure things out alongside the characters its the good kind of mystery where you dont feel lost but always feel like the answer is just around the corner my only real complaint is that it makes use of a lot of inner monologue which im not a huge fan of however i think that also makes it great for beginner listeners who havent gotten used to the medium yet tower 4 pulls it off really well and since large parts of the show are spent with characters in isolation it feels like a necessary evil i would strongly recommend this to new and old audio drama listeners alike if youre looking for a mystery or just characters to fall in love with this is a great show for you its one of my cleanest recommendations for anyone whos new to audio dramas and looking to get into the medium tower 4 will always mean a little more to me than most shows because it was the one that really pulled me into audio drama in the first place without it i probably wouldnt have gone looking for half the shows i ended up loving later i also think its unusually good as a first audio drama the inner monologue can be a bit much for me personally but it makes the story incredibly easy to follow while youre still getting used to a format where you cant rely on visuals once the mystery starts opening up it gets much harder to put down isolation conspiracy wilderness mystery thriller bleak tense narrated serialized primarily narrated plot driven medium cold isolation horror late night tower 4 tower 4 podcast 7 lamb tower 4 mystery isolation comedy thriller genre violence threat 7 lamb productions 7 lamb 7 lamb productions llc bloody fm english the white vault station 151 alice isnt dead archive 81 ongoing indexed only indexed entry unknown unknown 7 lamb productions 7 lamb productions robert lamb not verified not verified not verified not verified bloody fm not verified not verified not verified not applicable official 7 lamb page links to podcast platforms but current capture did not expose a full feed ledger original fiction wyoming woods fire lookout tower narrated serialized mystery medium current feed and platform metadata now cover the previously unresolved archive modeling questions for this record",
+    "searchText": "tower 4 isolation mystery with a slow burn dread profile mike archer is a newly appointed fire watcher in the wyoming woods while hes never done anything like this before he needed something new after his mom passed now he hopes to spend his days in a tower above the trees looking for fires and working on his new book but things arent as quiet and peaceful as he hoped strange interference blasts over his radio at night and he starts seeing and hearing creepy noises in the woods but are these odd occurrences actually happening or is he just going stir crazy one of the easiest shows to recommend to someone getting into audio dramas approachable mysterious and increasingly intense tower 4 was the first audio drama that really pulled me into the medium it will always have a special place in my heart for that reason but beyond that the show is just great i really liked the characters and the show does a good job of making you care about them it starts out somewhat slow but in later seasons the scope grows a lot and things start getting intense the show is great in that it doesnt always just tell you the truth you have to figure things out alongside the characters its the good kind of mystery where you dont feel lost but always feel like the answer is just around the corner my only real complaint is that it makes use of a lot of inner monologue which im not a huge fan of however i think that also makes it great for beginner listeners who havent gotten used to the medium yet tower 4 pulls it off really well and since large parts of the show are spent with characters in isolation it feels like a necessary evil i would strongly recommend this to new and old audio drama listeners alike if youre looking for a mystery or just characters to fall in love with this is a great show for you its one of my cleanest recommendations for anyone whos new to audio dramas and looking to get into the medium tower 4 will always mean a little more to me than most shows because it was the one that really pulled me into audio drama in the first place without it i probably wouldnt have gone looking for half the shows i ended up loving later i also think its unusually good as a first audio drama the inner monologue can be a bit much for me personally but it makes the story incredibly easy to follow while youre still getting used to a format where you cant rely on visuals once the mystery starts opening up it gets much harder to put down tower 4 was the first audio drama that really pulled me into the medium it will always have a special place in my heart for that reason but beyond that the show is just great i really liked the characters and the show does a good job of making you care about them it starts out somewhat slow but in later seasons the scope grows a lot and things start getting intense the show is great in that it doesnt always just tell you the truth you have to figure things out alongside the characters its the good kind of mystery where you dont feel lost but always feel like the answer is just around the corner my only real complaint is that it makes use of a lot of inner monologue which im not a huge fan of however i think that also makes it great for beginner listeners who havent gotten used to the medium yet tower 4 pulls it off really well and since large parts of the show are spent with characters in isolation it feels like a necessary evil i would strongly recommend this to new and old audio drama listeners alike if youre looking for a mystery or just characters to fall in love with this is a great show for you its one of my cleanest recommendations for anyone whos new to audio dramas and looking to get into the medium tower 4 will always mean a little more to me than most shows because it was the one that really pulled me into audio drama in the first place without it i probably wouldnt have gone looking for half the shows i ended up loving later i also think its unusually good as a first audio drama the inner monologue can be a bit much for me personally but it makes the story incredibly easy to follow while youre still getting used to a format where you cant rely on visuals once the mystery starts opening up it gets much harder to put down isolation conspiracy wilderness mystery thriller bleak tense narrated serialized primarily narrated plot driven medium cold isolation horror late night tower 4 tower 4 podcast 7 lamb tower 4 mystery isolation comedy thriller genre violence threat 7 lamb productions 7 lamb 7 lamb productions llc bloody fm jack austin gina coyle ariel hack corey pettit brett wilkins douglas salway nick nik keeney english the white vault station 151 alice isnt dead archive 81 ongoing full review indexed entry unknown unknown 7 lamb productions 7 lamb productions robert lamb not verified not verified not verified not verified bloody fm not verified not verified not verified not applicable official 7 lamb page links to podcast platforms but current capture did not expose a full feed ledger original fiction wyoming woods fire lookout tower narrated serialized mystery medium current feed and platform metadata now cover the previously unresolved archive modeling questions for this record",
     "tagTokens": [
       "isolation",
       "conspiracy",
@@ -8958,6 +9280,7 @@
     "discovery": {
       "voiceStyle": "primarily-narrated"
     },
+    "reviewPublishedAt": "2026-07-02",
     "spoilerFreeReviewParagraphs": [
       "Welcome to Night Vale works because it never treats its surrealism like a puzzle you have to solve before you are allowed in. The format is simple on purpose: community-radio updates from a town where the impossible is just another item on the civic agenda. That lets the show establish its voice immediately, then keep widening its emotional range without losing the calm, dry delivery that makes the world cohere.",
       "The archive value is not just that it is influential. It is that the influence still points back to a show with real recommendation usefulness in the present. If someone wants weird fiction that can be funny, atmospheric, and unexpectedly tender without requiring dense plot homework up front, Night Vale still does the job. It remains one of the best on-ramps into stranger audio drama precisely because the voice is so confident about how much absurdity it can hold at once."

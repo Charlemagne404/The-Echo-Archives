@@ -473,11 +473,12 @@ The normal `npm run validate:data` gate also performs a raw-source integrity pas
 
 ## Review Companion Shape
 
-When present, `data/reviews/<show-id>.json` should use this shape:
+When present, `catalog-src/reviews/<show-id>.json` should use this shape; `data/reviews/` is the generated runtime copy:
 
 ```json
 {
   "archiveTake": "Short editorial take used on cards and previews.",
+  "publishedAt": "2026-06-02T18:00:00.000Z",
   "spoilerFreeReview": ["Paragraph one.", "Paragraph two."],
   "thoughts": ["Paragraph one.", "Paragraph two."],
   "quote": {
@@ -486,6 +487,8 @@ When present, `data/reviews/<show-id>.json` should use this shape:
   }
 }
 ```
+
+`publishedAt` is optional for unpublished review drafts. The first full-review publication records it, and later edits preserve the original publication date.
 
 ## Collection Shape
 

@@ -126,8 +126,106 @@ async function hydrateShowPage(showRoot, show) {
     detailRoot.dataset.podcastTitle = show.title;
     await initializeDetailRatingPage(show);
   }
+  initializeMobileTextDisclosures(showRoot);
   initializeReviewCarousels(showRoot);
+  initializeMobileBackToTop();
   initializeShowDetailMotion(showRoot);
+}
+
+function initializeMobileTextDisclosures(showRoot) {
+  if (showRoot.dataset.mobileTextDisclosuresInitialized === "true") return;
+  showRoot.dataset.mobileTextDisclosuresInitialized = "true";
+  const mobileQuery = window.matchMedia("(max-width: 640px)");
+
+  function syncDisclosure(wrapper) {
+    const content = wrapper.querySelector("[data-mobile-expandable-content]");
+    const button = wrapper.querySelector("[data-mobile-expand-toggle]");
+    if (!(content instanceof HTMLElement) || !(button instanceof HTMLButtonElement)) return;
+    const threshold = Number.parseInt(wrapper.dataset.mobileExpandThreshold || "0", 10) || 0;
+    const shouldCollapse = mobileQuery.matches && content.textContent.trim().length >= threshold;
+    const collapsed = shouldCollapse;
+    wrapper.dataset.mobileExpandReady = "true";
+    wrapper.dataset.mobileExpandState = collapsed ? "collapsed" : "expanded";
+    button.hidden = !shouldCollapse;
+    button.setAttribute("aria-expanded", String(!collapsed));
+    button.textContent = collapsed
+      ? wrapper.dataset.mobileExpandLabel || "Read more"
+      : wrapper.dataset.mobileCollapseLabel || "Show less";
+    if (wrapper.dataset.mobileExpandMode === "disclosure") {
+      content.setAttribute("aria-hidden", String(collapsed));
+    } else {
+      content.removeAttribute("aria-hidden");
+    }
+  }
+
+  function syncAllDisclosures() {
+    showRoot.querySelectorAll("[data-mobile-expandable]").forEach(syncDisclosure);
+  }
+
+  showRoot.addEventListener("click", (event) => {
+    const target = event.target instanceof Element ? event.target.closest("[data-mobile-expand-toggle]") : null;
+    if (!(target instanceof HTMLButtonElement)) return;
+    const wrapper = target.closest("[data-mobile-expandable]");
+    if (!(wrapper instanceof HTMLElement) || !mobileQuery.matches) return;
+    const content = wrapper.querySelector("[data-mobile-expandable-content]");
+    if (!(content instanceof HTMLElement)) return;
+    const expanded = wrapper.dataset.mobileExpandState !== "expanded";
+    wrapper.dataset.mobileExpandState = expanded ? "expanded" : "collapsed";
+    target.setAttribute("aria-expanded", String(expanded));
+    target.textContent = expanded
+      ? wrapper.dataset.mobileCollapseLabel || "Show less"
+      : wrapper.dataset.mobileExpandLabel || "Read more";
+    if (wrapper.dataset.mobileExpandMode === "disclosure") {
+      content.setAttribute("aria-hidden", String(!expanded));
+    }
+  });
+
+  mobileQuery.addEventListener("change", syncAllDisclosures);
+  syncAllDisclosures();
+}
+
+function initializeMobileBackToTop() {
+  const backToTop = document.querySelector(".detail-page #backToTop");
+  if (!(backToTop instanceof HTMLElement) || backToTop.dataset.mobileScrollBehaviorInitialized === "true") return;
+  backToTop.dataset.mobileScrollBehaviorInitialized = "true";
+  const mobileQuery = window.matchMedia("(max-width: 640px)");
+  let previousY = window.scrollY;
+  let hideTimer = 0;
+
+  function hideButton() {
+    backToTop.classList.add("is-mobile-reading-hidden");
+  }
+
+  function revealBriefly() {
+    backToTop.classList.remove("is-mobile-reading-hidden");
+    window.clearTimeout(hideTimer);
+    hideTimer = window.setTimeout(() => {
+      hideButton();
+      hideTimer = 0;
+    }, 1800);
+  }
+
+  function syncScrollDirection() {
+    const currentY = window.scrollY;
+    if (!mobileQuery.matches || currentY <= 420) {
+      window.clearTimeout(hideTimer);
+      hideTimer = 0;
+      backToTop.classList.remove("is-mobile-reading-hidden");
+    } else if (currentY < previousY - 2) {
+      revealBriefly();
+    } else if (currentY > previousY + 2) {
+      window.clearTimeout(hideTimer);
+      hideTimer = 0;
+      hideButton();
+    } else if (!hideTimer) {
+      hideButton();
+    }
+    previousY = currentY;
+  }
+
+  mobileQuery.addEventListener("change", syncScrollDirection);
+  window.addEventListener("scroll", syncScrollDirection, { passive: true });
+  syncScrollDirection();
 }
 
 function renderMissingShowPage(showRoot) {

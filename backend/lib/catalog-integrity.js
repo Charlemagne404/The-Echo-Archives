@@ -760,6 +760,7 @@ function checkReviewRecords(reviewsById, showIds, errors) {
       return;
     }
     if (review.archiveTake !== undefined && typeof review.archiveTake !== "string") addIssue(errors, `Review "${showId}".archiveTake must be a string.`);
+    if (review.publishedAt !== undefined && review.publishedAt !== "" && Number.isNaN(parseDate(review.publishedAt))) addIssue(errors, `Review "${showId}".publishedAt is not a valid date.`);
     ["spoilerFreeReview", "thoughts"].forEach((fieldName) => {
       if (review[fieldName] !== undefined && !Array.isArray(review[fieldName]) && typeof review[fieldName] !== "string") {
         addIssue(errors, `Review "${showId}".${fieldName} must be a string or array.`);

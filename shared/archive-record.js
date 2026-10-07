@@ -566,6 +566,25 @@
     };
   }
 
+  function getLatestFactsCheckedAt(record = {}) {
+    const metadata = record.metadata && typeof record.metadata === "object" ? record.metadata : {};
+    const factualReview = metadata.import?.factualReview && typeof metadata.import.factualReview === "object"
+      ? metadata.import.factualReview
+      : {};
+    const candidates = [
+      record.verification?.verifiedAt,
+      record.officialDescription?.verifiedAt,
+      metadata.objectiveVerifiedAt,
+      factualReview.reviewedAt,
+    ].map((value) => {
+      const text = String(value || "").trim();
+      return { value: text, timestamp: text ? Date.parse(text) : Number.NaN };
+    }).filter((entry) => Number.isFinite(entry.timestamp));
+
+    const latest = candidates.sort((left, right) => right.timestamp - left.timestamp)[0];
+    return latest ? new Date(latest.timestamp).toISOString().slice(0, 10) : "";
+  }
+
   return {
     DEPRECATED_SHOW_FIELDS,
     createShowHref,
@@ -586,6 +605,7 @@
     getPublicVerificationLabel,
     getPublicContentProfile,
     getReviewStatusLabel,
+    getLatestFactsCheckedAt,
     getWebPageDates,
     getCatalogPublicationDate,
     getCardDiscoveryMetadata,

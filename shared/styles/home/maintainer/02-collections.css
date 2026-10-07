@@ -44,6 +44,10 @@
   width: 100%;
 }
 
+.maintainer-collection-reason[hidden] {
+  display: none;
+}
+
 .maintainer-collection-reason input {
   min-width: 0;
 }

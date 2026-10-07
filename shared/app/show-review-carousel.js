@@ -63,7 +63,8 @@ function initializeCarousel(carousel) {
   let listenerTotal = Number.parseInt(carousel.dataset.listenerTotal || "", 10) || 0;
   let currentIndex = Number.parseInt(carousel.dataset.currentIndex || "", 10) || 0;
   let writesEnabled = false;
-  let pointerStartX = null;
+  let pointerStart = null;
+  const mobileSwipeQuery = window.matchMedia("(max-width: 640px)");
   let busy = false;
   let statusMessage = "";
   let pendingSlideRequest = null;
@@ -217,14 +218,25 @@ function initializeCarousel(carousel) {
       void requestRelativeSlide(1);
     }
   });
-  viewport.addEventListener("pointerdown", (event) => { pointerStartX = event.clientX; });
-  viewport.addEventListener("pointerup", (event) => {
-    if (pointerStartX === null) return;
-    const distance = event.clientX - pointerStartX;
-    pointerStartX = null;
-    if (Math.abs(distance) >= 44) void requestRelativeSlide(distance < 0 ? 1 : -1);
+  viewport.addEventListener("pointerdown", (event) => {
+    if (!mobileSwipeQuery.matches || event.pointerType !== "touch" || !event.isPrimary) return;
+    const target = event.target instanceof Element ? event.target : null;
+    if (target?.closest("a, button, input, select, textarea, summary, [contenteditable='true'], [data-review-carousel-dots]")) return;
+    pointerStart = { x: event.clientX, y: event.clientY, pointerId: event.pointerId };
   });
-  viewport.addEventListener("pointercancel", () => { pointerStartX = null; });
+  viewport.addEventListener("pointerup", (event) => {
+    if (!pointerStart || pointerStart.pointerId !== event.pointerId) return;
+    const start = pointerStart;
+    pointerStart = null;
+    const target = event.target instanceof Element ? event.target : null;
+    if (target?.closest("a, button, input, select, textarea, summary, [contenteditable='true'], [data-review-carousel-dots]")) return;
+    const distanceX = event.clientX - start.x;
+    const distanceY = event.clientY - start.y;
+    if (Math.abs(distanceX) >= 48 && Math.abs(distanceX) > Math.abs(distanceY) * 1.2) {
+      void requestRelativeSlide(distanceX < 0 ? 1 : -1);
+    }
+  });
+  viewport.addEventListener("pointercancel", () => { pointerStart = null; });
 
   void (async () => {
     try {

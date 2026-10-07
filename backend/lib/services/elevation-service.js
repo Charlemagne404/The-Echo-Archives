@@ -332,7 +332,7 @@ function createElevationService({ staticRoot, importService, onPublished = null,
   }
 
   async function saveReviewDraft(showId, rawDraft = {}) {
-    const { source, show } = getShow(showId);
+    const { source, show, review } = getShow(showId);
     if (!EDITABLE_REVIEW_STATUSES.has(show.reviewStatus)) {
       const error = new Error("This record cannot enter the full-review workflow.");
       error.statusCode = 409;
@@ -350,6 +350,10 @@ function createElevationService({ staticRoot, importService, onPublished = null,
       updatedAt: new Date().toISOString().slice(0, 10),
     };
     const isPublishedReview = show.reviewStatus === "full-review";
+    const updatedReview = {
+      ...draft.review,
+      ...(isPublishedReview && review?.publishedAt ? { publishedAt: review.publishedAt } : {}),
+    };
     if (draft.archiveRating !== null) updatedShow.ratings = { ...(show.ratings || {}), archive: draft.archiveRating };
     if (draft.tagsProvided) updatedShow.tags = draft.tags;
     ["tones", "formats", "bestFor", "similarTo"].forEach((field) => {
@@ -378,7 +382,7 @@ function createElevationService({ staticRoot, importService, onPublished = null,
       changedCollectionIds.push(collection.id);
       return updatedCollection;
     });
-    const transaction = writeDirectChanges(staticRoot, source, updatedShow, updatedCollections, draft.review, changedCollectionIds);
+    const transaction = writeDirectChanges(staticRoot, source, updatedShow, updatedCollections, updatedReview, changedCollectionIds);
     try {
       await runWithCatalogPublication(transaction.publicationToken, async () => {
         await validateSiteDataImpl(staticRoot, { recoverCovers: true });
@@ -403,7 +407,11 @@ function createElevationService({ staticRoot, importService, onPublished = null,
       throw error;
     }
     const published = { ...show, reviewStatus: "full-review", updatedAt: new Date().toISOString().slice(0, 10) };
-    const transaction = writeShowRecordsAtomically(staticRoot, [published], { deferCommit: true });
+    const publishedReview = normalizeReviewRecord({
+      ...(review || {}),
+      publishedAt: review?.publishedAt || new Date().toISOString(),
+    });
+    const transaction = writeDirectChanges(staticRoot, source, published, source.collections, publishedReview);
     try {
       await runWithCatalogPublication(transaction.publicationToken, async () => {
         await validateSiteDataImpl(staticRoot, { recoverCovers: true });

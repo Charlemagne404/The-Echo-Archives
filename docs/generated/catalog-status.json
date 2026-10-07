@@ -4,9 +4,9 @@
   "totalShows": 752,
   "publishedShows": 752,
   "draftShows": 0,
-  "fullReviews": 7,
+  "fullReviews": 8,
   "spotlightReviews": 0,
-  "indexedOnly": 228,
+  "indexedOnly": 227,
   "imported": 517,
   "plannedReviews": 0,
   "collections": 54,
@@ -14,7 +14,7 @@
   "creatorVerified": 0,
   "withRss": 746,
   "missingObjectiveSources": 0,
-  "withResearchGaps": 29,
+  "withResearchGaps": 30,
   "phase2": {
     "policy": {
       "fullReviewFloor": 7,
@@ -29,7 +29,7 @@
         "pass": true
       },
       "fullReviews": {
-        "actual": 7,
+        "actual": 8,
         "target": 7,
         "pass": true
       },
@@ -142,6 +142,22 @@
           "gaps": [
             "future Season 1 continuation status",
             "complete cast/crew"
+          ]
+        },
+        {
+          "id": "tower-4",
+          "title": "Tower 4",
+          "gaps": [
+            "subtitle",
+            "networkName",
+            "tags",
+            "avgEpisodeMinutes",
+            "enrichment.formats",
+            "enrichment.tones",
+            "enrichment.themes",
+            "enrichment.officialLinks.koFiUrl",
+            "enrichment.officialLinks.discordUrl",
+            "enrichment.officialLinks.youtubeUrl"
           ]
         },
         {
@@ -289,6 +305,7 @@
         "the-white-vault",
         "midnight-burger",
         "derelict",
+        "tower-4",
         "welcome-to-night-vale"
       ],
       "gaps": [],

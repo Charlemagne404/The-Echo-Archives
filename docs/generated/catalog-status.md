@@ -11,9 +11,9 @@ Latest catalog update: `2026-10-04`
 | Total shows | 752 |
 | Published shows | 752 |
 | Draft shows | 0 |
-| Full reviews | 7 |
+| Full reviews | 8 |
 | Spotlight reviews | 0 |
-| Indexed-only shows | 228 |
+| Indexed-only shows | 227 |
 | Imported shows | 517 |
 | Planned reviews | 0 |
 | Collections | 54 |
@@ -21,7 +21,7 @@ Latest catalog update: `2026-10-04`
 | Creator-verified shows | 0 |
 | Shows with RSS | 746 |
 | Shows missing metadata.objectiveSources | 0 |
-| Shows with metadata.researchGaps | 29 |
+| Shows with metadata.researchGaps | 30 |
 
 ## Discovery Gaps
 
@@ -40,9 +40,9 @@ Latest catalog update: `2026-10-04`
 ## Phase 2 Readiness (Gate B)
 
 - Status: `complete`
-- Numeric targets: 752 published shows (floor 129), 7 full reviews (floor 7), 54 collections (floor 29)
+- Numeric targets: 752 published shows (floor 129), 8 full reviews (floor 7), 54 collections (floor 29)
 - Factual metadata gaps: 0 core, 0 missing provenance, 0 actionable RSS, 0 missing detailed runtime
-- Explicit unknowns/research gaps: 29 records; 6 missing RSS and 8 runtime gaps are documented rather than hidden
+- Explicit unknowns/research gaps: 30 records; 6 missing RSS and 8 runtime gaps are documented rather than hidden
 - Editorial/recommendation gaps: 0; collection blockers: 0
 - Taxonomy: 165 controlled labels; unknown/non-approved public tags: 0
 - Sparse indexed-only discovery gaps are informational: 0 sparse records; 0 have fewer than two collections, 0 have no editorial similarity set, and 0 contain unsupported editorial claims

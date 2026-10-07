@@ -200,6 +200,30 @@ test("quick-save cards and show controls persist and synchronize without exposin
     assert.ok(savedVisual.opacity > 0.99 && savedVisual.fill !== "none" && savedVisual.label.includes("Current status: Saved."),
       `saved state remains visible and labeled: ${JSON.stringify(savedVisual)}`);
 
+    await quickSaveControl.click();
+    await assertEventually(async () => {
+      const savedStates = await quickSaveControls.evaluateAll((buttons) => buttons.map((button) => button.getAttribute("aria-pressed")));
+      assert.ok(savedStates.every((saved) => saved === "false"), JSON.stringify(savedStates));
+    });
+    await browse.mouse.move(1, 1);
+    await assertEventually(async () => {
+      const pointerState = await quickSaveControl.evaluate((button) => ({
+        opacity: Number.parseFloat(getComputedStyle(button).opacity) || 0,
+        hovered: button.closest("[data-library-show-card]")?.matches(":hover") || false,
+      }));
+      assert.ok(pointerState.opacity < 0.01 && !pointerState.hovered,
+        `an unsaved pointer-focused bookmark hides after leaving its card: ${JSON.stringify(pointerState)}`);
+    });
+
+    await browse.locator(`#popularGrid a[data-discovery-show-id="${repeatedShow.id}"]`).hover();
+    await quickSaveControl.click();
+    await assertEventually(async () => {
+      const savedStates = await quickSaveControls.evaluateAll((buttons) => buttons.map((button) => button.getAttribute("aria-pressed")));
+      assert.ok(savedStates.every((saved) => saved === "true"), JSON.stringify(savedStates));
+      assert.equal(analyticsEventsFor(requests, "Show Saved", repeatedShow.id).length, 2,
+        "each explicit save emits one Library analytics event despite intervening unsaves");
+    });
+
     await browse.locator(`#popularGrid a[data-discovery-show-id="${repeatedShow.id}"]`).focus();
     await browse.keyboard.press("Tab");
     await assertEventually(async () => assert.equal(await quickSaveControl.evaluate((node) => node === document.activeElement), true,
@@ -215,13 +239,13 @@ test("quick-save cards and show controls persist and synchronize without exposin
       assert.ok(savedStates.every((saved) => saved === "false"), JSON.stringify(savedStates));
       assert.equal(await quickSaveControl.evaluate((node) => node === document.activeElement), true, "state synchronization keeps keyboard focus on the save button");
       assert.equal(browse.url(), browseUrl, "Space activation does not navigate through the show card");
-      assert.equal(analyticsEventsFor(requests, "Show Saved", repeatedShow.id).length, 1, "removing the entry during state synchronization does not duplicate Save analytics");
+      assert.equal(analyticsEventsFor(requests, "Show Saved", repeatedShow.id).length, 2, "removing the entry during state synchronization does not duplicate Save analytics");
       assert.equal(analyticsEventsFor(requests, "Show Opened", repeatedShow.id).length, 0, "keyboard save controls do not emit Show Opened");
     });
     await quickSaveControl.press("Enter");
     await assertEventually(async () => {
       assert.equal(await quickSaveControl.getAttribute("aria-pressed"), "true", "Enter activates the quick-save button");
-      assert.equal(analyticsEventsFor(requests, "Show Saved", repeatedShow.id).length, 2, "each explicit save emits exactly one Library analytics event");
+      assert.equal(analyticsEventsFor(requests, "Show Saved", repeatedShow.id).length, 3, "each explicit save emits exactly one Library analytics event");
       assert.equal(browse.url(), browseUrl, "Enter activation does not navigate through the show card");
     });
 

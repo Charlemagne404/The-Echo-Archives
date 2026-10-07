@@ -6,6 +6,7 @@ const {
   derivePublicStatus,
   formatCount,
   formatRouteExpansion,
+  getLatestFactsCheckedAt,
   getPublicVerificationLabel,
   getShowContinuationRoutes,
   toPublicLabel,
@@ -184,6 +185,13 @@ function formatDate(value) {
   }).format(date);
 }
 
+function formatPublishedDate(value) {
+  const publishedAt = String(value || "").trim();
+  return publishedAt && !Number.isNaN(new Date(publishedAt).getTime())
+    ? new Intl.DateTimeFormat("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }).format(new Date(publishedAt))
+    : "";
+}
+
 function createSubmissionHref(submissionType = "", showId = "") {
   const query = new URLSearchParams();
   if (submissionType) {
@@ -316,7 +324,7 @@ function renderDetailHero(show, reviewData = {}) {
     show.reviewStatus === "imported"
       ? '<span class="detail-status-chip is-imported">Imported</span>'
       : show.reviewStatus ? `<span class="detail-status-chip">${escapeHtml(toDisplayTag(show.reviewStatus))}</span>` : "",
-    firstTag ? `<span class="detail-status-chip">${escapeHtml(toDisplayTag(firstTag))}</span>` : "",
+    firstTag ? `<span class="detail-status-chip detail-status-chip--key-tag">${escapeHtml(toDisplayTag(firstTag))}</span>` : "",
   ].filter(Boolean).join("");
 
   return `
@@ -337,13 +345,14 @@ function renderDetailHero(show, reviewData = {}) {
               <div class="detail-status-row">${statusChips}</div>
               <h1>${escapeHtml(show.title)}</h1>
               ${show.subtitle ? `<p class="detail-subtitle">${escapeHtml(show.subtitle)}</p>` : ""}
-              ${renderHeroKeyTags(show)}
             </header>
+            ${renderHeroKeyTags(show)}
             <div class="detail-decision-console" aria-label="Quick listening decision">
               <div class="detail-score-cluster">
                 ${hasArchiveRating ? `<article class="detail-hero-score-card detail-score-card-archive"><span class="detail-meta-label">Archive Rating</span><strong class="detail-hero-score-value">${archiveRatingValue}</strong><span class="detail-meta-note">${archiveRatingNote}</span></article>` : ""}
                 ${listenerReviewScore.hasScore ? `<article class="detail-hero-score-card detail-score-card-listener"><span class="detail-meta-label">Listener Review Score</span><strong class="detail-hero-score-value">${listenerReviewScore.value}</strong><span class="detail-meta-note">${listenerReviewScore.note}</span></article>` : ""}
               </div>
+              ${show.reviewStatus === "indexed-only" ? '<p class="detail-mobile-tier-note">Facts checked · no full written review.</p>' : ""}
               <div class="detail-meta-grid">
                 <article class="detail-meta-card"><span class="detail-meta-label">Runtime</span><span class="detail-meta-value">${escapeHtml(getHeroRuntimeValue(show))}</span></article>
                 <article class="detail-meta-card"><span class="detail-meta-label">Format</span><span class="detail-meta-value">${escapeHtml(toDisplayTag(show.formats?.[0] || "Not listed"))}</span></article>
@@ -466,8 +475,14 @@ function renderOfficialSummarySection(show) {
 
   return `
     <section class="detail-section detail-official-summary-section">
-      <div class="detail-section-header"><div><h2>${escapeHtml(summary.title)}</h2><p>${escapeHtml(summary.description)}</p></div></div>
-      <article class="detail-summary detail-summary-official"><p>${escapeHtml(summary.text)}</p>${summary.sourceUrl ? `<a class="detail-official-source" href="${escapeHtml(summary.sourceUrl)}" target="_blank" rel="noreferrer">View source</a>` : ""}</article>
+      <div class="detail-section-header"><div><h2>${escapeHtml(summary.title)}</h2>${summary.title === "About this show" ? `<p>${escapeHtml(summary.description)}</p>` : `<p class="detail-summary-provenance">${escapeHtml(summary.description)}</p>`}</div></div>
+      <article class="detail-summary detail-summary-official">
+        <div class="detail-mobile-expandable" data-mobile-expandable data-mobile-expand-mode="clamp" data-mobile-expand-threshold="320" data-mobile-expand-label="Read full description" data-mobile-collapse-label="Show less">
+          <div id="detail-official-summary-${escapeHtml(show.id)}" data-mobile-expandable-content><p>${escapeHtml(summary.text)}</p></div>
+          <button class="detail-mobile-expand-toggle" data-mobile-expand-toggle type="button" aria-expanded="true" aria-controls="detail-official-summary-${escapeHtml(show.id)}" hidden>Read full description</button>
+        </div>
+        ${summary.sourceUrl ? `<a class="detail-official-source" href="${escapeHtml(summary.sourceUrl)}" target="_blank" rel="noreferrer">View source</a>` : ""}
+      </article>
     </section>
   `;
 }
@@ -481,17 +496,22 @@ function renderArchiveReviewCard(show) {
   const isFullReview = show.reviewStatus === "full-review";
   const reviewCopy = renderParagraphs(show.spoilerFreeReviewParagraphs, show.spoilerFreeReview);
   const reactionCopy = renderParagraphs(show.thoughtsParagraphs, show.thoughts);
+  const reviewBody = [
+    reviewCopy ? `<div class="detail-review-prose">${reviewCopy}</div>` : "",
+    reactionCopy ? `<div class="detail-review-reaction">${reactionCopy}</div>` : "",
+  ].filter(Boolean).join("");
   const archiveRating = normalizeArchiveRating(show.finalRating);
   const rating = archiveRating === null ? "Unrated" : `${formatRating(archiveRating)}/10`;
+  const publishedAt = String(show.reviewPublishedAt || "").trim();
+  const publishedDate = formatPublishedDate(publishedAt);
   return `
     <article class="detail-authored-review detail-archive-review">
       <header class="detail-authored-review-header">
         <div><span class="detail-review-kind">${isFullReview ? "Archive review" : "Archive note"}</span><h3>The Echo Archives</h3></div>
-        <span class="detail-review-rating">${rating}</span>
+        <div class="detail-review-header-meta"><span class="detail-review-rating">${rating}</span>${publishedDate ? `<p class="detail-review-published"><time datetime="${escapeHtml(publishedAt)}">Published ${escapeHtml(publishedDate)}</time></p>` : ""}</div>
       </header>
       ${show.archiveTake ? `<p class="detail-review-verdict"><span>Archive verdict</span>${escapeHtml(show.archiveTake)}</p>` : ""}
-      ${reviewCopy ? `<div class="detail-review-prose">${reviewCopy}</div>` : ""}
-      ${reactionCopy ? `<div class="detail-review-reaction">${reactionCopy}</div>` : ""}
+      ${reviewBody ? `<div class="detail-mobile-expandable detail-review-expandable" data-mobile-expandable data-mobile-expand-mode="clamp" data-mobile-expand-threshold="380" data-mobile-expand-label="Read full review" data-mobile-collapse-label="Show less"><div id="detail-archive-review-copy-${escapeHtml(show.id)}" data-mobile-expandable-content>${reviewBody}</div><button class="detail-mobile-expand-toggle" data-mobile-expand-toggle type="button" aria-expanded="true" aria-controls="detail-archive-review-copy-${escapeHtml(show.id)}" hidden>Read full review</button></div>` : ""}
     </article>
   `;
 }
@@ -500,14 +520,14 @@ function renderIndexedArchiveNote(show) {
   if (show.reviewStatus === "full-review" || !hasArchiveReviewContent(show)) return "";
   const reviewCopy = renderParagraphs(show.spoilerFreeReviewParagraphs, show.spoilerFreeReview);
   const reactionCopy = renderParagraphs(show.thoughtsParagraphs, show.thoughts);
-  const content = [
-    show.archiveTake ? `<p>${escapeHtml(show.archiveTake)}</p>` : "",
-    reviewCopy,
-    reactionCopy,
-  ].filter(Boolean).join("");
+  const reviewBody = [reviewCopy, reactionCopy].filter(Boolean).join("");
   return `
     <section class="detail-section detail-indexed-archive-note" id="archive-note" tabindex="-1" aria-labelledby="indexed-archive-note-title">
-      <article class="detail-summary detail-archive-note-summary"><p class="detail-summary-kicker" id="indexed-archive-note-title">Archive note</p>${content}</article>
+      <article class="detail-summary detail-archive-note-summary">
+        <p class="detail-summary-kicker" id="indexed-archive-note-title">Archive note</p>
+        ${show.archiveTake ? `<p>${escapeHtml(show.archiveTake)}</p>` : ""}
+        ${reviewBody ? `<div class="detail-mobile-expandable detail-review-expandable" data-mobile-expandable data-mobile-expand-mode="clamp" data-mobile-expand-threshold="380" data-mobile-expand-label="Read full note" data-mobile-collapse-label="Show less"><div id="detail-indexed-note-copy-${escapeHtml(show.id)}" data-mobile-expandable-content>${reviewBody}</div><button class="detail-mobile-expand-toggle" data-mobile-expand-toggle type="button" aria-expanded="true" aria-controls="detail-indexed-note-copy-${escapeHtml(show.id)}" hidden>Read full note</button></div>` : ""}
+      </article>
     </section>
   `;
 }
@@ -521,20 +541,17 @@ function renderListenerReviewCard(review) {
     Array.isArray(review?.workedBest) && review.workedBest.length ? `<span><b>Worked best</b> ${review.workedBest.map(toDisplayTag).join(" • ")}</span>` : "",
   ].filter(Boolean).join("");
   const publishedAt = String(review?.publishedAt || "").trim();
-  const publishedDate = publishedAt && !Number.isNaN(new Date(publishedAt).getTime())
-    ? new Intl.DateTimeFormat("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }).format(new Date(publishedAt))
-    : "";
+  const publishedDate = formatPublishedDate(publishedAt);
   return `
     <article class="detail-authored-review detail-listener-review" data-listener-review-id="${escapeHtml(review?.id || "")}">
       <header class="detail-authored-review-header">
         <div><span class="detail-review-kind">Listener review</span><h3>${escapeHtml(review?.title || "Listener review")}</h3><p class="detail-review-byline">${escapeHtml(review?.authorName || "Anonymous listener")}</p></div>
-        <span class="detail-review-rating">${escapeHtml(String(review?.ratingStars || "--"))}/5</span>
+        <div class="detail-review-header-meta"><span class="detail-review-rating">${escapeHtml(String(review?.ratingStars || "--"))}/5</span>${publishedDate ? `<p class="detail-review-published"><time datetime="${escapeHtml(publishedAt)}">Published ${escapeHtml(publishedDate)}</time></p>` : ""}</div>
       </header>
       <span class="detail-spoiler-label${hasSpoilers ? " is-warning" : ""}">${escapeHtml(toDisplayTag(spoilerLevel))}</span>
       ${hasSpoilers ? `<details class="detail-listener-spoilers"><summary>Reveal spoilers</summary>${reviewBody}</details>` : reviewBody}
       ${context ? `<div class="detail-review-context">${context}</div>` : ""}
       <div class="detail-review-community-actions"><button class="detail-review-helpful${review?.viewerMarkedHelpful ? " is-active" : ""}" type="button" data-review-helpful="${escapeHtml(review?.id || "")}" aria-pressed="${String(Boolean(review?.viewerMarkedHelpful))}">Helpful <span data-review-helpful-count>${Number(review?.helpfulCount || 0)}</span></button></div>
-      ${publishedDate ? `<p class="detail-review-published"><time datetime="${escapeHtml(publishedAt)}">Published ${escapeHtml(publishedDate)}</time></p>` : ""}
     </article>
   `;
 }
@@ -610,9 +627,15 @@ function renderImportedTransparency(show) {
   return `
     <aside class="detail-imported-disclosure" aria-labelledby="imported-disclosure-title">
       <span class="detail-imported-signal" aria-hidden="true"></span>
-      <div>
+      <div class="detail-imported-disclosure-copy">
         <p class="detail-summary-kicker" id="imported-disclosure-title">Imported · source checked by automation</p>
-        <p>Factual metadata was assembled from official feeds and directories and has not yet been individually checked by an archive maintainer. Ratings and listener reviews remain separate.</p>
+        <p class="detail-imported-disclosure-short">Facts checked by automation, not an archive maintainer. Ratings and listener reviews remain separate.</p>
+        <div class="detail-mobile-expandable detail-imported-disclosure-details" data-mobile-expandable data-mobile-expand-mode="disclosure" data-mobile-expand-threshold="0" data-mobile-expand-label="How this entry was checked" data-mobile-collapse-label="Hide source-check details">
+          <div id="detail-imported-disclosure-full" data-mobile-expandable-content>
+            <p class="detail-imported-disclosure-full">Factual metadata was assembled from official feeds and directories and has not yet been individually checked by an archive maintainer. Ratings and listener reviews remain separate.</p>
+          </div>
+          <button class="detail-mobile-expand-toggle" data-mobile-expand-toggle type="button" aria-expanded="true" aria-controls="detail-imported-disclosure-full" hidden>How this entry was checked</button>
+        </div>
       </div>
     </aside>
   `;
@@ -636,6 +659,10 @@ function renderFactsLinksCard(show, { inline = false } = {}) {
     typeof show.length?.episodes === "number" && show.length.episodes > 0 ? formatCount(show.length.episodes, "episode") : "",
   ].filter(Boolean).join(" • ");
   const creatorNetwork = getCreatorNetworkLabel(show);
+  const factsCheckedAt = getLatestFactsCheckedAt(show);
+  const factsCheckedMarkup = factsCheckedAt
+    ? `<time datetime="${escapeHtml(factsCheckedAt)}">${escapeHtml(formatDate(factsCheckedAt))}</time>`
+    : "<span>Date not recorded</span>";
   const verificationLabel = getPublicVerificationLabel(show.verification);
   const factCheck = verificationLabel
     ? `<div class="detail-fact-row"><dt>Fact check</dt><dd class="detail-fact-value"><div class="detail-verification-value"><span>${escapeHtml(verificationLabel)}</span><small>Factual metadata only</small></div></dd></div>`
@@ -674,7 +701,7 @@ function renderFactsLinksCard(show, { inline = false } = {}) {
   if (rows.length === 0) return "";
   return `
     <section class="${inline ? "detail-section detail-facts-links-card detail-facts-links-card--inline" : "detail-side-card detail-facts-links-card"}" id="facts-links" tabindex="-1">
-      <div class="detail-side-card-header"><h2>Facts &amp; links</h2></div>
+      <div class="detail-side-card-header detail-side-card-header--checked"><h2>Facts &amp; links</h2><p class="detail-last-checked"><span>Last checked</span>${factsCheckedMarkup}</p></div>
       <dl class="detail-fact-list">
         ${rows.join("")}
       </dl>
@@ -794,7 +821,7 @@ function renderSimilarCards(source, neighbors, offset = 0) {
         <div class="detail-similar-artwork show-card-artwork">
           <img src="${escapeHtml(getShowImageSrc(neighbor))}"${renderResponsiveCoverAttributes(neighbor, "(max-width: 959px) 84vw, (max-width: 1120px) 42vw, 320px")} alt="${escapeHtml(neighbor.coverAlt || `${neighbor.title || "Untitled show"} cover art`)}" width="320" height="320" loading="lazy" decoding="async" />
         </div>
-        <div class="detail-card-copy"><h4>${escapeHtml(neighbor.title || "Untitled show")}</h4>${confidenceLabel}<p class="detail-similar-reason">${escapeHtml(reason)}</p><a class="detail-archive-link" href="${escapeHtml(neighbor.href || `/shows/${encodeURIComponent(neighbor.id || "")}`)}" ${renderShowDiscoveryAttributes(neighbor, { surface: "show_similar", resultType: "similar_show", recommendationSource: source === "curated" ? "authored_similarity" : "computed_similarity", resultPositionBucket: getDiscoveryPositionBucket(offset + index + 1) })}>Open show</a></div>
+        <div class="detail-card-copy"><h4>${escapeHtml(neighbor.title || "Untitled show")}</h4>${confidenceLabel}<p class="detail-similar-reason">${escapeHtml(reason)}</p><a class="detail-archive-link" href="${escapeHtml(neighbor.href || `/shows/${encodeURIComponent(neighbor.id || "")}`)}" aria-label="Open ${escapeHtml(neighbor.title || "Untitled show")}" ${renderShowDiscoveryAttributes(neighbor, { surface: "show_similar", resultType: "similar_show", recommendationSource: source === "curated" ? "authored_similarity" : "computed_similarity", resultPositionBucket: getDiscoveryPositionBucket(offset + index + 1) })}>Open show</a></div>
       </article>
     `;
   }).join("");

@@ -339,6 +339,9 @@ export function renderImportDetailPane({ candidate = null, storedReviewer = "" }
   const indexedEligible = Boolean(candidate.readiness?.publicationEligibility?.indexedOnly?.eligible);
   const factsCurrent = Boolean(candidate.factsReviewedAt && Number(candidate.factsReviewedRevision) === Number(candidate.inputRevision));
   const isPublishedImported = candidate.status === "published" && candidate.preparedRecord?.reviewStatus === "imported";
+  const isElevationUpdate = candidate.mode === "update"
+    && Boolean(candidate.existingShowId);
+  const isIndexedOnlyElevationUpdate = isElevationUpdate && candidate.preparedRecord?.reviewStatus === "indexed-only";
 
   return `
     <div class="maintainer-detail-stack">
@@ -364,10 +367,13 @@ export function renderImportDetailPane({ candidate = null, storedReviewer = "" }
             <button type="button" class="maintainer-ghost-button" data-import-action="duplicate">Mark duplicate</button>
           `}
         ${candidate.status === "ready" && importedEligible ? '<button type="button" class="maintainer-primary-button" data-import-action="publish-imported">Publish as Imported</button>' : ""}
-        ${candidate.status === "ready" && indexedEligible ? '<button type="button" class="maintainer-primary-button" data-import-action="publish-indexed">Publish as indexed-only</button>' : ""}
-        ${["ready", "published"].includes(candidate.status) && !factsCurrent ? '<button type="button" class="maintainer-ghost-button" data-import-action="facts-review">Confirm factual review</button>' : ""}
+        ${candidate.status === "ready" && indexedEligible && isElevationUpdate ? '<button type="button" class="maintainer-primary-button" data-import-action="promote-elevation">Promote fact-checked update</button>' : ""}
+        ${candidate.status === "ready" && indexedEligible && !isElevationUpdate ? '<button type="button" class="maintainer-primary-button" data-import-action="publish-indexed">Publish as indexed-only</button>' : ""}
+        ${["ready", "published"].includes(candidate.status) && !factsCurrent ? '<button type="button" class="maintainer-primary-button" data-import-action="facts-review">Confirm facts for this revision</button>' : ""}
         ${isPublishedImported && factsCurrent ? '<button type="button" class="maintainer-primary-button" data-import-action="promote">Promote to indexed-only</button>' : ""}
       </div>
+      ${isElevationUpdate && !factsCurrent ? '<p class="maintainer-panel-meta">Saving factual edits does not record the fact check. After checking this revision against its sources, select “Confirm facts for this revision”; promotion becomes available once it is saved.</p>' : ""}
+      ${isIndexedOnlyElevationUpdate && factsCurrent ? `<p class="maintainer-panel-meta">Your fact check is saved. Promote this update to record it on ${escapeHtml(candidate.title || "the show")}; the entry will remain indexed-only until you publish its full review.</p>` : ""}
 
       ${renderRows([
         ["Candidate ID", candidate.id],

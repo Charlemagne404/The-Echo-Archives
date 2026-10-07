@@ -43,11 +43,11 @@ function makeStatusNode() {
   return makeElement("span", "library-control-status");
 }
 
-function createQuickSaveControl(showId, title) {
-  const button = makeElement("button", "library-card-quick-save");
+function createQuickSaveControl(showId, title, { controlType = "card", className = "" } = {}) {
+  const button = makeElement("button", `library-card-quick-save${className ? ` ${className}` : ""}`);
   button.type = "button";
   button.dataset.libraryShowId = showId;
-  button.dataset.libraryControl = "card";
+  button.dataset.libraryControl = controlType;
   button.dataset.libraryQuickSave = "true";
   button.dataset.libraryTitle = title;
   button.setAttribute("aria-pressed", "false");
@@ -107,88 +107,29 @@ function appendDetailStateOptions(select, currentState) {
   });
 }
 
-function createDetailControl(showId, title) {
-  const section = makeElement("details", "library-detail-control");
-  section.dataset.libraryShowId = showId;
-  section.dataset.libraryTitle = title;
-  section.dataset.libraryControl = "detail";
-  section.setAttribute("aria-label", `${title} in your Listener Library`);
-  const summary = makeElement("summary", "library-detail-summary", "Save to Library");
-  section.append(summary);
-  const panel = makeElement("div", "library-detail-panel");
-  const stateLabel = makeElement("label", "library-detail-field");
-  stateLabel.append(makeElement("span", "", "Library state"));
-  const stateSelect = makeElement("select", "library-detail-state");
-  stateSelect.dataset.libraryStateSelect = showId;
-  stateSelect.setAttribute("aria-label", `Library state for ${title}`);
-  appendDetailStateOptions(stateSelect, "");
-  stateLabel.append(stateSelect);
-
-  const ratingLabel = makeElement("label", "library-detail-field");
-  ratingLabel.append(makeElement("span", "", "Your private rating"));
-  const rating = makeElement("select", "library-detail-rating");
-  rating.dataset.libraryRatingSelect = showId;
-  rating.setAttribute("aria-label", `Your private rating for ${title}`);
-  const noRating = makeElement("option", "", "No private rating");
-  noRating.value = "";
-  rating.append(noRating);
-  for (let value = 1; value <= 5; value += 1) {
-    const option = makeElement("option", "", `${value} of 5 stars`);
-    option.value = String(value);
-    rating.append(option);
-  }
-  ratingLabel.append(rating);
-
-  const preference = makeElement("label", "library-personal-discovery-setting");
-  const preferenceInput = document.createElement("input");
-  preferenceInput.type = "checkbox";
-  preferenceInput.dataset.libraryDiscoveryPreference = "true";
-  preferenceInput.setAttribute("aria-label", "Use my Library in discovery");
-  const preferenceCopy = makeElement("span", "library-personal-discovery-copy", "Use my Library in discovery");
-  preference.append(preferenceInput, preferenceCopy);
-  const preferenceHelp = makeElement("p", "library-personal-discovery-help", "Uses your Library states and private ratings.");
-  preferenceHelp.id = `library-discovery-help-${showId}`;
-  preferenceInput.setAttribute("aria-describedby", preferenceHelp.id);
-
-  const remove = makeElement("button", "library-detail-remove", "Remove from Library");
-  remove.type = "button";
-  remove.dataset.libraryRemove = showId;
-  remove.hidden = true;
-  const note = makeElement("p", "library-detail-rating-note", "Private to this browser; never submitted as a Community Rating.");
-  const hiddenNote = makeElement("p", "library-hidden-meaning", "With Personal Discovery on, Hidden removes this show from your results; its page stays available.");
-  hiddenNote.hidden = true;
-  const status = makeStatusNode();
-  status.setAttribute("role", "status");
-  status.setAttribute("aria-live", "polite");
-  status.setAttribute("aria-atomic", "true");
-  panel.append(stateLabel, ratingLabel, note, preference, preferenceHelp, remove, hiddenNote, status);
-  section.append(panel);
-  return section;
-}
-
 function renderControlState(control, runtimeState) {
   const showId = control.dataset.libraryShowId;
   const entry = runtimeState.entriesById?.get(showId) || null;
   const title = control.dataset.libraryTitle || showId;
   const unavailable = runtimeState.loading || !runtimeState.storageAvailable || runtimeState.entries === null;
-  if (control.dataset.libraryControl === "card") {
-    if (control.matches("button.library-card-quick-save")) {
-      control.disabled = unavailable;
-      control.dataset.librarySaved = String(Boolean(entry));
-      control.setAttribute("aria-pressed", String(Boolean(entry)));
-      control.setAttribute("aria-disabled", String(unavailable));
-      const label = !runtimeState.storageAvailable && !runtimeState.loading
-        ? `${title}: local Library saving is unavailable in this browser.`
-        : runtimeState.entries === null && !runtimeState.loading
-          ? `${title}: the local Library needs recovery before it can be changed.`
-          : entry
-            ? `Remove ${title} from your local Library. Current status: ${STATE_LABELS[entry.state]}.`
-            : `Save ${title} for later to your local Library`;
-      control.setAttribute("aria-label", label);
-      control.title = label;
-      return;
-    }
+  if (control.matches("button.library-card-quick-save")) {
+    control.disabled = unavailable;
+    control.dataset.librarySaved = String(Boolean(entry));
+    control.setAttribute("aria-pressed", String(Boolean(entry)));
+    control.setAttribute("aria-disabled", String(unavailable));
+    const label = !runtimeState.storageAvailable && !runtimeState.loading
+      ? `${title}: local Library saving is unavailable in this browser.`
+      : runtimeState.entries === null && !runtimeState.loading
+        ? `${title}: the local Library needs recovery before it can be changed.`
+        : entry
+          ? `Remove ${title} from your local Library. Current status: ${STATE_LABELS[entry.state]}.`
+          : `Save ${title} for later to your local Library`;
+    control.setAttribute("aria-label", label);
+    control.title = label;
+    return;
+  }
 
+  if (control.dataset.libraryControl === "card") {
     const summary = control.querySelector("summary");
     const statusText = !runtimeState.storageAvailable && !runtimeState.loading
       ? "Unavailable"
@@ -224,40 +165,6 @@ function renderControlState(control, runtimeState) {
     else delete control.dataset.libraryHidden;
     return;
   }
-
-  const stateSelect = control.querySelector("[data-library-state-select]");
-  appendDetailStateOptions(stateSelect, entry?.state || "");
-  stateSelect.disabled = unavailable;
-  const ratingSelect = control.querySelector("[data-library-rating-select]");
-  ratingSelect.value = entry && Object.hasOwn(entry, "rating") ? String(entry.rating) : "";
-  ratingSelect.disabled = unavailable || !entry;
-  const remove = control.querySelector("[data-library-remove]");
-  remove.hidden = !entry;
-  remove.disabled = unavailable;
-  const preference = control.querySelector("[data-library-discovery-preference]");
-  const preferencePending = pendingPersonalDiscoveryValue !== undefined;
-  preference.checked = preferencePending
-    ? pendingPersonalDiscoveryValue
-    : runtimeState.personalContext?.enabled === true && !runtimeState.loading;
-  preference.disabled = unavailable || Boolean(runtimeState.personalDiscoveryError) || preferencePending;
-  preference.setAttribute("aria-describedby", `library-discovery-help-${showId}`);
-  const preferenceHelp = control.querySelector(".library-personal-discovery-help");
-  if (runtimeState.personalDiscoveryError) {
-    preferenceHelp.textContent = "Personal Discovery is unavailable until the local Library setting can be read.";
-  } else {
-    preferenceHelp.textContent = "Uses your Library states and private ratings.";
-  }
-  const hiddenNote = control.querySelector(".library-hidden-meaning");
-  hiddenNote.hidden = entry?.state !== "hidden";
-  control.dataset.libraryCurrentState = entry?.state || "";
-  const summary = control.querySelector("summary");
-  summary.textContent = entry
-    ? `Library · ${entry.state === "hidden" ? "Hidden" : STATE_LABELS[entry.state]}`
-    : "Save to Library";
-  summary.setAttribute("aria-label", entry
-    ? `Manage ${title} in your Library. Current state: ${STATE_LABELS[entry.state]}.`
-    : `Add ${title} to your Library`);
-  summary.setAttribute("aria-disabled", String(unavailable));
 }
 
 function findCardHosts(root = document) {
@@ -288,10 +195,13 @@ function ensureDetailControl() {
   const showId = getShowIdFromLocation();
   const actions = document.querySelector(".podcast-detail .detail-actions");
   if (!showId || !actions) return;
-  let control = actions.querySelector(":scope > [data-library-control=detail]");
+  let control = actions.querySelector(":scope > button.library-card-quick-save[data-library-control=detail]");
   if (!control) {
     const title = document.querySelector(".podcast-detail .detail-title-group h1")?.textContent?.trim() || showId;
-    control = createDetailControl(showId, title);
+    control = createQuickSaveControl(showId, title, {
+      controlType: "detail",
+      className: "library-detail-quick-save",
+    });
     actions.append(control);
   }
   renderControlState(control, currentState);

@@ -93,6 +93,19 @@
   line-height: 1.55;
 }
 
+.detail-imported-disclosure-copy {
+  display: grid;
+  gap: 0;
+}
+
+.detail-imported-disclosure-short {
+  display: none;
+}
+
+.detail-mobile-tier-note {
+  display: none;
+}
+
 .detail-imported-disclosure .detail-summary-kicker {
   margin-bottom: 4px;
   color: #e2c29f;
@@ -167,6 +180,14 @@
   cursor: pointer;
   font-size: 0.88rem;
   font-weight: 700;
+}
+
+.detail-route-overflow[open] > summary {
+  display: none;
+}
+
+.detail-route-overflow[open] > .detail-route-overflow-grid {
+  margin-top: 0;
 }
 
 .detail-route-overflow summary span {
@@ -352,6 +373,15 @@
   .community-review-actions,
   .community-review-toggle {
     width: 100%;
+  }
+
+  .detail-imported-disclosure-short {
+    display: block;
+    font-size: 0.85rem;
+  }
+
+  .detail-mobile-tier-note {
+    display: block;
   }
 
   .detail-route-overflow summary {

@@ -30,12 +30,12 @@ function renderCollectionControls(collections = []) {
   return `<div class="maintainer-collection-list">${collections.map((collection) => `
     <div class="maintainer-collection-row">
       <label class="maintainer-checkbox maintainer-collection-choice">
-        <input type="checkbox" name="collection" value="${escapeHtml(collection.id)}" data-collection-title="${escapeHtml(collection.title)}" ${collection.selected ? "checked" : ""} />
+        <input type="checkbox" name="collection" value="${escapeHtml(collection.id)}" data-collection-title="${escapeHtml(collection.title)}" aria-controls="maintainer-collection-reason-${escapeHtml(collection.id)}" ${collection.selected ? "checked" : ""} />
         <span>Include in <strong>${escapeHtml(collection.title)}</strong></span>
       </label>
-      <label class="maintainer-field maintainer-collection-reason">
+      <label id="maintainer-collection-reason-${escapeHtml(collection.id)}" class="maintainer-field maintainer-collection-reason"${collection.selected ? "" : " hidden"}>
         <span>Placement reason for ${escapeHtml(collection.title)}</span>
-        <input type="text" name="collection-reason-${escapeHtml(collection.id)}" value="${escapeHtml(collection.reason || "")}" placeholder="Why does this show fit here?" />
+        <input type="text" name="collection-reason-${escapeHtml(collection.id)}" value="${escapeHtml(collection.reason || "")}" placeholder="Why does this show fit here?"${collection.selected ? "" : " disabled"} />
       </label>
     </div>
   `).join("")}</div>`;
@@ -45,18 +45,25 @@ function renderDetail(detail, target, reviewer) {
   const show = detail.show;
   const review = detail.review || {};
   const isExistingReview = show.reviewStatus === "full-review";
+  const canReviewFacts = !isExistingReview && !detail.factualCurrent && ["imported", "indexed-only", "planned"].includes(show.reviewStatus);
+  const factualActionLabel = show.reviewStatus === "indexed-only" ? "Recheck factual sources" : "Create factual elevation draft";
   const factualStatus = isExistingReview
     ? "Published archive review"
     : detail.factualCurrent ? "Current factual review" : "Factual review required before full-review publication";
+  const factualHelp = detail.factualCurrent
+    ? "A current factual review is on file. Save the editorial draft or publish it once the required review fields are complete."
+    : show.reviewStatus === "indexed-only"
+      ? "Recheck this entry against its sources in the importer workspace, confirm the factual review, then promote the fact-checked update there. Return here afterward to publish the full review."
+      : "A factual elevation opens a protected importer update draft. Review its source evidence, save factual edits, confirm the factual review, and promote it to indexed-only.";
   return `
     <div class="maintainer-detail-stack">
       <div class="maintainer-detail-header"><div><h3>${escapeHtml(show.title)}</h3><p>${escapeHtml(show.reviewStatus)} · ${escapeHtml(factualStatus)}</p></div></div>
       <div class="maintainer-detail-badges">${(detail.editorialMissing || []).map((item) => `<span class="maintainer-badge is-warning">Needs ${escapeHtml(item)}</span>`).join("")}</div>
       <div class="maintainer-toolbar-actions">
-        ${!isExistingReview && ["imported", "planned"].includes(show.reviewStatus) ? '<button type="button" class="maintainer-primary-button" data-elevation-action="factual">Create factual elevation draft</button>' : ""}
+        ${canReviewFacts ? `<button type="button" class="maintainer-primary-button" data-elevation-action="factual">${escapeHtml(factualActionLabel)}</button>` : ""}
         ${!isExistingReview ? '<button type="button" class="maintainer-ghost-button" data-elevation-action="brief">Copy Codex brief</button>' : ""}
       </div>
-      <p class="maintainer-panel-meta">${escapeHtml(isExistingReview ? "Edit the review copy below. Saving updates the authored archive source and regenerates the catalog automatically." : "A factual elevation opens a protected importer update draft. Review its source evidence, save any factual edits there, confirm factual review, and promote it to indexed-only.")}</p>
+      <p class="maintainer-panel-meta">${escapeHtml(isExistingReview ? "Edit the review copy below. Saving updates the authored archive source and regenerates the catalog automatically." : factualHelp)}</p>
       <form id="maintainerElevationReviewForm" class="maintainer-review-form" novalidate>
         <input name="reviewedBy" type="hidden" value="${escapeHtml(reviewer)}" />
         <label class="maintainer-field"><span>Tags shown on show cards</span><input name="tags" list="maintainerElevationTagSuggestions" value="${escapeHtml(listValue(show.tags))}" placeholder="Space, Survival" autocomplete="off" /><datalist id="maintainerElevationTagSuggestions">${(detail.approvedTags || []).map((tag) => `<option value="${escapeHtml(tag)}"></option>`).join("")}</datalist><span class="maintainer-panel-meta">Use up to four approved discovery tags, separated by commas. These are the tags shown on grid cards.</span></label>
@@ -322,6 +329,18 @@ export function bindElevationDesk({ container, getReviewer, onAuthError, onStatu
     });
     const form = detailContainer.querySelector("#maintainerElevationReviewForm");
     if (!form) return;
+    form.querySelectorAll('input[name="collection"]').forEach((checkbox) => {
+      const syncReasonVisibility = () => {
+        const row = checkbox.closest(".maintainer-collection-row");
+        const reasonField = row?.querySelector(".maintainer-collection-reason");
+        const reasonInput = reasonField?.querySelector("input");
+        if (!reasonField || !reasonInput) return;
+        reasonField.hidden = !checkbox.checked;
+        reasonInput.disabled = !checkbox.checked;
+      };
+      syncReasonVisibility();
+      checkbox.addEventListener("change", syncReasonVisibility);
+    });
     let submitting = false;
     const setFormStatus = (message) => {
       const status = form.querySelector("[data-elevation-review-status]");

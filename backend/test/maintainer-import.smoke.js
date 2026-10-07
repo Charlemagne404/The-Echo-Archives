@@ -484,7 +484,7 @@ test("maintainer review editing ignores stale detail responses and publishes onc
       collections: [
         { id: "route-one", title: "Route One", selected: true, reason: "A clear match." },
         { id: "route-two", title: "Route Two", selected: true, reason: "A second route." },
-        { id: "easy-first-steps", title: "Start here", selected: true, reason: "" },
+        { id: "easy-first-steps", title: "Start here", selected: false, reason: "" },
       ],
     };
   };
@@ -559,7 +559,10 @@ test("maintainer review editing ignores stale detail responses and publishes onc
     await page.waitForTimeout(50);
     assert.equal(await selectedShowHeading.innerText(), "Fast Show");
 
+    const startHereToggle = page.getByRole("checkbox", { name: "Include in Start here", exact: true });
     const startHereReason = page.getByLabel("Placement reason for Start here", { exact: true });
+    assert.equal(await startHereReason.isVisible(), false);
+    await startHereToggle.check();
     assert.equal(await startHereReason.isVisible(), true);
     const saveDraftButton = page.getByRole("button", { name: "Save editorial draft", exact: true });
     await saveDraftButton.click();
@@ -570,6 +573,9 @@ test("maintainer review editing ignores stale detail responses and publishes onc
       const status = document.querySelector("#maintainerDetailMeta")?.textContent || "";
       return status.includes("Editorial draft saved.") && status.includes("Skipped Start here because no placement reason was entered.");
     });
+    assert.equal(await startHereReason.isVisible(), false);
+    await startHereToggle.check();
+    assert.equal(await startHereReason.isVisible(), true);
     await startHereReason.fill("A clear entry point for listeners exploring the archive.");
 
     const publishButton = page.getByRole("button", { name: "Publish full review" });
