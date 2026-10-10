@@ -241,8 +241,8 @@
 }
 
 .submit-link-source-icon {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -261,24 +261,24 @@
 }
 
 .submit-link-source-icon--spotify {
-  filter: drop-shadow(0 0 10px rgba(30, 215, 96, 0.14));
+  color: #1ed760;
 }
 
 .submit-link-source-icon--apple-podcasts {
-  filter: drop-shadow(0 0 10px rgba(177, 80, 226, 0.16));
+  color: #9933cc;
 }
 
 .submit-link-source-icon--rss-feed {
-  filter: drop-shadow(0 0 10px rgba(246, 139, 31, 0.14));
+  color: #f68b1f;
 }
 
 .submit-link-source-icon--official-website,
 .submit-link-source-icon--website {
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.08));
+  color: rgba(247, 247, 243, 0.94);
 }
 
 .submit-link-source-icon--youtube {
-  filter: drop-shadow(0 0 10px rgba(255, 0, 51, 0.12));
+  color: #ff0000;
 }
 
 .submit-link-remove,

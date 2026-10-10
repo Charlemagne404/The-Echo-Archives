@@ -10,7 +10,7 @@ const MODE_FIELDS = Object.freeze({
     "proposedStatus", "statusContext", "creditAction", "creditName", "creditRole", "artworkUrl", "artworkCredit", "otherIssue", "otherProposedValue", "sourceLinks", "optionalNotes", "contactEmail",
   ]),
   "listener-review": Object.freeze([
-    "existingShowId", "showSearch", "ratingStars", "categoryScores", "spoilerLevel", "reviewTitle", "reviewText", "whoWouldLikeThis", "bestFor", "workedBest", "similarShows", "alias", "contactEmail",
+    "existingShowId", "showSearch", "ratingStars", "categoryScores", "detailedRatingsOpen", "spoilerLevel", "reviewTitle", "reviewText", "whoWouldLikeThis", "bestFor", "workedBest", "similarShows", "alias", "contactEmail",
   ]),
   "creator-verification": Object.freeze([
     "existingShowId", "showSearch", "creatorName", "contactEmail", "role", "verificationMethod", "proofUrl", "evidenceDescription", "requestedUpdates", "preferredDescription", "officialLinks", "optionalNotes",
@@ -36,6 +36,7 @@ const DEFAULT_SCALAR_VALUES = Object.freeze({
   proposedStatus: "ongoing",
   creditAction: "add",
   ratingStars: 0,
+  detailedRatingsOpen: false,
   spoilerLevel: "spoiler-free",
   role: "creator",
   verificationMethod: "official-domain-email",
@@ -65,6 +66,9 @@ export function hasDraftContent(mode, draft, context = {}) {
 
   const normalizedContext = createDraftContext(context);
   return MODE_FIELDS[mode].some((field) => {
+    if (field === "detailedRatingsOpen") {
+      return false;
+    }
     if (CONTEXT_FIELDS.has(field)) {
       if (field === "showSearch" && !normalizedContext.showId) {
         return Boolean(snapshot[field]);
@@ -95,7 +99,9 @@ export function serializeDraft(mode, draft = {}) {
 
   const snapshot = {};
   for (const field of MODE_FIELDS[mode]) {
-    snapshot[field] = cloneKnownValue(draft[field]);
+    snapshot[field] = field === "detailedRatingsOpen"
+      ? draft[field] === true
+      : cloneKnownValue(draft[field]);
   }
   return snapshot;
 }
@@ -129,7 +135,12 @@ export function saveStoredDraft(mode, context, draft, storage) {
 
   const snapshot = serializeDraft(mode, draft);
   const normalizedContext = createDraftContext(context);
-  if (!snapshot || !isValidFields(mode, snapshot) || !hasDraftContent(mode, snapshot, normalizedContext)) {
+  const hasPersistedUiState = mode === "listener-review" && snapshot?.detailedRatingsOpen === true;
+  if (
+    !snapshot ||
+    !isValidFields(mode, snapshot) ||
+    (!hasDraftContent(mode, snapshot, normalizedContext) && !hasPersistedUiState)
+  ) {
     return clearStoredDraft(mode, normalizedContext, storage);
   }
 
@@ -263,14 +274,24 @@ function isValidFields(mode, fields) {
   }
 
   const expectedFields = MODE_FIELDS[mode];
-  const actualFields = Object.keys(fields).sort();
-  if (actualFields.length !== expectedFields.length || !expectedFields.every((field) => actualFields.includes(field))) {
+  const optionalFields = mode === "listener-review" ? new Set(["detailedRatingsOpen"]) : new Set();
+  const actualFields = Object.keys(fields);
+  if (
+    actualFields.some((field) => !expectedFields.includes(field)) ||
+    !expectedFields.every((field) => optionalFields.has(field) || actualFields.includes(field))
+  ) {
     return false;
   }
 
   for (const field of expectedFields) {
+    if (!Object.prototype.hasOwnProperty.call(fields, field) && optionalFields.has(field)) {
+      continue;
+    }
     const value = fields[field];
     if (typeof value === "string") {
+      continue;
+    }
+    if (field === "detailedRatingsOpen" && typeof value === "boolean") {
       continue;
     }
     if (ARRAY_STRING_FIELDS.has(field) && isStringArray(value)) {

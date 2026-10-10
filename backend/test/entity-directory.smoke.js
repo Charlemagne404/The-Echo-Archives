@@ -50,7 +50,7 @@ for (const width of [1440, 1024, 768, 390, 320]) {
       await page.locator("#entitySort").selectOption("shows");
       assert.equal(await page.locator(".entity-card:visible h2").first().innerText(), expectedMostConnectedEntity);
       await page.locator('[data-entity-filter="all"]').click();
-      assert.ok((await page.getByRole("searchbox").boundingBox()).width > 100);
+      assert.ok((await page.getByRole("textbox").boundingBox()).width > 100);
       assert.equal(await page.locator("h1").innerText(), "Production companies, studios & networks");
       assert.equal(await page.locator(".entity-seo-intro").count(), 0);
       assert.equal(await page.locator(".entity-faq details").count(), 3);
@@ -70,19 +70,16 @@ for (const width of [1440, 1024, 768, 390, 320]) {
         await page.keyboard.press("Escape");
       }
       await screenshot(page, `creators-${width}`);
-      await page.getByRole("searchbox").fill("Fool and Scholar");
+      await page.getByRole("textbox").fill("Fool and Scholar");
       assert.equal(await page.locator(".entity-card:visible").count(), 1);
-      await page.getByRole("searchbox").fill("no-such-creator-xyz");
+      await page.getByRole("textbox").fill("no-such-creator-xyz");
       assert.ok(await page.locator("#entityEmpty").isVisible());
       await page.locator(".entity-results-reset").click();
       assert.equal(await page.locator(".entity-card:visible").count(), expectedDirectoryCards);
-      await page.getByRole("searchbox").fill("Fool and Scholar");
-      assert.ok(await page.locator("[data-entity-clear]").isVisible());
-      await page.locator("[data-entity-clear]").click();
-      assert.equal(await page.getByRole("searchbox").inputValue(), "");
-      await page.getByRole("searchbox").fill("Fool and Scholar");
-      await page.getByRole("searchbox").press("Escape");
-      assert.equal(await page.getByRole("searchbox").inputValue(), "");
+      await page.getByRole("textbox").fill("Fool and Scholar");
+      assert.equal(await page.locator("[data-entity-clear]").count(), 0);
+      await page.getByRole("textbox").press("Escape");
+      assert.equal(await page.getByRole("textbox").inputValue(), "");
       await page.locator('.entity-card a[href="/creators/7-lamb-productions"]').click();
       await waitForAppReady(page);
       assert.equal(await page.locator("h1").innerText(), "7 Lamb Productions");

@@ -46,22 +46,9 @@
             <span id="stickyFilterCount" class="filter-count" hidden>0</span>
           </button>
 
-          <div class="filter-sheet-backdrop" data-filter-sheet-dismiss hidden></div>
-          <div id="stickyFilterDropdown" class="dropdown" aria-labelledby="stickyFilterDialogTitle" hidden>
-            <div class="filter-dropdown-header">
-              <div>
-                <p class="filter-dropdown-kicker">Filter the archive</p>
-                <p class="filter-dropdown-title" id="stickyFilterDialogTitle">Archive filters</p>
-                <p class="filter-dropdown-copy">Filter by tone, format, completion status, coverage, listening context, or tags.</p>
-              </div>
-              <div class="filter-dropdown-header-actions">
-                <button id="stickyFilterClear" class="filter-clear-button" type="button">Clear</button>
-                <button class="filter-sheet-close" type="button" data-filter-sheet-dismiss aria-label="Close archive filters">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M6 6 18 18M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" />
-                  </svg>
-                </button>
-              </div>
+          <div id="stickyFilterDropdown" class="dropdown" role="group" aria-label="Archive filters" hidden>
+            <div class="filter-dropdown-header" hidden>
+              <button id="stickyFilterClear" class="filter-clear-button" type="button" aria-label="Clear all filters">Clear all</button>
             </div>
             <div id="stickyFilterOptionGrid" class="filter-option-grid"></div>
           </div>
@@ -113,22 +100,9 @@
                 <span id="filterCount" class="filter-count" hidden>0</span>
               </button>
 
-              <div class="filter-sheet-backdrop" data-filter-sheet-dismiss hidden></div>
-              <div id="filterDropdown" class="dropdown" aria-labelledby="filterDialogTitle" hidden>
-                <div class="filter-dropdown-header">
-                  <div>
-                    <p class="filter-dropdown-kicker">Filter the archive</p>
-                    <p class="filter-dropdown-title" id="filterDialogTitle">Archive filters</p>
-                    <p class="filter-dropdown-copy">Filter by tone, format, completion status, coverage, listening context, or tags.</p>
-                  </div>
-                  <div class="filter-dropdown-header-actions">
-                    <button id="filterClear" class="filter-clear-button" type="button">Clear</button>
-                    <button class="filter-sheet-close" type="button" data-filter-sheet-dismiss aria-label="Close archive filters">
-                      <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M6 6 18 18M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" />
-                      </svg>
-                    </button>
-                  </div>
+              <div id="filterDropdown" class="dropdown" role="group" aria-label="Archive filters" hidden>
+                <div class="filter-dropdown-header" hidden>
+                  <button id="filterClear" class="filter-clear-button" type="button" aria-label="Clear all filters">Clear all</button>
                 </div>
                 <div id="filterOptionGrid" class="filter-option-grid"></div>
               </div>

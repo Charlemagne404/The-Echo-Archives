@@ -143,6 +143,8 @@ test("Ask the Archivist and the remade submit page interactions work across mode
 
     await page.locator("#submitPrimaryButton").click();
     await page.waitForFunction(() => /acknowledge the Terms and Privacy/i.test(document.getElementById("submitStatus")?.textContent || ""));
+    assert.equal(await page.locator("#submitLegalError").isVisible(), true);
+    assert.equal(await page.locator("#submitLegalAcknowledgement").getAttribute("aria-invalid"), "true");
     await page.locator("#submitLegalAcknowledgement").check();
     await page.locator("#submitPrimaryButton").click();
     await page.waitForFunction(
@@ -539,11 +541,16 @@ test("submit defers archive lookup and keeps the new-show intake usable when loo
   const context = await browser.newContext({ serviceWorkers: "block" });
   const page = await context.newPage();
   let lookupRequests = 0;
+  let creatorPagePayload = null;
 
   try {
     await page.route("**/data/search-index.json*", async (route) => {
       lookupRequests += 1;
       await route.fulfill({ status: 503, contentType: "application/json", body: '{"error":"unavailable"}' });
+    });
+    await page.route("**/api/submissions/shows", async (route) => {
+      creatorPagePayload = JSON.parse(route.request().postData() || "{}");
+      await route.fulfill({ status: 202, contentType: "application/json", body: '{"accepted":true}' });
     });
     await page.goto(`${baseUrl}/submit`, { waitUntil: "networkidle" });
 
@@ -557,6 +564,19 @@ test("submit defers archive lookup and keeps the new-show intake usable when loo
     assert.match(await page.locator(".submit-lookup-status").innerText(), /unavailable right now/i);
     assert.equal(await page.locator("#submitExistingShowSearch").isDisabled(), true);
     assert.equal(await page.locator("[data-retry-submit-lookup]").isVisible(), true);
+
+    await page.locator("#submitCorrectionType").selectOption("creator-page");
+    assert.equal(await page.locator("#submitExistingShowSearch").getAttribute("required"), null);
+    assert.equal(await page.locator("#submitPrimaryButton").isEnabled(), true);
+    await page.locator("#submitCreatorPageName").fill("Example Studio");
+    await page.locator("#submitCreatorPageProposedValue").fill("Add the official studio profile.");
+    await page.locator('[data-link-list="sourceLinks"][data-link-part="url"]').fill("https://example.com/about");
+    await page.locator("#submitLegalAcknowledgement").check();
+    await page.locator("#submitPrimaryButton").click();
+    await page.locator("#submitResultPanel h2").waitFor();
+    assert.equal(creatorPagePayload?.submissionType, "correction");
+    assert.equal(creatorPagePayload?.existingShowId, "");
+    assert.equal(creatorPagePayload?.correctionType, "creator-page");
 
     await page.locator('[data-submission-mode="show"]').click();
     await page.locator("#submitShowTitle").fill("Still usable without lookup");

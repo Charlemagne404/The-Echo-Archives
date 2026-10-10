@@ -395,14 +395,7 @@
 
   #filterDropdown,
   #stickyFilterDropdown {
-    top: calc(var(--visual-viewport-offset-top) + max(10px, var(--safe-area-top)));
-    right: max(var(--shell-inline-padding-phone), var(--safe-area-right));
-    left: max(var(--shell-inline-padding-phone), var(--safe-area-left));
-    width: auto;
-    height: calc(var(--visual-viewport-height) - max(20px, var(--safe-area-top)) - max(20px, var(--safe-area-bottom)));
-    max-height: calc(var(--visual-viewport-height) - max(20px, var(--safe-area-top)) - max(20px, var(--safe-area-bottom)));
-    padding: 16px;
-    border-radius: 20px;
+    width: min(340px, calc(100vw - 40px));
   }
 
   .sticky-browse-bar .filter-container,
@@ -469,17 +462,27 @@
     display: none;
   }
 
-  .filter-dropdown-header {
-    grid-template-columns: 1fr;
-  }
-
   .filter-detail-toolbar {
-    grid-template-columns: 1fr;
-    align-items: start;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 6px;
   }
 
   .filter-bucket-card {
-    padding: 14px;
+    padding: 10px 12px;
+  }
+
+  .filter-detail-title {
+    font-size: 0.86rem;
+  }
+
+  .filter-detail-status {
+    font-size: 0.72rem;
+  }
+
+  .filter-back-button,
+  .filter-bucket-clear {
+    padding: 0 9px;
+    font-size: 0.76rem;
   }
 
   .filter-bucket-meta {

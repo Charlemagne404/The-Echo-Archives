@@ -335,8 +335,8 @@ export function renderCategoryRatingFields(categoryScores, categories, { open = 
       </summary>
       <fieldset class="submit-category-ratings">
         <legend class="sr-only">Optional detailed ratings</legend>
-        <p class="submit-category-ratings-copy">Rate only the categories you want to judge. Scores contribute to public averages only after the review is published.</p>
-        ${categories.map(({ key, label, description = "1 = needs work; 10 = a standout" }) => {
+        <p class="submit-category-ratings-copy"><strong>Scale:</strong> 1 = needs work; 10 = a standout. Rate only the categories you want to judge. Scores contribute to public averages only after the review is published.</p>
+        ${categories.map(({ key, label, description = "" }) => {
         const fieldId = `submitCategory${key[0].toUpperCase()}${key.slice(1)}`;
         const selected = Number(categoryScores?.[key]) || 0;
         const sliderValue = selected || 1;
@@ -344,13 +344,15 @@ export function renderCategoryRatingFields(categoryScores, categories, { open = 
         return `
           <div class="submit-category-rating" id="${fieldId}" data-category-score-group="${key}">
             <div class="submit-category-rating-heading">
-              <span>
+              <div class="submit-category-rating-copy">
                 <strong class="submit-category-rating-label">${escapeHtml(label)}</strong>
-                <span class="submit-category-rating-help">${escapeHtml(description)}</span>
-              </span>
-              <button type="button" class="submit-category-rating-clear" data-clear-category-score="${key}"${selected ? "" : " hidden"}>Clear</button>
+                ${description ? `<span class="submit-category-rating-help">${escapeHtml(description)}</span>` : ""}
+              </div>
             </div>
             <div class="submit-category-rating-slider-shell" style="--category-rating-progress: ${progress}%">
+              <span class="submit-category-rating-clear-slot">
+                <button type="button" class="submit-category-rating-clear" data-clear-category-score="${key}"${selected ? "" : " hidden"}>Clear</button>
+              </span>
               <output class="submit-category-rating-value" data-category-rating-value="${key}" for="${fieldId}Slider">${selected ? `${selected}/10` : "Not rated"}</output>
               <input
                 id="${fieldId}Slider"
@@ -358,7 +360,7 @@ export function renderCategoryRatingFields(categoryScores, categories, { open = 
                 type="range"
                 min="1"
                 max="10"
-                step="1"
+                step="any"
                 value="${sliderValue}"
                 data-category-score-slider="${key}"
                 data-category-score-selected="${String(Boolean(selected))}"

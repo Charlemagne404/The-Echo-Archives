@@ -36,7 +36,7 @@ export function buildTagOptions(shows) {
     .map((entry) => toDisplayLabel(entry.label))
     .filter((value, index, collection) => collection.indexOf(value) === index);
 
-  return [...derivedOptions, ...FALLBACK_TAG_OPTIONS]
+  return [...FALLBACK_TAG_OPTIONS, ...derivedOptions]
     .filter((value, index, collection) => collection.findIndex((entry) => entry.toLowerCase() === value.toLowerCase()) === index)
     .slice(0, 40);
 }
@@ -47,7 +47,7 @@ export function getTagSuggestions(query, options, selectedValues = []) {
   const availableOptions = options.filter((option) => !selectedSet.has(option.trim().toLowerCase()));
 
   if (!normalizedQuery) {
-    return availableOptions.slice(0, 16);
+    return availableOptions.slice(0, 20);
   }
 
   const prefixMatches = [];

@@ -54,9 +54,10 @@ function initializeCarousel(carousel) {
   const viewport = carousel.querySelector("[data-review-carousel-viewport]");
   const previous = carousel.querySelector("[data-review-carousel-previous]");
   const next = carousel.querySelector("[data-review-carousel-next]");
+  const pagination = carousel.querySelector(".detail-review-carousel-pagination");
   const dots = carousel.querySelector("[data-review-carousel-dots]");
   const status = carousel.querySelector("[data-review-carousel-status]");
-  if (!(slide instanceof HTMLElement) || !(viewport instanceof HTMLElement) || !(previous instanceof HTMLButtonElement) || !(next instanceof HTMLButtonElement) || !(dots instanceof HTMLElement) || !(status instanceof HTMLElement)) return;
+  if (!(slide instanceof HTMLElement) || !(viewport instanceof HTMLElement) || !(previous instanceof HTMLButtonElement) || !(next instanceof HTMLButtonElement) || !(pagination instanceof HTMLElement) || !(dots instanceof HTMLElement) || !(status instanceof HTMLElement)) return;
 
   const hasArchive = carousel.dataset.hasArchive === "true";
   const archiveMarkup = hasArchive ? slide.innerHTML : "";
@@ -83,6 +84,10 @@ function initializeCarousel(carousel) {
 
   function renderNavigation() {
     const total = totalSlides();
+    const hasMultipleSlides = total > 1;
+    previous.hidden = !hasMultipleSlides;
+    next.hidden = !hasMultipleSlides;
+    pagination.hidden = !hasMultipleSlides;
     previous.disabled = busy || currentIndex <= 0;
     next.disabled = busy || currentIndex >= total - 1;
     dots.innerHTML = renderDots(total, currentIndex);

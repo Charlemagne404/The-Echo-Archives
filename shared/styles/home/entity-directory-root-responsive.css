@@ -1,7 +1,7 @@
 @media (max-width: 1180px) {
   .entity-directory-main .entity-hero-panel {
-    min-height: 390px;
-    padding: 28px;
+    min-height: 0;
+    padding: 24px;
   }
 }
 
@@ -25,6 +25,22 @@
   .entity-directory-main .entity-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .entity-directory-main .entity-hero-panel {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    min-height: 0;
+    gap: 18px;
+  }
+
+  .entity-directory-main .entity-hero-toolbar {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .entity-directory-main .entity-trust-grid {
+    grid-column: 1;
+  }
 }
 
 @media (max-width: 1180px) and (min-width: 960px) {
@@ -39,6 +55,8 @@
   }
 
   .entity-directory-main .entity-hero-panel {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
     min-height: 0;
     padding: 22px;
     border-radius: 26px;
@@ -48,9 +66,9 @@
     padding-top: 0;
   }
 
-  .entity-directory-main .entity-hero-copy h1 {
-    max-width: 11ch;
-    font-size: clamp(2.8rem, 11vw, 3.9rem);
+  .entity-directory-main .creators-hero-panel .entity-hero-copy h1 {
+    max-width: none;
+    font-size: clamp(2.25rem, 6.2vw, 3.2rem);
   }
 
   .entity-directory-main .entity-hero-copy p {
@@ -93,14 +111,14 @@
     border-radius: 22px;
   }
 
-  .entity-directory-main .entity-hero-copy h1 {
-    max-width: 10ch;
-    font-size: clamp(2.2rem, 10vw, 3.1rem);
+  .entity-directory-main .creators-hero-panel .entity-hero-copy h1 {
+    max-width: none;
+    font-size: clamp(2.1rem, 8vw, 2.9rem);
     line-height: 0.96;
   }
 
   .entity-directory-main .entity-hero-copy p {
-    max-width: 32ch;
+    max-width: none;
     font-size: 0.94rem;
   }
 
@@ -114,21 +132,23 @@
   }
 
   .entity-directory-main .entity-directory-controls {
-    grid-template-columns: 1fr;
-    align-items: stretch;
-    gap: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .entity-directory-main .entity-type-filter {
+    flex: 1 1 100%;
   }
 
   .entity-directory-main .entity-filter-options {
-    flex-wrap: nowrap;
-    margin-inline: -4px;
-    padding-inline: 4px;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .entity-directory-main .entity-filter-options::-webkit-scrollbar {
-    display: none;
+    flex-wrap: wrap;
+    margin-inline: 0;
+    padding-inline: 0;
+    overflow: visible;
+    gap: 6px;
   }
 
   .entity-directory-main .entity-filter-button {
@@ -189,8 +209,8 @@
     border-radius: 20px;
   }
 
-  .entity-directory-main .entity-hero-copy h1 {
-    max-width: 10ch;
+  .entity-directory-main .creators-hero-panel .entity-hero-copy h1 {
+    max-width: none;
   }
 
   .entity-directory-main .entity-featured-routes {
@@ -210,25 +230,13 @@
     flex: 0 0 auto;
   }
 
-  .entity-search-control {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 8px !important;
-  }
-
   .entity-search-icon {
-    flex-basis: 48px;
+    flex-basis: 40px;
   }
 
   .entity-directory-main .entity-search input {
     padding-right: 10px;
     font-size: 0.92rem;
-  }
-
-  .entity-directory-main .entity-search-submit {
-    width: 100%;
-    min-height: 56px;
-    padding: 0 14px;
-    border-radius: 13px;
   }
 
   .entity-directory-main .entity-trust-grid {
@@ -361,8 +369,12 @@
 
 @media (max-width: 360px) {
   /* Give the query field a usable tap-and-type width on the smallest phones. */
-  .entity-directory-main .entity-search-control {
-    gap: 6px !important;
+  .entity-directory-main .entity-hero-panel {
+    padding-inline: 12px;
+  }
+
+  .entity-directory-main .creators-hero-panel .entity-hero-copy h1 {
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
   }
 
   .entity-directory-main .entity-search-icon {
@@ -373,18 +385,12 @@
     padding-right: 8px;
   }
 
-  .entity-directory-main .entity-search-submit {
-    gap: 6px;
-    padding-inline: 10px;
-  }
-
   .entity-catalogue .podcast-card-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .entity-search-submit,
   .entity-arrow-icon,
   .entity-faq-item,
   .entity-faq .creator-faq-toggle-icon,

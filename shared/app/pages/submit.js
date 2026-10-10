@@ -465,13 +465,19 @@ export async function initializeSubmitPage() {
 
   elements.form.addEventListener("submit", async (event) => {
     event.preventDefault();
+    if (elements.form.getAttribute("aria-busy") === "true") {
+      return;
+    }
     captureCurrentDraft(state, elements);
 
     const mode = state.activeMode;
     const draft = getActiveDraft(state);
     const submittedContext = state.draftContexts[mode];
     if (!draft.legalAcknowledged) {
-      ui.setStatus("Please acknowledge the Terms and Privacy notice before submitting.", "error");
+      elements.legalAcknowledgement.setAttribute("aria-invalid", "true");
+      elements.legalError.textContent = "Please acknowledge the Terms and Privacy notice before submitting.";
+      elements.legalError.hidden = false;
+      ui.setStatus(elements.legalError.textContent, "error");
       elements.legalAcknowledgement.focus();
       return;
     }

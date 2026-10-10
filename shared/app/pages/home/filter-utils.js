@@ -40,7 +40,7 @@ export function formatFilterGroupCount(group, filters) {
 export function formatFilterBucketStatus(bucket, filters, filterOptionsByGroup) {
   const selectedEntries = getBucketSelectionEntries(bucket, filters, filterOptionsByGroup);
   if (selectedEntries.length === 0) {
-    return "none";
+    return "None selected";
   }
 
   if (selectedEntries.length === 1) {

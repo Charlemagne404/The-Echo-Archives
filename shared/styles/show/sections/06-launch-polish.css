@@ -197,7 +197,7 @@
   min-width: 22px;
   min-height: 22px;
   padding: 0 6px;
-  border-radius: 999px;
+  border-radius: 7px;
   background: rgba(var(--detail-accent-rgb), 0.16);
   color: var(--detail-text-secondary);
   font-size: 0.75rem;

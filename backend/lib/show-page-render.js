@@ -287,13 +287,20 @@ function getHeroRuntimeValue(show) {
 function getPrimaryListenLink(show) {
   const links = show.listenLinks || {};
   const labels = { start: "Start listening", website: "Website", apple: "Apple", spotify: "Spotify", rss: "RSS" };
-  for (const key of ["start", "website", "apple", "spotify", "rss"]) {
+  for (const key of ["start", "apple", "spotify", "website", "rss"]) {
     if (links[key]) {
       return { key, href: links[key], label: labels[key] || toDisplayTag(key) };
     }
   }
 
   return null;
+}
+
+function getPrimaryListenActionLabel(provider, label) {
+  if (provider === "start") return "Start listening";
+  if (provider === "apple") return "Listen on Apple Podcasts";
+  if (provider === "spotify") return "Listen on Spotify";
+  return `Open ${label}`;
 }
 
 function getArchiveTarget(show) {
@@ -317,14 +324,12 @@ function renderDetailHero(show, reviewData = {}) {
   const primaryLink = getPrimaryListenLink(show);
   const hasListenLinks = Object.values(show.listenLinks || {}).some((href) => String(href || "").trim());
   const archiveTarget = getArchiveTarget(show);
-  const firstTag = Array.isArray(show.tags) ? show.tags[0] : "";
   const firstGenre = Array.isArray(show.genres) ? show.genres[0] : "";
   const statusChips = [
     archiveRating !== null && archiveRating >= 9 ? '<span class="detail-status-chip is-accent">Top rated</span>' : "",
     show.reviewStatus === "imported"
       ? '<span class="detail-status-chip is-imported">Imported</span>'
       : show.reviewStatus ? `<span class="detail-status-chip">${escapeHtml(toDisplayTag(show.reviewStatus))}</span>` : "",
-    firstTag ? `<span class="detail-status-chip detail-status-chip--key-tag">${escapeHtml(toDisplayTag(firstTag))}</span>` : "",
   ].filter(Boolean).join("");
 
   return `
@@ -362,12 +367,14 @@ function renderDetailHero(show, reviewData = {}) {
             <div class="detail-actions">
               ${
                 primaryLink
-                  ? `<a class="detail-primary-action detail-listen-action" href="${escapeHtml(primaryLink.href)}" ${renderListenDiscoveryAttributes(show, primaryLink.key, "primary", "show_page_hero")} target="_blank" rel="noreferrer">${primaryLink.key === "start" ? "Start listening" : `Open ${escapeHtml(primaryLink.label)}`}</a>`
+                  ? `<a class="detail-primary-action detail-listen-action" href="${escapeHtml(primaryLink.href)}" ${renderListenDiscoveryAttributes(show, primaryLink.key, "primary", "show_page_hero")} target="_blank" rel="noreferrer">${getPrimaryListenActionLabel(primaryLink.key, escapeHtml(primaryLink.label))}</a>`
                   : hasListenLinks ? '<a class="detail-primary-action detail-listen-action" href="#facts-links" data-detail-anchor>Find listen links</a>' : ""
               }
-              ${archiveTarget ? `<a class="detail-secondary-action" href="${archiveTarget}" data-detail-anchor>${show.reviewStatus === "full-review" ? "Archive review" : "Archive note"}</a>` : ""}
-              ${hasListenLinks ? '<a class="detail-secondary-action" href="#facts-links" data-detail-anchor>Facts &amp; links</a>' : ""}
-              <button class="detail-secondary-action detail-copy-link-button" data-share-action data-copy-link type="button">Share</button>
+              <div class="detail-action-secondary-group">
+                ${archiveTarget ? `<a class="detail-secondary-action" href="${archiveTarget}" data-detail-anchor>${show.reviewStatus === "full-review" ? "Archive review" : "Archive note"}</a>` : ""}
+                ${hasListenLinks ? '<a class="detail-secondary-action" href="#facts-links" data-detail-anchor>Facts &amp; links</a>' : ""}
+                <button class="detail-secondary-action detail-copy-link-button" data-share-action data-copy-link type="button">Share</button>
+              </div>
             </div>
             <p class="detail-copy-status" data-copy-link-status aria-live="polite"></p>
           </div>
@@ -475,13 +482,12 @@ function renderOfficialSummarySection(show) {
 
   return `
     <section class="detail-section detail-official-summary-section">
-      <div class="detail-section-header"><div><h2>${escapeHtml(summary.title)}</h2>${summary.title === "About this show" ? `<p>${escapeHtml(summary.description)}</p>` : `<p class="detail-summary-provenance">${escapeHtml(summary.description)}</p>`}</div></div>
+      <div class="detail-section-header"><div><h2>${escapeHtml(summary.title)}</h2>${summary.title === "About this show" ? `<p>${escapeHtml(summary.description)}</p>` : ""}</div></div>
       <article class="detail-summary detail-summary-official">
         <div class="detail-mobile-expandable" data-mobile-expandable data-mobile-expand-mode="clamp" data-mobile-expand-threshold="320" data-mobile-expand-label="Read full description" data-mobile-collapse-label="Show less">
           <div id="detail-official-summary-${escapeHtml(show.id)}" data-mobile-expandable-content><p>${escapeHtml(summary.text)}</p></div>
           <button class="detail-mobile-expand-toggle" data-mobile-expand-toggle type="button" aria-expanded="true" aria-controls="detail-official-summary-${escapeHtml(show.id)}" hidden>Read full description</button>
         </div>
-        ${summary.sourceUrl ? `<a class="detail-official-source" href="${escapeHtml(summary.sourceUrl)}" target="_blank" rel="noreferrer">View source</a>` : ""}
       </article>
     </section>
   `;
@@ -597,10 +603,10 @@ function renderReviewSection(show, reviewData = {}) {
       <div class="detail-section-header detail-review-section-header"><div><h2>Reviews</h2><p>Archive Rating is editorial. Listener Review Score averages published listener reviews. Community Rating is a quick score from listeners.</p></div><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Write a review</a></div>
       ${totalSlides === 0 ? `<div class="empty-state-card detail-reviews-empty-state"><p>No reviews are published for this show yet. Listener reviews are moderated before appearing here.</p><div class="empty-state-actions"><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Submit the first review</a></div></div>` : `
         <div class="detail-review-carousel" data-review-carousel data-show-id="${escapeHtml(show.id)}" data-has-archive="${String(hasArchive)}" data-listener-total="${totalListenerReviews}" data-current-index="0">
-          <button type="button" class="detail-review-carousel-arrow is-previous" data-review-carousel-previous aria-label="Previous review" disabled>‹</button>
+          <button type="button" class="detail-review-carousel-arrow is-previous" data-review-carousel-previous aria-label="Previous review" ${totalSlides <= 1 ? "hidden " : ""}disabled>‹</button>
           <div class="detail-review-carousel-viewport" data-review-carousel-viewport tabindex="0" aria-label="Review carousel"><div data-review-carousel-slide>${initialCard}</div></div>
-          <button type="button" class="detail-review-carousel-arrow is-next" data-review-carousel-next aria-label="Next review" ${totalSlides <= 1 ? "disabled" : ""}>›</button>
-          <div class="detail-review-carousel-pagination"><div class="detail-review-carousel-dots" data-review-carousel-dots>${renderReviewDots(totalSlides, 0)}</div><p class="detail-review-carousel-status" data-review-carousel-status aria-live="polite">Review 1 of ${totalSlides}</p></div>
+          <button type="button" class="detail-review-carousel-arrow is-next" data-review-carousel-next aria-label="Next review" ${totalSlides <= 1 ? "hidden disabled" : ""}>›</button>
+          <div class="detail-review-carousel-pagination" ${totalSlides <= 1 ? "hidden" : ""}><div class="detail-review-carousel-dots" data-review-carousel-dots>${renderReviewDots(totalSlides, 0)}</div><p class="detail-review-carousel-status" data-review-carousel-status aria-live="polite">Review 1 of ${totalSlides}</p></div>
         </div>
       `}
     </section>
@@ -668,7 +674,7 @@ function renderFactsLinksCard(show, { inline = false } = {}) {
     ? `<div class="detail-fact-row"><dt>Fact check</dt><dd class="detail-fact-value"><div class="detail-verification-value"><span>${escapeHtml(verificationLabel)}</span><small>Factual metadata only</small></div></dd></div>`
     : "";
   const linkLabels = { start: "Start listening", website: "Website", apple: "Apple", spotify: "Spotify", rss: "RSS" };
-  const linkChips = ["start", "website", "apple", "spotify", "rss"]
+  const linkChips = ["start", "apple", "spotify", "website", "rss"]
     .filter((key) => links[key] && links[key] !== primaryLink?.href)
     .map((key) => `<a class="detail-link-chip" href="${escapeHtml(links[key])}" ${renderListenDiscoveryAttributes(show, key, "alternate", "show_page_facts")} target="_blank" rel="noreferrer">${linkLabels[key]}</a>`)
     .join("");
@@ -688,7 +694,7 @@ function renderFactsLinksCard(show, { inline = false } = {}) {
   const rows = [
     renderEntityFacts(show) || (!creatorNetwork.isEmpty ? `<div class="detail-fact-row"><dt>Creator / network</dt><dd class="detail-fact-value">${escapeHtml(creatorNetwork.text)}</dd></div>` : ""),
     factCheck,
-    hasLinks ? `<div class="detail-fact-row is-wide"><dt>Official / listen links</dt><dd class="detail-fact-value"><div class="detail-link-cluster"><a class="detail-link-primary" href="${escapeHtml(primaryLink.href)}" ${renderListenDiscoveryAttributes(show, primaryLink.key, "primary", "show_page_facts")} target="_blank" rel="noreferrer">${primaryLink.key === "start" ? "Start listening" : `Open ${escapeHtml(primaryLink.label)}`}</a>${linkChips ? `<div class="detail-link-chip-row">${linkChips}</div>` : ""}</div></dd></div>` : "",
+    hasLinks ? `<div class="detail-fact-row is-wide"><dt>Official / listen links</dt><dd class="detail-fact-value"><div class="detail-link-cluster"><a class="detail-link-primary" href="${escapeHtml(primaryLink.href)}" ${renderListenDiscoveryAttributes(show, primaryLink.key, "primary", "show_page_facts")} target="_blank" rel="noreferrer">${getPrimaryListenActionLabel(primaryLink.key, escapeHtml(primaryLink.label))}</a>${linkChips ? `<div class="detail-link-chip-row">${linkChips}</div>` : ""}</div></dd></div>` : "",
     status ? `<div class="detail-fact-row is-wide"><dt>Status</dt><dd class="detail-fact-value"><div class="detail-fact-pill-row"><span class="detail-fact-pill">${escapeHtml(status)}</span></div></dd></div>` : "",
     seasonsEpisodes ? `<div class="detail-fact-row"><dt>Seasons / episodes</dt><dd class="detail-fact-value">${escapeHtml(seasonsEpisodes)}</dd></div>` : "",
     show.releaseDates?.first ? `<div class="detail-fact-row"><dt>First release</dt><dd class="detail-fact-value">${escapeHtml(formatDate(show.releaseDates.first))}</dd></div>` : "",
@@ -821,7 +827,7 @@ function renderSimilarCards(source, neighbors, offset = 0) {
         <div class="detail-similar-artwork show-card-artwork">
           <img src="${escapeHtml(getShowImageSrc(neighbor))}"${renderResponsiveCoverAttributes(neighbor, "(max-width: 959px) 84vw, (max-width: 1120px) 42vw, 320px")} alt="${escapeHtml(neighbor.coverAlt || `${neighbor.title || "Untitled show"} cover art`)}" width="320" height="320" loading="lazy" decoding="async" />
         </div>
-        <div class="detail-card-copy"><h4>${escapeHtml(neighbor.title || "Untitled show")}</h4>${confidenceLabel}<p class="detail-similar-reason">${escapeHtml(reason)}</p><a class="detail-archive-link" href="${escapeHtml(neighbor.href || `/shows/${encodeURIComponent(neighbor.id || "")}`)}" aria-label="Open ${escapeHtml(neighbor.title || "Untitled show")}" ${renderShowDiscoveryAttributes(neighbor, { surface: "show_similar", resultType: "similar_show", recommendationSource: source === "curated" ? "authored_similarity" : "computed_similarity", resultPositionBucket: getDiscoveryPositionBucket(offset + index + 1) })}>Open show</a></div>
+        <div class="detail-card-copy"><h4>${escapeHtml(neighbor.title || "Untitled show")}</h4>${confidenceLabel}<p class="detail-similar-reason">${escapeHtml(reason)}</p><a class="detail-archive-link" href="${escapeHtml(neighbor.href || `/shows/${encodeURIComponent(neighbor.id || "")}`)}" aria-label="Open ${escapeHtml(neighbor.title || "Untitled show")}" ${renderShowDiscoveryAttributes(neighbor, { surface: "show_similar", resultType: "similar_show", recommendationSource: source === "curated" ? "authored_similarity" : "computed_similarity", resultPositionBucket: getDiscoveryPositionBucket(offset + index + 1) })}></a></div>
       </article>
     `;
   }).join("");

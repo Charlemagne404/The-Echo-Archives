@@ -1996,6 +1996,46 @@
   width: min(360px, calc(100% - 32px));
 }
 
+@media (max-width: 360px) {
+  .site-header > .site-brand {
+    width: min(100%, 156px);
+  }
+
+  .site-header > .site-brand img {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 310px) {
+  #siteNavToggle {
+    width: 44px;
+    min-width: 44px;
+    max-width: 44px;
+    justify-content: center;
+    gap: 0;
+    padding-inline: 12px;
+  }
+
+  #siteNavToggle .site-nav-toggle-label {
+    display: none;
+  }
+}
+
+.home-hero-actions:has(> .horizontal-scroll-cue:not([hidden])),
+.quick-filters:has(> .horizontal-scroll-cue:not([hidden])) {
+  padding-bottom: 28px;
+}
+
+@media (min-width: 1281px) {
+  .home-page .search-actions .quick-filters:has(> .horizontal-scroll-cue:not([hidden])) {
+    padding-bottom: 0;
+  }
+
+  .home-page .search-actions .quick-filters > .horizontal-scroll-cue {
+    display: none;
+  }
+}
+
 @media (max-width: 959px) {
   /* Info-page modules are loaded after the base mobile sheet; restate their
    * intended one-column layout here so the later module cannot reintroduce

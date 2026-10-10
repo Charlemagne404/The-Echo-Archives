@@ -25,51 +25,19 @@
 
     <section class="page-grid about-stat-grid" aria-label="Archive snapshot">
       <article class="page-card stat-card about-stat-card">
-        <span class="about-card-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" role="presentation">
-            <circle cx="12" cy="12" r="7.5" />
-            <circle cx="12" cy="12" r="3.5" />
-            <circle cx="12" cy="12" r="0.8" />
-            <path d="M17.5 6.5 15 9" />
-          </svg>
-        </span>
         <span class="page-card-kicker">Shows indexed</span>
         <strong id="aboutShowCount">-</strong>
         <p>Published fiction podcasts in the archive.</p>
       </article>
       <article class="page-card stat-card about-stat-card">
-        <span class="about-card-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" role="presentation">
-            <path d="M4.5 19.5 15.8 8.2l2.8 2.8L7.3 22.3H4.5Z" />
-            <path d="m14.5 6.9 2.6-2.6a1.85 1.85 0 0 1 2.6 0l.9.9a1.85 1.85 0 0 1 0 2.6L18 10.4" />
-          </svg>
-        </span>
         <span class="page-card-kicker">Full reviews</span>
         <strong id="aboutReviewCount">-</strong>
         <p>Archive reviews kept separate from sponsor influence.</p>
       </article>
       <article class="page-card stat-card about-stat-card">
-        <span class="about-card-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" role="presentation">
-            <path d="M4.75 9V7.4a2.15 2.15 0 0 1 2.15-2.15h3.4l1.9 1.95h4.9a1.9 1.9 0 0 1 1.9 1.9V9" />
-            <path d="M4.75 9.25h14.5" />
-            <path d="M4.75 9.25v7.1a2.15 2.15 0 0 0 2.15 2.15h10.2a2.15 2.15 0 0 0 2.15-2.15v-5.1a2 2 0 0 0-2-2Z" />
-          </svg>
-        </span>
         <span class="page-card-kicker">Collections</span>
         <strong id="aboutCollectionCount">-</strong>
         <p>Collections built around mood and the time you have.</p>
-      </article>
-      <article class="page-card stat-card about-stat-card">
-        <span class="about-card-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" role="presentation">
-            <path d="M12 3.75 18.5 6v5.1c0 4.15-2.63 7.94-6.5 9.15-3.87-1.21-6.5-5-6.5-9.15V6Z" />
-            <path d="m9.6 11.95 1.7 1.7 3.45-3.7" />
-          </svg>
-        </span>
-        <span class="page-card-kicker">Ad-free</span>
-        <strong>For listeners</strong>
-        <p>No ads or ad-tech tracking.</p>
       </article>
     </section>
 
@@ -165,17 +133,36 @@
       <section class="about-two-column">
         <article class="page-card about-ratings-card">
           <h2>How the ratings work</h2>
-          <p class="about-section-intro">Two ratings give you more context than one number.</p>
+          <p class="about-section-intro">Three separate signals give you different kinds of context.</p>
           <div class="about-rating-list">
-            <article class="about-rating-item">
+            <article class="about-rating-item about-rating-item-editorial">
               <span class="about-rating-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" role="presentation">
                   <path d="m12 4.5 2.2 4.45 4.9.71-3.55 3.45.84 4.89L12 15.65 7.61 18l.84-4.89L4.9 9.66l4.9-.71Z" />
                 </svg>
               </span>
               <div>
-                <h3>Archive Rating</h3>
+                <div class="about-rating-heading">
+                  <h3>Archive Rating</h3>
+                  <span class="about-rating-kind">Editorial</span>
+                </div>
                 <p>An editorial rating based on storytelling, sound, production, originality, and staying power.</p>
+              </div>
+            </article>
+            <article class="about-rating-item about-rating-item-listener">
+              <span class="about-rating-icon" aria-hidden="true">
+                <svg viewBox="0 0 28 24" role="presentation">
+                  <path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" />
+                  <path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" />
+                </svg>
+              </span>
+              <div>
+                <div class="about-rating-heading">
+                  <h3>Listener Review Score</h3>
+                  <span class="about-rating-kind">Written reviews</span>
+                </div>
+                <p>Average of published written reviews that include a rating. The count shows how many reviews contribute.</p>
+                <p class="about-rating-method">Each 1–5-star score is converted to a 10-point scale. Quick Community Ratings are separate.</p>
               </div>
             </article>
             <article class="about-rating-item about-rating-item-community">
@@ -190,8 +177,11 @@
                 </svg>
               </span>
               <div>
-                <h3>Community Rating</h3>
-                <p>Listener ratings are shown anonymously and kept separate from the archive’s editorial rating.</p>
+                <div class="about-rating-heading">
+                  <h3>Community Rating</h3>
+                  <span class="about-rating-kind">Quick ratings</span>
+                </div>
+                <p>Anonymous listener ratings, separate from the archive rating and written reviews.</p>
               </div>
             </article>
           </div>
@@ -208,7 +198,7 @@
 
         <article class="page-card about-support-card">
           <h2>Free to use. Supported by listeners.</h2>
-          <p class="about-section-intro">Listener support helps cover catalog updates, metadata cleanup, reviews, and keeping the archive free to use.</p>
+          <p class="about-section-intro">Listener support helps keep this independent archive free to use.</p>
           <div class="about-support-actions">
             <a class="about-cta about-cta-primary" href="https://patreon.com/ContinentalStudios" target="_blank" rel="noreferrer">
               <span>Support the archive</span>
@@ -223,7 +213,28 @@
                 <path d="M15.75 9.25h1.5a2 2 0 0 1 0 4h-2.25" />
               </svg>
             </a>
-            <a class="about-cta about-cta-secondary" href="/submit">
+          </div>
+          <section class="about-support-impact" aria-labelledby="aboutSupportImpactHeading">
+            <h3 id="aboutSupportImpactHeading">What listener support sustains</h3>
+            <ul>
+              <li>
+                <span class="about-support-impact-index" aria-hidden="true">01</span>
+                <span><strong>Catalog upkeep</strong><span>Maintain show listings and correct metadata.</span></span>
+              </li>
+              <li>
+                <span class="about-support-impact-index" aria-hidden="true">02</span>
+                <span><strong>Independent reviews</strong><span>Publish editorial reviews alongside listener ratings.</span></span>
+              </li>
+              <li>
+                <span class="about-support-impact-index" aria-hidden="true">03</span>
+                <span><strong>Free discovery</strong><span>Keep the archive open without ads or paid placement.</span></span>
+              </li>
+            </ul>
+          </section>
+          <div class="about-support-contribute">
+            <p class="about-support-contribute-label">Another way to help</p>
+            <p>Have a show to add or a detail to correct? Send it to the archive.</p>
+            <a class="about-support-submit-link" href="/submit">
               <span>Send a show or correction</span>
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M4.75 12h13.5" />
@@ -232,7 +243,7 @@
             </a>
           </div>
           <div class="about-support-meta">
-            <p class="about-support-note">Support is optional through Patreon or Ko-fi. It helps keep the archive ad-free, while sourced facts, editorial notes, and listener ratings stay clearly separate.</p>
+            <p class="about-support-note">Support is optional. It helps keep the archive ad-free and never affects ratings, reviews, or collection placement.</p>
             <p class="about-support-status">Latest archive update: <span id="aboutLastUpdated">-</span>.</p>
           </div>
         </article>

@@ -19,7 +19,7 @@ export function createHorizontalScrollAffordance(scroller) {
     return () => {};
   }
 
-  const cueHost = scroller.parentElement || scroller;
+  const cueHost = scroller;
   const hadCueHostClass = cueHost.classList.contains("horizontal-scroll-cue-host");
   const cue = document.createElement("span");
   cue.className = "horizontal-scroll-cue";

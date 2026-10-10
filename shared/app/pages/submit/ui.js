@@ -36,6 +36,10 @@ export function createSubmitUiController({ state, elements }) {
 
   function renderModeCards() {
     elements.modeCards.innerHTML = renderModeCardsMarkup(state.activeMode);
+    const isBusy = elements.form.getAttribute("aria-busy") === "true";
+    elements.modeCards.querySelectorAll("[data-submission-mode]").forEach((card) => {
+      card.disabled = isBusy;
+    });
   }
 
   function renderActiveMode() {
@@ -74,7 +78,7 @@ export function createSubmitUiController({ state, elements }) {
 
     elements.sideRail.innerHTML = config.railCards.map((card) => renderRailCard(card)).join("");
     elements.submitButtonText.textContent = config.submitLabel;
-    elements.submitButton.disabled = MODES_WITH_EXISTING_SHOW.has(mode) && state.lookupStatus !== "ready";
+    elements.submitButton.disabled = isSubmitBlocked(mode, draft);
     elements.submitFooterNote.textContent = config.footerNote;
     elements.submitFooterNote.dataset.noteKind = "locked";
 
@@ -142,8 +146,11 @@ export function createSubmitUiController({ state, elements }) {
   function setPending(isPending, mode = state.activeMode, pendingLabel = "Submitting…") {
     const config = MODE_CONFIG[mode];
     elements.form.setAttribute("aria-busy", String(isPending));
-    elements.submitButton.disabled = isPending || (MODES_WITH_EXISTING_SHOW.has(mode) && state.lookupStatus !== "ready");
+    elements.submitButton.disabled = isPending || isSubmitBlocked(mode);
     elements.clearDraftButton.disabled = isPending;
+    elements.modeCards.querySelectorAll("[data-submission-mode]").forEach((card) => {
+      card.disabled = isPending;
+    });
     elements.submitButtonText.textContent = isPending ? pendingLabel : config.submitLabel;
   }
 
@@ -200,6 +207,18 @@ export function createSubmitUiController({ state, elements }) {
         errorNode.textContent = "";
       }
     });
+
+    elements.legalAcknowledgement.removeAttribute("aria-invalid");
+    elements.legalError.hidden = true;
+    elements.legalError.textContent = "";
+  }
+
+  function isSubmitBlocked(mode = state.activeMode, draft = getActiveDraft(state)) {
+    const canSubmitCreatorPageCorrectionWithoutShow =
+      mode === "correction" && draft.correctionType === "creator-page" && !draft.existingShowId;
+    const requiresShowLookup = MODES_WITH_EXISTING_SHOW.has(mode) && !canSubmitCreatorPageCorrectionWithoutShow;
+    const isBusy = elements.form.getAttribute("aria-busy") === "true";
+    return isBusy || (requiresShowLookup && state.lookupStatus !== "ready");
   }
 
   function showValidationError(validationError) {

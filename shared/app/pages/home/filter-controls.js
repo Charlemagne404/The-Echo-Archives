@@ -149,6 +149,10 @@ export function syncHomeControls({
 
   if (filterClear) {
     filterClear.hidden = selectedCount === 0 && !query && !selectedCollectionId && !sortModeExplicit;
+    const filterHeader = filterClear.closest(".filter-dropdown-header");
+    if (filterHeader instanceof HTMLElement) {
+      filterHeader.hidden = filterClear.hidden;
+    }
   }
 }
 

@@ -113,10 +113,12 @@ function renderControlState(control, runtimeState) {
   const title = control.dataset.libraryTitle || showId;
   const unavailable = runtimeState.loading || !runtimeState.storageAvailable || runtimeState.entries === null;
   if (control.matches("button.library-card-quick-save")) {
+    const optimisticPending = control.dataset.libraryQuickSavePending === "true";
     control.disabled = unavailable;
+    control.setAttribute("aria-disabled", String(unavailable));
+    if (optimisticPending) return;
     control.dataset.librarySaved = String(Boolean(entry));
     control.setAttribute("aria-pressed", String(Boolean(entry)));
-    control.setAttribute("aria-disabled", String(unavailable));
     const label = !runtimeState.storageAvailable && !runtimeState.loading
       ? `${title}: local Library saving is unavailable in this browser.`
       : runtimeState.entries === null && !runtimeState.loading
@@ -180,7 +182,7 @@ function ensureCardControls() {
   const runtimeState = getLibraryRuntimeState();
   findCardHosts().forEach((host) => {
     const showId = host.dataset.libraryShowId;
-    if (!showId || host.querySelector(`:scope > [data-library-control="card"][data-library-show-id="${CSS.escape(showId)}"]`)) return;
+    if (!showId || host.matches(".detail-similar-card") || host.querySelector(`:scope > [data-library-control="card"][data-library-show-id="${CSS.escape(showId)}"]`)) return;
     const title = getEntryTitle(host, showId);
     const control = createQuickSaveControl(showId, title);
     control.dataset.libraryTitle = title;
@@ -195,14 +197,15 @@ function ensureDetailControl() {
   const showId = getShowIdFromLocation();
   const actions = document.querySelector(".podcast-detail .detail-actions");
   if (!showId || !actions) return;
-  let control = actions.querySelector(":scope > button.library-card-quick-save[data-library-control=detail]");
+  const saveHost = actions.querySelector(":scope > .detail-action-secondary-group") || actions;
+  let control = saveHost.querySelector(":scope > button.library-card-quick-save[data-library-control=detail]");
   if (!control) {
     const title = document.querySelector(".podcast-detail .detail-title-group h1")?.textContent?.trim() || showId;
     control = createQuickSaveControl(showId, title, {
       controlType: "detail",
       className: "library-detail-quick-save",
     });
-    actions.append(control);
+    saveHost.append(control);
   }
   renderControlState(control, currentState);
 }

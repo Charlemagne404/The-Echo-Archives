@@ -25,10 +25,11 @@ export function renderLinkListField({
   const rowMarkup = normalizedRows.map((row, index) => {
     const urlId = `${fieldId}Url${index}`;
     const labelSelectId = `${fieldId}Label${index}`;
+    const urlLabelId = `${urlId}Label`;
     if (plain) {
       return `
         <div class="submit-link-row submit-link-row--plain">
-          <label class="sr-only" for="${urlId}">${escapeHtml(label)} link ${index + 1}</label>
+          <label class="sr-only" id="${urlLabelId}" for="${urlId}">Link ${index + 1}</label>
           <input
             id="${urlId}"
             type="url"
@@ -38,7 +39,7 @@ export function renderLinkListField({
             data-link-list="${fieldName}"
             data-link-part="url"
             data-link-index="${index}"
-            aria-labelledby="${labelId}"
+            aria-labelledby="${labelId} ${urlLabelId}"
             aria-describedby="${[helper ? helperId : "", errorId].filter(Boolean).join(" ")}"
             aria-errormessage="${errorId}"
           />
@@ -51,6 +52,7 @@ export function renderLinkListField({
 
     return `
       <div class="submit-link-row">
+        <label class="sr-only" id="${labelSelectId}Label" for="${labelSelectId}">Link type ${index + 1}</label>
         <label class="submit-link-source submit-link-source--${escapeAttribute(normalizeLinkTypeClass(row.label))}">
           <span class="submit-link-source-badge" aria-hidden="true">
             <span class="submit-link-source-icon submit-link-source-icon--${escapeAttribute(normalizeLinkTypeClass(row.label))}">${iconMarkup(getLinkTypeIcon(row.label))}</span>
@@ -63,14 +65,14 @@ export function renderLinkListField({
             data-link-list="${fieldName}"
             data-link-part="label"
             data-link-index="${index}"
-            aria-labelledby="${labelId}"
+            aria-labelledby="${labelId} ${labelSelectId}Label"
             aria-describedby="${[helper ? helperId : "", errorId].filter(Boolean).join(" ")}"
             aria-errormessage="${errorId}"
           >
             ${options.map((option) => `<option value="${escapeAttribute(option)}" ${option === row.label ? "selected" : ""}>${escapeHtml(option)}</option>`).join("")}
           </select>
         </label>
-        <label class="sr-only" for="${urlId}">${escapeHtml(label)} URL ${index + 1}</label>
+        <label class="sr-only" id="${urlLabelId}" for="${urlId}">URL ${index + 1}</label>
         <input
           id="${urlId}"
           type="url"
@@ -80,7 +82,7 @@ export function renderLinkListField({
           data-link-list="${fieldName}"
           data-link-part="url"
           data-link-index="${index}"
-          aria-labelledby="${labelId}"
+          aria-labelledby="${labelId} ${urlLabelId}"
           aria-describedby="${[helper ? helperId : "", errorId].filter(Boolean).join(" ")}"
           aria-errormessage="${errorId}"
         />

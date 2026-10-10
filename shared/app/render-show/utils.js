@@ -26,6 +26,13 @@ export {
   toLabel,
 };
 
+export function getPrimaryListenActionLabel(provider, label) {
+  if (provider === "start") return "Start listening";
+  if (provider === "apple") return "Listen on Apple Podcasts";
+  if (provider === "spotify") return "Listen on Spotify";
+  return `Open ${label}`;
+}
+
 export function renderParagraphMarkup(paragraphs, fallbackText) {
   const normalized = normalizeReviewParagraphs(paragraphs);
   const fallback = String(fallbackText || "").trim();

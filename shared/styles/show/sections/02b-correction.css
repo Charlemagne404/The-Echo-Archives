@@ -89,7 +89,7 @@
   min-height: 34px;
   padding: 0 12px;
   border: 1px solid rgba(var(--community-accent-rgb), 0.22);
-  border-radius: 999px;
+  border-radius: 7px;
   background: rgba(5, 8, 9, 0.46);
   color: #d9e5dc;
   font-size: 0.84rem;

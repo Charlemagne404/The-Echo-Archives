@@ -19,6 +19,18 @@ function setControlStatus(showId, message, tone = "") {
   if (globalStatus) globalStatus.textContent = message;
 }
 
+function setQuickSavePresentation(control, saved, state = "") {
+  const showId = control.dataset.libraryShowId;
+  const title = control.dataset.libraryTitle || showId;
+  const label = saved
+    ? `Remove ${title} from your local Library.${state ? ` Current status: ${state}.` : ""}`
+    : `Save ${title} for later to your local Library`;
+  control.dataset.librarySaved = String(saved);
+  control.setAttribute("aria-pressed", String(saved));
+  control.setAttribute("aria-label", label);
+  control.title = label;
+}
+
 export function announceStorageFailure(runtimeState) {
   const status = document.getElementById("libraryGlobalStatus");
   if (!status || runtimeState.loading || !runtimeState.error) return;
@@ -58,20 +70,29 @@ export function bindLibraryActions({ library, getRuntimeState, refreshRuntime })
     if (quickSave) {
       event.preventDefault();
       event.stopPropagation();
-      if (quickSave.disabled) return;
+      if (quickSave.disabled || quickSave.dataset.libraryQuickSavePending === "true") return;
 
       const restoreKeyboardFocus = event.detail === 0;
       const showId = quickSave.dataset.libraryShowId;
       const entry = getRuntimeState().entriesById?.get(showId);
+      const nextSaved = !entry;
+      quickSave.dataset.libraryQuickSavePending = "true";
+      setQuickSavePresentation(quickSave, nextSaved, nextSaved ? STATE_LABELS.saved : "");
       const result = entry
         ? await library.removeEntry(showId)
         : await library.setState(showId, "saved", { titleSnapshot: quickSave.dataset.libraryTitle });
       if (!result.ok) {
+        delete quickSave.dataset.libraryQuickSavePending;
+        const currentEntry = getRuntimeState().entriesById?.get(showId);
+        setQuickSavePresentation(quickSave, Boolean(currentEntry), currentEntry ? STATE_LABELS[currentEntry.state] : "");
         setControlStatus(showId, `Quick save could not be changed: ${result.error.message}`, "error");
         return;
       }
 
       await refreshRuntime();
+      delete quickSave.dataset.libraryQuickSavePending;
+      const currentEntry = getRuntimeState().entriesById?.get(showId);
+      setQuickSavePresentation(quickSave, Boolean(currentEntry), currentEntry ? STATE_LABELS[currentEntry.state] : "");
       if (restoreKeyboardFocus && quickSave.isConnected) quickSave.focus({ preventScroll: true });
       setControlStatus(showId, entry ? "Removed from your local Library." : "Saved for later in your local Library.");
       if (!entry) trackPositiveLibraryIntent(showId, "saved");

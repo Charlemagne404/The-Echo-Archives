@@ -326,6 +326,9 @@ test("full reviews server-render archive first and reserve later listener pages 
   assert.match(markup, /data-has-archive="true"/);
   assert.match(markup, /data-listener-total="1"/);
   assert.match(markup, /Review 1 of 2/);
+  assert.doesNotMatch(markup, /data-review-carousel-previous[^>]*\shidden(?:\s|>)/);
+  assert.doesNotMatch(markup, /data-review-carousel-next[^>]*\shidden(?:\s|>)/);
+  assert.doesNotMatch(markup, /class="detail-review-carousel-pagination" hidden/);
   assert.match(markup, /Written review score breakdown/);
   assert.match(markup, /8\.5\/10/);
   assert.match(markup, /Listener Review Score/);
@@ -378,6 +381,9 @@ test("indexed listener reviews and public category scores appear only when they 
   });
 
   assert.match(listenerMarkup, /data-has-archive="false"/);
+  assert.match(listenerMarkup, /data-review-carousel-previous[^>]*\shidden(?:\s|>)/);
+  assert.match(listenerMarkup, /data-review-carousel-next[^>]*\shidden(?:\s|>)/);
+  assert.match(listenerMarkup, /class="detail-review-carousel-pagination" hidden/);
   assert.match(listenerMarkup, /Listener42/);
   assert.match(listenerMarkup, /<p class="detail-review-byline">Listener42<\/p>/);
   assert.match(listenerMarkup, /<p class="detail-review-published"><time datetime="2026-07-16T12:00:00\.000Z">Published July 16, 2026<\/time><\/p>/);
@@ -394,6 +400,41 @@ test("indexed listener reviews and public category scores appear only when they 
   assert.match(publicScoresMarkup, /Voice acting/);
   assert.doesNotMatch(publicScoresMarkup, /Building/);
   assert.equal((publicScoresMarkup.match(/detail-community-rating-card/g) || []).length, 1);
+
+});
+
+test("review carousel navigation appears only when more than one review is available", async () => {
+  const { renderReviewSection } = await import("../../shared/app/render-show/sections.js");
+  const show = {
+    ...showMap.get("solar"),
+    reviewStatus: "indexed-only",
+    archiveTake: "",
+    spoilerFreeReview: "",
+    spoilerFreeReviewParagraphs: [],
+    thoughts: "",
+    thoughtsParagraphs: [],
+  };
+  const review = { id: "listener-1", authorName: "Listener42", title: "A first response", body: "Worth hearing.", ratingStars: 5 };
+  const oneReviewData = { reviews: [review], pagination: { page: 1, pageSize: 1, totalPages: 1, totalReviews: 1 } };
+  const multipleReviewData = {
+    reviews: [review, { ...review, id: "listener-2", title: "Another response" }],
+    pagination: { page: 1, pageSize: 1, totalPages: 2, totalReviews: 2 },
+  };
+  const assertControlsHidden = (markup) => {
+    assert.match(markup, /data-review-carousel-previous[^>]*\shidden(?:\s|>)/);
+    assert.match(markup, /data-review-carousel-next[^>]*\shidden(?:\s|>)/);
+    assert.match(markup, /class="detail-review-carousel-pagination" hidden/);
+  };
+  const assertControlsVisible = (markup) => {
+    assert.doesNotMatch(markup, /data-review-carousel-previous[^>]*\shidden(?:\s|>)/);
+    assert.doesNotMatch(markup, /data-review-carousel-next[^>]*\shidden(?:\s|>)/);
+    assert.doesNotMatch(markup, /class="detail-review-carousel-pagination" hidden/);
+  };
+
+  assertControlsHidden(createShowPageMarkup(show, showMap, collections, oneReviewData));
+  assertControlsVisible(createShowPageMarkup(show, showMap, collections, multipleReviewData));
+  assertControlsHidden(renderReviewSection(show, oneReviewData));
+  assertControlsVisible(renderReviewSection(show, multipleReviewData));
 });
 
 test("official descriptions and route expansion retain source attribution and each show route", () => {
@@ -445,7 +486,7 @@ test("public detail facts use singular counts and one listener-friendly status",
   assert.doesNotMatch(unknownStatusMarkup, /Unknown<\/span><span[^>]*>Unclear/);
 });
 
-test("verified start links become the primary handoff without changing provider fallback", () => {
+test("verified start links and direct platforms outrank general websites", () => {
   const verifiedStartMarkup = createShowPageMarkup({
     ...showMap.get("spectre"),
     listenLinks: {
@@ -464,7 +505,8 @@ test("verified start links become the primary handoff without changing provider 
   assert.equal((verifiedStartMarkup.match(/>Start listening</g) || []).length, 2);
   assert.match(verifiedStartMarkup, /href="https:\/\/example\.com\/episode-one"/);
   assert.doesNotMatch(verifiedStartMarkup, /Open Start listening/);
-  assert.match(fallbackMarkup, /Open Website/);
+  assert.equal((fallbackMarkup.match(/>Listen on Apple Podcasts<\/a>/g) || []).length, 2);
+  assert.match(fallbackMarkup, /<a class="detail-primary-action detail-listen-action" href="https:\/\/podcasts\.apple\.com\/us\/podcast\/spectre\/id1593110598"/);
 });
 
 test("Derelict's primary listen handoff uses its verified Apple show page", () => {

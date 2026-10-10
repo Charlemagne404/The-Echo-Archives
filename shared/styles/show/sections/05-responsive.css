@@ -82,15 +82,6 @@
 }
 
 @media (max-width: 640px) {
-  .detail-page .site-mobile-primary-nav {
-    display: none;
-  }
-
-  .detail-official-source,
-  .detail-summary-provenance {
-    display: none;
-  }
-
   .detail-link-chip {
     min-height: 44px;
     padding-right: 12px;
@@ -232,10 +223,6 @@
     margin-bottom: 10px;
   }
 
-  .detail-status-chip--key-tag {
-    display: none;
-  }
-
   .detail-status-chip,
   .detail-tag {
     min-height: 27px;
@@ -287,7 +274,7 @@
     margin-top: 0;
   }
 
-  .detail-actions > .library-detail-quick-save {
+  .detail-actions .library-detail-quick-save {
     grid-column: auto;
     justify-self: stretch;
     width: 100%;
@@ -304,21 +291,6 @@
     border-radius: 12px;
     background: rgba(8, 11, 14, 0.78);
     color: var(--text-primary);
-  }
-
-  .detail-actions > .library-detail-quick-save:last-child:nth-child(3),
-  .detail-actions > .library-detail-quick-save:last-child:nth-child(4) {
-    grid-column: 1 / -1;
-  }
-
-  .detail-actions > .library-detail-quick-save::after {
-    content: "Save for later";
-    font-size: 0.84rem;
-    font-weight: 600;
-  }
-
-  .detail-actions > .library-detail-quick-save[data-library-saved="true"]::after {
-    content: "Saved to Library";
   }
 
   .detail-copy-status {
@@ -383,46 +355,6 @@
     gap: 6px;
   }
 
-  .detail-page .detail-similar-card > .library-card-quick-save {
-    display: none;
-  }
-
-  .detail-similar-card .detail-archive-link {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    display: block;
-    width: 100%;
-    height: 100%;
-    min-height: 0;
-    padding: 0;
-    border: 0;
-    border-radius: 8px;
-    background: transparent;
-    color: transparent;
-    box-shadow: none;
-    font-size: 0;
-    text-decoration: none;
-    transform: none;
-  }
-
-  .detail-similar-card .detail-archive-link:hover,
-  .detail-similar-card .detail-archive-link:active {
-    border-color: transparent;
-    background: transparent;
-    color: transparent;
-    transform: none;
-  }
-
-  .detail-similar-card .detail-archive-link:focus-visible {
-    outline: 2px solid rgba(var(--detail-accent-rgb), 0.8);
-    outline-offset: -3px;
-    border-color: transparent;
-    background: transparent;
-    color: transparent;
-    transform: none;
-  }
-
   .detail-similar-reason {
     display: -webkit-box;
     overflow: hidden;
@@ -450,6 +382,21 @@
     align-items: stretch;
   }
 
+  .detail-actions .detail-action-secondary-group {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .detail-actions .detail-action-secondary-group > :only-child {
+    grid-column: 1 / -1;
+  }
+
+  .detail-actions .detail-action-secondary-group:has(> :nth-child(3):last-child) > :first-child {
+    grid-column: 1 / -1;
+  }
+
   .detail-actions .detail-listen-action {
     grid-column: 1 / -1;
     width: 100%;
@@ -462,12 +409,12 @@
     padding-inline: 14px;
   }
 
-  .detail-actions .detail-secondary-action:not(.detail-copy-link-button) {
+  .detail-actions .detail-action-secondary-group > .detail-secondary-action:not(.detail-copy-link-button) {
     width: 100%;
     min-width: 0;
   }
 
-  .detail-actions > .detail-secondary-action {
+  .detail-actions .detail-action-secondary-group > .detail-secondary-action {
     min-height: 44px;
   }
 
@@ -598,6 +545,18 @@
 }
 
 @media (max-width: 360px) {
+  .detail-actions .library-detail-quick-save {
+    gap: 6px;
+    padding-inline: 8px;
+    --library-card-quick-save-icon-size: 18px;
+  }
+
+  .detail-actions .library-detail-quick-save::after {
+    white-space: nowrap;
+    font-size: 0.74rem;
+    line-height: 1;
+  }
+
   .detail-page .site-header {
     column-gap: 8px;
   }

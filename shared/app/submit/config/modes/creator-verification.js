@@ -1,13 +1,13 @@
 export const creatorVerificationModeConfig = {
   heroDescription: "Submit a show, send a factual correction, share a listener review, or request creator verification.",
   cardTitle: "Creator verification",
-  cardDescription: "Confirm association or official facts.",
+  cardDescription: "Confirm your connection and share official evidence.",
   cardIcon: "mode-creator",
   introTitle: "Creator verification",
   introDescription: "Tell us how you are connected and include the strongest proof you have.",
   introIcon: "shield",
   submitLabel: "Request creator verification",
-  footerNote: "Next: association evidence is checked; follow-up may be needed.",
+  footerNote: "Next: a maintainer checks your connection and may follow up.",
   steps: [
     { title: "Request", body: "Select the show, your role, and a proof method." },
     { title: "Verify", body: "We check association and may follow up for clarification." },

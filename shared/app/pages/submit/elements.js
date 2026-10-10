@@ -14,6 +14,7 @@ export function getSubmitElements() {
     clearDraftButton: document.getElementById("submitClearDraftButton"),
     submitFooterNote: document.getElementById("submitFooterNote"),
     legalAcknowledgement: document.getElementById("submitLegalAcknowledgement"),
+    legalError: document.getElementById("submitLegalError"),
     submitStatus: document.getElementById("submitStatus"),
     resultPanel: document.getElementById("submitResultPanel"),
   };
@@ -34,6 +35,7 @@ export function getSubmitElements() {
     !elements.submitFooterNote ||
     !(elements.legalAcknowledgement instanceof HTMLInputElement) ||
     elements.legalAcknowledgement.type !== "checkbox" ||
+    !(elements.legalError instanceof HTMLElement) ||
     !elements.submitStatus ||
     !(elements.resultPanel instanceof HTMLElement)
   ) {

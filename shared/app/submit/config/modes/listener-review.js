@@ -1,13 +1,13 @@
 export const listenerReviewModeConfig = {
   heroDescription: "Submit a show, send a factual correction, share a listener review, or request creator verification.",
   cardTitle: "Submit a listener review",
-  cardDescription: "Share your take with other listeners.",
+  cardDescription: "Rate and review a show to help other listeners choose.",
   cardIcon: "mode-review",
   introTitle: "Listener review",
   introDescription: "Share a useful, respectful review. Detailed category ratings are optional.",
   introIcon: "review",
   submitLabel: "Submit listener review",
-  footerNote: "Next: moderation before any publication decision.",
+  footerNote: "Next: a maintainer reviews it before any publication decision.",
   steps: [
     { title: "Submit", body: "Share your rating, spoiler level, and review." },
     { title: "Moderate", body: "We review and may edit for clarity, length, and respect." },

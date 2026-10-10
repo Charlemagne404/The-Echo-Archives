@@ -188,7 +188,7 @@ function renderSimilarCards(source, recommendationSource, neighbors, offset = 0)
           <h4>${escapeHtml(neighbor.title || "Untitled show")}</h4>
           ${confidenceLabel}
           <p class="detail-similar-reason">${escapeHtml(reason)}</p>
-          <a class="detail-archive-link" href="${escapeHtml(neighbor.href || "/")}" aria-label="Open ${escapeHtml(neighbor.title || "Untitled show")}" data-discovery-show-id="${escapeHtml(neighbor.id || "")}" data-discovery-surface="show_similar" data-discovery-browse-state="default" data-discovery-result-type="similar_show" data-discovery-recommendation-source="${recommendationSource}" data-discovery-result-position-bucket="${bucketDiscoveryPosition(offset + index + 1)}" data-discovery-content-profile="${getDiscoveryContentProfile(neighbor.reviewStatus)}">Open show</a>
+          <a class="detail-archive-link" href="${escapeHtml(neighbor.href || "/")}" aria-label="Open ${escapeHtml(neighbor.title || "Untitled show")}" data-discovery-show-id="${escapeHtml(neighbor.id || "")}" data-discovery-surface="show_similar" data-discovery-browse-state="default" data-discovery-result-type="similar_show" data-discovery-recommendation-source="${recommendationSource}" data-discovery-result-position-bucket="${bucketDiscoveryPosition(offset + index + 1)}" data-discovery-content-profile="${getDiscoveryContentProfile(neighbor.reviewStatus)}"></a>
         </div>
       </article>
     `;

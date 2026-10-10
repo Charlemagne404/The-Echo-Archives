@@ -28,7 +28,6 @@ export function renderFilterMenu({
   filterOptionGrid.textContent = "";
   const activeBucket = filterMenuBuckets.find((bucket) => bucket.id === menuState.activeBucketId) || null;
   filterDropdown.dataset.menuView = activeBucket ? "detail" : "launcher";
-  syncFilterDropdownHeader({ filterDropdown, activeBucket });
 
   if (!activeBucket) {
     renderFilterMenuLauncher({
@@ -51,28 +50,6 @@ export function renderFilterMenu({
     onToggleFilter,
     onClearBucketFilters,
   });
-}
-
-function syncFilterDropdownHeader({ filterDropdown, activeBucket }) {
-  const intro = filterDropdown.querySelector(".filter-dropdown-header > div");
-  const kicker = filterDropdown.querySelector(".filter-dropdown-kicker");
-  const copy = filterDropdown.querySelector(".filter-dropdown-copy");
-  if (!intro || !kicker || !copy) {
-    return;
-  }
-
-  let title = intro.querySelector(".filter-dropdown-title");
-  if (!(title instanceof HTMLElement)) {
-    title = document.createElement("p");
-    title.className = "filter-dropdown-title";
-    copy.before(title);
-  }
-
-  kicker.textContent = activeBucket ? "Filter bucket" : "Filter the archive";
-  title.textContent = activeBucket ? activeBucket.label : "Archive filters";
-  copy.textContent = activeBucket
-    ? activeBucket.description
-    : "Start with story type, tone, listening context, archive status, or tags.";
 }
 
 function renderFilterMenuLauncher({
@@ -170,7 +147,8 @@ function renderFilterMenuDetail({
   clearButton.className = "filter-bucket-clear";
   clearButton.type = "button";
   clearButton.dataset.filterBucketClear = bucket.id;
-  clearButton.textContent = "Clear section";
+  clearButton.textContent = "Clear";
+  clearButton.setAttribute("aria-label", `Clear ${bucket.label} filters`);
   clearButton.hidden = getBucketSelectionCount(bucket, filters) === 0;
 
   titleBlock.append(title, status);

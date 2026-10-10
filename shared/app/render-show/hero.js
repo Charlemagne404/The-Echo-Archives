@@ -8,6 +8,7 @@ import {
   getHeroRuntimeValue,
   getPublicStatus,
   normalizeArchiveRating,
+  getPrimaryListenActionLabel,
   getReleaseNote,
   toDisplayTag,
 } from "./utils.js";
@@ -21,7 +22,7 @@ const HERO_LINK_LABELS = {
   rss: "RSS",
 };
 
-const HERO_LINK_ORDER = ["start", "website", "apple", "spotify", "rss"];
+const HERO_LINK_ORDER = ["start", "apple", "spotify", "website", "rss"];
 
 function renderListenDiscoveryAttributes(show, provider, linkRole, discoverySurface) {
   return `data-discovery-listen-show-id="${escapeHtml(show.id || "")}" data-discovery-provider="${escapeHtml(provider || "other")}" data-discovery-link-role="${escapeHtml(linkRole)}" data-discovery-surface="${escapeHtml(discoverySurface)}" data-discovery-content-profile="${getDiscoveryContentProfile(show.reviewStatus)}"`;
@@ -47,9 +48,6 @@ export function renderDetailHero(show, reviewData = {}) {
     statusChips.push('<span class="detail-status-chip is-imported">Imported</span>');
   } else if (show.reviewStatus) {
     statusChips.push(`<span class="detail-status-chip">${escapeHtml(toDisplayTag(show.reviewStatus))}</span>`);
-  }
-  if (show.tags[0]) {
-    statusChips.push(`<span class="detail-status-chip detail-status-chip--key-tag">${escapeHtml(toDisplayTag(show.tags[0]))}</span>`);
   }
   const primaryLink = getHeroPrimaryListenLink(show);
   const hasListenLinks = Object.values(show.listenLinks || {}).some((href) => String(href || "").trim());
@@ -89,12 +87,14 @@ export function renderDetailHero(show, reviewData = {}) {
             <div class="detail-actions">
               ${
                 primaryLink
-                  ? `<a class="detail-primary-action detail-listen-action" href="${escapeHtml(primaryLink.href)}" ${renderListenDiscoveryAttributes(show, primaryLink.key, "primary", "show_page_hero")} target="_blank" rel="noreferrer">${primaryLink.key === "start" ? "Start listening" : `Open ${escapeHtml(primaryLink.label)}`}</a>`
+                  ? `<a class="detail-primary-action detail-listen-action" href="${escapeHtml(primaryLink.href)}" ${renderListenDiscoveryAttributes(show, primaryLink.key, "primary", "show_page_hero")} target="_blank" rel="noreferrer">${getPrimaryListenActionLabel(primaryLink.key, escapeHtml(primaryLink.label))}</a>`
                   : hasListenLinks ? '<a class="detail-primary-action detail-listen-action" href="#facts-links" data-detail-anchor>Find listen links</a>' : ""
               }
-              ${archiveTarget ? `<a class="detail-secondary-action" href="${archiveTarget}" data-detail-anchor>${show.reviewStatus === "full-review" ? "Archive review" : "Archive note"}</a>` : ""}
-              ${hasListenLinks ? '<a class="detail-secondary-action" href="#facts-links" data-detail-anchor>Facts &amp; links</a>' : ""}
-              <button class="detail-secondary-action detail-copy-link-button" data-share-action data-copy-link type="button">Share</button>
+              <div class="detail-action-secondary-group">
+                ${archiveTarget ? `<a class="detail-secondary-action" href="${archiveTarget}" data-detail-anchor>${show.reviewStatus === "full-review" ? "Archive review" : "Archive note"}</a>` : ""}
+                ${hasListenLinks ? '<a class="detail-secondary-action" href="#facts-links" data-detail-anchor>Facts &amp; links</a>' : ""}
+                <button class="detail-secondary-action detail-copy-link-button" data-share-action data-copy-link type="button">Share</button>
+              </div>
             </div>
             <p class="detail-copy-status" data-copy-link-status aria-live="polite"></p>
           </div>

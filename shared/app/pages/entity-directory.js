@@ -78,7 +78,6 @@ export async function initializeEntityDirectory() {
   const emptyDescription = document.getElementById("entityEmptyDescription");
   const browseLink = document.querySelector("[data-entity-browse]");
   const resetLinks = Array.from(document.querySelectorAll("[data-entity-reset]"));
-  const clearButton = document.querySelector("[data-entity-clear]");
   const sortSelect = document.getElementById("entitySort");
   const filterButtons = Array.from(document.querySelectorAll("[data-entity-filter]"));
   const entries = Array.from(directoryGrid.querySelectorAll("[data-entity-names]")).map((element) => {
@@ -137,7 +136,6 @@ export async function initializeEntityDirectory() {
       link.textContent = "Clear search and filters";
       if (link.classList.contains("entity-results-reset")) link.hidden = !activeState;
     });
-    if (clearButton) clearButton.hidden = !query;
     if (emptyTitle && emptyDescription) {
       const activeFilter = filterButtons.find((button) => button.dataset.entityFilter === state.type)?.querySelector("span")?.textContent?.toLowerCase() || "organizations";
       if (query && state.type !== "all") {
@@ -270,16 +268,6 @@ export async function initializeEntityDirectory() {
     input.value = "";
     state.query = "";
     update({ historyMode: "push" });
-  });
-  clearButton?.addEventListener("click", () => {
-    searchHistoryCommit.cancel();
-    if (input.value.trim()) {
-      entityAnalytics.pendingClear = { count: 1, hadSearch: true };
-    }
-    input.value = "";
-    state.query = "";
-    update({ historyMode: "push" });
-    input.focus();
   });
   for (const button of filterButtons) {
     button.addEventListener("click", () => {

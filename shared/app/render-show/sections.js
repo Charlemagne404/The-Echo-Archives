@@ -23,13 +23,12 @@ export function renderOfficialSummarySection(show) {
   if (!summary) return "";
   return `
     <section class="detail-section detail-official-summary-section">
-      <div class="detail-section-header"><div><h2>${escapeHtml(summary.title)}</h2>${summary.title === "About this show" ? `<p>${escapeHtml(summary.description)}</p>` : `<p class="detail-summary-provenance">${escapeHtml(summary.description)}</p>`}</div></div>
+      <div class="detail-section-header"><div><h2>${escapeHtml(summary.title)}</h2>${summary.title === "About this show" ? `<p>${escapeHtml(summary.description)}</p>` : ""}</div></div>
       <article class="detail-summary detail-summary-official">
         <div class="detail-mobile-expandable" data-mobile-expandable data-mobile-expand-mode="clamp" data-mobile-expand-threshold="320" data-mobile-expand-label="Read full description" data-mobile-collapse-label="Show less">
           <div id="detail-official-summary-${escapeHtml(show.id)}" data-mobile-expandable-content><p>${escapeHtml(summary.text)}</p></div>
           <button class="detail-mobile-expand-toggle" data-mobile-expand-toggle type="button" aria-expanded="true" aria-controls="detail-official-summary-${escapeHtml(show.id)}" hidden>Read full description</button>
         </div>
-        ${summary.sourceUrl ? `<a class="detail-official-source" href="${escapeHtml(summary.sourceUrl)}" target="_blank" rel="noreferrer">View source</a>` : ""}
       </article>
     </section>
   `;
@@ -173,10 +172,10 @@ export function renderReviewSection(show, reviewData = {}) {
       <div class="detail-section-header detail-review-section-header"><div><h2>Reviews</h2><p>Archive Rating is editorial. Listener Review Score averages published listener reviews. Community Rating is a quick score from listeners.</p></div><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Write a review</a></div>
       ${empty ? `<div class="empty-state-card detail-reviews-empty-state"><p>No reviews are published for this show yet. Listener reviews are moderated before appearing here.</p><div class="empty-state-actions"><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Submit the first review</a></div></div>` : `
         <div class="detail-review-carousel" data-review-carousel data-show-id="${escapeHtml(show.id)}" data-has-archive="${String(hasArchive)}" data-listener-total="${totalListenerReviews}" data-current-index="${initialIndex}">
-          <button type="button" class="detail-review-carousel-arrow is-previous" data-review-carousel-previous aria-label="Previous review" ${initialIndex === 0 ? "disabled" : ""}>‹</button>
+          <button type="button" class="detail-review-carousel-arrow is-previous" data-review-carousel-previous aria-label="Previous review" ${totalSlides <= 1 ? "hidden " : ""}${initialIndex === 0 ? "disabled" : ""}>‹</button>
           <div class="detail-review-carousel-viewport" data-review-carousel-viewport tabindex="0" aria-label="Review carousel"><div data-review-carousel-slide>${initialCard}</div></div>
-          <button type="button" class="detail-review-carousel-arrow is-next" data-review-carousel-next aria-label="Next review" ${totalSlides <= 1 ? "disabled" : ""}>›</button>
-          <div class="detail-review-carousel-pagination"><div class="detail-review-carousel-dots" data-review-carousel-dots>${renderDots(totalSlides, initialIndex)}</div><p class="detail-review-carousel-status" data-review-carousel-status aria-live="polite">Review ${initialIndex + 1} of ${totalSlides}</p></div>
+          <button type="button" class="detail-review-carousel-arrow is-next" data-review-carousel-next aria-label="Next review" ${totalSlides <= 1 ? "hidden disabled" : ""}>›</button>
+          <div class="detail-review-carousel-pagination" ${totalSlides <= 1 ? "hidden" : ""}><div class="detail-review-carousel-dots" data-review-carousel-dots>${renderDots(totalSlides, initialIndex)}</div><p class="detail-review-carousel-status" data-review-carousel-status aria-live="polite">Review ${initialIndex + 1} of ${totalSlides}</p></div>
         </div>
       `}
     </section>

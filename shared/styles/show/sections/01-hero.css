@@ -106,14 +106,15 @@
 .detail-fact-pill {
   display: inline-flex;
   align-items: center;
-  min-height: 34px;
-  padding: 0 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(7, 10, 14, 0.66);
+  min-height: 30px;
+  padding: 0 10px;
+  border-radius: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.035);
   color: var(--text-secondary);
-  font-size: 0.78rem;
-  letter-spacing: 0.03em;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.015em;
 }
 
 .detail-tag-link {
@@ -162,6 +163,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  min-width: 0;
   gap: 12px 14px;
   margin-bottom: 14px;
 }
@@ -175,8 +177,15 @@
 
 .detail-hero-tag-list {
   display: flex;
+  flex: 1 1 280px;
   flex-wrap: wrap;
+  min-width: 0;
   gap: 10px;
+}
+
+.detail-hero-tag-list .detail-tag {
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 .detail-meta-grid {
@@ -302,8 +311,40 @@
 .detail-actions {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 12px;
   margin-top: 12px;
+}
+
+.detail-actions > .detail-action-secondary-group {
+  display: contents;
+}
+
+.detail-actions .library-detail-quick-save {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: auto;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: rgba(8, 11, 14, 0.78);
+  color: var(--text-primary);
+  --library-card-quick-save-icon-size: 19px;
+}
+
+.detail-actions .library-detail-quick-save::after {
+  content: "Save for later";
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.detail-actions .library-detail-quick-save[data-library-saved="true"]::after {
+  content: "Saved to Library";
 }
 
 .detail-primary-action,

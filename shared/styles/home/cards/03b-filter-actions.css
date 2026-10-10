@@ -36,9 +36,9 @@
 
 .browse-sort-select {
   flex: 0 1 auto;
-  min-width: 210px;
+  min-width: 190px;
   min-height: 44px;
-  padding: 0 38px 0 14px;
+  padding: 0 32px 0 12px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 12px;
   background: rgba(8, 11, 14, 0.84);

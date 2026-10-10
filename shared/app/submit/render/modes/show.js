@@ -28,8 +28,8 @@ export function renderShowMode(draft, context) {
     renderFormRow([
       renderChipGroupField({
         fieldName: "selectedTags",
-        label: "Archive discovery tags (optional)",
-        helper: "Choose established archive terms only. They are review hints, not publication-ready tags.",
+        label: "Suggested archive tags (optional)",
+        helper: "Suggest established archive terms for the reviewer to check. They are not added automatically.",
         values: draft.selectedTags,
         options: context.tagFieldOptions.selectedTags,
         activeField: context.activeTagField,

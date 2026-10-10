@@ -49,15 +49,16 @@
 
 .submit-legal-notice {
   display: grid;
-  gap: 8px;
-  margin-top: 4px;
-  padding: 13px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.025);
+  gap: 6px;
+  margin-top: 6px;
+  padding: 12px 0 0;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0;
+  background: transparent;
   color: var(--text-secondary);
-  font-size: 0.86rem;
-  line-height: 1.5;
+  font-size: 0.82rem;
+  line-height: 1.45;
 }
 
 .submit-legal-notice p {
@@ -65,31 +66,47 @@
 }
 
 .submit-legal-notice a {
-  color: #ffd1c4;
+  color: rgba(255, 209, 196, 0.84);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .submit-legal-notice-title {
-  color: var(--text-primary);
-  font-weight: 700;
+  color: rgba(247, 247, 243, 0.74);
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+
+.submit-legal-required {
+  margin-left: 5px;
+  color: rgba(247, 247, 243, 0.48);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .submit-legal-check {
   display: flex;
   align-items: flex-start;
   gap: 9px;
-  color: var(--text-primary);
+  color: rgba(247, 247, 243, 0.76);
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .submit-legal-check input {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   flex: 0 0 auto;
   margin: 2px 0 0;
   accent-color: #e34a36;
+}
+
+.submit-legal-check input:focus-visible {
+  outline: 2px solid rgba(255, 145, 126, 0.62);
+  outline-offset: 2px;
 }
 
 .submit-primary-button {
@@ -117,6 +134,14 @@
 }
 
 .submit-primary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+  box-shadow: none;
+  transform: none;
+  filter: none;
+}
+
+.submit-remake-form[aria-busy="true"] .submit-primary-button:disabled {
   cursor: progress;
   opacity: 0.74;
 }
@@ -152,7 +177,10 @@
 }
 
 .submit-footer-note {
+  position: relative;
+  flex: 0 0 100%;
   min-height: 20px;
+  padding-left: 24px;
   color: var(--text-secondary);
   font-size: 0.9rem;
   line-height: 1.5;
@@ -162,9 +190,9 @@
   content: "";
   width: 16px;
   height: 16px;
-  margin-right: 8px;
-  display: inline-block;
-  vertical-align: text-bottom;
+  position: absolute;
+  top: 2px;
+  left: 0;
   background:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 10V7.75a4 4 0 1 1 8 0V10M6.75 10h10.5v8.5H6.75z' fill='none' stroke='%23bfc3c8' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
     center / 16px 16px no-repeat;

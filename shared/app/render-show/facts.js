@@ -9,6 +9,7 @@ import {
   getPublicVerificationLabel,
   getSeasonsEpisodesLabel,
   getShowDateValue,
+  getPrimaryListenActionLabel,
   toDisplayTag,
   toLabel,
 } from "./utils.js";
@@ -22,7 +23,7 @@ const DETAIL_LINK_LABELS = {
   rss: "RSS",
 };
 
-const DETAIL_LINK_ORDER = ["start", "website", "apple", "spotify", "rss"];
+const DETAIL_LINK_ORDER = ["start", "apple", "spotify", "website", "rss"];
 
 function renderListenDiscoveryAttributes(show, provider, linkRole, discoverySurface) {
   return `data-discovery-listen-show-id="${escapeHtml(show.id || "")}" data-discovery-provider="${escapeHtml(provider || "other")}" data-discovery-link-role="${escapeHtml(linkRole)}" data-discovery-surface="${escapeHtml(discoverySurface)}" data-discovery-content-profile="${getDiscoveryContentProfile(show.reviewStatus)}"`;
@@ -157,7 +158,7 @@ function renderListenLinkCluster(show) {
     <div class="detail-link-cluster">
       ${
         primaryLink
-          ? `<a class="detail-link-primary" href="${escapeHtml(primaryLink.href)}" ${renderListenDiscoveryAttributes(show, primaryLink.key, "primary", "show_page_facts")} target="_blank" rel="noreferrer">${primaryLink.key === "start" ? "Start listening" : `Open ${escapeHtml(primaryLink.label)}`}</a>`
+          ? `<a class="detail-link-primary" href="${escapeHtml(primaryLink.href)}" ${renderListenDiscoveryAttributes(show, primaryLink.key, "primary", "show_page_facts")} target="_blank" rel="noreferrer">${getPrimaryListenActionLabel(primaryLink.key, escapeHtml(primaryLink.label))}</a>`
           : '<p class="detail-link-status is-empty">Links being verified</p>'
       }
       ${alternateLinks.length ? `<div class="detail-link-chip-row">${alternateLinks.map((key) => renderListenLinkChip(key, links[key], show)).join("")}</div>` : ""}
