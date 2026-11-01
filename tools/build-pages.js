@@ -905,7 +905,6 @@ function createPrecacheUrlSet(_manifest, versions) {
     "/apple-touch-icon.png",
     "/icon-192.png",
     "/icon-512.png",
-    "/echo-wordmark1.png",
     "/echo-wordmark-nosub1.svg",
     "/echo-wordmark-sub1.svg",
     "/images/submit-icons.svg",

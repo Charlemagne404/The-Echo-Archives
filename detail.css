@@ -1696,6 +1696,12 @@
   }
 }
 
+@media (max-width: 959px) {
+  .detail-similar-card > .detail-similar-artwork {
+    aspect-ratio: 16 / 9;
+  }
+}
+
 @media (max-width: 640px) {
   .detail-link-chip {
     min-height: 44px;
@@ -1957,8 +1963,8 @@
 
   .detail-similar-card > .detail-similar-artwork {
     width: 72px;
-    height: 72px;
-    aspect-ratio: 1 / 1;
+    height: auto;
+    aspect-ratio: 16 / 9;
   }
 
   .detail-similar-card {
@@ -2135,7 +2141,7 @@
     width: 100%;
   }
 }
-
+/* Source: shared/styles/show/sections/05b-responsive-small.css */
 @media (max-width: 560px) {
   .detail-main {
     width: min(100%, calc(100% - 20px));

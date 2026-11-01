@@ -1,5 +1,5 @@
 export const showModeConfig = {
-  heroDescription: "Submit a show, send a factual correction, share a listener review, or request creator verification.",
+  heroDescription: "Submit a show, send a factual correction or missing metadata, share a listener review, or request creator verification.",
   cardTitle: "Submit a new show",
   cardDescription: "Add a show that is not listed yet.",
   cardIcon: "mode-show",

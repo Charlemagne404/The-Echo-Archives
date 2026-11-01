@@ -1224,7 +1224,7 @@
   border-radius: 16px;
   background: rgba(5, 8, 11, 0.42);
 }
-
+/* Source: shared/styles/home/submit/03-current-show.css */
 .submit-current-show {
   display: grid;
   gap: 12px;
@@ -2140,6 +2140,11 @@
   .submit-form-actions {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .submit-footer-note {
+    flex-basis: auto;
+    width: 100%;
   }
 
   .submit-primary-button,

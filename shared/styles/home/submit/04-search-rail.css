@@ -491,6 +491,11 @@
     align-items: stretch;
   }
 
+  .submit-footer-note {
+    flex-basis: auto;
+    width: 100%;
+  }
+
   .submit-primary-button,
   .submit-rail-help-button {
     justify-content: center;

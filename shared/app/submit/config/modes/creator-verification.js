@@ -1,5 +1,5 @@
 export const creatorVerificationModeConfig = {
-  heroDescription: "Submit a show, send a factual correction, share a listener review, or request creator verification.",
+  heroDescription: "Submit a show, send a factual correction or missing metadata, share a listener review, or request creator verification.",
   cardTitle: "Creator verification",
   cardDescription: "Confirm your connection and share official evidence.",
   cardIcon: "mode-creator",

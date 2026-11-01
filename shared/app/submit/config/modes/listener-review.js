@@ -1,5 +1,5 @@
 export const listenerReviewModeConfig = {
-  heroDescription: "Submit a show, send a factual correction, share a listener review, or request creator verification.",
+  heroDescription: "Submit a show, send a factual correction or missing metadata, share a listener review, or request creator verification.",
   cardTitle: "Submit a listener review",
   cardDescription: "Rate and review a show to help other listeners choose.",
   cardIcon: "mode-review",
