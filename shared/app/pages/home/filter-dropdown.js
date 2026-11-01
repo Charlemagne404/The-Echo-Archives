@@ -4,10 +4,18 @@ const FILTER_POPOVER_EDGE_GAP_PX = 12;
 const FILTER_POPOVER_ANCHOR_GAP_PX = 10;
 const FILTER_POPOVER_MIN_HEIGHT_PX = 280;
 const FILTER_POPOVER_MAX_HEIGHT_PX = 300;
+const MOBILE_FILTER_MODAL_QUERY = "(max-width: 560px)";
 
 export function initializeFilterDropdownController({ filterDropdown, filterToggle }) {
   let stateTimer = 0;
   let openFrame = 0;
+  let portalPlaceholder = null;
+  let modalActive = false;
+  let lockedScrollY = 0;
+  let previousBodyStyles = null;
+  let previousDocumentStyles = null;
+  const backgroundStates = new Map();
+  const mobileQuery = window.matchMedia(MOBILE_FILTER_MODAL_QUERY);
 
   if (!(filterDropdown instanceof HTMLElement) || !(filterToggle instanceof HTMLButtonElement)) {
     return {
@@ -22,6 +30,18 @@ export function initializeFilterDropdownController({ filterDropdown, filterToggl
   filterDropdown.hidden = true;
   filterDropdown.dataset.state = "closed";
   filterDropdown.classList.remove("hidden");
+
+  const closeButton = document.createElement("button");
+  closeButton.className = "filter-sheet-close";
+  closeButton.type = "button";
+  closeButton.setAttribute("aria-label", "Close filters");
+  closeButton.textContent = "Close";
+  filterDropdown.prepend(closeButton);
+
+  const backdrop = document.createElement("div");
+  backdrop.className = "filter-sheet-backdrop";
+  backdrop.setAttribute("aria-hidden", "true");
+  backdrop.hidden = true;
 
   const prefersReducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -39,6 +59,8 @@ export function initializeFilterDropdownController({ filterDropdown, filterToggl
   const isOpen = () => !filterDropdown.hidden && filterDropdown.dataset.state !== "closing";
 
   const positionPopoverForViewport = () => {
+    if (mobileQuery.matches) return;
+
     filterDropdown.style.removeProperty("max-height");
     delete filterDropdown.dataset.placement;
 
@@ -71,17 +93,124 @@ export function initializeFilterDropdownController({ filterDropdown, filterToggl
     }
   };
 
-  const open = () => {
-    if (isOpen()) {
+  const setBackgroundInert = (inert) => {
+    if (inert) {
+      Array.from(document.body.children).forEach((node) => {
+        if (!(node instanceof HTMLElement) || node === filterDropdown || node === backdrop) return;
+        if (!backgroundStates.has(node)) {
+          backgroundStates.set(node, {
+            ariaHidden: node.getAttribute("aria-hidden"),
+            inert: node.inert,
+          });
+        }
+        node.inert = true;
+        node.setAttribute("aria-hidden", "true");
+      });
       return;
     }
+
+    backgroundStates.forEach((state, node) => {
+      node.inert = state.inert;
+      if (state.ariaHidden === null) {
+        node.removeAttribute("aria-hidden");
+      } else {
+        node.setAttribute("aria-hidden", state.ariaHidden);
+      }
+    });
+    backgroundStates.clear();
+  };
+
+  const lockBackgroundScroll = () => {
+    if (previousBodyStyles) return;
+
+    lockedScrollY = window.scrollY;
+    previousBodyStyles = {
+      overflow: document.body.style.overflow,
+      position: document.body.style.position,
+      top: document.body.style.top,
+      width: document.body.style.width,
+    };
+    previousDocumentStyles = {
+      overflow: document.documentElement.style.overflow,
+    };
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${lockedScrollY}px`;
+    document.body.style.width = "100%";
+  };
+
+  const unlockBackgroundScroll = () => {
+    if (!previousBodyStyles || !previousDocumentStyles) return;
+
+    document.body.style.overflow = previousBodyStyles.overflow;
+    document.body.style.position = previousBodyStyles.position;
+    document.body.style.top = previousBodyStyles.top;
+    document.body.style.width = previousBodyStyles.width;
+    document.documentElement.style.overflow = previousDocumentStyles.overflow;
+    previousBodyStyles = null;
+    previousDocumentStyles = null;
+    window.scrollTo(0, lockedScrollY);
+  };
+
+  const enterMobileModal = () => {
+    if (modalActive || !mobileQuery.matches) return;
+    if (!portalPlaceholder && filterDropdown.parentNode) {
+      portalPlaceholder = document.createComment("filter-dropdown-portal");
+      filterDropdown.parentNode.insertBefore(portalPlaceholder, filterDropdown);
+    }
+
+    document.body.append(backdrop, filterDropdown);
+    backdrop.hidden = false;
+    filterDropdown.dataset.modal = "true";
+    filterDropdown.setAttribute("role", "dialog");
+    filterDropdown.setAttribute("aria-modal", "true");
+    document.body.classList.add("filter-sheet-open");
+    setBackgroundInert(true);
+    lockBackgroundScroll();
+    modalActive = true;
+    closeButton.focus({ preventScroll: true });
+  };
+
+  const exitMobileModal = () => {
+    if (!modalActive) return;
+    modalActive = false;
+    backdrop.hidden = true;
+    backdrop.remove();
+    if (portalPlaceholder?.parentNode) {
+      portalPlaceholder.parentNode.insertBefore(filterDropdown, portalPlaceholder);
+      portalPlaceholder.remove();
+    }
+    portalPlaceholder = null;
+    filterDropdown.removeAttribute("data-modal");
+    filterDropdown.setAttribute("role", "group");
+    filterDropdown.removeAttribute("aria-modal");
+    document.body.classList.remove("filter-sheet-open");
+    setBackgroundInert(false);
+    unlockBackgroundScroll();
+  };
+
+  const getFocusables = () => Array.from(filterDropdown.querySelectorAll(
+    'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+  )).filter((node) => {
+    if (!(node instanceof HTMLElement) || node.hidden || node.getAttribute("aria-hidden") === "true") return false;
+    const styles = window.getComputedStyle(node);
+    return styles.display !== "none" && styles.visibility !== "hidden" && node.getClientRects().length > 0;
+  });
+
+  const open = () => {
+    if (isOpen()) return;
 
     clearTimers();
     filterDropdown.hidden = false;
     filterDropdown.dataset.state = "closed";
     filterDropdown.style.removeProperty("max-height");
     delete filterDropdown.dataset.placement;
-    positionPopoverForViewport();
+    if (mobileQuery.matches) {
+      enterMobileModal();
+    } else {
+      positionPopoverForViewport();
+    }
     filterToggle.setAttribute("aria-expanded", "true");
 
     openFrame = window.requestAnimationFrame(() => {
@@ -92,6 +221,7 @@ export function initializeFilterDropdownController({ filterDropdown, filterToggl
           stateTimer = 0;
           if (!filterDropdown.hidden) {
             filterDropdown.dataset.state = "open";
+            if (modalActive) closeButton.focus({ preventScroll: true });
           }
         },
         prefersReducedMotion() ? 0 : FILTER_DROPDOWN_OPEN_DURATION_MS,
@@ -104,9 +234,8 @@ export function initializeFilterDropdownController({ filterDropdown, filterToggl
     filterToggle.setAttribute("aria-expanded", "false");
     if (filterDropdown.hidden) {
       filterDropdown.dataset.state = "closed";
-      if (returnFocus) {
-        filterToggle.focus();
-      }
+      exitMobileModal();
+      if (returnFocus) filterToggle.focus();
       return;
     }
 
@@ -118,9 +247,8 @@ export function initializeFilterDropdownController({ filterDropdown, filterToggl
         filterDropdown.dataset.state = "closed";
         filterDropdown.style.removeProperty("max-height");
         delete filterDropdown.dataset.placement;
-        if (returnFocus) {
-          filterToggle.focus();
-        }
+        exitMobileModal();
+        if (returnFocus) filterToggle.focus();
       },
       immediate || prefersReducedMotion() ? 0 : FILTER_DROPDOWN_CLOSE_DURATION_MS,
     );
@@ -128,11 +256,41 @@ export function initializeFilterDropdownController({ filterDropdown, filterToggl
 
   const repositionOpenPopover = () => {
     if (isOpen()) {
-      positionPopoverForViewport();
+      if (mobileQuery.matches) enterMobileModal();
+      else {
+        exitMobileModal();
+        positionPopoverForViewport();
+      }
     }
   };
   window.addEventListener("resize", repositionOpenPopover);
   window.visualViewport?.addEventListener("resize", repositionOpenPopover);
+  mobileQuery.addEventListener("change", repositionOpenPopover);
+
+  closeButton.addEventListener("click", () => close({ returnFocus: true }));
+  backdrop.addEventListener("pointerdown", () => close({ returnFocus: true }));
+  filterDropdown.addEventListener("keydown", (event) => {
+    if (!modalActive || event.key !== "Tab") return;
+    const focusables = getFocusables();
+    if (focusables.length === 0) {
+      event.preventDefault();
+      closeButton.focus();
+      return;
+    }
+    const first = focusables[0];
+    const last = focusables.at(-1);
+    const active = document.activeElement;
+    if (event.shiftKey && active === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && active === last) {
+      event.preventDefault();
+      first.focus();
+    } else if (!filterDropdown.contains(active)) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
 
   return {
     close,

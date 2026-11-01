@@ -22,7 +22,7 @@
 .creators-hero-panel,
 .submit-hero-panel {
   min-height: 330px;
-  padding: 30px;
+  padding: 28px 30px;
 }
 
 .info-hero-copy h1,
@@ -65,6 +65,11 @@
 
 .creators-hero-copy {
   max-width: 48rem;
+  padding-top: 0;
+}
+
+.creators-hero-copy p {
+  max-width: 56ch;
 }
 
 .collections-hero-copy p {
@@ -193,8 +198,8 @@
 /* The about-page copy can use a wider measure, which keeps the compact hero
  * from growing around unnecessary line breaks. This sheet loads after info.css. */
 .about-page .about-hero-panel {
-  min-height: 278px;
-  padding: 26px 30px 22px;
+  min-height: 330px;
+  padding: 28px 30px;
 }
 
 .about-page .about-hero-copy {
@@ -205,8 +210,6 @@
 .about-page .about-hero-panel .hero-copy h1 {
   max-width: 100%;
   margin-bottom: 12px;
-  font-size: clamp(2.7rem, 3.7vw, 3.85rem);
-  line-height: 1.02;
 }
 
 .about-page .about-hero-lede {
@@ -224,16 +227,22 @@
   .about-page .about-hero-panel .hero-copy h1 {
     max-width: 100%;
     max-inline-size: min(100%, 26ch);
+    font-size: clamp(2.8rem, 11vw, 3.9rem);
+    line-height: 0.98;
+    letter-spacing: -0.062em;
   }
 }
 
 @media (max-width: 780px) {
   .about-page .about-hero-panel {
     min-height: 0;
-    padding: 24px 22px;
+    padding: 18px 16px 14px;
   }
 
   .about-page .about-hero-panel .hero-copy h1 {
-    font-size: clamp(2.55rem, 7.2vw, 3.55rem);
+    max-width: 12ch;
+    font-size: clamp(2.8rem, 11vw, 3.9rem);
+    line-height: 0.98;
+    letter-spacing: -0.062em;
   }
 }

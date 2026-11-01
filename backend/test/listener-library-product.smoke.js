@@ -481,6 +481,7 @@ test("Personal Discovery refines existing search locally and restores public ord
     assert.equal(baselinePositions.get("midnight-burger"), "25+", "the personalization fixture begins after the public top 24");
 
     const kingFallsDetail = await context.newPage();
+    await kingFallsDetail.setViewportSize({ width: 390, height: 844 });
     await kingFallsDetail.goto(`${baseUrl}/shows/king-falls-am`);
     const kingFallsControl = kingFallsDetail.locator('[data-library-control="detail"]');
     await kingFallsControl.waitFor();
@@ -549,6 +550,7 @@ test("Personal Discovery refines existing search locally and restores public ord
       assert.match(await home.locator("#personalDiscoveryReason").textContent(), /King Falls AM \(rated 5\/5\)/i);
     });
 
+    await kingFallsDetail.bringToFront();
     await preference.uncheck();
     await assertEventually(async () => {
       assert.equal(await preference.isChecked(), false);
@@ -564,6 +566,7 @@ test("Personal Discovery refines existing search locally and restores public ord
       const ids = await home.locator("#podcast-grid a[data-discovery-show-id]").evaluateAll((links) => links.map((link) => link.dataset.discoveryShowId));
       assert.equal(ids.includes("ars-paradoxica"), false);
     });
+    await arsDetail.bringToFront();
     await arsControl.locator("[data-library-remove]").click();
     await assertEventually(async () => {
       const ids = await home.locator("#podcast-grid a[data-discovery-show-id]").evaluateAll((links) => links.map((link) => link.dataset.discoveryShowId));
@@ -572,6 +575,7 @@ test("Personal Discovery refines existing search locally and restores public ord
     await kingFallsDetail.goto(`${baseUrl}/shows/king-falls-am`);
     const kingFallsRemoveControl = kingFallsDetail.locator('[data-library-control="detail"]');
     await kingFallsRemoveControl.waitFor();
+    await kingFallsDetail.bringToFront();
     await kingFallsRemoveControl.locator("summary").click();
     await kingFallsRemoveControl.locator("[data-library-remove]").click();
     await assertEventually(async () => {

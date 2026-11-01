@@ -1602,7 +1602,13 @@ test("homepage collection carousels autoplay and resume after a mobile touch lea
       favoriteRoutes: document.getElementById("favoriteRoutesViewport")?.scrollLeft || 0,
       collections: document.getElementById("collectionViewport")?.scrollLeft || 0,
     }));
-    await page.waitForTimeout(1_200);
+    await page.waitForFunction(
+      ({ favoriteRoutes, collections }) =>
+        (document.getElementById("favoriteRoutesViewport")?.scrollLeft || 0) > favoriteRoutes + 10 &&
+        (document.getElementById("collectionViewport")?.scrollLeft || 0) > collections + 10,
+      initialState,
+      { timeout: 3_000 },
+    );
 
     const afterAutoplay = await page.evaluate(() => ({
       favoriteRoutes: document.getElementById("favoriteRoutesViewport")?.scrollLeft || 0,
@@ -1626,7 +1632,13 @@ test("homepage collection carousels autoplay and resume after a mobile touch lea
         isPrimary: true,
       }));
     });
-    await page.waitForTimeout(700);
+    await page.waitForFunction(
+      ({ favoriteRoutes, collections }) =>
+        (document.getElementById("favoriteRoutesViewport")?.scrollLeft || 0) > favoriteRoutes + 8 &&
+        (document.getElementById("collectionViewport")?.scrollLeft || 0) > collections + 8,
+      afterAutoplay,
+      { timeout: 3_000 },
+    );
 
     const afterTouchResume = await page.evaluate(() => ({
       favoriteRoutes: document.getElementById("favoriteRoutesViewport")?.scrollLeft || 0,

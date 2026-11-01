@@ -120,6 +120,21 @@ async function waitForCenteredCollection(page, expectedCollectionId, { maxDistan
   );
 }
 
+async function centerCollectionCard(page, expectedCollectionId) {
+  await page.evaluate((collectionId) => {
+    const viewport = document.getElementById("collectionViewport");
+    const viewportRect = viewport?.getBoundingClientRect();
+    const card = Array.from(document.querySelectorAll("#collectionGrid .collection-card"))
+      .find((candidate) => candidate.dataset.collectionId === collectionId);
+    if (!viewport || !viewportRect || !card) return;
+    const rect = card.getBoundingClientRect();
+    viewport.scrollTo({
+      left: viewport.scrollLeft + rect.left + rect.width / 2 - (viewportRect.left + viewportRect.width / 2),
+      behavior: "instant",
+    });
+  }, expectedCollectionId);
+}
+
 async function waitForPreviewClosed(page, sourceIndex) {
   await page.waitForFunction(
     (currentSourceIndex) => {
@@ -168,6 +183,28 @@ test("homepage featured collections carousel applies center-weighted focus and d
       const carousel = document.getElementById("collectionCarousel");
       return Boolean(carousel?.matches(":hover") && carousel.querySelector(".collection-card.is-center-weighted"));
     });
+    const initialCenteredId = await page.evaluate(() => {
+      const viewport = document.getElementById("collectionViewport");
+      const viewportRect = viewport?.getBoundingClientRect();
+      if (!viewport || !viewportRect) return "";
+      const center = viewportRect.left + viewportRect.width / 2;
+      const visibleCards = Array.from(document.querySelectorAll("#collectionGrid .collection-card")).filter((card) => {
+        const rect = card.getBoundingClientRect();
+        return rect.right > viewportRect.left && rect.left < viewportRect.right;
+      });
+      const nearest = visibleCards.sort((left, right) => {
+        const leftRect = left.getBoundingClientRect();
+        const rightRect = right.getBoundingClientRect();
+        return Math.abs(leftRect.left + leftRect.width / 2 - center) - Math.abs(rightRect.left + rightRect.width / 2 - center);
+      })[0];
+      if (!nearest) return "";
+      const rect = nearest.getBoundingClientRect();
+      const delta = rect.left + rect.width / 2 - center;
+      viewport.scrollTo({ left: viewport.scrollLeft + delta, behavior: "instant" });
+      return nearest.dataset.collectionId || "";
+    });
+    assert.ok(initialCenteredId, "the carousel has a visible card to center before measuring focus strength");
+    await waitForCenteredCollection(page, initialCenteredId);
     const prefersReducedMotion = await page.evaluate(() =>
       window.matchMedia("(prefers-reduced-motion: reduce)").matches,
     );
@@ -220,7 +257,7 @@ test("homepage featured collections carousel applies center-weighted focus and d
       { timeout: 2_000 },
     );
 
-    const hoveredState = await getCollectionCarouselFocusState(page);
+    let hoveredState = await getCollectionCarouselFocusState(page);
     const hoveredTargetState = hoveredState.cards.find(
       (card) => card.collectionId === hoverTarget.collectionId && card.boosted,
     );
@@ -231,7 +268,10 @@ test("homepage featured collections carousel applies center-weighted focus and d
     assert.ok(centeredAfterHover);
     expectedCollectionIndex = featuredCollectionIds.indexOf(centeredAfterHover.collectionId);
     assert.notEqual(expectedCollectionIndex, -1);
+    await page.locator("#collectionCarousel").hover({ position: { x: 8, y: 8 } });
+    await centerCollectionCard(page, centeredAfterHover.collectionId);
     await waitForCenteredCollection(page, centeredAfterHover.collectionId);
+    hoveredState = await getCollectionCarouselFocusState(page);
 
     const nextPulseState = await clickCollectionArrow(page, "#collectionNext");
     if (prefersReducedMotion) {

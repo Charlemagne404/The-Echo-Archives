@@ -95,6 +95,7 @@ const ENTRY_ASSETS = {
     "shared/styles/home/cards/17-responsive-780-a.css",
     "shared/styles/home/cards/18-responsive-780-b.css",
     "shared/styles/home/cards/19-responsive-560.css",
+    "shared/styles/home/cards/19-filter-sheet.css",
     "shared/styles/home/cards/19-responsive-560-b.css",
     "shared/styles/base/responsive-robustness.css",
   ]),

@@ -503,9 +503,11 @@ test("review carousel keeps the server-rendered archive first, supports accessib
     await page.waitForFunction(() => document.querySelector("[data-review-carousel-slide]")?.textContent?.includes("Listener page 2"));
     await assertAxeClean(page, "listener review carousel after keyboard navigation");
 
+    await page.setViewportSize({ width: 390, height: 844 });
     await carousel.locator("[data-review-carousel-viewport]").evaluate((node) => {
-      node.dispatchEvent(new PointerEvent("pointerdown", { bubbles: true, clientX: 320 }));
-      node.dispatchEvent(new PointerEvent("pointerup", { bubbles: true, clientX: 80 }));
+      const touch = { bubbles: true, pointerId: 1, pointerType: "touch", isPrimary: true };
+      node.dispatchEvent(new PointerEvent("pointerdown", { ...touch, clientX: 320 }));
+      node.dispatchEvent(new PointerEvent("pointerup", { ...touch, clientX: 80 }));
     });
     await page.waitForFunction(
       () =>
@@ -529,7 +531,6 @@ test("review carousel keeps the server-rendered archive first, supports accessib
     assert.match(await carousel.locator("[data-review-carousel-slide]").textContent(), /Listener page 3/);
     await assertAxeClean(page, "listener review carousel failure state");
 
-    await page.setViewportSize({ width: 390, height: 844 });
     const mobile = await carousel.evaluate((node) => ({
       width: node.getBoundingClientRect().width,
       overflow: document.documentElement.scrollWidth - window.innerWidth,

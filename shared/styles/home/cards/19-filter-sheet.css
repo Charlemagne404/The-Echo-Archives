@@ -1,0 +1,56 @@
+@media (max-width: 560px) {
+  body.filter-sheet-open {
+    overscroll-behavior: none;
+  }
+
+  #filterDropdown[data-modal="true"],
+  #stickyFilterDropdown[data-modal="true"] {
+    position: fixed;
+    top: auto;
+    right: 12px;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    left: 12px;
+    width: min(520px, calc(100vw - 24px));
+    max-height: calc(100dvh - 24px);
+    margin-inline: auto;
+    overflow: auto;
+    z-index: 1101;
+    transform: translateY(0) scale(1);
+  }
+
+  #filterDropdown[data-modal="true"]::before,
+  #stickyFilterDropdown[data-modal="true"]::before {
+    display: none;
+  }
+
+  #filterDropdown[data-modal="true"] .filter-sheet-close,
+  #stickyFilterDropdown[data-modal="true"] .filter-sheet-close {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+    padding: 0 14px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.035);
+    color: var(--text-primary, #f0eee9);
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+
+  #filterDropdown[data-modal="true"] .filter-sheet-close:focus-visible,
+  #stickyFilterDropdown[data-modal="true"] .filter-sheet-close:focus-visible {
+    outline: 2px solid #ffc6ae;
+    outline-offset: 3px;
+  }
+
+  #filterDropdown[data-modal="true"] .filter-option-grid,
+  #stickyFilterDropdown[data-modal="true"] .filter-option-grid {
+    min-height: 0;
+    max-height: calc(100dvh - 132px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}

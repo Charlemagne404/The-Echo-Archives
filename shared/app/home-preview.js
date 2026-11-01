@@ -226,6 +226,13 @@ export function initializeHomePreviewController({ archiveGrid, archiveSection })
 
     positionActiveShell();
   };
+  const handleViewportScroll = () => {
+    if (!state.activeShell) {
+      return;
+    }
+
+    positionActiveShell();
+  };
 
   archiveGrid.addEventListener("pointerover", handlePointerOver);
   archiveGrid.addEventListener("pointerout", handlePointerOut);
@@ -235,9 +242,9 @@ export function initializeHomePreviewController({ archiveGrid, archiveSection })
   archiveGrid.addEventListener("click", handlePreviewCloseClick);
   archiveGrid.addEventListener("click", handleCardClick);
   document.addEventListener("pointerdown", handleDocumentPointerDown);
-  window.addEventListener("scroll", handleScrollActivity, { passive: true });
   window.addEventListener("wheel", handleScrollActivity, { passive: true });
   window.addEventListener("touchmove", handleScrollActivity, { passive: true });
+  window.addEventListener("scroll", handleViewportScroll, { passive: true });
   window.addEventListener("resize", handleViewportChange);
 
   return {
