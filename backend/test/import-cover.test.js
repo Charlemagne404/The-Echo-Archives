@@ -38,18 +38,23 @@ test("cover staging records source failures, replaces changed bytes, and retains
   };
   try {
     const first = await stageCover({
-      candidateId: "candidate", coverSources: ["https://example.com/bad", "https://example.com/cover.jpg"],
+      candidateId: "candidate", coverSources: [
+        { url: "https://example.com/bad", sourceType: "rss" },
+        { url: "https://example.com/cover.jpg", sourceType: "apple" },
+      ],
       stagingRoot, fetchImpl, userAgent: "Echo Tests", maxBytes: 8 * 1024 * 1024,
     });
     assert.equal(first.ready, true);
+    assert.equal(first.sourceType, "apple");
     assert.equal(first.failures.length, 1);
     assert.ok(fs.existsSync(first.stagedPath));
     bytes = alternateCover;
     const second = await stageCover({
-      candidateId: "candidate", coverSources: ["https://example.com/cover.jpg"],
+      candidateId: "candidate", coverSources: [{ url: "https://example.com/cover.jpg", sourceType: "rss" }],
       stagingRoot, fetchImpl, userAgent: "Echo Tests", maxBytes: 8 * 1024 * 1024,
     });
     assert.equal(second.ready, true);
+    assert.equal(second.sourceType, "rss");
     assert.notEqual(second.sha256, first.sha256);
     assert.equal(fs.readdirSync(path.dirname(second.stagedPath)).length, 1);
   } finally {

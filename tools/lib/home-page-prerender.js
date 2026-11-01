@@ -4,7 +4,7 @@ const path = require("node:path");
 const archiveRecord = require("../../shared/archive-record.js");
 
 const TOP_RATED_BADGE_ASSET_URL = "/images/badges/top-rated-bookmark.png";
-const DEFAULT_FALLBACK_COVER_IMAGE = "/images/TEA-Logo-S.png";
+const DEFAULT_FALLBACK_COVER_IMAGE = "/images/Circle2-Logo-S.png";
 const HOME_MOST_POPULAR_LIMIT = 4;
 const HOME_RECENTLY_ADDED_LIMIT = 4;
 const HOME_RESULTS_PAGE_SIZE = 60;

@@ -126,7 +126,7 @@ function getShowImageSrc(show) {
 
   const cover = String(show?.cover || "").trim();
   if (!cover) {
-    return "/images/TEA-Logo-S.png";
+    return "/images/Circle2-Logo-S.png";
   }
 
   if (/^(?:https?:)?\/\//i.test(cover) || /^data:image\//i.test(cover)) {
@@ -919,11 +919,11 @@ function renderCorrectionSection(show) {
       <div class="detail-correction-copy">
         <p class="detail-correction-kicker">Community archive care</p>
         <h2 id="detail-correction-title">Help keep this entry accurate.</h2>
-        <p>Spot a metadata issue, missing link, or verification problem? Listener and creator notes go into the manual review queue before anything changes.</p>
+        <p>Creators and listeners can submit factual corrections or missing details. Reports enter manual review before anything changes.</p>
       </div>
       <div class="detail-correction-action">
         <p class="detail-correction-action-label">Found something off?</p>
-        <p>Send the archive team the exact issue and any source links that make it easier to verify.</p>
+        <p>Use the correction form to send the exact issue, proposed value, extra context, and any source links that help verify it.</p>
         <a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("correction", show.id))}">Suggest a correction</a>
       </div>
     </section>

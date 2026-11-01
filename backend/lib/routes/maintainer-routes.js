@@ -504,6 +504,25 @@ function createMaintainerRouter({
     }
   });
 
+  router.post("/api/maintainer/imports/:id/external-identity", requireMaintainerSession, async (req, res, next) => {
+    try {
+      return res.status(202).json(await importService.verifyExternalIdentityForMaintainer(
+        req.params.id,
+        {
+          provider: req.body?.provider,
+          url: req.body?.url,
+          confirmedTitle: req.body?.confirmedTitle,
+          confirmedCreator: req.body?.confirmedCreator,
+          confirmedMatch: req.body?.confirmedMatch,
+          confirmedDescriptionMatch: req.body?.confirmedDescriptionMatch,
+        },
+        "authenticated-maintainer",
+      ));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
   router.post("/api/maintainer/imports/:id/publish", requireMaintainerSession, async (req, res, next) => {
     try {
       return res.json(await importService.publishForMaintainer(

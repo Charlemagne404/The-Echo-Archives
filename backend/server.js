@@ -28,6 +28,8 @@ const { createPopularityService } = require("./lib/popularity");
 const { createCommunityService } = require("./lib/services/community-service");
 const { createDataRetentionService } = require("./lib/services/data-retention-service");
 const { createImportService } = require("./lib/services/import-service");
+const { createEchoPublisher } = require("./lib/services/echo-publisher");
+const { createEchoPublisherControlServer } = require("./lib/services/echo-publisher-control");
 const { createCollectionService } = require("./lib/services/collection-service");
 const { createElevationService } = require("./lib/services/elevation-service");
 const { createRateLimitService } = require("./lib/services/rate-limit-service");
@@ -548,6 +550,17 @@ async function startServer() {
     config,
     onPublished: refreshCollectionsForCatalogChange,
   });
+  const echoPublisher = createEchoPublisher({
+    service: importService,
+    store: importStore,
+    staticRoot: config.STATIC_ROOT,
+    config,
+    getLiveCatalog: () => state.publicCatalog,
+    enforceProductionTarget: config.DEPLOYMENT_ENV === "production",
+  });
+  const publisherControl = config.DEPLOYMENT_ENV === "production"
+    ? createEchoPublisherControlServer({ publisher: echoPublisher })
+    : null;
   const elevationService = createElevationService({
     staticRoot: config.STATIC_ROOT,
     importService,
@@ -1524,6 +1537,10 @@ async function startServer() {
   const server = createBoundedHttpServer(app).listen(config.PORT, config.HOST, () => {
     console.log(`Echo Archives listening on http://${config.HOST}:${config.PORT}`);
   });
+  if (publisherControl) {
+    await publisherControl.start();
+    console.log("Echo Publisher local control socket is ready.");
+  }
 
   const internalHealthApp = express();
   internalHealthApp.disable("x-powered-by");
@@ -1560,7 +1577,7 @@ async function startServer() {
     }, 10_000);
     forceTimer.unref();
 
-    let remainingListeners = internalHealthServer ? 2 : 1;
+    let remainingListeners = 1 + Number(Boolean(internalHealthServer)) + Number(Boolean(publisherControl));
     const finishListenerClose = () => {
       remainingListeners -= 1;
       if (remainingListeners > 0) return;
@@ -1575,6 +1592,10 @@ async function startServer() {
 
     server.close(finishListenerClose);
     internalHealthServer?.close(finishListenerClose);
+    publisherControl?.close().then(finishListenerClose).catch((error) => {
+      console.error(`Echo Publisher control socket shutdown failed: ${error.message || error}`);
+      finishListenerClose();
+    });
     server.closeIdleConnections?.();
     internalHealthServer?.closeIdleConnections?.();
   }

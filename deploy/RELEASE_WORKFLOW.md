@@ -188,6 +188,82 @@ There is deliberately no checked-in public staging Caddy block. If a future
 second environment needs a public route, treat that as a separate host
 infrastructure decision; it is not part of an Echo application release.
 
+## Echo Publisher local operator path
+
+The CLI publisher is part of the application release, but its privileged host
+runner is installed separately. Deploy and verify the reviewed immutable
+release first, then install the runner from the same source tree:
+
+```bash
+./deploy/echo deploy <publisher-release-sha>
+sudo ./deploy/install-echo-publisher.sh
+```
+
+The installer requires the source runner and installer to match the active
+immutable production release, confirms the active production runtime overlay,
+and takes a shared lock against release operations. It installs a root-owned
+runner, a small `/usr/local/bin/echo-publisher` client wrapper, and one
+`sudoers` rule that permits only the runner with no command-line arguments.
+It adds the invoking account to `echo-publisher-operators`; start a new login
+session before use. It does not restart the service or change the catalogue.
+Repeat the installer after a release that changes either host-runner file.
+
+The application opens `/var/lib/echo-archives/echo-publisher.sock` as a
+mode-0600 Unix socket owned by the `echo-archives` service account. It is not a
+TCP listener or HTTP route. The host runner accepts a bounded command
+allowlist, derives the actor from `SUDO_USER`, checks group membership and the
+active production pointers, then calls the running service. It never reads or
+prints production secrets or opens SQLite itself. Its shared `flock` on
+`/srv/echo-archives/shared/state/deployment.lock` prevents a release switch
+while a plan, review, publication, or verification is running; the importer’s
+own `import-staging/publish.lock` continues to serialize publication against
+other importer publishers.
+
+Plans, approvals, review decisions, and receipts live under the active
+production overlay's `import-staging/echo-publisher/` directory. The release
+workflow carries `import-staging` into every new runtime overlay, and the
+off-site recovery inventory already includes importer staging. Each plan and
+approval is private, written once, and bound to its content digest. Applying a
+plan checks candidate revision/content hashes and the target catalogue
+snapshot again under the publication lock. The batch transaction policy is
+all eligible candidates atomic; blocked candidates are left out, and a failed
+batch is rolled back by the importer before retry.
+
+Typical operator flow:
+
+```bash
+echo-publisher plan --package /path/to/publication-package.json
+echo-publisher inspect <plan-id>
+echo-publisher apply <plan-id> --approve <plan-sha256> --review-facts --reviewer codex
+echo-publisher status <plan-id>
+echo-publisher verify <receipt-id>
+```
+
+Read the plan's sources, known/unknown fields, conflicts, readiness, update
+diff, and preserved editorial fields before using `--review-facts`. By default,
+the authorized local operator is recorded as factual reviewer. Use
+`--reviewer codex` only when Codex actually reviewed the source evidence; this
+records `delegate:codex` as reviewer and keeps the local operator as the
+separate authorization actor. Research output by itself does not stamp a
+review. To resolve an evidence conflict or confirm an external identity, use
+`echo-publisher resolve` with an explicit decisions file, inspect its new plan,
+then authorize that replacement plan. Plans become stale if candidate content
+or the target record changes. Create a fresh plan instead of retrying with a
+new digest.
+
+The receipt separately reports the atomic catalogue write, runtime/generated
+artifact checks, running-process check, and public `/data/shows.json` content
+check. A completed catalogue write with failed or pending public verification
+is not reported as a fully verified public publication. `status` is safe to
+repeat; `apply` on a completed plan performs verification only and does not add
+duplicate catalogue records. If an interrupted request committed the batch
+before a receipt was saved, the importer publication events let a retry
+reconstruct the missing receipt without writing again.
+
+This mechanism does not publish during deployment or host setup. Application
+code must be deployed and production service health verified before installing
+the host runner and authorizing the first batch.
+
 ## Status and diagnostics
 
 `./deploy/echo status` reports:

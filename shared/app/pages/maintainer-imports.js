@@ -17,7 +17,7 @@ import {
   retryMaintainerImportCandidate,
   reopenMaintainerImportCandidate,
   searchMaintainerImportSources,
-  selectMaintainerImportEvidence,
+  selectMaintainerImportEvidence, verifyMaintainerImportExternalIdentity,
   seedMaintainerImportCandidates,
 } from "../maintainer/api.js";
 import {
@@ -265,7 +265,7 @@ export async function initializeMaintainerImportsPage() {
           promoteElevation: promoteMaintainerElevationDraft,
           promote: promoteMaintainerImportCandidate,
           review: patchMaintainerImportCandidateReview,
-          selectEvidence: selectMaintainerImportEvidence,
+          selectEvidence: selectMaintainerImportEvidence, verifyExternalIdentity: verifyMaintainerImportExternalIdentity,
         },
       });
 
