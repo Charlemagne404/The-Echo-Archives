@@ -123,7 +123,7 @@ test("home browse keeps shareable state, restores scroll, highlights typo-tolera
           (image) =>
             image instanceof HTMLImageElement &&
             image.dataset.imageFallbackBound === "true" &&
-            !image.src.includes("/images/TEA-Logo-S.png"),
+            !image.src.includes("/images/Circle2-Logo-S.png"),
         ),
     );
     const fallbackState = await page.evaluate(() => {
@@ -131,7 +131,7 @@ test("home browse keeps shareable state, restores scroll, highlights typo-tolera
         (candidate) =>
           candidate instanceof HTMLImageElement &&
           candidate.dataset.imageFallbackBound === "true" &&
-          !candidate.src.includes("/images/TEA-Logo-S.png"),
+          !candidate.src.includes("/images/Circle2-Logo-S.png"),
       );
       if (!(image instanceof HTMLImageElement)) {
         return null;
@@ -147,7 +147,7 @@ test("home browse keeps shareable state, restores scroll, highlights typo-tolera
       };
     });
     assert.equal(fallbackState?.applied, true);
-    assert.equal(fallbackState?.attributeSrc, "/images/TEA-Logo-S.png");
+    assert.equal(fallbackState?.attributeSrc, "/images/Circle2-Logo-S.png");
 
     await page.locator("#search").fill("derelct");
     await page.waitForFunction(

@@ -1,10 +1,10 @@
 export const correctionModeConfig = {
-  heroDescription: "Submit a show, send a factual correction, share a listener review, or request creator verification.",
+  heroDescription: "Submit a show, send a factual correction or missing metadata, share a listener review, or request creator verification.",
   cardTitle: "Suggest a correction",
-  cardDescription: "Fix factual data on a show or creator page.",
+  cardDescription: "Creators and listeners can report factual errors or add missing show details.",
   cardIcon: "mode-correction",
   introTitle: "Correction",
-  introDescription: "Tell us what is wrong and include the evidence we need.",
+  introDescription: "Tell us what is wrong or missing; include a proposed value and source links when available.",
   introIcon: "document",
   submitLabel: "Submit correction",
   footerNote: "Next: evidence is checked against the current archive entry.",

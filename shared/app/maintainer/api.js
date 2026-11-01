@@ -223,6 +223,13 @@ export async function selectMaintainerImportEvidence(id, payload = {}) {
   });
 }
 
+export async function verifyMaintainerImportExternalIdentity(id, payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/${encodeURIComponent(id)}/external-identity`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
 export async function auditMaintainerImportCatalog(payload = {}) {
   return requestJson(`${MAINTAINER_API_ROOT}/imports/audit`, {
     method: "POST",

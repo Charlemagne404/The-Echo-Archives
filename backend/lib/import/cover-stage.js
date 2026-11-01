@@ -105,6 +105,7 @@ async function stageCover({
 }) {
   const failures = [];
   const sources = mergeUniqueStrings(coverSources.map((source) => source?.url || source).filter(Boolean));
+  const sourceTypeFor = (url) => coverSources.find((source) => normalizeUrl(source?.url || source) === normalizeUrl(url))?.sourceType || "";
   for (const url of sources) {
     try {
       const { response, buffer, resolvedUrl } = await fetchBufferWithLimits(fetchImpl, url, {
@@ -125,6 +126,7 @@ async function stageCover({
       fs.writeFileSync(filePath, buffer);
       return {
         ready: true,
+        sourceType: sourceTypeFor(url),
         sourceUrl: normalizeUrl(resolvedUrl || url),
         stagedPath: filePath,
         ...inspection,
