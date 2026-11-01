@@ -1,5 +1,6 @@
 import { formatDateTime, renderBadge, renderLabeledLink } from "../maintainer/format.js";
 import { renderQuickDetailsEditor } from "./details-editor.js";
+import { renderEditorialRecommendations } from "./editorial-recommendations.js";
 import { renderImportReadiness } from "./readiness.js";
 import {
   buildImportPreview,
@@ -179,6 +180,7 @@ function renderObjectiveSection(candidate) {
         ${objective.rssUrl ? renderLabeledLink("Open RSS", objective.rssUrl) : ""}
         ${objective.appleUrl ? renderLabeledLink("Open Apple page", objective.appleUrl) : ""}
         ${objective.spotifyUrl ? renderLabeledLink("Open Spotify", objective.spotifyUrl) : ""}
+        ${objective.amazonMusicUrl ? renderLabeledLink("Open Amazon Music listing", objective.amazonMusicUrl) : ""}
         ${objective.websiteUrl ? renderLabeledLink("Open website", objective.websiteUrl) : ""}
         ${objective.patreonUrl ? renderLabeledLink("Open Patreon", objective.patreonUrl) : ""}
         ${objective.discordUrl ? renderLabeledLink("Open Discord", objective.discordUrl) : ""}
@@ -260,6 +262,7 @@ function renderPreparedRecord(candidate) {
         ["Update changes", candidate.readiness?.updateDiff?.length || ""],
       ])}
       <p>${escapeHtml(record.description || "")}</p>
+      ${renderEditorialRecommendations(record)}
       <details class="maintainer-raw-data"><summary>Preview complete JSON</summary><pre>${escapeHtml(JSON.stringify(record, null, 2))}</pre></details>
     </section>
   `;
@@ -366,6 +369,9 @@ export function renderImportDetailPane({ candidate = null, storedReviewer = "" }
             <button type="button" class="maintainer-ghost-button" data-import-action="reject">Reject</button>
             <button type="button" class="maintainer-ghost-button" data-import-action="duplicate">Mark duplicate</button>
           `}
+        ${candidate.objective?.amazonMusicUrl && !candidate.objective?.externalIdentity?.verified && !["published", "duplicate", "rejected"].includes(candidate.status)
+          ? `<button type="button" class="maintainer-ghost-button" data-import-action="verify-amazon-music-identity" data-external-identity-url="${escapeHtml(candidate.objective.externalIdentityProposal?.url || candidate.objective.amazonMusicUrl)}" data-external-identity-title="${escapeHtml(candidate.objective.externalIdentityProposal?.title || candidate.objective.title || candidate.title || "")}" data-external-identity-creator="${escapeHtml(candidate.objective.externalIdentityProposal?.creatorName || candidate.objective.creatorName || candidate.creatorName || "")}" data-external-identity-description="${escapeHtml(candidate.objective.externalIdentityProposal?.description || "")}">Verify Amazon Music identity</button>`
+          : ""}
         ${candidate.status === "ready" && importedEligible ? '<button type="button" class="maintainer-primary-button" data-import-action="publish-imported">Publish as Imported</button>' : ""}
         ${candidate.status === "ready" && indexedEligible && isElevationUpdate ? '<button type="button" class="maintainer-primary-button" data-import-action="promote-elevation">Promote fact-checked update</button>' : ""}
         ${candidate.status === "ready" && indexedEligible && !isElevationUpdate ? '<button type="button" class="maintainer-primary-button" data-import-action="publish-indexed">Publish as indexed-only</button>' : ""}

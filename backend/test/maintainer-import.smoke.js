@@ -47,6 +47,18 @@ function createCandidate(overrides = {}) {
       releaseStatus: "active",
       completionStatus: "unclear",
       listenLinks: { rss: "https://example.com/feed.xml" },
+      metadata: {
+        import: {
+          editorialRecommendations: {
+            status: "pending-maintainer-review",
+            genres: ["horror"],
+            formats: ["serialized"],
+            tags: ["Gothic"],
+            rationale: "The official summary describes a continuous gothic horror serial.",
+            sources: ["https://example.com/about"],
+          },
+        },
+      },
     },
     readiness: {
       ready: true,
@@ -130,7 +142,7 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
       verificationAssetRequests.push(request.url());
     }
   });
-  const calls = { evidence: 0, publish: 0, retry: 0, review: 0, reviewDraft: 0, seed: 0, rerunAll: 0, lastReviewPayload: null, lastPublishPayload: null, lastReviewDraftPayload: null };
+  const calls = { evidence: 0, externalIdentity: 0, externalIdentityPayload: null, publish: 0, retry: 0, review: 0, reviewDraft: 0, seed: 0, rerunAll: 0, lastReviewPayload: null, lastPublishPayload: null, lastReviewDraftPayload: null };
   const candidates = [
     createCandidate(),
     createCandidate({
@@ -138,6 +150,19 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
       status: "needs-review",
       title: "Ambiguous Signal",
       seedQuery: "Ambiguous Signal",
+      objective: {
+        title: "Archive: Ambiguous Signal",
+        creatorName: "Signal Studio",
+        description: "A factual audio-fiction description for the verification action.",
+        amazonMusicUrl: "https://music.amazon.co.uk/podcasts/3c2ab8bc-6eda-429e-b320-01d6bdcf5a61/ambiguous-signal",
+        externalIdentityProposal: {
+          provider: "amazon-music",
+          title: "Ambiguous Signal",
+          creatorName: "Signal Studio",
+          description: "Official listing description proposed for exact source comparison.",
+          url: "https://music.amazon.co.uk/podcasts/3c2ab8bc-6eda-429e-b320-01d6bdcf5a61/ambiguous-signal",
+        },
+      },
       readiness: {
         ready: false,
         blockers: [{ code: "source-conflict", field: "title", message: "Official sources disagree on the title." }],
@@ -202,6 +227,11 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
       if (method === "POST" && pathname.endsWith("/evidence")) {
         calls.evidence += 1;
         return respond({ runId: "run-evidence", candidateIds: ["blocked-1"] }, 202);
+      }
+      if (method === "POST" && pathname.endsWith("/external-identity")) {
+        calls.externalIdentity += 1;
+        calls.externalIdentityPayload = JSON.parse(request.postData() || "{}");
+        return respond({ runId: "run-external-identity", candidateIds: ["blocked-1"] }, 202);
       }
       if (method === "POST" && pathname.endsWith("/retry")) {
         calls.retry += 1;
@@ -354,6 +384,29 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     await page.waitForFunction(() => document.activeElement?.id === "maintainerDetailHeading");
     await page.getByText("Preparation blockers", { exact: true }).waitFor();
     assert.match(await page.locator("#maintainerDetail").innerText(), /Official sources disagree on the title/);
+    let identityConfirmation = "";
+    page.once("dialog", async (dialog) => {
+      identityConfirmation = dialog.message();
+      await dialog.dismiss();
+    });
+    await page.getByRole("button", { name: "Verify Amazon Music identity" }).click();
+    assert.match(identityConfirmation, /Check the official Amazon Music listing/);
+    assert.match(identityConfirmation, /Title: Ambiguous Signal/);
+    assert.match(identityConfirmation, /Creator: Signal Studio/);
+    assert.match(identityConfirmation, /Description: Official listing description proposed for exact source comparison\./);
+    assert.equal(calls.externalIdentity, 0);
+    page.once("dialog", (dialog) => dialog.accept());
+    await page.getByRole("button", { name: "Verify Amazon Music identity" }).click();
+    await page.waitForFunction(() => document.querySelector("#maintainerDetailMeta")?.textContent?.includes("Needs Review"));
+    assert.equal(calls.externalIdentity, 1);
+    assert.deepEqual(calls.externalIdentityPayload, {
+      provider: "amazon-music",
+      url: "https://music.amazon.co.uk/podcasts/3c2ab8bc-6eda-429e-b320-01d6bdcf5a61/ambiguous-signal",
+      confirmedTitle: "Ambiguous Signal",
+      confirmedCreator: "Signal Studio",
+      confirmedMatch: true,
+      confirmedDescriptionMatch: true,
+    });
     await page.getByRole("button", { name: "Back to queue" }).click();
     await page.waitForFunction(() => document.activeElement?.id === "maintainerListHeading");
     await page.locator('[data-import-evidence-id="21"]').click();
@@ -371,6 +424,9 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
         document.querySelector("#maintainerImportReviewForm")?.getAttribute("data-import-candidate-id") === "ready-1" &&
         document.querySelector("#maintainerDetailMeta")?.textContent?.includes("Ready"),
     );
+    await page.getByRole("heading", { name: "Editorial recommendations" }).waitFor();
+    assert.match(await page.locator("#maintainerDetail").innerText(), /These values are staged for your review/);
+    assert.match(await page.locator("#maintainerDetail").innerText(), /Review pending/);
     await page.locator("[data-import-verification-response]").fill(JSON.stringify({
       verified: { title: "Signal Test", tags: ["Science Fiction", "Space"] },
       enrichment: {

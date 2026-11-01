@@ -121,6 +121,53 @@ function isValidDateValue(value = "") {
   return Number.isFinite(timestamp);
 }
 
+function isProvisionalIndexedEntry(record = {}) {
+  const importer = record.metadata?.import || {};
+  const publication = importer.publication || {};
+  const factualReview = importer.factualReview || {};
+  const scopeReview = importer.scopeReview || {};
+  const identifiers = importer.identifiers || {};
+  const revision = Number(factualReview.inputRevision);
+  const supportedIdentity = [
+    identifiers.podcastGuid,
+    identifiers.rssUrl,
+    identifiers.appleCollectionId,
+    identifiers.podcastIndexFeedId,
+    identifiers.amazonMusicId,
+  ].some((value) => String(value || "").trim());
+  const hasSourceProvenance = Array.isArray(importer.selectedSources) && importer.selectedSources.some((source) => {
+    const url = String(source?.sourceUrl || "").trim();
+    return Boolean(url) && isValidUrl(url);
+  });
+  const hasScopeEvidence = Array.isArray(scopeReview.evidenceSources) && scopeReview.evidenceSources.some((source) => {
+    const url = String(source || "").trim();
+    return Boolean(url) && isValidUrl(url);
+  });
+
+  return Boolean(
+    record.status === "published" &&
+    record.reviewStatus === "indexed-only" &&
+    publication.provisional === true &&
+    isValidDateValue(factualReview.reviewedAt) &&
+    String(factualReview.reviewedBy || "").trim() &&
+    Number.isInteger(revision) && revision >= 0 &&
+    scopeReview.status === "in-scope" &&
+    scopeReview.inputRevision === revision &&
+    scopeReview.reviewedAt === factualReview.reviewedAt &&
+    scopeReview.reviewedBy === factualReview.reviewedBy &&
+    supportedIdentity &&
+    hasSourceProvenance &&
+    hasScopeEvidence,
+  );
+}
+
+function validateProvisionalPublication(record = {}) {
+  const publication = record.metadata?.import?.publication || {};
+  if (publication.provisional === true && !isProvisionalIndexedEntry(record)) {
+    throw new Error(`Show "${record.id}" has an incomplete provisional publication review record.`);
+  }
+}
+
 function isValidSlug(value = "") {
   return typeof value === "string" && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value);
 }
@@ -326,12 +373,13 @@ function validateDiscoveryTags(record) {
 
 function validatePublishedDiscoveryMetadata(record) {
   if (record.status !== "published") return;
+  const provisional = isProvisionalIndexedEntry(record);
 
-  if (isPlaceholderDescription(record.title, record.description)) {
+  if (!provisional && isPlaceholderDescription(record.title, record.description)) {
     throw new Error(`Show "${record.id}" needs a source-backed description of at least ${MIN_PUBLISHED_DESCRIPTION_LENGTH} characters before publication.`);
   }
 
-  if (!Array.isArray(record.genres) || record.genres.length === 0) {
+  if (!provisional && (!Array.isArray(record.genres) || record.genres.length === 0)) {
     throw new Error(`Show "${record.id}" needs at least one canonical genre before publication.`);
   }
 
@@ -352,7 +400,7 @@ function validatePublishedDiscoveryMetadata(record) {
   // replacing the missing fact with an invented discovery signal. New imports
   // still use the stricter readiness gate in draft.js.
   const rssNarrativeFormatRemoved = record.metadata?.import?.fields?.formats?.method === "removed-rss-feed-type";
-  if (discoverySignals.size < MIN_PUBLISHED_DISCOVERY_SIGNALS && !rssNarrativeFormatRemoved) {
+  if (!provisional && discoverySignals.size < MIN_PUBLISHED_DISCOVERY_SIGNALS && !rssNarrativeFormatRemoved) {
     throw new Error(`Show "${record.id}" needs at least ${MIN_PUBLISHED_DISCOVERY_SIGNALS} approved discovery signals across genres, formats, or tags before publication.`);
   }
 
@@ -419,7 +467,7 @@ function validateShowRecord(record, seenIds) {
     throw new Error(`Show "${record.id}" is missing a title.`);
   }
 
-  if (typeof record.description !== "string" || !record.description.trim()) {
+  if (typeof record.description !== "string" || !record.description.trim() && !isProvisionalIndexedEntry(record)) {
     throw new Error(`Show "${record.id}" is missing a description.`);
   }
 
@@ -445,6 +493,7 @@ function validateShowRecord(record, seenIds) {
 
   SHOW_STRING_ARRAY_FIELDS.forEach((fieldName) => validateArrayOfStrings("Show", record.id, fieldName, record[fieldName]));
   validateOptionalObjects(record, "Show");
+  validateProvisionalPublication(record);
   validateDiscoveryProfile(record);
   validateTextMap("Show", record.id, "similarReasons", record.similarReasons);
   validatePublishedDiscoveryMetadata(record);

@@ -18,10 +18,13 @@ const {
 } = require("../../../shared/archive-tags");
 const {
   appleCollectionIdFromUrl,
+  CANONICAL_GENRES,
   isNonWebsiteUrl,
   isPlaceholderDescription,
 } = require("../../../shared/archive-quality");
 const { buildImportedProvenance } = require("../../../tools/lib/catalog-provenance");
+const { isVerifiedAmazonMusicIdentity } = require("./adapters/amazon-music");
+const { PLACEHOLDER_COVER } = require("../cover-sync");
 
 const HUMAN_OWNED_FIELDS = [
   "ratings", "archiveTake", "spoilerFreeReview", "thoughts", "tones", "bestFor",
@@ -56,6 +59,9 @@ function managedFingerprints(record) {
 }
 
 function releaseState(objective = {}) {
+  if (objective.manualReleaseState === "unknown") {
+    return { releaseStatus: "unknown", completionStatus: "unclear", method: "maintainer-unknown", confidence: 0 };
+  }
   if (objective.manualReleaseState === "finished") {
     return { releaseStatus: "completed", completionStatus: "finished", method: "maintainer-edit", confidence: 1 };
   }
@@ -82,6 +88,11 @@ function formatLanguage(value = "") {
 function buildLengthData(objective = {}) {
   const counts = objective.episodeCounts || {};
   const episodes = Number(counts.full ?? objective.episodeCount);
+  const hasEpisodeCounts = objective.episodeCounts && ["full", "bonus", "trailer"].some((key) => {
+    const value = objective.episodeCounts[key];
+    return value !== null && value !== undefined && value !== "" && Number.isFinite(Number(value));
+  });
+  const hasEpisodeTotal = objective.episodeCount !== null && objective.episodeCount !== undefined && objective.episodeCount !== "" && Number.isFinite(Number(objective.episodeCount));
   const seasons = Number(objective.seasonCount);
   const average = Number(objective.avgEpisodeMinutes);
   const median = Number(objective.medianEpisodeMinutes);
@@ -101,12 +112,16 @@ function buildLengthData(objective = {}) {
     ...(Number.isFinite(Number(objective.totalObservedHours)) ? { totalObservedHours: Number(objective.totalObservedHours) } : {}),
     ...(Number.isFinite(Number(objective.durationCoverage)) ? { durationCoverage: Number(objective.durationCoverage) } : {}),
     ...(Array.isArray(objective.seasonsObserved) && objective.seasonsObserved.length ? { observedSeasons: objective.seasonsObserved } : {}),
-    countQualifier: counts.exact || objective.episodeCountExact ? "exact" : "at-least",
-    episodeCounts: {
-      full: Number(counts.full) || 0,
-      bonus: Number(counts.bonus) || 0,
-      trailer: Number(counts.trailer) || 0,
-    },
+    countQualifier: !hasEpisodeCounts && !hasEpisodeTotal
+      ? "unknown"
+      : counts.exact || objective.episodeCountExact ? "exact" : "at-least",
+    ...(hasEpisodeCounts ? {
+      episodeCounts: {
+        full: Number(counts.full) || 0,
+        bonus: Number(counts.bonus) || 0,
+        trailer: Number(counts.trailer) || 0,
+      },
+    } : {}),
   };
 }
 
@@ -179,6 +194,29 @@ function reviewedDiscoveryTagSelection(objective = {}) {
   };
 }
 
+function normalizeEditorialRecommendations(objective = {}) {
+  const input = objective.editorialRecommendations;
+  if (!input || typeof input !== "object" || Array.isArray(input)) return null;
+  const fieldSources = Object.fromEntries(["genres", "formats", "tags", "releaseStatus", "completionStatus"].map((fieldName) => [
+    fieldName,
+    mergeUniqueStrings(input.fieldSources?.[fieldName] || []),
+  ]));
+  const genres = mergeUniqueStrings(input.genres || []).map((value) => value.toLowerCase()).filter((value) => CANONICAL_GENRES.has(value));
+  const formats = mergeUniqueStrings(input.formats || []);
+  const tags = normalizeDiscoveryTags(input.tags || []);
+  return {
+    status: "pending-maintainer-review",
+    genres,
+    formats,
+    tags,
+    releaseStatus: objective.manualReleaseState === "unknown" ? "" : ["active", "completed", "cancelled", "unknown"].includes(input.releaseStatus) ? input.releaseStatus : "",
+    completionStatus: objective.manualReleaseState === "unknown" ? "" : ["ongoing", "finished", "cancelled", "unclear"].includes(input.completionStatus) ? input.completionStatus : "",
+    rationale: trimText(input.rationale, 2_000),
+    fieldSources,
+    sources: mergeUniqueStrings(input.sources || [], ...Object.values(fieldSources)),
+  };
+}
+
 function reviewedDiscoveryTags(objective = {}) {
   return reviewedDiscoveryTagSelection(objective).approved;
 }
@@ -227,8 +265,14 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
   const showId = candidate.existingShowId || candidate.draftedShowId || ensureUniqueShowId(shows, title);
   const people = peopleByRole(objective);
   const state = releaseState(objective);
+  const editorial = normalizeEditorialRecommendations(objective);
+  const editorialReleaseStatus = editorial?.releaseStatus || "";
+  const editorialCompletionStatus = editorial?.completionStatus || "";
+  const preparedReleaseStatus = editorialReleaseStatus || state.releaseStatus;
+  const preparedCompletionStatus = editorialCompletionStatus || state.completionStatus;
   const categories = mergeUniqueStrings(objective.categories || []);
-  const genres = mergeUniqueStrings(categories.map(mapCategoryToGenre).filter(Boolean));
+  const sourceGenres = mergeUniqueStrings(categories.map(mapCategoryToGenre).filter(Boolean));
+  const genres = sourceGenres;
   const tagSelection = reviewedDiscoveryTagSelection(objective);
   const tags = tagSelection.approved;
   const tagProvenance = sourceTagProvenance(candidate, tags);
@@ -236,10 +280,7 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
   const language = formatLanguage(objective.language);
   const transcriptLanguages = mergeUniqueStrings((objective.transcripts?.languages || []).map(formatLanguage).filter(Boolean));
   const sourceFormats = mapSourceFormats({ categories, keywords: objective.keywords || [] });
-  const formats = mergeUniqueStrings([
-    ...(enrichment.formats || []),
-    ...sourceFormats,
-  ].filter(Boolean));
+  const formats = mergeUniqueStrings(enrichment.formats || [], sourceFormats);
   const unsupportedRssNarrativeFormat = !formats.length && ["episodic", "serial"].includes(String(objective.feedType || "").toLowerCase());
   const listenLinks = {
     start: normalizeUrl(objective.startUrl || ""),
@@ -267,7 +308,10 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
   if (!people.people.length) optionalGaps.push("Structured creator/cast/production credits were not exposed by the sources.");
   if (!objective.transcripts?.episodeCount) optionalGaps.push("No structured transcript links were exposed by the feed.");
   if (!objective.episodeCount) optionalGaps.push("No full-episode total was available.");
-  if (state.releaseStatus === "unknown") optionalGaps.push("Release status remains unknown; old or dead feeds are not treated as cancelled or complete.");
+  if (state.releaseStatus === "unknown" && !editorialReleaseStatus) optionalGaps.push("Release status remains unknown; old or dead feeds are not treated as cancelled or complete.");
+  if (state.completionStatus === "unclear" && !editorialCompletionStatus) optionalGaps.push("Completion status remains unclear until an authoritative source confirms the show's ending.");
+  if (objective.deferredFields?.explicit) optionalGaps.push(`Explicit status remains unknown pending review: ${trimText(objective.deferredFields.explicit.reason || "conflicting sources", 600)}`);
+  if (editorial) optionalGaps.push("Editorial discovery recommendations are staged for maintainer review; they are not verified facts or signed approvals.");
   if (!listenLinks.spotify) optionalGaps.push("No exact Spotify show URL was found on the official site.");
   const researchGaps = mergeUniqueStrings(
     Array.isArray(objective.researchGaps) ? objective.researchGaps : [],
@@ -278,14 +322,16 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
     title,
     subtitle: trimText(objective.manualSubtitle || objective.subtitle, 240),
     description: trimText(objective.description, 4_000),
-    cover: candidate.coverStage?.ready
-      ? candidate.coverStage.existingRelativePath || `images/covers/${showId}${candidate.coverStage.extension}`
-      : "",
-    coverAlt: `${title} cover art`,
+    cover: candidate.coverStage?.omittedForRights
+      ? PLACEHOLDER_COVER
+      : candidate.coverStage?.ready
+        ? candidate.coverStage.existingRelativePath || `images/covers/${showId}${candidate.coverStage.extension}`
+        : "",
+    coverAlt: candidate.coverStage?.omittedForRights ? "Echo Archives placeholder artwork" : `${title} cover art`,
     status: "published",
     reviewStatus: "imported",
-    releaseStatus: state.releaseStatus,
-    completionStatus: state.completionStatus,
+    releaseStatus: preparedReleaseStatus,
+    completionStatus: preparedCompletionStatus,
     listenLinks,
     genres,
     tones: mergeUniqueStrings(enrichment.tones || []),
@@ -376,6 +422,7 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
       import: {
         pipelineVersion: candidate.pipelineVersion || "2",
         identifiers: {
+          amazonMusicId: trimText(objective.amazonMusicId || (isVerifiedAmazonMusicIdentity(objective) ? objective.externalIdentity.id : ""), 100),
           podcastGuid: trimText(objective.podcastGuid, 240),
           rssUrl: normalizeUrl(objective.rssUrl || ""),
           appleCollectionId: trimText(objective.appleCollectionId, 80),
@@ -383,12 +430,39 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
           feedRedirects: mergeUniqueStrings(objective.feedRedirects || []),
         },
         selectedSources: sourceReferences,
+        ...(candidate.coverStage?.omittedForRights ? {
+          artworkDisposition: {
+            status: "omitted-rights-not-established",
+            sourceType: candidate.coverStage.sourceType || "",
+            sourceUrl: candidate.coverStage.sourceUrl || "",
+            publishedCover: PLACEHOLDER_COVER,
+          },
+        } : {}),
+        ...(isVerifiedAmazonMusicIdentity(objective) ? {
+          externalIdentity: {
+            provider: "amazon-music",
+            id: objective.externalIdentity.id,
+            url: objective.externalIdentity.url,
+            verified: true,
+            verifiedAt: objective.externalIdentity.verifiedAt,
+          },
+        } : {}),
         ...(tagSelection.proposals.length ? { taxonomyProposals: tagSelection.proposals } : {}),
         ...(objective.externalResearch ? { externalResearch: objective.externalResearch } : {}),
+        ...(objective.deferredFields ? { deferredFields: objective.deferredFields } : {}),
+        ...(editorial ? { editorialRecommendations: editorial } : {}),
         fields: {
           ...(candidate.provenance?.fields || {}),
-          releaseStatus: { confidence: state.confidence, method: state.method, sources: [] },
-          completionStatus: { confidence: state.confidence, method: state.method, sources: [] },
+          releaseStatus: objective.manualReleaseState === "unknown"
+            ? { confidence: 0, method: "maintainer-unknown", sources: [] }
+            : editorialReleaseStatus
+            ? { confidence: 0.7, method: "editorial-recommendation", sources: editorial.fieldSources.releaseStatus.map((sourceUrl) => ({ sourceType: "editorial-recommendation", sourceUrl })) }
+            : { confidence: state.confidence, method: state.method, sources: [] },
+          completionStatus: objective.manualReleaseState === "unknown"
+            ? { confidence: 0, method: "maintainer-unknown", sources: [] }
+            : editorialCompletionStatus
+            ? { confidence: 0.7, method: "editorial-recommendation", sources: editorial.fieldSources.completionStatus.map((sourceUrl) => ({ sourceType: "editorial-recommendation", sourceUrl })) }
+            : { confidence: state.confidence, method: state.method, sources: [] },
           ...(genreProvenance ? { genres: genreProvenance } : {}),
           ...(tagProvenance ? { tags: tagProvenance } : {}),
           ...(formats.length ? { formats: {
@@ -426,20 +500,32 @@ function evaluateReadiness({ candidate, preparedRecord }) {
   const warnings = [...(preparedRecord.metadata?.import?.optionalGaps || [])];
   const fields = candidate.provenance?.fields || {};
   const objective = candidate.objective || {};
-  const stableIdentity = Boolean(objective.podcastGuid || objective.rssUrl || objective.appleCollectionId || objective.podcastIndexFeedId);
+  const stableIdentity = Boolean(objective.podcastGuid || objective.rssUrl || objective.appleCollectionId || objective.podcastIndexFeedId || isVerifiedAmazonMusicIdentity(objective));
   const listenValues = Object.values(preparedRecord.listenLinks || {}).filter((value) => normalizeUrl(value));
   const successfulSourceUrls = new Set((candidate.sources || []).filter((source) => ["fetched", "success", "not-modified", "cache-hit"].includes(source.fetchStatus)).map((source) => normalizeUrl(source.sourceUrl)));
   const workingListenLink = listenValues.some((url) => successfulSourceUrls.has(normalizeUrl(url))) || Boolean(objective.appleUrl && (candidate.sources || []).some((source) => source.sourceType === "apple" && source.fetchStatus !== "failed"));
   if (!stableIdentity) blockers.push({ code: "missing-identity", field: "identity", message: "No stable RSS, Podcast GUID, Apple, or Podcast Index identity was resolved." });
   if (!preparedRecord.title || (fields.title?.confidence || 0) < 0.75) blockers.push({ code: "weak-title", field: "title", message: "A title with at least 0.75 confidence is required." });
-  if (!preparedRecord.description || (fields.description?.confidence || 0) < 0.75) blockers.push({ code: "weak-description", field: "description", message: "A trustworthy official description with at least 0.75 confidence is required." });
-  else if (isPlaceholderDescription(preparedRecord.title, preparedRecord.description)) blockers.push({ code: "placeholder-description", field: "description", message: "The official description is too short or only repeats the show title." });
+  const descriptionNeedsReview = !preparedRecord.description || (fields.description?.confidence || 0) < 0.75 || isPlaceholderDescription(preparedRecord.title, preparedRecord.description);
+  if (descriptionNeedsReview) warnings.push({
+    code: "description-incomplete",
+    field: "description",
+    message: "Description is missing, short, or weakly sourced; provisional publication can proceed with it blank, while Imported publication still requires a source-backed description.",
+  });
   const taxonomyProposals = preparedRecord.metadata?.import?.taxonomyProposals || [];
   if (taxonomyProposals.length) {
     warnings.push({
       code: "taxonomy-proposals",
       field: "tags",
       message: `These tags are kept as taxonomy proposals and excluded from public discovery until approved: ${taxonomyProposals.map((proposal) => proposal.label).join(", ")}.`,
+    });
+  }
+  const editorial = preparedRecord.metadata?.import?.editorialRecommendations;
+  if (editorial?.status === "pending-maintainer-review") {
+    warnings.push({
+      code: "editorial-recommendation-review",
+      field: "genres/formats/tags/releaseStatus/completionStatus",
+      message: "Editorial recommendations are staged in the draft and need maintainer review; they do not mark factual review or approval.",
     });
   }
   const discoverySignals = new Set([
@@ -453,15 +539,20 @@ function evaluateReadiness({ candidate, preparedRecord }) {
   // explicitly unclassified.
   const unsupportedRssNarrativeFormat = !preparedRecord.formats?.length
     && ["episodic", "serial"].includes(String(objective.feedType || "").toLowerCase());
-  if (discoverySignals.size < MIN_PUBLISHED_DISCOVERY_SIGNALS && !unsupportedRssNarrativeFormat) blockers.push({ code: "insufficient-discovery-signals", field: "tags", message: `At least ${MIN_PUBLISHED_DISCOVERY_SIGNALS} approved discovery signals across genres, formats, or tags are required.` });
-  if ((preparedRecord.genres || []).length === 0) blockers.push({ code: "missing-genre", field: "genres", message: "At least one canonical source-supported genre is required." });
+  const sparseDiscovery = discoverySignals.size < MIN_PUBLISHED_DISCOVERY_SIGNALS && !unsupportedRssNarrativeFormat;
+  if (sparseDiscovery || (preparedRecord.genres || []).length === 0) warnings.push({
+    code: "discovery-metadata-incomplete",
+    field: "genres/formats/tags",
+    message: "Provisional publication can proceed without a genre, format, or discovery tag; these fields remain empty until verified or editorially approved.",
+  });
   if ([preparedRecord.listenLinks?.website, preparedRecord.officialLinks?.website].filter(Boolean).some(isNonWebsiteUrl)) blockers.push({ code: "invalid-website", field: "websiteUrl", message: "A social or support profile cannot be used as the official website." });
   const expectedAppleId = String(objective.appleCollectionId || "").trim();
   const linkedAppleId = appleCollectionIdFromUrl(preparedRecord.listenLinks?.apple);
   if (expectedAppleId && preparedRecord.listenLinks?.apple && linkedAppleId !== expectedAppleId) {
     blockers.push({ code: "invalid-apple-link", field: "appleUrl", message: `The Apple listen link does not match imported collection id "${expectedAppleId}".` });
   }
-  if (!candidate.coverStage?.ready || !preparedRecord.cover) blockers.push({ code: "cover-not-ready", field: "cover", message: "A valid square local cover of at least 600px must be staged." });
+  const usesRightsSafePlaceholder = candidate.coverStage?.omittedForRights === true && preparedRecord.cover === PLACEHOLDER_COVER;
+  if ((!candidate.coverStage?.ready && !usesRightsSafePlaceholder) || !preparedRecord.cover) blockers.push({ code: "cover-not-ready", field: "cover", message: "A valid square local cover or the explicit Echo placeholder decision is required." });
   if (listenValues.length === 0) blockers.push({ code: "missing-listen-link", field: "listenLinks", message: "At least one listen link is required." });
   else if (!workingListenLink) blockers.push({ code: "unverified-listen-link", field: "listenLinks", message: "No listen link was confirmed by a successful source fetch." });
   if (![preparedRecord.releaseDates?.first, preparedRecord.releaseDates?.latest].every(validDateOrBlank)) blockers.push({ code: "invalid-date", field: "releaseDates", message: "Release dates are invalid." });
@@ -469,6 +560,9 @@ function evaluateReadiness({ candidate, preparedRecord }) {
   (candidate.conflicts || []).filter((conflict) => conflict.blocking).forEach((conflict) => blockers.push({ code: "source-conflict", field: conflict.fieldName, message: conflict.message }));
   if (candidate.hasDuplicateMatch && candidate.mode !== "update") blockers.push({ code: "duplicate-ambiguity", field: "identity", message: "A possible duplicate must be resolved before publication." });
   const importedBlockers = [...blockers];
+  if (descriptionNeedsReview) importedBlockers.push({ code: "import-description", field: "description", message: "Imported publication requires a complete source-backed description." });
+  if (sparseDiscovery) importedBlockers.push({ code: "import-discovery-metadata", field: "genres/formats/tags", message: `Imported publication requires at least ${MIN_PUBLISHED_DISCOVERY_SIGNALS} approved discovery signals.` });
+  if ((preparedRecord.genres || []).length === 0) importedBlockers.push({ code: "import-genre", field: "genres", message: "Imported publication requires at least one source-backed canonical genre." });
   const trustedCoreFields = ["title", "description"];
   trustedCoreFields.forEach((fieldName) => {
     const evidence = fields[fieldName] || {};
@@ -481,7 +575,7 @@ function evaluateReadiness({ candidate, preparedRecord }) {
   });
   ["genres", "tags", "formats"].forEach((fieldName) => {
     const evidence = preparedRecord.metadata?.import?.fields?.[fieldName];
-    if ((preparedRecord[fieldName] || []).length > 0 && /maintainer|reviewed|manual|suggestion|unstructured/i.test(String(evidence?.method || ""))) {
+    if ((preparedRecord[fieldName] || []).length > 0 && /maintainer|reviewed|manual|suggestion|unstructured|recommendation/i.test(String(evidence?.method || ""))) {
       importedBlockers.push({
         code: "import-curated-discovery",
         field: fieldName,
@@ -489,7 +583,17 @@ function evaluateReadiness({ candidate, preparedRecord }) {
       });
     }
   });
-  const exactIdentityFields = ["rssUrl", "podcastGuid", "appleCollectionId", "podcastIndexFeedId"];
+  ["releaseStatus", "completionStatus"].forEach((fieldName) => {
+    const evidence = preparedRecord.metadata?.import?.fields?.[fieldName];
+    if (evidence?.method === "editorial-recommendation") {
+      importedBlockers.push({
+        code: "import-curated-release-state",
+        field: fieldName,
+        message: `${fieldName} is an editorial recommendation and needs maintainer review before Imported publication.`,
+      });
+    }
+  });
+  const exactIdentityFields = ["rssUrl", "podcastGuid", "appleCollectionId", "podcastIndexFeedId", "amazonMusicId"];
   const exactIdentity = exactIdentityFields.some((fieldName) => {
     if (!objective[fieldName]) return false;
     const evidence = fields[fieldName] || {};
@@ -530,7 +634,7 @@ function evaluateReadiness({ candidate, preparedRecord }) {
       stableIdentity,
       title: Boolean(preparedRecord.title),
       description: Boolean(preparedRecord.description),
-      cover: Boolean(candidate.coverStage?.ready),
+      cover: Boolean(candidate.coverStage?.ready || usesRightsSafePlaceholder),
       workingListenLink,
       scope: candidate.scopeStatus,
       conflicts: (candidate.conflicts || []).length,
@@ -547,6 +651,7 @@ module.exports = {
   ensureUniqueShowId,
   evaluateReadiness,
   managedFingerprints,
+  normalizeEditorialRecommendations,
   reviewedDiscoveryTags,
   reviewedDiscoveryTagSelection,
 };

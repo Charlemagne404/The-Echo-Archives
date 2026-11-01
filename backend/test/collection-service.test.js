@@ -20,7 +20,7 @@ function show(id, { completionStatus = "finished", genres = ["sci-fi"], formats 
     id,
     title: id.replace(/-/g, " "),
     description: `A verified test description for ${id}.`,
-    cover: "images/TEA-Logo-S.png",
+    cover: "images/Circle2-Logo-S.png",
     coverAlt: `${id} cover`,
     status: "published",
     reviewStatus: "indexed-only",

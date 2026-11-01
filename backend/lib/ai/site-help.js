@@ -2,7 +2,7 @@ const { formatDate } = require("./site-help-format");
 
 function isCreatorVerified(show = {}) {
   const status = String(show.verification?.status || "").trim();
-  return Boolean(status) && !["automated-source-checked", "maintainer-source-reviewed", "partially-source-reviewed"].includes(status);
+  return Boolean(status) && !["automated-source-checked", "maintainer-source-reviewed", "delegated-source-reviewed", "partially-source-reviewed"].includes(status);
 }
 
 function loadSiteHelpContext({ catalog, collections, archiveContext }) {

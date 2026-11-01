@@ -25,3 +25,23 @@ test("material official disagreement blocks while unstructured assistance stays 
   assert.ok(resolved.conflicts.some((conflict) => conflict.fieldName === "title" && conflict.blocking));
   assert.equal(resolved.fieldSummary.description.confidence, 0.6);
 });
+
+test("a structured organization homepage does not create a false show-title conflict", () => {
+  const resolved = resolveSourceFacts([
+    { sourceType: "rss", sourceUrl: "https://aat.example/feed.xml", normalized: { title: "The Great Work and Other Administrative Matters" } },
+    { sourceType: "apple", sourceUrl: "https://podcasts.apple.com/us/podcast/id123456", normalized: { title: "The Great Work and Other Administrative Matters" } },
+    { sourceType: "website", sourceUrl: "https://aat.example/", normalized: { structured: true, structuredType: "organization", genericOrganizationTitle: true, title: "A.A.T. Studios", networkName: "A.A.T. Studios" } },
+  ]);
+  assert.equal(resolved.objective.title, "The Great Work and Other Administrative Matters");
+  assert.equal(resolved.fieldSummary.title.confidence, 0.98);
+  assert.equal(resolved.fieldSummary.title.method, "source-agreement");
+  assert.equal(resolved.conflicts.some((conflict) => conflict.fieldName === "title"), false);
+});
+
+test("resolved title and creator values collapse source whitespace without changing identity facts", () => {
+  const resolved = resolveSourceFacts([
+    { sourceType: "rss", sourceUrl: "https://example.com/feed.xml", normalized: { title: "Mina  -  An Audiobook Podcast", creatorName: "  Roo   Bannister " } },
+  ]);
+  assert.equal(resolved.objective.title, "Mina - An Audiobook Podcast");
+  assert.equal(resolved.objective.creatorName, "Roo Bannister");
+});

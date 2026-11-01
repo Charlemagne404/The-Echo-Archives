@@ -3,8 +3,9 @@ const assert = require("node:assert/strict");
 const crypto = require("node:crypto");
 
 const { normalizeAppleResult } = require("../lib/import/adapters/apple");
+const { createAmazonMusicAdapter, isVerifiedAmazonMusicIdentity, parseAmazonMusicIdentityUrl } = require("../lib/import/adapters/amazon-music");
 const { buildPodcastIndexAuthHeaders } = require("../lib/import/adapters/podcast-index");
-const { parseRssText } = require("../lib/import/adapters/rss");
+const { createRssAdapter, parseRssText } = require("../lib/import/adapters/rss");
 const { parseWebsiteHtml } = require("../lib/import/adapters/website");
 const { buildDedupeMatches } = require("../lib/import/dedupe");
 
@@ -32,6 +33,16 @@ test("normalizeAppleResult extracts discovery and feed metadata from Apple paylo
   assert.equal(normalized.rssUrl, "https://midnightburger.libsyn.com/rss");
   assert.deepEqual(normalized.genreHints, ["Fiction", "Comedy Fiction"]);
   assert.equal(normalized.episodeCount, 42);
+});
+
+test("Apple artwork uses a supported high-resolution CDN variant without rewriting unrelated hosts", () => {
+  const normalized = normalizeAppleResult({
+    collectionId: 123456,
+    collectionName: "Midnight Burger",
+    artworkUrl600: "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/artwork.jpg/600x600bb.jpg",
+  });
+  assert.equal(normalized.artworkUrl, "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/artwork.jpg/1400x1400bb.jpg");
+  assert.equal(normalizeAppleResult({ artworkUrl600: "https://example.com/600x600bb.jpg" }).artworkUrl, "https://example.com/600x600bb.jpg");
 });
 
 test("parseRssText extracts canonical feed metadata from RSS XML", () => {
@@ -154,12 +165,61 @@ test("parseWebsiteHtml extracts official links and JSON-LD metadata from show si
   assert.equal(normalized.title, "Signal Lost");
   assert.equal(normalized.creatorName, "Archive Studio");
   assert.equal(normalized.networkName, "Night Signal Network");
-  assert.equal(normalized.rssUrl, "https://example.com/feed.xml");
+  assert.equal(normalized.websiteFeedUrl, "https://example.com/feed.xml");
+  assert.equal(normalized.rssUrl, undefined);
   assert.equal(normalized.artworkUrl, "https://example.com/cover.jpg");
   assert.equal(normalized.spotifyUrl, "https://open.spotify.com/show/abc123");
   assert.equal(normalized.patreonUrl, "https://www.patreon.com/signal-lost");
   assert.equal(normalized.discordUrl, "https://discord.gg/signal-lost");
   assert.equal(normalized.youtubeUrl, "https://youtube.com/@signallost");
+});
+
+test("organization homepages expose a generic site title separately from show identity", () => {
+  const normalized = parseWebsiteHtml(`<!doctype html><html><head>
+    <meta property="og:site_name" content="A.A.T. Studios">
+    <title>A.A.T. Studios</title>
+    <script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "A.A.T. Studios", url: "https://aat.example/" })}</script>
+  </head><body></body></html>`, "https://aat.example/");
+  assert.equal(normalized.structuredType, "organization");
+  assert.equal(normalized.genericOrganizationTitle, true);
+});
+
+test("WordPress archive headings are retained as page evidence without becoming show-title evidence", () => {
+  const normalized = parseWebsiteHtml(`<!doctype html><html><head>
+    <title>アーカイブ: OPTOg</title>
+    <meta property="og:title" content="アーカイブ: OPTOg">
+  </head><body><main><h1>アーカイブ: OPTOg</h1></main></body></html>`, "https://shortwave.studio/optog/");
+  assert.equal(normalized.title, "");
+  assert.equal(normalized.archiveTitle, "アーカイブ: OPTOg");
+  assert.equal(normalized.genericArchiveTitle, true);
+});
+
+test("general website feeds are not promoted to RSS identity without podcast markers", async () => {
+  const adapter = createRssAdapter({
+    fetchImpl: async () => new Response(`<rss version="2.0"><channel><title>ShortWave Updates</title><link>https://shortwave.example</link><description>Studio news and articles.</description><item><title>Studio update</title><description>News item.</description></item></channel></rss>`, {
+      status: 200,
+      headers: { "content-type": "application/rss+xml" },
+    }),
+  });
+  await assert.rejects(adapter.fetchByUrl("https://shortwave.example/feed/"), (error) => error.code === "IMPORT_NOT_PODCAST_FEED");
+  assert.equal(parseRssText(`<rss version="2.0"><channel><title>Studio news</title><category>updates</category></channel></rss>`).isPodcastFeed, false);
+});
+
+test("Amazon Music identities use a distinct exact show UUID and require maintainer confirmation", async () => {
+  const id = "3c2ab8bc-6eda-429e-b320-01d6bdcf5a61";
+  const parsed = parseAmazonMusicIdentityUrl(`https://music.amazon.co.uk/podcasts/${id}/optog?ref=share`);
+  assert.deepEqual(parsed, { provider: "amazon-music", id, url: `https://music.amazon.co.uk/podcasts/${id}` });
+  assert.throws(() => parseAmazonMusicIdentityUrl(`https://music.amazon.com/podcasts/${id}/episodes/73d75c47-fc55-4611-bbb4-dcc56bfc83db`), /show page/i);
+  assert.throws(() => parseAmazonMusicIdentityUrl(`https://music.amazon.com.attacker.test/podcasts/${id}`), /supported music.amazon host/i);
+  assert.equal(isVerifiedAmazonMusicIdentity({ externalIdentity: { provider: "amazon-music", id, url: parsed.url, verified: true } }), false);
+  assert.equal(isVerifiedAmazonMusicIdentity({ externalIdentity: { provider: "amazon-music", id, url: parsed.url, verified: true, verifiedBy: "maintainer", verifiedAt: "2026-10-31T00:00:00Z", confirmedTitle: "OPTOg", confirmedCreator: "ShortWave.STUDIO" } }), true);
+
+  const adapter = createAmazonMusicAdapter({ fetchImpl: async () => new Response("<html><title>Amazon Music</title></html>", { status: 200, headers: { "content-type": "text/html" } }) });
+  const fetched = await adapter.fetchByUrl(parsed.url);
+  assert.equal(fetched.sourceType, "amazon-music");
+  assert.equal(fetched.normalized.amazonMusicId, id);
+  assert.equal(fetched.normalized.rssUrl, undefined);
+  assert.equal(fetched.normalized.podcastGuid, undefined);
 });
 
 test("parseWebsiteHtml classifies expanded official platform and support links and limits crawl hints", () => {
@@ -172,6 +232,7 @@ test("parseWebsiteHtml classifies expanded official platform and support links a
   </body></html>`, "https://example.com/");
   assert.equal(normalized.youtubeMusicUrl, "https://music.youtube.com/playlist?list=abc");
   assert.equal(normalized.amazonMusicUrl, "https://music.amazon.com/podcasts/abc");
+  assert.equal(normalized.rssUrl, undefined);
   assert.equal(normalized.pocketCastsUrl, "https://pca.st/abc");
   assert.equal(normalized.koFiUrl, "https://ko-fi.com/signal");
   assert.deepEqual(normalized.crawlUrls, ["https://example.com/about", "https://example.com/cast"]);

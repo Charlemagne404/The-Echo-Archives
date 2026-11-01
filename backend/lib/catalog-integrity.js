@@ -216,6 +216,33 @@ function checkRequiredString(record, recordLabel, fieldName, errors, { allowBlan
   }
 }
 
+function hasProvisionalIndexedOnlyReviewEvidence(show) {
+  const imported = show?.metadata?.import;
+  const publication = imported?.publication;
+  const factualReview = imported?.factualReview;
+  const scopeReview = imported?.scopeReview;
+  const identifiers = imported?.identifiers || {};
+  const reviewedAt = String(factualReview?.reviewedAt || "");
+  const reviewedBy = String(factualReview?.reviewedBy || "").trim();
+  const revision = Number(factualReview?.inputRevision);
+  const stableIdentity = Boolean(
+    (typeof identifiers.rssUrl === "string" && isHttpUrl(identifiers.rssUrl)) ||
+    (typeof identifiers.podcastGuid === "string" && identifiers.podcastGuid.trim()) ||
+    (typeof identifiers.appleCollectionId === "string" && /^\d+$/.test(identifiers.appleCollectionId)) ||
+    (typeof identifiers.podcastIndexFeedId === "string" && identifiers.podcastIndexFeedId.trim()) ||
+    (typeof identifiers.amazonMusicId === "string" && identifiers.amazonMusicId.trim()),
+  );
+  const selectedSource = Array.isArray(imported?.selectedSources) && imported.selectedSources.some((source) =>
+    isRecord(source) && typeof source.sourceType === "string" && source.sourceType.trim() && isHttpUrl(source.sourceUrl));
+  const scopeEvidence = Array.isArray(scopeReview?.evidenceSources) && scopeReview.evidenceSources.some(isHttpUrl);
+  return show?.reviewStatus === "indexed-only" && publication?.provisional === true &&
+    Number.isInteger(revision) && revision > 0 && reviewedBy.length > 0 &&
+    Number.isFinite(Date.parse(reviewedAt)) &&
+    scopeReview?.status === "in-scope" && scopeReview.reviewedBy === reviewedBy &&
+    scopeReview.reviewedAt === reviewedAt && Number(scopeReview.inputRevision) === revision &&
+    stableIdentity && selectedSource && scopeEvidence;
+}
+
 function checkStringArray(record, recordLabel, fieldName, errors, { required = false } = {}) {
   if (!hasOwn(record, fieldName)) {
     if (required) addIssue(errors, `${recordLabel} is missing required field "${fieldName}".`);
@@ -539,7 +566,9 @@ function checkShowRecord(show, index, showIds, entityIds, errors) {
   }
 
   ["id", "title", "description", "cover", "coverAlt", "status", "reviewStatus", "updatedAt"].forEach((fieldName) => {
-    checkRequiredString(show, label, fieldName, errors, { allowBlank: fieldName === "cover" });
+    checkRequiredString(show, label, fieldName, errors, {
+      allowBlank: fieldName === "cover" || (fieldName === "description" && hasProvisionalIndexedOnlyReviewEvidence(show)),
+    });
   });
   ["genres", "tags"].forEach((fieldName) => checkStringArray(show, label, fieldName, errors, { required: true }));
   STRING_ARRAY_FIELDS.filter((fieldName) => !["genres", "tags"].includes(fieldName)).forEach((fieldName) => checkStringArray(show, label, fieldName, errors));

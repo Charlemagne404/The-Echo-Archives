@@ -103,7 +103,7 @@ test("catalog report reads legacy runtime data without migrating or synchronizin
     const report = await createCatalogReport(tempRoot);
 
     assert.equal(report.catalog.length, 1);
-    assert.equal(report.catalog[0].cover, "images/TEA-Logo-S.png");
+    assert.equal(report.catalog[0].cover, "images/Circle2-Logo-S.png");
     assert.equal(fetchCalls, 0);
     assert.equal(fs.existsSync(path.join(tempRoot, "catalog-src")), false);
     assert.deepEqual(snapshotTree(tempRoot), before);

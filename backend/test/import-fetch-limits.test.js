@@ -60,12 +60,24 @@ test("repeated endless redirect bodies release real loopback connections", async
     socket.on("close", () => sockets.delete(socket));
   });
   await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
-  const local = `http://127.0.0.1:${server.address().port}`;
   try {
-    const fetchImpl = (_url, init) => fetch(local, init);
+    const fetchImpl = () => { throw new Error("The pinned network transport should handle this request."); };
+    fetchImpl.isNetworkFetch = true;
+    const requestImpl = (options, callback) => http.request({
+      ...options,
+      protocol: "http:",
+      hostname: "127.0.0.1",
+      port: server.address().port,
+      lookup: undefined,
+      servername: undefined,
+      agent: false,
+    }, callback);
     for (let i = 0; i < 20; i += 1) {
-      await assert.rejects(fetchBufferWithLimits(fetchImpl, "https://example.com/feed", {}, {
-        resolveDns: false, maxRedirects: 0, timeoutMs: 1000,
+      await assert.rejects(fetchBufferWithLimits(fetchImpl, "http://example.com/feed", {}, {
+        maxRedirects: 0,
+        timeoutMs: 1000,
+        resolver: async () => [{ address: "8.8.8.8", family: 4 }],
+        requestImpl,
       }), { code: "IMPORT_REDIRECT_FAILED" });
     }
     // Undici may retain replacement idle connections; active stalled bodies

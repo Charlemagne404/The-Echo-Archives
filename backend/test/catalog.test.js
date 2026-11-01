@@ -75,10 +75,11 @@ test("loadCatalog reads the structured show catalog", async () => {
 test("importer-origin catalogue entries retain their publication tier", () => {
   const authoredShows = JSON.parse(fs.readFileSync(path.join(siteRoot, "data", "shows.json"), "utf8"));
   const importerOrigin = authoredShows.filter((show) => show.metadata?.import);
-  const publicationTiers = new Set(importerOrigin.map((show) => show.reviewStatus));
+  const publicationTiers = new Set(importerOrigin.map((show) => show.metadata.import.publication?.tier || show.reviewStatus));
 
   assert.ok(importerOrigin.length > 0);
   assert.deepEqual([...publicationTiers].sort(), ["imported", "indexed-only"]);
+  assert.equal(importerOrigin.find((show) => show.id === "tower-4")?.reviewStatus, "full-review");
 });
 
 test("Imported source provenance exposes exact full-cast formats without copying keywords into tags", async () => {

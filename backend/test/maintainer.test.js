@@ -399,6 +399,12 @@ test("maintainer import routes enforce auth and allow candidate seeding and revi
 
     const unauthorizedList = await fetch(`${context.baseUrl}/api/maintainer/imports`);
     assert.equal(unauthorizedList.status, 401);
+    const unauthorizedExternalIdentity = await fetch(`${context.baseUrl}/api/maintainer/imports/not-a-candidate/external-identity`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ provider: "amazon-music", url: "https://music.amazon.co.uk/podcasts/3c2ab8bc-6eda-429e-b320-01d6bdcf5a61", confirmedMatch: true }),
+    });
+    assert.equal(unauthorizedExternalIdentity.status, 401);
 
     const loginResponse = await fetch(`${context.baseUrl}/api/maintainer/session`, {
       method: "POST",

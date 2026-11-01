@@ -12,6 +12,22 @@ const { fetchJsonWithLimits, throwForUpstreamStatus } = require("../fetch");
 const APPLE_SEARCH_BASE_URL = "https://itunes.apple.com/search";
 const APPLE_LOOKUP_BASE_URL = "https://itunes.apple.com/lookup";
 
+function preferHighResolutionAppleArtwork(value = "", minimum = 1400) {
+  const normalized = normalizeUrl(value);
+  if (!normalized) return "";
+
+  try {
+    const url = new URL(normalized);
+    if (!url.hostname.toLowerCase().endsWith(".mzstatic.com")) return normalized;
+    const variant = url.pathname.match(/\/(\d{2,4})x\1bb(\.(?:jpe?g|png|webp))$/i);
+    if (!variant || Number(variant[1]) >= minimum) return normalized;
+    url.pathname = url.pathname.replace(/\/\d{2,4}x\d{2,4}bb(\.(?:jpe?g|png|webp))$/i, (_match, extension) => `/${minimum}x${minimum}bb${extension}`);
+    return normalizeUrl(url.href);
+  } catch (_error) {
+    return normalized;
+  }
+}
+
 function normalizeAppleResult(result = {}, fallbackUrl = "") {
   const appleCollectionId = String(result.collectionId || result.trackId || "").trim();
   const appleUrl = normalizeUrl(result.collectionViewUrl || result.trackViewUrl || fallbackUrl || "");
@@ -24,7 +40,7 @@ function normalizeAppleResult(result = {}, fallbackUrl = "") {
     appleCollectionId,
     appleUrl,
     rssUrl: normalizeUrl(result.feedUrl || ""),
-    artworkUrl: normalizeUrl(result.artworkUrl600 || result.artworkUrl100 || result.artworkUrl60 || ""),
+    artworkUrl: preferHighResolutionAppleArtwork(result.artworkUrl600 || result.artworkUrl100 || result.artworkUrl60 || ""),
     genreHints: genres,
     primaryGenre: trimText(result.primaryGenreName, 120),
     explicit: trimText(result.contentAdvisoryRating, 60),
@@ -121,4 +137,5 @@ module.exports = {
   APPLE_SEARCH_BASE_URL,
   createAppleAdapter,
   normalizeAppleResult,
+  preferHighResolutionAppleArtwork,
 };

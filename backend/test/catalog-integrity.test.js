@@ -165,6 +165,38 @@ test("raw integrity validates optional discovery profiles without requiring them
   assert.match(invalidReport.errors.join("\n"), /discovery\.narrativeFocus must be one of/);
 });
 
+test("blank descriptions are allowed only for evidence-backed provisional indexed-only imports", () => {
+  const reviewedAt = "2026-11-01T12:00:00.000Z";
+  const sourceUrl = "https://example.com/podcast/feed.xml";
+  const provisionalMetadata = {
+    objectiveSources: [sourceUrl],
+    import: {
+      publication: { provisional: true },
+      identifiers: { rssUrl: sourceUrl },
+      selectedSources: [{ sourceType: "rss", sourceUrl, fetchedAt: reviewedAt, payloadHash: "a".repeat(64) }],
+      factualReview: { reviewedBy: "delegate:codex", reviewedAt, inputRevision: 3 },
+      scopeReview: { status: "in-scope", reviewedBy: "delegate:codex", reviewedAt, inputRevision: 3, evidenceSources: [sourceUrl] },
+    },
+  };
+  const inspect = (record) => collectCatalogIntegrityIssues({
+    sourceData: { mode: "runtime", shows: [record], collections: [], reviewsById: {} },
+    entities: [], creators: [], networks: [], changelog: [],
+  });
+  const valid = inspect(show({ description: "", genres: [], tags: [], metadata: provisionalMetadata }));
+  assert.equal(valid.ok, true, valid.errors.join("\n"));
+
+  const ordinary = inspect(show({ description: "", reviewStatus: "full-review" }));
+  assert.match(ordinary.errors.join("\n"), /description must be a non-empty string/);
+
+  const missingSource = inspect(show({
+    description: "",
+    genres: [],
+    tags: [],
+    metadata: { ...provisionalMetadata, import: { ...provisionalMetadata.import, selectedSources: [] } },
+  }));
+  assert.match(missingSource.errors.join("\n"), /description must be a non-empty string/);
+});
+
 test("raw integrity treats canonically equivalent Unicode list values as duplicates", () => {
   const report = collectCatalogIntegrityIssues({
     sourceData: {

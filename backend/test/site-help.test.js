@@ -52,6 +52,25 @@ test("site help answers creator verification questions for a specific show page"
   assert.equal(response.actions[0].href, "/submit");
 });
 
+test("delegated factual review is not counted as creator verification", async () => {
+  const context = await createContext();
+  const delegated = {
+    id: "delegated-review-fixture",
+    title: "Delegated Review Fixture",
+    status: "published",
+    reviewStatus: "indexed-only",
+    verification: { status: "delegated-source-reviewed" },
+  };
+  const siteHelpContext = loadSiteHelpContext({
+    catalog: [delegated],
+    collections: context.collections,
+    archiveContext: { featureAvailability: {} },
+  });
+
+  assert.equal(siteHelpContext.counts.creatorVerifiedShows, 0);
+  assert.equal(siteHelpContext.archiveLists.creatorVerifiedShows.length, 0);
+});
+
 test("site help keeps external platform problems bounded", async () => {
   const context = await createContext();
   const response = buildSiteHelpResponse({

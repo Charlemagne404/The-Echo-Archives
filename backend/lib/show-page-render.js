@@ -126,7 +126,7 @@ function getShowImageSrc(show) {
 
   const cover = String(show?.cover || "").trim();
   if (!cover) {
-    return "/images/TEA-Logo-S.png";
+    return "/images/Circle2-Logo-S.png";
   }
 
   if (/^(?:https?:)?\/\//i.test(cover) || /^data:image\//i.test(cover)) {
@@ -482,7 +482,7 @@ function renderOfficialSummarySection(show) {
 
   return `
     <section class="detail-section detail-official-summary-section">
-      <div class="detail-section-header"><div><h2>${escapeHtml(summary.title)}</h2>${summary.title === "About this show" ? `<p>${escapeHtml(summary.description)}</p>` : ""}</div></div>
+      <div class="detail-section-header"><div><h2>${escapeHtml(summary.title)}</h2><p>${escapeHtml(summary.description)}${summary.sourceUrl ? ` <a href="${escapeHtml(summary.sourceUrl)}" target="_blank" rel="noreferrer">View source</a>` : ""}</p></div></div>
       <article class="detail-summary detail-summary-official">
         <div class="detail-mobile-expandable" data-mobile-expandable data-mobile-expand-mode="clamp" data-mobile-expand-threshold="320" data-mobile-expand-label="Read full description" data-mobile-collapse-label="Show less">
           <div id="detail-official-summary-${escapeHtml(show.id)}" data-mobile-expandable-content><p>${escapeHtml(summary.text)}</p></div>
@@ -919,11 +919,11 @@ function renderCorrectionSection(show) {
       <div class="detail-correction-copy">
         <p class="detail-correction-kicker">Community archive care</p>
         <h2 id="detail-correction-title">Help keep this entry accurate.</h2>
-        <p>Spot a metadata issue, missing link, or verification problem? Listener and creator notes go into the manual review queue before anything changes.</p>
+        <p>Creators and listeners can submit factual corrections or missing details. Reports enter manual review before anything changes.</p>
       </div>
       <div class="detail-correction-action">
         <p class="detail-correction-action-label">Found something off?</p>
-        <p>Send the archive team the exact issue and any source links that make it easier to verify.</p>
+        <p>Use the correction form to send the exact issue, proposed value, extra context, and any source links that help verify it.</p>
         <a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("correction", show.id))}">Suggest a correction</a>
       </div>
     </section>

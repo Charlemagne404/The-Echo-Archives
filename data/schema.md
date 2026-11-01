@@ -287,8 +287,8 @@ Cover recovery is reserved for explicit write-capable workflows. `npm run build:
 
 - `id`
 - `title`
-- `description`
-- `cover` in the resolved catalog; authoring may leave it blank when explicit cover-recovery source links are present
+- `description` for normal published records; authenticated provisional `indexed-only` entries may leave it blank
+- `cover` in the resolved catalog; a provisional entry may use the bundled Echo logo placeholder when third-party artwork rights are not established
 - `coverAlt`
 - `status`
 - `reviewStatus`
@@ -317,6 +317,8 @@ Cover recovery is reserved for explicit write-capable workflows. `npm run build:
 - `planned`
 
 `imported` is the lowest public confidence tier: strict automation checked objective metadata against structured publisher/directory evidence, but a maintainer has not individually reviewed the entry. It remains public, searchable, indexable, rateable, and eligible for manual collection curation. It cannot contain archive ratings, archive review copy, tones, themes, best-for values, similarity recommendations, featured/popularity state, accents, creator-verification claims, or unsupported lifecycle claims.
+
+An authenticated provisional `indexed-only` import may publish with empty descriptions and discovery metadata when its current factual-review record, in-scope evidence, stable identity, and selected source provenance are present under `metadata.import`. This is an explicit exception for otherwise legitimate audio-fiction listings; it does not waive identity, uniqueness, scope, or factual-review checks.
 
 ### `releaseStatus`
 
@@ -460,13 +462,14 @@ generate or rewrite `similarTo` relationships.
 - Discovery tags must use canonical sentence casing and aliases such as `Analog horror`, `Alternate history`, `Found audio`, `Full cast`, and `Folk horror`.
 - Do not use redundant show-type or directory tags, including plural variants, such as `Drama`, `Audio drama`, `Fiction`, `Podcast`, `Arts`, or `Performing Arts`.
 - A show title cannot also be used as one of its own discovery tags.
-- Published shows require a source-backed description of at least 40 characters and at least one canonical genre. Optional factual fields may remain blank when the sources do not expose them.
+- Normal published shows require a source-backed description of at least 40 characters and at least one canonical genre. Authenticated provisional `indexed-only` records are exempt from minimum description/genre/discovery counts and may retain an Echo placeholder cover.
 - Website fields cannot point to social/support profiles, and imported Apple links must match their stored Apple collection id.
 - `aliases`, `themes`, `contentNotes`, `languages`, `transcriptLanguages`, `cast`, and `creators` should not contain duplicates after lowercase normalization.
 - Collection `showIds`, `coverShowIds`, and `intentTags` must not contain duplicates after lowercase normalization.
 - `kind: "similarity"` collections must include an `anchorShowId` that resolves to a real show.
 - `reviewStatus: full-review` should only be used when richer review fields actually exist.
 - `reviewStatus: imported` requires `verification.status: automated-source-checked`, importer provenance, and no archive-owned editorial fields.
+- Source review status `delegated-source-reviewed` identifies an authorized delegated AI factual review; it must not be treated as creator verification or a human review.
 - Populated `discovery` is maintainer-curated and is not allowed on `reviewStatus: imported` records.
 
 The normal `npm run validate:data` gate also performs a raw-source integrity pass before runtime normalization. It checks split-source filenames and order manifests, duplicate ids/slugs and normalized list values, known URL-bearing fields and provenance URL lists, date ordering, bounded ratings/runtime/coverage numbers, show-to-show and collection relationships, entity links, optional creator/network/changelog references, and orphaned review/entity records. It reports deterministic failures together so a single bad record does not hide later issues.

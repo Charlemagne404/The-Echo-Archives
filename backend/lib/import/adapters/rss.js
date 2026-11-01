@@ -238,6 +238,12 @@ function parseRssText(text = "", sourceUrl = "") {
     label: nodeText(entry),
   })).filter((entry) => entry.url);
   const licenseNode = channel["podcast:license"];
+  const hasAudioEnclosure = episodes.some((episode) => /^(audio|application\/(?:ogg|octet-stream))/i.test(episode.enclosureType));
+  const hasPodcastMetadata = Boolean(
+    guid || channel["itunes:author"] || owner["itunes:name"] || channel["itunes:image"] ||
+    channel["itunes:category"] || channel["itunes:type"] || channel["podcast:medium"] ||
+    episodes.some((episode) => episode.durationMinutes || episode.episodeType !== "full"),
+  );
 
   return {
     title: cleanDescription(firstText(channel, ["title"]), 240),
@@ -256,6 +262,7 @@ function parseRssText(text = "", sourceUrl = "") {
     keywords: mergeUniqueStrings(trimText(firstText(channel, ["itunes:keywords"]), 1_000).split(",")),
     feedType,
     medium: trimText(firstText(channel, ["podcast:medium"]), 80).toLowerCase(),
+    isPodcastFeed: hasPodcastMetadata || hasAudioEnclosure,
     complete,
     podcastGuid: trimText(guid, 240),
     podcastGuidIsValid: Boolean(guid && (/^[0-9a-f]{8}-[0-9a-f-]{27,}$/i.test(guid) || /^https?:\/\//i.test(guid))),
@@ -320,15 +327,31 @@ function createRssAdapter({ fetchImpl = globalThis.fetch, userAgent, timeoutMs =
       allowedContentTypes: ["application/rss+xml", "application/atom+xml", "application/xml", "text/xml", "text/plain"],
     });
     if (response.status === 304 && cache?.rawBody) {
+      const normalized = parseRssText(cache.rawBody, resolvedUrl || url);
+      if (!normalized.isPodcastFeed) {
+        const error = new Error("RSS document has no podcast metadata or audio episodes; it may be a general website feed.");
+        error.statusCode = 422;
+        error.code = "IMPORT_NOT_PODCAST_FEED";
+        error.retryable = false;
+        throw error;
+      }
       return {
         sourceType: "rss", sourceKey: normalizeUrl(resolvedUrl || url), sourceUrl: normalizeUrl(resolvedUrl || url),
         fetchStatus: "not-modified", httpStatus: 304,
         etag: response.headers.get("etag") || cache.etag || "", lastModified: response.headers.get("last-modified") || cache.lastModified || "",
         raw: { contentType: response.headers.get("content-type") || "", text: cache.rawBody },
-        normalized: cache.normalized || parseRssText(cache.rawBody, resolvedUrl || url),
+        normalized,
       };
     }
     throwForUpstreamStatus(response, "RSS request");
+    const normalized = parseRssText(text, resolvedUrl || url);
+    if (!normalized.isPodcastFeed) {
+      const error = new Error("RSS document has no podcast metadata or audio episodes; it may be a general website feed.");
+      error.statusCode = 422;
+      error.code = "IMPORT_NOT_PODCAST_FEED";
+      error.retryable = false;
+      throw error;
+    }
     return {
       sourceType: "rss",
       sourceKey: normalizeUrl(resolvedUrl || url),
@@ -337,7 +360,7 @@ function createRssAdapter({ fetchImpl = globalThis.fetch, userAgent, timeoutMs =
       etag: response.headers.get("etag") || "",
       lastModified: response.headers.get("last-modified") || "",
       raw: { contentType: response.headers.get("content-type") || "", text },
-      normalized: parseRssText(text, resolvedUrl || url),
+      normalized,
     };
   }
   return { fetchByUrl, parseRssText };

@@ -113,7 +113,7 @@ function createTempSiteRoot() {
 function seedAssets(tempRoot) {
   fs.mkdirSync(path.join(tempRoot, "images"), { recursive: true });
   fs.writeFileSync(path.join(tempRoot, "images", "Circle-S-Logo.png"), Buffer.from("logo"));
-  fs.writeFileSync(path.join(tempRoot, "images", "TEA-Logo-S.png"), Buffer.from("placeholder"));
+  fs.writeFileSync(path.join(tempRoot, PLACEHOLDER_COVER), Buffer.from("placeholder"));
 }
 
 function createShowRecord(overrides = {}) {
