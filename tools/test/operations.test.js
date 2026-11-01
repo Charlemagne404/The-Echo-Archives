@@ -1464,3 +1464,41 @@ test("checked-in service and proxy retain production hardening", () => {
   assert.match(verifyWorkflow, /node-version: "22\.23\.1"/);
   assert.doesNotMatch(verifyWorkflow, /node-version: "20"/);
 });
+
+test("publisher plans and audit records persist in import-staging across runtime releases", () => {
+  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-publisher-runtime-persistence-"));
+  const oldOverlay = path.join(tempRoot, "runtime/production/old-release");
+  const nextOverlay = path.join(tempRoot, "runtime/production/new-release");
+  const laterOverlay = path.join(tempRoot, "runtime/production/later-release");
+  const planId = "publisher-plan-20261101-0001";
+  const plan = { planId, approvalSha256: "a".repeat(64), entries: [{ candidateId: "candidate-from-target-db" }] };
+  const receipt = { planId, catalogueWrite: { status: "complete", showIds: ["signal"] } };
+  try {
+    const stateRoot = path.join(oldOverlay, "import-staging/echo-publisher");
+    fs.mkdirSync(path.join(stateRoot, "plans"), { recursive: true });
+    fs.mkdirSync(path.join(stateRoot, "receipts", planId), { recursive: true });
+    fs.writeFileSync(path.join(stateRoot, "plans", `${planId}.json`), JSON.stringify(plan));
+    fs.writeFileSync(path.join(stateRoot, "receipts", planId, "attempt-0001.json"), JSON.stringify(receipt));
+    fs.mkdirSync(path.join(oldOverlay, "catalog-src/shows"), { recursive: true });
+    fs.writeFileSync(path.join(oldOverlay, "catalog-src/shows/signal.json"), JSON.stringify({ id: "signal" }));
+    fs.mkdirSync(path.join(oldOverlay, "data"), { recursive: true });
+    fs.writeFileSync(path.join(oldOverlay, "data/shows.json"), JSON.stringify([{ id: "signal" }]));
+
+    const script = 'set -Eeuo pipefail; source "$1"; preserve_runtime_mutable_state "$2" "$3"';
+    for (const [from, to] of [[oldOverlay, nextOverlay], [nextOverlay, laterOverlay]]) {
+      fs.mkdirSync(path.join(to, "import-staging"), { recursive: true });
+      const result = spawnSync("/bin/bash", ["-c", script, "publisher-persistence-test", path.join(ROOT, "deploy/release-common.sh"), from, to], {
+        cwd: ROOT,
+        encoding: "utf8",
+      });
+      assert.equal(result.status, 0, result.stderr || result.stdout);
+    }
+
+    assert.deepEqual(JSON.parse(fs.readFileSync(path.join(laterOverlay, "import-staging/echo-publisher/plans", `${planId}.json`), "utf8")), plan);
+    assert.deepEqual(JSON.parse(fs.readFileSync(path.join(laterOverlay, "import-staging/echo-publisher/receipts", planId, "attempt-0001.json"), "utf8")), receipt);
+    assert.equal(JSON.parse(fs.readFileSync(path.join(laterOverlay, "catalog-src/shows/signal.json"), "utf8")).id, "signal");
+    assert.deepEqual(JSON.parse(fs.readFileSync(path.join(laterOverlay, "data/shows.json"), "utf8")), [{ id: "signal" }]);
+  } finally {
+    fs.rmSync(tempRoot, { recursive: true, force: true });
+  }
+});

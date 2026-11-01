@@ -2,15 +2,19 @@
 
 ## Contract
 
-The importer is a factual preparation lane, not an editorial generator. A normal source-rich import progresses through discovery, source enrichment, conflict resolution, cover staging, record preparation, and factual publication validation. It stops at `ready` until an authenticated maintainer explicitly approves publication.
+The importer is a factual preparation lane, not an editorial generator. A normal source-rich import progresses through discovery, source enrichment, conflict resolution, cover handling, record preparation, and factual publication validation. It stops at `ready` until an authenticated maintainer explicitly approves publication.
 
 New records prepare as `reviewStatus: "imported"`, the lowest public confidence tier. Imported means objective metadata passed strict automated source checks but has not received an individual maintainer review. Ratings, reviews, archive copy, tones, themes, best-for values, similarities, collection membership/reasons, featured state, accents, awards, popularity, creator-verification claims, and unsupported completion claims are never generated. Missing optional facts remain absent or are represented as unknown/unclear. Existing records and update candidates preserve their current tier and human-owned fields.
 
 ## Sources And Confidence
 
-RSS and Podcasting 2.0 data are primary for identity, dates, episodes, descriptions, type, structured people, transcripts, funding, GUID, medium, license, and location. An official site is primary for reciprocally linked credits and exact official/support/platform links. Apple and Podcast Index supply identity cross-checks and directory fallbacks.
+RSS and Podcasting 2.0 data are primary for identity, dates, episodes, descriptions, type, structured people, transcripts, funding, GUID, medium, license, and location. An official site is primary for reciprocally linked credits and exact official/support/platform links. Apple and Podcast Index supply identity cross-checks and directory fallbacks. A discovered website feed is held as `websiteFeedUrl`; it becomes podcast RSS only after the feed contains podcast metadata or audio episodes. A generic blog feed cannot establish podcast identity.
 
-Publisher-supplied RSS/iTunes categories and keywords remain provenance in `metadata.sourceCategories` and `metadata.sourceKeywords`. Deterministic source mappings may populate canonical genres and feed formats: an exact source label of `full-cast` or `full cast` maps to the canonical `full-cast` format, while broader wording is not inferred. Imported cards expose non-generic source-derived genres in a compact `Genre:` metadata line; a drama-only mapping is disclosed as `Genre not yet reviewed` because it does not distinguish content from the audio-drama medium. This card display does not populate public `tags`. Public discovery tags must use the approved taxonomy and are never copied from raw source keywords automatically. Human taxonomy selection, external research, and AI/editorial suggestions remain non-binding for Imported publication and require factual review when applied.
+Some audio-fiction projects have no conventional podcast feed. The initial supported external identity is an Amazon Music show UUID, stored as `amazonMusicId` and always kept distinct from RSS URLs and Podcast GUIDs. An authenticated maintainer must open the exact Amazon show listing and confirm the candidate title, creator, and proposed description through `POST /api/maintainer/imports/:id/external-identity`. That action records selected listing evidence and a maintainer attestation; it does not mark the rest of the facts reviewed. The importer checks the provider URL, show UUID, redirects, and uniqueness. Amazon Music is an external platform identity, not RSS or a Podcast GUID. New providers need their own allowlisted URL parser and adapter; never accept an arbitrary URL or infer identity from a general website feed.
+
+When a known source disagreement must remain unresolved, a candidate may carry a `deferredFields` hold for a supported optional field. The importer leaves that value blank, keeps the original source evidence, and reports the unresolved reason as an optional gap. This is a conservative preparation choice, not a factual-review stamp.
+
+Publisher-supplied RSS/iTunes categories and keywords remain provenance in `metadata.sourceCategories` and `metadata.sourceKeywords`. Deterministic source mappings may populate canonical genres and feed formats: an exact source label of `full-cast` or `full cast` maps to the canonical `full-cast` format, while broader wording is not inferred. Pending editorial recommendations are retained under `metadata.import.editorialRecommendations`; they do not populate public genres, formats, or tags. Public discovery tags must use the approved taxonomy and are never copied from raw source keywords automatically.
 
 ### Default scope boundary
 
@@ -49,29 +53,21 @@ All competing values remain in `catalog_import_field_evidence`. A material disag
 
 ## Readiness
 
-`ready` requires:
+Basic candidate readiness requires:
 
-- a stable RSS, Podcast GUID, Apple, or Podcast Index identity
-- title and official description at confidence `0.75` or higher
-- a square raster cover of at least 600px staged locally
+- a stable RSS, Podcast GUID, Apple, Podcast Index, or authenticated external-platform identity
+- a source-supported title
 - at least one listen link confirmed by a successful source fetch
 - valid URLs and dates
-- in-scope classification or an explicit maintainer override
+- in-scope audio-fiction classification
 - no blocking source conflict or duplicate ambiguity
 
-Imported publication adds a stricter gate:
+Description, credits, genres, formats, discovery tags, artwork, and lifecycle status are optional for provisional `indexed-only` publication. Missing values stay blank or `unknown`/`unclear`; pending recommendations remain under importer provenance. If cover usage rights are not established, the candidate can explicitly use the bundled Echo logo placeholder. The placeholder path prevents cover recovery from fetching artwork from an external source during publication.
 
-- exact stable identity from structured evidence at confidence `0.90` or higher
-- title and description at confidence `0.90` or higher
-- unambiguous in-scope fiction classification without a manual scope override
-- verified listen link and valid staged local cover
-- enough deterministic canonical discovery signals
-  - no unstructured, AI-derived, reviewer-selected, or manually curated core/discovery field, including genres
-- no duplicate ambiguity, source conflict, unsafe URL, or other readiness blocker
+`indexed-only` provisional publication requires a current authenticated factual-review stamp plus recorded in-scope evidence, source provenance, and a stable identity. Its catalogue validation permits empty descriptions and discovery metadata only when that review record is valid. Any re-preparation increments the candidate revision and makes an earlier stamp stale. Imported publication retains the stricter automated gate: high-confidence title/description and exact identity, sufficient source-backed discovery metadata, and no manually selected core metadata.
 
-Indexed-only publication uses the base readiness gate plus a factual-review stamp for the current candidate input revision. Any re-preparation increments that revision and makes the earlier stamp stale.
-
-Apple's 1400-3000px JPG/PNG artwork target is reported as a quality warning, not an Echo publication blocker. Credits, RSS, transcripts, extra platforms, status, exact episode totals, and other optional facts may remain absent with explicit warnings.
+Apple's 1400-3000px JPG/PNG artwork target is reported as a quality warning. Credits, description, artwork rights, tags, release/completion/explicit status, exact episode totals, and other optional facts may remain absent with explicit warnings for provisional entries.
+When available sources provide no episode count, the prepared record uses `countQualifier: "unknown"` and omits the numeric episode breakdown rather than reporting zero.
 
 ## Persistence And Scale
 
@@ -97,6 +93,61 @@ Prepared records live only in SQLite. Approval requires an explicit `publication
 
 Published Imported entries can be promoted to indexed-only after a maintainer confirms identity, official description, links/artwork, source-derived genre mappings, approved discovery metadata, lifecycle claims, and remaining gaps. Corrected genres are recorded with maintainer provenance and therefore require the indexed-only factual-review path. Imported or indexed-only entries enter planned/full review through the existing companion-review workflow. Publication and promotion events retain the maintainer actor privately; public generated data exposes tier and non-identifying timestamps/revisions only.
 
+## Echo Publisher
+
+`echo-publisher` is the supported local operator workflow for reviewed batches.
+It runs through a restricted host runner and the production service's private
+Unix socket; it does not use the browser maintainer interface or write
+production JSON/SQLite itself. The host runner accepts only plan, inspect,
+evidence resolution, apply, status, and verification operations, and its
+`sudoers` entry does not grant a shell or arbitrary command execution.
+
+Planning resolves candidates by stable source-submission IDs and importer
+provider identities in the active target database. It never uses a scratch
+candidate ID from a preparation package. Missing target candidates are created
+through `seedCandidates` and the ordinary importer worker. Planning can update
+private importer state, but it never writes public catalogue content. The
+immutable plan records the exact candidate revision and content hash, source
+evidence, readiness, known fields, unknown optional fields, duplicate
+matches, update target/diff, and existing record hash. Artwork without
+republishing permission stays reference-only; the new record uses the bundled
+Echo placeholder. Unknown optional fields remain unknown.
+
+Apply requires the exact plan SHA-256 and one local operator authorization.
+`--review-facts` is an explicit attestation for the exact eligible candidate
+revisions in that batch. By default, the factual reviewer is the authorizing
+OS operator. If Codex performed the source review, add `--reviewer codex`; the
+candidate and receipt record `delegate:codex` as reviewer while the immutable
+approval and event actor retain the authorizing operator. The public
+verification note identifies delegated AI review without implying a human
+review or creator approval. Research suggestions alone never stamp a review.
+The operation never fills facts or stamps a review during planning. Evidence
+selection and external identity confirmation are separate explicit decisions
+against current target-environment evidence; each decision is audited and
+generates a replacement plan. Add `--reviewer codex` to `resolve` when Codex
+performed that evidence review; the audit stores Codex as the reviewer and the
+local operator as the authorizer. Use `--review-facts` only after the source
+evidence was actually reviewed and the batch authorization is legitimate.
+
+Publication rechecks the plan while holding the existing cross-process
+`import-staging/publish.lock`, publishes every eligible operation in one
+atomic batch, and relies on importer rollback/build validation. Updates use
+the existing managed-field merge, which preserves human-owned editorial
+fields and the record's current publication tier. A plan that no longer matches
+its target revisions or catalogue record is rejected before catalogue writes.
+Persistent plan/approval/receipt files stay in `import-staging`, which is
+preserved in future runtime overlays and included in the existing off-site
+recovery inventory. See [`deploy/RELEASE_WORKFLOW.md`](../deploy/RELEASE_WORKFLOW.md)
+for the separate host install and operator steps.
+
+Receipts distinguish the catalogue transaction from generated-catalog,
+in-process, and public-site verification. The host runner compares each
+serialized public show record with the verified runtime record. If the public
+check fails after a completed catalogue write, the receipt says so and `verify`
+can be retried without re-publishing. A retry of a completed plan is
+verification-only; publication events recover a receipt if the process stopped
+after commit but before saving one.
+
 ## Elevation desk
 
 The protected Imports page includes an **Elevation desk** for deepening already-published records. It ranks two deliberate paths without using unverified popularity:
@@ -108,6 +159,10 @@ Every elevation can copy a Codex brief containing the current catalog facts, ret
 
 Human-owned fields are always preserved. Legacy non-empty factual fields are preserved until explicitly adopted. For importer-managed fields, `metadata.import.managedFingerprints` records the previous imported value. A later human edit changes that fingerprint and automatically locks the field against refresh. Public generated data strips fingerprints and internal workflow identifiers while retaining source references and per-field confidence/method.
 
+An update seed may name `preserveExistingFields` to lock selected existing fields during preparation. The current supported explicit locks are `credits` and `creators`; the prepared update records these locks and excludes them from the update diff.
+
+An update seed may name `preserveExistingFields` to lock selected existing fields during preparation. The current supported explicit locks are `credits` and `creators`; the prepared update records these locks and excludes them from the update diff.
+
 ## Interfaces
 
 - `POST /api/maintainer/imports` queues work and returns `202` with a run ID and candidate IDs.
@@ -116,6 +171,7 @@ Human-owned fields are always preserved. Legacy non-empty factual fields are pre
 - `POST /api/maintainer/imports/:id/hydrate` and `/draft` are compatibility aliases that queue preparation.
 - `POST /api/maintainer/imports/:id/retry` queues a fresh input revision.
 - `POST /api/maintainer/imports/:id/evidence` selects and locks field evidence.
+- `POST /api/maintainer/imports/:id/external-identity` verifies a supported external platform identity after authenticated confirmation of the exact title and creator.
 - `POST /api/maintainer/imports/:id/publish` requires `publicationTier` and explicitly approves one eligible candidate.
 - `POST /api/maintainer/imports/batch-publish` requires `publicationTier` and publishes an eligible batch in one build.
 - `POST /api/maintainer/imports/:id/factual-review` stamps the current input revision after maintainer fact checking.
@@ -128,6 +184,11 @@ Human-owned fields are always preserved. Legacy non-empty factual fields are pre
 - `POST /api/maintainer/submissions/:id/import` hands a non-rejected public new-show submission into factual import preparation.
 
 CLI commands are `import:seed`, `import:discover`, `import:hydrate`, `import:draft` (SQLite preparation compatibility alias), `import:publish -- <candidate-id> --tier <imported|indexed-only>`, `import:promote -- <candidate-id> --reviewer <name>`, `import:audit`, `import:report`, and `import:benchmark`.
+
+The batch command is `npm --prefix backend run echo-publisher -- <command>`.
+On the production host, the installed `echo-publisher` wrapper targets the
+active production release and the service's fixed production database/runtime
+overlay. Plans, approvals, and receipts are private to the service account.
 
 ## Recovery
 

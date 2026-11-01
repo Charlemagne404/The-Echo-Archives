@@ -77,6 +77,21 @@ For incident triage and recovery branches, use the grounded
 [`deploy/DISASTER_RECOVERY.md`](../deploy/DISASTER_RECOVERY.md) runbook. It
 distinguishes cached public-page behavior, backend/API availability, code
 rollback, and the separately approved database-restore procedure.
+The first-class batch publisher is deployed in the application release and
+enabled as a separate host operation. Deploy and health-check the reviewed
+release, then run `sudo ./deploy/install-echo-publisher.sh` from the matching
+source checkout and start a new operator login session. The installer verifies
+that its runner files match the active immutable release, takes a shared
+deployment lock, and grants the invoking account only the restricted local
+publisher command. It does not restart production. Run `echo-publisher plan`,
+inspect the exact revision-bound plan and evidence, then use one
+`echo-publisher apply <plan-id> --approve <plan-sha256> --review-facts`
+authorization for the reviewed ready set. When Codex performed the source
+review, add `--reviewer codex` so its delegated role is recorded separately
+from the OS operator who authorized the batch. Read the receipt and public check;
+the application release, catalogue transaction, and public-site verification
+are separate operational states. Full commands, blocked-plan resolution, and
+recovery are in the [release workflow](../deploy/RELEASE_WORKFLOW.md).
 
 ## Production Environment
 
@@ -722,6 +737,7 @@ Protected import APIs:
 - `POST /api/maintainer/imports/:id/retry`
 - `POST /api/maintainer/imports/:id/reopen`
 - `POST /api/maintainer/imports/:id/evidence`
+- `POST /api/maintainer/imports/:id/external-identity`
 - `POST /api/maintainer/imports/:id/publish`
 - `POST /api/maintainer/imports/:id/factual-review`
 - `POST /api/maintainer/imports/:id/promote`
@@ -748,6 +764,8 @@ Import workflow:
 3. Inspect `ready` records; resolve only the named blockers on `needs-review` records.
 4. Select Imported-eligible entries and use **Publish selected as Imported** to write one safe batch with one catalogue build. Conflicts, weak confidence, ambiguous identity, scope overrides, unsafe URLs, and human-curated core fields remain excluded.
 5. To publish directly as `indexed-only`, first confirm the factual review for the current input revision. Re-preparation makes that stamp stale.
+
+For a project without podcast RSS, a maintainer can use **Verify Amazon Music identity** from the candidate detail after opening and checking that official show page. The confirmation lists the proposed title and creator. The action records reviewer-selected title/creator evidence, the provider UUID and the maintainer's identity attestation; it does not mark other facts reviewed, create a Podcast GUID, supply a missing description, waive cover permissions, or approve publication. Generic website feeds are discovered separately and are accepted as podcast RSS only when the fetched document has podcast markers or audio episodes.
 6. Promote a published Imported entry after confirming identity, official description, links/artwork, discovery metadata, lifecycle claims, and remaining gaps. Add archive-owned editorial enrichment later through `review:new` and `review:publish`.
 
 Operational rules:
