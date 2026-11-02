@@ -473,7 +473,10 @@ test("restricted host runner verifies active production pointers, lock, database
   fs.mkdirSync(path.join(hostRoot, "shared", "state"), { recursive: true });
   fs.mkdirSync(socketDirectory, { recursive: true, mode: 0o700 });
   fs.mkdirSync(stateRoot, { recursive: true });
-  writeJson(path.join(overlayRoot, "release.json"), { releaseId });
+  const overlayMarkerPath = path.join(overlayRoot, "release.json");
+  const releaseMarkerPath = path.join(releaseRoot, "release.json");
+  writeJson(releaseMarkerPath, { releaseId });
+  fs.symlinkSync(releaseMarkerPath, overlayMarkerPath);
   fs.writeFileSync(path.join(hostRoot, "shared", "state", "deployment.lock"), "");
   fs.writeFileSync(path.join(stateRoot, "community.sqlite"), "sqlite-test");
   fs.symlinkSync(releaseRoot, path.join(hostRoot, "current"));
@@ -494,6 +497,37 @@ test("restricted host runner verifies active production pointers, lock, database
       userLookup: () => ({ status: 0, stdout: `${process.getuid()}\n` }),
     };
     assert.equal(validateProductionHost(options).releaseId, releaseId);
+
+    fs.unlinkSync(overlayMarkerPath);
+    writeJson(overlayMarkerPath, { releaseId });
+    assert.equal(validateProductionHost(options).releaseId, releaseId, "a regular marker in the exact active overlay remains supported");
+
+    const replaceMarker = (createMarker) => {
+      fs.rmSync(overlayMarkerPath, { recursive: true, force: true });
+      createMarker();
+    };
+    const outsideMarkerPath = path.join(tempDir, "outside-release.json");
+    writeJson(outsideMarkerPath, { releaseId });
+    replaceMarker(() => fs.symlinkSync(outsideMarkerPath, overlayMarkerPath));
+    assert.throws(() => validateProductionHost(options), { code: "ECHO_PUBLISHER_RELEASE_MARKER_INVALID" });
+
+    replaceMarker(() => fs.symlinkSync(path.join(tempDir, "missing-release.json"), overlayMarkerPath));
+    assert.throws(() => validateProductionHost(options), { code: "ECHO_PUBLISHER_RELEASE_MARKER_INVALID" });
+
+    const otherReleaseId = "fedcba9876543210fedcba9876543210fedcba98";
+    const otherReleaseRoot = path.join(hostRoot, "releases", otherReleaseId);
+    fs.mkdirSync(otherReleaseRoot, { recursive: true });
+    writeJson(path.join(otherReleaseRoot, "release.json"), { releaseId: otherReleaseId });
+    replaceMarker(() => fs.symlinkSync(path.join(otherReleaseRoot, "release.json"), overlayMarkerPath));
+    assert.throws(() => validateProductionHost(options), { code: "ECHO_PUBLISHER_RELEASE_MARKER_INVALID" });
+
+    replaceMarker(() => fs.mkdirSync(overlayMarkerPath));
+    assert.throws(() => validateProductionHost(options), { code: "ECHO_PUBLISHER_RELEASE_MARKER_INVALID" });
+
+    replaceMarker(() => writeJson(overlayMarkerPath, { releaseId: otherReleaseId }));
+    assert.throws(() => validateProductionHost(options), { code: "ECHO_PUBLISHER_RELEASE_MISMATCH" });
+
+    replaceMarker(() => fs.symlinkSync(releaseMarkerPath, overlayMarkerPath));
 
     fs.chmodSync(socketDirectory, 0o777);
     assert.throws(() => validateProductionHost(options), { code: "ECHO_PUBLISHER_SOCKET_INVALID" });

@@ -133,6 +133,49 @@ function releaseIdFromRoot(releaseRoot) {
   return /^[0-9a-f]{40}$/.test(name) ? name : "";
 }
 
+function readProductionReleaseMarker(releaseMarkerPath, releaseRoot) {
+  const expectedReleaseMarkerPath = path.join(releaseRoot, "release.json");
+  let markerStat;
+  try {
+    markerStat = fs.lstatSync(releaseMarkerPath);
+  } catch (_error) {
+    fail("The active production overlay has no valid release marker.", "ECHO_PUBLISHER_RELEASE_MARKER_MISSING", 503);
+  }
+
+  let markerReadPath = releaseMarkerPath;
+  if (markerStat.isSymbolicLink()) {
+    let resolvedMarkerPath;
+    try {
+      resolvedMarkerPath = fs.realpathSync(releaseMarkerPath);
+    } catch (_error) {
+      fail("The active production overlay release marker path is unsafe.", "ECHO_PUBLISHER_RELEASE_MARKER_INVALID", 403);
+    }
+    if (resolvedMarkerPath !== expectedReleaseMarkerPath) {
+      fail("The active production overlay release marker path is unsafe.", "ECHO_PUBLISHER_RELEASE_MARKER_INVALID", 403);
+    }
+    markerReadPath = expectedReleaseMarkerPath;
+  } else if (!markerStat.isFile()) {
+    fail("The active production overlay release marker path is unsafe.", "ECHO_PUBLISHER_RELEASE_MARKER_INVALID", 403);
+  }
+
+  let markerFd;
+  try {
+    markerFd = fs.openSync(markerReadPath, fs.constants.O_RDONLY | fs.constants.O_NOFOLLOW);
+    if (!fs.fstatSync(markerFd).isFile()) {
+      fail("The active production overlay release marker path is unsafe.", "ECHO_PUBLISHER_RELEASE_MARKER_INVALID", 403);
+    }
+    return JSON.parse(fs.readFileSync(markerFd, "utf8"));
+  } catch (error) {
+    if (String(error.code || "").startsWith("ECHO_PUBLISHER_RELEASE_MARKER")) throw error;
+    if (error.code === "ELOOP") {
+      fail("The active production overlay release marker path is unsafe.", "ECHO_PUBLISHER_RELEASE_MARKER_INVALID", 403);
+    }
+    fail("The active production overlay has no valid release marker.", "ECHO_PUBLISHER_RELEASE_MARKER_MISSING", 503);
+  } finally {
+    if (markerFd !== undefined) fs.closeSync(markerFd);
+  }
+}
+
 function validateProductionHost({ root = HOST_ROOT, stateRoot = STATE_ROOT, socketPath = SOCKET_PATH, systemctl = spawnSync, userLookup = spawnSync } = {}) {
   const currentLink = path.join(root, "current");
   const runtimeLink = path.join(root, "runtime/production/current");
@@ -157,15 +200,7 @@ function validateProductionHost({ root = HOST_ROOT, stateRoot = STATE_ROOT, sock
     fail("Production release and runtime overlay do not point at the same retained release.", "ECHO_PUBLISHER_PRODUCTION_POINTER_MISMATCH", 409);
   }
   const releaseMarkerPath = path.join(overlayRoot, "release.json");
-  let marker;
-  try {
-    const markerStat = fs.lstatSync(releaseMarkerPath);
-    if (!markerStat.isFile() || markerStat.isSymbolicLink()) fail("The active production overlay release marker path is unsafe.", "ECHO_PUBLISHER_RELEASE_MARKER_INVALID", 403);
-    marker = JSON.parse(fs.readFileSync(releaseMarkerPath, "utf8"));
-  } catch (error) {
-    if (String(error.code || "").startsWith("ECHO_PUBLISHER_RELEASE_MARKER")) throw error;
-    fail("The active production overlay has no valid release marker.", "ECHO_PUBLISHER_RELEASE_MARKER_MISSING", 503);
-  }
+  const marker = readProductionReleaseMarker(releaseMarkerPath, releaseRoot);
   if (marker.releaseId !== releaseId) fail("Production overlay release marker does not match current release.", "ECHO_PUBLISHER_RELEASE_MISMATCH", 409);
   try {
     const lock = fs.lstatSync(path.join(root, "shared/state/deployment.lock"));
