@@ -1320,7 +1320,7 @@ test("startup recovers a SIGKILL publication before serving public pages", async
     assert.match(html, /Impact Winter/);
     assert.doesNotMatch(html, /Interrupted replacement/);
     assert.equal((await fetch(`${context.baseUrl}/api/health`)).status, 200);
-    assert.equal(fs.existsSync(path.join(fixtureRoot, ".echo-catalog-transaction")), false);
+    assert.equal(fs.existsSync(path.join(fixtureRoot, "import-staging", ".echo-catalog-transaction")), false);
   } finally {
     if (context) await stopPublicRouteServer(context);
     fs.rmSync(fixtureRoot, { recursive: true, force: true });

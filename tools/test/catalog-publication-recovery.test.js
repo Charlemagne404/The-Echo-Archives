@@ -8,6 +8,7 @@ const { writeCatalogSource, readCatalogSource } = require('../lib/catalog-source
 const { recoverCatalogPublication, completeCatalogPublicationRecovery } = require('../lib/catalog-publication-transaction');
 const sourceModule = require.resolve('../lib/catalog-source');
 const journalModule = require.resolve('../lib/catalog-publication-transaction');
+function journalPath(root) { return path.join(root, 'import-staging', '.echo-catalog-transaction'); }
 function fixture() {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'echo-publication-crash-'));
   writeCatalogSource(root, { mode: 'split', shows: [{ id: 'one', title: 'Original one' }, { id: 'two', title: 'Original two' }], collections: [], reviewsById: {} });
@@ -59,6 +60,54 @@ test('another live publisher cannot be recovered or overwritten', () => {
     const result = spawnSync(process.execPath, ['-e', `try{require(${JSON.stringify(journalModule)}).recoverCatalogPublication(process.env.CRASH_ROOT);process.exit(1)}catch(error){process.exit(error.statusCode===503?0:2)}`], { env: { ...process.env, CRASH_ROOT: root } });
     assert.equal(result.status, 0);
     transaction.rollback();
+  } finally { fs.rmSync(root, { recursive: true, force: true }); }
+});
+
+test('publication journals are created under import-staging, not the runtime root', () => {
+  const root = fixture();
+  const legacyPath = path.join(root, '.echo-catalog-transaction');
+  const mkdir = fs.mkdirSync;
+  try {
+    fs.mkdirSync = (directory, ...args) => {
+      if (path.resolve(directory) === legacyPath) {
+        const error = new Error('runtime root is read-only');
+        error.code = 'EROFS';
+        throw error;
+      }
+      return mkdir(directory, ...args);
+    };
+    const transaction = require(journalModule).beginCatalogPublication(root, [path.join(root, 'data/shows.json')]);
+    assert.equal(fs.existsSync(journalPath(root)), true);
+    assert.equal(fs.existsSync(legacyPath), false);
+    transaction.rollback();
+  } finally {
+    fs.mkdirSync = mkdir;
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('an outstanding runtime-root journal is migrated and recovered once from import-staging', () => {
+  const root = fixture();
+  const target = path.join(root, 'data/shows.json');
+  const legacyPath = path.join(root, '.echo-catalog-transaction');
+  const original = fs.readFileSync(target, 'utf8');
+  const snapshotLegacy = () => fs.readdirSync(legacyPath).sort().map((name) => [name, fs.readFileSync(path.join(legacyPath, name))]);
+  try {
+    crash(root, `const fs=require('node:fs');const root=process.env.CRASH_ROOT;const journal=require(${JSON.stringify(journalModule)});journal.beginCatalogPublication(root,[root+'/data/shows.json'],{recoveryData:{schema:1,candidates:[],identities:[]}});fs.writeFileSync(root+'/data/shows.json','interrupted contents');fs.renameSync(root+'/import-staging/.echo-catalog-transaction',root+'/.echo-catalog-transaction');process.kill(process.pid,'SIGKILL');`);
+    assert.equal(fs.existsSync(legacyPath), true);
+    const legacySnapshot = snapshotLegacy();
+    const recovery = recoverCatalogPublication(root);
+    assert.deepEqual(recovery.pendingDatabaseRecovery, { schema: 1, candidates: [], identities: [] });
+    assert.equal(fs.readFileSync(target, 'utf8'), original);
+    assert.equal(fs.existsSync(legacyPath), true, 'the read-only legacy journal remains untouched');
+    assert.deepEqual(snapshotLegacy(), legacySnapshot);
+    completeCatalogPublicationRecovery(root);
+    assert.equal(recoverCatalogPublication(root), false, 'the migrated journal marker prevents replaying the old journal');
+    const next = require(journalModule).beginCatalogPublication(root, [target]);
+    fs.writeFileSync(target, 'new publication');
+    next.commit();
+    assert.equal(fs.readFileSync(target, 'utf8'), 'new publication');
+    assert.equal(fs.existsSync(legacyPath), true);
   } finally { fs.rmSync(root, { recursive: true, force: true }); }
 });
 
@@ -114,6 +163,6 @@ test('backup failure leaves healthy files unchanged and releases the journal', (
     fs.copyFileSync = () => { const error = new Error('Simulated full backup disk'); error.code = 'ENOSPC'; throw error; };
     assert.throws(() => require(journalModule).beginCatalogPublication(root, [path.join(root, 'data/shows.json')]), { code: 'ENOSPC' });
     assert.deepEqual(readCatalogSource(root), before);
-    assert.equal(fs.existsSync(path.join(root, '.echo-catalog-transaction')), false);
+    assert.equal(fs.existsSync(journalPath(root)), false);
   } finally { fs.copyFileSync = copy; fs.rmSync(root, { recursive: true, force: true }); }
 });

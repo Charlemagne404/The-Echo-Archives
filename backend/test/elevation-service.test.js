@@ -158,7 +158,7 @@ test("full-review publication commits an automated collection refresh with the r
     assert.equal(result.reviewStatus, "full-review");
     assert.equal(source.shows.find((entry) => entry.id === "signal-show").reviewStatus, "full-review");
     assert.equal(source.collections[0].updatedAt, "2099-12-31");
-    assert.equal(fs.existsSync(path.join(root, ".echo-catalog-transaction")), false);
+    assert.equal(fs.existsSync(path.join(root, "import-staging", ".echo-catalog-transaction")), false);
   } finally {
     fs.rmSync(root, { recursive: true, force: true });
   }
@@ -180,7 +180,7 @@ test("review validation can build catalogue artifacts inside its parent publicat
       archiveTake: "A disciplined, suspenseful sci-fi listen.",
       spoilerFreeReview: "The first paragraph.",
     });
-    assert.equal(fs.existsSync(path.join(root, ".echo-catalog-transaction")), false);
+    assert.equal(fs.existsSync(path.join(root, "import-staging", ".echo-catalog-transaction")), false);
   } finally {
     fs.rmSync(root, { recursive: true, force: true });
   }
@@ -210,7 +210,7 @@ test("failed collection refresh rolls back full-review publication and its neste
     const source = readCatalogSource(root);
     assert.equal(source.shows.find((entry) => entry.id === "signal-show").reviewStatus, "planned");
     assert.notEqual(source.collections[0].updatedAt, "2099-12-31");
-    assert.equal(fs.existsSync(path.join(root, ".echo-catalog-transaction")), false);
+    assert.equal(fs.existsSync(path.join(root, "import-staging", ".echo-catalog-transaction")), false);
   } finally {
     fs.rmSync(root, { recursive: true, force: true });
   }
