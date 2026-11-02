@@ -403,7 +403,18 @@ function createEchoPublisher({
     if (configuredStagingRoot !== path.resolve(resolvedStaticRoot, "import-staging")) {
       throw publisherError("Publisher state path is not the active runtime overlay import-staging directory.", 403, "ECHO_PUBLISHER_WRONG_OVERLAY");
     }
-    ensureDirectory(stagingRoot);
+    let stagingStat;
+    try {
+      stagingStat = fs.lstatSync(stagingRoot);
+    } catch (error) {
+      if (error.code === "ENOENT") {
+        throw publisherError("The deployment-owned importer state directory is unavailable.", 503, "ECHO_PUBLISHER_PRODUCTION_OVERLAY_MISSING");
+      }
+      throw error;
+    }
+    if (!stagingStat.isDirectory() || stagingStat.isSymbolicLink()) {
+      throw publisherError(`Publisher state directory is unsafe: ${stagingRoot}`, 500, "ECHO_PUBLISHER_UNSAFE_STATE");
+    }
     if (fs.realpathSync(configuredStagingRoot) !== stagingRoot) {
       throw publisherError("Publisher state path follows an external directory or symbolic link.", 403, "ECHO_PUBLISHER_WRONG_OVERLAY");
     }

@@ -49,6 +49,7 @@ function createTempContext({ shows = [], failFirstRefresh = false } = {}) {
   const dbPath = path.join(tempDir, "community.sqlite");
   const siteRoot = path.join(tempDir, "site");
   const importStagingRoot = path.join(siteRoot, "import-staging");
+  fs.mkdirSync(importStagingRoot, { recursive: true, mode: 0o770 });
   writeJson(path.join(siteRoot, "data/shows.json"), shows);
   writeJson(path.join(siteRoot, "data/collections.json"), []);
   fs.mkdirSync(path.join(siteRoot, "images"), { recursive: true });
@@ -219,6 +220,18 @@ function existingShow({ title, id, feedUrl }) {
 async function createPlan(context, packageData, actor = "operator:test-user") {
   return context.publisher.createPlan({ packageData, actor });
 }
+
+test("Echo Publisher validates the existing importer staging directory without chmodding it", () => {
+  const context = createTempContext();
+  const importStagingRoot = path.join(context.siteRoot, "import-staging");
+  try {
+    fs.chmodSync(importStagingRoot, 0o770);
+    assert.throws(() => context.publisher.inspect("missing-plan-000000"), { code: "ECHO_PUBLISHER_PLAN_NOT_FOUND" });
+    assert.equal(fs.statSync(importStagingRoot).mode & 0o777, 0o770);
+  } finally {
+    context.cleanup();
+  }
+});
 
 test("Echo Publisher plans and atomically publishes a reviewed new-show batch with unknown fields and placeholder art", async () => {
   const context = createTempContext();
@@ -600,6 +613,7 @@ test("Nov. 1 submission package rehearsal uses an isolated scratch database copy
   const dbPath = path.join(tempDir, "candidate-preparation.sqlite");
   fs.copyFileSync(sourceDbPath, dbPath);
   const siteRoot = path.join(tempDir, "site");
+  fs.mkdirSync(path.join(siteRoot, "import-staging"), { recursive: true, mode: 0o770 });
   fs.mkdirSync(path.join(siteRoot, "data"), { recursive: true });
   fs.copyFileSync(path.join(REPO_ROOT, "data/shows.json"), path.join(siteRoot, "data/shows.json"));
   fs.copyFileSync(path.join(REPO_ROOT, "data/collections.json"), path.join(siteRoot, "data/collections.json"));
