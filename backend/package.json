@@ -60,6 +60,7 @@
     "test:entity-tooling": "node --test test/catalog-tooling.test.js",
     "test:entity-routes": "node --test test/public-routes.test.js",
     "test:entity-candidates": "node --test test/entity-enrichment-candidates.test.js",
+    "test:magnus-provider-sharing-repair": "node --test --test-concurrency=1 test/magnus-provider-sharing-repair.test.js",
     "test:entity-attribution": "node --test test/entity-attribution.test.js",
     "test:serial": "node --test --test-concurrency=1 test/*.test.js",
     "test:import-preparation": "node --test test/import-adapters.test.js test/import-resolution.test.js test/import-cover.test.js test/import-service.test.js test/import-store-v2.test.js test/submissions.test.js test/submission-draft-storage.test.js test/catalog-invariants.test.js test/catalog-integrity.test.js test/maintainer.test.js",
