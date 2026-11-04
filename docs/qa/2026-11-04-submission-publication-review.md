@@ -18,6 +18,29 @@ identity matches, and reject any changed or ambiguous entry. The package's
 local candidate IDs are not production IDs. No production queue, database,
 catalogue, or review stamp was changed by this review.
 
+## Release and workflow state
+
+The production service and staging service were healthy when checked, both
+serving commit `02fcbd2a676033bbf9d54ce613d4ba1362ec10b7` with application
+package version `2.0.0`. The public footer still showed `v1.2.7`, and the live
+submission form still used the browser's default GET method. The current source
+fixes both behaviors; neither fix is deployed yet.
+
+The recent publication/release fixes are present in the local branch history:
+the release-marker symlink check (`2e003d6f`), publisher staging ownership
+handling (`02fcbd2a`), catalogue journal placement in writable staging
+(`8a3a4b2b`), and read-only recovery plus submission fallback (`aba4da09`).
+The deploy workflow remains the documented build, private-staging, smoke,
+promotion, and health-check path. This session cannot run the privileged host
+steps: noninteractive `sudo -n -l` reports that a password is required. No
+authorization boundary or release gate was bypassed.
+
+The latest host monitor passed local backup integrity and SQLite foreign-key
+checks. It reported the offsite backup timer disabled and `/run/reboot-required`
+present. The local backup timer is active. The offsite prerequisite and pending
+reboot need deliberate host attention, but neither was changed during this
+release review.
+
 ## Candidate decisions
 
 | Candidate | Source-backed identity | Public catalogue match | Confidence and remaining uncertainty | Decision |
@@ -41,7 +64,8 @@ catalogue, or review stamp was changed by this review.
 - New shows use the `indexed-only` review tier. The existing Polybius record keeps its current tier and human-managed editorial fields.
 - The nine external cover images have no documented publication permission in the source package. Use `images/Circle2-Logo-S.png` for new records; retain Polybius’s existing artwork. Do not publish an external cover unless rights are established.
 - Leave unknown release status, completion, exact episode count, and Mina’s conflicting explicit-content advisory unknown. None is required for an otherwise source-supported listing.
+- The local candidate snapshot was prepared on 2026-11-01. Rechecked feed counts can change and are not exact show totals; apply only currently supported, explicitly qualified observed counts, and leave stale or unqualified totals unknown. The current plan must also omit provider-owned social links such as RSS.com’s Facebook account.
 - The local package reports nine technically ready candidates and one `needs-review` candidate, but its `factsReviewedAt` values are blank and it has no production candidate IDs. A local `ready` status is not a production eligibility result.
-- Before applying a batch, the restricted plan must contain exactly the nine candidates above, one Polybius update to `polybius-protocol`, no duplicate catalogue matches, no unreviewed identity conflicts, and only the documented optional unknowns. Stop and re-review if the target evidence or prepared fields differ.
+- The prepared package contains ten entries. Before applying, the restricted plan must show the nine source-reviewed entries above as eligible actions (eight new listings and one Polybius update to `polybius-protocol`) and OPTOg as blocked for its unresolved external identity. It must show no duplicate catalogue matches, no other identity conflicts, and only the documented optional unknowns. Stop and re-review if targets, status, or prepared fields differ.
 - A production apply must record the current factual review through the restricted publisher, preserve its exact plan hash, write an immutable receipt/journal, and pass post-publication public-site verification. No publication has occurred yet.
 
