@@ -63,7 +63,7 @@ run_release_node() {
 }
 
 require_deployment_user() {
-  [[ "${EUID}" -ne 0 ]] || die "run as the deployment user; use sudo only for systemd operations"
+  [[ "${EUID}" -ne 0 ]] || die "run as the deployment user; use sudo only for bounded runtime-state and systemd operations"
 }
 
 ensure_layout() {
@@ -229,8 +229,12 @@ prepare_runtime_permissions() {
     log "ERROR: dedicated runtime account echo-archives is missing" >&2
     return 1
   fi
-  find "${runtime_root}" -xdev -type d -exec setfacl -m u:echo-archives:r-x {} + || return 1
-  find "${runtime_root}" -xdev -type f -exec setfacl -m u:echo-archives:r-- {} + || return 1
+  # import-staging contains service-private 0700 journals and publisher records.
+  # Preserve that subtree as the service account and do not traverse it here.
+  sudo find "${runtime_root}" -xdev -path "${runtime_root}/import-staging/*" -prune -o \
+    -type d -exec setfacl -m u:echo-archives:r-x {} + || return 1
+  sudo find "${runtime_root}" -xdev -path "${runtime_root}/import-staging/*" -prune -o \
+    -type f -exec setfacl -m u:echo-archives:r-- {} + || return 1
 }
 
 runtime_environment_dir() {
@@ -334,6 +338,8 @@ copy_runtime_mutable_tree() {
 runtime_mutable_paths=(
   import-staging
   catalog-src/shows
+  catalog-src/collections
+  catalog-src/reviews
   images/covers
   images/generated/covers
   data/shows.json
@@ -371,7 +377,9 @@ preserve_runtime_mutable_state() {
     [[ -e "${source_path}" || -L "${source_path}" ]] || continue
     rm -rf -- "${target_path}"
     mkdir -p "$(dirname -- "${target_path}")"
-    cp -a -- "${source_path}" "${target_path}"
+    # Runtime data can contain service-owned collection records and private
+    # 0700 publication journals. Preserve exact ownership and ACLs as root.
+    sudo cp -a -- "${source_path}" "${target_path}"
   done
 }
 
@@ -484,6 +492,8 @@ grant_active_runtime_write_paths() {
   for relative_path in \
     import-staging \
     catalog-src/shows \
+    catalog-src/collections \
+    catalog-src/reviews \
     images/covers \
     images/generated/covers \
     data \
@@ -491,7 +501,7 @@ grant_active_runtime_write_paths() {
     docs/generated; do
     local directory_path="${release_root}/${relative_path}"
     if [[ -d "${directory_path}" ]]; then
-      setfacl -m u:echo-archives:rwx "${directory_path}" || return 1
+      sudo setfacl -m u:echo-archives:rwx "${directory_path}" || return 1
     fi
   done
 
@@ -505,7 +515,7 @@ grant_active_runtime_write_paths() {
     docs/generated/catalog-status.md; do
     local file_path="${release_root}/${relative_path}"
     if [[ -f "${file_path}" ]]; then
-      setfacl -m u:echo-archives:rw "${file_path}" || return 1
+      sudo setfacl -m u:echo-archives:rw "${file_path}" || return 1
     fi
   done
 }

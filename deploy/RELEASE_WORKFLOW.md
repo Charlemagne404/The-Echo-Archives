@@ -56,11 +56,11 @@ layout is:
 
 Release directories contain no `.git` checkout and no runtime database, logs,
 secrets, importer staging, or mutable catalog state. The environment overlays
-contain only the explicitly writable static/runtime paths. When a new overlay
-is prepared, the currently active environment's mutable paths are carried
-forward so a release switch does not silently hide importer or editorial file
-writes. Those files still require recovery backups when they cannot be
-regenerated from Git.
+contain only the explicitly writable static/runtime paths. The authored
+`catalog-src/shows/`, `catalog-src/collections/`, and `catalog-src/reviews/`
+directories are mutable source data carried forward when a new overlay is
+prepared; the corresponding release copies remain immutable. Those files
+still require recovery backups when they cannot be regenerated from Git.
 
 Production and staging use the same `deploy/echo` primitives. Their explicit
 differences are the service name, port, site URL, database, environment file,

@@ -228,6 +228,8 @@ fi
 log "Staging every runtime-writable publication path in the protected recovery inventory."
 for relative_path in \
   catalog-src/shows \
+  catalog-src/collections \
+  catalog-src/reviews \
   images/covers \
   images/generated/covers \
   data/reviews; do
