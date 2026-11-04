@@ -174,6 +174,21 @@ test("parseWebsiteHtml extracts official links and JSON-LD metadata from show si
   assert.equal(normalized.youtubeUrl, "https://youtube.com/@signallost");
 });
 
+test("parseWebsiteHtml does not treat share controls or podcast-host social links as show accounts", () => {
+  const ownerSite = parseWebsiteHtml(`<!doctype html><html><head><title>Signal Lost</title></head><body>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshows.acast.com%2Fsignal-lost">Share</a>
+    <a href="https://x.com/intent/post?url=https%3A%2F%2Fexample.com">Post</a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fexample.com">Share</a>
+    <a href="https://www.instagram.com/signallostshow/">Instagram</a>
+  </body></html>`, "https://signallost.example/");
+  const hostedShowPage = parseWebsiteHtml(`<!doctype html><html><head><title>Signal Lost</title></head><body>
+    <a href="https://www.facebook.com/rss.podcasting">Facebook</a>
+  </body></html>`, "https://signal-lost.rss.com/");
+
+  assert.deepEqual(ownerSite.socialUrls, ["https://www.instagram.com/signallostshow/"]);
+  assert.deepEqual(hostedShowPage.socialUrls, []);
+});
+
 test("organization homepages expose a generic site title separately from show identity", () => {
   const normalized = parseWebsiteHtml(`<!doctype html><html><head>
     <meta property="og:site_name" content="A.A.T. Studios">

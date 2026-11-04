@@ -44,11 +44,36 @@ function classifyOfficialUrl(url = "") {
     if (host === "ko-fi.com" || host.endsWith(".ko-fi.com")) return "koFi";
     if (host === "discord.gg" || host === "discord.com" || host.endsWith(".discord.com")) return "discord";
     if (host === "youtube.com" || host === "youtu.be" || host.endsWith(".youtube.com")) return "youtube";
+    if (host === "facebook.com" && /^\/(?:sharer(?:\/|$)|share(?:\/|$)|dialog\/share(?:\/|$))/i.test(path)) return "";
+    if ((host === "x.com" || host === "twitter.com") && /^\/intent(?:\/|$)/i.test(path)) return "";
+    if (host === "linkedin.com" && /^\/sharing(?:\/|$)/i.test(path)) return "";
     if (host === "instagram.com" || host === "facebook.com" || host === "threads.net" || host === "x.com" || host === "twitter.com" || host === "bsky.app" || host === "tiktok.com") return "social";
   } catch (_error) {
     return "";
   }
   return "";
+}
+
+function isPodcastPlatformHost(hostname = "") {
+  const host = String(hostname || "").replace(/^www\./i, "").toLowerCase();
+  const platformDomains = [
+    "acast.com",
+    "anchor.fm",
+    "buzzsprout.com",
+    "captivate.fm",
+    "libsyn.com",
+    "megaphone.fm",
+    "pinecast.com",
+    "podbean.com",
+    "podigee.io",
+    "redcircle.com",
+    "rss.com",
+    "simplecast.com",
+    "soundcloud.com",
+    "spreaker.com",
+    "transistor.fm",
+  ];
+  return platformDomains.some((domain) => host === domain || host.endsWith(`.${domain}`));
 }
 
 function jsonLdNodes($) {
@@ -104,6 +129,8 @@ function parseWebsiteHtml(html = "", sourceUrl = "") {
   const officialLinks = {};
   const socialUrls = [];
   const sourceOrigin = (() => { try { return new URL(sourceUrl).origin; } catch (_error) { return ""; } })();
+  const sourceHost = (() => { try { return new URL(sourceUrl).hostname; } catch (_error) { return ""; } })();
+  const collectSocialLinks = !isPodcastPlatformHost(sourceHost);
 
   $("a[href]").each((_index, element) => {
     const href = resolveUrl($(element).attr("href") || "", sourceUrl);
@@ -111,7 +138,7 @@ function parseWebsiteHtml(html = "", sourceUrl = "") {
     const label = trimText($(element).text() || $(element).attr("aria-label") || $(element).attr("title") || "", 240);
     links.push({ url: href, label });
     const classification = classifyOfficialUrl(href);
-    if (classification === "social") socialUrls.push(href);
+    if (classification === "social" && collectSocialLinks) socialUrls.push(href);
     else if (classification && !officialLinks[classification]) officialLinks[classification] = href;
     try {
       const parsed = new URL(href);
@@ -124,7 +151,7 @@ function parseWebsiteHtml(html = "", sourceUrl = "") {
   nodes.flatMap((node) => [].concat(node.sameAs || [])).forEach((entry) => {
     const url = resolveUrl(typeof entry === "string" ? entry : entry?.url || "", sourceUrl);
     const classification = classifyOfficialUrl(url);
-    if (classification === "social") socialUrls.push(url);
+    if (classification === "social" && collectSocialLinks) socialUrls.push(url);
     else if (classification && !officialLinks[classification]) officialLinks[classification] = url;
   });
 
