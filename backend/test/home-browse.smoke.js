@@ -566,6 +566,87 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
   }
 });
 
+test("homepage sort and filter controls retain their styles and sort the complete catalogue", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce" });
+
+  try {
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
+    await waitForInitialHomeResultPage(page, showFixtures.length);
+
+    const readControlStyles = () => page.evaluate(() => {
+      const read = (element) => {
+        if (!element) return null;
+        const style = getComputedStyle(element);
+        return {
+          className: element.className,
+          background: style.backgroundColor,
+          borderStyle: style.borderStyle,
+          borderWidth: Number.parseFloat(style.borderWidth) || 0,
+          borderRadius: Number.parseFloat(style.borderRadius) || 0,
+          minHeight: Number.parseFloat(style.minHeight) || 0,
+        };
+      };
+      return {
+        sort: read(document.getElementById("browseSort")),
+        filter: read(document.getElementById("filterToggle")),
+        quickFilter: read(document.querySelector("#quickFilters .quick-filter")),
+        homeStylesheetLoaded: Array.from(document.styleSheets).some((sheet) => {
+          try {
+            return new URL(sheet.href || "", window.location.href).pathname === "/home.css";
+          } catch (_error) {
+            return false;
+          }
+        }),
+      };
+    });
+
+    const initialStyles = await readControlStyles();
+    assert.equal(initialStyles.sort.className, "browse-sort-select");
+    assert.equal(initialStyles.homeStylesheetLoaded, true);
+    for (const style of [initialStyles.sort, initialStyles.filter, initialStyles.quickFilter]) {
+      assert.ok(style, "the control exists after hydration");
+      assert.notEqual(style.background, "rgba(0, 0, 0, 0)", "the dark control surface is present");
+      assert.equal(style.borderStyle, "solid", "the control has a visible border");
+      assert.ok(style.borderWidth >= 1);
+      assert.ok(style.borderRadius >= 10);
+      assert.ok(style.minHeight >= 44);
+    }
+
+    await page.locator("#browseSort").selectOption("recently-updated");
+    await page.waitForFunction(() => /Recently updated/i.test(document.getElementById("resultsSummary")?.textContent || ""));
+
+    const dateValue = (value) => {
+      const timestamp = Date.parse(String(value || "").trim());
+      return Number.isFinite(timestamp) ? timestamp : Number.NEGATIVE_INFINITY;
+    };
+    const expectedIds = showFixtures
+      .slice()
+      .sort((left, right) => dateValue(right.updatedAt) - dateValue(left.updatedAt) ||
+        String(left.title || "Untitled show").localeCompare(String(right.title || "Untitled show"), "en", { sensitivity: "base" }) ||
+        String(left.id || "").localeCompare(String(right.id || "")))
+      .slice(0, 60)
+      .map((show) => show.id);
+    const actualIds = await page.locator("#podcast-grid .podcast-card-shell")
+      .evaluateAll((cards) => cards.map((card) => card.dataset.podcastId));
+    assert.deepEqual(actualIds, expectedIds, "Recently updated orders all matching shows before showing page one");
+
+    const postSortStyles = await readControlStyles();
+    assert.equal(postSortStyles.sort.className, "browse-sort-select", "hydration keeps the sort styling hook");
+    assert.equal(postSortStyles.sort.borderStyle, "solid");
+    assert.notEqual(postSortStyles.sort.background, "rgba(0, 0, 0, 0)");
+    assert.equal(postSortStyles.filter.borderStyle, "solid");
+
+    await page.locator("#filterToggle").click();
+    await page.waitForFunction(() => document.getElementById("filterDropdown")?.dataset.state === "open");
+    assert.equal(await page.locator("#filterToggle").getAttribute("aria-expanded"), "true");
+    await page.keyboard.press("Escape");
+    await page.waitForFunction(() => document.getElementById("filterDropdown")?.hidden === true);
+    assert.equal(await page.locator("#filterToggle").getAttribute("aria-expanded"), "false");
+  } finally {
+    await page.close();
+  }
+});
+
 test("most listener ratings sorts the complete catalogue before pagination", async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1200 }, reducedMotion: "reduce" });
   const targetShow = showFixtures.at(-1);
@@ -1034,6 +1115,9 @@ test("homepage most popular band keeps the hardcoded fallback when community sum
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
 
   try {
+    await page.route("**/api/popularity/scores", async (route) => {
+      await route.fulfill({ status: 503, contentType: "application/json", body: JSON.stringify({ error: "offline" }) });
+    });
     await page.route("**/api/community/ratings/summary?*", async (route) => {
       await route.fulfill({
         status: 503,
@@ -1066,6 +1150,9 @@ test("homepage most popular band reorders by community rating volume and average
   const expectedIds = ["midnight-burger", "derelict", "were-alive", "red-valley"];
 
   try {
+    await page.route("**/api/popularity/scores", async (route) => {
+      await route.fulfill({ status: 503, contentType: "application/json", body: JSON.stringify({ error: "offline" }) });
+    });
     await page.route("**/api/community/ratings/summary?*", async (route) => {
       await route.fulfill({
         status: 200,
@@ -1094,6 +1181,9 @@ test("homepage labels ranked shows with unranked fallback cards as archive picks
   const expectedIds = ["story", "station-151", ...homeMostPopularIds].filter((id, index, ids) => ids.indexOf(id) === index).slice(0, 4);
 
   try {
+    await page.route("**/api/popularity/scores", async (route) => {
+      await route.fulfill({ status: 503, contentType: "application/json", body: JSON.stringify({ error: "offline" }) });
+    });
     await page.route("**/api/community/ratings/summary?*", async (route) => {
       await route.fulfill({
         status: 200,
@@ -1126,6 +1216,9 @@ test("homepage most popular band fills remaining slots from popularity metadata 
   const expectedIds = ["story", "station-151", "impact-winter", "ars-paradoxica"];
 
   try {
+    await context.route("**/api/popularity/scores", async (route) => {
+      await route.fulfill({ status: 503, contentType: "application/json", body: JSON.stringify({ error: "offline" }) });
+    });
     await context.route("**/data/search-index.json*", async (route) => {
       const records = showFixtures.map((show) => {
         if (show.id === "impact-winter") {
@@ -1165,6 +1258,52 @@ test("homepage most popular band fills remaining slots from popularity metadata 
 
     const rankedState = await getMostPopularBandState(page);
     assert.deepEqual(rankedState.cardIds, expectedIds);
+    assert.equal(rankedState.sectionTitle, "Popular in the archive");
+  } finally {
+    await context.close();
+  }
+});
+
+test("homepage popular band uses full-catalogue popularity scores before community or hardcoded fallbacks", async () => {
+  const context = await browser.newContext({
+    viewport: { width: 1440, height: 1400 },
+    serviceWorkers: "block",
+  });
+  const page = await context.newPage();
+  const winners = showFixtures.slice(-4).reverse();
+  const winnerIds = winners.map((show) => show.id);
+  const scoreMap = Object.fromEntries(showFixtures.map((show) => [show.id, 1]));
+  winners.forEach((show, index) => {
+    scoreMap[show.id] = 100 - index;
+  });
+  let popularityRequests = 0;
+
+  try {
+    assert.ok(showFixtures.findIndex((show) => show.id === winnerIds[0]) >= 100);
+    await context.route("**/api/popularity/scores", async (route) => {
+      popularityRequests += 1;
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({ scores: scoreMap }),
+      });
+    });
+    await context.route("**/api/community/ratings/summary?*", async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify(buildSummaryPayload({
+          "midnight-burger": createSummary({ averageRating: 10, ratingCount: 500 }),
+        }, route.request().url())),
+      });
+    });
+
+    await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
+    await waitForMostPopularBandIds(page, winnerIds);
+
+    const rankedState = await getMostPopularBandState(page);
+    assert.ok(popularityRequests > 0);
+    assert.deepEqual(rankedState.cardIds, winnerIds);
     assert.equal(rankedState.sectionTitle, "Popular in the archive");
   } finally {
     await context.close();

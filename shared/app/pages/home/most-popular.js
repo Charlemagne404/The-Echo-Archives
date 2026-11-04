@@ -1,4 +1,5 @@
 import { HOME_MOST_POPULAR_IDS } from "../../constants.js";
+import { loadPopularityScores } from "../../data.js";
 import { loadCommunitySummaries, syncCommunityCardBadges } from "../../community.js";
 import { createMostPopularCard } from "../../render-cards.js";
 
@@ -95,7 +96,7 @@ export function createMostPopularController({
     });
   }
 
-  function buildMostPopularResolution(communitySummaries) {
+  function buildMostPopularResolution(communitySummaries, popularityScores) {
     const rankedByCommunity = publishedShows
       .map((show) => ({
         show,
@@ -106,24 +107,37 @@ export function createMostPopularController({
       .map(({ show }) => show);
 
     const rankedByPopularityScore = [...publishedShows]
-      .filter((show) => Number.isFinite(show.popularity?.score))
-      .sort((left, right) => {
-        const leftScore = left.popularity?.score || 0;
-        const rightScore = right.popularity?.score || 0;
-        return rightScore - leftScore || String(left.title || "Untitled show").localeCompare(String(right.title || "Untitled show"));
-      });
+      .map((show) => ({
+        show,
+        score: popularityScores?.[show.id],
+      }))
+      .filter(({ score }) => typeof score === "number" && Number.isFinite(score))
+      .sort((left, right) => right.score - left.score ||
+        String(left.show.title || "Untitled show").localeCompare(String(right.show.title || "Untitled show")) ||
+        String(left.show.id || "").localeCompare(String(right.show.id || "")))
+      .map(({ show }) => show);
+
+    const rankedByAuthoredPopularity = [...publishedShows]
+      .filter((show) => typeof show.popularity?.score === "number" && Number.isFinite(show.popularity.score))
+      .sort((left, right) => right.popularity.score - left.popularity.score ||
+        String(left.title || "Untitled show").localeCompare(String(right.title || "Untitled show")) ||
+        String(left.id || "").localeCompare(String(right.id || "")));
 
     const popularityEvidenceIds = new Set([
       ...rankedByCommunity.map((show) => show.id),
       ...publishedShows
-        .filter((show) => Number.isFinite(show.popularity?.score) && show.popularity.score > 0)
+        .filter((show) => typeof popularityScores?.[show.id] === "number" && Number.isFinite(popularityScores[show.id]) && popularityScores[show.id] > 0)
+        .map((show) => show.id),
+      ...publishedShows
+        .filter((show) => typeof show.popularity?.score === "number" && Number.isFinite(show.popularity.score) && show.popularity.score > 0)
         .map((show) => show.id),
     ]);
 
     const resolved = [];
     const seenIds = new Set();
-    appendUniqueMostPopularShows(resolved, seenIds, rankedByCommunity);
     appendUniqueMostPopularShows(resolved, seenIds, rankedByPopularityScore);
+    appendUniqueMostPopularShows(resolved, seenIds, rankedByCommunity);
+    appendUniqueMostPopularShows(resolved, seenIds, rankedByAuthoredPopularity);
     appendUniqueMostPopularShows(resolved, seenIds, fallbackMostPopularShows);
     const shows = resolved.slice(0, HOME_MOST_POPULAR_LIMIT);
     return {
@@ -149,16 +163,37 @@ export function createMostPopularController({
 
     const requestToken = ++mostPopularResolutionToken;
 
+    let popularityScores = {};
     try {
-      const communitySummaryCandidates = publishedShows
-        .slice(0, COMMUNITY_SUMMARY_CANDIDATE_LIMIT)
-        .map((show) => show.id);
-      const communitySummaries = await loadCommunitySummaries(communitySummaryCandidates);
-      if (requestToken !== mostPopularResolutionToken) {
-        return;
-      }
+      popularityScores = await loadPopularityScores();
+    } catch (_error) {
+      // Use the bounded community summary fallback if the ranking service is unavailable.
+    }
+    if (requestToken !== mostPopularResolutionToken) {
+      return;
+    }
 
-      const resolution = buildMostPopularResolution(communitySummaries);
+    const scoredShowCount = publishedShows.reduce((count, show) => {
+      const score = popularityScores?.[show.id];
+      return count + (typeof score === "number" && Number.isFinite(score) ? 1 : 0);
+    }, 0);
+    let communitySummaries = {};
+    if (scoredShowCount < HOME_MOST_POPULAR_LIMIT) {
+      try {
+        const communitySummaryCandidates = publishedShows
+          .slice(0, COMMUNITY_SUMMARY_CANDIDATE_LIMIT)
+          .map((show) => show.id);
+        communitySummaries = await loadCommunitySummaries(communitySummaryCandidates);
+      } catch (_error) {
+        // Keep the authored archive picks if neither ranking source is available.
+      }
+    }
+    if (requestToken !== mostPopularResolutionToken) {
+      return;
+    }
+
+    try {
+      const resolution = buildMostPopularResolution(communitySummaries, popularityScores);
       const nextMostPopularShows = resolution.shows;
       mostPopularShows = nextMostPopularShows;
       setMostPopularTitle(resolution.title);
