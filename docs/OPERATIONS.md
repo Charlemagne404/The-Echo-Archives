@@ -61,7 +61,9 @@ compatible with the current importer and publication paths. The release
 deployment installs dependencies as the deployment user, applies read/traverse
 ACLs to each immutable release, and grants only the active runtime overlay's
 explicit catalog/publication paths the runtime write access needed by the app.
-Deployment and runtime ownership remain separate.
+The authored show, collection, and review source directories are carried
+forward as mutable overlay data; release copies remain immutable. Deployment
+and runtime ownership remain separate.
 
 When carrying mutable content into an inactive runtime, deployment uses the
 allowlisted `deploy/preserve-runtime-mutable-state.sh` helper through normal

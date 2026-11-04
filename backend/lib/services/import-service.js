@@ -373,6 +373,19 @@ function createLimitedFetch(fetchImpl, { perHost = 2, applePerMinute = 15 } = {}
   return limitedFetch;
 }
 
+function rollbackPublicationOrThrow(transaction, cause) {
+  try {
+    transaction.rollback();
+  } catch (rollbackError) {
+    const originalMessage = cause?.message || String(cause);
+    const rollbackMessage = rollbackError?.message || String(rollbackError);
+    const combined = new Error(`${originalMessage}; rollback also failed: ${rollbackMessage}`, { cause });
+    combined.code = cause?.code || rollbackError?.code;
+    combined.rollbackError = rollbackError;
+    throw combined;
+  }
+}
+
 function createImportService({ store, staticRoot, config = {}, fetchImpl = globalThis.fetch, onPublished = null }) {
   const userAgent = trimText(config.PODCAST_INDEX_USER_AGENT || DEFAULT_IMPORT_USER_AGENT, 240) || DEFAULT_IMPORT_USER_AGENT;
   const workerConcurrency = Math.min(16, Math.max(1, Number(config.IMPORT_WORKER_CONCURRENCY) || 4));
@@ -1970,7 +1983,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       return { candidates: published, showIds: records.map((record) => record.id), candidate: published[0], showId: records[0]?.id || "", buildCount: 1 };
     } catch (error) {
       if (!catalogTransaction) throw error;
-      catalogTransaction.rollback();
+      rollbackPublicationOrThrow(catalogTransaction, error);
       if (databasePublicationCommitted) store.restorePublicationSnapshot(publicationSnapshot);
       if (catalogTransaction) completeCatalogPublicationRecovery(staticRoot);
       if (!hadSplitCatalog) fs.rmSync(path.join(staticRoot, "catalog-src"), { recursive: true, force: true });
@@ -2075,7 +2088,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       return { candidate: updated, showId: promoted.id, reviewStatus: promoted.reviewStatus };
     } catch (error) {
       if (!catalogTransaction) throw error;
-      catalogTransaction.rollback();
+      rollbackPublicationOrThrow(catalogTransaction, error);
       if (databasePublicationCommitted) store.restorePublicationSnapshot(publicationSnapshot);
       if (catalogTransaction) completeCatalogPublicationRecovery(staticRoot);
       await buildCatalog(staticRoot).catch(() => {});
@@ -2208,7 +2221,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       return { candidate: updated, showId: promoted.id, reviewStatus: promoted.reviewStatus };
     } catch (error) {
       if (!catalogTransaction) throw error;
-      catalogTransaction.rollback();
+      rollbackPublicationOrThrow(catalogTransaction, error);
       if (databasePublicationCommitted) store.restorePublicationSnapshot(publicationSnapshot);
       if (catalogTransaction) completeCatalogPublicationRecovery(staticRoot);
       await buildCatalog(staticRoot).catch(() => {});

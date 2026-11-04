@@ -861,6 +861,8 @@ printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
   assert.match(runtimeMigration, /setfacl/);
   assert.match(runtimeMigration, /--repair-access/);
   assert.match(runtimeMigration, /d:u:\$\{APP_USER\}:rw-/);
+  assert.match(runtimeMigration, /catalog-src\/collections/);
+  assert.match(runtimeMigration, /catalog-src\/reviews/);
   assert.match(runtimeMigration, /Dedicated runtime-account access controls were repaired and verified/);
   assert.match(runtimeMigration, /-path "\$\{REPO_ROOT\}\/\.git" -prune/);
   assert.match(runtimeMigration, /-path "\$\{REPO_ROOT\}\/backend\/data\/backups" -prune/);
@@ -918,6 +920,8 @@ printf 'FIXTURE_RESTART_COUNT=%s\n' "$RESTART_COUNT"
   );
   assert.match(offsiteBackup, /stage_publication_directory/);
   assert.match(offsiteBackup, /catalog-src\/shows/);
+  assert.match(offsiteBackup, /catalog-src\/collections/);
+  assert.match(offsiteBackup, /catalog-src\/reviews/);
   assert.match(offsiteBackup, /images\/generated\/covers/);
   assert.match(offsiteBackup, /data\/reviews/);
   assert.match(offsiteBackup, /docs\/generated\/catalog-status\.md/);
@@ -1501,6 +1505,8 @@ test("checked-in service and proxy retain production hardening", () => {
   for (const path of [
     "import-staging",
     "catalog-src/shows",
+    "catalog-src/collections",
+    "catalog-src/reviews",
     "images/covers",
     "images/generated/covers",
     "data",
@@ -1509,6 +1515,17 @@ test("checked-in service and proxy retain production hardening", () => {
   ]) {
     assert.match(service, new RegExp(`^ReadWritePaths=/srv/echo-archives/runtime/production/current/${path.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`, "m"));
   }
+  assert.match(stagingService, /^ReadWritePaths=\/srv\/echo-archives\/runtime\/staging\/current\/catalog-src\/shows$/m);
+  assert.match(stagingService, /^ReadWritePaths=\/srv\/echo-archives\/runtime\/staging\/current\/catalog-src\/collections$/m);
+  assert.match(stagingService, /^ReadWritePaths=\/srv\/echo-archives\/runtime\/staging\/current\/catalog-src\/reviews$/m);
+  const releaseCommon = read("deploy/release-common.sh");
+  for (const path of ["catalog-src/shows", "catalog-src/collections", "catalog-src/reviews"]) {
+    assert.ok(releaseCommon.split("\n").includes(`  ${path}`), `${path} is carried forward across runtime releases`);
+  }
+  assert.match(releaseCommon, /sudo cp -a -- "\$\{source_path\}" "\$\{target_path\}"/);
+  assert.match(releaseCommon, /sudo find "\$\{runtime_root\}" -xdev -path "\$\{runtime_root\}\/import-staging\/\*" -prune/);
+  assert.match(releaseCommon, /sudo setfacl -m u:echo-archives:rwx "\$\{directory_path\}"/);
+  assert.match(releaseCommon, /import-staging\/\*" -prune/);
   assert.doesNotMatch(service, /\/home\/charlie\/The-Echo-Archives/);
   assert.doesNotMatch(service, /^EnvironmentFile=-/m);
   assert.doesNotMatch(service, /^Environment=COMMUNITY_RATING_WRITES_ENABLED=/m);
@@ -1990,19 +2007,34 @@ test("publisher plans and audit records persist in import-staging across runtime
   const oldOverlay = path.join(tempRoot, "runtime/production/old-release");
   const nextOverlay = path.join(tempRoot, "runtime/production/new-release");
   const laterOverlay = path.join(tempRoot, "runtime/production/later-release");
+  const shimRoot = path.join(tempRoot, "shims");
+  const sudoLog = path.join(tempRoot, "sudo-calls.log");
   const planId = "publisher-plan-20261101-0001";
   const plan = { planId, approvalSha256: "a".repeat(64), entries: [{ candidateId: "candidate-from-target-db" }] };
   const receipt = { planId, catalogueWrite: { status: "complete", showIds: ["signal"] } };
   try {
+    fs.mkdirSync(shimRoot, { recursive: true });
+    fs.writeFileSync(path.join(shimRoot, "sudo"), '#!/bin/sh\nprintf "%s\\n" "$*" >> "$TEST_SUDO_LOG"\nexec "$@"\n', { mode: 0o755 });
     const stateRoot = path.join(oldOverlay, "import-staging/echo-publisher");
     fs.mkdirSync(path.join(stateRoot, "plans"), { recursive: true });
     fs.mkdirSync(path.join(stateRoot, "receipts", planId), { recursive: true });
     fs.writeFileSync(path.join(stateRoot, "plans", `${planId}.json`), JSON.stringify(plan));
     fs.writeFileSync(path.join(stateRoot, "receipts", planId, "attempt-0001.json"), JSON.stringify(receipt));
+    fs.chmodSync(stateRoot, 0o700);
+    fs.chmodSync(path.join(stateRoot, "plans"), 0o700);
+    fs.chmodSync(path.join(stateRoot, "receipts", planId), 0o700);
+    fs.chmodSync(path.join(stateRoot, "plans", `${planId}.json`), 0o600);
+    fs.chmodSync(path.join(stateRoot, "receipts", planId, "attempt-0001.json"), 0o600);
     fs.mkdirSync(path.join(oldOverlay, "catalog-src/shows"), { recursive: true });
     fs.writeFileSync(path.join(oldOverlay, "catalog-src/shows/signal.json"), JSON.stringify({ id: "signal" }));
+    fs.mkdirSync(path.join(oldOverlay, "catalog-src/collections"), { recursive: true });
+    fs.writeFileSync(path.join(oldOverlay, "catalog-src/collections/route.json"), JSON.stringify({ id: "route", showIds: ["signal"] }));
+    fs.mkdirSync(path.join(oldOverlay, "catalog-src/reviews"), { recursive: true });
+    fs.writeFileSync(path.join(oldOverlay, "catalog-src/reviews/signal.json"), JSON.stringify({ archiveTake: "Preserved editorial review." }));
     fs.mkdirSync(path.join(oldOverlay, "data"), { recursive: true });
     fs.writeFileSync(path.join(oldOverlay, "data/shows.json"), JSON.stringify([{ id: "signal" }]));
+    fs.mkdirSync(path.join(oldOverlay, "data/reviews"), { recursive: true });
+    fs.writeFileSync(path.join(oldOverlay, "data/reviews/signal.json"), JSON.stringify({ id: "signal" }));
 
     const script = 'set -Eeuo pipefail; source "$1"; preserve_runtime_mutable_state "$2" "$3"';
     for (const [from, to] of [[oldOverlay, nextOverlay], [nextOverlay, laterOverlay]]) {
@@ -2010,6 +2042,7 @@ test("publisher plans and audit records persist in import-staging across runtime
       const result = spawnSync("/bin/bash", ["-c", script, "publisher-persistence-test", path.join(ROOT, "deploy/release-common.sh"), from, to], {
         cwd: ROOT,
         encoding: "utf8",
+        env: { ...process.env, PATH: `${shimRoot}:${process.env.PATH}`, TEST_SUDO_LOG: sudoLog },
       });
       assert.equal(result.status, 0, result.stderr || result.stdout);
     }
@@ -2017,7 +2050,16 @@ test("publisher plans and audit records persist in import-staging across runtime
     assert.deepEqual(JSON.parse(fs.readFileSync(path.join(laterOverlay, "import-staging/echo-publisher/plans", `${planId}.json`), "utf8")), plan);
     assert.deepEqual(JSON.parse(fs.readFileSync(path.join(laterOverlay, "import-staging/echo-publisher/receipts", planId, "attempt-0001.json"), "utf8")), receipt);
     assert.equal(JSON.parse(fs.readFileSync(path.join(laterOverlay, "catalog-src/shows/signal.json"), "utf8")).id, "signal");
+    assert.equal(JSON.parse(fs.readFileSync(path.join(laterOverlay, "catalog-src/collections/route.json"), "utf8")).showIds[0], "signal");
+    assert.equal(JSON.parse(fs.readFileSync(path.join(laterOverlay, "catalog-src/reviews/signal.json"), "utf8")).archiveTake, "Preserved editorial review.");
     assert.deepEqual(JSON.parse(fs.readFileSync(path.join(laterOverlay, "data/shows.json"), "utf8")), [{ id: "signal" }]);
+    assert.equal(JSON.parse(fs.readFileSync(path.join(laterOverlay, "data/reviews/signal.json"), "utf8")).id, "signal");
+    assert.equal(fs.statSync(path.join(laterOverlay, "import-staging/echo-publisher/plans", `${planId}.json`)).mode & 0o777, 0o600);
+    const sudoCalls = fs.readFileSync(sudoLog, "utf8").trim().split("\n");
+    assert.ok(sudoCalls.some((call) => call.includes(`${oldOverlay}/import-staging`)));
+    assert.ok(sudoCalls.some((call) => call.includes(`${nextOverlay}/import-staging`)));
+    assert.ok(sudoCalls.some((call) => call.includes(`${oldOverlay}/catalog-src/collections`)));
+    assert.ok(sudoCalls.every((call) => call.startsWith("cp -a -- ")));
   } finally {
     fs.rmSync(tempRoot, { recursive: true, force: true });
   }

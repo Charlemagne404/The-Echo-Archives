@@ -4,13 +4,15 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
-const { writeCatalogSource, writeShowRecordsAtomically, readCatalogSource } = require('../lib/catalog-source');
+const { writeCatalogSource, writeShowRecordsAtomically, writeCollectionRecordsAtomically, writeJsonFileAtomic, readCatalogSource } = require('../lib/catalog-source');
 const {
   beginCatalogRuntimeSnapshot,
+  beginCatalogPublication,
   recoverCatalogPublication,
   completeCatalogPublicationRecovery,
   ownsCatalogPublication,
   assertCatalogPublicationReadable,
+  runWithCatalogPublication,
 } = require('../lib/catalog-publication-transaction');
 const sourceModule = require.resolve('../lib/catalog-source');
 const journalModule = require.resolve('../lib/catalog-publication-transaction');
@@ -41,10 +43,238 @@ function overlayFixture() {
   });
   return { base, root, linkedGeneratedFiles };
 }
+function makeTreeReadOnly(directory) {
+  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    const target = path.join(directory, entry.name);
+    if (entry.isDirectory()) makeTreeReadOnly(target);
+    else if (!entry.isSymbolicLink()) fs.chmodSync(target, 0o444);
+  }
+  fs.chmodSync(directory, 0o555);
+}
+function makeTreeWritable(directory) {
+  const stat = fs.lstatSync(directory);
+  if (stat.isSymbolicLink()) return;
+  if (stat.isDirectory()) {
+    fs.chmodSync(directory, 0o755);
+    for (const name of fs.readdirSync(directory)) makeTreeWritable(path.join(directory, name));
+  } else fs.chmodSync(directory, 0o644);
+}
+function productionLayoutFixture() {
+  const fixture = overlayFixture();
+  const releaseId = path.basename(fixture.root);
+  const releaseRoot = path.join(fixture.base, 'srv/echo-archives/releases', releaseId);
+  const runtimeRoot = fixture.root;
+  const currentRoot = path.join(fixture.base, 'srv/echo-archives/runtime/production/current');
+  const currentRelease = path.join(fixture.base, 'srv/echo-archives/current');
+  writeCatalogSource(runtimeRoot, {
+    mode: 'split',
+    shows: [{ id: 'one', title: 'Original one' }],
+    collections: [{ id: 'existing-route', title: 'Existing route', description: 'A preserved editorial route.', showIds: ['one'], showReasons: { one: 'An existing editorial route.' } }],
+    reviewsById: { one: { archiveTake: 'Existing editorial review.' } },
+  });
+  fs.writeFileSync(path.join(runtimeRoot, 'catalog-src/entities.json'), '[]\n');
+  fs.chmodSync(path.join(runtimeRoot, 'catalog-src/entities.json'), 0o444);
+  fs.chmodSync(path.join(runtimeRoot, 'catalog-src'), 0o555);
+  for (const name of ['shows', 'collections', 'reviews']) fs.chmodSync(path.join(runtimeRoot, 'catalog-src', name), 0o770);
+  fs.symlinkSync(releaseId, currentRoot);
+  fs.symlinkSync(path.relative(path.dirname(currentRelease), releaseRoot), currentRelease);
+  makeTreeReadOnly(releaseRoot);
+  return { ...fixture, root: currentRoot, runtimeRoot, releaseRoot, currentRelease };
+}
+function disposeProductionLayoutFixture(fixture) {
+  makeTreeWritable(fixture.base);
+  fs.rmSync(fixture.base, { recursive: true, force: true });
+}
 function crash(root, script) {
   const result = spawnSync(process.execPath, ['-e', script], { env: { ...process.env, CRASH_ROOT: root }, timeout: 10000 });
   assert.equal(result.signal, 'SIGKILL', result.stderr.toString());
 }
+test('old production write allowlist reproduces EROFS when collection refresh tries to update its source', () => {
+  const fixture = productionLayoutFixture();
+  const collectionDirectory = path.join(fixture.root, 'catalog-src/collections');
+  const originalCollectionMode = fs.statSync(collectionDirectory).mode & 0o777;
+  fs.chmodSync(collectionDirectory, 0o550);
+  fs.readdirSync(collectionDirectory).forEach((name) => fs.chmodSync(path.join(collectionDirectory, name), 0o440));
+  try {
+    const before = readCatalogSource(fixture.root);
+    const publication = writeShowRecordsAtomically(fixture.root, [{ id: 'one', title: 'Published show update' }], {
+      deferCommit: true,
+      recoveryData: { schema: 1, candidates: [], identities: [] },
+    });
+    const write = fs.writeFileSync;
+    let publicationError;
+    fs.writeFileSync = (target, ...args) => {
+      if (String(target).startsWith(`${collectionDirectory}${path.sep}`) && String(target).includes('.import-')) {
+        const error = new Error(`EROFS: read-only file system, open '${target}'`);
+        error.code = 'EROFS';
+        error.syscall = 'open';
+        error.path = target;
+        throw error;
+      }
+      return write(target, ...args);
+    };
+    try {
+      assert.throws(() => runWithCatalogPublication(publication.publicationToken, () => {
+        writeCollectionRecordsAtomically(fixture.root, [{
+          ...before.collections[0],
+          description: 'Collection membership refreshed after show publication.',
+        }], { joinExisting: true });
+      }), (error) => {
+        publicationError = error;
+        return error.code === 'EROFS' && /catalog-src\/collections\/existing-route\.json\.import-/.test(error.message);
+      });
+    } finally { fs.writeFileSync = write; }
+
+    assert.equal(publicationError.code, 'EROFS');
+    assert.match(publicationError.message, /read-only file system/);
+    publication.rollback();
+    completeCatalogPublicationRecovery(fixture.root);
+    assert.deepEqual(readCatalogSource(fixture.root), before);
+  } finally {
+    fs.chmodSync(collectionDirectory, originalCollectionMode);
+    disposeProductionLayoutFixture(fixture);
+  }
+});
+test('old broad recovery journal reproduces EROFS on immutable collections and recovers without rewriting unchanged files', () => {
+  const fixture = productionLayoutFixture();
+  const collectionDirectory = path.join(fixture.root, 'catalog-src/collections');
+  const collectionOrder = path.join(collectionDirectory, '_order.json');
+  const readOnlyMode = fs.statSync(collectionDirectory).mode & 0o777;
+  fs.chmodSync(collectionDirectory, 0o550);
+  fs.readdirSync(collectionDirectory).forEach((name) => fs.chmodSync(path.join(collectionDirectory, name), 0o440));
+  try {
+    const before = readCatalogSource(fixture.root);
+    const generatedPath = path.join(fixture.root, 'data/shows.json');
+    const generatedBefore = fs.readFileSync(generatedPath);
+    crash(fixture.root, `const fs=require('node:fs');const root=process.env.CRASH_ROOT;const journal=require(${JSON.stringify(journalModule)});journal.beginCatalogPublication(root,[root+'/data/shows.json'],{includeGenerated:true,includeSource:true,recoveryData:{schema:1,candidates:[],identities:[]}});fs.writeFileSync(root+'/catalog-src/shows/one.json',JSON.stringify({id:'one',title:'Interrupted change'}));fs.writeFileSync(root+'/data/shows.json','partial generated data');process.kill(process.pid,'SIGKILL');`);
+
+    const manifest = JSON.parse(fs.readFileSync(path.join(journalPath(fixture.root), 'manifest.json'), 'utf8'));
+    const collectionEntry = manifest.files.find((file) => file.relative === 'catalog-src/collections/_order.json');
+    assert.ok(collectionEntry, 'the previous release journal included the immutable collection order file');
+    const backupPath = path.join(journalPath(fixture.root), collectionEntry.backup);
+    const copy = fs.copyFileSync;
+    let blockedRecoveryCopies = 0;
+    fs.copyFileSync = (source, destination, ...args) => {
+      if (path.resolve(destination).startsWith(`${collectionDirectory}${path.sep}`) && String(destination).includes('.recover-')) {
+        blockedRecoveryCopies += 1;
+        const error = new Error(`EROFS: read-only file system, copyfile '${source}' -> '${destination}'`);
+        error.code = 'EROFS';
+        error.syscall = 'copyfile';
+        error.path = source;
+        error.dest = destination;
+        throw error;
+      }
+      return copy(source, destination, ...args);
+    };
+    try {
+      assert.throws(
+        () => fs.copyFileSync(backupPath, `${collectionOrder}.recover-reproduction`),
+        /EROFS: read-only file system, copyfile .*catalog-src\/collections\/_order\.json\.recover-reproduction/,
+      );
+      blockedRecoveryCopies = 0;
+      const recovered = recoverCatalogPublication(fixture.root);
+      assert.equal(recovered.pendingDatabaseRecovery.schema, 1);
+      assert.equal(blockedRecoveryCopies, 0, 'unchanged immutable source files are not copied during recovery');
+    } finally { fs.copyFileSync = copy; }
+
+    assert.deepEqual(readCatalogSource(fixture.root), before);
+    assert.deepEqual(fs.readFileSync(generatedPath), generatedBefore);
+    completeCatalogPublicationRecovery(fixture.root);
+    assert.equal(recoverCatalogPublication(fixture.root), false);
+    assert.equal(fs.statSync(collectionDirectory).mode & 0o777, 0o550);
+  } finally {
+    fs.chmodSync(collectionDirectory, readOnlyMode);
+    disposeProductionLayoutFixture(fixture);
+  }
+});
+
+test('recovery carried across deployment restores mutable records and keeps new release symlinks', () => {
+  const fixture = productionLayoutFixture();
+  const before = readCatalogSource(fixture.root);
+  const oldGenerated = fs.readFileSync(path.join(fixture.root, 'data/shows.json'));
+  const newReleaseId = 'abcdefabcdefabcdefabcdefabcdefabcdefabcd';
+  const newReleaseRoot = path.join(fixture.base, 'srv/echo-archives/releases', newReleaseId);
+  const newRuntimeRoot = path.join(fixture.base, 'srv/echo-archives/runtime/production', newReleaseId);
+  try {
+    crash(fixture.root, `const fs=require('node:fs');const root=process.env.CRASH_ROOT;const journal=require(${JSON.stringify(journalModule)});journal.beginCatalogPublication(root,[root+'/data/shows.json'],{includeGenerated:true,includeSource:true,recoveryData:{schema:1,candidates:[],identities:[]}});fs.writeFileSync(root+'/catalog-src/shows/one.json',JSON.stringify({id:'one',title:'Interrupted change'}));fs.writeFileSync(root+'/data/shows.json','partial generated data');process.kill(process.pid,'SIGKILL');`);
+
+    fs.cpSync(fixture.releaseRoot, newReleaseRoot, { recursive: true });
+    fs.cpSync(fixture.runtimeRoot, newRuntimeRoot, { recursive: true });
+    for (const name of ['entities.json', 'entity-graph.json', 'runtime-evidence.json']) {
+      const runtimeFile = path.join(newRuntimeRoot, 'data', name);
+      fs.rmSync(runtimeFile);
+      fs.symlinkSync(path.join(newReleaseRoot, 'data', name), runtimeFile);
+    }
+    makeTreeReadOnly(newReleaseRoot);
+    fs.unlinkSync(fixture.root);
+    fs.symlinkSync(newReleaseId, fixture.root);
+    fs.unlinkSync(fixture.currentRelease);
+    fs.symlinkSync(path.relative(path.dirname(fixture.currentRelease), newReleaseRoot), fixture.currentRelease);
+
+    const recovered = recoverCatalogPublication(fixture.root);
+    assert.equal(recovered.pendingDatabaseRecovery.schema, 1);
+    assert.deepEqual(readCatalogSource(fixture.root), before);
+    assert.deepEqual(fs.readFileSync(path.join(fixture.root, 'data/shows.json')), oldGenerated);
+    assert.equal(fs.lstatSync(path.join(fixture.root, 'data/entities.json')).isSymbolicLink(), true);
+    assert.equal(fs.readlinkSync(path.join(fixture.root, 'data/entities.json')), path.join(newReleaseRoot, 'data/entities.json'));
+    assert.equal(fs.readFileSync(path.join(newReleaseRoot, 'data/entities.json'), 'utf8'), fs.readFileSync(path.join(fixture.releaseRoot, 'data/entities.json'), 'utf8'));
+    completeCatalogPublicationRecovery(fixture.root);
+    assert.equal(recoverCatalogPublication(fixture.root), false);
+  } finally { disposeProductionLayoutFixture(fixture); }
+});
+
+test('production runtime overlay commits and rolls back multi-show, collection, and generated writes', async () => {
+  const fixture = productionLayoutFixture();
+  try {
+    const before = readCatalogSource(fixture.root);
+    const added = Array.from({ length: 8 }, (_value, index) => ({ id: `new-show-${index + 1}`, title: `New show ${index + 1}` }));
+    const batch = [...added, { id: 'one', title: 'Updated one' }];
+    const updatedCollection = {
+      ...before.collections[0],
+      showIds: ['one', added[0].id],
+      showReasons: { one: 'Existing editorial route.', [added[0].id]: 'A newly published story.' },
+    };
+    const generatedShows = path.join(fixture.root, 'data/shows.json');
+    const generatedCollections = path.join(fixture.root, 'data/collections.json');
+    const publication = writeShowRecordsAtomically(fixture.root, batch, {
+      deferCommit: true,
+      recoveryData: { schema: 1, candidates: [], identities: [] },
+    });
+    await runWithCatalogPublication(publication.publicationToken, async () => {
+      writeCollectionRecordsAtomically(fixture.root, [updatedCollection], { joinExisting: true });
+      const next = readCatalogSource(fixture.root);
+      writeJsonFileAtomic(generatedShows, next.shows);
+      writeJsonFileAtomic(generatedCollections, next.collections);
+      writeJsonFileAtomic(path.join(fixture.root, 'data/search-index.json'), next.shows.map(({ id, title }) => ({ id, title })));
+    });
+    publication.commit();
+
+    const committed = readCatalogSource(fixture.root);
+    assert.equal(committed.shows.length, 9);
+    assert.equal(committed.shows.find((show) => show.id === 'one').title, 'Updated one');
+    assert.ok(added.every((show) => committed.shows.some((entry) => entry.id === show.id)));
+    assert.deepEqual(committed.collections[0].showIds, ['one', added[0].id]);
+    assert.deepEqual(JSON.parse(fs.readFileSync(generatedShows, 'utf8')).map((show) => show.id).sort(), ['one', ...added.map((show) => show.id)].sort());
+    assert.equal(JSON.parse(fs.readFileSync(generatedCollections, 'utf8'))[0].showIds[1], added[0].id);
+    assert.equal(fs.readFileSync(path.join(fixture.releaseRoot, 'data/entities.json'), 'utf8'), 'original entities.json');
+
+    const committedSource = readCatalogSource(fixture.root);
+    const committedGenerated = fs.readFileSync(generatedShows);
+    const interrupted = writeShowRecordsAtomically(fixture.root, [{ id: 'one', title: 'Interrupted update' }], {
+      deferCommit: true,
+      recoveryData: { schema: 1, candidates: [], identities: [] },
+    });
+    await runWithCatalogPublication(interrupted.publicationToken, async () => {
+      writeCollectionRecordsAtomically(fixture.root, [{ ...updatedCollection, description: 'Interrupted route change.' }], { joinExisting: true });
+      writeJsonFileAtomic(generatedShows, 'partial generated data');
+    });
+    interrupted.rollback();
+    completeCatalogPublicationRecovery(fixture.root);
+    assert.deepEqual(readCatalogSource(fixture.root), committedSource);
+    assert.deepEqual(fs.readFileSync(generatedShows), committedGenerated);
+    assert.equal(fs.readFileSync(path.join(fixture.releaseRoot, 'data/entities.json'), 'utf8'), 'original entities.json');
+  } finally { disposeProductionLayoutFixture(fixture); }
+});
 test('read-only publication checks leave a missing import-staging directory absent', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'echo-publication-read-only-'));
   const stagingRoot = path.join(root, 'import-staging');

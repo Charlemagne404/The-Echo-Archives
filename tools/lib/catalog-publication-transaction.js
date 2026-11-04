@@ -13,16 +13,23 @@ const activePublicationTokens = new Map();
 const abandonedRoots = new Set();
 const publicationContext = new AsyncLocalStorage();
 
-// Runtime overlays link immutable generated files to the matching release. Only
-// that exact same-relative-path link is safe to snapshot and later restore.
-function expectedReleaseTarget(root, relative) {
+// Runtime overlays link immutable generated files into a release. Resolve the
+// active runtime layout before trusting either its current links or a prior
+// release link recorded by a journal carried across deployment.
+function releaseLayout(root) {
   const realRoot = fs.realpathSync(root);
-  const releaseId = path.basename(realRoot);
+  const activeReleaseId = path.basename(realRoot);
   const environmentRoot = path.dirname(realRoot);
   const runtimeRoot = path.dirname(environmentRoot);
-  if (!/^[0-9a-f]{40}$/.test(releaseId) || !["production", "staging"].includes(path.basename(environmentRoot)) || path.basename(runtimeRoot) !== "runtime") return null;
+  if (!/^[0-9a-f]{40}$/.test(activeReleaseId) || !["production", "staging"].includes(path.basename(environmentRoot)) || path.basename(runtimeRoot) !== "runtime") return null;
   const hostRoot = path.dirname(runtimeRoot);
-  const releaseRoot = path.join(hostRoot, "releases", releaseId);
+  return { realRoot, activeReleaseId, releasesRoot: path.join(hostRoot, "releases") };
+}
+
+function releaseTarget(root, relative, releaseId) {
+  const layout = releaseLayout(root);
+  if (!layout || !/^[0-9a-f]{40}$/.test(releaseId)) return null;
+  const releaseRoot = path.join(layout.releasesRoot, releaseId);
   try {
     if (fs.realpathSync(releaseRoot) !== releaseRoot) return null;
   } catch (_error) {
@@ -33,13 +40,32 @@ function expectedReleaseTarget(root, relative) {
   return target;
 }
 
+function expectedReleaseTarget(root, relative) {
+  const layout = releaseLayout(root);
+  return layout ? releaseTarget(root, relative, layout.activeReleaseId) : null;
+}
+
+function isRegularReleaseFile(target) {
+  const stat = optionalLstat(target);
+  return Boolean(stat?.isFile() && !stat.isSymbolicLink() && fs.realpathSync(target) === target);
+}
+
 function isTrustedReleaseSymlink(root, relative, linkTarget) {
   const expectedTarget = expectedReleaseTarget(root, relative);
   if (!expectedTarget) return false;
   const destination = path.resolve(fs.realpathSync(path.dirname(path.resolve(root, relative))), linkTarget);
-  if (destination !== expectedTarget) return false;
-  const stat = optionalLstat(expectedTarget);
-  return Boolean(stat?.isFile() && !stat.isSymbolicLink() && fs.realpathSync(expectedTarget) === expectedTarget);
+  return destination === expectedTarget && isRegularReleaseFile(expectedTarget);
+}
+
+function isTrustedReleaseSymlinkInArchive(root, relative, linkTarget) {
+  const layout = releaseLayout(root);
+  if (!layout) return false;
+  const destination = path.resolve(fs.realpathSync(path.dirname(path.resolve(root, relative))), linkTarget);
+  const archiveRelative = path.relative(layout.releasesRoot, destination);
+  const [releaseId, ...relativeParts] = archiveRelative.split(path.sep);
+  if (!releaseId || relativeParts.join(path.sep) !== relative) return false;
+  const expectedTarget = releaseTarget(root, relative, releaseId);
+  return Boolean(expectedTarget && destination === expectedTarget && isRegularReleaseFile(expectedTarget));
 }
 
 function containedPath(root, relative) {
@@ -228,11 +254,33 @@ function readManifest(root, directory) {
     if (typeof file.existed !== "boolean" || file.backup !== `${index}.bin` || !Number.isInteger(file.mode) || file.mode < 0 || file.mode > 0o777) throw new Error("Malformed catalogue publication backup.");
     const kind = file.kind || "file";
     if (!new Set(["file", "symlink"]).has(kind) || (kind === "symlink" &&
-      (!file.existed || typeof file.symlinkTarget !== "string" || !isTrustedReleaseSymlink(root, file.relative, file.symlinkTarget))) ||
+      (!file.existed || typeof file.symlinkTarget !== "string" || !isTrustedReleaseSymlinkInArchive(root, file.relative, file.symlinkTarget))) ||
       (kind === "file" && file.symlinkTarget !== undefined)) throw new Error("Malformed catalogue publication backup.");
     if (file.existed && ["prepared", "restored"].includes(manifest.phase) && !fs.lstatSync(path.join(directory, file.backup)).isFile()) throw new Error("Catalogue recovery requires a regular backup file.");
   });
   return manifest;
+}
+
+function matchesSnapshot(root, directory, file, target) {
+  const current = optionalLstat(target);
+  if (!file.existed) return !current;
+  if (!current) return false;
+
+  if ((file.kind || "file") === "symlink") {
+    if (!current.isSymbolicLink()) return false;
+    const currentTarget = fs.readlinkSync(target);
+    if (currentTarget === file.symlinkTarget) return true;
+    // A journal copied into a later runtime overlay must not restore generated
+    // artifacts from its old release over the new release's immutable links.
+    return isTrustedReleaseSymlink(root, file.relative, currentTarget) &&
+      isTrustedReleaseSymlinkInArchive(root, file.relative, file.symlinkTarget);
+  }
+  if (!current.isFile() || current.isSymbolicLink() || (current.mode & 0o777) !== file.mode) return false;
+
+  const backupPath = path.join(directory, file.backup);
+  const backupStat = optionalLstat(backupPath);
+  if (!backupStat?.isFile() || backupStat.isSymbolicLink()) throw new Error("Catalogue recovery requires a regular backup file.");
+  return current.size === backupStat.size && fs.readFileSync(target).equals(fs.readFileSync(backupPath));
 }
 
 function restore(root, directory, manifest) {
@@ -245,6 +293,7 @@ function restore(root, directory, manifest) {
         fs.rmSync(path.join(path.dirname(target), name), { force: true });
       }
     }
+    if (matchesSnapshot(root, directory, file, target)) continue;
     if (!file.existed) { fs.rmSync(target, { force: true }); continue; }
     fs.mkdirSync(path.dirname(target), { recursive: true });
     const temporary = `${target}.recover-${randomUUID()}`;

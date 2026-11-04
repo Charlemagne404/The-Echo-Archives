@@ -46,6 +46,8 @@ ROLLBACK_RUNNING=0
 WRITABLE_DIRECTORIES=(
   "${REPO_ROOT}/backend/data/import-staging"
   "${REPO_ROOT}/catalog-src/shows"
+  "${REPO_ROOT}/catalog-src/collections"
+  "${REPO_ROOT}/catalog-src/reviews"
   "${REPO_ROOT}/images/covers"
   "${REPO_ROOT}/images/generated/covers"
   "${REPO_ROOT}/data/reviews"

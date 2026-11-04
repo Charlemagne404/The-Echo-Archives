@@ -9,6 +9,8 @@ const { createImportService, inferScopeStatus } = require("../lib/services/impor
 const { createImportStore } = require("../lib/store/import-store");
 const { createSubmissionStore } = require("../lib/store/submission-store");
 const { readShowsFile } = require("../scripts/review-helpers");
+const { writeCatalogSource, writeCollectionRecordsAtomically } = require("../../tools/lib/catalog-source");
+const { readCatalogSource } = require("../../tools/lib/catalog-source");
 
 const repositoryRoot = path.resolve(__dirname, "../..");
 const coverBytes = fs.readFileSync(path.join(repositoryRoot, "images/covers/archive-81.jpg"));
@@ -1149,6 +1151,53 @@ test("failed post-build reload rolls publication back before identities are boun
     assert.equal(context.service.getForMaintainer(candidate.id).status, "ready");
     assert.equal(readShowsFile(context.siteRoot).some((show) => show.id === candidate.preparedRecord.id), false);
     assert.equal(context.store.findIdentity("rss-url", "https://example.com/feed.xml").existingShowId, "");
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("publication reports the original write failure when rollback also encounters EROFS", async () => {
+  let context;
+  context = createTempImportContext({
+    fetchImpl: sourceRichFetch(),
+    onPublished: async () => {
+      writeCollectionRecordsAtomically(context.siteRoot, [{
+        id: "new-route",
+        title: "New route",
+        description: "A test collection refresh.",
+        showIds: [],
+        showReasons: {},
+      }], { joinExisting: true });
+      throw new Error("simulated primary publication callback failure");
+    },
+  });
+  try {
+    const source = require("../../tools/lib/catalog-source").readCatalogSource(context.siteRoot);
+    writeCatalogSource(context.siteRoot, source, { mode: "split" });
+    const seeded = await context.service.seedCandidates({ entries: ["https://example.com/feed.xml"], autoHydrate: true });
+    const copy = fs.copyFileSync;
+    fs.copyFileSync = (from, to, ...args) => {
+      if (String(to).includes("/catalog-src/collections/") && String(to).includes(".recover-")) {
+        const error = new Error(`EROFS: read-only file system, copyfile '${from}' -> '${to}'`);
+        error.code = "EROFS";
+        error.syscall = "copyfile";
+        error.path = from;
+        error.dest = to;
+        throw error;
+      }
+      return copy(from, to, ...args);
+    };
+    try {
+      await assert.rejects(
+        context.service.publishForMaintainer(seeded.candidateIds[0], "CA", "imported"),
+        (error) => {
+          assert.match(error.message, /simulated primary publication callback failure/);
+          assert.match(error.message, /rollback also failed: EROFS: read-only file system, copyfile/);
+          assert.match(error.cause.message, /simulated primary publication callback failure/);
+          return true;
+        },
+      );
+    } finally { fs.copyFileSync = copy; }
   } finally {
     cleanup(context);
   }

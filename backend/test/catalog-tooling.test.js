@@ -7,6 +7,8 @@ const path = require("node:path");
 const { buildCatalog } = require("../../tools/build-catalog");
 const { scaffoldCatalogEntry } = require("../../tools/scaffold-catalog");
 const { buildCatalogSnapshot, createRuntimeEvidenceRecord, createSearchIndexRecord, serializeRuntimeShow } = require("../../tools/lib/catalog-artifacts");
+const { writeShowRecordsAtomically, writeCollectionRecordsAtomically } = require("../../tools/lib/catalog-source");
+const { runWithCatalogPublication } = require("../../tools/lib/catalog-publication-transaction");
 const { getRuntimeEvidence } = require("../../shared/discovery/runtime");
 const {
   ensureSplitCatalogSource,
@@ -23,6 +25,63 @@ function writeJson(filePath, value) {
 
 function createTempSiteRoot() {
   return fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-catalog-tools-"));
+}
+
+function createProductionLikeOverlay() {
+  const base = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-production-overlay-"));
+  const releaseId = "4819b8f832e3e851e0291f722ad2053445e017a2";
+  const releaseRoot = path.join(base, "srv/echo-archives/releases", releaseId);
+  const runtimeRoot = path.join(base, "srv/echo-archives/runtime/production", releaseId);
+  const staticRoot = path.join(base, "srv/echo-archives/runtime/production/current");
+  const releaseLink = path.join(base, "srv/echo-archives/current");
+  fs.mkdirSync(releaseRoot, { recursive: true });
+  fs.mkdirSync(runtimeRoot, { recursive: true });
+  fs.cpSync(path.join(siteRoot, "catalog-src"), path.join(releaseRoot, "catalog-src"), { recursive: true });
+  fs.cpSync(path.join(siteRoot, "data"), path.join(releaseRoot, "data"), { recursive: true });
+  fs.mkdirSync(path.join(releaseRoot, "docs"), { recursive: true });
+  fs.cpSync(path.join(siteRoot, "docs/generated"), path.join(releaseRoot, "docs/generated"), { recursive: true });
+  fs.cpSync(path.join(releaseRoot, "catalog-src"), path.join(runtimeRoot, "catalog-src"), { recursive: true });
+  fs.cpSync(path.join(releaseRoot, "data"), path.join(runtimeRoot, "data"), { recursive: true });
+  fs.mkdirSync(path.join(runtimeRoot, "docs"), { recursive: true });
+  fs.cpSync(path.join(releaseRoot, "docs/generated"), path.join(runtimeRoot, "docs/generated"), { recursive: true });
+  fs.mkdirSync(path.join(runtimeRoot, "images/covers"), { recursive: true });
+  fs.mkdirSync(path.join(runtimeRoot, "images/generated/covers"), { recursive: true });
+  for (const name of ["entities.json", "entity-graph.json", "runtime-evidence.json"]) {
+    const runtimeFile = path.join(runtimeRoot, "data", name);
+    const releaseFile = path.join(releaseRoot, "data", name);
+    if (fs.existsSync(runtimeFile)) fs.rmSync(runtimeFile);
+    fs.symlinkSync(releaseFile, runtimeFile);
+  }
+  for (const relative of ["catalog-src/shows", "catalog-src/collections", "catalog-src/reviews", "data", "data/reviews", "docs/generated", "images/covers", "images/generated/covers"]) {
+    const directory = path.join(runtimeRoot, relative);
+    if (fs.existsSync(directory)) fs.chmodSync(directory, 0o770);
+  }
+  fs.symlinkSync(releaseId, staticRoot);
+  fs.symlinkSync(path.relative(path.dirname(releaseLink), releaseRoot), releaseLink);
+
+  const makeReadOnly = (directory) => {
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+      const target = path.join(directory, entry.name);
+      if (entry.isDirectory()) makeReadOnly(target);
+      else if (!entry.isSymbolicLink()) fs.chmodSync(target, 0o444);
+    }
+    fs.chmodSync(directory, 0o555);
+  };
+  makeReadOnly(releaseRoot);
+  return { base, releaseRoot, runtimeRoot, staticRoot };
+}
+
+function disposeProductionLikeOverlay(fixture) {
+  const makeWritable = (target) => {
+    const stat = fs.lstatSync(target);
+    if (stat.isSymbolicLink()) return;
+    if (stat.isDirectory()) {
+      fs.chmodSync(target, 0o755);
+      fs.readdirSync(target).forEach((name) => makeWritable(path.join(target, name)));
+    } else fs.chmodSync(target, 0o644);
+  };
+  makeWritable(fixture.base);
+  fs.rmSync(fixture.base, { recursive: true, force: true });
 }
 
 function createShowRecord(overrides = {}) {
@@ -196,6 +255,44 @@ test("buildCatalog bootstraps split catalog source and writes generated artifact
   assert.ok(fs.existsSync(path.join(tempRoot, "data", "entity-graph.json")));
   assert.equal(JSON.parse(fs.readFileSync(path.join(tempRoot, "data", "entity-graph.json"), "utf8")).schema, "echo-archives/entity-graph/v1");
   assert.ok(fs.existsSync(path.join(tempRoot, "docs", "generated", "catalog-status.md")));
+});
+
+test("publication rebuilds through a read-only release and writable production overlay", async () => {
+  const fixture = createProductionLikeOverlay();
+  try {
+    const before = readCatalogSource(fixture.staticRoot);
+    const batch = before.shows.slice(0, 8);
+    const polybius = before.shows.find((show) => show.id === "polybius-protocol");
+    if (polybius && !batch.some((show) => show.id === polybius.id)) batch.push(polybius);
+    const collection = before.collections[0];
+    const updatedCollection = { ...collection, updatedAt: "2099-01-01" };
+    const immutableCollection = path.join(fixture.releaseRoot, "catalog-src/collections", `${collection.id}.json`);
+    const immutableCollectionBefore = fs.readFileSync(immutableCollection);
+    const immutableGenerated = path.join(fixture.releaseRoot, "data/entities.json");
+    const immutableGeneratedBefore = fs.readFileSync(immutableGenerated);
+
+    const publication = writeShowRecordsAtomically(fixture.staticRoot, batch, {
+      deferCommit: true,
+      recoveryData: { schema: 1, candidates: [], identities: [] },
+    });
+    const rebuilt = await runWithCatalogPublication(publication.publicationToken, async () => {
+      writeCollectionRecordsAtomically(fixture.staticRoot, [updatedCollection], { joinExisting: true });
+      return buildCatalog(fixture.staticRoot, { recoverCovers: false });
+    });
+    publication.commit();
+
+    const runtimeSource = readCatalogSource(fixture.staticRoot);
+    assert.equal(runtimeSource.shows.length, before.shows.length);
+    assert.ok(batch.every((record) => runtimeSource.shows.some((show) => show.id === record.id)));
+    assert.equal(runtimeSource.collections.find((record) => record.id === collection.id).updatedAt, "2099-01-01");
+    assert.equal(rebuilt.catalog.length, before.shows.filter((show) => show.status === "published").length);
+    assert.equal(JSON.parse(fs.readFileSync(path.join(fixture.staticRoot, "data/collections.json"), "utf8")).find((record) => record.id === collection.id).updatedAt, "2099-01-01");
+    assert.equal(fs.readFileSync(immutableCollection, "utf8"), immutableCollectionBefore.toString("utf8"));
+    assert.equal(fs.readFileSync(immutableGenerated, "utf8"), immutableGeneratedBefore.toString("utf8"));
+    assert.equal(fs.lstatSync(path.join(fixture.staticRoot, "data/entities.json")).isSymbolicLink(), false, "generated output uses copy-on-write in the runtime overlay");
+    assert.equal(fs.lstatSync(immutableGenerated).isFile(), true);
+    assert.equal(fs.statSync(fixture.releaseRoot).mode & 0o222, 0, "release directory remains read-only");
+  } finally { disposeProductionLikeOverlay(fixture); }
 });
 
 test("scaffoldCatalogEntry adds new split-source records and rebuilds generated outputs", async () => {
