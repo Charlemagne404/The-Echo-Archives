@@ -6,6 +6,7 @@ const path = require("node:path");
 
 const { loadCatalog, syncCatalogCovers } = require("../lib/catalog");
 const { PLACEHOLDER_COVER } = require("../lib/cover-sync");
+const echoLogoBytes = fs.readFileSync(path.join(path.resolve(__dirname, "../.."), "images/Circle2-Logo-S.png"));
 const { validateSiteData } = require("../scripts/review-helpers");
 
 const siteRoot = path.resolve(__dirname, "../..");
@@ -453,6 +454,36 @@ test("active SVG cover content is rejected instead of being written into the pub
   assert.equal(logger.warnings.length, 1);
   assert.match(logger.warnings[0], /unsupported content type/i);
 
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("Echo branding image URLs are never persisted as managed show covers", async () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+  seedAssets(tempRoot);
+  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({
+    officialLinks: { website: "https://example.com/show" },
+  })]);
+  const logger = createLogger();
+  const fetchStub = createFetchStub(new Map([
+    ["https://example.com/show", createResponse({
+      url: "https://example.com/show",
+      headers: { "content-type": "text/html" },
+      body: `<html><head><meta property="og:image" content="https://echoarchives.net/images/Circle2-Logo-S.png"></head></html>`,
+    })],
+    ["https://echoarchives.net/images/Circle2-Logo-S.png", createResponse({
+      url: "https://echoarchives.net/images/Circle2-Logo-S.png",
+      headers: { "content-type": "image/png" },
+      body: echoLogoBytes,
+    })],
+  ]));
+
+  const [show] = await loadCatalogAfterCoverSync(tempRoot, { fetchImpl: fetchStub, logger });
+  const persistedShows = readJson(path.join(dataRoot, "shows.json"));
+  assert.equal(show.cover, PLACEHOLDER_COVER);
+  assert.equal(persistedShows[0].cover, "");
+  assert.equal(fs.existsSync(path.join(tempRoot, "images/covers", "demo-show.png")), false);
+  assert.ok(logger.warnings.some((warning) => /Echo branding assets cannot be used/i.test(warning)));
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
 

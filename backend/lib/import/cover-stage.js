@@ -5,6 +5,7 @@ const sharp = require("sharp");
 
 const { fetchBufferWithLimits, throwForUpstreamStatus } = require("./fetch");
 const { mergeUniqueStrings, normalizeUrl, trimText } = require("./utils");
+const { isEchoBrandingArtworkBuffer, isEchoBrandingArtworkUrl } = require("../echo-branding-artwork");
 
 const MIME_TO_EXTENSION = new Map([
   ["image/jpeg", ".jpg"],
@@ -46,6 +47,9 @@ function rejectUnsafeImageParsers(buffer) {
 async function inspectCoverBuffer(buffer, declaredContentType = "") {
   if (!Buffer.isBuffer(buffer) || buffer.length === 0) {
     throw new Error("Cover download returned an empty body.");
+  }
+  if (isEchoBrandingArtworkBuffer(buffer)) {
+    throw new Error("Echo branding assets cannot be used as podcast cover artwork.");
   }
   if (buffer.subarray(0, 256).toString("utf8").match(/<svg\b/i)) {
     throw new Error("SVG covers are unsupported; a raster image is required.");
@@ -108,6 +112,9 @@ async function stageCover({
   const sourceTypeFor = (url) => coverSources.find((source) => normalizeUrl(source?.url || source) === normalizeUrl(url))?.sourceType || "";
   for (const url of sources) {
     try {
+      if (isEchoBrandingArtworkUrl(url)) {
+        throw new Error("Echo branding assets cannot be used as podcast cover artwork.");
+      }
       const { response, buffer, resolvedUrl } = await fetchBufferWithLimits(fetchImpl, url, {
         headers: { Accept: "image/jpeg,image/png,image/webp,image/gif,image/avif", "User-Agent": userAgent },
       }, {
@@ -115,6 +122,9 @@ async function stageCover({
         allowedContentTypes: ["image/jpeg", "image/jpg", "image/png", "image/webp", "image/gif", "image/avif", "application/octet-stream"],
       });
       throwForUpstreamStatus(response, "Cover request");
+      if (isEchoBrandingArtworkUrl(resolvedUrl || response.url || url) || isEchoBrandingArtworkBuffer(buffer)) {
+        throw new Error("Echo branding assets cannot be used as podcast cover artwork.");
+      }
       const inspection = await inspectCoverBuffer(buffer, response.headers.get("content-type") || "");
       if (!inspection.echoPublishable) {
         throw new Error(inspection.qualityWarnings.filter((warning) => !warning.startsWith("Cover does not meet Apple's")).join(" "));

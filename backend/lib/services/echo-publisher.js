@@ -4,6 +4,7 @@ const path = require("node:path");
 
 const { loadCatalog } = require("../catalog");
 const { PLACEHOLDER_COVER } = require("../cover-sync");
+const { isEchoBrandingArtworkUrl } = require("../echo-branding-artwork");
 const { validateSiteData, readShowsFile } = require("../../scripts/review-helpers");
 const { serializeRuntimeShow } = require("../../../tools/lib/catalog-artifacts");
 const { normalizeUrl, extractAppleCollectionId, normalizeTitleCreatorKey, slugify, trimText } = require("../import/utils");
@@ -495,7 +496,12 @@ function createEchoPublisher({
       blockers.push({ code: "published-target-mismatch", field: "identity", message: "The published candidate points at a different catalogue record than this package entry." });
     }
     if (candidate?.mode !== "update" && candidate?.status !== "published" && candidate?.objective?.artworkPermissionStatus !== "established" && candidate?.preparedRecord?.cover && candidate.preparedRecord.cover !== PLACEHOLDER_COVER) {
-      blockers.push({ code: "artwork-rights-missing", field: "cover", message: "External artwork lacks established publication permission and the prepared record does not use Echo placeholder artwork." });
+      blockers.push({ code: "artwork-rights-missing", field: "cover", message: "External artwork lacks established publication permission." });
+    }
+    const preparedCover = candidate?.preparedRecord?.cover || "";
+    if (candidate?.status !== "published" && (!preparedCover || preparedCover === PLACEHOLDER_COVER || isEchoBrandingArtworkUrl(preparedCover))
+      && !blockers.some((blocker) => blocker.code === "cover-not-ready")) {
+      blockers.push({ code: "cover-not-ready", field: "cover", message: "A verified local podcast cover is required; missing artwork and Echo branding assets cannot be published as show covers." });
     }
 
     const existingRecord = targetShowId ? shows.find((show) => show.id === targetShowId) || null : null;

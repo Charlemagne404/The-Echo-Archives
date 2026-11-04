@@ -24,7 +24,7 @@ const {
 } = require("../../../shared/archive-quality");
 const { buildImportedProvenance } = require("../../../tools/lib/catalog-provenance");
 const { isVerifiedAmazonMusicIdentity } = require("./adapters/amazon-music");
-const { PLACEHOLDER_COVER } = require("../cover-sync");
+const { isEchoBrandingArtworkUrl } = require("../echo-branding-artwork");
 
 const HUMAN_OWNED_FIELDS = [
   "ratings", "archiveTake", "spoilerFreeReview", "thoughts", "tones", "bestFor",
@@ -322,12 +322,10 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
     title,
     subtitle: trimText(objective.manualSubtitle || objective.subtitle, 240),
     description: trimText(objective.description, 4_000),
-    cover: candidate.coverStage?.omittedForRights
-      ? PLACEHOLDER_COVER
-      : candidate.coverStage?.ready
-        ? candidate.coverStage.existingRelativePath || `images/covers/${showId}${candidate.coverStage.extension}`
-        : "",
-    coverAlt: candidate.coverStage?.omittedForRights ? "Echo Archives placeholder artwork" : `${title} cover art`,
+    cover: candidate.coverStage?.ready
+      ? candidate.coverStage.existingRelativePath || `images/covers/${showId}${candidate.coverStage.extension}`
+      : "",
+    coverAlt: candidate.coverStage?.ready ? `${title} cover art` : "",
     status: "published",
     reviewStatus: "imported",
     releaseStatus: preparedReleaseStatus,
@@ -435,7 +433,7 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
             status: "omitted-rights-not-established",
             sourceType: candidate.coverStage.sourceType || "",
             sourceUrl: candidate.coverStage.sourceUrl || "",
-            publishedCover: PLACEHOLDER_COVER,
+            publishedCover: null,
           },
         } : {}),
         ...(isVerifiedAmazonMusicIdentity(objective) ? {
@@ -551,8 +549,8 @@ function evaluateReadiness({ candidate, preparedRecord }) {
   if (expectedAppleId && preparedRecord.listenLinks?.apple && linkedAppleId !== expectedAppleId) {
     blockers.push({ code: "invalid-apple-link", field: "appleUrl", message: `The Apple listen link does not match imported collection id "${expectedAppleId}".` });
   }
-  const usesRightsSafePlaceholder = candidate.coverStage?.omittedForRights === true && preparedRecord.cover === PLACEHOLDER_COVER;
-  if ((!candidate.coverStage?.ready && !usesRightsSafePlaceholder) || !preparedRecord.cover) blockers.push({ code: "cover-not-ready", field: "cover", message: "A valid square local cover or the explicit Echo placeholder decision is required." });
+  const coverReady = Boolean(candidate.coverStage?.ready && preparedRecord.cover && !isEchoBrandingArtworkUrl(preparedRecord.cover));
+  if (!coverReady) blockers.push({ code: "cover-not-ready", field: "cover", message: "A verified local podcast cover is required; missing artwork and Echo branding assets cannot be used as show covers." });
   if (listenValues.length === 0) blockers.push({ code: "missing-listen-link", field: "listenLinks", message: "At least one listen link is required." });
   else if (!workingListenLink) blockers.push({ code: "unverified-listen-link", field: "listenLinks", message: "No listen link was confirmed by a successful source fetch." });
   if (![preparedRecord.releaseDates?.first, preparedRecord.releaseDates?.latest].every(validDateOrBlank)) blockers.push({ code: "invalid-date", field: "releaseDates", message: "Release dates are invalid." });
@@ -634,7 +632,7 @@ function evaluateReadiness({ candidate, preparedRecord }) {
       stableIdentity,
       title: Boolean(preparedRecord.title),
       description: Boolean(preparedRecord.description),
-      cover: Boolean(candidate.coverStage?.ready || usesRightsSafePlaceholder),
+      cover: coverReady,
       workingListenLink,
       scope: candidate.scopeStatus,
       conflicts: (candidate.conflicts || []).length,

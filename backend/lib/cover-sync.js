@@ -1,6 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const { fetchBufferWithLimits } = require("./import/fetch");
+const { isEchoBrandingArtworkBuffer, isEchoBrandingArtworkUrl } = require("./echo-branding-artwork");
 
 const COVER_SOURCE_TIMEOUT_MS = 10_000;
 const COVER_DOCUMENT_MAX_BYTES = 5 * 1024 * 1024;
@@ -245,6 +246,9 @@ async function resolveImageUrlForSource(fetchImpl, source, limits) {
 }
 
 async function downloadManagedCover(siteRoot, showId, imageUrl, fetchImpl, limits) {
+  if (isEchoBrandingArtworkUrl(imageUrl)) {
+    throw new Error("Echo branding assets cannot be used as podcast cover artwork");
+  }
   const { response, buffer } = await fetchBounded(fetchImpl, imageUrl, {
     accept: "image/*,*/*;q=0.8",
     timeoutMs: limits.timeoutMs,
@@ -253,6 +257,9 @@ async function downloadManagedCover(siteRoot, showId, imageUrl, fetchImpl, limit
   });
   if (!response.ok) {
     throw new Error(`cover download failed with ${response.status}`);
+  }
+  if (isEchoBrandingArtworkUrl(response.url || imageUrl) || isEchoBrandingArtworkBuffer(buffer)) {
+    throw new Error("Echo branding assets cannot be used as podcast cover artwork");
   }
 
   const contentType = String(response.headers.get("content-type") || "").toLowerCase();
