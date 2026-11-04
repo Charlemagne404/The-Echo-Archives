@@ -29,10 +29,18 @@ function graphNode(structuredData, type) {
   return nodes.find((node) => node?.["@type"] === type);
 }
 
-async function waitForServer(url, timeoutMs = 60_000) {
+async function waitForServer(url, timeoutMs = 60_000, { serverProcess = null, getStartupOutput = () => "" } = {}) {
   const startedAt = Date.now();
 
   while (Date.now() - startedAt < timeoutMs) {
+    if (serverProcess && (serverProcess.exitCode !== null || serverProcess.signalCode !== null)) {
+      const status = serverProcess.exitCode !== null
+        ? `exit code ${serverProcess.exitCode}`
+        : `signal ${serverProcess.signalCode}`;
+      const output = String(getStartupOutput() || "").trim();
+      throw new Error(`Test server exited with ${status} before ${url} became healthy.${output ? `\n${output}` : ""}`);
+    }
+
     try {
       const response = await fetch(url, { signal: AbortSignal.timeout(1_000) });
       if (response.ok) {
@@ -45,7 +53,8 @@ async function waitForServer(url, timeoutMs = 60_000) {
     await new Promise((resolve) => setTimeout(resolve, 200));
   }
 
-  throw new Error(`Timed out waiting for ${url}`);
+  const output = String(getStartupOutput() || "").trim();
+  throw new Error(`Timed out waiting for ${url}.${output ? `\n${output}` : ""}`);
 }
 
 async function startPublicRouteServer(envOverrides = {}) {
@@ -70,11 +79,18 @@ async function startPublicRouteServer(envOverrides = {}) {
     },
     stdio: ["ignore", "pipe", "pipe"],
   });
-  serverProcess.stdout?.resume();
-  serverProcess.stderr?.resume();
+  let startupOutput = "";
+  const captureStartupOutput = (chunk) => {
+    startupOutput = `${startupOutput}${chunk.toString("utf8")}`.slice(-8_192);
+  };
+  serverProcess.stdout?.on("data", captureStartupOutput);
+  serverProcess.stderr?.on("data", captureStartupOutput);
 
   try {
-    await waitForServer(`${baseUrl}/api/health`);
+    await waitForServer(`${baseUrl}/api/health`, 60_000, {
+      serverProcess,
+      getStartupOutput: () => startupOutput,
+    });
   } catch (error) {
     await stopPublicRouteServer({ serverProcess, tempDir });
     throw error;
@@ -1127,7 +1143,7 @@ test("a malformed catalogue refresh serves the last good snapshot and fails read
   for (const name of fs.readdirSync(siteRoot)) {
     if (name === "catalog-src" || name === "data") {
       fs.cpSync(path.join(siteRoot, name), path.join(fixtureRoot, name), { recursive: true });
-    } else if (!name.startsWith(".")) {
+    } else if (!name.startsWith(".") && name !== "import-staging") {
       fs.symlinkSync(path.join(siteRoot, name), path.join(fixtureRoot, name));
     }
   }
@@ -1163,7 +1179,7 @@ test("missing error templates cannot expose an Express stack trace", async () =>
   let server;
   try {
     for (const name of fs.readdirSync(siteRoot)) {
-      if (!name.startsWith(".") && name !== "500.html" && name !== "404.html") {
+      if (!name.startsWith(".") && name !== "500.html" && name !== "404.html" && name !== "import-staging") {
         fs.symlinkSync(path.join(siteRoot, name), path.join(fixtureRoot, name));
       }
     }
@@ -1308,7 +1324,7 @@ test("startup recovers a SIGKILL publication before serving public pages", async
   try {
     for (const name of fs.readdirSync(siteRoot)) {
       if (["catalog-src", "data", "docs"].includes(name)) fs.cpSync(path.join(siteRoot, name), path.join(fixtureRoot, name), { recursive: true });
-      else if (!name.startsWith(".")) fs.symlinkSync(path.join(siteRoot, name), path.join(fixtureRoot, name));
+      else if (!name.startsWith(".") && name !== "import-staging") fs.symlinkSync(path.join(siteRoot, name), path.join(fixtureRoot, name));
     }
     const sourceModule = require.resolve("../../tools/lib/catalog-source");
     const crashed = spawnSync(process.execPath, ["-e", `const fs=require('node:fs');const root=process.env.CRASH_ROOT;const show=JSON.parse(fs.readFileSync(root+'/catalog-src/shows/impact-winter.json'));show.title='Interrupted replacement';require(${JSON.stringify(sourceModule)}).writeShowRecordsAtomically(root,[show],{deferCommit:true});fs.writeFileSync(root+'/data/shows.json','invalid partial artifact');process.kill(process.pid,'SIGKILL');`], { env: { ...process.env, CRASH_ROOT: fixtureRoot }, timeout: 10000 });

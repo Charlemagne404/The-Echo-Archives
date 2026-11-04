@@ -5,7 +5,12 @@ const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const { writeCatalogSource, readCatalogSource } = require('../lib/catalog-source');
-const { recoverCatalogPublication, completeCatalogPublicationRecovery } = require('../lib/catalog-publication-transaction');
+const {
+  recoverCatalogPublication,
+  completeCatalogPublicationRecovery,
+  ownsCatalogPublication,
+  assertCatalogPublicationReadable,
+} = require('../lib/catalog-publication-transaction');
 const sourceModule = require.resolve('../lib/catalog-source');
 const journalModule = require.resolve('../lib/catalog-publication-transaction');
 function journalPath(root) { return path.join(root, 'import-staging', '.echo-catalog-transaction'); }
@@ -20,6 +25,19 @@ function crash(root, script) {
   const result = spawnSync(process.execPath, ['-e', script], { env: { ...process.env, CRASH_ROOT: root }, timeout: 10000 });
   assert.equal(result.signal, 'SIGKILL', result.stderr.toString());
 }
+test('read-only publication checks leave a missing import-staging directory absent', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'echo-publication-read-only-'));
+  const stagingRoot = path.join(root, 'import-staging');
+  try {
+    assert.equal(fs.existsSync(stagingRoot), false);
+    assert.equal(ownsCatalogPublication(root), false);
+    assert.doesNotThrow(() => assertCatalogPublicationReadable(root));
+    assert.equal(recoverCatalogPublication(root), false);
+    completeCatalogPublicationRecovery(root);
+    assert.equal(fs.existsSync(stagingRoot), false);
+  } finally { fs.rmSync(root, { recursive: true, force: true }); }
+});
+
 test('SIGKILL between source replacements is detected by pure reads and recovered completely', () => {
   const root = fixture();
   try {
@@ -93,10 +111,15 @@ test('an outstanding runtime-root journal is migrated and recovered once from im
   const original = fs.readFileSync(target, 'utf8');
   const snapshotLegacy = () => fs.readdirSync(legacyPath).sort().map((name) => [name, fs.readFileSync(path.join(legacyPath, name))]);
   try {
-    crash(root, `const fs=require('node:fs');const root=process.env.CRASH_ROOT;const journal=require(${JSON.stringify(journalModule)});journal.beginCatalogPublication(root,[root+'/data/shows.json'],{recoveryData:{schema:1,candidates:[],identities:[]}});fs.writeFileSync(root+'/data/shows.json','interrupted contents');fs.renameSync(root+'/import-staging/.echo-catalog-transaction',root+'/.echo-catalog-transaction');process.kill(process.pid,'SIGKILL');`);
+    crash(root, `const fs=require('node:fs');const root=process.env.CRASH_ROOT;const journal=require(${JSON.stringify(journalModule)});journal.beginCatalogPublication(root,[root+'/data/shows.json'],{recoveryData:{schema:1,candidates:[],identities:[]}});fs.writeFileSync(root+'/data/shows.json','interrupted contents');fs.renameSync(root+'/import-staging/.echo-catalog-transaction',root+'/.echo-catalog-transaction');fs.rmdirSync(root+'/import-staging');process.kill(process.pid,'SIGKILL');`);
     assert.equal(fs.existsSync(legacyPath), true);
+    assert.equal(fs.existsSync(path.join(root, 'import-staging')), false);
     const legacySnapshot = snapshotLegacy();
+    assert.throws(() => readCatalogSource(root), { statusCode: 503 });
+    assert.equal(fs.existsSync(path.join(root, 'import-staging')), false, 'read-only source validation does not migrate the legacy journal');
+    assert.deepEqual(snapshotLegacy(), legacySnapshot);
     const recovery = recoverCatalogPublication(root);
+    assert.equal(fs.existsSync(path.join(root, 'import-staging')), true, 'recovery creates staging to migrate the outstanding legacy journal');
     assert.deepEqual(recovery.pendingDatabaseRecovery, { schema: 1, candidates: [], identities: [] });
     assert.equal(fs.readFileSync(target, 'utf8'), original);
     assert.equal(fs.existsSync(legacyPath), true, 'the read-only legacy journal remains untouched');

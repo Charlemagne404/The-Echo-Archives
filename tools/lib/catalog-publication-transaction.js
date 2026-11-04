@@ -28,28 +28,31 @@ function containedPath(root, relative) {
 function journalPaths(root) {
   const realRoot = fs.realpathSync(root);
   const stagingRoot = path.join(realRoot, "import-staging");
-  let stagingStat;
-  try {
-    stagingStat = fs.lstatSync(stagingRoot);
-  } catch (error) {
-    if (error.code !== "ENOENT") throw error;
-    // Source checkouts and release-build workspaces do not always pre-create
-    // the runtime overlay directory. A read-only production root still fails
-    // closed here; production already supplies this writable directory.
-    try { fs.mkdirSync(stagingRoot, { mode: 0o700 }); } catch (mkdirError) {
-      if (mkdirError.code !== "EEXIST") throw mkdirError;
-    }
-    stagingStat = fs.lstatSync(stagingRoot);
-  }
-  if (!stagingStat.isDirectory() || stagingStat.isSymbolicLink() || fs.realpathSync(stagingRoot) !== stagingRoot) {
-    throw new Error("Catalogue publication requires a regular import-staging directory.");
-  }
+  validateStagingRoot(stagingRoot);
   return {
     current: path.join(stagingRoot, JOURNAL),
     legacy: path.join(realRoot, JOURNAL),
     legacyMarker: path.join(stagingRoot, LEGACY_MARKER),
     stagingRoot,
   };
+}
+
+function validateStagingRoot(stagingRoot) {
+  const stagingStat = optionalLstat(stagingRoot);
+  if (!stagingStat) return false;
+  if (!stagingStat.isDirectory() || stagingStat.isSymbolicLink() || fs.realpathSync(stagingRoot) !== stagingRoot) {
+    throw new Error("Catalogue publication requires a regular import-staging directory.");
+  }
+  return true;
+}
+
+function ensureStagingRoot(paths) {
+  if (!validateStagingRoot(paths.stagingRoot)) {
+    try { fs.mkdirSync(paths.stagingRoot, { mode: 0o700 }); } catch (error) {
+      if (error.code !== "EEXIST") throw error;
+    }
+  }
+  validateStagingRoot(paths.stagingRoot);
 }
 
 function optionalLstat(filePath) {
@@ -157,6 +160,7 @@ function recoverableJournal(root) {
   const paths = journalPaths(root);
   if (assertJournalDirectory(paths.current)) return { ...paths, directory: paths.current };
   if (!assertJournalDirectory(paths.legacy) || legacyJournalIsRetired(root, paths, paths.legacy)) return { ...paths, directory: null };
+  ensureStagingRoot(paths);
   return { ...paths, directory: migrateLegacyJournal(root, paths, paths.legacy) };
 }
 
@@ -350,7 +354,8 @@ function beginCatalogPublication(root, targets, { includeGenerated = false, incl
     error.statusCode = 503;
     throw error;
   }
-  const directory = journalPaths(root).current;
+  const paths = journalPaths(root);
+  const directory = paths.current;
   const key = path.resolve(root);
   const activeToken = activePublicationTokens.get(key);
   // A live same-process journal alone cannot prove that a writer is nested;
@@ -361,6 +366,7 @@ function beginCatalogPublication(root, targets, { includeGenerated = false, incl
     extendSnapshots(root, directory, manifest, targets, { includeGenerated, includeSource });
     return { joined: true, publicationToken: activeToken, commit() {}, rollback() {} };
   }
+  ensureStagingRoot(paths);
   try { fs.mkdirSync(directory, { mode: 0o700 }); } catch (error) {
     if (error.code === "EEXIST") error.statusCode = 503;
     throw error;

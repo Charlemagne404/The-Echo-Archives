@@ -115,6 +115,7 @@ test("homepage discovery controls are present before hydration", () => {
 test("default new-show submission is present before hydration", () => {
   const html = fs.readFileSync(path.join(siteRoot, "submit.html"), "utf8");
 
+  assert.match(html, /<form[^>]*id="showSubmitForm"[^>]*method="post"/i, "submission fallback must never put entered fields in the URL");
   assert.match(html, /id="submitModeCards"[\s\S]*data-submission-mode="show"/);
   assert.match(html, /id="submitDynamicFields"[\s\S]*id="submitShowTitle"/);
   assert.match(html, /id="submitDynamicFields"[\s\S]*id="submitListenLinks"/);
