@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
-const { writeCatalogSource, readCatalogSource } = require('../lib/catalog-source');
+const { writeCatalogSource, writeShowRecordsAtomically, readCatalogSource } = require('../lib/catalog-source');
 const {
   recoverCatalogPublication,
   completeCatalogPublicationRecovery,
@@ -20,6 +20,25 @@ function fixture() {
   fs.mkdirSync(path.join(root, 'data'), { recursive: true });
   fs.writeFileSync(path.join(root, 'data/shows.json'), 'original generated data');
   return root;
+}
+function overlayFixture() {
+  const base = fs.mkdtempSync(path.join(os.tmpdir(), 'echo-publication-overlay-'));
+  const releaseId = '4819b8f832e3e851e0291f722ad2053445e017a2';
+  const root = path.join(base, 'srv/echo-archives/runtime/production', releaseId);
+  const releaseRoot = path.join(base, 'srv/echo-archives/releases', releaseId);
+  fs.mkdirSync(root, { recursive: true });
+  writeCatalogSource(root, { mode: 'split', shows: [{ id: 'one', title: 'Original one' }], collections: [], reviewsById: {} });
+  fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+  fs.mkdirSync(path.join(releaseRoot, 'data'), { recursive: true });
+  fs.writeFileSync(path.join(root, 'data/shows.json'), 'original generated data');
+  const linkedGeneratedFiles = ['entities.json', 'entity-graph.json', 'runtime-evidence.json'].map((name) => {
+    const releaseFile = path.join(releaseRoot, 'data', name);
+    const overlayFile = path.join(root, 'data', name);
+    fs.writeFileSync(releaseFile, `original ${name}`);
+    fs.symlinkSync(releaseFile, overlayFile);
+    return { releaseFile, overlayFile, linkTarget: fs.readlinkSync(overlayFile) };
+  });
+  return { base, root, linkedGeneratedFiles };
 }
 function crash(root, script) {
   const result = spawnSync(process.execPath, ['-e', script], { env: { ...process.env, CRASH_ROOT: root }, timeout: 10000 });
@@ -63,6 +82,74 @@ test('deferred publication restores generated data and retains database recovery
     assert.equal(recoverCatalogPublication(root), false);
   } finally { fs.rmSync(root, { recursive: true, force: true }); }
 });
+
+test('publication rollback restores trusted release-backed generated symlinks after atomic writes', () => {
+  const { base, root, linkedGeneratedFiles } = overlayFixture();
+  try {
+    const publication = writeShowRecordsAtomically(root, [{ id: 'one', title: 'Changed one' }], {
+      deferCommit: true,
+      recoveryData: { schema: 1, candidates: [], identities: [] },
+    });
+    for (const [index, file] of linkedGeneratedFiles.entries()) {
+      const temporary = `${file.overlayFile}.import-${index}`;
+      fs.writeFileSync(temporary, `new generated ${index}`);
+      fs.renameSync(temporary, file.overlayFile);
+      assert.equal(fs.lstatSync(file.overlayFile).isFile(), true);
+      assert.equal(fs.readFileSync(file.releaseFile, 'utf8'), `original ${path.basename(file.releaseFile)}`);
+    }
+
+    publication.rollback();
+    completeCatalogPublicationRecovery(root);
+    assert.equal(readCatalogSource(root).shows[0].title, 'Original one');
+    for (const file of linkedGeneratedFiles) {
+      assert.equal(fs.lstatSync(file.overlayFile).isSymbolicLink(), true);
+      assert.equal(fs.readlinkSync(file.overlayFile), file.linkTarget);
+      assert.equal(fs.readFileSync(file.overlayFile, 'utf8'), `original ${path.basename(file.releaseFile)}`);
+      assert.equal(fs.readFileSync(file.releaseFile, 'utf8'), `original ${path.basename(file.releaseFile)}`);
+    }
+  } finally { fs.rmSync(base, { recursive: true, force: true }); }
+});
+
+test('interrupted publication recovers generated symlinks to their matching immutable release files', () => {
+  const { base, root, linkedGeneratedFiles } = overlayFixture();
+  try {
+    const files = linkedGeneratedFiles.map((file) => file.overlayFile);
+    crash(root, `const fs=require('node:fs');const root=process.env.CRASH_ROOT;const publication=require(${JSON.stringify(sourceModule)}).writeShowRecordsAtomically(root,[{id:'one',title:'Interrupted update'}],{deferCommit:true,recoveryData:{schema:1,candidates:[],identities:[]}});for(const [index,file] of ${JSON.stringify(files)}.entries()){const temporary=file+'.import-'+index;fs.writeFileSync(temporary,'interrupted generated '+index);fs.renameSync(temporary,file)}process.kill(process.pid,'SIGKILL');`);
+    const recovery = recoverCatalogPublication(root);
+    assert.equal(recovery.pendingDatabaseRecovery.schema, 1);
+    assert.equal(readCatalogSource(root).shows[0].title, 'Original one');
+    for (const file of linkedGeneratedFiles) {
+      assert.equal(fs.lstatSync(file.overlayFile).isSymbolicLink(), true);
+      assert.equal(fs.readlinkSync(file.overlayFile), file.linkTarget);
+      assert.equal(fs.readFileSync(file.releaseFile, 'utf8'), `original ${path.basename(file.releaseFile)}`);
+    }
+    completeCatalogPublicationRecovery(root);
+    assert.equal(recoverCatalogPublication(root), false);
+  } finally { fs.rmSync(base, { recursive: true, force: true }); }
+});
+
+test('publication still rejects symlinks outside the matching immutable release', () => {
+  const root = fixture();
+  const externalDirectory = fs.mkdtempSync(path.join(os.tmpdir(), 'echo-publication-external-'));
+  const external = path.join(externalDirectory, 'target.json');
+  const linked = path.join(root, 'data/entities.json');
+  try {
+    fs.writeFileSync(external, 'external target');
+    fs.symlinkSync(external, linked);
+    assert.throws(() => writeShowRecordsAtomically(root, [{ id: 'one', title: 'Must not publish' }], {
+      deferCommit: true,
+      recoveryData: { schema: 1, candidates: [], identities: [] },
+    }), /Publication recovery requires a regular target/);
+    assert.equal(fs.readFileSync(external, 'utf8'), 'external target');
+    assert.equal(fs.lstatSync(linked).isSymbolicLink(), true);
+    assert.equal(fs.existsSync(journalPath(root)), false);
+    assert.equal(readCatalogSource(root).shows[0].title, 'Original one');
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(externalDirectory, { recursive: true, force: true });
+  }
+});
+
 test('a committed publication survives process death without reverting valid data', () => {
   const root = fixture();
   try {

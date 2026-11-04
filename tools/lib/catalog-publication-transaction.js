@@ -12,6 +12,35 @@ const activePublicationTokens = new Map();
 const abandonedRoots = new Set();
 const publicationContext = new AsyncLocalStorage();
 
+// Runtime overlays link immutable generated files to the matching release. Only
+// that exact same-relative-path link is safe to snapshot and later restore.
+function expectedReleaseTarget(root, relative) {
+  const realRoot = fs.realpathSync(root);
+  const releaseId = path.basename(realRoot);
+  const environmentRoot = path.dirname(realRoot);
+  const runtimeRoot = path.dirname(environmentRoot);
+  if (!/^[0-9a-f]{40}$/.test(releaseId) || !["production", "staging"].includes(path.basename(environmentRoot)) || path.basename(runtimeRoot) !== "runtime") return null;
+  const hostRoot = path.dirname(runtimeRoot);
+  const releaseRoot = path.join(hostRoot, "releases", releaseId);
+  try {
+    if (fs.realpathSync(releaseRoot) !== releaseRoot) return null;
+  } catch (_error) {
+    return null;
+  }
+  const target = path.resolve(releaseRoot, relative);
+  if (!target.startsWith(`${releaseRoot}${path.sep}`)) return null;
+  return target;
+}
+
+function isTrustedReleaseSymlink(root, relative, linkTarget) {
+  const expectedTarget = expectedReleaseTarget(root, relative);
+  if (!expectedTarget) return false;
+  const destination = path.resolve(fs.realpathSync(path.dirname(path.resolve(root, relative))), linkTarget);
+  if (destination !== expectedTarget) return false;
+  const stat = optionalLstat(expectedTarget);
+  return Boolean(stat?.isFile() && !stat.isSymbolicLink() && fs.realpathSync(expectedTarget) === expectedTarget);
+}
+
 function containedPath(root, relative) {
   if (typeof relative !== "string" || !relative || path.isAbsolute(relative)) throw new Error("Invalid publication recovery path.");
   const target = path.resolve(root, relative);
@@ -21,7 +50,10 @@ function containedPath(root, relative) {
   const realRoot = fs.realpathSync(root);
   const realParent = fs.realpathSync(parent);
   if (realParent !== realRoot && !realParent.startsWith(`${realRoot}${path.sep}`)) throw new Error("Publication recovery follows an external directory symlink.");
-  if (fs.existsSync(target) && fs.lstatSync(target).isSymbolicLink()) throw new Error("Publication recovery requires a regular target.");
+  const targetStat = optionalLstat(target);
+  if (targetStat?.isSymbolicLink() && !isTrustedReleaseSymlink(root, relative, fs.readlinkSync(target))) {
+    throw new Error("Publication recovery requires a regular target.");
+  }
   return target;
 }
 
@@ -188,6 +220,10 @@ function readManifest(root, directory) {
   manifest.files.forEach((file, index) => {
     containedPath(root, file.relative);
     if (typeof file.existed !== "boolean" || file.backup !== `${index}.bin` || !Number.isInteger(file.mode) || file.mode < 0 || file.mode > 0o777) throw new Error("Malformed catalogue publication backup.");
+    const kind = file.kind || "file";
+    if (!new Set(["file", "symlink"]).has(kind) || (kind === "symlink" &&
+      (!file.existed || typeof file.symlinkTarget !== "string" || !isTrustedReleaseSymlink(root, file.relative, file.symlinkTarget))) ||
+      (kind === "file" && file.symlinkTarget !== undefined)) throw new Error("Malformed catalogue publication backup.");
     if (file.existed && ["prepared", "restored"].includes(manifest.phase) && !fs.lstatSync(path.join(directory, file.backup)).isFile()) throw new Error("Catalogue recovery requires a regular backup file.");
   });
   return manifest;
@@ -207,8 +243,13 @@ function restore(root, directory, manifest) {
     fs.mkdirSync(path.dirname(target), { recursive: true });
     const temporary = `${target}.recover-${randomUUID()}`;
     try {
-      fs.copyFileSync(path.join(directory, file.backup), temporary);
-      fs.chmodSync(temporary, file.mode);
+      if ((file.kind || "file") === "symlink") {
+        if (!isTrustedReleaseSymlink(root, file.relative, file.symlinkTarget)) throw new Error("Catalogue recovery symlink target is unsafe.");
+        fs.symlinkSync(file.symlinkTarget, temporary);
+      } else {
+        fs.copyFileSync(path.join(directory, file.backup), temporary);
+        fs.chmodSync(temporary, file.mode);
+      }
       fs.renameSync(temporary, target);
     } finally { fs.rmSync(temporary, { force: true }); }
   }
@@ -335,12 +376,21 @@ function extendSnapshots(root, directory, manifest, targets, { includeGenerated,
       if (!next.absentDirectories.includes(absent)) next.absentDirectories.push(absent);
       parent = path.dirname(parent);
     }
-    const existed = fs.existsSync(target);
-    const stat = existed ? fs.lstatSync(target) : null;
-    if (stat && !stat.isFile()) throw new Error("Catalogue publication requires regular target files.");
+    const stat = optionalLstat(target);
+    const existed = Boolean(stat);
+    const isSymlink = Boolean(stat?.isSymbolicLink());
+    if (stat && !stat.isFile() && !isSymlink) throw new Error("Catalogue publication requires regular target files.");
+    const symlinkTarget = isSymlink ? fs.readlinkSync(target) : undefined;
+    if (isSymlink && !isTrustedReleaseSymlink(root, relative, symlinkTarget)) throw new Error("Catalogue publication requires regular target files.");
     const backup = `${next.files.length}.bin`;
     if (existed) fs.copyFileSync(target, path.join(directory, backup));
-    next.files.push({ relative, backup, existed, mode: stat ? stat.mode & 0o777 : 0o644 });
+    next.files.push({
+      relative,
+      backup,
+      existed,
+      mode: stat ? (isSymlink ? 0o777 : stat.mode & 0o777) : 0o644,
+      ...(isSymlink ? { kind: "symlink", symlinkTarget } : {}),
+    });
   }
   next.phase = "prepared";
   writeManifest(directory, next);
