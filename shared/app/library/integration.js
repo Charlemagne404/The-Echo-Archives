@@ -182,7 +182,7 @@ function ensureCardControls() {
   const runtimeState = getLibraryRuntimeState();
   findCardHosts().forEach((host) => {
     const showId = host.dataset.libraryShowId;
-    if (!showId || host.querySelector(`:scope > [data-library-control="card"][data-library-show-id="${CSS.escape(showId)}"]`)) return;
+    if (!showId || host.matches(".detail-similar-card") || host.querySelector(`:scope > [data-library-control="card"][data-library-show-id="${CSS.escape(showId)}"]`)) return;
     const title = getEntryTitle(host, showId);
     const control = createQuickSaveControl(showId, title);
     control.dataset.libraryTitle = title;

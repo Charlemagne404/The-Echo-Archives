@@ -283,7 +283,7 @@ test("quick-save cards and show controls persist and synchronize without exposin
     const recommendationHosts = recommendations.locator(".detail-similar-card[data-library-show-card][data-library-show-id]");
     const recommendationControls = recommendations.locator(".detail-similar-card > button.library-card-quick-save");
     assert.ok(await recommendationHosts.count() > 0, "similar-show recommendation cards are present");
-    await assertEventually(async () => assert.equal(await recommendationControls.count(), await recommendationHosts.count(), "similar-show cards each receive the shared quick-save control"));
+    assert.equal(await recommendationControls.count(), 0, "similar-show recommendations remain navigation-only and do not add a competing save target");
     await recommendations.close();
 
     const navigation = await context.newPage();
@@ -305,7 +305,8 @@ test("quick-save cards and show controls persist and synchronize without exposin
     const similarControls = detail.locator(".detail-similar-card > button.library-card-quick-save");
     await assertEventually(async () => {
       const hostCount = await similarHosts.count();
-      if (hostCount > 0) assert.equal(await similarControls.count(), hostCount, "similar-show recommendations use the same quick-save control");
+      assert.ok(hostCount > 0, "similar-show recommendations are present");
+      assert.equal(await similarControls.count(), 0, "similar-show recommendations do not add a competing save target");
     });
     assert.equal(await detailControl.evaluate((node) => node.parentElement.matches(".detail-action-secondary-group")), true,
       "the detail quick-save control lives with secondary show actions");
