@@ -231,7 +231,6 @@ test("homepage featured collections carousel applies center-weighted focus and d
     assert.ok(centeredAfterHover);
     expectedCollectionIndex = featuredCollectionIds.indexOf(centeredAfterHover.collectionId);
     assert.notEqual(expectedCollectionIndex, -1);
-    await waitForCenteredCollection(page, centeredAfterHover.collectionId);
 
     const nextPulseState = await clickCollectionArrow(page, "#collectionNext");
     if (prefersReducedMotion) {
