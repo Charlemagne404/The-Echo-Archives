@@ -94,6 +94,11 @@ public state through `EXPECTED_COMMUNITY_RATING_WRITES` and
 `/etc/echo-archives/monitoring.env`; a mismatch between either local/public
 health response and those expectations fails the gate.
 
+Discord activity notifications use the optional `ECHO_DISCORD_WEBHOOK_URL` in
+the same protected production environment file. Leave it unset to disable
+notifications. Staging intentionally ignores this setting so staging smoke
+activity cannot reach the production Discord channel.
+
 Required launch decisions:
 
 - `SITE_URL` must be the public HTTPS origin with no path, query, credentials, or fragment.

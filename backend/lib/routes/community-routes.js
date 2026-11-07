@@ -46,6 +46,7 @@ function createCommunityRouter({
   config,
   rateLimiter = null,
   analyticsStore = null,
+  discordNotifications = null,
   getAnalyticsRequestContext = () => ({}),
   isInternalRequest = () => false,
 }) {
@@ -156,14 +157,37 @@ function createCommunityRouter({
         source: "web",
         sourceIp: getSourceIp(req),
       });
-      recordAnalytics({
-        ...getAnalyticsRequestContext(req),
-        eventName: result.ratingChangeType === "changed" ? "Rating Changed" : "Rating Submitted",
-        properties: { show_id: req.params.podcastId },
-        userAgent: req.get("user-agent") || "",
-        internal: isInternalRequest(req),
+      if (result.ratingChangeType !== "unchanged") {
+        const internal = isInternalRequest(req);
+        recordAnalytics({
+          ...getAnalyticsRequestContext(req),
+          eventName: result.ratingChangeType === "changed" ? "Rating Changed" : "Rating Submitted",
+          properties: { show_id: req.params.podcastId },
+          userAgent: req.get("user-agent") || "",
+          internal,
+        });
+        if (!internal && result.ratingEventId) {
+          try {
+            discordNotifications?.enqueueContribution({
+              eventId: `rating:${result.ratingEventId}`,
+              kind: "rating",
+              changeType: result.ratingChangeType,
+              showId: result.podcast.id,
+              showTitle: result.podcast.title,
+              showHref: result.podcast.href,
+              rating: result.rating,
+            });
+          } catch (_error) {
+            // Notifications cannot turn a saved rating into a failed request.
+          }
+        }
+      }
+      res.json({
+        profileId: result.profileId,
+        podcast: result.podcast,
+        ratingChangeType: result.ratingChangeType,
+        summary: result.summary,
       });
-      res.json(result);
     } catch (error) {
       next(error);
     }
