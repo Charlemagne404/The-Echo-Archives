@@ -251,7 +251,7 @@ test("browse empty results announce the count and keep recovery controls accessi
   }
 });
 
-test("mobile navigation and filter sheet support keyboard focus, Escape, and focus return", async () => {
+test("mobile navigation and filter popover support keyboard focus, Escape, and focus return", async () => {
   const guard = await createReadOnlyBrowserContext(browser, {
     viewport: { width: 390, height: 844 },
     reducedMotion: "reduce",
