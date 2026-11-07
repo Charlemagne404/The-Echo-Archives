@@ -380,6 +380,10 @@
   color: var(--text-secondary);
 }
 
+#collectionsClearSearch {
+  color: var(--text-primary);
+}
+
 .collection-detail-hero-panel {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(240px, 0.34fr);
