@@ -78,7 +78,10 @@ test("importer-origin catalogue entries retain their publication tier", () => {
   const publicationTiers = new Set(importerOrigin.map((show) => show.reviewStatus));
 
   assert.ok(importerOrigin.length > 0);
-  assert.deepEqual([...publicationTiers].sort(), ["imported", "indexed-only"]);
+  assert.deepEqual([...publicationTiers].sort(), ["full-review", "imported", "indexed-only"]);
+  const editoriallyPromoted = importerOrigin.filter((show) => show.reviewStatus === "full-review");
+  assert.equal(editoriallyPromoted.length, 1);
+  assert.ok(editoriallyPromoted.every((show) => [show.archiveTake, show.spoilerFreeReview, show.thoughts].some((text) => String(text || "").trim())));
 });
 
 test("Imported source provenance exposes exact full-cast formats without copying keywords into tags", async () => {

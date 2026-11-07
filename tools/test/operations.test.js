@@ -485,6 +485,13 @@ source "$1" help >/dev/null
 TEST_NODE_BINARY="$4"
 run_release_node() { "$TEST_NODE_BINARY" "$@"; }
 SCENARIO="$3"
+FIXTURE_NOW_MS=1000
+health_now_milliseconds() { printf '%s\n' "$FIXTURE_NOW_MS"; }
+sleep() {
+  local milliseconds
+  milliseconds="$(health_duration_milliseconds "$1")"
+  FIXTURE_NOW_MS=$((FIXTURE_NOW_MS + milliseconds))
+}
 NEW_COMMIT=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 OLD_COMMIT=bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 STAGING_SERVICE=fixture-staging.service
@@ -525,10 +532,10 @@ restart_service() {
   PHASE_CALLS=0
   if [[ "$RESTART_COUNT" -eq 1 ]]; then
     HEALTH_PHASE=forward
-    printf 'FIXTURE_FORWARD_RESTART_MS=%s\n' "$(date +%s%3N)"
+    printf 'FIXTURE_FORWARD_RESTART_MS=%s\n' "$FIXTURE_NOW_MS"
   else
     HEALTH_PHASE=rollback
-    printf 'FIXTURE_ROLLBACK_RESTART_MS=%s\n' "$(date +%s%3N)"
+    printf 'FIXTURE_ROLLBACK_RESTART_MS=%s\n' "$FIXTURE_NOW_MS"
   fi
 }
 

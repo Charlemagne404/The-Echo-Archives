@@ -97,7 +97,10 @@ test("service-worker install list stays within the offline-shell budget", () => 
     extra: new Map([["info.css", "info-version"]]),
   });
 
-  assert.ok(urls.length <= 30, `expected no more than 30 install URLs, received ${urls.length}`);
+  // The 31st resource is the shared similarity index used by offline home
+  // discovery. Pin the current inventory so adding shell assets remains an
+  // explicit offline-support decision instead of silently growing the list.
+  assert.equal(urls.length, 31, `expected the 31 required offline-shell URLs, received ${urls.length}`);
   assert.ok(urls.includes("/offline.html"));
   assert.ok(urls.includes("/shared/archive-similarity.js?v=similarity-version"));
   assert.ok(urls.some((url) => url.startsWith("/info.css?v=")));
