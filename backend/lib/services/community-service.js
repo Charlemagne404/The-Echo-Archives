@@ -136,12 +136,17 @@ function createCommunityService({
       abuseHash,
     });
 
-    return {
+    const result = {
       profileId: resolvedProfileId,
       podcast,
       ratingChangeType: ratingWrite.changeType,
       summary: store.listRatingSummaries([podcastId], resolvedProfileId)[podcastId],
     };
+    Object.defineProperties(result, {
+      ratingEventId: { value: ratingWrite.eventId },
+      rating: { value: normalizedRating },
+    });
+    return result;
   }
 
   async function removeRating({

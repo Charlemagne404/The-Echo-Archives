@@ -38,6 +38,9 @@ function createPublishedListenerReviewRouter({
   reviewService,
   config,
   analyticsStore = null,
+  discordNotifications = null,
+  getShowTitle = () => "",
+  getShowHref = () => "",
   getAnalyticsRequestContext = () => ({}),
   isInternalRequest = () => false,
 }) {
@@ -110,14 +113,35 @@ function createPublishedListenerReviewRouter({
         userAgent,
         sourceIp: req.ip || "",
       });
-      recordAnalytics({
-        ...getAnalyticsRequestContext(req),
-        eventName: helpful ? "Helpful Vote" : "Helpful Vote Removed",
-        properties: { show_id: showId },
-        userAgent,
-        internal: isInternalRequest(req),
+      const internal = isInternalRequest(req);
+      if (result.changed) {
+        recordAnalytics({
+          ...getAnalyticsRequestContext(req),
+          eventName: helpful ? "Helpful Vote" : "Helpful Vote Removed",
+          properties: { show_id: showId },
+          userAgent,
+          internal,
+        });
+        if (helpful && !internal && result.notificationEventId) {
+          try {
+            discordNotifications?.enqueueContribution({
+              eventId: `helpful:${result.notificationEventId}`,
+              kind: "helpful",
+              showId,
+              showTitle: getShowTitle(showId),
+              showHref: getShowHref(showId),
+              helpfulCount: result.helpfulCount,
+            });
+          } catch (_error) {
+            // Notifications cannot turn a successful helpful vote into a failed request.
+          }
+        }
+      }
+      return res.json({
+        reviewId: result.reviewId,
+        helpfulCount: result.helpfulCount,
+        viewerMarkedHelpful: result.viewerMarkedHelpful,
       });
-      return res.json(result);
     } catch (error) {
       return next(error);
     }

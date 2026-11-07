@@ -176,6 +176,7 @@ function createCommunityStore({ db, catalog, minPublicRatings = 1 }) {
 
     if (!existing) {
       const submissionId = randomUUID();
+      const eventId = randomUUID();
       statements.insertSubmission.run({
         id: submissionId,
         podcastId,
@@ -185,7 +186,7 @@ function createCommunityStore({ db, catalog, minPublicRatings = 1 }) {
         abuseHash,
       });
       statements.insertEvent.run({
-        id: randomUUID(),
+        id: eventId,
         submissionId,
         podcastId,
         profileId,
@@ -195,9 +196,18 @@ function createCommunityStore({ db, catalog, minPublicRatings = 1 }) {
         source,
         abuseHash,
       });
-      return { submissionId, changeType: "submitted" };
+      const result = { submissionId, changeType: "submitted" };
+      Object.defineProperty(result, "eventId", { value: eventId });
+      return result;
     }
 
+    if (existing.rating === rating) {
+      const result = { submissionId: existing.id, changeType: "unchanged" };
+      Object.defineProperty(result, "eventId", { value: "" });
+      return result;
+    }
+
+    const eventId = randomUUID();
     statements.updateSubmission.run({
       id: existing.id,
       rating,
@@ -205,7 +215,7 @@ function createCommunityStore({ db, catalog, minPublicRatings = 1 }) {
       abuseHash,
     });
     statements.insertEvent.run({
-      id: randomUUID(),
+      id: eventId,
       submissionId: existing.id,
       podcastId,
       profileId,
@@ -215,7 +225,9 @@ function createCommunityStore({ db, catalog, minPublicRatings = 1 }) {
       source,
       abuseHash,
     });
-    return { submissionId: existing.id, changeType: "changed" };
+    const result = { submissionId: existing.id, changeType: "changed" };
+    Object.defineProperty(result, "eventId", { value: eventId });
+    return result;
   });
 
   const deleteRating = db.transaction(({ podcastId, profileId, source, abuseHash = "" }) => {

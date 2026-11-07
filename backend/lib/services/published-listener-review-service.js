@@ -1,3 +1,4 @@
+const { randomUUID } = require("node:crypto");
 const { createAbuseHash, createRateLimitHash, hashValue } = require("./community-service");
 
 const SPOILER_LEVELS = new Set(["spoiler-free", "light-spoilers", "full-spoilers"]);
@@ -238,11 +239,17 @@ function createPublishedListenerReviewService({
     });
     communityStore.recordAbuseEvent({ scope: "community-review-helpful", abuseHash, retentionMs: abuseRetentionMs });
     const state = helpful ? store.markHelpful(reviewId, profileId) : store.removeHelpful(reviewId, profileId);
-    return {
+    const changed = Boolean(state?.changed);
+    const result = {
       reviewId,
       helpfulCount: Number(state?.helpful_count || 0),
       viewerMarkedHelpful: Boolean(state?.viewer_marked_helpful),
     };
+    Object.defineProperties(result, {
+      changed: { value: changed },
+      notificationEventId: { value: helpful && changed ? randomUUID() : "" },
+    });
+    return result;
   }
 
   return {

@@ -1135,6 +1135,58 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
     }));
   }
 
+  function getDiscordDailySummary(day) {
+    if (!enabled || !/^\d{4}-\d{2}-\d{2}$/.test(String(day || ""))) return null;
+    const start = new Date(`${day}T00:00:00.000Z`);
+    if (!Number.isFinite(start.getTime()) || start.toISOString().slice(0, 10) !== day) return null;
+    const end = new Date(start.getTime() + 24 * 60 * 60 * 1_000);
+    const dashboard = getDashboard({ range: "24h", now: end });
+    const contributions = db.prepare(`
+      SELECT
+        COUNT(CASE WHEN event_name = 'Rating Submitted' THEN 1 END) AS ratings_submitted,
+        COUNT(CASE WHEN event_name = 'Rating Changed' THEN 1 END) AS ratings_changed,
+        COUNT(CASE WHEN event_name = 'Rating Removed' THEN 1 END) AS ratings_removed,
+        COUNT(CASE WHEN event_name = 'Helpful Vote' THEN 1 END) AS helpful_votes,
+        COUNT(CASE WHEN event_name = 'Catalogue Submission'
+          AND json_extract(properties_json, '$.submission_type') = 'show' THEN 1 END) AS new_show_submissions,
+        COUNT(CASE WHEN event_name = 'Catalogue Submission'
+          AND json_extract(properties_json, '$.submission_type') = 'correction' THEN 1 END) AS correction_submissions,
+        COUNT(CASE WHEN event_name = 'Catalogue Submission'
+          AND json_extract(properties_json, '$.submission_type') = 'listener-review' THEN 1 END) AS reviews_submitted,
+        COUNT(CASE WHEN event_name = 'Catalogue Submission'
+          AND json_extract(properties_json, '$.submission_type') = 'creator-verification' THEN 1 END) AS creator_verification_submissions
+      FROM analytics_events
+      WHERE occurred_at >= @start AND occurred_at < @end
+    `).get({ start: start.toISOString(), end: end.toISOString() });
+    const metric = (key) => Number(dashboard.metrics[key]?.value || 0);
+    return {
+      available: true,
+      day,
+      coverageStart: dashboard.coverage.rangeDataStartsAt,
+      trackingStartedAt: dashboard.coverage.trackingStartedAt,
+      pageViews: metric("pageViews"),
+      uniqueVisitors: metric("uniqueVisitors"),
+      sessions: metric("sessions"),
+      interactions: metric("interactions"),
+      searches: metric("searches"),
+      filterChanges: metric("filterChanges"),
+      showOpens: metric("showOpens"),
+      collectionOpens: metric("collectionOpens"),
+      listenClicks: metric("listenClicks"),
+      ratingsSubmitted: Number(contributions.ratings_submitted || 0),
+      ratingsChanged: Number(contributions.ratings_changed || 0),
+      ratingsRemoved: Number(contributions.ratings_removed || 0),
+      helpfulVotes: Number(contributions.helpful_votes || 0),
+      newShowSubmissions: Number(contributions.new_show_submissions || 0),
+      correctionSubmissions: Number(contributions.correction_submissions || 0),
+      reviewsSubmitted: Number(contributions.reviews_submitted || 0),
+      creatorVerificationSubmissions: Number(contributions.creator_verification_submissions || 0),
+      topShows: dashboard.topShows.filter((show) => show.pageViews > 0).slice(0, 3),
+      topPages: dashboard.topPages.slice(0, 3),
+      topCollections: dashboard.topCollections.filter((collection) => collection.opens > 0).slice(0, 3),
+    };
+  }
+
   function getDashboard({ range = "7d", now = new Date() } = {}) {
     const window = rangeWindow(range, now);
     const current = queryPeriodSummary(window.queryStart, window.requestedEnd);
@@ -1240,6 +1292,7 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
     enabled,
     retentionDays: safeRetentionDays,
     getDashboard,
+    getDiscordDailySummary,
     getTrackingStartedAt,
     getPopularitySignals,
     purgeExpiredEvents,

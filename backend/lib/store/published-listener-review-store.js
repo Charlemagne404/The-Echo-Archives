@@ -269,13 +269,17 @@ function createPublishedListenerReviewStore({ db }) {
   }
 
   function markHelpful(reviewId, profileId) {
-    addHelpfulVote.run({ reviewId, profileId });
-    return helpfulState.get({ reviewId, profileId });
+    const result = addHelpfulVote.run({ reviewId, profileId });
+    const state = helpfulState.get({ reviewId, profileId });
+    Object.defineProperty(state, "changed", { value: result.changes > 0 });
+    return state;
   }
 
   function removeHelpful(reviewId, profileId) {
-    removeHelpfulVote.run(reviewId, profileId);
-    return helpfulState.get({ reviewId, profileId });
+    const result = removeHelpfulVote.run(reviewId, profileId);
+    const state = helpfulState.get({ reviewId, profileId });
+    Object.defineProperty(state, "changed", { value: result.changes > 0 });
+    return state;
   }
 
   function unpublish(submissionId) {

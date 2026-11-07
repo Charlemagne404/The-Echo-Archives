@@ -456,6 +456,22 @@ function migrate(db) {
       last_source TEXT NOT NULL DEFAULT 'direct'
     );
 
+    CREATE TABLE IF NOT EXISTS discord_notification_outbox (
+      event_id TEXT PRIMARY KEY,
+      event_type TEXT NOT NULL,
+      payload_json TEXT NOT NULL,
+      status TEXT NOT NULL DEFAULT 'pending',
+      attempts INTEGER NOT NULL DEFAULT 0,
+      next_attempt_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      claimed_at TEXT,
+      delivered_at TEXT,
+      last_error_code TEXT NOT NULL DEFAULT '',
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_discord_notification_due
+      ON discord_notification_outbox (status, next_attempt_at, created_at);
+
     CREATE UNIQUE INDEX IF NOT EXISTS idx_analytics_events_dedupe
       ON analytics_events (dedupe_key)
       WHERE dedupe_key IS NOT NULL;

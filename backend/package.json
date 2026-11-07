@@ -11,6 +11,7 @@
     "test:browse-state": "node --test test/browse-state.test.js",
     "test:popularity": "node --test test/popularity.test.js",
     "test:analytics-store": "node --test test/analytics-store.test.js",
+    "test:discord-notifications": "node --test test/discord-notification-service.test.js",
     "test:community-popularity": "node --test --test-concurrency=1 test/community-routes.test.js test/maintainer.test.js",
     "test:home-browse": "node --test --test-concurrency=1 test/home-browse.smoke.js",
     "test:smoke:discovery-analytics": "node --test --test-concurrency=1 test/discovery-analytics.handler.smoke.js",

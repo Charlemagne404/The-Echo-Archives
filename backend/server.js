@@ -24,6 +24,7 @@ const { createPublishedListenerReviewStore } = require("./lib/store/published-li
 const { createRateLimitStore } = require("./lib/store/rate-limit-store");
 const { createSubmissionStore } = require("./lib/store/submission-store");
 const { createAnalyticsStore } = require("./lib/store/analytics-store");
+const { createDiscordNotificationDispatcher } = require("./lib/services/discord-notification-service");
 const { createPopularityService } = require("./lib/popularity");
 const { createCommunityService } = require("./lib/services/community-service");
 const { createDataRetentionService } = require("./lib/services/data-retention-service");
@@ -404,6 +405,13 @@ async function startServer() {
     retentionDays: config.ANALYTICS_RETENTION_DAYS,
     collections: state.collections,
   });
+  const discordNotificationDispatcher = createDiscordNotificationDispatcher({
+    db: database,
+    webhookUrl: config.ECHO_DISCORD_WEBHOOK_URL,
+    siteUrl: config.SITE_URL,
+    analyticsStore,
+  });
+  discordNotificationDispatcher.start();
   const popularityService = createPopularityService({
     analyticsStore,
     getCatalog: () => state.publicCatalog,
@@ -615,6 +623,7 @@ async function startServer() {
           maintainerReview: maintainerAuth.enabled,
           accessLogs: Boolean(config.ACCESS_LOG_ENABLED),
         },
+        discordNotifications: discordNotificationDispatcher.getStatus(),
       };
     } catch (_error) {
       return {
@@ -884,6 +893,7 @@ async function startServer() {
       config,
       rateLimiter: rateLimitService,
       analyticsStore,
+      discordNotifications: discordNotificationDispatcher,
       getAnalyticsRequestContext,
       isInternalRequest: (req) => maintainerAuth.hasSession(req),
     }),
@@ -894,6 +904,9 @@ async function startServer() {
       reviewService: publishedListenerReviewService,
       config,
       analyticsStore,
+      discordNotifications: discordNotificationDispatcher,
+      getShowTitle: (showId) => state.showByLowerId.get(String(showId || "").toLowerCase())?.title || "",
+      getShowHref: (showId) => state.showByLowerId.get(String(showId || "").toLowerCase())?.href || "",
       getAnalyticsRequestContext,
       isInternalRequest: (req) => maintainerAuth.hasSession(req),
     }),
@@ -903,6 +916,8 @@ async function startServer() {
     createSubmissionRouter({
       submissionService,
       analyticsStore,
+      discordNotifications: discordNotificationDispatcher,
+      getShowHref: (showId) => state.showByLowerId.get(String(showId || "").toLowerCase())?.href || "",
       getAnalyticsRequestContext,
       isInternalRequest: (req) => maintainerAuth.hasSession(req),
     }),
@@ -1567,6 +1582,7 @@ async function startServer() {
     if (shuttingDown) return;
     shuttingDown = true;
     clearInterval(dataRetentionTimer);
+    discordNotificationDispatcher.stop();
     console.log(`Received ${signal}; closing Echo Archives cleanly.`);
 
     const forceTimer = setTimeout(() => {
