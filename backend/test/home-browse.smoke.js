@@ -256,6 +256,8 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     assert.equal(chipState.ids.length, 2);
     assert.equal(chipState.visibleClear, true);
 
+    await page.keyboard.press("Escape");
+    await page.waitForFunction(() => document.getElementById("filterDropdown")?.hidden === true);
     await page.locator("#activeBrowseChips .active-browse-chip").nth(0).click();
     await page.waitForFunction(() => document.getElementById("filterCount")?.textContent?.trim() === "1");
     const afterChipRemoval = await page.evaluate(() => {
