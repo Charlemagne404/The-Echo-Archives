@@ -91,6 +91,13 @@ async function assertEventually(assertion, timeoutMs = 5_000) {
   throw lastError || new Error("Expected condition did not become true.");
 }
 
+async function callLibraryService(page, method, ...args) {
+  return page.evaluate(async ({ methodName, methodArgs }) => {
+    const { getLibraryService } = await import("/shared/app/library/runtime.js");
+    return getLibraryService()[methodName](...methodArgs);
+  }, { methodName: method, methodArgs: args });
+}
+
 function analyticsEventsFor(requests, eventName, showId) {
   return requests.flatMap(({ url, body }) => {
     if (!/\/api\/analytics\/events(?:\/batch)?(?:\?|$)/.test(url)) return [];
@@ -276,7 +283,7 @@ test("quick-save cards and show controls persist and synchronize without exposin
     const recommendationHosts = recommendations.locator(".detail-similar-card[data-library-show-card][data-library-show-id]");
     const recommendationControls = recommendations.locator(".detail-similar-card > button.library-card-quick-save");
     assert.ok(await recommendationHosts.count() > 0, "similar-show recommendation cards are present");
-    await assertEventually(async () => assert.equal(await recommendationControls.count(), await recommendationHosts.count(), "similar-show cards each receive the shared quick-save control"));
+    assert.equal(await recommendationControls.count(), 0, "similar-show recommendations remain navigation-only and do not add a competing save target");
     await recommendations.close();
 
     const navigation = await context.newPage();
@@ -298,82 +305,56 @@ test("quick-save cards and show controls persist and synchronize without exposin
     const similarControls = detail.locator(".detail-similar-card > button.library-card-quick-save");
     await assertEventually(async () => {
       const hostCount = await similarHosts.count();
-      if (hostCount > 0) assert.equal(await similarControls.count(), hostCount, "similar-show recommendations use the same quick-save control");
+      assert.ok(hostCount > 0, "similar-show recommendations are present");
+      assert.equal(await similarControls.count(), 0, "similar-show recommendations do not add a competing save target");
     });
-    assert.equal(await detailControl.evaluate((node) => node.parentElement.matches(".detail-actions")), true, "the detail control lives with the listening actions");
+    assert.equal(await detailControl.evaluate((node) => node.parentElement.matches(".detail-action-secondary-group")), true,
+      "the detail quick-save control lives with secondary show actions");
+    assert.equal(await detailControl.evaluate((node) => node.closest(".detail-actions") !== null), true,
+      "the detail quick-save remains inside the listening action area");
     assert.ok(await detail.locator(".detail-actions a").count() > 0, "existing listen actions remain present");
-    assert.equal(await detailControl.locator("[data-library-state-select]").inputValue(), "saved");
-
-    await detailControl.locator("summary").click();
-    await detailControl.locator("[data-library-state-select]").selectOption("listening");
     await assertEventually(async () => {
-      const quickSaveLabels = await quickSaveControls.evaluateAll((buttons) => buttons.map((button) => button.getAttribute("aria-label")));
-      assert.ok(quickSaveLabels.length >= 2 && quickSaveLabels.every((label) => label.includes("Current status: Listening.")), JSON.stringify(quickSaveLabels));
+      assert.equal(await detailControl.getAttribute("aria-pressed"), "true");
+      assert.match(await detailControl.getAttribute("aria-label"), /Current status: Saved\./);
     });
-    await detailControl.locator("[data-library-rating-select]").selectOption("4");
-    assert.match(await detailControl.locator(".library-detail-rating-note").textContent(), /never submitted as a Community Rating/);
-    assert.equal(await detailControl.locator(".library-hidden-meaning").isVisible(), false, "Hidden guidance stays out of the way for other Library states");
+    assert.equal(await detailControl.locator("[data-library-state-select], [data-library-rating-select]").count(), 0,
+      "public show actions expose quick-save without private management fields");
 
-    await detailControl.locator("[data-library-state-select]").selectOption("hidden");
+    const ratingResult = await callLibraryService(detail, "setRating", repeatedShow.id, 4);
+    assert.equal(ratingResult.ok, true, "private ratings remain stored by the local Library service");
+    const privacySnapshot = await callLibraryService(detail, "setState", repeatedShow.id, "hidden", { titleSnapshot: privacyCanary });
+    assert.equal(privacySnapshot.ok, true);
     await assertEventually(async () => {
-      assert.match(await detailControl.locator("[data-library-state-select]").inputValue(), /hidden/);
       const quickSaveLabels = await quickSaveControls.evaluateAll((buttons) => buttons.map((button) => button.getAttribute("aria-label")));
       assert.ok(quickSaveLabels.length >= 2 && quickSaveLabels.every((label) => label.includes("Current status: Hidden / Not Interested.")), JSON.stringify(quickSaveLabels));
     });
-    const privacySnapshot = await detail.evaluate(async ({ showId, titleSnapshot }) => {
-      const { getLibraryService } = await import("/shared/app/library/runtime.js");
-      return getLibraryService().setState(showId, "hidden", { titleSnapshot });
-    }, { showId: repeatedShow.id, titleSnapshot: privacyCanary });
-    assert.equal(privacySnapshot.ok, true);
-    assert.equal(await detailControl.locator(".library-hidden-meaning").isVisible(), true, "Hidden guidance appears only for the Hidden state");
     assert.equal(await browse.locator(`#podcast-grid a[data-discovery-show-id="${repeatedShow.id}"]`).isVisible(), true, "Hidden does not change ordinary browse visibility");
 
     await detail.reload();
     await detailControl.waitFor();
     await assertEventually(async () => {
-      assert.equal(await detailControl.locator("[data-library-state-select]").inputValue(), "hidden");
-      assert.equal(await detailControl.locator("[data-library-rating-select]").inputValue(), "4");
+      assert.equal(await detailControl.getAttribute("aria-pressed"), "true");
+      assert.match(await detailControl.getAttribute("aria-label"), /Current status: Hidden \/ Not Interested\./);
     });
 
     await detail.setViewportSize({ width: 390, height: 844 });
-    const personalPreference = detailControl.locator("[data-library-discovery-preference]");
-    await detailControl.locator("summary").click();
-    assert.equal(await personalPreference.isChecked(), false, "Personal Discovery defaults to off on this browser");
-    assert.equal(await personalPreference.getAttribute("aria-label"), "Use my Library in discovery");
-    assert.match(await detail.locator(`#${await personalPreference.getAttribute("aria-describedby")}`).textContent(), /Uses your Library states and private ratings/i);
-    await personalPreference.focus();
-    await personalPreference.press("Space");
-    await assertEventually(async () => assert.equal(await personalPreference.isChecked(), true));
-    await personalPreference.uncheck();
-    await assertEventually(async () => assert.equal(await personalPreference.isChecked(), false));
-    await personalPreference.check();
-    await assertEventually(async () => assert.equal(await personalPreference.isChecked(), true));
-    const preferenceBounds = await personalPreference.boundingBox();
     const detailControlBounds = await detailControl.boundingBox();
-    const detailPanelBounds = await detailControl.locator(".library-detail-panel").boundingBox();
     assert.ok(
-      preferenceBounds.x >= 0 && preferenceBounds.x + preferenceBounds.width <= 390
-        && preferenceBounds.y >= 0 && preferenceBounds.y + preferenceBounds.height <= 844,
-      `the opt-in remains visible at a 390px viewport (${JSON.stringify({ preferenceBounds, detailControlBounds, detailPanelBounds })})`,
+      detailControlBounds.x >= 0 && detailControlBounds.x + detailControlBounds.width <= 390
+        && detailControlBounds.y >= 0 && detailControlBounds.y + detailControlBounds.height <= 844,
+      `the compact quick-save control remains visible at a 390px viewport (${JSON.stringify(detailControlBounds)})`,
     );
     const urlAndHistory = await detail.evaluate(() => `${location.href}\n${JSON.stringify(history.state)}`);
     assert.doesNotMatch(urlAndHistory, /personalContext|personalDiscovery|privateRating|"rating"|"state"|hidden|listening|saved/i);
 
     const secondDetail = await context.newPage();
     await secondDetail.goto(repeatedShow.href);
-    const secondControl = secondDetail.locator('[data-library-control="detail"]');
+    const secondControl = secondDetail.locator('button.library-detail-quick-save[data-library-control="detail"]');
     await secondControl.waitFor();
-    await secondControl.locator("summary").click();
-    const secondPreference = secondControl.locator("[data-library-discovery-preference]");
-    await assertEventually(async () => assert.equal(await secondPreference.isChecked(), true), 8_000);
-    await personalPreference.uncheck();
-    await assertEventually(async () => assert.equal(await secondPreference.isChecked(), false), 8_000);
-    await personalPreference.check();
-    await assertEventually(async () => assert.match(await detailControl.locator(".library-control-status").textContent(), /Personal Discovery enabled/i), 8_000);
-    await detail.reload();
-    await detailControl.waitFor();
-    await detailControl.locator("summary").click();
-    await assertEventually(async () => assert.equal(await detailControl.locator("[data-library-discovery-preference]").isChecked(), true));
+    await assertEventually(async () => {
+      assert.equal(await secondControl.getAttribute("aria-pressed"), "true");
+      assert.match(await secondControl.getAttribute("aria-label"), /Current status: Hidden \/ Not Interested\./);
+    }, 8_000);
     await secondDetail.close();
 
     const tryNextPage = await context.newPage();
@@ -388,17 +369,26 @@ test("quick-save cards and show controls persist and synchronize without exposin
     assert.ok(hiddenTarget?.id, "the Try Next fixture has a computed candidate besides the previously hidden show");
     const targetPage = await context.newPage();
     await targetPage.goto(hiddenTarget.href);
-    const targetControl = targetPage.locator('[data-library-control="detail"]');
-    await targetControl.waitFor();
-    await targetControl.locator("summary").click();
-    await targetControl.locator("[data-library-state-select]").selectOption("hidden");
+    const enablePersonalDiscovery = await callLibraryService(detail, "setPersonalDiscoveryEnabled", true);
+    assert.equal(enablePersonalDiscovery.ok, true);
+    const hideRecommendation = await callLibraryService(targetPage, "setState", hiddenTarget.id, "hidden");
+    assert.equal(hideRecommendation.ok, true);
     const hiddenRecommendation = computedGroup.locator(`a[data-discovery-show-id="${hiddenTarget.id}"]`);
     await assertEventually(async () => assert.equal(await hiddenRecommendation.count(), 0), 8_000);
     assert.ok(await targetPage.locator(".podcast-detail h1").textContent(), "the direct route for a Hidden show still renders");
 
-    await personalPreference.uncheck();
-    await assertEventually(async () => assert.match(await detailControl.locator(".library-control-status").textContent(), /Personal Discovery disabled/i), 8_000);
+    const removeHiddenRecommendation = await callLibraryService(targetPage, "removeEntry", hiddenTarget.id);
+    assert.equal(removeHiddenRecommendation.ok, true);
     await assertEventually(async () => assert.equal(await hiddenRecommendation.count(), 1), 8_000);
+    const disablePersonalDiscovery = await callLibraryService(detail, "setPersonalDiscoveryEnabled", false);
+    assert.equal(disablePersonalDiscovery.ok, true);
+    await assertEventually(async () => {
+      const contextState = await tryNextPage.evaluate(async () => {
+        const { getLibraryRuntimeState } = await import("/shared/app/library/runtime.js");
+        return getLibraryRuntimeState().personalContext;
+      });
+      assert.equal(contextState.enabled, false);
+    }, 8_000);
     await targetPage.close();
     await tryNextPage.close();
 
@@ -482,20 +472,12 @@ test("Personal Discovery refines existing search locally and restores public ord
 
     const kingFallsDetail = await context.newPage();
     await kingFallsDetail.goto(`${baseUrl}/shows/king-falls-am`);
-    const kingFallsControl = kingFallsDetail.locator('[data-library-control="detail"]');
-    await kingFallsControl.waitFor();
-    await kingFallsControl.locator("summary").click();
-    await kingFallsControl.locator("[data-library-state-select]").selectOption("saved");
-    await assertEventually(async () => assert.match(await kingFallsControl.locator(".library-control-status").textContent(), /Library state changed to Saved/i));
-    await kingFallsControl.locator("[data-library-rating-select]").selectOption("5");
-    await assertEventually(async () => assert.match(await kingFallsControl.locator(".library-control-status").textContent(), /private rating is 5 of 5/i));
-    const preference = kingFallsControl.locator("[data-library-discovery-preference]");
-    await preference.focus();
-    await preference.press("Space");
-    await assertEventually(async () => {
-      assert.equal(await preference.isChecked(), true);
-      assert.match(await kingFallsControl.locator(".library-control-status").textContent(), /Personal Discovery enabled/i);
-    });
+    const savedKingFalls = await callLibraryService(kingFallsDetail, "setState", "king-falls-am", "saved");
+    const ratedKingFalls = await callLibraryService(kingFallsDetail, "setRating", "king-falls-am", 5);
+    const enablePersonalDiscovery = await callLibraryService(kingFallsDetail, "setPersonalDiscoveryEnabled", true);
+    assert.equal(savedKingFalls.ok, true);
+    assert.equal(ratedKingFalls.ok, true);
+    assert.equal(enablePersonalDiscovery.ok, true);
     let homeRuntimeState;
     await assertEventually(async () => {
       homeRuntimeState = await home.evaluate(async () => {
@@ -510,7 +492,7 @@ test("Personal Discovery refines existing search locally and restores public ord
       });
       assert.equal(homeRuntimeState.loading, false);
       assert.equal(homeRuntimeState.available, true);
-      assert.equal(homeRuntimeState.personalContext.enabled, true, "the other tab receives the explicit opt-in");
+      assert.equal(homeRuntimeState.personalContext.enabled, true, "the other tab receives the local Personal Discovery setting");
       assert.ok(homeRuntimeState.personalContext.entries.some((entry) => entry.showId === "king-falls-am" && entry.rating === 5), "the other tab receives the local rating anchor");
     }, 10_000);
     await assertEventually(async () => {
@@ -529,11 +511,8 @@ test("Personal Discovery refines existing search locally and restores public ord
     const arsDetail = await context.newPage();
     await arsDetail.goto(`${baseUrl}/shows/ars-paradoxica`);
     await arsDetail.waitForFunction(() => document.body.dataset.appReady === "true", undefined, { timeout: 15_000 });
-    const arsControl = arsDetail.locator('[data-library-control="detail"]');
-    await arsControl.waitFor({ state: "visible", timeout: 15_000 });
-    await arsControl.locator("summary").click();
-    await arsControl.locator("[data-library-state-select]").selectOption("hidden");
-    await assertEventually(async () => assert.match(await arsControl.locator(".library-control-status").textContent(), /Library state changed to Hidden/i));
+    const hideArs = await callLibraryService(arsDetail, "setState", "ars-paradoxica", "hidden");
+    assert.equal(hideArs.ok, true);
     await assertEventually(async () => {
       const ids = await home.locator("#podcast-grid a[data-discovery-show-id]").evaluateAll((links) => links.map((link) => link.dataset.discoveryShowId));
       assert.equal(ids.includes("ars-paradoxica"), false, "Hidden suppresses that exact result in the existing broad search");
@@ -549,31 +528,27 @@ test("Personal Discovery refines existing search locally and restores public ord
       assert.match(await home.locator("#personalDiscoveryReason").textContent(), /King Falls AM \(rated 5\/5\)/i);
     });
 
-    await preference.uncheck();
-    await assertEventually(async () => {
-      assert.equal(await preference.isChecked(), false);
-      assert.match(await kingFallsControl.locator(".library-control-status").textContent(), /Personal Discovery disabled/i);
-    });
+    const disablePersonalDiscovery = await callLibraryService(kingFallsDetail, "setPersonalDiscoveryEnabled", false);
+    assert.equal(disablePersonalDiscovery.ok, true);
     const disabledRows = await search("sci-fi");
     assert.deepEqual(disabledRows, baselineRows, "disabling restores exact public result IDs, order, and position buckets");
     assert.equal(await home.locator("#personalDiscoveryReason").isVisible(), false, "disabling clears the personal reason");
 
-    await preference.check();
-    await assertEventually(async () => assert.equal(await preference.isChecked(), true));
+    const reEnablePersonalDiscovery = await callLibraryService(kingFallsDetail, "setPersonalDiscoveryEnabled", true);
+    assert.equal(reEnablePersonalDiscovery.ok, true);
     await assertEventually(async () => {
       const ids = await home.locator("#podcast-grid a[data-discovery-show-id]").evaluateAll((links) => links.map((link) => link.dataset.discoveryShowId));
       assert.equal(ids.includes("ars-paradoxica"), false);
     });
-    await arsControl.locator("[data-library-remove]").click();
+    const removeArs = await callLibraryService(arsDetail, "removeEntry", "ars-paradoxica");
+    assert.equal(removeArs.ok, true);
     await assertEventually(async () => {
       const ids = await home.locator("#podcast-grid a[data-discovery-show-id]").evaluateAll((links) => links.map((link) => link.dataset.discoveryShowId));
       assert.ok(ids.includes("ars-paradoxica"), "removing the Hidden entry restores that exact result while opt-in remains on");
     });
     await kingFallsDetail.goto(`${baseUrl}/shows/king-falls-am`);
-    const kingFallsRemoveControl = kingFallsDetail.locator('[data-library-control="detail"]');
-    await kingFallsRemoveControl.waitFor();
-    await kingFallsRemoveControl.locator("summary").click();
-    await kingFallsRemoveControl.locator("[data-library-remove]").click();
+    const removeKingFalls = await callLibraryService(kingFallsDetail, "removeEntry", "king-falls-am");
+    assert.equal(removeKingFalls.ok, true);
     await assertEventually(async () => {
       const homeRuntime = await home.evaluate(async () => {
         const { getLibraryRuntimeState } = await import("/shared/app/library/runtime.js");

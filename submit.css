@@ -1141,7 +1141,7 @@
 .submit-category-rating-slider:focus-visible::-moz-range-thumb {
   box-shadow: 0 0 0 3px #080a0c, 0 0 0 6px rgba(255, 122, 102, 0.82), 0 4px 10px rgba(0, 0, 0, 0.36);
 }
-
+/* Source: shared/styles/home/submit/03-form-panels.css */
 .submit-disclosure {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
@@ -2140,6 +2140,14 @@
   .submit-form-actions {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .submit-form-actions > .submit-footer-note {
+    flex: 0 1 auto;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .submit-primary-button,

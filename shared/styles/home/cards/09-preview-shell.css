@@ -60,6 +60,11 @@
   pointer-events: none;
 }
 
+.home-page .podcast-card-shell.is-preview-expanded > .library-card-quick-save,
+.home-page .podcast-card-shell.is-preview-closing > .library-card-quick-save {
+  z-index: 3;
+}
+
 .home-page .podcast-card-shell.is-preview-expanded .home-card-preview-layer,
 .home-page .podcast-card-shell.is-preview-closing .home-card-preview-layer {
   pointer-events: auto;

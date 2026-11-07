@@ -256,6 +256,8 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     assert.equal(chipState.ids.length, 2);
     assert.equal(chipState.visibleClear, true);
 
+    await page.keyboard.press("Escape");
+    await page.waitForFunction(() => document.getElementById("filterDropdown")?.hidden === true);
     await page.locator("#activeBrowseChips .active-browse-chip").nth(0).click();
     await page.waitForFunction(() => document.getElementById("filterCount")?.textContent?.trim() === "1");
     const afterChipRemoval = await page.evaluate(() => {
@@ -739,7 +741,7 @@ test("homepage keeps Recently Added and the floating search compact on narrow sc
   }
 });
 
-test("homepage mobile filter uses a non-scrolling launcher sheet with drill-in detail views", async () => {
+test("homepage mobile filter popover drills into a bucket and returns to the toggle", async () => {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
 
   try {
@@ -753,23 +755,23 @@ test("homepage mobile filter uses a non-scrolling launcher sheet with drill-in d
       return {
         bodyLocked: document.body.classList.contains("filter-sheet-open"),
         bucketCount: document.querySelectorAll("#filterOptionGrid .filter-bucket-card").length,
-        dialogRole: dropdown?.getAttribute("role") || "",
+        groupRole: dropdown?.getAttribute("role") || "",
         ariaModal: dropdown?.getAttribute("aria-modal") || "",
-        closeFocused: document.activeElement?.classList.contains("filter-sheet-close") || false,
         mainInert: document.querySelector("main")?.inert || false,
+        expanded: document.getElementById("filterToggle")?.getAttribute("aria-expanded") || "false",
         launcherScrollable: launcher ? launcher.scrollHeight > launcher.clientHeight : true,
         position: styles?.position || "",
       };
     });
 
-    assert.equal(launcherState.bodyLocked, true);
+    assert.equal(launcherState.bodyLocked, false);
     assert.equal(launcherState.bucketCount, 5);
-    assert.equal(launcherState.dialogRole, "dialog");
-    assert.equal(launcherState.ariaModal, "true");
-    assert.equal(launcherState.closeFocused, true);
-    assert.equal(launcherState.mainInert, true);
+    assert.equal(launcherState.groupRole, "group");
+    assert.equal(launcherState.ariaModal, "");
+    assert.equal(launcherState.mainInert, false);
+    assert.equal(launcherState.expanded, "true");
     assert.equal(launcherState.launcherScrollable, false);
-    assert.equal(launcherState.position, "fixed");
+    assert.equal(launcherState.position, "absolute");
 
     await openFilterBucket(page, "tone", { interaction: "click" });
     const detailState = await page.evaluate(() => {

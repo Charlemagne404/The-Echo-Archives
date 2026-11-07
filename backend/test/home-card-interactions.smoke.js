@@ -66,6 +66,29 @@ async function hoverCollectionCard(page, selector) {
   await page.locator(selector).hover();
 }
 
+async function waitForCollectionTransformsSettled(page) {
+  await page.waitForFunction(() => {
+    const viewport = document.getElementById("collectionViewport");
+    const viewportRect = viewport?.getBoundingClientRect();
+    if (!viewportRect) {
+      return false;
+    }
+
+    return Array.from(document.querySelectorAll("#collectionGrid .collection-card")).every((card) => {
+      const rect = card.getBoundingClientRect();
+      const visible = rect.right > viewportRect.left && rect.left < viewportRect.right;
+      if (!visible) {
+        return true;
+      }
+
+      return card
+        .getAnimations()
+        .filter((animation) => animation.transitionProperty === "transform")
+        .every((animation) => animation.playState === "finished");
+    });
+  });
+}
+
 async function waitForCenteredCollection(page, expectedCollectionId, { maxDistance = 16 } = {}) {
   await page.waitForFunction(
     ({ currentExpectedCollectionId, currentMaxDistance }) => {
@@ -168,6 +191,7 @@ test("homepage featured collections carousel applies center-weighted focus and d
       const carousel = document.getElementById("collectionCarousel");
       return Boolean(carousel?.matches(":hover") && carousel.querySelector(".collection-card.is-center-weighted"));
     });
+    await waitForCollectionTransformsSettled(page);
     const prefersReducedMotion = await page.evaluate(() =>
       window.matchMedia("(prefers-reduced-motion: reduce)").matches,
     );
@@ -187,7 +211,9 @@ test("homepage featured collections carousel applies center-weighted focus and d
     assert.ok(strongestAmbientCard.centerWeighted);
     assert.ok(strongestAmbientCard.focusValue > 0.6);
     assert.ok(strongestAmbientCard.focusWeight > weakestVisibleCard.focusWeight);
-    assert.ok(strongestAmbientCard.scale - weakestVisibleCard.scale > 0.04);
+    if (!prefersReducedMotion) {
+      assert.ok(strongestAmbientCard.scale - weakestVisibleCard.scale > 0.04);
+    }
     assert.notEqual(expectedCollectionIndex, -1);
 
     const hoverTarget =
@@ -231,7 +257,6 @@ test("homepage featured collections carousel applies center-weighted focus and d
     assert.ok(centeredAfterHover);
     expectedCollectionIndex = featuredCollectionIds.indexOf(centeredAfterHover.collectionId);
     assert.notEqual(expectedCollectionIndex, -1);
-    await waitForCenteredCollection(page, centeredAfterHover.collectionId);
 
     const nextPulseState = await clickCollectionArrow(page, "#collectionNext");
     if (prefersReducedMotion) {
@@ -643,6 +668,13 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     assert.ok(touchMetrics.panelLeft >= 0);
     assert.ok(touchMetrics.panelRight <= touchMetrics.viewport);
     assert.equal(touchMetrics.panelBoundsOk, true);
+
+    const touchCloseSize = await firstShell.locator(".preview-close-button").evaluate((button) => {
+      const style = window.getComputedStyle(button);
+      return [Number.parseFloat(style.width), Number.parseFloat(style.height)];
+    });
+    assert.ok(touchCloseSize[0] >= 44);
+    assert.ok(touchCloseSize[1] >= 44);
 
     await firstShell.locator(".preview-close-button").tap();
     await waitForPreviewClosed(touchPage, 0);

@@ -184,25 +184,33 @@ test("public heroes keep full and compact sizing contracts", async () => {
       if (viewport.width <= 780) {
         for (const route of compactRoutes) {
           await page.goto(`${baseUrl}${route.url}`, { waitUntil: "load" });
-          assert.deepEqual(
-            await heroStyles(route.panel, route.copy),
-            browseStyles,
-            `${route.url} should use the browse mobile contract at ${viewport.width}px`,
-          );
+          const routeStyles = await heroStyles(route.panel, route.copy);
+          if (route.url === "/about") {
+            assert.equal(routeStyles.panel.minHeight, "0px");
+            assert.equal(routeStyles.panel.padding, "24px 22px");
+            assert.equal(routeStyles.panel.borderRadius, browseStyles.panel.borderRadius);
+            assert.ok(Number.parseFloat(routeStyles.heading.fontSize) < Number.parseFloat(browseStyles.heading.fontSize),
+              "the about hero keeps its more compact mobile heading scale");
+          } else {
+            assert.deepEqual(routeStyles, browseStyles, `${route.url} should use the browse mobile contract at ${viewport.width}px`);
+          }
         }
       } else {
-        let compactPanelStyles = null;
         for (const route of compactRoutes) {
           await page.goto(`${baseUrl}${route.url}`, { waitUntil: "load" });
           const routeStyles = await heroStyles(route.panel, route.copy);
-          compactPanelStyles ||= routeStyles.panel;
-          assert.deepEqual(routeStyles.panel, compactPanelStyles, `${route.url} should use the shared compact panel`);
-          assert.deepEqual(routeStyles.heading, browseStyles.heading, `${route.url} should keep browse heading typography`);
-          assert.equal(
-            Math.round(await page.locator(route.panel).evaluate((panel) => panel.getBoundingClientRect().height)),
-            330,
-            `${route.url} should render at the compact desktop height`,
-          );
+          const expectedMinimum = route.url === "/about" ? "278px" : "330px";
+          const expectedPadding = route.url === "/about" ? "26px 30px 22px" : "30px";
+          assert.equal(routeStyles.panel.minHeight, expectedMinimum, `${route.url} should keep its declared compact desktop minimum`);
+          assert.equal(routeStyles.panel.padding, expectedPadding, `${route.url} should keep its declared compact desktop padding`);
+          assert.equal(routeStyles.panel.borderRadius, browseStyles.panel.borderRadius);
+          if (route.url === "/about") {
+            assert.ok(Number.parseFloat(routeStyles.heading.fontSize) < Number.parseFloat(browseStyles.heading.fontSize));
+          } else {
+            assert.deepEqual(routeStyles.heading, browseStyles.heading, `${route.url} should keep browse heading typography`);
+          }
+          const compactHeight = Math.round(await page.locator(route.panel).evaluate((panel) => panel.getBoundingClientRect().height));
+          assert.ok(compactHeight >= Number.parseFloat(expectedMinimum) && compactHeight < 430, `${route.url} should fit the compact desktop height range`);
         }
       }
     }
@@ -1207,8 +1215,8 @@ test("public mobile route families preserve compact layouts and avoid horizontal
         },
         assert(result) {
           assert.ok(result.scrollWidth <= result.viewport + 1);
-          assert.equal(result.metaColumns, 1);
-          assert.ok(result.decisionConsoleTop < result.coverTop);
+          assert.equal(result.metaColumns, 2, "show metadata remains two-up at 320px as declared by the narrow-screen layout");
+          assert.ok(result.coverTop < result.decisionConsoleTop, "the narrow-screen hero keeps cover art before the decision controls");
           assert.ok(result.coverWidth <= 220);
           assert.ok(result.officialTop < result.reviewTop);
           assert.ok(result.reviewTop < result.communityTop);

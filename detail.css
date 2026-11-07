@@ -2135,7 +2135,7 @@
     width: 100%;
   }
 }
-
+/* Source: shared/styles/show/sections/05b-responsive-small.css */
 @media (max-width: 560px) {
   .detail-main {
     width: min(100%, calc(100% - 20px));

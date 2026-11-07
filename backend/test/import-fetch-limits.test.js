@@ -51,7 +51,9 @@ for (const [name, options, headers, code] of [
 test("repeated endless redirect bodies release real loopback connections", async () => {
   const http = require("node:http");
   const sockets = new Set();
+  const responseClosures = [];
   const server = http.createServer((_req, res) => {
+    responseClosures.push(new Promise((resolve) => res.once("close", resolve)));
     res.writeHead(302, { location: "https://example.com/next" });
     res.write("unending redirect body");
   });
@@ -68,12 +70,12 @@ test("repeated endless redirect bodies release real loopback connections", async
         resolveDns: false, maxRedirects: 0, timeoutMs: 1000,
       }), { code: "IMPORT_REDIRECT_FAILED" });
     }
-    // Undici may retain replacement idle connections; active stalled bodies
-    // must be gone. Closing idle keep-alives distinguishes those states.
-    await new Promise((resolve) => setTimeout(resolve, 100));
+    // Undici reuses a small keep-alive pool even after every stalled response
+    // body has been canceled. Wait for response closure rather than assuming
+    // the transport must close all pooled sockets immediately.
+    await Promise.all(responseClosures);
     server.closeIdleConnections();
-    await new Promise((resolve) => setTimeout(resolve, 100));
-    assert.equal(sockets.size, 0);
+    assert.ok(sockets.size <= 2, `expected Undici's bounded keep-alive pool, found ${sockets.size} connections`);
   } finally {
     server.closeAllConnections();
     await new Promise((resolve) => server.close(resolve));

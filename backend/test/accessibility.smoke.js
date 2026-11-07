@@ -125,6 +125,11 @@ test("collections search announces the result count without making every card a 
     await page.waitForFunction(() => /0 collections/.test(document.getElementById("collectionsDirectorySummary")?.textContent || ""));
     assert.match(await page.locator("#collectionsDirectorySummary").innerText(), /0 collections/);
     assert.equal(await page.locator("#collectionsEmptyState").isVisible(), true);
+    // Axe should measure the final contrast after the empty-state fade completes.
+    await page.waitForFunction(() => {
+      const emptyState = document.getElementById("collectionsEmptyState");
+      return emptyState && getComputedStyle(emptyState).opacity === "1";
+    });
     assert.equal(await page.evaluate(() => document.activeElement?.id), await search.getAttribute("id"));
     assert.equal(
       await page.locator('[aria-hidden="true"][href]:not([tabindex="-1"]), [aria-hidden="true"] a[href]:not([tabindex="-1"])').count(),
@@ -246,7 +251,7 @@ test("browse empty results announce the count and keep recovery controls accessi
   }
 });
 
-test("mobile navigation and filter sheet support keyboard focus, Escape, and focus return", async () => {
+test("mobile navigation and filter popover support keyboard focus, Escape, and focus return", async () => {
   const guard = await createReadOnlyBrowserContext(browser, {
     viewport: { width: 390, height: 844 },
     reducedMotion: "reduce",
@@ -283,10 +288,14 @@ test("mobile navigation and filter sheet support keyboard focus, Escape, and foc
       const grid = document.querySelector("#filterDropdown .filter-option-grid");
       return grid && Number.parseFloat(getComputedStyle(grid).opacity) >= 0.99;
     });
-    assert.equal(await page.locator("#filterDropdown").getAttribute("role"), "dialog");
-    assert.equal(await page.locator("#filterDropdown").getAttribute("aria-modal"), "true");
+    assert.equal(await page.locator("#filterDropdown").getAttribute("role"), "group");
+    assert.equal(await page.locator("#filterDropdown").getAttribute("aria-modal"), null);
     assert.equal(await filterToggle.getAttribute("aria-expanded"), "true");
-    await assertAxeClean(page, "open mobile filter sheet");
+    await assertAxeClean(page, "open mobile filter popover");
+    await page.keyboard.press("Tab");
+    assert.equal(await page.locator("#filterDropdown").evaluate((group) => group.contains(document.activeElement)), true);
+    await page.keyboard.press("Shift+Tab");
+    assert.equal(await filterToggle.evaluate((node) => node === document.activeElement), true);
     await page.keyboard.press("Escape");
     await page.waitForFunction(() => document.getElementById("filterDropdown")?.hidden === true);
     assert.equal(await filterToggle.evaluate((node) => node === document.activeElement), true);
@@ -466,16 +475,17 @@ test("compact Library controls on cards and show pages pass semantic checks", { 
     assert.equal(await quickSave.getAttribute("aria-pressed"), "true");
 
     await gotoSmokePage(page, `${baseUrl}/shows/${encodeURIComponent(firstShowId)}`, { waitUntil: "networkidle" });
-    const detailControl = page.locator('[data-library-control="detail"]');
+    const detailControl = page.locator('button.library-detail-quick-save[data-library-control="detail"]');
     await detailControl.waitFor();
     assert.ok(await page.locator(".detail-actions a").count() > 0, "listen actions remain in the primary action area");
-    const detailSummary = detailControl.locator("summary");
-    await detailSummary.press("Enter");
-    await detailControl.locator("[data-library-state-select]").waitFor({ state: "visible" });
-    await assertAxeClean(page, "open show-detail Library controls");
-    await detailControl.locator("[data-library-state-select]").selectOption("listening");
-    await detailControl.locator("[data-library-rating-select]").selectOption("4");
-    assert.match(await detailControl.locator(".library-detail-rating-note").textContent(), /never submitted as a Community Rating/);
+    assert.equal(await detailControl.evaluate((node) => node.parentElement.matches(".detail-action-secondary-group")), true);
+    assert.match(await detailControl.getAttribute("aria-label"), /local Library/);
+    await detailControl.focus();
+    await detailControl.press("Space");
+    await page.waitForFunction(() => document.querySelector('button.library-detail-quick-save[data-library-control="detail"]')?.getAttribute("aria-pressed") === "true");
+    await assertAxeClean(page, "saved show-detail quick-save control");
+    assert.equal(await detailControl.locator("[data-library-state-select], [data-library-rating-select]").count(), 0,
+      "private Library state and ratings stay out of the public show action controls");
     guard.assertNoMutationAttempts();
   } finally {
     await page.close();
