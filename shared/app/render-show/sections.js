@@ -6,6 +6,7 @@ import {
   getSummaryDescriptor,
   normalizeArchiveRating,
   renderParagraphMarkup,
+  safeExternalHref,
   toLabel,
 } from "./utils.js";
 
@@ -21,14 +22,22 @@ const CATEGORY_ORDER = [
 export function renderOfficialSummarySection(show) {
   const summary = getSummaryDescriptor(show);
   if (!summary) return "";
+  const sourceHref = safeExternalHref(summary.sourceUrl);
+  const attribution = summary.title === "Official description" && summary.description
+    ? `<p class="detail-summary-attribution">${escapeHtml(summary.description)}</p>`
+    : summary.title === "About this show" ? `<p>${escapeHtml(summary.description)}</p>` : "";
+  const sourceLink = sourceHref
+    ? `<a class="detail-link-chip" href="${escapeHtml(sourceHref)}" target="_blank" rel="noreferrer">View source</a>`
+    : "";
   return `
     <section class="detail-section detail-official-summary-section">
-      <div class="detail-section-header"><div><h2>${escapeHtml(summary.title)}</h2>${summary.title === "About this show" ? `<p>${escapeHtml(summary.description)}</p>` : ""}</div></div>
+      <div class="detail-section-header"><div><h2>${escapeHtml(summary.title)}</h2>${attribution}</div></div>
       <article class="detail-summary detail-summary-official">
         <div class="detail-mobile-expandable" data-mobile-expandable data-mobile-expand-mode="clamp" data-mobile-expand-threshold="320" data-mobile-expand-label="Read full description" data-mobile-collapse-label="Show less">
           <div id="detail-official-summary-${escapeHtml(show.id)}" data-mobile-expandable-content><p>${escapeHtml(summary.text)}</p></div>
           <button class="detail-mobile-expand-toggle" data-mobile-expand-toggle type="button" aria-expanded="true" aria-controls="detail-official-summary-${escapeHtml(show.id)}" hidden>Read full description</button>
         </div>
+        ${sourceLink ? `<div class="detail-link-chip-row">${sourceLink}</div>` : ""}
       </article>
     </section>
   `;
