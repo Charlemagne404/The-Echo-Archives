@@ -538,11 +538,13 @@ test("review carousel keeps the server-rendered archive first, supports accessib
       overflow: document.documentElement.scrollWidth - window.innerWidth,
       previousWidth: node.querySelector("[data-review-carousel-previous]")?.getBoundingClientRect().width || 0,
       nextWidth: node.querySelector("[data-review-carousel-next]")?.getBoundingClientRect().width || 0,
+      previousDisplay: window.getComputedStyle(node.querySelector("[data-review-carousel-previous]")).display,
+      nextDisplay: window.getComputedStyle(node.querySelector("[data-review-carousel-next]")).display,
     }));
     assert.ok(mobile.width > 0);
     assert.ok(mobile.overflow <= 1);
-    assert.ok(mobile.previousWidth >= 40);
-    assert.ok(mobile.nextWidth >= 40);
+    assert.equal(mobile.previousDisplay, "none");
+    assert.equal(mobile.nextDisplay, "none");
   } finally {
     await context.close();
   }
