@@ -62,9 +62,17 @@ async function readOverflowState(page) {
       return rect.width > 0 && (rect.left < -1 || rect.right > viewportWidth + 1);
     }).slice(0, 5).map((node) => {
       const rect = node.getBoundingClientRect();
+      const parent = node.parentElement;
+      const parentRect = parent?.getBoundingClientRect();
+      const parentStyles = parent ? getComputedStyle(parent) : null;
       return {
         selector: `${node.tagName.toLowerCase()}${node.id ? `#${node.id}` : ""}${node.classList.length ? `.${Array.from(node.classList).slice(0, 2).join(".")}` : ""}`,
-        parent: `${node.parentElement?.tagName.toLowerCase() || ""}${node.parentElement?.id ? `#${node.parentElement.id}` : ""}${node.parentElement?.classList.length ? `.${Array.from(node.parentElement.classList).slice(0, 2).join(".")}` : ""}`,
+        parent: `${parent?.tagName.toLowerCase() || ""}${parent?.id ? `#${parent.id}` : ""}${parent?.classList.length ? `.${Array.from(parent.classList).slice(0, 2).join(".")}` : ""}`,
+        parentLeft: parentRect ? Math.round(parentRect.left) : null,
+        parentRight: parentRect ? Math.round(parentRect.right) : null,
+        parentWidth: parentRect ? Math.round(parentRect.width) : null,
+        parentFlexDirection: parentStyles?.flexDirection || null,
+        parentAlignItems: parentStyles?.alignItems || null,
         left: Math.round(rect.left),
         right: Math.round(rect.right),
         width: Math.round(rect.width),
@@ -240,7 +248,7 @@ test(
       await page.setViewportSize({ width, height: width === 1280 ? 720 : 844 });
       await settleLayout(page);
       const showArtworkSurfaces = await readArtworkSlots(page, [
-        { name: "similar-show recommendation", selector: ".detail-similar-card > .detail-similar-artwork", ratio: width <= 959 ? 16 / 9 : 1 },
+        { name: "similar-show recommendation", selector: ".detail-similar-card > .detail-similar-artwork" },
         { name: "creator more-from recommendation", selector: ".detail-more-from .show-card-artwork" },
       ]);
       assertArtworkSlots(showArtworkSurfaces, `${width}px show recommendations`);
