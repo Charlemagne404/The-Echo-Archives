@@ -154,7 +154,7 @@ test("mobile launch viewport matrix keeps discovery and creator layouts inside t
   }
 });
 
-test("short-height filter sheet stays contained, modal, inert, and focus trapped", { timeout: 45_000 }, async () => {
+test("short-height filter popover stays contained, scrollable, and keyboard dismissible", { timeout: 45_000 }, async () => {
   const page = await browser.newPage({ viewport: { width: 390, height: 420 }, hasTouch: true });
 
   try {
@@ -163,20 +163,19 @@ test("short-height filter sheet stays contained, modal, inert, and focus trapped
     await page.waitForFunction(() => document.getElementById("filterDropdown")?.dataset.state === "open");
 
     const openState = await page.evaluate(() => {
-      const dialog = document.getElementById("filterDropdown");
-      const rect = dialog?.getBoundingClientRect();
+      const popover = document.getElementById("filterDropdown");
+      const rect = popover?.getBoundingClientRect();
       const viewport = window.visualViewport;
       const viewportTop = viewport?.offsetTop || 0;
       const viewportLeft = viewport?.offsetLeft || 0;
       const viewportWidth = viewport?.width || window.innerWidth;
       const viewportHeight = viewport?.height || window.innerHeight;
       return {
-        role: dialog?.getAttribute("role") || "",
-        ariaModal: dialog?.getAttribute("aria-modal") || "",
+        role: popover?.getAttribute("role") || "",
+        ariaModal: popover?.getAttribute("aria-modal") || "",
         bodyLocked: document.body.classList.contains("filter-sheet-open"),
         mainInert: document.querySelector("main")?.inert || false,
-        focusInside: Boolean(dialog?.contains(document.activeElement)),
-        closeFocused: document.activeElement?.classList.contains("filter-sheet-close") || false,
+        toggleFocused: document.activeElement?.id === "filterToggle",
         contained: Boolean(
           rect &&
           rect.top >= viewportTop - 1 &&
@@ -184,22 +183,23 @@ test("short-height filter sheet stays contained, modal, inert, and focus trapped
           rect.right <= viewportLeft + viewportWidth + 1 &&
           rect.bottom <= viewportTop + viewportHeight + 1
         ),
-        scrollable: Boolean(dialog && dialog.scrollHeight <= dialog.clientHeight + 1) ||
+        scrollable: Boolean(popover && popover.scrollHeight <= popover.clientHeight + 1) ||
           window.getComputedStyle(document.querySelector("#filterDropdown .filter-option-grid") || document.body).overflowY === "auto",
       };
     });
 
-    assert.equal(openState.role, "dialog");
-    assert.equal(openState.ariaModal, "true");
-    assert.equal(openState.bodyLocked, true);
-    assert.equal(openState.mainInert, true);
-    assert.equal(openState.focusInside, true);
-    assert.equal(openState.closeFocused, true);
+    assert.equal(openState.role, "group");
+    assert.equal(openState.ariaModal, "");
+    assert.equal(openState.bodyLocked, false);
+    assert.equal(openState.mainInert, false);
+    assert.equal(openState.toggleFocused, true);
     assert.equal(openState.contained, true);
     assert.equal(openState.scrollable, true);
 
+    await page.keyboard.press("Tab");
+    assert.equal(await page.locator("#filterDropdown").evaluate((popover) => popover.contains(document.activeElement)), true);
     await page.keyboard.press("Shift+Tab");
-    assert.equal(await page.locator("#filterDropdown").evaluate((dialog) => dialog.contains(document.activeElement)), true);
+    assert.equal(await page.locator("#filterToggle").evaluate((toggle) => toggle === document.activeElement), true);
 
     await page.keyboard.press("Escape");
     await page.waitForFunction(
