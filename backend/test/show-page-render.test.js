@@ -386,8 +386,8 @@ test("indexed listener reviews and public category scores appear only when they 
   assert.match(listenerMarkup, /class="detail-review-carousel-pagination" hidden/);
   assert.match(listenerMarkup, /Listener42/);
   assert.match(listenerMarkup, /<p class="detail-review-byline">Listener42<\/p>/);
-  assert.match(listenerMarkup, /<p class="detail-review-published"><time datetime="2026-07-16T12:00:00\.000Z">Published July 16, 2026<\/time><\/p>/);
-  assert.ok(listenerMarkup.indexOf('class="detail-review-published"') > listenerMarkup.indexOf('data-review-helpful="listener-1"'));
+  assert.match(listenerMarkup, /<p class="detail-review-published"><time datetime="2026-07-16T12:00:00\.000Z">Published Jul 16, 2026<\/time><\/p>/);
+  assert.ok(listenerMarkup.indexOf('class="detail-review-published"') < listenerMarkup.indexOf('data-review-helpful="listener-1"'));
   assert.match(listenerMarkup, /Reveal spoilers/);
   assert.match(listenerMarkup, /data-review-helpful="listener-1"/);
   assert.doesNotMatch(listenerMarkup, /The Echo Archives/);
@@ -456,6 +456,10 @@ test("official descriptions and route expansion retain source attribution and ea
   assert.match(markup, /<h2>Official description<\/h2>/);
   assert.match(markup, /From Official show site/);
   assert.match(markup, /View source/);
+  assert.match(markup, /href="https:\/\/example\.com\/"[^>]*>View source<\/a>/);
+  const unsafeSourceMarkup = createShowPageMarkup({ ...show, officialDescription: { ...show.officialDescription, sourceUrl: "javascript:alert(1)" } }, new Map([[show.id, show]]), []);
+  assert.doesNotMatch(unsafeSourceMarkup, /href="javascript:alert\(1\)"/);
+  assert.doesNotMatch(unsafeSourceMarkup, />View source<\/a>/);
   assert.match(markup, /<details class="detail-route-overflow">/);
   assert.match(markup, /Show 1 more/);
   assert.equal(markup.split("detail-collection-route-title").length - 1, 4);
