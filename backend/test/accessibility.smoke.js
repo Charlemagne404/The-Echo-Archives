@@ -125,6 +125,11 @@ test("collections search announces the result count without making every card a 
     await page.waitForFunction(() => /0 collections/.test(document.getElementById("collectionsDirectorySummary")?.textContent || ""));
     assert.match(await page.locator("#collectionsDirectorySummary").innerText(), /0 collections/);
     assert.equal(await page.locator("#collectionsEmptyState").isVisible(), true);
+    // Axe should measure the final contrast after the empty-state fade completes.
+    await page.waitForFunction(() => {
+      const emptyState = document.getElementById("collectionsEmptyState");
+      return emptyState && getComputedStyle(emptyState).opacity === "1";
+    });
     assert.equal(await page.evaluate(() => document.activeElement?.id), await search.getAttribute("id"));
     assert.equal(
       await page.locator('[aria-hidden="true"][href]:not([tabindex="-1"]), [aria-hidden="true"] a[href]:not([tabindex="-1"])').count(),
