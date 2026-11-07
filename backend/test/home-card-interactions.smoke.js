@@ -643,6 +643,13 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     assert.ok(touchMetrics.panelRight <= touchMetrics.viewport);
     assert.equal(touchMetrics.panelBoundsOk, true);
 
+    const touchCloseSize = await firstShell.locator(".preview-close-button").evaluate((button) => {
+      const style = window.getComputedStyle(button);
+      return [Number.parseFloat(style.width), Number.parseFloat(style.height)];
+    });
+    assert.ok(touchCloseSize[0] >= 44);
+    assert.ok(touchCloseSize[1] >= 44);
+
     await firstShell.locator(".preview-close-button").tap();
     await waitForPreviewClosed(touchPage, 0);
     assert.equal((await getOverlayMetrics(touchPage, 0, 2)).overlayOpen, false);
