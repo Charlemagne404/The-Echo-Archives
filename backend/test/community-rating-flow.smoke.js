@@ -521,6 +521,7 @@ test("review carousel keeps the server-rendered archive first, supports accessib
     assert.equal(dotState.dots, 7);
     assert.equal(dotState.hasEllipsis, true);
 
+    await page.setViewportSize({ width: 1440, height: 1200 });
     await carousel.locator("[data-review-helpful]").click();
     await page.waitForFunction(() => document.querySelector("[data-review-helpful]")?.getAttribute("aria-pressed") === "true");
     assert.deepEqual(helpfulRequests, [{ method: "PUT", body: {} }]);
