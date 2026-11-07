@@ -338,16 +338,30 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     await page.locator('[data-import-batch-select="ready-1"]').uncheck();
 
     page.once("dialog", (dialog) => dialog.accept());
+    const prepareAllRunResponse = page.waitForResponse((response) => {
+      const request = response.request();
+      return request.method() === "GET" && new URL(response.url()).pathname === "/api/maintainer/imports/runs/run-prepare-all";
+    });
+    const preparedQueueResponse = page.waitForResponse((response) => {
+      const request = response.request();
+      return request.method() === "GET" && new URL(response.url()).pathname === "/api/maintainer/imports";
+    });
     await page.getByRole("button", { name: "Re-run all preparation" }).click();
+    await Promise.all([prepareAllRunResponse, preparedQueueResponse]);
     await page.waitForFunction(() => document.querySelector("#maintainerListStatus")?.textContent?.includes("Showing"));
     assert.equal(calls.rerunAll, 1);
 
     await page.locator("#maintainerImportSeedInput").fill("Another Show");
+    const seededQueueResponse = page.waitForResponse((response) => {
+      const request = response.request();
+      return request.method() === "GET" && new URL(response.url()).pathname === "/api/maintainer/imports";
+    });
     await page.getByRole("button", { name: "Queue imports" }).evaluate((button) => {
       button.click();
       button.click();
     });
     await page.getByText("Preparation finished: 1 ready or reviewable, 0 failed.").waitFor();
+    await seededQueueResponse;
     assert.equal(calls.seed, 1);
 
     await page.locator('[data-import-candidate-id="blocked-1"]').click();
@@ -361,11 +375,21 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     assert.equal(calls.evidence, 1);
 
     await page.locator('[data-import-candidate-id="failed-1"]').click();
+    const failedCandidateResponse = page.waitForResponse((response) => {
+      const request = response.request();
+      return request.method() === "GET" && new URL(response.url()).pathname === "/api/maintainer/imports/failed-1";
+    });
     await page.getByRole("button", { name: "Retry failed import" }).click();
+    await failedCandidateResponse;
     await page.waitForFunction(() => document.querySelector("#maintainerDetailMeta")?.textContent?.includes("Failed"));
     assert.equal(calls.retry, 1);
 
+    const readyCandidateResponse = page.waitForResponse((response) => {
+      const request = response.request();
+      return request.method() === "GET" && new URL(response.url()).pathname === "/api/maintainer/imports/ready-1";
+    });
     await page.locator('[data-import-candidate-id="ready-1"]').click();
+    await readyCandidateResponse;
     await page.waitForFunction(
       () =>
         document.querySelector("#maintainerImportReviewForm")?.getAttribute("data-import-candidate-id") === "ready-1" &&
