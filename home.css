@@ -1714,6 +1714,11 @@
   pointer-events: none;
 }
 
+.home-page .podcast-card-shell.is-preview-expanded > .library-card-quick-save,
+.home-page .podcast-card-shell.is-preview-closing > .library-card-quick-save {
+  z-index: 3;
+}
+
 .home-page .podcast-card-shell.is-preview-expanded .home-card-preview-layer,
 .home-page .podcast-card-shell.is-preview-closing .home-card-preview-layer {
   pointer-events: auto;
@@ -3439,8 +3444,8 @@
   .home-page .preview-close-button {
     top: 9px;
     right: 9px;
-    width: 28px;
-    height: 28px;
+    width: 44px;
+    height: 44px;
   }
 
   .podcast-card-grid {

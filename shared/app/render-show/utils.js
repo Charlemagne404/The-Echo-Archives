@@ -106,6 +106,15 @@ export function getSummaryDescriptor(show) {
   return null;
 }
 
+export function safeExternalHref(value = "") {
+  try {
+    const url = new URL(String(value || "").trim());
+    return url.protocol === "http:" || url.protocol === "https:" ? url.href : "";
+  } catch (_error) {
+    return "";
+  }
+}
+
 function isSuppressedCatalogValue(value = "") {
   return /^(not[-\s]?verified|unknown|n\/a|none)$/i.test(String(value || "").trim());
 }
