@@ -353,6 +353,12 @@ test("complete provisional indexed-only records retain the reviewed single-signa
   try {
     await assert.doesNotReject(loadCatalog(tempRoot));
 
+    show.metadata.import.factualReview.inputRevision = 0;
+    show.metadata.import.scopeReview.inputRevision = 0;
+    delete show.metadata.import.selectedSources[0].sourceType;
+    writeJson(path.join(showDirectory, `${showId}.json`), show);
+    await assert.doesNotReject(loadCatalog(tempRoot), "legacy provisional review records retain the deployed revision and source URL semantics");
+
     show.metadata.import.publication.provisional = false;
     writeJson(path.join(showDirectory, `${showId}.json`), show);
     await assert.rejects(loadCatalog(tempRoot), /at least 2 approved discovery signals/i);
@@ -363,6 +369,7 @@ test("complete provisional indexed-only records retain the reviewed single-signa
     await assert.rejects(loadCatalog(tempRoot), /incomplete provisional publication review record/i);
 
     show.status = "draft";
+    show.metadata.import.factualReview.inputRevision = 1;
     show.metadata.import.scopeReview.inputRevision = 1;
     writeJson(path.join(showDirectory, `${showId}.json`), show);
     await assert.rejects(loadCatalog(tempRoot), /incomplete provisional publication review record/i);

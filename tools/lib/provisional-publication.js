@@ -1,16 +1,23 @@
-function isHttpUrl(value) {
-  if (typeof value !== "string" || !value.trim()) return false;
+function isHttpUrl(value = "") {
+  if (!value) return true;
   try {
     const url = new URL(value);
-    return (url.protocol === "http:" || url.protocol === "https:") && Boolean(url.hostname);
+    return url.protocol === "http:" || url.protocol === "https:";
   } catch (_error) {
     return false;
   }
 }
 
-function isStableImportedIdentity(value) {
-  if (typeof value !== "string" && typeof value !== "number") return false;
-  return String(value).trim().length > 0;
+function isValidReviewDate(value = "") {
+  if (!value) return true;
+  const text = String(value || "").trim();
+  const dateOnlyMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(text);
+  if (dateOnlyMatch) {
+    const [, year, month, day] = dateOnlyMatch;
+    const date = new Date(Number(year), Number(month) - 1, Number(day));
+    return date.getFullYear() === Number(year) && date.getMonth() === Number(month) - 1 && date.getDate() === Number(day);
+  }
+  return Number.isFinite(Date.parse(text));
 }
 
 function isCompleteProvisionalIndexedEntry(record = {}) {
@@ -21,8 +28,7 @@ function isCompleteProvisionalIndexedEntry(record = {}) {
   const identifiers = importer.identifiers || {};
   const reviewedAt = factualReview.reviewedAt;
   const reviewedBy = factualReview.reviewedBy;
-  const revision = factualReview.inputRevision;
-  const timestamp = typeof reviewedAt === "string" && reviewedAt.trim() ? Date.parse(reviewedAt) : Number.NaN;
+  const revision = Number(factualReview.inputRevision);
 
   const hasStableIdentity = [
     identifiers.podcastGuid,
@@ -30,18 +36,23 @@ function isCompleteProvisionalIndexedEntry(record = {}) {
     identifiers.appleCollectionId,
     identifiers.podcastIndexFeedId,
     identifiers.amazonMusicId,
-  ].some(isStableImportedIdentity);
-  const hasSourceProvenance = Array.isArray(importer.selectedSources) && importer.selectedSources.some((source) =>
-    source && typeof source.sourceType === "string" && source.sourceType.trim() && isHttpUrl(source.sourceUrl));
-  const hasScopeEvidence = Array.isArray(scopeReview.evidenceSources) && scopeReview.evidenceSources.some(isHttpUrl);
+  ].some((value) => String(value || "").trim());
+  const hasSourceProvenance = Array.isArray(importer.selectedSources) && importer.selectedSources.some((source) => {
+    const url = String(source?.sourceUrl || "").trim();
+    return Boolean(url) && isHttpUrl(url);
+  });
+  const hasScopeEvidence = Array.isArray(scopeReview.evidenceSources) && scopeReview.evidenceSources.some((source) => {
+    const url = String(source || "").trim();
+    return Boolean(url) && isHttpUrl(url);
+  });
 
   return Boolean(
     record.status === "published" &&
     record.reviewStatus === "indexed-only" &&
     publication.provisional === true &&
-    Number.isFinite(timestamp) &&
-    typeof reviewedBy === "string" && reviewedBy.trim() &&
-    Number.isInteger(revision) && revision > 0 &&
+    isValidReviewDate(reviewedAt) &&
+    String(reviewedBy || "").trim() &&
+    Number.isInteger(revision) && revision >= 0 &&
     scopeReview.status === "in-scope" &&
     scopeReview.inputRevision === revision &&
     scopeReview.reviewedAt === reviewedAt &&
