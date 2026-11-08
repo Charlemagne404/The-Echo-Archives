@@ -63,6 +63,15 @@ ACLs to each immutable release, and grants only the active runtime overlay's
 explicit catalog/publication paths the runtime write access needed by the app.
 Deployment and runtime ownership remain separate.
 
+When carrying mutable content into an inactive runtime, deployment uses the
+allowlisted `deploy/preserve-runtime-mutable-state.sh` helper through normal
+interactive `sudo`. It reserves the active runtime's `.echo-catalog-transaction`
+journal before copying, so catalogue publishers and deployment snapshots cannot
+overlap. The short-lived snapshot reservation is recognized by normal journal
+recovery and never rolls back catalogue files. Copies preserve source ownership,
+modes, and ACLs; a publication in progress or any copy/permission error stops
+runtime preparation before release selection changes.
+
 The service runs a configuration preflight before every start. Invalid production configuration prevents startup instead of silently using a development fallback.
 
 ## Release workflow

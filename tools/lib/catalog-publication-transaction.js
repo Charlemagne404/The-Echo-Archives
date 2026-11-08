@@ -4,6 +4,7 @@ const { randomUUID } = require("node:crypto");
 const { AsyncLocalStorage } = require("node:async_hooks");
 
 const JOURNAL = ".echo-catalog-transaction";
+const RUNTIME_SNAPSHOT_KIND = "runtime-snapshot";
 const instance = randomUUID();
 const activeManifests = new Map();
 const activePublicationTokens = new Map();
@@ -38,6 +39,11 @@ function readManifest(root, directory) {
   if (manifest.schema !== 1 || !Number.isInteger(manifest.pid) || manifest.pid < 1 || typeof manifest.instance !== "string" ||
       !["preparing", "prepared", "restored", "committed"].includes(manifest.phase) || !Array.isArray(manifest.files) || !Array.isArray(manifest.absentDirectories)) {
     throw new Error("Malformed catalogue publication recovery journal.");
+  }
+  if (manifest.kind !== undefined && manifest.kind !== RUNTIME_SNAPSHOT_KIND) throw new Error("Malformed catalogue publication recovery journal.");
+  if (manifest.kind === RUNTIME_SNAPSHOT_KIND &&
+      (manifest.phase !== "prepared" || manifest.files.length !== 0 || manifest.absentDirectories.length !== 0 || manifest.recoveryData !== undefined)) {
+    throw new Error("Malformed runtime snapshot journal.");
   }
   manifest.absentDirectories.forEach((relative) => containedPath(root, relative));
   manifest.files.forEach((file, index) => {
@@ -88,10 +94,33 @@ function cleanupJournal(root, directory) {
   }
 }
 
+function publicationInProgressError(message = "Catalogue publication is in progress in another process.") {
+  const error = new Error(message);
+  error.statusCode = 503;
+  return error;
+}
+
+function recoverRuntimeSnapshot(root, directory, manifest) {
+  let processExists = true;
+  try {
+    process.kill(manifest.pid, 0);
+  } catch (error) {
+    if (error.code === "ESRCH") processExists = false;
+    else if (error.code !== "EPERM") throw error;
+  }
+  if (processExists) throw publicationInProgressError("A deployment runtime snapshot is in progress.");
+
+  // Runtime snapshots hold the journal name only as a temporary exclusion gate.
+  // They never edit catalogue files, so a dead owner needs only journal cleanup.
+  cleanupJournal(root, directory);
+  return false;
+}
+
 function recoverCatalogPublication(root) {
   const directory = path.join(root, JOURNAL);
   if (!fs.existsSync(directory)) { abandonedRoots.delete(path.resolve(root)); activeManifests.delete(path.resolve(root)); activePublicationTokens.delete(path.resolve(root)); return false; }
   const manifest = readManifest(root, directory);
+  if (manifest.kind === RUNTIME_SNAPSHOT_KIND) return recoverRuntimeSnapshot(root, directory, manifest);
   if (manifest.phase === "committed") {
     cleanupJournal(root, directory);
     return false;
@@ -128,13 +157,14 @@ function ownsCatalogPublication(root) {
   const directory = path.join(root, JOURNAL);
   if (!fs.existsSync(directory)) return false;
   const manifest = readManifest(root, directory);
-  return manifest.phase === "prepared" && manifest.pid === process.pid && manifest.instance === instance && !abandonedRoots.has(path.resolve(root));
+  return manifest.kind !== RUNTIME_SNAPSHOT_KIND && manifest.phase === "prepared" && manifest.pid === process.pid && manifest.instance === instance && !abandonedRoots.has(path.resolve(root));
 }
 
 function assertCatalogPublicationReadable(root) {
   const directory = path.join(root, JOURNAL);
   if (!fs.existsSync(directory)) return;
   const manifest = readManifest(root, directory);
+  if (manifest.kind === RUNTIME_SNAPSHOT_KIND) throw publicationInProgressError("A deployment runtime snapshot is in progress.");
   if (["committed", "restored"].includes(manifest.phase) || (manifest.pid === process.pid && manifest.instance === instance && !abandonedRoots.has(path.resolve(root)))) return;
   const error = new Error("Catalogue publication is incomplete; retry after the publisher finishes or startup recovery runs.");
   error.statusCode = 503;
@@ -272,4 +302,59 @@ function completeCatalogPublicationRecovery(root) {
   cleanupJournal(root, directory);
 }
 
-module.exports = { beginCatalogPublication, recoverCatalogPublication, ownsCatalogPublication, assertCatalogPublicationReadable, runWithCatalogPublication, sourcePaths, completeCatalogPublicationRecovery };
+function beginCatalogRuntimeSnapshot(root, { ownerUid, ownerGid } = {}) {
+  const hasOwner = ownerUid !== undefined || ownerGid !== undefined;
+  if (hasOwner && (!Number.isInteger(ownerUid) || ownerUid < 0 || !Number.isInteger(ownerGid) || ownerGid < 0)) {
+    throw new Error("Runtime snapshot owner must include valid numeric uid and gid values.");
+  }
+  const resolvedRoot = path.resolve(root);
+  const directory = path.join(resolvedRoot, JOURNAL);
+  try {
+    fs.mkdirSync(directory, { mode: 0o755 });
+  } catch (error) {
+    if (error.code === "EEXIST") throw publicationInProgressError("A catalogue publication or runtime snapshot already holds the journal.");
+    throw error;
+  }
+
+  const snapshotInstance = `${instance}:runtime-snapshot:${randomUUID()}`;
+  const manifest = {
+    schema: 1,
+    kind: RUNTIME_SNAPSHOT_KIND,
+    pid: process.pid,
+    instance: snapshotInstance,
+    phase: "prepared",
+    files: [],
+    absentDirectories: [],
+  };
+  try {
+    // The helper runs as root, while the application account must be able to
+    // read this metadata to reject writes. It contains no catalogue data.
+    fs.chmodSync(directory, 0o755);
+    writeManifest(directory, manifest);
+    fs.chmodSync(path.join(directory, "manifest.json"), 0o644);
+    if (hasOwner) {
+      // Let normal journal recovery remove an abandoned snapshot reservation
+      // using the same account that owns publication journals.
+      fs.chownSync(directory, ownerUid, ownerGid);
+      fs.chmodSync(directory, 0o700);
+    }
+  } catch (error) {
+    fs.rmSync(directory, { recursive: true, force: true });
+    throw error;
+  }
+
+  let released = false;
+  return {
+    release() {
+      if (released) return;
+      const current = readManifest(resolvedRoot, directory);
+      if (current.kind !== RUNTIME_SNAPSHOT_KIND || current.pid !== process.pid || current.instance !== snapshotInstance) {
+        throw new Error("Runtime snapshot journal ownership changed before release.");
+      }
+      cleanupJournal(resolvedRoot, directory);
+      released = true;
+    },
+  };
+}
+
+module.exports = { beginCatalogPublication, beginCatalogRuntimeSnapshot, recoverCatalogPublication, ownsCatalogPublication, assertCatalogPublicationReadable, runWithCatalogPublication, sourcePaths, completeCatalogPublicationRecovery };

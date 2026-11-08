@@ -2,7 +2,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
-const { spawnSync } = require("node:child_process");
+const { spawn, spawnSync } = require("node:child_process");
 const test = require("node:test");
 
 const ROOT = path.resolve(__dirname, "../..");
@@ -26,8 +26,23 @@ function assertOrdered(contents, fragments) {
   });
 }
 
+function waitFor(predicate, message, timeoutMs = 10000) {
+  const deadline = Date.now() + timeoutMs;
+  while (!predicate()) {
+    if (Date.now() >= deadline) assert.fail(message);
+    Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 10);
+  }
+}
+
 function writeReleaseCommandShims(shimRoot) {
   fs.mkdirSync(shimRoot, { recursive: true });
+  fs.writeFileSync(
+    path.join(shimRoot, "sudo"),
+    `#!/usr/bin/env bash
+exec "$@"
+`,
+    { mode: 0o755 },
+  );
   fs.writeFileSync(
     path.join(shimRoot, "readlink"),
     `#!/usr/bin/env bash
@@ -54,6 +69,49 @@ fi
 `,
     { mode: 0o755 },
   );
+}
+
+function createRuntimePreservationFixture() {
+  const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-runtime-preservation-"));
+  const runtimeRoot = path.join(fixtureRoot, "runtime");
+  const environmentRoot = path.join(runtimeRoot, "production");
+  const sourceRoot = path.join(environmentRoot, "a".repeat(40));
+  const targetRoot = path.join(environmentRoot, "b".repeat(40));
+  fs.mkdirSync(sourceRoot, { recursive: true });
+  fs.mkdirSync(targetRoot, { recursive: true });
+  fs.symlinkSync(path.basename(sourceRoot), path.join(environmentRoot, "current"), "dir");
+
+  const files = [
+    ["import-staging/echo-publisher/private-state.json", "private publisher state\n", 0o600],
+    ["import-staging/artwork-repair-backups/backup.bin", "private artwork backup\n", 0o600],
+    ["import-staging/publish.lock", "", 0o600],
+    ["catalog-src/shows/fixture-show.json", "{\"id\":\"fixture-show\",\"title\":\"preserved\"}\n", 0o640],
+    ["catalog-src/shows/_order.json", "[\"fixture-show\"]\n", 0o640],
+    ["images/covers/fixture.webp", "cover asset\n", 0o640],
+    ["images/generated/covers/fixture.webp", "generated cover\n", 0o640],
+    ["data/shows.json", "[{\"id\":\"fixture-show\",\"title\":\"preserved\"}]\n", 0o640],
+    ["data/collections.json", "{\"collections\":[]}\n", 0o640],
+    ["data/search-index.json", "{\"search\":[]}\n", 0o640],
+    ["data/archive-stats.json", "{\"stats\":{}}\n", 0o640],
+    ["data/tag-taxonomy.json", "{\"tags\":[]}\n", 0o640],
+    ["data/reviews/fixture-review.md", "review content\n", 0o640],
+    ["docs/generated/catalog-status.md", "status\n", 0o640],
+  ];
+
+  for (const [relativePath, contents, mode] of files) {
+    const sourcePath = path.join(sourceRoot, relativePath);
+    fs.mkdirSync(path.dirname(sourcePath), { recursive: true });
+    fs.writeFileSync(sourcePath, contents, { mode });
+    const targetParent = path.join(targetRoot, path.dirname(relativePath));
+    fs.mkdirSync(targetParent, { recursive: true });
+  }
+  fs.mkdirSync(path.join(sourceRoot, "import-staging/echo-publisher"), { recursive: true, mode: 0o700 });
+  fs.mkdirSync(path.join(sourceRoot, "import-staging/artwork-repair-backups"), { recursive: true, mode: 0o700 });
+  fs.chmodSync(path.join(sourceRoot, "import-staging/echo-publisher"), 0o700);
+  fs.chmodSync(path.join(sourceRoot, "import-staging/artwork-repair-backups"), 0o700);
+  fs.writeFileSync(path.join(targetRoot, "import-staging/stale.txt"), "stale target content\n");
+
+  return { fixtureRoot, runtimeRoot, environmentRoot, sourceRoot, targetRoot, files };
 }
 
 test("database backup creates a private, integrity-checked copy and refuses overwrite", () => {
@@ -1029,6 +1087,7 @@ write_release() {
   local runtime_dir
   runtime_dir="$(runtime_path production "$release_id")"
   mkdir -p "$runtime_dir/catalog-src" "$runtime_dir/data" "$runtime_dir/images" "$runtime_dir/import-staging"
+  : > "$runtime_dir/import-staging/publish.lock"
   ln -s "$release_dir/release.json" "$runtime_dir/release.json"
 }
 
@@ -1155,6 +1214,7 @@ write_existing_runtime() {
   local runtime_dir
   runtime_dir="$(runtime_path "$environment" "$release_id")"
   mkdir -p "$runtime_dir/catalog-src" "$runtime_dir/data" "$runtime_dir/images" "$runtime_dir/import-staging"
+  : > "$runtime_dir/import-staging/publish.lock"
   ln -s "$(release_path "$release_id")/release.json" "$runtime_dir/release.json"
 }
 
@@ -1470,4 +1530,264 @@ test("checked-in service and proxy retain production hardening", () => {
   const verifyWorkflow = read(".github/workflows/verify.yml");
   assert.match(verifyWorkflow, /node-version: "22\.23\.1"/);
   assert.doesNotMatch(verifyWorkflow, /node-version: "20"/);
+});
+
+test("runtime preservation keeps private modes and source ownership metadata without losing mutable data", () => {
+  const fixture = createRuntimePreservationFixture();
+  const helper = path.join(ROOT, "deploy", "preserve-runtime-mutable-state.sh");
+  let aclExpected = false;
+
+  try {
+    if (process.getuid?.() === 0) {
+      const account = spawnSync("getent", ["passwd", "echo-archives"], { encoding: "utf8" });
+      if (account.status === 0) {
+        const [, , uidText, gidText] = account.stdout.trim().split(":");
+        const serviceUid = Number(uidText);
+        const serviceGid = Number(gidText);
+        for (const relativePath of [
+          "import-staging/echo-publisher",
+          "import-staging/echo-publisher/private-state.json",
+          "import-staging/artwork-repair-backups",
+          "import-staging/artwork-repair-backups/backup.bin",
+          "catalog-src/shows/fixture-show.json",
+          "data/shows.json",
+        ]) {
+          fs.chownSync(path.join(fixture.sourceRoot, relativePath), serviceUid, serviceGid);
+        }
+      }
+    }
+    const aclSourcePath = path.join(fixture.sourceRoot, "catalog-src/shows/fixture-show.json");
+    const aclSet = spawnSync("setfacl", ["-m", "u:65534:r--", aclSourcePath], { encoding: "utf8" });
+    aclExpected = aclSet.status === 0;
+    const result = spawnSync(
+      "bash",
+      [helper, fixture.runtimeRoot, "production", fixture.sourceRoot, fixture.targetRoot],
+      { cwd: ROOT, encoding: "utf8" },
+    );
+    assert.equal(result.status, 0, `${result.stderr}\n${result.stdout}`);
+    assert.equal(fs.existsSync(path.join(fixture.targetRoot, "import-staging/stale.txt")), false);
+    const copiedSourceShow = JSON.parse(fs.readFileSync(path.join(fixture.targetRoot, "catalog-src/shows/fixture-show.json"), "utf8"));
+    const copiedRuntimeShow = JSON.parse(fs.readFileSync(path.join(fixture.targetRoot, "data/shows.json"), "utf8"))[0];
+    assert.equal(copiedRuntimeShow.title, copiedSourceShow.title);
+
+    for (const [relativePath, expectedContents] of fixture.files) {
+      const sourcePath = path.join(fixture.sourceRoot, relativePath);
+      const targetPath = path.join(fixture.targetRoot, relativePath);
+      assert.equal(fs.readFileSync(targetPath, "utf8"), expectedContents);
+      const sourceStat = fs.statSync(sourcePath);
+      const targetStat = fs.statSync(targetPath);
+      assert.equal(targetStat.uid, sourceStat.uid, relativePath);
+      assert.equal(targetStat.gid, sourceStat.gid, relativePath);
+      assert.equal(targetStat.mode & 0o777, sourceStat.mode & 0o777, relativePath);
+    }
+    if (aclExpected) {
+      const targetAcl = spawnSync("getfacl", ["-n", "-c", path.join(fixture.targetRoot, "catalog-src/shows/fixture-show.json")], { encoding: "utf8" });
+      assert.equal(targetAcl.status, 0, targetAcl.stderr);
+      assert.match(targetAcl.stdout, /user:65534:r--/);
+    }
+
+    for (const relativePath of ["import-staging/echo-publisher", "import-staging/artwork-repair-backups"]) {
+      assert.equal(fs.statSync(path.join(fixture.targetRoot, relativePath)).mode & 0o777, 0o700);
+    }
+    const runtimePermissions = read("deploy/release-common.sh");
+    assert.match(runtimePermissions, /-type d -user echo-archives -prune/);
+    assert.match(runtimePermissions, /unsupported owner/);
+  } finally {
+    fs.rmSync(fixture.fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("runtime preservation rejects symlinked target parents before privileged replacement", () => {
+  const fixture = createRuntimePreservationFixture();
+  const helper = path.join(ROOT, "deploy", "preserve-runtime-mutable-state.sh");
+  const targetDataPath = path.join(fixture.targetRoot, "data");
+  const outsideRoot = path.join(fixture.fixtureRoot, "outside");
+
+  try {
+    fs.mkdirSync(outsideRoot, { recursive: true });
+    fs.writeFileSync(path.join(outsideRoot, "shows.json"), "outside content\n");
+    fs.rmSync(targetDataPath, { recursive: true, force: true });
+    fs.symlinkSync(outsideRoot, targetDataPath, "dir");
+
+    const result = spawnSync(
+      "bash",
+      [helper, fixture.runtimeRoot, "production", fixture.sourceRoot, fixture.targetRoot],
+      { cwd: ROOT, encoding: "utf8" },
+    );
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /unsafe parent directory/);
+    assert.equal(fs.readFileSync(path.join(outsideRoot, "shows.json"), "utf8"), "outside content\n");
+  } finally {
+    fs.rmSync(fixture.fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("runtime preservation rejects an active catalogue transaction without touching either runtime", async () => {
+  const fixture = createRuntimePreservationFixture();
+  const helper = path.join(ROOT, "deploy", "preserve-runtime-mutable-state.sh");
+  const readyPath = path.join(fixture.fixtureRoot, "publisher-ready");
+  const releasePath = path.join(fixture.fixtureRoot, "publisher-release");
+  const sourcePath = path.join(fixture.sourceRoot, "catalog-src/shows/fixture-show.json");
+  const targetPath = path.join(fixture.targetRoot, "data/shows.json");
+  const sourceModule = require.resolve("./../lib/catalog-source");
+  let publisher = null;
+  let publisherExitPromise = null;
+  let publisherDone = false;
+  const writerScript = `
+    const fs = require("node:fs");
+    const { writeShowRecordsAtomically } = require(${JSON.stringify(sourceModule)});
+    const rename = fs.renameSync;
+    fs.renameSync = (from, to) => {
+      const result = rename(from, to);
+      if (to === process.env.PUBLISHER_TARGET) {
+        fs.writeFileSync(process.env.PUBLISHER_READY, "ready");
+        const deadline = Date.now() + 15000;
+        while (!fs.existsSync(process.env.PUBLISHER_RELEASE) && Date.now() < deadline) {
+          Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 10);
+        }
+        if (!fs.existsSync(process.env.PUBLISHER_RELEASE)) throw new Error("publisher test release timed out");
+      }
+      return result;
+    };
+    writeShowRecordsAtomically(process.env.RUNTIME_SOURCE, [
+      { id: "fixture-show", title: "partially published" },
+      { id: "second-show", title: "published after snapshot" },
+    ]);
+  `;
+
+  try {
+    fs.writeFileSync(targetPath, "untouched target\n");
+    publisher = spawn(process.execPath, ["-e", writerScript], {
+      cwd: ROOT,
+      env: {
+        ...process.env,
+        RUNTIME_SOURCE: fixture.sourceRoot,
+        PUBLISHER_READY: readyPath,
+        PUBLISHER_RELEASE: releasePath,
+        PUBLISHER_TARGET: sourcePath,
+      },
+      stdio: ["ignore", "pipe", "pipe"],
+    });
+    publisherExitPromise = new Promise((resolve, reject) => {
+      publisher.once("error", reject);
+      publisher.once("exit", resolve);
+    });
+    let publisherStderr = "";
+    publisher.stderr.setEncoding("utf8").on("data", (chunk) => { publisherStderr += chunk; });
+    waitFor(() => fs.existsSync(readyPath), "actual catalogue publication did not reach its protected write phase");
+
+    const result = spawnSync(
+      "bash",
+      [helper, fixture.runtimeRoot, "production", fixture.sourceRoot, fixture.targetRoot],
+      { cwd: ROOT, encoding: "utf8" },
+    );
+    assert.notEqual(result.status, 0, `${result.stderr}\n${result.stdout}`);
+    assert.match(result.stderr, /publication journal|in progress/i);
+    assert.equal(JSON.parse(fs.readFileSync(sourcePath, "utf8")).title, "partially published");
+    assert.equal(fs.existsSync(path.join(fixture.sourceRoot, "catalog-src/shows/second-show.json")), false);
+    assert.equal(fs.readFileSync(targetPath, "utf8"), "untouched target\n");
+
+    fs.writeFileSync(releasePath, "continue");
+    const exitCode = await publisherExitPromise;
+    publisherDone = true;
+    assert.equal(exitCode, 0, publisherStderr);
+    assert.equal(JSON.parse(fs.readFileSync(sourcePath, "utf8")).title, "partially published");
+    assert.equal(JSON.parse(fs.readFileSync(path.join(fixture.sourceRoot, "catalog-src/shows/second-show.json"), "utf8")).title, "published after snapshot");
+    assert.deepEqual(JSON.parse(fs.readFileSync(path.join(fixture.sourceRoot, "catalog-src/shows/_order.json"), "utf8")), ["fixture-show", "second-show"]);
+    assert.equal(fs.readFileSync(targetPath, "utf8"), "untouched target\n");
+  } finally {
+    if (publisher && !publisherDone) {
+      fs.writeFileSync(releasePath, "cleanup");
+      await publisherExitPromise.catch(() => {});
+    }
+    fs.rmSync(fixture.fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("a publication starting during runtime preservation's snapshot reservation fails before writing", async () => {
+  const fixture = createRuntimePreservationFixture();
+  const snapshotWorkerPath = path.join(ROOT, "deploy", "runtime-snapshot-lock.js");
+  const sourceModule = require.resolve("../lib/catalog-source");
+  const journalPath = path.join(fixture.sourceRoot, ".echo-catalog-transaction");
+  const writerScript = `
+    try {
+      require(${JSON.stringify(sourceModule)}).writeShowRecordsAtomically(process.env.RUNTIME_SOURCE, [{ id: "fixture-show", title: "must not publish" }]);
+      process.exit(1);
+    } catch (error) {
+      process.stdout.write(JSON.stringify({ statusCode: error.statusCode, message: error.message }));
+      process.exit(error.statusCode === 503 ? 0 : 2);
+    }
+  `;
+  const snapshotWorker = spawn(process.execPath, [snapshotWorkerPath, fixture.sourceRoot], {
+    cwd: ROOT,
+    stdio: ["pipe", "ignore", "pipe"],
+  });
+  let snapshotWorkerStderr = "";
+  snapshotWorker.stderr.setEncoding("utf8").on("data", (chunk) => { snapshotWorkerStderr += chunk; });
+  const snapshotWorkerExit = new Promise((resolve, reject) => {
+    snapshotWorker.once("error", reject);
+    snapshotWorker.once("exit", resolve);
+  });
+  try {
+    waitFor(() => {
+      try {
+        return JSON.parse(fs.readFileSync(path.join(journalPath, "manifest.json"), "utf8")).kind === "runtime-snapshot";
+      } catch (_error) {
+        return false;
+      }
+    }, "runtime preservation did not acquire its publication-journal reservation");
+    const result = spawnSync(process.execPath, ["-e", writerScript], {
+      cwd: ROOT,
+      env: { ...process.env, RUNTIME_SOURCE: fixture.sourceRoot },
+      encoding: "utf8",
+    });
+    assert.equal(result.status, 0, result.stderr);
+    assert.match(result.stdout, /"statusCode":503/);
+    assert.equal(JSON.parse(fs.readFileSync(path.join(fixture.sourceRoot, "catalog-src/shows/fixture-show.json"), "utf8")).title, "preserved");
+  } finally {
+    if (snapshotWorker.exitCode === null && snapshotWorker.signalCode === null) snapshotWorker.stdin.end("release\n");
+    const workerExitCode = await snapshotWorkerExit;
+    assert.equal(workerExitCode, 0, snapshotWorkerStderr);
+    fs.rmSync(fixture.fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("existing runtime reuse fails when runtime ACL preparation fails", () => {
+  const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-runtime-permission-failure-"));
+  const runtimeRoot = path.join(fixtureRoot, "deploy-root", "runtime");
+  const environmentRoot = path.join(runtimeRoot, "production");
+  const currentRelease = "c".repeat(40);
+  const requestedRelease = "d".repeat(40);
+  const sourceRoot = path.join(environmentRoot, currentRelease);
+  const targetRoot = path.join(environmentRoot, requestedRelease);
+  const script = String.raw`
+set -Eeuo pipefail
+export DEPLOY_ROOT="$1/deploy-root"
+source "$2/deploy/release-common.sh"
+log() { printf '%s\n' "$*"; }
+preserve_runtime_mutable_state() { return 0; }
+verify_runtime_tree() { return 0; }
+prepare_runtime_permissions() { return 1; }
+if prepare_runtime_tree production "$3"; then
+  echo 'runtime preparation unexpectedly succeeded' >&2
+  exit 1
+fi
+`;
+
+  try {
+    fs.mkdirSync(sourceRoot, { recursive: true });
+    fs.mkdirSync(targetRoot, { recursive: true });
+    fs.mkdirSync(path.join(environmentRoot, "current"), { recursive: true });
+    fs.rmSync(path.join(environmentRoot, "current"), { recursive: true });
+    fs.symlinkSync(currentRelease, path.join(environmentRoot, "current"), "dir");
+    const result = spawnSync("bash", ["-c", script, "runtime-permission-failure", fixtureRoot, ROOT, requestedRelease], {
+      cwd: ROOT,
+      encoding: "utf8",
+    });
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /could not prepare production runtime permissions/);
+    assert.doesNotMatch(result.stdout + result.stderr, /already exists; reusing it/);
+  } finally {
+    fs.rmSync(fixtureRoot, { recursive: true, force: true });
+  }
 });
