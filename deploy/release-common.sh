@@ -42,6 +42,9 @@ HEALTH_CHECK_INTERVAL_SECONDS="${HEALTH_CHECK_INTERVAL_SECONDS:-1}"
 HEALTH_CHECK_REQUEST_TIMEOUT_SECONDS="${HEALTH_CHECK_REQUEST_TIMEOUT_SECONDS:-2}"
 DEPLOYMENT_LOCK_HELD=false
 
+# shellcheck source=runtime-mutable-paths.sh
+source "${DEPLOY_SCRIPT_ROOT}/runtime-mutable-paths.sh"
+
 log() {
   printf '[%s] %s\n' "$(date --iso-8601=seconds)" "$*"
 }
@@ -63,7 +66,7 @@ run_release_node() {
 }
 
 require_deployment_user() {
-  [[ "${EUID}" -ne 0 ]] || die "run as the deployment user; use sudo only for systemd operations"
+  [[ "${EUID}" -ne 0 ]] || die "run as the deployment user; the release workflow invokes sudo only for guarded operations"
 }
 
 ensure_layout() {
@@ -97,7 +100,11 @@ cleanup_stale_temporary_artifacts() {
       (( age_seconds >= TEMPORARY_ARTIFACT_MAX_AGE_HOURS * 3600 )) || continue
       if [[ "${apply}" == "true" ]]; then
         log "Removing stale temporary deployment artifact ${candidate}."
-        rm -rf -- "${candidate}"
+        if [[ "${root}" == "${RELEASES_DIR}" ]]; then
+          rm -rf -- "${candidate}"
+        else
+          sudo /usr/bin/rm -rf -- "${candidate}"
+        fi
       else
         log "Would remove stale temporary deployment artifact ${candidate}."
       fi
@@ -229,8 +236,20 @@ prepare_runtime_permissions() {
     log "ERROR: dedicated runtime account echo-archives is missing" >&2
     return 1
   fi
-  find "${runtime_root}" -xdev -type d -exec setfacl -m u:echo-archives:r-x {} + || return 1
-  find "${runtime_root}" -xdev -type f -exec setfacl -m u:echo-archives:r-- {} + || return 1
+  local deployment_user
+  deployment_user="$(id -un)"
+  local unexpected_owner
+  unexpected_owner="$(find "${runtime_root}" -xdev \
+    \( -type d -user echo-archives -prune \) -o \
+    \( \( -type d -o -type f \) ! -user "${deployment_user}" ! -user echo-archives -print -quit \))" || return 1
+  if [[ -n "${unexpected_owner}" ]]; then
+    log "ERROR: runtime content has an unsupported owner: ${unexpected_owner}" >&2
+    return 1
+  fi
+  find "${runtime_root}" -xdev \
+    \( -type d -user echo-archives -prune \) -o \
+    \( -type d -user "${deployment_user}" -exec setfacl -m u:echo-archives:r-x {} + \) -o \
+    \( -type f -user "${deployment_user}" -exec setfacl -m u:echo-archives:r-- {} + \) || return 1
 }
 
 runtime_environment_dir() {
@@ -331,20 +350,6 @@ copy_runtime_mutable_tree() {
   fi
 }
 
-runtime_mutable_paths=(
-  import-staging
-  catalog-src/shows
-  images/covers
-  images/generated/covers
-  data/shows.json
-  data/collections.json
-  data/search-index.json
-  data/archive-stats.json
-  data/tag-taxonomy.json
-  data/reviews
-  docs/generated
-)
-
 active_runtime_path() {
   local environment="$1"
   local link_path
@@ -358,21 +363,55 @@ active_runtime_path() {
 }
 
 preserve_runtime_mutable_state() {
-  local source_root="$1"
-  local target_root="$2"
+  local environment="$1"
+  local source_root="$2"
+  local target_root="$3"
   [[ -d "${source_root}" && ! -L "${source_root}" ]] || return 0
   [[ -d "${target_root}" && ! -L "${target_root}" ]] || return 1
   [[ "${source_root}" != "${target_root}" ]] || return 0
+
+  local active_source
+  active_source="$(active_runtime_path "${environment}" 2>/dev/null || true)"
+  [[ -n "${active_source}" && "${source_root}" == "${active_source}" ]] || {
+    log "ERROR: mutable runtime source is not the active ${environment} runtime." >&2
+    return 1
+  }
+  local environment_dir
+  environment_dir="$(runtime_environment_dir "${environment}")"
+  [[ "$(dirname -- "${target_root}")" == "${environment_dir}" && "$(readlink -f -- "${target_root}")" == "${target_root}" ]] || {
+    log "ERROR: mutable runtime target is outside the ${environment} runtime directory." >&2
+    return 1
+  }
 
   local relative_path source_path target_path
   for relative_path in "${runtime_mutable_paths[@]}"; do
     source_path="${source_root}/${relative_path}"
     target_path="${target_root}/${relative_path}"
     [[ -e "${source_path}" || -L "${source_path}" ]] || continue
-    rm -rf -- "${target_path}"
-    mkdir -p "$(dirname -- "${target_path}")"
-    cp -a -- "${source_path}" "${target_path}"
+    local parent_relative="${relative_path%/*}"
+    [[ "${parent_relative}" != "${relative_path}" ]] || continue
+    local parent_path="${target_root}"
+    local parent_part
+    local -a parent_parts
+    IFS='/' read -r -a parent_parts <<< "${parent_relative}"
+    for parent_part in "${parent_parts[@]}"; do
+      parent_path="${parent_path}/${parent_part}"
+      [[ ! -L "${parent_path}" ]] || {
+        log "ERROR: mutable runtime target has a symlink parent: ${parent_path}" >&2
+        return 1
+      }
+      if [[ -e "${parent_path}" ]]; then
+        [[ -d "${parent_path}" ]] || {
+          log "ERROR: mutable runtime target parent is not a directory: ${parent_path}" >&2
+          return 1
+        }
+      else
+        mkdir -- "${parent_path}" || return 1
+      fi
+    done
   done
+  sudo /usr/bin/bash "${DEPLOY_SCRIPT_ROOT}/preserve-runtime-mutable-state.sh" \
+    "${RUNTIME_DIR}" "${environment}" "${source_root}" "${target_root}"
 }
 
 prepare_runtime_tree() {
@@ -388,10 +427,11 @@ prepare_runtime_tree() {
   previous_runtime_path="$(active_runtime_path "${environment}" 2>/dev/null || true)"
 
   if [[ -d "${final_path}" ]]; then
-    preserve_runtime_mutable_state "${previous_runtime_path}" "${final_path}" ||
+    preserve_runtime_mutable_state "${environment}" "${previous_runtime_path}" "${final_path}" ||
       die "could not preserve ${environment} mutable runtime state"
     verify_runtime_tree "${environment}" "${release_id}"
-    prepare_runtime_permissions "${final_path}"
+    prepare_runtime_permissions "${final_path}" ||
+      die "could not prepare ${environment} runtime permissions"
     log "Runtime content for ${environment} ${release_id} already exists; reusing it."
     return 0
   fi
@@ -403,17 +443,20 @@ prepare_runtime_tree() {
   # to the complete release-specific directory.
   temporary_path="$(mktemp -d "${environment_dir}/runtime-${release_id}.XXXXXX")"
   if ! copy_runtime_mutable_tree "${release_root}" "${temporary_path}" ||
-    ! preserve_runtime_mutable_state "${previous_runtime_path}" "${temporary_path}" ||
+    ! preserve_runtime_mutable_state "${environment}" "${previous_runtime_path}" "${temporary_path}" ||
     ! prepare_runtime_permissions "${temporary_path}"; then
-    rm -rf -- "${temporary_path}"
+    sudo /usr/bin/rm -rf -- "${temporary_path}" ||
+      log "ERROR: could not clean incomplete runtime content at ${temporary_path}" >&2
     return 1
   fi
   if ! chmod 0750 "${temporary_path}"; then
-    rm -rf -- "${temporary_path}"
+    sudo /usr/bin/rm -rf -- "${temporary_path}" ||
+      log "ERROR: could not clean incomplete runtime content at ${temporary_path}" >&2
     return 1
   fi
   if ! mv -Tf -- "${temporary_path}" "${final_path}"; then
-    rm -rf -- "${temporary_path}"
+    sudo /usr/bin/rm -rf -- "${temporary_path}" ||
+      log "ERROR: could not clean incomplete runtime content at ${temporary_path}" >&2
     return 1
   fi
   log "Runtime content ready for ${environment} ${release_id}."
@@ -481,6 +524,8 @@ grant_active_runtime_write_paths() {
   fi
 
   local relative_path
+  local deployment_user
+  deployment_user="$(id -un)"
   for relative_path in \
     import-staging \
     catalog-src/shows \
@@ -491,7 +536,22 @@ grant_active_runtime_write_paths() {
     docs/generated; do
     local directory_path="${release_root}/${relative_path}"
     if [[ -d "${directory_path}" ]]; then
-      setfacl -m u:echo-archives:rwx "${directory_path}" || return 1
+      local owner
+      owner="$(stat -c '%U' -- "${directory_path}")" || return 1
+      if [[ "${owner}" == "${deployment_user}" ]]; then
+        setfacl -m u:echo-archives:rwx "${directory_path}" || return 1
+      elif [[ "${owner}" == "echo-archives" ]]; then
+        local mode owner_mode
+        mode="$(stat -c '%a' -- "${directory_path}")" || return 1
+        owner_mode=$(( (8#${mode} >> 6) & 7 ))
+        (( (owner_mode & 7) == 7 )) || {
+          log "ERROR: service-owned runtime directory is not owner-writable: ${directory_path}" >&2
+          return 1
+        }
+      else
+        log "ERROR: runtime write directory has an unsupported owner: ${directory_path}" >&2
+        return 1
+      fi
     fi
   done
 
@@ -505,7 +565,22 @@ grant_active_runtime_write_paths() {
     docs/generated/catalog-status.md; do
     local file_path="${release_root}/${relative_path}"
     if [[ -f "${file_path}" ]]; then
-      setfacl -m u:echo-archives:rw "${file_path}" || return 1
+      local owner
+      owner="$(stat -c '%U' -- "${file_path}")" || return 1
+      if [[ "${owner}" == "${deployment_user}" ]]; then
+        setfacl -m u:echo-archives:rw "${file_path}" || return 1
+      elif [[ "${owner}" == "echo-archives" ]]; then
+        local mode owner_mode
+        mode="$(stat -c '%a' -- "${file_path}")" || return 1
+        owner_mode=$(( (8#${mode} >> 6) & 7 ))
+        (( (owner_mode & 6) == 6 )) || {
+          log "ERROR: service-owned runtime file is not owner-writable: ${file_path}" >&2
+          return 1
+        }
+      else
+        log "ERROR: runtime write file has an unsupported owner: ${file_path}" >&2
+        return 1
+      fi
     fi
   done
 }

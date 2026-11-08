@@ -1,0 +1,13 @@
+runtime_mutable_paths=(
+  import-staging
+  catalog-src/shows
+  images/covers
+  images/generated/covers
+  data/shows.json
+  data/collections.json
+  data/search-index.json
+  data/archive-stats.json
+  data/tag-taxonomy.json
+  data/reviews
+  docs/generated
+)
