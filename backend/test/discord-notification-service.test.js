@@ -215,6 +215,78 @@ test("429 responses respect Retry-After", async () => {
   }
 });
 
+test("429 Retry-After pauses every queued notification", async () => {
+  const { db, cleanup } = createDatabase();
+  try {
+    let now = new Date("2026-11-07T10:00:00.000Z");
+    let calls = 0;
+    const dispatcher = createDiscordNotificationDispatcher({
+      db,
+      webhookUrl: "https://discord.com/api/webhooks/1/test-token",
+      clock: () => now,
+      fetchImpl: async () => (++calls === 1
+        ? mockResponse(429, { headers: { "retry-after": "12" }, body: { retry_after: 12 } })
+        : mockResponse(204)),
+    });
+    dispatcher.enqueueContribution({ eventId: "a:limited", kind: "rating", showId: "impact-winter", showTitle: "Impact Winter", rating: 8 });
+    dispatcher.enqueueContribution({ eventId: "b:queued", kind: "submission", submissionType: "show", showTitle: "New Show" });
+
+    assert.equal(await dispatcher.dispatchDue(), false);
+    assert.equal(await dispatcher.dispatchDue(), false);
+    now = new Date(now.getTime() + 11_999);
+    assert.equal(await dispatcher.dispatchDue(), false);
+    assert.equal(calls, 1);
+
+    now = new Date(now.getTime() + 1);
+    assert.equal(await dispatcher.dispatchDue(), true);
+    assert.equal(calls, 2);
+    assert.equal(dispatcher.getStatus().delivered, 1);
+  } finally {
+    cleanup();
+  }
+});
+
+test("stalled 429 body reads abort on timeout and release the dispatcher", async () => {
+  const { db, cleanup } = createDatabase();
+  const keepAlive = setInterval(() => {}, 1_000);
+  try {
+    let now = new Date("2026-11-07T10:00:00.000Z");
+    let calls = 0;
+    const dispatcher = createDiscordNotificationDispatcher({
+      db,
+      webhookUrl: "https://discord.com/api/webhooks/1/test-token",
+      clock: () => now,
+      requestTimeoutMs: 10,
+      fetchImpl: async (_url, options) => {
+        calls += 1;
+        if (calls > 1) return mockResponse(204);
+        return {
+          ok: false,
+          status: 429,
+          headers: { get: (name) => name.toLowerCase() === "retry-after" ? "1" : null },
+          json: () => new Promise((_resolve, reject) => {
+            options.signal.addEventListener("abort", () => {
+              reject(Object.assign(new Error("response body stalled"), { name: "AbortError" }));
+            }, { once: true });
+          }),
+        };
+      },
+    });
+    dispatcher.enqueueContribution({ eventId: "a:stalled-limit", kind: "rating", showId: "impact-winter", showTitle: "Impact Winter", rating: 8 });
+    dispatcher.enqueueContribution({ eventId: "b:after-timeout", kind: "submission", submissionType: "show", showTitle: "New Show" });
+
+    assert.equal(await dispatcher.dispatchDue(), false);
+    assert.equal(calls, 1);
+    now = new Date(now.getTime() + 1_000);
+    assert.equal(await dispatcher.dispatchDue(), true);
+    assert.equal(calls, 2);
+    assert.equal(dispatcher.getStatus().delivered, 1);
+  } finally {
+    clearInterval(keepAlive);
+    cleanup();
+  }
+});
+
 test("permanent HTTP failures do not retain queued message content", async () => {
   const { db, cleanup } = createDatabase();
   try {

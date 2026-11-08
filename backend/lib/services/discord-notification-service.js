@@ -184,6 +184,7 @@ function createDiscordNotificationDispatcher({
   fetchImpl = globalThis.fetch,
   clock = () => new Date(),
   logger = console,
+  requestTimeoutMs = REQUEST_TIMEOUT_MS,
 }) {
   const enabled = Boolean(String(webhookUrl || "").trim());
   const insertNotification = db.prepare(`
@@ -281,7 +282,8 @@ function createDiscordNotificationDispatcher({
   async function readRateLimitBody(response) {
     try {
       return await response.json();
-    } catch (_error) {
+    } catch (error) {
+      if (error?.name === "AbortError") throw error;
       return null;
     }
   }
@@ -323,6 +325,9 @@ function createDiscordNotificationDispatcher({
     if (!enabled || dispatching || typeof fetchImpl !== "function" || clock().getTime() < nextAllowedAt) return false;
     dispatching = true;
     let row;
+    let response;
+    let rateLimitDelayMs = null;
+    let requestTimeout = null;
     try {
       row = claimNext();
       if (!row) return false;
@@ -335,9 +340,8 @@ function createDiscordNotificationDispatcher({
       }
 
       const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
-      timeout.unref?.();
-      let response;
+      requestTimeout = setTimeout(() => controller.abort(), requestTimeoutMs);
+      requestTimeout.unref?.();
       try {
         response = await fetchImpl(`${webhookUrl}?wait=true`, {
           method: "POST",
@@ -347,12 +351,10 @@ function createDiscordNotificationDispatcher({
           redirect: "error",
         });
       } catch (error) {
-        clearTimeout(timeout);
         const errorCode = error?.name === "AbortError" ? "network_timeout" : "network_error";
         queueRetry(row, errorCode);
         return false;
       }
-      clearTimeout(timeout);
 
       if (response.ok) {
         markDelivered.run({ eventId: row.event_id, now: nowSql() });
@@ -364,8 +366,12 @@ function createDiscordNotificationDispatcher({
       }
 
       if (response.status === 429) {
+        rateLimitDelayMs = retryAfterMs(response, null);
+        nextAllowedAt = Math.max(nextAllowedAt, clock().getTime() + rateLimitDelayMs);
         const body = await readRateLimitBody(response);
-        queueRetry(row, "http_429", retryAfterMs(response, body));
+        rateLimitDelayMs = retryAfterMs(response, body);
+        nextAllowedAt = Math.max(nextAllowedAt, clock().getTime() + rateLimitDelayMs);
+        queueRetry(row, "http_429", rateLimitDelayMs);
       } else if (response.status >= 500) {
         queueRetry(row, `http_${response.status}`);
       } else {
@@ -373,11 +379,15 @@ function createDiscordNotificationDispatcher({
         logger.error(JSON.stringify({ level: "error", event: "discord_delivery_rejected", status: response.status }));
       }
       return false;
-    } catch (_error) {
-      if (row) queueRetry(row, "outbox_error");
+    } catch (error) {
+      if (row) {
+        const rateLimitedTimeout = response?.status === 429 && error?.name === "AbortError";
+        queueRetry(row, rateLimitedTimeout ? "http_429" : "outbox_error", rateLimitedTimeout ? rateLimitDelayMs : null);
+      }
       else logger.error(JSON.stringify({ level: "error", event: "discord_outbox_error" }));
       return false;
     } finally {
+      if (requestTimeout) clearTimeout(requestTimeout);
       dispatching = false;
     }
   }
