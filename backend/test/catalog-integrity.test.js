@@ -128,6 +128,48 @@ test("integrity validation aggregates duplicate, reference, URL, date, and numer
   assert.match(report.errors.join("\n"), /showReasons references unknown show "missing-show"/);
 });
 
+test("catalog integrity permits blank descriptions only for complete provisional indexed-only reviews", () => {
+  const reviewedAt = "2026-11-04T21:00:00.000Z";
+  const sourceUrl = "https://feeds.example.org/provisional-show.xml";
+  const provisionalShow = show({
+    description: "",
+    genres: ["drama"],
+    formats: [],
+    tags: [],
+    metadata: {
+      import: {
+        publication: { provisional: true },
+        identifiers: { rssUrl: sourceUrl },
+        selectedSources: [{ sourceType: "rss", sourceUrl }],
+        factualReview: { reviewedBy: "operator:test", reviewedAt, inputRevision: 1 },
+        scopeReview: {
+          status: "in-scope",
+          reviewedBy: "operator:test",
+          reviewedAt,
+          inputRevision: 1,
+          evidenceSources: [sourceUrl],
+        },
+      },
+    },
+  });
+  const options = {
+    sourceData: { mode: "runtime", shows: [provisionalShow], collections: [], reviewsById: {} },
+    entities: [],
+    creators: [],
+    networks: [],
+    changelog: [],
+  };
+
+  const valid = collectCatalogIntegrityIssues(options);
+  assert.equal(valid.ok, true, valid.errors.join("\n"));
+
+  provisionalShow.metadata.import.scopeReview.inputRevision = 2;
+  const invalid = collectCatalogIntegrityIssues(options);
+  assert.equal(invalid.ok, false);
+  assert.match(invalid.errors.join("\n"), /incomplete provisional publication review record/i);
+  assert.match(invalid.errors.join("\n"), /description must be a non-empty string/i);
+});
+
 test("raw integrity validates optional discovery profiles without requiring them", () => {
   const validReport = collectCatalogIntegrityIssues({
     sourceData: {

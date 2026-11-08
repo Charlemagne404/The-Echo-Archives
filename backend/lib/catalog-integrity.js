@@ -1,5 +1,6 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const { isCompleteProvisionalIndexedEntry } = require("../../tools/lib/provisional-publication");
 
 const { readCatalogSource } = require("../../tools/lib/catalog-source");
 const { getProviderIdentityStructuralErrors } = require("../../tools/lib/provider-identity-dispositions");
@@ -539,8 +540,13 @@ function checkShowRecord(show, index, showIds, entityIds, errors) {
   }
 
   ["id", "title", "description", "cover", "coverAlt", "status", "reviewStatus", "updatedAt"].forEach((fieldName) => {
-    checkRequiredString(show, label, fieldName, errors, { allowBlank: fieldName === "cover" });
+    checkRequiredString(show, label, fieldName, errors, {
+      allowBlank: fieldName === "cover" || (fieldName === "description" && isCompleteProvisionalIndexedEntry(show)),
+    });
   });
+  if (show.metadata?.import?.publication?.provisional === true && !isCompleteProvisionalIndexedEntry(show)) {
+    addIssue(errors, `${label} has an incomplete provisional publication review record.`);
+  }
   ["genres", "tags"].forEach((fieldName) => checkStringArray(show, label, fieldName, errors, { required: true }));
   STRING_ARRAY_FIELDS.filter((fieldName) => !["genres", "tags"].includes(fieldName)).forEach((fieldName) => checkStringArray(show, label, fieldName, errors));
   SHOW_OBJECT_FIELDS.forEach((fieldName) => checkObjectField(show, label, fieldName, errors));

@@ -313,6 +313,71 @@ test("published catalog records require approved discovery signals instead of fi
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
 
+test("complete provisional indexed-only records retain the reviewed single-signal publication exception", async () => {
+  const tempRoot = createTempSiteRoot();
+  const showId = "provisional-indexed-show";
+  const reviewedAt = "2026-11-04T21:00:00.000Z";
+  const sourceUrl = "https://feeds.example.org/provisional-show.xml";
+  const show = createShowRecord({
+    id: showId,
+    title: "Provisional Indexed Show",
+    description: "A source-backed indexed-only show with a single verified genre and no invented discovery metadata.",
+    genres: ["drama"],
+    formats: [],
+    tags: [],
+    status: "published",
+    reviewStatus: "indexed-only",
+    metadata: {
+      objectiveSources: [sourceUrl],
+      import: {
+        publication: { provisional: true },
+        identifiers: { rssUrl: sourceUrl },
+        selectedSources: [{ sourceType: "rss", sourceUrl, fetchedAt: reviewedAt, payloadHash: "a".repeat(64) }],
+        factualReview: { reviewedBy: "operator:test", reviewedAt, inputRevision: 1 },
+        scopeReview: {
+          status: "in-scope",
+          reviewedBy: "operator:test",
+          reviewedAt,
+          inputRevision: 1,
+          evidenceSources: [sourceUrl],
+        },
+      },
+    },
+  });
+  const showDirectory = path.join(tempRoot, "catalog-src", "shows");
+  const collectionDirectory = path.join(tempRoot, "catalog-src", "collections");
+  writeJson(path.join(showDirectory, "_order.json"), [showId]);
+  writeJson(path.join(showDirectory, `${showId}.json`), show);
+  writeJson(path.join(collectionDirectory, "_order.json"), []);
+
+  try {
+    await assert.doesNotReject(loadCatalog(tempRoot));
+
+    show.metadata.import.factualReview.inputRevision = 0;
+    show.metadata.import.scopeReview.inputRevision = 0;
+    delete show.metadata.import.selectedSources[0].sourceType;
+    writeJson(path.join(showDirectory, `${showId}.json`), show);
+    await assert.doesNotReject(loadCatalog(tempRoot), "legacy provisional review records retain the deployed revision and source URL semantics");
+
+    show.metadata.import.publication.provisional = false;
+    writeJson(path.join(showDirectory, `${showId}.json`), show);
+    await assert.rejects(loadCatalog(tempRoot), /at least 2 approved discovery signals/i);
+
+    show.metadata.import.publication.provisional = true;
+    show.metadata.import.scopeReview.inputRevision = 2;
+    writeJson(path.join(showDirectory, `${showId}.json`), show);
+    await assert.rejects(loadCatalog(tempRoot), /incomplete provisional publication review record/i);
+
+    show.status = "draft";
+    show.metadata.import.factualReview.inputRevision = 1;
+    show.metadata.import.scopeReview.inputRevision = 1;
+    writeJson(path.join(showDirectory, `${showId}.json`), show);
+    await assert.rejects(loadCatalog(tempRoot), /incomplete provisional publication review record/i);
+  } finally {
+    fs.rmSync(tempRoot, { recursive: true, force: true });
+  }
+});
+
 test("published imported records may retain one genre after unsupported RSS narrative inference is removed", async () => {
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");

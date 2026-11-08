@@ -1169,6 +1169,74 @@ printf 'RESULT=%s\n' "$result"
   }
 });
 
+test("restart_service clears start-limit state before restarting and fails closed when reset fails", () => {
+  const fixtureScript = String.raw`
+set -Eeuo pipefail
+source "$1" help >/dev/null
+SCENARIO="$2"
+SYSTEMCTL_LOG="$3"
+log() { printf '[fixture] %s\n' "$*" >&2; }
+sudo() {
+  [[ "$1" == systemctl ]] || return 127
+  printf '%s %s\n' "$2" "$3" >> "$SYSTEMCTL_LOG"
+  [[ "$SCENARIO" != reset-fails || "$2" != reset-failed ]]
+}
+
+if [[ "$SCENARIO" == reset-fails ]]; then
+  if restart_service fixture.service; then
+    printf 'RESULT=unexpected-restart\n'
+    exit 1
+  fi
+  printf 'RESULT=reset-failed-closed\n'
+else
+  restart_service fixture.service
+  printf 'RESULT=restart-recovered\n'
+fi
+`;
+  const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-restart-service-test-"));
+  try {
+    for (const [scenario, expectedResult, expectedLog] of [
+      ["success", /RESULT=restart-recovered/, "reset-failed fixture.service\nrestart fixture.service\n"],
+      ["reset-fails", /RESULT=reset-failed-closed/, "reset-failed fixture.service\n"],
+    ]) {
+      const logPath = path.join(fixtureRoot, `${scenario}.log`);
+      const result = spawnSync(
+        "bash",
+        ["-c", fixtureScript, "restart-service-test", path.join(ROOT, "deploy", "echo"), scenario, logPath],
+        { cwd: ROOT, encoding: "utf8" },
+      );
+      assert.equal(result.status, 0, `${scenario}: ${result.stderr}\n${result.stdout}`);
+      assert.match(result.stdout, expectedResult);
+      assert.equal(fs.readFileSync(logPath, "utf8"), expectedLog);
+    }
+  } finally {
+    fs.rmSync(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("production readiness diagnostics read the namespaced application journal and sanitize secrets", () => {
+  const fixtureScript = String.raw`
+set -Eeuo pipefail
+source "$1" help >/dev/null
+PRODUCTION_SERVICE=echo-archives.service
+log() { printf '[fixture] %s\n' "$*" >&2; }
+systemctl() { printf 'SYSTEMCTL=%s\n' "$*"; }
+journalctl() { printf 'JOURNAL=%s token=fixture-secret\n' "$*"; }
+readiness_diagnostics fixture "$PRODUCTION_SERVICE"
+`;
+  const result = spawnSync(
+    "bash",
+    ["-c", fixtureScript, "readiness-diagnostics-test", path.join(ROOT, "deploy", "echo")],
+    { cwd: ROOT, encoding: "utf8" },
+  );
+
+  assert.equal(result.status, 0, result.stderr);
+  const diagnostics = `${result.stdout}\n${result.stderr}`;
+  assert.match(diagnostics, /JOURNAL=--namespace=echo-archives[\s\S]*-u[\s\S]*echo-archives\.service/);
+  assert.match(diagnostics, /token=\[REDACTED\]/);
+  assert.doesNotMatch(diagnostics, /fixture-secret/);
+});
+
 test("release promotion requires the staging-tested SHA, backs up before switching, and recovers failed health", () => {
   const fixtureScript = String.raw`
 set -Eeuo pipefail
@@ -1189,14 +1257,48 @@ validate_environment_with_root() { :; }
 assert_release_service() { :; }
 prepare_runtime_permissions() { :; }
 grant_active_runtime_write_paths() { :; }
-restart_service() { printf 'RESTART=%s\n' "$1"; }
 record_production_history() { printf '%s\t%s\t%s\n' "$1" "$2" "$3" >> "$STATE_DIR/production-history.log"; }
 
 PREVIOUS_RELEASE=cccccccccccccccccccccccccccccccccccccccc
 STAGING_RELEASE=dddddddddddddddddddddddddddddddddddddddd
 SCENARIO="$3"
 ensure_layout
+SYSTEMCTL_LOG="$STATE_DIR/systemctl.log"
+PRODUCTION_SERVICE=fixture-production.service
+START_LIMIT_BLOCKED=false
+SYSTEMCTL_RESTART_COUNT=0
 printf 'database-must-not-change\n' > "$PRODUCTION_DATABASE_PATH"
+
+prepare_runtime_tree() {
+  local environment="$1"
+  local release_id="$2"
+  local target
+  target="$(runtime_path "$environment" "$release_id")"
+  if [[ -d "$target" ]]; then return 0; fi
+  mkdir -p "$target/catalog-src" "$target/data" "$target/images" "$target/import-staging"
+  ln -s "$(release_path "$release_id")/release.json" "$target/release.json"
+  local previous
+  previous="$(active_runtime_path "$environment" 2>/dev/null || true)"
+  if [[ -n "$previous" && -f "$previous/import-staging/state.txt" ]]; then
+    cp "$previous/import-staging/state.txt" "$target/import-staging/state.txt"
+  fi
+}
+
+sudo() {
+  [[ "$1" == systemctl ]] || return 127
+  printf '%s %s\n' "$2" "$3" >> "$SYSTEMCTL_LOG"
+  case "$2" in
+    reset-failed) START_LIMIT_BLOCKED=false ;;
+    restart)
+      SYSTEMCTL_RESTART_COUNT=$((SYSTEMCTL_RESTART_COUNT + 1))
+      if [[ "$START_LIMIT_BLOCKED" == true ]]; then return 1; fi
+      if [[ "$SCENARIO" == target-fails && "$SYSTEMCTL_RESTART_COUNT" -eq 1 ]]; then
+        START_LIMIT_BLOCKED=true
+      fi
+      ;;
+    *) return 127 ;;
+  esac
+}
 
 write_release() {
   local release_id="$1"
@@ -1244,6 +1346,9 @@ health_check() {
   release_id="$(link_release_id "$link_path")"
   [[ "$(release_commit "$release_id")" == "$expected_commit" ]] || return 1
   [[ "$(runtime_link_release_id "$environment")" == "$release_id" ]] || return 1
+  if [[ "$environment" == production && "$SCENARIO" == target-fails && "$expected_commit" == "$STAGING_RELEASE" ]]; then
+    return 1
+  fi
   printf 'HEALTH=%s\n' "$environment"
 }
 
@@ -1252,8 +1357,8 @@ start_and_check_production() {
   [[ "$(link_release_id "$CURRENT_LINK")" == "$STAGING_RELEASE" ]] || return 1
   [[ "$(runtime_link_release_id production)" == "$STAGING_RELEASE" ]] || return 1
   [[ "$(release_commit "$STAGING_RELEASE")" == "$expected_commit" ]] || return 1
-  if [[ "$SCENARIO" == "target-fails" ]]; then return 1; fi
-  return 0
+  restart_service "$PRODUCTION_SERVICE" || return 1
+  health_check "production" "http://127.0.0.1:4010/api/health" production "$expected_commit"
 }
 
 if [[ "$SCENARIO" != "untested" ]]; then
@@ -1292,6 +1397,19 @@ else
   [[ "$(cat "$STATE_DIR/production-history.log")" == "$expected_history" ]]
   [[ "$(cat "$PRODUCTION_BACKUP_DIR/pre-promotion.sqlite")" == 'verified-pre-promotion-backup' ]]
   [[ "$(cat "$(runtime_path production "$STAGING_RELEASE")/import-staging/state.txt")" == 'production-mutable-state' ]]
+  actual_systemctl_log="$(cat "$SYSTEMCTL_LOG")"
+  if [[ "$SCENARIO" == healthy ]]; then
+    printf -v expected_systemctl_log '%s\n%s' \
+      "reset-failed $PRODUCTION_SERVICE" "restart $PRODUCTION_SERVICE"
+  else
+    printf -v expected_systemctl_log '%s\n%s\n%s\n%s' \
+      "reset-failed $PRODUCTION_SERVICE" "restart $PRODUCTION_SERVICE" \
+      "reset-failed $PRODUCTION_SERVICE" "restart $PRODUCTION_SERVICE"
+  fi
+  if [[ "$actual_systemctl_log" != "$expected_systemctl_log" ]]; then
+    printf 'Unexpected systemctl sequence: %q\n' "$actual_systemctl_log" >&2
+    exit 1
+  fi
 fi
 printf 'RESULT=%s\n' "$result"
 `;

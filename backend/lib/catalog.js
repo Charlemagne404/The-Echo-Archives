@@ -48,6 +48,7 @@ const {
   writeCatalogSource,
 } = require("../../tools/lib/catalog-source");
 const { validateProvenance } = require("../../tools/lib/catalog-provenance");
+const { isCompleteProvisionalIndexedEntry } = require("../../tools/lib/provisional-publication");
 const { buildGeneratedSimilarityCollections } = require("./shows-like-routes");
 
 const VALID_REVIEW_STATUSES = new Set(REVIEW_STATUSES);
@@ -326,12 +327,13 @@ function validateDiscoveryTags(record) {
 
 function validatePublishedDiscoveryMetadata(record) {
   if (record.status !== "published") return;
+  const provisional = isCompleteProvisionalIndexedEntry(record);
 
-  if (isPlaceholderDescription(record.title, record.description)) {
+  if (!provisional && isPlaceholderDescription(record.title, record.description)) {
     throw new Error(`Show "${record.id}" needs a source-backed description of at least ${MIN_PUBLISHED_DESCRIPTION_LENGTH} characters before publication.`);
   }
 
-  if (!Array.isArray(record.genres) || record.genres.length === 0) {
+  if (!provisional && (!Array.isArray(record.genres) || record.genres.length === 0)) {
     throw new Error(`Show "${record.id}" needs at least one canonical genre before publication.`);
   }
 
@@ -352,7 +354,7 @@ function validatePublishedDiscoveryMetadata(record) {
   // replacing the missing fact with an invented discovery signal. New imports
   // still use the stricter readiness gate in draft.js.
   const rssNarrativeFormatRemoved = record.metadata?.import?.fields?.formats?.method === "removed-rss-feed-type";
-  if (discoverySignals.size < MIN_PUBLISHED_DISCOVERY_SIGNALS && !rssNarrativeFormatRemoved) {
+  if (!provisional && discoverySignals.size < MIN_PUBLISHED_DISCOVERY_SIGNALS && !rssNarrativeFormatRemoved) {
     throw new Error(`Show "${record.id}" needs at least ${MIN_PUBLISHED_DISCOVERY_SIGNALS} approved discovery signals across genres, formats, or tags before publication.`);
   }
 
@@ -419,7 +421,8 @@ function validateShowRecord(record, seenIds) {
     throw new Error(`Show "${record.id}" is missing a title.`);
   }
 
-  if (typeof record.description !== "string" || !record.description.trim()) {
+  const provisional = isCompleteProvisionalIndexedEntry(record);
+  if (typeof record.description !== "string" || (!record.description.trim() && !provisional)) {
     throw new Error(`Show "${record.id}" is missing a description.`);
   }
 
@@ -445,6 +448,9 @@ function validateShowRecord(record, seenIds) {
 
   SHOW_STRING_ARRAY_FIELDS.forEach((fieldName) => validateArrayOfStrings("Show", record.id, fieldName, record[fieldName]));
   validateOptionalObjects(record, "Show");
+  if (record.metadata?.import?.publication?.provisional === true && !provisional) {
+    throw new Error(`Show "${record.id}" has an incomplete provisional publication review record.`);
+  }
   validateDiscoveryProfile(record);
   validateTextMap("Show", record.id, "similarReasons", record.similarReasons);
   validatePublishedDiscoveryMetadata(record);
