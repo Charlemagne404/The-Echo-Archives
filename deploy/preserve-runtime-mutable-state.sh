@@ -66,6 +66,15 @@ if [[ -e "${staging_root}" || -L "${staging_root}" ]]; then
   [[ -d "${staging_root}" && ! -L "${staging_root}" ]] || fail "import staging path is unsafe"
 fi
 
+# The privileged deployment path has a fixed system Node location. Direct
+# unprivileged test/development runs use the project Node already on PATH.
+if [[ "${EUID}" -eq 0 ]]; then
+  node_binary="/usr/bin/node"
+else
+  node_binary="$(command -v node)" || fail "the Node runtime is required for catalogue snapshot locking"
+fi
+[[ -x "${node_binary}" ]] || fail "the Node runtime is unavailable for catalogue snapshot locking"
+
 # Catalogue writers use this same atomic journal directory as their exclusion
 # gate. Holding a runtime-snapshot journal makes concurrent writers fail closed
 # and makes a publisher that wins the mkdir race prevent this copy from starting.
@@ -91,7 +100,7 @@ release_snapshot_worker_on_exit() {
 }
 
 coproc CATALOG_SNAPSHOT_LOCK {
-  /usr/bin/node "${SCRIPT_ROOT}/runtime-snapshot-lock.js" "${source_root}" "${snapshot_owner_args[@]}"
+  "${node_binary}" "${SCRIPT_ROOT}/runtime-snapshot-lock.js" "${source_root}" "${snapshot_owner_args[@]}"
 }
 snapshot_worker_pid="${CATALOG_SNAPSHOT_LOCK_PID}"
 snapshot_status_fd="${CATALOG_SNAPSHOT_LOCK[0]}"
