@@ -681,8 +681,17 @@ link_release_id() {
 
 restart_service() {
   local service="$1"
+  log "Clearing any prior systemd failure/start-limit state for ${service}."
+  if ! sudo systemctl reset-failed "${service}"; then
+    log "ERROR: could not clear systemd failure/start-limit state for ${service}." >&2
+    return 1
+  fi
   log "Restarting ${service}."
-  sudo systemctl restart "${service}"
+  if ! sudo systemctl restart "${service}"; then
+    log "ERROR: systemd restart failed for ${service}." >&2
+    readiness_diagnostics "restart failure" "${service}"
+    return 1
+  fi
 }
 
 acquire_deployment_lock() {
@@ -757,11 +766,19 @@ sanitize_readiness_diagnostics() {
 readiness_diagnostics() {
   local label="$1"
   local service="$2"
+  local journal_namespace=""
+  case "${service}" in
+    "${PRODUCTION_SERVICE}") journal_namespace="echo-archives" ;;
+  esac
   log "Sanitized ${label} readiness diagnostics for ${service}:" >&2
   {
     systemctl show "${service}" -p ActiveState -p SubState -p MainPID -p ExecMainStatus -p Result -p WorkingDirectory || true
     systemctl status "${service}" --no-pager --lines=20 || true
-    journalctl -u "${service}" -n 40 --no-pager -o short-iso || true
+    if [[ -n "${journal_namespace}" ]]; then
+      journalctl --namespace="${journal_namespace}" -u "${service}" -n 40 --no-pager -o short-iso || true
+    else
+      journalctl -u "${service}" -n 40 --no-pager -o short-iso || true
+    fi
   } 2>&1 | sanitize_readiness_diagnostics >&2
 }
 
