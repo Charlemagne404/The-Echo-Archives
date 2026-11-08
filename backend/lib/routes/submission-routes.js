@@ -3,6 +3,8 @@ const express = require("express");
 function createSubmissionRouter({
   submissionService,
   analyticsStore = null,
+  discordNotifications = null,
+  getShowHref = () => "",
   getAnalyticsRequestContext = () => ({}),
   isInternalRequest = () => false,
 }) {
@@ -39,6 +41,7 @@ function createSubmissionRouter({
         });
       }
 
+      const internal = isInternalRequest(req);
       recordAnalytics({
         ...getAnalyticsRequestContext(req),
         eventName: "Catalogue Submission",
@@ -47,8 +50,29 @@ function createSubmissionRouter({
           ...(result.submission.existingShowId ? { show_id: result.submission.existingShowId } : {}),
         },
         userAgent: req.get("user-agent") || "",
-        internal: isInternalRequest(req),
+        internal,
       });
+
+      if (!internal) {
+        try {
+          const submission = result.submission;
+          const payload = submission.payload_json || {};
+          const showId = submission.existing_show_id || "";
+          discordNotifications?.enqueueContribution({
+            eventId: `submission:${submission.id}`,
+            kind: "submission",
+            submissionType: submission.submission_type,
+            showId,
+            showTitle: submission.show_title,
+            showHref: getShowHref(showId),
+            correctionType: payload.correctionType,
+            ratingStars: payload.ratingStars,
+            timestamp: submission.submitted_at,
+          });
+        } catch (_error) {
+          // Notifications cannot turn a saved submission into a failed request.
+        }
+      }
 
       return res.status(201).json({
         accepted: true,

@@ -50,6 +50,7 @@ const config = {
   DB_PATH: process.env.DB_PATH || path.join(DATA_ROOT, "community.sqlite"),
   IMPORT_STAGING_ROOT: process.env.IMPORT_STAGING_ROOT || path.join(DATA_ROOT, "import-staging"),
   SITE_URL: process.env.SITE_URL || "https://echoarchives.net",
+  ECHO_DISCORD_WEBHOOK_URL: IS_STAGING ? "" : String(process.env.ECHO_DISCORD_WEBHOOK_URL || "").trim(),
   ACCESS_LOG_ENABLED: accessLogEnabled,
   ACCESS_LOG_HMAC_SECRET: process.env.ACCESS_LOG_HMAC_SECRET || "",
   PUBLIC_ANALYTICS_ENABLED: parseBoolean(process.env.PUBLIC_ANALYTICS_ENABLED, true),
@@ -269,6 +270,28 @@ function validateConfig(candidate = config) {
     errors.push(
       `COMMUNITY_TURNSTILE_VERIFY_URL must be an absolute ${requiresHttps ? "HTTPS " : ""}URL.`,
     );
+  }
+
+  const discordWebhookUrl = String(candidate.ECHO_DISCORD_WEBHOOK_URL || "").trim();
+  if (discordWebhookUrl) {
+    let parsedDiscordWebhook;
+    try {
+      parsedDiscordWebhook = new URL(discordWebhookUrl);
+    } catch (_error) {
+      parsedDiscordWebhook = null;
+    }
+    if (
+      !parsedDiscordWebhook ||
+      parsedDiscordWebhook.protocol !== "https:" ||
+      parsedDiscordWebhook.hostname !== "discord.com" ||
+      parsedDiscordWebhook.username ||
+      parsedDiscordWebhook.password ||
+      parsedDiscordWebhook.search ||
+      parsedDiscordWebhook.hash ||
+      !/^\/api\/webhooks\/\d+\/[A-Za-z0-9._-]+$/.test(parsedDiscordWebhook.pathname)
+    ) {
+      errors.push("ECHO_DISCORD_WEBHOOK_URL must be a Discord HTTPS incoming webhook URL.");
+    }
   }
 
   if ((candidate.IS_PRODUCTION || candidate.IS_STAGING) && !path.isAbsolute(candidate.DB_PATH)) {

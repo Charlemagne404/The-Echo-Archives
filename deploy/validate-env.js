@@ -143,6 +143,7 @@ for (const name of [
   "MAINTAINER_REVIEW_COOKIE_SECRET",
   "ACCESS_LOG_HMAC_SECRET",
   "ANALYTICS_HMAC_SECRET",
+  "ECHO_DISCORD_WEBHOOK_URL",
 ]) {
   const secret = value(name);
   if (secret && isPlaceholderSecret(secret)) {
