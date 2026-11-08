@@ -2,7 +2,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
-const { spawnSync } = require("node:child_process");
+const { spawn, spawnSync } = require("node:child_process");
 const test = require("node:test");
 
 const ROOT = path.resolve(__dirname, "../..");
@@ -24,6 +24,14 @@ function assertOrdered(contents, fragments) {
     assert.ok(index > previousIndex, `Expected fragment in a later position: ${fragment}`);
     previousIndex = index;
   });
+}
+
+function waitFor(predicate, message, timeoutMs = 10000) {
+  const deadline = Date.now() + timeoutMs;
+  while (!predicate()) {
+    if (Date.now() >= deadline) assert.fail(message);
+    Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 10);
+  }
 }
 
 function writeReleaseCommandShims(shimRoot) {
@@ -77,10 +85,11 @@ function createRuntimePreservationFixture() {
     ["import-staging/echo-publisher/private-state.json", "private publisher state\n", 0o600],
     ["import-staging/artwork-repair-backups/backup.bin", "private artwork backup\n", 0o600],
     ["import-staging/publish.lock", "", 0o600],
-    ["catalog-src/shows/fixture-show.json", "{\"title\":\"preserved\"}\n", 0o640],
+    ["catalog-src/shows/fixture-show.json", "{\"id\":\"fixture-show\",\"title\":\"preserved\"}\n", 0o640],
+    ["catalog-src/shows/_order.json", "[\"fixture-show\"]\n", 0o640],
     ["images/covers/fixture.webp", "cover asset\n", 0o640],
     ["images/generated/covers/fixture.webp", "generated cover\n", 0o640],
-    ["data/shows.json", "{\"shows\":[]}\n", 0o640],
+    ["data/shows.json", "[{\"id\":\"fixture-show\",\"title\":\"preserved\"}]\n", 0o640],
     ["data/collections.json", "{\"collections\":[]}\n", 0o640],
     ["data/search-index.json", "{\"search\":[]}\n", 0o640],
     ["data/archive-stats.json", "{\"stats\":{}}\n", 0o640],
@@ -1526,6 +1535,7 @@ test("checked-in service and proxy retain production hardening", () => {
 test("runtime preservation keeps private modes and source ownership metadata without losing mutable data", () => {
   const fixture = createRuntimePreservationFixture();
   const helper = path.join(ROOT, "deploy", "preserve-runtime-mutable-state.sh");
+  let aclExpected = false;
 
   try {
     if (process.getuid?.() === 0) {
@@ -1546,6 +1556,9 @@ test("runtime preservation keeps private modes and source ownership metadata wit
         }
       }
     }
+    const aclSourcePath = path.join(fixture.sourceRoot, "catalog-src/shows/fixture-show.json");
+    const aclSet = spawnSync("setfacl", ["-m", "u:65534:r--", aclSourcePath], { encoding: "utf8" });
+    aclExpected = aclSet.status === 0;
     const result = spawnSync(
       "bash",
       [helper, fixture.runtimeRoot, "production", fixture.sourceRoot, fixture.targetRoot],
@@ -1553,6 +1566,9 @@ test("runtime preservation keeps private modes and source ownership metadata wit
     );
     assert.equal(result.status, 0, `${result.stderr}\n${result.stdout}`);
     assert.equal(fs.existsSync(path.join(fixture.targetRoot, "import-staging/stale.txt")), false);
+    const copiedSourceShow = JSON.parse(fs.readFileSync(path.join(fixture.targetRoot, "catalog-src/shows/fixture-show.json"), "utf8"));
+    const copiedRuntimeShow = JSON.parse(fs.readFileSync(path.join(fixture.targetRoot, "data/shows.json"), "utf8"))[0];
+    assert.equal(copiedRuntimeShow.title, copiedSourceShow.title);
 
     for (const [relativePath, expectedContents] of fixture.files) {
       const sourcePath = path.join(fixture.sourceRoot, relativePath);
@@ -1563,6 +1579,11 @@ test("runtime preservation keeps private modes and source ownership metadata wit
       assert.equal(targetStat.uid, sourceStat.uid, relativePath);
       assert.equal(targetStat.gid, sourceStat.gid, relativePath);
       assert.equal(targetStat.mode & 0o777, sourceStat.mode & 0o777, relativePath);
+    }
+    if (aclExpected) {
+      const targetAcl = spawnSync("getfacl", ["-n", "-c", path.join(fixture.targetRoot, "catalog-src/shows/fixture-show.json")], { encoding: "utf8" });
+      assert.equal(targetAcl.status, 0, targetAcl.stderr);
+      assert.match(targetAcl.stdout, /user:65534:r--/);
     }
 
     for (const relativePath of ["import-staging/echo-publisher", "import-staging/artwork-repair-backups"]) {
@@ -1601,36 +1622,132 @@ test("runtime preservation rejects symlinked target parents before privileged re
   }
 });
 
-test("runtime preservation fails closed while an importer holds its publication lock", () => {
+test("runtime preservation rejects an active catalogue transaction without touching either runtime", async () => {
   const fixture = createRuntimePreservationFixture();
   const helper = path.join(ROOT, "deploy", "preserve-runtime-mutable-state.sh");
-  const lockPath = path.join(fixture.sourceRoot, "import-staging/publish.lock");
-  const targetDataPath = path.join(fixture.targetRoot, "data/shows.json");
+  const readyPath = path.join(fixture.fixtureRoot, "publisher-ready");
+  const releasePath = path.join(fixture.fixtureRoot, "publisher-release");
+  const sourcePath = path.join(fixture.sourceRoot, "catalog-src/shows/fixture-show.json");
+  const targetPath = path.join(fixture.targetRoot, "data/shows.json");
+  const sourceModule = require.resolve("./../lib/catalog-source");
+  let publisher = null;
+  let publisherExitPromise = null;
+  let publisherDone = false;
+  const writerScript = `
+    const fs = require("node:fs");
+    const { writeShowRecordsAtomically } = require(${JSON.stringify(sourceModule)});
+    const rename = fs.renameSync;
+    fs.renameSync = (from, to) => {
+      const result = rename(from, to);
+      if (to === process.env.PUBLISHER_TARGET) {
+        fs.writeFileSync(process.env.PUBLISHER_READY, "ready");
+        const deadline = Date.now() + 15000;
+        while (!fs.existsSync(process.env.PUBLISHER_RELEASE) && Date.now() < deadline) {
+          Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 10);
+        }
+        if (!fs.existsSync(process.env.PUBLISHER_RELEASE)) throw new Error("publisher test release timed out");
+      }
+      return result;
+    };
+    writeShowRecordsAtomically(process.env.RUNTIME_SOURCE, [
+      { id: "fixture-show", title: "partially published" },
+      { id: "second-show", title: "published after snapshot" },
+    ]);
+  `;
 
   try {
-    fs.writeFileSync(targetDataPath, "untouched target\n");
+    fs.writeFileSync(targetPath, "untouched target\n");
+    publisher = spawn(process.execPath, ["-e", writerScript], {
+      cwd: ROOT,
+      env: {
+        ...process.env,
+        RUNTIME_SOURCE: fixture.sourceRoot,
+        PUBLISHER_READY: readyPath,
+        PUBLISHER_RELEASE: releasePath,
+        PUBLISHER_TARGET: sourcePath,
+      },
+      stdio: ["ignore", "pipe", "pipe"],
+    });
+    publisherExitPromise = new Promise((resolve, reject) => {
+      publisher.once("error", reject);
+      publisher.once("exit", resolve);
+    });
+    let publisherStderr = "";
+    publisher.stderr.setEncoding("utf8").on("data", (chunk) => { publisherStderr += chunk; });
+    waitFor(() => fs.existsSync(readyPath), "actual catalogue publication did not reach its protected write phase");
+
     const result = spawnSync(
-      "flock",
-      [
-        "--exclusive",
-        "--nonblock",
-        lockPath,
-        "bash",
-        "-c",
-        `if bash "$1" "$2" production "$3" "$4"; then exit 1; fi
-[[ "$(cat "$4/data/shows.json")" == 'untouched target' ]]`,
-        "runtime-preservation-lock-test",
-        helper,
-        fixture.runtimeRoot,
-        fixture.sourceRoot,
-        fixture.targetRoot,
-      ],
+      "bash",
+      [helper, fixture.runtimeRoot, "production", fixture.sourceRoot, fixture.targetRoot],
       { cwd: ROOT, encoding: "utf8" },
     );
-    assert.equal(result.status, 0, `${result.stderr}\n${result.stdout}`);
-    assert.match(result.stderr, /an import publication is active/);
-    assert.equal(fs.readFileSync(targetDataPath, "utf8"), "untouched target\n");
+    assert.notEqual(result.status, 0, `${result.stderr}\n${result.stdout}`);
+    assert.match(result.stderr, /publication journal|in progress/i);
+    assert.equal(JSON.parse(fs.readFileSync(sourcePath, "utf8")).title, "partially published");
+    assert.equal(fs.existsSync(path.join(fixture.sourceRoot, "catalog-src/shows/second-show.json")), false);
+    assert.equal(fs.readFileSync(targetPath, "utf8"), "untouched target\n");
+
+    fs.writeFileSync(releasePath, "continue");
+    const exitCode = await publisherExitPromise;
+    publisherDone = true;
+    assert.equal(exitCode, 0, publisherStderr);
+    assert.equal(JSON.parse(fs.readFileSync(sourcePath, "utf8")).title, "partially published");
+    assert.equal(JSON.parse(fs.readFileSync(path.join(fixture.sourceRoot, "catalog-src/shows/second-show.json"), "utf8")).title, "published after snapshot");
+    assert.deepEqual(JSON.parse(fs.readFileSync(path.join(fixture.sourceRoot, "catalog-src/shows/_order.json"), "utf8")), ["fixture-show", "second-show"]);
+    assert.equal(fs.readFileSync(targetPath, "utf8"), "untouched target\n");
   } finally {
+    if (publisher && !publisherDone) {
+      fs.writeFileSync(releasePath, "cleanup");
+      await publisherExitPromise.catch(() => {});
+    }
+    fs.rmSync(fixture.fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("a publication starting during runtime preservation's snapshot reservation fails before writing", async () => {
+  const fixture = createRuntimePreservationFixture();
+  const snapshotWorkerPath = path.join(ROOT, "deploy", "runtime-snapshot-lock.js");
+  const sourceModule = require.resolve("../lib/catalog-source");
+  const journalPath = path.join(fixture.sourceRoot, ".echo-catalog-transaction");
+  const writerScript = `
+    try {
+      require(${JSON.stringify(sourceModule)}).writeShowRecordsAtomically(process.env.RUNTIME_SOURCE, [{ id: "fixture-show", title: "must not publish" }]);
+      process.exit(1);
+    } catch (error) {
+      process.stdout.write(JSON.stringify({ statusCode: error.statusCode, message: error.message }));
+      process.exit(error.statusCode === 503 ? 0 : 2);
+    }
+  `;
+  const snapshotWorker = spawn(process.execPath, [snapshotWorkerPath, fixture.sourceRoot], {
+    cwd: ROOT,
+    stdio: ["pipe", "ignore", "pipe"],
+  });
+  let snapshotWorkerStderr = "";
+  snapshotWorker.stderr.setEncoding("utf8").on("data", (chunk) => { snapshotWorkerStderr += chunk; });
+  const snapshotWorkerExit = new Promise((resolve, reject) => {
+    snapshotWorker.once("error", reject);
+    snapshotWorker.once("exit", resolve);
+  });
+  try {
+    waitFor(() => {
+      try {
+        return JSON.parse(fs.readFileSync(path.join(journalPath, "manifest.json"), "utf8")).kind === "runtime-snapshot";
+      } catch (_error) {
+        return false;
+      }
+    }, "runtime preservation did not acquire its publication-journal reservation");
+    const result = spawnSync(process.execPath, ["-e", writerScript], {
+      cwd: ROOT,
+      env: { ...process.env, RUNTIME_SOURCE: fixture.sourceRoot },
+      encoding: "utf8",
+    });
+    assert.equal(result.status, 0, result.stderr);
+    assert.match(result.stdout, /"statusCode":503/);
+    assert.equal(JSON.parse(fs.readFileSync(path.join(fixture.sourceRoot, "catalog-src/shows/fixture-show.json"), "utf8")).title, "preserved");
+  } finally {
+    if (snapshotWorker.exitCode === null && snapshotWorker.signalCode === null) snapshotWorker.stdin.end("release\n");
+    const workerExitCode = await snapshotWorkerExit;
+    assert.equal(workerExitCode, 0, snapshotWorkerStderr);
     fs.rmSync(fixture.fixtureRoot, { recursive: true, force: true });
   }
 });

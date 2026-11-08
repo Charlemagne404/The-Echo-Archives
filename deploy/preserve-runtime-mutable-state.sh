@@ -64,17 +64,43 @@ assert_safe_parent_chain() {
 staging_root="${source_root}/import-staging"
 if [[ -e "${staging_root}" || -L "${staging_root}" ]]; then
   [[ -d "${staging_root}" && ! -L "${staging_root}" ]] || fail "import staging path is unsafe"
-  publish_lock="${staging_root}/publish.lock"
-  if [[ ! -e "${publish_lock}" && ! -L "${publish_lock}" ]]; then
-    /usr/sbin/runuser -u echo-archives -- /usr/bin/bash -c \
-      'umask 077; set -o noclobber; : > "$1"' _ "${publish_lock}" || {
-      [[ -f "${publish_lock}" && ! -L "${publish_lock}" ]] || fail "could not initialize the importer publication lock"
-    }
-  fi
-  [[ -f "${publish_lock}" && ! -L "${publish_lock}" ]] || fail "importer publication lock is unsafe"
-  exec 9<>"${publish_lock}" || fail "could not open importer publication lock"
-  /usr/bin/flock --exclusive --nonblock 9 || fail "an import publication is active; runtime state was not copied"
 fi
+
+# Catalogue writers use this same atomic journal directory as their exclusion
+# gate. Holding a runtime-snapshot journal makes concurrent writers fail closed
+# and makes a publisher that wins the mkdir race prevent this copy from starting.
+snapshot_worker_pid=""
+snapshot_worker_ready=false
+snapshot_owner_args=()
+if [[ "${EUID}" -eq 0 ]]; then
+  service_account="$(getent passwd echo-archives)" || fail "the Echo service account is required for journal snapshot recovery"
+  IFS=: read -r _ _ snapshot_owner_uid snapshot_owner_gid _ <<< "${service_account}"
+  [[ "${snapshot_owner_uid}" =~ ^[0-9]+$ && "${snapshot_owner_gid}" =~ ^[0-9]+$ ]] ||
+    fail "the Echo service account has invalid uid/gid metadata"
+  snapshot_owner_args=("${snapshot_owner_uid}" "${snapshot_owner_gid}")
+fi
+release_snapshot_worker_on_exit() {
+  [[ -n "${snapshot_worker_pid}" ]] || return 0
+  if [[ "${snapshot_worker_ready}" == "true" ]]; then
+    printf 'release\n' >&"${snapshot_control_fd}" || true
+  else
+    kill -TERM "${snapshot_worker_pid}" 2>/dev/null || true
+  fi
+  wait "${snapshot_worker_pid}" 2>/dev/null || true
+  snapshot_worker_pid=""
+}
+
+coproc CATALOG_SNAPSHOT_LOCK {
+  /usr/bin/node "${SCRIPT_ROOT}/runtime-snapshot-lock.js" "${source_root}" "${snapshot_owner_args[@]}"
+}
+snapshot_worker_pid="${CATALOG_SNAPSHOT_LOCK_PID}"
+snapshot_status_fd="${CATALOG_SNAPSHOT_LOCK[0]}"
+snapshot_control_fd="${CATALOG_SNAPSHOT_LOCK[1]}"
+trap release_snapshot_worker_on_exit EXIT
+if ! IFS= read -r -t 10 -u "${snapshot_status_fd}" snapshot_status || [[ "${snapshot_status}" != "snapshot-lock-ready" ]]; then
+  fail "could not acquire the catalogue publication journal for a consistent runtime snapshot"
+fi
+snapshot_worker_ready=true
 
 for relative_path in "${runtime_mutable_paths[@]}"; do
   source_path="${source_root}/${relative_path}"
@@ -85,3 +111,14 @@ for relative_path in "${runtime_mutable_paths[@]}"; do
   /usr/bin/rm -rf -- "${target_path}" || fail "could not replace an inactive runtime path"
   /usr/bin/cp -a -- "${source_path}" "${target_path}" || fail "could not preserve runtime content"
 done
+
+if ! printf 'release\n' >&"${snapshot_control_fd}"; then
+  fail "could not release the catalogue runtime snapshot journal"
+fi
+if ! wait "${snapshot_worker_pid}"; then
+  snapshot_worker_pid=""
+  fail "could not release the catalogue runtime snapshot journal"
+fi
+snapshot_worker_pid=""
+snapshot_worker_ready=false
+trap - EXIT

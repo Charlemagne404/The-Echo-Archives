@@ -5,7 +5,7 @@ const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const { writeCatalogSource, readCatalogSource } = require('../lib/catalog-source');
-const { recoverCatalogPublication, completeCatalogPublicationRecovery } = require('../lib/catalog-publication-transaction');
+const { beginCatalogRuntimeSnapshot, recoverCatalogPublication, completeCatalogPublicationRecovery } = require('../lib/catalog-publication-transaction');
 const sourceModule = require.resolve('../lib/catalog-source');
 const journalModule = require.resolve('../lib/catalog-publication-transaction');
 function fixture() {
@@ -59,6 +59,70 @@ test('another live publisher cannot be recovered or overwritten', () => {
     const result = spawnSync(process.execPath, ['-e', `try{require(${JSON.stringify(journalModule)}).recoverCatalogPublication(process.env.CRASH_ROOT);process.exit(1)}catch(error){process.exit(error.statusCode===503?0:2)}`], { env: { ...process.env, CRASH_ROOT: root } });
     assert.equal(result.status, 0);
     transaction.rollback();
+  } finally { fs.rmSync(root, { recursive: true, force: true }); }
+});
+
+test('runtime snapshots serialize with catalogue writes through the publication journal', () => {
+  const root = fixture();
+  try {
+    const snapshot = beginCatalogRuntimeSnapshot(root);
+    const journalPath = path.join(root, '.echo-catalog-transaction');
+    assert.equal(fs.statSync(journalPath).mode & 0o777, 0o755);
+    assert.equal(fs.statSync(path.join(journalPath, 'manifest.json')).mode & 0o777, 0o644);
+    assert.throws(
+      () => require('../lib/catalog-source').writeShowRecordsAtomically(root, [{ id: 'one', title: 'Must wait' }]),
+      { statusCode: 503 },
+    );
+    assert.equal(JSON.parse(fs.readFileSync(path.join(root, 'catalog-src/shows/one.json'), 'utf8')).title, 'Original one');
+
+    snapshot.release();
+    require('../lib/catalog-source').writeShowRecordsAtomically(root, [{ id: 'one', title: 'After snapshot' }]);
+    assert.equal(readCatalogSource(root).shows[0].title, 'After snapshot');
+    assert.equal(fs.existsSync(journalPath), false);
+  } finally { fs.rmSync(root, { recursive: true, force: true }); }
+});
+
+test('recovery retires an abandoned runtime snapshot without restoring catalogue files', () => {
+  const root = fixture();
+  const journalPath = path.join(root, '.echo-catalog-transaction');
+  const sourcePath = path.join(root, 'catalog-src/shows/one.json');
+  const before = fs.readFileSync(sourcePath);
+  try {
+    fs.mkdirSync(journalPath, { mode: 0o755 });
+    fs.writeFileSync(path.join(journalPath, 'manifest.json'), JSON.stringify({
+      schema: 1,
+      kind: 'runtime-snapshot',
+      pid: 2147483647,
+      instance: 'abandoned-runtime-snapshot',
+      phase: 'prepared',
+      files: [],
+      absentDirectories: [],
+    }));
+    assert.equal(recoverCatalogPublication(root), false);
+    assert.equal(fs.existsSync(journalPath), false);
+    assert.deepEqual(fs.readFileSync(sourcePath), before);
+  } finally { fs.rmSync(root, { recursive: true, force: true }); }
+});
+
+test('recovery rejects snapshot journals carrying catalogue rollback data', () => {
+  const root = fixture();
+  const journalPath = path.join(root, '.echo-catalog-transaction');
+  const sourcePath = path.join(root, 'catalog-src/shows/one.json');
+  const before = fs.readFileSync(sourcePath);
+  try {
+    fs.mkdirSync(journalPath, { mode: 0o755 });
+    fs.writeFileSync(path.join(journalPath, 'manifest.json'), JSON.stringify({
+      schema: 1,
+      kind: 'runtime-snapshot',
+      pid: 2147483647,
+      instance: 'invalid-runtime-snapshot',
+      phase: 'prepared',
+      files: [{ relative: 'catalog-src/shows/one.json', backup: '0.bin', existed: true, mode: 0o640 }],
+      absentDirectories: [],
+    }));
+    assert.throws(() => recoverCatalogPublication(root), /Malformed runtime snapshot journal/);
+    assert.equal(fs.existsSync(journalPath), true);
+    assert.deepEqual(fs.readFileSync(sourcePath), before);
   } finally { fs.rmSync(root, { recursive: true, force: true }); }
 });
 

@@ -65,10 +65,12 @@ Deployment and runtime ownership remain separate.
 
 When carrying mutable content into an inactive runtime, deployment uses the
 allowlisted `deploy/preserve-runtime-mutable-state.sh` helper through normal
-interactive `sudo`. It takes the importer's nonblocking `publish.lock` before
-copying, preserves source ownership, modes, and ACLs, and leaves service-owned
-publisher state private. A held lock or any copy/permission error stops runtime
-preparation before release selection changes.
+interactive `sudo`. It reserves the active runtime's `.echo-catalog-transaction`
+journal before copying, so catalogue publishers and deployment snapshots cannot
+overlap. The short-lived snapshot reservation is recognized by normal journal
+recovery and never rolls back catalogue files. Copies preserve source ownership,
+modes, and ACLs; a publication in progress or any copy/permission error stops
+runtime preparation before release selection changes.
 
 The service runs a configuration preflight before every start. Invalid production configuration prevents startup instead of silently using a development fallback.
 
