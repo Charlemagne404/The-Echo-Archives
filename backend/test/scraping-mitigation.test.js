@@ -305,20 +305,29 @@ test("historical counterfactual emits pending event-level records from a read-on
 });
 
 test("historical counterfactual requires explicit snapshot and output paths", () => {
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-counterfactual-cli-"));
   const script = path.join(projectRoot, "scripts", "historical-spike-counterfactual.js");
-  const preservedReport = path.join(siteRoot, "historical-quarantine-candidates.json");
-  const before = fs.readFileSync(preservedReport);
-  const cases = [
-    { args: [], expected: "--db is required" },
-    { args: ["--db", path.join(os.tmpdir(), "must-not-open.sqlite")], expected: "--output is required" },
-    { args: ["--db", path.join(os.tmpdir(), "must-not-open.sqlite"), "--output", preservedReport], expected: "--output already exists" },
-  ];
-  for (const scenario of cases) {
-    const result = spawnSync(process.execPath, [script, ...scenario.args], { encoding: "utf8" });
-    assert.equal(result.status, 1);
-    assert.match(result.stderr, new RegExp(scenario.expected));
+  const missingSnapshotPath = path.join(tempDir, "missing-snapshot.sqlite");
+  const existingOutputPath = path.join(tempDir, "preserved-output.json");
+  const sentinel = Buffer.from("synthetic output fixture; never overwrite\n");
+  fs.writeFileSync(existingOutputPath, sentinel);
+
+  try {
+    const cases = [
+      { args: [], expected: "--db is required" },
+      { args: ["--db", missingSnapshotPath], expected: "--output is required" },
+      { args: ["--db", missingSnapshotPath, "--output", existingOutputPath], expected: "--output already exists" },
+    ];
+    for (const scenario of cases) {
+      const result = spawnSync(process.execPath, [script, ...scenario.args], { encoding: "utf8" });
+      assert.equal(result.status, 1);
+      assert.match(result.stderr, new RegExp(scenario.expected));
+    }
+    assert.equal(fs.existsSync(missingSnapshotPath), false, "argument validation must happen before opening the snapshot");
+    assert.deepEqual(fs.readFileSync(existingOutputPath), sentinel, "an existing output must remain untouched");
+  } finally {
+    fs.rmSync(tempDir, { recursive: true, force: true });
   }
-  assert.deepEqual(fs.readFileSync(preservedReport), before);
 });
 
 test("analytics source request limits run before JSON parsing for malformed and oversized bodies", async () => {
