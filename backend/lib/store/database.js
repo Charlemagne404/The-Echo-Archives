@@ -506,11 +506,48 @@ function migrate(db) {
       last_contributed_at TEXT NOT NULL
     );
 
+    CREATE TABLE IF NOT EXISTS analytics_event_classifications (
+      event_id TEXT PRIMARY KEY,
+      traffic_class TEXT NOT NULL CHECK (traffic_class IN ('normal', 'suspected_automation', 'high_confidence_automated', 'legacy_unclassified')),
+      reason_codes_json TEXT NOT NULL DEFAULT '[]',
+      popularity_eligible INTEGER NOT NULL DEFAULT 1 CHECK (popularity_eligible IN (0, 1)),
+      policy_version TEXT NOT NULL DEFAULT '',
+      classified_at TEXT NOT NULL,
+      show_id TEXT NOT NULL DEFAULT '',
+      event_day TEXT NOT NULL DEFAULT '',
+      popularity_signal TEXT NOT NULL DEFAULT '',
+      contribution_counted INTEGER NOT NULL DEFAULT 0 CHECK (contribution_counted IN (0, 1))
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_analytics_event_classifications_class_time
+      ON analytics_event_classifications (traffic_class, classified_at);
+
+    CREATE TABLE IF NOT EXISTS analytics_event_eligibility_audit (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      event_id TEXT NOT NULL,
+      previous_eligible INTEGER NOT NULL CHECK (previous_eligible IN (0, 1)),
+      next_eligible INTEGER NOT NULL CHECK (next_eligible IN (0, 1)),
+      reason TEXT NOT NULL,
+      actor TEXT NOT NULL,
+      created_at TEXT NOT NULL
+    );
+
+    CREATE TABLE IF NOT EXISTS popularity_event_eligible_daily (
+      show_id TEXT NOT NULL,
+      event_day TEXT NOT NULL,
+      signal TEXT NOT NULL,
+      event_count INTEGER NOT NULL DEFAULT 0 CHECK (event_count >= 0),
+      PRIMARY KEY (show_id, event_day, signal)
+    );
+
     CREATE INDEX IF NOT EXISTS idx_popularity_event_daily_day
       ON popularity_event_daily (event_day, show_id);
 
     CREATE INDEX IF NOT EXISTS idx_popularity_event_raw_daily_day
       ON popularity_event_raw_daily (event_day, show_id);
+
+    CREATE INDEX IF NOT EXISTS idx_popularity_event_eligible_daily_day
+      ON popularity_event_eligible_daily (event_day, show_id);
 
     CREATE INDEX IF NOT EXISTS idx_analytics_visitors_last_seen
       ON analytics_visitors (last_seen_at);

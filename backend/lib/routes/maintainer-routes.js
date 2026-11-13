@@ -26,6 +26,7 @@ function createMaintainerRouter({
   collectionService,
   rateLimiter = null,
   analyticsStore = null,
+  analyticsAbuseGuard = null,
   popularityService = null,
 }) {
   const router = express.Router();
@@ -90,7 +91,38 @@ function createMaintainerRouter({
       if (!analyticsStore) {
         return res.status(503).json({ error: "Analytics storage is unavailable." });
       }
-      return res.json(analyticsStore.getDashboard({ range: req.query.range }));
+      const dashboard = analyticsStore.getDashboard({ range: req.query.range });
+      dashboard.trafficDiagnostics.ingestionGuard = analyticsAbuseGuard?.getSnapshot() || null;
+      return res.json(dashboard);
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/analytics/event-eligibility", requireMaintainerSession, (req, res, next) => {
+    try {
+      if (!analyticsStore) return res.status(503).json({ error: "Analytics storage is unavailable." });
+      const body = req.body;
+      const allowedKeys = new Set(["eventId", "eligible", "reason", "trafficClass"]);
+      if (!body || typeof body !== "object" || Array.isArray(body) ||
+          Object.keys(body).some((key) => !allowedKeys.has(key)) ||
+          typeof body.eventId !== "string" || typeof body.eligible !== "boolean" ||
+          typeof body.reason !== "string" || !body.reason.trim() || body.reason.length > 500 ||
+          (body.trafficClass !== undefined && typeof body.trafficClass !== "string")) {
+        return res.status(400).json({ error: "Event eligibility review payload is invalid." });
+      }
+      const review = analyticsStore.setEventEligibility({
+        eventId: body.eventId,
+        eligible: body.eligible,
+        reason: body.reason,
+        actor: "maintainer-session",
+        trafficClass: body.trafficClass || "",
+      });
+      if (!review.updated) {
+        const statusCode = review.reason === "classification_not_found" ? 404 : 409;
+        return res.status(statusCode).json({ error: `Event eligibility review was not applied: ${review.reason}.` });
+      }
+      return res.json({ review });
     } catch (error) {
       return next(error);
     }

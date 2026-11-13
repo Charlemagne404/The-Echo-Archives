@@ -328,6 +328,42 @@ function renderDiscoverySignals(container, metrics = {}) {
   `;
 }
 
+function renderTrafficQuality(container, diagnostics = {}) {
+  if (!(container instanceof HTMLElement)) return;
+  const labels = {
+    normal: "Normal",
+    suspected_automation: "Suspected automation",
+    high_confidence_automated: "High confidence automated",
+    legacy_unclassified: "Legacy, unclassified",
+  };
+  const classes = diagnostics.classifiedEvents?.byClass || {};
+  const raw = diagnostics.rawEvents || {};
+  const rows = [
+    ["Raw page views · last 24 hours", raw.pageViewsLast24Hours, "All accepted events"],
+    ...Object.entries(labels).map(([key, label]) => {
+      const item = classes[key] || {};
+      return [label, item.last24HoursPageViews, `${formatNumber(item.pageViews)} retained · ${formatNumber(item.popularityEligiblePageViews)} eligible for popularity`];
+    }),
+  ];
+  container.innerHTML = rows.map(([label, value, detail]) => `
+    <div class="analytics-breakdown-item">
+      <span>${escapeHtml(label)}</span>
+      <strong>${formatNumber(value)}</strong>
+      <small>${escapeHtml(detail)}</small>
+    </div>
+  `).join("");
+}
+
+function renderIngestionGuard(container, diagnostics = {}) {
+  if (!(container instanceof HTMLElement)) return;
+  const counts = diagnostics.ingestionGuard?.countsSinceStart || {};
+  if (!diagnostics.ingestionGuard) {
+    container.textContent = "Request-level guard is disabled or unavailable.";
+    return;
+  }
+  container.textContent = `Ingestion process window · ${formatNumber(counts.requests)} requests · ${formatNumber(counts.acceptedEvents)} accepted events · ${formatNumber(counts.rejectedRequests)} rejected requests · ${formatNumber(counts.rejectedEvents)} rejected events. Counters reset when the service restarts.`;
+}
+
 function renderDashboard(payload, elements, rangeKey) {
   elements.summaryCards.innerHTML = renderSummaryCards(payload.metrics);
   renderChart(elements.trafficChart, payload.traffic, [
@@ -354,6 +390,8 @@ function renderDashboard(payload, elements, rangeKey) {
   renderInteractionBreakdown(elements.interactionBreakdown, payload.interactionBreakdown);
   renderDiscoverySurfaces(elements.discoverySurfaces, payload.discoverySurfaces);
   renderDiscoverySignals(elements.discoverySignals, payload.metrics);
+  renderTrafficQuality(elements.trafficQuality, payload.trafficDiagnostics || {});
+  renderIngestionGuard(elements.ingestionGuard, payload.trafficDiagnostics || {});
 
   const coverage = payload.coverage || {};
   const trackingStarted = formatDate(coverage.trackingStartedAt, { dateStyle: "medium" });
@@ -399,6 +437,8 @@ export async function initializeMaintainerAnalyticsPage() {
     interactionBreakdown: document.getElementById("analyticsInteractionBreakdown"),
     discoverySurfaces: document.getElementById("analyticsDiscoverySurfaces"),
     discoverySignals: document.getElementById("analyticsDiscoverySignals"),
+    trafficQuality: document.getElementById("analyticsTrafficQuality"),
+    ingestionGuard: document.getElementById("analyticsIngestionGuard"),
     rangeMeta: document.getElementById("analyticsRangeMeta"),
     coverageMeta: document.getElementById("analyticsCoverageMeta"),
     returningVisitors: document.getElementById("analyticsReturningVisitors"),

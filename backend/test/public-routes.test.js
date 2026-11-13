@@ -241,7 +241,14 @@ test("public clean routes resolve and legacy html routes redirect", async () => 
       const response = await fetch(`${context.baseUrl}${route}`);
       assert.equal(response.status, 200, route);
       assert.match(response.headers.get("content-type") || "", /text\/html/);
-      assert.equal(response.headers.get("cache-control"), "no-cache", route);
+      const shareCacheRoute = ["/collections", "/shows/impact-winter", "/collections/best-for-long-walks", "/creators"].includes(route);
+      assert.equal(response.headers.get("cache-control"), shareCacheRoute
+        ? "public, max-age=0, stale-if-error=3600"
+        : "private, no-store", route);
+      if (shareCacheRoute) {
+        assert.match(response.headers.get("cdn-cache-control") || "", /max-age=300, stale-while-revalidate=3600/);
+        assert.equal(response.headers.get("set-cookie"), null, `${route} must not set a cookie on a shared-cache response`);
+      }
     }
 
     const redirectResponse = await fetch(`${context.baseUrl}/collections.html`, {
@@ -348,7 +355,8 @@ test("public content pages negotiate Markdown without changing HTML defaults", a
     assert.equal(browserResponse.status, 200);
     assert.match(browserResponse.headers.get("content-type") || "", /text\/html/);
     assert.equal(browserResponse.headers.get("vary"), "Accept");
-    assert.equal(browserResponse.headers.get("cache-control"), "no-cache");
+    assert.equal(browserResponse.headers.get("cache-control"), "public, max-age=0, stale-if-error=3600");
+    assert.match(browserResponse.headers.get("cdn-cache-control") || "", /max-age=300, stale-while-revalidate=3600/);
     assert.match(await browserResponse.text(), /<html\b/i);
 
     const htmlResponse = await fetch(`${context.baseUrl}${showPath}`, {
@@ -779,7 +787,8 @@ test("search index responses use cache-friendly headers for versioned and unvers
     assert.equal(referenceResponse.status, 200);
     assert.match(referenceResponse.headers.get("content-type") || "", /application\/json/);
     assert.match(referenceResponse.headers.get("x-robots-tag") || "", /noindex/);
-    assert.equal(referenceResponse.headers.get("cache-control"), "public, max-age=0, must-revalidate, stale-while-revalidate=60");
+    assert.equal(referenceResponse.headers.get("cache-control"), "public, max-age=0, stale-if-error=3600");
+    assert.match(referenceResponse.headers.get("cdn-cache-control") || "", /max-age=300, stale-while-revalidate=3600/);
     const reference = await referenceResponse.json();
     assert.equal(reference.canonical, `${context.baseUrl}/data/archive.json`);
     assert.equal(reference.resources.find((resource) => resource.id === "shows").href, `${context.baseUrl}/data/shows.json`);
@@ -789,7 +798,7 @@ test("search index responses use cache-friendly headers for versioned and unvers
     assert.equal(graphResponse.status, 200);
     assert.match(graphResponse.headers.get("content-type") || "", /application\/json/);
     assert.match(graphResponse.headers.get("x-robots-tag") || "", /noindex/);
-    assert.equal(graphResponse.headers.get("cache-control"), "public, max-age=0, must-revalidate, stale-while-revalidate=60");
+    assert.equal(graphResponse.headers.get("cache-control"), "public, max-age=0, stale-if-error=3600");
     const graph = await graphResponse.json();
     assert.equal(graph.schema, "echo-archives/entity-graph/v1");
     assert.ok(Array.isArray(graph.edges) && graph.edges.length > 0);
@@ -802,13 +811,13 @@ test("search index responses use cache-friendly headers for versioned and unvers
     assert.equal(versionedResponse.headers.get("cache-control"), "public, max-age=31536000, immutable");
 
     const falseVersionResponse = await fetch(`${context.baseUrl}/data/search-index.json?v=test-build`);
-    assert.equal(falseVersionResponse.headers.get("cache-control"), "public, max-age=0, must-revalidate, stale-while-revalidate=60");
+    assert.equal(falseVersionResponse.headers.get("cache-control"), "public, max-age=0, stale-if-error=3600");
 
     const unversionedResponse = await fetch(`${context.baseUrl}/data/search-index.json`);
     assert.equal(unversionedResponse.status, 200);
     assert.equal(
       unversionedResponse.headers.get("cache-control"),
-      "public, max-age=0, must-revalidate, stale-while-revalidate=60",
+      "public, max-age=0, stale-if-error=3600",
     );
 
     const runtimeResponse = await fetch(`${context.baseUrl}/data/runtime-evidence.json?v=${publicFileVersion("data/runtime-evidence.json")}`);
@@ -904,6 +913,12 @@ test("server exposes only intended public files and preserves legacy show redire
       "/TODO.md",
       "/data/schema.md",
       "/shared/package.json",
+      "/.env",
+      "/.git/config",
+      "/.ssh/id_rsa",
+      "/aws/credentials",
+      "/backend/package.json",
+      "/deploy/echo",
       "/%2e%2e/package.json",
       "/data/%2e%2e/site-src/page-manifest.json",
       "/shared%2f..%2fsite-src%2fpage-manifest.json",
@@ -990,9 +1005,14 @@ test("errors, contact, robots, canonical origin, and security headers have safe 
     const csp = response.headers.get("content-security-policy") || "";
     assert.match(csp, /default-src 'self'/);
     assert.doesNotMatch(csp, /script-src[^;]*'unsafe-inline'/);
-    const nonce = csp.match(/'nonce-([^']+)'/)?.[1];
-    assert.ok(nonce);
-    assert.ok(html.includes(`type="application/ld+json" nonce="${nonce}"`));
+    assert.doesNotMatch(csp, /'nonce-/);
+    assert.match(response.headers.get("cache-control") || "", /public/);
+    assert.match(response.headers.get("cdn-cache-control") || "", /max-age=300/);
+    for (const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)) {
+      if (/type="application\/(?:ld\+json|json)"/i.test(match[1])) continue;
+      assert.match(match[1], /\bsrc=/i, "public shared-cache pages use external executable scripts");
+      assert.equal(match[2].trim(), "");
+    }
     assert.equal(response.headers.get("x-frame-options"), "DENY");
     assert.equal(response.headers.get("x-content-type-options"), "nosniff");
 
@@ -1087,7 +1107,7 @@ test("malformed public traffic is bounded and negotiated variants cannot share c
     assert.match(markdown.headers.get("content-type") || "", /text\/markdown/);
     assert.match(html.headers.get("vary") || "", /Accept/i);
     assert.match(markdown.headers.get("vary") || "", /Accept/i);
-    assert.equal(html.headers.get("cache-control"), "no-cache");
+    assert.equal(html.headers.get("cache-control"), "public, max-age=0, stale-if-error=3600");
     assert.equal(markdown.headers.get("cache-control"), "no-cache");
 
     const falseAssetVersion = await fetch(`${context.baseUrl}/style.css?v=arbitrary`);
@@ -1113,6 +1133,42 @@ test("malformed public traffic is bounded and negotiated variants cannot share c
     const head = await fetch(`${context.baseUrl}/shows/impact-winter`, { method: "HEAD" });
     assert.equal(head.status, 200);
     assert.match(head.headers.get("vary") || "", /Accept/i);
+    assert.equal(head.headers.get("cache-control"), "public, max-age=0, stale-if-error=3600");
+    assert.equal(head.headers.get("set-cookie"), null);
+    assert.equal(await head.text(), "");
+    const show = await fetch(`${context.baseUrl}/shows/impact-winter`);
+    const etag = show.headers.get("etag");
+    assert.ok(etag);
+    assert.equal(show.headers.get("set-cookie"), null);
+    const unchanged = await new Promise((resolve, reject) => {
+      const request = http.request(new URL("/shows/impact-winter", context.baseUrl), { headers: { "If-None-Match": etag } }, (response) => {
+        response.resume();
+        response.on("end", () => resolve({ status: response.statusCode, headers: response.headers }));
+      });
+      request.on("error", reject);
+      request.end();
+    });
+    assert.equal(unchanged.status, 304);
+    assert.equal(unchanged.headers["cache-control"], "public, max-age=0, stale-if-error=3600");
+    assert.equal(unchanged.headers["set-cookie"], undefined);
+    for (const headers of [
+      { Cookie: "echo-maintainer-session=invalid" },
+      { Authorization: "Bearer user-specific" },
+    ]) {
+      const privateHtml = await fetch(`${context.baseUrl}/shows/impact-winter`, { headers });
+      assert.equal(privateHtml.status, 200);
+      assert.equal(privateHtml.headers.get("cache-control"), "private, no-store");
+      assert.equal(privateHtml.headers.get("cdn-cache-control"), "no-store");
+    }
+    for (const url of ["/?q=signal", "/creators?q=signal"]) {
+      const filtered = await fetch(`${context.baseUrl}${url}`);
+      assert.ok(filtered.status === 200 || filtered.status === 301, `${url}: ${filtered.status}`);
+      assert.match(filtered.headers.get("cache-control") || "", /(?:private, no-store|no-cache)/);
+    }
+    const missingShow = await fetch(`${context.baseUrl}/shows/not-in-the-catalogue`);
+    assert.equal(missingShow.status, 404);
+    assert.equal(missingShow.headers.get("cache-control"), "no-cache");
+    assert.equal(missingShow.headers.get("set-cookie"), null);
     for (const route of ["/shows/%ZZ", "/shows/%00", "/shows/%2F", "/shows/" + "x".repeat(300)]) {
       const response = await fetch(`${context.baseUrl}${route}`, { redirect: "manual" });
       assert.ok(response.status >= 400 && response.status < 500, `${route}: ${response.status}`);
@@ -1140,6 +1196,7 @@ test("a malformed catalogue refresh serves the last good snapshot and fails read
     assert.equal((await fetch(`${context.baseUrl}/shows/impact-winter`)).status, 200);
     fs.writeFileSync(showPath, "{broken-json");
     fs.appendFileSync(dataPath, "\n");
+    await new Promise((resolve) => setTimeout(resolve, 1050));
     const stalePage = await fetch(`${context.baseUrl}/shows/impact-winter`);
     assert.equal(stalePage.status, 200);
     assert.match(await stalePage.text(), /Impact Winter/);
@@ -1194,9 +1251,9 @@ test("shared proxy isolates representations, credentials, queries, expiry and pu
     assert.equal((await fetch(proxy.url + asset)).headers.get("cf-cache-status"), "HIT");
     assert.equal((await fetch(proxy.url + asset, { headers: { Cookie: "session=invalid" } })).headers.get("cf-cache-status"), "BYPASS");
     assert.notEqual((await fetch(proxy.url + "/style.css?v=false")).headers.get("cf-cache-status"), "HIT");
-    for (const accept of ["text/html", "text/markdown", "text/html"]) {
+    for (const [accept, expectedCacheStatus] of [["text/html", "MISS"], ["text/markdown", "DYNAMIC"], ["text/html", "HIT"]]) {
       const response = await fetch(proxy.url + "/shows/impact-winter", { headers: { Accept: accept } });
-      assert.equal(response.headers.get("cf-cache-status"), "DYNAMIC");
+      assert.equal(response.headers.get("cf-cache-status"), expectedCacheStatus);
       assert.match(response.headers.get("content-type"), accept === "text/markdown" ? /markdown/ : /html/);
     }
     const privateResponse = await fetch(proxy.url + "/api/maintainer/submissions", { headers: { Cookie: "echo-maintainer-session=invalid" } });
@@ -1204,12 +1261,140 @@ test("shared proxy isolates representations, credentials, queries, expiry and pu
     assert.equal(privateResponse.status, 401);
     assert.match(privateResponse.headers.get("cache-control"), /no-store/);
     proxy.advance(366 * 24 * 60 * 60 * 1000);
-    assert.equal((await fetch(proxy.url + asset)).headers.get("cf-cache-status"), "EXPIRED");
+    assert.equal((await fetch(proxy.url + asset)).headers.get("cf-cache-status"), "REVALIDATED");
     proxy.purge();
     assert.equal((await fetch(proxy.url + asset)).headers.get("cf-cache-status"), "MISS");
   } finally {
     await proxy.close();
     await stopPublicRouteServer(context);
+  }
+});
+
+
+test("shared-cache contract keeps query and Accept variants separate and handles validators, stale errors, cookies, and purge", async () => {
+  const { startCacheProxy } = require("./helpers/cache-proxy");
+  let currentValue = "v1";
+  let failStaleOrigin = false;
+  const counts = new Map();
+  const origin = http.createServer((req, res) => {
+    const url = new URL(req.url, "http://origin.test");
+    counts.set(url.pathname, (counts.get(url.pathname) || 0) + 1);
+    const cacheHeaders = { "CDN-Cache-Control": "public, max-age=1, stale-if-error=30" };
+    if (url.pathname === "/query" || url.pathname === "/other") {
+      res.writeHead(200, { ...cacheHeaders, "Content-Type": "text/plain" });
+      return res.end(`${url.pathname}:${url.searchParams.get("q") || "none"}`);
+    }
+    if (url.pathname === "/vary") {
+      const markdown = (req.headers.accept || "").toLowerCase().includes("text/markdown");
+      res.writeHead(200, { ...cacheHeaders, Vary: "Accept", "Content-Type": markdown ? "text/markdown" : "text/html" });
+      return res.end(markdown ? "# markdown" : "<h1>html</h1>");
+    }
+    if (url.pathname === "/cookie") {
+      res.writeHead(200, { ...cacheHeaders, "Set-Cookie": "session=per-response; HttpOnly", "Content-Type": "text/plain" });
+      return res.end("cookie response");
+    }
+    if (url.pathname === "/not-found") {
+      res.writeHead(404, { ...cacheHeaders, "Content-Type": "text/plain" });
+      return res.end("missing");
+    }
+    if (url.pathname === "/head") {
+      res.writeHead(200, { ...cacheHeaders, ETag: '"head-v1"', "Content-Type": "text/plain" });
+      return res.end("head body");
+    }
+    if (url.pathname === "/revalidate") {
+      res.setHeader("ETag", '"revalidate-v1"');
+      res.setHeader("CDN-Cache-Control", "public, max-age=1, stale-if-error=30");
+      if (req.headers["if-none-match"] === '"revalidate-v1"') {
+        res.writeHead(304);
+        return res.end();
+      }
+      res.writeHead(200, { "Content-Type": "text/plain" });
+      return res.end("revalidated body");
+    }
+    if (url.pathname === "/stale" && failStaleOrigin) {
+      res.writeHead(503, { "CDN-Cache-Control": "no-store", "Content-Type": "text/plain" });
+      return res.end("origin unavailable");
+    }
+    if (url.pathname === "/stale") {
+      res.writeHead(200, { ...cacheHeaders, "Content-Type": "text/plain" });
+      return res.end("stale-safe body");
+    }
+    if (url.pathname === "/update") {
+      res.writeHead(200, { ...cacheHeaders, "Content-Type": "text/plain" });
+      return res.end(currentValue);
+    }
+    res.writeHead(500, { ...cacheHeaders, "Content-Type": "text/plain" });
+    return res.end("origin error");
+  });
+  await new Promise((resolve) => origin.listen(0, "127.0.0.1", resolve));
+  const originUrl = `http://127.0.0.1:${origin.address().port}`;
+  const proxy = await startCacheProxy(originUrl);
+  try {
+    const queryA = await fetch(`${proxy.url}/query?q=a`);
+    assert.equal(queryA.headers.get("cf-cache-status"), "MISS");
+    assert.equal(await queryA.text(), "/query:a");
+    const queryAHit = await fetch(`${proxy.url}/query?q=a`);
+    assert.equal(queryAHit.headers.get("cf-cache-status"), "HIT");
+    const queryB = await fetch(`${proxy.url}/query?q=b`);
+    assert.equal(queryB.headers.get("cf-cache-status"), "MISS");
+    assert.equal(await queryB.text(), "/query:b");
+    assert.equal((await fetch(`${proxy.url}/other?q=a`)).headers.get("cf-cache-status"), "MISS");
+
+    const html = await fetch(`${proxy.url}/vary`, { headers: { Accept: "text/html" } });
+    assert.equal(html.headers.get("cf-cache-status"), "MISS");
+    assert.equal(await html.text(), "<h1>html</h1>");
+    const markdown = await fetch(`${proxy.url}/vary`, { headers: { Accept: "TEXT/MARKDOWN" } });
+    assert.equal(markdown.headers.get("cf-cache-status"), "MISS");
+    assert.equal(await markdown.text(), "# markdown");
+    assert.equal((await fetch(`${proxy.url}/vary`, { headers: { Accept: "text/html" } })).headers.get("cf-cache-status"), "HIT");
+    assert.equal((await fetch(`${proxy.url}/vary`, { headers: { Accept: "TEXT/MARKDOWN" } })).headers.get("cf-cache-status"), "HIT");
+
+    const cookieFirst = await fetch(`${proxy.url}/cookie`);
+    assert.equal(cookieFirst.headers.get("cf-cache-status"), "DYNAMIC");
+    assert.ok(cookieFirst.headers.get("set-cookie"));
+    assert.equal((await fetch(`${proxy.url}/cookie`)).headers.get("cf-cache-status"), "DYNAMIC");
+    const authenticated = await fetch(`${proxy.url}/query?q=private`, { headers: { Cookie: "session=user" } });
+    assert.equal(authenticated.headers.get("cf-cache-status"), "BYPASS");
+
+    const missingFirst = await fetch(`${proxy.url}/not-found`);
+    assert.equal(missingFirst.status, 404);
+    assert.equal(missingFirst.headers.get("cf-cache-status"), "DYNAMIC");
+    assert.equal((await fetch(`${proxy.url}/not-found`)).headers.get("cf-cache-status"), "DYNAMIC");
+
+    const head = await fetch(`${proxy.url}/head`, { method: "HEAD" });
+    assert.equal(head.status, 200);
+    assert.equal(head.headers.get("cf-cache-status"), "MISS");
+    assert.equal(await head.text(), "");
+    const headGet = await fetch(`${proxy.url}/head`);
+    assert.equal(headGet.headers.get("cf-cache-status"), "HIT");
+    assert.equal(await headGet.text(), "head body");
+
+    assert.equal((await fetch(`${proxy.url}/revalidate`)).headers.get("cf-cache-status"), "MISS");
+    proxy.advance(1001);
+    const revalidated = await fetch(`${proxy.url}/revalidate`);
+    assert.equal(revalidated.headers.get("cf-cache-status"), "REVALIDATED");
+    assert.equal(revalidated.status, 200);
+    assert.equal(await revalidated.text(), "revalidated body");
+
+    assert.equal(await (await fetch(`${proxy.url}/stale`)).text(), "stale-safe body");
+    proxy.advance(1001);
+    failStaleOrigin = true;
+    const stale = await fetch(`${proxy.url}/stale`);
+    assert.equal(stale.headers.get("cf-cache-status"), "STALE");
+    assert.equal(stale.status, 200);
+    assert.equal(await stale.text(), "stale-safe body");
+
+    assert.equal(await (await fetch(`${proxy.url}/update`)).text(), "v1");
+    currentValue = "v2";
+    assert.equal(await (await fetch(`${proxy.url}/update`)).text(), "v1", "a fresh URL remains cached until expiry or purge");
+    proxy.purge("/update");
+    const purgedUpdate = await fetch(`${proxy.url}/update`);
+    assert.equal(purgedUpdate.headers.get("cf-cache-status"), "MISS");
+    assert.equal(await purgedUpdate.text(), "v2");
+    assert.equal(counts.get("/revalidate"), 2, "the expired representation was conditionally revalidated");
+  } finally {
+    await proxy.close();
+    await new Promise((resolve) => origin.close(resolve));
   }
 });
 

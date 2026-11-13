@@ -192,7 +192,12 @@ test("maintainer list defaults to open statuses, searches payload text, and pers
 });
 
 test("maintainer session and queue routes enforce auth and allow queue updates after login", async () => {
-  const context = await startMaintainerServer();
+  const context = await startMaintainerServer({
+    envOverrides: {
+      ANALYTICS_HMAC_SECRET: "maintainer-test-analytics-hmac-secret-2026",
+      ANALYTICS_INGEST_HARDENING_ENABLED: "true",
+    },
+  });
 
   try {
     const maintainerPageRoutes = [
@@ -218,6 +223,12 @@ test("maintainer session and queue routes enforce auth and allow queue updates a
     assert.equal(unauthorizedList.status, 401);
     const unauthorizedAnalytics = await fetch(`${context.baseUrl}/api/maintainer/analytics`);
     assert.equal(unauthorizedAnalytics.status, 401);
+    const unauthorizedEligibility = await fetch(`${context.baseUrl}/api/maintainer/analytics/event-eligibility`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ eventId: "collector-event-test-1234567890", eligible: false, reason: "test" }),
+    });
+    assert.equal(unauthorizedEligibility.status, 401);
     const unauthorizedPopularity = await fetch(`${context.baseUrl}/api/maintainer/popularity`);
     assert.equal(unauthorizedPopularity.status, 401);
 
@@ -249,6 +260,7 @@ test("maintainer session and queue routes enforce auth and allow queue updates a
         "X-Echo-Analytics-Source": "direct",
       },
       body: JSON.stringify({
+        eventId: "collector-event-test-1234567890",
         eventName: "Page Viewed",
         properties: { page_kind: "show", show_id: "impact-winter" },
       }),
@@ -289,6 +301,28 @@ test("maintainer session and queue routes enforce auth and allow queue updates a
     assert.ok(Number.isFinite(popularityPayload.scoreSemantics.compositeMaximum));
     assert.ok(Number.isFinite(popularityPayload.rankingHealth.zeroMeaningfulBehaviorPercent));
     assert.ok(popularityPayload.rankingHealth.browsePositionBuckets);
+
+    const reviewedEligibility = await fetch(`${context.baseUrl}/api/maintainer/analytics/event-eligibility`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Cookie: cookie },
+      body: JSON.stringify({
+        eventId: "collector-event-test-1234567890",
+        eligible: false,
+        reason: "controlled maintainer review fixture",
+        trafficClass: "high_confidence_automated",
+      }),
+    });
+    assert.equal(reviewedEligibility.status, 200);
+    const reviewedPayload = await reviewedEligibility.json();
+    assert.equal(reviewedPayload.review.previousEligible, true);
+    assert.equal(reviewedPayload.review.eligible, false);
+
+    const diagnosticsAfterReview = await fetch(`${context.baseUrl}/api/maintainer/analytics?range=7d`, {
+      headers: { Cookie: cookie },
+    });
+    assert.equal(diagnosticsAfterReview.status, 200);
+    const reviewedDiagnostics = await diagnosticsAfterReview.json();
+    assert.equal(reviewedDiagnostics.trafficDiagnostics.classifiedEvents.byClass.high_confidence_automated.popularityEligiblePageViews, 0);
 
     const authenticatedList = await fetch(`${context.baseUrl}/api/maintainer/submissions`, {
       headers: { Cookie: cookie },

@@ -23,7 +23,8 @@ const { createCollectionStore } = require("./lib/store/collection-store");
 const { createPublishedListenerReviewStore } = require("./lib/store/published-listener-review-store");
 const { createRateLimitStore } = require("./lib/store/rate-limit-store");
 const { createSubmissionStore } = require("./lib/store/submission-store");
-const { createAnalyticsStore } = require("./lib/store/analytics-store");
+const { createAnalyticsStore, DISCOVERY_EVENT_NAMES, normalizePagePath } = require("./lib/store/analytics-store");
+const { createAnalyticsAbuseGuard } = require("./lib/analytics-abuse-guard");
 const { createDiscordNotificationDispatcher } = require("./lib/services/discord-notification-service");
 const { createPopularityService } = require("./lib/popularity");
 const { createCommunityService } = require("./lib/services/community-service");
@@ -198,15 +199,51 @@ function readReleaseMetadata(staticRoot) {
 
 function setPublicCacheHeaders(req, res, { image = false, version = "" } = {}) {
   let cacheControl;
+  let cdnCacheControl;
   if (version && req.query.v === version) {
     cacheControl = "public, max-age=31536000, immutable";
+    cdnCacheControl = cacheControl;
   } else if (image) {
-    cacheControl = "public, max-age=86400, stale-while-revalidate=604800";
+    cacheControl = "public, max-age=86400, stale-if-error=604800";
+    cdnCacheControl = "public, max-age=86400, stale-while-revalidate=604800, stale-if-error=604800";
   } else {
-    cacheControl = "public, max-age=0, must-revalidate, stale-while-revalidate=60";
+    cacheControl = "public, max-age=0, stale-if-error=3600";
+    cdnCacheControl = "public, max-age=300, stale-while-revalidate=3600, stale-if-error=86400";
   }
   res.set("Cache-Control", cacheControl);
-  res.set("CDN-Cache-Control", cacheControl);
+  res.set("CDN-Cache-Control", cdnCacheControl);
+}
+
+const PUBLIC_CACHE_CSP = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "frame-ancestors 'none'",
+  "form-action 'self'",
+  "img-src 'self' data: https:",
+  "style-src 'self' 'unsafe-inline'",
+  "script-src 'self' https://challenges.cloudflare.com",
+  "connect-src 'self' https://challenges.cloudflare.com",
+  "frame-src https://challenges.cloudflare.com",
+  "worker-src 'self'",
+  "manifest-src 'self'",
+].join("; ");
+
+function setPublicHtmlCacheHeaders(req, res, { eligible = true, negotiatedMarkdown = false } = {}) {
+  const hasCredentials = Boolean(req.get("cookie") || req.get("authorization"));
+  const cacheable = eligible && !negotiatedMarkdown && !hasCredentials &&
+    (req.method === "GET" || req.method === "HEAD") && Object.keys(req.query || {}).length === 0;
+  if (!cacheable) {
+    res.set({ "Cache-Control": "private, no-store", "CDN-Cache-Control": "no-store" });
+    return false;
+  }
+  res.vary("Accept");
+  res.set({
+    "Cache-Control": "public, max-age=0, stale-if-error=3600",
+    "CDN-Cache-Control": "public, max-age=300, stale-while-revalidate=3600, stale-if-error=86400",
+    "Content-Security-Policy": PUBLIC_CACHE_CSP,
+  });
+  return true;
 }
 
 function applySecurityHeaders(req, res, next) {
@@ -320,6 +357,7 @@ async function startServer() {
   };
   let publicStateRefreshPromise = null;
   let publicStateRetryAt = 0;
+  let lastPublicDataCheckAt = 0;
 
   async function reloadState() {
     const startingRevision = getPublicDataRevision(config.STATIC_ROOT);
@@ -374,6 +412,9 @@ async function startServer() {
   }
 
   async function refreshStateIfPublicDataChanged() {
+    const now = Date.now();
+    if (now - lastPublicDataCheckAt < 1000) return;
+    lastPublicDataCheckAt = now;
     const revision = getPublicDataRevision(config.STATIC_ROOT);
     if (revision === state.publicDataRevision) {
       state.publicDataHealthy = true;
@@ -402,7 +443,17 @@ async function startServer() {
     validateClientEvent: validateDiscoveryProps,
     retentionDays: config.ANALYTICS_RETENTION_DAYS,
     collections: state.collections,
+    popularityEligibilityEnabled: config.POPULARITY_EVENT_ELIGIBILITY_ENABLED,
   });
+  const analyticsAbuseGuard = analyticsStore.enabled
+    ? createAnalyticsAbuseGuard({
+        secret: config.ANALYTICS_HMAC_SECRET,
+        sourceRequestsPerMinute: config.ANALYTICS_SOURCE_REQUESTS_PER_MINUTE,
+        sourceEventsPerMinute: config.ANALYTICS_SOURCE_EVENTS_PER_MINUTE,
+        globalEventsPerMinute: config.ANALYTICS_GLOBAL_EVENTS_PER_MINUTE,
+        maxTrackedSources: config.ANALYTICS_MAX_TRACKED_SOURCES,
+      })
+    : null;
   const discordNotificationDispatcher = createDiscordNotificationDispatcher({
     db: database,
     webhookUrl: config.ECHO_DISCORD_WEBHOOK_URL,
@@ -721,6 +772,18 @@ async function startServer() {
     }
     next();
   });
+  app.use("/api/analytics", (req, res, next) => {
+    if (!config.ANALYTICS_INGEST_HARDENING_ENABLED || !analyticsAbuseGuard || req.method !== "POST" || maintainerAuth.hasSession(req)) {
+      return next();
+    }
+    const requestLimit = analyticsAbuseGuard.beginRequest(req.ip || "unknown");
+    if (!requestLimit.allowed) {
+      res.set({ "Retry-After": String(requestLimit.retryAfterSeconds), "Cache-Control": "no-store" });
+      return res.status(429).json({ error: "Analytics request limit reached." });
+    }
+    req.analyticsGuardRequestLimitChecked = true;
+    return next();
+  });
   app.use(express.json({ limit: "24kb" }));
   app.use("/api", (_req, res, next) => {
     res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
@@ -740,9 +803,88 @@ async function startServer() {
 
     const userAgent = req.get("user-agent") || "";
     const internal = maintainerAuth.hasSession(req);
-    if (analyticsStore.requestShouldBeIgnored({ userAgent, internal })) {
+    const requestContext = getAnalyticsRequestContext(req);
+    if (internal) {
       return res.status(204).end();
     }
+
+    if (config.ANALYTICS_INGEST_HARDENING_ENABLED && analyticsAbuseGuard) {
+      if (!req.analyticsGuardRequestLimitChecked) {
+        const requestLimit = analyticsAbuseGuard.beginRequest(req.ip || "unknown");
+        if (!requestLimit.allowed) {
+          res.set({ "Retry-After": String(requestLimit.retryAfterSeconds), "Cache-Control": "no-store" });
+          return res.status(429).json({ error: "Analytics request limit reached." });
+        }
+      }
+      const keys = new Set(["eventId", "eventName", "pagePath", "properties"]);
+      const normalizedEvents = events.map((event) => {
+        if (!event || typeof event !== "object" || Array.isArray(event)) return null;
+        if (Object.keys(event).some((key) => !keys.has(key))) return null;
+        if (typeof event.eventId !== "string" || !/^[A-Za-z0-9_-]{16,128}$/.test(event.eventId)) return null;
+        if (typeof event.eventName !== "string" || !DISCOVERY_EVENT_NAMES.has(event.eventName)) return null;
+        const pathCandidate = typeof event.pagePath === "string" ? event.pagePath : requestContext.pagePath;
+        const pagePath = normalizePagePath(pathCandidate);
+        if (!pagePath || pagePath.length > 240) return null;
+        if (!event.properties || typeof event.properties !== "object" || Array.isArray(event.properties)) return null;
+        if (Object.getPrototypeOf(event.properties) !== Object.prototype) return null;
+        const properties = validateDiscoveryProps(event.eventName, event.properties);
+        if (!properties || typeof properties !== "object" || Array.isArray(properties)) return null;
+        return { eventId: event.eventId, eventName: event.eventName, pagePath, properties };
+      });
+      if (!normalizedEvents.length || normalizedEvents.some((event) => !event)) {
+        analyticsAbuseGuard.noteInvalidRequest(events.length);
+        return res.status(400).json({ error: "Analytics event payload is invalid." });
+      }
+      const eventLimit = analyticsAbuseGuard.admitBatch(req.ip || "unknown", normalizedEvents.length);
+      if (!eventLimit.allowed) {
+        res.set({ "Retry-After": String(eventLimit.retryAfterSeconds), "Cache-Control": "no-store" });
+        return res.status(429).json({ error: "Analytics ingestion capacity is temporarily full." });
+      }
+
+      const decision = analyticsAbuseGuard.observeBatch({
+        sourceAddress: req.ip || "unknown",
+        events: normalizedEvents,
+        visitorId: requestContext.visitorId,
+        sessionId: requestContext.sessionId,
+        userAgent,
+      });
+      const receivedAt = new Date();
+      try {
+        const classifiedEvents = normalizedEvents.map((event, index) => {
+          const classification = decision.classifications[index];
+          return {
+            ...requestContext,
+            eventId: event.eventId,
+            eventName: event.eventName,
+            pagePath: event.pagePath,
+            properties: event.properties,
+            occurredAt: receivedAt,
+            trafficClass: classification.trafficClass,
+            reasonCodes: classification.reasonCodes,
+            popularityEligible: classification.eligible,
+            policyVersion: analyticsAbuseGuard.policyVersion,
+            internal,
+          };
+        });
+        analyticsStore.recordClassifiedClientEvents(classifiedEvents);
+        analyticsStore.promoteEventsToHighConfidence(
+          decision.promoteEventIds,
+          ["rolling_minute_broad_catalogue_traversal", "high_one_page_session_ratio"],
+          analyticsAbuseGuard.policyVersion,
+        );
+      } catch (error) {
+        console.error(JSON.stringify({
+          level: "warn",
+          event: "analytics_event_failed",
+          requestId: req.requestId,
+          error: error.message || String(error),
+        }));
+        return res.status(503).json({ error: "Analytics ingestion is temporarily unavailable." });
+      }
+      return res.status(204).end();
+    }
+
+    if (analyticsStore.requestShouldBeIgnored({ userAgent, internal })) return res.status(204).end();
 
     try {
       rateLimitService.check("analytics", req.ip || "");
@@ -770,13 +912,35 @@ async function startServer() {
     return res.status(204).end();
   }
 
+  function rejectAnalyticsPayload(req, res, statusCode, message, eventCount = 0) {
+    if (config.ANALYTICS_INGEST_HARDENING_ENABLED && analyticsAbuseGuard) {
+      if (!req.analyticsGuardRequestLimitChecked) {
+        const requestLimit = analyticsAbuseGuard.beginRequest(req.ip || "unknown");
+        if (!requestLimit.allowed) {
+          res.set({ "Retry-After": String(requestLimit.retryAfterSeconds), "Cache-Control": "no-store" });
+          return res.status(429).json({ error: "Analytics request limit reached." });
+        }
+      }
+      analyticsAbuseGuard.noteInvalidRequest(eventCount);
+    }
+    return res.status(statusCode).json({ error: message });
+  }
+
   app.post("/api/analytics/events", (req, res) => {
-    return receiveAnalyticsEvents(req, res, [req.body || {}]);
+    const event = req.body;
+    if (config.ANALYTICS_INGEST_HARDENING_ENABLED && analyticsAbuseGuard) {
+      return receiveAnalyticsEvents(req, res, [event]);
+    }
+    if (!event || typeof event !== "object" || Array.isArray(event)) return res.status(400).end();
+    return receiveAnalyticsEvents(req, res, [event]);
   });
 
   app.post("/api/analytics/events/batch", (req, res) => {
     const events = req.body?.events;
-    if (!Array.isArray(events) || events.length > 100) return res.status(413).end();
+    if (!req.body || typeof req.body !== "object" || Array.isArray(req.body) || Object.keys(req.body).some((key) => key !== "events")) {
+      return rejectAnalyticsPayload(req, res, 400, "Analytics batch payload is invalid.");
+    }
+    if (!Array.isArray(events) || events.length > 100) return rejectAnalyticsPayload(req, res, 413, "Analytics batch exceeds the supported event limit.", Array.isArray(events) ? events.length : 0);
     return receiveAnalyticsEvents(req, res, events);
   });
 
@@ -920,6 +1084,7 @@ async function startServer() {
       collectionService,
       rateLimiter: rateLimitService,
       analyticsStore,
+      analyticsAbuseGuard,
       popularityService,
     }),
   );
@@ -1051,8 +1216,11 @@ async function startServer() {
         res.set("X-Robots-Tag", "noindex, follow, noarchive");
         rendered = injectNoIndex(rendered, { follow: true });
       }
-      res.set("Cache-Control", "no-cache");
-      return res.type("html").send(applyRuntimeSiteConfig(rendered, req.cspNonce));
+      const shareCached = setPublicHtmlCacheHeaders(req, res, {
+        eligible: entity ? isIndexableEntity(entity, state.publicCatalog) : !query && !entityType && !sort,
+        negotiatedMarkdown: prefersMarkdown(req.get("accept")),
+      });
+      return res.type("html").send(applyRuntimeSiteConfig(rendered, shareCached ? "" : req.cspNonce));
     };
     app.get("/creators", (req, res) => {
       if (req.path !== "/creators") {
@@ -1180,8 +1348,11 @@ async function startServer() {
         res.set("X-Robots-Tag", "noindex, follow, noarchive");
       }
 
-      res.set("Cache-Control", "no-cache");
-      return res.type("html").send(applyRuntimeSiteConfig(rendered, req.cspNonce));
+      const shareCached = setPublicHtmlCacheHeaders(req, res, {
+        eligible: isIndexableCollection(collection, collectionShows),
+        negotiatedMarkdown: prefersMarkdown(req.get("accept")),
+      });
+      return res.type("html").send(applyRuntimeSiteConfig(rendered, shareCached ? "" : req.cspNonce));
     };
 
     app.get("/collections/:collectionId", (req, res) => {
@@ -1286,8 +1457,8 @@ async function startServer() {
       }));
       rendered = injectJsonBootstrap(rendered, "showBootstrap", serializeRuntimeShow(show));
 
-      res.set("Cache-Control", "no-cache");
-      return res.type("html").send(applyRuntimeSiteConfig(rendered, req.cspNonce));
+      const shareCached = setPublicHtmlCacheHeaders(req, res, { negotiatedMarkdown: prefersMarkdown(req.get("accept")) });
+      return res.type("html").send(applyRuntimeSiteConfig(rendered, shareCached ? "" : req.cspNonce));
     };
 
     app.get("/shows/:showId", (req, res) => {
@@ -1321,8 +1492,12 @@ async function startServer() {
         if (supportsMarkdown) {
           markNegotiatedResponse(res);
         }
-        res.set("Cache-Control", "no-cache");
         const manifestEntry = publicPageManifestByFile.get(fileName);
+        const cacheableRoute = ["/", "/collections"].includes(routePath) && !manifestEntry?.noIndex;
+        const shareCached = setPublicHtmlCacheHeaders(req, res, {
+          eligible: cacheableRoute,
+          negotiatedMarkdown: supportsMarkdown && prefersMarkdown(req.get("accept")),
+        });
         if (!manifestEntry) {
           return res.sendFile(fileName, { root: config.STATIC_ROOT });
         }
@@ -1383,7 +1558,7 @@ async function startServer() {
           rendered = injectNoIndex(rendered, { follow: true });
           res.set("X-Robots-Tag", "noindex, follow, noarchive");
         }
-        return res.type("html").send(applyRuntimeSiteConfig(rendered, req.cspNonce, {
+        return res.type("html").send(applyRuntimeSiteConfig(rendered, shareCached ? "" : req.cspNonce, {
           publicAnalyticsEnabled: config.PUBLIC_ANALYTICS_ENABLED && manifestEntry.includeAnalytics !== false,
         }));
       });
@@ -1494,6 +1669,21 @@ async function startServer() {
         ? error.status
         : 500;
     const statusCode = candidateStatus >= 400 && candidateStatus <= 599 ? candidateStatus : 500;
+    const isAnalyticsEndpoint = ["/api/analytics/events", "/api/analytics/events/batch"].includes(req.path);
+    if (isAnalyticsEndpoint) {
+      res.set({ "Cache-Control": "no-store", "CDN-Cache-Control": "no-store" });
+      if (config.ANALYTICS_INGEST_HARDENING_ENABLED && analyticsAbuseGuard && !maintainerAuth.hasSession(req)) {
+        if (!req.analyticsGuardRequestLimitChecked) {
+          const requestLimit = analyticsAbuseGuard.beginRequest(req.ip || "unknown");
+          req.analyticsGuardRequestLimitChecked = true;
+          if (!requestLimit.allowed) {
+            res.set("Retry-After", String(requestLimit.retryAfterSeconds));
+            return res.status(429).json({ error: "Analytics request limit reached." });
+          }
+        }
+        analyticsAbuseGuard.noteInvalidRequest(1);
+      }
+    }
     if (databaseBusy) {
       state.databaseBusyUntil = Date.now() + 1000;
       res.set({ "Retry-After": "1", "Cache-Control": "no-store" });

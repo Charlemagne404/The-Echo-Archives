@@ -58,6 +58,12 @@ const config = {
   ANALYTICS_RETENTION_DAYS: parseInteger(process.env.ANALYTICS_RETENTION_DAYS, 400),
   ANALYTICS_RATE_LIMIT_WINDOW_MS: parseInteger(process.env.ANALYTICS_RATE_LIMIT_WINDOW_MS, 60000),
   ANALYTICS_RATE_LIMIT_MAX: parseInteger(process.env.ANALYTICS_RATE_LIMIT_MAX, 180),
+  ANALYTICS_INGEST_HARDENING_ENABLED: parseBoolean(process.env.ANALYTICS_INGEST_HARDENING_ENABLED, false),
+  ANALYTICS_SOURCE_REQUESTS_PER_MINUTE: parseInteger(process.env.ANALYTICS_SOURCE_REQUESTS_PER_MINUTE, 600),
+  ANALYTICS_SOURCE_EVENTS_PER_MINUTE: parseInteger(process.env.ANALYTICS_SOURCE_EVENTS_PER_MINUTE, 1200),
+  ANALYTICS_GLOBAL_EVENTS_PER_MINUTE: parseInteger(process.env.ANALYTICS_GLOBAL_EVENTS_PER_MINUTE, 3000),
+  ANALYTICS_MAX_TRACKED_SOURCES: parseInteger(process.env.ANALYTICS_MAX_TRACKED_SOURCES, 2000),
+  POPULARITY_EVENT_ELIGIBILITY_ENABLED: parseBoolean(process.env.POPULARITY_EVENT_ELIGIBILITY_ENABLED, false),
   CHAT_RATE_LIMIT_WINDOW_MS: parseInteger(process.env.CHAT_RATE_LIMIT_WINDOW_MS, 600000),
   CHAT_RATE_LIMIT_MAX: parseInteger(process.env.CHAT_RATE_LIMIT_MAX, 40),
   CHAT_MESSAGE_MAX_LENGTH: parseInteger(process.env.CHAT_MESSAGE_MAX_LENGTH, 2000),
@@ -135,6 +141,10 @@ const POSITIVE_INTEGER_KEYS = [
   "ANALYTICS_RETENTION_DAYS",
   "ANALYTICS_RATE_LIMIT_WINDOW_MS",
   "ANALYTICS_RATE_LIMIT_MAX",
+  "ANALYTICS_SOURCE_REQUESTS_PER_MINUTE",
+  "ANALYTICS_SOURCE_EVENTS_PER_MINUTE",
+  "ANALYTICS_GLOBAL_EVENTS_PER_MINUTE",
+  "ANALYTICS_MAX_TRACKED_SOURCES",
   "CHAT_RATE_LIMIT_WINDOW_MS",
   "CHAT_RATE_LIMIT_MAX",
   "CHAT_MESSAGE_MAX_LENGTH",
@@ -342,6 +352,10 @@ function validateConfig(candidate = config) {
     if (analyticsSecret.length < 32 || /^(?:change-?me|password|secret|archive-test|replace)/i.test(analyticsSecret)) {
       errors.push("ANALYTICS_HMAC_SECRET must be at least 32 characters and not a placeholder in production.");
     }
+  }
+
+  if (candidate.ANALYTICS_INGEST_HARDENING_ENABLED && String(candidate.ANALYTICS_HMAC_SECRET || "").length < 32) {
+    errors.push("ANALYTICS_HMAC_SECRET must be at least 32 characters when analytics ingestion hardening is enabled.");
   }
 
   if (errors.length > 0) {

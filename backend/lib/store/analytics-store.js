@@ -51,6 +51,7 @@ const DAY_SECONDS = 24 * 60 * 60;
 const MONTH_SECONDS = 30 * DAY_SECONDS;
 const MAX_POPULARITY_COOLDOWN_SECONDS = MONTH_SECONDS;
 const POPULARITY_BACKFILL_BATCH_SIZE = 500;
+const LEGACY_CLASSIFICATION_BACKFILL_MAX_EVENTS = 200_000;
 
 function toDate(value, fallback = null) {
   const date = value instanceof Date ? new Date(value.getTime()) : new Date(value || "");
@@ -271,7 +272,7 @@ function createChange(value, previousValue, available) {
   };
 }
 
-function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionDays = 400, collections = [] }) {
+function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionDays = 400, collections = [], popularityEligibilityEnabled = false }) {
   const normalizedSecret = String(secret || "").trim();
   const enabled = normalizedSecret.length >= 32;
   const safeRetentionDays = Number.isInteger(Number(retentionDays)) && Number(retentionDays) > 0
@@ -314,6 +315,59 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
     VALUES (@showId, @eventDay, @signal, 1)
     ON CONFLICT(show_id, event_day, signal) DO UPDATE SET
       event_count = popularity_event_raw_daily.event_count + 1
+  `);
+  const upsertPopularityEligibleDaily = db.prepare(`
+    INSERT INTO popularity_event_eligible_daily (show_id, event_day, signal, event_count)
+    VALUES (@showId, @eventDay, @signal, 1)
+    ON CONFLICT(show_id, event_day, signal) DO UPDATE SET
+      event_count = popularity_event_eligible_daily.event_count + 1
+  `);
+  const decrementPopularityEligibleDaily = db.prepare(`
+    UPDATE popularity_event_eligible_daily
+    SET event_count = event_count - 1
+    WHERE show_id = @showId AND event_day = @eventDay AND signal = @signal AND event_count > 0
+  `);
+  const deleteEmptyPopularityEligibleDaily = db.prepare(`
+    DELETE FROM popularity_event_eligible_daily
+    WHERE show_id = @showId AND event_day = @eventDay AND signal = @signal AND event_count <= 0
+  `);
+  const insertEventClassification = db.prepare(`
+    INSERT OR IGNORE INTO analytics_event_classifications (
+      event_id, traffic_class, reason_codes_json, popularity_eligible, policy_version,
+      classified_at, show_id, event_day, popularity_signal, contribution_counted
+    ) VALUES (
+      @eventId, @trafficClass, @reasonCodesJson, @popularityEligible, @policyVersion,
+      @classifiedAt, @showId, @eventDay, @popularitySignal, @contributionCounted
+    )
+  `);
+  const getEventClassification = db.prepare(`
+    SELECT * FROM analytics_event_classifications WHERE event_id = ?
+  `);
+  const legacyClassificationEvents = db.prepare(`
+    SELECT event_id, event_name, occurred_at, visitor_key, session_key, show_id, properties_json
+    FROM analytics_events
+    ORDER BY occurred_at ASC, id ASC
+  `);
+  const legacyClassificationEventCount = db.prepare("SELECT COUNT(*) AS count FROM analytics_events");
+  const unclassifiedLegacyEventCount = db.prepare(`
+    SELECT COUNT(*) AS count
+    FROM analytics_events AS e
+    LEFT JOIN analytics_event_classifications AS c ON c.event_id = e.event_id
+    WHERE c.event_id IS NULL
+  `);
+  const updateEventClassification = db.prepare(`
+    UPDATE analytics_event_classifications
+    SET traffic_class = @trafficClass,
+        reason_codes_json = @reasonCodesJson,
+        popularity_eligible = @popularityEligible,
+        policy_version = @policyVersion,
+        classified_at = @classifiedAt
+    WHERE event_id = @eventId
+  `);
+  const insertEligibilityAudit = db.prepare(`
+    INSERT INTO analytics_event_eligibility_audit (
+      event_id, previous_eligible, next_eligible, reason, actor, created_at
+    ) VALUES (@eventId, @previousEligible, @nextEligible, @reason, @actor, @createdAt)
   `);
   const applyPopularityLimit = db.prepare(`
     INSERT INTO popularity_contribution_limits (limit_key, last_contributed_at)
@@ -392,6 +446,27 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
       identityKey: payload.popularityIdentityKey,
       contribution: payload.popularityContribution,
     });
+    if (result.changes > 0) {
+      insertEventClassification.run({
+        eventId: payload.eventId,
+        trafficClass: payload.trafficClass,
+        reasonCodesJson: JSON.stringify(payload.reasonCodes),
+        popularityEligible: payload.popularityEligible ? 1 : 0,
+        policyVersion: payload.policyVersion,
+        classifiedAt: payload.occurredAt,
+        showId: payload.showId,
+        eventDay: payload.eventDay,
+        popularitySignal: payload.popularityContribution?.signal || "",
+        contributionCounted: popularityCounted ? 1 : 0,
+      });
+      if (popularityCounted && payload.popularityEligible && payload.popularityContribution?.signal) {
+        upsertPopularityEligibleDaily.run({
+          showId: payload.showId,
+          eventDay: payload.eventDay,
+          signal: payload.popularityContribution.signal,
+        });
+      }
+    }
     return { recorded: result.changes > 0, popularityCounted };
   });
 
@@ -474,22 +549,36 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
   });
   backfillPopularityRollups();
 
+  const eligibilitySeedVersion = getMeta.get("popularity_eligibility_seed_version")?.value || "0";
+  if (eligibilitySeedVersion !== "1") {
+    db.transaction(() => {
+      db.exec(`
+        INSERT OR IGNORE INTO popularity_event_eligible_daily (show_id, event_day, signal, event_count)
+        SELECT show_id, event_day, signal, event_count FROM popularity_event_daily
+      `);
+      setMeta.run("popularity_eligibility_seed_version", "1");
+    })();
+  }
+
+  const popularityDailyTable = popularityEligibilityEnabled
+    ? "popularity_event_eligible_daily"
+    : "popularity_event_daily";
   const popularitySignalQueries = {
     lifetime: db.prepare(`
       SELECT show_id, signal, SUM(event_count) AS event_count
-      FROM popularity_event_daily
+      FROM ${popularityDailyTable}
       WHERE event_day <= @endDate
       GROUP BY show_id, signal
     `),
     days90: db.prepare(`
       SELECT show_id, signal, SUM(event_count) AS event_count
-      FROM popularity_event_daily
+      FROM ${popularityDailyTable}
       WHERE event_day BETWEEN @startDate AND @endDate
       GROUP BY show_id, signal
     `),
     days28: db.prepare(`
       SELECT show_id, signal, SUM(event_count) AS event_count
-      FROM popularity_event_daily
+      FROM ${popularityDailyTable}
       WHERE event_day BETWEEN @startDate AND @endDate
       GROUP BY show_id, signal
     `),
@@ -586,6 +675,10 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
     source,
     properties,
     isServerEvent,
+    trafficClass = "normal",
+    reasonCodes = [],
+    popularityEligible = true,
+    policyVersion = "",
   }) {
     if (!enabled) return { recorded: false, reason: "disabled" };
 
@@ -617,6 +710,10 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
       rawPopularitySignal: getPopularitySignal(eventName, properties),
       popularityContribution,
       popularityIdentityKey: context.visitorKey || context.sessionKey || "anonymous",
+      trafficClass,
+      reasonCodes: Array.isArray(reasonCodes) ? reasonCodes.slice(0, 12) : [],
+      popularityEligible: Boolean(popularityEligible),
+      policyVersion: String(policyVersion || "").slice(0, 80),
     });
     return {
       recorded: result.recorded,
@@ -663,6 +760,270 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
       properties: safePropertiesValue,
       isServerEvent: false,
     });
+  }
+
+  function recordClassifiedClientEvent({
+    eventName,
+    eventId,
+    occurredAt = new Date(),
+    visitorId,
+    sessionId,
+    pagePath,
+    source,
+    properties,
+    trafficClass = "normal",
+    reasonCodes = [],
+    popularityEligible = true,
+    policyVersion = "",
+    internal = false,
+  } = {}) {
+    if (!enabled) return { recorded: false, reason: "disabled" };
+    if (internal) return { recorded: false, reason: "internal" };
+    if (!DISCOVERY_EVENT_NAMES.has(eventName)) return { recorded: false, reason: "unknown_event" };
+    if (!TOKEN_PATTERN.test(String(eventId || ""))) return { recorded: false, reason: "invalid_event_id" };
+    if (!["normal", "suspected_automation", "high_confidence_automated"].includes(trafficClass)) {
+      return { recorded: false, reason: "invalid_traffic_class" };
+    }
+    const safePropertiesValue = safeProperties(eventName, properties, validateClientEvent);
+    if (!safePropertiesValue) return { recorded: false, reason: "invalid_properties" };
+    const safePath = normalizePagePath(pagePath);
+    if (eventName === PAGE_VIEW_EVENT && !safePath) return { recorded: false, reason: "invalid_path" };
+    return record({
+      eventName,
+      eventId,
+      occurredAt,
+      visitorId,
+      sessionId,
+      pagePath: safePath,
+      source,
+      properties: safePropertiesValue,
+      isServerEvent: false,
+      trafficClass,
+      reasonCodes,
+      popularityEligible: Boolean(popularityEligible),
+      policyVersion,
+    });
+  }
+
+  function recordClassifiedClientEvents(events = []) {
+    if (!enabled) return { recorded: 0, reason: "disabled" };
+    if (!Array.isArray(events) || events.length < 1 || events.length > 100) {
+      return { recorded: 0, reason: "invalid_batch_size" };
+    }
+    const recordBatch = db.transaction(() => events.map((event) => recordClassifiedClientEvent(event)));
+    const results = recordBatch();
+    return {
+      recorded: results.filter((result) => result.recorded).length,
+      duplicates: results.filter((result) => result.reason === "duplicate").length,
+      rejected: results.filter((result) => !result.recorded && result.reason !== "duplicate").length,
+      results,
+    };
+  }
+
+  function promoteEventsToHighConfidence(eventIds, reasonCodes = [], policyVersion = "") {
+    const uniqueIds = [...new Set((Array.isArray(eventIds) ? eventIds : [])
+      .filter((eventId) => typeof eventId === "string" && TOKEN_PATTERN.test(eventId)))].slice(0, 6000);
+    if (!uniqueIds.length) return { updated: 0 };
+    const promote = db.transaction(() => {
+      let updated = 0;
+      for (const eventId of uniqueIds) {
+        const row = getEventClassification.get(eventId);
+        if (!row || row.traffic_class === "high_confidence_automated") continue;
+        if (row.popularity_eligible && row.contribution_counted && row.show_id && row.popularity_signal) {
+          decrementPopularityEligibleDaily.run({ showId: row.show_id, eventDay: row.event_day, signal: row.popularity_signal });
+          deleteEmptyPopularityEligibleDaily.run({ showId: row.show_id, eventDay: row.event_day, signal: row.popularity_signal });
+        }
+        updateEventClassification.run({
+          eventId,
+          trafficClass: "high_confidence_automated",
+          reasonCodesJson: JSON.stringify(reasonCodes.slice(0, 12)),
+          popularityEligible: 0,
+          policyVersion: String(policyVersion || "").slice(0, 80),
+          classifiedAt: new Date().toISOString(),
+        });
+        insertEligibilityAudit.run({
+          eventId,
+          previousEligible: Number(row.popularity_eligible),
+          nextEligible: 0,
+          reason: JSON.stringify(reasonCodes.slice(0, 12)).slice(0, 500),
+          actor: `classifier:${String(policyVersion || "unknown").slice(0, 80)}`,
+          createdAt: new Date().toISOString(),
+        });
+        updated += 1;
+      }
+      return updated;
+    });
+    return { updated: promote() };
+  }
+
+  function setEventEligibility({ eventId, eligible, reason, actor, trafficClass = "" } = {}) {
+    const safeEventIdValue = String(eventId || "").trim();
+    const safeReason = String(reason || "").trim().slice(0, 500);
+    const safeActor = String(actor || "").trim().slice(0, 120);
+    const safeTrafficClass = String(trafficClass || "").trim();
+    if (!TOKEN_PATTERN.test(safeEventIdValue) || typeof eligible !== "boolean" || !safeReason || !safeActor ||
+        (safeTrafficClass && !["normal", "suspected_automation", "high_confidence_automated"].includes(safeTrafficClass)) ||
+        (!eligible && safeTrafficClass && safeTrafficClass !== "high_confidence_automated")) {
+      return { updated: false, reason: "invalid_review" };
+    }
+    const update = db.transaction(() => {
+      const row = getEventClassification.get(safeEventIdValue);
+      if (!row) return { updated: false, reason: "classification_not_found" };
+      const nextEligible = eligible ? 1 : 0;
+      if (Number(row.popularity_eligible) === nextEligible) return { updated: false, reason: "unchanged" };
+      if (row.contribution_counted && row.show_id && row.popularity_signal) {
+        const params = { showId: row.show_id, eventDay: row.event_day, signal: row.popularity_signal };
+        if (nextEligible) upsertPopularityEligibleDaily.run(params);
+        else {
+          decrementPopularityEligibleDaily.run(params);
+          deleteEmptyPopularityEligibleDaily.run(params);
+        }
+      }
+      const nextTrafficClass = safeTrafficClass || row.traffic_class;
+      const nextReasons = [...new Set([
+        ...JSON.parse(row.reason_codes_json || "[]"),
+        "manual_eligibility_review",
+        ...(safeTrafficClass ? [`manual_traffic_class_${safeTrafficClass}`] : []),
+      ])];
+      updateEventClassification.run({
+        eventId: safeEventIdValue,
+        trafficClass: nextTrafficClass,
+        reasonCodesJson: JSON.stringify(nextReasons.slice(0, 12)),
+        popularityEligible: nextEligible,
+        policyVersion: row.policy_version,
+        classifiedAt: new Date().toISOString(),
+      });
+      insertEligibilityAudit.run({
+        eventId: safeEventIdValue,
+        previousEligible: Number(row.popularity_eligible),
+        nextEligible,
+        reason: safeReason,
+        actor: safeActor,
+        createdAt: new Date().toISOString(),
+      });
+      return { updated: true, previousEligible: Boolean(row.popularity_eligible), eligible };
+    });
+    return update();
+  }
+
+  function backfillLegacyEventClassifications({ policyVersion = "legacy-ledger-replay-v1", apply = false } = {}) {
+    if (!enabled) return { updated: false, reason: "analytics_secret_unavailable" };
+    const safePolicyVersion = String(policyVersion || "").trim().slice(0, 80);
+    if (!safePolicyVersion) return { updated: false, reason: "invalid_policy_version" };
+    const eventCount = Number(legacyClassificationEventCount.get()?.count || 0);
+    if (eventCount > LEGACY_CLASSIFICATION_BACKFILL_MAX_EVENTS) {
+      return { updated: false, reason: "legacy_backfill_event_limit", eventCount, maximum: LEGACY_CLASSIFICATION_BACKFILL_MAX_EVENTS };
+    }
+    const eventRows = legacyClassificationEvents.all();
+
+    const replay = () => {
+      const lastContributedAt = new Map();
+      const expected = new Map();
+      const cooldownIsReady = db.prepare(`
+        SELECT CASE WHEN julianday(?) - julianday(?) >= ? / 86400.0 THEN 1 ELSE 0 END AS ready
+      `);
+      let countedContributions = 0;
+      for (const row of eventRows) {
+        const eventDay = String(row.occurred_at || "").slice(0, 10);
+        const showId = normalizeControlledId(row.show_id);
+        if (!showId || !/^\d{4}-\d{2}-\d{2}$/.test(eventDay)) continue;
+        let properties = {};
+        try {
+          const parsed = JSON.parse(String(row.properties_json || "{}"));
+          if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) properties = parsed;
+        } catch (_error) {
+          // Malformed retained rows remain inspectable as raw data and have no reconstructed signal.
+        }
+        const contribution = getPopularityContribution(row.event_name, properties);
+        if (!contribution?.signal || !contribution.limitGroup) continue;
+        const identityKey = row.visitor_key || row.session_key || "anonymous";
+        const limitKey = createPopularityLimitKey(normalizedSecret, identityKey, showId, contribution.limitGroup);
+        const previousAt = lastContributedAt.get(limitKey);
+        const accepted = !previousAt || Number(cooldownIsReady.get(row.occurred_at, previousAt, contribution.cooldownSeconds)?.ready) === 1;
+        if (!accepted) continue;
+        lastContributedAt.set(limitKey, row.occurred_at);
+        const rollupKey = `${showId}\n${eventDay}\n${contribution.signal}`;
+        expected.set(rollupKey, (expected.get(rollupKey) || 0) + 1);
+        countedContributions += 1;
+      }
+      return { expected, countedContributions };
+    };
+
+    const { expected, countedContributions } = replay();
+    const actual = new Map(db.prepare(`
+      SELECT show_id, event_day, signal, event_count
+      FROM popularity_event_daily
+      WHERE signal NOT LIKE 'legacy:%'
+    `).all().map((row) => [`${row.show_id}\n${row.event_day}\n${row.signal}`, Number(row.event_count || 0)]));
+    const keys = new Set([...expected.keys(), ...actual.keys()]);
+    const mismatches = [];
+    for (const key of keys) {
+      const expectedCount = expected.get(key) || 0;
+      const actualCount = actual.get(key) || 0;
+      if (expectedCount !== actualCount) {
+        mismatches.push({ key: key.replaceAll("\n", "/"), expected: expectedCount, actual: actualCount });
+        if (mismatches.length >= 10) break;
+      }
+    }
+    if (mismatches.length) {
+      return { updated: false, reason: "popularity_rollup_mismatch", mismatches };
+    }
+    const classificationsWouldAdd = Number(unclassifiedLegacyEventCount.get()?.count || 0);
+    if (!apply) {
+      return {
+        updated: false,
+        verified: true,
+        reason: "check_only",
+        classificationsWouldAdd,
+        replayedContributions: countedContributions,
+        policyVersion: safePolicyVersion,
+      };
+    }
+
+    const write = db.transaction(() => {
+      const lastContributedAt = new Map();
+      const cooldownIsReady = db.prepare(`
+        SELECT CASE WHEN julianday(?) - julianday(?) >= ? / 86400.0 THEN 1 ELSE 0 END AS ready
+      `);
+      let updated = 0;
+      for (const row of eventRows) {
+        const eventDay = String(row.occurred_at || "").slice(0, 10);
+        const showId = normalizeControlledId(row.show_id);
+        let properties = {};
+        try {
+          const parsed = JSON.parse(String(row.properties_json || "{}"));
+          if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) properties = parsed;
+        } catch (_error) {
+          // Preserve the event as legacy-unclassified without a popularity contribution.
+        }
+        const contribution = showId && /^\d{4}-\d{2}-\d{2}$/.test(eventDay)
+          ? getPopularityContribution(row.event_name, properties)
+          : null;
+        let contributionCounted = false;
+        if (contribution?.signal && contribution.limitGroup) {
+          const identityKey = row.visitor_key || row.session_key || "anonymous";
+          const limitKey = createPopularityLimitKey(normalizedSecret, identityKey, showId, contribution.limitGroup);
+          const previousAt = lastContributedAt.get(limitKey);
+          contributionCounted = !previousAt || Number(cooldownIsReady.get(row.occurred_at, previousAt, contribution.cooldownSeconds)?.ready) === 1;
+          if (contributionCounted) lastContributedAt.set(limitKey, row.occurred_at);
+        }
+        const result = insertEventClassification.run({
+          eventId: row.event_id,
+          trafficClass: "legacy_unclassified",
+          reasonCodesJson: '["historical_unclassified"]',
+          popularityEligible: 1,
+          policyVersion: safePolicyVersion,
+          classifiedAt: row.occurred_at,
+          showId,
+          eventDay,
+          popularitySignal: contribution?.signal || "",
+          contributionCounted: contributionCounted ? 1 : 0,
+        });
+        updated += Number(result.changes || 0);
+      }
+      return updated;
+    });
+    return { updated: true, classificationsAdded: write(), replayedContributions: countedContributions, policyVersion: safePolicyVersion };
   }
 
   function recordServerInteraction({
@@ -818,8 +1179,8 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
         COUNT(CASE WHEN event_name = @pageViewEvent THEN 1 END) AS page_views,
         COUNT(DISTINCT CASE WHEN event_name = @pageViewEvent AND visitor_key <> '' THEN visitor_key END) AS unique_visitors,
         COUNT(DISTINCT CASE WHEN event_name = @pageViewEvent AND session_key <> '' THEN session_key END) AS sessions,
-        COUNT(CASE WHEN event_name <> @pageViewEvent THEN 1 END) AS interactions,
-        COUNT(DISTINCT CASE WHEN event_name <> @pageViewEvent AND session_key <> '' THEN session_key END) AS engaged_sessions,
+        COUNT(CASE WHEN event_name NOT IN (@pageViewEvent, 'Show Card Impression') THEN 1 END) AS interactions,
+        COUNT(DISTINCT CASE WHEN event_name NOT IN (@pageViewEvent, 'Show Card Impression') AND session_key <> '' THEN session_key END) AS engaged_sessions,
         COUNT(CASE WHEN event_name = @pageViewEvent AND show_id <> '' THEN 1 END) AS show_page_views,
         COUNT(CASE WHEN event_name = 'Collection Opened' THEN 1 END) AS collection_opens,
         COUNT(CASE WHEN event_name = 'Show Opened' THEN 1 END) AS show_opens,
@@ -873,8 +1234,8 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
         COUNT(DISTINCT CASE WHEN event_name = @pageViewEvent AND visitor_key <> '' THEN visitor_key END) AS unique_visitors,
         COUNT(DISTINCT CASE WHEN event_name = @pageViewEvent AND session_key <> '' THEN session_key END) AS sessions,
         COUNT(CASE WHEN event_name = @pageViewEvent AND show_id <> '' THEN 1 END) AS show_page_views,
-        COUNT(CASE WHEN event_name <> @pageViewEvent THEN 1 END) AS interactions,
-        COUNT(DISTINCT CASE WHEN event_name <> @pageViewEvent AND session_key <> '' THEN session_key END) AS engaged_sessions,
+        COUNT(CASE WHEN event_name NOT IN (@pageViewEvent, 'Show Card Impression') THEN 1 END) AS interactions,
+        COUNT(DISTINCT CASE WHEN event_name NOT IN (@pageViewEvent, 'Show Card Impression') AND session_key <> '' THEN session_key END) AS engaged_sessions,
         COUNT(CASE WHEN event_name = 'Collection Opened' THEN 1 END) AS collection_opens,
         COUNT(CASE WHEN event_name = 'Show Opened' THEN 1 END) AS show_opens,
         COUNT(CASE WHEN event_name = 'Listen Link Opened' THEN 1 END) AS listen_clicks,
@@ -959,7 +1320,7 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
         e.show_id,
         COALESCE(p.title, e.show_id) AS title,
         COUNT(CASE WHEN e.event_name = @pageViewEvent THEN 1 END) AS page_views,
-        COUNT(CASE WHEN e.event_name <> @pageViewEvent THEN 1 END) AS interactions,
+        COUNT(CASE WHEN e.event_name NOT IN (@pageViewEvent, 'Show Card Impression') THEN 1 END) AS interactions,
         COUNT(CASE WHEN e.event_name = 'Listen Link Opened' THEN 1 END) AS listen_clicks,
         COUNT(CASE WHEN e.event_name = 'Rating Submitted' THEN 1 END) AS ratings
       FROM analytics_events AS e
@@ -1015,7 +1376,7 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
         COUNT(*) AS count,
         COUNT(DISTINCT CASE WHEN session_key <> '' THEN session_key END) AS sessions
       FROM analytics_events
-      WHERE event_name <> @pageViewEvent
+      WHERE event_name NOT IN (@pageViewEvent, 'Show Card Impression')
         AND occurred_at >= @start AND occurred_at < @end
       GROUP BY event_name
       ORDER BY count DESC, event_name ASC
@@ -1043,7 +1404,7 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
         COUNT(CASE WHEN event_name = 'Listen Link Opened' THEN 1 END) AS listen_clicks
       FROM analytics_events
       WHERE is_server_event = 0
-        AND event_name <> @pageViewEvent
+        AND event_name NOT IN (@pageViewEvent, 'Show Card Impression')
         AND occurred_at >= @start AND occurred_at < @end
       GROUP BY surface
       ORDER BY interactions DESC, surface ASC
@@ -1111,6 +1472,59 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
       catalogueSubmissions: Number(catalogueSubmissions || 0),
       publishedListenerReviews: Number(publishedListenerReviews || 0),
       helpfulVotes: Number(helpfulVotes || 0),
+    };
+  }
+
+  function getTrafficDiagnostics({ now = new Date() } = {}) {
+    const end = toDate(now, new Date());
+    const start = new Date(end.getTime() - 24 * 60 * 60 * 1000);
+    const raw = db.prepare(`
+      SELECT
+        COUNT(*) AS retained_events,
+        COUNT(CASE WHEN occurred_at >= @start AND occurred_at < @end THEN 1 END) AS recent_events,
+        COUNT(CASE WHEN event_name = @pageViewEvent THEN 1 END) AS retained_page_views,
+        COUNT(CASE WHEN occurred_at >= @start AND occurred_at < @end AND event_name = @pageViewEvent THEN 1 END) AS recent_page_views
+      FROM analytics_events
+    `).get({ start: start.toISOString(), end: end.toISOString(), pageViewEvent: PAGE_VIEW_EVENT });
+    const classes = db.prepare(`
+      SELECT c.traffic_class,
+        COUNT(*) AS events,
+        COUNT(CASE WHEN e.event_name = @pageViewEvent THEN 1 END) AS page_views,
+        COUNT(CASE WHEN e.occurred_at >= @start AND e.occurred_at < @end THEN 1 END) AS last24_hours_events,
+        COUNT(CASE WHEN e.event_name = @pageViewEvent AND e.occurred_at >= @start AND e.occurred_at < @end THEN 1 END) AS last24_hours_page_views,
+        COUNT(CASE WHEN c.popularity_eligible = 1 THEN 1 END) AS eligible_events,
+        COUNT(CASE WHEN c.popularity_eligible = 1 AND e.event_name = @pageViewEvent THEN 1 END) AS eligible_page_views
+      FROM analytics_event_classifications AS c
+      JOIN analytics_events AS e ON e.event_id = c.event_id
+      GROUP BY c.traffic_class
+    `).all({ start: start.toISOString(), end: end.toISOString(), pageViewEvent: PAGE_VIEW_EVENT });
+    const classifiedCount = classes.reduce((sum, row) => sum + Number(row.events || 0), 0);
+    return {
+      generatedAt: end.toISOString(),
+      rawEvents: {
+        retained: Number(raw.retained_events || 0),
+        last24Hours: Number(raw.recent_events || 0),
+        pageViewsRetained: Number(raw.retained_page_views || 0),
+        pageViewsLast24Hours: Number(raw.recent_page_views || 0),
+      },
+      classifiedEvents: {
+        total: classifiedCount,
+        unclassifiedLegacy: Math.max(0, Number(raw.retained_events || 0) - classifiedCount),
+        byClass: Object.fromEntries(classes.map((row) => [row.traffic_class, {
+          events: Number(row.events || 0),
+          pageViews: Number(row.page_views || 0),
+          last24Hours: Number(row.last24_hours_events || 0),
+          last24HoursPageViews: Number(row.last24_hours_page_views || 0),
+          popularityEligibleEvents: Number(row.eligible_events || 0),
+          popularityEligiblePageViews: Number(row.eligible_page_views || 0),
+        }])),
+      },
+      policy: {
+        popularityEligibilityEnabled: Boolean(popularityEligibilityEnabled),
+        highConfidenceOnlyExcludedByDefault: true,
+        lowEngagementIsNotAnAutomationSignal: true,
+      },
+      identityMeaning: "Anonymous browser IDs and sessions are approximate; they are not verified human counts.",
     };
   }
 
@@ -1197,12 +1611,12 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
     const recordTotals = queryRecordTotals();
     const timeSeries = queryTimeSeries(window);
     const metricDefinitions = [
-      ["uniqueVisitors", "Approx. visitors", "First-party anonymous IDs; page-view scoped."],
-      ["sessions", "Sessions", "A session is a browser visit window, not a login."],
+      ["uniqueVisitors", "Approx. browser IDs", "Hashed anonymous identifiers; not verified unique people."],
+      ["sessions", "Approx. sessions", "Browser visit windows from client IDs; not verified people."],
       ["pageViews", "Page views", "Tracked public page loads; reloads within 30 seconds are deduped."],
       ["showPageViews", "Show-page views", "Page views whose route resolves to a show."],
       ["interactions", "Interactions", "Search, filters, navigation, listens, ratings, and submissions."],
-      ["engagedSessions", "Engaged sessions", "Sessions with at least one action beyond a page load."],
+      ["engagedSessions", "Engaged sessions", "Sessions with a meaningful action; passive card impressions are excluded."],
       ["showOpens", "Show opens", "Tracked show-card or recommendation opens."],
       ["listenClicks", "Listen links", "Clicks to an external listening or official link."],
       ["searches", "Searches", "Search actions recorded without storing the search text."],
@@ -1256,6 +1670,7 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
         comparisonAvailable: window.comparisonAvailable,
       },
       metrics,
+      trafficDiagnostics: getTrafficDiagnostics({ now }),
       returningVisitors: returning,
       traffic: timeSeries,
       interactionsOverTime: timeSeries.map((point) => ({
@@ -1292,11 +1707,17 @@ function createAnalyticsStore({ db, secret = "", validateClientEvent, retentionD
     enabled,
     retentionDays: safeRetentionDays,
     getDashboard,
+    getTrafficDiagnostics,
+    backfillLegacyEventClassifications,
     getDiscordDailySummary,
     getTrackingStartedAt,
     getPopularitySignals,
     purgeExpiredEvents,
     recordClientEvent,
+    recordClassifiedClientEvent,
+    recordClassifiedClientEvents,
+    promoteEventsToHighConfidence,
+    setEventEligibility,
     recordServerInteraction,
     requestShouldBeIgnored,
     setCollections,
@@ -1311,6 +1732,8 @@ module.exports = {
   PAGE_VIEW_EVENT,
   SERVER_EVENT_NAMES,
   createAnalyticsStore,
+  getPopularityContribution,
+  getPopularitySignal,
   isLikelyBot,
   normalizePagePath,
   normalizeSource,
