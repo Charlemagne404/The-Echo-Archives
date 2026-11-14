@@ -117,7 +117,10 @@ function estimateMarkdownTokens(value = "") {
 
 function sendMarkdown(res, markdown, statusCode = 200) {
   const body = normalizeMarkdownResponseBody(markdown);
+  markNegotiatedResponse(res);
   res.set({
+    "Cache-Control": "private, no-store",
+    "CDN-Cache-Control": "no-store",
     "Content-Type": "text/markdown; charset=utf-8",
     "X-Markdown-Tokens": String(estimateMarkdownTokens(body)),
   });

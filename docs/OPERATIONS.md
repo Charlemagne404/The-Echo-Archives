@@ -522,7 +522,7 @@ The checked-in unit allows 15 seconds for graceful shutdown. Repeated crashes ar
 
 ## Proxy And Live-Host Verification
 
-Caddy enables zstd/gzip compression, strips its `Server` response header, and adds HSTS. Express owns the response-aware cache policy: successful versioned `?v=` resources are immutable, unversioned images use short stale-while-revalidate caching, sitemap/robots use one-hour caching, and HTML/data/script/style/service-worker shells revalidate. Keeping cache headers in the application prevents transient 404 or 5xx responses from inheriting an immutable proxy policy. Private maintainer and API responses also remain controlled by the application.
+Caddy enables zstd/gzip compression, strips its `Server` response header, and adds HSTS. Express owns the response-aware cache policy: successful versioned `?v=` resources are immutable, unversioned images use short stale-while-revalidate caching, sitemap/robots use one-hour caching, and HTML/data/script/style/service-worker shells revalidate. Negotiated Markdown varies on `Accept` and is always `Cache-Control: private, no-store` with `CDN-Cache-Control: no-store`; private maintainer and API responses also remain controlled by the application. CDN cache rules must honor these origin directives and must not apply a fixed Edge TTL to Markdown or private responses. Keeping cache headers in the application prevents transient 404 or 5xx responses from inheriting an immutable proxy policy.
 
 After installing or changing the proxy configuration, verify locally and publicly:
 

@@ -62,6 +62,14 @@ forward so a release switch does not silently hide importer or editorial file
 writes. Those files still require recovery backups when they cannot be
 regenerated from Git.
 
+The active environment is authoritative for its mutable catalogue snapshot.
+In particular, production promotion prepares the production runtime from the
+currently active production overlay, not from staging's generated catalogue.
+This preserves production-only published records, their source metadata and
+relationships, collection data, and cover artwork when a candidate release
+was built from a smaller staging catalogue. Staging continues to carry only
+staging's own catalogue snapshot.
+
 Production and staging use the same `deploy/echo` primitives. Their explicit
 differences are the service name, port, site URL, database, environment file,
 feature flags, and runtime pointer.

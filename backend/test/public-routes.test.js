@@ -350,6 +350,12 @@ test("public content pages negotiate Markdown without changing HTML defaults", a
   const context = await startPublicRouteServer();
 
   try {
+    const assertMarkdownCachePolicy = (response, route) => {
+      assert.equal(response.headers.get("vary"), "Accept", `${route} must distinguish representations`);
+      assert.equal(response.headers.get("cache-control"), "private, no-store", `${route} Markdown must not enter shared caches`);
+      assert.equal(response.headers.get("cdn-cache-control"), "no-store", `${route} Markdown must not enter CDN caches`);
+    };
+
     const showPath = "/shows/impact-winter";
     const browserResponse = await fetch(`${context.baseUrl}${showPath}`);
     assert.equal(browserResponse.status, 200);
@@ -371,8 +377,7 @@ test("public content pages negotiate Markdown without changing HTML defaults", a
     });
     assert.equal(markdownResponse.status, 200);
     assert.match(markdownResponse.headers.get("content-type") || "", /^text\/markdown;\s*charset=utf-8/i);
-    assert.equal(markdownResponse.headers.get("vary"), "Accept");
-    assert.equal(markdownResponse.headers.get("cache-control"), "no-cache");
+    assertMarkdownCachePolicy(markdownResponse, showPath);
     assert.match(markdownResponse.headers.get("x-markdown-tokens") || "", /^\d+$/);
     const markdown = await markdownResponse.text();
     assert.match(markdown, /^---\ntitle:/);
@@ -386,7 +391,7 @@ test("public content pages negotiate Markdown without changing HTML defaults", a
       headers: { Accept: "text/markdown, text/html;q=0.9" },
     });
     assert.match(markdownPreferred.headers.get("content-type") || "", /^text\/markdown;/i);
-    assert.equal(markdownPreferred.headers.get("vary"), "Accept");
+    assertMarkdownCachePolicy(markdownPreferred, `${showPath} preferred`);
 
     const htmlPreferred = await fetch(`${context.baseUrl}${showPath}`, {
       headers: { Accept: "text/html, text/markdown;q=0.9" },
@@ -398,7 +403,7 @@ test("public content pages negotiate Markdown without changing HTML defaults", a
       headers: { Accept: "text/*" },
     });
     assert.match(textWildcard.headers.get("content-type") || "", /^text\/markdown;/i);
-    assert.equal(textWildcard.headers.get("vary"), "Accept");
+    assertMarkdownCachePolicy(textWildcard, `${showPath} text wildcard`);
 
     const anyWildcard = await fetch(`${context.baseUrl}${showPath}`, {
       headers: { Accept: "*/*" },
@@ -417,6 +422,7 @@ test("public content pages negotiate Markdown without changing HTML defaults", a
     });
     assert.equal(entityResponse.status, 200);
     assert.match(entityResponse.headers.get("content-type") || "", /^text\/markdown;/i);
+    assertMarkdownCachePolicy(entityResponse, "/creators/7-lamb-productions");
     const entityMarkdown = await entityResponse.text();
     assert.match(entityMarkdown, /^# 7 Lamb Productions$/m);
     assert.match(entityMarkdown, /^## Connected shows$/m);
@@ -427,6 +433,7 @@ test("public content pages negotiate Markdown without changing HTML defaults", a
     });
     assert.equal(collectionResponse.status, 200);
     assert.match(collectionResponse.headers.get("content-type") || "", /^text\/markdown;/i);
+    assertMarkdownCachePolicy(collectionResponse, "/collections/best-for-long-walks");
     const collectionMarkdown = await collectionResponse.text();
     assert.match(collectionMarkdown, /^# Best for long walks$/m);
     assert.match(collectionMarkdown, /Cinematic urgency and seasonal momentum/);
@@ -437,6 +444,7 @@ test("public content pages negotiate Markdown without changing HTML defaults", a
     });
     assert.equal(aboutResponse.status, 200);
     assert.match(aboutResponse.headers.get("content-type") || "", /^text\/markdown;/i);
+    assertMarkdownCachePolicy(aboutResponse, "/about");
     const aboutMarkdown = await aboutResponse.text();
     assert.match(aboutMarkdown, /^# Why The Echo Archives exists$/m);
     assert.match(aboutMarkdown, /Published fiction podcasts in the archive/);
@@ -454,10 +462,34 @@ test("public content pages negotiate Markdown without changing HTML defaults", a
     });
     assert.equal(missingResponse.status, 404);
     assert.match(missingResponse.headers.get("content-type") || "", /^text\/markdown;/i);
-    assert.equal(missingResponse.headers.get("vary"), "Accept");
-    assert.equal(missingResponse.headers.get("cache-control"), "no-cache");
+    assertMarkdownCachePolicy(missingResponse, "/shows/not-a-real-show");
     assert.match(missingResponse.headers.get("x-robots-tag") || "", /noindex/i);
     assert.match(await missingResponse.text(), /^# Show not found - The Echo Archives$/m);
+
+    for (const route of ["/", "/collections", "/creators"]) {
+      const response = await fetch(`${context.baseUrl}${route}`, { headers: { Accept: "text/markdown" } });
+      assert.equal(response.status, 200, route);
+      assert.match(response.headers.get("content-type") || "", /^text\/markdown;/i, route);
+      assertMarkdownCachePolicy(response, route);
+      await response.arrayBuffer();
+    }
+
+    for (const route of [
+      "/",
+      showPath,
+      "/collections",
+      "/collections/best-for-long-walks",
+      "/creators",
+      "/creators/7-lamb-productions",
+    ]) {
+      const response = await fetch(`${context.baseUrl}${route}`, { headers: { Accept: "text/html" } });
+      assert.equal(response.status, 200, route);
+      assert.match(response.headers.get("content-type") || "", /text\/html/i, route);
+      assert.equal(response.headers.get("vary"), "Accept", route);
+      assert.equal(response.headers.get("cache-control"), "public, max-age=0, stale-if-error=3600", route);
+      assert.match(response.headers.get("cdn-cache-control") || "", /max-age=300, stale-while-revalidate=3600/, route);
+      await response.arrayBuffer();
+    }
 
     const missingEntityHtmlResponse = await fetch(`${context.baseUrl}/creators/not-a-real-creator`, {
       headers: { Accept: "text/html" },
@@ -1108,7 +1140,8 @@ test("malformed public traffic is bounded and negotiated variants cannot share c
     assert.match(html.headers.get("vary") || "", /Accept/i);
     assert.match(markdown.headers.get("vary") || "", /Accept/i);
     assert.equal(html.headers.get("cache-control"), "public, max-age=0, stale-if-error=3600");
-    assert.equal(markdown.headers.get("cache-control"), "no-cache");
+    assert.equal(markdown.headers.get("cache-control"), "private, no-store");
+    assert.equal(markdown.headers.get("cdn-cache-control"), "no-store");
 
     const falseAssetVersion = await fetch(`${context.baseUrl}/style.css?v=arbitrary`);
     assert.equal(falseAssetVersion.status, 200);

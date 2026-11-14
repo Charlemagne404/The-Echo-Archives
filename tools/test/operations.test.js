@@ -1715,6 +1715,81 @@ test("runtime preservation keeps private modes and source ownership metadata wit
   }
 });
 
+test("production runtime preservation retains the eight production-only shows and their public relationships and artwork", () => {
+  const fixture = createRuntimePreservationFixture();
+  const helper = path.join(ROOT, "deploy", "preserve-runtime-mutable-state.sh");
+  const productionOnlyShows = [
+    ["dont-stop-me-now-an-audiobook-podcast", "Don't Stop Me Now - An Audiobook Podcast", "roo-bannister", "roo-bannister", ["Roo Bannister"], "images/covers/dont-stop-me-now-an-audiobook-podcast.jpg"],
+    ["mina-an-audiobook-podcast-by-roo-bannister", "Mina - An Audiobook Podcast by Roo Bannister", "roo-bannister", "roo-bannister", ["Roo Bannister"], "images/covers/mina-an-audiobook-podcast-by-roo-bannister.jpg"],
+    ["dyme-an-appalachian-horror-audio-drama", "Dyme: An Appalachian Horror Audio Drama", "devin-j-bates", "devin-j-bates", ["Devin J. Bates"], "images/covers/dyme-an-appalachian-horror-audio-drama.png"],
+    ["richian-presents-dracula", "Richian Presents: Dracula", "richian-studios", "richian", ["Richian Studios"], "images/covers/richian-presents-dracula.jpg"],
+    ["the-great-work-and-other-administrative-matters", "The Great Work and Other Administrative Matters", "a-a-t-studios", "a-a-t-studios", ["A.A.T. Studios", "Alexander Zheludev"], "images/covers/the-great-work-and-other-administrative-matters.jpg"],
+    ["welcome-to-the-brass-eagle", "Welcome to the Brass Eagle", "connor-bushoven", "connor-bushoven", ["Connor Bushoven"], "images/covers/welcome-to-the-brass-eagle.jpg"],
+    ["the-chronicles-of-oz", "The Chronicles of Oz", "crossover-adventure-productions", "the-chronicles-of-oz", ["Crossover Adventure Productions", "Aron Toman"], "images/covers/the-chronicles-of-oz.jpg"],
+    ["parsons-nose-radio-theater", "Parson’s Nose Radio Theater", "lance-davis", "lance-davis", ["Lance Davis"], "images/covers/parsons-nose-radio-theater.jpg"],
+  ];
+
+  try {
+    const runtimeShows = productionOnlyShows.map(([id, title, creatorId, networkId, creators, cover]) => ({
+      id,
+      title,
+      status: "published",
+      reviewStatus: "indexed-only",
+      creatorId,
+      networkId,
+      creators,
+      cover,
+      coverAlt: `${title} cover art`,
+      availability: { status: "available" },
+      coverVariants: [{ src: `/images/generated/covers/${id}-fixture-320.webp`, width: 320 }],
+    }));
+    const sourceFiles = [
+      ["catalog-src/shows/_order.json", `${JSON.stringify(productionOnlyShows.map(([id]) => id))}\n`],
+      ["data/shows.json", `${JSON.stringify(runtimeShows)}\n`],
+      ["data/collections.json", `${JSON.stringify([{ id: "current-collection", showIds: [] }])}\n`],
+    ];
+    for (const record of runtimeShows) {
+      sourceFiles.push([`catalog-src/shows/${record.id}.json`, `${JSON.stringify(record)}\n`]);
+      sourceFiles.push([record.cover, `cover for ${record.id}\n`]);
+      sourceFiles.push([`images/generated/covers/${record.id}-fixture-320.webp`, `generated cover for ${record.id}\n`]);
+    }
+    for (const [relativePath, contents] of sourceFiles) {
+      const sourcePath = path.join(fixture.sourceRoot, relativePath);
+      fs.mkdirSync(path.dirname(sourcePath), { recursive: true });
+      fs.writeFileSync(sourcePath, contents, { mode: 0o640 });
+      const targetPath = path.join(fixture.targetRoot, relativePath);
+      fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+      fs.writeFileSync(targetPath, `candidate content for ${relativePath}\n`, { mode: 0o640 });
+    }
+
+    const result = spawnSync(
+      "bash",
+      [helper, fixture.runtimeRoot, "production", fixture.sourceRoot, fixture.targetRoot],
+      { cwd: ROOT, encoding: "utf8" },
+    );
+    assert.equal(result.status, 0, `${result.stderr}\n${result.stdout}`);
+    assert.deepEqual(
+      JSON.parse(fs.readFileSync(path.join(fixture.targetRoot, "data/shows.json"), "utf8")).map((show) => show.id),
+      productionOnlyShows.map(([id]) => id),
+    );
+    for (const [relativePath, contents] of sourceFiles) {
+      assert.equal(fs.readFileSync(path.join(fixture.targetRoot, relativePath), "utf8"), contents, relativePath);
+    }
+    assert.equal(fs.existsSync(path.join(fixture.targetRoot, "catalog-src/shows/candidate-show.json")), false);
+    for (const show of JSON.parse(fs.readFileSync(path.join(fixture.targetRoot, "data/shows.json"), "utf8"))) {
+      assert.equal(show.status, "published");
+      assert.equal(show.reviewStatus, "indexed-only");
+      assert.ok(show.creatorId && show.networkId && show.creators.length);
+      assert.ok(fs.statSync(path.join(fixture.targetRoot, show.cover)).size > 0);
+      assert.ok(fs.statSync(path.join(fixture.targetRoot, show.coverVariants[0].src)).size > 0);
+    }
+    const preservedCollections = JSON.parse(fs.readFileSync(path.join(fixture.targetRoot, "data/collections.json"), "utf8"));
+    assert.equal(preservedCollections.some((collection) => collection.showIds?.some((id) => productionOnlyShows.some(([showId]) => showId === id))), false);
+  } finally {
+    fs.rmSync(fixture.fixtureRoot, { recursive: true, force: true });
+  }
+});
+
 test("runtime preservation rejects symlinked target parents before privileged replacement", () => {
   const fixture = createRuntimePreservationFixture();
   const helper = path.join(ROOT, "deploy", "preserve-runtime-mutable-state.sh");

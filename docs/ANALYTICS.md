@@ -56,6 +56,12 @@ The collector never runs on the `/api/health` listeners and does not use access 
 
 The browser uses a keepalive same-origin `fetch` and does not wait for the collector before rendering. Backend write failures and rate-limit responses are swallowed for the visitor and do not change the page response. The analytics store is cleaned by the existing in-process retention job.
 
+## Traffic classification and popularity eligibility
+
+Classification annotates retained events; it does not delete or rewrite raw analytics. Normal traffic and suspected automation remain popularity-eligible. A crawler-labelled user agent is a weak signal: it records `suspected_automation` with an explainable reason such as `automation_user_agent_signal`, but does not by itself remove page views or other supported engagement signals. High-confidence automated traffic is marked ineligible. Historical candidates remain pending manual review and are not quarantined automatically.
+
+`POPULARITY_EVENT_ELIGIBILITY_ENABLED=false` keeps scoring on the existing raw contribution rollup. When enabled, scoring reads the eligible rollup, which excludes only events marked ineligible by the classification/review policy; suspected automation remains included. The scoring formula itself is unchanged. Eligibility can be corrected through the audited, reversible review path without changing the raw event. `popularityEligible=true` means an event may contribute if it contains a supported popularity signal and passes its cooldown; it does not mean that a contribution was counted. For example, a page event with no supported signal remains eligible while `contribution_counted` is false. This is the expected explanation when diagnostics show an eligible classification but no score contribution.
+
 `PUBLIC_ANALYTICS_ENABLED=false` disables browser collection for an isolated environment such as staging. The backend injects this setting into public HTML responses at request time, so a staging-built artifact can be promoted to production without carrying staging's disabled flag. Production should set it to `true` and provide a stable random `ANALYTICS_HMAC_SECRET` of at least 32 characters.
 
 ## Historical boundary

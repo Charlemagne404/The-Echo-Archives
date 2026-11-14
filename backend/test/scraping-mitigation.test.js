@@ -121,7 +121,7 @@ function median(values) {
   return sorted[Math.floor(sorted.length / 2)] || 0;
 }
 
-test("eligibility rollup preserves raw events, supports reversible review, and leaves the legacy score input intact", () => {
+test("normal and suspected events remain eligible while high-confidence automation is excluded only from opt-in scoring", () => {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-analytics-eligibility-"));
   const dbPath = path.join(tempDir, "analytics.sqlite");
   const db = openDatabase(dbPath);
@@ -188,12 +188,45 @@ test("eligibility rollup preserves raw events, supports reversible review, and l
       policyVersion: "traffic-classification-test",
     }).recorded, true);
     assert.equal(db.prepare("SELECT event_count FROM popularity_event_eligible_daily WHERE show_id = ? AND signal = 'listen_click'").get("impact-winter").event_count, 1);
-    assert.equal(db.prepare("SELECT COUNT(*) AS count FROM analytics_events").get().count, 3);
+
+    const noSignalEvent = {
+      eventId: makeToken("event-search", 1),
+      eventName: "Search Used",
+      pagePath: "/",
+      visitorId: makeToken("visitor-search", 1),
+      sessionId: makeToken("session-search", 1),
+      properties: {
+        discovery_surface: "home_archive",
+        query_kind: "text",
+        structured_clause_group: "none",
+        result_count_bucket: "2-4",
+        active_filter_count_bucket: "0",
+        recovery_context: "none",
+      },
+    };
+    assert.equal(store.recordClassifiedClientEvent({
+      ...noSignalEvent,
+      occurredAt: new Date(at.getTime() + 180_000),
+      trafficClass: "suspected_automation",
+      reasonCodes: ["automation_user_agent_signal"],
+      popularityEligible: true,
+      policyVersion: "traffic-classification-test",
+    }).recorded, true);
+    const noSignalClassification = db.prepare(`
+      SELECT popularity_eligible, popularity_signal, contribution_counted
+      FROM analytics_event_classifications WHERE event_id = ?
+    `).get(noSignalEvent.eventId);
+    assert.deepEqual(noSignalClassification, {
+      popularity_eligible: 1,
+      popularity_signal: "",
+      contribution_counted: 0,
+    }, "eligible means allowed to contribute when a supported signal exists; it does not manufacture a contribution");
+    assert.equal(db.prepare("SELECT COUNT(*) AS count FROM analytics_events").get().count, 4);
     const diagnostics = store.getTrafficDiagnostics({ now: new Date(at.getTime() + 180_000) });
     assert.equal(diagnostics.rawEvents.pageViewsLast24Hours, 2);
     assert.equal(diagnostics.classifiedEvents.byClass.normal.pageViews, 1);
     assert.equal(diagnostics.classifiedEvents.byClass.high_confidence_automated.last24HoursPageViews, 1);
-    assert.equal(diagnostics.classifiedEvents.byClass.suspected_automation.popularityEligibleEvents, 1);
+    assert.equal(diagnostics.classifiedEvents.byClass.suspected_automation.popularityEligibleEvents, 2);
 
     const currentStore = store.getPopularitySignals({ now: new Date("2026-09-10T12:10:00.000Z") });
     assert.equal(currentStore["impact-winter"].periods.days28.show_page_view, 1);
