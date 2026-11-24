@@ -84,6 +84,7 @@ The deployed revision was `55e761be2dc3c9afa2b1572e98be954140042edd` (built 2026
 
 - Existing remote: `origin` at the Echo Archives GitHub repository. Latest CI for deployed SHA `55e761be2dc3c9afa2b1572e98be954140042edd` succeeded on 2026-11-14. Recent `main` CI also succeeded. No open GitHub issues or pull requests were found.
 - The security fix and this report are committed on a new branch based on the deployed revision. The branch is pushed for CI/review; it is not merged and does not change production.
+- GitHub Actions `Verify` passed on implementation commit `ada52100ca2e6fb1c8b53e8d0f44b268adeea291` in 13m06s, including the full generated-site/browser suite and clean-checkout check. The workflow emitted a non-blocking Node.js 20 deprecation warning: `actions/checkout@v4` and `actions/setup-node@v4` were forced to run on Node.js 24.
 - No history was rewritten, branches deleted, or unrelated work staged. The dirty shared checkout remains untouched and is not clean or synchronized with `origin/main`.
 - A fresh locked install/build was verified on the deployed revision and on the patched candidate branch. The existing checkout's unpublished WIP was not represented as a reproducible release.
 
