@@ -10,6 +10,7 @@ const { buildFallbackAnswer, sanitizeAnswerText } = require("../lib/ai/chat");
 const { validateSiteData } = require("../scripts/review-helpers");
 const { createSimilarityIndex } = require("../../shared/archive-similarity");
 const { readCatalogSource } = require("../../tools/lib/catalog-source");
+const { mergeReviewContent } = require("../lib/reviews");
 
 const siteRoot = path.resolve(__dirname, "../..");
 
@@ -70,6 +71,50 @@ test("loadCatalog reads the structured show catalog", async () => {
   assert.equal(impactWinter.href, "/shows/impact-winter");
   assert.match(impactWinter.summary, /devastating winter/i);
   assert.ok(Array.isArray(impactWinter.spoilerFreeReviewParagraphs));
+});
+
+test("a published complete review companion sets the public review tier consistently", () => {
+  const source = createShowRecord({ reviewStatus: "indexed-only", archiveTake: "Older factual note." });
+  const companion = {
+    archiveTake: "The published editorial take.",
+    publishedAt: "2026-10-04T15:45:51.148Z",
+    spoilerFreeReview: ["A complete spoiler-safe review paragraph."],
+    thoughts: ["Existing author notes."],
+    quote: { text: "I'm not crazy", attribution: "Mike Archer" },
+  };
+
+  const merged = mergeReviewContent(source, companion);
+
+  assert.equal(source.reviewStatus, "indexed-only", "classification is derived without rewriting the authored source record");
+  assert.equal(merged.reviewStatus, "full-review");
+  assert.equal(merged.archiveTake, companion.archiveTake);
+  assert.equal(merged.spoilerFreeReview, companion.spoilerFreeReview[0]);
+  assert.equal(merged.reviewPublishedAt, companion.publishedAt);
+  assert.equal(merged.quote.text, companion.quote.text);
+  assert.equal(merged.quote.attribution, companion.quote.attribution);
+});
+
+test("incomplete, unpublished, or spotlight review records do not get promoted by a companion file", () => {
+  const record = createShowRecord({ reviewStatus: "indexed-only" });
+  const incomplete = mergeReviewContent(record, {
+    archiveTake: "A short archive note.",
+    publishedAt: "2026-10-04",
+    spoilerFreeReview: [],
+  });
+  const unpublished = mergeReviewContent({ ...record, status: "draft" }, {
+    archiveTake: "A complete review take.",
+    publishedAt: "2026-10-04",
+    spoilerFreeReview: ["A complete review paragraph."],
+  });
+  const spotlight = mergeReviewContent({ ...record, reviewStatus: "spotlight" }, {
+    archiveTake: "A complete review take.",
+    publishedAt: "2026-10-04",
+    spoilerFreeReview: ["A complete review paragraph."],
+  });
+
+  assert.equal(incomplete.reviewStatus, "indexed-only");
+  assert.equal(unpublished.reviewStatus, "indexed-only");
+  assert.equal(spotlight.reviewStatus, "spotlight");
 });
 
 test("importer-origin catalogue entries retain their publication tier", () => {

@@ -63,6 +63,47 @@ test("homepage prerender injects initial discovery content into the build templa
   assert.match(rendered, /Listener Review Score<\/strong> Average from written listener reviews/);
 });
 
+test("runtime prerender replaces build-time catalog cards and counts", () => {
+  const source = fs.readFileSync(path.join(ROOT, "site-src", "pages", "index.html"), "utf8");
+  const generatedSnapshot = renderHomePagePrerender(source, {
+    rootDir: ROOT,
+    homeMostPopularIds: HOME_MOST_POPULAR_IDS,
+    homeFavoriteRouteIds: HOME_FAVORITE_ROUTE_IDS,
+  });
+  const runtimeShow = {
+    id: "runtime-only-show",
+    title: "Runtime Catalog Show",
+    status: "published",
+    reviewStatus: "full-review",
+    description: "A runtime-only show used to verify catalog-aligned server rendering.",
+    cover: "images/Circle-S-Logo.png",
+    genres: ["mystery"],
+    tones: ["tense"],
+    formats: ["narrated"],
+    tags: ["Isolation"],
+    archiveTake: "A complete review.",
+    spoilerFreeReview: "A complete review paragraph.",
+    updatedAt: "2026-11-25",
+  };
+  const rendered = renderHomePagePrerender(generatedSnapshot, {
+    shows: [runtimeShow],
+    collections: [],
+    homeMostPopularIds: [runtimeShow.id],
+    homeFavoriteRouteIds: [],
+  });
+
+  assert.match(rendered, /<strong id="homeShowCount">1<\/strong>/);
+  assert.match(rendered, /<strong id="homeReviewCount">1<\/strong>/);
+  assert.match(rendered, /<strong id="homeLastUpdated">Nov 25<\/strong>/);
+  assert.match(rendered, /id="resultsSummary"[^>]*>1 results • 1 full review<\/p>/);
+  assert.match(rendered, /data-discovery-show-id="runtime-only-show"/);
+  assert.doesNotMatch(rendered, /data-discovery-show-id="solar"/);
+  const gridStart = rendered.indexOf('<div id="podcast-grid"');
+  const loadMoreStart = rendered.indexOf('<div id="archiveLoadMore"', gridStart);
+  const initialGrid = rendered.slice(gridStart, loadMoreStart);
+  assert.equal((initialGrid.match(/class="podcast-card-shell"/g) || []).length, 1);
+});
+
 test("Imported cards, collection cards, and popular cards keep visible unrated rating placeholders", () => {
   const show = {
     id: "imported-show",

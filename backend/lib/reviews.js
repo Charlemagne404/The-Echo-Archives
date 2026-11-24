@@ -99,8 +99,7 @@ function mergeReviewContent(record, reviewRecord) {
   const thoughtsParagraphs = pickParagraphs(reviewRecord?.thoughts, record.thoughts);
   const quote = pickQuote(reviewRecord?.quote, record.quote);
   const reviewPublishedAt = String(reviewRecord?.publishedAt || record.reviewPublishedAt || "").trim();
-
-  return {
+  const mergedRecord = {
     ...record,
     archiveTake,
     ...(reviewPublishedAt ? { reviewPublishedAt } : {}),
@@ -110,6 +109,17 @@ function mergeReviewContent(record, reviewRecord) {
     thoughtsParagraphs,
     quote,
   };
+
+  if (
+    record.status === "published" &&
+    ["indexed-only", "planned", "imported"].includes(record.reviewStatus) &&
+    reviewPublishedAt &&
+    hasRichReviewContent(mergedRecord)
+  ) {
+    mergedRecord.reviewStatus = "full-review";
+  }
+
+  return mergedRecord;
 }
 
 function hasRichReviewContent(record) {

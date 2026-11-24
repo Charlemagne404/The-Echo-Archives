@@ -397,6 +397,7 @@ function injectRuntimeSiteConfig(html, config = {}) {
     ["collectionsVersion", "data-collections-version"],
     ["searchIndexVersion", "data-search-index-version"],
     ["runtimeEvidenceVersion", "data-runtime-evidence-version"],
+    ["archiveStatsVersion", "data-archive-stats-version"],
   ]) {
     if (Object.hasOwn(config, key)) {
       rendered = replaceBodyDataAttribute(rendered, attributeName, String(config[key] || ""));

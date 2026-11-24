@@ -24,6 +24,10 @@ function publicFileVersion(relativePath) {
   return crypto.createHash("sha1").update(fs.readFileSync(path.join(siteRoot, relativePath))).digest("hex").slice(0, 10);
 }
 
+function publicPayloadVersion(payload) {
+  return crypto.createHash("sha1").update(JSON.stringify(payload)).digest("hex").slice(0, 10);
+}
+
 function graphNode(structuredData, type) {
   const nodes = Array.isArray(structuredData?.["@graph"]) ? structuredData["@graph"] : [structuredData];
   return nodes.find((node) => node?.["@type"] === type);
@@ -838,7 +842,9 @@ test("search index responses use cache-friendly headers for versioned and unvers
     assert.ok(Array.isArray(graph.entityConnections));
     assert.match(graph.semantics.entityConnections, /does not assert a direct affiliation/);
 
-    const versionedResponse = await fetch(`${context.baseUrl}/data/search-index.json?v=${publicFileVersion("data/search-index.json")}`);
+    const initialSearchIndex = await fetch(`${context.baseUrl}/data/search-index.json`);
+    const searchIndexVersion = publicPayloadVersion(await initialSearchIndex.json());
+    const versionedResponse = await fetch(`${context.baseUrl}/data/search-index.json?v=${searchIndexVersion}`);
     assert.equal(versionedResponse.status, 200);
     assert.equal(versionedResponse.headers.get("cache-control"), "public, max-age=31536000, immutable");
 
@@ -852,7 +858,9 @@ test("search index responses use cache-friendly headers for versioned and unvers
       "public, max-age=0, stale-if-error=3600",
     );
 
-    const runtimeResponse = await fetch(`${context.baseUrl}/data/runtime-evidence.json?v=${publicFileVersion("data/runtime-evidence.json")}`);
+    const initialRuntimeEvidence = await fetch(`${context.baseUrl}/data/runtime-evidence.json`);
+    const runtimeEvidenceVersion = publicPayloadVersion(await initialRuntimeEvidence.json());
+    const runtimeResponse = await fetch(`${context.baseUrl}/data/runtime-evidence.json?v=${runtimeEvidenceVersion}`);
     assert.equal(runtimeResponse.status, 200);
     assert.match(runtimeResponse.headers.get("content-type") || "", /application\/json/);
     assert.match(runtimeResponse.headers.get("x-robots-tag") || "", /noindex/);
@@ -1078,7 +1086,9 @@ test("public data responses are versionable and exclude server-only catalog fiel
   const context = await startPublicRouteServer();
 
   try {
-    const showsResponse = await fetch(`${context.baseUrl}/data/shows.json?v=${publicFileVersion("data/shows.json")}`);
+    const unversionedShows = await fetch(`${context.baseUrl}/data/shows.json`);
+    const showsPayload = await unversionedShows.json();
+    const showsResponse = await fetch(`${context.baseUrl}/data/shows.json?v=${publicPayloadVersion(showsPayload)}`);
     assert.equal(showsResponse.headers.get("cache-control"), "public, max-age=31536000, immutable");
     assert.match(showsResponse.headers.get("x-robots-tag") || "", /noindex/);
     const shows = await showsResponse.json();
@@ -1086,10 +1096,21 @@ test("public data responses are versionable and exclude server-only catalog fiel
     assert.equal(Object.hasOwn(shows[0], "imageSrc"), false);
     assert.equal(Object.hasOwn(shows[0], "searchIndex"), false);
 
-    const collectionsResponse = await fetch(`${context.baseUrl}/data/collections.json?v=${publicFileVersion("data/collections.json")}`);
+    const unversionedCollections = await fetch(`${context.baseUrl}/data/collections.json`);
+    const collectionsPayload = await unversionedCollections.json();
+    const collectionsResponse = await fetch(`${context.baseUrl}/data/collections.json?v=${publicPayloadVersion(collectionsPayload)}`);
     assert.equal(collectionsResponse.headers.get("cache-control"), "public, max-age=31536000, immutable");
     assert.match(collectionsResponse.headers.get("x-robots-tag") || "", /noindex/);
     assert.ok(Array.isArray(await collectionsResponse.json()));
+
+    const homeHtml = await (await fetch(`${context.baseUrl}/`)).text();
+    const archiveStatsVersion = homeHtml.match(/data-archive-stats-version="([a-f0-9]{10})"/)?.[1];
+    assert.ok(archiveStatsVersion, "the initial HTML exposes the version of its archive stats payload");
+    const archiveStatsResponse = await fetch(`${context.baseUrl}/data/archive-stats.json?v=${archiveStatsVersion}`);
+    assert.equal(archiveStatsResponse.headers.get("cache-control"), "public, max-age=31536000, immutable");
+    const archiveStats = await archiveStatsResponse.json();
+    assert.equal(archiveStats.showCount, shows.length);
+    assert.equal(archiveStats.fullReviewCount, shows.filter((show) => show.reviewStatus === "full-review").length);
   } finally {
     await stopPublicRouteServer(context);
   }
