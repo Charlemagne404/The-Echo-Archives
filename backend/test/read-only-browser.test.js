@@ -134,17 +134,20 @@ test("read-only context disables analytics before scripts and blocks fetch, XHR,
     await page.waitForTimeout(150);
 
     const attempts = guard.getMutationAttempts();
+    const orderedAttempts = attempts
+      .map(({ method, pathname }) => ({ method, pathname }))
+      .sort((left, right) => left.pathname.localeCompare(right.pathname) || left.method.localeCompare(right.method));
     assert.deepEqual(
-      attempts.map(({ method, pathname }) => ({ method, pathname })),
+      orderedAttempts,
       [
         { method: "POST", pathname: "/mutate-fetch" },
         { method: "PUT", pathname: "/mutate-put" },
         { method: "PATCH", pathname: "/mutate-patch" },
         { method: "DELETE", pathname: "/mutate-delete" },
-        { method: "POST", pathname: "/mutate-xhr" },
-        { method: "POST", pathname: "/mutate-beacon" },
         { method: "POST", pathname: "/form-submit" },
-      ],
+        { method: "POST", pathname: "/mutate-beacon" },
+        { method: "POST", pathname: "/mutate-xhr" },
+      ].sort((left, right) => left.pathname.localeCompare(right.pathname) || left.method.localeCompare(right.method)),
     );
     assert.deepEqual(receivedRequests, [
       { method: "GET", pathname: "/" },

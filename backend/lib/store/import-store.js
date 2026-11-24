@@ -1180,6 +1180,10 @@ function createImportStore({ db }) {
     return db.transaction(callback)();
   }
 
+  function withImmediateTransaction(callback) {
+    return db.transaction(callback).immediate();
+  }
+
   return {
     appendCandidateSources,
     appendFieldEvidence,
@@ -1223,6 +1227,7 @@ function createImportStore({ db }) {
     updateRun,
     upsertDiscoveryItem,
     withTransaction,
+    withImmediateTransaction,
   };
 }
 

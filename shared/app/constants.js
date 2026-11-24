@@ -14,7 +14,7 @@ export const SEARCH_INDEX_URL = SEARCH_INDEX_VERSION
   : "/data/search-index.json";
 export const ARCHIVE_STATS_URL = "/data/archive-stats.json";
 export const DEFAULT_SOCIAL_IMAGE = "/echo-wordmark1.png";
-export const DEFAULT_FALLBACK_COVER_IMAGE = "/images/TEA-Logo-S.png";
+export const DEFAULT_FALLBACK_COVER_IMAGE = "/images/Circle2-Logo-S.png";
 export const TOP_RATED_BADGE_ASSET_URL = "/images/badges/top-rated-bookmark.png";
 export const archiveSearch = globalThis.EchoArchiveSearch;
 export const archiveSimilarity = globalThis.EchoArchiveSimilarity;
