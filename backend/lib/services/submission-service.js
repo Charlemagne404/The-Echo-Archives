@@ -967,8 +967,20 @@ function createSubmissionService({
       return createFilteredResult();
     }
 
-    rateLimiter?.check("submissions", common.sourceIp);
     validateCommonSubmissionFields(common, { requireLegalAcknowledgement });
+    if (common.intakeKeyHash) {
+      const existing = store.getSubmissionByIntakeKeyHash?.(common.intakeKeyHash);
+      if (existing) {
+        return {
+          accepted: true,
+          filtered: false,
+          idempotent: true,
+          submission: existing,
+        };
+      }
+    }
+
+    rateLimiter?.check("submissions", common.sourceIp);
 
     const creatorPageCorrectionWithoutShow = common.submissionType === "correction"
       && trimString(rawBody?.correctionType, 80) === "creator-page"

@@ -904,6 +904,61 @@ function migrate(db) {
         ON submission_relations (related_submission_id, relationship_type);
       CREATE INDEX IF NOT EXISTS idx_submission_lifecycle_events_timeline
         ON submission_lifecycle_events (submission_id, created_at DESC, id DESC);
+
+      CREATE TRIGGER IF NOT EXISTS protect_open_show_submissions_from_legacy_retention_delete
+      BEFORE DELETE ON show_submissions
+      WHEN OLD.submission_type = 'show' AND OLD.resolution_status = 'open'
+      BEGIN
+        UPDATE show_submissions
+        SET contact_email = '',
+            show_title = '',
+            creator_name = '',
+            official_site = '',
+            rss_or_listen_link = '',
+            genres = '',
+            notes = '',
+            payload_json = '{}',
+            provenance_json = '{}',
+            review_notes = '',
+            reviewed_by = '',
+            source_ip = '',
+            user_agent = '',
+            content_redacted_at = COALESCE(content_redacted_at, strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
+            processing_status = 'needs-investigation',
+            processing_error = 'Submission details were redacted under the configured retention policy.'
+        WHERE id = OLD.id;
+
+        UPDATE show_submissions
+        SET resolution_evidence_json = '{"retentionRedacted":true}'
+        WHERE id = OLD.id;
+
+        UPDATE submission_lifecycle_events
+        SET actor = CASE
+              WHEN actor IN ('system', 'migration', 'submission-worker', 'submission-intake', 'retention-policy') THEN actor
+              ELSE 'historical-actor-redacted'
+            END,
+            evidence_json = '{"retentionRedacted":true}'
+        WHERE submission_id = OLD.id;
+
+        UPDATE submission_relations
+        SET evidence_json = '{"retentionRedacted":true}'
+        WHERE submission_id = OLD.id OR related_submission_id = OLD.id;
+
+        INSERT OR IGNORE INTO submission_lifecycle_events
+          (id, submission_id, event_type, event_key, actor, reason, evidence_json, created_at)
+        VALUES (
+          'legacy-retention:' || OLD.id,
+          OLD.id,
+          'content-redacted',
+          'retention:legacy-cleanup',
+          'retention-policy',
+          'configured-submission-retention-period-reached',
+          '{"source":"legacy-retention-compatibility"}',
+          strftime('%Y-%m-%dT%H:%M:%fZ', 'now')
+        );
+
+        SELECT RAISE(IGNORE);
+      END;
     `);
 
     db.exec(`
@@ -969,7 +1024,13 @@ function migrate(db) {
             WHEN c.primary_source_type = 'submission' AND c.primary_source_key = show_submissions.id THEN 'linked-candidate-published'
             ELSE 'linked-show-already-listed'
           END,
-          resolution_evidence_json = '{"source":"candidate-publication","confidence":"high"}',
+          resolution_evidence_json = json_object(
+            'source', 'candidate-publication',
+            'confidence', 'high',
+            'candidateId', c.id,
+            'showId', c.published_show_id,
+            'submissionId', c.primary_source_key
+          ),
           import_resolved_show_id = c.published_show_id,
           resolved_at = COALESCE(resolved_at, c.updated_at),
           processing_status = 'completed'
@@ -977,6 +1038,7 @@ function migrate(db) {
       JOIN submission_candidate_links AS l ON l.candidate_id = c.id
       WHERE l.submission_id = show_submissions.id
         AND c.status = 'published' AND c.published_show_id <> ''
+        AND c.primary_source_type = 'submission' AND c.primary_source_key = show_submissions.id
         AND show_submissions.status <> 'rejected' AND show_submissions.resolution_status = 'open';
 
       INSERT OR IGNORE INTO submission_lifecycle_events

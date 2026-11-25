@@ -72,6 +72,9 @@ test("CLI reads the database in query-only mode, reports strong identities, and 
       id: "archive-show",
       title: "Archive Show",
       listenLinks: { rss: "https://feeds.example/archive.xml" },
+    }, {
+      id: "listed-show",
+      title: "Changed Display Title",
     }]));
     fixture.db.close();
 
@@ -94,4 +97,65 @@ test("CLI reads the database in query-only mode, reports strong identities, and 
     try { fixture.db.close(); } catch (_error) {}
     fs.rmSync(fixture.directory, { recursive: true, force: true });
   }
+});
+
+test("published targets, candidate provenance, and conflicting provider identities must be verified", () => {
+  const baseSubmission = {
+    id: "submission-1",
+    submitted_at: "2026-11-24T12:00:00.000Z",
+    submission_type: "show",
+    show_title: "A Different Display Title",
+    creator_name: "Example Creator",
+    status: "new",
+    import_candidate_id: "candidate-1",
+    payload_json: JSON.stringify({ listenLinks: [{ label: "RSS Feed", url: "https://feeds.example/one.xml" }] }),
+  };
+  const publishedCandidate = {
+    id: "candidate-1",
+    status: "published",
+    primary_source_type: "submission",
+    primary_source_key: "submission-1",
+    published_show_id: "published-show",
+  };
+  const archiveShow = {
+    id: "published-show",
+    title: "A Different Display Title",
+    listenLinks: { rss: "https://feeds.example/one.xml" },
+  };
+
+  const missingTarget = buildManifest({
+    submissions: [baseSubmission],
+    candidates: [publishedCandidate],
+    shows: [],
+    checkedAt: "2026-11-25T12:00:00.000Z",
+  });
+  assert.equal(missingTarget.rows[0].after.action, "manual-review");
+  assert.equal(missingTarget.rows[0].after.evidence.missingShowId, "published-show");
+
+  const mismatchedProvenance = buildManifest({
+    submissions: [baseSubmission],
+    candidates: [{ ...publishedCandidate, primary_source_key: "another-submission" }],
+    shows: [archiveShow],
+    checkedAt: "2026-11-25T12:00:00.000Z",
+  });
+  assert.equal(mismatchedProvenance.rows[0].after.action, "manual-review");
+
+  const conflictingIdentities = buildManifest({
+    submissions: [{
+      ...baseSubmission,
+      import_candidate_id: "",
+      payload_json: JSON.stringify({ listenLinks: [
+        { label: "RSS Feed", url: "https://feeds.example/one.xml" },
+        { label: "Apple Podcasts", url: "https://podcasts.apple.com/podcast/example/id1234567890" },
+      ] }),
+    }],
+    candidates: [],
+    shows: [
+      { ...archiveShow, id: "rss-show" },
+      { id: "apple-show", title: "Another Show", listenLinks: { apple: "https://podcasts.apple.com/podcast/example/id1234567890" } },
+    ],
+    checkedAt: "2026-11-25T12:00:00.000Z",
+  });
+  assert.equal(conflictingIdentities.rows[0].after.action, "manual-review");
+  assert.deepEqual(conflictingIdentities.rows[0].after.evidence.conflictingShowIds.sort(), ["apple-show", "rss-show"]);
 });

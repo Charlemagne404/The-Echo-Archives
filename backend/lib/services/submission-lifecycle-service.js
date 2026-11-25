@@ -1,3 +1,5 @@
+const { createHash } = require("node:crypto");
+
 const DEFAULT_INTERVAL_MS = 60_000;
 const STALE_PROCESSING_LEASE_MS = 2 * 60_000;
 const MAX_AUTOMATIC_ATTEMPTS = 4;
@@ -24,6 +26,10 @@ function toImportSubmission(row) {
     rssOrListenLink: row.rss_or_listen_link,
     payload: row.payload_json || {},
   };
+}
+
+function identityFingerprint(identityType, identityValue) {
+  return createHash("sha256").update(`${identityType}:${identityValue}`).digest("hex");
 }
 
 function createSubmissionLifecycleService({
@@ -99,6 +105,13 @@ function createSubmissionLifecycleService({
     return result.changed;
   }
 
+  function reconcileMissingNotifications() {
+    if (typeof discordNotifications?.enqueueSubmissionLifecycle !== "function") return 0;
+    const pending = store.listLifecycleEventsMissingNotifications({ limit: 25 });
+    pending.forEach((event) => notify({ id: event.submissionId }, event.eventType, event.eventKey));
+    return pending.length;
+  }
+
   function resolve(submission, { status, reason, evidence = {}, showId = "", actor = "submission-worker", eventKey = "" } = {}) {
     const changed = store.resolveSubmission(submission.id, { status, reason, evidence, showId, actor, eventKey });
     if (changed) notify(submission, status, eventKey || `resolution:${status}`);
@@ -121,21 +134,76 @@ function createSubmissionLifecycleService({
   }
 
   function canonicalSubmission(rows) {
-    const published = rows.filter((row) => row.import_candidate_status === "published" && row.import_published_show_id);
+    const published = rows.filter((row) => (
+      row.import_candidate_status === "published" && row.import_published_show_id &&
+      row.import_candidate_source_type === "submission" && row.import_candidate_source_key === row.id &&
+      importService.hasArchiveShow(row.import_published_show_id)
+    ));
     const pool = published.length ? published : rows.filter((row) => row.resolution_status === "published");
     return [...(pool.length ? pool : rows)].sort((left, right) => (
       String(left.submitted_at).localeCompare(String(right.submitted_at)) || left.id.localeCompare(right.id)
     ))[0];
   }
 
+  function archiveMatchFor(row) {
+    return importService.findSubmissionIdentityMatch(toImportSubmission(row));
+  }
+
+  function publishedCandidateIssue(row, match = archiveMatchFor(row)) {
+    if (row.import_candidate_status !== "published") return "";
+    if (!row.import_published_show_id || !importService.hasArchiveShow(row.import_published_show_id)) {
+      return "published-candidate-target-missing";
+    }
+    if (match?.conflictingShowIds?.length) return "provider-identity-conflict";
+    if (match && match.showId !== row.import_published_show_id) return "published-candidate-target-conflicts-with-provider-identity";
+    if (!match && (row.import_candidate_source_type !== "submission" || row.import_candidate_source_key !== row.id)) {
+      return "published-candidate-provenance-unverified";
+    }
+    return "";
+  }
+
+  function setInvestigationForRows(rows, issue, identity = null) {
+    const showIds = [...new Set(rows.flatMap((row) => {
+      const match = archiveMatchFor(row);
+      return [match?.showId, ...(match?.conflictingShowIds || [])].filter(Boolean);
+    }))].sort();
+    rows.forEach((row) => {
+      if (row.resolution_status !== "open" || row.status === "rejected") return;
+      setProcessing(row, "needs-investigation", {
+        error: issue,
+        eventType: "needs-investigation",
+        eventKey: `${identity ? `identity:${identity.type}` : "candidate-target"}:${issue}:${showIds.join(":")}`,
+        reason: issue,
+        evidence: {
+          ...(identity ? { identityType: identity.type } : {}),
+          ...(showIds.length ? { showIds } : {}),
+          ...rows.filter((entry) => entry.import_candidate_status === "published").map((entry) => ({ [entry.id]: {
+            candidateId: entry.import_candidate_id,
+            candidateShowId: entry.import_published_show_id,
+            candidateSourceType: entry.import_candidate_source_type,
+            candidateSourceKeyMatchesSubmission: entry.import_candidate_source_key === entry.id,
+          } })).reduce((result, entry) => Object.assign(result, entry), {}),
+        },
+      });
+    });
+  }
+
   function reconcileDuplicateSubmissions(rows) {
     identityGroups(rows).forEach((group) => {
       const uniqueRows = [...new Map(group.rows.map((row) => [row.id, row])).values()];
+      const hasIdentityConflict = uniqueRows.some((row) => {
+        const match = archiveMatchFor(row);
+        return Boolean(match?.conflictingShowIds?.length || publishedCandidateIssue(row, match));
+      });
+      if (hasIdentityConflict) {
+        setInvestigationForRows(uniqueRows, "Shared provider identities or published candidate targets require manual verification.", group.identity);
+        return;
+      }
       const canonical = canonicalSubmission(uniqueRows);
       uniqueRows.filter((row) => row.id !== canonical.id).forEach((duplicate) => {
         const evidence = {
           identityType: group.identity.type,
-          identityValue: group.identity.value,
+          identityFingerprint: identityFingerprint(group.identity.type, group.identity.value),
           confidence: 1,
           canonicalSubmissionId: canonical.id,
           archiveShowId: canonical.import_published_show_id || canonical.import_resolved_show_id || "",
@@ -165,7 +233,14 @@ function createSubmissionLifecycleService({
   function reconcilePublishedCandidates(rows) {
     rows.forEach((row) => {
       if (row.resolution_status !== "open" || row.status === "rejected") return;
-      if (row.import_candidate_status === "published" && row.import_published_show_id) {
+      if (row.import_candidate_status === "published") {
+        const match = archiveMatchFor(row);
+        const issue = publishedCandidateIssue(row, match);
+        if (issue) {
+          setInvestigationForRows([row], "Published importer candidate provenance or archive target needs manual verification.");
+          return;
+        }
+        if (row.import_candidate_source_type !== "submission" || row.import_candidate_source_key !== row.id) return;
         resolve(row, {
           status: "published",
           reason: "linked-import-candidate-published",
@@ -180,24 +255,33 @@ function createSubmissionLifecycleService({
   function reconcileArchiveMatches(rows) {
     rows.forEach((row) => {
       if (row.resolution_status !== "open" || row.status === "rejected" || row.content_redacted_at) return;
-      if (row.import_candidate_status === "published" && row.import_published_show_id) return;
-      const match = importService.findSubmissionIdentityMatch(toImportSubmission(row));
+      const match = archiveMatchFor(row);
       if (!match) return;
       if (match.conflictingShowIds?.length) {
-        setProcessing(row, "needs-investigation", {
-          error: "Provider identity maps to more than one archive show.",
-          eventType: "needs-investigation",
-          eventKey: `identity-conflict:${match.conflictingShowIds.join(":")}`,
-          reason: "provider-identity-conflict",
-          evidence: { showIds: [match.showId, ...match.conflictingShowIds], identityType: match.identityType },
-        });
+        setInvestigationForRows([row], "Provider identity maps to more than one archive show.", { type: match.identityType, value: "" });
         return;
+      }
+      if (row.import_candidate_status === "published") {
+        const issue = publishedCandidateIssue(row, match);
+        if (issue) {
+          setInvestigationForRows([row], "Published importer candidate provenance or archive target conflicts with the current provider identity match.");
+          return;
+        }
+        if (row.import_candidate_source_type === "submission" && row.import_candidate_source_key === row.id) return;
       }
       resolve(row, {
         status: "already-listed",
         reason: "strong-provider-identity-match",
         showId: match.showId,
-        evidence: { showId: match.showId, showTitle: match.showTitle, identities: match.evidence },
+        evidence: {
+          showId: match.showId,
+          showTitle: match.showTitle,
+          identities: (match.evidence || []).map((identity) => ({
+            identityType: identity.identityType,
+            confidence: identity.confidence,
+            identityFingerprint: identityFingerprint(identity.identityType, identity.identityValue),
+          })),
+        },
         eventKey: `resolution:already-listed:${match.showId}`,
       });
     });
@@ -342,9 +426,15 @@ function createSubmissionLifecycleService({
   }
 
   async function runOnce({ limit = concurrency } = {}) {
-    if (!enabled || running) return { enabled, claimed: 0 };
+    if (running) return { enabled, claimed: 0 };
     running = true;
     try {
+      reconcileMissingNotifications();
+      if (!enabled) {
+        notifyStale(store.listForLifecycleReconciliation());
+        reconcileMissingNotifications();
+        return { enabled, claimed: 0 };
+      }
       const rows = store.listForLifecycleReconciliation();
       reconcileDuplicateSubmissions(rows);
       reconcilePublishedCandidates(rows);
@@ -383,7 +473,7 @@ function createSubmissionLifecycleService({
   }
 
   function start() {
-    if (!enabled || timer) return false;
+    if (timer) return false;
     timer = setInterval(() => { void runOnce(); }, intervalMs);
     timer.unref?.();
     void runOnce();
@@ -491,6 +581,7 @@ function createSubmissionLifecycleService({
   }
 
   function getHealth() {
+    const notificationStatus = discordNotifications?.getStatus?.() || { enabled: false, operational: false };
     return {
       ...store.getQueueHealth({
         now: now(),
@@ -502,7 +593,10 @@ function createSubmissionLifecycleService({
       reconciliationIntervalMs: intervalMs,
       personalDataRetentionDays: personalRetentionDays,
       networkDataRetentionDays: networkRetentionDays,
-      notifications: discordNotifications?.getStatus?.() || { enabled: false, operational: false },
+      notifications: {
+        ...notificationStatus,
+        missingEnqueue: notificationStatus.enabled ? store.countLifecycleEventsMissingNotifications() : 0,
+      },
     };
   }
 

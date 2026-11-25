@@ -55,9 +55,15 @@ function findTitleMatches(submission, shows) {
 
 function buildManifest({ submissions = [], candidates = [], shows = [], checkedAt = new Date().toISOString() } = {}) {
   const candidateById = new Map(candidates.map((candidate) => [candidate.id, candidate]));
-  const candidateBySubmissionId = new Map(candidates
+  const candidatesBySubmissionId = new Map();
+  candidates
     .filter((candidate) => candidate.primary_source_type === "submission" && candidate.primary_source_key)
-    .map((candidate) => [candidate.primary_source_key, candidate]));
+    .forEach((candidate) => {
+      const matches = candidatesBySubmissionId.get(candidate.primary_source_key) || [];
+      matches.push(candidate);
+      candidatesBySubmissionId.set(candidate.primary_source_key, matches);
+    });
+  const archiveShowIds = new Set(shows.map((show) => show.id).filter(Boolean));
   const showIdentities = new Map();
   shows.forEach((show) => archiveIdentityKeys(show).forEach((identity) => {
     const rows = showIdentities.get(identityKey(identity)) || [];
@@ -68,7 +74,17 @@ function buildManifest({ submissions = [], candidates = [], shows = [], checkedA
   const normalized = submissions.filter((row) => row.submission_type === "show").map((row) => {
     const payload = parseJson(row.payload_json, {});
     const submission = { ...row, payload };
-    const candidate = candidateById.get(asText(row.import_candidate_id)) || candidateBySubmissionId.get(row.id) || null;
+    const directCandidate = candidateById.get(asText(row.import_candidate_id)) || null;
+    const provenanceCandidates = candidatesBySubmissionId.get(row.id) || [];
+    const provenanceCandidate = provenanceCandidates.length === 1 ? provenanceCandidates[0] : null;
+    const candidate = directCandidate || provenanceCandidate;
+    const candidateLinkConflict = Boolean(directCandidate && provenanceCandidate && directCandidate.id !== provenanceCandidate.id);
+    const candidateProvenanceConflict = Boolean(
+      directCandidate?.primary_source_type === "submission" && directCandidate.primary_source_key !== row.id,
+    );
+    const candidateProvenanceExact = Boolean(
+      candidate?.primary_source_type === "submission" && candidate.primary_source_key === row.id,
+    );
     const identities = submissionIdentityKeys(submission);
     const identityMatches = new Map();
     identities.forEach((identity) => (showIdentities.get(identityKey(identity)) || []).forEach((show) => {
@@ -90,6 +106,12 @@ function buildManifest({ submissions = [], candidates = [], shows = [], checkedA
       candidateId: candidate?.id || "",
       candidateStatus: candidate?.status || "",
       candidatePublishedShowId: candidate?.published_show_id || "",
+      candidateLinkedBy: directCandidate ? "legacy-candidate-id" : provenanceCandidate ? "candidate-submission-identity" : "none",
+      provenanceCandidateIds: provenanceCandidates.map((entry) => entry.id),
+      candidateProvenanceExact,
+      candidateLinkConflict,
+      candidateProvenanceConflict,
+      publishedTargetExists: Boolean(candidate?.published_show_id && archiveShowIds.has(candidate.published_show_id)),
       identities,
       strongMatches,
       potentialTitleMatches: findTitleMatches(submission, shows),
@@ -107,7 +129,11 @@ function buildManifest({ submissions = [], candidates = [], shows = [], checkedA
   duplicateGroups.forEach((group, key) => {
     const unique = [...new Map(group.map((row) => [row.id, row])).values()];
     if (unique.length < 2) return;
-    const published = unique.filter((row) => row.candidateStatus === "published" && row.candidatePublishedShowId);
+    const published = unique.filter((row) => (
+      row.candidateStatus === "published" && row.candidatePublishedShowId && row.publishedTargetExists &&
+      row.candidateProvenanceExact && !row.candidateLinkConflict && !row.candidateProvenanceConflict &&
+      row.strongMatches.every((match) => match.id === row.candidatePublishedShowId)
+    ));
     const canonical = [...(published.length ? published : unique)].sort((left, right) => (
       String(left.submittedAt).localeCompare(String(right.submittedAt)) || left.id.localeCompare(right.id)
     ))[0];
@@ -117,8 +143,10 @@ function buildManifest({ submissions = [], candidates = [], shows = [], checkedA
         duplicateOf.set(row.id, {
           canonicalSubmissionId: canonical.id,
           canonicalShowId: canonical.candidatePublishedShowId || "",
-          identityType: key.split(":", 1)[0],
+          sharedIdentityTypes: [key.split(":", 1)[0]],
         });
+      } else {
+        prior.sharedIdentityTypes = [...new Set([...prior.sharedIdentityTypes, key.split(":", 1)[0]])].sort();
       }
     });
   });
@@ -134,13 +162,50 @@ function buildManifest({ submissions = [], candidates = [], shows = [], checkedA
       resolutionStatus = row.currentResolutionStatus;
       action = "preserve-existing-resolution";
       reason = "row is already resolved";
+    } else if (row.candidateLinkConflict || row.candidateProvenanceConflict || row.provenanceCandidateIds.length > 1) {
+      action = "manual-review";
+      reason = "submission points to conflicting importer-candidate provenance";
+      confidence = "conflicting provenance";
+      evidence = {
+        linkedCandidateId: row.candidateId,
+        provenanceCandidateIds: row.provenanceCandidateIds,
+      };
+    } else if (row.strongMatches.length > 1) {
+      action = "manual-review";
+      reason = "strong provider identities point to more than one archive show";
+      confidence = "conflicting";
+      evidence = { conflictingShowIds: row.strongMatches.map((match) => match.id) };
+    } else if (row.candidateStatus === "published" && row.candidatePublishedShowId && !row.publishedTargetExists) {
+      action = "manual-review";
+      reason = "published importer candidate references a show absent from the current archive";
+      confidence = "conflicting published target";
+      evidence = { candidateId: row.candidateId, missingShowId: row.candidatePublishedShowId };
+    } else if (row.candidateStatus === "published" && row.candidatePublishedShowId && row.strongMatches.some((match) => match.id !== row.candidatePublishedShowId)) {
+      action = "manual-review";
+      reason = "published candidate target conflicts with the submission's provider identity match";
+      confidence = "conflicting identities";
+      evidence = {
+        candidateId: row.candidateId,
+        candidateShowId: row.candidatePublishedShowId,
+        identityMatchShowIds: row.strongMatches.map((match) => match.id),
+      };
+    } else if (row.candidateStatus === "published" && row.candidatePublishedShowId && !row.candidateProvenanceExact) {
+      action = "manual-review";
+      reason = "published importer candidate lacks exact submission provenance";
+      confidence = "unverified provenance";
+      evidence = { candidateId: row.candidateId, linkedBy: row.candidateLinkedBy };
     } else if (row.candidateStatus === "published" && row.candidatePublishedShowId) {
       resolutionStatus = "published";
       action = "resolve-published";
-      reason = "published importer candidate is tied to this exact submission ID";
+      reason = "published importer candidate has exact submission provenance and its show exists in the current archive";
       targetShowId = row.candidatePublishedShowId;
       confidence = "high";
-      evidence = { candidateId: row.candidateId, source: "primary-source-submission-id" };
+      evidence = {
+        candidateId: row.candidateId,
+        source: "primary-source-submission-id",
+        archiveContainsTarget: true,
+        identityTypes: row.strongMatches.find((match) => match.id === row.candidatePublishedShowId)?.identityTypes || [],
+      };
     } else if (duplicateOf.has(row.id)) {
       const duplicate = duplicateOf.get(row.id);
       resolutionStatus = "duplicate";
@@ -148,7 +213,10 @@ function buildManifest({ submissions = [], candidates = [], shows = [], checkedA
       reason = "shared strong provider identity; preserve both submission rows";
       targetShowId = duplicate.canonicalShowId;
       confidence = "high";
-      evidence = { identityType: duplicate.identityType, canonicalSubmissionId: duplicate.canonicalSubmissionId };
+      evidence = {
+        sharedIdentityTypes: duplicate.sharedIdentityTypes,
+        canonicalSubmissionId: duplicate.canonicalSubmissionId,
+      };
     } else if (row.strongMatches.length === 1) {
       resolutionStatus = "already-listed";
       action = "resolve-already-listed";
@@ -156,11 +224,6 @@ function buildManifest({ submissions = [], candidates = [], shows = [], checkedA
       targetShowId = row.strongMatches[0].id;
       confidence = "high";
       evidence = { identityTypes: row.strongMatches[0].identityTypes };
-    } else if (row.strongMatches.length > 1) {
-      action = "manual-review";
-      reason = "strong provider identities point to more than one archive show";
-      confidence = "conflicting";
-      evidence = { conflictingShowIds: row.strongMatches.map((match) => match.id) };
     } else if (row.candidateStatus === "needs-review") {
       action = "retain-for-review";
       reason = "linked importer candidate needs maintainer review and no strong archive match exists";
@@ -185,6 +248,8 @@ function buildManifest({ submissions = [], candidates = [], shows = [], checkedA
         resolutionStatus: row.currentResolutionStatus || "not-migrated",
         importerCandidateId: row.candidateId,
         importerCandidateStatus: row.candidateStatus,
+        candidateLinkedBy: row.candidateLinkedBy,
+        candidateProvenanceExact: row.candidateProvenanceExact,
       },
       after: { resolutionStatus, action, targetShowId, evidence, reason, confidence },
       potentialTitleMatches: row.potentialTitleMatches,

@@ -10,13 +10,14 @@ const { createSubmissionStore } = require("../lib/store/submission-store");
 const { createSubmissionService } = require("../lib/services/submission-service");
 const { createSubmissionLifecycleService } = require("../lib/services/submission-lifecycle-service");
 
-function createContext({ discordNotifications = null } = {}) {
+function createContext({ discordNotifications = null, automationEnabled = true, rateLimiter = null } = {}) {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-submission-lifecycle-"));
   const db = openDatabase(path.join(tempDir, "community.sqlite"));
   const store = createSubmissionStore({ db });
   const importStore = createImportStore({ db });
-  const submissionService = createSubmissionService({ store });
+  const submissionService = createSubmissionService({ store, rateLimiter });
   const prepared = new Map();
+  const archiveShowIds = new Set();
   const importer = {
     getSubmissionIdentityKeys(submission = {}) {
       const payload = submission.payload || {};
@@ -26,6 +27,9 @@ function createContext({ discordNotifications = null } = {}) {
     findSubmissionIdentityMatch(submission = {}) {
       const link = submission.rssOrListenLink || submission.payload?.listenLinks?.find((row) => /rss/i.test(row.label))?.url || "";
       return prepared.get(`archive:${link}`) || null;
+    },
+    hasArchiveShow(showId) {
+      return archiveShowIds.has(showId);
     },
     findPotentialSubmissionMatches(submission = {}) {
       return prepared.get(`title:${submission.showTitle}`) || [];
@@ -58,7 +62,7 @@ function createContext({ discordNotifications = null } = {}) {
     discordNotifications,
     logger,
     config: {
-      SUBMISSION_AUTOMATION_ENABLED: true,
+      SUBMISSION_AUTOMATION_ENABLED: automationEnabled,
       SUBMISSION_PROCESSING_CONCURRENCY: 2,
       SUBMISSION_RECONCILIATION_INTERVAL_MS: 60_000,
       SUBMISSION_STALE_NOTIFICATION_DAYS: 30,
@@ -83,7 +87,7 @@ function createContext({ discordNotifications = null } = {}) {
     fs.rmSync(tempDir, { recursive: true, force: true });
   }
 
-  return { db, importer, importStore, lifecycle, prepared, store, submissionService, submitShow, close };
+  return { archiveShowIds, db, importer, importStore, lifecycle, prepared, store, submissionService, submitShow, close };
 }
 
 test("intake is idempotent and automatic preparation reuses a durable importer candidate", async () => {
@@ -119,6 +123,23 @@ test("intake is idempotent and automatic preparation reuses a durable importer c
     await context.lifecycle.runOnce();
     assert.equal(context.store.getShowSubmission(first.submission.id).resolution_status, "published");
     assert.equal(context.store.getShowSubmission(first.submission.id).import_resolved_show_id, "night-signal");
+  } finally {
+    context.close();
+  }
+});
+
+test("idempotent intake retries return the accepted row without consuming another rate-limit slot", () => {
+  let rateLimitChecks = 0;
+  const context = createContext({
+    rateLimiter: { check() { rateLimitChecks += 1; } },
+  });
+  try {
+    const first = context.submitShow({ title: "Idempotent Retry", link: "https://feeds.example/idempotent.xml", idempotencyKey: "retry-key-2026" });
+    const repeated = context.submitShow({ title: "Edited retry body", link: "https://feeds.example/other.xml", idempotencyKey: "retry-key-2026" });
+    assert.equal(first.submission.id, repeated.submission.id);
+    assert.equal(repeated.idempotent, true);
+    assert.equal(rateLimitChecks, 1);
+    assert.equal(context.db.prepare("SELECT COUNT(*) AS count FROM show_submissions").get().count, 1);
   } finally {
     context.close();
   }
@@ -227,6 +248,38 @@ test("provider-identity duplicates keep both records and reconcile idempotently"
   }
 });
 
+test("published candidates with missing or conflicting archive targets remain open for investigation", async () => {
+  const context = createContext();
+  try {
+    const missing = context.submitShow({ title: "Missing Target", link: "https://feeds.example/missing-target.xml" });
+    await context.lifecycle.runOnce();
+    let row = context.store.getShowSubmission(missing.submission.id);
+    context.importStore.updateCandidate(row.import_candidate_id, { status: "published", publishedShowId: "missing-show" });
+    await context.lifecycle.runOnce();
+    row = context.store.getShowSubmission(missing.submission.id);
+    assert.equal(row.resolution_status, "open");
+    assert.equal(row.processing_status, "needs-investigation");
+
+    const conflict = context.submitShow({ title: "Conflicting Target", link: "https://feeds.example/conflicting-target.xml" });
+    await context.lifecycle.runOnce();
+    row = context.store.getShowSubmission(conflict.submission.id);
+    context.importStore.updateCandidate(row.import_candidate_id, { status: "published", publishedShowId: "candidate-show" });
+    context.archiveShowIds.add("candidate-show");
+    context.archiveShowIds.add("identity-show");
+    context.prepared.set(`archive:${row.rss_or_listen_link}`, {
+      showId: "identity-show",
+      showTitle: "Conflicting Target",
+      evidence: [{ identityType: "rss-url", identityValue: row.rss_or_listen_link, confidence: 1 }],
+    });
+    await context.lifecycle.runOnce();
+    row = context.store.getShowSubmission(conflict.submission.id);
+    assert.equal(row.resolution_status, "open");
+    assert.equal(row.processing_status, "needs-investigation");
+  } finally {
+    context.close();
+  }
+});
+
 test("maintainers can inspect and atomically resolve exact-title submission duplicates", () => {
   const context = createContext();
   try {
@@ -269,7 +322,42 @@ test("notification enqueue failures do not block readiness or publication transi
     });
     await context.lifecycle.runOnce();
     assert.equal(context.store.getShowSubmission(result.submission.id).processing_status, "ready-for-review");
-    assert.deepEqual(context.lifecycle.getHealth().notifications, { enabled: true, operational: false });
+    assert.equal(context.lifecycle.getHealth().notifications.enabled, true);
+    assert.equal(context.lifecycle.getHealth().notifications.operational, false);
+  } finally {
+    context.close();
+  }
+});
+
+test("missing lifecycle notifications are re-enqueued idempotently while automation is disabled", async () => {
+  let failEnqueue = true;
+  const enqueued = [];
+  let context;
+  context = createContext({
+    automationEnabled: false,
+    discordNotifications: {
+      enqueueSubmissionLifecycle(event) {
+        if (failEnqueue) throw new Error("outbox temporarily unavailable");
+        enqueued.push(event);
+        context.db.prepare(`
+          INSERT OR IGNORE INTO discord_notification_outbox (event_id, event_type, payload_json, status, next_attempt_at)
+          VALUES (?, ?, '{}', 'pending', CURRENT_TIMESTAMP)
+        `).run(event.eventId.slice(0, 200), `submission-${event.eventType}`);
+        return true;
+      },
+      getStatus() { return { enabled: true, operational: !failEnqueue }; },
+    },
+  });
+  try {
+    const result = context.submitShow({ title: "Queue Notice Recovery", link: "https://feeds.example/notice-recovery.xml" });
+    context.lifecycle.signalNewSubmission(result.submission.id);
+    assert.equal(context.store.countLifecycleEventsMissingNotifications(), 1);
+
+    failEnqueue = false;
+    await context.lifecycle.runOnce();
+    assert.equal(enqueued.length, 1);
+    assert.equal(context.store.countLifecycleEventsMissingNotifications(), 0);
+    assert.equal(context.store.getShowSubmission(result.submission.id).processing_status, "received");
   } finally {
     context.close();
   }

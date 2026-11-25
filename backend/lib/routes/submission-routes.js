@@ -44,23 +44,25 @@ function createSubmissionRouter({
       }
 
       const internal = isInternalRequest(req);
-      if (result.submission?.submission_type === "show") {
+      if (!result.idempotent && result.submission?.submission_type === "show") {
         try {
           submissionLifecycleService?.signalNewSubmission(result.submission.id);
         } catch (_error) {
           // Durable received state is recovered by the lifecycle scan after a restart.
         }
       }
-      recordAnalytics({
-        ...getAnalyticsRequestContext(req),
-        eventName: "Catalogue Submission",
-        properties: {
-          submission_type: result.submission.submissionType,
-          ...(result.submission.existingShowId ? { show_id: result.submission.existingShowId } : {}),
-        },
-        userAgent: req.get("user-agent") || "",
-        internal,
-      });
+      if (!result.idempotent) {
+        recordAnalytics({
+          ...getAnalyticsRequestContext(req),
+          eventName: "Catalogue Submission",
+          properties: {
+            submission_type: result.submission.submissionType,
+            ...(result.submission.existingShowId ? { show_id: result.submission.existingShowId } : {}),
+          },
+          userAgent: req.get("user-agent") || "",
+          internal,
+        });
+      }
 
       if (!internal && result.submission?.submission_type !== "show") {
         try {

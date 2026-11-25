@@ -1,0 +1,565 @@
+{
+  "inventoryVersion": 1,
+  "generatedAt": "2026-11-25T18:21:20.176Z",
+  "sourceSnapshot": {
+    "capturedAt": "2026-11-25T18:20:51.859Z",
+    "bytes": 128245760,
+    "sha256": "0ea973e531bbe0144c828ce20e2728aafd651ac17d11c6d29e625dc84fb249de",
+    "productionRelease": "092faa604982ffd229fe0686157c4d275818e303"
+  },
+  "migration": {
+    "id": "submission-lifecycle-v1-2026-11-25",
+    "automationFlagDuringTest": false,
+    "schemaOnly": {
+      "addedShowSubmissionColumns": [
+        "content_redacted_at",
+        "intake_key_hash",
+        "processing_attempts",
+        "processing_error",
+        "processing_next_attempt_at",
+        "processing_started_at",
+        "processing_status",
+        "resolution_evidence_json",
+        "resolution_reason",
+        "resolution_status",
+        "resolved_at"
+      ],
+      "addedTables": [
+        "submission_candidate_links",
+        "submission_lifecycle_events",
+        "submission_relations"
+      ],
+      "addedIndexes": [
+        "idx_show_submissions_intake_key",
+        "idx_show_submissions_lifecycle",
+        "idx_submission_candidate_links_candidate",
+        "idx_submission_lifecycle_events_timeline",
+        "idx_submission_relations_related"
+      ],
+      "addedTriggers": [
+        "protect_open_show_submissions_from_legacy_retention_delete"
+      ]
+    },
+    "automaticDataBackfills": {
+      "candidateRelationshipsRestored": 10,
+      "receivedEvents": 13,
+      "lifecycleEventsByType": [
+        {
+          "event_type": "published",
+          "count": 9
+        },
+        {
+          "event_type": "received",
+          "count": 13
+        }
+      ],
+      "rejectedRowsUpdated": 0,
+      "publishedSubmissionResolutions": 9,
+      "duplicateRelationshipsCreated": 0
+    },
+    "manualEditorialApprovalStillRequiredForNewPublications": true
+  },
+  "before": {
+    "showSubmissionCount": 13,
+    "moderationStatusCounts": {
+      "new": 13
+    },
+    "showSubmissions": [
+      {
+        "submissionId": "cc21fc8c-e099-4292-a47a-3bd10abb25af",
+        "title": "Rosanna's Secret",
+        "moderationStatus": "new",
+        "submittedAt": "2026-08-12 09:52:52",
+        "legacyCandidateId": "",
+        "legacyResolvedShowId": ""
+      },
+      {
+        "submissionId": "586ef814-4e9b-47bf-8bcb-72ea9ef7e2f8",
+        "title": "OPTOg",
+        "moderationStatus": "new",
+        "submittedAt": "2026-09-08 08:01:58",
+        "legacyCandidateId": "",
+        "legacyResolvedShowId": ""
+      },
+      {
+        "submissionId": "336e8b27-a795-42e0-a3e6-cef6f933b642",
+        "title": "Mina",
+        "moderationStatus": "new",
+        "submittedAt": "2026-09-10 06:06:12",
+        "legacyCandidateId": "",
+        "legacyResolvedShowId": ""
+      },
+      {
+        "submissionId": "3184620d-551e-40dd-bdd4-ee36be3236e2",
+        "title": "Don't Stop Me Now",
+        "moderationStatus": "new",
+        "submittedAt": "2026-09-10 06:09:59",
+        "legacyCandidateId": "",
+        "legacyResolvedShowId": ""
+      },
+      {
+        "submissionId": "d41c7e2b-71ef-46c5-aeff-95e438492ffe",
+        "title": "Welcome to the Brass Eagle",
+        "moderationStatus": "new",
+        "submittedAt": "2026-10-03 15:53:55",
+        "legacyCandidateId": "",
+        "legacyResolvedShowId": ""
+      },
+      {
+        "submissionId": "7d61d053-41f2-4c91-861b-accce6f7e5b2",
+        "title": "Polybius Protocol",
+        "moderationStatus": "new",
+        "submittedAt": "2026-10-11 22:39:37",
+        "legacyCandidateId": "",
+        "legacyResolvedShowId": ""
+      },
+      {
+        "submissionId": "a0390437-0eed-43c1-b2a7-ff33e27f5271",
+        "title": "Dyme: An Original Appalachian Horror Audio Drama",
+        "moderationStatus": "new",
+        "submittedAt": "2026-10-16 19:06:38",
+        "legacyCandidateId": "",
+        "legacyResolvedShowId": ""
+      },
+      {
+        "submissionId": "b51fff09-12d1-4b26-9e1d-ec386169ce78",
+        "title": "The Great Work and Other Administrative Matters",
+        "moderationStatus": "new",
+        "submittedAt": "2026-10-17 20:51:18",
+        "legacyCandidateId": "",
+        "legacyResolvedShowId": ""
+      },
+      {
+        "submissionId": "50d2cc64-df29-484a-a3f1-ef1a5257c315",
+        "title": "Richian Presents: Dracula",
+        "moderationStatus": "new",
+        "submittedAt": "2026-10-20 21:31:28",
+        "legacyCandidateId": "",
+        "legacyResolvedShowId": ""
+      },
+      {
+        "submissionId": "efb35049-e89f-4bda-98e4-d2e75724f6f7",
+        "title": "Parsons Nose Radio Theater",
+        "moderationStatus": "new",
+        "submittedAt": "2026-10-21 15:33:46",
+        "legacyCandidateId": "",
+        "legacyResolvedShowId": ""
+      },
+      {
+        "submissionId": "4d31d2c6-b1f0-4614-99e4-2d0ba2b0dd2a",
+        "title": "Dyme",
+        "moderationStatus": "new",
+        "submittedAt": "2026-10-24 18:37:33",
+        "legacyCandidateId": "",
+        "legacyResolvedShowId": ""
+      },
+      {
+        "submissionId": "dbd8a87e-9c09-4afa-aeb2-5745aaddbaaa",
+        "title": "The Chronicles of Oz",
+        "moderationStatus": "new",
+        "submittedAt": "2026-10-28 21:08:19",
+        "legacyCandidateId": "",
+        "legacyResolvedShowId": ""
+      },
+      {
+        "submissionId": "3dbad274-c403-4609-aaa0-4ffa55b05fde",
+        "title": "The Survivor Tapes",
+        "moderationStatus": "new",
+        "submittedAt": "2026-11-25 05:50:56",
+        "legacyCandidateId": "",
+        "legacyResolvedShowId": ""
+      }
+    ],
+    "importer": {
+      "candidateCount": 153,
+      "candidateSourceTypes": [
+        {
+          "sourceType": "apple",
+          "count": 27
+        },
+        {
+          "sourceType": "podcast-index",
+          "count": 31
+        },
+        {
+          "sourceType": "rss",
+          "count": 84
+        },
+        {
+          "sourceType": "submission",
+          "count": 10
+        },
+        {
+          "sourceType": "website",
+          "count": 1
+        }
+      ],
+      "jobs": 164,
+      "jobsByStatus": [
+        {
+          "status": "completed",
+          "count": 164
+        }
+      ],
+      "runs": 46
+    },
+    "submissionTypes": [
+      {
+        "type": "show",
+        "count": 13
+      }
+    ]
+  },
+  "after": {
+    "showSubmissionCount": 13,
+    "originalSubmissionIdsPreserved": true,
+    "moderationStatusesUnchanged": true,
+    "showSubmissions": [
+      {
+        "submissionId": "cc21fc8c-e099-4292-a47a-3bd10abb25af",
+        "title": "Rosanna's Secret",
+        "moderationStatus": "new",
+        "processingStatus": "received",
+        "resolutionStatus": "open",
+        "resolutionReason": "",
+        "resolvedAt": null,
+        "candidateId": "",
+        "candidateStatus": "",
+        "candidateProvenanceExact": false,
+        "targetShowId": "",
+        "targetExistsAndPublished": false
+      },
+      {
+        "submissionId": "586ef814-4e9b-47bf-8bcb-72ea9ef7e2f8",
+        "title": "OPTOg",
+        "moderationStatus": "new",
+        "processingStatus": "needs-investigation",
+        "resolutionStatus": "open",
+        "resolutionReason": "",
+        "resolvedAt": null,
+        "candidateId": "b5924d82-4105-45ab-b58f-29fc29b31fe6",
+        "candidateStatus": "needs-review",
+        "candidateProvenanceExact": true,
+        "targetShowId": "",
+        "targetExistsAndPublished": false
+      },
+      {
+        "submissionId": "336e8b27-a795-42e0-a3e6-cef6f933b642",
+        "title": "Mina",
+        "moderationStatus": "new",
+        "processingStatus": "completed",
+        "resolutionStatus": "published",
+        "resolutionReason": "linked-candidate-published",
+        "resolvedAt": "2026-11-04 20:05:39",
+        "candidateId": "b0837864-24af-4170-b898-9f8247935d43",
+        "candidateStatus": "published",
+        "candidateProvenanceExact": true,
+        "targetShowId": "mina-an-audiobook-podcast-by-roo-bannister",
+        "targetExistsAndPublished": true
+      },
+      {
+        "submissionId": "3184620d-551e-40dd-bdd4-ee36be3236e2",
+        "title": "Don't Stop Me Now",
+        "moderationStatus": "new",
+        "processingStatus": "completed",
+        "resolutionStatus": "published",
+        "resolutionReason": "linked-candidate-published",
+        "resolvedAt": "2026-11-04 20:05:39",
+        "candidateId": "3a50a2fe-b0ae-472d-b18f-23045b3b87e9",
+        "candidateStatus": "published",
+        "candidateProvenanceExact": true,
+        "targetShowId": "dont-stop-me-now-an-audiobook-podcast",
+        "targetExistsAndPublished": true
+      },
+      {
+        "submissionId": "d41c7e2b-71ef-46c5-aeff-95e438492ffe",
+        "title": "Welcome to the Brass Eagle",
+        "moderationStatus": "new",
+        "processingStatus": "completed",
+        "resolutionStatus": "published",
+        "resolutionReason": "linked-candidate-published",
+        "resolvedAt": "2026-11-04 20:05:39",
+        "candidateId": "c9e37e4a-07a3-4bbc-99bb-93a13414b067",
+        "candidateStatus": "published",
+        "candidateProvenanceExact": true,
+        "targetShowId": "welcome-to-the-brass-eagle",
+        "targetExistsAndPublished": true
+      },
+      {
+        "submissionId": "7d61d053-41f2-4c91-861b-accce6f7e5b2",
+        "title": "Polybius Protocol",
+        "moderationStatus": "new",
+        "processingStatus": "completed",
+        "resolutionStatus": "published",
+        "resolutionReason": "linked-candidate-published",
+        "resolvedAt": "2026-11-04 20:05:39",
+        "candidateId": "0798ed68-13ac-4c0a-9177-925ee0fe603b",
+        "candidateStatus": "published",
+        "candidateProvenanceExact": true,
+        "targetShowId": "polybius-protocol",
+        "targetExistsAndPublished": true
+      },
+      {
+        "submissionId": "a0390437-0eed-43c1-b2a7-ff33e27f5271",
+        "title": "Dyme: An Original Appalachian Horror Audio Drama",
+        "moderationStatus": "new",
+        "processingStatus": "received",
+        "resolutionStatus": "open",
+        "resolutionReason": "",
+        "resolvedAt": null,
+        "candidateId": "",
+        "candidateStatus": "",
+        "candidateProvenanceExact": false,
+        "targetShowId": "",
+        "targetExistsAndPublished": false
+      },
+      {
+        "submissionId": "b51fff09-12d1-4b26-9e1d-ec386169ce78",
+        "title": "The Great Work and Other Administrative Matters",
+        "moderationStatus": "new",
+        "processingStatus": "completed",
+        "resolutionStatus": "published",
+        "resolutionReason": "linked-candidate-published",
+        "resolvedAt": "2026-11-04 20:05:39",
+        "candidateId": "8317bc0b-69cd-426c-95da-ef31905a8bc3",
+        "candidateStatus": "published",
+        "candidateProvenanceExact": true,
+        "targetShowId": "the-great-work-and-other-administrative-matters",
+        "targetExistsAndPublished": true
+      },
+      {
+        "submissionId": "50d2cc64-df29-484a-a3f1-ef1a5257c315",
+        "title": "Richian Presents: Dracula",
+        "moderationStatus": "new",
+        "processingStatus": "completed",
+        "resolutionStatus": "published",
+        "resolutionReason": "linked-candidate-published",
+        "resolvedAt": "2026-11-04 20:05:39",
+        "candidateId": "1a8ff012-dc4c-486b-8ace-216241f780b9",
+        "candidateStatus": "published",
+        "candidateProvenanceExact": true,
+        "targetShowId": "richian-presents-dracula",
+        "targetExistsAndPublished": true
+      },
+      {
+        "submissionId": "efb35049-e89f-4bda-98e4-d2e75724f6f7",
+        "title": "Parsons Nose Radio Theater",
+        "moderationStatus": "new",
+        "processingStatus": "completed",
+        "resolutionStatus": "published",
+        "resolutionReason": "linked-candidate-published",
+        "resolvedAt": "2026-11-04 20:05:39",
+        "candidateId": "1d544f0a-8797-4273-8149-1b9bc3cbfbbc",
+        "candidateStatus": "published",
+        "candidateProvenanceExact": true,
+        "targetShowId": "parsons-nose-radio-theater",
+        "targetExistsAndPublished": true
+      },
+      {
+        "submissionId": "4d31d2c6-b1f0-4614-99e4-2d0ba2b0dd2a",
+        "title": "Dyme",
+        "moderationStatus": "new",
+        "processingStatus": "completed",
+        "resolutionStatus": "published",
+        "resolutionReason": "linked-candidate-published",
+        "resolvedAt": "2026-11-04 20:05:39",
+        "candidateId": "f79ab797-27fc-498b-b4c1-0958de03c15e",
+        "candidateStatus": "published",
+        "candidateProvenanceExact": true,
+        "targetShowId": "dyme-an-appalachian-horror-audio-drama",
+        "targetExistsAndPublished": true
+      },
+      {
+        "submissionId": "dbd8a87e-9c09-4afa-aeb2-5745aaddbaaa",
+        "title": "The Chronicles of Oz",
+        "moderationStatus": "new",
+        "processingStatus": "completed",
+        "resolutionStatus": "published",
+        "resolutionReason": "linked-candidate-published",
+        "resolvedAt": "2026-11-04 20:05:39",
+        "candidateId": "94aacc3b-179a-410b-bad5-24901832c719",
+        "candidateStatus": "published",
+        "candidateProvenanceExact": true,
+        "targetShowId": "the-chronicles-of-oz",
+        "targetExistsAndPublished": true
+      },
+      {
+        "submissionId": "3dbad274-c403-4609-aaa0-4ffa55b05fde",
+        "title": "The Survivor Tapes",
+        "moderationStatus": "new",
+        "processingStatus": "received",
+        "resolutionStatus": "open",
+        "resolutionReason": "",
+        "resolvedAt": null,
+        "candidateId": "",
+        "candidateStatus": "",
+        "candidateProvenanceExact": false,
+        "targetShowId": "",
+        "targetExistsAndPublished": false
+      }
+    ],
+    "unresolvedShowSubmissionIds": [
+      "cc21fc8c-e099-4292-a47a-3bd10abb25af",
+      "586ef814-4e9b-47bf-8bcb-72ea9ef7e2f8",
+      "a0390437-0eed-43c1-b2a7-ff33e27f5271",
+      "3dbad274-c403-4609-aaa0-4ffa55b05fde"
+    ],
+    "lifecycleEventCount": 22,
+    "lifecycleEventsByType": [
+      {
+        "event_type": "published",
+        "count": 9
+      },
+      {
+        "event_type": "received",
+        "count": 13
+      }
+    ],
+    "candidateRelationshipCount": 10,
+    "duplicateRelationshipCount": 0,
+    "importer": {
+      "candidateCount": 153,
+      "jobs": 164,
+      "runs": 46,
+      "unchangedTableDigests": {
+        "catalog_import_candidates": {
+          "before": {
+            "count": 153,
+            "sha256": "ba076068d7f36ad9329e01cbecb9580e77c393d5d04b3c9bd4731ac85951e14c"
+          },
+          "after": {
+            "count": 153,
+            "sha256": "ba076068d7f36ad9329e01cbecb9580e77c393d5d04b3c9bd4731ac85951e14c"
+          },
+          "unchanged": true
+        },
+        "catalog_import_jobs": {
+          "before": {
+            "count": 164,
+            "sha256": "f127a5bc84451c8cdaaae660926f0faf5324ad19acdd5b2123c7583a883ab413"
+          },
+          "after": {
+            "count": 164,
+            "sha256": "f127a5bc84451c8cdaaae660926f0faf5324ad19acdd5b2123c7583a883ab413"
+          },
+          "unchanged": true
+        },
+        "catalog_import_runs": {
+          "before": {
+            "count": 46,
+            "sha256": "d7864aa3b5ff59ec2de06bee542baabd463c8ad75fc2e94c0d72fe1865974d0f"
+          },
+          "after": {
+            "count": 46,
+            "sha256": "d7864aa3b5ff59ec2de06bee542baabd463c8ad75fc2e94c0d72fe1865974d0f"
+          },
+          "unchanged": true
+        },
+        "podcasts": {
+          "before": {
+            "count": 760,
+            "sha256": "1cd478801b68ed1c825a5adfb9becec2e7084aeb9b0e7bb1369c720d176f6614"
+          },
+          "after": {
+            "count": 760,
+            "sha256": "1cd478801b68ed1c825a5adfb9becec2e7084aeb9b0e7bb1369c720d176f6614"
+          },
+          "unchanged": true
+        },
+        "published_listener_reviews": {
+          "before": {
+            "count": 0,
+            "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          },
+          "after": {
+            "count": 0,
+            "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          },
+          "unchanged": true
+        },
+        "rating_submissions": {
+          "before": {
+            "count": 34,
+            "sha256": "f5bf16317ec2edb66a790785b3368763d2d4f89f7ae2039384da1258a145c478"
+          },
+          "after": {
+            "count": 34,
+            "sha256": "f5bf16317ec2edb66a790785b3368763d2d4f89f7ae2039384da1258a145c478"
+          },
+          "unchanged": true
+        },
+        "rating_events": {
+          "before": {
+            "count": 2,
+            "sha256": "419a8e931ba618558d0e608786bd4ae555cdd74846f87b1acb397c825c41c816"
+          },
+          "after": {
+            "count": 2,
+            "sha256": "419a8e931ba618558d0e608786bd4ae555cdd74846f87b1acb397c825c41c816"
+          },
+          "unchanged": true
+        },
+        "community_profiles": {
+          "before": {
+            "count": 8,
+            "sha256": "4294264679200dc4651d3471378db636016096ecabb32bcf00eef344db6c35e1"
+          },
+          "after": {
+            "count": 8,
+            "sha256": "4294264679200dc4651d3471378db636016096ecabb32bcf00eef344db6c35e1"
+          },
+          "unchanged": true
+        }
+      }
+    },
+    "secondStartup": {
+      "reopenedUsingOpenDatabase": true,
+      "changedTables": [],
+      "unchangedTableDigests": {
+        "show_submissions": {
+          "count": 13,
+          "sha256": "2ff5574d73e3ca59427d1d7455a784d40c9842caa2777b1e2e4ef2f4d930f72f"
+        },
+        "submission_candidate_links": {
+          "count": 10,
+          "sha256": "fe9f839789777f6181ca3a246738e2bfa20fba88897e2ad27b81f47561631e28"
+        },
+        "submission_relations": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "submission_lifecycle_events": {
+          "count": 22,
+          "sha256": "5430be4349346cd42ad538749eeeffd6380418d11a5d030a696a3d52f8c09109"
+        },
+        "catalog_import_candidates": {
+          "count": 153,
+          "sha256": "ba076068d7f36ad9329e01cbecb9580e77c393d5d04b3c9bd4731ac85951e14c"
+        },
+        "catalog_import_jobs": {
+          "count": 164,
+          "sha256": "f127a5bc84451c8cdaaae660926f0faf5324ad19acdd5b2123c7583a883ab413"
+        },
+        "catalog_import_runs": {
+          "count": 46,
+          "sha256": "d7864aa3b5ff59ec2de06bee542baabd463c8ad75fc2e94c0d72fe1865974d0f"
+        },
+        "podcasts": {
+          "count": 760,
+          "sha256": "1cd478801b68ed1c825a5adfb9becec2e7084aeb9b0e7bb1369c720d176f6614"
+        }
+      }
+    }
+  },
+  "checks": {
+    "beforeIntegrity": "ok",
+    "beforeForeignKeyViolations": 0,
+    "afterIntegrity": "ok",
+    "afterForeignKeyViolations": 0,
+    "allPublishedTargetsExistInCapturedCatalog": true,
+    "affectedPublishedShowRows": 0,
+    "existingRatingsAndReviewDataUnchanged": true,
+    "unrelatedCandidatesAndJobsChanged": false,
+    "migrationRepeatSafe": true
+  }
+}

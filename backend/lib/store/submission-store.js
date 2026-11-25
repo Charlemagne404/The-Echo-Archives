@@ -163,6 +163,24 @@ function createSubmissionStore({ db }) {
       WHERE submission_id = ?
       ORDER BY datetime(created_at) ASC, id ASC
     `),
+    listLifecycleEventsMissingNotifications: db.prepare(`
+      SELECT e.submission_id, e.event_type, e.event_key
+      FROM submission_lifecycle_events AS e
+      LEFT JOIN discord_notification_outbox AS n
+        ON n.event_id = substr('submission-lifecycle:' || e.submission_id || ':' || e.event_key, 1, 200)
+      WHERE e.event_type IN ('new-submission', 'ready-for-review', 'processing-failed', 'stale-submission')
+        AND n.event_id IS NULL
+      ORDER BY datetime(e.created_at), e.id
+      LIMIT ?
+    `),
+    countLifecycleEventsMissingNotifications: db.prepare(`
+      SELECT COUNT(*) AS count
+      FROM submission_lifecycle_events AS e
+      LEFT JOIN discord_notification_outbox AS n
+        ON n.event_id = substr('submission-lifecycle:' || e.submission_id || ':' || e.event_key, 1, 200)
+      WHERE e.event_type IN ('new-submission', 'ready-for-review', 'processing-failed', 'stale-submission')
+        AND n.event_id IS NULL
+    `),
     getSubmissionRelations: db.prepare(`
       SELECT r.relationship_type, r.evidence_json, r.created_at,
         s.id AS related_submission_id, s.show_title AS related_show_title,
@@ -251,6 +269,8 @@ function createSubmissionStore({ db }) {
         processing_error, processing_attempts, processing_started_at, content_redacted_at,
         (SELECT status FROM catalog_import_candidates WHERE id = show_submissions.import_candidate_id) AS import_candidate_status,
         (SELECT published_show_id FROM catalog_import_candidates WHERE id = show_submissions.import_candidate_id) AS import_published_show_id,
+        (SELECT primary_source_type FROM catalog_import_candidates WHERE id = show_submissions.import_candidate_id) AS import_candidate_source_type,
+        (SELECT primary_source_key FROM catalog_import_candidates WHERE id = show_submissions.import_candidate_id) AS import_candidate_source_key,
         (SELECT last_error FROM catalog_import_candidates WHERE id = show_submissions.import_candidate_id) AS import_candidate_error,
         (SELECT input_revision FROM catalog_import_candidates WHERE id = show_submissions.import_candidate_id) AS import_candidate_revision
       FROM show_submissions WHERE submission_type = 'show'
@@ -574,6 +594,18 @@ function createSubmissionStore({ db }) {
     }));
   }
 
+  function listLifecycleEventsMissingNotifications({ limit = 25 } = {}) {
+    return statements.listLifecycleEventsMissingNotifications.all(Math.min(100, Math.max(1, Number(limit) || 25))).map((row) => ({
+      submissionId: row.submission_id,
+      eventType: row.event_type,
+      eventKey: row.event_key,
+    }));
+  }
+
+  function countLifecycleEventsMissingNotifications() {
+    return Number(statements.countLifecycleEventsMissingNotifications.get().count || 0);
+  }
+
   function getQueueHealth({
     now = new Date(),
     personalRetentionDays = 180,
@@ -655,6 +687,10 @@ function createSubmissionStore({ db }) {
 
   function getShowSubmission(id) {
     return hydrateSubmission(statements.getShowSubmission.get(id));
+  }
+
+  function getSubmissionByIntakeKeyHash(intakeKeyHash) {
+    return hydrateSubmission(statements.getByIntakeKeyHash.get(String(intakeKeyHash || "")));
   }
 
   function listShowSubmissions(filters = {}) {
@@ -831,8 +867,11 @@ function createSubmissionStore({ db }) {
     getLifecycleDetails,
     getQueueHealth,
     getShowSubmission,
+    getSubmissionByIntakeKeyHash,
     listDueProcessing,
     listForLifecycleReconciliation,
+    listLifecycleEventsMissingNotifications,
+    countLifecycleEventsMissingNotifications,
     listShowSubmissions,
     purgePersonalData,
     recordLifecycleEvent,

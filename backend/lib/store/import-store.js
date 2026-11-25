@@ -398,6 +398,8 @@ function createImportStore({ db }) {
   }
 
   function resolveSubmissionLinksForCandidate(candidateId, showId, actor = "", reviewedAt = new Date().toISOString()) {
+    const candidate = getCandidateRow.get(candidateId);
+    if (candidate?.primary_source_type !== "submission") return [];
     const linked = listLinkedSubmissionsForCandidate.all(candidateId);
     const update = db.prepare(`
       UPDATE show_submissions
@@ -414,6 +416,7 @@ function createImportStore({ db }) {
       VALUES (?, ?, 'published', 'resolution:published', ?, 'candidate-published', ?, ?)
     `);
     return db.transaction(() => linked.flatMap((submission) => {
+      if (candidate.primary_source_key !== submission.id) return [];
       const evidence = JSON.stringify({ candidateId, showId, publication: "explicit-editorial-approval" });
       const result = update.run(
         showId,

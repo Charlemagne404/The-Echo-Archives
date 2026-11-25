@@ -542,6 +542,11 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     return catalogCache;
   }
 
+  function hasArchiveShow(showId) {
+    const normalizedShowId = trimText(showId, 160);
+    return Boolean(normalizedShowId && readCatalogRecords(true).some((show) => show.id === normalizedShowId));
+  }
+
   function registerCatalogIdentities() {
     readCatalogRecords().forEach((show) => showIdentityPairs(show).forEach(([type, value]) => {
       store.claimIdentity(type, value, { existingShowId: show.id });
@@ -2448,6 +2453,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     getForMaintainer: getCandidate,
     findPotentialSubmissionMatches,
     findSubmissionIdentityMatch,
+    hasArchiveShow,
     getPublishedCandidateForShow,
     getSubmissionIdentityKeys,
     getDiscoveryRun: (id) => store.getDiscoveryRun(id),
