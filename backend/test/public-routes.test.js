@@ -24,15 +24,27 @@ function publicFileVersion(relativePath) {
   return crypto.createHash("sha1").update(fs.readFileSync(path.join(siteRoot, relativePath))).digest("hex").slice(0, 10);
 }
 
+function publicPayloadVersion(payload) {
+  return crypto.createHash("sha1").update(JSON.stringify(payload)).digest("hex").slice(0, 10);
+}
+
 function graphNode(structuredData, type) {
   const nodes = Array.isArray(structuredData?.["@graph"]) ? structuredData["@graph"] : [structuredData];
   return nodes.find((node) => node?.["@type"] === type);
 }
 
-async function waitForServer(url, timeoutMs = 60_000) {
+async function waitForServer(url, timeoutMs = 60_000, { serverProcess = null, getStartupOutput = () => "" } = {}) {
   const startedAt = Date.now();
 
   while (Date.now() - startedAt < timeoutMs) {
+    if (serverProcess && (serverProcess.exitCode !== null || serverProcess.signalCode !== null)) {
+      const status = serverProcess.exitCode !== null
+        ? `exit code ${serverProcess.exitCode}`
+        : `signal ${serverProcess.signalCode}`;
+      const output = String(getStartupOutput() || "").trim();
+      throw new Error(`Test server exited with ${status} before ${url} became healthy.${output ? `\n${output}` : ""}`);
+    }
+
     try {
       const response = await fetch(url, { signal: AbortSignal.timeout(1_000) });
       if (response.ok) {
@@ -45,7 +57,8 @@ async function waitForServer(url, timeoutMs = 60_000) {
     await new Promise((resolve) => setTimeout(resolve, 200));
   }
 
-  throw new Error(`Timed out waiting for ${url}`);
+  const output = String(getStartupOutput() || "").trim();
+  throw new Error(`Timed out waiting for ${url}.${output ? `\n${output}` : ""}`);
 }
 
 async function startPublicRouteServer(envOverrides = {}) {
@@ -70,11 +83,18 @@ async function startPublicRouteServer(envOverrides = {}) {
     },
     stdio: ["ignore", "pipe", "pipe"],
   });
-  serverProcess.stdout?.resume();
-  serverProcess.stderr?.resume();
+  let startupOutput = "";
+  const captureStartupOutput = (chunk) => {
+    startupOutput = `${startupOutput}${chunk.toString("utf8")}`.slice(-8_192);
+  };
+  serverProcess.stdout?.on("data", captureStartupOutput);
+  serverProcess.stderr?.on("data", captureStartupOutput);
 
   try {
-    await waitForServer(`${baseUrl}/api/health`);
+    await waitForServer(`${baseUrl}/api/health`, 60_000, {
+      serverProcess,
+      getStartupOutput: () => startupOutput,
+    });
   } catch (error) {
     await stopPublicRouteServer({ serverProcess, tempDir });
     throw error;
@@ -838,7 +858,9 @@ test("search index responses use cache-friendly headers for versioned and unvers
     assert.ok(Array.isArray(graph.entityConnections));
     assert.match(graph.semantics.entityConnections, /does not assert a direct affiliation/);
 
-    const versionedResponse = await fetch(`${context.baseUrl}/data/search-index.json?v=${publicFileVersion("data/search-index.json")}`);
+    const initialSearchIndex = await fetch(`${context.baseUrl}/data/search-index.json`);
+    const searchIndexVersion = publicPayloadVersion(await initialSearchIndex.json());
+    const versionedResponse = await fetch(`${context.baseUrl}/data/search-index.json?v=${searchIndexVersion}`);
     assert.equal(versionedResponse.status, 200);
     assert.equal(versionedResponse.headers.get("cache-control"), "public, max-age=31536000, immutable");
 
@@ -852,7 +874,9 @@ test("search index responses use cache-friendly headers for versioned and unvers
       "public, max-age=0, stale-if-error=3600",
     );
 
-    const runtimeResponse = await fetch(`${context.baseUrl}/data/runtime-evidence.json?v=${publicFileVersion("data/runtime-evidence.json")}`);
+    const initialRuntimeEvidence = await fetch(`${context.baseUrl}/data/runtime-evidence.json`);
+    const runtimeEvidenceVersion = publicPayloadVersion(await initialRuntimeEvidence.json());
+    const runtimeResponse = await fetch(`${context.baseUrl}/data/runtime-evidence.json?v=${runtimeEvidenceVersion}`);
     assert.equal(runtimeResponse.status, 200);
     assert.match(runtimeResponse.headers.get("content-type") || "", /application\/json/);
     assert.match(runtimeResponse.headers.get("x-robots-tag") || "", /noindex/);
@@ -870,8 +894,76 @@ test("search index responses use cache-friendly headers for versioned and unvers
       assert.match(response.headers.get("content-type") || "", /application\/json/i, route);
       assert.match(response.headers.get("x-robots-tag") || "", /noindex, nofollow, noarchive/i, route);
     }
+
+    const reviewResponse = await fetch(`${context.baseUrl}/data/reviews/impact-winter.json`);
+    const review = await reviewResponse.json();
+    const showResponse = await fetch(`${context.baseUrl}/data/shows.json`);
+    const shows = await showResponse.json();
+    const show = shows.find((entry) => entry.id === "impact-winter");
+    assert.equal(review.archiveTake, show.archiveTake);
+    assert.deepEqual(review.spoilerFreeReview, show.spoilerFreeReviewParagraphs);
+    assert.equal(review.publishedAt, show.reviewPublishedAt);
   } finally {
     await stopPublicRouteServer(context);
+  }
+});
+
+test("undated review drafts stay out of public catalog, show, and review routes", async () => {
+  const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-unpublished-review-"));
+  let context;
+
+  try {
+    for (const name of fs.readdirSync(siteRoot)) {
+      if (["catalog-src", "data"].includes(name)) {
+        fs.cpSync(path.join(siteRoot, name), path.join(fixtureRoot, name), { recursive: true });
+      } else if (name === "import-staging") {
+        // Runtime publication metadata must be isolated per fixture, never symlinked from the checkout.
+        continue;
+      } else if (!name.startsWith(".")) {
+        fs.symlinkSync(path.join(siteRoot, name), path.join(fixtureRoot, name));
+      }
+    }
+
+    const shows = JSON.parse(fs.readFileSync(path.join(fixtureRoot, "data", "shows.json"), "utf8"));
+    const target = shows.find((show) =>
+      show.status === "published" &&
+      show.reviewStatus === "indexed-only" &&
+      !fs.existsSync(path.join(fixtureRoot, "catalog-src", "reviews", `${show.id}.json`)),
+    );
+    assert.ok(target, "fixture includes a published indexed-only show without a companion review");
+
+    const privateDraft = {
+      archiveTake: "PRIVATE_REVIEW_DRAFT_SENTINEL",
+      spoilerFreeReview: ["PRIVATE_REVIEW_DRAFT_SENTINEL"],
+      thoughts: ["PRIVATE_REVIEW_DRAFT_SENTINEL"],
+      quote: { text: "PRIVATE_REVIEW_DRAFT_SENTINEL", attribution: "PRIVATE_REVIEW_DRAFT_SENTINEL" },
+    };
+    const sourceReviewPath = path.join(fixtureRoot, "catalog-src", "reviews", `${target.id}.json`);
+    const runtimeReviewPath = path.join(fixtureRoot, "data", "reviews", `${target.id}.json`);
+    fs.mkdirSync(path.dirname(sourceReviewPath), { recursive: true });
+    fs.mkdirSync(path.dirname(runtimeReviewPath), { recursive: true });
+    fs.writeFileSync(sourceReviewPath, JSON.stringify(privateDraft, null, 2));
+    fs.writeFileSync(runtimeReviewPath, JSON.stringify(privateDraft, null, 2));
+
+    context = await startPublicRouteServer({ STATIC_ROOT: fixtureRoot });
+
+    const catalogResponse = await fetch(`${context.baseUrl}/data/shows.json`);
+    assert.equal(catalogResponse.status, 200);
+    const publicShows = await catalogResponse.json();
+    const publicShow = publicShows.find((show) => show.id === target.id);
+    assert.equal(publicShow.reviewStatus, "indexed-only");
+    assert.doesNotMatch(JSON.stringify(publicShow), /PRIVATE_REVIEW_DRAFT_SENTINEL/);
+
+    const showResponse = await fetch(`${context.baseUrl}/shows/${target.id}`);
+    assert.equal(showResponse.status, 200);
+    assert.doesNotMatch(await showResponse.text(), /PRIVATE_REVIEW_DRAFT_SENTINEL/);
+
+    const reviewResponse = await fetch(`${context.baseUrl}/data/reviews/${target.id}.json`);
+    assert.equal(reviewResponse.status, 404);
+    assert.doesNotMatch(await reviewResponse.text(), /PRIVATE_REVIEW_DRAFT_SENTINEL/);
+  } finally {
+    if (context) await stopPublicRouteServer(context);
+    fs.rmSync(fixtureRoot, { recursive: true, force: true });
   }
 });
 
@@ -1078,7 +1170,9 @@ test("public data responses are versionable and exclude server-only catalog fiel
   const context = await startPublicRouteServer();
 
   try {
-    const showsResponse = await fetch(`${context.baseUrl}/data/shows.json?v=${publicFileVersion("data/shows.json")}`);
+    const unversionedShows = await fetch(`${context.baseUrl}/data/shows.json`);
+    const showsPayload = await unversionedShows.json();
+    const showsResponse = await fetch(`${context.baseUrl}/data/shows.json?v=${publicPayloadVersion(showsPayload)}`);
     assert.equal(showsResponse.headers.get("cache-control"), "public, max-age=31536000, immutable");
     assert.match(showsResponse.headers.get("x-robots-tag") || "", /noindex/);
     const shows = await showsResponse.json();
@@ -1086,10 +1180,21 @@ test("public data responses are versionable and exclude server-only catalog fiel
     assert.equal(Object.hasOwn(shows[0], "imageSrc"), false);
     assert.equal(Object.hasOwn(shows[0], "searchIndex"), false);
 
-    const collectionsResponse = await fetch(`${context.baseUrl}/data/collections.json?v=${publicFileVersion("data/collections.json")}`);
+    const unversionedCollections = await fetch(`${context.baseUrl}/data/collections.json`);
+    const collectionsPayload = await unversionedCollections.json();
+    const collectionsResponse = await fetch(`${context.baseUrl}/data/collections.json?v=${publicPayloadVersion(collectionsPayload)}`);
     assert.equal(collectionsResponse.headers.get("cache-control"), "public, max-age=31536000, immutable");
     assert.match(collectionsResponse.headers.get("x-robots-tag") || "", /noindex/);
     assert.ok(Array.isArray(await collectionsResponse.json()));
+
+    const homeHtml = await (await fetch(`${context.baseUrl}/`)).text();
+    const archiveStatsVersion = homeHtml.match(/data-archive-stats-version="([a-f0-9]{10})"/)?.[1];
+    assert.ok(archiveStatsVersion, "the initial HTML exposes the version of its archive stats payload");
+    const archiveStatsResponse = await fetch(`${context.baseUrl}/data/archive-stats.json?v=${archiveStatsVersion}`);
+    assert.equal(archiveStatsResponse.headers.get("cache-control"), "public, max-age=31536000, immutable");
+    const archiveStats = await archiveStatsResponse.json();
+    assert.equal(archiveStats.showCount, shows.length);
+    assert.equal(archiveStats.fullReviewCount, shows.filter((show) => show.reviewStatus === "full-review").length);
   } finally {
     await stopPublicRouteServer(context);
   }
@@ -1216,7 +1321,7 @@ test("a malformed catalogue refresh serves the last good snapshot and fails read
   for (const name of fs.readdirSync(siteRoot)) {
     if (name === "catalog-src" || name === "data") {
       fs.cpSync(path.join(siteRoot, name), path.join(fixtureRoot, name), { recursive: true });
-    } else if (!name.startsWith(".")) {
+    } else if (!name.startsWith(".") && name !== "import-staging") {
       fs.symlinkSync(path.join(siteRoot, name), path.join(fixtureRoot, name));
     }
   }
@@ -1253,7 +1358,7 @@ test("missing error templates cannot expose an Express stack trace", async () =>
   let server;
   try {
     for (const name of fs.readdirSync(siteRoot)) {
-      if (!name.startsWith(".") && name !== "500.html" && name !== "404.html") {
+      if (!name.startsWith(".") && name !== "500.html" && name !== "404.html" && name !== "import-staging") {
         fs.symlinkSync(path.join(siteRoot, name), path.join(fixtureRoot, name));
       }
     }
@@ -1526,7 +1631,7 @@ test("startup recovers a SIGKILL publication before serving public pages", async
   try {
     for (const name of fs.readdirSync(siteRoot)) {
       if (["catalog-src", "data", "docs"].includes(name)) fs.cpSync(path.join(siteRoot, name), path.join(fixtureRoot, name), { recursive: true });
-      else if (!name.startsWith(".")) fs.symlinkSync(path.join(siteRoot, name), path.join(fixtureRoot, name));
+      else if (!name.startsWith(".") && name !== "import-staging") fs.symlinkSync(path.join(siteRoot, name), path.join(fixtureRoot, name));
     }
     const sourceModule = require.resolve("../../tools/lib/catalog-source");
     const crashed = spawnSync(process.execPath, ["-e", `const fs=require('node:fs');const root=process.env.CRASH_ROOT;const show=JSON.parse(fs.readFileSync(root+'/catalog-src/shows/impact-winter.json'));show.title='Interrupted replacement';require(${JSON.stringify(sourceModule)}).writeShowRecordsAtomically(root,[show],{deferCommit:true});fs.writeFileSync(root+'/data/shows.json','invalid partial artifact');process.kill(process.pid,'SIGKILL');`], { env: { ...process.env, CRASH_ROOT: fixtureRoot }, timeout: 10000 });
@@ -1538,7 +1643,7 @@ test("startup recovers a SIGKILL publication before serving public pages", async
     assert.match(html, /Impact Winter/);
     assert.doesNotMatch(html, /Interrupted replacement/);
     assert.equal((await fetch(`${context.baseUrl}/api/health`)).status, 200);
-    assert.equal(fs.existsSync(path.join(fixtureRoot, ".echo-catalog-transaction")), false);
+    assert.equal(fs.existsSync(path.join(fixtureRoot, "import-staging", ".echo-catalog-transaction")), false);
   } finally {
     if (context) await stopPublicRouteServer(context);
     fs.rmSync(fixtureRoot, { recursive: true, force: true });

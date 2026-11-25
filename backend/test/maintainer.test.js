@@ -172,6 +172,17 @@ test("maintainer list defaults to open statuses, searches payload text, and pers
   assert.deepEqual(openResult.items.map((item) => item.id), [second.id, first.id]);
   assert.equal(openResult.counts.status.accepted, undefined);
 
+  context.db.prepare(`
+    UPDATE show_submissions
+    SET import_candidate_id = 'candidate-test', import_resolved_show_id = 'show-test'
+    WHERE id = ?
+  `).run(first.id);
+  const linked = context.service.getForMaintainer(first.id);
+  assert.equal(linked.importCandidateId, "candidate-test");
+  assert.equal(linked.importResolvedShowId, "show-test");
+  const linkedList = context.service.listForMaintainer({ includeClosed: true });
+  assert.equal(linkedList.items.find((item) => item.id === first.id).importCandidateId, "candidate-test");
+
   const searchResult = context.service.listForMaintainer({ q: "official domain", includeClosed: true });
   assert.equal(searchResult.total, 1);
   assert.equal(searchResult.items[0].submissionType, "correction");
@@ -433,6 +444,12 @@ test("maintainer import routes enforce auth and allow candidate seeding and revi
 
     const unauthorizedList = await fetch(`${context.baseUrl}/api/maintainer/imports`);
     assert.equal(unauthorizedList.status, 401);
+    const unauthorizedExternalIdentity = await fetch(`${context.baseUrl}/api/maintainer/imports/not-a-candidate/external-identity`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ provider: "amazon-music", url: "https://music.amazon.co.uk/podcasts/3c2ab8bc-6eda-429e-b320-01d6bdcf5a61", confirmedMatch: true }),
+    });
+    assert.equal(unauthorizedExternalIdentity.status, 401);
 
     const loginResponse = await fetch(`${context.baseUrl}/api/maintainer/session`, {
       method: "POST",

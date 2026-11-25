@@ -4,7 +4,7 @@ const path = require("node:path");
 const archiveRecord = require("../../shared/archive-record.js");
 
 const TOP_RATED_BADGE_ASSET_URL = "/images/badges/top-rated-bookmark.png";
-const DEFAULT_FALLBACK_COVER_IMAGE = "/images/TEA-Logo-S.png";
+const DEFAULT_FALLBACK_COVER_IMAGE = "/images/Circle2-Logo-S.png";
 const HOME_MOST_POPULAR_LIMIT = 4;
 const HOME_RECENTLY_ADDED_LIMIT = 4;
 const HOME_RESULTS_PAGE_SIZE = 60;
@@ -516,6 +516,69 @@ function replaceMarkup(source, pattern, replacement, label) {
   return next;
 }
 
+function replaceElementContentsById(source, id, contents, markerAttribute = "") {
+  const escapedId = String(id).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const openingPattern = new RegExp(`<([a-z][a-z0-9:-]*)\\b(?=[^>]*\\bid=[\"']${escapedId}[\"'])[^>]*>`, "i");
+  const openingMatch = openingPattern.exec(source);
+  if (!openingMatch) throw new Error(`Unable to find prerender container ${id}.`);
+
+  const tagName = openingMatch[1];
+  let openingTag = openingMatch[0];
+  if (markerAttribute && !new RegExp(`\\s${markerAttribute}=`).test(openingTag)) {
+    openingTag = openingTag.replace(/>$/, ` ${markerAttribute}=\"true\">`);
+  }
+
+  let cursor = openingMatch.index + openingMatch[0].length;
+  let depth = 1;
+  while (cursor < source.length) {
+    const tagStart = source.indexOf("<", cursor);
+    if (tagStart === -1) break;
+
+    if (source.startsWith("<!--", tagStart)) {
+      const commentEnd = source.indexOf("-->", tagStart + 4);
+      cursor = commentEnd === -1 ? source.length : commentEnd + 3;
+      continue;
+    }
+
+    const rawTextOpen = /^<(script|style)\b/i.exec(source.slice(tagStart));
+    if (rawTextOpen) {
+      const rawTextClosePattern = new RegExp(`<\\/${rawTextOpen[1]}\\s*>`, "i");
+      const rawTextClose = rawTextClosePattern.exec(source.slice(tagStart + rawTextOpen[0].length));
+      cursor = rawTextClose
+        ? tagStart + rawTextOpen[0].length + rawTextClose.index + rawTextClose[0].length
+        : source.length;
+      continue;
+    }
+
+    let tagEnd = tagStart + 1;
+    let quote = "";
+    while (tagEnd < source.length) {
+      const character = source[tagEnd];
+      if (quote) {
+        if (character === quote) quote = "";
+      } else if (character === "\"" || character === "'") {
+        quote = character;
+      } else if (character === ">") {
+        break;
+      }
+      tagEnd += 1;
+    }
+    if (tagEnd >= source.length) break;
+
+    const tagMarkup = source.slice(tagStart, tagEnd + 1);
+    const parsedTag = /^<\s*(\/?)\s*([a-z][a-z0-9:-]*)\b/i.exec(tagMarkup);
+    cursor = tagEnd + 1;
+    if (!parsedTag || parsedTag[2].toLowerCase() !== tagName.toLowerCase()) continue;
+
+    if (parsedTag[1]) depth -= 1;
+    else if (!/\/\s*>$/.test(tagMarkup)) depth += 1;
+    if (depth === 0) {
+      return `${source.slice(0, openingMatch.index)}${openingTag}${contents}${tagMarkup}${source.slice(tagEnd + 1)}`;
+    }
+  }
+  throw new Error(`Unable to find closing tag for prerender container ${id} (depth ${depth}).`);
+}
+
 function setSectionVisibility(markup, isVisible, dataAttributeValue = "") {
   return markup.replace(/<section\b([^>]*)>/i, (_match, attributes) => {
     const withoutHidden = attributes.replace(/\shidden\b/i, "");
@@ -534,7 +597,16 @@ function setElementVisibility(markup, isVisible) {
   });
 }
 
-function loadHomePrerenderData(rootDir) {
+function loadHomePrerenderData(rootDir, { shows: runtimeShows, collections: runtimeCollections } = {}) {
+  if (Array.isArray(runtimeShows) && Array.isArray(runtimeCollections)) {
+    const publishedShows = runtimeShows.filter((show) => show.status === "published");
+    return {
+      collections: runtimeCollections,
+      publishedShows,
+      showMap: new Map(publishedShows.map((show) => [show.id, show])),
+    };
+  }
+
   const showsPath = path.join(rootDir, "data", "shows.json");
   const collectionsPath = path.join(rootDir, "data", "collections.json");
   const showRecords = readJson(showsPath).map((record) => archiveRecord.normalizeShowRecord(record));
@@ -547,8 +619,8 @@ function loadHomePrerenderData(rootDir) {
   };
 }
 
-function renderHomePagePrerender(pageBody, { rootDir, homeMostPopularIds = [], homeFavoriteRouteIds = [] }) {
-  const { collections, publishedShows, showMap } = loadHomePrerenderData(rootDir);
+function renderHomePagePrerender(pageBody, { rootDir, shows, collections: runtimeCollections, homeMostPopularIds = [], homeFavoriteRouteIds = [] }) {
+  const { collections, publishedShows, showMap } = loadHomePrerenderData(rootDir, { shows, collections: runtimeCollections });
   const collectionsById = new Map(collections.map((collection) => [collection.id, collection]));
   const stats = getArchiveStats(publishedShows, collections);
   const featuredCollections = collections.filter((collection) => collection.featured);
@@ -583,29 +655,29 @@ function renderHomePagePrerender(pageBody, { rootDir, homeMostPopularIds = [], h
     `$1${escapeHtml(resultsSummary)}$2`,
     "results summary",
   );
-  rendered = replaceMarkup(
+  rendered = replaceElementContentsById(
     rendered,
-    /<div class="popular-grid" id="popularGrid"><\/div>/,
-    `<div class="popular-grid" id="popularGrid" data-home-prerendered="true">${mostPopularShows.map((show, index) => renderMostPopularCard(show, index)).join("")}</div>`,
-    "most popular grid",
+    "popularGrid",
+    mostPopularShows.map((show, index) => renderMostPopularCard(show, index)).join(""),
+    "data-home-prerendered",
   );
-  rendered = replaceMarkup(
+  rendered = replaceElementContentsById(
     rendered,
-    /<div id="recentlyAddedGrid" class="podcast-card-grid recently-added-grid"><\/div>/,
-    `<div id="recentlyAddedGrid" class="podcast-card-grid recently-added-grid" data-home-prerendered="true">${recentlyAddedShows.map((show, index) => renderArchiveCard(show, {
+    "recentlyAddedGrid",
+    recentlyAddedShows.map((show, index) => renderArchiveCard(show, {
       surface: "home_recent_rail",
       resultPositionBucket: getDiscoveryPositionBucket(index + 1),
-    })).join("")}</div>`,
-    "recently added grid",
+    })).join(""),
+    "data-home-prerendered",
   );
-  rendered = replaceMarkup(
+  rendered = replaceElementContentsById(
     rendered,
-    /<div id="podcast-grid"><\/div>/,
-    `<div id="podcast-grid" data-home-prerendered="true">${initialShows.map((show, index) => renderArchiveCard(show, {
+    "podcast-grid",
+    initialShows.map((show, index) => renderArchiveCard(show, {
       surface: "home_archive_grid",
       resultPositionBucket: getDiscoveryPositionBucket(index + 1),
-    })).join("")}</div>`,
-    "archive grid",
+    })).join(""),
+    "data-home-prerendered",
   );
   const loadMoreSurfaceMatch = rendered.match(/<div id="archiveLoadMore"[\s\S]*?<\/div>/);
   if (!loadMoreSurfaceMatch) {
@@ -632,17 +704,17 @@ function renderHomePagePrerender(pageBody, { rootDir, homeMostPopularIds = [], h
       "archive load more button",
     );
   }
-  rendered = replaceMarkup(
+  rendered = replaceElementContentsById(
     rendered,
-    /<div class="collection-grid collection-carousel-track" id="favoriteRoutesGrid"><\/div>/,
-    `<div class="collection-grid collection-carousel-track" id="favoriteRoutesGrid" data-home-prerendered="true">${favoriteCollections.map((collection) => renderCollectionCard(collection, showMap)).join("")}</div>`,
-    "favorite routes grid",
+    "favoriteRoutesGrid",
+    favoriteCollections.map((collection) => renderCollectionCard(collection, showMap)).join(""),
+    "data-home-prerendered",
   );
-  rendered = replaceMarkup(
+  rendered = replaceElementContentsById(
     rendered,
-    /<div class="collection-grid collection-carousel-track" id="collectionGrid"><\/div>/,
-    `<div class="collection-grid collection-carousel-track" id="collectionGrid" data-home-prerendered="true">${featuredCollections.map((collection) => renderCollectionCard(collection, showMap)).join("")}</div>`,
-    "featured collections grid",
+    "collectionGrid",
+    featuredCollections.map((collection) => renderCollectionCard(collection, showMap)).join(""),
+    "data-home-prerendered",
   );
 
   const mostPopularMatch = rendered.match(/<section class="most-popular-band" id="mostPopular"[\s\S]*?<\/section>/);
@@ -692,8 +764,8 @@ function renderHomePagePrerender(pageBody, { rootDir, homeMostPopularIds = [], h
   return rendered;
 }
 
-function renderCollectionsPagePrerender(pageBody, { rootDir }) {
-  const { publishedShows, collections } = loadHomePrerenderData(rootDir);
+function renderCollectionsPagePrerender(pageBody, { rootDir, shows, collections: runtimeCollections }) {
+  const { publishedShows, collections } = loadHomePrerenderData(rootDir, { shows, collections: runtimeCollections });
   const showMap = new Map(publishedShows.map((show) => [show.id, show]));
   const directoryMarkup = collections.map((collection) => renderCollectionDirectoryCard(collection, showMap)).join("");
   const coveredShowIds = new Set(collections.flatMap((collection) => collection.showIds || []));
@@ -702,17 +774,7 @@ function renderCollectionsPagePrerender(pageBody, { rootDir }) {
     ? new Intl.DateTimeFormat("en-US", { year: "numeric", month: "long", day: "numeric" }).format(new Date(`${latestUpdatedAt}T00:00:00`))
     : "Unknown";
 
-  let rendered = replaceMarkup(
-    pageBody,
-    /(<div\b(?=[^>]*\bid="collectionsDirectory")(?=[^>]*\bclass="collections-directory-grid")[^>]*)><\/div>/,
-    (_match, openingTag) => {
-      const prerenderedOpeningTag = /\sdata-collections-prerendered=/.test(openingTag)
-        ? openingTag
-        : `${openingTag} data-collections-prerendered="true"`;
-      return `${prerenderedOpeningTag}>${directoryMarkup}</div>`;
-    },
-    "collections directory prerender",
-  );
+  let rendered = replaceElementContentsById(pageBody, "collectionsDirectory", directoryMarkup, "data-collections-prerendered");
   for (const [id, value] of [
     ["collectionsCount", collections.length],
     ["collectionsShowReach", coveredShowIds.size],

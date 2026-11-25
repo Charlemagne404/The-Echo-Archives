@@ -10,9 +10,11 @@ const config = require("./lib/config");
 const { createAccessObservability } = require("./lib/access-observability");
 const { loadArchiveContext } = require("./lib/ai/archive-context");
 const { loadCatalog, loadCollections } = require("./lib/catalog");
+const { hasRichReviewContent } = require("./lib/reviews");
 const { buildEntityGraphData } = require("./lib/entity-graph");
 const { createMaintainerAuth } = require("./lib/maintainer-auth");
 const { renderEntityPage } = require("./lib/entity-page-render");
+const { renderCollectionsPagePrerender, renderHomePagePrerender } = require("../tools/lib/home-page-prerender");
 const { entityPath, isIndexableEntity } = require("../shared/archive-entities");
 const { buildSitemapDocuments } = require("./lib/sitemap");
 const { buildPublicReferenceManifest } = require("./lib/public-reference");
@@ -30,6 +32,8 @@ const { createPopularityService } = require("./lib/popularity");
 const { createCommunityService } = require("./lib/services/community-service");
 const { createDataRetentionService } = require("./lib/services/data-retention-service");
 const { createImportService } = require("./lib/services/import-service");
+const { createEchoPublisher } = require("./lib/services/echo-publisher");
+const { createEchoPublisherControlServer } = require("./lib/services/echo-publisher-control");
 const { createCollectionService } = require("./lib/services/collection-service");
 const { createElevationService } = require("./lib/services/elevation-service");
 const { createRateLimitService } = require("./lib/services/rate-limit-service");
@@ -83,7 +87,7 @@ const {
   createShowPageMarkup,
   injectShowRootContent,
 } = require("./lib/show-page-render");
-const { createRuntimeEvidenceRecord, createSearchIndexRecord, serializeRuntimeShow } = require("../tools/lib/catalog-artifacts");
+const { buildArchiveStats, createRuntimeEvidenceRecord, createSearchIndexRecord, serializeRuntimeShow } = require("../tools/lib/catalog-artifacts");
 
 const CONTACT_URL = "https://contact.continental-hub.com/";
 const PUBLIC_ROOT_ASSETS = new Set([
@@ -169,6 +173,10 @@ function hashPublicFile(staticRoot, relativePath) {
   } catch (_error) {
     return "";
   }
+}
+
+function hashPublicData(value) {
+  return crypto.createHash("sha1").update(JSON.stringify(value)).digest("hex").slice(0, 10);
 }
 
 function getPublicDataRevision(staticRoot) {
@@ -297,6 +305,7 @@ async function startServer() {
   const publicationRecovery = recoverCatalogPublication(config.STATIC_ROOT);
   config.validateConfig(config);
   const { validateDiscoveryProps } = await import("../shared/app/discovery-analytics.js");
+  const homePageConfig = await import("../shared/app/home-config.js");
   const publicPageManifest = config.SERVE_STATIC
     ? JSON.parse(fs.readFileSync(path.join(config.STATIC_ROOT, "site-src", "page-manifest.json"), "utf8"))
     : [];
@@ -344,6 +353,7 @@ async function startServer() {
     entityGraph: { schema: "echo-archives/entity-graph/v1", entities: [], shows: [], edges: [], entityConnections: [] },
     collections: [],
     runtimeEvidence: [],
+    archiveStats: null,
     archiveContext: null,
     siteHelpContext: null,
     similarityIndex: null,
@@ -351,6 +361,7 @@ async function startServer() {
     collectionsVersion: "",
     searchIndexVersion: "",
     runtimeEvidenceVersion: "",
+    archiveStatsVersion: "",
     publicDataRevision: "",
     publicDataHealthy: true,
     databaseBusyUntil: 0,
@@ -368,6 +379,7 @@ async function startServer() {
     const publicSearchIndex = publicCatalog.map(createSearchIndexRecord);
     const runtimeEvidence = publicCatalog.map(createRuntimeEvidenceRecord);
     const collections = loadCollections(config.STATIC_ROOT, new Set(catalog.map((show) => show.id)));
+    const archiveStats = buildArchiveStats(publicCatalog, collections);
     const similarityIndex = createSimilarityIndex({ shows: publicCatalog, collections });
     const archiveContext = await loadArchiveContext(config.STATIC_ROOT, catalog, collections);
     const siteHelpContext = loadSiteHelpContext({ catalog: publicCatalog, collections, archiveContext });
@@ -398,14 +410,16 @@ async function startServer() {
     state.sitemapDocuments = sitemapDocuments;
     state.publicReferenceManifest = publicReferenceManifest;
     state.runtimeEvidence = runtimeEvidence;
+    state.archiveStats = archiveStats;
     state.collections = collections;
     state.similarityIndex = similarityIndex;
     state.archiveContext = archiveContext;
     state.siteHelpContext = siteHelpContext;
-    state.showsVersion = hashPublicFile(config.STATIC_ROOT, "data/shows.json");
-    state.collectionsVersion = hashPublicFile(config.STATIC_ROOT, "data/collections.json");
-    state.searchIndexVersion = hashPublicFile(config.STATIC_ROOT, "data/search-index.json");
-    state.runtimeEvidenceVersion = hashPublicFile(config.STATIC_ROOT, "data/runtime-evidence.json");
+    state.showsVersion = hashPublicData(state.publicRuntimeCatalog);
+    state.collectionsVersion = hashPublicData(state.collections);
+    state.searchIndexVersion = hashPublicData(state.publicSearchIndex);
+    state.runtimeEvidenceVersion = hashPublicData(state.runtimeEvidence);
+    state.archiveStatsVersion = hashPublicData(state.archiveStats);
     state.publicDataRevision = completedRevision;
     state.publicDataHealthy = true;
     publicStateRetryAt = 0;
@@ -607,6 +621,17 @@ async function startServer() {
     config,
     onPublished: refreshCollectionsForCatalogChange,
   });
+  const echoPublisher = createEchoPublisher({
+    service: importService,
+    store: importStore,
+    staticRoot: config.STATIC_ROOT,
+    config,
+    getLiveCatalog: () => state.publicCatalog,
+    enforceProductionTarget: config.DEPLOYMENT_ENV === "production",
+  });
+  const publisherControl = config.DEPLOYMENT_ENV === "production"
+    ? createEchoPublisherControlServer({ publisher: echoPublisher })
+    : null;
   const elevationService = createElevationService({
     staticRoot: config.STATIC_ROOT,
     importService,
@@ -688,6 +713,7 @@ async function startServer() {
       collectionsVersion: state.collectionsVersion,
       searchIndexVersion: state.searchIndexVersion,
       runtimeEvidenceVersion: state.runtimeEvidenceVersion,
+      archiveStatsVersion: state.archiveStatsVersion,
       nonce,
     });
     return config.IS_STAGING ? injectNoIndex(configured) : configured;
@@ -991,6 +1017,31 @@ async function startServer() {
     res.json(state.publicRuntimeCatalog);
   });
 
+  app.get("/data/reviews/:showId.json", (req, res) => {
+    res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+    const show = state.showById.get(req.params.showId);
+    if (!show || show.reviewStatus !== "full-review" || !hasRichReviewContent(show)) {
+      res.set({ "Cache-Control": "no-store", "CDN-Cache-Control": "no-store" });
+      return res.status(404).json({ error: "Not found." });
+    }
+
+    const review = {
+      archiveTake: show.archiveTake,
+      ...(show.reviewPublishedAt ? { publishedAt: show.reviewPublishedAt } : {}),
+      spoilerFreeReview: show.spoilerFreeReviewParagraphs || [],
+      thoughts: show.thoughtsParagraphs || [],
+      quote: show.quote || { text: "", attribution: "" },
+    };
+    setPublicCacheHeaders(req, res, { version: hashPublicData(review) });
+    return res.json(review);
+  });
+
+  app.get("/data/archive-stats.json", (req, res) => {
+    res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+    setPublicCacheHeaders(req, res, { version: state.archiveStatsVersion });
+    res.json(state.archiveStats);
+  });
+
   app.get("/data/archive.json", (req, res) => {
     res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
     setPublicCacheHeaders(req, res);
@@ -1090,8 +1141,25 @@ async function startServer() {
   );
 
   if (config.SERVE_STATIC) {
+    const runtimePrerenderCache = new Map();
+
     function readPublicPageTemplate(fileName) {
       return fs.readFileSync(path.join(config.STATIC_ROOT, fileName), "utf8");
+    }
+
+    function renderRuntimePrerender(fileName, template, renderer) {
+      const cacheKey = `${state.publicDataRevision}:${fileName}`;
+      for (const existingKey of runtimePrerenderCache.keys()) {
+        if (!existingKey.startsWith(`${state.publicDataRevision}:`)) {
+          runtimePrerenderCache.delete(existingKey);
+        }
+      }
+      const cached = runtimePrerenderCache.get(cacheKey);
+      if (cached) return cached;
+
+      const rendered = renderer(template);
+      runtimePrerenderCache.set(cacheKey, rendered);
+      return rendered;
     }
 
     const resolveEntityAliasTarget = (routePath, req) => {
@@ -1554,6 +1622,19 @@ async function startServer() {
             manifestEntry,
           }),
         );
+        if (routePath === "/") {
+          rendered = renderRuntimePrerender(fileName, rendered, (template) => renderHomePagePrerender(template, {
+            shows: state.publicCatalog,
+            collections: state.collections,
+            homeMostPopularIds: homePageConfig.HOME_MOST_POPULAR_IDS,
+            homeFavoriteRouteIds: homePageConfig.HOME_FAVORITE_ROUTE_IDS,
+          }));
+        } else if (routePath === "/collections") {
+          rendered = renderRuntimePrerender(fileName, rendered, (template) => renderCollectionsPagePrerender(template, {
+            shows: state.publicCatalog,
+            collections: state.collections,
+          }));
+        }
         if (isFilteredDiscoveryPage) {
           rendered = injectNoIndex(rendered, { follow: true });
           res.set("X-Robots-Tag", "noindex, follow, noarchive");
@@ -1631,6 +1712,17 @@ async function startServer() {
         next();
       },
       express.static(path.join(config.STATIC_ROOT, "shows"), { index: false, fallthrough: true }),
+    );
+    app.use(
+      "/data/reviews",
+      (_req, res) => {
+        res.set({
+          "X-Robots-Tag": "noindex, nofollow, noarchive",
+          "Cache-Control": "no-store",
+          "CDN-Cache-Control": "no-store",
+        });
+        return res.status(404).json({ error: "Not found." });
+      },
     );
     app.use(
       "/data",
@@ -1729,6 +1821,10 @@ async function startServer() {
   const server = createBoundedHttpServer(app).listen(config.PORT, config.HOST, () => {
     console.log(`Echo Archives listening on http://${config.HOST}:${config.PORT}`);
   });
+  if (publisherControl) {
+    await publisherControl.start();
+    console.log("Echo Publisher local control socket is ready.");
+  }
 
   const internalHealthApp = express();
   internalHealthApp.disable("x-powered-by");
@@ -1766,7 +1862,7 @@ async function startServer() {
     }, 10_000);
     forceTimer.unref();
 
-    let remainingListeners = internalHealthServer ? 2 : 1;
+    let remainingListeners = 1 + Number(Boolean(internalHealthServer)) + Number(Boolean(publisherControl));
     const finishListenerClose = () => {
       remainingListeners -= 1;
       if (remainingListeners > 0) return;
@@ -1781,6 +1877,10 @@ async function startServer() {
 
     server.close(finishListenerClose);
     internalHealthServer?.close(finishListenerClose);
+    publisherControl?.close().then(finishListenerClose).catch((error) => {
+      console.error(`Echo Publisher control socket shutdown failed: ${error.message || error}`);
+      finishListenerClose();
+    });
     server.closeIdleConnections?.();
     internalHealthServer?.closeIdleConnections?.();
   }

@@ -560,7 +560,7 @@ test("submit defers archive lookup and keeps the new-show intake usable when loo
 
     await page.locator('[data-submission-mode="correction"]').click();
     await page.locator('.submit-lookup-status[data-state="error"]').waitFor();
-    assert.equal(lookupRequests, 1);
+    assert.ok(lookupRequests >= 1 && lookupRequests <= 2, `one correction lookup uses at most one worker request and its single fallback (${lookupRequests})`);
     assert.match(await page.locator(".submit-lookup-status").innerText(), /unavailable right now/i);
     assert.equal(await page.locator("#submitExistingShowSearch").isDisabled(), true);
     assert.equal(await page.locator("[data-retry-submit-lookup]").isVisible(), true);

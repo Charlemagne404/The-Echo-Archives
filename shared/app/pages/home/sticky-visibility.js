@@ -49,6 +49,7 @@ export function createStickyBrowseVisibilityController({
 
     scrollFrame = window.requestAnimationFrame(() => {
       scrollFrame = 0;
+      isBrowseHeroPast = elements.heroShell.getBoundingClientRect().bottom <= 0;
       sync();
     });
   };

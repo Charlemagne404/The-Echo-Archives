@@ -147,7 +147,21 @@ test("quick-save cards and show controls persist and synchronize without exposin
   }));
   try {
     const browse = await context.newPage();
-    await browse.goto(`${baseUrl}/`);
+    const popularityReady = browse.waitForResponse((response) =>
+      new URL(response.url()).pathname === "/api/popularity/scores",
+    );
+    const compactSummariesReady = new Promise((resolve) => {
+      browse.on("response", (response) => {
+        const url = new URL(response.url());
+        if (url.pathname === "/api/community/ratings/summary" && url.searchParams.get("view") === "compact") {
+          resolve();
+        }
+      });
+    });
+    await browse.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    const popularity = await (await popularityReady).json();
+    if (Object.keys(popularity?.scores || {}).length < 4) await compactSummariesReady;
+    await browse.waitForLoadState("networkidle");
     await browse.waitForSelector("#podcast-grid a[data-discovery-show-id]");
     await browse.waitForSelector('[data-library-control="card"]');
     const repeatedShow = await browse.evaluate(() => {
@@ -299,7 +313,7 @@ test("quick-save cards and show controls persist and synchronize without exposin
     const detail = await context.newPage();
     await detail.goto(repeatedShow.href);
     await detail.waitForSelector(".podcast-detail .detail-actions");
-    const detailControl = detail.locator('[data-library-control="detail"]');
+    const detailControl = detail.locator('button[data-library-control="detail-quick-save"]');
     await detailControl.waitFor();
     const similarHosts = detail.locator(".detail-similar-card[data-library-show-card][data-library-show-id]");
     const similarControls = detail.locator(".detail-similar-card > button.library-card-quick-save");
@@ -349,7 +363,7 @@ test("quick-save cards and show controls persist and synchronize without exposin
 
     const secondDetail = await context.newPage();
     await secondDetail.goto(repeatedShow.href);
-    const secondControl = secondDetail.locator('button.library-detail-quick-save[data-library-control="detail"]');
+    const secondControl = secondDetail.locator('button.library-detail-quick-save[data-library-control="detail-quick-save"]');
     await secondControl.waitFor();
     await assertEventually(async () => {
       assert.equal(await secondControl.getAttribute("aria-pressed"), "true");
@@ -471,7 +485,12 @@ test("Personal Discovery refines existing search locally and restores public ord
     assert.equal(baselinePositions.get("midnight-burger"), "25+", "the personalization fixture begins after the public top 24");
 
     const kingFallsDetail = await context.newPage();
+    await kingFallsDetail.setViewportSize({ width: 390, height: 844 });
     await kingFallsDetail.goto(`${baseUrl}/shows/king-falls-am`);
+    const kingFallsControl = kingFallsDetail.locator('details[data-library-control="detail"]');
+    await kingFallsControl.waitFor();
+    const preference = kingFallsControl.locator("[data-library-discovery-preference]");
+    await preference.waitFor({ state: "attached" });
     const savedKingFalls = await callLibraryService(kingFallsDetail, "setState", "king-falls-am", "saved");
     const ratedKingFalls = await callLibraryService(kingFallsDetail, "setRating", "king-falls-am", 5);
     const enablePersonalDiscovery = await callLibraryService(kingFallsDetail, "setPersonalDiscoveryEnabled", true);
@@ -511,6 +530,8 @@ test("Personal Discovery refines existing search locally and restores public ord
     const arsDetail = await context.newPage();
     await arsDetail.goto(`${baseUrl}/shows/ars-paradoxica`);
     await arsDetail.waitForFunction(() => document.body.dataset.appReady === "true", undefined, { timeout: 15_000 });
+    const arsControl = arsDetail.locator('details[data-library-control="detail"]');
+    await arsControl.waitFor();
     const hideArs = await callLibraryService(arsDetail, "setState", "ars-paradoxica", "hidden");
     assert.equal(hideArs.ok, true);
     await assertEventually(async () => {
@@ -528,8 +549,13 @@ test("Personal Discovery refines existing search locally and restores public ord
       assert.match(await home.locator("#personalDiscoveryReason").textContent(), /King Falls AM \(rated 5\/5\)/i);
     });
 
-    const disablePersonalDiscovery = await callLibraryService(kingFallsDetail, "setPersonalDiscoveryEnabled", false);
-    assert.equal(disablePersonalDiscovery.ok, true);
+    await kingFallsDetail.bringToFront();
+    await kingFallsControl.locator("summary").click();
+    await preference.uncheck();
+    await assertEventually(async () => {
+      assert.equal(await preference.isChecked(), false);
+      assert.match(await kingFallsControl.locator(".library-control-status").textContent(), /Personal Discovery disabled/i);
+    });
     const disabledRows = await search("sci-fi");
     assert.deepEqual(disabledRows, baselineRows, "disabling restores exact public result IDs, order, and position buckets");
     assert.equal(await home.locator("#personalDiscoveryReason").isVisible(), false, "disabling clears the personal reason");
@@ -540,15 +566,19 @@ test("Personal Discovery refines existing search locally and restores public ord
       const ids = await home.locator("#podcast-grid a[data-discovery-show-id]").evaluateAll((links) => links.map((link) => link.dataset.discoveryShowId));
       assert.equal(ids.includes("ars-paradoxica"), false);
     });
-    const removeArs = await callLibraryService(arsDetail, "removeEntry", "ars-paradoxica");
-    assert.equal(removeArs.ok, true);
+    await arsDetail.bringToFront();
+    await arsControl.locator("summary").click();
+    await arsControl.locator("[data-library-remove]").click();
     await assertEventually(async () => {
       const ids = await home.locator("#podcast-grid a[data-discovery-show-id]").evaluateAll((links) => links.map((link) => link.dataset.discoveryShowId));
       assert.ok(ids.includes("ars-paradoxica"), "removing the Hidden entry restores that exact result while opt-in remains on");
     });
     await kingFallsDetail.goto(`${baseUrl}/shows/king-falls-am`);
-    const removeKingFalls = await callLibraryService(kingFallsDetail, "removeEntry", "king-falls-am");
-    assert.equal(removeKingFalls.ok, true);
+    const kingFallsRemoveControl = kingFallsDetail.locator('[data-library-control="detail"]');
+    await kingFallsRemoveControl.waitFor();
+    await kingFallsDetail.bringToFront();
+    await kingFallsRemoveControl.locator("summary").click();
+    await kingFallsRemoveControl.locator("[data-library-remove]").click();
     await assertEventually(async () => {
       const homeRuntime = await home.evaluate(async () => {
         const { getLibraryRuntimeState } = await import("/shared/app/library/runtime.js");

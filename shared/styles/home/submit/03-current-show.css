@@ -1,0 +1,107 @@
+.submit-current-show {
+  display: grid;
+  gap: 12px;
+  padding: 15px;
+  border: 1px solid rgba(111, 179, 236, 0.2);
+  border-radius: 16px;
+  background: rgba(111, 179, 236, 0.055);
+}
+
+.submit-current-show[data-state="loading"],
+.submit-current-show[data-state="error"] {
+  color: rgba(247, 247, 243, 0.76);
+  font-size: 0.88rem;
+}
+
+.submit-current-show[data-state="error"] {
+  border-color: rgba(255, 154, 92, 0.25);
+  background: rgba(255, 154, 92, 0.06);
+}
+
+.submit-current-show-heading {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.submit-current-show-icon {
+  width: 34px;
+  height: 34px;
+  padding: 7px;
+  border-radius: 999px;
+  background: rgba(111, 179, 236, 0.1);
+  color: rgba(150, 204, 247, 0.96);
+}
+
+.submit-current-show-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.submit-current-show-kicker {
+  color: rgba(150, 204, 247, 0.9);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.submit-current-show h3 {
+  margin: 2px 0 0;
+  font-size: 1rem;
+}
+
+.submit-current-show-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin: 0;
+}
+
+.submit-current-show-facts div {
+  display: flex;
+  gap: 6px;
+}
+
+.submit-current-show-facts dt,
+.submit-current-show-facts dd {
+  margin: 0;
+  font-size: 0.84rem;
+}
+
+.submit-current-show-facts dt {
+  color: rgba(247, 247, 243, 0.62);
+}
+
+.submit-current-show-facts dd {
+  color: rgba(247, 247, 243, 0.9);
+}
+
+.submit-current-show-description {
+  margin: 0;
+  color: rgba(247, 247, 243, 0.72);
+  font-size: 0.84rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.submit-current-show-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.submit-current-show-links a {
+  min-height: 44px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  color: rgba(190, 220, 247, 0.96);
+  font-size: 0.82rem;
+  text-decoration: none;
+}

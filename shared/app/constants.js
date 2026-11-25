@@ -20,9 +20,12 @@ const RUNTIME_EVIDENCE_VERSION = pageBody?.dataset.runtimeEvidenceVersion?.trim(
 export const RUNTIME_EVIDENCE_URL = RUNTIME_EVIDENCE_VERSION
   ? `/data/runtime-evidence.json?v=${RUNTIME_EVIDENCE_VERSION}`
   : "/data/runtime-evidence.json";
-export const ARCHIVE_STATS_URL = "/data/archive-stats.json";
+const ARCHIVE_STATS_VERSION = pageBody?.dataset.archiveStatsVersion?.trim() || "";
+export const ARCHIVE_STATS_URL = ARCHIVE_STATS_VERSION
+  ? `/data/archive-stats.json?v=${ARCHIVE_STATS_VERSION}`
+  : "/data/archive-stats.json";
 export const { DEFAULT_SOCIAL_IMAGE, socialPreview } = globalThis.EchoArchiveSocial;
-export const DEFAULT_FALLBACK_COVER_IMAGE = "/images/TEA-Logo-S.png";
+export const DEFAULT_FALLBACK_COVER_IMAGE = "/images/Circle2-Logo-S.png";
 export const TOP_RATED_BADGE_ASSET_URL = "/images/badges/top-rated-bookmark.png";
 export const archiveSearch = globalThis.EchoArchiveSearch;
 export const archiveSimilarity = globalThis.EchoArchiveSimilarity;

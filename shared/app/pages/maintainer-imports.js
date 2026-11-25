@@ -45,12 +45,10 @@ export async function initializeMaintainerImportsPage() {
   if (!document.body.classList.contains("maintainer-import-page")) {
     return;
   }
-
   if (document.body.classList.contains("maintainer-import-report-page")) {
     await initializeMaintainerImportsReportPage();
     return;
   }
-
   const state = {
     filters: readImportFilters(20),
     response: null,

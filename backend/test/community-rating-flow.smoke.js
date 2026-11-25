@@ -543,8 +543,10 @@ test("review carousel keeps the server-rendered archive first, supports accessib
     }));
     assert.ok(mobile.width > 0);
     assert.ok(mobile.overflow <= 1);
-    assert.equal(mobile.previousDisplay, "none");
-    assert.equal(mobile.nextDisplay, "none");
+    assert.notEqual(mobile.previousDisplay, "none");
+    assert.notEqual(mobile.nextDisplay, "none");
+    assert.equal(mobile.previousWidth, 44);
+    assert.equal(mobile.nextWidth, 44);
   } finally {
     await context.close();
   }

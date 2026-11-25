@@ -217,6 +217,7 @@ function checkRequiredString(record, recordLabel, fieldName, errors, { allowBlan
   }
 }
 
+
 function checkStringArray(record, recordLabel, fieldName, errors, { required = false } = {}) {
   if (!hasOwn(record, fieldName)) {
     if (required) addIssue(errors, `${recordLabel} is missing required field "${fieldName}".`);

@@ -10,6 +10,7 @@ const { buildFallbackAnswer, sanitizeAnswerText } = require("../lib/ai/chat");
 const { validateSiteData } = require("../scripts/review-helpers");
 const { createSimilarityIndex } = require("../../shared/archive-similarity");
 const { readCatalogSource } = require("../../tools/lib/catalog-source");
+const { mergeReviewContent } = require("../lib/reviews");
 
 const siteRoot = path.resolve(__dirname, "../..");
 
@@ -72,16 +73,107 @@ test("loadCatalog reads the structured show catalog", async () => {
   assert.ok(Array.isArray(impactWinter.spoilerFreeReviewParagraphs));
 });
 
+test("a published complete review companion sets the public review tier consistently", () => {
+  const source = createShowRecord({ reviewStatus: "indexed-only", archiveTake: "Older factual note." });
+  const companion = {
+    archiveTake: "The published editorial take.",
+    publishedAt: "2026-10-04T15:45:51.148Z",
+    spoilerFreeReview: ["A complete spoiler-safe review paragraph."],
+    thoughts: ["Existing author notes."],
+    quote: { text: "I'm not crazy", attribution: "Mike Archer" },
+  };
+
+  const merged = mergeReviewContent(source, companion);
+
+  assert.equal(source.reviewStatus, "indexed-only", "classification is derived without rewriting the authored source record");
+  assert.equal(merged.reviewStatus, "full-review");
+  assert.equal(merged.archiveTake, companion.archiveTake);
+  assert.equal(merged.spoilerFreeReview, companion.spoilerFreeReview[0]);
+  assert.equal(merged.reviewPublishedAt, companion.publishedAt);
+  assert.equal(merged.quote.text, companion.quote.text);
+  assert.equal(merged.quote.attribution, companion.quote.attribution);
+});
+
+test("incomplete, unpublished, or spotlight review records do not get promoted by a companion file", () => {
+  const record = createShowRecord({ reviewStatus: "indexed-only" });
+  const incomplete = mergeReviewContent(record, {
+    archiveTake: "A short archive note.",
+    publishedAt: "2026-10-04",
+    spoilerFreeReview: [],
+  });
+  const unpublished = mergeReviewContent({ ...record, status: "draft" }, {
+    archiveTake: "A complete review take.",
+    publishedAt: "2026-10-04",
+    spoilerFreeReview: ["A complete review paragraph."],
+  });
+  const spotlight = mergeReviewContent({ ...record, reviewStatus: "spotlight" }, {
+    archiveTake: "A complete review take.",
+    publishedAt: "2026-10-04",
+    spoilerFreeReview: ["A complete review paragraph."],
+  });
+  const incompleteWithInlineFallback = mergeReviewContent(createShowRecord({
+    reviewStatus: "indexed-only",
+    archiveTake: "Existing inline note.",
+    spoilerFreeReview: "Existing inline review paragraph.",
+  }), {
+    archiveTake: "Incomplete companion take.",
+    publishedAt: "2026-10-04",
+    spoilerFreeReview: [],
+  });
+
+  assert.equal(incomplete.reviewStatus, "indexed-only");
+  assert.equal(unpublished.reviewStatus, "indexed-only");
+  assert.equal(spotlight.reviewStatus, "spotlight");
+  assert.equal(incompleteWithInlineFallback.reviewStatus, "indexed-only");
+  assert.equal(incompleteWithInlineFallback.archiveTake, "Existing inline note.");
+  assert.equal(incompleteWithInlineFallback.spoilerFreeReview, "Existing inline review paragraph.");
+  assert.equal(incompleteWithInlineFallback.reviewPublishedAt, undefined);
+});
+
+test("unpublished and incomplete review companions stay out of the public show projection", () => {
+  const record = createShowRecord({
+    reviewStatus: "planned",
+    archiveTake: "",
+    spoilerFreeReview: "",
+    thoughts: "",
+    quote: { text: "", attribution: "" },
+  });
+  const draft = mergeReviewContent(record, {
+    archiveTake: "Unpublished editorial take.",
+    spoilerFreeReview: ["Unpublished review paragraph."],
+    thoughts: ["Unpublished author note."],
+    quote: { text: "Unpublished quote.", attribution: "Unpublished author" },
+  });
+  const incomplete = mergeReviewContent({ ...record, reviewStatus: "indexed-only" }, {
+    archiveTake: "Incomplete published take.",
+    publishedAt: "2026-10-04T15:45:51.148Z",
+    spoilerFreeReview: [],
+    thoughts: ["This is not a substitute for the required spoiler-safe review."],
+    quote: { text: "", attribution: "" },
+  });
+
+  for (const projection of [draft, incomplete]) {
+    assert.equal(projection.reviewStatus, projection === draft ? "planned" : "indexed-only");
+    assert.equal(projection.archiveTake, "");
+    assert.equal(projection.spoilerFreeReview, "");
+    assert.equal(projection.thoughts, "");
+    assert.equal(projection.quote.text, "");
+    assert.equal(projection.reviewPublishedAt, undefined);
+  }
+});
+
 test("importer-origin catalogue entries retain their publication tier", () => {
   const authoredShows = JSON.parse(fs.readFileSync(path.join(siteRoot, "data", "shows.json"), "utf8"));
   const importerOrigin = authoredShows.filter((show) => show.metadata?.import);
-  const publicationTiers = new Set(importerOrigin.map((show) => show.reviewStatus));
+  const publicationTiers = new Set(importerOrigin.map((show) => show.metadata.import.publication?.tier || show.reviewStatus));
 
   assert.ok(importerOrigin.length > 0);
-  assert.deepEqual([...publicationTiers].sort(), ["full-review", "imported", "indexed-only"]);
+  assert.deepEqual([...publicationTiers].sort(), ["imported", "indexed-only"]);
   const editoriallyPromoted = importerOrigin.filter((show) => show.reviewStatus === "full-review");
   assert.equal(editoriallyPromoted.length, 1);
+  assert.equal(editoriallyPromoted[0].id, "tower-4");
   assert.ok(editoriallyPromoted.every((show) => [show.archiveTake, show.spoilerFreeReview, show.thoughts].some((text) => String(text || "").trim())));
+  assert.equal(editoriallyPromoted[0].metadata.import.publication.tier, "indexed-only");
 });
 
 test("Imported source provenance exposes exact full-cast formats without copying keywords into tags", async () => {
@@ -315,13 +407,13 @@ test("published catalog records require approved discovery signals instead of fi
 
 test("complete provisional indexed-only records retain the reviewed single-signal publication exception", async () => {
   const tempRoot = createTempSiteRoot();
-  const showId = "provisional-indexed-show";
+  const showId = "mina-an-audiobook-podcast-by-roo-bannister";
   const reviewedAt = "2026-11-04T21:00:00.000Z";
-  const sourceUrl = "https://feeds.example.org/provisional-show.xml";
+  const sourceUrl = "https://feeds.acast.com/public/shows/6a4264183fa89e333892b6ae";
   const show = createShowRecord({
     id: showId,
-    title: "Provisional Indexed Show",
-    description: "A source-backed indexed-only show with a single verified genre and no invented discovery metadata.",
+    title: "Mina - An Audiobook Podcast by Roo Bannister",
+    description: "A source-backed provisional audio fiction description long enough for normal publication validation.",
     genres: ["drama"],
     formats: [],
     tags: [],
@@ -727,6 +819,7 @@ test("loadCatalog merges companion review files into the returned show record", 
   ]);
   writeJson(path.join(dataRoot, "reviews", "demo-show.json"), {
     archiveTake: "Companion archive take.",
+    publishedAt: "2026-10-04T15:45:51.148Z",
     spoilerFreeReview: ["First paragraph.", "Second paragraph."],
     thoughts: ["Archive reaction paragraph."],
     quote: {
@@ -1049,6 +1142,7 @@ test("companion review content overrides stale inline review fields", async () =
   ]);
   writeJson(path.join(dataRoot, "reviews", "demo-show.json"), {
     archiveTake: "Fresh companion take.",
+    publishedAt: "2026-10-04T15:45:51.148Z",
     spoilerFreeReview: ["Fresh companion review."],
     thoughts: ["Fresh companion thoughts."],
   });

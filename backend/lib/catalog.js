@@ -122,6 +122,13 @@ function isValidDateValue(value = "") {
   return Number.isFinite(timestamp);
 }
 
+function validateProvisionalPublication(record = {}) {
+  const publication = record.metadata?.import?.publication || {};
+  if (publication.provisional === true && !isCompleteProvisionalIndexedEntry(record)) {
+    throw new Error("Show " + record.id + " has an incomplete provisional publication review record.");
+  }
+}
+
 function isValidSlug(value = "") {
   return typeof value === "string" && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value);
 }
@@ -448,9 +455,7 @@ function validateShowRecord(record, seenIds) {
 
   SHOW_STRING_ARRAY_FIELDS.forEach((fieldName) => validateArrayOfStrings("Show", record.id, fieldName, record[fieldName]));
   validateOptionalObjects(record, "Show");
-  if (record.metadata?.import?.publication?.provisional === true && !provisional) {
-    throw new Error(`Show "${record.id}" has an incomplete provisional publication review record.`);
-  }
+  validateProvisionalPublication(record);
   validateDiscoveryProfile(record);
   validateTextMap("Show", record.id, "similarReasons", record.similarReasons);
   validatePublishedDiscoveryMetadata(record);

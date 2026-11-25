@@ -1,6 +1,8 @@
 runtime_mutable_paths=(
   import-staging
   catalog-src/shows
+  catalog-src/collections
+  catalog-src/reviews
   images/covers
   images/generated/covers
   data/shows.json

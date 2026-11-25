@@ -1,8 +1,10 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const { spawn } = require("node:child_process");
 const { randomUUID } = require("node:crypto");
 
 const { createAppleAdapter } = require("../import/adapters/apple");
+const { createAmazonMusicAdapter, isVerifiedAmazonMusicIdentity, parseAmazonMusicIdentityUrl } = require("../import/adapters/amazon-music");
 const { createPodcastIndexAdapter } = require("../import/adapters/podcast-index");
 const { createRssAdapter } = require("../import/adapters/rss");
 const { createWebsiteAdapter } = require("../import/adapters/website");
@@ -10,6 +12,7 @@ const { inspectCoverBuffer, promoteStagedCover, stageCover } = require("../impor
 const { buildDedupeMatches } = require("../import/dedupe");
 const { buildPreparedShowRecord, evaluateReadiness } = require("../import/draft");
 const { mergePreparedWithExisting } = require("../import/managed-fields");
+const { candidateContentHash } = require("../import/publisher-hash");
 const { resolveSourceFacts } = require("../import/resolution");
 const {
   DEFAULT_IMPORT_USER_AGENT,
@@ -76,7 +79,7 @@ function ensureValidScopeStatus(value = "") {
 function inferScopeStatus(objective = {}) {
   const language = trimText(objective.language, 40).toLowerCase();
   const text = [objective.title, objective.description, objective.primaryGenre, ...(objective.categories || []), ...(objective.keywords || [])].join(" ").toLowerCase();
-  if (language && !["en", "english", "en-us", "en-gb"].includes(language)) return "out-of-scope";
+  if (language && language !== "english" && !/^en(?:-[a-z0-9]{2,8})*$/.test(language)) return "out-of-scope";
   if (/(actual play|roleplaying|role-playing|ttrpg|tabletop)/i.test(text)) return "out-of-scope";
   if (/(fiction|audio drama|comedy fiction|drama|science fiction|horror|mystery|fantasy|thriller)/i.test(text)) return "in-scope";
   return "borderline";
@@ -162,8 +165,12 @@ function discoveryIdentity(result = {}) {
 }
 
 function identityPairs(objective = {}) {
+  const externalPairs = isVerifiedAmazonMusicIdentity(objective)
+    ? [["amazon-music-id", objective.externalIdentity.id]]
+    : [];
   return [
     ...IDENTITY_FIELDS.map(([type, field]) => [type, objective[field]]),
+    ...externalPairs,
     ...(objective.feedRedirects || []).map((value) => ["rss-url", value]),
     ...(objective.previousRssUrl ? [["rss-url", objective.previousRssUrl]] : []),
   ].filter(([, value]) => value);
@@ -176,6 +183,7 @@ function showIdentityPairs(show = {}) {
     ["rss-url", identifiers.rssUrl || show.listenLinks?.rss],
     ["apple-id", identifiers.appleCollectionId || extractAppleCollectionId(show.listenLinks?.apple)],
     ["podcast-index-id", identifiers.podcastIndexFeedId],
+    ["amazon-music-id", identifiers.amazonMusicId],
     ["website-url", show.officialLinks?.website || show.listenLinks?.website],
     ...(identifiers.feedRedirects || []).map((value) => ["rss-url", value]),
   ].filter(([, value]) => value);
@@ -364,6 +372,19 @@ function createLimitedFetch(fetchImpl, { perHost = 2, applePerMinute = 15 } = {}
   return limitedFetch;
 }
 
+function rollbackPublicationOrThrow(transaction, cause) {
+  try {
+    transaction.rollback();
+  } catch (rollbackError) {
+    const originalMessage = cause?.message || String(cause);
+    const rollbackMessage = rollbackError?.message || String(rollbackError);
+    const combined = new Error(`${originalMessage}; rollback also failed: ${rollbackMessage}`, { cause });
+    combined.code = cause?.code || rollbackError?.code;
+    combined.rollbackError = rollbackError;
+    throw combined;
+  }
+}
+
 function createImportService({ store, staticRoot, config = {}, fetchImpl = globalThis.fetch, onPublished = null }) {
   const userAgent = trimText(config.PODCAST_INDEX_USER_AGENT || DEFAULT_IMPORT_USER_AGENT, 240) || DEFAULT_IMPORT_USER_AGENT;
   const workerConcurrency = Math.min(16, Math.max(1, Number(config.IMPORT_WORKER_CONCURRENCY) || 4));
@@ -373,6 +394,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
   });
   const limits = { timeoutMs: config.IMPORT_FETCH_TIMEOUT_MS, maxBytes: config.IMPORT_DOCUMENT_MAX_BYTES };
   const apple = createAppleAdapter({ fetchImpl: limitedFetch, userAgent, ...limits });
+  const amazonMusic = createAmazonMusicAdapter({ fetchImpl: limitedFetch, userAgent, ...limits });
   const rss = createRssAdapter({ fetchImpl: limitedFetch, userAgent, ...limits });
   const website = createWebsiteAdapter({ fetchImpl: limitedFetch, userAgent, ...limits });
   const podcastIndex = createPodcastIndexAdapter({
@@ -788,6 +810,20 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         suppressed.push({ candidateId: "", reason: "existing-show", existingShowId: mapping.existingShowId });
         continue;
       }
+      if (candidate?.status === "published") {
+        const sourceSubmissionIds = mergeUniqueStrings(
+          candidate.objective?.sourceSubmissionIds || [],
+          payload.objective?.sourceSubmissionIds || [],
+        );
+        if (sourceSubmissionIds.length !== (candidate.objective?.sourceSubmissionIds || []).length) {
+          store.updateCandidate(candidate.id, {
+            objective: { ...candidate.objective, sourceSubmissionIds },
+          });
+          store.recordEvent(candidate.id, "submission-identities-reconciled", actor, { sourceSubmissionIds });
+        }
+        suppressed.push({ candidateId: candidate.id, reason: "published", existingShowId: candidate.publishedShowId || candidate.existingShowId || "" });
+        continue;
+      }
       if (!candidate) {
         if (mapping?.existingShowId) {
           payload.mode = "update";
@@ -801,11 +837,16 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         candidate = store.createCandidate(payload);
         identityPairs(payload.objective).forEach(([type, value]) => store.claimIdentity(type, value, { candidateId: candidate.id, existingShowId: payload.existingShowId || "" }));
       } else {
+        const sourceSubmissionIds = mergeUniqueStrings(
+          candidate.objective?.sourceSubmissionIds || [],
+          payload.objective?.sourceSubmissionIds || [],
+        );
         candidate = store.updateCandidate(candidate.id, {
           status: "queued",
           inputRevision: candidate.inputRevision + 1,
           lastRunId: run.id,
           lastError: "",
+          objective: { ...candidate.objective, sourceSubmissionIds },
         });
       }
       const dedupe = buildDedupe(candidate);
@@ -875,7 +916,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         const result = cached || await loader(store.getSourceCache(sourceType, sourceKey));
         addResult(result ? { ...result, sourceType: resultSourceType } : result, { sourceType, sourceKey });
       } catch (error) {
-        failures.push({ sourceType, sourceKey, error: trimText(error.message || error, 1_000), retryable: error.retryable !== false, retryAfterMs: error.retryAfterMs || 0 });
+        failures.push({ sourceType, sourceKey, code: error.code || "", error: trimText(error.message || error, 1_000), retryable: error.retryable !== false, retryAfterMs: error.retryAfterMs || 0 });
       }
     };
 
@@ -918,9 +959,16 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         });
       }
     }
-    const effectiveRss = initialRss || appleSource?.normalized?.rssUrl || "";
-    if (effectiveRss && !sources.some((source) => source.sourceType === "rss")) await capture("rss", normalizeUrl(effectiveRss), (cache) => rss.fetchByUrl(effectiveRss, cache));
-    const rssSource = sources.find((source) => source.sourceType === "rss");
+    let effectiveRss = initialRss || appleSource?.normalized?.rssUrl || "";
+    if (effectiveRss && !sources.some((source) => source.sourceType === "rss" && source.fetchStatus !== "failed") && !failures.some((failure) => failure.sourceType === "rss" && normalizeUrl(failure.sourceKey) === normalizeUrl(effectiveRss))) {
+      await capture("rss", normalizeUrl(effectiveRss), (cache) => rss.fetchByUrl(effectiveRss, cache));
+    }
+    let rssSource = sources.find((source) => source.sourceType === "rss" && source.fetchStatus !== "failed");
+    if (!rssSource && appleSource?.normalized?.rssUrl && normalizeUrl(appleSource.normalized.rssUrl) !== normalizeUrl(effectiveRss)) {
+      effectiveRss = appleSource.normalized.rssUrl;
+      await capture("rss", normalizeUrl(effectiveRss), (cache) => rss.fetchByUrl(effectiveRss, cache));
+      rssSource = sources.find((source) => source.sourceType === "rss" && source.fetchStatus !== "failed");
+    }
     const effectiveWebsite = initialWebsite || rssSource?.normalized?.websiteUrl || appleSource?.normalized?.websiteUrl || "";
     if (effectiveWebsite) {
       try {
@@ -930,8 +978,19 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         failures.push({ sourceType: "website", sourceKey: effectiveWebsite, error: trimText(error.message || error, 1_000), retryable: error.retryable !== false, retryAfterMs: error.retryAfterMs || 0 });
       }
     }
+    if (!sources.some((source) => source.sourceType === "rss" && source.fetchStatus !== "failed")) {
+      const websiteFeedUrl = sources.map((source) => source.normalized?.websiteFeedUrl).find(Boolean) || "";
+      if (websiteFeedUrl && normalizeUrl(websiteFeedUrl) !== normalizeUrl(effectiveRss)) {
+        await capture("rss", normalizeUrl(websiteFeedUrl), (cache) => rss.fetchByUrl(websiteFeedUrl, cache));
+        rssSource = sources.find((source) => source.sourceType === "rss" && source.fetchStatus !== "failed") || rssSource;
+        if (rssSource) effectiveRss = websiteFeedUrl;
+      }
+    }
+    if (isVerifiedAmazonMusicIdentity(original)) {
+      await capture("amazon-music", original.externalIdentity.id, () => amazonMusic.fetchByUrl(original.externalIdentity.url), 24 * 60 * 60 * 1_000);
+    }
     if (podcastIndex.enabled) {
-      if (effectiveRss) await capture("podcast-index", normalizeUrl(effectiveRss), () => podcastIndex.lookupByFeedUrl(effectiveRss), 12 * 60 * 60 * 1_000);
+      if (effectiveRss && rssSource) await capture("podcast-index", normalizeUrl(effectiveRss), () => podcastIndex.lookupByFeedUrl(effectiveRss), 12 * 60 * 60 * 1_000);
       else if (appleId) await capture("podcast-index", appleId, () => podcastIndex.lookupByItunesId(appleId), 12 * 60 * 60 * 1_000);
     }
 
@@ -944,7 +1003,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     }
     const failureSources = failures.map((failure) => ({
       sourceType: failure.sourceType, sourceKey: failure.sourceKey, sourceUrl: normalizeUrl(failure.sourceKey),
-      fetchStatus: "failed", payload: { error: failure.error, retryable: failure.retryable }, normalized: {}, fetchedAt: new Date().toISOString(),
+      fetchStatus: "failed", payload: { code: failure.code, error: failure.error, retryable: failure.retryable }, normalized: {}, fetchedAt: new Date().toISOString(),
     }));
     const appended = store.appendCandidateSources(candidateId, [...sources, ...failureSources]);
     const successful = appended.filter((source) => source.fetchStatus !== "failed");
@@ -964,6 +1023,26 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         ].filter(Boolean),
       ).filter((value) => normalizeUrl(value) !== normalizeUrl(resolved.objective.rssUrl || "")),
     };
+    const rejectedFeedUrls = new Set(failures
+      .filter((failure) => failure.sourceType === "rss" && failure.code === "IMPORT_NOT_PODCAST_FEED")
+      .map((failure) => normalizeUrl(failure.sourceKey))
+      .filter(Boolean));
+    objective.feedRedirects = (objective.feedRedirects || []).filter((value) => !rejectedFeedUrls.has(normalizeUrl(value)));
+    const explicitHold = original.deferredFields?.explicit;
+    if (explicitHold) {
+      objective.explicit = "";
+      resolved.fieldSummary.explicit = {
+        confidence: 0,
+        method: "preparation-deferred-unknown",
+        sources: (explicitHold.sourceUrls || []).map((sourceUrl) => ({ sourceType: "review-note", sourceUrl })),
+      };
+    }
+    const rejectedPodcastFeed = failures.find((failure) => failure.sourceType === "rss" && failure.code === "IMPORT_NOT_PODCAST_FEED");
+    if (rejectedPodcastFeed) {
+      const rejectedUrl = normalizeUrl(rejectedPodcastFeed.sourceKey);
+      objective.unverifiedRssUrl = rejectedUrl;
+      if (normalizeUrl(objective.rssUrl) === rejectedUrl) objective.rssUrl = "";
+    }
     const identityConflicts = successful
       .filter((source) => source.sourceType === "apple" && source.normalized?.identityExact === false && source.normalized?.discoveryTitleExact === false)
       .map((source) => ({
@@ -1008,7 +1087,17 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     let coverStage = null;
     const existing = existingShowId ? readCatalogRecords().find((show) => show.id === existingShowId) : null;
     const existingCoverPath = existing?.cover && !/^https?:/i.test(existing.cover) ? path.join(staticRoot, String(existing.cover).replace(/^\/+/, "")) : "";
-    if (existingCoverPath && fs.existsSync(existingCoverPath)) {
+    if (!existing && objective.artworkUse === "echo-placeholder") {
+      const artworkSource = successful.find((source) => source.normalized?.artworkUrl);
+      coverStage = {
+        ready: false,
+        omittedForRights: true,
+        status: "permission-not-established",
+        missingReason: "Official artwork is not publishable until its use is authorized.",
+        sourceUrl: normalizeUrl(objective.artworkUrl || artworkSource?.normalized?.artworkUrl || ""),
+        sourceType: artworkSource?.sourceType || "",
+      };
+    } else if (existingCoverPath && fs.existsSync(existingCoverPath)) {
       try {
         const inspection = await inspectCoverBuffer(fs.readFileSync(existingCoverPath), "");
         if (inspection.echoPublishable) coverStage = { ready: true, existing: true, existingRelativePath: existing.cover, stagedPath: existingCoverPath, ...inspection };
@@ -1023,11 +1112,25 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         candidateId, coverSources, stagingRoot, fetchImpl: limitedFetch, userAgent,
         timeoutMs: config.IMPORT_FETCH_TIMEOUT_MS, maxBytes: config.IMPORT_COVER_MAX_BYTES,
       });
+      if (!coverStage.ready) {
+        coverStage = {
+          ...coverStage,
+          status: "missing-or-invalid",
+          missingReason: "No verified, publishable local podcast artwork was found.",
+        };
+      }
     }
     candidate = store.updateCandidate(candidateId, { coverStage });
     let preparedRecord = buildPreparedShowRecord({ candidate, shows: readCatalogRecords() });
     let updateDiff = [];
     if (existing) {
+      const explicitPreservationLocks = (Array.isArray(objective.preserveExistingFields) ? objective.preserveExistingFields : [])
+        .filter((field) => ["credits", "creators"].includes(field));
+      if (explicitPreservationLocks.length) {
+        candidate = store.updateCandidate(candidateId, {
+          lockedFields: mergeUniqueStrings(candidate.lockedFields || [], explicitPreservationLocks),
+        });
+      }
       const merged = mergePreparedWithExisting(preparedRecord, existing, { reviewerLocks: candidate.lockedFields });
       preparedRecord = merged.record;
       updateDiff = merged.diff;
@@ -1153,30 +1256,104 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       error.statusCode = 409;
       throw error;
     }
+    const persisted = store.getSubmissionHandoff(submission.id);
+    if (persisted?.status === "rejected") {
+      const error = new Error("A rejected submission cannot be handed to the import lane.");
+      error.statusCode = 409;
+      throw error;
+    }
+    if (persisted?.candidateId) {
+      const candidate = getCandidate(persisted.candidateId);
+      if (!candidate) {
+        const error = new Error("This submission is linked to an import candidate that is unavailable.");
+        error.statusCode = 409;
+        throw error;
+      }
+      return {
+        runId: candidate.lastRunId || "",
+        candidateIds: [candidate.id],
+        candidates: [candidate],
+        candidate,
+        suppressed: [],
+        idempotent: true,
+        alreadyLinked: true,
+      };
+    }
+
+    let handoffClaimed = false;
+    if (persisted) {
+      const now = Date.now();
+      handoffClaimed = store.claimSubmissionHandoff(submission.id, {
+        startedAt: new Date(now).toISOString(),
+        staleBefore: new Date(now - 2 * 60 * 1000).toISOString(),
+      });
+      if (!handoffClaimed) {
+        const latest = store.getSubmissionHandoff(submission.id);
+        if (latest?.candidateId) {
+          const candidate = getCandidate(latest.candidateId);
+          if (candidate) {
+            return {
+              runId: candidate.lastRunId || "",
+              candidateIds: [candidate.id],
+              candidates: [candidate],
+              candidate,
+              suppressed: [],
+              idempotent: true,
+              alreadyLinked: true,
+            };
+          }
+        }
+        const error = new Error(latest?.status === "rejected"
+          ? "A rejected submission cannot be handed to the import lane."
+          : "Import preparation is already being started for this submission. Refresh the queue and try again shortly.");
+        error.statusCode = 409;
+        throw error;
+      }
+    }
     const payload = submission.payload || {};
-    const result = await seedCandidates({
-      actor: actor || "authenticated-maintainer",
-      origin: "submission",
-      searchResults: [{
-        sourceType: "submission",
-        sourceKey: submission.id,
-        sourceUrl: submission.rssOrListenLink || submission.officialSite || "",
-        title: submission.showTitle,
-        creatorName: submission.creatorName,
-        objective: {
+    try {
+      const result = await seedCandidates({
+        actor: actor || "authenticated-maintainer",
+        origin: "submission",
+        searchResults: [{
+          sourceType: "submission",
+          sourceKey: submission.id,
+          sourceUrl: submission.rssOrListenLink || submission.officialSite || "",
           title: submission.showTitle,
           creatorName: submission.creatorName,
-          description: payload.shortDescription || "",
-          rssUrl: submission.rssOrListenLink || "",
-          websiteUrl: submission.officialSite || "",
-          tagHints: payload.selectedTags || [],
-          suggestedDescriptors: payload.suggestedDescriptors || "",
-          objectiveSources: [submission.rssOrListenLink, submission.officialSite].filter(Boolean),
-        },
-      }],
-    });
-    result.candidateIds.forEach((candidateId) => store.recordEvent(candidateId, "submission-handed-off", actor || "authenticated-maintainer", { submissionId: submission.id }));
-    return result;
+          objective: {
+            title: submission.showTitle,
+            creatorName: submission.creatorName,
+            description: payload.shortDescription || "",
+            rssUrl: submission.rssOrListenLink || "",
+            websiteUrl: submission.officialSite || "",
+            tagHints: payload.selectedTags || [],
+            suggestedDescriptors: payload.suggestedDescriptors || "",
+            objectiveSources: [submission.rssOrListenLink, submission.officialSite].filter(Boolean),
+          },
+        }],
+      });
+      const candidateId = result.candidateIds?.[0] || result.suppressed?.find((item) => item.candidateId)?.candidateId || "";
+      if (persisted && candidateId) {
+        if (!store.linkSubmissionToCandidate(submission.id, candidateId)) {
+          const latest = store.getSubmissionHandoff(submission.id);
+          const error = new Error(latest?.status === "rejected"
+            ? "The submission was rejected before import preparation could finish."
+            : "The submission could not be linked to its import candidate.");
+          error.statusCode = 409;
+          throw error;
+        }
+      } else if (persisted) {
+        store.releaseSubmissionHandoff(submission.id);
+      }
+      if (candidateId) {
+        store.recordEvent(candidateId, "submission-handed-off", actor || "authenticated-maintainer", { submissionId: submission.id });
+      }
+      return result;
+    } catch (error) {
+      if (handoffClaimed) store.releaseSubmissionHandoff(submission.id);
+      throw error;
+    }
   }
 
   function retryRunForMaintainer(runId, actor = "") {
@@ -1324,6 +1501,82 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     return updated;
   }
 
+  function markFactsReviewedBatchForMaintainer(ids, actor = "", {
+    reviewer: requestedReviewer = "",
+    expectedRevisions = {},
+    expectedContentHashes = {},
+    reviewedAt = "",
+    planId = "",
+  } = {}) {
+    const candidateIds = mergeUniqueStrings(ids);
+    if (candidateIds.length === 0) {
+      const error = new Error("At least one ready import candidate is required for batch factual review.");
+      error.statusCode = 400;
+      throw error;
+    }
+    const authorizedBy = trimText(actor, 160);
+    const reviewer = trimText(requestedReviewer, 160) || authorizedBy;
+    if (!authorizedBy || !reviewer) {
+      const error = new Error("An authorized factual reviewer is required.");
+      error.statusCode = 401;
+      throw error;
+    }
+    const timestamp = trimText(reviewedAt, 60) || new Date().toISOString();
+    const candidates = candidateIds.map(getCandidate);
+    candidates.forEach((candidate) => {
+      const expectedRevision = Number(expectedRevisions[candidate.id]);
+      if (!Number.isInteger(expectedRevision) || expectedRevision !== Number(candidate.inputRevision) ||
+        (expectedContentHashes[candidate.id] && candidateContentHash(candidate) !== expectedContentHashes[candidate.id])) {
+        const error = new Error(`Import candidate ${candidate.id} changed after the approved review plan.`);
+        error.statusCode = 409;
+        error.code = "IMPORT_PUBLISHER_STALE_CANDIDATE";
+        throw error;
+      }
+      if (!['ready', 'published'].includes(candidate.status) || !candidate.readiness?.ready) {
+        const error = new Error(`Import candidate ${candidate.id} is not ready for factual review.`);
+        error.statusCode = 409;
+        throw error;
+      }
+    });
+
+    (store.withImmediateTransaction || store.withTransaction)(() => {
+      candidates.forEach((plannedCandidate) => {
+        const candidate = getCandidate(plannedCandidate.id);
+        const expectedRevision = Number(expectedRevisions[candidate.id]);
+        if (expectedRevision !== Number(candidate.inputRevision) ||
+          (expectedContentHashes[candidate.id] && candidateContentHash(candidate) !== expectedContentHashes[candidate.id])) {
+          const error = new Error(`Import candidate ${candidate.id} changed while its batch factual review was being recorded.`);
+          error.statusCode = 409;
+          error.code = "IMPORT_PUBLISHER_STALE_CANDIDATE";
+          throw error;
+        }
+        const reviewed = {
+          ...candidate,
+          factsReviewedBy: reviewer,
+          factsReviewedAt: timestamp,
+          factsReviewedRevision: candidate.inputRevision,
+        };
+        const readiness = reviewed.preparedRecord?.id
+          ? evaluateReadiness({ candidate: reviewed, preparedRecord: reviewed.preparedRecord })
+          : reviewed.readiness;
+        readiness.updateDiff = candidate.readiness?.updateDiff || [];
+        store.updateCandidate(candidate.id, {
+          factsReviewedBy: reviewer,
+          factsReviewedAt: timestamp,
+          factsReviewedRevision: candidate.inputRevision,
+          readiness,
+        });
+        store.recordEvent(candidate.id, "facts-reviewed", authorizedBy, {
+          inputRevision: candidate.inputRevision,
+          method: "echo-publisher-batch-review",
+          reviewedBy: reviewer,
+          planId: trimText(planId, 120),
+        });
+      });
+    });
+    return candidateIds.map(getCandidate);
+  }
+
   function selectEvidenceForMaintainer(id, fieldName, evidenceId, actor = "") {
     const candidate = getCandidate(id);
     const selected = store.selectEvidence(candidate.id, trimText(fieldName, 200), Number(evidenceId), actor);
@@ -1335,7 +1588,232 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     return enqueueCandidate(id, { actor, runType: "resolve-conflict", incrementRevision: true });
   }
 
-  async function publishCandidates(ids, actor = "", { batch = false, publicationTier = "" } = {}) {
+  async function verifyExternalIdentityForMaintainer(id, raw = {}, actor = "") {
+    const candidate = getCandidate(id);
+    const reviewer = trimText(actor, 160);
+    if (!reviewer) {
+      const error = new Error("An authenticated maintainer is required to verify an external identity.");
+      error.statusCode = 401;
+      throw error;
+    }
+    if (["published", "duplicate", "rejected"].includes(candidate.status)) {
+      const error = new Error("Reopen or replace this closed candidate before verifying another identity.");
+      error.statusCode = 409;
+      throw error;
+    }
+    const objective = candidate.objective || {};
+    const proposedUrl = objective.amazonMusicUrl || objective.externalIdentityProposal?.url || "";
+    const expected = parseAmazonMusicIdentityUrl(proposedUrl);
+    const requested = parseAmazonMusicIdentityUrl(raw.url || "");
+    if (requested.id !== expected.id || raw.provider !== "amazon-music") {
+      const error = new Error("The external identity must match the submitted Amazon Music show listing.");
+      error.statusCode = 409;
+      error.code = "IMPORT_EXTERNAL_IDENTITY_MISMATCH";
+      throw error;
+    }
+    const confirmedTitle = trimText(raw.confirmedTitle, 240);
+    const confirmedCreator = trimText(raw.confirmedCreator, 240);
+    const proposedDescription = trimText(objective.externalIdentityProposal?.description || "", 4_000);
+    const proposedTitle = trimText(objective.externalIdentityProposal?.title || objective.title || candidate.title, 240);
+    const proposedCreator = trimText(objective.externalIdentityProposal?.creatorName || objective.creatorName || candidate.creatorName, 240);
+    if (
+      raw.confirmedMatch !== true ||
+      (proposedDescription && raw.confirmedDescriptionMatch !== true) ||
+      !confirmedTitle || !confirmedCreator ||
+      normalizeTitleCreatorKey(confirmedTitle, confirmedCreator) !== normalizeTitleCreatorKey(proposedTitle, proposedCreator)
+    ) {
+      const error = new Error("Confirm the exact candidate title and creator shown by the official listing before verifying this identity; confirm its proposed description when one is provided.");
+      error.statusCode = 400;
+      error.code = "IMPORT_EXTERNAL_IDENTITY_CONFIRMATION_REQUIRED";
+      throw error;
+    }
+    const conflictingLocks = [
+      ["title", confirmedTitle],
+      ["creatorName", confirmedCreator],
+      ...(proposedDescription ? [["description", proposedDescription]] : []),
+    ].filter(([field, value]) => (candidate.lockedFields || []).includes(field) && objective[field] !== value);
+    if (conflictingLocks.length) {
+      const error = new Error("Resolve the existing title or creator review lock before confirming this external identity.");
+      error.statusCode = 409;
+      error.code = "IMPORT_EXTERNAL_IDENTITY_FIELD_LOCKED";
+      throw error;
+    }
+    const listing = await amazonMusic.fetchByUrl(requested.url);
+    if (listing.normalized?.amazonMusicId !== expected.id) {
+      const error = new Error("The official listing did not confirm the submitted Amazon Music identity.");
+      error.statusCode = 409;
+      error.code = "IMPORT_EXTERNAL_IDENTITY_MISMATCH";
+      throw error;
+    }
+    const existingMapping = store.findIdentity("amazon-music-id", expected.id);
+    const sameShow = Boolean(candidate.existingShowId && existingMapping?.existingShowId === candidate.existingShowId);
+    if (existingMapping && existingMapping.candidateId !== candidate.id && !sameShow) {
+      const error = new Error("This Amazon Music identity is already assigned to another show or import candidate.");
+      error.statusCode = 409;
+      error.code = "IMPORT_EXTERNAL_IDENTITY_COLLISION";
+      throw error;
+    }
+    const verifiedAt = new Date().toISOString();
+    const externalIdentity = {
+      provider: "amazon-music",
+      id: expected.id,
+      url: requested.url,
+      verified: true,
+      verifiedAt,
+      verifiedBy: reviewer,
+      confirmedTitle,
+      confirmedCreator,
+    };
+    const evidenceFields = [
+      ["title", confirmedTitle],
+      ["creatorName", confirmedCreator],
+      ...(proposedDescription ? [["description", proposedDescription]] : []),
+    ].filter(([field, value]) => {
+      if ((candidate.lockedFields || []).includes(field)) return false;
+      const hasMatchingEvidence = (candidate.fieldEvidence || []).some((item) =>
+        item.fieldName === field && String(item.value || "").trim().toLowerCase() === value.toLowerCase(),
+      );
+      return objective[field] !== value || !hasMatchingEvidence;
+    });
+    if (evidenceFields.length) {
+      store.appendFieldEvidence(id, evidenceFields.map(([fieldName, value]) => ({
+        fieldName,
+        value,
+        normalizedValue: value,
+        sourceType: "amazon-music",
+        sourceUrl: requested.url,
+        confidence: 0.9,
+        method: "maintainer-external-identity-confirmation",
+        status: "candidate",
+        selected: false,
+      })));
+      const refreshed = getCandidate(id);
+      evidenceFields.forEach(([fieldName, value]) => {
+        const evidence = refreshed.fieldEvidence.find((item) => item.fieldName === fieldName && item.sourceType === "amazon-music" && item.sourceUrl === requested.url && item.value === value);
+        if (evidence) store.selectEvidence(id, fieldName, evidence.id, reviewer);
+      });
+    }
+    store.updateCandidate(id, {
+      title: confirmedTitle,
+      creatorName: confirmedCreator,
+      canonicalId: normalizeTitleCreatorKey(confirmedTitle, confirmedCreator),
+      objective: { ...objective, title: confirmedTitle, creatorName: confirmedCreator, ...(proposedDescription ? { description: proposedDescription } : {}), externalIdentity },
+      factsReviewedBy: "",
+      factsReviewedAt: "",
+      factsReviewedRevision: 0,
+    });
+    store.claimIdentity("amazon-music-id", expected.id, { candidateId: id, existingShowId: candidate.existingShowId || "" });
+    store.recordEvent(id, "external-identity-verified", reviewer, {
+      provider: "amazon-music",
+      identityId: expected.id,
+      sourceUrl: requested.url,
+      confirmedTitle,
+      confirmedCreator,
+      listingFetched: true,
+    });
+    return enqueueCandidate(id, { actor: reviewer, runType: "prepare", incrementRevision: true });
+  }
+
+  function acquirePublishLock() {
+    fs.mkdirSync(stagingRoot, { recursive: true });
+    const lockPath = path.join(stagingRoot, "publish.lock");
+    try {
+      const descriptor = fs.openSync(lockPath, "wx", 0o600);
+      fs.closeSync(descriptor);
+    } catch (error) {
+      if (error.code !== "EEXIST") throw error;
+      const stat = fs.lstatSync(lockPath);
+      if (!stat.isFile() || stat.isSymbolicLink()) {
+        const unsafe = new Error("The import publication lock path is unsafe.");
+        unsafe.statusCode = 503;
+        throw unsafe;
+      }
+    }
+    const readyMessage = "ECHO_PUBLISH_LOCK_READY\n";
+    let child;
+    try {
+      child = spawn("/usr/bin/flock", [
+        "--exclusive",
+        "--nonblock",
+        "--no-fork",
+        lockPath,
+        process.execPath,
+        "-e",
+        `process.stdout.write(${JSON.stringify(readyMessage)}); process.stdin.resume();`,
+      ], {
+        env: { PATH: "/usr/bin:/bin" },
+        stdio: ["pipe", "pipe", "pipe"],
+      });
+    } catch (_error) {
+      const error = new Error("Could not start the crash-safe import publication lock.");
+      error.statusCode = 503;
+      throw error;
+    }
+    return new Promise((resolve, reject) => {
+      let output = "";
+      let stderr = "";
+      let settled = false;
+      const timer = setTimeout(() => {
+        if (settled) return;
+        child.kill();
+        const error = new Error("Timed out acquiring the import publication lock.");
+        error.statusCode = 503;
+        settled = true;
+        reject(error);
+      }, 10_000);
+      child.stdout.setEncoding("utf8");
+      child.stderr.setEncoding("utf8");
+      child.stdout.on("data", (chunk) => {
+        output += chunk;
+        if (!settled && output.includes(readyMessage)) {
+          settled = true;
+          clearTimeout(timer);
+          let releasePromise = null;
+          resolve(async () => {
+            if (releasePromise) return releasePromise;
+            releasePromise = new Promise((finish) => {
+              if (child.exitCode !== null || child.signalCode !== null) {
+                finish();
+                return;
+              }
+              child.once("close", finish);
+              child.stdin.end();
+            });
+            await releasePromise;
+          });
+        }
+      });
+      child.stderr.on("data", (chunk) => { stderr = `${stderr}${chunk}`.slice(-1_000); });
+      child.once("error", () => {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        const error = new Error("Could not start the crash-safe import publication lock.");
+        error.statusCode = 503;
+        reject(error);
+      });
+      child.once("close", (code) => {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        const error = new Error(code === 1
+          ? "Another import publication is already running."
+          : `The import publication lock exited before acquisition.${stderr ? ` ${stderr.trim()}` : ""}`);
+        error.statusCode = code === 1 ? 409 : 503;
+        reject(error);
+      });
+    });
+  }
+
+  async function publishCandidates(ids, actor = "", {
+    batch = false,
+    publicationTier = "",
+    expectedRevisions = {},
+    expectedCandidateHashes = {},
+    requireCurrentFactsReview = false,
+    publicationContext = {},
+    prePublicationCheck = null,
+  } = {}) {
     const requestedTier = ensurePublicationTier(publicationTier);
     const candidateIds = mergeUniqueStrings(ids);
     if (candidateIds.length === 0) {
@@ -1343,8 +1821,38 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       error.statusCode = 400;
       throw error;
     }
-    const candidates = candidateIds.map(getCandidate);
-    candidates.forEach((candidate) => {
+    const releaseLock = await acquirePublishLock();
+    let candidates = [];
+    const hadSplitCatalog = fs.existsSync(path.join(staticRoot, "catalog-src"));
+    const coverBackups = [];
+    const stagedCoverChanges = [];
+    let catalogTransaction = null;
+    let publicationStarted = false;
+    let databasePublicationCommitted = false;
+    let publicationSnapshot = null;
+    try {
+      candidates = candidateIds.map(getCandidate);
+      candidates.forEach((candidate) => {
+        const expectedRevision = Number(expectedRevisions[candidate.id]);
+        if (Object.keys(expectedRevisions).length && (!Number.isInteger(expectedRevision) || expectedRevision !== Number(candidate.inputRevision))) {
+          const error = new Error(`Import candidate ${candidate.id} changed after the approved publication plan.`);
+          error.statusCode = 409;
+          error.code = "IMPORT_PUBLISHER_STALE_CANDIDATE";
+          throw error;
+        }
+        const expectedHash = expectedCandidateHashes[candidate.id];
+        if (expectedHash && candidateContentHash(candidate) !== expectedHash) {
+          const error = new Error(`Import candidate ${candidate.id} content changed after the approved publication plan.`);
+          error.statusCode = 409;
+          error.code = "IMPORT_PUBLISHER_STALE_CANDIDATE";
+          throw error;
+        }
+        if (requireCurrentFactsReview && (!candidate.factsReviewedAt || Number(candidate.factsReviewedRevision) !== Number(candidate.inputRevision))) {
+          const error = new Error(`Import candidate ${candidate.id} needs a current factual review before publication.`);
+          error.statusCode = 409;
+          error.code = "IMPORT_PUBLISHER_FACTS_REVIEW_REQUIRED";
+          throw error;
+        }
       if (candidate.status !== "ready" || !candidate.readiness?.ready || !candidate.preparedRecord?.id) {
         const error = new Error(`Import candidate ${candidate.id} is not ready to publish: ${(candidate.readiness?.blockers || []).map((blocker) => blocker.message).join("; ") || "preparation is incomplete"}.`);
         error.statusCode = 400;
@@ -1361,26 +1869,37 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         error.statusCode = 400;
         throw error;
       }
-    });
-    const hadSplitCatalog = fs.existsSync(path.join(staticRoot, "catalog-src"));
-    const coverBackups = [];
-    const stagedCoverChanges = [];
-    let catalogTransaction = null;
-    let databasePublicationCommitted = false;
-    let publicationSnapshot = null;
-    try {
+      });
+      if (typeof prePublicationCheck === "function") await prePublicationCheck();
+      publicationStarted = true;
       const records = candidates.map((candidate) => {
         const record = JSON.parse(JSON.stringify(candidate.preparedRecord));
         const effectiveTier = candidate.mode === "update" ? record.reviewStatus : requestedTier;
+        const factualReviewer = candidate.factsReviewedBy || actor || "authenticated-maintainer";
+        const hasCurrentFactualReview = Boolean(candidate.factsReviewedAt &&
+          Number(candidate.factsReviewedRevision) === Number(candidate.inputRevision));
+        const delegatedFactualReview = factualReviewer === "delegate:codex";
+        const sourceReviewStatus = delegatedFactualReview ? "delegated-source-reviewed" : "maintainer-source-reviewed";
+        const sourceReviewNote = delegatedFactualReview
+          ? "An authorized delegated AI reviewer checked factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+          : "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations.";
         record.reviewStatus = effectiveTier;
         if (candidate.mode !== "update") {
           record.verification = {
             ...record.verification,
-            status: effectiveTier === "imported" ? "automated-source-checked" : "maintainer-source-reviewed",
+            status: effectiveTier === "imported" ? "automated-source-checked" : sourceReviewStatus,
             verifiedAt: new Date().toISOString().slice(0, 10),
             note: effectiveTier === "imported"
               ? "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
-              : "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations.",
+              : sourceReviewNote,
+          };
+        } else if (effectiveTier !== "imported" && hasCurrentFactualReview &&
+          ["maintainer-source-reviewed", "delegated-source-reviewed", "partially-source-reviewed"].includes(record.verification?.status)) {
+          record.verification = {
+            ...record.verification,
+            status: sourceReviewStatus,
+            verifiedAt: new Date().toISOString().slice(0, 10),
+            note: sourceReviewNote,
           };
         }
         record.metadata = {
@@ -1388,14 +1907,23 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
           import: {
             ...(record.metadata?.import || {}),
             publication: {
+              ...(record.metadata?.import?.publication || {}),
               tier: effectiveTier,
               publishedAt: new Date().toISOString(),
+              ...(candidate.mode !== "update" && effectiveTier === "indexed-only" ? { provisional: true } : {}),
             },
-            ...(candidate.mode !== "update" && effectiveTier === "indexed-only" ? {
+            ...(effectiveTier !== "imported" && hasCurrentFactualReview && (candidate.mode === "update" || effectiveTier === "indexed-only") ? {
               factualReview: {
                 reviewedAt: candidate.factsReviewedAt,
-                reviewedBy: candidate.factsReviewedBy || actor || "authenticated-maintainer",
+                reviewedBy: factualReviewer,
                 inputRevision: candidate.factsReviewedRevision,
+              },
+              scopeReview: {
+                status: candidate.scopeStatus,
+                reviewedAt: candidate.factsReviewedAt,
+                reviewedBy: factualReviewer,
+                inputRevision: candidate.factsReviewedRevision,
+                evidenceSources: mergeUniqueStrings((candidate.sources || []).filter((source) => source.fetchStatus !== "failed").map((source) => source.sourceUrl)),
               },
             } : {}),
           },
@@ -1409,7 +1937,8 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       });
       publicationSnapshot = store.publicationSnapshot(candidates);
       catalogTransaction = writeShowRecordsAtomically(staticRoot, records, {
-        deferCommit: true, recoveryData: publicationSnapshot,
+        deferCommit: true,
+        recoveryData: publicationSnapshot,
         additionalPaths: stagedCoverChanges.map(({ stage, record }) => path.join(staticRoot, "images/covers", `${record.id}${stage.extension}`)),
         beforeWrite: () => stagedCoverChanges.forEach(({ stage, record }) => { record.cover = promoteStagedCover(stage, staticRoot, record.id).relativePath; }),
       });
@@ -1418,23 +1947,49 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         catalogCache = null;
         if (typeof onPublished === "function") await onPublished({ showIds: records.map((record) => record.id) });
       });
-      const published = store.withTransaction(() => candidates.map((candidate) => {
-        const showId = candidate.preparedRecord.id;
-        store.bindIdentitiesToShow(candidate.id, showId);
-        const updated = store.updateCandidate(candidate.id, {
-          status: "published", publishedShowId: showId, reviewedAt: new Date().toISOString(),
-          reviewedBy: actor || candidate.reviewedBy || "authenticated-maintainer", lastError: "",
-          preparedRecord: records.find((record) => record.id === showId) || candidate.preparedRecord,
+      const runPublicationTransaction = typeof store.withImmediateTransaction === "function"
+        ? store.withImmediateTransaction.bind(store)
+        : store.withTransaction.bind(store);
+      const published = runPublicationTransaction(() => {
+        candidates.forEach((candidate) => {
+          const current = getCandidate(candidate.id);
+          const expectedRevision = Number(expectedRevisions[candidate.id]);
+          if ((Object.keys(expectedRevisions).length && (!Number.isInteger(expectedRevision) || Number(current.inputRevision) !== expectedRevision)) ||
+            (expectedCandidateHashes[candidate.id] && candidateContentHash(current) !== expectedCandidateHashes[candidate.id]) ||
+            (requireCurrentFactsReview && (!current.factsReviewedAt || Number(current.factsReviewedRevision) !== Number(current.inputRevision)))) {
+            const error = new Error("Import candidate " + candidate.id + " changed while its publication transaction was being committed.");
+            error.statusCode = 409;
+            error.code = "IMPORT_PUBLISHER_STALE_CANDIDATE";
+            throw error;
+          }
         });
-        store.recordEvent(candidate.id, "published", actor || "authenticated-maintainer", { showId, batch, publicationTier: requestedTier });
-        return updated;
-      }));
+        return candidates.map((candidate) => {
+          const showId = candidate.preparedRecord.id;
+          const reviewedAt = new Date().toISOString();
+          store.bindIdentitiesToShow(candidate.id, showId);
+          const updated = store.updateCandidate(candidate.id, {
+            status: "published", publishedShowId: showId, reviewedAt,
+            reviewedBy: actor || candidate.reviewedBy || "authenticated-maintainer", lastError: "",
+            preparedRecord: records.find((record) => record.id === showId) || candidate.preparedRecord,
+          });
+          const submissionIds = store.resolveSubmissionLinksForCandidate(candidate.id, showId, actor, reviewedAt);
+          if (submissionIds.length > 0) store.recordEvent(candidate.id, "submission-resolved", actor || "authenticated-maintainer", { submissionIds, showId });
+          store.recordEvent(candidate.id, "published", actor || "authenticated-maintainer", {
+            showId,
+            batch,
+            publicationTier: requestedTier,
+            ...(trimText(publicationContext.planId, 120) ? { planId: trimText(publicationContext.planId, 120) } : {}),
+            ...(trimText(publicationContext.planHash, 64) ? { planHash: trimText(publicationContext.planHash, 64) } : {}),
+          });
+          return updated;
+        });
+      });
       databasePublicationCommitted = true;
       catalogTransaction.commit();
       return { candidates: published, showIds: records.map((record) => record.id), candidate: published[0], showId: records[0]?.id || "", buildCount: 1 };
     } catch (error) {
       if (!catalogTransaction) throw error;
-      catalogTransaction.rollback();
+      rollbackPublicationOrThrow(catalogTransaction, error);
       if (databasePublicationCommitted) store.restorePublicationSnapshot(publicationSnapshot);
       if (catalogTransaction) completeCatalogPublicationRecovery(staticRoot);
       if (!hadSplitCatalog) fs.rmSync(path.join(staticRoot, "catalog-src"), { recursive: true, force: true });
@@ -1446,17 +2001,30 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         }
       });
       await buildCatalog(staticRoot).catch(() => {});
-      candidates.forEach((candidate) => store.updateCandidate(candidate.id, { status: "ready", lastError: trimText(error.message || error, 4_000) }));
+      if (publicationStarted) {
+        candidates.forEach((candidate) => {
+          const current = getCandidate(candidate.id);
+          if (current.status === "ready" && Number(current.inputRevision) === Number(candidate.inputRevision)) {
+            store.updateCandidate(candidate.id, { lastError: trimText(error.message || error, 4_000) });
+          }
+        });
+      }
       throw error;
+    } finally {
+      await releaseLock();
     }
   }
 
-  function publishForMaintainer(id, actor = "", publicationTier = "") {
-    return publishCandidates([id], actor, { batch: false, publicationTier });
+  function publishForMaintainer(id, actor = "", publicationTier = "", options = {}) {
+    return publishCandidates([id], actor, { ...options, batch: false, publicationTier });
   }
 
-  function batchPublishForMaintainer(ids, actor = "", publicationTier = "") {
-    return publishCandidates(ids, actor, { batch: true, publicationTier });
+  function batchPublishForMaintainer(ids, actor = "", publicationTier = "", options = {}) {
+    if (publicationTier && typeof publicationTier === "object") {
+      options = publicationTier;
+      publicationTier = options.publicationTier || "";
+    }
+    return publishCandidates(ids, actor, { ...options, batch: true, publicationTier });
   }
 
   async function promoteForMaintainer(id, actor = "") {
@@ -1526,7 +2094,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       return { candidate: updated, showId: promoted.id, reviewStatus: promoted.reviewStatus };
     } catch (error) {
       if (!catalogTransaction) throw error;
-      catalogTransaction.rollback();
+      rollbackPublicationOrThrow(catalogTransaction, error);
       if (databasePublicationCommitted) store.restorePublicationSnapshot(publicationSnapshot);
       if (catalogTransaction) completeCatalogPublicationRecovery(staticRoot);
       await buildCatalog(staticRoot).catch(() => {});
@@ -1659,7 +2227,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       return { candidate: updated, showId: promoted.id, reviewStatus: promoted.reviewStatus };
     } catch (error) {
       if (!catalogTransaction) throw error;
-      catalogTransaction.rollback();
+      rollbackPublicationOrThrow(catalogTransaction, error);
       if (databasePublicationCommitted) store.restorePublicationSnapshot(publicationSnapshot);
       if (catalogTransaction) completeCatalogPublicationRecovery(staticRoot);
       await buildCatalog(staticRoot).catch(() => {});
@@ -1719,6 +2287,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     listDiscoveryForMaintainer,
     listForMaintainer,
     markFactsReviewedForMaintainer,
+    markFactsReviewedBatchForMaintainer,
     processPendingDiscoveryJobs,
     processPendingJobs,
     publishForMaintainer,
@@ -1736,6 +2305,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     selectEvidenceForMaintainer,
     stop,
     updateDiscoverySourceForMaintainer,
+    verifyExternalIdentityForMaintainer,
     waitForDiscoveryRun,
     waitForRun,
   };

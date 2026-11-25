@@ -380,12 +380,16 @@
   }
 
   .detail-review-carousel {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0;
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    gap: 8px;
   }
 
   .detail-review-carousel-arrow {
-    display: none;
+    width: 44px;
+    min-height: 44px;
+    align-self: center;
+    border-radius: 12px;
+    font-size: 1.55rem;
   }
 
   .detail-review-carousel-viewport {

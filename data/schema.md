@@ -15,10 +15,19 @@ Generated runtime/public output is written into:
 - `data/entity-graph.json`
 - `data/search-index.json`
 
-The frontend, optional Archivist integration, and community features should all
-read from these files instead of scraping HTML. This v1 schema is the public
-catalog contract used by the 1.1 release; operational importer and collection
-tables may evolve without changing the published record shape.
+`data/reviews/*.json` is a generated server-side copy of published review
+companions. The public `/data/reviews/<show-id>.json` route is built from the
+same merged catalog as show pages and serves only published full reviews.
+Undated drafts and incomplete companions stay in `catalog-src/reviews/` for
+maintainer workflows and are excluded from public data and generated review
+artifacts.
+
+The frontend, optional Archivist integration, and community features should
+read the public catalog endpoints instead of scraping HTML. `/data/shows.json`
+contains the merged public review content; `data/reviews/` is not a browser
+source. This v1 schema is the public catalog contract used by the 1.1 release;
+operational importer and collection tables may evolve without changing the
+published record shape.
 
 `officialDescription` is optional. When supplied it must be verified creator, network, show-site, or official-platform wording with a source label and URL. It is distinct from the archive-written `description` fallback.
 
@@ -211,6 +220,16 @@ The schema is intentionally allowed to be richer than the current UI. If structu
 
 Internal machine-ingest workflow state lives separately in SQLite under the import tables managed by `backend/`. Those operational records include asynchronous runs, leased jobs, identity mappings, cached/retained source data, field evidence, staged-cover metadata, prepared records, conflicts, and readiness reports. They are not a public or editorial source of truth.
 
+Private `show_submissions` rows may carry `import_candidate_id`, a short-lived
+`import_handoff_started_at` claim, and `import_resolved_show_id`. These fields
+support idempotent maintainer handoff and reconcile an explicitly published
+candidate with its source submission. A handoff alone leaves moderation status
+unchanged; successful publication accepts linked non-rejected submissions,
+while rejected rows stay rejected. Import publication recovery restores the
+submission status and review markers together with candidate state. This
+operational linkage does not change the public show record shape or the
+published submission-retention period.
+
 First-party usage analytics uses the same SQLite database in `analytics_meta`,
 `analytics_events`, and `analytics_visitors`. These are aggregate operational
 records rather than catalog data: browser identity tokens are HMAC-derived
@@ -279,16 +298,16 @@ Authoring can now leave `cover` blank when the show has at least one usable sour
 - `officialLinks.website`
 - `listenLinks.website`
 
-Normal catalog reads and validation are provider-free and side-effect-free. `loadCatalog()`, server startup and reload, reports, link checks, tests, smoke setup, and the default `validate:data` path do not fetch remote covers, write `images/covers/`, or rewrite authored catalog source. An incomplete record receives the shared local placeholder in memory for that read.
+Normal catalog reads and validation are provider-free and side-effect-free. `loadCatalog()`, server startup and reload, reports, link checks, tests, smoke setup, and the default `validate:data` path do not fetch remote covers, write `images/covers/`, or rewrite authored catalog source. An incomplete record receives the shared local placeholder in memory for that read; the placeholder is not persisted or accepted as show artwork.
 
-Cover recovery is reserved for explicit write-capable workflows. `npm run build:catalog` calls `syncCatalogCovers()` before generating catalog artifacts. The review and import publication entry points (`npm --prefix backend run review:new -- <show-id>`, `npm --prefix backend run review:publish -- <show-id>`, `npm --prefix backend run import:publish -- <candidate-id> --tier <imported|indexed-only>`, and `npm --prefix backend run import:promote -- <candidate-id> --reviewer <name>`) and protected maintainer elevation workflows opt into the same recovery while already writing catalogue state. Successful recovery stores a managed local cover and updates the authored record; an unsuccessful recovery keeps the placeholder for that build.
+Cover recovery is reserved for explicit write-capable workflows. `npm run build:catalog` calls `syncCatalogCovers()` before generating catalog artifacts. The review and import publication entry points (`npm --prefix backend run review:new -- <show-id>`, `npm --prefix backend run review:publish -- <show-id>`, `npm --prefix backend run import:publish -- <candidate-id> --tier <imported|indexed-only>`, and `npm --prefix backend run import:promote -- <candidate-id> --reviewer <name>`) and protected maintainer elevation workflows opt into the same recovery while already writing catalogue state. Successful recovery stores a managed local cover and updates the authored record; an unsuccessful recovery keeps the placeholder in memory for that build and leaves the authored cover blank.
 
 ## Required Fields
 
 - `id`
 - `title`
-- `description`
-- `cover` in the resolved catalog; authoring may leave it blank when explicit cover-recovery source links are present
+- `description` for normal published records; authenticated provisional `indexed-only` entries may leave it blank
+- `cover` in the resolved catalog; new listings require a show-specific local cover whose publication rights are established. The bundled Echo logo may appear only as an in-memory fallback for incomplete existing records.
 - `coverAlt`
 - `status`
 - `reviewStatus`
@@ -317,6 +336,8 @@ Cover recovery is reserved for explicit write-capable workflows. `npm run build:
 - `planned`
 
 `imported` is the lowest public confidence tier: strict automation checked objective metadata against structured publisher/directory evidence, but a maintainer has not individually reviewed the entry. It remains public, searchable, indexable, rateable, and eligible for manual collection curation. It cannot contain archive ratings, archive review copy, tones, themes, best-for values, similarity recommendations, featured/popularity state, accents, creator-verification claims, or unsupported lifecycle claims.
+
+An authenticated provisional `indexed-only` import may publish with empty descriptions and discovery metadata when its current factual-review record, in-scope evidence, stable identity, and selected source provenance are present under `metadata.import`. This is an explicit exception for otherwise legitimate audio-fiction listings; it does not waive identity, uniqueness, scope, or factual-review checks.
 
 ### `releaseStatus`
 
@@ -460,13 +481,14 @@ generate or rewrite `similarTo` relationships.
 - Discovery tags must use canonical sentence casing and aliases such as `Analog horror`, `Alternate history`, `Found audio`, `Full cast`, and `Folk horror`.
 - Do not use redundant show-type or directory tags, including plural variants, such as `Drama`, `Audio drama`, `Fiction`, `Podcast`, `Arts`, or `Performing Arts`.
 - A show title cannot also be used as one of its own discovery tags.
-- Published shows require a source-backed description of at least 40 characters and at least one canonical genre. Optional factual fields may remain blank when the sources do not expose them.
+- Normal published shows require a source-backed description of at least 40 characters and at least one canonical genre. Authenticated provisional `indexed-only` records are exempt from minimum description/genre/discovery counts, but still require show-specific artwork with established publication rights.
 - Website fields cannot point to social/support profiles, and imported Apple links must match their stored Apple collection id.
 - `aliases`, `themes`, `contentNotes`, `languages`, `transcriptLanguages`, `cast`, and `creators` should not contain duplicates after lowercase normalization.
 - Collection `showIds`, `coverShowIds`, and `intentTags` must not contain duplicates after lowercase normalization.
 - `kind: "similarity"` collections must include an `anchorShowId` that resolves to a real show.
 - `reviewStatus: full-review` should only be used when richer review fields actually exist.
 - `reviewStatus: imported` requires `verification.status: automated-source-checked`, importer provenance, and no archive-owned editorial fields.
+- Source review status `delegated-source-reviewed` identifies an authorized delegated AI factual review; it must not be treated as creator verification or a human review.
 - Populated `discovery` is maintainer-curated and is not allowed on `reviewStatus: imported` records.
 
 The normal `npm run validate:data` gate also performs a raw-source integrity pass before runtime normalization. It checks split-source filenames and order manifests, duplicate ids/slugs and normalized list values, known URL-bearing fields and provenance URL lists, date ordering, bounded ratings/runtime/coverage numbers, show-to-show and collection relationships, entity links, optional creator/network/changelog references, and orphaned review/entity records. It reports deterministic failures together so a single bad record does not hide later issues.
@@ -489,6 +511,10 @@ When present, `catalog-src/reviews/<show-id>.json` should use this shape; `data/
 ```
 
 `publishedAt` is optional for unpublished review drafts. The first full-review publication records it, and later edits preserve the original publication date.
+Public catalog projection merges only dated review companions that contain the
+required archive take and spoiler-safe review text. Undated drafts and dated but
+incomplete companions remain available to maintainers but do not appear in
+public show data or pages.
 
 ## Collection Shape
 

@@ -9,6 +9,7 @@ import {
   reopenMaintainerImportCandidate,
   retryMaintainerImportCandidate,
   selectMaintainerImportEvidence,
+  verifyMaintainerImportExternalIdentity,
 } from "../maintainer/api.js";
 
 export const candidateApi = {
@@ -22,4 +23,5 @@ export const candidateApi = {
   promote: promoteMaintainerImportCandidate,
   review: patchMaintainerImportCandidateReview,
   selectEvidence: selectMaintainerImportEvidence,
+  verifyExternalIdentity: verifyMaintainerImportExternalIdentity,
 };

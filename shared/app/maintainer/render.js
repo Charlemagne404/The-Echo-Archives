@@ -243,9 +243,19 @@ export function renderDetailPane({ submission = null, storedReviewer = "", publi
         <section class="maintainer-detail-section">
           <h3>Import preparation</h3>
           <p class="maintainer-panel-meta">Send this submitted factual information into the protected import lane. It will still be enriched, deduplicated, and require separate publication approval.</p>
-          <div class="maintainer-toolbar-actions">
-            <button class="maintainer-ghost-button" type="button" data-submission-import="true">Prepare import candidate</button>
-          </div>
+          ${submission.importCandidateId ? `
+            <p class="maintainer-panel-meta">Linked candidate: <strong>${escapeHtml(submission.importCandidateId)}</strong>${submission.importCandidateStatus ? ` · ${escapeHtml(formatStatus(submission.importCandidateStatus))}` : ""}${submission.importResolvedShowId ? ` · Resolved to ${escapeHtml(submission.importResolvedShowId)}` : ""}</p>
+            <div class="maintainer-toolbar-actions">
+              ${renderLabeledLink("Open candidate in Catalog imports", `/maintainer/imports.html?q=${encodeURIComponent(submission.importCandidateId)}`)}
+              ${submission.importResolvedShowId ? renderLabeledLink("Open published show", `/shows/${encodeURIComponent(submission.importResolvedShowId)}`) : ""}
+            </div>
+          ` : submission.importHandoffStartedAt ? `
+            <p class="maintainer-panel-meta">Import preparation is being started. Refresh the submission shortly to see its candidate.</p>
+          ` : `
+            <div class="maintainer-toolbar-actions">
+              <button class="maintainer-ghost-button" type="button" data-submission-import="true">Prepare import candidate</button>
+            </div>
+          `}
         </section>
       ` : ""}
 

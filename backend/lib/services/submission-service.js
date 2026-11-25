@@ -484,6 +484,11 @@ function toMaintainerSubmission(submission) {
     reviewNotes: submission.review_notes,
     reviewedBy: submission.reviewed_by,
     reviewedAt: submission.reviewed_at,
+    importCandidateId: submission.import_candidate_id || "",
+    importHandoffStartedAt: submission.import_handoff_started_at || "",
+    importCandidateStatus: submission.import_candidate_status || "",
+    importPublishedShowId: submission.import_published_show_id || "",
+    importResolvedShowId: submission.import_resolved_show_id || "",
     sourceIp: submission.source_ip,
     userAgent: submission.user_agent,
   };

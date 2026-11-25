@@ -187,10 +187,10 @@ test("public heroes keep full and compact sizing contracts", async () => {
           const routeStyles = await heroStyles(route.panel, route.copy);
           if (route.url === "/about") {
             assert.equal(routeStyles.panel.minHeight, "0px");
-            assert.equal(routeStyles.panel.padding, "24px 22px");
+            assert.equal(routeStyles.panel.padding, "18px 16px 14px");
             assert.equal(routeStyles.panel.borderRadius, browseStyles.panel.borderRadius);
-            assert.ok(Number.parseFloat(routeStyles.heading.fontSize) < Number.parseFloat(browseStyles.heading.fontSize),
-              "the about hero keeps its more compact mobile heading scale");
+            assert.equal(routeStyles.heading.fontSize, browseStyles.heading.fontSize,
+              "the about hero keeps the shared mobile heading scale");
           } else {
             assert.deepEqual(routeStyles, browseStyles, `${route.url} should use the browse mobile contract at ${viewport.width}px`);
           }
@@ -199,16 +199,12 @@ test("public heroes keep full and compact sizing contracts", async () => {
         for (const route of compactRoutes) {
           await page.goto(`${baseUrl}${route.url}`, { waitUntil: "load" });
           const routeStyles = await heroStyles(route.panel, route.copy);
-          const expectedMinimum = route.url === "/about" ? "278px" : "330px";
-          const expectedPadding = route.url === "/about" ? "26px 30px 22px" : "30px";
+          const expectedMinimum = "330px";
+          const expectedPadding = "28px 30px";
           assert.equal(routeStyles.panel.minHeight, expectedMinimum, `${route.url} should keep its declared compact desktop minimum`);
           assert.equal(routeStyles.panel.padding, expectedPadding, `${route.url} should keep its declared compact desktop padding`);
           assert.equal(routeStyles.panel.borderRadius, browseStyles.panel.borderRadius);
-          if (route.url === "/about") {
-            assert.ok(Number.parseFloat(routeStyles.heading.fontSize) < Number.parseFloat(browseStyles.heading.fontSize));
-          } else {
-            assert.deepEqual(routeStyles.heading, browseStyles.heading, `${route.url} should keep browse heading typography`);
-          }
+          assert.deepEqual(routeStyles.heading, browseStyles.heading, `${route.url} should keep browse heading typography`);
           const compactHeight = Math.round(await page.locator(route.panel).evaluate((panel) => panel.getBoundingClientRect().height));
           assert.ok(compactHeight >= Number.parseFloat(expectedMinimum) && compactHeight < 430, `${route.url} should fit the compact desktop height range`);
         }
@@ -1592,6 +1588,14 @@ test("homepage collection carousels keep rounded cover art and stay stable durin
 
 test("homepage collection carousels autoplay and resume after a mobile touch leaves the rail", async () => {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 }, hasTouch: true });
+  const advanced = (before, after, minimumAdvance) => {
+    if (!before || !after || before.setWidth !== after.setWidth) {
+      return false;
+    }
+
+    const wrappedAdvance = ((after.progress - before.progress) % before.setWidth + before.setWidth) % before.setWidth;
+    return wrappedAdvance > minimumAdvance;
+  };
 
   try {
     await gotoSmokePage(page, `${baseUrl}/`, { waitUntil: "networkidle" });
@@ -1606,18 +1610,58 @@ test("homepage collection carousels autoplay and resume after a mobile touch lea
       );
     });
 
-    const initialState = await page.evaluate(() => ({
-      favoriteRoutes: document.getElementById("favoriteRoutesViewport")?.scrollLeft || 0,
-      collections: document.getElementById("collectionViewport")?.scrollLeft || 0,
-    }));
-    await page.waitForTimeout(1_200);
+    await page.evaluate(() => {
+      window.__echoSmokeReadCarouselProgress = () => {
+        const read = (viewportId) => {
+          const viewport = document.getElementById(viewportId);
+          const cards = Array.from(viewport?.querySelectorAll(".collection-card") || []);
+          const cardsPerSet = Math.floor(cards.length / 3);
+          const middleStart = cards[cardsPerSet]?.offsetLeft;
+          const nextSetStart = cards[cardsPerSet * 2]?.offsetLeft;
+          const setWidth = nextSetStart - middleStart;
+          if (!viewport || !Number.isFinite(middleStart) || !Number.isFinite(setWidth) || setWidth <= 0) {
+            return null;
+          }
 
-    const afterAutoplay = await page.evaluate(() => ({
-      favoriteRoutes: document.getElementById("favoriteRoutesViewport")?.scrollLeft || 0,
-      collections: document.getElementById("collectionViewport")?.scrollLeft || 0,
-    }));
-    assert.ok(afterAutoplay.favoriteRoutes > initialState.favoriteRoutes + 10);
-    assert.ok(afterAutoplay.collections > initialState.collections + 10);
+          return {
+            progress: ((viewport.scrollLeft - middleStart) % setWidth + setWidth) % setWidth,
+            setWidth,
+          };
+        };
+
+        return {
+          favoriteRoutes: read("favoriteRoutesViewport"),
+          collections: read("collectionViewport"),
+        };
+      };
+    });
+    const readCarouselProgress = () => page.evaluate(() => window.__echoSmokeReadCarouselProgress());
+    const waitForCarouselAdvance = (before, minimumAdvance) => page.waitForFunction(
+      ({ previous, threshold }) => {
+        const current = window.__echoSmokeReadCarouselProgress();
+        const advanced = (beforeState, afterState) => {
+          if (!beforeState || !afterState || beforeState.setWidth !== afterState.setWidth) {
+            return false;
+          }
+
+          const wrappedAdvance = ((afterState.progress - beforeState.progress) % beforeState.setWidth + beforeState.setWidth) % beforeState.setWidth;
+          return wrappedAdvance > threshold;
+        };
+
+        return advanced(previous.favoriteRoutes, current.favoriteRoutes) &&
+          advanced(previous.collections, current.collections);
+      },
+      { previous: before, threshold: minimumAdvance },
+      { timeout: 3_000 },
+    );
+
+    const initialState = await readCarouselProgress();
+    assert.ok(initialState.favoriteRoutes && initialState.collections, "expected looped carousel positions to be measurable");
+    await waitForCarouselAdvance(initialState, 10);
+
+    const afterAutoplay = await readCarouselProgress();
+    assert.ok(advanced(initialState.favoriteRoutes, afterAutoplay.favoriteRoutes, 10));
+    assert.ok(advanced(initialState.collections, afterAutoplay.collections, 10));
 
     await page.evaluate(() => {
       const viewport = document.getElementById("collectionViewport");
@@ -1634,14 +1678,11 @@ test("homepage collection carousels autoplay and resume after a mobile touch lea
         isPrimary: true,
       }));
     });
-    await page.waitForTimeout(700);
+    await waitForCarouselAdvance(afterAutoplay, 8);
 
-    const afterTouchResume = await page.evaluate(() => ({
-      favoriteRoutes: document.getElementById("favoriteRoutesViewport")?.scrollLeft || 0,
-      collections: document.getElementById("collectionViewport")?.scrollLeft || 0,
-    }));
-    assert.ok(afterTouchResume.favoriteRoutes > afterAutoplay.favoriteRoutes + 8);
-    assert.ok(afterTouchResume.collections > afterAutoplay.collections + 8);
+    const afterTouchResume = await readCarouselProgress();
+    assert.ok(advanced(afterAutoplay.favoriteRoutes, afterTouchResume.favoriteRoutes, 8));
+    assert.ok(advanced(afterAutoplay.collections, afterTouchResume.collections, 8));
   } finally {
     await page.close();
   }

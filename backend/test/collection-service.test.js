@@ -20,7 +20,7 @@ function show(id, { completionStatus = "finished", genres = ["sci-fi"], formats 
     id,
     title: id.replace(/-/g, " "),
     description: `A verified test description for ${id}.`,
-    cover: "images/TEA-Logo-S.png",
+    cover: "images/Circle2-Logo-S.png",
     coverAlt: `${id} cover`,
     status: "published",
     reviewStatus: "indexed-only",
@@ -180,7 +180,7 @@ test("review publication refresh joins its active catalogue transaction", async 
     const source = readCatalogSource(context.siteRoot);
     assert.equal(source.shows.find((entry) => entry.id === show.id).reviewStatus, "full-review");
     assert.deepEqual(source.collections[0].showIds, [show.id]);
-    assert.equal(fs.existsSync(path.join(context.siteRoot, ".echo-catalog-transaction")), false);
+    assert.equal(fs.existsSync(path.join(context.siteRoot, "import-staging", ".echo-catalog-transaction")), false);
   } finally {
     cleanup(context);
   }
@@ -197,7 +197,7 @@ test("unrelated collection writes cannot join an active review publication", () 
         (error) => error.statusCode === 503,
       );
       assert.equal(readCatalogSource(context.siteRoot).shows.find((entry) => entry.id === show.id).reviewStatus, "full-review");
-      assert.equal(fs.existsSync(path.join(context.siteRoot, ".echo-catalog-transaction")), true);
+      assert.equal(fs.existsSync(path.join(context.siteRoot, "import-staging", ".echo-catalog-transaction")), true);
     } finally {
       publication.rollback();
     }

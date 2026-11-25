@@ -7,7 +7,10 @@ const path = require("node:path");
 const { openDatabase } = require("../lib/store/database");
 const { createImportService, inferScopeStatus } = require("../lib/services/import-service");
 const { createImportStore } = require("../lib/store/import-store");
+const { createSubmissionStore } = require("../lib/store/submission-store");
 const { readShowsFile } = require("../scripts/review-helpers");
+const { writeCatalogSource, writeCollectionRecordsAtomically } = require("../../tools/lib/catalog-source");
+const { readCatalogSource } = require("../../tools/lib/catalog-source");
 
 const repositoryRoot = path.resolve(__dirname, "../..");
 const coverBytes = fs.readFileSync(path.join(repositoryRoot, "images/covers/archive-81.jpg"));
@@ -25,6 +28,7 @@ function createTempImportContext({ shows = [], collections = [], fetchImpl, onPu
   writeJson(path.join(siteRoot, "data/collections.json"), collections);
   const db = openDatabase(dbPath);
   const store = createImportStore({ db });
+  const submissionStore = createSubmissionStore({ db });
   const service = createImportService({
     store,
     staticRoot: siteRoot,
@@ -42,7 +46,7 @@ function createTempImportContext({ shows = [], collections = [], fetchImpl, onPu
     fetchImpl,
     onPublished,
   });
-  return { db, store, service, siteRoot, tempDir };
+  return { db, store, submissionStore, service, siteRoot, tempDir };
 }
 
 function cleanup(context) {
@@ -219,16 +223,28 @@ test("batch preparation requeues every eligible open candidate and leaves closed
 test("a vetted new-show submission can enter the protected import lane without publication", async () => {
   const context = createTempImportContext({ fetchImpl: sourceRichFetch() });
   try {
-    const result = await context.service.seedSubmissionForMaintainer({
-      id: "submission-123",
+    const sourceSubmission = context.submissionStore.createShowSubmission({
+      submissionType: "show",
+      status: "in-review",
+      showTitle: "Submission Signal",
+      creatorName: "Submission Studio",
+      contactEmail: "",
+      officialSite: "https://example.com/",
+      rssOrListenLink: "https://example.com/feed.xml",
+      payload: { shortDescription: "A factual submission ready for source enrichment.", selectedTags: ["fiction", "drama"] },
+    });
+    const submission = {
+      id: sourceSubmission.id,
       submissionType: "show",
       status: "in-review",
       showTitle: "Submission Signal",
       creatorName: "Submission Studio",
       officialSite: "https://example.com/",
       rssOrListenLink: "https://example.com/feed.xml",
-      genres: "fiction, drama",
       payload: { shortDescription: "A factual submission ready for source enrichment.", selectedTags: ["fiction", "drama"] },
+    };
+    const result = await context.service.seedSubmissionForMaintainer({
+      ...submission,
     }, "CA");
     assert.equal(result.candidateIds.length, 1);
     const candidate = context.service.getForMaintainer(result.candidateIds[0]);
@@ -236,6 +252,148 @@ test("a vetted new-show submission can enter the protected import lane without p
     assert.equal(candidate.primarySourceType, "submission");
     assert.match(candidate.events[0].eventType, /submission-handed-off|seeded/);
     assert.equal(candidate.publishedShowId, "");
+    assert.equal(context.submissionStore.getShowSubmission(submission.id).import_candidate_id, candidate.id);
+    assert.equal(context.submissionStore.getShowSubmission(submission.id).status, "in-review");
+
+    const repeated = await context.service.seedSubmissionForMaintainer(submission, "CA");
+    assert.equal(repeated.alreadyLinked, true);
+    assert.equal(repeated.candidateIds[0], candidate.id);
+    assert.equal(context.service.listForMaintainer({ includeClosed: true }).total, 1);
+
+    await context.service.processPendingJobs();
+    await context.service.waitForRun(result.runId);
+    const ready = context.service.getForMaintainer(candidate.id);
+    assert.equal(ready.status, "ready");
+    assert.equal(context.submissionStore.getShowSubmission(submission.id).status, "in-review");
+    const published = await context.service.publishForMaintainer(candidate.id, "CA", "imported");
+    const resolved = context.submissionStore.getShowSubmission(submission.id);
+    assert.equal(published.candidate.status, "published");
+    assert.equal(resolved.status, "accepted");
+    assert.equal(resolved.import_resolved_show_id, published.showId);
+    assert.equal(resolved.reviewed_by, "CA");
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("submission handoff claims serialize concurrent requests and recover stale claims", () => {
+  const context = createTempImportContext();
+  try {
+    const submission = context.submissionStore.createShowSubmission({
+      submissionType: "show",
+      status: "in-review",
+      showTitle: "Claimed Submission Signal",
+      creatorName: "Submission Studio",
+      contactEmail: "",
+      officialSite: "https://example.com/",
+      rssOrListenLink: "https://example.com/feed.xml",
+      payload: {},
+    });
+    const now = Date.now();
+    const firstClaimAt = new Date(now - 1_000).toISOString();
+    const staleBefore = new Date(now - 120_000).toISOString();
+
+    assert.equal(context.store.claimSubmissionHandoff(submission.id, {
+      startedAt: firstClaimAt,
+      staleBefore,
+    }), true);
+    assert.equal(context.store.claimSubmissionHandoff(submission.id, {
+      startedAt: new Date(now).toISOString(),
+      staleBefore,
+    }), false);
+    assert.equal(context.store.getSubmissionHandoff(submission.id).startedAt, firstClaimAt);
+
+    assert.equal(context.store.claimSubmissionHandoff(submission.id, {
+      startedAt: new Date(now).toISOString(),
+      staleBefore: new Date(now + 1_000).toISOString(),
+    }), true);
+    assert.equal(context.store.getSubmissionHandoff(submission.id).startedAt, new Date(now).toISOString());
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("publishing an import never changes a linked rejected submission", async () => {
+  const context = createTempImportContext({ fetchImpl: sourceRichFetch() });
+  try {
+    const sourceSubmission = context.submissionStore.createShowSubmission({
+      submissionType: "show",
+      status: "in-review",
+      showTitle: "Rejected Submission Signal",
+      creatorName: "Submission Studio",
+      contactEmail: "",
+      officialSite: "https://example.com/",
+      rssOrListenLink: "https://example.com/feed.xml",
+      payload: { shortDescription: "A factual submission ready for source enrichment." },
+    });
+    const handoff = await context.service.seedSubmissionForMaintainer({
+      id: sourceSubmission.id,
+      submissionType: "show",
+      status: "in-review",
+      showTitle: "Rejected Submission Signal",
+      creatorName: "Submission Studio",
+      officialSite: "https://example.com/",
+      rssOrListenLink: "https://example.com/feed.xml",
+      payload: { shortDescription: "A factual submission ready for source enrichment." },
+    }, "CA");
+    const candidateId = handoff.candidateIds[0];
+    await context.service.processPendingJobs();
+    await context.service.waitForRun(handoff.runId);
+    context.submissionStore.updateShowSubmissionReview(sourceSubmission.id, { status: "rejected", reviewedBy: "CA" });
+    await context.service.publishForMaintainer(candidateId, "CA", "imported");
+    const resolved = context.submissionStore.getShowSubmission(sourceSubmission.id);
+    assert.equal(resolved.status, "rejected");
+    assert.equal(resolved.import_resolved_show_id, "");
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("publication recovery restores the linked submission with its import candidate", async () => {
+  const context = createTempImportContext({ fetchImpl: sourceRichFetch() });
+  try {
+    const sourceSubmission = context.submissionStore.createShowSubmission({
+      submissionType: "show",
+      status: "in-review",
+      showTitle: "Recovery Submission Signal",
+      creatorName: "Submission Studio",
+      contactEmail: "",
+      officialSite: "https://example.com/",
+      rssOrListenLink: "https://example.com/feed.xml",
+      payload: { shortDescription: "A factual submission ready for source enrichment." },
+    });
+    const handoff = await context.service.seedSubmissionForMaintainer({
+      id: sourceSubmission.id,
+      submissionType: "show",
+      status: "in-review",
+      showTitle: "Recovery Submission Signal",
+      creatorName: "Submission Studio",
+      officialSite: "https://example.com/",
+      rssOrListenLink: "https://example.com/feed.xml",
+      payload: { shortDescription: "A factual submission ready for source enrichment." },
+    }, "CA");
+    await context.service.processPendingJobs();
+    await context.service.waitForRun(handoff.runId);
+    const candidate = context.service.getForMaintainer(handoff.candidateIds[0]);
+    const snapshot = context.store.publicationSnapshot([candidate]);
+
+    context.store.withTransaction(() => {
+      context.store.updateCandidate(candidate.id, {
+        status: "published",
+        publishedShowId: candidate.preparedRecord.id,
+        reviewedBy: "CA",
+        reviewedAt: "2026-11-25T12:00:00.000Z",
+      });
+      context.store.resolveSubmissionLinksForCandidate(candidate.id, candidate.preparedRecord.id, "CA", "2026-11-25T12:00:00.000Z");
+    });
+    assert.equal(context.submissionStore.getShowSubmission(sourceSubmission.id).status, "accepted");
+
+    context.store.restorePublicationSnapshot(snapshot);
+    assert.equal(context.service.getForMaintainer(candidate.id).status, "ready");
+    const restored = context.submissionStore.getShowSubmission(sourceSubmission.id);
+    assert.equal(restored.status, "in-review");
+    assert.equal(restored.import_resolved_show_id, "");
+    assert.equal(restored.reviewed_at, null);
   } finally {
     cleanup(context);
   }
@@ -537,6 +695,349 @@ test("high-confidence official disagreement blocks publication and exposes revie
   }
 });
 
+test("authenticated Amazon Music identity verification stays separate from RSS and rejects duplicate IDs", async () => {
+  const amazonId = "3c2ab8bc-6eda-429e-b320-01d6bdcf5a61";
+  const amazonUrl = `https://music.amazon.co.uk/podcasts/${amazonId}/optog`;
+  const fetchImpl = async (url) => {
+    if (String(url).startsWith("https://itunes.apple.com/search")) return appleEmptyResponse();
+    if (String(url).startsWith(`https://music.amazon.co.uk/podcasts/${amazonId}`)) {
+      return new Response("<html><title>Amazon Music</title></html>", { status: 200, headers: { "content-type": "text/html" } });
+    }
+    throw new Error(`Unexpected fetch URL: ${url}`);
+  };
+  const context = createTempImportContext({ fetchImpl });
+  try {
+    const first = await context.service.seedCandidates({ searchResults: [{
+      sourceType: "submission",
+      sourceKey: "optog-submission",
+      sourceUrl: "https://shortwave.studio/optog/",
+      title: "OPTOg",
+      creatorName: "ShortWave.STUDIO",
+      objective: {
+        title: "アーカイブ: OPTOg",
+        creatorName: "ShortWave.STUDIO",
+        description: "Fictional audio PINGs from ShortWave.STUDIO.",
+        amazonMusicUrl: amazonUrl,
+        externalIdentityProposal: {
+          provider: "amazon-music",
+          title: "OPTOg",
+          creatorName: "ShortWave.STUDIO",
+          description: "Fictional radio-style comedy from ShortWave.STUDIO. OPTOg's PINGs bring together virtual hosts for short, scripted conversations about unusual questions. Written by Yuta Hayakawa. All voices and some images are AI-generated.",
+          url: amazonUrl,
+          status: "proposed-unverified",
+        },
+      },
+    }], autoHydrate: true });
+    const firstId = first.candidateIds[0];
+    assert.equal(context.service.getForMaintainer(firstId).status, "needs-review");
+    assert.equal(context.service.getForMaintainer(firstId).readiness.checks.stableIdentity, false);
+    await assert.rejects(
+      context.service.verifyExternalIdentityForMaintainer(firstId, { provider: "amazon-music", url: amazonUrl, confirmedTitle: "Wrong show", confirmedCreator: "ShortWave.STUDIO", confirmedMatch: true }, "test-maintainer"),
+      (error) => error.code === "IMPORT_EXTERNAL_IDENTITY_CONFIRMATION_REQUIRED",
+    );
+    await assert.rejects(
+      context.service.verifyExternalIdentityForMaintainer(firstId, { provider: "amazon-music", url: amazonUrl, confirmedTitle: "OPTOg", confirmedCreator: "ShortWave.STUDIO", confirmedMatch: true }, "test-maintainer"),
+      (error) => error.code === "IMPORT_EXTERNAL_IDENTITY_CONFIRMATION_REQUIRED",
+    );
+    const verified = await context.service.verifyExternalIdentityForMaintainer(firstId, {
+      provider: "amazon-music",
+      url: amazonUrl,
+      confirmedTitle: "OPTOg",
+      confirmedCreator: "ShortWave.STUDIO",
+      confirmedMatch: true,
+      confirmedDescriptionMatch: true,
+    }, "test-maintainer");
+    await context.service.processPendingJobs();
+    await context.service.waitForRun(verified.runId);
+    const prepared = context.service.getForMaintainer(firstId);
+    assert.equal(prepared.objective.title, "OPTOg");
+    assert.equal(prepared.title, "OPTOg");
+    assert.equal(prepared.objective.description, "Fictional radio-style comedy from ShortWave.STUDIO. OPTOg's PINGs bring together virtual hosts for short, scripted conversations about unusual questions. Written by Yuta Hayakawa. All voices and some images are AI-generated.");
+    assert.ok(prepared.fieldEvidence.some((item) => item.fieldName === "title" && item.value === "OPTOg" && item.sourceType === "amazon-music" && item.selected));
+    assert.ok(prepared.fieldEvidence.some((item) => item.fieldName === "creatorName" && item.value === "ShortWave.STUDIO" && item.sourceType === "amazon-music" && item.selected));
+    assert.ok(prepared.fieldEvidence.some((item) => item.fieldName === "description" && item.value === prepared.objective.description && item.sourceType === "amazon-music" && item.selected));
+    assert.equal(prepared.objective.externalIdentity.provider, "amazon-music");
+    assert.equal(prepared.objective.externalIdentity.verifiedBy, "test-maintainer");
+    assert.equal(prepared.objective.amazonMusicId, amazonId);
+    assert.equal(prepared.objective.rssUrl || "", "");
+    assert.equal(prepared.objective.podcastGuid || "", "");
+    assert.equal(prepared.preparedRecord.length.countQualifier, "unknown");
+    assert.equal(prepared.preparedRecord.length.episodes, undefined);
+    assert.equal(prepared.preparedRecord.length.episodeCounts, undefined);
+    assert.equal(prepared.readiness.checks.stableIdentity, true);
+    assert.equal(prepared.provenance.fields.amazonMusicId.confidence, 0.9);
+    assert.ok(prepared.provenance.fields.description.confidence >= 0.9);
+    assert.equal(prepared.preparedRecord.metadata.import.identifiers.amazonMusicId, amazonId);
+    assert.equal(prepared.factsReviewedAt || "", "");
+
+    const second = await context.service.seedCandidates({ searchResults: [{
+      sourceType: "submission",
+      sourceKey: "different-submission",
+      sourceUrl: "https://shortwave.studio/optog/",
+      title: "Different candidate",
+      creatorName: "Different creator",
+      objective: { title: "Different candidate", creatorName: "Different creator", description: "A separate candidate for collision testing.", amazonMusicUrl: amazonUrl },
+    }], autoHydrate: true });
+    await assert.rejects(
+      context.service.verifyExternalIdentityForMaintainer(second.candidateIds[0], {
+        provider: "amazon-music", url: amazonUrl, confirmedTitle: "Different candidate", confirmedCreator: "Different creator", confirmedMatch: true,
+      }, "test-maintainer"),
+      (error) => error.code === "IMPORT_EXTERNAL_IDENTITY_COLLISION",
+    );
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("pending editorial recommendations stay separate from objective metadata and lifecycle status can stay unknown", async () => {
+  const context = createTempImportContext({ fetchImpl: sourceRichFetch() });
+  const feedUrl = "https://example.com/feed.xml";
+  try {
+    const seeded = await context.service.seedCandidates({ searchResults: [{
+      sourceType: "rss",
+      sourceKey: "recommendation-submission",
+      sourceUrl: feedUrl,
+      title: "Signal Lost",
+      creatorName: "Archive Studio",
+      objective: {
+        title: "Signal Lost",
+        creatorName: "Archive Studio",
+        description: "A serialized fiction audio drama about a vanished research station.",
+        rssUrl: feedUrl,
+        manualReleaseState: "unknown",
+        editorialRecommendations: {
+          genres: ["horror"],
+          formats: ["serialized"],
+          tags: ["Gothic"],
+          releaseStatus: "active",
+          completionStatus: "ongoing",
+          rationale: "The official summary identifies a horror story told as a continuous serial.",
+          fieldSources: { genres: [feedUrl], formats: [feedUrl], tags: [feedUrl], releaseStatus: [feedUrl], completionStatus: [feedUrl] },
+        },
+      },
+    }], autoHydrate: true });
+    const candidate = context.service.getForMaintainer(seeded.candidateIds[0]);
+    assert.equal(candidate.status, "ready");
+    assert.deepEqual(candidate.preparedRecord.genres, ["drama"]);
+    assert.deepEqual(candidate.preparedRecord.formats, []);
+    assert.deepEqual(candidate.preparedRecord.tags, []);
+    assert.equal(candidate.preparedRecord.releaseStatus, "unknown");
+    assert.equal(candidate.preparedRecord.completionStatus, "unclear");
+    assert.equal(candidate.preparedRecord.metadata.import.editorialRecommendations.status, "pending-maintainer-review");
+    assert.deepEqual(candidate.preparedRecord.metadata.import.editorialRecommendations.genres, ["horror"]);
+    assert.deepEqual(candidate.preparedRecord.metadata.import.editorialRecommendations.formats, ["serialized"]);
+    assert.deepEqual(candidate.preparedRecord.metadata.import.editorialRecommendations.tags, ["Gothic"]);
+    assert.equal(candidate.preparedRecord.metadata.import.editorialRecommendations.releaseStatus, "");
+    assert.equal(candidate.preparedRecord.metadata.import.editorialRecommendations.completionStatus, "");
+    assert.equal(candidate.preparedRecord.metadata.import.fields.genres.method, "deterministic-category-mapping");
+    assert.equal(candidate.preparedRecord.metadata.import.fields.formats.method, "removed-rss-feed-type");
+    assert.equal(candidate.preparedRecord.metadata.import.fields.tags, undefined);
+    assert.equal(candidate.preparedRecord.metadata.import.fields.releaseStatus.method, "maintainer-unknown");
+    assert.equal(candidate.preparedRecord.metadata.import.fields.completionStatus.method, "maintainer-unknown");
+    assert.ok(candidate.readiness.warnings.some((warning) => warning.code === "editorial-recommendation-review"));
+    assert.equal(candidate.readiness.publicationEligibility.imported.eligible, true);
+    assert.equal(candidate.readiness.publicationEligibility.indexedOnly.eligible, false);
+    assert.equal(candidate.factsReviewedAt || "", "");
+    assert.equal(candidate.preparedRecord.verification.status, "automated-source-checked");
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("missing or unlicensed artwork blocks provisional indexed-only publication", async () => {
+  const feedUrl = "https://example.com/provisional-feed.xml";
+  const fetchImpl = async (url, init) => {
+    if (String(url) === feedUrl) {
+      const body = rssDocument({ title: "Signal Lost Audio Drama", website: "https://example.com/", feedUrl })
+        .replace(/<itunes:summary>[\s\S]*?<\/itunes:summary>/, "")
+        .replace(/<itunes:category text="Fiction"><itunes:category text="Drama" \/><\/itunes:category>/, "");
+      return new Response(body, { status: 200, headers: { "content-type": "application/rss+xml" } });
+    }
+    if (String(url) === "https://example.com/") {
+      return new Response("<!doctype html><html><head><title>Signal Lost Audio Drama</title></head><body></body></html>", { status: 200, headers: { "content-type": "text/html" } });
+    }
+    return sourceRichFetch()(url, init);
+  };
+  const context = createTempImportContext({ fetchImpl });
+  try {
+    const seeded = await context.service.seedCandidates({ searchResults: [{
+      sourceType: "submission",
+      sourceKey: "provisional-no-artwork",
+      title: "Signal Lost Audio Drama",
+      creatorName: "Archive Studio",
+      objective: {
+        title: "Signal Lost Audio Drama",
+        creatorName: "Archive Studio",
+        rssUrl: feedUrl,
+        websiteUrl: "https://example.com/",
+        artworkUse: "echo-placeholder",
+        manualReleaseState: "unknown",
+      },
+    }], autoHydrate: true });
+    const candidateId = seeded.candidateIds[0];
+    const candidate = context.service.getForMaintainer(candidateId);
+    assert.equal(candidate.status, "needs-review");
+    assert.equal(candidate.preparedRecord.description, "");
+    assert.deepEqual(candidate.preparedRecord.genres, []);
+    assert.deepEqual(candidate.preparedRecord.formats, []);
+    assert.deepEqual(candidate.preparedRecord.tags, []);
+    assert.equal(candidate.preparedRecord.releaseStatus, "unknown");
+    assert.equal(candidate.preparedRecord.completionStatus, "unclear");
+    assert.equal(candidate.coverStage.omittedForRights, true);
+    assert.equal(candidate.coverStage.status, "permission-not-established");
+    assert.match(candidate.coverStage.missingReason, /not publishable until its use is authorized/i);
+    assert.equal(candidate.preparedRecord.cover, "");
+    assert.equal(candidate.preparedRecord.coverAlt, "");
+    assert.equal(candidate.preparedRecord.metadata.import.artworkDisposition.status, "omitted-rights-not-established");
+    assert.equal(candidate.preparedRecord.metadata.import.artworkDisposition.publishedCover, null);
+    assert.equal(candidate.readiness.publicationEligibility.indexedOnly.eligible, false);
+    assert.ok(candidate.readiness.blockers.some((blocker) => blocker.code === "cover-not-ready"));
+
+    assert.throws(
+      () => context.service.markFactsReviewedForMaintainer(candidateId, "test-maintainer"),
+      /only be confirmed for a ready or published candidate/i,
+    );
+    assert.equal(context.service.getForMaintainer(candidateId).readiness.publicationEligibility.indexedOnly.eligible, false);
+    await assert.rejects(context.service.publishForMaintainer(candidateId, "test-maintainer", "indexed-only"), /not ready|cover/i);
+    assert.deepEqual(readShowsFile(context.siteRoot), []);
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("a prepared metadata hold preserves source evidence while keeping explicit status unknown", async () => {
+  const fetchBase = sourceRichFetch();
+  const fetchImpl = async (url, init) => {
+    if (String(url) === "https://example.com/feed.xml") {
+      return new Response(rssDocument().replace("<itunes:author>Archive Studio", "<itunes:explicit>false</itunes:explicit><itunes:author>Archive Studio"), {
+        status: 200,
+        headers: { "content-type": "application/rss+xml" },
+      });
+    }
+    return fetchBase(url, init);
+  };
+  const context = createTempImportContext({ fetchImpl });
+  try {
+    const seeded = await context.service.seedCandidates({ searchResults: [{
+      sourceType: "submission",
+      sourceKey: "explicit-review-case",
+      title: "Signal Lost",
+      creatorName: "Archive Studio",
+      objective: {
+        title: "Signal Lost",
+        creatorName: "Archive Studio",
+        rssUrl: "https://example.com/feed.xml",
+        websiteUrl: "https://example.com/",
+        deferredFields: {
+          explicit: {
+            reason: "Current official Apple web copy conflicts with the RSS and Apple lookup results.",
+            sourceUrls: ["https://podcasts.apple.com/gb/podcast/example/id123456"],
+          },
+        },
+      },
+    }], autoHydrate: true });
+    const candidate = context.service.getForMaintainer(seeded.candidateIds[0]);
+    assert.equal(candidate.objective.explicit, "");
+    assert.ok(candidate.fieldEvidence.some((item) => item.fieldName === "explicit" && item.value === "false"));
+    assert.equal(candidate.provenance.fields.explicit.method, "preparation-deferred-unknown");
+    assert.ok(candidate.preparedRecord.metadata.import.optionalGaps.some((gap) => gap.startsWith("Explicit status remains unknown")));
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("a WordPress article feed cannot survive preparation as RSS or redirect identity", async () => {
+  const genericFeedUrl = "https://shortwave.example/feed/";
+  const fetchImpl = async (url) => {
+    if (String(url).startsWith("https://itunes.apple.com/search")) return appleEmptyResponse();
+    if (String(url) === genericFeedUrl) {
+      return new Response("<rss version=\"2.0\"><channel><title>Studio news</title><link>https://shortwave.example</link><description>Mixed website posts.</description><item><title>Post</title><description>News item.</description></item></channel></rss>", { status: 200, headers: { "content-type": "application/rss+xml" } });
+    }
+    throw new Error("Unexpected fetch URL: " + url);
+  };
+  const context = createTempImportContext({ fetchImpl });
+  try {
+    const seeded = await context.service.seedCandidates({ searchResults: [{
+      sourceType: "submission", sourceKey: "generic-feed-case", title: "ShortWave updates",
+      objective: { title: "ShortWave updates", description: "A submitted title for a website news feed.", rssUrl: genericFeedUrl, feedRedirects: [genericFeedUrl] },
+    }], autoHydrate: true });
+    const candidate = context.service.getForMaintainer(seeded.candidateIds[0]);
+    assert.equal(candidate.objective.rssUrl, "");
+    assert.equal(candidate.objective.feedRedirects.includes(genericFeedUrl), false);
+    assert.equal(candidate.objective.unverifiedRssUrl, genericFeedUrl);
+    assert.equal(candidate.readiness.checks.stableIdentity, false);
+    assert.ok(candidate.sources.some((source) => source.sourceType === "rss" && source.fetchStatus === "failed" && source.payload?.code === "IMPORT_NOT_PODCAST_FEED"));
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("Polybius update preparation locks and deep-preserves existing credits and creators", async () => {
+  const existing = {
+    id: "polybius-protocol",
+    title: "Polybius Protocol",
+    description: "The existing archive description.",
+    cover: "images/covers/archive-81.jpg",
+    coverAlt: "Existing Polybius cover",
+    status: "published",
+    reviewStatus: "indexed-only",
+    listenLinks: { rss: "https://polybius.example/feed.xml" },
+    officialLinks: { website: "https://polybius.example/" },
+    genres: ["sci-fi", "horror"], tags: ["Analog horror"], formats: ["serialized"],
+    ratings: { archive: 8.7, community: { average: 9.1, count: 12 } },
+    archiveTake: "Existing archive take.",
+    spoilerFreeReview: ["Existing spoiler-free review."],
+    thoughts: ["Existing archive thoughts."],
+    tones: ["Dark", "Tense"], themes: ["Memory", "Conspiracy"],
+    similarTo: ["limetown"], similarReasons: { limetown: "Existing reason." },
+    featured: true, accent: "violet", content: { framing: "Existing framing." },
+    contentNotes: ["Existing content note."], collectionMembership: ["late-night-horror"],
+    credits: { creatorName: "Existing credited creator", writers: ["Existing writer"], cast: ["Existing cast"] },
+    creators: ["Existing creator entity"],
+    metadata: { import: { identifiers: { rssUrl: "https://polybius.example/feed.xml" }, managedFingerprints: {} } },
+  };
+  const { managedFingerprints } = require("../lib/import/draft");
+  existing.metadata.import.managedFingerprints = managedFingerprints(existing);
+  const fetchImpl = async (url) => {
+    if (String(url).startsWith("https://itunes.apple.com/search")) return appleEmptyResponse();
+    if (String(url) === "https://polybius.example/feed.xml") {
+      return new Response(rssDocument({ title: "Polybius Protocol", website: "https://polybius.example/", feedUrl: "https://polybius.example/feed.xml" }), { status: 200, headers: { "content-type": "application/rss+xml" } });
+    }
+    if (String(url) === "https://polybius.example/") {
+      return new Response("<html><title>Polybius Protocol</title></html>", { status: 200, headers: { "content-type": "text/html" } });
+    }
+    if (String(url) === "https://example.com/cover.jpg") {
+      return new Response(coverBytes, { status: 200, headers: { "content-type": "image/jpeg" } });
+    }
+    throw new Error(`Unexpected fetch URL: ${url}`);
+  };
+  const context = createTempImportContext({ shows: [existing], fetchImpl });
+  try {
+    const seeded = await context.service.seedCandidates({ searchResults: [{
+      sourceType: "submission", sourceKey: "polybius-update", sourceUrl: "https://polybius.example/feed.xml",
+      title: "Polybius Protocol", creatorName: "Children of the Neon God",
+      objective: {
+        title: "Polybius Protocol", creatorName: "Children of the Neon God",
+        rssUrl: "https://polybius.example/feed.xml", websiteUrl: "https://polybius.example/",
+        preserveExistingFields: ["credits", "creators"],
+      },
+    }], autoHydrate: true });
+    const candidate = context.service.getForMaintainer(seeded.candidateIds[0]);
+    assert.equal(candidate.existingShowId, "polybius-protocol");
+    assert.ok(candidate.lockedFields.includes("credits"));
+    assert.ok(candidate.lockedFields.includes("creators"));
+    for (const field of [
+      "ratings", "archiveTake", "spoilerFreeReview", "thoughts", "tones", "themes", "similarTo", "similarReasons",
+      "featured", "accent", "content", "contentNotes", "collectionMembership", "credits", "creators",
+    ]) {
+      assert.deepEqual(candidate.preparedRecord[field], existing[field], `${field} was not preserved`);
+      assert.equal(candidate.readiness.updateDiff.some((entry) => entry.field === field), false, `${field} entered the update diff`);
+    }
+  } finally {
+    cleanup(context);
+  }
+});
+
 test("catalog update candidates preserve legacy and human-owned fields", async () => {
   const existing = {
     id: "signal-lost",
@@ -588,7 +1089,7 @@ test("permanent source failures finish with explicit readiness blockers instead 
     const candidate = context.service.getForMaintainer(seeded.candidateIds[0]);
     assert.equal(candidate.status, "needs-review");
     assert.ok(candidate.sourceHealth.errors.some((error) => error.retryable === false));
-    assert.ok(candidate.readiness.blockers.some((blocker) => blocker.code === "weak-description"));
+    assert.ok(candidate.readiness.warnings.some((warning) => warning.code === "description-incomplete"));
     await assert.rejects(context.service.publishForMaintainer(candidate.id, "CA", "imported"), /not ready to publish/i);
   } finally {
     cleanup(context);
@@ -647,6 +1148,53 @@ test("failed post-build reload rolls publication back before identities are boun
     assert.equal(context.service.getForMaintainer(candidate.id).status, "ready");
     assert.equal(readShowsFile(context.siteRoot).some((show) => show.id === candidate.preparedRecord.id), false);
     assert.equal(context.store.findIdentity("rss-url", "https://example.com/feed.xml").existingShowId, "");
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("publication reports the original write failure when rollback also encounters EROFS", async () => {
+  let context;
+  context = createTempImportContext({
+    fetchImpl: sourceRichFetch(),
+    onPublished: async () => {
+      writeCollectionRecordsAtomically(context.siteRoot, [{
+        id: "new-route",
+        title: "New route",
+        description: "A test collection refresh.",
+        showIds: [],
+        showReasons: {},
+      }], { joinExisting: true });
+      throw new Error("simulated primary publication callback failure");
+    },
+  });
+  try {
+    const source = require("../../tools/lib/catalog-source").readCatalogSource(context.siteRoot);
+    writeCatalogSource(context.siteRoot, source, { mode: "split" });
+    const seeded = await context.service.seedCandidates({ entries: ["https://example.com/feed.xml"], autoHydrate: true });
+    const copy = fs.copyFileSync;
+    fs.copyFileSync = (from, to, ...args) => {
+      if (String(to).includes("/catalog-src/collections/") && String(to).includes(".recover-")) {
+        const error = new Error(`EROFS: read-only file system, copyfile '${from}' -> '${to}'`);
+        error.code = "EROFS";
+        error.syscall = "copyfile";
+        error.path = from;
+        error.dest = to;
+        throw error;
+      }
+      return copy(from, to, ...args);
+    };
+    try {
+      await assert.rejects(
+        context.service.publishForMaintainer(seeded.candidateIds[0], "CA", "imported"),
+        (error) => {
+          assert.match(error.message, /simulated primary publication callback failure/);
+          assert.match(error.message, /rollback also failed: EROFS: read-only file system, copyfile/);
+          assert.match(error.cause.message, /simulated primary publication callback failure/);
+          return true;
+        },
+      );
+    } finally { fs.copyFileSync = copy; }
   } finally {
     cleanup(context);
   }

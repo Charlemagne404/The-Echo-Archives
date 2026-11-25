@@ -94,13 +94,14 @@ function pickQuote(primaryValue, fallbackValue) {
 }
 
 function mergeReviewContent(record, reviewRecord) {
-  const archiveTake = pickString(reviewRecord?.archiveTake, record.archiveTake);
-  const spoilerFreeReviewParagraphs = pickParagraphs(reviewRecord?.spoilerFreeReview, record.spoilerFreeReview);
-  const thoughtsParagraphs = pickParagraphs(reviewRecord?.thoughts, record.thoughts);
-  const quote = pickQuote(reviewRecord?.quote, record.quote);
-  const reviewPublishedAt = String(reviewRecord?.publishedAt || record.reviewPublishedAt || "").trim();
-
-  return {
+  const candidatePublishedAt = String(reviewRecord?.publishedAt || "").trim();
+  const publishedReview = candidatePublishedAt && hasRichReviewContent(reviewRecord) ? reviewRecord : null;
+  const archiveTake = pickString(publishedReview?.archiveTake, record.archiveTake);
+  const spoilerFreeReviewParagraphs = pickParagraphs(publishedReview?.spoilerFreeReview, record.spoilerFreeReview);
+  const thoughtsParagraphs = pickParagraphs(publishedReview?.thoughts, record.thoughts);
+  const quote = pickQuote(publishedReview?.quote, record.quote);
+  const reviewPublishedAt = String(publishedReview?.publishedAt || record.reviewPublishedAt || "").trim();
+  const mergedRecord = {
     ...record,
     archiveTake,
     ...(reviewPublishedAt ? { reviewPublishedAt } : {}),
@@ -110,6 +111,17 @@ function mergeReviewContent(record, reviewRecord) {
     thoughtsParagraphs,
     quote,
   };
+
+  if (
+    record.status === "published" &&
+    ["indexed-only", "planned", "imported"].includes(record.reviewStatus) &&
+    reviewPublishedAt &&
+    hasRichReviewContent(mergedRecord)
+  ) {
+    mergedRecord.reviewStatus = "full-review";
+  }
+
+  return mergedRecord;
 }
 
 function hasRichReviewContent(record) {

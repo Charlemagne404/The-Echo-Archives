@@ -122,11 +122,62 @@ export async function loadArchiveStats() {
 
 export async function loadSearchIndex() {
   return loadCachedData("searchIndex", "searchIndexPromise", async () => {
-    const records = assertJsonArray(
-      await fetchJson(SEARCH_INDEX_URL, { credentials: "omit" }),
-      SEARCH_INDEX_URL,
-      "Search index data",
-    );
+    const workerResult = await loadSearchIndexWithWorker();
+    if (workerResult) return workerResult;
+
+    const records = assertJsonArray(await fetchJson(SEARCH_INDEX_URL, { credentials: "omit" }), SEARCH_INDEX_URL, "Search index data");
+    return archiveSearch.hydrateCatalogSearch(records.map((record) => normalizeShowRecord(record)));
+  });
+}
+
+function loadSearchIndexWithWorker() {
+  if (typeof Worker !== "function") return null;
+
+  let worker;
+  try {
+    const workerUrl = new URL("./search-index-worker.js", import.meta.url);
+    const appVersion = String(document.body?.dataset.libraryVersion || "").trim();
+    if (appVersion) workerUrl.searchParams.set("v", appVersion);
+    worker = new Worker(workerUrl, { type: "module" });
+  } catch (_error) {
+    return null;
+  }
+
+  return new Promise((resolve, reject) => {
+    const timeoutId = window.setTimeout(() => finishWithFallback(), 15_000);
+    let settled = false;
+
+    function finish() {
+      if (settled) return false;
+      settled = true;
+      window.clearTimeout(timeoutId);
+      worker.terminate();
+      return true;
+    }
+
+    function finishWithFallback() {
+      if (!finish()) return;
+      loadSearchIndexOnMainThread().then(resolve, reject);
+    }
+
+    worker.addEventListener("message", (event) => {
+      if (!finish()) return;
+      if (event.data?.ok && Array.isArray(event.data.records)) resolve(event.data.records);
+      else loadSearchIndexOnMainThread().then(resolve, reject);
+    }, { once: true });
+    worker.addEventListener("error", finishWithFallback, { once: true });
+    worker.addEventListener("messageerror", finishWithFallback, { once: true });
+    try {
+      worker.postMessage({ url: SEARCH_INDEX_URL });
+    } catch (_error) {
+      finishWithFallback();
+    }
+  });
+}
+
+function loadSearchIndexOnMainThread() {
+  return fetchJson(SEARCH_INDEX_URL, { credentials: "omit" }).then((payload) => {
+    const records = assertJsonArray(payload, SEARCH_INDEX_URL, "Search index data");
     return archiveSearch.hydrateCatalogSearch(records.map((record) => normalizeShowRecord(record)));
   });
 }
