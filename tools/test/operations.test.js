@@ -1519,13 +1519,15 @@ test("checked-in service and proxy retain production hardening", () => {
   assert.match(stagingService, /^ReadWritePaths=\/srv\/echo-archives\/runtime\/staging\/current\/catalog-src\/collections$/m);
   assert.match(stagingService, /^ReadWritePaths=\/srv\/echo-archives\/runtime\/staging\/current\/catalog-src\/reviews$/m);
   const releaseCommon = read("deploy/release-common.sh");
+  const runtimeMutablePaths = read("deploy/runtime-mutable-paths.sh");
   for (const path of ["catalog-src/shows", "catalog-src/collections", "catalog-src/reviews"]) {
-    assert.ok(releaseCommon.split("\n").includes(`  ${path}`), `${path} is carried forward across runtime releases`);
+    assert.ok(runtimeMutablePaths.split("\n").includes(`  ${path}`), `${path} is carried forward across runtime releases`);
   }
-  assert.match(releaseCommon, /sudo cp -a -- "\$\{source_path\}" "\$\{target_path\}"/);
-  assert.match(releaseCommon, /sudo find "\$\{runtime_root\}" -xdev -path "\$\{runtime_root\}\/import-staging\/\*" -prune/);
-  assert.match(releaseCommon, /sudo setfacl -m u:echo-archives:rwx "\$\{directory_path\}"/);
-  assert.match(releaseCommon, /import-staging\/\*" -prune/);
+  const preservationScript = read("deploy/preserve-runtime-mutable-state.sh");
+  assert.match(releaseCommon, /sudo \/usr\/bin\/bash "\$\{DEPLOY_SCRIPT_ROOT\}\/preserve-runtime-mutable-state\.sh"/);
+  assert.match(preservationScript, /\/usr\/bin\/cp -a -- "\$\{source_path\}" "\$\{target_path\}"/);
+  assert.ok(releaseCommon.includes("\\( -type d -user echo-archives -prune \\)"), "service-owned runtime directories remain outside deployment-user ACL repair");
+  assert.match(releaseCommon, /setfacl -m u:echo-archives:rwx "\$\{directory_path\}"/);
   assert.doesNotMatch(service, /\/home\/charlie\/The-Echo-Archives/);
   assert.doesNotMatch(service, /^EnvironmentFile=-/m);
   assert.doesNotMatch(service, /^Environment=COMMUNITY_RATING_WRITES_ENABLED=/m);
@@ -1918,7 +1920,7 @@ test("a publication starting during runtime preservation's snapshot reservation 
   const fixture = createRuntimePreservationFixture();
   const snapshotWorkerPath = path.join(ROOT, "deploy", "runtime-snapshot-lock.js");
   const sourceModule = require.resolve("../lib/catalog-source");
-  const journalPath = path.join(fixture.sourceRoot, ".echo-catalog-transaction");
+  const journalPath = path.join(fixture.sourceRoot, "import-staging", ".echo-catalog-transaction");
   const writerScript = `
     try {
       require(${JSON.stringify(sourceModule)}).writeShowRecordsAtomically(process.env.RUNTIME_SOURCE, [{ id: "fixture-show", title: "must not publish" }]);
@@ -2004,15 +2006,20 @@ fi
 
 test("publisher plans and audit records persist in import-staging across runtime releases", () => {
   const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-publisher-runtime-persistence-"));
-  const oldOverlay = path.join(tempRoot, "runtime/production/old-release");
-  const nextOverlay = path.join(tempRoot, "runtime/production/new-release");
-  const laterOverlay = path.join(tempRoot, "runtime/production/later-release");
+  const runtimeRoot = path.join(tempRoot, "runtime");
+  const productionRoot = path.join(runtimeRoot, "production");
+  const oldOverlay = path.join(productionRoot, "a".repeat(40));
+  const nextOverlay = path.join(productionRoot, "b".repeat(40));
+  const laterOverlay = path.join(productionRoot, "c".repeat(40));
+  const currentLink = path.join(productionRoot, "current");
   const shimRoot = path.join(tempRoot, "shims");
   const sudoLog = path.join(tempRoot, "sudo-calls.log");
   const planId = "publisher-plan-20261101-0001";
   const plan = { planId, approvalSha256: "a".repeat(64), entries: [{ candidateId: "candidate-from-target-db" }] };
   const receipt = { planId, catalogueWrite: { status: "complete", showIds: ["signal"] } };
   try {
+    fs.mkdirSync(productionRoot, { recursive: true });
+    fs.symlinkSync(path.basename(oldOverlay), currentLink, "dir");
     fs.mkdirSync(shimRoot, { recursive: true });
     fs.writeFileSync(path.join(shimRoot, "sudo"), '#!/bin/sh\nprintf "%s\\n" "$*" >> "$TEST_SUDO_LOG"\nexec "$@"\n', { mode: 0o755 });
     const stateRoot = path.join(oldOverlay, "import-staging/echo-publisher");
@@ -2036,15 +2043,17 @@ test("publisher plans and audit records persist in import-staging across runtime
     fs.mkdirSync(path.join(oldOverlay, "data/reviews"), { recursive: true });
     fs.writeFileSync(path.join(oldOverlay, "data/reviews/signal.json"), JSON.stringify({ id: "signal" }));
 
-    const script = 'set -Eeuo pipefail; source "$1"; preserve_runtime_mutable_state "$2" "$3"';
+    const script = 'set -Eeuo pipefail; source "$1"; preserve_runtime_mutable_state production "$2" "$3"';
     for (const [from, to] of [[oldOverlay, nextOverlay], [nextOverlay, laterOverlay]]) {
       fs.mkdirSync(path.join(to, "import-staging"), { recursive: true });
       const result = spawnSync("/bin/bash", ["-c", script, "publisher-persistence-test", path.join(ROOT, "deploy/release-common.sh"), from, to], {
         cwd: ROOT,
         encoding: "utf8",
-        env: { ...process.env, PATH: `${shimRoot}:${process.env.PATH}`, TEST_SUDO_LOG: sudoLog },
+        env: { ...process.env, DEPLOY_ROOT: tempRoot, PATH: `${shimRoot}:${process.env.PATH}`, TEST_SUDO_LOG: sudoLog },
       });
       assert.equal(result.status, 0, result.stderr || result.stdout);
+      fs.rmSync(currentLink);
+      fs.symlinkSync(path.relative(productionRoot, to), currentLink, "dir");
     }
 
     assert.deepEqual(JSON.parse(fs.readFileSync(path.join(laterOverlay, "import-staging/echo-publisher/plans", `${planId}.json`), "utf8")), plan);
@@ -2056,10 +2065,9 @@ test("publisher plans and audit records persist in import-staging across runtime
     assert.equal(JSON.parse(fs.readFileSync(path.join(laterOverlay, "data/reviews/signal.json"), "utf8")).id, "signal");
     assert.equal(fs.statSync(path.join(laterOverlay, "import-staging/echo-publisher/plans", `${planId}.json`)).mode & 0o777, 0o600);
     const sudoCalls = fs.readFileSync(sudoLog, "utf8").trim().split("\n");
-    assert.ok(sudoCalls.some((call) => call.includes(`${oldOverlay}/import-staging`)));
-    assert.ok(sudoCalls.some((call) => call.includes(`${nextOverlay}/import-staging`)));
-    assert.ok(sudoCalls.some((call) => call.includes(`${oldOverlay}/catalog-src/collections`)));
-    assert.ok(sudoCalls.every((call) => call.startsWith("cp -a -- ")));
+    assert.ok(sudoCalls.some((call) => call.includes(`${oldOverlay} ${nextOverlay}`)));
+    assert.ok(sudoCalls.some((call) => call.includes(`${nextOverlay} ${laterOverlay}`)));
+    assert.ok(sudoCalls.every((call) => call.includes("preserve-runtime-mutable-state.sh")));
   } finally {
     fs.rmSync(tempRoot, { recursive: true, force: true });
   }

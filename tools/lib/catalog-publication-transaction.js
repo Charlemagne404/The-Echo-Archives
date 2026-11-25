@@ -105,10 +105,14 @@ function validateStagingRoot(stagingRoot) {
   return true;
 }
 
-function ensureStagingRoot(paths) {
+function ensureStagingRoot(paths, { ownerUid, ownerGid } = {}) {
   if (!validateStagingRoot(paths.stagingRoot)) {
     try { fs.mkdirSync(paths.stagingRoot, { mode: 0o700 }); } catch (error) {
       if (error.code !== "EEXIST") throw error;
+    }
+    if (ownerUid !== undefined && ownerGid !== undefined) {
+      fs.chownSync(paths.stagingRoot, ownerUid, ownerGid);
+      fs.chmodSync(paths.stagingRoot, 0o700);
     }
   }
   validateStagingRoot(paths.stagingRoot);
@@ -566,7 +570,13 @@ function beginCatalogRuntimeSnapshot(root, { ownerUid, ownerGid } = {}) {
     throw new Error("Runtime snapshot owner must include valid numeric uid and gid values.");
   }
   const resolvedRoot = path.resolve(root);
-  const directory = path.join(resolvedRoot, JOURNAL);
+  const recovery = recoverCatalogPublication(resolvedRoot);
+  if (recovery?.pendingDatabaseRecovery) {
+    throw publicationInProgressError("Interrupted publication needs database recovery before a runtime snapshot.");
+  }
+  const paths = journalPaths(resolvedRoot);
+  ensureStagingRoot(paths, hasOwner ? { ownerUid, ownerGid } : {});
+  const directory = paths.current;
   try {
     fs.mkdirSync(directory, { mode: 0o755 });
   } catch (error) {

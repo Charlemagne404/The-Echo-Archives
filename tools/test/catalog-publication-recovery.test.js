@@ -403,7 +403,7 @@ test('runtime snapshots serialize with catalogue writes through the publication 
   const root = fixture();
   try {
     const snapshot = beginCatalogRuntimeSnapshot(root);
-    const journalPath = path.join(root, '.echo-catalog-transaction');
+    const journalPath = path.join(root, 'import-staging', '.echo-catalog-transaction');
     assert.equal(fs.statSync(journalPath).mode & 0o777, 0o755);
     assert.equal(fs.statSync(path.join(journalPath, 'manifest.json')).mode & 0o777, 0o644);
     assert.throws(
