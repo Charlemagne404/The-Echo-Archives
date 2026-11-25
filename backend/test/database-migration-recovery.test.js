@@ -65,6 +65,7 @@ const REQUIRED_INDEXES = [
   "idx_rating_submissions_profile",
   "idx_rating_events_podcast",
   "idx_show_submissions_status",
+  "idx_show_submissions_import_candidate",
   "idx_catalog_import_candidates_status",
   "idx_catalog_import_candidates_scope",
   "idx_catalog_import_candidates_source",

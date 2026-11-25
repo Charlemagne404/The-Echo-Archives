@@ -172,6 +172,17 @@ test("maintainer list defaults to open statuses, searches payload text, and pers
   assert.deepEqual(openResult.items.map((item) => item.id), [second.id, first.id]);
   assert.equal(openResult.counts.status.accepted, undefined);
 
+  context.db.prepare(`
+    UPDATE show_submissions
+    SET import_candidate_id = 'candidate-test', import_resolved_show_id = 'show-test'
+    WHERE id = ?
+  `).run(first.id);
+  const linked = context.service.getForMaintainer(first.id);
+  assert.equal(linked.importCandidateId, "candidate-test");
+  assert.equal(linked.importResolvedShowId, "show-test");
+  const linkedList = context.service.listForMaintainer({ includeClosed: true });
+  assert.equal(linkedList.items.find((item) => item.id === first.id).importCandidateId, "candidate-test");
+
   const searchResult = context.service.listForMaintainer({ q: "official domain", includeClosed: true });
   assert.equal(searchResult.total, 1);
   assert.equal(searchResult.items[0].submissionType, "correction");

@@ -127,6 +127,9 @@ function migrate(db) {
       review_notes TEXT NOT NULL DEFAULT '',
       reviewed_by TEXT NOT NULL DEFAULT '',
       reviewed_at TEXT,
+      import_candidate_id TEXT NOT NULL DEFAULT '',
+      import_handoff_started_at TEXT,
+      import_resolved_show_id TEXT NOT NULL DEFAULT '',
       source_ip TEXT NOT NULL DEFAULT '',
       user_agent TEXT NOT NULL DEFAULT ''
     );
@@ -642,6 +645,10 @@ function migrate(db) {
   ensureColumn(db, "show_submissions", "review_notes", "review_notes TEXT NOT NULL DEFAULT ''");
   ensureColumn(db, "show_submissions", "reviewed_by", "reviewed_by TEXT NOT NULL DEFAULT ''");
   ensureColumn(db, "show_submissions", "reviewed_at", "reviewed_at TEXT");
+  ensureColumn(db, "show_submissions", "import_candidate_id", "import_candidate_id TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "show_submissions", "import_handoff_started_at", "import_handoff_started_at TEXT");
+  ensureColumn(db, "show_submissions", "import_resolved_show_id", "import_resolved_show_id TEXT NOT NULL DEFAULT ''");
+  db.exec("CREATE INDEX IF NOT EXISTS idx_show_submissions_import_candidate ON show_submissions (import_candidate_id, status, submitted_at DESC)");
   ensureColumn(
     db,
     "catalog_import_candidates",

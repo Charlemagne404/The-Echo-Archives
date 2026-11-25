@@ -323,6 +323,70 @@ function createImportStore({ db }) {
     WHERE candidate_id = ?
     ORDER BY datetime(created_at) DESC, id DESC
   `);
+  const getSubmissionHandoffRow = db.prepare(`
+    SELECT id, status, import_candidate_id, import_handoff_started_at, import_resolved_show_id
+    FROM show_submissions WHERE id = ?
+  `);
+  const listLinkedSubmissionsForCandidate = db.prepare(`
+    SELECT id, status, reviewed_by, reviewed_at, import_resolved_show_id
+    FROM show_submissions WHERE import_candidate_id = ? ORDER BY submitted_at, id
+  `);
+
+  function getSubmissionHandoff(submissionId) {
+    const row = getSubmissionHandoffRow.get(trimText(submissionId, 80));
+    return row ? {
+      id: row.id,
+      status: row.status,
+      candidateId: row.import_candidate_id || "",
+      startedAt: row.import_handoff_started_at || "",
+      resolvedShowId: row.import_resolved_show_id || "",
+    } : null;
+  }
+
+  function claimSubmissionHandoff(submissionId, { startedAt, staleBefore } = {}) {
+    return db.prepare(`
+      UPDATE show_submissions
+      SET import_handoff_started_at = ?
+      WHERE id = ? AND submission_type = 'show' AND status <> 'rejected'
+        AND import_candidate_id = ''
+        AND (import_handoff_started_at IS NULL OR datetime(import_handoff_started_at) <= datetime(?))
+    `).run(startedAt, trimText(submissionId, 80), staleBefore).changes === 1;
+  }
+
+  function linkSubmissionToCandidate(submissionId, candidateId) {
+    if (!getCandidate(candidateId)) return false;
+    const result = db.prepare(`
+      UPDATE show_submissions
+      SET import_candidate_id = ?, import_handoff_started_at = NULL
+      WHERE id = ? AND submission_type = 'show' AND status <> 'rejected'
+        AND (import_candidate_id = '' OR import_candidate_id = ?)
+    `).run(candidateId, trimText(submissionId, 80), candidateId);
+    return result.changes === 1 || getSubmissionHandoff(submissionId)?.candidateId === candidateId;
+  }
+
+  function releaseSubmissionHandoff(submissionId) {
+    db.prepare(`
+      UPDATE show_submissions SET import_handoff_started_at = NULL
+      WHERE id = ? AND import_candidate_id = ''
+    `).run(trimText(submissionId, 80));
+  }
+
+  function resolveSubmissionLinksForCandidate(candidateId, showId, actor = "", reviewedAt = new Date().toISOString()) {
+    const linked = listLinkedSubmissionsForCandidate.all(candidateId);
+    const update = db.prepare(`
+      UPDATE show_submissions
+      SET status = 'accepted', import_resolved_show_id = ?, import_handoff_started_at = NULL,
+          reviewed_by = ?, reviewed_at = ?
+      WHERE id = ? AND import_candidate_id = ? AND status <> 'rejected'
+    `);
+    return linked.flatMap((submission) => update.run(
+      showId,
+      trimText(actor, 160) || "authenticated-maintainer",
+      reviewedAt,
+      submission.id,
+      candidateId,
+    ).changes === 1 ? [submission.id] : []);
+  }
 
   function buildListFilters(filters = {}) {
     const clauses = [];
@@ -1196,20 +1260,41 @@ function createImportStore({ db }) {
   }
 
   function publicationSnapshot(candidates) {
-    return JSON.parse(JSON.stringify({ schema: 1, candidates: candidates.map((candidate) => ({
+    const candidateSnapshots = candidates.map((candidate) => ({
       id: candidate.id,
       fields: Object.fromEntries(["status", "publishedShowId", "preparedRecord", "reviewedAt", "reviewedBy", "lastError"].map((key) => [key, candidate[key]])),
       identities: listIdentities(candidate.id),
-    })) }));
+    }));
+    const submissions = candidates.flatMap((candidate) => listLinkedSubmissionsForCandidate.all(candidate.id).map((submission) => ({
+      id: submission.id,
+      candidateId: candidate.id,
+      fields: {
+        status: submission.status,
+        reviewedBy: submission.reviewed_by || "",
+        reviewedAt: submission.reviewed_at || null,
+        importResolvedShowId: submission.import_resolved_show_id || "",
+      },
+    })));
+    return JSON.parse(JSON.stringify({ schema: 2, candidates: candidateSnapshots, submissions }));
   }
 
   function restorePublicationSnapshot(snapshot) {
-    if (snapshot?.schema !== 1 || !Array.isArray(snapshot.candidates) || snapshot.candidates.some((item) =>
+    if (![1, 2].includes(snapshot?.schema) || !Array.isArray(snapshot.candidates) || snapshot.candidates.some((item) =>
       typeof item?.id !== "string" || !item.id || !item.fields || typeof item.fields !== "object" || !Array.isArray(item.identities))) {
       throw new Error("Malformed import publication recovery snapshot.");
     }
+    if (snapshot.schema === 2 && (!Array.isArray(snapshot.submissions) || snapshot.submissions.some((item) =>
+      typeof item?.id !== "string" || !item.id || typeof item?.candidateId !== "string" || !item.candidateId ||
+      !item.fields || typeof item.fields !== "object" || typeof item.fields.status !== "string"))) {
+      throw new Error("Malformed import submission recovery snapshot.");
+    }
     const restoreIdentity = db.prepare(`UPDATE catalog_import_identities SET existing_show_id = ?, updated_at = CURRENT_TIMESTAMP
       WHERE identity_type = ? AND identity_value = ? AND candidate_id = ?`);
+    const restoreSubmission = db.prepare(`
+      UPDATE show_submissions
+      SET status = ?, reviewed_by = ?, reviewed_at = ?, import_resolved_show_id = ?
+      WHERE id = ? AND import_candidate_id = ? AND status = 'accepted' AND import_resolved_show_id = ?
+    `);
     db.transaction(() => {
       for (const item of snapshot.candidates) {
         if (!getCandidate(item.id)) continue;
@@ -1218,6 +1303,20 @@ function createImportStore({ db }) {
         updateCandidate(item.id, fields);
         for (const identity of item.identities) restoreIdentity.run(identity.existingShowId || "", identity.identityType, identity.identityValue, item.id);
         recordEvent(item.id, "publication-recovered", "startup-recovery", { restoredStatus: fields.status });
+      }
+      for (const item of snapshot.submissions || []) {
+        const candidate = snapshot.candidates.find((entry) => entry.id === item.candidateId);
+        const publishedShowId = candidate?.fields?.preparedRecord?.id || candidate?.fields?.publishedShowId || "";
+        if (!publishedShowId) continue;
+        restoreSubmission.run(
+          item.fields.status,
+          item.fields.reviewedBy || "",
+          item.fields.reviewedAt || null,
+          item.fields.importResolvedShowId || "",
+          item.id,
+          item.candidateId,
+          publishedShowId,
+        );
       }
     })();
   }
@@ -1232,6 +1331,7 @@ function createImportStore({ db }) {
     claimIdentity,
     claimNextDiscoveryJob,
     claimNextJob,
+    claimSubmissionHandoff,
     completeDiscoveryJob,
     completeJob,
     compactPublishedSnapshots,
@@ -1245,6 +1345,7 @@ function createImportStore({ db }) {
     failJob,
     findIdentity,
     getCandidate,
+    getSubmissionHandoff,
     getLatestPublishedCandidateForShow,
     getDiscoveryItem,
     getDiscoveryRun,
@@ -1260,6 +1361,9 @@ function createImportStore({ db }) {
     listIdentities,
     putSourceCache,
     recordEvent,
+    releaseSubmissionHandoff,
+    resolveSubmissionLinksForCandidate,
+    linkSubmissionToCandidate,
     replaceCandidateSources: appendCandidateSources,
     selectEvidence,
     updateDiscoveryRun,

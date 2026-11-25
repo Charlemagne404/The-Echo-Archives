@@ -1153,30 +1153,104 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       error.statusCode = 409;
       throw error;
     }
+    const persisted = store.getSubmissionHandoff(submission.id);
+    if (persisted?.status === "rejected") {
+      const error = new Error("A rejected submission cannot be handed to the import lane.");
+      error.statusCode = 409;
+      throw error;
+    }
+    if (persisted?.candidateId) {
+      const candidate = getCandidate(persisted.candidateId);
+      if (!candidate) {
+        const error = new Error("This submission is linked to an import candidate that is unavailable.");
+        error.statusCode = 409;
+        throw error;
+      }
+      return {
+        runId: candidate.lastRunId || "",
+        candidateIds: [candidate.id],
+        candidates: [candidate],
+        candidate,
+        suppressed: [],
+        idempotent: true,
+        alreadyLinked: true,
+      };
+    }
+
+    let handoffClaimed = false;
+    if (persisted) {
+      const now = Date.now();
+      handoffClaimed = store.claimSubmissionHandoff(submission.id, {
+        startedAt: new Date(now).toISOString(),
+        staleBefore: new Date(now - 2 * 60 * 1000).toISOString(),
+      });
+      if (!handoffClaimed) {
+        const latest = store.getSubmissionHandoff(submission.id);
+        if (latest?.candidateId) {
+          const candidate = getCandidate(latest.candidateId);
+          if (candidate) {
+            return {
+              runId: candidate.lastRunId || "",
+              candidateIds: [candidate.id],
+              candidates: [candidate],
+              candidate,
+              suppressed: [],
+              idempotent: true,
+              alreadyLinked: true,
+            };
+          }
+        }
+        const error = new Error(latest?.status === "rejected"
+          ? "A rejected submission cannot be handed to the import lane."
+          : "Import preparation is already being started for this submission. Refresh the queue and try again shortly.");
+        error.statusCode = 409;
+        throw error;
+      }
+    }
     const payload = submission.payload || {};
-    const result = await seedCandidates({
-      actor: actor || "authenticated-maintainer",
-      origin: "submission",
-      searchResults: [{
-        sourceType: "submission",
-        sourceKey: submission.id,
-        sourceUrl: submission.rssOrListenLink || submission.officialSite || "",
-        title: submission.showTitle,
-        creatorName: submission.creatorName,
-        objective: {
+    try {
+      const result = await seedCandidates({
+        actor: actor || "authenticated-maintainer",
+        origin: "submission",
+        searchResults: [{
+          sourceType: "submission",
+          sourceKey: submission.id,
+          sourceUrl: submission.rssOrListenLink || submission.officialSite || "",
           title: submission.showTitle,
           creatorName: submission.creatorName,
-          description: payload.shortDescription || "",
-          rssUrl: submission.rssOrListenLink || "",
-          websiteUrl: submission.officialSite || "",
-          tagHints: payload.selectedTags || [],
-          suggestedDescriptors: payload.suggestedDescriptors || "",
-          objectiveSources: [submission.rssOrListenLink, submission.officialSite].filter(Boolean),
-        },
-      }],
-    });
-    result.candidateIds.forEach((candidateId) => store.recordEvent(candidateId, "submission-handed-off", actor || "authenticated-maintainer", { submissionId: submission.id }));
-    return result;
+          objective: {
+            title: submission.showTitle,
+            creatorName: submission.creatorName,
+            description: payload.shortDescription || "",
+            rssUrl: submission.rssOrListenLink || "",
+            websiteUrl: submission.officialSite || "",
+            tagHints: payload.selectedTags || [],
+            suggestedDescriptors: payload.suggestedDescriptors || "",
+            objectiveSources: [submission.rssOrListenLink, submission.officialSite].filter(Boolean),
+          },
+        }],
+      });
+      const candidateId = result.candidateIds?.[0] || result.suppressed?.find((item) => item.candidateId)?.candidateId || "";
+      if (persisted && candidateId) {
+        if (!store.linkSubmissionToCandidate(submission.id, candidateId)) {
+          const latest = store.getSubmissionHandoff(submission.id);
+          const error = new Error(latest?.status === "rejected"
+            ? "The submission was rejected before import preparation could finish."
+            : "The submission could not be linked to its import candidate.");
+          error.statusCode = 409;
+          throw error;
+        }
+      } else if (persisted) {
+        store.releaseSubmissionHandoff(submission.id);
+      }
+      if (candidateId) {
+        store.recordEvent(candidateId, "submission-handed-off", actor || "authenticated-maintainer", { submissionId: submission.id });
+      }
+      return result;
+    } catch (error) {
+      if (handoffClaimed) store.releaseSubmissionHandoff(submission.id);
+      throw error;
+    }
   }
 
   function retryRunForMaintainer(runId, actor = "") {
@@ -1420,12 +1494,15 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       });
       const published = store.withTransaction(() => candidates.map((candidate) => {
         const showId = candidate.preparedRecord.id;
+        const reviewedAt = new Date().toISOString();
         store.bindIdentitiesToShow(candidate.id, showId);
         const updated = store.updateCandidate(candidate.id, {
-          status: "published", publishedShowId: showId, reviewedAt: new Date().toISOString(),
+          status: "published", publishedShowId: showId, reviewedAt,
           reviewedBy: actor || candidate.reviewedBy || "authenticated-maintainer", lastError: "",
           preparedRecord: records.find((record) => record.id === showId) || candidate.preparedRecord,
         });
+        const submissionIds = store.resolveSubmissionLinksForCandidate(candidate.id, showId, actor, reviewedAt);
+        if (submissionIds.length > 0) store.recordEvent(candidate.id, "submission-resolved", actor || "authenticated-maintainer", { submissionIds, showId });
         store.recordEvent(candidate.id, "published", actor || "authenticated-maintainer", { showId, batch, publicationTier: requestedTier });
         return updated;
       }));

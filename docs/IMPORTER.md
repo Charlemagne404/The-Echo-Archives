@@ -77,6 +77,17 @@ Apple's 1400-3000px JPG/PNG artwork target is reported as a quality warning, not
 
 SQLite stores candidates, runs, leased jobs, identity mappings, retained source snapshots, source cache entries, field evidence, review locks, prepared records, readiness reports, and event history. Candidate states are `queued`, `processing`, `ready`, `needs-review`, `failed`, `published`, `duplicate`, and `rejected`.
 
+Maintainer handoff from a new-show submission records the import candidate ID on
+the private submission row. A short-lived claim prevents two requests from
+creating duplicate handoffs; repeating a completed handoff returns the linked
+candidate without requeueing it. Handoff does not change the submission's
+moderation status or publish catalog data. Only successful explicit candidate
+publication accepts linked submissions that have not been rejected and records
+the published show ID, reviewer, and review time. Publication recovery snapshots
+include the linked submission state so a rolled-back catalog write does not
+leave the queue marked accepted. The published 180-day submission retention
+policy remains in force.
+
 Exact identities upsert candidates. Exact catalog identities create update candidates. Title-only matches remain review prompts. Feed redirects and Podcast GUIDs are retained as identities. Queue text search uses FTS5 rather than scanning JSON.
 
 Workers claim persistent two-minute leases, safely reclaim expired work, process four candidates concurrently by default, and limit each host to two requests. Apple is limited to 15 requests per minute. Conditional RSS requests use ETag and Last-Modified cache metadata. Timeout, 408, 429, 5xx, and network failures retry up to four attempts using jittered 30-second, 2-minute, and 10-minute delays while honoring Retry-After.

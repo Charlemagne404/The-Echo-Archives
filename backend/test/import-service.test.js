@@ -7,6 +7,7 @@ const path = require("node:path");
 const { openDatabase } = require("../lib/store/database");
 const { createImportService, inferScopeStatus } = require("../lib/services/import-service");
 const { createImportStore } = require("../lib/store/import-store");
+const { createSubmissionStore } = require("../lib/store/submission-store");
 const { readShowsFile } = require("../scripts/review-helpers");
 
 const repositoryRoot = path.resolve(__dirname, "../..");
@@ -25,6 +26,7 @@ function createTempImportContext({ shows = [], collections = [], fetchImpl, onPu
   writeJson(path.join(siteRoot, "data/collections.json"), collections);
   const db = openDatabase(dbPath);
   const store = createImportStore({ db });
+  const submissionStore = createSubmissionStore({ db });
   const service = createImportService({
     store,
     staticRoot: siteRoot,
@@ -42,7 +44,7 @@ function createTempImportContext({ shows = [], collections = [], fetchImpl, onPu
     fetchImpl,
     onPublished,
   });
-  return { db, store, service, siteRoot, tempDir };
+  return { db, store, submissionStore, service, siteRoot, tempDir };
 }
 
 function cleanup(context) {
@@ -219,16 +221,28 @@ test("batch preparation requeues every eligible open candidate and leaves closed
 test("a vetted new-show submission can enter the protected import lane without publication", async () => {
   const context = createTempImportContext({ fetchImpl: sourceRichFetch() });
   try {
-    const result = await context.service.seedSubmissionForMaintainer({
-      id: "submission-123",
+    const sourceSubmission = context.submissionStore.createShowSubmission({
+      submissionType: "show",
+      status: "in-review",
+      showTitle: "Submission Signal",
+      creatorName: "Submission Studio",
+      contactEmail: "",
+      officialSite: "https://example.com/",
+      rssOrListenLink: "https://example.com/feed.xml",
+      payload: { shortDescription: "A factual submission ready for source enrichment.", selectedTags: ["fiction", "drama"] },
+    });
+    const submission = {
+      id: sourceSubmission.id,
       submissionType: "show",
       status: "in-review",
       showTitle: "Submission Signal",
       creatorName: "Submission Studio",
       officialSite: "https://example.com/",
       rssOrListenLink: "https://example.com/feed.xml",
-      genres: "fiction, drama",
       payload: { shortDescription: "A factual submission ready for source enrichment.", selectedTags: ["fiction", "drama"] },
+    };
+    const result = await context.service.seedSubmissionForMaintainer({
+      ...submission,
     }, "CA");
     assert.equal(result.candidateIds.length, 1);
     const candidate = context.service.getForMaintainer(result.candidateIds[0]);
@@ -236,6 +250,148 @@ test("a vetted new-show submission can enter the protected import lane without p
     assert.equal(candidate.primarySourceType, "submission");
     assert.match(candidate.events[0].eventType, /submission-handed-off|seeded/);
     assert.equal(candidate.publishedShowId, "");
+    assert.equal(context.submissionStore.getShowSubmission(submission.id).import_candidate_id, candidate.id);
+    assert.equal(context.submissionStore.getShowSubmission(submission.id).status, "in-review");
+
+    const repeated = await context.service.seedSubmissionForMaintainer(submission, "CA");
+    assert.equal(repeated.alreadyLinked, true);
+    assert.equal(repeated.candidateIds[0], candidate.id);
+    assert.equal(context.service.listForMaintainer({ includeClosed: true }).total, 1);
+
+    await context.service.processPendingJobs();
+    await context.service.waitForRun(result.runId);
+    const ready = context.service.getForMaintainer(candidate.id);
+    assert.equal(ready.status, "ready");
+    assert.equal(context.submissionStore.getShowSubmission(submission.id).status, "in-review");
+    const published = await context.service.publishForMaintainer(candidate.id, "CA", "imported");
+    const resolved = context.submissionStore.getShowSubmission(submission.id);
+    assert.equal(published.candidate.status, "published");
+    assert.equal(resolved.status, "accepted");
+    assert.equal(resolved.import_resolved_show_id, published.showId);
+    assert.equal(resolved.reviewed_by, "CA");
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("submission handoff claims serialize concurrent requests and recover stale claims", () => {
+  const context = createTempImportContext();
+  try {
+    const submission = context.submissionStore.createShowSubmission({
+      submissionType: "show",
+      status: "in-review",
+      showTitle: "Claimed Submission Signal",
+      creatorName: "Submission Studio",
+      contactEmail: "",
+      officialSite: "https://example.com/",
+      rssOrListenLink: "https://example.com/feed.xml",
+      payload: {},
+    });
+    const now = Date.now();
+    const firstClaimAt = new Date(now - 1_000).toISOString();
+    const staleBefore = new Date(now - 120_000).toISOString();
+
+    assert.equal(context.store.claimSubmissionHandoff(submission.id, {
+      startedAt: firstClaimAt,
+      staleBefore,
+    }), true);
+    assert.equal(context.store.claimSubmissionHandoff(submission.id, {
+      startedAt: new Date(now).toISOString(),
+      staleBefore,
+    }), false);
+    assert.equal(context.store.getSubmissionHandoff(submission.id).startedAt, firstClaimAt);
+
+    assert.equal(context.store.claimSubmissionHandoff(submission.id, {
+      startedAt: new Date(now).toISOString(),
+      staleBefore: new Date(now + 1_000).toISOString(),
+    }), true);
+    assert.equal(context.store.getSubmissionHandoff(submission.id).startedAt, new Date(now).toISOString());
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("publishing an import never changes a linked rejected submission", async () => {
+  const context = createTempImportContext({ fetchImpl: sourceRichFetch() });
+  try {
+    const sourceSubmission = context.submissionStore.createShowSubmission({
+      submissionType: "show",
+      status: "in-review",
+      showTitle: "Rejected Submission Signal",
+      creatorName: "Submission Studio",
+      contactEmail: "",
+      officialSite: "https://example.com/",
+      rssOrListenLink: "https://example.com/feed.xml",
+      payload: { shortDescription: "A factual submission ready for source enrichment." },
+    });
+    const handoff = await context.service.seedSubmissionForMaintainer({
+      id: sourceSubmission.id,
+      submissionType: "show",
+      status: "in-review",
+      showTitle: "Rejected Submission Signal",
+      creatorName: "Submission Studio",
+      officialSite: "https://example.com/",
+      rssOrListenLink: "https://example.com/feed.xml",
+      payload: { shortDescription: "A factual submission ready for source enrichment." },
+    }, "CA");
+    const candidateId = handoff.candidateIds[0];
+    await context.service.processPendingJobs();
+    await context.service.waitForRun(handoff.runId);
+    context.submissionStore.updateShowSubmissionReview(sourceSubmission.id, { status: "rejected", reviewedBy: "CA" });
+    await context.service.publishForMaintainer(candidateId, "CA", "imported");
+    const resolved = context.submissionStore.getShowSubmission(sourceSubmission.id);
+    assert.equal(resolved.status, "rejected");
+    assert.equal(resolved.import_resolved_show_id, "");
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("publication recovery restores the linked submission with its import candidate", async () => {
+  const context = createTempImportContext({ fetchImpl: sourceRichFetch() });
+  try {
+    const sourceSubmission = context.submissionStore.createShowSubmission({
+      submissionType: "show",
+      status: "in-review",
+      showTitle: "Recovery Submission Signal",
+      creatorName: "Submission Studio",
+      contactEmail: "",
+      officialSite: "https://example.com/",
+      rssOrListenLink: "https://example.com/feed.xml",
+      payload: { shortDescription: "A factual submission ready for source enrichment." },
+    });
+    const handoff = await context.service.seedSubmissionForMaintainer({
+      id: sourceSubmission.id,
+      submissionType: "show",
+      status: "in-review",
+      showTitle: "Recovery Submission Signal",
+      creatorName: "Submission Studio",
+      officialSite: "https://example.com/",
+      rssOrListenLink: "https://example.com/feed.xml",
+      payload: { shortDescription: "A factual submission ready for source enrichment." },
+    }, "CA");
+    await context.service.processPendingJobs();
+    await context.service.waitForRun(handoff.runId);
+    const candidate = context.service.getForMaintainer(handoff.candidateIds[0]);
+    const snapshot = context.store.publicationSnapshot([candidate]);
+
+    context.store.withTransaction(() => {
+      context.store.updateCandidate(candidate.id, {
+        status: "published",
+        publishedShowId: candidate.preparedRecord.id,
+        reviewedBy: "CA",
+        reviewedAt: "2026-11-25T12:00:00.000Z",
+      });
+      context.store.resolveSubmissionLinksForCandidate(candidate.id, candidate.preparedRecord.id, "CA", "2026-11-25T12:00:00.000Z");
+    });
+    assert.equal(context.submissionStore.getShowSubmission(sourceSubmission.id).status, "accepted");
+
+    context.store.restorePublicationSnapshot(snapshot);
+    assert.equal(context.service.getForMaintainer(candidate.id).status, "ready");
+    const restored = context.submissionStore.getShowSubmission(sourceSubmission.id);
+    assert.equal(restored.status, "in-review");
+    assert.equal(restored.import_resolved_show_id, "");
+    assert.equal(restored.reviewed_at, null);
   } finally {
     cleanup(context);
   }

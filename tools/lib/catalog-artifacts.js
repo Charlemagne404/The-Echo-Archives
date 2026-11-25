@@ -11,6 +11,7 @@ const {
 const { loadEntities, publicEntityRecords } = require("../../backend/lib/entities");
 const { buildEntityGraphData } = require("../../backend/lib/entity-graph");
 const { buildPhase2Readiness } = require("../../backend/lib/discovery-gaps");
+const { hasRichReviewContent } = require("../../backend/lib/reviews");
 
 function serializeRuntimeShow(record) {
   const {
@@ -202,6 +203,25 @@ function buildArchiveStats(catalog, collections) {
   };
 }
 
+function selectPublicReviewRecords(catalog, reviewsById = {}) {
+  const publishedShowsById = new Map(
+    (Array.isArray(catalog) ? catalog : [])
+      .filter((show) => show?.status === "published" && show.reviewStatus === "full-review")
+      .map((show) => [show.id, show]),
+  );
+
+  return Object.fromEntries(
+    Object.entries(reviewsById || {}).filter(([showId, review]) => {
+      const show = publishedShowsById.get(showId);
+      return Boolean(
+        show &&
+        String(review?.publishedAt || "").trim() &&
+        hasRichReviewContent(review),
+      );
+    }),
+  );
+}
+
 function buildCatalogStatusMarkdown(snapshot) {
   const { metrics, latestUpdatedAt, gapReport, archiveContext, phase2 } = snapshot;
   const phase2Status = phase2?.complete ? "complete" : "content-pending";
@@ -263,7 +283,9 @@ function buildCatalogStatusMarkdown(snapshot) {
 }
 
 function writeCatalogArtifacts(siteRoot, { catalog, collections, reviewsById, gapReport, archiveContext, tagTaxonomy }) {
-  const publication = beginCatalogPublication(siteRoot, Object.keys(reviewsById).map((id) => path.join(siteRoot, "data/reviews", `${id}.json`)), { includeGenerated: true, joinExisting: true });
+  const authoredReviewsById = reviewsById || {};
+  const publicReviewsById = selectPublicReviewRecords(catalog, authoredReviewsById);
+  const publication = beginCatalogPublication(siteRoot, Object.keys(authoredReviewsById).map((id) => path.join(siteRoot, "data/reviews", `${id}.json`)), { includeGenerated: true, joinExisting: true });
   try {
   const authoredEntities = loadEntities(siteRoot, catalog);
   const entities = publicEntityRecords(authoredEntities, catalog);
@@ -277,7 +299,7 @@ function writeCatalogArtifacts(siteRoot, { catalog, collections, reviewsById, ga
   const runtimeEvidence = catalog
     .filter((show) => show.status === "published")
     .map(createRuntimeEvidenceRecord);
-  const snapshot = buildCatalogSnapshot(catalog, collections, Object.keys(reviewsById).length, gapReport, archiveContext, reviewsById, tagTaxonomy);
+  const snapshot = buildCatalogSnapshot(catalog, collections, Object.keys(publicReviewsById).length, gapReport, archiveContext, publicReviewsById, tagTaxonomy);
   const archiveStats = buildArchiveStats(catalog, collections);
   const statusMarkdown = buildCatalogStatusMarkdown(snapshot);
 
@@ -287,11 +309,11 @@ function writeCatalogArtifacts(siteRoot, { catalog, collections, reviewsById, ga
   const runtimeReviewsDirectory = path.join(siteRoot, "data", "reviews");
   fs.mkdirSync(runtimeReviewsDirectory, { recursive: true });
   fs.readdirSync(runtimeReviewsDirectory)
-    .filter((fileName) => fileName.endsWith(".json") && !Object.hasOwn(reviewsById, fileName.replace(/\.json$/i, "")))
+    .filter((fileName) => fileName.endsWith(".json") && !Object.hasOwn(publicReviewsById, fileName.replace(/\.json$/i, "")))
     .forEach((fileName) => {
       fs.rmSync(path.join(runtimeReviewsDirectory, fileName), { force: true });
     });
-  Object.entries(reviewsById).forEach(([showId, reviewRecord]) => {
+  Object.entries(publicReviewsById).forEach(([showId, reviewRecord]) => {
     writeJsonFileAtomic(path.join(runtimeReviewsDirectory, `${showId}.json`), reviewRecord);
   });
   writeJsonFileAtomic(path.join(siteRoot, SEARCH_INDEX_PATH), runtimeSearchIndex);
@@ -325,6 +347,7 @@ module.exports = {
   buildCatalogStatusMarkdown,
   createSearchIndexRecord,
   createRuntimeEvidenceRecord,
+  selectPublicReviewRecords,
   serializeRuntimeShow,
   writeCatalogArtifacts,
 };

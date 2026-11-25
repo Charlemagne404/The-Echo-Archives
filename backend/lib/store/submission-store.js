@@ -78,6 +78,11 @@ function createSubmissionStore({ db }) {
         review_notes,
         reviewed_by,
         reviewed_at,
+        import_candidate_id,
+        import_handoff_started_at,
+        import_resolved_show_id,
+        (SELECT status FROM catalog_import_candidates WHERE id = show_submissions.import_candidate_id) AS import_candidate_status,
+        (SELECT published_show_id FROM catalog_import_candidates WHERE id = show_submissions.import_candidate_id) AS import_published_show_id,
         source_ip,
         user_agent
       FROM show_submissions
@@ -253,6 +258,11 @@ function createSubmissionStore({ db }) {
         review_notes,
         reviewed_by,
         reviewed_at,
+        import_candidate_id,
+        import_handoff_started_at,
+        import_resolved_show_id,
+        (SELECT status FROM catalog_import_candidates WHERE id = show_submissions.import_candidate_id) AS import_candidate_status,
+        (SELECT published_show_id FROM catalog_import_candidates WHERE id = show_submissions.import_candidate_id) AS import_published_show_id,
         source_ip,
         user_agent
       FROM show_submissions

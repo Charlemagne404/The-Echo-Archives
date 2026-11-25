@@ -94,11 +94,13 @@ function pickQuote(primaryValue, fallbackValue) {
 }
 
 function mergeReviewContent(record, reviewRecord) {
-  const archiveTake = pickString(reviewRecord?.archiveTake, record.archiveTake);
-  const spoilerFreeReviewParagraphs = pickParagraphs(reviewRecord?.spoilerFreeReview, record.spoilerFreeReview);
-  const thoughtsParagraphs = pickParagraphs(reviewRecord?.thoughts, record.thoughts);
-  const quote = pickQuote(reviewRecord?.quote, record.quote);
-  const reviewPublishedAt = String(reviewRecord?.publishedAt || record.reviewPublishedAt || "").trim();
+  const candidatePublishedAt = String(reviewRecord?.publishedAt || "").trim();
+  const publishedReview = candidatePublishedAt && hasRichReviewContent(reviewRecord) ? reviewRecord : null;
+  const archiveTake = pickString(publishedReview?.archiveTake, record.archiveTake);
+  const spoilerFreeReviewParagraphs = pickParagraphs(publishedReview?.spoilerFreeReview, record.spoilerFreeReview);
+  const thoughtsParagraphs = pickParagraphs(publishedReview?.thoughts, record.thoughts);
+  const quote = pickQuote(publishedReview?.quote, record.quote);
+  const reviewPublishedAt = String(publishedReview?.publishedAt || record.reviewPublishedAt || "").trim();
   const mergedRecord = {
     ...record,
     archiveTake,

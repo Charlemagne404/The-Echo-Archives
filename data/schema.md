@@ -15,10 +15,19 @@ Generated runtime/public output is written into:
 - `data/entity-graph.json`
 - `data/search-index.json`
 
-The frontend, optional Archivist integration, and community features should all
-read from these files instead of scraping HTML. This v1 schema is the public
-catalog contract used by the 1.1 release; operational importer and collection
-tables may evolve without changing the published record shape.
+`data/reviews/*.json` is a generated server-side copy of published review
+companions. The public `/data/reviews/<show-id>.json` route is built from the
+same merged catalog as show pages and serves only published full reviews.
+Undated drafts and incomplete companions stay in `catalog-src/reviews/` for
+maintainer workflows and are excluded from public data and generated review
+artifacts.
+
+The frontend, optional Archivist integration, and community features should
+read the public catalog endpoints instead of scraping HTML. `/data/shows.json`
+contains the merged public review content; `data/reviews/` is not a browser
+source. This v1 schema is the public catalog contract used by the 1.1 release;
+operational importer and collection tables may evolve without changing the
+published record shape.
 
 `officialDescription` is optional. When supplied it must be verified creator, network, show-site, or official-platform wording with a source label and URL. It is distinct from the archive-written `description` fallback.
 
@@ -210,6 +219,16 @@ The schema is intentionally allowed to be richer than the current UI. If structu
 `data/` remains generated runtime/public output.
 
 Internal machine-ingest workflow state lives separately in SQLite under the import tables managed by `backend/`. Those operational records include asynchronous runs, leased jobs, identity mappings, cached/retained source data, field evidence, staged-cover metadata, prepared records, conflicts, and readiness reports. They are not a public or editorial source of truth.
+
+Private `show_submissions` rows may carry `import_candidate_id`, a short-lived
+`import_handoff_started_at` claim, and `import_resolved_show_id`. These fields
+support idempotent maintainer handoff and reconcile an explicitly published
+candidate with its source submission. A handoff alone leaves moderation status
+unchanged; successful publication accepts linked non-rejected submissions,
+while rejected rows stay rejected. Import publication recovery restores the
+submission status and review markers together with candidate state. This
+operational linkage does not change the public show record shape or the
+published submission-retention period.
 
 First-party usage analytics uses the same SQLite database in `analytics_meta`,
 `analytics_events`, and `analytics_visitors`. These are aggregate operational
@@ -489,6 +508,10 @@ When present, `catalog-src/reviews/<show-id>.json` should use this shape; `data/
 ```
 
 `publishedAt` is optional for unpublished review drafts. The first full-review publication records it, and later edits preserve the original publication date.
+Public catalog projection merges only dated review companions that contain the
+required archive take and spoiler-safe review text. Undated drafts and dated but
+incomplete companions remain available to maintainers but do not appear in
+public show data or pages.
 
 ## Collection Shape
 

@@ -111,10 +111,55 @@ test("incomplete, unpublished, or spotlight review records do not get promoted b
     publishedAt: "2026-10-04",
     spoilerFreeReview: ["A complete review paragraph."],
   });
+  const incompleteWithInlineFallback = mergeReviewContent(createShowRecord({
+    reviewStatus: "indexed-only",
+    archiveTake: "Existing inline note.",
+    spoilerFreeReview: "Existing inline review paragraph.",
+  }), {
+    archiveTake: "Incomplete companion take.",
+    publishedAt: "2026-10-04",
+    spoilerFreeReview: [],
+  });
 
   assert.equal(incomplete.reviewStatus, "indexed-only");
   assert.equal(unpublished.reviewStatus, "indexed-only");
   assert.equal(spotlight.reviewStatus, "spotlight");
+  assert.equal(incompleteWithInlineFallback.reviewStatus, "indexed-only");
+  assert.equal(incompleteWithInlineFallback.archiveTake, "Existing inline note.");
+  assert.equal(incompleteWithInlineFallback.spoilerFreeReview, "Existing inline review paragraph.");
+  assert.equal(incompleteWithInlineFallback.reviewPublishedAt, undefined);
+});
+
+test("unpublished and incomplete review companions stay out of the public show projection", () => {
+  const record = createShowRecord({
+    reviewStatus: "planned",
+    archiveTake: "",
+    spoilerFreeReview: "",
+    thoughts: "",
+    quote: { text: "", attribution: "" },
+  });
+  const draft = mergeReviewContent(record, {
+    archiveTake: "Unpublished editorial take.",
+    spoilerFreeReview: ["Unpublished review paragraph."],
+    thoughts: ["Unpublished author note."],
+    quote: { text: "Unpublished quote.", attribution: "Unpublished author" },
+  });
+  const incomplete = mergeReviewContent({ ...record, reviewStatus: "indexed-only" }, {
+    archiveTake: "Incomplete published take.",
+    publishedAt: "2026-10-04T15:45:51.148Z",
+    spoilerFreeReview: [],
+    thoughts: ["This is not a substitute for the required spoiler-safe review."],
+    quote: { text: "", attribution: "" },
+  });
+
+  for (const projection of [draft, incomplete]) {
+    assert.equal(projection.reviewStatus, projection === draft ? "planned" : "indexed-only");
+    assert.equal(projection.archiveTake, "");
+    assert.equal(projection.spoilerFreeReview, "");
+    assert.equal(projection.thoughts, "");
+    assert.equal(projection.quote.text, "");
+    assert.equal(projection.reviewPublishedAt, undefined);
+  }
 });
 
 test("importer-origin catalogue entries retain their publication tier", () => {
@@ -772,6 +817,7 @@ test("loadCatalog merges companion review files into the returned show record", 
   ]);
   writeJson(path.join(dataRoot, "reviews", "demo-show.json"), {
     archiveTake: "Companion archive take.",
+    publishedAt: "2026-10-04T15:45:51.148Z",
     spoilerFreeReview: ["First paragraph.", "Second paragraph."],
     thoughts: ["Archive reaction paragraph."],
     quote: {
@@ -1094,6 +1140,7 @@ test("companion review content overrides stale inline review fields", async () =
   ]);
   writeJson(path.join(dataRoot, "reviews", "demo-show.json"), {
     archiveTake: "Fresh companion take.",
+    publishedAt: "2026-10-04T15:45:51.148Z",
     spoilerFreeReview: ["Fresh companion review."],
     thoughts: ["Fresh companion thoughts."],
   });

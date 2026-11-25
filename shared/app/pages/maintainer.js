@@ -192,9 +192,11 @@ export async function initializeMaintainerPage() {
             try {
               const result = await handoffMaintainerSubmissionToImport(selectedId, { reviewedBy: state.storedReviewer });
               const candidateId = result.candidateIds?.[0] || result.suppressed?.[0]?.candidateId;
-              elements.detailMeta.textContent = candidateId
-                ? `Import handoff complete. Candidate ${candidateId} is available in Catalog imports.`
-                : "This submission matched a previously handled import identity and was not requeued.";
+              elements.detailMeta.textContent = result.alreadyLinked && candidateId
+                ? `This submission is already linked to candidate ${candidateId}; it was not queued again.`
+                : candidateId
+                  ? `Import handoff complete. Candidate ${candidateId} is available in Catalog imports.`
+                  : "This submission matched a previously handled import identity and was not requeued.";
             } catch (error) {
               if (error instanceof MaintainerAuthError) {
                 showAuthentication(error);

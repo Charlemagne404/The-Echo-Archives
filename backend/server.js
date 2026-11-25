@@ -10,6 +10,7 @@ const config = require("./lib/config");
 const { createAccessObservability } = require("./lib/access-observability");
 const { loadArchiveContext } = require("./lib/ai/archive-context");
 const { loadCatalog, loadCollections } = require("./lib/catalog");
+const { hasRichReviewContent } = require("./lib/reviews");
 const { buildEntityGraphData } = require("./lib/entity-graph");
 const { createMaintainerAuth } = require("./lib/maintainer-auth");
 const { renderEntityPage } = require("./lib/entity-page-render");
@@ -1003,6 +1004,25 @@ async function startServer() {
     res.json(state.publicRuntimeCatalog);
   });
 
+  app.get("/data/reviews/:showId.json", (req, res) => {
+    res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+    const show = state.showById.get(req.params.showId);
+    if (!show || show.reviewStatus !== "full-review" || !hasRichReviewContent(show)) {
+      res.set({ "Cache-Control": "no-store", "CDN-Cache-Control": "no-store" });
+      return res.status(404).json({ error: "Not found." });
+    }
+
+    const review = {
+      archiveTake: show.archiveTake,
+      ...(show.reviewPublishedAt ? { publishedAt: show.reviewPublishedAt } : {}),
+      spoilerFreeReview: show.spoilerFreeReviewParagraphs || [],
+      thoughts: show.thoughtsParagraphs || [],
+      quote: show.quote || { text: "", attribution: "" },
+    };
+    setPublicCacheHeaders(req, res, { version: hashPublicData(review) });
+    return res.json(review);
+  });
+
   app.get("/data/archive-stats.json", (req, res) => {
     res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
     setPublicCacheHeaders(req, res, { version: state.archiveStatsVersion });
@@ -1679,6 +1699,17 @@ async function startServer() {
         next();
       },
       express.static(path.join(config.STATIC_ROOT, "shows"), { index: false, fallthrough: true }),
+    );
+    app.use(
+      "/data/reviews",
+      (_req, res) => {
+        res.set({
+          "X-Robots-Tag": "noindex, nofollow, noarchive",
+          "Cache-Control": "no-store",
+          "CDN-Cache-Control": "no-store",
+        });
+        return res.status(404).json({ error: "Not found." });
+      },
     );
     app.use(
       "/data",

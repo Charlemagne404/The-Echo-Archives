@@ -878,8 +878,73 @@ test("search index responses use cache-friendly headers for versioned and unvers
       assert.match(response.headers.get("content-type") || "", /application\/json/i, route);
       assert.match(response.headers.get("x-robots-tag") || "", /noindex, nofollow, noarchive/i, route);
     }
+
+    const reviewResponse = await fetch(`${context.baseUrl}/data/reviews/impact-winter.json`);
+    const review = await reviewResponse.json();
+    const showResponse = await fetch(`${context.baseUrl}/data/shows.json`);
+    const shows = await showResponse.json();
+    const show = shows.find((entry) => entry.id === "impact-winter");
+    assert.equal(review.archiveTake, show.archiveTake);
+    assert.deepEqual(review.spoilerFreeReview, show.spoilerFreeReviewParagraphs);
+    assert.equal(review.publishedAt, show.reviewPublishedAt);
   } finally {
     await stopPublicRouteServer(context);
+  }
+});
+
+test("undated review drafts stay out of public catalog, show, and review routes", async () => {
+  const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-unpublished-review-"));
+  let context;
+
+  try {
+    for (const name of fs.readdirSync(siteRoot)) {
+      if (["catalog-src", "data"].includes(name)) {
+        fs.cpSync(path.join(siteRoot, name), path.join(fixtureRoot, name), { recursive: true });
+      } else if (!name.startsWith(".")) {
+        fs.symlinkSync(path.join(siteRoot, name), path.join(fixtureRoot, name));
+      }
+    }
+
+    const shows = JSON.parse(fs.readFileSync(path.join(fixtureRoot, "data", "shows.json"), "utf8"));
+    const target = shows.find((show) =>
+      show.status === "published" &&
+      show.reviewStatus === "indexed-only" &&
+      !fs.existsSync(path.join(fixtureRoot, "catalog-src", "reviews", `${show.id}.json`)),
+    );
+    assert.ok(target, "fixture includes a published indexed-only show without a companion review");
+
+    const privateDraft = {
+      archiveTake: "PRIVATE_REVIEW_DRAFT_SENTINEL",
+      spoilerFreeReview: ["PRIVATE_REVIEW_DRAFT_SENTINEL"],
+      thoughts: ["PRIVATE_REVIEW_DRAFT_SENTINEL"],
+      quote: { text: "PRIVATE_REVIEW_DRAFT_SENTINEL", attribution: "PRIVATE_REVIEW_DRAFT_SENTINEL" },
+    };
+    const sourceReviewPath = path.join(fixtureRoot, "catalog-src", "reviews", `${target.id}.json`);
+    const runtimeReviewPath = path.join(fixtureRoot, "data", "reviews", `${target.id}.json`);
+    fs.mkdirSync(path.dirname(sourceReviewPath), { recursive: true });
+    fs.mkdirSync(path.dirname(runtimeReviewPath), { recursive: true });
+    fs.writeFileSync(sourceReviewPath, JSON.stringify(privateDraft, null, 2));
+    fs.writeFileSync(runtimeReviewPath, JSON.stringify(privateDraft, null, 2));
+
+    context = await startPublicRouteServer({ STATIC_ROOT: fixtureRoot });
+
+    const catalogResponse = await fetch(`${context.baseUrl}/data/shows.json`);
+    assert.equal(catalogResponse.status, 200);
+    const publicShows = await catalogResponse.json();
+    const publicShow = publicShows.find((show) => show.id === target.id);
+    assert.equal(publicShow.reviewStatus, "indexed-only");
+    assert.doesNotMatch(JSON.stringify(publicShow), /PRIVATE_REVIEW_DRAFT_SENTINEL/);
+
+    const showResponse = await fetch(`${context.baseUrl}/shows/${target.id}`);
+    assert.equal(showResponse.status, 200);
+    assert.doesNotMatch(await showResponse.text(), /PRIVATE_REVIEW_DRAFT_SENTINEL/);
+
+    const reviewResponse = await fetch(`${context.baseUrl}/data/reviews/${target.id}.json`);
+    assert.equal(reviewResponse.status, 404);
+    assert.doesNotMatch(await reviewResponse.text(), /PRIVATE_REVIEW_DRAFT_SENTINEL/);
+  } finally {
+    if (context) await stopPublicRouteServer(context);
+    fs.rmSync(fixtureRoot, { recursive: true, force: true });
   }
 });
 
