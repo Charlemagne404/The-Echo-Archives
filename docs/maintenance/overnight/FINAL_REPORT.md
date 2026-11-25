@@ -5,10 +5,14 @@
 **Branch:** `codex/echo-operation-clean-slate`
 **Baseline:** `b75221a67f11c3899d6c3c0ffeea7e5527e065d5`
 **Implementation commit:** `8c05827d fix: protect review drafts and reconcile submission imports`
+**Deployed candidate:** `092faa604982ffd229fe0686157c4d275818e303` (2026-11-25)
+**Canonical main merge:** `9f2a95ccd795eb589b96e3ad4c2b1120b0a9f430`
+
+This report preserves the overnight checkpoint below. Its initial local-only handoff was superseded by the final integration and production closeout at the end of this report.
 
 ## Outcome
 
-Completed a local-only maintenance candidate with two confirmed correctness fixes and targeted regression coverage. The implementation has not been pushed, merged, deployed, or applied to production or staging.
+The overnight work produced the implementation and focused validation summarized below. The candidate was subsequently consolidated, merged, and deployed; see **Post-deployment closeout** for the final state.
 
 ## Changes
 
@@ -65,4 +69,19 @@ Completed a local-only maintenance candidate with two confirmed correctness fixe
 
 ## Handoff
 
-The candidate is locally committed and ready for human review at `8c05827d`. Remote freshness and deployment readiness remain unverified; use the normal review and release process before transferring or promoting this work.
+The original overnight handoff at `8c05827d` was superseded by the consolidated candidate and release below.
+
+## Post-deployment closeout — 2026-11-25
+
+- PR #10 was merged to `main` at `9f2a95ccd795eb589b96e3ad4c2b1120b0a9f430`. At merge, GitHub confirmed the merge tree had no file differences from deployed candidate `092faa604982ffd229fe0686157c4d275818e303`; subsequent updates to this report are documentation-only.
+- The deployed candidate includes the runtime snapshot preservation fix. The earlier `ac008445` staging attempt failed at startup because a private snapshot journal was copied into the new runtime overlay; automatic rollback restored `7ad109f0`. The fix removes only the verified temporary journal copy while retaining importer and publisher state.
+- Production and staging are healthy per the deployment closeout. Production retains 760 shows and 54 collections. Discord notifications have zero pending and zero failed deliveries. Manual visual inspection found no apparent regressions.
+- GitHub Actions verification passed on `092faa604982ffd229fe0686157c4d275818e303`. The earlier staging failure did not affect production data or its release.
+
+### Non-blocking infrastructure follow-ups
+
+These are separate host/development maintenance items and do not block active product development:
+
+- **Offsite backup recovery:** the prior stability reports record an inactive offsite schedule and no recent verified offsite restore. The infrastructure owner should confirm the schedule and perform the documented recovery rehearsal.
+- **Disk monitoring:** the local monitor recorded 82% filesystem usage against its 80% threshold during the deployment window. Review capacity and alert thresholds as a separate maintenance item; this closeout did not repeat the host audit.
+- **Shell DNS:** direct shell GitHub access failed DNS resolution during this work, while the authenticated GitHub integration remained available. Repair the development shell's DNS/network path separately.
