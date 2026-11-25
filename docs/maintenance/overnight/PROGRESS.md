@@ -2,41 +2,61 @@
 
 **Updated:** 2026-11-25
 **Branch:** `codex/echo-operation-clean-slate`
-**Current baseline commit:** `b75221a67f11c3899d6c3c0ffeea7e5527e065d5`
+**Baseline:** `b75221a67f11c3899d6c3c0ffeea7e5527e065d5`
+**Candidate checkout:** `/tmp/echo-archives-operation-clean-slate`
 
-## Current state
+## Completed work
 
-- Read the full user assignment and repository `AGENTS.md`.
-- Canonical checkout `/home/charlie/echo-archives` is clean on `codex/echo-immediate-production-fixes-20261125` at `b75221a6`; its parent `4f59e992` and current `main` `7df736b7` are present. No source files have been changed there.
-- `git fetch origin` was attempted in the canonical checkout. This environment's canonical `.git` permits reading but not creating branch refs, so `git worktree add` failed before checkout changes. An isolated shared-object clone was created at `/tmp/echo-archives-operation-clean-slate`; candidate branch `codex/echo-operation-clean-slate` starts at `b75221a6`.
-- The isolated clone's GitHub fetch attempt failed because DNS/network access to `github.com` is unavailable. Candidate ancestry and branch disposition therefore rely on the local refs captured in the canonical repository; remote freshness remains unverified.
-- Current repository history already contains `4f59e992` (runtime rendering/review changes) and `b75221a6` (search worker change). They have not yet been validated in this environment.
-- Existing inventory shows multiple active local worktrees (publisher, Discord, stability, CI, runtime permission, and rollback work); none were altered or removed. The named importer/publisher WIP stash is present as `stash@{Tue Nov 24 16:35:49 2026}` with subject `preserve importer and publisher WIP before stable baseline`; its exact contents/base are still to be confirmed.
-- Host sample: `/` has 67 GiB free at 85%; RAM reports 3.4 GiB available, swap is 4.0/4.0 GiB used, and memory PSI averages are currently 0. Do not reset swap or change monitoring.
-- No tests, builds, deployments, production requests, database writes, or staging actions have been run.
+- Kept the canonical checkout and its Git metadata untouched; all implementation and generated-file work is isolated in the candidate clone.
+- Verified the immediate catalog/search/mobile changes with `npm run test:home-browse` (14/14), the focused production bug-fix suite (57/57), and `npm run build:pages`.
+- Fixed review companion projection so public runtime catalog data and `/data/reviews/:showId.json` expose only complete, dated review content for shows currently marked `full-review`. Completeness must come from the companion itself; it cannot borrow inline fallback fields. Undated drafts and dated incomplete companions remain private. A stale direct `/data/reviews` static path now returns 404. Added runtime route, catalog, and generated-artifact regression cases.
+- Added a durable link from a show submission to its import candidate, a short idempotency claim, maintainer queue projection, and a clear handoff state. Handoff keeps moderation status unchanged; only successful explicit candidate publication accepts a linked non-rejected submission.
+- Included linked submission state in publication recovery snapshots. Recovery can read the prior schema and restores only rows that still match the accepted publication state, preserving later rejection or other concurrent review changes.
+- Added lifecycle coverage for handoff without publication, repeat handoff, accepted/resolved state after explicit publication, rejected-row protection, rollback recovery, and claim contention/stale-claim recovery.
+- Reviewed the catalog/publication flow through generated artifacts, runtime catalog and review routes, rendered show pages, SEO outputs, service-worker cache rules, and release mutable-state preservation. No live release action was taken.
+- Reviewed current security invariants, analytics guidance, and the 2026-11-24 stability audit. The published submission retention policy is explicit (180 days for content/contact, 30 days for source IP/User-Agent); retention was not changed.
+- Updated importer/schema documentation and this dated mission record. No authored catalog records or show content were edited.
 
-## Completed
+## Repository and operational state
 
-- Full assignment and project instructions read.
-- Baseline Git/status/worktree/stash inventory captured.
-- Remote fetch attempted; canonical command exited successfully without output, while the isolated clone could not resolve GitHub. Treat latest upstream freshness as uncertain until verified by a network-enabled context.
-- Mission plan created. No implementation changes yet.
+- Canonical checkout remains clean at `b75221a6`; local `main` is `7df736b7`. The isolated candidate has no pushed remote update because GitHub DNS/network access is unavailable.
+- Local refs show `codex/echo-immediate-production-fixes-20261125` is 2 commits ahead of `origin/main`; publication-journal is 40 behind/7 unique, publication-readonly is 40 behind/15 unique, and publisher-integration is 40 behind/4 unique. Publisher-integration is 1 behind/54 ahead of the local publisher WIP branch. These divergent branches were not merged.
+- No local or remote `Deployment` branch was found in the captured refs. No branch was created, rewritten, or deleted.
+- About 20 active worktrees were inventoried. All were preserved, including the publisher, Discord, stability, CI, scraping, rollback, and runtime-permission worktrees. Existing untracked files in the scraping-mitigation and Discord worktrees were left untouched.
+- Both stashes were preserved. The named importer/publisher stash is `dee787871012e179458fea4b04365391cb6dec41`; the separate release-verification stash is `12d62bbed79a413d43827d218e942e1b45ff18cf`. Neither was applied or dropped.
+- The latest host sample was 85% disk used with 67 GiB free, 4 GiB swap occupied, about 3.4 GiB available RAM, and low memory pressure. No cleanup, swap reset, monitor edit, or production/staging query was performed.
 
-## Next actions
+## Validation completed
 
-1. Inspect `4f59e992` and `b75221a6` implementation and their focused tests; determine installed Node/npm versions and locked install requirements.
-2. Resolve review tier derivation from explicit publication rules; test draft, incomplete, unpublished, and provisional cases.
-3. Inspect worker startup/fallback and browser behavior, especially initial sort enabled state and mobile filtering.
-4. Confirm current data/generated/runtime counts and identify which stale docs are historical versus active instructions.
-5. Compare publisher branch chain, Discord/stability branches, and preserved stash by ancestry and patch content using local refs.
+- `npm run test:home-browse` — 14/14 Chromium cases passed.
+- `npm --prefix backend run test:production-bug-fixes` — 57/57 passed.
+- `npm --prefix backend run test:importer` — 55/55 passed, including import parsing/fetching, durable lifecycle, publication recovery, and claim contention/stale-claim checks.
+- `npm --prefix backend run test:maintainer-auth` — 1/1 passed.
+- `npm --prefix backend run test:community-popularity` — 12/12 passed.
+- `node backend/test/database-migration-recovery.test.js` — 5/5 passed, including historical migration and backup/recovery cases.
+- `npm --prefix backend run test:smoke:maintainer-import` — 3/3 passed.
+- `npm --prefix backend run test:security` — 45/45 passed.
+- `node --test --test-concurrency=1 backend/test/public-routes.test.js` — 28/28 passed.
+- `npm run test:tools` — 195/195 passed, including catalog-publication recovery, deployment/operations, backup, SEO, and generated-review projection tests.
+- `npm run build:pages` passed; `npm run check:generated` passed with 170 generated pages ignored/untracked and 32 authored HTML files preserved.
+- `npm run check:build-determinism` passed for 2,493 generated files, SHA-256 `72e84f1926e7d43cbbf6d26ea251d2d5da5eb188f3de22b8de9316de8893b636`.
+- `npm --prefix backend run validate:data` passed with 0 errors across 752 shows, 47 collections, 132 entities, and 8 review companions. It emitted existing source-attribution warnings for editorial review; none were changed.
+- `npm run check:release-artifact` passed: 752 published shows, 54 collections, no unlinked published shows, and no warnings.
+- `npm run check:structure` exited successfully but reported existing line-size and cover-image-size warnings.
+- `git diff --check` passed before the final report edits; rerun after final edits.
 
-## Blockers and limits
+Commands that spawn loopback/subprocess servers required the approved unsandboxed retry after sandbox `EPERM` failures. `npm verify` was intentionally not run because it is expensive and focused suites already cover the touched areas.
 
-- Cannot create/write Git refs in the canonical checkout because its `.git` is read-only. Candidate changes are isolated in the writable `/tmp` clone; commits remain local there unless the owner later chooses to transfer them.
-- Current network isolation prevents verification of GitHub's live refs and publication of a review branch.
-- Production/staging authorization is intentionally outside this unattended mission; no live actions are planned.
+## Remaining limitations
 
-## Commits
+- The GitHub remote could not be refreshed, so branch freshness and push/CI status are unknown.
+- No production or staging state was queried. The 2026-11-24 host/security audit is prior evidence, not a current runtime verification.
+- No physical-device, screen-reader, or comprehensive accessibility review was performed.
+- The source-attribution warnings require editorial evidence and were left unchanged.
+- The isolated candidate is local-only until a human reviews and transfers/promotes it through the project’s normal release process.
 
-- Baseline: `b75221a67f11c3899d6c3c0ffeea7e5527e065d5`
-- Candidate commits: none yet.
+## Candidate commits
+
+- Mission plan: `1751fb35 docs: establish overnight maintenance mission`.
+- Implementation: `8c05827d fix: protect review drafts and reconcile submission imports`.
+- Final report and status update are committed locally in the mission documentation commit; no push or deployment is part of this mission.

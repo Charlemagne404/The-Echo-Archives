@@ -1,20 +1,30 @@
 # Operation Clean Slate — Findings
 
-This file records evidence-backed findings. Initial status is distinguished from conclusions that still need code or runtime verification.
+Findings describe the isolated candidate and repository evidence as of 2026-11-25. Production and staging were not queried during this mission.
 
 | ID | Severity | Finding | Evidence | Status |
 |---|---|---|---|---|
-| F-01 | High | The immediate runtime-rendering/review fix and search-worker change exist only in the current local baseline above `main`; their full behavior has not yet been independently verified. | Canonical `HEAD` is `b75221a6`; `git show --stat` identifies `4f59e992` and `b75221a6`; the supplied assignment records prior smoke failures. | Open — P0 |
-| F-02 | High | This environment cannot create branch refs in the canonical checkout because `.git` is read-only. | `git worktree add -b codex/echo-operation-clean-slate ...` failed with `Unable to create ... .git/refs/heads/...lock: Read-only file system`; no checkout files changed. | Workaround in use: isolated clone at `/tmp/echo-archives-operation-clean-slate` |
-| F-03 | Medium | Upstream ref freshness cannot be established from the isolated candidate because GitHub DNS is unavailable. | `git fetch origin` in the isolated clone failed: `Could not resolve host: github.com`. The canonical fetch command exited 0 with no output, but local remote-tracking refs do not by themselves prove current upstream state. | Open — use captured refs; do not push |
-| F-04 | Medium | Active documentation contains date-stamped catalog snapshots that predate the current fixes and may be stale if presented as current. | `docs/CURRENT_STATE.md` identifies a 2026-09-29 narrative snapshot; `docs/OPERATIONS.md` says its snapshot is through 2026-09-20. `docs/PRODUCT.md` correctly points counts to generated status. | Needs scoped documentation review; preserve dates as history |
-| F-05 | Medium | The host is above its configured 80% storage-monitor threshold, with full swap, although available disk is above the mission's 30 GiB floor and current memory PSI is low. | `df -h /`: 85% used, 67 GiB available; `free -h`: 4.0 GiB swap used; `/proc/pressure/memory` averages 0. | Observed only; outside this mission's authority to remediate |
-| F-06 | Medium | The repository has numerous simultaneous development worktrees and preserved feature branches; consolidation needs explicit evidence and must not equate branch presence with safe integration. | `git worktree list --porcelain` enumerated publisher, Discord, CI, scraping, stability, rollback, and runtime-permission worktrees; no references were removed. | Open — inventory/disposition pending |
-| F-07 | Low | Repository documentation has a generated catalog snapshot as the intended place for current counts, while older narrative counts remain in dated docs. | `docs/PRODUCT.md` directs exact counts to `docs/generated/catalog-status.md`; `docs/ROADMAP.md` and `docs/OPERATIONS.md` contain earlier fixed counts. | Verify dates/meaning before editing |
+| F-01 | High | The immediate rendering/search/mobile work existed only in the local baseline at mission start. | Candidate was based on `b75221a6`; `npm run test:home-browse` passed 14/14 and `npm --prefix backend run test:production-bug-fixes` passed 57/57 after targeted fixes. | Verified locally |
+| F-02 | High | The canonical checkout's `.git` metadata is read-only to this run. | `git worktree add` could not create a branch ref. | Worked around with `/tmp/echo-archives-operation-clean-slate`; canonical checkout remains untouched |
+| F-03 | Medium | Current GitHub ref freshness cannot be established. | Candidate fetch failed because the environment could not resolve `github.com`; local refs are snapshots only. | Open — do not push or claim current CI/ref status |
+| F-04 | Medium | Some narrative docs contain dated catalog/operations snapshots. | `docs/CURRENT_STATE.md` and `docs/OPERATIONS.md` identify their snapshot dates; `docs/PRODUCT.md` directs current counts to generated catalog status. | Preserved as dated evidence; no broad rewrite |
+| F-05 | Medium | The latest local host sample is above the 80% disk-monitor threshold, with swap fully occupied. | Sample showed 85% disk used, 67 GiB free, 4 GiB swap occupied, about 3.4 GiB available RAM, low memory PSI. | Observed only; no host remediation or live check |
+| F-06 | Medium | Development branches and worktrees diverge and contain independent unpublished work. | Local ancestry shows materially divergent publication/publisher branches; about 20 worktrees were inventoried. | All refs/worktrees preserved; no wholesale merge |
+| F-07 | Low | Data validation reports source-attribution warnings that require editorial evidence. | Local `validate:data` completed with zero errors but listed entity-type/relationship-role mismatches and duplicate roles. | Left unchanged for editorial review |
+| F-08 | High | Undated review drafts and dated incomplete companions could be merged into public catalog/show-page projections without a full-review tier. | Companion content was merged without publication/completeness gating; public runtime catalog and show rendering used that merged content. | Fixed locally; route, catalog, and artifact tests pass |
+| F-09 | High | Importing a public show submission did not persist a durable source-row link; candidate publication could leave the submission open and stale. | Import handoff previously created a candidate/event without writing its ID to `show_submissions`; publication did not resolve the source row. | Fixed locally with idempotent claim/link, explicit-publication resolution, recovery snapshot support, and tests |
+| F-10 | Medium | Preserving never-reviewed submissions indefinitely would conflict with the published privacy retention policy. | `site-src/pages/privacy.html` says content/contact are retained no more than 180 days after review, or receipt if never reviewed; source IP/User-Agent are removed at 30 days. | No retention change made; durable linkage only supports reconciliation within existing policy |
+
+## Repository disposition
+
+- No local or remote `Deployment` branch was present in the captured refs.
+- The importer/publisher WIP stash `dee787871012e179458fea4b04365391cb6dec41` and release-verification stash `12d62bbed79a413d43827d218e942e1b45ff18cf` were inspected by metadata/content and preserved without applying or dropping.
+- Existing worktrees and untracked files were preserved. Divergent feature branches were documented rather than merged.
 
 ## Not established
 
-- No conclusion yet that the worker improves real interaction latency or that its fallback is correct.
-- No conclusion yet that review text alone is sufficient for public full-review classification.
-- No conclusion yet that publisher/stash changes should be integrated.
-- No production or staging state has been queried or modified during this mission.
+- GitHub refs, CI state, or remote branch freshness after the captured local snapshot.
+- Current production/staging release state, runtime behavior, database state, or deployment result.
+- Physical-device behavior, assistive-technology behavior, or comprehensive accessibility conformance.
+- Whether the existing entity attribution warnings should be changed; these need human source review.
+- That the candidate is ready for deployment. It is a local review candidate only.
